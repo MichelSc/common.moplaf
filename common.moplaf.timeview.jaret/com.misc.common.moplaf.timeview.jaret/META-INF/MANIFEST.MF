@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Jaret
+Bundle-SymbolicName: com.misc.common.moplaf.timeview.jaret;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.misc.common.moplaf.timeview.jaret.Activator
+Bundle-Vendor: MISC
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ com.misc.common.moplaf.timeview;bundle-version="1.0.0";visibility:=reexport
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .,
+ lib/jaretutil-0.32.jar,
+ lib/timebars-1.49.jar
