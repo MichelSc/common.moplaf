@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/com.misc.common.moplaf.datasetload.ora.emf/src"
+    modelPluginID="com.misc.common.moplaf.datasetload.ora.emf" modelName="Datasetloadora"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="7.0" copyrightFields="false" usedGenPackages="../../com.misc.common.moplaf.datasetload.emf/model/datasetload.genmodel#//datasetload"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>datasetloadora.ecore</foreignModel>
+  <genPackages prefix="DatasetLoadOra" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
+      ecorePackage="datasetloadora.ecore#/">
+    <genClasses ecoreClass="datasetloadora.ecore#//DatasetLoadJdbcOraThin"/>
+  </genPackages>
+</genmodel:GenModel>

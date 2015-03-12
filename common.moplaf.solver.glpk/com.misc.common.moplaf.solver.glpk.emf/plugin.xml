@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated solverglpk -->
+      <package
+            uri="http://com.misc.common.moplaf.solver.glpk.emf"
+            class="com.misc.common.moplaf.solver.solverglpk.SolverglpkPackage"
+            genModel="model/solverglpk.genmodel"/>
+   </extension>
+
+</plugin>

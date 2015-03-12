@@ -1,0 +1,39 @@
+this is a new idea
+  - generic PropagatorActivator
+    - added to the Resource (or lower)
+    - call the AddFunctionAdapter
+    - activate at that time (for the dependencies)
+    - do the touchOnOnwned
+    - is different from the scope
+    - do deactivate when removed from Notifier
+    
+    
+ do we still need a scope?
+   - implement the concept of activation: NO
+   - do we need it?
+     - only for the IsTouchable
+     - alternative definition
+       - if i am not active, not touchable
+       - if my parent is not touchable, not active
+       - if i am the root and no resource: no touchable (question)
+       - if the resource is loading, not touchable 
+     - PropagatorFunctionAdapter has a field isActive
+     - condition the touchability of all children
+   - we need an entry point for the refresh
+     - this is the place where we enter the contentsAdapter
+     - this is the scope
+     - how to implement it
+       - Adapter? 
+       - ContentsAdapter? yes
+       - quite close to the current implementation
+     
+     
+ so concept of scope disapears
+  - the scope is the FPA at the top of the hierarchy
+  
+for using a plugin supporting propagation
+  - add the ContentsAdapter to the object tree
+     - do the addFunctionAdapter = activate
+     - do the deactivate/dispose/remove (stops listening)
+     - do the on resolve
+  - call the refresh on ...

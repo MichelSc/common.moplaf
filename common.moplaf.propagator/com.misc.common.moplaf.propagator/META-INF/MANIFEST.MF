@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: com.misc.common.moplaf.propagator;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: com.misc.common.moplaf.propagator.PropagatorActivator
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.common;bundle-version="2.9.1",
+ org.eclipse.emf.ecore;bundle-version="2.9.1";visibility:=reexport
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Export-Package: com.misc.common.moplaf.propagator,
+ com.misc.common.moplaf.propagator.impl,
+ com.misc.common.moplaf.propagator.util

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.solver.neos.emf/src" modelPluginID="com.misc.common.moplaf.solver.neos.emf"
+    modelName="Solverneos" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    usedGenPackages="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>solverneos.ecore</foreignModel>
+  <genPackages prefix="Solverneos" basePackage="com.misc.common.moplaf.solver" disposableProviderFactory="true"
+      ecorePackage="solverneos.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="solverneos.ecore#//EnumNeosSolverCategory">
+      <genEnumLiterals ecoreEnumLiteral="solverneos.ecore#//EnumNeosSolverCategory/MILP"/>
+      <genEnumLiterals ecoreEnumLiteral="solverneos.ecore#//EnumNeosSolverCategory/LP"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="solverneos.ecore#//EnumNeosSolverName">
+      <genEnumLiterals ecoreEnumLiteral="solverneos.ecore#//EnumNeosSolverName/Gurobi"/>
+      <genEnumLiterals ecoreEnumLiteral="solverneos.ecore#//EnumNeosSolverName/XpressMP"/>
+      <genEnumLiterals ecoreEnumLiteral="solverneos.ecore#//EnumNeosSolverName/scip"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="solverneos.ecore#//EnumNeosSolverInput">
+      <genEnumLiterals ecoreEnumLiteral="solverneos.ecore#//EnumNeosSolverInput/GAMS"/>
+      <genEnumLiterals ecoreEnumLiteral="solverneos.ecore#//EnumNeosSolverInput/CPLEX"/>
+      <genEnumLiterals ecoreEnumLiteral="solverneos.ecore#//EnumNeosSolverInput/MPS"/>
+      <genEnumLiterals ecoreEnumLiteral="solverneos.ecore#//EnumNeosSolverInput/AMPL"/>
+    </genEnums>
+    <genClasses ecoreClass="solverneos.ecore#//SolverNeos" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/SolutionProvider/Code">
+      <genFeatures notify="false" createChild="false" propertyCategory="21 Solver Neos"
+          propertySortChoices="true" ecoreFeature="ecore:EReference solverneos.ecore#//SolverNeos/LpWriter"/>
+      <genFeatures children="true" createChild="true" propertyCategory="21 Solver Neos"
+          propertySortChoices="true" ecoreFeature="ecore:EReference solverneos.ecore#//SolverNeos/SolReader"/>
+      <genFeatures createChild="false" propertyCategory="21 Solver Neos" ecoreFeature="ecore:EAttribute solverneos.ecore#//SolverNeos/ServerHost"/>
+      <genFeatures createChild="false" propertyCategory="21 Solver Neos" ecoreFeature="ecore:EAttribute solverneos.ecore#//SolverNeos/ServerPort"/>
+      <genFeatures createChild="false" propertyCategory="21 Solver Neos" ecoreFeature="ecore:EAttribute solverneos.ecore#//SolverNeos/SolverCategory"/>
+      <genFeatures createChild="false" propertyCategory="21 Solver Neos" ecoreFeature="ecore:EAttribute solverneos.ecore#//SolverNeos/SolverName"/>
+      <genFeatures createChild="false" propertyCategory="21 Solver Neos" ecoreFeature="ecore:EAttribute solverneos.ecore#//SolverNeos/SolverInput"/>
+      <genFeatures createChild="false" propertyCategory="21 Solver Neos" ecoreFeature="ecore:EAttribute solverneos.ecore#//SolverNeos/SolverPollDuration"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="25 Job Neos"
+          ecoreFeature="ecore:EAttribute solverneos.ecore#//SolverNeos/JobSubmitted"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="25 Job Neos"
+          ecoreFeature="ecore:EAttribute solverneos.ecore#//SolverNeos/JobDone"/>
+      <genFeatures createChild="false" propertyCategory="25 Job Neos" ecoreFeature="ecore:EAttribute solverneos.ecore#//SolverNeos/JobResultRetrieved"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="25 Job Neos"
+          ecoreFeature="ecore:EAttribute solverneos.ecore#//SolverNeos/JobNumber"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="25 Job Neos"
+          ecoreFeature="ecore:EAttribute solverneos.ecore#//SolverNeos/JobPassword"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="25 Job Neos"
+          ecoreFeature="ecore:EAttribute solverneos.ecore#//SolverNeos/JobStatus"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="25 Job Neos"
+          ecoreFeature="ecore:EAttribute solverneos.ecore#//SolverNeos/JobLastStatus"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="25 Job Neos"
+          ecoreFeature="ecore:EAttribute solverneos.ecore#//SolverNeos/JobNeosStatus"/>
+      <genFeatures createChild="false" propertyCategory="21 Solver Neos" propertyDescription=""
+          ecoreFeature="ecore:EAttribute solverneos.ecore#//SolverNeos/JobSubmitterEmail"/>
+      <genFeatures createChild="false" propertyCategory="25 Job Neos" propertyMultiLine="true"
+          ecoreFeature="ecore:EAttribute solverneos.ecore#//SolverNeos/JobResult"/>
+      <genOperations ecoreOperation="solverneos.ecore#//SolverNeos/retrieveJobStatus"/>
+      <genOperations ecoreOperation="solverneos.ecore#//SolverNeos/retrieveJobResult"/>
+      <genOperations ecoreOperation="solverneos.ecore#//SolverNeos/killJob"/>
+      <genOperations ecoreOperation="solverneos.ecore#//SolverNeos/submitJob"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

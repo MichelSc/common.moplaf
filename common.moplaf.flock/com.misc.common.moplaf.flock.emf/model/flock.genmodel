@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.flock.emf/src" modelPluginID="com.misc.common.moplaf.flock.emf"
+    modelName="Flock" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>flock.ecore</foreignModel>
+  <genPackages prefix="Flock" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
+      generateExampleClass="false" multipleEditorPages="false" ecorePackage="flock.ecore#/">
+    <genClasses ecoreClass="flock.ecore#//FlockScope">
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference flock.ecore#//FlockScope/Chains"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference flock.ecore#//FlockScope/Flocks"/>
+      <genOperations ecoreOperation="flock.ecore#//FlockScope/refreshConfiguration"/>
+      <genOperations ecoreOperation="flock.ecore#//FlockScope/refreshMoves"/>
+      <genOperations ecoreOperation="flock.ecore#//FlockScope/refreshIdles"/>
+    </genClasses>
+    <genClasses ecoreClass="flock.ecore#//Location"/>
+    <genClasses ecoreClass="flock.ecore#//Flock">
+      <genFeatures notify="false" children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference flock.ecore#//Flock/Chains"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference flock.ecore#//Flock/ChainRoot"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flock.ecore#//Flock/DurationMin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flock.ecore#//Flock/DurationMax"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flock.ecore#//Flock/StartEarliest"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flock.ecore#//Flock/EndLatest"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flock.ecore#//Flock/Start"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flock.ecore#//Flock/End"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference flock.ecore#//Flock/StartLocation"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference flock.ecore#//Flock/EndLocation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flock.ecore#//Flock/StartEvent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flock.ecore#//Flock/EndEvent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flock.ecore#//Flock/FlockScope"/>
+    </genClasses>
+    <genClasses ecoreClass="flock.ecore#//FlockEvent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute flock.ecore#//FlockEvent/Time"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flock.ecore#//FlockEvent/Location"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flock.ecore#//FlockEvent/FlockAsStart"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flock.ecore#//FlockEvent/FlockAsEnd"/>
+    </genClasses>
+    <genClasses ecoreClass="flock.ecore#//FlockConfiguration">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flock.ecore#//FlockConfiguration/ConfigurationLocation"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference flock.ecore#//FlockConfiguration/ChainOwner"/>
+    </genClasses>
+    <genClasses ecoreClass="flock.ecore#//FlockMove"/>
+    <genClasses ecoreClass="flock.ecore#//FlockRide">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flock.ecore#//FlockRide/StartRide"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flock.ecore#//FlockRide/ToRide"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference flock.ecore#//FlockRide/ChainOwner"/>
+    </genClasses>
+    <genClasses ecoreClass="flock.ecore#//FlockWayPoint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flock.ecore#//FlockWayPoint/WayPointLocation"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference flock.ecore#//FlockWayPoint/ChainOwner"/>
+    </genClasses>
+    <genClasses ecoreClass="flock.ecore#//FlockIdle"/>
+    <genClasses provider="Stateful" ecoreClass="flock.ecore#//Chain">
+      <genFeatures children="true" createChild="false" ecoreFeature="ecore:EReference flock.ecore#//Chain/Flocks"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference flock.ecore#//Chain/FlockScope"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flock.ecore#//Chain/Configurations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flock.ecore#//Chain/Mounts"/>
+      <genOperations ecoreOperation="flock.ecore#//Chain/constructMove">
+        <genParameters ecoreParameter="flock.ecore#//Chain/constructMove/from"/>
+        <genParameters ecoreParameter="flock.ecore#//Chain/constructMove/to"/>
+      </genOperations>
+      <genOperations ecoreOperation="flock.ecore#//Chain/refreshChainFlockNextPrevious"/>
+      <genOperations ecoreOperation="flock.ecore#//Chain/refreshInit"/>
+    </genClasses>
+    <genClasses ecoreClass="flock.ecore#//ChainRide">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flock.ecore#//ChainRide/FlockAsOwner"/>
+    </genClasses>
+    <genClasses provider="Stateful" ecoreClass="flock.ecore#//ChainFlock">
+      <genFeatures property="Readonly" notify="false" children="true" createChild="false"
+          propertyCategory="2 Configuration" propertyDescription="" propertySortChoices="true"
+          ecoreFeature="ecore:EReference flock.ecore#//ChainFlock/MountedFlocks"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="2 Configuration"
+          propertySortChoices="true" ecoreFeature="ecore:EReference flock.ecore#//ChainFlock/MounterFlock"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="1 Flock"
+          propertySortChoices="true" ecoreFeature="ecore:EReference flock.ecore#//ChainFlock/NextFlock"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="1 Flock"
+          propertySortChoices="true" ecoreFeature="ecore:EReference flock.ecore#//ChainFlock/PreviousFlock"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="1 Flock" ecoreFeature="ecore:EReference flock.ecore#//ChainFlock/Chain"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="1 Flock"
+          propertySortChoices="true" ecoreFeature="ecore:EReference flock.ecore#//ChainFlock/Flock"/>
+      <genFeatures createChild="false" propertyCategory="1 Flock" ecoreFeature="ecore:EAttribute flock.ecore#//ChainFlock/SequenceNr"/>
+      <genOperations ecoreOperation="flock.ecore#//ChainFlock/refreshInit"/>
+    </genClasses>
+    <genClasses provider="Stateful" ecoreClass="flock.ecore#//ChainWayPoint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flock.ecore#//ChainWayPoint/FlockAsOwner"/>
+    </genClasses>
+    <genClasses provider="Stateful" ecoreClass="flock.ecore#//ChainFlockConfiguration">
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="2 Configuration"
+          propertySortChoices="true" ecoreFeature="ecore:EReference flock.ecore#//ChainFlockConfiguration/FlockConfiguration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference flock.ecore#//ChainFlockConfiguration/MountedChainAsOwner"/>
+      <genOperations ecoreOperation="flock.ecore#//ChainFlockConfiguration/refreshChainMounted"/>
+    </genClasses>
+    <genClasses provider="Stateful" ecoreClass="flock.ecore#//ChainConfiguration">
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference flock.ecore#//ChainConfiguration/FlockAsOwner"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="2 Configuration"
+          propertySortChoices="true" ecoreFeature="ecore:EReference flock.ecore#//ChainConfiguration/AttachPoint"/>
+      <genOperations ecoreOperation="flock.ecore#//ChainConfiguration/refreshFlockConfiguration"/>
+    </genClasses>
+    <genClasses provider="Stateful" ecoreClass="flock.ecore#//ChainMount">
+      <genFeatures notify="false" createChild="false" propertyCategory="2 Configuration"
+          propertyDescription="" propertySortChoices="true" ecoreFeature="ecore:EReference flock.ecore#//ChainMount/MountPoint"/>
+    </genClasses>
+    <genClasses provider="Stateful" ecoreClass="flock.ecore#//ChainMounted"/>
+  </genPackages>
+</genmodel:GenModel>

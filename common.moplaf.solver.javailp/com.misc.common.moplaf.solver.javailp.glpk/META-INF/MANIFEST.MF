@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Glpk
+Bundle-SymbolicName: com.misc.common.moplaf.solver.javailp.glpk
+Bundle-Version: 0.0.0.qualifier
+Bundle-Vendor: MISC
+Fragment-Host: com.misc.common.moplaf.solver.javailp.emf;bundle-version="0.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ClassPath: .,
+ lib/glpk-java-1.0.31.jar
+Bundle-NativeCode: lib/x86_64-linux-gnu/jni/libglpk_java.so;osname = Linux;processor = x86-64
+

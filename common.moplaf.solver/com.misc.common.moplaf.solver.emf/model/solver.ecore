@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="solver" nsURI="http://www.misc.com/common.moplaf.solver.emf"
+    nsPrefix="svr">
+  <eClassifiers xsi:type="ecore:EEnum" name="EnumLpVarType">
+    <eLiterals name="EnumLiteralLpVarInteger" literal="Integer"/>
+    <eLiterals name="EnumLiteralLpVarReal" value="1" literal="Real"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EnumLpConsType">
+    <eLiterals name="EnumLiteralLpConsEqual" literal="Equal"/>
+    <eLiterals name="EnumLiteralLpConsSmallerOrEqual" value="1" literal="SmallerOrEqual"/>
+    <eLiterals name="EnumLiteralLpConsBiggerOrEqual" value="2" literal="BiggerOrEqual"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EnumObjectiveType">
+    <eLiterals name="Minimum"/>
+    <eLiterals name="Maximum" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EnumSolverLogLevel">
+    <eLiterals name="EnumNone" literal="None"/>
+    <eLiterals name="EnumMin" value="1" literal="Min"/>
+    <eLiterals name="EnumNormal" value="2" literal="Normal"/>
+    <eLiterals name="EnumFull" value="3" literal="Full"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EnumCpLinearType">
+    <eLiterals name="EnumLiteralCpLinearEqual" literal="Equal"/>
+    <eLiterals name="EnumLiteralCpLinearNotEqual" value="1" literal="NotEqual"/>
+    <eLiterals name="EnumLiteralCpLinearSmaller" value="2" literal="Smaller"/>
+    <eLiterals name="EnumLiteralCpLinearSmallerOrEqual" value="3" literal="SmallerOrEqual"/>
+    <eLiterals name="EnumLiteralCpLinearBigger" value="4" literal="Bigger"/>
+    <eLiterals name="EnumLiteralCpLinearBiggerOrEqual" value="5" literal="BiggerOrEqual"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EnumCpLogicalType">
+    <eLiterals name="EnumLiteralCpLogicalOr" literal="Or"/>
+    <eLiterals name="EnumLiteralCpLogicalAnd" value="1" literal="And"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Generator" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A Generator is a linear formulation, structured as a tree of tuples (GeneratorTuple), to which variables (GeneratorLpVar) and constraints (GeneratorLpCons) are attached.&#xA;The generator provides a method visitTuples allowing a ITuplevisitor to traverse all the tuples."/>
+    </eAnnotations>
+    <eOperations name="generate"/>
+    <eOperations name="generateRootTuples"/>
+    <eOperations name="generateTuples"/>
+    <eOperations name="generateVars"/>
+    <eOperations name="generateCons"/>
+    <eOperations name="acceptSolution">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="To be implemented by the specialisation for eploiting the solver solution and making a &#xA;domain specific solution&#xA;"/>
+      </eAnnotations>
+      <eParameters name="solutionprovider" eType="#//Solution"/>
+    </eOperations>
+    <eOperations name="selectFeatureMode" eType="#//GeneratorFeatureMode">
+      <eParameters name="feature" eType="#//GeneratorFeatureMode"/>
+      <eParameters name="object" eType="#//GeneratorTuple"/>
+    </eOperations>
+    <eOperations name="visitTuples" eExceptions="#//Exception">
+      <eParameters name="visitor" eType="#//ITupleVisitor"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TupleRoot" upperBound="-1"
+        eType="#//GeneratorTuple" changeable="false" volatile="true" transient="true"
+        derived="true" eOpposite="#//GeneratorTuple/GeneratorAsRoot"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="GeneratorFeatureModes"
+        upperBound="-1" eType="#//GeneratorFeatureMode" eOpposite="#//GeneratorFeatureMode/Generator"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ObjectiveType" eType="#//EnumObjectiveType"
+        defaultValueLiteral="Maximum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Remarks" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FootprintNofVars" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FootprintNofCons" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FootprintNofTerms" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CountCons" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CountVars" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ELpVarCount" eType="#//GeneratorLpVarCount"
+        containment="true" eOpposite="#//GeneratorLpVarCount/Generator"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ELpConsCount" eType="#//GeneratorLpConsCount"
+        containment="true" eOpposite="#//GeneratorLpConsCount/Generator"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SolutionProvider" upperBound="-1"
+        eType="#//SolutionProvider" changeable="false" volatile="true" transient="true"
+        derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Selected" eType="#//Solution"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorTuple" abstract="true" eSuperTypes="#//GeneratorElement">
+    <eOperations name="generateVars"/>
+    <eOperations name="generateCons"/>
+    <eOperations name="generateTuples"/>
+    <eOperations name="getGenerator" eType="#//Generator"/>
+    <eOperations name="visitTuples" eExceptions="#//Exception">
+      <eParameters name="visitor" eType="#//ITupleVisitor"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="GeneratorAsRoot" eType="#//Generator"
+        changeable="false" volatile="true" transient="true" derived="true" eOpposite="#//Generator/TupleRoot"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TupleElement" upperBound="-1"
+        eType="#//GeneratorTuple" changeable="false" volatile="true" transient="true"
+        derived="true" eOpposite="#//GeneratorTuple/TupleContainer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TupleContainer" eType="#//GeneratorTuple"
+        changeable="false" volatile="true" transient="true" derived="true" eOpposite="#//GeneratorTuple/TupleElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Var" upperBound="-1" eType="#//GeneratorVar"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Cons" upperBound="-1" eType="#//GeneratorCons"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorTupleElement" eSuperTypes="#//GeneratorElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Tuple" eType="#//GeneratorTuple"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        volatile="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SelectedSolutionDisplay"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
+        volatile="true" transient="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorVar" abstract="true" eSuperTypes="#//GeneratorTupleElement">
+    <eOperations name="getSolutionVar" eType="#//SolutionVar">
+      <eParameters name="solutionprovider" eType="#//Solution"/>
+    </eOperations>
+    <eOperations name="isSolutionOne" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="solver" eType="#//Solution"/>
+    </eOperations>
+    <eOperations name="isSolutionZero" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="solver" eType="#//Solution"/>
+    </eOperations>
+    <eOperations name="getSolutionValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+      <eParameters name="solver" eType="#//Solution"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Solution" upperBound="-1"
+        eType="#//SolutionVar" eOpposite="#//SolutionVar/var"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SelectedSolutionValue"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat" changeable="false"
+        volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpVar" eSuperTypes="#//GeneratorVar">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" lowerBound="1" eType="#//EnumLpVarType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LowerBound" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="UpperBound" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ObjectiveCoeff" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorCons" abstract="true" eSuperTypes="#//GeneratorTupleElement">
+    <eOperations name="generate"/>
+    <eOperations name="getSolution" eType="#//SolutionCons">
+      <eParameters name="solver" eType="#//Solution"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Solution" upperBound="-1"
+        eType="#//SolutionCons" eOpposite="#//SolutionCons/cons"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpCons" eSuperTypes="#//GeneratorCons">
+    <eOperations name="constructTerm" eType="#//GeneratorLpTerm">
+      <eParameters name="var" eType="#//GeneratorLpVar"/>
+      <eParameters name="coef" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="#//EnumLpConsType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="LpTerm" upperBound="-1"
+        eType="#//GeneratorLpTerm" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RighHandSide" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpTerm">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="LpVar" lowerBound="1" eType="#//GeneratorLpVar"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Coeff" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpConsCountElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ELpConsCount" lowerBound="1"
+        eType="#//GeneratorLpConsCount" eOpposite="#//GeneratorLpConsCount/LpConsCountElement"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ECount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpVarCountElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ELpVarCount" lowerBound="1"
+        eType="#//GeneratorLpVarCount" eOpposite="#//GeneratorLpVarCount/ELpVarCountElement"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ECount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpVarCount">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ELpVarCountElement" upperBound="-1"
+        eType="#//GeneratorLpVarCountElement" containment="true" eOpposite="#//GeneratorLpVarCountElement/ELpVarCount"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Generator" lowerBound="1"
+        eType="#//Generator" eOpposite="#//Generator/ELpVarCount"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpConsCount">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="LpConsCountElement" upperBound="-1"
+        eType="#//GeneratorLpConsCountElement" containment="true" eOpposite="#//GeneratorLpConsCountElement/ELpConsCount"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Generator" lowerBound="1"
+        eType="#//Generator" eOpposite="#//Generator/ELpConsCount"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorFeatureMode">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Return the measure how the object is in the scope of the feature mode:&#xD;&#xA; - negative value means not in scope&#xD;&#xA; - zero means perfect in scope&#xD;&#xA; - positive value means in scope&#xD;&#xA; - the bigger the value, the less relevant the Mode for the object&#xD;&#xA;"/>
+    </eAnnotations>
+    <eOperations name="IsObjectInScope" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eParameters name="object" eType="#//GeneratorTuple"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Generator" lowerBound="1"
+        eType="#//Generator" eOpposite="#//Generator/GeneratorFeatureModes"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ObjetScope" eType="#//GeneratorTuple"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ERemarks" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorConstraintEnabler" eSuperTypes="#//GeneratorFeatureMode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorVarOverflow" eSuperTypes="#//GeneratorFeatureMode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CostOverFlow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxEnforce" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IGeneratorTool" abstract="true" interface="true">
+    <eOperations name="getParentGeneratorTool" eType="#//IGeneratorTool"/>
+    <eOperations name="getGenerator" eType="#//Generator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SolutionReader" abstract="true" eSuperTypes="#//SolutionProvider">
+    <eOperations name="readSolFromFile"/>
+    <eOperations name="setSolAsString">
+      <eParameters name="solution" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FilePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SolutionReaderPattern" eSuperTypes="#//SolutionReader">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LinePattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="(\S+)\s+(\S+)\s+\(obj:(\S+)\)"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="VarNameGroup" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="VarOptimalValueGroup" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="2"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="VarObjectiveCoefGroup"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="3"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FirstLine" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ILpWriter" abstract="true" interface="true"
+      eSuperTypes="#//IGeneratorTool">
+    <eOperations name="writeLpToFile"/>
+    <eOperations name="getLpAsString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FilePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FileFormat" eType="#//EnumLpFileFormat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FileCompressed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SolutionProvider" eSuperTypes="#//IGeneratorTool">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A SolutionProvider is capable of providing a solution for a given linear formulation (a Generator).&#xA;Solution is provided as a collection of SolutionLpVars (resp. SolutionLpCons), giving properties of the solution for a particular variable GeneratorLpVar (resp. a particular constraint GeneratorLpCons)&#xA;"/>
+    </eAnnotations>
+    <eOperations name="solutionFactory" eType="#//Solution"/>
+    <eOperations name="constructSolution" eType="#//Solution"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Solution" upperBound="-1"
+        eType="#//Solution" containment="true" eOpposite="#//Solution/Provider"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CurrentSolutionNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Solver" abstract="true" eSuperTypes="#//SolutionProvider">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A Solver is the common implementation of a concrete solver, that must implement the method solverLp()"/>
+    </eAnnotations>
+    <eOperations name="solve">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Method to be called by the client to solve the lp and to produce the solution&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Remarks" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverMaxDuration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
+        defaultValueLiteral="100">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The maximum duration (in secs) allocated to the server"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverBackground" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverLogLevel" eType="#//EnumSolverLogLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverDump" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunStarted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunInitializationEnded"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunSolvingEnded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunFinalizationEnded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunDurationInitialization"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunDurationFinalization"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunDurationSolving" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunRequestTerminate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolUnfeasible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolFeasible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolOptimal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunInterrupted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Solving" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Finalizing" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Finished" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunTimeOut" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Initializing" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SolverLp" eSuperTypes="#//Solver">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverOptimalityTolerance"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat" defaultValueLiteral="0.05"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverLinearRelaxation"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolOptimalityGap" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Solution">
+    <eOperations name="solutionVarFactory" eType="#//SolutionVar"/>
+    <eOperations name="solutionConsFactory" eType="#//SolutionCons"/>
+    <eOperations name="constructSolutionCons" eType="#//SolutionCons">
+      <eParameters name="cons" eType="#//GeneratorCons"/>
+    </eOperations>
+    <eOperations name="constructSolutionVar" eType="#//SolutionVar">
+      <eParameters name="var" eType="#//GeneratorVar"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Var" upperBound="-1" eType="#//SolutionVar"
+        containment="true" eOpposite="#//SolutionVar/Solution"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Cons" upperBound="-1" eType="#//SolutionCons"
+        containment="true" eOpposite="#//SolutionCons/Solution"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Provider" lowerBound="1"
+        eType="#//SolutionProvider" eOpposite="#//SolutionProvider/Solution"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolutionNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        volatile="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SolutionVar">
+    <eOperations name="isOne" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="isZero" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="OptimalValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Solution" lowerBound="1"
+        eType="#//Solution" eOpposite="#//Solution/Var"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="var" lowerBound="1" eType="#//GeneratorVar"
+        eOpposite="#//GeneratorVar/Solution"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SolutionLpVar" eSuperTypes="#//SolutionVar"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SolutionCons">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Solution" lowerBound="1"
+        eType="#//Solution" eOpposite="#//Solution/Cons"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cons" lowerBound="1" eType="#//GeneratorCons"
+        eOpposite="#//GeneratorCons/Solution"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SolutionLpCons" eSuperTypes="#//SolutionCons"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="ITupleVisitor" instanceClassName="com.misc.common.moplaf.solver.ITupleVisitor"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Exception" instanceClassName="java.lang.Exception"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="EnumLpFileFormat">
+    <eLiterals name="FileFormatMps" literal="mps"/>
+    <eLiterals name="FileFormatLp" value="1" literal="lp"/>
+    <eLiterals name="FileFormatGams" value="2" literal="gams"/>
+    <eLiterals name="FileFormatGLPK" value="4" literal="GLPK"/>
+    <eLiterals name="FileFormatSav" value="3" literal="sav"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorCpCons" abstract="true" eSuperTypes="#//GeneratorCons">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Post" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorCpLinear" eSuperTypes="#//GeneratorCpCons">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="#//EnumCpLinearType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RightHandSide" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Term" upperBound="-1" eType="#//GeneratorCpLinearTerm"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorCpLogical" eSuperTypes="#//GeneratorCpCons">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Term" upperBound="-1" eType="#//GeneratorCpLogicalTerm"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Not" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="#//EnumCpLogicalType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorCpVar" abstract="true" eSuperTypes="#//GeneratorVar">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Priority" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorCpVarAtomic" eSuperTypes="#//GeneratorCpVar">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LowerBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="UpperBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorCpLinearTerm">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Coeff" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CpVar" eType="#//GeneratorCpVarAtomic"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorCpLogicalTerm">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Not" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CpCons" eType="#//GeneratorCpCons"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SolutionCpVar" eSuperTypes="#//SolutionVar"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SolverCp" eSuperTypes="#//Solver">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SearchAll" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorElement"/>
+</ecore:EPackage>

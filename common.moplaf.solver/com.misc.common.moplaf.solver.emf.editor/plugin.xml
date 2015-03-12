@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated solver -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="com.misc.common.moplaf.solver.presentation.SolverModelWizardID"
+            name="%_UI_SolverModelWizard_label"
+            class="com.misc.common.moplaf.solver.presentation.SolverModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SolverModelFile.gif">
+         <description>%_UI_SolverModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated solver -->
+      <editor
+            id="com.misc.common.moplaf.solver.presentation.SolverEditorID"
+            name="%_UI_SolverEditor_label"
+            icon="icons/full/obj16/SolverModelFile.gif"
+            extensions="solver"
+            class="com.misc.common.moplaf.solver.presentation.SolverEditor"
+            contributorClass="com.misc.common.moplaf.solver.presentation.SolverActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

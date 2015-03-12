@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Gurobi
+Bundle-SymbolicName: com.misc.common.moplaf.solver.javailp.gurobi
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: MISC
+Fragment-Host: com.misc.common.moplaf.solver.javailp.emf;bundle-version="0.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ClassPath: lib/gurobi.jar,
+ .

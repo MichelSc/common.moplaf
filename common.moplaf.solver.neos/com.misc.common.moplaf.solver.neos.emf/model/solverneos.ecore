@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="solverneos" nsURI="http://www.misc.com/common.moplaf.solver.neos.emf"
+    nsPrefix="svrns">
+  <eClassifiers xsi:type="ecore:EClass" name="SolverNeos" eSuperTypes="../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//SolverLp">
+    <eOperations name="retrieveJobStatus"/>
+    <eOperations name="retrieveJobResult"/>
+    <eOperations name="killJob"/>
+    <eOperations name="submitJob"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="LpWriter" eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//ILpWriter"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SolReader" eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//SolutionReader"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ServerHost" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="www.neos-server.org"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ServerPort" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="3332"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverCategory" eType="#//EnumNeosSolverCategory"
+        defaultValueLiteral="MILP"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverName" eType="#//EnumNeosSolverName"
+        defaultValueLiteral="scip"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverInput" eType="#//EnumNeosSolverInput"
+        defaultValueLiteral="MPS"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverPollDuration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="30"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="JobSubmitted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="JobDone" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="JobResultRetrieved" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="JobNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="JobPassword" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="JobStatus" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="created"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="JobLastStatus" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="JobNeosStatus" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="JobSubmitterEmail" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="JobResult" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EnumNeosSolverCategory">
+    <eLiterals name="MILP"/>
+    <eLiterals name="LP" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EnumNeosSolverName">
+    <eLiterals name="Gurobi"/>
+    <eLiterals name="XpressMP" value="1"/>
+    <eLiterals name="scip" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EnumNeosSolverInput">
+    <eLiterals name="GAMS"/>
+    <eLiterals name="CPLEX" value="1"/>
+    <eLiterals name="MPS" value="2"/>
+    <eLiterals name="AMPL" value="3"/>
+  </eClassifiers>
+</ecore:EPackage>

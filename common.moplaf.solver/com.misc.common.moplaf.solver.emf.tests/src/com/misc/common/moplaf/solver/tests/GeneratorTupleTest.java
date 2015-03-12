@@ -1,0 +1,144 @@
+/**
+ */
+package com.misc.common.moplaf.solver.tests;
+
+import com.misc.common.moplaf.solver.GeneratorTuple;
+
+/**
+ * <!-- begin-user-doc -->
+ * A test case for the model object '<em><b>Generator Tuple</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are tested:
+ * <ul>
+ *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#getVar() <em>Var</em>}</li>
+ * </ul>
+ * </p>
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#generateVars() <em>Generate Vars</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#generateCons() <em>Generate Cons</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#generateTuples() <em>Generate Tuples</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#getGenerator() <em>Get Generator</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#visitTuples(com.misc.common.moplaf.solver.ITupleVisitor) <em>Visit Tuples</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#refreshContainer() <em>Refresh Container</em>}</li>
+ * </ul>
+ * </p>
+ * @generated
+ */
+public abstract class GeneratorTupleTest extends GeneratorElementTest {
+
+	/**
+	 * Constructs a new Generator Tuple test case with the given name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GeneratorTupleTest(String name) {
+		super(name);
+	}
+
+	/**
+	 * Returns the fixture for this Generator Tuple test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected GeneratorTuple getFixture() {
+		return (GeneratorTuple)fixture;
+	}
+
+	/**
+	 * Tests the '{@link com.misc.common.moplaf.solver.GeneratorTuple#getVar() <em>Var</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.solver.GeneratorTuple#getVar()
+	 * @generated
+	 */
+	public void testGetVar() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link com.misc.common.moplaf.solver.GeneratorTuple#generateVars() <em>Generate Vars</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.solver.GeneratorTuple#generateVars()
+	 * @generated
+	 */
+	public void testGenerateVars() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link com.misc.common.moplaf.solver.GeneratorTuple#generateCons() <em>Generate Cons</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.solver.GeneratorTuple#generateCons()
+	 * @generated
+	 */
+	public void testGenerateCons() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link com.misc.common.moplaf.solver.GeneratorTuple#generateTuples() <em>Generate Tuples</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.solver.GeneratorTuple#generateTuples()
+	 * @generated
+	 */
+	public void testGenerateTuples() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link com.misc.common.moplaf.solver.GeneratorTuple#getGenerator() <em>Get Generator</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.solver.GeneratorTuple#getGenerator()
+	 * @generated
+	 */
+	public void testGetGenerator() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link com.misc.common.moplaf.solver.GeneratorTuple#visitTuples(com.misc.common.moplaf.solver.ITupleVisitor) <em>Visit Tuples</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.solver.GeneratorTuple#visitTuples(com.misc.common.moplaf.solver.ITupleVisitor)
+	 * @generated
+	 */
+	public void testVisitTuples__ITupleVisitor() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link com.misc.common.moplaf.solver.GeneratorTuple#refreshContainer() <em>Refresh Container</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.solver.GeneratorTuple#refreshContainer()
+	 * @generated
+	 */
+	public void testRefreshContainer() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+} //GeneratorTupleTest

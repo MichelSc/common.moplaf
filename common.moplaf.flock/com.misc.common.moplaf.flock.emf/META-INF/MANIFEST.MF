@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: com.misc.common.moplaf.flock.emf;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: com.misc.common.moplaf.flock,
+ com.misc.common.moplaf.flock.impl,
+ com.misc.common.moplaf.flock.util,
+ com.misc.common.moplaf.flock.calc
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore,
+ com.misc.common.moplaf.propagator;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy

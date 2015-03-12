@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated solverneos -->
+      <package
+            uri="http://com.misc.common.moplaf.solver.neos.emf"
+            class="com.misc.common.moplaf.solver.solverneos.SolverneosPackage"
+            genModel="model/solverneos.genmodel"/>
+   </extension>
+
+</plugin>

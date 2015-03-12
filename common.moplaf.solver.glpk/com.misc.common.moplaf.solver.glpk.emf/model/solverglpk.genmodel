@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.solver.glpk.emf/src" modelPluginID="com.misc.common.moplaf.solver.glpk.emf"
+    modelName="Solverglpk" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    usedGenPackages="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>solverglpk.ecore</foreignModel>
+  <genPackages prefix="Solverglpk" basePackage="com.misc.common.moplaf.solver" disposableProviderFactory="true"
+      ecorePackage="solverglpk.ecore#/">
+    <genClasses ecoreClass="solverglpk.ecore#//SolverGLPK" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/SolutionProvider/Code">
+      <genFeatures createChild="false" propertyCategory="21 Solver GLPK" ecoreFeature="ecore:EAttribute solverglpk.ecore#//SolverGLPK/EnableFeasibilityPump"/>
+      <genFeatures createChild="false" propertyCategory="21 Solver GLPK" ecoreFeature="ecore:EAttribute solverglpk.ecore#//SolverGLPK/EnableGomoryCuts"/>
+      <genFeatures createChild="false" propertyCategory="21 Solver GLPK" ecoreFeature="ecore:EAttribute solverglpk.ecore#//SolverGLPK/EnableGeneratingMixedCoverCuts"/>
+      <genFeatures createChild="false" propertyCategory="21 Solver GLPK" ecoreFeature="ecore:EAttribute solverglpk.ecore#//SolverGLPK/EnableGeneratingCliqueCuts"/>
+      <genFeatures createChild="false" propertyCategory="21 Solver GLPK" ecoreFeature="ecore:EAttribute solverglpk.ecore#//SolverGLPK/EnableMixedIntegerRoundingCuts"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

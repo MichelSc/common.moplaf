@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated dataextractor -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="com.misc.common.moplaf.dataextractor.presentation.DataextractorModelWizardID"
+            name="%_UI_DataextractorModelWizard_label"
+            class="com.misc.common.moplaf.dataextractor.presentation.DataextractorModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/DataextractorModelFile.gif">
+         <description>%_UI_DataextractorModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated dataextractor -->
+      <editor
+            id="com.misc.common.moplaf.dataextractor.presentation.DataextractorEditorID"
+            name="%_UI_DataextractorEditor_label"
+            icon="icons/full/obj16/DataextractorModelFile.gif"
+            extensions="dataextractor"
+            class="com.misc.common.moplaf.dataextractor.presentation.DataextractorEditor"
+            contributorClass="com.misc.common.moplaf.dataextractor.presentation.DataextractorActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

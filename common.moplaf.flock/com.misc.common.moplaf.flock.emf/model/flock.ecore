@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="flock" nsURI="http://com.misc.common.moplaf.flock" nsPrefix="flock">
+  <eClassifiers xsi:type="ecore:EClass" name="FlockScope">
+    <eOperations name="refreshConfiguration"/>
+    <eOperations name="refreshMoves"/>
+    <eOperations name="refreshIdles"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Chains" upperBound="-1"
+        eType="#//Chain" eOpposite="#//Chain/FlockScope"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Flocks" upperBound="-1"
+        eType="#//Flock" eOpposite="#//Flock/FlockScope"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Location"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Flock">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Chains" upperBound="-1"
+        eType="#//ChainFlock" eOpposite="#//ChainFlock/Flock"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ChainRoot" eType="#//ChainFlock"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DurationMin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DurationMax" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StartEarliest" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EndLatest" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Start" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="End" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="StartLocation" eType="#//Location"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EndLocation" eType="#//Location"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="StartEvent" lowerBound="1"
+        eType="#//FlockEvent" eOpposite="#//FlockEvent/FlockAsStart"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EndEvent" lowerBound="1"
+        eType="#//FlockEvent" eOpposite="#//FlockEvent/FlockAsEnd"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FlockScope" lowerBound="1"
+        eType="#//FlockScope" eOpposite="#//FlockScope/Flocks"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FlockEvent">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Location" eType="#//Location"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FlockAsStart" upperBound="-1"
+        eType="#//Flock" eOpposite="#//Flock/StartEvent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FlockAsEnd" upperBound="-1"
+        eType="#//Flock" eOpposite="#//Flock/EndEvent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChainFlock" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="MountedFlocks" upperBound="-1"
+        eType="#//ChainFlock" eOpposite="#//ChainFlock/MounterFlock"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="MounterFlock" eType="#//ChainFlock"
+        eOpposite="#//ChainFlock/MountedFlocks"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="NextFlock" eType="#//ChainFlock"
+        eOpposite="#//ChainFlock/PreviousFlock"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="PreviousFlock" eType="#//ChainFlock"
+        eOpposite="#//ChainFlock/NextFlock"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Chain" eType="#//Chain"
+        eOpposite="#//Chain/Flocks"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Flock" eType="#//Flock"
+        eOpposite="#//Flock/Chains"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SequenceNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FlockConfiguration" eSuperTypes="#//Flock">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ConfigurationLocation"
+        eType="#//Location"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ChainOwner" eType="#//ChainConfiguration"
+        eOpposite="#//ChainConfiguration/FlockAsOwner"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Chain">
+    <eOperations name="constructMove">
+      <eParameters name="from" eType="#//Location"/>
+      <eParameters name="to" eType="#//Location"/>
+    </eOperations>
+    <eOperations name="refreshChainFlockNextPrevious"/>
+    <eOperations name="refreshInit"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Flocks" upperBound="-1"
+        eType="#//ChainFlock" eOpposite="#//ChainFlock/Chain"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FlockScope" lowerBound="1"
+        eType="#//FlockScope" eOpposite="#//FlockScope/Chains"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChainWayPoint" eSuperTypes="#//ChainFlock"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ChainFlockConfiguration" abstract="true"
+      eSuperTypes="#//ChainFlock">
+    <eOperations name="refreshChainMounted"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FlockConfiguration" lowerBound="1"
+        eType="#//FlockConfiguration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="MountedChainAsOwner" upperBound="-1"
+        eType="#//ChainMounted" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChainConfiguration" eSuperTypes="#//ChainFlockConfiguration">
+    <eOperations name="refreshFlockConfiguration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FlockAsOwner" lowerBound="1"
+        eType="#//FlockConfiguration" eOpposite="#//FlockConfiguration/ChainOwner"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="AttachPoint" eType="#//ChainConfiguration"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChainMount" eSuperTypes="#//ChainFlockConfiguration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="MountPoint" lowerBound="1"
+        eType="#//ChainConfiguration"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ChainMounted" eSuperTypes="#//ChainFlockConfiguration"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MountDismount">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Mount" lowerBound="1" eType="#//FlockMount"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Dismount" lowerBound="1"
+        eType="#//FlockDismount" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FlockMount" eSuperTypes="#//FlockConfiguration"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FlockDismount" eSuperTypes="#//FlockConfiguration"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FlockPrecedence"/>
+</ecore:EPackage>

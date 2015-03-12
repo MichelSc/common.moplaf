@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="solverjavailp" nsURI="http://www.misc.com/common.moplaf.solver.javailp.emf"
+    nsPrefix="svrji">
+  <eClassifiers xsi:type="ecore:EClass" name="SolverJavaILP" eSuperTypes="../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//SolverLp ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//ILpWriter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="#//SolverJavaILPType"
+        defaultValueLiteral="GLPK"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SolverJavaILPType">
+    <eLiterals name="GLPK"/>
+    <eLiterals name="LpSolve" value="1"/>
+    <eLiterals name="Cplex" value="2" literal="CPlex"/>
+    <eLiterals name="Gurobi" value="3"/>
+    <eLiterals name="MiniSat" value="4"/>
+    <eLiterals name="Mosek" value="5"/>
+    <eLiterals name="SAT4J" value="6"/>
+  </eClassifiers>
+</ecore:EPackage>

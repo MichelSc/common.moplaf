@@ -1,0 +1,50 @@
+package com.misc.common.moplaf.propagator;
+
+import org.eclipse.emf.common.CommonPlugin;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.impl.AdapterImpl;
+
+public class AbstractAdapter extends AdapterImpl {
+
+	public AbstractAdapter() {
+		super();
+	}
+
+	/**
+	 * Return true when the feature receives a new (different) value
+	 * @param msg
+	 * @param feature
+	 * @return
+	 */
+	protected boolean isFeatureChanged(Notification msg, Object feature) {
+		if ( msg.isTouch() ) { return false; }
+		if ( msg.getFeature()!= feature)  { return false ; }
+		return true;
+	}
+
+	/**
+	 * Return true when the feature is added or removed
+	 * @param msg
+	 * @param feature
+	 * @return
+	 */
+	protected boolean isListFeatureAddedRemoved(Notification msg, Object feature) {
+		if ( msg.isTouch() ) { return false; }
+		if ( msg.getFeature()!= feature)  { return false ; }
+		if ( msg.getEventType()!=Notification.ADD 
+		  && msg.getEventType()!=Notification.REMOVE
+		  && msg.getEventType()!=Notification.ADD_MANY		
+		  && msg.getEventType()!=Notification.REMOVE_MANY		
+		  && msg.getEventType()!=Notification.SET) { return false; }
+		return true;
+	}
+
+	public void notifyChanged(Notification msg) {
+		super.notifyChanged(msg);
+		/*
+		CommonPlugin.INSTANCE.log( "Notify Changed "
+		         + com.misc.common.moplaf.propagator.Util.FormatNotification(this, msg));
+        */
+	}
+
+}

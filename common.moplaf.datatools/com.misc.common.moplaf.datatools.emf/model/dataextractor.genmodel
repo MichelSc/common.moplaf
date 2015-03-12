@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.datatools.emf/src" modelPluginID="com.misc.common.moplaf.datatools.emf"
+    modelName="Dataextractor" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore" operationReflection="true"
+    importOrganizing="true">
+  <foreignModel>dataextractor.ecore</foreignModel>
+  <genPackages prefix="Dataextractor" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
+      ecorePackage="dataextractor.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="dataextractor.ecore#//DataSorterSense">
+      <genEnumLiterals ecoreEnumLiteral="dataextractor.ecore#//DataSorterSense/ASC"/>
+      <genEnumLiterals ecoreEnumLiteral="dataextractor.ecore#//DataSorterSense/DESC"/>
+    </genEnums>
+    <genClasses ecoreClass="dataextractor.ecore#//DataExtractor">
+      <genFeatures createChild="false" propertyCategory="0 Extractor" ecoreFeature="ecore:EAttribute dataextractor.ecore#//DataExtractor/Name"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="0 Extractor"
+          propertyDescription="" propertySortChoices="true" ecoreFeature="ecore:EReference dataextractor.ecore#//DataExtractor/SourceObject"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="1  Extracted"
+          ecoreFeature="ecore:EAttribute dataextractor.ecore#//DataExtractor/NumberOfSelected"/>
+      <genFeatures property="None" children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference dataextractor.ecore#//DataExtractor/TargetObjects"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataextractor.ecore#//DataExtractor/Sorters"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference dataextractor.ecore#//DataExtractor/SourceType"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference dataextractor.ecore#//DataExtractor/TargetType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataextractor.ecore#//DataExtractor/Extractors"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference dataextractor.ecore#//DataExtractor/LastExtractor"/>
+      <genFeatures createChild="false" propertyCategory="0 Extractor" propertyDescription=""
+          ecoreFeature="ecore:EAttribute dataextractor.ecore#//DataExtractor/MaxNumberOfSelected"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="1  Extracted"
+          ecoreFeature="ecore:EAttribute dataextractor.ecore#//DataExtractor/MaxNumberOfSelectedReached"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="1  Extracted"
+          ecoreFeature="ecore:EAttribute dataextractor.ecore#//DataExtractor/NumberOfExtracted"/>
+      <genFeatures createChild="false" propertyCategory="2 Save" ecoreFeature="ecore:EAttribute dataextractor.ecore#//DataExtractor/URISave"/>
+      <genOperations ecoreOperation="dataextractor.ecore#//DataExtractor/refresh"/>
+      <genOperations ecoreOperation="dataextractor.ecore#//DataExtractor/save"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="dataextractor.ecore#//DataSorter" labelFeature="#//dataextractor/DataSorter/Description">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute dataextractor.ecore#//DataSorter/Sequence"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataextractor.ecore#//DataSorter/Sense"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference dataextractor.ecore#//DataSorter/DataExtractor"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute dataextractor.ecore#//DataSorter/Description"/>
+      <genOperations ecoreOperation="dataextractor.ecore#//DataSorter/compare">
+        <genParameters ecoreParameter="dataextractor.ecore#//DataSorter/compare/object1"/>
+        <genParameters ecoreParameter="dataextractor.ecore#//DataSorter/compare/object2"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="dataextractor.ecore#//DataSorterFeature" labelFeature="#//dataextractor/DataSorter/Description">
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dataextractor.ecore#//DataSorterFeature/SortedFeature"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="dataextractor.ecore#//DataExtractorElement"
+        labelFeature="#//dataextractor/DataExtractorElement/Description">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference dataextractor.ecore#//DataExtractorElement/DataExtractor"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute dataextractor.ecore#//DataExtractorElement/Sequence"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute dataextractor.ecore#//DataExtractorElement/Description"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference dataextractor.ecore#//DataExtractorElement/SourceType"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference dataextractor.ecore#//DataExtractorElement/TargetType"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference dataextractor.ecore#//DataExtractorElement/Previous"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataextractor.ecore#//DataExtractorElement/Selectors"/>
+      <genOperations ecoreOperation="dataextractor.ecore#//DataExtractorElement/isSelected">
+        <genParameters ecoreParameter="dataextractor.ecore#//DataExtractorElement/isSelected/object"/>
+      </genOperations>
+      <genOperations ecoreOperation="dataextractor.ecore#//DataExtractorElement/getResultSet"/>
+      <genOperations ecoreOperation="dataextractor.ecore#//DataExtractorElement/getExtractSet"/>
+    </genClasses>
+    <genClasses ecoreClass="dataextractor.ecore#//DataExtractorReference" labelFeature="#//dataextractor/DataExtractorElement/Description">
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dataextractor.ecore#//DataExtractorReference/ExtractorReference"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="dataextractor.ecore#//DataSelector">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference dataextractor.ecore#//DataSelector/ExtractorElement"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute dataextractor.ecore#//DataSelector/Description"/>
+      <genOperations ecoreOperation="dataextractor.ecore#//DataSelector/isSelected">
+        <genParameters ecoreParameter="dataextractor.ecore#//DataSelector/isSelected/object"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="dataextractor.ecore#//DataSelectorFeature">
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference dataextractor.ecore#//DataSelectorFeature/Feature"/>
+      <genOperations ecoreOperation="dataextractor.ecore#//DataSelectorFeature/getFeatureClassifier"/>
+    </genClasses>
+    <genClasses ecoreClass="dataextractor.ecore#//DataSelectorBigDecimal">
+      <genFeatures createChild="false" propertyDescription="" ecoreFeature="ecore:EAttribute dataextractor.ecore#//DataSelectorBigDecimal/Values"/>
+    </genClasses>
+    <genClasses ecoreClass="dataextractor.ecore#//DataSelectorDate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataextractor.ecore#//DataSelectorDate/Values"/>
+    </genClasses>
+    <genClasses ecoreClass="dataextractor.ecore#//DataSelectorString">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dataextractor.ecore#//DataSelectorString/Values"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
