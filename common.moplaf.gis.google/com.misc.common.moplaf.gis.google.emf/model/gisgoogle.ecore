@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="GisGoogle" nsURI="http://www.misc.com/common.moplaf.gisgoogle.emf"
+    nsPrefix="gisg">
+  <eClassifiers xsi:type="ecore:EClass" name="GisDistanceMatrixCalculatorGoogleWS"
+      eSuperTypes="../../com.misc.common.moplaf.gis.emf/model/gis.ecore#//GisDistanceMatrixCalculator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Host" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="maps.googleapis.com"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Protocol" eType="#//Protocol"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AvoidTolls" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AvoidFerries" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AvoidHighways" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TravelModel" eType="#//TravelMode"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GisAddressGeocoderGoogleWS" eSuperTypes="../../com.misc.common.moplaf.gis.emf/model/gis.ecore#//GisAddressGeocoder">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Host" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="maps.googleapis.com"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Protocol" eType="#//Protocol"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Protocol">
+    <eLiterals name="Http" literal="http"/>
+    <eLiterals name="Https" value="1" literal="https"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TravelMode">
+    <eLiterals name="Driving" literal="driving"/>
+    <eLiterals name="Walking" value="1" literal="walking"/>
+    <eLiterals name="Bicycling" value="2"/>
+  </eClassifiers>
+</ecore:EPackage>
