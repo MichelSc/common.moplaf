@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixImpl#getFromLocations <em>From Locations</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixImpl#getToLocations <em>To Locations</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixImpl#getCalculator <em>Calculator</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -68,6 +69,26 @@ public class GisDistanceMatrixImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected GisDistanceMatrixCalculator calculator;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -153,6 +174,27 @@ public class GisDistanceMatrixImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_DISTANCE_MATRIX__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public void calculate() {
 		GisDistanceMatrixCalculator calculator = this.getCalculator();
@@ -212,6 +254,8 @@ public class GisDistanceMatrixImpl extends MinimalEObjectImpl.Container implemen
 			case GisPackage.GIS_DISTANCE_MATRIX__CALCULATOR:
 				if (resolve) return getCalculator();
 				return basicGetCalculator();
+			case GisPackage.GIS_DISTANCE_MATRIX__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -236,6 +280,9 @@ public class GisDistanceMatrixImpl extends MinimalEObjectImpl.Container implemen
 			case GisPackage.GIS_DISTANCE_MATRIX__CALCULATOR:
 				setCalculator((GisDistanceMatrixCalculator)newValue);
 				return;
+			case GisPackage.GIS_DISTANCE_MATRIX__NAME:
+				setName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -257,6 +304,9 @@ public class GisDistanceMatrixImpl extends MinimalEObjectImpl.Container implemen
 			case GisPackage.GIS_DISTANCE_MATRIX__CALCULATOR:
 				setCalculator((GisDistanceMatrixCalculator)null);
 				return;
+			case GisPackage.GIS_DISTANCE_MATRIX__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -275,6 +325,8 @@ public class GisDistanceMatrixImpl extends MinimalEObjectImpl.Container implemen
 				return toLocations != null && !toLocations.isEmpty();
 			case GisPackage.GIS_DISTANCE_MATRIX__CALCULATOR:
 				return calculator != null;
+			case GisPackage.GIS_DISTANCE_MATRIX__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -298,6 +350,22 @@ public class GisDistanceMatrixImpl extends MinimalEObjectImpl.Container implemen
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (Name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //GisDistanceMatrixImpl

@@ -13,13 +13,15 @@ import java.util.Locale;
 
 import GisGoogle.GisDistanceMatrixCalculatorGoogleWS;
 import GisGoogle.GisGooglePackage;
-
 import GisGoogle.Protocol;
 import GisGoogle.TravelMode;
+
 import com.misc.common.moplaf.gis.GisCoordinates;
 import com.misc.common.moplaf.gis.GisDistanceFromLocation;
 import com.misc.common.moplaf.gis.GisDistanceMatrix;
+import com.misc.common.moplaf.gis.GisDistanceMatrixElement;
 import com.misc.common.moplaf.gis.GisDistanceToLocation;
+import com.misc.common.moplaf.gis.GisFactory;
 import com.misc.common.moplaf.gis.impl.GisDistanceMatrixCalculatorImpl;
 
 import org.apache.commons.lang.StringUtils;
@@ -536,18 +538,19 @@ public class GisDistanceMatrixCalculatorGoogleWSImpl extends GisDistanceMatrixCa
 			String locationAsString = String.format(Locale.US, "%f,%f", location.getLongitude(), location.getLatitude());
 			toLocations.add(locationAsString);
 		}
+		parameters.add("destinations="+StringUtils.join(toLocations, "|"));
 		if ( this.getKey()!=null ){
 			parameters.add("key="+this.getKey());
 		}
-		parameters.add("origins="+StringUtils.join(toLocations, "|"));
+		String parametersAsString = StringUtils.join(parameters, "&");
 		String targetURL = this.getProtocol().getLiteral()
-		         + "/"
+		         + "://"
 		         + this.getHost()
 		         + "/maps/api/distancematrix/json?"
-		         + StringUtils.join(parameters, ",");
-		String urlParameters = StringUtils.join(parameters, "&");
-	      CommonPlugin.INSTANCE.log("url ="+targetURL);
-	      CommonPlugin.INSTANCE.log("params ="+urlParameters);
+		         + parametersAsString;
+		String urlParameters = "";
+	    CommonPlugin.INSTANCE.log("url: "+targetURL);
+	    CommonPlugin.INSTANCE.log("params: "+urlParameters);
 		// send the request
 		String responseAsString = "";
 	    URL url;
@@ -558,7 +561,6 @@ public class GisDistanceMatrixCalculatorGoogleWSImpl extends GisDistanceMatrixCa
 	      connection = (HttpURLConnection)url.openConnection();
 	      connection.setRequestMethod("POST");
 	      connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-
 	      connection.setRequestProperty("Content-Length", "" + Integer.toString(urlParameters.getBytes().length));
 	      connection.setRequestProperty("Content-Language", "en-US");  
 
@@ -594,19 +596,27 @@ public class GisDistanceMatrixCalculatorGoogleWSImpl extends GisDistanceMatrixCa
         CommonPlugin.INSTANCE.log("response ="+responseAsString);
 	    JSONObject responseObject = (JSONObject) JSONValue.parse(responseAsString);
 	    JSONArray rows = (JSONArray)responseObject.get("rows");
-	    int nofRows = fromLocations.size();
-	    int nofColumns = toLocations.size();
-	    for ( int rowIndex = 0; rowIndex<nofRows; rowIndex++){
+	    int rowIndex = 0;
+		for ( GisDistanceFromLocation fromLocation :matrix.getFromLocations()){
 	    	JSONObject rowObject = (JSONObject)rows.get(rowIndex);
 	    	JSONArray elements = (JSONArray)rowObject.get("elements");
-		    for ( int columnIndex = 0; columnIndex<nofColumns; columnIndex++){
+			int columnIndex = 0;
+			for ( GisDistanceToLocation toLocation :matrix.getToLocations()){
 		    	JSONObject elementObject = (JSONObject)elements.get(columnIndex);
 		    	JSONObject distanceObject = (JSONObject)elementObject.get("distance");
-		    	String distanceValue = (String)distanceObject.get("value");
-	    	}
-	    }
+		    	Long distance = (Long) distanceObject.get("value"); 
+		    	JSONObject durationObject = (JSONObject)elementObject.get("duration");
+		    	Long duration = (Long) durationObject.get("value"); 
+//			      CommonPlugin.INSTANCE.log("GisDistanceMatrixCalculatorGoogleWS: value "+distanceValue);
+		    	GisDistanceMatrixElement newElement = GisFactory.eINSTANCE.createGisDistanceMatrixElement();
+		    	newElement.setFromLocation(fromLocation);
+		    	newElement.setToLocation(toLocation);
+		    	newElement.setDistance(distance);
+		    	newElement.setDuration(duration);
+		    	columnIndex++;
+		    } // traverse the columns
+			rowIndex++;
+		}  // traverse the rows
 	}
-	
-	
 
 } //GisDistanceMatrixCalculatorGoogleWSImpl

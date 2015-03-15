@@ -114,8 +114,10 @@ public class GisCoordinatesItemProvider extends GisLocationItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		GisCoordinates gisCoordinates = (GisCoordinates)object;
-		return getString("_UI_GisCoordinates_type") + " " + gisCoordinates.getLongitude();
+		String label = ((GisCoordinates)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_GisCoordinates_type") :
+			getString("_UI_GisCoordinates_type") + " " + label;
 	}
 	
 

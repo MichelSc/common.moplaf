@@ -26,6 +26,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gis.ecore#//GisDistanceMatrix/fromLocations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gis.ecore#//GisDistanceMatrix/toLocations"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gis.ecore#//GisDistanceMatrix/calculator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisDistanceMatrix/Name"/>
       <genOperations ecoreOperation="gis.ecore#//GisDistanceMatrix/calculate"/>
       <genOperations ecoreOperation="gis.ecore#//GisDistanceMatrix/addFromLocation">
         <genParameters ecoreParameter="gis.ecore#//GisDistanceMatrix/addFromLocation/location"/>
@@ -45,7 +46,8 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gis.ecore#//GisDistanceFromLocation/location"/>
     </genClasses>
     <genClasses ecoreClass="gis.ecore#//GisDistanceToLocation">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gis.ecore#//GisDistanceToLocation/fromLocations"/>
+      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference gis.ecore#//GisDistanceToLocation/fromLocations"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gis.ecore#//GisDistanceToLocation/location"/>
     </genClasses>
     <genClasses ecoreClass="gis.ecore#//GisAddressGeocoded">
@@ -53,14 +55,17 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisAddressGeocoded/Description"/>
     </genClasses>
     <genClasses ecoreClass="gis.ecore#//GisLocation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisLocation/Name"/>
       <genOperations ecoreOperation="gis.ecore#//GisLocation/getCoordinates"/>
     </genClasses>
-    <genClasses ecoreClass="gis.ecore#//GisGeocoder">
-      <genOperations ecoreOperation="gis.ecore#//GisGeocoder/geocode">
-        <genParameters ecoreParameter="gis.ecore#//GisGeocoder/geocode/address"/>
+    <genClasses ecoreClass="gis.ecore#//GisAddressGeocoder">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisAddressGeocoder/Name"/>
+      <genOperations ecoreOperation="gis.ecore#//GisAddressGeocoder/geocode">
+        <genParameters ecoreParameter="gis.ecore#//GisAddressGeocoder/geocode/address"/>
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="gis.ecore#//GisDistanceMatrixCalculator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gis.ecore#//GisDistanceMatrixCalculator/Name"/>
       <genOperations ecoreOperation="gis.ecore#//GisDistanceMatrixCalculator/calculate">
         <genParameters ecoreParameter="gis.ecore#//GisDistanceMatrixCalculator/calculate/matrix"/>
       </genOperations>

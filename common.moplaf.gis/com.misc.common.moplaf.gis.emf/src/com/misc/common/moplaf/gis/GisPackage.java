@@ -68,13 +68,22 @@ public interface GisPackage extends EPackage {
 	int GIS_LOCATION = 7;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_LOCATION__NAME = 0;
+
+	/**
 	 * The number of structural features of the '<em>Location</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_LOCATION_FEATURE_COUNT = 0;
+	int GIS_LOCATION_FEATURE_COUNT = 1;
 
 	/**
 	 * The operation id for the '<em>Get Coordinates</em>' operation.
@@ -103,6 +112,15 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	int GIS_COORDINATES = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_COORDINATES__NAME = GIS_LOCATION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Longitude</b></em>' attribute.
@@ -158,6 +176,15 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	int GIS_ADDRESS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS__NAME = GIS_LOCATION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Country</b></em>' attribute.
@@ -305,13 +332,22 @@ public interface GisPackage extends EPackage {
 	int GIS_DISTANCE_MATRIX__CALCULATOR = 2;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_DISTANCE_MATRIX__NAME = 3;
+
+	/**
 	 * The number of structural features of the '<em>Distance Matrix</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_FEATURE_COUNT = 3;
+	int GIS_DISTANCE_MATRIX_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Calculate</em>' operation.
@@ -514,6 +550,15 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	int GIS_ADDRESS_GEOCODED = 6;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODED__NAME = GIS_COORDINATES__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Longitude</b></em>' attribute.
@@ -837,6 +882,17 @@ public interface GisPackage extends EPackage {
 	EReference getGisDistanceMatrix_Calculator();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisDistanceMatrix#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.gis.GisDistanceMatrix#getName()
+	 * @see #getGisDistanceMatrix()
+	 * @generated
+	 */
+	EAttribute getGisDistanceMatrix_Name();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisDistanceMatrix#calculate() <em>Calculate</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1025,6 +1081,17 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getGisLocation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisLocation#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.gis.GisLocation#getName()
+	 * @see #getGisLocation()
+	 * @generated
+	 */
+	EAttribute getGisLocation_Name();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisLocation#getCoordinates() <em>Get Coordinates</em>}' operation.
@@ -1242,6 +1309,14 @@ public interface GisPackage extends EPackage {
 		EReference GIS_DISTANCE_MATRIX__CALCULATOR = eINSTANCE.getGisDistanceMatrix_Calculator();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_DISTANCE_MATRIX__NAME = eINSTANCE.getGisDistanceMatrix_Name();
+
+		/**
 		 * The meta object literal for the '<em><b>Calculate</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1394,6 +1469,14 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EClass GIS_LOCATION = eINSTANCE.getGisLocation();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_LOCATION__NAME = eINSTANCE.getGisLocation_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Coordinates</b></em>' operation.

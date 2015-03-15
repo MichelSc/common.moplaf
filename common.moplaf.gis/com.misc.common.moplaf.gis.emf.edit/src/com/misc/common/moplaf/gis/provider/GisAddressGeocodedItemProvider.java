@@ -114,8 +114,10 @@ public class GisAddressGeocodedItemProvider extends GisCoordinatesItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		GisAddressGeocoded gisAddressGeocoded = (GisAddressGeocoded)object;
-		return getString("_UI_GisAddressGeocoded_type") + " " + gisAddressGeocoded.getLongitude();
+		String label = ((GisAddressGeocoded)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_GisAddressGeocoded_type") :
+			getString("_UI_GisAddressGeocoded_type") + " " + label;
 	}
 	
 

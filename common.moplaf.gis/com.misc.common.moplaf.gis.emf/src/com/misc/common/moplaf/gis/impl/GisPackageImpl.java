@@ -317,6 +317,15 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getGisDistanceMatrix_Name() {
+		return (EAttribute)gisDistanceMatrixEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getGisDistanceMatrix__Calculate() {
 		return gisDistanceMatrixEClass.getEOperations().get(0);
 	}
@@ -479,6 +488,15 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getGisLocation_Name() {
+		return (EAttribute)gisLocationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getGisLocation__GetCoordinates() {
 		return gisLocationEClass.getEOperations().get(0);
 	}
@@ -566,6 +584,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		createEReference(gisDistanceMatrixEClass, GIS_DISTANCE_MATRIX__FROM_LOCATIONS);
 		createEReference(gisDistanceMatrixEClass, GIS_DISTANCE_MATRIX__TO_LOCATIONS);
 		createEReference(gisDistanceMatrixEClass, GIS_DISTANCE_MATRIX__CALCULATOR);
+		createEAttribute(gisDistanceMatrixEClass, GIS_DISTANCE_MATRIX__NAME);
 		createEOperation(gisDistanceMatrixEClass, GIS_DISTANCE_MATRIX___CALCULATE);
 		createEOperation(gisDistanceMatrixEClass, GIS_DISTANCE_MATRIX___ADD_FROM_LOCATION__GISCOORDINATES);
 		createEOperation(gisDistanceMatrixEClass, GIS_DISTANCE_MATRIX___ADD_TO_LOCATION__GISCOORDINATES);
@@ -589,6 +608,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		createEAttribute(gisAddressGeocodedEClass, GIS_ADDRESS_GEOCODED__DESCRIPTION);
 
 		gisLocationEClass = createEClass(GIS_LOCATION);
+		createEAttribute(gisLocationEClass, GIS_LOCATION__NAME);
 		createEOperation(gisLocationEClass, GIS_LOCATION___GET_COORDINATES);
 
 		gisAddressGeocoderEClass = createEClass(GIS_ADDRESS_GEOCODER);
@@ -651,6 +671,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		initEReference(getGisDistanceMatrix_FromLocations(), this.getGisDistanceFromLocation(), null, "fromLocations", null, 0, -1, GisDistanceMatrix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGisDistanceMatrix_ToLocations(), this.getGisDistanceToLocation(), null, "toLocations", null, 0, -1, GisDistanceMatrix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGisDistanceMatrix_Calculator(), this.getGisDistanceMatrixCalculator(), null, "calculator", null, 0, 1, GisDistanceMatrix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisDistanceMatrix_Name(), ecorePackage.getEString(), "Name", null, 0, 1, GisDistanceMatrix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getGisDistanceMatrix__Calculate(), null, "calculate", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -679,6 +700,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		initEAttribute(getGisAddressGeocoded_Description(), ecorePackage.getEString(), "Description", null, 0, 1, GisAddressGeocoded.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(gisLocationEClass, GisLocation.class, "GisLocation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGisLocation_Name(), ecorePackage.getEString(), "Name", null, 0, 1, GisLocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getGisLocation__GetCoordinates(), this.getGisCoordinates(), "getCoordinates", 0, 1, IS_UNIQUE, IS_ORDERED);
 

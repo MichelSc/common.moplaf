@@ -13,6 +13,9 @@
               <children xmi:type="notation:Node" xmi:id="_m1NloMo8EeSpJrxjx9dQ1w" type="3010" element="_m1JUMMo8EeSpJrxjx9dQ1w">
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_m1Nloco8EeSpJrxjx9dQ1w"/>
               </children>
+              <children xmi:type="notation:Node" xmi:id="_nsk8gMsuEeSkNfmJKuqoCA" type="3010" element="_nsZ9YMsuEeSkNfmJKuqoCA">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_nsk8gcsuEeSkNfmJKuqoCA"/>
+              </children>
               <styles xmi:type="notation:SortingStyle" xmi:id="_m1M-kso8EeSpJrxjx9dQ1w"/>
               <styles xmi:type="notation:FilteringStyle" xmi:id="_m1M-k8o8EeSpJrxjx9dQ1w"/>
             </children>
@@ -24,6 +27,9 @@
             <children xmi:type="notation:Node" xmi:id="_n2D-oco8EeSpJrxjx9dQ1w" type="7004">
               <children xmi:type="notation:Node" xmi:id="_n2D-pMo8EeSpJrxjx9dQ1w" type="3010" element="_n2CJcMo8EeSpJrxjx9dQ1w">
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_n2D-pco8EeSpJrxjx9dQ1w"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_nsk8gssuEeSkNfmJKuqoCA" type="3010" element="_nscZoMsuEeSkNfmJKuqoCA">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_nsk8g8suEeSkNfmJKuqoCA"/>
               </children>
               <styles xmi:type="notation:SortingStyle" xmi:id="_n2D-oso8EeSpJrxjx9dQ1w"/>
               <styles xmi:type="notation:FilteringStyle" xmi:id="_n2D-o8o8EeSpJrxjx9dQ1w"/>
@@ -140,6 +146,17 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
         </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_nsZ9YMsuEeSkNfmJKuqoCA" name="Name : EString" tooltipText="">
+          <target xmi:type="ecore:EAttribute" href="platform:/resource/com.misc.common.moplaf.gis.emf/model/gis.ecore#//GisDistanceMatrixCalculator/Name"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="platform:/resource/com.misc.common.moplaf.gis.emf/model/gis.ecore#//GisDistanceMatrixCalculator/Name"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_nsakcMsuEeSkNfmJKuqoCA" labelAlignment="LEFT">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_nsakccsuEeSkNfmJKuqoCA"/>
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_nsakcssuEeSkNfmJKuqoCA"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_nsakc8suEeSkNfmJKuqoCA"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+        </ownedElements>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_n1-fEMo8EeSpJrxjx9dQ1w" name="GisAddressGeocoder" tooltipText="" incomingEdges="_p_xdIMo8EeSpJrxjx9dQ1w" width="12" height="10">
         <target xmi:type="ecore:EClass" href="platform:/resource/com.misc.common.moplaf.gis.emf/model/gis.ecore#//GisAddressGeocoder"/>
@@ -163,6 +180,17 @@
             <color xmi:type="viewpoint:RGBValues" xmi:id="_n2CJdMo8EeSpJrxjx9dQ1w"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_nscZoMsuEeSkNfmJKuqoCA" name="Name : EString" tooltipText="">
+          <target xmi:type="ecore:EAttribute" href="platform:/resource/com.misc.common.moplaf.gis.emf/model/gis.ecore#//GisAddressGeocoder/Name"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="platform:/resource/com.misc.common.moplaf.gis.emf/model/gis.ecore#//GisAddressGeocoder/Name"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_nsdAsMsuEeSkNfmJKuqoCA" labelAlignment="LEFT">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_nsdAscsuEeSkNfmJKuqoCA"/>
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_nsdAsssuEeSkNfmJKuqoCA"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_nsdAs8suEeSkNfmJKuqoCA"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_pc5ZkMo8EeSpJrxjx9dQ1w" name="GisDistanceMatrixCalculatorGoogleWS" tooltipText="" outgoingEdges="_pc-SEco8EeSpJrxjx9dQ1w" width="12" height="10">

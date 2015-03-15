@@ -10,11 +10,12 @@ import com.misc.common.moplaf.gis.GisPackage;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -262,7 +263,7 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GisAddress)object).getCountry();
+		String label = ((GisAddress)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GisAddress_type") :
 			getString("_UI_GisAddress_type") + " " + label;
@@ -312,4 +313,34 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 				 GisFactory.eINSTANCE.createGisAddressGeocoded()));
 	}
 
+	public class GisAddressRefreshCommand extends RefreshCommand{
+		private GisAddress address;
+		
+		// constructor
+		public GisAddressRefreshCommand(GisAddress anAddress)	{
+			super();
+			this.address = anAddress;
+			String tmp = "Refresh the address";
+			String label = "label:"+tmp;
+			String description = "desc:"+tmp;
+			this.setDescription(description);
+			this.setLabel(label);
+		}
+
+		@Override
+		public void execute() {
+			this.address.geocode();
+		}
+	} // class TableGroupRefreshCommand
+
+	@Override
+	public Command createCommand(Object object, EditingDomain domain,
+			Class<? extends Command> commandClass,
+			CommandParameter commandParameter) {
+		if ( commandClass == RefreshCommand.class){
+			return new GisAddressRefreshCommand((GisAddress) object); 
+		}
+
+		return super.createCommand(object, domain, commandClass, commandParameter);
+	} //method createCommand
 }

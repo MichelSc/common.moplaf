@@ -26,6 +26,6 @@
   <eClassifiers xsi:type="ecore:EEnum" name="TravelMode">
     <eLiterals name="Driving" literal="driving"/>
     <eLiterals name="Walking" value="1" literal="walking"/>
-    <eLiterals name="Bicycling" value="2"/>
+    <eLiterals name="Bicycling" value="2" literal="bicycling"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -31,6 +31,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="toLocations" upperBound="-1"
         eType="#//GisDistanceToLocation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="calculator" eType="#//GisDistanceMatrixCalculator"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisDistanceMatrixElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="fromLocation" lowerBound="1"
@@ -58,15 +59,18 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisLocation" abstract="true">
     <eOperations name="getCoordinates" eType="#//GisCoordinates"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisAddressGeocoder">
     <eOperations name="geocode">
       <eParameters name="address" eType="#//GisAddress"/>
     </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisDistanceMatrixCalculator">
     <eOperations name="calculate">
       <eParameters name="matrix" eType="#//GisDistanceMatrix"/>
     </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

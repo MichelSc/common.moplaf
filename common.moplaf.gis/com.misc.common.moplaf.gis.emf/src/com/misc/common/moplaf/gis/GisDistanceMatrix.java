@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.gis.GisDistanceMatrix#getFromLocations <em>From Locations</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisDistanceMatrix#getToLocations <em>To Locations</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisDistanceMatrix#getCalculator <em>Calculator</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisDistanceMatrix#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -82,6 +83,32 @@ public interface GisDistanceMatrix extends EObject {
 	 * @generated
 	 */
 	void setCalculator(GisDistanceMatrixCalculator value);
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see com.misc.common.moplaf.gis.GisPackage#getGisDistanceMatrix_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisDistanceMatrix#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 	/**
 	 * <!-- begin-user-doc -->
