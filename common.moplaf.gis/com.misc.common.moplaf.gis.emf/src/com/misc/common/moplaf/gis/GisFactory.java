@@ -58,22 +58,22 @@ public interface GisFactory extends EFactory {
 	GisDistanceMatrixElement createGisDistanceMatrixElement();
 
 	/**
-	 * Returns a new object of class '<em>Distance From Location</em>'.
+	 * Returns a new object of class '<em>Distance Matrix From Location</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Distance From Location</em>'.
+	 * @return a new object of class '<em>Distance Matrix From Location</em>'.
 	 * @generated
 	 */
-	GisDistanceFromLocation createGisDistanceFromLocation();
+	GisDistanceMatrixFromLocation createGisDistanceMatrixFromLocation();
 
 	/**
-	 * Returns a new object of class '<em>Distance To Location</em>'.
+	 * Returns a new object of class '<em>Distance Matrix To Location</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Distance To Location</em>'.
+	 * @return a new object of class '<em>Distance Matrix To Location</em>'.
 	 * @generated
 	 */
-	GisDistanceToLocation createGisDistanceToLocation();
+	GisDistanceMatrixToLocation createGisDistanceMatrixToLocation();
 
 	/**
 	 * Returns a new object of class '<em>Address Geocoded</em>'.

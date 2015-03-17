@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface GisDistanceMatrixElement extends EObject {
 	/**
 	 * Returns the value of the '<em><b>From Location</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.gis.GisDistanceFromLocation#getToLocations <em>To Locations</em>}'.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation#getToLocations <em>To Locations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>From Location</em>' container reference isn't clear,
@@ -34,13 +34,13 @@ public interface GisDistanceMatrixElement extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>From Location</em>' container reference.
-	 * @see #setFromLocation(GisDistanceFromLocation)
+	 * @see #setFromLocation(GisDistanceMatrixFromLocation)
 	 * @see com.misc.common.moplaf.gis.GisPackage#getGisDistanceMatrixElement_FromLocation()
-	 * @see com.misc.common.moplaf.gis.GisDistanceFromLocation#getToLocations
+	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation#getToLocations
 	 * @model opposite="toLocations" required="true" transient="false"
 	 * @generated
 	 */
-	GisDistanceFromLocation getFromLocation();
+	GisDistanceMatrixFromLocation getFromLocation();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisDistanceMatrixElement#getFromLocation <em>From Location</em>}' container reference.
@@ -50,11 +50,11 @@ public interface GisDistanceMatrixElement extends EObject {
 	 * @see #getFromLocation()
 	 * @generated
 	 */
-	void setFromLocation(GisDistanceFromLocation value);
+	void setFromLocation(GisDistanceMatrixFromLocation value);
 
 	/**
 	 * Returns the value of the '<em><b>To Location</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.gis.GisDistanceToLocation#getFromLocations <em>From Locations</em>}'.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.gis.GisDistanceMatrixToLocation#getFromLocations <em>From Locations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>To Location</em>' reference isn't clear,
@@ -62,13 +62,13 @@ public interface GisDistanceMatrixElement extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>To Location</em>' reference.
-	 * @see #setToLocation(GisDistanceToLocation)
+	 * @see #setToLocation(GisDistanceMatrixToLocation)
 	 * @see com.misc.common.moplaf.gis.GisPackage#getGisDistanceMatrixElement_ToLocation()
-	 * @see com.misc.common.moplaf.gis.GisDistanceToLocation#getFromLocations
+	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixToLocation#getFromLocations
 	 * @model opposite="fromLocations" required="true"
 	 * @generated
 	 */
-	GisDistanceToLocation getToLocation();
+	GisDistanceMatrixToLocation getToLocation();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisDistanceMatrixElement#getToLocation <em>To Location</em>}' reference.
@@ -78,7 +78,7 @@ public interface GisDistanceMatrixElement extends EObject {
 	 * @see #getToLocation()
 	 * @generated
 	 */
-	void setToLocation(GisDistanceToLocation value);
+	void setToLocation(GisDistanceMatrixToLocation value);
 
 	/**
 	 * Returns the value of the '<em><b>Distance</b></em>' attribute.

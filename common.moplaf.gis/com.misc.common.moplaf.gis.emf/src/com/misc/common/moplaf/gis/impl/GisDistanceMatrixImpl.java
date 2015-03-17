@@ -2,16 +2,18 @@
  */
 package com.misc.common.moplaf.gis.impl;
 
-import com.misc.common.moplaf.gis.GisCoordinates;
-import com.misc.common.moplaf.gis.GisDistanceFromLocation;
 import com.misc.common.moplaf.gis.GisDistanceMatrix;
 import com.misc.common.moplaf.gis.GisDistanceMatrixCalculator;
-import com.misc.common.moplaf.gis.GisDistanceToLocation;
+import com.misc.common.moplaf.gis.GisDistanceMatrixElement;
+import com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation;
+import com.misc.common.moplaf.gis.GisDistanceMatrixToLocation;
 import com.misc.common.moplaf.gis.GisFactory;
+import com.misc.common.moplaf.gis.GisLocation;
 import com.misc.common.moplaf.gis.GisPackage;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.HashMap;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -22,6 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -40,6 +43,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class GisDistanceMatrixImpl extends MinimalEObjectImpl.Container implements GisDistanceMatrix {
+	private HashMap<GisLocation, GisDistanceMatrixFromLocation> fromLocationsIndex = null;
+	private HashMap<GisLocation, GisDistanceMatrixToLocation>   toLocationsIndex = null;
 	/**
 	 * The cached value of the '{@link #getFromLocations() <em>From Locations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -48,7 +53,7 @@ public class GisDistanceMatrixImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<GisDistanceFromLocation> fromLocations;
+	protected EList<GisDistanceMatrixFromLocation> fromLocations;
 
 	/**
 	 * The cached value of the '{@link #getToLocations() <em>To Locations</em>}' containment reference list.
@@ -58,7 +63,7 @@ public class GisDistanceMatrixImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<GisDistanceToLocation> toLocations;
+	protected EList<GisDistanceMatrixToLocation> toLocations;
 
 	/**
 	 * The cached value of the '{@link #getCalculator() <em>Calculator</em>}' reference.
@@ -114,9 +119,9 @@ public class GisDistanceMatrixImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<GisDistanceFromLocation> getFromLocations() {
+	public EList<GisDistanceMatrixFromLocation> getFromLocations() {
 		if (fromLocations == null) {
-			fromLocations = new EObjectContainmentEList<GisDistanceFromLocation>(GisDistanceFromLocation.class, this, GisPackage.GIS_DISTANCE_MATRIX__FROM_LOCATIONS);
+			fromLocations = new EObjectContainmentEList<GisDistanceMatrixFromLocation>(GisDistanceMatrixFromLocation.class, this, GisPackage.GIS_DISTANCE_MATRIX__FROM_LOCATIONS);
 		}
 		return fromLocations;
 	}
@@ -126,9 +131,9 @@ public class GisDistanceMatrixImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<GisDistanceToLocation> getToLocations() {
+	public EList<GisDistanceMatrixToLocation> getToLocations() {
 		if (toLocations == null) {
-			toLocations = new EObjectContainmentEList<GisDistanceToLocation>(GisDistanceToLocation.class, this, GisPackage.GIS_DISTANCE_MATRIX__TO_LOCATIONS);
+			toLocations = new EObjectContainmentEList<GisDistanceMatrixToLocation>(GisDistanceMatrixToLocation.class, this, GisPackage.GIS_DISTANCE_MATRIX__TO_LOCATIONS);
 		}
 		return toLocations;
 	}
@@ -207,20 +212,68 @@ public class GisDistanceMatrixImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void addFromLocation(GisCoordinates location) {
-		GisDistanceFromLocation fromLocation = GisFactory.eINSTANCE.createGisDistanceFromLocation();
-		fromLocation.setLocation(location);
-		this.getFromLocations().add(fromLocation);
+	public GisDistanceMatrixFromLocation addFromLocation(GisLocation location) {
+		GisDistanceMatrixFromLocation fromLocation = this.getFromLocation(location);
+		if ( fromLocation==null){
+			fromLocation = GisFactory.eINSTANCE.createGisDistanceMatrixFromLocation();
+			fromLocation.setLocation(location);
+			this.getFromLocations().add(fromLocation);
+			this.fromLocationsIndex.put(location, fromLocation);
+		}
+		return fromLocation;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void addToLocation(GisCoordinates location) {
-		GisDistanceToLocation toLocation = GisFactory.eINSTANCE.createGisDistanceToLocation();
-		toLocation.setLocation(location);
-		this.getToLocations().add(toLocation);
+	public GisDistanceMatrixToLocation addToLocation(GisLocation location) {
+		GisDistanceMatrixToLocation toLocation = this.getToLocation(location);
+		if ( toLocation==null){
+			toLocation = GisFactory.eINSTANCE.createGisDistanceMatrixToLocation();
+			toLocation.setLocation(location);
+			this.getToLocations().add(toLocation);
+			this.toLocationsIndex.put(location, toLocation);
+		}
+		return toLocation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public GisDistanceMatrixFromLocation getFromLocation(GisLocation location) {
+		if ( this.fromLocationsIndex==null){
+			this.fromLocationsIndex = new HashMap<GisLocation, GisDistanceMatrixFromLocation>();
+			for ( GisDistanceMatrixFromLocation fromLocation : this.getFromLocations()){
+				this.fromLocationsIndex.put(fromLocation.getLocation(), fromLocation);
+			}
+		}
+		return this.fromLocationsIndex.get(location);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public GisDistanceMatrixToLocation getToLocation(GisLocation location) {
+		if ( this.toLocationsIndex==null){
+			this.toLocationsIndex = new HashMap<GisLocation, GisDistanceMatrixToLocation>();
+			for ( GisDistanceMatrixToLocation toLocation : this.getToLocations()){
+				this.toLocationsIndex.put(toLocation.getLocation(), toLocation);
+			}
+		}
+		return this.toLocationsIndex.get(location);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public GisDistanceMatrixElement getElement(GisLocation fromLocation, GisLocation toLocation) {
+		GisDistanceMatrixFromLocation distanceFrom = this.getFromLocation(fromLocation);
+		if ( distanceFrom==null) { return null; }
+		return distanceFrom.getElement(toLocation);
 	}
 
 	/**
@@ -271,11 +324,11 @@ public class GisDistanceMatrixImpl extends MinimalEObjectImpl.Container implemen
 		switch (featureID) {
 			case GisPackage.GIS_DISTANCE_MATRIX__FROM_LOCATIONS:
 				getFromLocations().clear();
-				getFromLocations().addAll((Collection<? extends GisDistanceFromLocation>)newValue);
+				getFromLocations().addAll((Collection<? extends GisDistanceMatrixFromLocation>)newValue);
 				return;
 			case GisPackage.GIS_DISTANCE_MATRIX__TO_LOCATIONS:
 				getToLocations().clear();
-				getToLocations().addAll((Collection<? extends GisDistanceToLocation>)newValue);
+				getToLocations().addAll((Collection<? extends GisDistanceMatrixToLocation>)newValue);
 				return;
 			case GisPackage.GIS_DISTANCE_MATRIX__CALCULATOR:
 				setCalculator((GisDistanceMatrixCalculator)newValue);
@@ -342,12 +395,16 @@ public class GisDistanceMatrixImpl extends MinimalEObjectImpl.Container implemen
 			case GisPackage.GIS_DISTANCE_MATRIX___CALCULATE:
 				calculate();
 				return null;
-			case GisPackage.GIS_DISTANCE_MATRIX___ADD_FROM_LOCATION__GISCOORDINATES:
-				addFromLocation((GisCoordinates)arguments.get(0));
-				return null;
-			case GisPackage.GIS_DISTANCE_MATRIX___ADD_TO_LOCATION__GISCOORDINATES:
-				addToLocation((GisCoordinates)arguments.get(0));
-				return null;
+			case GisPackage.GIS_DISTANCE_MATRIX___ADD_FROM_LOCATION__GISLOCATION:
+				return addFromLocation((GisLocation)arguments.get(0));
+			case GisPackage.GIS_DISTANCE_MATRIX___ADD_TO_LOCATION__GISLOCATION:
+				return addToLocation((GisLocation)arguments.get(0));
+			case GisPackage.GIS_DISTANCE_MATRIX___GET_FROM_LOCATION__GISLOCATION:
+				return getFromLocation((GisLocation)arguments.get(0));
+			case GisPackage.GIS_DISTANCE_MATRIX___GET_TO_LOCATION__GISLOCATION:
+				return getToLocation((GisLocation)arguments.get(0));
+			case GisPackage.GIS_DISTANCE_MATRIX___GET_ELEMENT__GISLOCATION_GISLOCATION:
+				return getElement((GisLocation)arguments.get(0), (GisLocation)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

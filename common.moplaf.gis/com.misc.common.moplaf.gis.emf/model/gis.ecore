@@ -20,34 +20,50 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisDistanceMatrix">
     <eOperations name="calculate"/>
-    <eOperations name="addFromLocation">
-      <eParameters name="location" eType="#//GisCoordinates"/>
+    <eOperations name="addFromLocation" eType="#//GisDistanceMatrixFromLocation">
+      <eParameters name="location" eType="#//GisLocation"/>
     </eOperations>
-    <eOperations name="addToLocation">
-      <eParameters name="location" eType="#//GisCoordinates"/>
+    <eOperations name="addToLocation" eType="#//GisDistanceMatrixToLocation">
+      <eParameters name="location" eType="#//GisLocation"/>
+    </eOperations>
+    <eOperations name="getFromLocation" eType="#//GisDistanceMatrixFromLocation">
+      <eParameters name="location" eType="#//GisLocation"/>
+    </eOperations>
+    <eOperations name="getToLocation" eType="#//GisDistanceMatrixToLocation">
+      <eParameters name="location" eType="#//GisLocation"/>
+    </eOperations>
+    <eOperations name="getElement" eType="#//GisDistanceMatrixElement">
+      <eParameters name="fromLocation" eType="#//GisLocation"/>
+      <eParameters name="toLocation" eType="#//GisLocation"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fromLocations" upperBound="-1"
-        eType="#//GisDistanceFromLocation" containment="true"/>
+        eType="#//GisDistanceMatrixFromLocation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="toLocations" upperBound="-1"
-        eType="#//GisDistanceToLocation" containment="true"/>
+        eType="#//GisDistanceMatrixToLocation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="calculator" eType="#//GisDistanceMatrixCalculator"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisDistanceMatrixElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="fromLocation" lowerBound="1"
-        eType="#//GisDistanceFromLocation" eOpposite="#//GisDistanceFromLocation/toLocations"/>
+        eType="#//GisDistanceMatrixFromLocation" eOpposite="#//GisDistanceMatrixFromLocation/toLocations"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="toLocation" lowerBound="1"
-        eType="#//GisDistanceToLocation" eOpposite="#//GisDistanceToLocation/fromLocations"/>
+        eType="#//GisDistanceMatrixToLocation" eOpposite="#//GisDistanceMatrixToLocation/fromLocations"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Distance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GisDistanceFromLocation">
+  <eClassifiers xsi:type="ecore:EClass" name="GisDistanceMatrixFromLocation">
+    <eOperations name="getElement" eType="#//GisDistanceMatrixElement">
+      <eParameters name="toLocation" eType="#//GisLocation"/>
+    </eOperations>
+    <eOperations name="addElement" eType="#//GisDistanceMatrixElement">
+      <eParameters name="toLocation" eType="#//GisDistanceMatrixToLocation"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="toLocations" upperBound="-1"
         eType="#//GisDistanceMatrixElement" containment="true" eOpposite="#//GisDistanceMatrixElement/fromLocation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="location" lowerBound="1"
         eType="#//GisLocation"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GisDistanceToLocation">
+  <eClassifiers xsi:type="ecore:EClass" name="GisDistanceMatrixToLocation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="fromLocations" upperBound="-1"
         eType="#//GisDistanceMatrixElement" eOpposite="#//GisDistanceMatrixElement/toLocation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="location" lowerBound="1"

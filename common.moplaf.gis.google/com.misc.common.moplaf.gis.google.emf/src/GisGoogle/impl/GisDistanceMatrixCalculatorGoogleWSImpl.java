@@ -3,7 +3,6 @@
 package GisGoogle.impl;
 
 import java.io.BufferedReader;
-import java.io.DataOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -17,11 +16,10 @@ import GisGoogle.Protocol;
 import GisGoogle.TravelMode;
 
 import com.misc.common.moplaf.gis.GisCoordinates;
-import com.misc.common.moplaf.gis.GisDistanceFromLocation;
 import com.misc.common.moplaf.gis.GisDistanceMatrix;
 import com.misc.common.moplaf.gis.GisDistanceMatrixElement;
-import com.misc.common.moplaf.gis.GisDistanceToLocation;
-import com.misc.common.moplaf.gis.GisFactory;
+import com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation;
+import com.misc.common.moplaf.gis.GisDistanceMatrixToLocation;
 import com.misc.common.moplaf.gis.impl.GisDistanceMatrixCalculatorImpl;
 
 import org.apache.commons.lang.StringUtils;
@@ -515,28 +513,34 @@ public class GisDistanceMatrixCalculatorGoogleWSImpl extends GisDistanceMatrixCa
 		}
 		if ( this.isAvoidHighways()){
 			parameters.add("avoid=highways");
-			
 		}
 		if ( this.isAvoidTolls()){
 			parameters.add("avoid=tolls");
-			
 		}
 		if ( this.isAvoidFerries()){
 			parameters.add("avoid=ferries");
-			
 		}
 		LinkedList<String> fromLocations = new LinkedList<String>();
-		for ( GisDistanceFromLocation fromLocation :matrix.getFromLocations()){
+		LinkedList<GisDistanceMatrixFromLocation> fromLocationsInRequest = new LinkedList<GisDistanceMatrixFromLocation>();
+		for ( GisDistanceMatrixFromLocation fromLocation :matrix.getFromLocations()){
 			GisCoordinates location = fromLocation.getLocation().getCoordinates();
-			String locationAsString = String.format(Locale.US, "%f,%f", location.getLongitude(), location.getLatitude());
-			fromLocations.add(locationAsString);
+			if ( location!=null){
+				String locationAsString = String.format(Locale.US, "%f,%f", location.getLongitude(), location.getLatitude());
+				fromLocations.add(locationAsString);
+				fromLocationsInRequest.add(fromLocation);
+			}
 		}
 		parameters.add("origins="+StringUtils.join(fromLocations, "|"));
 		LinkedList<String> toLocations = new LinkedList<String>();
-		for ( GisDistanceToLocation toLocation :matrix.getToLocations()){
+		LinkedList<GisDistanceMatrixToLocation> toLocationsInRequest = new LinkedList<GisDistanceMatrixToLocation>();
+		for ( GisDistanceMatrixToLocation toLocation :matrix.getToLocations()){
 			GisCoordinates location = toLocation.getLocation().getCoordinates();
-			String locationAsString = String.format(Locale.US, "%f,%f", location.getLongitude(), location.getLatitude());
-			toLocations.add(locationAsString);
+			if ( location!=null){
+				String locationAsString = String.format(Locale.US, "%f,%f", location.getLongitude(), location.getLatitude());
+				toLocations.add(locationAsString);
+				toLocationsInRequest.add(toLocation);
+				
+			}
 		}
 		parameters.add("destinations="+StringUtils.join(toLocations, "|"));
 		if ( this.getKey()!=null ){
@@ -548,9 +552,9 @@ public class GisDistanceMatrixCalculatorGoogleWSImpl extends GisDistanceMatrixCa
 		         + this.getHost()
 		         + "/maps/api/distancematrix/json?"
 		         + parametersAsString;
-		String urlParameters = "";
+		//String urlParameters = "";
 	    CommonPlugin.INSTANCE.log("url: "+targetURL);
-	    CommonPlugin.INSTANCE.log("params: "+urlParameters);
+	    //CommonPlugin.INSTANCE.log("params: "+urlParameters);
 		// send the request
 		String responseAsString = "";
 	    URL url;
@@ -559,9 +563,9 @@ public class GisDistanceMatrixCalculatorGoogleWSImpl extends GisDistanceMatrixCa
 	      //Create connection
 	      url = new URL(targetURL);
 	      connection = (HttpURLConnection)url.openConnection();
-	      connection.setRequestMethod("POST");
+	      //connection.setRequestMethod("POST"); //default is GET
 	      connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-	      connection.setRequestProperty("Content-Length", "" + Integer.toString(urlParameters.getBytes().length));
+	      //connection.setRequestProperty("Content-Length", "" + Integer.toString(urlParameters.getBytes().length));
 	      connection.setRequestProperty("Content-Language", "en-US");  
 
 	      connection.setUseCaches (false);
@@ -569,10 +573,11 @@ public class GisDistanceMatrixCalculatorGoogleWSImpl extends GisDistanceMatrixCa
 	      connection.setDoOutput(true);
 
 	      //Send request
-	      DataOutputStream wr = new DataOutputStream (connection.getOutputStream ());
-	      wr.writeBytes (urlParameters);
-	      wr.flush ();
-	      wr.close ();
+	      connection.connect();
+//	      DataOutputStream wr = new DataOutputStream (connection.getOutputStream ());
+//	      wr.writeBytes (urlParameters);
+//	      wr.flush ();
+//	      wr.close ();
 
 	      //Get Response    
 	      InputStream is = connection.getInputStream();
@@ -597,18 +602,18 @@ public class GisDistanceMatrixCalculatorGoogleWSImpl extends GisDistanceMatrixCa
 	    JSONObject responseObject = (JSONObject) JSONValue.parse(responseAsString);
 	    JSONArray rows = (JSONArray)responseObject.get("rows");
 	    int rowIndex = 0;
-		for ( GisDistanceFromLocation fromLocation :matrix.getFromLocations()){
+		for ( GisDistanceMatrixFromLocation fromLocation :fromLocationsInRequest){
 	    	JSONObject rowObject = (JSONObject)rows.get(rowIndex);
 	    	JSONArray elements = (JSONArray)rowObject.get("elements");
 			int columnIndex = 0;
-			for ( GisDistanceToLocation toLocation :matrix.getToLocations()){
+			for ( GisDistanceMatrixToLocation toLocation :toLocationsInRequest){
 		    	JSONObject elementObject = (JSONObject)elements.get(columnIndex);
 		    	JSONObject distanceObject = (JSONObject)elementObject.get("distance");
 		    	Long distance = (Long) distanceObject.get("value"); 
 		    	JSONObject durationObject = (JSONObject)elementObject.get("duration");
 		    	Long duration = (Long) durationObject.get("value"); 
 //			      CommonPlugin.INSTANCE.log("GisDistanceMatrixCalculatorGoogleWS: value "+distanceValue);
-		    	GisDistanceMatrixElement newElement = GisFactory.eINSTANCE.createGisDistanceMatrixElement();
+		    	GisDistanceMatrixElement newElement = fromLocation.addElement(toLocation);
 		    	newElement.setFromLocation(fromLocation);
 		    	newElement.setToLocation(toLocation);
 		    	newElement.setDistance(distance);

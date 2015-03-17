@@ -2,20 +2,16 @@
  */
 package com.misc.common.moplaf.gis.impl;
 
-import com.misc.common.moplaf.gis.GisDistanceFromLocation;
 import com.misc.common.moplaf.gis.GisDistanceMatrixElement;
-import com.misc.common.moplaf.gis.GisDistanceToLocation;
+import com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation;
+import com.misc.common.moplaf.gis.GisDistanceMatrixToLocation;
 import com.misc.common.moplaf.gis.GisPackage;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -43,7 +39,7 @@ public class GisDistanceMatrixElementImpl extends MinimalEObjectImpl.Container i
 	 * @generated
 	 * @ordered
 	 */
-	protected GisDistanceToLocation toLocation;
+	protected GisDistanceMatrixToLocation toLocation;
 
 	/**
 	 * The default value of the '{@link #getDistance() <em>Distance</em>}' attribute.
@@ -109,9 +105,9 @@ public class GisDistanceMatrixElementImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GisDistanceFromLocation getFromLocation() {
+	public GisDistanceMatrixFromLocation getFromLocation() {
 		if (eContainerFeatureID() != GisPackage.GIS_DISTANCE_MATRIX_ELEMENT__FROM_LOCATION) return null;
-		return (GisDistanceFromLocation)eInternalContainer();
+		return (GisDistanceMatrixFromLocation)eInternalContainer();
 	}
 
 	/**
@@ -119,7 +115,7 @@ public class GisDistanceMatrixElementImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetFromLocation(GisDistanceFromLocation newFromLocation, NotificationChain msgs) {
+	public NotificationChain basicSetFromLocation(GisDistanceMatrixFromLocation newFromLocation, NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject)newFromLocation, GisPackage.GIS_DISTANCE_MATRIX_ELEMENT__FROM_LOCATION, msgs);
 		return msgs;
 	}
@@ -129,7 +125,7 @@ public class GisDistanceMatrixElementImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFromLocation(GisDistanceFromLocation newFromLocation) {
+	public void setFromLocation(GisDistanceMatrixFromLocation newFromLocation) {
 		if (newFromLocation != eInternalContainer() || (eContainerFeatureID() != GisPackage.GIS_DISTANCE_MATRIX_ELEMENT__FROM_LOCATION && newFromLocation != null)) {
 			if (EcoreUtil.isAncestor(this, newFromLocation))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
@@ -137,7 +133,7 @@ public class GisDistanceMatrixElementImpl extends MinimalEObjectImpl.Container i
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newFromLocation != null)
-				msgs = ((InternalEObject)newFromLocation).eInverseAdd(this, GisPackage.GIS_DISTANCE_FROM_LOCATION__TO_LOCATIONS, GisDistanceFromLocation.class, msgs);
+				msgs = ((InternalEObject)newFromLocation).eInverseAdd(this, GisPackage.GIS_DISTANCE_MATRIX_FROM_LOCATION__TO_LOCATIONS, GisDistanceMatrixFromLocation.class, msgs);
 			msgs = basicSetFromLocation(newFromLocation, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -150,10 +146,10 @@ public class GisDistanceMatrixElementImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GisDistanceToLocation getToLocation() {
+	public GisDistanceMatrixToLocation getToLocation() {
 		if (toLocation != null && toLocation.eIsProxy()) {
 			InternalEObject oldToLocation = (InternalEObject)toLocation;
-			toLocation = (GisDistanceToLocation)eResolveProxy(oldToLocation);
+			toLocation = (GisDistanceMatrixToLocation)eResolveProxy(oldToLocation);
 			if (toLocation != oldToLocation) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, GisPackage.GIS_DISTANCE_MATRIX_ELEMENT__TO_LOCATION, oldToLocation, toLocation));
@@ -167,7 +163,7 @@ public class GisDistanceMatrixElementImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GisDistanceToLocation basicGetToLocation() {
+	public GisDistanceMatrixToLocation basicGetToLocation() {
 		return toLocation;
 	}
 
@@ -176,8 +172,8 @@ public class GisDistanceMatrixElementImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetToLocation(GisDistanceToLocation newToLocation, NotificationChain msgs) {
-		GisDistanceToLocation oldToLocation = toLocation;
+	public NotificationChain basicSetToLocation(GisDistanceMatrixToLocation newToLocation, NotificationChain msgs) {
+		GisDistanceMatrixToLocation oldToLocation = toLocation;
 		toLocation = newToLocation;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GisPackage.GIS_DISTANCE_MATRIX_ELEMENT__TO_LOCATION, oldToLocation, newToLocation);
@@ -191,13 +187,13 @@ public class GisDistanceMatrixElementImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setToLocation(GisDistanceToLocation newToLocation) {
+	public void setToLocation(GisDistanceMatrixToLocation newToLocation) {
 		if (newToLocation != toLocation) {
 			NotificationChain msgs = null;
 			if (toLocation != null)
-				msgs = ((InternalEObject)toLocation).eInverseRemove(this, GisPackage.GIS_DISTANCE_TO_LOCATION__FROM_LOCATIONS, GisDistanceToLocation.class, msgs);
+				msgs = ((InternalEObject)toLocation).eInverseRemove(this, GisPackage.GIS_DISTANCE_MATRIX_TO_LOCATION__FROM_LOCATIONS, GisDistanceMatrixToLocation.class, msgs);
 			if (newToLocation != null)
-				msgs = ((InternalEObject)newToLocation).eInverseAdd(this, GisPackage.GIS_DISTANCE_TO_LOCATION__FROM_LOCATIONS, GisDistanceToLocation.class, msgs);
+				msgs = ((InternalEObject)newToLocation).eInverseAdd(this, GisPackage.GIS_DISTANCE_MATRIX_TO_LOCATION__FROM_LOCATIONS, GisDistanceMatrixToLocation.class, msgs);
 			msgs = basicSetToLocation(newToLocation, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -258,11 +254,11 @@ public class GisDistanceMatrixElementImpl extends MinimalEObjectImpl.Container i
 			case GisPackage.GIS_DISTANCE_MATRIX_ELEMENT__FROM_LOCATION:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetFromLocation((GisDistanceFromLocation)otherEnd, msgs);
+				return basicSetFromLocation((GisDistanceMatrixFromLocation)otherEnd, msgs);
 			case GisPackage.GIS_DISTANCE_MATRIX_ELEMENT__TO_LOCATION:
 				if (toLocation != null)
-					msgs = ((InternalEObject)toLocation).eInverseRemove(this, GisPackage.GIS_DISTANCE_TO_LOCATION__FROM_LOCATIONS, GisDistanceToLocation.class, msgs);
-				return basicSetToLocation((GisDistanceToLocation)otherEnd, msgs);
+					msgs = ((InternalEObject)toLocation).eInverseRemove(this, GisPackage.GIS_DISTANCE_MATRIX_TO_LOCATION__FROM_LOCATIONS, GisDistanceMatrixToLocation.class, msgs);
+				return basicSetToLocation((GisDistanceMatrixToLocation)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -292,7 +288,7 @@ public class GisDistanceMatrixElementImpl extends MinimalEObjectImpl.Container i
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case GisPackage.GIS_DISTANCE_MATRIX_ELEMENT__FROM_LOCATION:
-				return eInternalContainer().eInverseRemove(this, GisPackage.GIS_DISTANCE_FROM_LOCATION__TO_LOCATIONS, GisDistanceFromLocation.class, msgs);
+				return eInternalContainer().eInverseRemove(this, GisPackage.GIS_DISTANCE_MATRIX_FROM_LOCATION__TO_LOCATIONS, GisDistanceMatrixFromLocation.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -327,10 +323,10 @@ public class GisDistanceMatrixElementImpl extends MinimalEObjectImpl.Container i
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case GisPackage.GIS_DISTANCE_MATRIX_ELEMENT__FROM_LOCATION:
-				setFromLocation((GisDistanceFromLocation)newValue);
+				setFromLocation((GisDistanceMatrixFromLocation)newValue);
 				return;
 			case GisPackage.GIS_DISTANCE_MATRIX_ELEMENT__TO_LOCATION:
-				setToLocation((GisDistanceToLocation)newValue);
+				setToLocation((GisDistanceMatrixToLocation)newValue);
 				return;
 			case GisPackage.GIS_DISTANCE_MATRIX_ELEMENT__DISTANCE:
 				setDistance((Float)newValue);
@@ -351,10 +347,10 @@ public class GisDistanceMatrixElementImpl extends MinimalEObjectImpl.Container i
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case GisPackage.GIS_DISTANCE_MATRIX_ELEMENT__FROM_LOCATION:
-				setFromLocation((GisDistanceFromLocation)null);
+				setFromLocation((GisDistanceMatrixFromLocation)null);
 				return;
 			case GisPackage.GIS_DISTANCE_MATRIX_ELEMENT__TO_LOCATION:
-				setToLocation((GisDistanceToLocation)null);
+				setToLocation((GisDistanceMatrixToLocation)null);
 				return;
 			case GisPackage.GIS_DISTANCE_MATRIX_ELEMENT__DISTANCE:
 				setDistance(DISTANCE_EDEFAULT);

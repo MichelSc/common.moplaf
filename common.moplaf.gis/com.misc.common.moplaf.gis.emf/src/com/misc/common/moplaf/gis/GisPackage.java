@@ -365,7 +365,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX___ADD_FROM_LOCATION__GISCOORDINATES = 1;
+	int GIS_DISTANCE_MATRIX___ADD_FROM_LOCATION__GISLOCATION = 1;
 
 	/**
 	 * The operation id for the '<em>Add To Location</em>' operation.
@@ -374,7 +374,34 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX___ADD_TO_LOCATION__GISCOORDINATES = 2;
+	int GIS_DISTANCE_MATRIX___ADD_TO_LOCATION__GISLOCATION = 2;
+
+	/**
+	 * The operation id for the '<em>Get From Location</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_DISTANCE_MATRIX___GET_FROM_LOCATION__GISLOCATION = 3;
+
+	/**
+	 * The operation id for the '<em>Get To Location</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_DISTANCE_MATRIX___GET_TO_LOCATION__GISLOCATION = 4;
+
+	/**
+	 * The operation id for the '<em>Get Element</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_DISTANCE_MATRIX___GET_ELEMENT__GISLOCATION_GISLOCATION = 5;
 
 	/**
 	 * The number of operations of the '<em>Distance Matrix</em>' class.
@@ -383,7 +410,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_OPERATION_COUNT = 3;
+	int GIS_DISTANCE_MATRIX_OPERATION_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixElementImpl <em>Distance Matrix Element</em>}' class.
@@ -450,14 +477,14 @@ public interface GisPackage extends EPackage {
 	int GIS_DISTANCE_MATRIX_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisDistanceFromLocationImpl <em>Distance From Location</em>}' class.
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixFromLocationImpl <em>Distance Matrix From Location</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisDistanceFromLocationImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisDistanceFromLocation()
+	 * @see com.misc.common.moplaf.gis.impl.GisDistanceMatrixFromLocationImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisDistanceMatrixFromLocation()
 	 * @generated
 	 */
-	int GIS_DISTANCE_FROM_LOCATION = 4;
+	int GIS_DISTANCE_MATRIX_FROM_LOCATION = 4;
 
 	/**
 	 * The feature id for the '<em><b>To Locations</b></em>' containment reference list.
@@ -466,7 +493,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_FROM_LOCATION__TO_LOCATIONS = 0;
+	int GIS_DISTANCE_MATRIX_FROM_LOCATION__TO_LOCATIONS = 0;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' reference.
@@ -475,35 +502,53 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_FROM_LOCATION__LOCATION = 1;
+	int GIS_DISTANCE_MATRIX_FROM_LOCATION__LOCATION = 1;
 
 	/**
-	 * The number of structural features of the '<em>Distance From Location</em>' class.
+	 * The number of structural features of the '<em>Distance Matrix From Location</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_FROM_LOCATION_FEATURE_COUNT = 2;
+	int GIS_DISTANCE_MATRIX_FROM_LOCATION_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Distance From Location</em>' class.
+	 * The operation id for the '<em>Get Element</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_FROM_LOCATION_OPERATION_COUNT = 0;
+	int GIS_DISTANCE_MATRIX_FROM_LOCATION___GET_ELEMENT__GISLOCATION = 0;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisDistanceToLocationImpl <em>Distance To Location</em>}' class.
+	 * The operation id for the '<em>Add Element</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.gis.impl.GisDistanceToLocationImpl
-	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisDistanceToLocation()
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_DISTANCE_MATRIX_FROM_LOCATION___ADD_ELEMENT__GISDISTANCEMATRIXTOLOCATION = 1;
+
+	/**
+	 * The number of operations of the '<em>Distance Matrix From Location</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_DISTANCE_MATRIX_FROM_LOCATION_OPERATION_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixToLocationImpl <em>Distance Matrix To Location</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisDistanceMatrixToLocationImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisDistanceMatrixToLocation()
 	 * @generated
 	 */
-	int GIS_DISTANCE_TO_LOCATION = 5;
+	int GIS_DISTANCE_MATRIX_TO_LOCATION = 5;
 
 	/**
 	 * The feature id for the '<em><b>From Locations</b></em>' reference list.
@@ -512,7 +557,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_TO_LOCATION__FROM_LOCATIONS = 0;
+	int GIS_DISTANCE_MATRIX_TO_LOCATION__FROM_LOCATIONS = 0;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' reference.
@@ -521,25 +566,25 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_TO_LOCATION__LOCATION = 1;
+	int GIS_DISTANCE_MATRIX_TO_LOCATION__LOCATION = 1;
 
 	/**
-	 * The number of structural features of the '<em>Distance To Location</em>' class.
+	 * The number of structural features of the '<em>Distance Matrix To Location</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_TO_LOCATION_FEATURE_COUNT = 2;
+	int GIS_DISTANCE_MATRIX_TO_LOCATION_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Distance To Location</em>' class.
+	 * The number of operations of the '<em>Distance Matrix To Location</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_TO_LOCATION_OPERATION_COUNT = 0;
+	int GIS_DISTANCE_MATRIX_TO_LOCATION_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisAddressGeocodedImpl <em>Address Geocoded</em>}' class.
@@ -634,13 +679,22 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_GEOCODER = 8;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODER__NAME = 0;
+
+	/**
 	 * The number of structural features of the '<em>Address Geocoder</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_GEOCODER_FEATURE_COUNT = 0;
+	int GIS_ADDRESS_GEOCODER_FEATURE_COUNT = 1;
 
 	/**
 	 * The operation id for the '<em>Geocode</em>' operation.
@@ -671,13 +725,22 @@ public interface GisPackage extends EPackage {
 	int GIS_DISTANCE_MATRIX_CALCULATOR = 9;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_DISTANCE_MATRIX_CALCULATOR__NAME = 0;
+
+	/**
 	 * The number of structural features of the '<em>Distance Matrix Calculator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_CALCULATOR_FEATURE_COUNT = 0;
+	int GIS_DISTANCE_MATRIX_CALCULATOR_FEATURE_COUNT = 1;
 
 	/**
 	 * The operation id for the '<em>Calculate</em>' operation.
@@ -903,24 +966,54 @@ public interface GisPackage extends EPackage {
 	EOperation getGisDistanceMatrix__Calculate();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisDistanceMatrix#addFromLocation(com.misc.common.moplaf.gis.GisCoordinates) <em>Add From Location</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisDistanceMatrix#addFromLocation(com.misc.common.moplaf.gis.GisLocation) <em>Add From Location</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add From Location</em>' operation.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrix#addFromLocation(com.misc.common.moplaf.gis.GisCoordinates)
+	 * @see com.misc.common.moplaf.gis.GisDistanceMatrix#addFromLocation(com.misc.common.moplaf.gis.GisLocation)
 	 * @generated
 	 */
-	EOperation getGisDistanceMatrix__AddFromLocation__GisCoordinates();
+	EOperation getGisDistanceMatrix__AddFromLocation__GisLocation();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisDistanceMatrix#addToLocation(com.misc.common.moplaf.gis.GisCoordinates) <em>Add To Location</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisDistanceMatrix#addToLocation(com.misc.common.moplaf.gis.GisLocation) <em>Add To Location</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add To Location</em>' operation.
-	 * @see com.misc.common.moplaf.gis.GisDistanceMatrix#addToLocation(com.misc.common.moplaf.gis.GisCoordinates)
+	 * @see com.misc.common.moplaf.gis.GisDistanceMatrix#addToLocation(com.misc.common.moplaf.gis.GisLocation)
 	 * @generated
 	 */
-	EOperation getGisDistanceMatrix__AddToLocation__GisCoordinates();
+	EOperation getGisDistanceMatrix__AddToLocation__GisLocation();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisDistanceMatrix#getFromLocation(com.misc.common.moplaf.gis.GisLocation) <em>Get From Location</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get From Location</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisDistanceMatrix#getFromLocation(com.misc.common.moplaf.gis.GisLocation)
+	 * @generated
+	 */
+	EOperation getGisDistanceMatrix__GetFromLocation__GisLocation();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisDistanceMatrix#getToLocation(com.misc.common.moplaf.gis.GisLocation) <em>Get To Location</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get To Location</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisDistanceMatrix#getToLocation(com.misc.common.moplaf.gis.GisLocation)
+	 * @generated
+	 */
+	EOperation getGisDistanceMatrix__GetToLocation__GisLocation();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisDistanceMatrix#getElement(com.misc.common.moplaf.gis.GisLocation, com.misc.common.moplaf.gis.GisLocation) <em>Get Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Element</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisDistanceMatrix#getElement(com.misc.common.moplaf.gis.GisLocation, com.misc.common.moplaf.gis.GisLocation)
+	 * @generated
+	 */
+	EOperation getGisDistanceMatrix__GetElement__GisLocation_GisLocation();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisDistanceMatrixElement <em>Distance Matrix Element</em>}'.
@@ -977,68 +1070,88 @@ public interface GisPackage extends EPackage {
 	EAttribute getGisDistanceMatrixElement_Duration();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisDistanceFromLocation <em>Distance From Location</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation <em>Distance Matrix From Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Distance From Location</em>'.
-	 * @see com.misc.common.moplaf.gis.GisDistanceFromLocation
+	 * @return the meta object for class '<em>Distance Matrix From Location</em>'.
+	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation
 	 * @generated
 	 */
-	EClass getGisDistanceFromLocation();
+	EClass getGisDistanceMatrixFromLocation();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.gis.GisDistanceFromLocation#getToLocations <em>To Locations</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation#getToLocations <em>To Locations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>To Locations</em>'.
-	 * @see com.misc.common.moplaf.gis.GisDistanceFromLocation#getToLocations()
-	 * @see #getGisDistanceFromLocation()
+	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation#getToLocations()
+	 * @see #getGisDistanceMatrixFromLocation()
 	 * @generated
 	 */
-	EReference getGisDistanceFromLocation_ToLocations();
+	EReference getGisDistanceMatrixFromLocation_ToLocations();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.gis.GisDistanceFromLocation#getLocation <em>Location</em>}'.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation#getLocation <em>Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Location</em>'.
-	 * @see com.misc.common.moplaf.gis.GisDistanceFromLocation#getLocation()
-	 * @see #getGisDistanceFromLocation()
+	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation#getLocation()
+	 * @see #getGisDistanceMatrixFromLocation()
 	 * @generated
 	 */
-	EReference getGisDistanceFromLocation_Location();
+	EReference getGisDistanceMatrixFromLocation_Location();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisDistanceToLocation <em>Distance To Location</em>}'.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation#getElement(com.misc.common.moplaf.gis.GisLocation) <em>Get Element</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Distance To Location</em>'.
-	 * @see com.misc.common.moplaf.gis.GisDistanceToLocation
+	 * @return the meta object for the '<em>Get Element</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation#getElement(com.misc.common.moplaf.gis.GisLocation)
 	 * @generated
 	 */
-	EClass getGisDistanceToLocation();
+	EOperation getGisDistanceMatrixFromLocation__GetElement__GisLocation();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.gis.GisDistanceToLocation#getFromLocations <em>From Locations</em>}'.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation#addElement(com.misc.common.moplaf.gis.GisDistanceMatrixToLocation) <em>Add Element</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Element</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation#addElement(com.misc.common.moplaf.gis.GisDistanceMatrixToLocation)
+	 * @generated
+	 */
+	EOperation getGisDistanceMatrixFromLocation__AddElement__GisDistanceMatrixToLocation();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisDistanceMatrixToLocation <em>Distance Matrix To Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Distance Matrix To Location</em>'.
+	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixToLocation
+	 * @generated
+	 */
+	EClass getGisDistanceMatrixToLocation();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.gis.GisDistanceMatrixToLocation#getFromLocations <em>From Locations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>From Locations</em>'.
-	 * @see com.misc.common.moplaf.gis.GisDistanceToLocation#getFromLocations()
-	 * @see #getGisDistanceToLocation()
+	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixToLocation#getFromLocations()
+	 * @see #getGisDistanceMatrixToLocation()
 	 * @generated
 	 */
-	EReference getGisDistanceToLocation_FromLocations();
+	EReference getGisDistanceMatrixToLocation_FromLocations();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.gis.GisDistanceToLocation#getLocation <em>Location</em>}'.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.gis.GisDistanceMatrixToLocation#getLocation <em>Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Location</em>'.
-	 * @see com.misc.common.moplaf.gis.GisDistanceToLocation#getLocation()
-	 * @see #getGisDistanceToLocation()
+	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixToLocation#getLocation()
+	 * @see #getGisDistanceMatrixToLocation()
 	 * @generated
 	 */
-	EReference getGisDistanceToLocation_Location();
+	EReference getGisDistanceMatrixToLocation_Location();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisAddressGeocoded <em>Address Geocoded</em>}'.
@@ -1114,6 +1227,17 @@ public interface GisPackage extends EPackage {
 	EClass getGisAddressGeocoder();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddressGeocoder#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.gis.GisAddressGeocoder#getName()
+	 * @see #getGisAddressGeocoder()
+	 * @generated
+	 */
+	EAttribute getGisAddressGeocoder_Name();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisAddressGeocoder#geocode(com.misc.common.moplaf.gis.GisAddress) <em>Geocode</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1132,6 +1256,17 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getGisDistanceMatrixCalculator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisDistanceMatrixCalculator#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixCalculator#getName()
+	 * @see #getGisDistanceMatrixCalculator()
+	 * @generated
+	 */
+	EAttribute getGisDistanceMatrixCalculator_Name();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisDistanceMatrixCalculator#calculate(com.misc.common.moplaf.gis.GisDistanceMatrix) <em>Calculate</em>}' operation.
@@ -1330,7 +1465,7 @@ public interface GisPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GIS_DISTANCE_MATRIX___ADD_FROM_LOCATION__GISCOORDINATES = eINSTANCE.getGisDistanceMatrix__AddFromLocation__GisCoordinates();
+		EOperation GIS_DISTANCE_MATRIX___ADD_FROM_LOCATION__GISLOCATION = eINSTANCE.getGisDistanceMatrix__AddFromLocation__GisLocation();
 
 		/**
 		 * The meta object literal for the '<em><b>Add To Location</b></em>' operation.
@@ -1338,7 +1473,31 @@ public interface GisPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GIS_DISTANCE_MATRIX___ADD_TO_LOCATION__GISCOORDINATES = eINSTANCE.getGisDistanceMatrix__AddToLocation__GisCoordinates();
+		EOperation GIS_DISTANCE_MATRIX___ADD_TO_LOCATION__GISLOCATION = eINSTANCE.getGisDistanceMatrix__AddToLocation__GisLocation();
+
+		/**
+		 * The meta object literal for the '<em><b>Get From Location</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GIS_DISTANCE_MATRIX___GET_FROM_LOCATION__GISLOCATION = eINSTANCE.getGisDistanceMatrix__GetFromLocation__GisLocation();
+
+		/**
+		 * The meta object literal for the '<em><b>Get To Location</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GIS_DISTANCE_MATRIX___GET_TO_LOCATION__GISLOCATION = eINSTANCE.getGisDistanceMatrix__GetToLocation__GisLocation();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GIS_DISTANCE_MATRIX___GET_ELEMENT__GISLOCATION_GISLOCATION = eINSTANCE.getGisDistanceMatrix__GetElement__GisLocation_GisLocation();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixElementImpl <em>Distance Matrix Element</em>}' class.
@@ -1383,14 +1542,14 @@ public interface GisPackage extends EPackage {
 		EAttribute GIS_DISTANCE_MATRIX_ELEMENT__DURATION = eINSTANCE.getGisDistanceMatrixElement_Duration();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisDistanceFromLocationImpl <em>Distance From Location</em>}' class.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixFromLocationImpl <em>Distance Matrix From Location</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.gis.impl.GisDistanceFromLocationImpl
-		 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisDistanceFromLocation()
+		 * @see com.misc.common.moplaf.gis.impl.GisDistanceMatrixFromLocationImpl
+		 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisDistanceMatrixFromLocation()
 		 * @generated
 		 */
-		EClass GIS_DISTANCE_FROM_LOCATION = eINSTANCE.getGisDistanceFromLocation();
+		EClass GIS_DISTANCE_MATRIX_FROM_LOCATION = eINSTANCE.getGisDistanceMatrixFromLocation();
 
 		/**
 		 * The meta object literal for the '<em><b>To Locations</b></em>' containment reference list feature.
@@ -1398,7 +1557,7 @@ public interface GisPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GIS_DISTANCE_FROM_LOCATION__TO_LOCATIONS = eINSTANCE.getGisDistanceFromLocation_ToLocations();
+		EReference GIS_DISTANCE_MATRIX_FROM_LOCATION__TO_LOCATIONS = eINSTANCE.getGisDistanceMatrixFromLocation_ToLocations();
 
 		/**
 		 * The meta object literal for the '<em><b>Location</b></em>' reference feature.
@@ -1406,17 +1565,33 @@ public interface GisPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GIS_DISTANCE_FROM_LOCATION__LOCATION = eINSTANCE.getGisDistanceFromLocation_Location();
+		EReference GIS_DISTANCE_MATRIX_FROM_LOCATION__LOCATION = eINSTANCE.getGisDistanceMatrixFromLocation_Location();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisDistanceToLocationImpl <em>Distance To Location</em>}' class.
+		 * The meta object literal for the '<em><b>Get Element</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.gis.impl.GisDistanceToLocationImpl
-		 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisDistanceToLocation()
 		 * @generated
 		 */
-		EClass GIS_DISTANCE_TO_LOCATION = eINSTANCE.getGisDistanceToLocation();
+		EOperation GIS_DISTANCE_MATRIX_FROM_LOCATION___GET_ELEMENT__GISLOCATION = eINSTANCE.getGisDistanceMatrixFromLocation__GetElement__GisLocation();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Element</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GIS_DISTANCE_MATRIX_FROM_LOCATION___ADD_ELEMENT__GISDISTANCEMATRIXTOLOCATION = eINSTANCE.getGisDistanceMatrixFromLocation__AddElement__GisDistanceMatrixToLocation();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixToLocationImpl <em>Distance Matrix To Location</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.gis.impl.GisDistanceMatrixToLocationImpl
+		 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisDistanceMatrixToLocation()
+		 * @generated
+		 */
+		EClass GIS_DISTANCE_MATRIX_TO_LOCATION = eINSTANCE.getGisDistanceMatrixToLocation();
 
 		/**
 		 * The meta object literal for the '<em><b>From Locations</b></em>' reference list feature.
@@ -1424,7 +1599,7 @@ public interface GisPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GIS_DISTANCE_TO_LOCATION__FROM_LOCATIONS = eINSTANCE.getGisDistanceToLocation_FromLocations();
+		EReference GIS_DISTANCE_MATRIX_TO_LOCATION__FROM_LOCATIONS = eINSTANCE.getGisDistanceMatrixToLocation_FromLocations();
 
 		/**
 		 * The meta object literal for the '<em><b>Location</b></em>' reference feature.
@@ -1432,7 +1607,7 @@ public interface GisPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GIS_DISTANCE_TO_LOCATION__LOCATION = eINSTANCE.getGisDistanceToLocation_Location();
+		EReference GIS_DISTANCE_MATRIX_TO_LOCATION__LOCATION = eINSTANCE.getGisDistanceMatrixToLocation_Location();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisAddressGeocodedImpl <em>Address Geocoded</em>}' class.
@@ -1497,6 +1672,14 @@ public interface GisPackage extends EPackage {
 		EClass GIS_ADDRESS_GEOCODER = eINSTANCE.getGisAddressGeocoder();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_ADDRESS_GEOCODER__NAME = eINSTANCE.getGisAddressGeocoder_Name();
+
+		/**
 		 * The meta object literal for the '<em><b>Geocode</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1513,6 +1696,14 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EClass GIS_DISTANCE_MATRIX_CALCULATOR = eINSTANCE.getGisDistanceMatrixCalculator();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_DISTANCE_MATRIX_CALCULATOR__NAME = eINSTANCE.getGisDistanceMatrixCalculator_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Calculate</b></em>' operation.

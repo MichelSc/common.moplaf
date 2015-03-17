@@ -8,22 +8,22 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Distance From Location</b></em>'.
+ * A representation of the model object '<em><b>Distance Matrix From Location</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link com.misc.common.moplaf.gis.GisDistanceFromLocation#getToLocations <em>To Locations</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.GisDistanceFromLocation#getLocation <em>Location</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation#getToLocations <em>To Locations</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation#getLocation <em>Location</em>}</li>
  * </ul>
  * </p>
  *
- * @see com.misc.common.moplaf.gis.GisPackage#getGisDistanceFromLocation()
+ * @see com.misc.common.moplaf.gis.GisPackage#getGisDistanceMatrixFromLocation()
  * @model
  * @generated
  */
-public interface GisDistanceFromLocation extends EObject {
+public interface GisDistanceMatrixFromLocation extends EObject {
 	/**
 	 * Returns the value of the '<em><b>To Locations</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.gis.GisDistanceMatrixElement}.
@@ -35,7 +35,7 @@ public interface GisDistanceFromLocation extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>To Locations</em>' containment reference list.
-	 * @see com.misc.common.moplaf.gis.GisPackage#getGisDistanceFromLocation_ToLocations()
+	 * @see com.misc.common.moplaf.gis.GisPackage#getGisDistanceMatrixFromLocation_ToLocations()
 	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixElement#getFromLocation
 	 * @model opposite="fromLocation" containment="true"
 	 * @generated
@@ -52,14 +52,14 @@ public interface GisDistanceFromLocation extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Location</em>' reference.
 	 * @see #setLocation(GisLocation)
-	 * @see com.misc.common.moplaf.gis.GisPackage#getGisDistanceFromLocation_Location()
+	 * @see com.misc.common.moplaf.gis.GisPackage#getGisDistanceMatrixFromLocation_Location()
 	 * @model required="true"
 	 * @generated
 	 */
 	GisLocation getLocation();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisDistanceFromLocation#getLocation <em>Location</em>}' reference.
+	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation#getLocation <em>Location</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Location</em>' reference.
@@ -68,4 +68,20 @@ public interface GisDistanceFromLocation extends EObject {
 	 */
 	void setLocation(GisLocation value);
 
-} // GisDistanceFromLocation
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	GisDistanceMatrixElement getElement(GisLocation toLocation);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	GisDistanceMatrixElement addElement(GisDistanceMatrixToLocation toLocation);
+
+} // GisDistanceMatrixFromLocation

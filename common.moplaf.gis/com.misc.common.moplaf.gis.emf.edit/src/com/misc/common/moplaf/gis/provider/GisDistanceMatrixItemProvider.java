@@ -3,9 +3,7 @@
 package com.misc.common.moplaf.gis.provider;
 
 
-import com.misc.common.moplaf.gis.GisDistanceFromLocation;
 import com.misc.common.moplaf.gis.GisDistanceMatrix;
-import com.misc.common.moplaf.gis.GisDistanceToLocation;
 import com.misc.common.moplaf.gis.GisFactory;
 import com.misc.common.moplaf.gis.GisLocation;
 import com.misc.common.moplaf.gis.GisPackage;
@@ -213,12 +211,12 @@ public class GisDistanceMatrixItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(GisPackage.Literals.GIS_DISTANCE_MATRIX__FROM_LOCATIONS,
-				 GisFactory.eINSTANCE.createGisDistanceFromLocation()));
+				 GisFactory.eINSTANCE.createGisDistanceMatrixFromLocation()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(GisPackage.Literals.GIS_DISTANCE_MATRIX__TO_LOCATIONS,
-				 GisFactory.eINSTANCE.createGisDistanceToLocation()));
+				 GisFactory.eINSTANCE.createGisDistanceMatrixToLocation()));
 	}
 
 	/**
@@ -264,14 +262,10 @@ public class GisDistanceMatrixItemProvider
 		@Override
 		public void execute() {
 			if ( this.from){
-				GisDistanceFromLocation newfrom = GisFactory.eINSTANCE.createGisDistanceFromLocation();
-				newfrom.setLocation(this.location);
-				this.matrix.getFromLocations().add(newfrom);
+				this.matrix.addFromLocation(location);
 			}
 			if ( this.to){
-				GisDistanceToLocation newto = GisFactory.eINSTANCE.createGisDistanceToLocation();
-				newto.setLocation(this.location);
-				this.matrix.getToLocations().add(newto);
+				this.matrix.addToLocation(location);
 			}
 		}
 

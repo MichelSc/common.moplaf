@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface GisDistanceMatrix extends EObject {
 	/**
 	 * Returns the value of the '<em><b>From Locations</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.gis.GisDistanceFromLocation}.
+	 * The list contents are of type {@link com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>From Locations</em>' containment reference list isn't clear,
@@ -40,11 +40,11 @@ public interface GisDistanceMatrix extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<GisDistanceFromLocation> getFromLocations();
+	EList<GisDistanceMatrixFromLocation> getFromLocations();
 
 	/**
 	 * Returns the value of the '<em><b>To Locations</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.gis.GisDistanceToLocation}.
+	 * The list contents are of type {@link com.misc.common.moplaf.gis.GisDistanceMatrixToLocation}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>To Locations</em>' containment reference list isn't clear,
@@ -56,7 +56,7 @@ public interface GisDistanceMatrix extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<GisDistanceToLocation> getToLocations();
+	EList<GisDistanceMatrixToLocation> getToLocations();
 
 	/**
 	 * Returns the value of the '<em><b>Calculator</b></em>' reference.
@@ -124,7 +124,7 @@ public interface GisDistanceMatrix extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void addFromLocation(GisCoordinates location);
+	GisDistanceMatrixFromLocation addFromLocation(GisLocation location);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -132,6 +132,30 @@ public interface GisDistanceMatrix extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void addToLocation(GisCoordinates location);
+	GisDistanceMatrixToLocation addToLocation(GisLocation location);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	GisDistanceMatrixFromLocation getFromLocation(GisLocation location);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	GisDistanceMatrixToLocation getToLocation(GisLocation location);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	GisDistanceMatrixElement getElement(GisLocation fromLocation, GisLocation toLocation);
 
 } // GisDistanceMatrix

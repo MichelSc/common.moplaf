@@ -6,11 +6,11 @@ import com.misc.common.moplaf.gis.GisAddress;
 import com.misc.common.moplaf.gis.GisAddressGeocoded;
 import com.misc.common.moplaf.gis.GisAddressGeocoder;
 import com.misc.common.moplaf.gis.GisCoordinates;
-import com.misc.common.moplaf.gis.GisDistanceFromLocation;
 import com.misc.common.moplaf.gis.GisDistanceMatrix;
 import com.misc.common.moplaf.gis.GisDistanceMatrixCalculator;
 import com.misc.common.moplaf.gis.GisDistanceMatrixElement;
-import com.misc.common.moplaf.gis.GisDistanceToLocation;
+import com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation;
+import com.misc.common.moplaf.gis.GisDistanceMatrixToLocation;
 import com.misc.common.moplaf.gis.GisFactory;
 import com.misc.common.moplaf.gis.GisLocation;
 import com.misc.common.moplaf.gis.GisPackage;
@@ -61,14 +61,14 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass gisDistanceFromLocationEClass = null;
+	private EClass gisDistanceMatrixFromLocationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass gisDistanceToLocationEClass = null;
+	private EClass gisDistanceMatrixToLocationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -335,7 +335,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getGisDistanceMatrix__AddFromLocation__GisCoordinates() {
+	public EOperation getGisDistanceMatrix__AddFromLocation__GisLocation() {
 		return gisDistanceMatrixEClass.getEOperations().get(1);
 	}
 
@@ -344,8 +344,35 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getGisDistanceMatrix__AddToLocation__GisCoordinates() {
+	public EOperation getGisDistanceMatrix__AddToLocation__GisLocation() {
 		return gisDistanceMatrixEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGisDistanceMatrix__GetFromLocation__GisLocation() {
+		return gisDistanceMatrixEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGisDistanceMatrix__GetToLocation__GisLocation() {
+		return gisDistanceMatrixEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGisDistanceMatrix__GetElement__GisLocation_GisLocation() {
+		return gisDistanceMatrixEClass.getEOperations().get(5);
 	}
 
 	/**
@@ -398,8 +425,8 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getGisDistanceFromLocation() {
-		return gisDistanceFromLocationEClass;
+	public EClass getGisDistanceMatrixFromLocation() {
+		return gisDistanceMatrixFromLocationEClass;
 	}
 
 	/**
@@ -407,8 +434,8 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGisDistanceFromLocation_ToLocations() {
-		return (EReference)gisDistanceFromLocationEClass.getEStructuralFeatures().get(0);
+	public EReference getGisDistanceMatrixFromLocation_ToLocations() {
+		return (EReference)gisDistanceMatrixFromLocationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -416,8 +443,8 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGisDistanceFromLocation_Location() {
-		return (EReference)gisDistanceFromLocationEClass.getEStructuralFeatures().get(1);
+	public EReference getGisDistanceMatrixFromLocation_Location() {
+		return (EReference)gisDistanceMatrixFromLocationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -425,8 +452,8 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getGisDistanceToLocation() {
-		return gisDistanceToLocationEClass;
+	public EOperation getGisDistanceMatrixFromLocation__GetElement__GisLocation() {
+		return gisDistanceMatrixFromLocationEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -434,8 +461,8 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGisDistanceToLocation_FromLocations() {
-		return (EReference)gisDistanceToLocationEClass.getEStructuralFeatures().get(0);
+	public EOperation getGisDistanceMatrixFromLocation__AddElement__GisDistanceMatrixToLocation() {
+		return gisDistanceMatrixFromLocationEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -443,8 +470,26 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGisDistanceToLocation_Location() {
-		return (EReference)gisDistanceToLocationEClass.getEStructuralFeatures().get(1);
+	public EClass getGisDistanceMatrixToLocation() {
+		return gisDistanceMatrixToLocationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGisDistanceMatrixToLocation_FromLocations() {
+		return (EReference)gisDistanceMatrixToLocationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGisDistanceMatrixToLocation_Location() {
+		return (EReference)gisDistanceMatrixToLocationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -515,6 +560,15 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getGisAddressGeocoder_Name() {
+		return (EAttribute)gisAddressGeocoderEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getGisAddressGeocoder__Geocode__GisAddress() {
 		return gisAddressGeocoderEClass.getEOperations().get(0);
 	}
@@ -526,6 +580,15 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 */
 	public EClass getGisDistanceMatrixCalculator() {
 		return gisDistanceMatrixCalculatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisDistanceMatrixCalculator_Name() {
+		return (EAttribute)gisDistanceMatrixCalculatorEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -586,8 +649,11 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		createEReference(gisDistanceMatrixEClass, GIS_DISTANCE_MATRIX__CALCULATOR);
 		createEAttribute(gisDistanceMatrixEClass, GIS_DISTANCE_MATRIX__NAME);
 		createEOperation(gisDistanceMatrixEClass, GIS_DISTANCE_MATRIX___CALCULATE);
-		createEOperation(gisDistanceMatrixEClass, GIS_DISTANCE_MATRIX___ADD_FROM_LOCATION__GISCOORDINATES);
-		createEOperation(gisDistanceMatrixEClass, GIS_DISTANCE_MATRIX___ADD_TO_LOCATION__GISCOORDINATES);
+		createEOperation(gisDistanceMatrixEClass, GIS_DISTANCE_MATRIX___ADD_FROM_LOCATION__GISLOCATION);
+		createEOperation(gisDistanceMatrixEClass, GIS_DISTANCE_MATRIX___ADD_TO_LOCATION__GISLOCATION);
+		createEOperation(gisDistanceMatrixEClass, GIS_DISTANCE_MATRIX___GET_FROM_LOCATION__GISLOCATION);
+		createEOperation(gisDistanceMatrixEClass, GIS_DISTANCE_MATRIX___GET_TO_LOCATION__GISLOCATION);
+		createEOperation(gisDistanceMatrixEClass, GIS_DISTANCE_MATRIX___GET_ELEMENT__GISLOCATION_GISLOCATION);
 
 		gisDistanceMatrixElementEClass = createEClass(GIS_DISTANCE_MATRIX_ELEMENT);
 		createEReference(gisDistanceMatrixElementEClass, GIS_DISTANCE_MATRIX_ELEMENT__FROM_LOCATION);
@@ -595,13 +661,15 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		createEAttribute(gisDistanceMatrixElementEClass, GIS_DISTANCE_MATRIX_ELEMENT__DISTANCE);
 		createEAttribute(gisDistanceMatrixElementEClass, GIS_DISTANCE_MATRIX_ELEMENT__DURATION);
 
-		gisDistanceFromLocationEClass = createEClass(GIS_DISTANCE_FROM_LOCATION);
-		createEReference(gisDistanceFromLocationEClass, GIS_DISTANCE_FROM_LOCATION__TO_LOCATIONS);
-		createEReference(gisDistanceFromLocationEClass, GIS_DISTANCE_FROM_LOCATION__LOCATION);
+		gisDistanceMatrixFromLocationEClass = createEClass(GIS_DISTANCE_MATRIX_FROM_LOCATION);
+		createEReference(gisDistanceMatrixFromLocationEClass, GIS_DISTANCE_MATRIX_FROM_LOCATION__TO_LOCATIONS);
+		createEReference(gisDistanceMatrixFromLocationEClass, GIS_DISTANCE_MATRIX_FROM_LOCATION__LOCATION);
+		createEOperation(gisDistanceMatrixFromLocationEClass, GIS_DISTANCE_MATRIX_FROM_LOCATION___GET_ELEMENT__GISLOCATION);
+		createEOperation(gisDistanceMatrixFromLocationEClass, GIS_DISTANCE_MATRIX_FROM_LOCATION___ADD_ELEMENT__GISDISTANCEMATRIXTOLOCATION);
 
-		gisDistanceToLocationEClass = createEClass(GIS_DISTANCE_TO_LOCATION);
-		createEReference(gisDistanceToLocationEClass, GIS_DISTANCE_TO_LOCATION__FROM_LOCATIONS);
-		createEReference(gisDistanceToLocationEClass, GIS_DISTANCE_TO_LOCATION__LOCATION);
+		gisDistanceMatrixToLocationEClass = createEClass(GIS_DISTANCE_MATRIX_TO_LOCATION);
+		createEReference(gisDistanceMatrixToLocationEClass, GIS_DISTANCE_MATRIX_TO_LOCATION__FROM_LOCATIONS);
+		createEReference(gisDistanceMatrixToLocationEClass, GIS_DISTANCE_MATRIX_TO_LOCATION__LOCATION);
 
 		gisAddressGeocodedEClass = createEClass(GIS_ADDRESS_GEOCODED);
 		createEAttribute(gisAddressGeocodedEClass, GIS_ADDRESS_GEOCODED__SCORE);
@@ -612,9 +680,11 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		createEOperation(gisLocationEClass, GIS_LOCATION___GET_COORDINATES);
 
 		gisAddressGeocoderEClass = createEClass(GIS_ADDRESS_GEOCODER);
+		createEAttribute(gisAddressGeocoderEClass, GIS_ADDRESS_GEOCODER__NAME);
 		createEOperation(gisAddressGeocoderEClass, GIS_ADDRESS_GEOCODER___GEOCODE__GISADDRESS);
 
 		gisDistanceMatrixCalculatorEClass = createEClass(GIS_DISTANCE_MATRIX_CALCULATOR);
+		createEAttribute(gisDistanceMatrixCalculatorEClass, GIS_DISTANCE_MATRIX_CALCULATOR__NAME);
 		createEOperation(gisDistanceMatrixCalculatorEClass, GIS_DISTANCE_MATRIX_CALCULATOR___CALCULATE__GISDISTANCEMATRIX);
 	}
 
@@ -668,32 +738,48 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		initEOperation(getGisAddress__Geocode(), null, "geocode", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(gisDistanceMatrixEClass, GisDistanceMatrix.class, "GisDistanceMatrix", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGisDistanceMatrix_FromLocations(), this.getGisDistanceFromLocation(), null, "fromLocations", null, 0, -1, GisDistanceMatrix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGisDistanceMatrix_ToLocations(), this.getGisDistanceToLocation(), null, "toLocations", null, 0, -1, GisDistanceMatrix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGisDistanceMatrix_FromLocations(), this.getGisDistanceMatrixFromLocation(), null, "fromLocations", null, 0, -1, GisDistanceMatrix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGisDistanceMatrix_ToLocations(), this.getGisDistanceMatrixToLocation(), null, "toLocations", null, 0, -1, GisDistanceMatrix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGisDistanceMatrix_Calculator(), this.getGisDistanceMatrixCalculator(), null, "calculator", null, 0, 1, GisDistanceMatrix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisDistanceMatrix_Name(), ecorePackage.getEString(), "Name", null, 0, 1, GisDistanceMatrix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getGisDistanceMatrix__Calculate(), null, "calculate", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		EOperation op = initEOperation(getGisDistanceMatrix__AddFromLocation__GisCoordinates(), null, "addFromLocation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getGisCoordinates(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getGisDistanceMatrix__AddFromLocation__GisLocation(), this.getGisDistanceMatrixFromLocation(), "addFromLocation", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getGisLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getGisDistanceMatrix__AddToLocation__GisCoordinates(), null, "addToLocation", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getGisCoordinates(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getGisDistanceMatrix__AddToLocation__GisLocation(), this.getGisDistanceMatrixToLocation(), "addToLocation", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getGisLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getGisDistanceMatrix__GetFromLocation__GisLocation(), this.getGisDistanceMatrixFromLocation(), "getFromLocation", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getGisLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getGisDistanceMatrix__GetToLocation__GisLocation(), this.getGisDistanceMatrixToLocation(), "getToLocation", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getGisLocation(), "location", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getGisDistanceMatrix__GetElement__GisLocation_GisLocation(), this.getGisDistanceMatrixElement(), "getElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getGisLocation(), "fromLocation", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getGisLocation(), "toLocation", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(gisDistanceMatrixElementEClass, GisDistanceMatrixElement.class, "GisDistanceMatrixElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGisDistanceMatrixElement_FromLocation(), this.getGisDistanceFromLocation(), this.getGisDistanceFromLocation_ToLocations(), "fromLocation", null, 1, 1, GisDistanceMatrixElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGisDistanceMatrixElement_ToLocation(), this.getGisDistanceToLocation(), this.getGisDistanceToLocation_FromLocations(), "toLocation", null, 1, 1, GisDistanceMatrixElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGisDistanceMatrixElement_FromLocation(), this.getGisDistanceMatrixFromLocation(), this.getGisDistanceMatrixFromLocation_ToLocations(), "fromLocation", null, 1, 1, GisDistanceMatrixElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGisDistanceMatrixElement_ToLocation(), this.getGisDistanceMatrixToLocation(), this.getGisDistanceMatrixToLocation_FromLocations(), "toLocation", null, 1, 1, GisDistanceMatrixElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisDistanceMatrixElement_Distance(), ecorePackage.getEFloat(), "Distance", null, 0, 1, GisDistanceMatrixElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisDistanceMatrixElement_Duration(), ecorePackage.getEFloat(), "Duration", null, 0, 1, GisDistanceMatrixElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(gisDistanceFromLocationEClass, GisDistanceFromLocation.class, "GisDistanceFromLocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGisDistanceFromLocation_ToLocations(), this.getGisDistanceMatrixElement(), this.getGisDistanceMatrixElement_FromLocation(), "toLocations", null, 0, -1, GisDistanceFromLocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGisDistanceFromLocation_Location(), this.getGisLocation(), null, "location", null, 1, 1, GisDistanceFromLocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(gisDistanceMatrixFromLocationEClass, GisDistanceMatrixFromLocation.class, "GisDistanceMatrixFromLocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getGisDistanceMatrixFromLocation_ToLocations(), this.getGisDistanceMatrixElement(), this.getGisDistanceMatrixElement_FromLocation(), "toLocations", null, 0, -1, GisDistanceMatrixFromLocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGisDistanceMatrixFromLocation_Location(), this.getGisLocation(), null, "location", null, 1, 1, GisDistanceMatrixFromLocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(gisDistanceToLocationEClass, GisDistanceToLocation.class, "GisDistanceToLocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGisDistanceToLocation_FromLocations(), this.getGisDistanceMatrixElement(), this.getGisDistanceMatrixElement_ToLocation(), "fromLocations", null, 0, -1, GisDistanceToLocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGisDistanceToLocation_Location(), this.getGisLocation(), null, "location", null, 1, 1, GisDistanceToLocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		op = initEOperation(getGisDistanceMatrixFromLocation__GetElement__GisLocation(), this.getGisDistanceMatrixElement(), "getElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getGisLocation(), "toLocation", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getGisDistanceMatrixFromLocation__AddElement__GisDistanceMatrixToLocation(), this.getGisDistanceMatrixElement(), "addElement", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getGisDistanceMatrixToLocation(), "toLocation", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(gisDistanceMatrixToLocationEClass, GisDistanceMatrixToLocation.class, "GisDistanceMatrixToLocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getGisDistanceMatrixToLocation_FromLocations(), this.getGisDistanceMatrixElement(), this.getGisDistanceMatrixElement_ToLocation(), "fromLocations", null, 0, -1, GisDistanceMatrixToLocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGisDistanceMatrixToLocation_Location(), this.getGisLocation(), null, "location", null, 1, 1, GisDistanceMatrixToLocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(gisAddressGeocodedEClass, GisAddressGeocoded.class, "GisAddressGeocoded", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGisAddressGeocoded_Score(), ecorePackage.getEFloat(), "Score", null, 0, 1, GisAddressGeocoded.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -705,11 +791,13 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		initEOperation(getGisLocation__GetCoordinates(), this.getGisCoordinates(), "getCoordinates", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(gisAddressGeocoderEClass, GisAddressGeocoder.class, "GisAddressGeocoder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGisAddressGeocoder_Name(), ecorePackage.getEString(), "Name", null, 0, 1, GisAddressGeocoder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getGisAddressGeocoder__Geocode__GisAddress(), null, "geocode", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getGisAddress(), "address", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(gisDistanceMatrixCalculatorEClass, GisDistanceMatrixCalculator.class, "GisDistanceMatrixCalculator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGisDistanceMatrixCalculator_Name(), ecorePackage.getEString(), "Name", null, 0, 1, GisDistanceMatrixCalculator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getGisDistanceMatrixCalculator__Calculate__GisDistanceMatrix(), null, "calculate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getGisDistanceMatrix(), "matrix", 0, 1, IS_UNIQUE, IS_ORDERED);

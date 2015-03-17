@@ -164,49 +164,49 @@ public class GisItemProviderAdapterFactory extends GisAdapterFactory implements 
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisDistanceFromLocation} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GisDistanceFromLocationItemProvider gisDistanceFromLocationItemProvider;
+	protected GisDistanceMatrixFromLocationItemProvider gisDistanceMatrixFromLocationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.GisDistanceFromLocation}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createGisDistanceFromLocationAdapter() {
-		if (gisDistanceFromLocationItemProvider == null) {
-			gisDistanceFromLocationItemProvider = new GisDistanceFromLocationItemProvider(this);
+	public Adapter createGisDistanceMatrixFromLocationAdapter() {
+		if (gisDistanceMatrixFromLocationItemProvider == null) {
+			gisDistanceMatrixFromLocationItemProvider = new GisDistanceMatrixFromLocationItemProvider(this);
 		}
 
-		return gisDistanceFromLocationItemProvider;
+		return gisDistanceMatrixFromLocationItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisDistanceToLocation} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisDistanceMatrixToLocation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GisDistanceToLocationItemProvider gisDistanceToLocationItemProvider;
+	protected GisDistanceMatrixToLocationItemProvider gisDistanceMatrixToLocationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.GisDistanceToLocation}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.GisDistanceMatrixToLocation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createGisDistanceToLocationAdapter() {
-		if (gisDistanceToLocationItemProvider == null) {
-			gisDistanceToLocationItemProvider = new GisDistanceToLocationItemProvider(this);
+	public Adapter createGisDistanceMatrixToLocationAdapter() {
+		if (gisDistanceMatrixToLocationItemProvider == null) {
+			gisDistanceMatrixToLocationItemProvider = new GisDistanceMatrixToLocationItemProvider(this);
 		}
 
-		return gisDistanceToLocationItemProvider;
+		return gisDistanceMatrixToLocationItemProvider;
 	}
 
 	/**
@@ -381,8 +381,8 @@ public class GisItemProviderAdapterFactory extends GisAdapterFactory implements 
 		if (gisAddressItemProvider != null) gisAddressItemProvider.dispose();
 		if (gisDistanceMatrixItemProvider != null) gisDistanceMatrixItemProvider.dispose();
 		if (gisDistanceMatrixElementItemProvider != null) gisDistanceMatrixElementItemProvider.dispose();
-		if (gisDistanceFromLocationItemProvider != null) gisDistanceFromLocationItemProvider.dispose();
-		if (gisDistanceToLocationItemProvider != null) gisDistanceToLocationItemProvider.dispose();
+		if (gisDistanceMatrixFromLocationItemProvider != null) gisDistanceMatrixFromLocationItemProvider.dispose();
+		if (gisDistanceMatrixToLocationItemProvider != null) gisDistanceMatrixToLocationItemProvider.dispose();
 		if (gisAddressGeocodedItemProvider != null) gisAddressGeocodedItemProvider.dispose();
 		if (gisAddressGeocoderItemProvider != null) gisAddressGeocoderItemProvider.dispose();
 		if (gisDistanceMatrixCalculatorItemProvider != null) gisDistanceMatrixCalculatorItemProvider.dispose();

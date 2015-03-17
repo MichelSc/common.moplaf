@@ -57,8 +57,8 @@ public class GisFactoryImpl extends EFactoryImpl implements GisFactory {
 			case GisPackage.GIS_ADDRESS: return createGisAddress();
 			case GisPackage.GIS_DISTANCE_MATRIX: return createGisDistanceMatrix();
 			case GisPackage.GIS_DISTANCE_MATRIX_ELEMENT: return createGisDistanceMatrixElement();
-			case GisPackage.GIS_DISTANCE_FROM_LOCATION: return createGisDistanceFromLocation();
-			case GisPackage.GIS_DISTANCE_TO_LOCATION: return createGisDistanceToLocation();
+			case GisPackage.GIS_DISTANCE_MATRIX_FROM_LOCATION: return createGisDistanceMatrixFromLocation();
+			case GisPackage.GIS_DISTANCE_MATRIX_TO_LOCATION: return createGisDistanceMatrixToLocation();
 			case GisPackage.GIS_ADDRESS_GEOCODED: return createGisAddressGeocoded();
 			case GisPackage.GIS_ADDRESS_GEOCODER: return createGisAddressGeocoder();
 			case GisPackage.GIS_DISTANCE_MATRIX_CALCULATOR: return createGisDistanceMatrixCalculator();
@@ -112,9 +112,9 @@ public class GisFactoryImpl extends EFactoryImpl implements GisFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GisDistanceFromLocation createGisDistanceFromLocation() {
-		GisDistanceFromLocationImpl gisDistanceFromLocation = new GisDistanceFromLocationImpl();
-		return gisDistanceFromLocation;
+	public GisDistanceMatrixFromLocation createGisDistanceMatrixFromLocation() {
+		GisDistanceMatrixFromLocationImpl gisDistanceMatrixFromLocation = new GisDistanceMatrixFromLocationImpl();
+		return gisDistanceMatrixFromLocation;
 	}
 
 	/**
@@ -122,9 +122,9 @@ public class GisFactoryImpl extends EFactoryImpl implements GisFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GisDistanceToLocation createGisDistanceToLocation() {
-		GisDistanceToLocationImpl gisDistanceToLocation = new GisDistanceToLocationImpl();
-		return gisDistanceToLocation;
+	public GisDistanceMatrixToLocation createGisDistanceMatrixToLocation() {
+		GisDistanceMatrixToLocationImpl gisDistanceMatrixToLocation = new GisDistanceMatrixToLocationImpl();
+		return gisDistanceMatrixToLocation;
 	}
 
 	/**

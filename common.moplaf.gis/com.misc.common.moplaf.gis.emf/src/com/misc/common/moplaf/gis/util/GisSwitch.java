@@ -92,15 +92,15 @@ public class GisSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case GisPackage.GIS_DISTANCE_FROM_LOCATION: {
-				GisDistanceFromLocation gisDistanceFromLocation = (GisDistanceFromLocation)theEObject;
-				T result = caseGisDistanceFromLocation(gisDistanceFromLocation);
+			case GisPackage.GIS_DISTANCE_MATRIX_FROM_LOCATION: {
+				GisDistanceMatrixFromLocation gisDistanceMatrixFromLocation = (GisDistanceMatrixFromLocation)theEObject;
+				T result = caseGisDistanceMatrixFromLocation(gisDistanceMatrixFromLocation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case GisPackage.GIS_DISTANCE_TO_LOCATION: {
-				GisDistanceToLocation gisDistanceToLocation = (GisDistanceToLocation)theEObject;
-				T result = caseGisDistanceToLocation(gisDistanceToLocation);
+			case GisPackage.GIS_DISTANCE_MATRIX_TO_LOCATION: {
+				GisDistanceMatrixToLocation gisDistanceMatrixToLocation = (GisDistanceMatrixToLocation)theEObject;
+				T result = caseGisDistanceMatrixToLocation(gisDistanceMatrixToLocation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -195,32 +195,32 @@ public class GisSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Distance From Location</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Distance Matrix From Location</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Distance From Location</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Distance Matrix From Location</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseGisDistanceFromLocation(GisDistanceFromLocation object) {
+	public T caseGisDistanceMatrixFromLocation(GisDistanceMatrixFromLocation object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Distance To Location</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Distance Matrix To Location</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Distance To Location</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Distance Matrix To Location</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseGisDistanceToLocation(GisDistanceToLocation object) {
+	public T caseGisDistanceMatrixToLocation(GisDistanceMatrixToLocation object) {
 		return null;
 	}
 

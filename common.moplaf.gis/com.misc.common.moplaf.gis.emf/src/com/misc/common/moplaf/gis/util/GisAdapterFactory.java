@@ -84,12 +84,12 @@ public class GisAdapterFactory extends AdapterFactoryImpl {
 				return createGisDistanceMatrixElementAdapter();
 			}
 			@Override
-			public Adapter caseGisDistanceFromLocation(GisDistanceFromLocation object) {
-				return createGisDistanceFromLocationAdapter();
+			public Adapter caseGisDistanceMatrixFromLocation(GisDistanceMatrixFromLocation object) {
+				return createGisDistanceMatrixFromLocationAdapter();
 			}
 			@Override
-			public Adapter caseGisDistanceToLocation(GisDistanceToLocation object) {
-				return createGisDistanceToLocationAdapter();
+			public Adapter caseGisDistanceMatrixToLocation(GisDistanceMatrixToLocation object) {
+				return createGisDistanceMatrixToLocationAdapter();
 			}
 			@Override
 			public Adapter caseGisAddressGeocoded(GisAddressGeocoded object) {
@@ -184,30 +184,30 @@ public class GisAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisDistanceFromLocation <em>Distance From Location</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation <em>Distance Matrix From Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.gis.GisDistanceFromLocation
+	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation
 	 * @generated
 	 */
-	public Adapter createGisDistanceFromLocationAdapter() {
+	public Adapter createGisDistanceMatrixFromLocationAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisDistanceToLocation <em>Distance To Location</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisDistanceMatrixToLocation <em>Distance Matrix To Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.gis.GisDistanceToLocation
+	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixToLocation
 	 * @generated
 	 */
-	public Adapter createGisDistanceToLocationAdapter() {
+	public Adapter createGisDistanceMatrixToLocationAdapter() {
 		return null;
 	}
 

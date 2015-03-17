@@ -3,7 +3,7 @@
 package com.misc.common.moplaf.gis.provider;
 
 
-import com.misc.common.moplaf.gis.GisDistanceFromLocation;
+import com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation;
 import com.misc.common.moplaf.gis.GisFactory;
 import com.misc.common.moplaf.gis.GisPackage;
 
@@ -28,12 +28,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.gis.GisDistanceFromLocation} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class GisDistanceFromLocationItemProvider 
+public class GisDistanceMatrixFromLocationItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -47,7 +47,7 @@ public class GisDistanceFromLocationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GisDistanceFromLocationItemProvider(AdapterFactory adapterFactory) {
+	public GisDistanceMatrixFromLocationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -78,9 +78,9 @@ public class GisDistanceFromLocationItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GisDistanceFromLocation_location_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GisDistanceFromLocation_location_feature", "_UI_GisDistanceFromLocation_type"),
-				 GisPackage.Literals.GIS_DISTANCE_FROM_LOCATION__LOCATION,
+				 getString("_UI_GisDistanceMatrixFromLocation_location_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisDistanceMatrixFromLocation_location_feature", "_UI_GisDistanceMatrixFromLocation_type"),
+				 GisPackage.Literals.GIS_DISTANCE_MATRIX_FROM_LOCATION__LOCATION,
 				 true,
 				 false,
 				 true,
@@ -101,7 +101,7 @@ public class GisDistanceFromLocationItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(GisPackage.Literals.GIS_DISTANCE_FROM_LOCATION__TO_LOCATIONS);
+			childrenFeatures.add(GisPackage.Literals.GIS_DISTANCE_MATRIX_FROM_LOCATION__TO_LOCATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -120,14 +120,14 @@ public class GisDistanceFromLocationItemProvider
 	}
 
 	/**
-	 * This returns GisDistanceFromLocation.gif.
+	 * This returns GisDistanceMatrixFromLocation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/GisDistanceFromLocation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/GisDistanceMatrixFromLocation"));
 	}
 
 	/**
@@ -138,7 +138,7 @@ public class GisDistanceFromLocationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_GisDistanceFromLocation_type");
+		return getString("_UI_GisDistanceMatrixFromLocation_type");
 	}
 	
 
@@ -153,8 +153,8 @@ public class GisDistanceFromLocationItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(GisDistanceFromLocation.class)) {
-			case GisPackage.GIS_DISTANCE_FROM_LOCATION__TO_LOCATIONS:
+		switch (notification.getFeatureID(GisDistanceMatrixFromLocation.class)) {
+			case GisPackage.GIS_DISTANCE_MATRIX_FROM_LOCATION__TO_LOCATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -174,7 +174,7 @@ public class GisDistanceFromLocationItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(GisPackage.Literals.GIS_DISTANCE_FROM_LOCATION__TO_LOCATIONS,
+				(GisPackage.Literals.GIS_DISTANCE_MATRIX_FROM_LOCATION__TO_LOCATIONS,
 				 GisFactory.eINSTANCE.createGisDistanceMatrixElement()));
 	}
 

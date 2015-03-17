@@ -23,12 +23,12 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.gis.GisDistanceToLocation} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.gis.GisDistanceMatrixToLocation} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class GisDistanceToLocationItemProvider 
+public class GisDistanceMatrixToLocationItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -42,7 +42,7 @@ public class GisDistanceToLocationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GisDistanceToLocationItemProvider(AdapterFactory adapterFactory) {
+	public GisDistanceMatrixToLocationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -74,9 +74,9 @@ public class GisDistanceToLocationItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GisDistanceToLocation_fromLocations_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GisDistanceToLocation_fromLocations_feature", "_UI_GisDistanceToLocation_type"),
-				 GisPackage.Literals.GIS_DISTANCE_TO_LOCATION__FROM_LOCATIONS,
+				 getString("_UI_GisDistanceMatrixToLocation_fromLocations_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisDistanceMatrixToLocation_fromLocations_feature", "_UI_GisDistanceMatrixToLocation_type"),
+				 GisPackage.Literals.GIS_DISTANCE_MATRIX_TO_LOCATION__FROM_LOCATIONS,
 				 true,
 				 false,
 				 true,
@@ -96,9 +96,9 @@ public class GisDistanceToLocationItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GisDistanceToLocation_location_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GisDistanceToLocation_location_feature", "_UI_GisDistanceToLocation_type"),
-				 GisPackage.Literals.GIS_DISTANCE_TO_LOCATION__LOCATION,
+				 getString("_UI_GisDistanceMatrixToLocation_location_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisDistanceMatrixToLocation_location_feature", "_UI_GisDistanceMatrixToLocation_type"),
+				 GisPackage.Literals.GIS_DISTANCE_MATRIX_TO_LOCATION__LOCATION,
 				 true,
 				 false,
 				 true,
@@ -108,14 +108,14 @@ public class GisDistanceToLocationItemProvider
 	}
 
 	/**
-	 * This returns GisDistanceToLocation.gif.
+	 * This returns GisDistanceMatrixToLocation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/GisDistanceToLocation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/GisDistanceMatrixToLocation"));
 	}
 
 	/**
@@ -126,7 +126,7 @@ public class GisDistanceToLocationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_GisDistanceToLocation_type");
+		return getString("_UI_GisDistanceMatrixToLocation_type");
 	}
 	
 
