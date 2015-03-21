@@ -6,16 +6,30 @@
     usedGenPackages="../../com.misc.common.moplaf.gis.emf/model/gis.genmodel#//gis"
     operationReflection="true" importOrganizing="true">
   <foreignModel>gisgoogle.ecore</foreignModel>
-  <genPackages prefix="GisGoogle" disposableProviderFactory="true" ecorePackage="gisgoogle.ecore#/">
+  <genPackages prefix="GisGoogle" basePackage="com.misc.common.moplaf.gis" disposableProviderFactory="true"
+      ecorePackage="gisgoogle.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gisgoogle.ecore#//Protocol">
+      <genEnumLiterals ecoreEnumLiteral="gisgoogle.ecore#//Protocol/Http"/>
+      <genEnumLiterals ecoreEnumLiteral="gisgoogle.ecore#//Protocol/Https"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gisgoogle.ecore#//TravelMode">
+      <genEnumLiterals ecoreEnumLiteral="gisgoogle.ecore#//TravelMode/Driving"/>
+      <genEnumLiterals ecoreEnumLiteral="gisgoogle.ecore#//TravelMode/Walking"/>
+      <genEnumLiterals ecoreEnumLiteral="gisgoogle.ecore#//TravelMode/Bicycling"/>
+    </genEnums>
     <genClasses ecoreClass="gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/Host"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/Protocol"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/Key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/AvoidTolls"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/AvoidFerries"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/AvoidHighways"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/TravelModel"/>
     </genClasses>
-    <genClasses ecoreClass="gisgoogle.ecore#//GisAddressGeocoder">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisAddressGeocoder/Host"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisAddressGeocoder/Protocol"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisAddressGeocoder/Key"/>
+    <genClasses ecoreClass="gisgoogle.ecore#//GisAddressGeocoderGoogleWS">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisAddressGeocoderGoogleWS/Host"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisAddressGeocoderGoogleWS/Protocol"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisAddressGeocoderGoogleWS/Key"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

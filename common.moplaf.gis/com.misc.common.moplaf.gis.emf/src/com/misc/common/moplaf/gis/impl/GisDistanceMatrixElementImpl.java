@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixElementImpl#getToLocation <em>To Location</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixElementImpl#getDistance <em>Distance</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixElementImpl#getDuration <em>Duration</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixElementImpl#isCalculated <em>Calculated</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,6 +81,26 @@ public class GisDistanceMatrixElementImpl extends MinimalEObjectImpl.Container i
 	 * @ordered
 	 */
 	protected float duration = DURATION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isCalculated() <em>Calculated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCalculated()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CALCULATED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isCalculated() <em>Calculated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCalculated()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean calculated = CALCULATED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -248,6 +269,27 @@ public class GisDistanceMatrixElementImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isCalculated() {
+		return calculated;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCalculated(boolean newCalculated) {
+		boolean oldCalculated = calculated;
+		calculated = newCalculated;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_DISTANCE_MATRIX_ELEMENT__CALCULATED, oldCalculated, calculated));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -310,6 +352,8 @@ public class GisDistanceMatrixElementImpl extends MinimalEObjectImpl.Container i
 				return getDistance();
 			case GisPackage.GIS_DISTANCE_MATRIX_ELEMENT__DURATION:
 				return getDuration();
+			case GisPackage.GIS_DISTANCE_MATRIX_ELEMENT__CALCULATED:
+				return isCalculated();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -333,6 +377,9 @@ public class GisDistanceMatrixElementImpl extends MinimalEObjectImpl.Container i
 				return;
 			case GisPackage.GIS_DISTANCE_MATRIX_ELEMENT__DURATION:
 				setDuration((Float)newValue);
+				return;
+			case GisPackage.GIS_DISTANCE_MATRIX_ELEMENT__CALCULATED:
+				setCalculated((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -358,6 +405,9 @@ public class GisDistanceMatrixElementImpl extends MinimalEObjectImpl.Container i
 			case GisPackage.GIS_DISTANCE_MATRIX_ELEMENT__DURATION:
 				setDuration(DURATION_EDEFAULT);
 				return;
+			case GisPackage.GIS_DISTANCE_MATRIX_ELEMENT__CALCULATED:
+				setCalculated(CALCULATED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -378,6 +428,8 @@ public class GisDistanceMatrixElementImpl extends MinimalEObjectImpl.Container i
 				return distance != DISTANCE_EDEFAULT;
 			case GisPackage.GIS_DISTANCE_MATRIX_ELEMENT__DURATION:
 				return duration != DURATION_EDEFAULT;
+			case GisPackage.GIS_DISTANCE_MATRIX_ELEMENT__CALCULATED:
+				return calculated != CALCULATED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -396,6 +448,8 @@ public class GisDistanceMatrixElementImpl extends MinimalEObjectImpl.Container i
 		result.append(distance);
 		result.append(", Duration: ");
 		result.append(duration);
+		result.append(", Calculated: ");
+		result.append(calculated);
 		result.append(')');
 		return result.toString();
 	}

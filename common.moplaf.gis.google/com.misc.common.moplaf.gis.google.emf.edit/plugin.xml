@@ -10,7 +10,7 @@
       <!-- @generated gisgoogle -->
       <factory
             uri="http://www.misc.com/common.moplaf.gisgoogle.emf"
-            class="GisGoogle.provider.GisGoogleItemProviderAdapterFactory"
+            class="com.misc.common.moplaf.gis.GisGoogle.provider.GisGoogleItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

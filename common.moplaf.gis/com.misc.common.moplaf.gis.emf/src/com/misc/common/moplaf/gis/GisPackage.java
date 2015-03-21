@@ -459,13 +459,22 @@ public interface GisPackage extends EPackage {
 	int GIS_DISTANCE_MATRIX_ELEMENT__DURATION = 3;
 
 	/**
+	 * The feature id for the '<em><b>Calculated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_DISTANCE_MATRIX_ELEMENT__CALCULATED = 4;
+
+	/**
 	 * The number of structural features of the '<em>Distance Matrix Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_ELEMENT_FEATURE_COUNT = 4;
+	int GIS_DISTANCE_MATRIX_ELEMENT_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Distance Matrix Element</em>' class.
@@ -1070,6 +1079,17 @@ public interface GisPackage extends EPackage {
 	EAttribute getGisDistanceMatrixElement_Duration();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisDistanceMatrixElement#isCalculated <em>Calculated</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Calculated</em>'.
+	 * @see com.misc.common.moplaf.gis.GisDistanceMatrixElement#isCalculated()
+	 * @see #getGisDistanceMatrixElement()
+	 * @generated
+	 */
+	EAttribute getGisDistanceMatrixElement_Calculated();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisDistanceMatrixFromLocation <em>Distance Matrix From Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1540,6 +1560,14 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GIS_DISTANCE_MATRIX_ELEMENT__DURATION = eINSTANCE.getGisDistanceMatrixElement_Duration();
+
+		/**
+		 * The meta object literal for the '<em><b>Calculated</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_DISTANCE_MATRIX_ELEMENT__CALCULATED = eINSTANCE.getGisDistanceMatrixElement_Calculated();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixFromLocationImpl <em>Distance Matrix From Location</em>}' class.

@@ -63,6 +63,7 @@ public class GisDistanceMatrixElementItemProvider
 			addToLocationPropertyDescriptor(object);
 			addDistancePropertyDescriptor(object);
 			addDurationPropertyDescriptor(object);
+			addCalculatedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -81,7 +82,7 @@ public class GisDistanceMatrixElementItemProvider
 				 getString("_UI_GisDistanceMatrixElement_toLocation_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GisDistanceMatrixElement_toLocation_feature", "_UI_GisDistanceMatrixElement_type"),
 				 GisPackage.Literals.GIS_DISTANCE_MATRIX_ELEMENT__TO_LOCATION,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,
@@ -103,7 +104,7 @@ public class GisDistanceMatrixElementItemProvider
 				 getString("_UI_GisDistanceMatrixElement_Distance_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GisDistanceMatrixElement_Distance_feature", "_UI_GisDistanceMatrixElement_type"),
 				 GisPackage.Literals.GIS_DISTANCE_MATRIX_ELEMENT__DISTANCE,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
@@ -129,6 +130,28 @@ public class GisDistanceMatrixElementItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Calculated feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCalculatedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GisDistanceMatrixElement_Calculated_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisDistanceMatrixElement_Calculated_feature", "_UI_GisDistanceMatrixElement_type"),
+				 GisPackage.Literals.GIS_DISTANCE_MATRIX_ELEMENT__CALCULATED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -171,6 +194,7 @@ public class GisDistanceMatrixElementItemProvider
 		switch (notification.getFeatureID(GisDistanceMatrixElement.class)) {
 			case GisPackage.GIS_DISTANCE_MATRIX_ELEMENT__DISTANCE:
 			case GisPackage.GIS_DISTANCE_MATRIX_ELEMENT__DURATION:
+			case GisPackage.GIS_DISTANCE_MATRIX_ELEMENT__CALCULATED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

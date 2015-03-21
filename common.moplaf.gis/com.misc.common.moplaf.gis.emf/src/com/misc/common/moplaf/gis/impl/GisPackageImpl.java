@@ -425,6 +425,15 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getGisDistanceMatrixElement_Calculated() {
+		return (EAttribute)gisDistanceMatrixElementEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getGisDistanceMatrixFromLocation() {
 		return gisDistanceMatrixFromLocationEClass;
 	}
@@ -660,6 +669,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		createEReference(gisDistanceMatrixElementEClass, GIS_DISTANCE_MATRIX_ELEMENT__TO_LOCATION);
 		createEAttribute(gisDistanceMatrixElementEClass, GIS_DISTANCE_MATRIX_ELEMENT__DISTANCE);
 		createEAttribute(gisDistanceMatrixElementEClass, GIS_DISTANCE_MATRIX_ELEMENT__DURATION);
+		createEAttribute(gisDistanceMatrixElementEClass, GIS_DISTANCE_MATRIX_ELEMENT__CALCULATED);
 
 		gisDistanceMatrixFromLocationEClass = createEClass(GIS_DISTANCE_MATRIX_FROM_LOCATION);
 		createEReference(gisDistanceMatrixFromLocationEClass, GIS_DISTANCE_MATRIX_FROM_LOCATION__TO_LOCATIONS);
@@ -766,6 +776,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		initEReference(getGisDistanceMatrixElement_ToLocation(), this.getGisDistanceMatrixToLocation(), this.getGisDistanceMatrixToLocation_FromLocations(), "toLocation", null, 1, 1, GisDistanceMatrixElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisDistanceMatrixElement_Distance(), ecorePackage.getEFloat(), "Distance", null, 0, 1, GisDistanceMatrixElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisDistanceMatrixElement_Duration(), ecorePackage.getEFloat(), "Duration", null, 0, 1, GisDistanceMatrixElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisDistanceMatrixElement_Calculated(), ecorePackage.getEBoolean(), "Calculated", null, 0, 1, GisDistanceMatrixElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(gisDistanceMatrixFromLocationEClass, GisDistanceMatrixFromLocation.class, "GisDistanceMatrixFromLocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGisDistanceMatrixFromLocation_ToLocations(), this.getGisDistanceMatrixElement(), this.getGisDistanceMatrixElement_FromLocation(), "toLocations", null, 0, -1, GisDistanceMatrixFromLocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

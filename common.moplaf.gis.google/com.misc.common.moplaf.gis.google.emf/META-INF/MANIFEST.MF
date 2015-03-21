@@ -8,9 +8,9 @@ Bundle-ClassPath: .,
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: GisGoogle,
- GisGoogle.impl,
- GisGoogle.util
+Export-Package: com.misc.common.moplaf.gis.GisGoogle,
+ com.misc.common.moplaf.gis.GisGoogle.impl,
+ com.misc.common.moplaf.gis.GisGoogle.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  com.misc.common.moplaf.gis.emf;visibility:=reexport,

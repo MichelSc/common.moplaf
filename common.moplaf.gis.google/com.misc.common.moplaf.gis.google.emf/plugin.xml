@@ -10,7 +10,7 @@
       <!-- @generated gisgoogle -->
       <package
             uri="http://www.misc.com/common.moplaf.gisgoogle.emf"
-            class="GisGoogle.GisGooglePackage"
+            class="com.misc.common.moplaf.gis.GisGoogle.GisGooglePackage"
             genModel="model/gisgoogle.genmodel"/>
    </extension>
 

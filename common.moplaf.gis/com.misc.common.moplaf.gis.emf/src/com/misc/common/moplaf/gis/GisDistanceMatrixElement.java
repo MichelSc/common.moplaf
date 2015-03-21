@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.gis.GisDistanceMatrixElement#getToLocation <em>To Location</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisDistanceMatrixElement#getDistance <em>Distance</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisDistanceMatrixElement#getDuration <em>Duration</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisDistanceMatrixElement#isCalculated <em>Calculated</em>}</li>
  * </ul>
  * </p>
  *
@@ -131,5 +132,31 @@ public interface GisDistanceMatrixElement extends EObject {
 	 * @generated
 	 */
 	void setDuration(float value);
+
+	/**
+	 * Returns the value of the '<em><b>Calculated</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Calculated</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Calculated</em>' attribute.
+	 * @see #setCalculated(boolean)
+	 * @see com.misc.common.moplaf.gis.GisPackage#getGisDistanceMatrixElement_Calculated()
+	 * @model
+	 * @generated
+	 */
+	boolean isCalculated();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisDistanceMatrixElement#isCalculated <em>Calculated</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Calculated</em>' attribute.
+	 * @see #isCalculated()
+	 * @generated
+	 */
+	void setCalculated(boolean value);
 
 } // GisDistanceMatrixElement
