@@ -62,6 +62,8 @@ public class GisFactoryImpl extends EFactoryImpl implements GisFactory {
 			case GisPackage.GIS_ADDRESS_GEOCODED: return createGisAddressGeocoded();
 			case GisPackage.GIS_ADDRESS_GEOCODER: return createGisAddressGeocoder();
 			case GisPackage.GIS_DISTANCE_MATRIX_CALCULATOR: return createGisDistanceMatrixCalculator();
+			case GisPackage.GIS_ADDRESS_STRUCTURED: return createGisAddressStructured();
+			case GisPackage.GIS_ADDRESS_UNSTRUCTURED: return createGisAddressUnstructured();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -155,6 +157,26 @@ public class GisFactoryImpl extends EFactoryImpl implements GisFactory {
 	public GisDistanceMatrixCalculator createGisDistanceMatrixCalculator() {
 		GisDistanceMatrixCalculatorImpl gisDistanceMatrixCalculator = new GisDistanceMatrixCalculatorImpl();
 		return gisDistanceMatrixCalculator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GisAddressStructured createGisAddressStructured() {
+		GisAddressStructuredImpl gisAddressStructured = new GisAddressStructuredImpl();
+		return gisAddressStructured;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GisAddressUnstructured createGisAddressUnstructured() {
+		GisAddressUnstructuredImpl gisAddressUnstructured = new GisAddressUnstructuredImpl();
+		return gisAddressUnstructured;
 	}
 
 	/**

@@ -279,6 +279,52 @@ public class GisItemProviderAdapterFactory extends GisAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisAddressStructured} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GisAddressStructuredItemProvider gisAddressStructuredItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.GisAddressStructured}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGisAddressStructuredAdapter() {
+		if (gisAddressStructuredItemProvider == null) {
+			gisAddressStructuredItemProvider = new GisAddressStructuredItemProvider(this);
+		}
+
+		return gisAddressStructuredItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisAddressUnstructured} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GisAddressUnstructuredItemProvider gisAddressUnstructuredItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.GisAddressUnstructured}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGisAddressUnstructuredAdapter() {
+		if (gisAddressUnstructuredItemProvider == null) {
+			gisAddressUnstructuredItemProvider = new GisAddressUnstructuredItemProvider(this);
+		}
+
+		return gisAddressUnstructuredItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -386,6 +432,8 @@ public class GisItemProviderAdapterFactory extends GisAdapterFactory implements 
 		if (gisAddressGeocodedItemProvider != null) gisAddressGeocodedItemProvider.dispose();
 		if (gisAddressGeocoderItemProvider != null) gisAddressGeocoderItemProvider.dispose();
 		if (gisDistanceMatrixCalculatorItemProvider != null) gisDistanceMatrixCalculatorItemProvider.dispose();
+		if (gisAddressStructuredItemProvider != null) gisAddressStructuredItemProvider.dispose();
+		if (gisAddressUnstructuredItemProvider != null) gisAddressUnstructuredItemProvider.dispose();
 	}
 
 }

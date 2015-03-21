@@ -108,6 +108,14 @@ public class GisAdapterFactory extends AdapterFactoryImpl {
 				return createGisDistanceMatrixCalculatorAdapter();
 			}
 			@Override
+			public Adapter caseGisAddressStructured(GisAddressStructured object) {
+				return createGisAddressStructuredAdapter();
+			}
+			@Override
+			public Adapter caseGisAddressUnstructured(GisAddressUnstructured object) {
+				return createGisAddressUnstructuredAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -264,6 +272,34 @@ public class GisAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGisDistanceMatrixCalculatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisAddressStructured <em>Address Structured</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.gis.GisAddressStructured
+	 * @generated
+	 */
+	public Adapter createGisAddressStructuredAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.gis.GisAddressUnstructured <em>Address Unstructured</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.gis.GisAddressUnstructured
+	 * @generated
+	 */
+	public Adapter createGisAddressUnstructuredAdapter() {
 		return null;
 	}
 

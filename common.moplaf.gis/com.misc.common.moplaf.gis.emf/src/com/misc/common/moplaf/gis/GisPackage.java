@@ -187,49 +187,13 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS__NAME = GIS_LOCATION__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Country</b></em>' attribute.
+	 * The feature id for the '<em><b>Country Code</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS__COUNTRY = GIS_LOCATION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Street</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS__STREET = GIS_LOCATION_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>City</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS__CITY = GIS_LOCATION_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Building Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS__BUILDING_NUMBER = GIS_LOCATION_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Postal Code</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS__POSTAL_CODE = GIS_LOCATION_FEATURE_COUNT + 4;
+	int GIS_ADDRESS__COUNTRY_CODE = GIS_LOCATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Geocoded Addresses</b></em>' containment reference list.
@@ -238,7 +202,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS__GEOCODED_ADDRESSES = GIS_LOCATION_FEATURE_COUNT + 5;
+	int GIS_ADDRESS__GEOCODED_ADDRESSES = GIS_LOCATION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Selected Geocoded Location</b></em>' reference.
@@ -247,7 +211,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS__SELECTED_GEOCODED_LOCATION = GIS_LOCATION_FEATURE_COUNT + 6;
+	int GIS_ADDRESS__SELECTED_GEOCODED_LOCATION = GIS_LOCATION_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Geocoder</b></em>' reference.
@@ -256,7 +220,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS__GEOCODER = GIS_LOCATION_FEATURE_COUNT + 7;
+	int GIS_ADDRESS__GEOCODER = GIS_LOCATION_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Address</em>' class.
@@ -265,7 +229,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_FEATURE_COUNT = GIS_LOCATION_FEATURE_COUNT + 8;
+	int GIS_ADDRESS_FEATURE_COUNT = GIS_LOCATION_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Get Coordinates</em>' operation.
@@ -771,6 +735,243 @@ public interface GisPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisAddressStructuredImpl <em>Address Structured</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisAddressStructuredImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisAddressStructured()
+	 * @generated
+	 */
+	int GIS_ADDRESS_STRUCTURED = 10;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_STRUCTURED__NAME = GIS_ADDRESS__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Country Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_STRUCTURED__COUNTRY_CODE = GIS_ADDRESS__COUNTRY_CODE;
+
+	/**
+	 * The feature id for the '<em><b>Geocoded Addresses</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_STRUCTURED__GEOCODED_ADDRESSES = GIS_ADDRESS__GEOCODED_ADDRESSES;
+
+	/**
+	 * The feature id for the '<em><b>Selected Geocoded Location</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_STRUCTURED__SELECTED_GEOCODED_LOCATION = GIS_ADDRESS__SELECTED_GEOCODED_LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Geocoder</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_STRUCTURED__GEOCODER = GIS_ADDRESS__GEOCODER;
+
+	/**
+	 * The feature id for the '<em><b>Country</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_STRUCTURED__COUNTRY = GIS_ADDRESS_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Postal Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_STRUCTURED__POSTAL_CODE = GIS_ADDRESS_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>City</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_STRUCTURED__CITY = GIS_ADDRESS_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Street</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_STRUCTURED__STREET = GIS_ADDRESS_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Building Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_STRUCTURED__BUILDING_NUMBER = GIS_ADDRESS_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>Address Structured</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_STRUCTURED_FEATURE_COUNT = GIS_ADDRESS_FEATURE_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Get Coordinates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_STRUCTURED___GET_COORDINATES = GIS_ADDRESS___GET_COORDINATES;
+
+	/**
+	 * The operation id for the '<em>Geocode</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_STRUCTURED___GEOCODE = GIS_ADDRESS___GEOCODE;
+
+	/**
+	 * The number of operations of the '<em>Address Structured</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_STRUCTURED_OPERATION_COUNT = GIS_ADDRESS_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisAddressUnstructuredImpl <em>Address Unstructured</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.gis.impl.GisAddressUnstructuredImpl
+	 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisAddressUnstructured()
+	 * @generated
+	 */
+	int GIS_ADDRESS_UNSTRUCTURED = 11;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_UNSTRUCTURED__NAME = GIS_ADDRESS__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Country Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_UNSTRUCTURED__COUNTRY_CODE = GIS_ADDRESS__COUNTRY_CODE;
+
+	/**
+	 * The feature id for the '<em><b>Geocoded Addresses</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_UNSTRUCTURED__GEOCODED_ADDRESSES = GIS_ADDRESS__GEOCODED_ADDRESSES;
+
+	/**
+	 * The feature id for the '<em><b>Selected Geocoded Location</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_UNSTRUCTURED__SELECTED_GEOCODED_LOCATION = GIS_ADDRESS__SELECTED_GEOCODED_LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Geocoder</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_UNSTRUCTURED__GEOCODER = GIS_ADDRESS__GEOCODER;
+
+	/**
+	 * The feature id for the '<em><b>Address</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_UNSTRUCTURED__ADDRESS = GIS_ADDRESS_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Address Unstructured</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_UNSTRUCTURED_FEATURE_COUNT = GIS_ADDRESS_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Coordinates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_UNSTRUCTURED___GET_COORDINATES = GIS_ADDRESS___GET_COORDINATES;
+
+	/**
+	 * The operation id for the '<em>Geocode</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_UNSTRUCTURED___GEOCODE = GIS_ADDRESS___GEOCODE;
+
+	/**
+	 * The number of operations of the '<em>Address Unstructured</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_UNSTRUCTURED_OPERATION_COUNT = GIS_ADDRESS_OPERATION_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisCoordinates <em>Coordinates</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -813,59 +1014,15 @@ public interface GisPackage extends EPackage {
 	EClass getGisAddress();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddress#getCountry <em>Country</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddress#getCountryCode <em>Country Code</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Country</em>'.
-	 * @see com.misc.common.moplaf.gis.GisAddress#getCountry()
+	 * @return the meta object for the attribute '<em>Country Code</em>'.
+	 * @see com.misc.common.moplaf.gis.GisAddress#getCountryCode()
 	 * @see #getGisAddress()
 	 * @generated
 	 */
-	EAttribute getGisAddress_Country();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddress#getStreet <em>Street</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Street</em>'.
-	 * @see com.misc.common.moplaf.gis.GisAddress#getStreet()
-	 * @see #getGisAddress()
-	 * @generated
-	 */
-	EAttribute getGisAddress_Street();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddress#getCity <em>City</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>City</em>'.
-	 * @see com.misc.common.moplaf.gis.GisAddress#getCity()
-	 * @see #getGisAddress()
-	 * @generated
-	 */
-	EAttribute getGisAddress_City();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddress#getBuildingNumber <em>Building Number</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Building Number</em>'.
-	 * @see com.misc.common.moplaf.gis.GisAddress#getBuildingNumber()
-	 * @see #getGisAddress()
-	 * @generated
-	 */
-	EAttribute getGisAddress_BuildingNumber();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddress#getPostalCode <em>Postal Code</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Postal Code</em>'.
-	 * @see com.misc.common.moplaf.gis.GisAddress#getPostalCode()
-	 * @see #getGisAddress()
-	 * @generated
-	 */
-	EAttribute getGisAddress_PostalCode();
+	EAttribute getGisAddress_CountryCode();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.gis.GisAddress#getGeocodedAddresses <em>Geocoded Addresses</em>}'.
@@ -1299,6 +1456,92 @@ public interface GisPackage extends EPackage {
 	EOperation getGisDistanceMatrixCalculator__Calculate__GisDistanceMatrix();
 
 	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisAddressStructured <em>Address Structured</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Address Structured</em>'.
+	 * @see com.misc.common.moplaf.gis.GisAddressStructured
+	 * @generated
+	 */
+	EClass getGisAddressStructured();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddressStructured#getCountry <em>Country</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Country</em>'.
+	 * @see com.misc.common.moplaf.gis.GisAddressStructured#getCountry()
+	 * @see #getGisAddressStructured()
+	 * @generated
+	 */
+	EAttribute getGisAddressStructured_Country();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddressStructured#getPostalCode <em>Postal Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Postal Code</em>'.
+	 * @see com.misc.common.moplaf.gis.GisAddressStructured#getPostalCode()
+	 * @see #getGisAddressStructured()
+	 * @generated
+	 */
+	EAttribute getGisAddressStructured_PostalCode();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddressStructured#getCity <em>City</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>City</em>'.
+	 * @see com.misc.common.moplaf.gis.GisAddressStructured#getCity()
+	 * @see #getGisAddressStructured()
+	 * @generated
+	 */
+	EAttribute getGisAddressStructured_City();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddressStructured#getStreet <em>Street</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Street</em>'.
+	 * @see com.misc.common.moplaf.gis.GisAddressStructured#getStreet()
+	 * @see #getGisAddressStructured()
+	 * @generated
+	 */
+	EAttribute getGisAddressStructured_Street();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddressStructured#getBuildingNumber <em>Building Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Building Number</em>'.
+	 * @see com.misc.common.moplaf.gis.GisAddressStructured#getBuildingNumber()
+	 * @see #getGisAddressStructured()
+	 * @generated
+	 */
+	EAttribute getGisAddressStructured_BuildingNumber();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisAddressUnstructured <em>Address Unstructured</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Address Unstructured</em>'.
+	 * @see com.misc.common.moplaf.gis.GisAddressUnstructured
+	 * @generated
+	 */
+	EClass getGisAddressUnstructured();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddressUnstructured#getAddress <em>Address</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Address</em>'.
+	 * @see com.misc.common.moplaf.gis.GisAddressUnstructured#getAddress()
+	 * @see #getGisAddressUnstructured()
+	 * @generated
+	 */
+	EAttribute getGisAddressUnstructured_Address();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1358,44 +1601,12 @@ public interface GisPackage extends EPackage {
 		EClass GIS_ADDRESS = eINSTANCE.getGisAddress();
 
 		/**
-		 * The meta object literal for the '<em><b>Country</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Country Code</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GIS_ADDRESS__COUNTRY = eINSTANCE.getGisAddress_Country();
-
-		/**
-		 * The meta object literal for the '<em><b>Street</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GIS_ADDRESS__STREET = eINSTANCE.getGisAddress_Street();
-
-		/**
-		 * The meta object literal for the '<em><b>City</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GIS_ADDRESS__CITY = eINSTANCE.getGisAddress_City();
-
-		/**
-		 * The meta object literal for the '<em><b>Building Number</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GIS_ADDRESS__BUILDING_NUMBER = eINSTANCE.getGisAddress_BuildingNumber();
-
-		/**
-		 * The meta object literal for the '<em><b>Postal Code</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GIS_ADDRESS__POSTAL_CODE = eINSTANCE.getGisAddress_PostalCode();
+		EAttribute GIS_ADDRESS__COUNTRY_CODE = eINSTANCE.getGisAddress_CountryCode();
 
 		/**
 		 * The meta object literal for the '<em><b>Geocoded Addresses</b></em>' containment reference list feature.
@@ -1740,6 +1951,74 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation GIS_DISTANCE_MATRIX_CALCULATOR___CALCULATE__GISDISTANCEMATRIX = eINSTANCE.getGisDistanceMatrixCalculator__Calculate__GisDistanceMatrix();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisAddressStructuredImpl <em>Address Structured</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.gis.impl.GisAddressStructuredImpl
+		 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisAddressStructured()
+		 * @generated
+		 */
+		EClass GIS_ADDRESS_STRUCTURED = eINSTANCE.getGisAddressStructured();
+
+		/**
+		 * The meta object literal for the '<em><b>Country</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_ADDRESS_STRUCTURED__COUNTRY = eINSTANCE.getGisAddressStructured_Country();
+
+		/**
+		 * The meta object literal for the '<em><b>Postal Code</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_ADDRESS_STRUCTURED__POSTAL_CODE = eINSTANCE.getGisAddressStructured_PostalCode();
+
+		/**
+		 * The meta object literal for the '<em><b>City</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_ADDRESS_STRUCTURED__CITY = eINSTANCE.getGisAddressStructured_City();
+
+		/**
+		 * The meta object literal for the '<em><b>Street</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_ADDRESS_STRUCTURED__STREET = eINSTANCE.getGisAddressStructured_Street();
+
+		/**
+		 * The meta object literal for the '<em><b>Building Number</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_ADDRESS_STRUCTURED__BUILDING_NUMBER = eINSTANCE.getGisAddressStructured_BuildingNumber();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisAddressUnstructuredImpl <em>Address Unstructured</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.gis.impl.GisAddressUnstructuredImpl
+		 * @see com.misc.common.moplaf.gis.impl.GisPackageImpl#getGisAddressUnstructured()
+		 * @generated
+		 */
+		EClass GIS_ADDRESS_UNSTRUCTURED = eINSTANCE.getGisAddressUnstructured();
+
+		/**
+		 * The meta object literal for the '<em><b>Address</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_ADDRESS_UNSTRUCTURED__ADDRESS = eINSTANCE.getGisAddressUnstructured_Address();
 
 	}
 

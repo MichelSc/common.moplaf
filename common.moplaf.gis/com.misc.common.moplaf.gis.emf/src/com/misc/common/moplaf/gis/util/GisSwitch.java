@@ -130,6 +130,22 @@ public class GisSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case GisPackage.GIS_ADDRESS_STRUCTURED: {
+				GisAddressStructured gisAddressStructured = (GisAddressStructured)theEObject;
+				T result = caseGisAddressStructured(gisAddressStructured);
+				if (result == null) result = caseGisAddress(gisAddressStructured);
+				if (result == null) result = caseGisLocation(gisAddressStructured);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GisPackage.GIS_ADDRESS_UNSTRUCTURED: {
+				GisAddressUnstructured gisAddressUnstructured = (GisAddressUnstructured)theEObject;
+				T result = caseGisAddressUnstructured(gisAddressUnstructured);
+				if (result == null) result = caseGisAddress(gisAddressUnstructured);
+				if (result == null) result = caseGisLocation(gisAddressUnstructured);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -281,6 +297,36 @@ public class GisSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGisDistanceMatrixCalculator(GisDistanceMatrixCalculator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Address Structured</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Address Structured</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGisAddressStructured(GisAddressStructured object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Address Unstructured</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Address Unstructured</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGisAddressUnstructured(GisAddressUnstructured object) {
 		return null;
 	}
 

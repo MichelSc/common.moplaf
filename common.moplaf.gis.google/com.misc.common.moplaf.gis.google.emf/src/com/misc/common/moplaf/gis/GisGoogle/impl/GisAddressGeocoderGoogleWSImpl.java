@@ -2,17 +2,31 @@
  */
 package com.misc.common.moplaf.gis.GisGoogle.impl;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.LinkedList;
+import java.util.Locale;
+
+import com.misc.common.moplaf.gis.GisAddress;
+import com.misc.common.moplaf.gis.GisAddressStructured;
+import com.misc.common.moplaf.gis.GisAddressUnstructured;
+import com.misc.common.moplaf.gis.GisCoordinates;
 import com.misc.common.moplaf.gis.GisGoogle.GisAddressGeocoderGoogleWS;
 import com.misc.common.moplaf.gis.GisGoogle.GisGooglePackage;
 import com.misc.common.moplaf.gis.GisGoogle.Protocol;
-
 import com.misc.common.moplaf.gis.impl.GisAddressGeocoderImpl;
 
+import org.apache.commons.lang.StringUtils;
+import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -268,6 +282,130 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 		result.append(key);
 		result.append(')');
 		return result.toString();
+	}
+	
+	
+
+	@Override
+	public void geocode(GisAddress address) {
+	    CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: called");
+	
+		// make the URL
+		LinkedList<String> parameters = new LinkedList<String>();
+		LinkedList<String> components = new LinkedList<String>();
+		String countryCode = address.getCountryCode();
+		if ( countryCode!=null && countryCode.length()>0) {
+			parameters.add("region="+countryCode);
+		}
+		if ( this.getKey()!=null ){
+			parameters.add("key="+this.getKey());
+		}
+		if ( address instanceof GisAddressStructured){
+			GisAddressStructured addressStructured = (GisAddressStructured)address;
+			String country    = addressStructured.getCountry();
+			String city       = addressStructured.getCity();
+			String street     = addressStructured.getStreet();
+			String postalCode = addressStructured.getPostalCode();
+			String building   = addressStructured.getBuildingNumber();
+			if ( country!=null && country.length()>0 ){
+				components.add("country:"+country);
+			}
+			if ( city!=null && city.length()>0){
+				components.add("locality:"+city);
+			}
+			if ( street!=null && street.length()>0){
+				components.add("route:"+street);
+			}
+			if ( postalCode!=null && postalCode.length()>0){
+				components.add("postal_code:"+postalCode);
+			}
+		} else if ( address instanceof GisAddressUnstructured ){
+			GisAddressUnstructured addressUnstructured = (GisAddressUnstructured)address;
+			String addressAsString = addressUnstructured.getAddress();
+			if ( addressAsString!=null && addressAsString.length()>0){
+				parameters.add("address="+addressAsString);
+			}
+		}
+		if ( components.size()>0 ){
+			String componentsAsString = StringUtils.join(components, "|");
+			parameters.add("components="+componentsAsString);
+		}
+		String parametersAsString = StringUtils.join(parameters, "&");
+		String targetURL = this.getProtocol().getLiteral()
+		         + "://"
+		         + this.getHost()
+		         + "/maps/api/geocode/json?"
+		         + parametersAsString;
+	  
+		CommonPlugin.INSTANCE.log("url: "+targetURL);
+		String responseAsString = "";
+		URL url;
+		HttpURLConnection connection = null;  
+		try {
+			//Create connection
+			url = new URL(targetURL);
+			connection = (HttpURLConnection)url.openConnection();
+			connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+			connection.setRequestProperty("Content-Language", "en-US");  
+			connection.setUseCaches (false);
+			connection.setDoInput(true);
+			connection.setDoOutput(true);
+
+			connection.connect();
+			InputStream is = connection.getInputStream();
+			BufferedReader rd = new BufferedReader(new InputStreamReader(is));
+			String line;
+			StringBuffer response = new StringBuffer(); 
+			while((line = rd.readLine()) != null) {
+				response.append(line);
+				response.append('\r');
+			}
+			rd.close();
+			responseAsString = response.toString();
+		} catch (Exception e) {
+			CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: connection failed "+e.getMessage());
+		} finally {
+			if(connection != null) {
+				connection.disconnect(); 
+			}
+		}  // try		
+		
+		if ( responseAsString.length()==0 ) return;
+
+		// parse the response
+		CommonPlugin.INSTANCE.log("response ="+responseAsString);
+		JSONObject responseObject = (JSONObject) JSONValue.parse(responseAsString);
+		String responsestatus = (String)responseObject.get("status");
+		switch ( responsestatus){
+		case "OK" : 
+			// indicates the response contains a valid result.
+			JSONArray rows = (JSONArray)responseObject.get("results");
+			int resultIndex = 0;
+	    	JSONObject resultObject = (JSONObject)rows.get(resultIndex);
+	    	break;
+		case "ZERO_RESULTS":
+			// indicates that the geocode was successful but returned no results. This may occur if the geocoder was passed a non-existent address.
+			break;
+		case "OVER_QUERY_LIMIT" : 
+			// indicates the service has received too many requests from your application within the allowed time period.
+			CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: too many requests for the allowed time period");
+			break;
+		case "REQUEST_DENIED": 
+			// indicates that your request was denied.
+			CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: request denied");
+			break;
+		case "INVALID_REQUEST" :
+			//  generally indicates that the query (address, components or latlng) is missing.
+			CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: invalid request provided");
+			break;
+		case "UNKNOWN_ERROR":  
+			// indicates that the request could not be processed due to a server error. The request may succeed if you try again.
+			CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: unknown server error");
+			break;
+		default :
+			CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: unexpected response status: "+responsestatus);
+			break;
+		}  // switch on response status
 	}
 
 } //GisAddressGeocoderGoogleWSImpl

@@ -12,11 +12,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getCountry <em>Country</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getStreet <em>Street</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getCity <em>City</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getBuildingNumber <em>Building Number</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getPostalCode <em>Postal Code</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getCountryCode <em>Country Code</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getGeocodedAddresses <em>Geocoded Addresses</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getSelectedGeocodedLocation <em>Selected Geocoded Location</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getGeocoder <em>Geocoder</em>}</li>
@@ -29,134 +25,30 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface GisAddress extends GisLocation {
 	/**
-	 * Returns the value of the '<em><b>Country</b></em>' attribute.
+	 * Returns the value of the '<em><b>Country Code</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Country</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Country Code</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Country</em>' attribute.
-	 * @see #setCountry(String)
-	 * @see com.misc.common.moplaf.gis.GisPackage#getGisAddress_Country()
+	 * @return the value of the '<em>Country Code</em>' attribute.
+	 * @see #setCountryCode(String)
+	 * @see com.misc.common.moplaf.gis.GisPackage#getGisAddress_CountryCode()
 	 * @model
 	 * @generated
 	 */
-	String getCountry();
+	String getCountryCode();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisAddress#getCountry <em>Country</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisAddress#getCountryCode <em>Country Code</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Country</em>' attribute.
-	 * @see #getCountry()
+	 * @param value the new value of the '<em>Country Code</em>' attribute.
+	 * @see #getCountryCode()
 	 * @generated
 	 */
-	void setCountry(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Street</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Street</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Street</em>' attribute.
-	 * @see #setStreet(String)
-	 * @see com.misc.common.moplaf.gis.GisPackage#getGisAddress_Street()
-	 * @model
-	 * @generated
-	 */
-	String getStreet();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisAddress#getStreet <em>Street</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Street</em>' attribute.
-	 * @see #getStreet()
-	 * @generated
-	 */
-	void setStreet(String value);
-
-	/**
-	 * Returns the value of the '<em><b>City</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>City</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>City</em>' attribute.
-	 * @see #setCity(String)
-	 * @see com.misc.common.moplaf.gis.GisPackage#getGisAddress_City()
-	 * @model
-	 * @generated
-	 */
-	String getCity();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisAddress#getCity <em>City</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>City</em>' attribute.
-	 * @see #getCity()
-	 * @generated
-	 */
-	void setCity(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Building Number</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Building Number</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Building Number</em>' attribute.
-	 * @see #setBuildingNumber(String)
-	 * @see com.misc.common.moplaf.gis.GisPackage#getGisAddress_BuildingNumber()
-	 * @model
-	 * @generated
-	 */
-	String getBuildingNumber();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisAddress#getBuildingNumber <em>Building Number</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Building Number</em>' attribute.
-	 * @see #getBuildingNumber()
-	 * @generated
-	 */
-	void setBuildingNumber(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Postal Code</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Postal Code</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Postal Code</em>' attribute.
-	 * @see #setPostalCode(String)
-	 * @see com.misc.common.moplaf.gis.GisPackage#getGisAddress_PostalCode()
-	 * @model
-	 * @generated
-	 */
-	String getPostalCode();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisAddress#getPostalCode <em>Postal Code</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Postal Code</em>' attribute.
-	 * @see #getPostalCode()
-	 * @generated
-	 */
-	void setPostalCode(String value);
+	void setCountryCode(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Geocoded Addresses</b></em>' containment reference list.

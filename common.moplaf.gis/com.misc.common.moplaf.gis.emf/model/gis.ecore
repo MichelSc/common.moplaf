@@ -7,11 +7,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisAddress" eSuperTypes="#//GisLocation">
     <eOperations name="geocode"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Country" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Street" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="City" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BuildingNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PostalCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CountryCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="geocodedAddresses" upperBound="-1"
         eType="#//GisAddressGeocoded" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="selectedGeocodedLocation"
@@ -89,5 +85,15 @@
       <eParameters name="matrix" eType="#//GisDistanceMatrix"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GisAddressStructured" eSuperTypes="#//GisAddress">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Country" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PostalCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="City" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Street" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BuildingNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GisAddressUnstructured" eSuperTypes="#//GisAddress">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Address" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

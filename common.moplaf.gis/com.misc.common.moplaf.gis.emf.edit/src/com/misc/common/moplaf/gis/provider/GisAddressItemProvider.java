@@ -49,11 +49,7 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCountryPropertyDescriptor(object);
-			addStreetPropertyDescriptor(object);
-			addCityPropertyDescriptor(object);
-			addBuildingNumberPropertyDescriptor(object);
-			addPostalCodePropertyDescriptor(object);
+			addCountryCodePropertyDescriptor(object);
 			addSelectedGeocodedLocationPropertyDescriptor(object);
 			addGeocoderPropertyDescriptor(object);
 		}
@@ -61,107 +57,19 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Country feature.
+	 * This adds a property descriptor for the Country Code feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCountryPropertyDescriptor(Object object) {
+	protected void addCountryCodePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GisAddress_Country_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddress_Country_feature", "_UI_GisAddress_type"),
-				 GisPackage.Literals.GIS_ADDRESS__COUNTRY,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Street feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addStreetPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GisAddress_Street_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddress_Street_feature", "_UI_GisAddress_type"),
-				 GisPackage.Literals.GIS_ADDRESS__STREET,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the City feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCityPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GisAddress_City_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddress_City_feature", "_UI_GisAddress_type"),
-				 GisPackage.Literals.GIS_ADDRESS__CITY,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Building Number feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addBuildingNumberPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GisAddress_BuildingNumber_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddress_BuildingNumber_feature", "_UI_GisAddress_type"),
-				 GisPackage.Literals.GIS_ADDRESS__BUILDING_NUMBER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Postal Code feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPostalCodePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GisAddress_PostalCode_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddress_PostalCode_feature", "_UI_GisAddress_type"),
-				 GisPackage.Literals.GIS_ADDRESS__POSTAL_CODE,
+				 getString("_UI_GisAddress_CountryCode_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddress_CountryCode_feature", "_UI_GisAddress_type"),
+				 GisPackage.Literals.GIS_ADDRESS__COUNTRY_CODE,
 				 true,
 				 false,
 				 false,
@@ -282,11 +190,7 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(GisAddress.class)) {
-			case GisPackage.GIS_ADDRESS__COUNTRY:
-			case GisPackage.GIS_ADDRESS__STREET:
-			case GisPackage.GIS_ADDRESS__CITY:
-			case GisPackage.GIS_ADDRESS__BUILDING_NUMBER:
-			case GisPackage.GIS_ADDRESS__POSTAL_CODE:
+			case GisPackage.GIS_ADDRESS__COUNTRY_CODE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case GisPackage.GIS_ADDRESS__GEOCODED_ADDRESSES:

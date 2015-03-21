@@ -27,11 +27,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressImpl#getCountry <em>Country</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressImpl#getStreet <em>Street</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressImpl#getCity <em>City</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressImpl#getBuildingNumber <em>Building Number</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressImpl#getPostalCode <em>Postal Code</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressImpl#getCountryCode <em>Country Code</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressImpl#getGeocodedAddresses <em>Geocoded Addresses</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressImpl#getSelectedGeocodedLocation <em>Selected Geocoded Location</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisAddressImpl#getGeocoder <em>Geocoder</em>}</li>
@@ -42,104 +38,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class GisAddressImpl extends GisLocationImpl implements GisAddress {
 	/**
-	 * The default value of the '{@link #getCountry() <em>Country</em>}' attribute.
+	 * The default value of the '{@link #getCountryCode() <em>Country Code</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCountry()
+	 * @see #getCountryCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String COUNTRY_EDEFAULT = null;
+	protected static final String COUNTRY_CODE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getCountry() <em>Country</em>}' attribute.
+	 * The cached value of the '{@link #getCountryCode() <em>Country Code</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCountry()
+	 * @see #getCountryCode()
 	 * @generated
 	 * @ordered
 	 */
-	protected String country = COUNTRY_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getStreet() <em>Street</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStreet()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String STREET_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getStreet() <em>Street</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStreet()
-	 * @generated
-	 * @ordered
-	 */
-	protected String street = STREET_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getCity() <em>City</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCity()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String CITY_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getCity() <em>City</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCity()
-	 * @generated
-	 * @ordered
-	 */
-	protected String city = CITY_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getBuildingNumber() <em>Building Number</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBuildingNumber()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String BUILDING_NUMBER_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getBuildingNumber() <em>Building Number</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBuildingNumber()
-	 * @generated
-	 * @ordered
-	 */
-	protected String buildingNumber = BUILDING_NUMBER_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getPostalCode() <em>Postal Code</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPostalCode()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String POSTAL_CODE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getPostalCode() <em>Postal Code</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPostalCode()
-	 * @generated
-	 * @ordered
-	 */
-	protected String postalCode = POSTAL_CODE_EDEFAULT;
+	protected String countryCode = COUNTRY_CODE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getGeocodedAddresses() <em>Geocoded Addresses</em>}' containment reference list.
@@ -195,8 +111,8 @@ public class GisAddressImpl extends GisLocationImpl implements GisAddress {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getCountry() {
-		return country;
+	public String getCountryCode() {
+		return countryCode;
 	}
 
 	/**
@@ -204,95 +120,11 @@ public class GisAddressImpl extends GisLocationImpl implements GisAddress {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCountry(String newCountry) {
-		String oldCountry = country;
-		country = newCountry;
+	public void setCountryCode(String newCountryCode) {
+		String oldCountryCode = countryCode;
+		countryCode = newCountryCode;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_ADDRESS__COUNTRY, oldCountry, country));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getStreet() {
-		return street;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setStreet(String newStreet) {
-		String oldStreet = street;
-		street = newStreet;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_ADDRESS__STREET, oldStreet, street));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getCity() {
-		return city;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCity(String newCity) {
-		String oldCity = city;
-		city = newCity;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_ADDRESS__CITY, oldCity, city));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getBuildingNumber() {
-		return buildingNumber;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBuildingNumber(String newBuildingNumber) {
-		String oldBuildingNumber = buildingNumber;
-		buildingNumber = newBuildingNumber;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_ADDRESS__BUILDING_NUMBER, oldBuildingNumber, buildingNumber));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getPostalCode() {
-		return postalCode;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPostalCode(String newPostalCode) {
-		String oldPostalCode = postalCode;
-		postalCode = newPostalCode;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_ADDRESS__POSTAL_CODE, oldPostalCode, postalCode));
+			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_ADDRESS__COUNTRY_CODE, oldCountryCode, countryCode));
 	}
 
 	/**
@@ -386,12 +218,10 @@ public class GisAddressImpl extends GisLocationImpl implements GisAddress {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void geocode() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if ( this.getGeocoder()==null) return;
+		this.getGeocoder().geocode(this);
 	}
 
 	/**
@@ -416,16 +246,8 @@ public class GisAddressImpl extends GisLocationImpl implements GisAddress {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GisPackage.GIS_ADDRESS__COUNTRY:
-				return getCountry();
-			case GisPackage.GIS_ADDRESS__STREET:
-				return getStreet();
-			case GisPackage.GIS_ADDRESS__CITY:
-				return getCity();
-			case GisPackage.GIS_ADDRESS__BUILDING_NUMBER:
-				return getBuildingNumber();
-			case GisPackage.GIS_ADDRESS__POSTAL_CODE:
-				return getPostalCode();
+			case GisPackage.GIS_ADDRESS__COUNTRY_CODE:
+				return getCountryCode();
 			case GisPackage.GIS_ADDRESS__GEOCODED_ADDRESSES:
 				return getGeocodedAddresses();
 			case GisPackage.GIS_ADDRESS__SELECTED_GEOCODED_LOCATION:
@@ -447,20 +269,8 @@ public class GisAddressImpl extends GisLocationImpl implements GisAddress {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GisPackage.GIS_ADDRESS__COUNTRY:
-				setCountry((String)newValue);
-				return;
-			case GisPackage.GIS_ADDRESS__STREET:
-				setStreet((String)newValue);
-				return;
-			case GisPackage.GIS_ADDRESS__CITY:
-				setCity((String)newValue);
-				return;
-			case GisPackage.GIS_ADDRESS__BUILDING_NUMBER:
-				setBuildingNumber((String)newValue);
-				return;
-			case GisPackage.GIS_ADDRESS__POSTAL_CODE:
-				setPostalCode((String)newValue);
+			case GisPackage.GIS_ADDRESS__COUNTRY_CODE:
+				setCountryCode((String)newValue);
 				return;
 			case GisPackage.GIS_ADDRESS__GEOCODED_ADDRESSES:
 				getGeocodedAddresses().clear();
@@ -484,20 +294,8 @@ public class GisAddressImpl extends GisLocationImpl implements GisAddress {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GisPackage.GIS_ADDRESS__COUNTRY:
-				setCountry(COUNTRY_EDEFAULT);
-				return;
-			case GisPackage.GIS_ADDRESS__STREET:
-				setStreet(STREET_EDEFAULT);
-				return;
-			case GisPackage.GIS_ADDRESS__CITY:
-				setCity(CITY_EDEFAULT);
-				return;
-			case GisPackage.GIS_ADDRESS__BUILDING_NUMBER:
-				setBuildingNumber(BUILDING_NUMBER_EDEFAULT);
-				return;
-			case GisPackage.GIS_ADDRESS__POSTAL_CODE:
-				setPostalCode(POSTAL_CODE_EDEFAULT);
+			case GisPackage.GIS_ADDRESS__COUNTRY_CODE:
+				setCountryCode(COUNTRY_CODE_EDEFAULT);
 				return;
 			case GisPackage.GIS_ADDRESS__GEOCODED_ADDRESSES:
 				getGeocodedAddresses().clear();
@@ -520,16 +318,8 @@ public class GisAddressImpl extends GisLocationImpl implements GisAddress {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GisPackage.GIS_ADDRESS__COUNTRY:
-				return COUNTRY_EDEFAULT == null ? country != null : !COUNTRY_EDEFAULT.equals(country);
-			case GisPackage.GIS_ADDRESS__STREET:
-				return STREET_EDEFAULT == null ? street != null : !STREET_EDEFAULT.equals(street);
-			case GisPackage.GIS_ADDRESS__CITY:
-				return CITY_EDEFAULT == null ? city != null : !CITY_EDEFAULT.equals(city);
-			case GisPackage.GIS_ADDRESS__BUILDING_NUMBER:
-				return BUILDING_NUMBER_EDEFAULT == null ? buildingNumber != null : !BUILDING_NUMBER_EDEFAULT.equals(buildingNumber);
-			case GisPackage.GIS_ADDRESS__POSTAL_CODE:
-				return POSTAL_CODE_EDEFAULT == null ? postalCode != null : !POSTAL_CODE_EDEFAULT.equals(postalCode);
+			case GisPackage.GIS_ADDRESS__COUNTRY_CODE:
+				return COUNTRY_CODE_EDEFAULT == null ? countryCode != null : !COUNTRY_CODE_EDEFAULT.equals(countryCode);
 			case GisPackage.GIS_ADDRESS__GEOCODED_ADDRESSES:
 				return geocodedAddresses != null && !geocodedAddresses.isEmpty();
 			case GisPackage.GIS_ADDRESS__SELECTED_GEOCODED_LOCATION:
@@ -565,16 +355,8 @@ public class GisAddressImpl extends GisLocationImpl implements GisAddress {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (Country: ");
-		result.append(country);
-		result.append(", Street: ");
-		result.append(street);
-		result.append(", City: ");
-		result.append(city);
-		result.append(", BuildingNumber: ");
-		result.append(buildingNumber);
-		result.append(", PostalCode: ");
-		result.append(postalCode);
+		result.append(" (CountryCode: ");
+		result.append(countryCode);
 		result.append(')');
 		return result.toString();
 	}

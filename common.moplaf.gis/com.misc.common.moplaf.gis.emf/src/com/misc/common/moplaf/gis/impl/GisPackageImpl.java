@@ -5,6 +5,8 @@ package com.misc.common.moplaf.gis.impl;
 import com.misc.common.moplaf.gis.GisAddress;
 import com.misc.common.moplaf.gis.GisAddressGeocoded;
 import com.misc.common.moplaf.gis.GisAddressGeocoder;
+import com.misc.common.moplaf.gis.GisAddressStructured;
+import com.misc.common.moplaf.gis.GisAddressUnstructured;
 import com.misc.common.moplaf.gis.GisCoordinates;
 import com.misc.common.moplaf.gis.GisDistanceMatrix;
 import com.misc.common.moplaf.gis.GisDistanceMatrixCalculator;
@@ -97,6 +99,20 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * @generated
 	 */
 	private EClass gisDistanceMatrixCalculatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass gisAddressStructuredEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass gisAddressUnstructuredEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -200,7 +216,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGisAddress_Country() {
+	public EAttribute getGisAddress_CountryCode() {
 		return (EAttribute)gisAddressEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -209,44 +225,8 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGisAddress_Street() {
-		return (EAttribute)gisAddressEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getGisAddress_City() {
-		return (EAttribute)gisAddressEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getGisAddress_BuildingNumber() {
-		return (EAttribute)gisAddressEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getGisAddress_PostalCode() {
-		return (EAttribute)gisAddressEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getGisAddress_GeocodedAddresses() {
-		return (EReference)gisAddressEClass.getEStructuralFeatures().get(5);
+		return (EReference)gisAddressEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -255,7 +235,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * @generated
 	 */
 	public EReference getGisAddress_SelectedGeocodedLocation() {
-		return (EReference)gisAddressEClass.getEStructuralFeatures().get(6);
+		return (EReference)gisAddressEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -264,7 +244,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * @generated
 	 */
 	public EReference getGisAddress_Geocoder() {
-		return (EReference)gisAddressEClass.getEStructuralFeatures().get(7);
+		return (EReference)gisAddressEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -614,6 +594,78 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getGisAddressStructured() {
+		return gisAddressStructuredEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisAddressStructured_Country() {
+		return (EAttribute)gisAddressStructuredEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisAddressStructured_PostalCode() {
+		return (EAttribute)gisAddressStructuredEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisAddressStructured_City() {
+		return (EAttribute)gisAddressStructuredEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisAddressStructured_Street() {
+		return (EAttribute)gisAddressStructuredEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisAddressStructured_BuildingNumber() {
+		return (EAttribute)gisAddressStructuredEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGisAddressUnstructured() {
+		return gisAddressUnstructuredEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisAddressUnstructured_Address() {
+		return (EAttribute)gisAddressUnstructuredEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public GisFactory getGisFactory() {
 		return (GisFactory)getEFactoryInstance();
 	}
@@ -642,11 +694,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		createEAttribute(gisCoordinatesEClass, GIS_COORDINATES__LATITUDE);
 
 		gisAddressEClass = createEClass(GIS_ADDRESS);
-		createEAttribute(gisAddressEClass, GIS_ADDRESS__COUNTRY);
-		createEAttribute(gisAddressEClass, GIS_ADDRESS__STREET);
-		createEAttribute(gisAddressEClass, GIS_ADDRESS__CITY);
-		createEAttribute(gisAddressEClass, GIS_ADDRESS__BUILDING_NUMBER);
-		createEAttribute(gisAddressEClass, GIS_ADDRESS__POSTAL_CODE);
+		createEAttribute(gisAddressEClass, GIS_ADDRESS__COUNTRY_CODE);
 		createEReference(gisAddressEClass, GIS_ADDRESS__GEOCODED_ADDRESSES);
 		createEReference(gisAddressEClass, GIS_ADDRESS__SELECTED_GEOCODED_LOCATION);
 		createEReference(gisAddressEClass, GIS_ADDRESS__GEOCODER);
@@ -696,6 +744,16 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		gisDistanceMatrixCalculatorEClass = createEClass(GIS_DISTANCE_MATRIX_CALCULATOR);
 		createEAttribute(gisDistanceMatrixCalculatorEClass, GIS_DISTANCE_MATRIX_CALCULATOR__NAME);
 		createEOperation(gisDistanceMatrixCalculatorEClass, GIS_DISTANCE_MATRIX_CALCULATOR___CALCULATE__GISDISTANCEMATRIX);
+
+		gisAddressStructuredEClass = createEClass(GIS_ADDRESS_STRUCTURED);
+		createEAttribute(gisAddressStructuredEClass, GIS_ADDRESS_STRUCTURED__COUNTRY);
+		createEAttribute(gisAddressStructuredEClass, GIS_ADDRESS_STRUCTURED__POSTAL_CODE);
+		createEAttribute(gisAddressStructuredEClass, GIS_ADDRESS_STRUCTURED__CITY);
+		createEAttribute(gisAddressStructuredEClass, GIS_ADDRESS_STRUCTURED__STREET);
+		createEAttribute(gisAddressStructuredEClass, GIS_ADDRESS_STRUCTURED__BUILDING_NUMBER);
+
+		gisAddressUnstructuredEClass = createEClass(GIS_ADDRESS_UNSTRUCTURED);
+		createEAttribute(gisAddressUnstructuredEClass, GIS_ADDRESS_UNSTRUCTURED__ADDRESS);
 	}
 
 	/**
@@ -729,6 +787,8 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		gisCoordinatesEClass.getESuperTypes().add(this.getGisLocation());
 		gisAddressEClass.getESuperTypes().add(this.getGisLocation());
 		gisAddressGeocodedEClass.getESuperTypes().add(this.getGisCoordinates());
+		gisAddressStructuredEClass.getESuperTypes().add(this.getGisAddress());
+		gisAddressUnstructuredEClass.getESuperTypes().add(this.getGisAddress());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(gisCoordinatesEClass, GisCoordinates.class, "GisCoordinates", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -736,11 +796,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		initEAttribute(getGisCoordinates_Latitude(), ecorePackage.getEFloat(), "Latitude", null, 0, 1, GisCoordinates.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(gisAddressEClass, GisAddress.class, "GisAddress", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getGisAddress_Country(), ecorePackage.getEString(), "Country", null, 0, 1, GisAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGisAddress_Street(), ecorePackage.getEString(), "Street", null, 0, 1, GisAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGisAddress_City(), ecorePackage.getEString(), "City", null, 0, 1, GisAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGisAddress_BuildingNumber(), ecorePackage.getEString(), "BuildingNumber", null, 0, 1, GisAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGisAddress_PostalCode(), ecorePackage.getEString(), "PostalCode", null, 0, 1, GisAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisAddress_CountryCode(), ecorePackage.getEString(), "CountryCode", null, 0, 1, GisAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGisAddress_GeocodedAddresses(), this.getGisAddressGeocoded(), null, "geocodedAddresses", null, 0, -1, GisAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGisAddress_SelectedGeocodedLocation(), this.getGisAddressGeocoded(), null, "selectedGeocodedLocation", null, 0, 1, GisAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGisAddress_Geocoder(), this.getGisAddressGeocoder(), null, "geocoder", null, 0, 1, GisAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -812,6 +868,16 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 
 		op = initEOperation(getGisDistanceMatrixCalculator__Calculate__GisDistanceMatrix(), null, "calculate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getGisDistanceMatrix(), "matrix", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(gisAddressStructuredEClass, GisAddressStructured.class, "GisAddressStructured", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGisAddressStructured_Country(), ecorePackage.getEString(), "Country", null, 0, 1, GisAddressStructured.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisAddressStructured_PostalCode(), ecorePackage.getEString(), "PostalCode", null, 0, 1, GisAddressStructured.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisAddressStructured_City(), ecorePackage.getEString(), "City", null, 0, 1, GisAddressStructured.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisAddressStructured_Street(), ecorePackage.getEString(), "Street", null, 0, 1, GisAddressStructured.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisAddressStructured_BuildingNumber(), ecorePackage.getEString(), "BuildingNumber", null, 0, 1, GisAddressStructured.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(gisAddressUnstructuredEClass, GisAddressUnstructured.class, "GisAddressUnstructured", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGisAddressUnstructured_Address(), ecorePackage.getEString(), "Address", null, 0, 1, GisAddressUnstructured.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

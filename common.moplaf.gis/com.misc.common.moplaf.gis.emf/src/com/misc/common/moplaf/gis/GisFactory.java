@@ -103,6 +103,24 @@ public interface GisFactory extends EFactory {
 	GisDistanceMatrixCalculator createGisDistanceMatrixCalculator();
 
 	/**
+	 * Returns a new object of class '<em>Address Structured</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Address Structured</em>'.
+	 * @generated
+	 */
+	GisAddressStructured createGisAddressStructured();
+
+	/**
+	 * Returns a new object of class '<em>Address Unstructured</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Address Unstructured</em>'.
+	 * @generated
+	 */
+	GisAddressUnstructured createGisAddressUnstructured();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

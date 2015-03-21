@@ -96,7 +96,7 @@
             <children xmi:type="notation:Node" xmi:id="_pdAHSMo8EeSpJrxjx9dQ1w" type="6003">
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pdAHSco8EeSpJrxjx9dQ1w" y="10"/>
             </children>
-            <styles xmi:type="notation:ConnectorStyle" xmi:id="_pdAHQco8EeSpJrxjx9dQ1w" routing="Tree"/>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_pdAHQco8EeSpJrxjx9dQ1w"/>
             <styles xmi:type="notation:FontStyle" xmi:id="_pdAHQso8EeSpJrxjx9dQ1w" fontName="Sans Serif" fontHeight="8"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_pdAHQ8o8EeSpJrxjx9dQ1w" points="[186, 292, 186, 292]$[266, 69, 266, 69]"/>
             <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_pdB8cMo8EeSpJrxjx9dQ1w" id="(0.5,0.5)"/>
@@ -112,7 +112,7 @@
             <children xmi:type="notation:Node" xmi:id="_p_zSWMo8EeSpJrxjx9dQ1w" type="6003">
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_p_zSWco8EeSpJrxjx9dQ1w" y="10"/>
             </children>
-            <styles xmi:type="notation:ConnectorStyle" xmi:id="_p_zSUco8EeSpJrxjx9dQ1w" routing="Tree"/>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_p_zSUco8EeSpJrxjx9dQ1w"/>
             <styles xmi:type="notation:FontStyle" xmi:id="_p_zSUso8EeSpJrxjx9dQ1w" fontName="Sans Serif" fontHeight="8"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_p_zSU8o8EeSpJrxjx9dQ1w" points="[600, 361, 600, 361]$[598, 163, 598, 163]"/>
             <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_p_z5YMo8EeSpJrxjx9dQ1w" id="(0.5,0.5)"/>
@@ -288,7 +288,8 @@
       <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_pc-SEco8EeSpJrxjx9dQ1w" sourceNode="_pc5ZkMo8EeSpJrxjx9dQ1w" targetNode="_m01yMMo8EeSpJrxjx9dQ1w">
         <target xmi:type="ecore:EClass" href="gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS"/>
         <semanticElements xmi:type="ecore:EGenericType" href="gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/@eGenericSuperTypes.0"/>
-        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_tgeHQMo9EeSpJrxjx9dQ1w" targetArrow="InputClosedArrow" routingStyle="tree">
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_tgeHQMo9EeSpJrxjx9dQ1w" targetArrow="InputClosedArrow">
+          <customFeatures>routingStyle</customFeatures>
           <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
           <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_tgeHQco9EeSpJrxjx9dQ1w" red="136" green="136" blue="136"/>
           <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_tgeHQso9EeSpJrxjx9dQ1w" labelFormat="italic" showIcon="false">
@@ -351,7 +352,8 @@
       <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_p_xdIMo8EeSpJrxjx9dQ1w" sourceNode="_p_rWgMo8EeSpJrxjx9dQ1w" targetNode="_n1-fEMo8EeSpJrxjx9dQ1w">
         <target xmi:type="ecore:EClass" href="gisgoogle.ecore#//GisAddressGeocoderGoogleWS"/>
         <semanticElements xmi:type="ecore:EGenericType" href="gisgoogle.ecore#//GisAddressGeocoderGoogleWS/@eGenericSuperTypes.0"/>
-        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_p_xdIco8EeSpJrxjx9dQ1w" targetArrow="InputClosedArrow" routingStyle="tree">
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_p_xdIco8EeSpJrxjx9dQ1w" targetArrow="InputClosedArrow">
+          <customFeatures>routingStyle</customFeatures>
           <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
           <strokeColor xmi:type="viewpoint:RGBValues" xmi:id="_p_xdIso8EeSpJrxjx9dQ1w" red="136" green="136" blue="136"/>
           <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_p_xdI8o8EeSpJrxjx9dQ1w" labelFormat="italic" showIcon="false">
