@@ -12,8 +12,9 @@ package com.misc.common.moplaf.gis;
  * The following features are supported:
  * <ul>
  *   <li>{@link com.misc.common.moplaf.gis.GisAddressStructured#getCountry <em>Country</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisAddressStructured#getAdministrativeArea <em>Administrative Area</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisAddressStructured#getLocality <em>Locality</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisAddressStructured#getPostalCode <em>Postal Code</em>}</li>
- *   <li>{@link com.misc.common.moplaf.gis.GisAddressStructured#getCity <em>City</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisAddressStructured#getStreet <em>Street</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisAddressStructured#getBuildingNumber <em>Building Number</em>}</li>
  * </ul>
@@ -51,6 +52,32 @@ public interface GisAddressStructured extends GisAddress {
 	void setCountry(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Administrative Area</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Administrative Area</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Administrative Area</em>' attribute.
+	 * @see #setAdministrativeArea(String)
+	 * @see com.misc.common.moplaf.gis.GisPackage#getGisAddressStructured_AdministrativeArea()
+	 * @model
+	 * @generated
+	 */
+	String getAdministrativeArea();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisAddressStructured#getAdministrativeArea <em>Administrative Area</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Administrative Area</em>' attribute.
+	 * @see #getAdministrativeArea()
+	 * @generated
+	 */
+	void setAdministrativeArea(String value);
+
+	/**
 	 * Returns the value of the '<em><b>Postal Code</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -77,30 +104,30 @@ public interface GisAddressStructured extends GisAddress {
 	void setPostalCode(String value);
 
 	/**
-	 * Returns the value of the '<em><b>City</b></em>' attribute.
+	 * Returns the value of the '<em><b>Locality</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>City</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Locality</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>City</em>' attribute.
-	 * @see #setCity(String)
-	 * @see com.misc.common.moplaf.gis.GisPackage#getGisAddressStructured_City()
+	 * @return the value of the '<em>Locality</em>' attribute.
+	 * @see #setLocality(String)
+	 * @see com.misc.common.moplaf.gis.GisPackage#getGisAddressStructured_Locality()
 	 * @model
 	 * @generated
 	 */
-	String getCity();
+	String getLocality();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisAddressStructured#getCity <em>City</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisAddressStructured#getLocality <em>Locality</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>City</em>' attribute.
-	 * @see #getCity()
+	 * @param value the new value of the '<em>Locality</em>' attribute.
+	 * @see #getLocality()
 	 * @generated
 	 */
-	void setCity(String value);
+	void setLocality(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Street</b></em>' attribute.

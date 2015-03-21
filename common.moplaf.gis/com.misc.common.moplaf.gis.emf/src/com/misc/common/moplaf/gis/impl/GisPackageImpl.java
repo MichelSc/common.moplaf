@@ -612,7 +612,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGisAddressStructured_PostalCode() {
+	public EAttribute getGisAddressStructured_AdministrativeArea() {
 		return (EAttribute)gisAddressStructuredEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -621,7 +621,16 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGisAddressStructured_City() {
+	public EAttribute getGisAddressStructured_PostalCode() {
+		return (EAttribute)gisAddressStructuredEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisAddressStructured_Locality() {
 		return (EAttribute)gisAddressStructuredEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -631,7 +640,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * @generated
 	 */
 	public EAttribute getGisAddressStructured_Street() {
-		return (EAttribute)gisAddressStructuredEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)gisAddressStructuredEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -640,7 +649,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * @generated
 	 */
 	public EAttribute getGisAddressStructured_BuildingNumber() {
-		return (EAttribute)gisAddressStructuredEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)gisAddressStructuredEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -747,8 +756,9 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 
 		gisAddressStructuredEClass = createEClass(GIS_ADDRESS_STRUCTURED);
 		createEAttribute(gisAddressStructuredEClass, GIS_ADDRESS_STRUCTURED__COUNTRY);
+		createEAttribute(gisAddressStructuredEClass, GIS_ADDRESS_STRUCTURED__ADMINISTRATIVE_AREA);
+		createEAttribute(gisAddressStructuredEClass, GIS_ADDRESS_STRUCTURED__LOCALITY);
 		createEAttribute(gisAddressStructuredEClass, GIS_ADDRESS_STRUCTURED__POSTAL_CODE);
-		createEAttribute(gisAddressStructuredEClass, GIS_ADDRESS_STRUCTURED__CITY);
 		createEAttribute(gisAddressStructuredEClass, GIS_ADDRESS_STRUCTURED__STREET);
 		createEAttribute(gisAddressStructuredEClass, GIS_ADDRESS_STRUCTURED__BUILDING_NUMBER);
 
@@ -871,8 +881,9 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 
 		initEClass(gisAddressStructuredEClass, GisAddressStructured.class, "GisAddressStructured", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGisAddressStructured_Country(), ecorePackage.getEString(), "Country", null, 0, 1, GisAddressStructured.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisAddressStructured_AdministrativeArea(), ecorePackage.getEString(), "AdministrativeArea", null, 0, 1, GisAddressStructured.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisAddressStructured_Locality(), ecorePackage.getEString(), "Locality", null, 0, 1, GisAddressStructured.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisAddressStructured_PostalCode(), ecorePackage.getEString(), "PostalCode", null, 0, 1, GisAddressStructured.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGisAddressStructured_City(), ecorePackage.getEString(), "City", null, 0, 1, GisAddressStructured.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisAddressStructured_Street(), ecorePackage.getEString(), "Street", null, 0, 1, GisAddressStructured.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisAddressStructured_BuildingNumber(), ecorePackage.getEString(), "BuildingNumber", null, 0, 1, GisAddressStructured.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

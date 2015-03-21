@@ -799,22 +799,31 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_STRUCTURED__COUNTRY = GIS_ADDRESS_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Administrative Area</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_STRUCTURED__ADMINISTRATIVE_AREA = GIS_ADDRESS_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Locality</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_STRUCTURED__LOCALITY = GIS_ADDRESS_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Postal Code</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_STRUCTURED__POSTAL_CODE = GIS_ADDRESS_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>City</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_STRUCTURED__CITY = GIS_ADDRESS_FEATURE_COUNT + 2;
+	int GIS_ADDRESS_STRUCTURED__POSTAL_CODE = GIS_ADDRESS_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Street</b></em>' attribute.
@@ -823,7 +832,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_STRUCTURED__STREET = GIS_ADDRESS_FEATURE_COUNT + 3;
+	int GIS_ADDRESS_STRUCTURED__STREET = GIS_ADDRESS_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Building Number</b></em>' attribute.
@@ -832,7 +841,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_STRUCTURED__BUILDING_NUMBER = GIS_ADDRESS_FEATURE_COUNT + 4;
+	int GIS_ADDRESS_STRUCTURED__BUILDING_NUMBER = GIS_ADDRESS_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Address Structured</em>' class.
@@ -841,7 +850,7 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_STRUCTURED_FEATURE_COUNT = GIS_ADDRESS_FEATURE_COUNT + 5;
+	int GIS_ADDRESS_STRUCTURED_FEATURE_COUNT = GIS_ADDRESS_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Get Coordinates</em>' operation.
@@ -1477,6 +1486,17 @@ public interface GisPackage extends EPackage {
 	EAttribute getGisAddressStructured_Country();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddressStructured#getAdministrativeArea <em>Administrative Area</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Administrative Area</em>'.
+	 * @see com.misc.common.moplaf.gis.GisAddressStructured#getAdministrativeArea()
+	 * @see #getGisAddressStructured()
+	 * @generated
+	 */
+	EAttribute getGisAddressStructured_AdministrativeArea();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddressStructured#getPostalCode <em>Postal Code</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1488,15 +1508,15 @@ public interface GisPackage extends EPackage {
 	EAttribute getGisAddressStructured_PostalCode();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddressStructured#getCity <em>City</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddressStructured#getLocality <em>Locality</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>City</em>'.
-	 * @see com.misc.common.moplaf.gis.GisAddressStructured#getCity()
+	 * @return the meta object for the attribute '<em>Locality</em>'.
+	 * @see com.misc.common.moplaf.gis.GisAddressStructured#getLocality()
 	 * @see #getGisAddressStructured()
 	 * @generated
 	 */
-	EAttribute getGisAddressStructured_City();
+	EAttribute getGisAddressStructured_Locality();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddressStructured#getStreet <em>Street</em>}'.
@@ -1971,6 +1991,14 @@ public interface GisPackage extends EPackage {
 		EAttribute GIS_ADDRESS_STRUCTURED__COUNTRY = eINSTANCE.getGisAddressStructured_Country();
 
 		/**
+		 * The meta object literal for the '<em><b>Administrative Area</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_ADDRESS_STRUCTURED__ADMINISTRATIVE_AREA = eINSTANCE.getGisAddressStructured_AdministrativeArea();
+
+		/**
 		 * The meta object literal for the '<em><b>Postal Code</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1979,12 +2007,12 @@ public interface GisPackage extends EPackage {
 		EAttribute GIS_ADDRESS_STRUCTURED__POSTAL_CODE = eINSTANCE.getGisAddressStructured_PostalCode();
 
 		/**
-		 * The meta object literal for the '<em><b>City</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Locality</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GIS_ADDRESS_STRUCTURED__CITY = eINSTANCE.getGisAddressStructured_City();
+		EAttribute GIS_ADDRESS_STRUCTURED__LOCALITY = eINSTANCE.getGisAddressStructured_Locality();
 
 		/**
 		 * The meta object literal for the '<em><b>Street</b></em>' attribute feature.

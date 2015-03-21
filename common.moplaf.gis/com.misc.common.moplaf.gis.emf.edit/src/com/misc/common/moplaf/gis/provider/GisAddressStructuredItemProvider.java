@@ -46,8 +46,9 @@ public class GisAddressStructuredItemProvider extends GisAddressItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addCountryPropertyDescriptor(object);
+			addAdministrativeAreaPropertyDescriptor(object);
+			addLocalityPropertyDescriptor(object);
 			addPostalCodePropertyDescriptor(object);
-			addCityPropertyDescriptor(object);
 			addStreetPropertyDescriptor(object);
 			addBuildingNumberPropertyDescriptor(object);
 		}
@@ -68,6 +69,28 @@ public class GisAddressStructuredItemProvider extends GisAddressItemProvider {
 				 getString("_UI_GisAddressStructured_Country_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddressStructured_Country_feature", "_UI_GisAddressStructured_type"),
 				 GisPackage.Literals.GIS_ADDRESS_STRUCTURED__COUNTRY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Administrative Area feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAdministrativeAreaPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GisAddressStructured_AdministrativeArea_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddressStructured_AdministrativeArea_feature", "_UI_GisAddressStructured_type"),
+				 GisPackage.Literals.GIS_ADDRESS_STRUCTURED__ADMINISTRATIVE_AREA,
 				 true,
 				 false,
 				 false,
@@ -99,19 +122,19 @@ public class GisAddressStructuredItemProvider extends GisAddressItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the City feature.
+	 * This adds a property descriptor for the Locality feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCityPropertyDescriptor(Object object) {
+	protected void addLocalityPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GisAddressStructured_City_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddressStructured_City_feature", "_UI_GisAddressStructured_type"),
-				 GisPackage.Literals.GIS_ADDRESS_STRUCTURED__CITY,
+				 getString("_UI_GisAddressStructured_Locality_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddressStructured_Locality_feature", "_UI_GisAddressStructured_type"),
+				 GisPackage.Literals.GIS_ADDRESS_STRUCTURED__LOCALITY,
 				 true,
 				 false,
 				 false,
@@ -203,8 +226,9 @@ public class GisAddressStructuredItemProvider extends GisAddressItemProvider {
 
 		switch (notification.getFeatureID(GisAddressStructured.class)) {
 			case GisPackage.GIS_ADDRESS_STRUCTURED__COUNTRY:
+			case GisPackage.GIS_ADDRESS_STRUCTURED__ADMINISTRATIVE_AREA:
+			case GisPackage.GIS_ADDRESS_STRUCTURED__LOCALITY:
 			case GisPackage.GIS_ADDRESS_STRUCTURED__POSTAL_CODE:
-			case GisPackage.GIS_ADDRESS_STRUCTURED__CITY:
 			case GisPackage.GIS_ADDRESS_STRUCTURED__STREET:
 			case GisPackage.GIS_ADDRESS_STRUCTURED__BUILDING_NUMBER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

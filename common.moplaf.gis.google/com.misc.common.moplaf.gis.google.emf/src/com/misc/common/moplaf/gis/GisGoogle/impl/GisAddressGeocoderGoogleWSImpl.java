@@ -5,15 +5,17 @@ package com.misc.common.moplaf.gis.GisGoogle.impl;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.LinkedList;
-import java.util.Locale;
 
 import com.misc.common.moplaf.gis.GisAddress;
+import com.misc.common.moplaf.gis.GisAddressGeocoded;
 import com.misc.common.moplaf.gis.GisAddressStructured;
 import com.misc.common.moplaf.gis.GisAddressUnstructured;
-import com.misc.common.moplaf.gis.GisCoordinates;
+import com.misc.common.moplaf.gis.GisFactory;
 import com.misc.common.moplaf.gis.GisGoogle.GisAddressGeocoderGoogleWS;
 import com.misc.common.moplaf.gis.GisGoogle.GisGooglePackage;
 import com.misc.common.moplaf.gis.GisGoogle.Protocol;
@@ -263,6 +265,10 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 		}
 		return super.eIsSet(featureID);
 	}
+	
+	private String encode(String toEncode) throws UnsupportedEncodingException{
+		return URLEncoder.encode(toEncode, "UTF-8");
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -291,58 +297,66 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 	    CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: called");
 	
 		// make the URL
-		LinkedList<String> parameters = new LinkedList<String>();
-		LinkedList<String> components = new LinkedList<String>();
-		String countryCode = address.getCountryCode();
-		if ( countryCode!=null && countryCode.length()>0) {
-			parameters.add("region="+countryCode);
-		}
-		if ( this.getKey()!=null ){
-			parameters.add("key="+this.getKey());
-		}
-		if ( address instanceof GisAddressStructured){
-			GisAddressStructured addressStructured = (GisAddressStructured)address;
-			String country    = addressStructured.getCountry();
-			String city       = addressStructured.getCity();
-			String street     = addressStructured.getStreet();
-			String postalCode = addressStructured.getPostalCode();
-			String building   = addressStructured.getBuildingNumber();
-			if ( country!=null && country.length()>0 ){
-				components.add("country:"+country);
-			}
-			if ( city!=null && city.length()>0){
-				components.add("locality:"+city);
-			}
-			if ( street!=null && street.length()>0){
-				components.add("route:"+street);
-			}
-			if ( postalCode!=null && postalCode.length()>0){
-				components.add("postal_code:"+postalCode);
-			}
-		} else if ( address instanceof GisAddressUnstructured ){
-			GisAddressUnstructured addressUnstructured = (GisAddressUnstructured)address;
-			String addressAsString = addressUnstructured.getAddress();
-			if ( addressAsString!=null && addressAsString.length()>0){
-				parameters.add("address="+addressAsString);
-			}
-		}
-		if ( components.size()>0 ){
-			String componentsAsString = StringUtils.join(components, "|");
-			parameters.add("components="+componentsAsString);
-		}
-		String parametersAsString = StringUtils.join(parameters, "&");
-		String targetURL = this.getProtocol().getLiteral()
-		         + "://"
-		         + this.getHost()
-		         + "/maps/api/geocode/json?"
-		         + parametersAsString;
-	  
-		CommonPlugin.INSTANCE.log("url: "+targetURL);
-		String responseAsString = "";
 		URL url;
 		HttpURLConnection connection = null;  
+		String responseAsString = "";
 		try {
 			//Create connection
+			LinkedList<String> parameters = new LinkedList<String>();
+			LinkedList<String> components = new LinkedList<String>();
+			String addressAsString = null;
+			String countryCode = address.getCountryCode();
+			if ( countryCode!=null && countryCode.length()>0) {
+				parameters.add("region="+countryCode);
+			}
+			if ( this.getKey()!=null ){
+				parameters.add("key="+this.getKey());
+			}
+			if ( address instanceof GisAddressStructured){
+				GisAddressStructured addressStructured = (GisAddressStructured)address;
+				String country    = addressStructured.getCountry();
+				String locality   = addressStructured.getLocality();
+				String area       = addressStructured.getAdministrativeArea();
+				String postalCode = addressStructured.getPostalCode();
+				String street     = addressStructured.getStreet();
+				String building   = addressStructured.getBuildingNumber();
+				if ( country!=null && country.length()>0 ){
+					components.add("country:"+this.encode(country));
+				}
+				if ( area!=null && area.length()>0){
+					components.add("administrative_area:"+this.encode(area));
+				}
+				if ( locality!=null && locality.length()>0){
+					components.add("locality:"+this.encode(locality));
+				}
+				if ( postalCode!=null && postalCode.length()>0){
+					components.add("postal_code:"+this.encode(postalCode));
+				}
+				if ( street!=null && street.length()>0){
+					components.add("route:"+this.encode(street));
+				}
+				if ( building!=null && building.length()>0 ){
+					components.add("street_number:"+this.encode(building));  // does not work
+				}
+			} else if ( address instanceof GisAddressUnstructured ){
+				GisAddressUnstructured addressUnstructured = (GisAddressUnstructured)address;
+				addressAsString = addressUnstructured.getAddress();
+			}
+			if ( components.size()>0 ){
+				String componentsAsString = StringUtils.join(components, "|");
+				parameters.add("components="+componentsAsString);
+			}
+			if ( addressAsString!=null && addressAsString.length()>0){
+				parameters.add("address="+this.encode(addressAsString));
+			}
+			String parametersAsString = StringUtils.join(parameters, "&");
+			String targetURL = this.getProtocol().getLiteral()
+			         + "://"
+			         + this.getHost()
+			         + "/maps/api/geocode/json?"
+			         + parametersAsString;
+		  
+			CommonPlugin.INSTANCE.log("url: "+targetURL);
 			url = new URL(targetURL);
 			connection = (HttpURLConnection)url.openConnection();
 			connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
@@ -379,9 +393,22 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 		switch ( responsestatus){
 		case "OK" : 
 			// indicates the response contains a valid result.
-			JSONArray rows = (JSONArray)responseObject.get("results");
-			int resultIndex = 0;
-	    	JSONObject resultObject = (JSONObject)rows.get(resultIndex);
+	    	address.getGeocodedAddresses().clear();
+			JSONArray resultObjects = (JSONArray)responseObject.get("results");
+			for (int resultIndex = 0; resultIndex<resultObjects.size(); resultIndex++){
+		    	JSONObject resultObject = (JSONObject)resultObjects.get(resultIndex);
+		    	String formattedAddress = (String)resultObject.get("formatted_address");
+		    	JSONObject geometryObject = (JSONObject)resultObject.get("geometry");
+		    	JSONObject locationObject = (JSONObject)geometryObject.get("location");
+		    	double latitude  = (double)locationObject.get("lat");
+		    	double longitude = (double)locationObject.get("lng");
+		    	GisAddressGeocoded newGeocoded = GisFactory.eINSTANCE.createGisAddressGeocoded();
+		    	newGeocoded.setDescription(formattedAddress);
+		    	newGeocoded.setLatitude((float)latitude);
+		    	newGeocoded.setLongitude((float)longitude);
+		    	newGeocoded.setName("geocoded: "+address.getName()+" -> "+formattedAddress);
+		    	address.getGeocodedAddresses().add(newGeocoded);
+			}
 	    	break;
 		case "ZERO_RESULTS":
 			// indicates that the geocode was successful but returned no results. This may occur if the geocoder was passed a non-existent address.
