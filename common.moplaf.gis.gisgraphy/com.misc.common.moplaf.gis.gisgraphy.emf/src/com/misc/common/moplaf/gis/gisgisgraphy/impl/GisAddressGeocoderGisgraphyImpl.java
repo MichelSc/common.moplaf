@@ -341,6 +341,8 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 
 	@Override
 	public void geocode(GisAddress address) {
+		if ( address == null )  return;
+		String feedback = "Ok";
 	    CommonPlugin.INSTANCE.log("GisAddressGeocoderGisgraphy: called");
 	
 		// make the URL
@@ -426,6 +428,9 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 			responseAsString = response.toString();
 		} catch (Exception e) {
 			CommonPlugin.INSTANCE.log("GisAddressGeocoderGisgraphy: connection failed "+e.getMessage());
+			feedback = "Connection failed: "+e.getMessage();
+			address.setGeocodeFeedback(feedback);
+			return;
 		} finally {
 			if(connection != null) {
 				connection.disconnect(); 
@@ -456,5 +461,6 @@ public class GisAddressGeocoderGisgraphyImpl extends GisAddressGeocoderImpl impl
 	    	newGeocoded.setName("geocoded: "+address.getName()+" -> "+description);
 	    	address.getGeocodedAddresses().add(newGeocoded);
 		}
+		address.setGeocodeFeedback(feedback);
 	}
 } //GisAddressGeocoderGisgraphyImpl

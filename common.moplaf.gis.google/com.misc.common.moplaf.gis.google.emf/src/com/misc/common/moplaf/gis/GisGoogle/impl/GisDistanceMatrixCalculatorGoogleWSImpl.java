@@ -613,7 +613,9 @@ public class GisDistanceMatrixCalculatorGoogleWSImpl extends GisDistanceMatrixCa
 
 	@Override
 	public void calculate(GisDistanceMatrix matrix) {
-	      CommonPlugin.INSTANCE.log("GisDistanceMatrixCalculatorGoogleWS: called");
+		if ( matrix==null ) return; 
+		String feedback = "ok";
+	    CommonPlugin.INSTANCE.log("GisDistanceMatrixCalculatorGoogleWS: called");
 		// make the URL
 		LinkedList<String> parameters = new LinkedList<String>();
 		if ( this.getTravelModel()!=null) {
@@ -707,6 +709,9 @@ public class GisDistanceMatrixCalculatorGoogleWSImpl extends GisDistanceMatrixCa
 	      responseAsString = response.toString();
 	    } catch (Exception e) {
 	      CommonPlugin.INSTANCE.log("GisDistanceMatrixCalculatorGoogleWS: connection failed "+e.getMessage());
+	      feedback = "Connection failed: "+e.getMessage();
+	      matrix.setCalculateFeedback(feedback);
+	      return;
         } finally {
 	      if(connection != null) {
 	        connection.disconnect(); 
@@ -741,15 +746,15 @@ public class GisDistanceMatrixCalculatorGoogleWSImpl extends GisDistanceMatrixCa
     			    	duration = (Long) durationObject.get("value"); 
     		    		break;
     		    	case "NOT_FOUND":
-    		    		// indicates that the origin and/or destination of this pairing could not be geocoded.
     		    		calculated = false;
+    		    		 // indicates that the origin and/or destination of this pairing could not be geocoded";
     		    		break;
     		    	case "ZERO_RESULTS":
     		    		calculated = false;
-    		    		//indicates no route could be found between the origin and destination.
+    		    		// indicates no route could be found between the origin and destination";
     		    		break;
     		    	default:
-    			        CommonPlugin.INSTANCE.log("GisDistanceMatrixCalculatorGoogleWS: unexpected element status: #"+responsestatus+"#");
+    			        CommonPlugin.INSTANCE.log("GisDistanceMatrixCalculatorGoogleWS: "+"Unknown response status: "+responsestatus);
     		    		calculated = false;
     		    	} // switch on the element status
 //    			      CommonPlugin.INSTANCE.log("GisDistanceMatrixCalculatorGoogleWS: value "+distanceValue);
@@ -765,29 +770,31 @@ public class GisDistanceMatrixCalculatorGoogleWSImpl extends GisDistanceMatrixCa
     		}  // traverse the fromlocations
     		break;
     	case "INVALID_REQUEST" :
-    		//  indicates that the provided request was invalid.
+    		feedback = "Invalid Request: indicates that the provided request was invalid"; 
 	        CommonPlugin.INSTANCE.log("GisDistanceMatrixCalculatorGoogleWS: invalid provided request");
     		break;
 		case "MAX_ELEMENTS_EXCEEDED": 
-			// indicates that the product of origins and destinations exceeds the per-query limit.
+			feedback = "Max Elements Exceeded: indicates that the product of origins and destinations exceeds the per-query limit";
 	        CommonPlugin.INSTANCE.log("GisDistanceMatrixCalculatorGoogleWS: per-query limit exceeded");
     		break;
 		case "OVER_QUERY_LIMIT" : 
-			// indicates the service has received too many requests from your application within the allowed time period.
+			feedback = "Over Query Limit: indicates the service has received too many requests from your application within the allowed time period";
 	        CommonPlugin.INSTANCE.log("GisDistanceMatrixCalculatorGoogleWS: too many requests for the allowed time period");
 	    	break;
 		case "REQUEST_DENIED": 
-			//indicates that the service denied use of the Distance Matrix service by your application.
+			feedback = "Request denied: indicates that the service denied use of the Distance Matrix service by your application";
 	        CommonPlugin.INSTANCE.log("GisDistanceMatrixCalculatorGoogleWS: request denied");
 		    break;
 		case "UNKNOWN_ERROR":  
-			//indicates a Distance Matrix request could not be processed due to a server error. The request may succeed if you try again.
+			feedback = "Unknown Error: indicates a Distance Matrix request could not be processed due to a server error. The request may succeed if you try again";
 	        CommonPlugin.INSTANCE.log("GisDistanceMatrixCalculatorGoogleWS: unknown server error");
     		break;
 		default :
+			feedback = "Unknown response status "+responsestatus;
 	        CommonPlugin.INSTANCE.log("GisDistanceMatrixCalculatorGoogleWS: unexpected response status: "+responsestatus);
     		break;
     	}  // swich on response status
+    	matrix.setCalculateFeedback(feedback);
 	}
 
 } //GisDistanceMatrixCalculatorGoogleWSImpl

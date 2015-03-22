@@ -81,7 +81,7 @@ public class GisDistanceMatrixCalculatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__1MatrixcalculatorPropertyCategory"),
 				 null));
 	}
 

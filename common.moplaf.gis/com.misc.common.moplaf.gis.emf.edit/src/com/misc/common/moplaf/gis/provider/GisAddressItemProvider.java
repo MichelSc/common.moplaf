@@ -4,6 +4,7 @@ package com.misc.common.moplaf.gis.provider;
 
 
 import com.misc.common.moplaf.gis.GisAddress;
+import com.misc.common.moplaf.gis.GisAddressGeocoded;
 import com.misc.common.moplaf.gis.GisFactory;
 import com.misc.common.moplaf.gis.GisPackage;
 
@@ -13,6 +14,7 @@ import java.util.List;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -52,6 +54,7 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 			addCountryCodePropertyDescriptor(object);
 			addSelectedGeocodedLocationPropertyDescriptor(object);
 			addGeocoderPropertyDescriptor(object);
+			addGeocodeFeedbackPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -82,11 +85,10 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 	 * This adds a property descriptor for the Selected Geocoded Location feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	protected void addSelectedGeocodedLocationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
+			(new ItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_GisAddress_selectedGeocodedLocation_feature"),
@@ -97,7 +99,14 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 				 true,
 				 null,
 				 null,
-				 null));
+				 null){
+					@Override
+					public Collection<?> getChoiceOfValues(Object object) {
+						GisAddress address = (GisAddress) object;
+						EList<GisAddressGeocoded> geocodingCandidates = address.getGeocodedAddresses();
+						return geocodingCandidates;
+					}
+		});
 	}
 
 	/**
@@ -118,6 +127,28 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Geocode Feedback feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGeocodeFeedbackPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GisAddress_geocodeFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddress_geocodeFeedback_feature", "_UI_GisAddress_type"),
+				 GisPackage.Literals.GIS_ADDRESS__GEOCODE_FEEDBACK,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -191,6 +222,7 @@ public class GisAddressItemProvider extends GisLocationItemProvider {
 
 		switch (notification.getFeatureID(GisAddress.class)) {
 			case GisPackage.GIS_ADDRESS__COUNTRY_CODE:
+			case GisPackage.GIS_ADDRESS__GEOCODE_FEEDBACK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case GisPackage.GIS_ADDRESS__GEOCODED_ADDRESSES:

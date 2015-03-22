@@ -69,6 +69,7 @@ public class GisDistanceMatrixItemProvider
 
 			addCalculatorPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
+			addCalculateFeedbackPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -109,6 +110,28 @@ public class GisDistanceMatrixItemProvider
 				 getString("_UI_GisDistanceMatrix_Name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GisDistanceMatrix_Name_feature", "_UI_GisDistanceMatrix_type"),
 				 GisPackage.Literals.GIS_DISTANCE_MATRIX__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Calculate Feedback feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCalculateFeedbackPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GisDistanceMatrix_calculateFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisDistanceMatrix_calculateFeedback_feature", "_UI_GisDistanceMatrix_type"),
+				 GisPackage.Literals.GIS_DISTANCE_MATRIX__CALCULATE_FEEDBACK,
 				 true,
 				 false,
 				 false,
@@ -187,6 +210,7 @@ public class GisDistanceMatrixItemProvider
 
 		switch (notification.getFeatureID(GisDistanceMatrix.class)) {
 			case GisPackage.GIS_DISTANCE_MATRIX__NAME:
+			case GisPackage.GIS_DISTANCE_MATRIX__CALCULATE_FEEDBACK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case GisPackage.GIS_DISTANCE_MATRIX__FROM_LOCATIONS:

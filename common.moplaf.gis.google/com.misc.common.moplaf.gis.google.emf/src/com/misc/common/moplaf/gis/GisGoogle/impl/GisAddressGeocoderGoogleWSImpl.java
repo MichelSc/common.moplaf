@@ -395,6 +395,8 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 
 	@Override
 	public void geocode(GisAddress address) {
+		if ( address == null) return;
+		String feedback = "Ok";
 	    CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: called");
 	
 		// make the URL
@@ -481,6 +483,9 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 			responseAsString = response.toString();
 		} catch (Exception e) {
 			CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: connection failed "+e.getMessage());
+			feedback = "Connection failed: "+e.getMessage();
+			address.setGeocodeFeedback(feedback);
+			return;
 		} finally {
 			if(connection != null) {
 				connection.disconnect(); 
@@ -514,28 +519,31 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 			}
 	    	break;
 		case "ZERO_RESULTS":
-			// indicates that the geocode was successful but returned no results. This may occur if the geocoder was passed a non-existent address.
+			feedback = "Zero results: indicates that the geocode was successful but returned no results. This may occur if the geocoder was passed a non-existent address";
+			CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: "+feedback);
 			break;
-		case "OVER_QUERY_LIMIT" : 
-			// indicates the service has received too many requests from your application within the allowed time period.
-			CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: too many requests for the allowed time period");
+		case "OVER_QUERY_LIMIT" :
+			feedback = "Over Query Limit: indicates the service has received too many requests from your application within the allowed time period";
+			CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: "+feedback);
 			break;
 		case "REQUEST_DENIED": 
-			// indicates that your request was denied.
-			CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: request denied");
+			feedback = "Request Denied: indicates that your request was denied";
+			CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: "+feedback);
 			break;
 		case "INVALID_REQUEST" :
-			//  generally indicates that the query (address, components or latlng) is missing.
-			CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: invalid request provided");
+			feedback = "Invalid Request: generally indicates that the query (address, components or latlng) is missing";
+			CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: "+feedback);
 			break;
 		case "UNKNOWN_ERROR":  
-			// indicates that the request could not be processed due to a server error. The request may succeed if you try again.
-			CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: unknown server error");
+			feedback = "Unknown Error: indicates that the request could not be processed due to a server error. The request may succeed if you try again";
+			CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: "+feedback);
 			break;
 		default :
-			CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: unexpected response status: "+responsestatus);
+			feedback = "Unknown Response Status "+responsestatus;
+			CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: "+feedback);
 			break;
 		}  // switch on response status
+		address.setGeocodeFeedback(feedback);;
 	}
 
 } //GisAddressGeocoderGoogleWSImpl

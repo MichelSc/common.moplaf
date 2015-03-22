@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getGeocodedAddresses <em>Geocoded Addresses</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getSelectedGeocodedLocation <em>Selected Geocoded Location</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getGeocoder <em>Geocoder</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisAddress#getGeocodeFeedback <em>Geocode Feedback</em>}</li>
  * </ul>
  * </p>
  *
@@ -117,6 +118,32 @@ public interface GisAddress extends GisLocation {
 	 * @generated
 	 */
 	void setGeocoder(GisAddressGeocoder value);
+
+	/**
+	 * Returns the value of the '<em><b>Geocode Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Geocode Feedback</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Geocode Feedback</em>' attribute.
+	 * @see #setGeocodeFeedback(String)
+	 * @see com.misc.common.moplaf.gis.GisPackage#getGisAddress_GeocodeFeedback()
+	 * @model
+	 * @generated
+	 */
+	String getGeocodeFeedback();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisAddress#getGeocodeFeedback <em>Geocode Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Geocode Feedback</em>' attribute.
+	 * @see #getGeocodeFeedback()
+	 * @generated
+	 */
+	void setGeocodeFeedback(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

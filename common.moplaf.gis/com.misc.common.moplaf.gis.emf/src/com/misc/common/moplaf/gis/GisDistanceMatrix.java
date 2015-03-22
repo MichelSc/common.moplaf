@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.gis.GisDistanceMatrix#getToLocations <em>To Locations</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisDistanceMatrix#getCalculator <em>Calculator</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisDistanceMatrix#getName <em>Name</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisDistanceMatrix#getCalculateFeedback <em>Calculate Feedback</em>}</li>
  * </ul>
  * </p>
  *
@@ -109,6 +110,32 @@ public interface GisDistanceMatrix extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Calculate Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Calculate Feedback</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Calculate Feedback</em>' attribute.
+	 * @see #setCalculateFeedback(String)
+	 * @see com.misc.common.moplaf.gis.GisPackage#getGisDistanceMatrix_CalculateFeedback()
+	 * @model
+	 * @generated
+	 */
+	String getCalculateFeedback();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.gis.GisDistanceMatrix#getCalculateFeedback <em>Calculate Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Calculate Feedback</em>' attribute.
+	 * @see #getCalculateFeedback()
+	 * @generated
+	 */
+	void setCalculateFeedback(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -26,6 +26,9 @@
               <children xmi:type="notation:Node" xmi:id="_mgOCQM-8EeSIAOYsbAIYOQ" type="3010" element="_mfnlUM-8EeSIAOYsbAIYOQ">
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_mgOCQc-8EeSIAOYsbAIYOQ"/>
               </children>
+              <children xmi:type="notation:Node" xmi:id="_Lro3gNCjEeSCKc4IrLyJPw" type="3010" element="_tlcK4NCgEeSCKc4IrLyJPw">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_Lro3gdCjEeSCKc4IrLyJPw"/>
+              </children>
               <children xmi:type="notation:Node" xmi:id="_wu3zYMoxEeSpJrxjx9dQ1w" type="3010" element="_wuq_EMoxEeSpJrxjx9dQ1w">
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_wu3zYcoxEeSpJrxjx9dQ1w"/>
               </children>
@@ -61,6 +64,9 @@
               </children>
               <children xmi:type="notation:Node" xmi:id="_rll5oMsnEeSkNfmJKuqoCA" type="3010" element="_kFRi0MsnEeSkNfmJKuqoCA">
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_rll5ocsnEeSkNfmJKuqoCA"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_NLlnUNCjEeSCKc4IrLyJPw" type="3010" element="_x1XvANCgEeSCKc4IrLyJPw">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_NLlnUdCjEeSCKc4IrLyJPw"/>
               </children>
               <styles xmi:type="notation:SortingStyle" xmi:id="_C8exIcojEeSpJrxjx9dQ1w"/>
               <styles xmi:type="notation:FilteringStyle" xmi:id="_C8exIsojEeSpJrxjx9dQ1w"/>
@@ -639,6 +645,17 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_tlcK4NCgEeSCKc4IrLyJPw" name="geocodeFeedback : EString" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'org.eclipse.emf.ecore.impl.EAttributeImpl@77ef9623{platform:/resource/com.misc.common.moplaf.gis.emf/model/gis.ecore#//GisAddressGeocoder/newAttribute}' must be set&#xA;ERROR : The typed element must have a type">
+          <target xmi:type="ecore:EAttribute" href="gis.ecore#//GisAddress/geocodeFeedback"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="gis.ecore#//GisAddress/geocodeFeedback"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_wkDRENCgEeSCKc4IrLyJPw" labelAlignment="LEFT">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_wkDREdCgEeSCKc4IrLyJPw"/>
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_wkDREtCgEeSCKc4IrLyJPw"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_wkDRE9CgEeSCKc4IrLyJPw"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+        </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_wuq_EMoxEeSpJrxjx9dQ1w" name="geocode()" tooltipText="geocode()">
           <target xmi:type="ecore:EOperation" href="gis.ecore#//GisAddress/geocode"/>
           <semanticElements xmi:type="ecore:EOperation" href="gis.ecore#//GisAddress/geocode"/>
@@ -756,6 +773,17 @@
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
             <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_ntfmsssnEeSkNfmJKuqoCA"/>
             <color xmi:type="viewpoint:RGBValues" xmi:id="_ntfms8snEeSkNfmJKuqoCA"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_x1XvANCgEeSCKc4IrLyJPw" name="calculateFeedback : EString" tooltipText="">
+          <target xmi:type="ecore:EAttribute" href="gis.ecore#//GisDistanceMatrix/calculateFeedback"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="gis.ecore#//GisDistanceMatrix/calculateFeedback"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_x1YWENCgEeSCKc4IrLyJPw" labelAlignment="LEFT">
+            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_x1YWEdCgEeSCKc4IrLyJPw"/>
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_x1YWEtCgEeSCKc4IrLyJPw"/>
+            <color xmi:type="viewpoint:RGBValues" xmi:id="_x1YWE9CgEeSCKc4IrLyJPw"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
@@ -1115,12 +1143,12 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_Hy8BYMoxEeSpJrxjx9dQ1w" backgroundStyle="Liquid">
-          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_Hy8BYcoxEeSpJrxjx9dQ1w"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_wj8jYNCgEeSCKc4IrLyJPw" backgroundStyle="Liquid">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_wj8jYdCgEeSCKc4IrLyJPw"/>
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
-          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_Hy8BYsoxEeSpJrxjx9dQ1w"/>
-          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_Hy8BY8oxEeSpJrxjx9dQ1w" red="255" green="255" blue="255"/>
-          <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_Hy8BZMoxEeSpJrxjx9dQ1w" red="255" green="252" blue="216"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_wj8jYtCgEeSCKc4IrLyJPw"/>
+          <backgroundColor xmi:type="viewpoint:RGBValues" xmi:id="_wj8jY9CgEeSCKc4IrLyJPw" red="255" green="255" blue="255"/>
+          <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_wj8jZNCgEeSCKc4IrLyJPw" red="255" green="252" blue="216"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
         <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_BYkmAMoxEeSpJrxjx9dQ1w" name="geocode(address GisAddress)" tooltipText="geocode(address)">

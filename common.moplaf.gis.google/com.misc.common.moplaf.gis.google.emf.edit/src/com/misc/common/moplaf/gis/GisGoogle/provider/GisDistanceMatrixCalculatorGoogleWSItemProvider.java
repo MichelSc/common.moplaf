@@ -80,7 +80,7 @@ public class GisDistanceMatrixCalculatorGoogleWSItemProvider extends GisDistance
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__2ServerPropertyCategory"),
 				 null));
 	}
 
@@ -102,7 +102,7 @@ public class GisDistanceMatrixCalculatorGoogleWSItemProvider extends GisDistance
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__2ServerPropertyCategory"),
 				 null));
 	}
 
@@ -124,7 +124,7 @@ public class GisDistanceMatrixCalculatorGoogleWSItemProvider extends GisDistance
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__2ServerPropertyCategory"),
 				 null));
 	}
 
@@ -146,7 +146,7 @@ public class GisDistanceMatrixCalculatorGoogleWSItemProvider extends GisDistance
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__2ServerPropertyCategory"),
 				 null));
 	}
 
@@ -168,7 +168,7 @@ public class GisDistanceMatrixCalculatorGoogleWSItemProvider extends GisDistance
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__2ServerPropertyCategory"),
 				 null));
 	}
 
@@ -190,7 +190,7 @@ public class GisDistanceMatrixCalculatorGoogleWSItemProvider extends GisDistance
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__3DistanceMatrixPropertyCategory"),
 				 null));
 	}
 
@@ -212,7 +212,7 @@ public class GisDistanceMatrixCalculatorGoogleWSItemProvider extends GisDistance
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__3DistanceMatrixPropertyCategory"),
 				 null));
 	}
 
@@ -234,7 +234,7 @@ public class GisDistanceMatrixCalculatorGoogleWSItemProvider extends GisDistance
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__3DistanceMatrixPropertyCategory"),
 				 null));
 	}
 
@@ -256,7 +256,7 @@ public class GisDistanceMatrixCalculatorGoogleWSItemProvider extends GisDistance
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__3DistanceMatrixPropertyCategory"),
 				 null));
 	}
 

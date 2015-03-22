@@ -37,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixImpl#getToLocations <em>To Locations</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixImpl#getCalculator <em>Calculator</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixImpl#getCalculateFeedback <em>Calculate Feedback</em>}</li>
  * </ul>
  * </p>
  *
@@ -94,6 +95,25 @@ public class GisDistanceMatrixImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCalculateFeedback() <em>Calculate Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCalculateFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CALCULATE_FEEDBACK_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getCalculateFeedback() <em>Calculate Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCalculateFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected String calculateFeedback = CALCULATE_FEEDBACK_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -195,6 +215,27 @@ public class GisDistanceMatrixImpl extends MinimalEObjectImpl.Container implemen
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_DISTANCE_MATRIX__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getCalculateFeedback() {
+		return calculateFeedback;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCalculateFeedback(String newCalculateFeedback) {
+		String oldCalculateFeedback = calculateFeedback;
+		calculateFeedback = newCalculateFeedback;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GisPackage.GIS_DISTANCE_MATRIX__CALCULATE_FEEDBACK, oldCalculateFeedback, calculateFeedback));
 	}
 
 	/**
@@ -309,6 +350,8 @@ public class GisDistanceMatrixImpl extends MinimalEObjectImpl.Container implemen
 				return basicGetCalculator();
 			case GisPackage.GIS_DISTANCE_MATRIX__NAME:
 				return getName();
+			case GisPackage.GIS_DISTANCE_MATRIX__CALCULATE_FEEDBACK:
+				return getCalculateFeedback();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -336,6 +379,9 @@ public class GisDistanceMatrixImpl extends MinimalEObjectImpl.Container implemen
 			case GisPackage.GIS_DISTANCE_MATRIX__NAME:
 				setName((String)newValue);
 				return;
+			case GisPackage.GIS_DISTANCE_MATRIX__CALCULATE_FEEDBACK:
+				setCalculateFeedback((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -360,6 +406,9 @@ public class GisDistanceMatrixImpl extends MinimalEObjectImpl.Container implemen
 			case GisPackage.GIS_DISTANCE_MATRIX__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case GisPackage.GIS_DISTANCE_MATRIX__CALCULATE_FEEDBACK:
+				setCalculateFeedback(CALCULATE_FEEDBACK_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -380,6 +429,8 @@ public class GisDistanceMatrixImpl extends MinimalEObjectImpl.Container implemen
 				return calculator != null;
 			case GisPackage.GIS_DISTANCE_MATRIX__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case GisPackage.GIS_DISTANCE_MATRIX__CALCULATE_FEEDBACK:
+				return CALCULATE_FEEDBACK_EDEFAULT == null ? calculateFeedback != null : !CALCULATE_FEEDBACK_EDEFAULT.equals(calculateFeedback);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -421,6 +472,8 @@ public class GisDistanceMatrixImpl extends MinimalEObjectImpl.Container implemen
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (Name: ");
 		result.append(name);
+		result.append(", calculateFeedback: ");
+		result.append(calculateFeedback);
 		result.append(')');
 		return result.toString();
 	}

@@ -18,18 +18,23 @@
       <genEnumLiterals ecoreEnumLiteral="gisgoogle.ecore#//TravelMode/Bicycling"/>
     </genEnums>
     <genClasses ecoreClass="gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/Host"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/Protocol"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/Key"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/AvoidTolls"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/AvoidFerries"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/AvoidHighways"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/TravelModel"/>
+      <genFeatures createChild="false" propertyCategory="2 Server" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/Protocol"/>
+      <genFeatures createChild="false" propertyCategory="2 Server" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/Port"/>
+      <genFeatures createChild="false" propertyCategory="2 Server" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/Host"/>
+      <genFeatures createChild="false" propertyCategory="2 Server" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/Path"/>
+      <genFeatures createChild="false" propertyCategory="2 Server" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/Key"/>
+      <genFeatures createChild="false" propertyCategory="3 Distance Matrix" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/AvoidTolls"/>
+      <genFeatures createChild="false" propertyCategory="3 Distance Matrix" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/AvoidFerries"/>
+      <genFeatures createChild="false" propertyCategory="3 Distance Matrix" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/AvoidHighways"/>
+      <genFeatures createChild="false" propertyCategory="3 Distance Matrix" propertyDescription=""
+          ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/TravelModel"/>
     </genClasses>
     <genClasses ecoreClass="gisgoogle.ecore#//GisAddressGeocoderGoogleWS">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisAddressGeocoderGoogleWS/Host"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisAddressGeocoderGoogleWS/Protocol"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisAddressGeocoderGoogleWS/Key"/>
+      <genFeatures createChild="false" propertyCategory="2 Server" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisAddressGeocoderGoogleWS/Protocol"/>
+      <genFeatures createChild="false" propertyCategory="2 Server" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisAddressGeocoderGoogleWS/Port"/>
+      <genFeatures createChild="false" propertyCategory="2 Server" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisAddressGeocoderGoogleWS/Host"/>
+      <genFeatures createChild="false" propertyCategory="2 Server" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisAddressGeocoderGoogleWS/Path"/>
+      <genFeatures createChild="false" propertyCategory="2 Server" ecoreFeature="ecore:EAttribute gisgoogle.ecore#//GisAddressGeocoderGoogleWS/Key"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

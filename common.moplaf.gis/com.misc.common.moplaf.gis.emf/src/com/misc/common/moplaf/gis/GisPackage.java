@@ -223,13 +223,22 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS__GEOCODER = GIS_LOCATION_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Geocode Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS__GEOCODE_FEEDBACK = GIS_LOCATION_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Address</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_FEATURE_COUNT = GIS_LOCATION_FEATURE_COUNT + 4;
+	int GIS_ADDRESS_FEATURE_COUNT = GIS_LOCATION_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get Coordinates</em>' operation.
@@ -314,13 +323,22 @@ public interface GisPackage extends EPackage {
 	int GIS_DISTANCE_MATRIX__NAME = 3;
 
 	/**
+	 * The feature id for the '<em><b>Calculate Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_DISTANCE_MATRIX__CALCULATE_FEEDBACK = 4;
+
+	/**
 	 * The number of structural features of the '<em>Distance Matrix</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_FEATURE_COUNT = 4;
+	int GIS_DISTANCE_MATRIX_FEATURE_COUNT = 5;
 
 	/**
 	 * The operation id for the '<em>Calculate</em>' operation.
@@ -799,6 +817,15 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_STRUCTURED__GEOCODER = GIS_ADDRESS__GEOCODER;
 
 	/**
+	 * The feature id for the '<em><b>Geocode Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_STRUCTURED__GEOCODE_FEEDBACK = GIS_ADDRESS__GEOCODE_FEEDBACK;
+
+	/**
 	 * The feature id for the '<em><b>Country</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -953,6 +980,15 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_UNSTRUCTURED__GEOCODER = GIS_ADDRESS__GEOCODER;
 
 	/**
+	 * The feature id for the '<em><b>Geocode Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_UNSTRUCTURED__GEOCODE_FEEDBACK = GIS_ADDRESS__GEOCODE_FEEDBACK;
+
+	/**
 	 * The feature id for the '<em><b>Address</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1094,6 +1130,17 @@ public interface GisPackage extends EPackage {
 	EReference getGisAddress_Geocoder();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisAddress#getGeocodeFeedback <em>Geocode Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Geocode Feedback</em>'.
+	 * @see com.misc.common.moplaf.gis.GisAddress#getGeocodeFeedback()
+	 * @see #getGisAddress()
+	 * @generated
+	 */
+	EAttribute getGisAddress_GeocodeFeedback();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisAddress#geocode() <em>Geocode</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1166,6 +1213,17 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGisDistanceMatrix_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisDistanceMatrix#getCalculateFeedback <em>Calculate Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Calculate Feedback</em>'.
+	 * @see com.misc.common.moplaf.gis.GisDistanceMatrix#getCalculateFeedback()
+	 * @see #getGisDistanceMatrix()
+	 * @generated
+	 */
+	EAttribute getGisDistanceMatrix_CalculateFeedback();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisDistanceMatrix#calculate() <em>Calculate</em>}' operation.
@@ -1690,6 +1748,14 @@ public interface GisPackage extends EPackage {
 		EReference GIS_ADDRESS__GEOCODER = eINSTANCE.getGisAddress_Geocoder();
 
 		/**
+		 * The meta object literal for the '<em><b>Geocode Feedback</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_ADDRESS__GEOCODE_FEEDBACK = eINSTANCE.getGisAddress_GeocodeFeedback();
+
+		/**
 		 * The meta object literal for the '<em><b>Geocode</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1746,6 +1812,14 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GIS_DISTANCE_MATRIX__NAME = eINSTANCE.getGisDistanceMatrix_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Calculate Feedback</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_DISTANCE_MATRIX__CALCULATE_FEEDBACK = eINSTANCE.getGisDistanceMatrix_CalculateFeedback();
 
 		/**
 		 * The meta object literal for the '<em><b>Calculate</b></em>' operation.
