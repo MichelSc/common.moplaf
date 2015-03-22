@@ -87,22 +87,22 @@ public interface GisgisgraphyPackage extends EPackage {
 	int GIS_ADDRESS_GEOCODER_GISGRAPHY__PROTOCOL = GisPackage.GIS_ADDRESS_GEOCODER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Port</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_GEOCODER_GISGRAPHY__PORT = GisPackage.GIS_ADDRESS_GEOCODER_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Host</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_GEOCODER_GISGRAPHY__HOST = GisPackage.GIS_ADDRESS_GEOCODER_FEATURE_COUNT + 2;
+	int GIS_ADDRESS_GEOCODER_GISGRAPHY__HOST = GisPackage.GIS_ADDRESS_GEOCODER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Port</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODER_GISGRAPHY__PORT = GisPackage.GIS_ADDRESS_GEOCODER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.

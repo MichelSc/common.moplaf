@@ -7,12 +7,13 @@
     <eLiterals name="Https" value="1" literal="https"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisAddressGeocoderGisgraphy" eSuperTypes="../../com.misc.common.moplaf.gis.emf/model/gis.ecore#//GisAddressGeocoder">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Protocol" eType="ecore:EEnum ../../com.misc.common.moplaf.gis.google.emf/model/gisgoogle.ecore#//Protocol"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Protocol" eType="ecore:EEnum ../../com.misc.common.moplaf.gis.google.emf/model/gisgoogle.ecore#//Protocol"
+        defaultValueLiteral="http"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Host" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="services.gisgraphy.com"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Port" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="80"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Host" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="maps.googleapis.com"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="/maps/api/geocode/json"/>
+        defaultValueLiteral="/geocoding/geocode"/>
   </eClassifiers>
 </ecore:EPackage>

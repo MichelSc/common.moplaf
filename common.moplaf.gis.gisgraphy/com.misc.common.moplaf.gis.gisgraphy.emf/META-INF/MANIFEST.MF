@@ -3,7 +3,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: com.misc.common.moplaf.gis.gisgraphy.emf;singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Bundle-ClassPath: .
+Bundle-ClassPath: .,
+ lib/json-simple-1.1.1.jar
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
@@ -13,5 +14,6 @@ Export-Package: com.misc.common.moplaf.gis.gisgisgraphy,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  com.misc.common.moplaf.gis.emf;visibility:=reexport,
- com.misc.common.moplaf.gis.google.emf;visibility:=reexport
+ com.misc.common.moplaf.gis.google.emf;visibility:=reexport,
+ org.apache.commons.lang;bundle-version="2.6.0"
 Bundle-ActivationPolicy: lazy

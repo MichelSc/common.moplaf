@@ -127,7 +127,7 @@ public class GisgisgraphyPackageImpl extends EPackageImpl implements Gisgisgraph
 	 * @generated
 	 */
 	public EAttribute getGisAddressGeocoderGisgraphy_Port() {
-		return (EAttribute)gisAddressGeocoderGisgraphyEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)gisAddressGeocoderGisgraphyEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -136,7 +136,7 @@ public class GisgisgraphyPackageImpl extends EPackageImpl implements Gisgisgraph
 	 * @generated
 	 */
 	public EAttribute getGisAddressGeocoderGisgraphy_Host() {
-		return (EAttribute)gisAddressGeocoderGisgraphyEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)gisAddressGeocoderGisgraphyEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -187,8 +187,8 @@ public class GisgisgraphyPackageImpl extends EPackageImpl implements Gisgisgraph
 		// Create classes and their features
 		gisAddressGeocoderGisgraphyEClass = createEClass(GIS_ADDRESS_GEOCODER_GISGRAPHY);
 		createEAttribute(gisAddressGeocoderGisgraphyEClass, GIS_ADDRESS_GEOCODER_GISGRAPHY__PROTOCOL);
-		createEAttribute(gisAddressGeocoderGisgraphyEClass, GIS_ADDRESS_GEOCODER_GISGRAPHY__PORT);
 		createEAttribute(gisAddressGeocoderGisgraphyEClass, GIS_ADDRESS_GEOCODER_GISGRAPHY__HOST);
+		createEAttribute(gisAddressGeocoderGisgraphyEClass, GIS_ADDRESS_GEOCODER_GISGRAPHY__PORT);
 		createEAttribute(gisAddressGeocoderGisgraphyEClass, GIS_ADDRESS_GEOCODER_GISGRAPHY__PATH);
 
 		// Create enums
@@ -231,10 +231,10 @@ public class GisgisgraphyPackageImpl extends EPackageImpl implements Gisgisgraph
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(gisAddressGeocoderGisgraphyEClass, GisAddressGeocoderGisgraphy.class, "GisAddressGeocoderGisgraphy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getGisAddressGeocoderGisgraphy_Protocol(), theGisGooglePackage.getProtocol(), "Protocol", null, 0, 1, GisAddressGeocoderGisgraphy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisAddressGeocoderGisgraphy_Protocol(), theGisGooglePackage.getProtocol(), "Protocol", "http", 0, 1, GisAddressGeocoderGisgraphy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisAddressGeocoderGisgraphy_Host(), ecorePackage.getEString(), "Host", "services.gisgraphy.com", 0, 1, GisAddressGeocoderGisgraphy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisAddressGeocoderGisgraphy_Port(), ecorePackage.getEInt(), "Port", "80", 0, 1, GisAddressGeocoderGisgraphy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGisAddressGeocoderGisgraphy_Host(), ecorePackage.getEString(), "Host", "maps.googleapis.com", 0, 1, GisAddressGeocoderGisgraphy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGisAddressGeocoderGisgraphy_Path(), ecorePackage.getEString(), "Path", "/maps/api/geocode/json", 0, 1, GisAddressGeocoderGisgraphy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisAddressGeocoderGisgraphy_Path(), ecorePackage.getEString(), "Path", "/geocoding/geocode", 0, 1, GisAddressGeocoderGisgraphy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(protocolEEnum, Protocol.class, "Protocol");

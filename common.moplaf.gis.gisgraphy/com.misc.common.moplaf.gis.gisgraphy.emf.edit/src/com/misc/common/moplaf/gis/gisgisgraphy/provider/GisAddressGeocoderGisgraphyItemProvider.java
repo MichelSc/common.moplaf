@@ -50,8 +50,8 @@ public class GisAddressGeocoderGisgraphyItemProvider extends GisAddressGeocoderI
 			super.getPropertyDescriptors(object);
 
 			addProtocolPropertyDescriptor(object);
-			addPortPropertyDescriptor(object);
 			addHostPropertyDescriptor(object);
+			addPortPropertyDescriptor(object);
 			addPathPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -184,8 +184,8 @@ public class GisAddressGeocoderGisgraphyItemProvider extends GisAddressGeocoderI
 
 		switch (notification.getFeatureID(GisAddressGeocoderGisgraphy.class)) {
 			case GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PROTOCOL:
-			case GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PORT:
 			case GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__HOST:
+			case GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PORT:
 			case GisgisgraphyPackage.GIS_ADDRESS_GEOCODER_GISGRAPHY__PATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
