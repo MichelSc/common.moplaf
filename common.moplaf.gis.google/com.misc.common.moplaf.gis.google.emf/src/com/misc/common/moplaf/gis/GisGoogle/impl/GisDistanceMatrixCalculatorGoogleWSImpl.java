@@ -631,9 +631,9 @@ public class GisDistanceMatrixCalculatorGoogleWSImpl extends GisDistanceMatrixCa
 		LinkedList<String> fromLocations = new LinkedList<String>();
 		LinkedList<GisDistanceMatrixFromLocation> fromLocationsInRequest = new LinkedList<GisDistanceMatrixFromLocation>();
 		for ( GisDistanceMatrixFromLocation fromLocation :matrix.getFromLocations()){
-			GisCoordinates location = fromLocation.getLocation().getCoordinates();
-			if ( location!=null){
-				String locationAsString = String.format(Locale.US, "%f,%f", location.getLatitude(), location.getLongitude());
+			GisCoordinates coordinates = fromLocation.getLocation().getCoordinates();
+			if ( coordinates!=null){
+				String locationAsString = String.format(Locale.US, "%f,%f", coordinates.getLatitude(), coordinates.getLongitude());
 				fromLocations.add(locationAsString);
 				fromLocationsInRequest.add(fromLocation);
 			}
@@ -642,9 +642,9 @@ public class GisDistanceMatrixCalculatorGoogleWSImpl extends GisDistanceMatrixCa
 		LinkedList<String> toLocations = new LinkedList<String>();
 		LinkedList<GisDistanceMatrixToLocation> toLocationsInRequest = new LinkedList<GisDistanceMatrixToLocation>();
 		for ( GisDistanceMatrixToLocation toLocation :matrix.getToLocations()){
-			GisCoordinates location = toLocation.getLocation().getCoordinates();
-			if ( location!=null){
-				String locationAsString = String.format(Locale.US, "%f,%f", location.getLatitude(), location.getLongitude());
+			GisCoordinates coordinates = toLocation.getLocation().getCoordinates();
+			if ( coordinates!=null){
+				String locationAsString = String.format(Locale.US, "%f,%f", coordinates.getLatitude(), coordinates.getLongitude());
 				toLocations.add(locationAsString);
 				toLocationsInRequest.add(toLocation);
 				
