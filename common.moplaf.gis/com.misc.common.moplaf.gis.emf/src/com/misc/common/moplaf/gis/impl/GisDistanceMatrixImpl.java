@@ -244,9 +244,11 @@ public class GisDistanceMatrixImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	public void calculate() {
 		GisDistanceMatrixCalculator calculator = this.getCalculator();
-		if ( calculator!=null){
-			calculator.calculate(this);
-		}
+		if ( calculator==null){
+			this.setCalculateFeedback("No calculator");
+			return;
+			}
+		calculator.calculate(this);
 	}
 
 	/**

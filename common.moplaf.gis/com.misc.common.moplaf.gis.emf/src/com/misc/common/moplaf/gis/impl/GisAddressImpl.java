@@ -263,8 +263,15 @@ public class GisAddressImpl extends GisLocationImpl implements GisAddress {
 	 * <!-- end-user-doc -->
 	 */
 	public void geocode() {
-		if ( this.getGeocoder()==null) return;
+		if ( this.getGeocoder()==null){
+			this.setGeocodeFeedback("No geocoder");
+			return;
+		}
 		this.getGeocoder().geocode(this);
+		if ( this.getGeocodedAddresses().size()>0 ){
+			GisAddressGeocoded selected = this.getGeocodedAddresses().get(0);
+			this.setSelectedGeocodedLocation(selected);
+		}
 	}
 
 	/**

@@ -645,7 +645,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_tlcK4NCgEeSCKc4IrLyJPw" name="geocodeFeedback : EString" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'org.eclipse.emf.ecore.impl.EAttributeImpl@77ef9623{platform:/resource/com.misc.common.moplaf.gis.emf/model/gis.ecore#//GisAddressGeocoder/newAttribute}' must be set&#xA;ERROR : The typed element must have a type">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_tlcK4NCgEeSCKc4IrLyJPw" name="geocodeFeedback : EString" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="gis.ecore#//GisAddress/geocodeFeedback"/>
           <semanticElements xmi:type="ecore:EAttribute" href="gis.ecore#//GisAddress/geocodeFeedback"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_wkDRENCgEeSCKc4IrLyJPw" labelAlignment="LEFT">
