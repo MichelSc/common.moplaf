@@ -49,8 +49,10 @@ public class GisAddressGeocoderGoogleWSItemProvider extends GisAddressGeocoderIt
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addHostPropertyDescriptor(object);
 			addProtocolPropertyDescriptor(object);
+			addPortPropertyDescriptor(object);
+			addHostPropertyDescriptor(object);
+			addPathPropertyDescriptor(object);
 			addKeyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -79,6 +81,28 @@ public class GisAddressGeocoderGoogleWSItemProvider extends GisAddressGeocoderIt
 	}
 
 	/**
+	 * This adds a property descriptor for the Path feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPathPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GisAddressGeocoderGoogleWS_Path_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddressGeocoderGoogleWS_Path_feature", "_UI_GisAddressGeocoderGoogleWS_type"),
+				 GisGooglePackage.Literals.GIS_ADDRESS_GEOCODER_GOOGLE_WS__PATH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Protocol feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -96,6 +120,28 @@ public class GisAddressGeocoderGoogleWSItemProvider extends GisAddressGeocoderIt
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Port feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPortPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GisAddressGeocoderGoogleWS_Port_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisAddressGeocoderGoogleWS_Port_feature", "_UI_GisAddressGeocoderGoogleWS_type"),
+				 GisGooglePackage.Literals.GIS_ADDRESS_GEOCODER_GOOGLE_WS__PORT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -160,8 +206,10 @@ public class GisAddressGeocoderGoogleWSItemProvider extends GisAddressGeocoderIt
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(GisAddressGeocoderGoogleWS.class)) {
-			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__HOST:
 			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__PROTOCOL:
+			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__PORT:
+			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__HOST:
+			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__PATH:
 			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__KEY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

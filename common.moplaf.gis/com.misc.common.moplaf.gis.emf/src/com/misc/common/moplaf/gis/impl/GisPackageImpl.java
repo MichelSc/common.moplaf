@@ -261,6 +261,15 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getGisAddress__FlushGeocoded() {
+		return gisAddressEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getGisDistanceMatrix() {
 		return gisDistanceMatrixEClass;
 	}
@@ -708,6 +717,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		createEReference(gisAddressEClass, GIS_ADDRESS__SELECTED_GEOCODED_LOCATION);
 		createEReference(gisAddressEClass, GIS_ADDRESS__GEOCODER);
 		createEOperation(gisAddressEClass, GIS_ADDRESS___GEOCODE);
+		createEOperation(gisAddressEClass, GIS_ADDRESS___FLUSH_GEOCODED);
 
 		gisDistanceMatrixEClass = createEClass(GIS_DISTANCE_MATRIX);
 		createEReference(gisDistanceMatrixEClass, GIS_DISTANCE_MATRIX__FROM_LOCATIONS);
@@ -812,6 +822,8 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		initEReference(getGisAddress_Geocoder(), this.getGisAddressGeocoder(), null, "geocoder", null, 0, 1, GisAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getGisAddress__Geocode(), null, "geocode", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getGisAddress__FlushGeocoded(), null, "flushGeocoded", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(gisDistanceMatrixEClass, GisDistanceMatrix.class, "GisDistanceMatrix", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGisDistanceMatrix_FromLocations(), this.getGisDistanceMatrixFromLocation(), null, "fromLocations", null, 0, -1, GisDistanceMatrix.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

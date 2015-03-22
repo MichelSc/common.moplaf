@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -341,6 +342,9 @@ public class GisAddressImpl extends GisLocationImpl implements GisAddress {
 			case GisPackage.GIS_ADDRESS___GEOCODE:
 				geocode();
 				return null;
+			case GisPackage.GIS_ADDRESS___FLUSH_GEOCODED:
+				flushGeocoded();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -364,6 +368,13 @@ public class GisAddressImpl extends GisLocationImpl implements GisAddress {
 	@Override
 	public GisCoordinates getCoordinates() {
 		return this.getSelectedGeocodedLocation();
+	}
+	
+	public void flushGeocoded(){
+		while (!this.getGeocodedAddresses().isEmpty() ){
+			EcoreUtil.delete(this.getGeocodedAddresses().get(0));
+		}
+		
 	}
 	
 	

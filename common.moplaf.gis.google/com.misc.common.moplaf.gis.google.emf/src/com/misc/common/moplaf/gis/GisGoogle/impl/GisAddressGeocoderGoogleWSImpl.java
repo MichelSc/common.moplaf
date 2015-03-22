@@ -5,12 +5,10 @@ package com.misc.common.moplaf.gis.GisGoogle.impl;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.util.LinkedList;
-
 import com.misc.common.moplaf.gis.GisAddress;
 import com.misc.common.moplaf.gis.GisAddressGeocoded;
 import com.misc.common.moplaf.gis.GisAddressStructured;
@@ -20,7 +18,6 @@ import com.misc.common.moplaf.gis.GisGoogle.GisAddressGeocoderGoogleWS;
 import com.misc.common.moplaf.gis.GisGoogle.GisGooglePackage;
 import com.misc.common.moplaf.gis.GisGoogle.Protocol;
 import com.misc.common.moplaf.gis.impl.GisAddressGeocoderImpl;
-
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
@@ -37,8 +34,10 @@ import org.json.simple.JSONValue;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.misc.common.moplaf.gis.GisGoogle.impl.GisAddressGeocoderGoogleWSImpl#getHost <em>Host</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisGoogle.impl.GisAddressGeocoderGoogleWSImpl#getProtocol <em>Protocol</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisGoogle.impl.GisAddressGeocoderGoogleWSImpl#getPort <em>Port</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisGoogle.impl.GisAddressGeocoderGoogleWSImpl#getHost <em>Host</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisGoogle.impl.GisAddressGeocoderGoogleWSImpl#getPath <em>Path</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisGoogle.impl.GisAddressGeocoderGoogleWSImpl#getKey <em>Key</em>}</li>
  * </ul>
  * </p>
@@ -46,6 +45,46 @@ import org.json.simple.JSONValue;
  * @generated
  */
 public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl implements GisAddressGeocoderGoogleWS {
+	/**
+	 * The default value of the '{@link #getProtocol() <em>Protocol</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProtocol()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Protocol PROTOCOL_EDEFAULT = Protocol.HTTP;
+
+	/**
+	 * The cached value of the '{@link #getProtocol() <em>Protocol</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProtocol()
+	 * @generated
+	 * @ordered
+	 */
+	protected Protocol protocol = PROTOCOL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPort() <em>Port</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPort()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int PORT_EDEFAULT = 80;
+
+	/**
+	 * The cached value of the '{@link #getPort() <em>Port</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPort()
+	 * @generated
+	 * @ordered
+	 */
+	protected int port = PORT_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getHost() <em>Host</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -67,24 +106,24 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 	protected String host = HOST_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getProtocol() <em>Protocol</em>}' attribute.
+	 * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProtocol()
+	 * @see #getPath()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Protocol PROTOCOL_EDEFAULT = Protocol.HTTP;
+	protected static final String PATH_EDEFAULT = "/maps/api/geocode/json";
 
 	/**
-	 * The cached value of the '{@link #getProtocol() <em>Protocol</em>}' attribute.
+	 * The cached value of the '{@link #getPath() <em>Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProtocol()
+	 * @see #getPath()
 	 * @generated
 	 * @ordered
 	 */
-	protected Protocol protocol = PROTOCOL_EDEFAULT;
+	protected String path = PATH_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getKey() <em>Key</em>}' attribute.
@@ -151,6 +190,27 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getPath() {
+		return path;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPath(String newPath) {
+		String oldPath = path;
+		path = newPath;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__PATH, oldPath, path));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Protocol getProtocol() {
 		return protocol;
 	}
@@ -165,6 +225,27 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 		protocol = newProtocol == null ? PROTOCOL_EDEFAULT : newProtocol;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__PROTOCOL, oldProtocol, protocol));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getPort() {
+		return port;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPort(int newPort) {
+		int oldPort = port;
+		port = newPort;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__PORT, oldPort, port));
 	}
 
 	/**
@@ -196,10 +277,14 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__HOST:
-				return getHost();
 			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__PROTOCOL:
 				return getProtocol();
+			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__PORT:
+				return getPort();
+			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__HOST:
+				return getHost();
+			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__PATH:
+				return getPath();
 			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__KEY:
 				return getKey();
 		}
@@ -214,11 +299,17 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__PROTOCOL:
+				setProtocol((Protocol)newValue);
+				return;
+			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__PORT:
+				setPort((Integer)newValue);
+				return;
 			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__HOST:
 				setHost((String)newValue);
 				return;
-			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__PROTOCOL:
-				setProtocol((Protocol)newValue);
+			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__PATH:
+				setPath((String)newValue);
 				return;
 			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__KEY:
 				setKey((String)newValue);
@@ -235,11 +326,17 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__PROTOCOL:
+				setProtocol(PROTOCOL_EDEFAULT);
+				return;
+			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__PORT:
+				setPort(PORT_EDEFAULT);
+				return;
 			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__HOST:
 				setHost(HOST_EDEFAULT);
 				return;
-			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__PROTOCOL:
-				setProtocol(PROTOCOL_EDEFAULT);
+			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__PATH:
+				setPath(PATH_EDEFAULT);
 				return;
 			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__KEY:
 				setKey(KEY_EDEFAULT);
@@ -256,20 +353,20 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__HOST:
-				return HOST_EDEFAULT == null ? host != null : !HOST_EDEFAULT.equals(host);
 			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__PROTOCOL:
 				return protocol != PROTOCOL_EDEFAULT;
+			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__PORT:
+				return port != PORT_EDEFAULT;
+			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__HOST:
+				return HOST_EDEFAULT == null ? host != null : !HOST_EDEFAULT.equals(host);
+			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__PATH:
+				return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
 			case GisGooglePackage.GIS_ADDRESS_GEOCODER_GOOGLE_WS__KEY:
 				return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
 		}
 		return super.eIsSet(featureID);
 	}
 	
-	private String encode(String toEncode) throws UnsupportedEncodingException{
-		return URLEncoder.encode(toEncode, "UTF-8");
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -280,10 +377,14 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (Host: ");
-		result.append(host);
-		result.append(", Protocol: ");
+		result.append(" (Protocol: ");
 		result.append(protocol);
+		result.append(", Port: ");
+		result.append(port);
+		result.append(", Host: ");
+		result.append(host);
+		result.append(", Path: ");
+		result.append(path);
 		result.append(", Key: ");
 		result.append(key);
 		result.append(')');
@@ -297,7 +398,6 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 	    CommonPlugin.INSTANCE.log("GisAddressGeocoderGoogleWS: called");
 	
 		// make the URL
-		URL url;
 		HttpURLConnection connection = null;  
 		String responseAsString = "";
 		try {
@@ -321,22 +421,22 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 				String street     = addressStructured.getStreet();
 				String building   = addressStructured.getBuildingNumber();
 				if ( country!=null && country.length()>0 ){
-					components.add("country:"+this.encode(country));
+					components.add("country:"+country);
 				}
 				if ( area!=null && area.length()>0){
-					components.add("administrative_area:"+this.encode(area));
+					components.add("administrative_area:"+area);
 				}
 				if ( locality!=null && locality.length()>0){
-					components.add("locality:"+this.encode(locality));
+					components.add("locality:"+locality);
 				}
 				if ( postalCode!=null && postalCode.length()>0){
-					components.add("postal_code:"+this.encode(postalCode));
+					components.add("postal_code:"+postalCode);
 				}
 				if ( street!=null && street.length()>0){
-					components.add("route:"+this.encode(street));
+					components.add("route:"+street);
 				}
 				if ( building!=null && building.length()>0 ){
-					components.add("street_number:"+this.encode(building));  // does not work
+					components.add("street_number:"+building);  // does not work
 				}
 			} else if ( address instanceof GisAddressUnstructured ){
 				GisAddressUnstructured addressUnstructured = (GisAddressUnstructured)address;
@@ -347,18 +447,21 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 				parameters.add("components="+componentsAsString);
 			}
 			if ( addressAsString!=null && addressAsString.length()>0){
-				parameters.add("address="+this.encode(addressAsString));
+				parameters.add("address="+addressAsString);
 			}
 			String parametersAsString = StringUtils.join(parameters, "&");
-			String targetURL = this.getProtocol().getLiteral()
-			         + "://"
-			         + this.getHost()
-			         + "/maps/api/geocode/json?"
-			         + parametersAsString;
-		  
-			CommonPlugin.INSTANCE.log("url: "+targetURL);
-			url = new URL(targetURL);
-			connection = (HttpURLConnection)url.openConnection();
+			String scheme = this.getProtocol().getLiteral();
+			int port = this.getPort();
+			String userInfo = null;
+			String host = this.getHost();
+			String path = this.getPath(); // "/maps/api/geocode/json";
+			String query = parametersAsString;
+			String fragment = "";
+			URI requesturi = new URI(scheme, userInfo, host, port, path, query, fragment);
+			URL url2 = requesturi.toURL();
+
+			CommonPlugin.INSTANCE.log("url2: "+url2.toString());
+			connection = (HttpURLConnection)url2.openConnection();
 			connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
 			connection.setRequestProperty("Content-Language", "en-US");  
 			connection.setUseCaches (false);
@@ -393,7 +496,7 @@ public class GisAddressGeocoderGoogleWSImpl extends GisAddressGeocoderImpl imple
 		switch ( responsestatus){
 		case "OK" : 
 			// indicates the response contains a valid result.
-	    	address.getGeocodedAddresses().clear();
+	    	address.flushGeocoded();
 			JSONArray resultObjects = (JSONArray)responseObject.get("results");
 			for (int resultIndex = 0; resultIndex<resultObjects.size(); resultIndex++){
 		    	JSONObject resultObject = (JSONObject)resultObjects.get(resultIndex);

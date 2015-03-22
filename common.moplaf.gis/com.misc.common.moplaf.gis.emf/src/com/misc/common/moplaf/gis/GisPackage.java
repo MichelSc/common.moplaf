@@ -250,13 +250,22 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS___GEOCODE = GIS_LOCATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Flush Geocoded</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS___FLUSH_GEOCODED = GIS_LOCATION_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Address</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_OPERATION_COUNT = GIS_LOCATION_OPERATION_COUNT + 1;
+	int GIS_ADDRESS_OPERATION_COUNT = GIS_LOCATION_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixImpl <em>Distance Matrix</em>}' class.
@@ -871,6 +880,15 @@ public interface GisPackage extends EPackage {
 	int GIS_ADDRESS_STRUCTURED___GEOCODE = GIS_ADDRESS___GEOCODE;
 
 	/**
+	 * The operation id for the '<em>Flush Geocoded</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_STRUCTURED___FLUSH_GEOCODED = GIS_ADDRESS___FLUSH_GEOCODED;
+
+	/**
 	 * The number of operations of the '<em>Address Structured</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -969,6 +987,15 @@ public interface GisPackage extends EPackage {
 	 * @ordered
 	 */
 	int GIS_ADDRESS_UNSTRUCTURED___GEOCODE = GIS_ADDRESS___GEOCODE;
+
+	/**
+	 * The operation id for the '<em>Flush Geocoded</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_UNSTRUCTURED___FLUSH_GEOCODED = GIS_ADDRESS___FLUSH_GEOCODED;
 
 	/**
 	 * The number of operations of the '<em>Address Unstructured</em>' class.
@@ -1075,6 +1102,16 @@ public interface GisPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getGisAddress__Geocode();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.gis.GisAddress#flushGeocoded() <em>Flush Geocoded</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Flush Geocoded</em>' operation.
+	 * @see com.misc.common.moplaf.gis.GisAddress#flushGeocoded()
+	 * @generated
+	 */
+	EOperation getGisAddress__FlushGeocoded();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.gis.GisDistanceMatrix <em>Distance Matrix</em>}'.
@@ -1659,6 +1696,14 @@ public interface GisPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation GIS_ADDRESS___GEOCODE = eINSTANCE.getGisAddress__Geocode();
+
+		/**
+		 * The meta object literal for the '<em><b>Flush Geocoded</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GIS_ADDRESS___FLUSH_GEOCODED = eINSTANCE.getGisAddress__FlushGeocoded();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.gis.impl.GisDistanceMatrixImpl <em>Distance Matrix</em>}' class.

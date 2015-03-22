@@ -78,22 +78,40 @@ public interface GisGooglePackage extends EPackage {
 	int GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__NAME = GisPackage.GIS_DISTANCE_MATRIX_CALCULATOR__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Host</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__HOST = GisPackage.GIS_DISTANCE_MATRIX_CALCULATOR_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Protocol</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PROTOCOL = GisPackage.GIS_DISTANCE_MATRIX_CALCULATOR_FEATURE_COUNT + 1;
+	int GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PROTOCOL = GisPackage.GIS_DISTANCE_MATRIX_CALCULATOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Port</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PORT = GisPackage.GIS_DISTANCE_MATRIX_CALCULATOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Host</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__HOST = GisPackage.GIS_DISTANCE_MATRIX_CALCULATOR_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PATH = GisPackage.GIS_DISTANCE_MATRIX_CALCULATOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -102,7 +120,7 @@ public interface GisGooglePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__KEY = GisPackage.GIS_DISTANCE_MATRIX_CALCULATOR_FEATURE_COUNT + 2;
+	int GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__KEY = GisPackage.GIS_DISTANCE_MATRIX_CALCULATOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Avoid Tolls</b></em>' attribute.
@@ -111,7 +129,7 @@ public interface GisGooglePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__AVOID_TOLLS = GisPackage.GIS_DISTANCE_MATRIX_CALCULATOR_FEATURE_COUNT + 3;
+	int GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__AVOID_TOLLS = GisPackage.GIS_DISTANCE_MATRIX_CALCULATOR_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Avoid Ferries</b></em>' attribute.
@@ -120,7 +138,7 @@ public interface GisGooglePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__AVOID_FERRIES = GisPackage.GIS_DISTANCE_MATRIX_CALCULATOR_FEATURE_COUNT + 4;
+	int GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__AVOID_FERRIES = GisPackage.GIS_DISTANCE_MATRIX_CALCULATOR_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Avoid Highways</b></em>' attribute.
@@ -129,7 +147,7 @@ public interface GisGooglePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__AVOID_HIGHWAYS = GisPackage.GIS_DISTANCE_MATRIX_CALCULATOR_FEATURE_COUNT + 5;
+	int GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__AVOID_HIGHWAYS = GisPackage.GIS_DISTANCE_MATRIX_CALCULATOR_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Travel Model</b></em>' attribute.
@@ -138,7 +156,7 @@ public interface GisGooglePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__TRAVEL_MODEL = GisPackage.GIS_DISTANCE_MATRIX_CALCULATOR_FEATURE_COUNT + 6;
+	int GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__TRAVEL_MODEL = GisPackage.GIS_DISTANCE_MATRIX_CALCULATOR_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Gis Distance Matrix Calculator Google WS</em>' class.
@@ -147,7 +165,7 @@ public interface GisGooglePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS_FEATURE_COUNT = GisPackage.GIS_DISTANCE_MATRIX_CALCULATOR_FEATURE_COUNT + 7;
+	int GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS_FEATURE_COUNT = GisPackage.GIS_DISTANCE_MATRIX_CALCULATOR_FEATURE_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Calculate</em>' operation.
@@ -187,22 +205,40 @@ public interface GisGooglePackage extends EPackage {
 	int GIS_ADDRESS_GEOCODER_GOOGLE_WS__NAME = GisPackage.GIS_ADDRESS_GEOCODER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Host</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIS_ADDRESS_GEOCODER_GOOGLE_WS__HOST = GisPackage.GIS_ADDRESS_GEOCODER_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Protocol</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_GEOCODER_GOOGLE_WS__PROTOCOL = GisPackage.GIS_ADDRESS_GEOCODER_FEATURE_COUNT + 1;
+	int GIS_ADDRESS_GEOCODER_GOOGLE_WS__PROTOCOL = GisPackage.GIS_ADDRESS_GEOCODER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Port</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODER_GOOGLE_WS__PORT = GisPackage.GIS_ADDRESS_GEOCODER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Host</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODER_GOOGLE_WS__HOST = GisPackage.GIS_ADDRESS_GEOCODER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIS_ADDRESS_GEOCODER_GOOGLE_WS__PATH = GisPackage.GIS_ADDRESS_GEOCODER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -211,7 +247,7 @@ public interface GisGooglePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_GEOCODER_GOOGLE_WS__KEY = GisPackage.GIS_ADDRESS_GEOCODER_FEATURE_COUNT + 2;
+	int GIS_ADDRESS_GEOCODER_GOOGLE_WS__KEY = GisPackage.GIS_ADDRESS_GEOCODER_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Gis Address Geocoder Google WS</em>' class.
@@ -220,7 +256,7 @@ public interface GisGooglePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIS_ADDRESS_GEOCODER_GOOGLE_WS_FEATURE_COUNT = GisPackage.GIS_ADDRESS_GEOCODER_FEATURE_COUNT + 3;
+	int GIS_ADDRESS_GEOCODER_GOOGLE_WS_FEATURE_COUNT = GisPackage.GIS_ADDRESS_GEOCODER_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Geocode</em>' operation.
@@ -283,6 +319,17 @@ public interface GisGooglePackage extends EPackage {
 	EAttribute getGisDistanceMatrixCalculatorGoogleWS_Host();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisGoogle.GisDistanceMatrixCalculatorGoogleWS#getPath <em>Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Path</em>'.
+	 * @see com.misc.common.moplaf.gis.GisGoogle.GisDistanceMatrixCalculatorGoogleWS#getPath()
+	 * @see #getGisDistanceMatrixCalculatorGoogleWS()
+	 * @generated
+	 */
+	EAttribute getGisDistanceMatrixCalculatorGoogleWS_Path();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisGoogle.GisDistanceMatrixCalculatorGoogleWS#getProtocol <em>Protocol</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -292,6 +339,17 @@ public interface GisGooglePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGisDistanceMatrixCalculatorGoogleWS_Protocol();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisGoogle.GisDistanceMatrixCalculatorGoogleWS#getPort <em>Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Port</em>'.
+	 * @see com.misc.common.moplaf.gis.GisGoogle.GisDistanceMatrixCalculatorGoogleWS#getPort()
+	 * @see #getGisDistanceMatrixCalculatorGoogleWS()
+	 * @generated
+	 */
+	EAttribute getGisDistanceMatrixCalculatorGoogleWS_Port();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisGoogle.GisDistanceMatrixCalculatorGoogleWS#getKey <em>Key</em>}'.
@@ -370,6 +428,17 @@ public interface GisGooglePackage extends EPackage {
 	EAttribute getGisAddressGeocoderGoogleWS_Host();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisGoogle.GisAddressGeocoderGoogleWS#getPath <em>Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Path</em>'.
+	 * @see com.misc.common.moplaf.gis.GisGoogle.GisAddressGeocoderGoogleWS#getPath()
+	 * @see #getGisAddressGeocoderGoogleWS()
+	 * @generated
+	 */
+	EAttribute getGisAddressGeocoderGoogleWS_Path();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisGoogle.GisAddressGeocoderGoogleWS#getProtocol <em>Protocol</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -379,6 +448,17 @@ public interface GisGooglePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGisAddressGeocoderGoogleWS_Protocol();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisGoogle.GisAddressGeocoderGoogleWS#getPort <em>Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Port</em>'.
+	 * @see com.misc.common.moplaf.gis.GisGoogle.GisAddressGeocoderGoogleWS#getPort()
+	 * @see #getGisAddressGeocoderGoogleWS()
+	 * @generated
+	 */
+	EAttribute getGisAddressGeocoderGoogleWS_Port();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.gis.GisGoogle.GisAddressGeocoderGoogleWS#getKey <em>Key</em>}'.
@@ -453,12 +533,28 @@ public interface GisGooglePackage extends EPackage {
 		EAttribute GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__HOST = eINSTANCE.getGisDistanceMatrixCalculatorGoogleWS_Host();
 
 		/**
+		 * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PATH = eINSTANCE.getGisDistanceMatrixCalculatorGoogleWS_Path();
+
+		/**
 		 * The meta object literal for the '<em><b>Protocol</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PROTOCOL = eINSTANCE.getGisDistanceMatrixCalculatorGoogleWS_Protocol();
+
+		/**
+		 * The meta object literal for the '<em><b>Port</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PORT = eINSTANCE.getGisDistanceMatrixCalculatorGoogleWS_Port();
 
 		/**
 		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
@@ -519,12 +615,28 @@ public interface GisGooglePackage extends EPackage {
 		EAttribute GIS_ADDRESS_GEOCODER_GOOGLE_WS__HOST = eINSTANCE.getGisAddressGeocoderGoogleWS_Host();
 
 		/**
+		 * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_ADDRESS_GEOCODER_GOOGLE_WS__PATH = eINSTANCE.getGisAddressGeocoderGoogleWS_Path();
+
+		/**
 		 * The meta object literal for the '<em><b>Protocol</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute GIS_ADDRESS_GEOCODER_GOOGLE_WS__PROTOCOL = eINSTANCE.getGisAddressGeocoderGoogleWS_Protocol();
+
+		/**
+		 * The meta object literal for the '<em><b>Port</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GIS_ADDRESS_GEOCODER_GOOGLE_WS__PORT = eINSTANCE.getGisAddressGeocoderGoogleWS_Port();
 
 		/**
 		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.

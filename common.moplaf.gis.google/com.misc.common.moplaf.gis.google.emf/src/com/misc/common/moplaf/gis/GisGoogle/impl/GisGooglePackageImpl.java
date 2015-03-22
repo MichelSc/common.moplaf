@@ -132,7 +132,16 @@ public class GisGooglePackageImpl extends EPackageImpl implements GisGooglePacka
 	 * @generated
 	 */
 	public EAttribute getGisDistanceMatrixCalculatorGoogleWS_Host() {
-		return (EAttribute)gisDistanceMatrixCalculatorGoogleWSEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)gisDistanceMatrixCalculatorGoogleWSEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisDistanceMatrixCalculatorGoogleWS_Path() {
+		return (EAttribute)gisDistanceMatrixCalculatorGoogleWSEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -141,6 +150,15 @@ public class GisGooglePackageImpl extends EPackageImpl implements GisGooglePacka
 	 * @generated
 	 */
 	public EAttribute getGisDistanceMatrixCalculatorGoogleWS_Protocol() {
+		return (EAttribute)gisDistanceMatrixCalculatorGoogleWSEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisDistanceMatrixCalculatorGoogleWS_Port() {
 		return (EAttribute)gisDistanceMatrixCalculatorGoogleWSEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -150,24 +168,6 @@ public class GisGooglePackageImpl extends EPackageImpl implements GisGooglePacka
 	 * @generated
 	 */
 	public EAttribute getGisDistanceMatrixCalculatorGoogleWS_Key() {
-		return (EAttribute)gisDistanceMatrixCalculatorGoogleWSEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getGisDistanceMatrixCalculatorGoogleWS_AvoidTolls() {
-		return (EAttribute)gisDistanceMatrixCalculatorGoogleWSEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getGisDistanceMatrixCalculatorGoogleWS_AvoidFerries() {
 		return (EAttribute)gisDistanceMatrixCalculatorGoogleWSEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -176,7 +176,7 @@ public class GisGooglePackageImpl extends EPackageImpl implements GisGooglePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGisDistanceMatrixCalculatorGoogleWS_AvoidHighways() {
+	public EAttribute getGisDistanceMatrixCalculatorGoogleWS_AvoidTolls() {
 		return (EAttribute)gisDistanceMatrixCalculatorGoogleWSEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -185,8 +185,26 @@ public class GisGooglePackageImpl extends EPackageImpl implements GisGooglePacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGisDistanceMatrixCalculatorGoogleWS_TravelModel() {
+	public EAttribute getGisDistanceMatrixCalculatorGoogleWS_AvoidFerries() {
 		return (EAttribute)gisDistanceMatrixCalculatorGoogleWSEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisDistanceMatrixCalculatorGoogleWS_AvoidHighways() {
+		return (EAttribute)gisDistanceMatrixCalculatorGoogleWSEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisDistanceMatrixCalculatorGoogleWS_TravelModel() {
+		return (EAttribute)gisDistanceMatrixCalculatorGoogleWSEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -204,7 +222,16 @@ public class GisGooglePackageImpl extends EPackageImpl implements GisGooglePacka
 	 * @generated
 	 */
 	public EAttribute getGisAddressGeocoderGoogleWS_Host() {
-		return (EAttribute)gisAddressGeocoderGoogleWSEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)gisAddressGeocoderGoogleWSEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisAddressGeocoderGoogleWS_Path() {
+		return (EAttribute)gisAddressGeocoderGoogleWSEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -213,6 +240,15 @@ public class GisGooglePackageImpl extends EPackageImpl implements GisGooglePacka
 	 * @generated
 	 */
 	public EAttribute getGisAddressGeocoderGoogleWS_Protocol() {
+		return (EAttribute)gisAddressGeocoderGoogleWSEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGisAddressGeocoderGoogleWS_Port() {
 		return (EAttribute)gisAddressGeocoderGoogleWSEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -222,7 +258,7 @@ public class GisGooglePackageImpl extends EPackageImpl implements GisGooglePacka
 	 * @generated
 	 */
 	public EAttribute getGisAddressGeocoderGoogleWS_Key() {
-		return (EAttribute)gisAddressGeocoderGoogleWSEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)gisAddressGeocoderGoogleWSEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -272,8 +308,10 @@ public class GisGooglePackageImpl extends EPackageImpl implements GisGooglePacka
 
 		// Create classes and their features
 		gisDistanceMatrixCalculatorGoogleWSEClass = createEClass(GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS);
-		createEAttribute(gisDistanceMatrixCalculatorGoogleWSEClass, GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__HOST);
 		createEAttribute(gisDistanceMatrixCalculatorGoogleWSEClass, GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PROTOCOL);
+		createEAttribute(gisDistanceMatrixCalculatorGoogleWSEClass, GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PORT);
+		createEAttribute(gisDistanceMatrixCalculatorGoogleWSEClass, GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__HOST);
+		createEAttribute(gisDistanceMatrixCalculatorGoogleWSEClass, GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PATH);
 		createEAttribute(gisDistanceMatrixCalculatorGoogleWSEClass, GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__KEY);
 		createEAttribute(gisDistanceMatrixCalculatorGoogleWSEClass, GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__AVOID_TOLLS);
 		createEAttribute(gisDistanceMatrixCalculatorGoogleWSEClass, GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__AVOID_FERRIES);
@@ -281,8 +319,10 @@ public class GisGooglePackageImpl extends EPackageImpl implements GisGooglePacka
 		createEAttribute(gisDistanceMatrixCalculatorGoogleWSEClass, GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__TRAVEL_MODEL);
 
 		gisAddressGeocoderGoogleWSEClass = createEClass(GIS_ADDRESS_GEOCODER_GOOGLE_WS);
-		createEAttribute(gisAddressGeocoderGoogleWSEClass, GIS_ADDRESS_GEOCODER_GOOGLE_WS__HOST);
 		createEAttribute(gisAddressGeocoderGoogleWSEClass, GIS_ADDRESS_GEOCODER_GOOGLE_WS__PROTOCOL);
+		createEAttribute(gisAddressGeocoderGoogleWSEClass, GIS_ADDRESS_GEOCODER_GOOGLE_WS__PORT);
+		createEAttribute(gisAddressGeocoderGoogleWSEClass, GIS_ADDRESS_GEOCODER_GOOGLE_WS__HOST);
+		createEAttribute(gisAddressGeocoderGoogleWSEClass, GIS_ADDRESS_GEOCODER_GOOGLE_WS__PATH);
 		createEAttribute(gisAddressGeocoderGoogleWSEClass, GIS_ADDRESS_GEOCODER_GOOGLE_WS__KEY);
 
 		// Create enums
@@ -326,8 +366,10 @@ public class GisGooglePackageImpl extends EPackageImpl implements GisGooglePacka
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(gisDistanceMatrixCalculatorGoogleWSEClass, GisDistanceMatrixCalculatorGoogleWS.class, "GisDistanceMatrixCalculatorGoogleWS", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getGisDistanceMatrixCalculatorGoogleWS_Host(), ecorePackage.getEString(), "Host", "maps.googleapis.com", 0, 1, GisDistanceMatrixCalculatorGoogleWS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisDistanceMatrixCalculatorGoogleWS_Protocol(), this.getProtocol(), "Protocol", null, 0, 1, GisDistanceMatrixCalculatorGoogleWS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisDistanceMatrixCalculatorGoogleWS_Port(), ecorePackage.getEInt(), "Port", "80", 0, 1, GisDistanceMatrixCalculatorGoogleWS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisDistanceMatrixCalculatorGoogleWS_Host(), ecorePackage.getEString(), "Host", "maps.googleapis.com", 0, 1, GisDistanceMatrixCalculatorGoogleWS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisDistanceMatrixCalculatorGoogleWS_Path(), ecorePackage.getEString(), "Path", "/maps/api/distancematrix/json", 0, 1, GisDistanceMatrixCalculatorGoogleWS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisDistanceMatrixCalculatorGoogleWS_Key(), ecorePackage.getEString(), "Key", null, 0, 1, GisDistanceMatrixCalculatorGoogleWS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisDistanceMatrixCalculatorGoogleWS_AvoidTolls(), ecorePackage.getEBoolean(), "AvoidTolls", null, 0, 1, GisDistanceMatrixCalculatorGoogleWS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisDistanceMatrixCalculatorGoogleWS_AvoidFerries(), ecorePackage.getEBoolean(), "AvoidFerries", null, 0, 1, GisDistanceMatrixCalculatorGoogleWS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -335,8 +377,10 @@ public class GisGooglePackageImpl extends EPackageImpl implements GisGooglePacka
 		initEAttribute(getGisDistanceMatrixCalculatorGoogleWS_TravelModel(), this.getTravelMode(), "TravelModel", null, 0, 1, GisDistanceMatrixCalculatorGoogleWS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(gisAddressGeocoderGoogleWSEClass, GisAddressGeocoderGoogleWS.class, "GisAddressGeocoderGoogleWS", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getGisAddressGeocoderGoogleWS_Host(), ecorePackage.getEString(), "Host", "maps.googleapis.com", 0, 1, GisAddressGeocoderGoogleWS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisAddressGeocoderGoogleWS_Protocol(), this.getProtocol(), "Protocol", null, 0, 1, GisAddressGeocoderGoogleWS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisAddressGeocoderGoogleWS_Port(), ecorePackage.getEInt(), "Port", "80", 0, 1, GisAddressGeocoderGoogleWS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisAddressGeocoderGoogleWS_Host(), ecorePackage.getEString(), "Host", "maps.googleapis.com", 0, 1, GisAddressGeocoderGoogleWS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGisAddressGeocoderGoogleWS_Path(), ecorePackage.getEString(), "Path", "/maps/api/geocode/json", 0, 1, GisAddressGeocoderGoogleWS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisAddressGeocoderGoogleWS_Key(), ecorePackage.getEString(), "Key", null, 0, 1, GisAddressGeocoderGoogleWS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals

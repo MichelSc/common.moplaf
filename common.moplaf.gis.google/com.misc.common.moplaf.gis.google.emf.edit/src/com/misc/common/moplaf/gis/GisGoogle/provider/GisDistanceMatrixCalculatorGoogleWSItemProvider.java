@@ -49,8 +49,10 @@ public class GisDistanceMatrixCalculatorGoogleWSItemProvider extends GisDistance
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addHostPropertyDescriptor(object);
 			addProtocolPropertyDescriptor(object);
+			addPortPropertyDescriptor(object);
+			addHostPropertyDescriptor(object);
+			addPathPropertyDescriptor(object);
 			addKeyPropertyDescriptor(object);
 			addAvoidTollsPropertyDescriptor(object);
 			addAvoidFerriesPropertyDescriptor(object);
@@ -83,6 +85,28 @@ public class GisDistanceMatrixCalculatorGoogleWSItemProvider extends GisDistance
 	}
 
 	/**
+	 * This adds a property descriptor for the Path feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPathPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GisDistanceMatrixCalculatorGoogleWS_Path_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisDistanceMatrixCalculatorGoogleWS_Path_feature", "_UI_GisDistanceMatrixCalculatorGoogleWS_type"),
+				 GisGooglePackage.Literals.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PATH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Protocol feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -100,6 +124,28 @@ public class GisDistanceMatrixCalculatorGoogleWSItemProvider extends GisDistance
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Port feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPortPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GisDistanceMatrixCalculatorGoogleWS_Port_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GisDistanceMatrixCalculatorGoogleWS_Port_feature", "_UI_GisDistanceMatrixCalculatorGoogleWS_type"),
+				 GisGooglePackage.Literals.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PORT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -252,8 +298,10 @@ public class GisDistanceMatrixCalculatorGoogleWSItemProvider extends GisDistance
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(GisDistanceMatrixCalculatorGoogleWS.class)) {
-			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__HOST:
 			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PROTOCOL:
+			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PORT:
+			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__HOST:
+			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PATH:
 			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__KEY:
 			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__AVOID_TOLLS:
 			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__AVOID_FERRIES:

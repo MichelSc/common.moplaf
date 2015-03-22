@@ -7,6 +7,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisAddress" eSuperTypes="#//GisLocation">
     <eOperations name="geocode"/>
+    <eOperations name="flushGeocoded"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CountryCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="geocodedAddresses" upperBound="-1"
         eType="#//GisAddressGeocoded" containment="true"/>

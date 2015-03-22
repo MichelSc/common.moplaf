@@ -4,9 +4,13 @@
     nsPrefix="gisg">
   <eClassifiers xsi:type="ecore:EClass" name="GisDistanceMatrixCalculatorGoogleWS"
       eSuperTypes="../../com.misc.common.moplaf.gis.emf/model/gis.ecore#//GisDistanceMatrixCalculator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Protocol" eType="#//Protocol"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Port" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="80"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Host" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="maps.googleapis.com"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Protocol" eType="#//Protocol"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="/maps/api/distancematrix/json"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="AvoidTolls" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="AvoidFerries" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -14,9 +18,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="TravelModel" eType="#//TravelMode"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GisAddressGeocoderGoogleWS" eSuperTypes="../../com.misc.common.moplaf.gis.emf/model/gis.ecore#//GisAddressGeocoder">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Protocol" eType="#//Protocol"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Port" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="80"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Host" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="maps.googleapis.com"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Protocol" eType="#//Protocol"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="/maps/api/geocode/json"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Protocol">

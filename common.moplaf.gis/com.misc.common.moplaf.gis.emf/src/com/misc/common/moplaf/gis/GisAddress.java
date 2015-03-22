@@ -126,4 +126,12 @@ public interface GisAddress extends GisLocation {
 	 */
 	void geocode();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void flushGeocoded();
+
 } // GisAddress

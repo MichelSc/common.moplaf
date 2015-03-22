@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.Locale;
@@ -37,8 +38,10 @@ import org.json.simple.JSONValue;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.misc.common.moplaf.gis.GisGoogle.impl.GisDistanceMatrixCalculatorGoogleWSImpl#getHost <em>Host</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisGoogle.impl.GisDistanceMatrixCalculatorGoogleWSImpl#getProtocol <em>Protocol</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisGoogle.impl.GisDistanceMatrixCalculatorGoogleWSImpl#getPort <em>Port</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisGoogle.impl.GisDistanceMatrixCalculatorGoogleWSImpl#getHost <em>Host</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.gis.GisGoogle.impl.GisDistanceMatrixCalculatorGoogleWSImpl#getPath <em>Path</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisGoogle.impl.GisDistanceMatrixCalculatorGoogleWSImpl#getKey <em>Key</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisGoogle.impl.GisDistanceMatrixCalculatorGoogleWSImpl#isAvoidTolls <em>Avoid Tolls</em>}</li>
  *   <li>{@link com.misc.common.moplaf.gis.GisGoogle.impl.GisDistanceMatrixCalculatorGoogleWSImpl#isAvoidFerries <em>Avoid Ferries</em>}</li>
@@ -50,6 +53,46 @@ import org.json.simple.JSONValue;
  * @generated
  */
 public class GisDistanceMatrixCalculatorGoogleWSImpl extends GisDistanceMatrixCalculatorImpl implements GisDistanceMatrixCalculatorGoogleWS {
+	/**
+	 * The default value of the '{@link #getProtocol() <em>Protocol</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProtocol()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Protocol PROTOCOL_EDEFAULT = Protocol.HTTP;
+
+	/**
+	 * The cached value of the '{@link #getProtocol() <em>Protocol</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProtocol()
+	 * @generated
+	 * @ordered
+	 */
+	protected Protocol protocol = PROTOCOL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPort() <em>Port</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPort()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int PORT_EDEFAULT = 80;
+
+	/**
+	 * The cached value of the '{@link #getPort() <em>Port</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPort()
+	 * @generated
+	 * @ordered
+	 */
+	protected int port = PORT_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getHost() <em>Host</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -71,24 +114,24 @@ public class GisDistanceMatrixCalculatorGoogleWSImpl extends GisDistanceMatrixCa
 	protected String host = HOST_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getProtocol() <em>Protocol</em>}' attribute.
+	 * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProtocol()
+	 * @see #getPath()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Protocol PROTOCOL_EDEFAULT = Protocol.HTTP;
+	protected static final String PATH_EDEFAULT = "/maps/api/distancematrix/json";
 
 	/**
-	 * The cached value of the '{@link #getProtocol() <em>Protocol</em>}' attribute.
+	 * The cached value of the '{@link #getPath() <em>Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProtocol()
+	 * @see #getPath()
 	 * @generated
 	 * @ordered
 	 */
-	protected Protocol protocol = PROTOCOL_EDEFAULT;
+	protected String path = PATH_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getKey() <em>Key</em>}' attribute.
@@ -235,6 +278,27 @@ public class GisDistanceMatrixCalculatorGoogleWSImpl extends GisDistanceMatrixCa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getPath() {
+		return path;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPath(String newPath) {
+		String oldPath = path;
+		path = newPath;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PATH, oldPath, path));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Protocol getProtocol() {
 		return protocol;
 	}
@@ -249,6 +313,27 @@ public class GisDistanceMatrixCalculatorGoogleWSImpl extends GisDistanceMatrixCa
 		protocol = newProtocol == null ? PROTOCOL_EDEFAULT : newProtocol;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PROTOCOL, oldProtocol, protocol));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getPort() {
+		return port;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPort(int newPort) {
+		int oldPort = port;
+		port = newPort;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PORT, oldPort, port));
 	}
 
 	/**
@@ -364,10 +449,14 @@ public class GisDistanceMatrixCalculatorGoogleWSImpl extends GisDistanceMatrixCa
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__HOST:
-				return getHost();
 			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PROTOCOL:
 				return getProtocol();
+			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PORT:
+				return getPort();
+			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__HOST:
+				return getHost();
+			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PATH:
+				return getPath();
 			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__KEY:
 				return getKey();
 			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__AVOID_TOLLS:
@@ -390,11 +479,17 @@ public class GisDistanceMatrixCalculatorGoogleWSImpl extends GisDistanceMatrixCa
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PROTOCOL:
+				setProtocol((Protocol)newValue);
+				return;
+			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PORT:
+				setPort((Integer)newValue);
+				return;
 			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__HOST:
 				setHost((String)newValue);
 				return;
-			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PROTOCOL:
-				setProtocol((Protocol)newValue);
+			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PATH:
+				setPath((String)newValue);
 				return;
 			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__KEY:
 				setKey((String)newValue);
@@ -423,11 +518,17 @@ public class GisDistanceMatrixCalculatorGoogleWSImpl extends GisDistanceMatrixCa
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PROTOCOL:
+				setProtocol(PROTOCOL_EDEFAULT);
+				return;
+			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PORT:
+				setPort(PORT_EDEFAULT);
+				return;
 			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__HOST:
 				setHost(HOST_EDEFAULT);
 				return;
-			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PROTOCOL:
-				setProtocol(PROTOCOL_EDEFAULT);
+			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PATH:
+				setPath(PATH_EDEFAULT);
 				return;
 			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__KEY:
 				setKey(KEY_EDEFAULT);
@@ -456,10 +557,14 @@ public class GisDistanceMatrixCalculatorGoogleWSImpl extends GisDistanceMatrixCa
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__HOST:
-				return HOST_EDEFAULT == null ? host != null : !HOST_EDEFAULT.equals(host);
 			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PROTOCOL:
 				return protocol != PROTOCOL_EDEFAULT;
+			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PORT:
+				return port != PORT_EDEFAULT;
+			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__HOST:
+				return HOST_EDEFAULT == null ? host != null : !HOST_EDEFAULT.equals(host);
+			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__PATH:
+				return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
 			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__KEY:
 				return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
 			case GisGooglePackage.GIS_DISTANCE_MATRIX_CALCULATOR_GOOGLE_WS__AVOID_TOLLS:
@@ -484,10 +589,14 @@ public class GisDistanceMatrixCalculatorGoogleWSImpl extends GisDistanceMatrixCa
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (Host: ");
-		result.append(host);
-		result.append(", Protocol: ");
+		result.append(" (Protocol: ");
 		result.append(protocol);
+		result.append(", Port: ");
+		result.append(port);
+		result.append(", Host: ");
+		result.append(host);
+		result.append(", Path: ");
+		result.append(path);
 		result.append(", Key: ");
 		result.append(key);
 		result.append(", AvoidTolls: ");
@@ -524,7 +633,7 @@ public class GisDistanceMatrixCalculatorGoogleWSImpl extends GisDistanceMatrixCa
 		for ( GisDistanceMatrixFromLocation fromLocation :matrix.getFromLocations()){
 			GisCoordinates location = fromLocation.getLocation().getCoordinates();
 			if ( location!=null){
-				String locationAsString = String.format(Locale.US, "%f,%f", location.getLongitude(), location.getLatitude());
+				String locationAsString = String.format(Locale.US, "%f,%f", location.getLatitude(), location.getLongitude());
 				fromLocations.add(locationAsString);
 				fromLocationsInRequest.add(fromLocation);
 			}
@@ -535,7 +644,7 @@ public class GisDistanceMatrixCalculatorGoogleWSImpl extends GisDistanceMatrixCa
 		for ( GisDistanceMatrixToLocation toLocation :matrix.getToLocations()){
 			GisCoordinates location = toLocation.getLocation().getCoordinates();
 			if ( location!=null){
-				String locationAsString = String.format(Locale.US, "%f,%f", location.getLongitude(), location.getLatitude());
+				String locationAsString = String.format(Locale.US, "%f,%f", location.getLatitude(), location.getLongitude());
 				toLocations.add(locationAsString);
 				toLocationsInRequest.add(toLocation);
 				
@@ -546,22 +655,29 @@ public class GisDistanceMatrixCalculatorGoogleWSImpl extends GisDistanceMatrixCa
 			parameters.add("key="+this.getKey());
 		}
 		String parametersAsString = StringUtils.join(parameters, "&");
-		String targetURL = this.getProtocol().getLiteral()
-		         + "://"
-		         + this.getHost()
-		         + "/maps/api/distancematrix/json?"
-		         + parametersAsString;
+//		String targetURL = this.getProtocol().getLiteral()
+//		         + "://"
+//		         + this.getHost()
+//		         + "/maps/api/distancematrix/json?"
+//		         + parametersAsString;
 		//String urlParameters = "";
-	    CommonPlugin.INSTANCE.log("url: "+targetURL);
-	    //CommonPlugin.INSTANCE.log("params: "+urlParameters);
 		// send the request
 		String responseAsString = "";
-	    URL url;
 	    HttpURLConnection connection = null;  
 	    try {
 	      //Create connection
-	      url = new URL(targetURL);
-	      connection = (HttpURLConnection)url.openConnection();
+	      String scheme = this.getProtocol().getLiteral();
+	      int port = this.getPort();
+		  String userInfo = null;
+	      String host = this.getHost();
+	      String path = this.getPath(); //"/maps/api/distancematrix/json";
+	      String query = parametersAsString;
+	      String fragment = "";
+	      URI requesturi = new URI(scheme, userInfo, host, port, path, query, fragment);
+	      URL url2 = requesturi.toURL();
+
+	      CommonPlugin.INSTANCE.log("url2: "+url2.toString());
+	      connection = (HttpURLConnection)url2.openConnection();
 	      //connection.setRequestMethod("POST"); //default is GET
 	      connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
 	      //connection.setRequestProperty("Content-Length", "" + Integer.toString(urlParameters.getBytes().length));
@@ -633,7 +749,7 @@ public class GisDistanceMatrixCalculatorGoogleWSImpl extends GisDistanceMatrixCa
     		    		//indicates no route could be found between the origin and destination.
     		    		break;
     		    	default:
-    			        CommonPlugin.INSTANCE.log("GisDistanceMatrixCalculatorGoogleWS: unexpected element status: "+responsestatus);
+    			        CommonPlugin.INSTANCE.log("GisDistanceMatrixCalculatorGoogleWS: unexpected element status: #"+responsestatus+"#");
     		    		calculated = false;
     		    	} // switch on the element status
 //    			      CommonPlugin.INSTANCE.log("GisDistanceMatrixCalculatorGoogleWS: value "+distanceValue);
