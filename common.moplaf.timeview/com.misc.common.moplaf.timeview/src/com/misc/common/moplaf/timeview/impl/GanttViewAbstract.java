@@ -24,7 +24,7 @@ public abstract class GanttViewAbstract extends ViewPart {
 	/**
 	 * The ID of the view as specified by the extension.
 	 */
-	public static final String ID = "com.misc.common.moplaf.timeview.jaret.views.GanttView";
+	public static final String ID = "com.misc.common.moplaf.timeview.views.GanttView";
 
 	private GanttViewerAbstract viewer;
 	private Action action1;
