@@ -15,7 +15,7 @@ public abstract class MapViewerAbstract extends ContentViewer {
 
 	private Object selectedElement = null;
 	private ISelection currentSelection = null;
-	private ILocationProvider intervalEventProvider = null;
+	private ILocationProvider locationProvider = null;
 
 	// providers management
 	@Override
@@ -30,8 +30,8 @@ public abstract class MapViewerAbstract extends ContentViewer {
 		super.setLabelProvider(provider);
 	}
 	
-	public void setIntervalEventProvider(ILocationProvider eventProvider){
-		this.intervalEventProvider = eventProvider;
+	public void setLocationProvider(ILocationProvider locationProvider){
+		this.locationProvider = locationProvider;
 	}
 	
 	/**
@@ -60,8 +60,8 @@ public abstract class MapViewerAbstract extends ContentViewer {
 		return (ILabelProvider)this.getLabelProvider();
 	}
 	
-	protected ILocationProvider getIIntervalEventProvider(){
-		return this.intervalEventProvider;
+	protected ILocationProvider getILocationProvider(){
+		return this.locationProvider;
 	}
 	
 	// selection management

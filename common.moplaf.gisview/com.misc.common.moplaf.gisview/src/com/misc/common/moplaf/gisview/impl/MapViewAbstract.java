@@ -75,7 +75,7 @@ public abstract class MapViewAbstract extends ViewPart {
         this.viewer = this.createViewer(parent);
         this.viewer.setContentProvider(new AdapterFactoryContentProvider(this.adapterFactory));
 		this.viewer.setLabelProvider(new AdapterFactoryLabelProvider(this.adapterFactory));
-		this.viewer.setIntervalEventProvider(new AdapterFactoryLocationProvider(this.adapterFactory));
+		this.viewer.setLocationProvider(new AdapterFactoryLocationProvider(this.adapterFactory));
 
         //viewer.setLayoutData(gd);
 		//PlatformUI.getWorkbench().getHelpSystem().setHelp(viewer.getControl(), "com.misc.common.moplaf.timeview.jaret.viewer");
