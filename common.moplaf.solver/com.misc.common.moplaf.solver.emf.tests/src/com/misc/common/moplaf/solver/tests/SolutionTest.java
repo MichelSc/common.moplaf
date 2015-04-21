@@ -14,6 +14,12 @@ import junit.textui.TestRunner;
  * A test case for the model object '<em><b>Solution</b></em>'.
  * <!-- end-user-doc -->
  * <p>
+ * The following features are tested:
+ * <ul>
+ *   <li>{@link com.misc.common.moplaf.solver.Solution#getCode() <em>Code</em>}</li>
+ * </ul>
+ * </p>
+ * <p>
  * The following operations are tested:
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.Solution#solutionVarFactory() <em>Solution Var Factory</em>}</li>
@@ -93,6 +99,32 @@ public class SolutionTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link com.misc.common.moplaf.solver.Solution#getCode() <em>Code</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.solver.Solution#getCode()
+	 * @generated
+	 */
+	public void testGetCode() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link com.misc.common.moplaf.solver.Solution#setCode(java.lang.String) <em>Code</em>}' feature setter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.solver.Solution#setCode(java.lang.String)
+	 * @generated
+	 */
+	public void testSetCode() {
+		// TODO: implement this feature setter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 	/**

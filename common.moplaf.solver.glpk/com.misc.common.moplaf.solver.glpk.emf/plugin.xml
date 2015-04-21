@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated solverglpk -->
       <package
-            uri="http://com.misc.common.moplaf.solver.glpk.emf"
+            uri="http://www.misc.com/common/moplaf/solver/glpk/model/0.1"
             class="com.misc.common.moplaf.solver.solverglpk.SolverglpkPackage"
             genModel="model/solverglpk.genmodel"/>
    </extension>

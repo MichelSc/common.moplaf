@@ -394,29 +394,6 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.SolverLp} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SolverLpItemProvider solverLpItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.SolverLp}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSolverLpAdapter() {
-		if (solverLpItemProvider == null) {
-			solverLpItemProvider = new SolverLpItemProvider(this);
-		}
-
-		return solverLpItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.SolutionVar} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -670,29 +647,6 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.SolverCp} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SolverCpItemProvider solverCpItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.SolverCp}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSolverCpAdapter() {
-		if (solverCpItemProvider == null) {
-			solverCpItemProvider = new SolverCpItemProvider(this);
-		}
-
-		return solverCpItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -804,7 +758,6 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 		if (generatorVarOverflowItemProvider != null) generatorVarOverflowItemProvider.dispose();
 		if (solutionReaderPatternItemProvider != null) solutionReaderPatternItemProvider.dispose();
 		if (solutionProviderItemProvider != null) solutionProviderItemProvider.dispose();
-		if (solverLpItemProvider != null) solverLpItemProvider.dispose();
 		if (solutionItemProvider != null) solutionItemProvider.dispose();
 		if (solutionVarItemProvider != null) solutionVarItemProvider.dispose();
 		if (solutionLpVarItemProvider != null) solutionLpVarItemProvider.dispose();
@@ -816,7 +769,6 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 		if (generatorCpLinearTermItemProvider != null) generatorCpLinearTermItemProvider.dispose();
 		if (generatorCpLogicalTermItemProvider != null) generatorCpLogicalTermItemProvider.dispose();
 		if (solutionCpVarItemProvider != null) solutionCpVarItemProvider.dispose();
-		if (solverCpItemProvider != null) solverCpItemProvider.dispose();
 		if (generatorElementItemProvider != null) generatorElementItemProvider.dispose();
 	}
 

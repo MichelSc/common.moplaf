@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class SolverCpImpl extends SolverImpl implements SolverCp {
+public abstract class SolverCpImpl extends SolverImpl implements SolverCp {
 	/**
 	 * The default value of the '{@link #isSearchAll() <em>Search All</em>}' attribute.
 	 * <!-- begin-user-doc -->

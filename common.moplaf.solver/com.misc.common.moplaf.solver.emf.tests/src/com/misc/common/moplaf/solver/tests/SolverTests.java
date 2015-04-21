@@ -39,7 +39,6 @@ public class SolverTests extends TestSuite {
 		suite.addTestSuite(GeneratorVarOverflowTest.class);
 		suite.addTestSuite(SolutionReaderPatternTest.class);
 		suite.addTestSuite(SolutionProviderTest.class);
-		suite.addTestSuite(SolverLpTest.class);
 		suite.addTestSuite(SolutionTest.class);
 		suite.addTestSuite(SolutionVarTest.class);
 		suite.addTestSuite(SolutionLpVarTest.class);
@@ -47,8 +46,6 @@ public class SolverTests extends TestSuite {
 		suite.addTestSuite(GeneratorCpLogicalTest.class);
 		suite.addTestSuite(GeneratorCpVarAtomicTest.class);
 		suite.addTestSuite(SolutionCpVarTest.class);
-		suite.addTestSuite(SolverCpTest.class);
-		suite.addTestSuite(GeneratorElementTest.class);
 		return suite;
 	}
 

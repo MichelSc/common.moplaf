@@ -70,7 +70,6 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 			case SolverPackage.GENERATOR_VAR_OVERFLOW: return createGeneratorVarOverflow();
 			case SolverPackage.SOLUTION_READER_PATTERN: return createSolutionReaderPattern();
 			case SolverPackage.SOLUTION_PROVIDER: return createSolutionProvider();
-			case SolverPackage.SOLVER_LP: return createSolverLp();
 			case SolverPackage.SOLUTION: return createSolution();
 			case SolverPackage.SOLUTION_VAR: return createSolutionVar();
 			case SolverPackage.SOLUTION_LP_VAR: return createSolutionLpVar();
@@ -82,7 +81,6 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 			case SolverPackage.GENERATOR_CP_LINEAR_TERM: return createGeneratorCpLinearTerm();
 			case SolverPackage.GENERATOR_CP_LOGICAL_TERM: return createGeneratorCpLogicalTerm();
 			case SolverPackage.SOLUTION_CP_VAR: return createSolutionCpVar();
-			case SolverPackage.SOLVER_CP: return createSolverCp();
 			case SolverPackage.GENERATOR_ELEMENT: return createGeneratorElement();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -296,16 +294,6 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SolverLp createSolverLp() {
-		SolverLpImpl solverLp = new SolverLpImpl();
-		return solverLp;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public SolutionVar createSolutionVar() {
 		SolutionVarImpl solutionVar = new SolutionVarImpl();
 		return solutionVar;
@@ -409,16 +397,6 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 	public SolutionCpVar createSolutionCpVar() {
 		SolutionCpVarImpl solutionCpVar = new SolutionCpVarImpl();
 		return solutionCpVar;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SolverCp createSolverCp() {
-		SolverCpImpl solverCp = new SolverCpImpl();
-		return solverCp;
 	}
 
 	/**

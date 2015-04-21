@@ -16,15 +16,7 @@ import junit.textui.TestRunner;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorTupleElement#getTuple() <em>Tuple</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorTupleElement#getCode() <em>Code</em>}</li>
- * </ul>
- * </p>
- * <p>
- * The following operations are tested:
- * <ul>
- *   <li>{@link com.misc.common.moplaf.solver.GeneratorTupleElement#refreshCode() <em>Refresh Code</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.GeneratorTupleElement#refreshTuple() <em>Refresh Tuple</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.GeneratorTupleElement#onSetTuple(com.misc.common.moplaf.solver.GeneratorTuple) <em>On Set Tuple</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.GeneratorTupleElement#onResetTuple(com.misc.common.moplaf.solver.GeneratorTuple) <em>On Reset Tuple</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.GeneratorTupleElement#getSelectedSolutionDisplay() <em>Selected Solution Display</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -123,53 +115,14 @@ public class GeneratorTupleElementTest extends GeneratorElementTest {
 	}
 
 	/**
-	 * Tests the '{@link com.misc.common.moplaf.solver.GeneratorTupleElement#refreshCode() <em>Refresh Code</em>}' operation.
+	 * Tests the '{@link com.misc.common.moplaf.solver.GeneratorTupleElement#getSelectedSolutionDisplay() <em>Selected Solution Display</em>}' feature getter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.solver.GeneratorTupleElement#refreshCode()
+	 * @see com.misc.common.moplaf.solver.GeneratorTupleElement#getSelectedSolutionDisplay()
 	 * @generated
 	 */
-	public void testRefreshCode() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link com.misc.common.moplaf.solver.GeneratorTupleElement#refreshTuple() <em>Refresh Tuple</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.solver.GeneratorTupleElement#refreshTuple()
-	 * @generated
-	 */
-	public void testRefreshTuple() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link com.misc.common.moplaf.solver.GeneratorTupleElement#onSetTuple(com.misc.common.moplaf.solver.GeneratorTuple) <em>On Set Tuple</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.solver.GeneratorTupleElement#onSetTuple(com.misc.common.moplaf.solver.GeneratorTuple)
-	 * @generated
-	 */
-	public void testOnSetTuple__GeneratorTuple() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
-	}
-
-	/**
-	 * Tests the '{@link com.misc.common.moplaf.solver.GeneratorTupleElement#onResetTuple(com.misc.common.moplaf.solver.GeneratorTuple) <em>On Reset Tuple</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.solver.GeneratorTupleElement#onResetTuple(com.misc.common.moplaf.solver.GeneratorTuple)
-	 * @generated
-	 */
-	public void testOnResetTuple__GeneratorTuple() {
-		// TODO: implement this operation test method
+	public void testGetSelectedSolutionDisplay() {
+		// TODO: implement this feature getter test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}

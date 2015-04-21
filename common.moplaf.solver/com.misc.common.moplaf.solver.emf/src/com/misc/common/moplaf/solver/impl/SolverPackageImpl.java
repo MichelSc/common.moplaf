@@ -2757,7 +2757,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 
 		initEOperation(getSolver__Solve(), null, "solve", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(solverLpEClass, SolverLp.class, "SolverLp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(solverLpEClass, SolverLp.class, "SolverLp", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSolverLp_SolverOptimalityTolerance(), ecorePackage.getEFloat(), "SolverOptimalityTolerance", "0.05", 0, 1, SolverLp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSolverLp_SolverLinearRelaxation(), ecorePackage.getEBoolean(), "SolverLinearRelaxation", null, 0, 1, SolverLp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSolverLp_SolOptimalityGap(), ecorePackage.getEFloat(), "SolOptimalityGap", null, 0, 1, SolverLp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2826,7 +2826,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 
 		initEClass(solutionCpVarEClass, SolutionCpVar.class, "SolutionCpVar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(solverCpEClass, SolverCp.class, "SolverCp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(solverCpEClass, SolverCp.class, "SolverCp", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSolverCp_SearchAll(), ecorePackage.getEBoolean(), "SearchAll", null, 0, 1, SolverCp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(generatorElementEClass, GeneratorElement.class, "GeneratorElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class SolverLpImpl extends SolverImpl implements SolverLp {
+public abstract class SolverLpImpl extends SolverImpl implements SolverLp {
 	/**
 	 * The default value of the '{@link #getSolverOptimalityTolerance() <em>Solver Optimality Tolerance</em>}' attribute.
 	 * <!-- begin-user-doc -->

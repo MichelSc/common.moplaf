@@ -148,15 +148,6 @@ public interface SolverFactory extends EFactory {
 	SolutionProvider createSolutionProvider();
 
 	/**
-	 * Returns a new object of class '<em>Lp</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Lp</em>'.
-	 * @generated
-	 */
-	SolverLp createSolverLp();
-
-	/**
 	 * Returns a new object of class '<em>Solution Var</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -254,15 +245,6 @@ public interface SolverFactory extends EFactory {
 	 * @generated
 	 */
 	SolutionCpVar createSolutionCpVar();
-
-	/**
-	 * Returns a new object of class '<em>Cp</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Cp</em>'.
-	 * @generated
-	 */
-	SolverCp createSolverCp();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -13,12 +13,6 @@ import junit.textui.TestRunner;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Generator Element</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following operations are tested:
- * <ul>
- *   <li>{@link com.misc.common.moplaf.solver.GeneratorElement#onOwnerChanged() <em>On Owner Changed</em>}</li>
- * </ul>
- * </p>
  * @generated
  */
 public class GeneratorElementTest extends TestCase {
@@ -90,19 +84,6 @@ public class GeneratorElementTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
-	}
-
-	/**
-	 * Tests the '{@link com.misc.common.moplaf.solver.GeneratorElement#onOwnerChanged() <em>On Owner Changed</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.solver.GeneratorElement#onOwnerChanged()
-	 * @generated
-	 */
-	public void testOnOwnerChanged() {
-		// TODO: implement this operation test method
-		// Ensure that you remove @generated or mark it @generated NOT
-		fail();
 	}
 
 } //GeneratorElementTest

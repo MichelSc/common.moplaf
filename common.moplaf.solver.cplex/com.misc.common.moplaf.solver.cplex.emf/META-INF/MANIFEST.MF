@@ -12,7 +12,7 @@ Export-Package: com.misc.common.moplaf.solver.solvercplex,
  com.misc.common.moplaf.solver.solvercplex.impl,
  com.misc.common.moplaf.solver.solvercplex.util
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore;visibility:=reexport,
  com.misc.common.moplaf.solver.emf;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-NativeCode: lib/x86_64-linux/libcplex1260.so;osname = Linux;processor = x86-64

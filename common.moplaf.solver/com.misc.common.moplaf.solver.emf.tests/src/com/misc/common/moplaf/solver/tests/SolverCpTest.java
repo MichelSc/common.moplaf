@@ -3,9 +3,6 @@
 package com.misc.common.moplaf.solver.tests;
 
 import com.misc.common.moplaf.solver.SolverCp;
-import com.misc.common.moplaf.solver.SolverFactory;
-
-import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,16 +10,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SolverCpTest extends SolverTest {
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static void main(String[] args) {
-		TestRunner.run(SolverCpTest.class);
-	}
+public abstract class SolverCpTest extends SolverTest {
 
 	/**
 	 * Constructs a new Cp test case with the given name.
@@ -43,28 +31,6 @@ public class SolverCpTest extends SolverTest {
 	@Override
 	protected SolverCp getFixture() {
 		return (SolverCp)fixture;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(SolverFactory.eINSTANCE.createSolverCp());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
 	}
 
 } //SolverCpTest

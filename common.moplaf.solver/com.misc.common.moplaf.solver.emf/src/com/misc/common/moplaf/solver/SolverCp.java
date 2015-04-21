@@ -16,7 +16,7 @@ package com.misc.common.moplaf.solver;
  * </p>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getSolverCp()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface SolverCp extends Solver {

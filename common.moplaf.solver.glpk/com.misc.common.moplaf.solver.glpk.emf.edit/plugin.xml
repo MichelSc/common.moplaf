@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated solverglpk -->
       <factory
-            uri="http://com.misc.common.moplaf.solver.glpk.emf"
+            uri="http://www.misc.com/common/moplaf/solver/glpk/model/0.1"
             class="com.misc.common.moplaf.solver.solverglpk.provider.SolverglpkItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider

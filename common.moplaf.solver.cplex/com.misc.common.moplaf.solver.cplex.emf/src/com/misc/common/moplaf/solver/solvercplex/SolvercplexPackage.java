@@ -38,7 +38,7 @@ public interface SolvercplexPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://com.misc.common.moplaf.solver.cplex.emf";
+	String eNS_URI = "http://www.misc.com/common/moplaf/solver/cplex/model/0.1";
 
 	/**
 	 * The package namespace name.

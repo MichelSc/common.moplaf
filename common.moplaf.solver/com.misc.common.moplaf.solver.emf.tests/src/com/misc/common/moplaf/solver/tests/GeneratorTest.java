@@ -11,6 +11,13 @@ import junit.framework.TestCase;
  * A test case for the model object '<em><b>Generator</b></em>'.
  * <!-- end-user-doc -->
  * <p>
+ * The following features are tested:
+ * <ul>
+ *   <li>{@link com.misc.common.moplaf.solver.Generator#getTupleRoot() <em>Tuple Root</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.Generator#getSolutionProvider() <em>Solution Provider</em>}</li>
+ * </ul>
+ * </p>
+ * <p>
  * The following operations are tested:
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#generate() <em>Generate</em>}</li>
@@ -63,6 +70,32 @@ public abstract class GeneratorTest extends TestCase {
 	 */
 	protected Generator getFixture() {
 		return fixture;
+	}
+
+	/**
+	 * Tests the '{@link com.misc.common.moplaf.solver.Generator#getTupleRoot() <em>Tuple Root</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.solver.Generator#getTupleRoot()
+	 * @generated
+	 */
+	public void testGetTupleRoot() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link com.misc.common.moplaf.solver.Generator#getSolutionProvider() <em>Solution Provider</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.solver.Generator#getSolutionProvider()
+	 * @generated
+	 */
+	public void testGetSolutionProvider() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 	/**

@@ -9,6 +9,12 @@ import com.misc.common.moplaf.solver.GeneratorVar;
  * A test case for the model object '<em><b>Generator Var</b></em>'.
  * <!-- end-user-doc -->
  * <p>
+ * The following features are tested:
+ * <ul>
+ *   <li>{@link com.misc.common.moplaf.solver.GeneratorVar#getSelectedSolutionValue() <em>Selected Solution Value</em>}</li>
+ * </ul>
+ * </p>
+ * <p>
  * The following operations are tested:
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorVar#getSolutionVar(com.misc.common.moplaf.solver.Solution) <em>Get Solution Var</em>}</li>
@@ -40,6 +46,19 @@ public abstract class GeneratorVarTest extends GeneratorTupleElementTest {
 	@Override
 	protected GeneratorVar getFixture() {
 		return (GeneratorVar)fixture;
+	}
+
+	/**
+	 * Tests the '{@link com.misc.common.moplaf.solver.GeneratorVar#getSelectedSolutionValue() <em>Selected Solution Value</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.solver.GeneratorVar#getSelectedSolutionValue()
+	 * @generated
+	 */
+	public void testGetSelectedSolutionValue() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 	/**

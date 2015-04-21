@@ -41,7 +41,7 @@ public interface SolverPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://com.misc.common.moplaf.solver.emf";
+	String eNS_URI = "http://www.misc.com/common/moplaf/solver/model/0.1";
 
 	/**
 	 * The package namespace name.
