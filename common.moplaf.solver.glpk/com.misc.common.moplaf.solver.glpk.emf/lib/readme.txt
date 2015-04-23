@@ -13,3 +13,7 @@ glpl-java
   - library glpk-java-1.0.31.jar moved into the bin folder (?)
   - binaries jni/libglpk_java.a/so in the jni folder must be loaded at runtime
   - made available from http://glpk-java.sourceforge.net/
+  
+  
+  first aid
+    if libglpk_java.so is not found, add its location to the env variable LD_LIBRARY_PATH in the run configurations
