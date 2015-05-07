@@ -236,22 +236,6 @@ public abstract class GeneratorTupleImpl extends GeneratorElementImpl implements
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Generate the vars for this tuple. Default implementation does nothing
-	 * <!-- end-user-doc -->
-	 */
-	public void generateLpVars() {
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Generate the constraints for this tuple. Default implementation does nothing
-	 * <!-- end-user-doc -->
-	 */
-	public void generateLpCons() {
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
 	 * Generate element tuples of this tuple. Default implementation does nothing.
 	 * <!-- end-user-doc -->
 	 */

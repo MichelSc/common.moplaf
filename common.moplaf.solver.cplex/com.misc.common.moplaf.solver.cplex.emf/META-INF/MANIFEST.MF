@@ -17,4 +17,4 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-ActivationPolicy: lazy
 Bundle-NativeCode: 
  lib/x86_64-linux/libcplex1261.so;osname=Linux;processor = x86-64,
- lib/x86_64-win/cplex1261;osname=win32;processor = x86-64
+ lib/x86_64-win/cplex1261.dll;osname=win32;processor = x86-64
