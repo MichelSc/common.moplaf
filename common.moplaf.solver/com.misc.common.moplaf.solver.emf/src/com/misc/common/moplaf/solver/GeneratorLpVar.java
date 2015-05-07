@@ -2,6 +2,8 @@
  */
 package com.misc.common.moplaf.solver;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -15,6 +17,7 @@ package com.misc.common.moplaf.solver;
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpVar#getLowerBound <em>Lower Bound</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpVar#getUpperBound <em>Upper Bound</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpVar#getObjectiveCoeff <em>Objective Coeff</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpVar#getLpTerm <em>Lp Term</em>}</li>
  * </ul>
  * </p>
  *
@@ -129,5 +132,23 @@ public interface GeneratorLpVar extends GeneratorVar {
 	 * @generated
 	 */
 	void setObjectiveCoeff(float value);
+
+	/**
+	 * Returns the value of the '<em><b>Lp Term</b></em>' reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.solver.GeneratorLpTerm}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.GeneratorLpTerm#getLpVar <em>Lp Var</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Lp Term</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Lp Term</em>' reference list.
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorLpVar_LpTerm()
+	 * @see com.misc.common.moplaf.solver.GeneratorLpTerm#getLpVar
+	 * @model opposite="LpVar"
+	 * @generated
+	 */
+	EList<GeneratorLpTerm> getLpTerm();
 
 } // GeneratorLpVar

@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -132,7 +132,7 @@ public class GeneratorLpConsImpl extends GeneratorConsImpl implements GeneratorL
 	 */
 	public EList<GeneratorLpTerm> getLpTerm() {
 		if (lpTerm == null) {
-			lpTerm = new EObjectContainmentEList<GeneratorLpTerm>(GeneratorLpTerm.class, this, SolverPackage.GENERATOR_LP_CONS__LP_TERM);
+			lpTerm = new EObjectContainmentWithInverseEList<GeneratorLpTerm>(GeneratorLpTerm.class, this, SolverPackage.GENERATOR_LP_CONS__LP_TERM, SolverPackage.GENERATOR_LP_TERM__LP_CONS);
 		}
 		return lpTerm;
 	}
@@ -172,6 +172,21 @@ public class GeneratorLpConsImpl extends GeneratorConsImpl implements GeneratorL
 
 
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SolverPackage.GENERATOR_LP_CONS__LP_TERM:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getLpTerm()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -136,6 +136,8 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ObjectiveCoeff" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="LpTerm" upperBound="-1"
+        eType="#//GeneratorLpTerm" eOpposite="#//GeneratorLpTerm/LpVar"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorCons" abstract="true" eSuperTypes="#//GeneratorTupleElement">
     <eOperations name="generate"/>
@@ -152,12 +154,15 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="#//EnumLpConsType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="LpTerm" upperBound="-1"
-        eType="#//GeneratorLpTerm" containment="true"/>
+        eType="#//GeneratorLpTerm" containment="true" eOpposite="#//GeneratorLpTerm/LpCons"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="RighHandSide" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpTerm">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="LpVar" lowerBound="1" eType="#//GeneratorLpVar"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="LpVar" lowerBound="1" eType="#//GeneratorLpVar"
+        eOpposite="#//GeneratorLpVar/LpTerm"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Coeff" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="LpCons" lowerBound="1"
+        eType="#//GeneratorLpCons" eOpposite="#//GeneratorLpCons/LpTerm"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpConsCountElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ELpConsCount" lowerBound="1"

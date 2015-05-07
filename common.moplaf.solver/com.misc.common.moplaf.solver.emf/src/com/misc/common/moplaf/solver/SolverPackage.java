@@ -723,13 +723,22 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_LP_VAR__OBJECTIVE_COEFF = GENERATOR_VAR_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Lp Term</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_VAR__LP_TERM = GENERATOR_VAR_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Generator Lp Var</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_LP_VAR_FEATURE_COUNT = GENERATOR_VAR_FEATURE_COUNT + 4;
+	int GENERATOR_LP_VAR_FEATURE_COUNT = GENERATOR_VAR_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get Solution Var</em>' operation.
@@ -1023,13 +1032,22 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_LP_TERM__COEFF = 1;
 
 	/**
+	 * The feature id for the '<em><b>Lp Cons</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_TERM__LP_CONS = 2;
+
+	/**
 	 * The number of structural features of the '<em>Generator Lp Term</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_LP_TERM_FEATURE_COUNT = 2;
+	int GENERATOR_LP_TERM_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Generator Lp Term</em>' class.
@@ -4867,6 +4885,17 @@ public interface SolverPackage extends EPackage {
 	EAttribute getGeneratorLpVar_ObjectiveCoeff();
 
 	/**
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.solver.GeneratorLpVar#getLpTerm <em>Lp Term</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Lp Term</em>'.
+	 * @see com.misc.common.moplaf.solver.GeneratorLpVar#getLpTerm()
+	 * @see #getGeneratorLpVar()
+	 * @generated
+	 */
+	EReference getGeneratorLpVar_LpTerm();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorCons <em>Generator Cons</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4991,6 +5020,17 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGeneratorLpTerm_Coeff();
+
+	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.solver.GeneratorLpTerm#getLpCons <em>Lp Cons</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Lp Cons</em>'.
+	 * @see com.misc.common.moplaf.solver.GeneratorLpTerm#getLpCons()
+	 * @see #getGeneratorLpTerm()
+	 * @generated
+	 */
+	EReference getGeneratorLpTerm_LpCons();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorLpConsCountElement <em>Generator Lp Cons Count Element</em>}'.
@@ -6841,6 +6881,14 @@ public interface SolverPackage extends EPackage {
 		EAttribute GENERATOR_LP_VAR__OBJECTIVE_COEFF = eINSTANCE.getGeneratorLpVar_ObjectiveCoeff();
 
 		/**
+		 * The meta object literal for the '<em><b>Lp Term</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GENERATOR_LP_VAR__LP_TERM = eINSTANCE.getGeneratorLpVar_LpTerm();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorConsImpl <em>Generator Cons</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6941,6 +6989,14 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GENERATOR_LP_TERM__COEFF = eINSTANCE.getGeneratorLpTerm_Coeff();
+
+		/**
+		 * The meta object literal for the '<em><b>Lp Cons</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GENERATOR_LP_TERM__LP_CONS = eINSTANCE.getGeneratorLpTerm_LpCons();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpConsCountElementImpl <em>Generator Lp Cons Count Element</em>}' class.

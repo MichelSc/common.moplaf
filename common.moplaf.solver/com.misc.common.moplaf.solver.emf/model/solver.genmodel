@@ -130,6 +130,8 @@
       <genFeatures createChild="false" propertyCategory="20 Variable" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpVar/LowerBound"/>
       <genFeatures createChild="false" propertyCategory="20 Variable" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpVar/UpperBound"/>
       <genFeatures createChild="false" propertyCategory="20 Variable" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpVar/ObjectiveCoeff"/>
+      <genFeatures notify="false" children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpVar/LpTerm"/>
     </genClasses>
     <genClasses ecoreClass="solver.ecore#//GeneratorCons" labelFeature="#//solver/GeneratorTupleElement/Code">
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//GeneratorCons/Solution"/>
@@ -148,8 +150,11 @@
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="solver.ecore#//GeneratorLpTerm">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpTerm/LpVar"/>
+      <genFeatures property="Readonly" notify="false" children="true" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpTerm/LpVar"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpTerm/Coeff"/>
+      <genFeatures property="Readonly" notify="false" children="true" createChild="false"
+          ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpTerm/LpCons"/>
     </genClasses>
     <genClasses ecoreClass="solver.ecore#//GeneratorLpConsCountElement">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpConsCountElement/ELpConsCount"/>

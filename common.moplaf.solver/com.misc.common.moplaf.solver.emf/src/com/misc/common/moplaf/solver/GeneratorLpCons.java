@@ -55,6 +55,7 @@ public interface GeneratorLpCons extends GeneratorCons {
 	/**
 	 * Returns the value of the '<em><b>Lp Term</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.solver.GeneratorLpTerm}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.GeneratorLpTerm#getLpCons <em>Lp Cons</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Lp Term</em>' containment reference list isn't clear,
@@ -63,7 +64,8 @@ public interface GeneratorLpCons extends GeneratorCons {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Lp Term</em>' containment reference list.
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorLpCons_LpTerm()
-	 * @model containment="true"
+	 * @see com.misc.common.moplaf.solver.GeneratorLpTerm#getLpCons
+	 * @model opposite="LpCons" containment="true"
 	 * @generated
 	 */
 	EList<GeneratorLpTerm> getLpTerm();

@@ -1020,6 +1020,15 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getGeneratorLpVar_LpTerm() {
+		return (EReference)generatorLpVarEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getGeneratorCons() {
 		return generatorConsEClass;
 	}
@@ -1121,6 +1130,15 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 */
 	public EAttribute getGeneratorLpTerm_Coeff() {
 		return (EAttribute)generatorLpTermEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGeneratorLpTerm_LpCons() {
+		return (EReference)generatorLpTermEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2314,6 +2332,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		createEAttribute(generatorLpVarEClass, GENERATOR_LP_VAR__LOWER_BOUND);
 		createEAttribute(generatorLpVarEClass, GENERATOR_LP_VAR__UPPER_BOUND);
 		createEAttribute(generatorLpVarEClass, GENERATOR_LP_VAR__OBJECTIVE_COEFF);
+		createEReference(generatorLpVarEClass, GENERATOR_LP_VAR__LP_TERM);
 
 		generatorConsEClass = createEClass(GENERATOR_CONS);
 		createEReference(generatorConsEClass, GENERATOR_CONS__SOLUTION);
@@ -2329,6 +2348,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		generatorLpTermEClass = createEClass(GENERATOR_LP_TERM);
 		createEReference(generatorLpTermEClass, GENERATOR_LP_TERM__LP_VAR);
 		createEAttribute(generatorLpTermEClass, GENERATOR_LP_TERM__COEFF);
+		createEReference(generatorLpTermEClass, GENERATOR_LP_TERM__LP_CONS);
 
 		generatorLpConsCountElementEClass = createEClass(GENERATOR_LP_CONS_COUNT_ELEMENT);
 		createEReference(generatorLpConsCountElementEClass, GENERATOR_LP_CONS_COUNT_ELEMENT__ELP_CONS_COUNT);
@@ -2635,6 +2655,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		initEAttribute(getGeneratorLpVar_LowerBound(), ecorePackage.getEFloat(), "LowerBound", null, 1, 1, GeneratorLpVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGeneratorLpVar_UpperBound(), ecorePackage.getEFloat(), "UpperBound", null, 1, 1, GeneratorLpVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGeneratorLpVar_ObjectiveCoeff(), ecorePackage.getEFloat(), "ObjectiveCoeff", null, 1, 1, GeneratorLpVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGeneratorLpVar_LpTerm(), this.getGeneratorLpTerm(), this.getGeneratorLpTerm_LpVar(), "LpTerm", null, 0, -1, GeneratorLpVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(generatorConsEClass, GeneratorCons.class, "GeneratorCons", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGeneratorCons_Solution(), this.getSolutionCons(), this.getSolutionCons_Cons(), "Solution", null, 0, -1, GeneratorCons.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2646,7 +2667,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 
 		initEClass(generatorLpConsEClass, GeneratorLpCons.class, "GeneratorLpCons", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGeneratorLpCons_Type(), this.getEnumLpConsType(), "Type", null, 0, 1, GeneratorLpCons.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGeneratorLpCons_LpTerm(), this.getGeneratorLpTerm(), null, "LpTerm", null, 0, -1, GeneratorLpCons.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGeneratorLpCons_LpTerm(), this.getGeneratorLpTerm(), this.getGeneratorLpTerm_LpCons(), "LpTerm", null, 0, -1, GeneratorLpCons.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGeneratorLpCons_RighHandSide(), ecorePackage.getEFloat(), "RighHandSide", null, 0, 1, GeneratorLpCons.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getGeneratorLpCons__ConstructTerm__GeneratorLpVar_float(), this.getGeneratorLpTerm(), "constructTerm", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -2654,8 +2675,9 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		addEParameter(op, ecorePackage.getEFloat(), "coef", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(generatorLpTermEClass, GeneratorLpTerm.class, "GeneratorLpTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGeneratorLpTerm_LpVar(), this.getGeneratorLpVar(), null, "LpVar", null, 1, 1, GeneratorLpTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGeneratorLpTerm_LpVar(), this.getGeneratorLpVar(), this.getGeneratorLpVar_LpTerm(), "LpVar", null, 1, 1, GeneratorLpTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGeneratorLpTerm_Coeff(), ecorePackage.getEFloat(), "Coeff", null, 0, 1, GeneratorLpTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGeneratorLpTerm_LpCons(), this.getGeneratorLpCons(), this.getGeneratorLpCons_LpTerm(), "LpCons", null, 1, 1, GeneratorLpTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(generatorLpConsCountElementEClass, GeneratorLpConsCountElement.class, "GeneratorLpConsCountElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGeneratorLpConsCountElement_ELpConsCount(), this.getGeneratorLpConsCount(), this.getGeneratorLpConsCount_LpConsCountElement(), "ELpConsCount", null, 1, 1, GeneratorLpConsCountElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

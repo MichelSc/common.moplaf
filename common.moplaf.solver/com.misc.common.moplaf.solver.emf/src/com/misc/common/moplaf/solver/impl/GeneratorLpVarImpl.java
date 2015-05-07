@@ -3,12 +3,19 @@
 package com.misc.common.moplaf.solver.impl;
 
 import com.misc.common.moplaf.solver.EnumLpVarType;
+import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
 import com.misc.common.moplaf.solver.SolverPackage;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,6 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpVarImpl#getLowerBound <em>Lower Bound</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpVarImpl#getUpperBound <em>Upper Bound</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpVarImpl#getObjectiveCoeff <em>Objective Coeff</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpVarImpl#getLpTerm <em>Lp Term</em>}</li>
  * </ul>
  * </p>
  *
@@ -106,6 +114,16 @@ public class GeneratorLpVarImpl extends GeneratorVarImpl implements GeneratorLpV
 	 * @ordered
 	 */
 	protected float objectiveCoeff = OBJECTIVE_COEFF_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getLpTerm() <em>Lp Term</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLpTerm()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<GeneratorLpTerm> lpTerm;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -216,6 +234,47 @@ public class GeneratorLpVarImpl extends GeneratorVarImpl implements GeneratorLpV
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<GeneratorLpTerm> getLpTerm() {
+		if (lpTerm == null) {
+			lpTerm = new EObjectWithInverseResolvingEList<GeneratorLpTerm>(GeneratorLpTerm.class, this, SolverPackage.GENERATOR_LP_VAR__LP_TERM, SolverPackage.GENERATOR_LP_TERM__LP_VAR);
+		}
+		return lpTerm;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SolverPackage.GENERATOR_LP_VAR__LP_TERM:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getLpTerm()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SolverPackage.GENERATOR_LP_VAR__LP_TERM:
+				return ((InternalEList<?>)getLpTerm()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -227,6 +286,8 @@ public class GeneratorLpVarImpl extends GeneratorVarImpl implements GeneratorLpV
 				return getUpperBound();
 			case SolverPackage.GENERATOR_LP_VAR__OBJECTIVE_COEFF:
 				return getObjectiveCoeff();
+			case SolverPackage.GENERATOR_LP_VAR__LP_TERM:
+				return getLpTerm();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -252,6 +313,10 @@ public class GeneratorLpVarImpl extends GeneratorVarImpl implements GeneratorLpV
 			case SolverPackage.GENERATOR_LP_VAR__OBJECTIVE_COEFF:
 				setObjectiveCoeff((Float)newValue);
 				return;
+			case SolverPackage.GENERATOR_LP_VAR__LP_TERM:
+				getLpTerm().clear();
+				getLpTerm().addAll((Collection<? extends GeneratorLpTerm>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -276,6 +341,9 @@ public class GeneratorLpVarImpl extends GeneratorVarImpl implements GeneratorLpV
 			case SolverPackage.GENERATOR_LP_VAR__OBJECTIVE_COEFF:
 				setObjectiveCoeff(OBJECTIVE_COEFF_EDEFAULT);
 				return;
+			case SolverPackage.GENERATOR_LP_VAR__LP_TERM:
+				getLpTerm().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -296,6 +364,8 @@ public class GeneratorLpVarImpl extends GeneratorVarImpl implements GeneratorLpV
 				return upperBound != UPPER_BOUND_EDEFAULT;
 			case SolverPackage.GENERATOR_LP_VAR__OBJECTIVE_COEFF:
 				return objectiveCoeff != OBJECTIVE_COEFF_EDEFAULT;
+			case SolverPackage.GENERATOR_LP_VAR__LP_TERM:
+				return lpTerm != null && !lpTerm.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
