@@ -3,11 +3,15 @@
 package com.misc.common.moplaf.solver.provider;
 
 
+import com.misc.common.moplaf.emf.edit.command.RunCommand;
+import com.misc.common.moplaf.emf.edit.command.WriteCommand;
 import com.misc.common.moplaf.solver.ILpWriter;
 import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverPackage;
+
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;

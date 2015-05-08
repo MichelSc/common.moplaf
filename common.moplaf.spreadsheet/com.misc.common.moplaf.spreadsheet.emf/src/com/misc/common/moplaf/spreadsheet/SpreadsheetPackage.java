@@ -132,13 +132,22 @@ public interface SpreadsheetPackage extends EPackage {
 	int SPREADSHEET___READ_FILE = 2;
 
 	/**
+	 * The operation id for the '<em>Write File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET___WRITE_FILE = 3;
+
+	/**
 	 * The number of operations of the '<em>Spreadsheet</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET_OPERATION_COUNT = 3;
+	int SPREADSHEET_OPERATION_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.spreadsheet.impl.SheetImpl <em>Sheet</em>}' class.
@@ -544,6 +553,16 @@ public interface SpreadsheetPackage extends EPackage {
 	EOperation getSpreadsheet__ReadFile();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#writeFile() <em>Write File</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Write File</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Spreadsheet#writeFile()
+	 * @generated
+	 */
+	EOperation getSpreadsheet__WriteFile();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.spreadsheet.Sheet <em>Sheet</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -920,6 +939,14 @@ public interface SpreadsheetPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SPREADSHEET___READ_FILE = eINSTANCE.getSpreadsheet__ReadFile();
+
+		/**
+		 * The meta object literal for the '<em><b>Write File</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SPREADSHEET___WRITE_FILE = eINSTANCE.getSpreadsheet__WriteFile();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.spreadsheet.impl.SheetImpl <em>Sheet</em>}' class.

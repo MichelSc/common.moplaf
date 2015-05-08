@@ -198,6 +198,15 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getSpreadsheet__WriteFile() {
+		return spreadsheetEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSheet() {
 		return sheetEClass;
 	}
@@ -480,6 +489,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		createEOperation(spreadsheetEClass, SPREADSHEET___GET_SHEET__STRING);
 		createEOperation(spreadsheetEClass, SPREADSHEET___GET_SHEET__INT);
 		createEOperation(spreadsheetEClass, SPREADSHEET___READ_FILE);
+		createEOperation(spreadsheetEClass, SPREADSHEET___WRITE_FILE);
 
 		sheetEClass = createEClass(SHEET);
 		createEReference(sheetEClass, SHEET__ROW);
@@ -558,6 +568,8 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		addEParameter(op, ecorePackage.getEInt(), "sheetindex", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getSpreadsheet__ReadFile(), null, "readFile", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getSpreadsheet__WriteFile(), null, "writeFile", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(sheetEClass, Sheet.class, "Sheet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSheet_Row(), this.getRow(), this.getRow_Sheet(), "Row", null, 0, -1, Sheet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

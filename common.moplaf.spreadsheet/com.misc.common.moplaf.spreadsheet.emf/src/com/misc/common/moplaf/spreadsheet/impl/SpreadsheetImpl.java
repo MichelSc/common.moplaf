@@ -205,6 +205,17 @@ public abstract class SpreadsheetImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void writeFile() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -323,6 +334,9 @@ public abstract class SpreadsheetImpl extends MinimalEObjectImpl.Container imple
 				return getSheet((Integer)arguments.get(0));
 			case SpreadsheetPackage.SPREADSHEET___READ_FILE:
 				readFile();
+				return null;
+			case SpreadsheetPackage.SPREADSHEET___WRITE_FILE:
+				writeFile();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

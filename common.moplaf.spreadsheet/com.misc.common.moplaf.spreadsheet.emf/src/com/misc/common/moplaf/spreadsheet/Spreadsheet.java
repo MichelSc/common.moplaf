@@ -120,4 +120,12 @@ public interface Spreadsheet extends EObject {
 	 */
 	void readFile();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void writeFile();
+
 } // Spreadsheet

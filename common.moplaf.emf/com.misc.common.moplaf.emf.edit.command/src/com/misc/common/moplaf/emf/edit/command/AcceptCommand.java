@@ -1,11 +1,11 @@
-package com.misc.common.moplaf.solver.provider;
+package com.misc.common.moplaf.emf.edit.command;
 
 import org.eclipse.emf.common.command.AbstractCommand;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
-public class WriteCommand extends AbstractCommand {
+public class AcceptCommand extends AbstractCommand {
 
 	protected boolean prepare(){
 		isExecutable = true;
@@ -27,7 +27,7 @@ public class WriteCommand extends AbstractCommand {
 	}
 
 	public static Command create(EditingDomain domain, Object value)	  {
-	    return domain.createCommand(WriteCommand.class,
+	    return domain.createCommand(AcceptCommand.class,
 	                                new CommandParameter(value, 
 	                                		             null, 
 	                                		             null));

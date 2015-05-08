@@ -1,4 +1,4 @@
-package com.misc.common.moplaf.solver.provider;
+package com.misc.common.moplaf.emf.edit.command;
 
 import org.eclipse.emf.common.command.AbstractCommand;
 import org.eclipse.emf.common.command.Command;

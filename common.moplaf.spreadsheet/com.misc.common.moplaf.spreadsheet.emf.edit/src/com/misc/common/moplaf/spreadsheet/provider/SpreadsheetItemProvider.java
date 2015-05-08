@@ -3,6 +3,8 @@
 package com.misc.common.moplaf.spreadsheet.provider;
 
 
+import com.misc.common.moplaf.emf.edit.command.ReadCommand;
+import com.misc.common.moplaf.emf.edit.command.WriteCommand;
 import com.misc.common.moplaf.spreadsheet.Spreadsheet;
 import com.misc.common.moplaf.spreadsheet.SpreadsheetFactory;
 import com.misc.common.moplaf.spreadsheet.SpreadsheetPackage;
@@ -10,13 +12,13 @@ import com.misc.common.moplaf.spreadsheet.SpreadsheetPackage;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -208,4 +210,57 @@ public class SpreadsheetItemProvider
 		return SpreadsheetEditPlugin.INSTANCE;
 	}
 
+
+	public class SpreadsheetWriteCommand extends WriteCommand{
+		private Spreadsheet spreadsheet;
+		
+		// constructor
+		public SpreadsheetWriteCommand(Spreadsheet aSpreadsheet)	{
+			super();
+			this.spreadsheet = aSpreadsheet;
+			String tmp = "Write the spreasheet";
+			String label = "label:"+tmp;
+			String description = "desc:"+tmp;
+			this.setDescription(description);
+			this.setLabel(label);
+		}
+
+		@Override
+		public void execute() {
+			this.spreadsheet.writeFile();
+		}
+	} // class WriteCommand
+
+	public class SpreadsheetReadCommand extends ReadCommand{
+		private Spreadsheet spreadsheet;
+		
+		// constructor
+		public SpreadsheetReadCommand(Spreadsheet aSpreadsheet)	{
+			super();
+			this.spreadsheet = aSpreadsheet;
+			String tmp = "Read the spreasheet";
+			String label = "label:"+tmp;
+			String description = "desc:"+tmp;
+			this.setDescription(description);
+			this.setLabel(label);
+		}
+
+		@Override
+		public void execute() {
+			this.spreadsheet.readFile();
+		}
+	} // class ReadCommand
+
+	@Override
+	public Command createCommand(Object object, EditingDomain domain,
+			Class<? extends Command> commandClass,
+			CommandParameter commandParameter) {
+		if ( commandClass == WriteCommand.class){
+			return new SpreadsheetWriteCommand((Spreadsheet) object); 
+		}
+		else if ( commandClass == ReadCommand.class){
+			return new SpreadsheetReadCommand((Spreadsheet) object); 
+		}
+		return super.createCommand(object, domain, commandClass, commandParameter);
+	} //method createCommand
 }
