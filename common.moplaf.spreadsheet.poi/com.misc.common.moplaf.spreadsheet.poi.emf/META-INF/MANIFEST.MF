@@ -12,6 +12,6 @@ Export-Package: com.misc.common.moplaf.spreadsheet.spreadsheetpoi,
  com.misc.common.moplaf.spreadsheet.spreadsheetpoi.impl,
  com.misc.common.moplaf.spreadsheet.spreadsheetpoi.util
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore;visibility:=reexport,
  com.misc.common.moplaf.spreadsheet.emf;visibility:=reexport
 Bundle-ActivationPolicy: lazy

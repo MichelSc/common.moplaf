@@ -130,6 +130,15 @@ public interface SpreadsheetpoiPackage extends EPackage {
 	int SPREADSHEET_POI___READ_FILE = SpreadsheetPackage.SPREADSHEET___READ_FILE;
 
 	/**
+	 * The operation id for the '<em>Write File</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_POI___WRITE_FILE = SpreadsheetPackage.SPREADSHEET___WRITE_FILE;
+
+	/**
 	 * The number of operations of the '<em>Spreadsheet POI</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -112,7 +112,7 @@ public class SolverLpItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 getString("_UI__20SolverPropertyCategory"),
+				 getString("_UI__40SolutionPropertyCategory"),
 				 null));
 	}
 

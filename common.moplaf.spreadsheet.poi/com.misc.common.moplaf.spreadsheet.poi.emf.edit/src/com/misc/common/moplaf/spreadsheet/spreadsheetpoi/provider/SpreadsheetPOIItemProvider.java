@@ -4,23 +4,13 @@ package com.misc.common.moplaf.spreadsheet.spreadsheetpoi.provider;
 
 
 import com.misc.common.moplaf.spreadsheet.provider.SpreadsheetItemProvider;
-
 import com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetPOI;
-
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetPOI} object.
@@ -29,13 +19,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class SpreadsheetPOIItemProvider
-	extends SpreadsheetItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends SpreadsheetItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -80,7 +64,7 @@ public class SpreadsheetPOIItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SpreadsheetPOI)object).getFilePath();
+		String label = ((SpreadsheetPOI)object).getLabel();
 		return label == null || label.length() == 0 ?
 			getString("_UI_SpreadsheetPOI_type") :
 			getString("_UI_SpreadsheetPOI_type") + " " + label;

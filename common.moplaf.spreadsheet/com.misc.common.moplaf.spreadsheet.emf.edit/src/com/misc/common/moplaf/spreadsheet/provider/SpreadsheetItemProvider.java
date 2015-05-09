@@ -153,7 +153,7 @@ public class SpreadsheetItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Spreadsheet)object).getFilePath();
+		String label = ((Spreadsheet)object).getLabel();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Spreadsheet_type") :
 			getString("_UI_Spreadsheet_type") + " " + label;

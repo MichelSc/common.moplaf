@@ -268,7 +268,7 @@
     <genClasses ecoreClass="solver.ecore#//SolverLp" labelFeature="#//solver/SolutionProvider/Code">
       <genFeatures createChild="false" propertyCategory="20 Solver" ecoreFeature="ecore:EAttribute solver.ecore#//SolverLp/SolverOptimalityTolerance"/>
       <genFeatures createChild="false" propertyCategory="20 Solver" ecoreFeature="ecore:EAttribute solver.ecore#//SolverLp/SolverLinearRelaxation"/>
-      <genFeatures createChild="false" propertyCategory="20 Solver" ecoreFeature="ecore:EAttribute solver.ecore#//SolverLp/SolOptimalityGap"/>
+      <genFeatures createChild="false" propertyCategory="40 Solution" ecoreFeature="ecore:EAttribute solver.ecore#//SolverLp/SolOptimalityGap"/>
     </genClasses>
     <genClasses ecoreClass="solver.ecore#//Solution" labelFeature="#//solver/Solution/Code">
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//Solution/Var"/>
