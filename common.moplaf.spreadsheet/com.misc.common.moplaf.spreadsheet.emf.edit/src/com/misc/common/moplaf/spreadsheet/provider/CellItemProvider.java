@@ -206,11 +206,10 @@ public class CellItemProvider
 	 * This returns Cell.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Cell"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/spreadsheetcell.png"));
 	}
 
 	/**
