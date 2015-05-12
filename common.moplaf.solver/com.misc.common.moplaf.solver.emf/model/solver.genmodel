@@ -47,7 +47,7 @@
     </genEnums>
     <genDataTypes ecoreDataType="solver.ecore#//ITupleVisitor"/>
     <genDataTypes ecoreDataType="solver.ecore#//Exception"/>
-    <genClasses image="false" ecoreClass="solver.ecore#//Generator" labelFeature="#//solver/Generator/Code">
+    <genClasses ecoreClass="solver.ecore#//Generator" labelFeature="#//solver/Generator/Code">
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//Generator/TupleRoot"/>
       <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference solver.ecore#//Generator/GeneratorFeatureModes"/>
@@ -85,7 +85,7 @@
         <genParameters ecoreParameter="solver.ecore#//Generator/visitTuples/visitor"/>
       </genOperations>
     </genClasses>
-    <genClasses image="false" ecoreClass="solver.ecore#//GeneratorTuple">
+    <genClasses ecoreClass="solver.ecore#//GeneratorTuple">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//GeneratorTuple/GeneratorAsRoot"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//GeneratorTuple/TupleElement"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//GeneratorTuple/TupleContainer"/>
@@ -125,7 +125,7 @@
         <genParameters ecoreParameter="solver.ecore#//GeneratorVar/getSolutionValue/solver"/>
       </genOperations>
     </genClasses>
-    <genClasses ecoreClass="solver.ecore#//GeneratorLpVar" labelFeature="#//solver/GeneratorTupleElement/Code">
+    <genClasses image="false" ecoreClass="solver.ecore#//GeneratorLpVar" labelFeature="#//solver/GeneratorTupleElement/Code">
       <genFeatures createChild="false" propertyCategory="20 Variable" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpVar/Type"/>
       <genFeatures createChild="false" propertyCategory="20 Variable" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpVar/LowerBound"/>
       <genFeatures createChild="false" propertyCategory="20 Variable" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpVar/UpperBound"/>
@@ -140,7 +140,7 @@
         <genParameters ecoreParameter="solver.ecore#//GeneratorCons/getSolution/solver"/>
       </genOperations>
     </genClasses>
-    <genClasses ecoreClass="solver.ecore#//GeneratorLpCons" labelFeature="#//solver/GeneratorTupleElement/Code">
+    <genClasses image="false" ecoreClass="solver.ecore#//GeneratorLpCons" labelFeature="#//solver/GeneratorTupleElement/Code">
       <genFeatures createChild="false" propertyCategory="20 Constraint" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpCons/Type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpCons/LpTerm"/>
       <genFeatures createChild="false" propertyCategory="20 Constraint" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpCons/RighHandSide"/>
@@ -166,11 +166,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpVarCountElement/ECount"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpVarCountElement/EClass"/>
     </genClasses>
-    <genClasses ecoreClass="solver.ecore#//GeneratorLpVarCount">
+    <genClasses image="false" ecoreClass="solver.ecore#//GeneratorLpVarCount">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpVarCount/ELpVarCountElement"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpVarCount/Generator"/>
     </genClasses>
-    <genClasses ecoreClass="solver.ecore#//GeneratorLpConsCount">
+    <genClasses image="false" ecoreClass="solver.ecore#//GeneratorLpConsCount">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpConsCount/LpConsCountElement"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpConsCount/Generator"/>
     </genClasses>
@@ -222,7 +222,7 @@
       <genOperations ecoreOperation="solver.ecore#//SolutionProvider/solutionFactory"/>
       <genOperations ecoreOperation="solver.ecore#//SolutionProvider/constructSolution"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="solver.ecore#//Solver" labelFeature="#//solver/SolutionProvider/Code">
+    <genClasses ecoreClass="solver.ecore#//Solver" labelFeature="#//solver/SolutionProvider/Code">
       <genFeatures createChild="false" propertyCategory="10 General" propertyMultiLine="true"
           ecoreFeature="ecore:EAttribute solver.ecore#//Solver/Remarks"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 General"
@@ -265,7 +265,7 @@
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//Solver/Initializing"/>
       <genOperations ecoreOperation="solver.ecore#//Solver/solve"/>
     </genClasses>
-    <genClasses ecoreClass="solver.ecore#//SolverLp" labelFeature="#//solver/SolutionProvider/Code">
+    <genClasses image="false" ecoreClass="solver.ecore#//SolverLp" labelFeature="#//solver/SolutionProvider/Code">
       <genFeatures createChild="false" propertyCategory="20 Solver" ecoreFeature="ecore:EAttribute solver.ecore#//SolverLp/SolverOptimalityTolerance"/>
       <genFeatures createChild="false" propertyCategory="20 Solver" ecoreFeature="ecore:EAttribute solver.ecore#//SolverLp/SolverLinearRelaxation"/>
       <genFeatures createChild="false" propertyCategory="40 Solution" ecoreFeature="ecore:EAttribute solver.ecore#//SolverLp/SolOptimalityGap"/>
@@ -329,7 +329,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//GeneratorCpLogicalTerm/CpCons"/>
     </genClasses>
     <genClasses ecoreClass="solver.ecore#//SolutionCpVar"/>
-    <genClasses ecoreClass="solver.ecore#//SolverCp" labelFeature="#//solver/SolutionProvider/Code">
+    <genClasses image="false" ecoreClass="solver.ecore#//SolverCp" labelFeature="#//solver/SolutionProvider/Code">
       <genFeatures createChild="false" propertyCategory="20 Solver" ecoreFeature="ecore:EAttribute solver.ecore#//SolverCp/SearchAll"/>
     </genClasses>
     <genClasses ecoreClass="solver.ecore#//GeneratorElement"/>

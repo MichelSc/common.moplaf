@@ -13,7 +13,7 @@
       <genEnumLiterals ecoreEnumLiteral="spreadsheet.ecore#//CellType/CellTypeString"/>
       <genEnumLiterals ecoreEnumLiteral="spreadsheet.ecore#//CellType/CellTypeDate"/>
     </genEnums>
-    <genClasses image="false" ecoreClass="spreadsheet.ecore#//Spreadsheet" labelFeature="#//spreadsheet/Spreadsheet/Label">
+    <genClasses ecoreClass="spreadsheet.ecore#//Spreadsheet" labelFeature="#//spreadsheet/Spreadsheet/Label">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Spreadsheet/Sheet"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Spreadsheet/FilePath"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Spreadsheet/Label"/>

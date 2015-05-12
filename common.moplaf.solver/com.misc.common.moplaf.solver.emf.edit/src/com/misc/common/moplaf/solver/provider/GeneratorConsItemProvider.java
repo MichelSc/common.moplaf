@@ -80,11 +80,10 @@ public class GeneratorConsItemProvider
 	 * This returns GeneratorCons.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/GeneratorCons"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/traffic25.png"));
 	}
 
 	/**

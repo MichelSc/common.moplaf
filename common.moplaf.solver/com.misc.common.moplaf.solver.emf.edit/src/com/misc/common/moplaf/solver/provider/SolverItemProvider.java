@@ -164,6 +164,16 @@ public class SolverItemProvider
 	}
 
 	/**
+	 * This returns Solver.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/settings48.png"));
+	}
+
+	/**
 	 * This adds a property descriptor for the Status feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

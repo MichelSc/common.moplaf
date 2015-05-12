@@ -8,6 +8,6 @@
   <foreignModel>spreadsheetpoi.ecore</foreignModel>
   <genPackages prefix="Spreadsheetpoi" basePackage="com.misc.common.moplaf.spreadsheet"
       disposableProviderFactory="true" ecorePackage="spreadsheetpoi.ecore#/">
-    <genClasses ecoreClass="spreadsheetpoi.ecore#//SpreadsheetPOI" labelFeature="../../com.misc.common.moplaf.spreadsheet.emf/model/spreadsheet.genmodel#//spreadsheet/Spreadsheet/Label"/>
+    <genClasses image="false" ecoreClass="spreadsheetpoi.ecore#//SpreadsheetPOI" labelFeature="../../com.misc.common.moplaf.spreadsheet.emf/model/spreadsheet.genmodel#//spreadsheet/Spreadsheet/Label"/>
   </genPackages>
 </genmodel:GenModel>

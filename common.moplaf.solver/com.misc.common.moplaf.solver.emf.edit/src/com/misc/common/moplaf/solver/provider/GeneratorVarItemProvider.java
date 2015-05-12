@@ -105,11 +105,10 @@ public class GeneratorVarItemProvider
 	 * This returns GeneratorVar.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/GeneratorVar"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/variable.png"));
 	}
 
 	/**
