@@ -13,8 +13,10 @@ import com.misc.common.moplaf.solver.ITupleVisitor;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionProvider;
 import com.misc.common.moplaf.solver.SolverPackage;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+
 import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -26,6 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -613,11 +616,10 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 	 */
 	public void generate() {
 		CommonPlugin.INSTANCE.log("Generator.generate: called");
-		this.getTupleRoot().clear();
-		/*
+		//this.getTupleRoot().clear();
 		while ( !this.getTupleRoot().isEmpty()){
 			EcoreUtil.delete(this.getTupleRoot().get(0), true);
-		}*/
+		}
 		CommonPlugin.INSTANCE.log("Generator.generate: flushed");
 
 	
