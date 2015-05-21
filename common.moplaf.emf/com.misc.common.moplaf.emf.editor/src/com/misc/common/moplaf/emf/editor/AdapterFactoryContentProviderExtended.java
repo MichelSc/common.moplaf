@@ -25,6 +25,7 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.DateTime;
+import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.ui.views.properties.IPropertyDescriptor;
 import org.eclipse.ui.views.properties.IPropertySource;
 import org.eclipse.emf.common.ui.celleditor.ExtendedDialogCellEditor;
@@ -47,12 +48,28 @@ import org.eclipse.emf.common.ui.celleditor.ExtendedDialogCellEditor;
 
 public class AdapterFactoryContentProviderExtended extends
 		AdapterFactoryContentProvider {
-	// subclass POPropertyDescriptor
+	// subclass PropertyDescriptorPrivate
 	private class PropertyDescriptorPrivate extends PropertyDescriptor {
 		// constructor
 		public PropertyDescriptorPrivate(Object object, IItemPropertyDescriptor itemPropertyDescriptor) {
 			super(object, itemPropertyDescriptor);
 		}
+
+		// Edit a field FilePath as String
+		CellEditor editFilePath(Composite composite, Object object, EStructuralFeature feature){
+			EObject eObject = (EObject)object;
+	    	final String filePathAsIs= (String)eObject.eGet(feature);
+	    	ExtendedDialogCellEditor result = new ExtendedDialogCellEditor(composite, getEditLabelProvider()){
+	            	protected Object openDialogBox(Control cellEditorWindow) {
+	                FileDialog d = new FileDialog (cellEditorWindow.getShell(), SWT.SAVE);
+  	                d.setFileName(filePathAsIs);
+	                String filePathToBe = d.open();  // open the dialog
+	                return filePathToBe;
+	            	} // opendialogBox
+	         };  // class ExtendedDialogCellEditor
+	         return result;  // return from EditDate
+		}  // method EditDate
+
 
 		// Edit a field EDate
 		CellEditor editDate(Composite composite, Object object, EStructuralFeature feature)
@@ -244,6 +261,10 @@ public class AdapterFactoryContentProviderExtended extends
 				 && eDataType.getInstanceClass() == float.class ){
 			  	  	return editTime(composite, object, eFeature);
 			   }  // if class is Date
+			   else if ( AdapterFactoryContentProviderExtended.this.editFilePaths.isFeatureSelected(eFeature)
+				 && eDataType.getInstanceClass() == String.class ){
+			  	  	return editFilePath(composite, object, eFeature);
+			   }  // if class is Date
 		   }
 		   return super.createPropertyEditor(composite);
 		}  // create property editor
@@ -322,8 +343,9 @@ public class AdapterFactoryContentProviderExtended extends
     public FeatureSelectors editDates     = new FeatureSelectors();
     public FeatureSelectors editTimes     = new FeatureSelectors();
     public FeatureSelectors editDateTimes = new FeatureSelectors();
+    public FeatureSelectors editFilePaths = new FeatureSelectors();
 	
-	// subclass POPropertySource
+	// subclass PropertySourcePrivate
 	private class PropertySourcePrivate extends PropertySource {
 		// constructor
 		public PropertySourcePrivate(Object object, IItemPropertySource itemPropertySource) {
