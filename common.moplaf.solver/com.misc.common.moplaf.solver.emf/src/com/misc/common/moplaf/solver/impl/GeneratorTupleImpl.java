@@ -126,11 +126,11 @@ public abstract class GeneratorTupleImpl extends GeneratorElementImpl implements
 		// Ensure that you remove @generated or mark it @generated NOT
 		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
 		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-		EList<GeneratorTuple> newList = new EObjectEList<GeneratorTuple>(GeneratorTuple.class, this, SolverPackage.GENERATOR_TUPLE__TUPLE_ELEMENT);
+		EObjectEList<GeneratorTuple> newList = new EObjectEList<GeneratorTuple>(GeneratorTuple.class, this, SolverPackage.GENERATOR_TUPLE__TUPLE_ELEMENT);
 		for ( EObject object : this.eContents()){
 			if ( object instanceof GeneratorTuple){
 				GeneratorTuple tuple = (GeneratorTuple)object;
-				newList.add(tuple);
+				newList.addUnique(tuple);
 			}
 		}
 		return newList;
