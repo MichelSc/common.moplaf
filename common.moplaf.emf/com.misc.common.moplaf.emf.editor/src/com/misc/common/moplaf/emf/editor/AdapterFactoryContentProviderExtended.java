@@ -1,5 +1,7 @@
 package com.misc.common.moplaf.emf.editor;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -54,15 +56,43 @@ public class AdapterFactoryContentProviderExtended extends
 		public PropertyDescriptorPrivate(Object object, IItemPropertyDescriptor itemPropertyDescriptor) {
 			super(object, itemPropertyDescriptor);
 		}
+		// create property editor
+		public CellEditor createPropertyEditor(Composite composite) {
+		   EStructuralFeature eFeature = (EStructuralFeature)itemPropertyDescriptor.getFeature(object);
+		   EClassifier eType = eFeature.getEType();
+		   if ( eType instanceof EDataType){
+			   EDataType eDataType = (EDataType) eType;
+			   if ( AdapterFactoryContentProviderExtended.this.editDates.isFeatureSelected(eFeature)
+				 && eDataType.getInstanceClass() == Date.class ){
+			  	  	return editDate(composite, object, eFeature);
+			   }  // if class is Date
+			   else if ( AdapterFactoryContentProviderExtended.this.editDateTimes.isFeatureSelected(eFeature)
+				 && eDataType.getInstanceClass() == Date.class ){
+			  	  	return editDateTime(composite, object, eFeature);
+			   }  // if class is Date
+			   else if ( AdapterFactoryContentProviderExtended.this.editTimes.isFeatureSelected(eFeature)
+				 && eDataType.getInstanceClass() == float.class ){
+			  	  	return editTime(composite, object, eFeature);
+			   }  // if class is Date
+			   else if ( AdapterFactoryContentProviderExtended.this.editFilePaths.isFeatureSelected(eFeature)
+				 && eDataType.getInstanceClass() == String.class ){
+			  	  	return editFilePath(composite, object, eFeature);
+			   }  // if class is Date
+		   }
+		   return super.createPropertyEditor(composite);
+		}  // create property editor
 
 		// Edit a field FilePath as String
 		CellEditor editFilePath(Composite composite, Object object, EStructuralFeature feature){
 			EObject eObject = (EObject)object;
 	    	final String filePathAsIs= (String)eObject.eGet(feature);
+	    	//final Path filePath = Paths.get(filePathAsIs);
+	    	//final String filePathAsString = filePath.getParent().toString();
 	    	ExtendedDialogCellEditor result = new ExtendedDialogCellEditor(composite, getEditLabelProvider()){
 	            	protected Object openDialogBox(Control cellEditorWindow) {
-	                FileDialog d = new FileDialog (cellEditorWindow.getShell(), SWT.SAVE);
+	                FileDialog d = new FileDialog (cellEditorWindow.getShell(), SWT.OPEN);
   	                d.setFileName(filePathAsIs);
+  	                //d.setFilterPath(filePathAsString);
 	                String filePathToBe = d.open();  // open the dialog
 	                return filePathToBe;
 	            	} // opendialogBox
@@ -242,32 +272,6 @@ public class AdapterFactoryContentProviderExtended extends
 	         };  // class ExtendedDialogCellEditor
 	         return result;  // return from EditTime
 		}  // method EditTime
-
-		// create property editor
-		public CellEditor createPropertyEditor(Composite composite) {
-		   EStructuralFeature eFeature = (EStructuralFeature)itemPropertyDescriptor.getFeature(object);
-		   EClassifier eType = eFeature.getEType();
-		   if ( eType instanceof EDataType){
-			   EDataType eDataType = (EDataType) eType;
-			   if ( AdapterFactoryContentProviderExtended.this.editDates.isFeatureSelected(eFeature)
-				 && eDataType.getInstanceClass() == Date.class ){
-			  	  	return editDate(composite, object, eFeature);
-			   }  // if class is Date
-			   else if ( AdapterFactoryContentProviderExtended.this.editDateTimes.isFeatureSelected(eFeature)
-				 && eDataType.getInstanceClass() == Date.class ){
-			  	  	return editDateTime(composite, object, eFeature);
-			   }  // if class is Date
-			   else if ( AdapterFactoryContentProviderExtended.this.editTimes.isFeatureSelected(eFeature)
-				 && eDataType.getInstanceClass() == float.class ){
-			  	  	return editTime(composite, object, eFeature);
-			   }  // if class is Date
-			   else if ( AdapterFactoryContentProviderExtended.this.editFilePaths.isFeatureSelected(eFeature)
-				 && eDataType.getInstanceClass() == String.class ){
-			  	  	return editFilePath(composite, object, eFeature);
-			   }  // if class is Date
-		   }
-		   return super.createPropertyEditor(composite);
-		}  // create property editor
 	}  // class POPropertyDescriptor
 	
 	
