@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  *
  * @see com.misc.common.moplaf.gis.GisPackage#getGisAddress()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface GisAddress extends GisLocation {

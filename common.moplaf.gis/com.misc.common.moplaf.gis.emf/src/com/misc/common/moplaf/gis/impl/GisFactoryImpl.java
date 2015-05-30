@@ -54,14 +54,12 @@ public class GisFactoryImpl extends EFactoryImpl implements GisFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case GisPackage.GIS_COORDINATES: return createGisCoordinates();
-			case GisPackage.GIS_ADDRESS: return createGisAddress();
 			case GisPackage.GIS_DISTANCE_MATRIX: return createGisDistanceMatrix();
 			case GisPackage.GIS_DISTANCE_MATRIX_ELEMENT: return createGisDistanceMatrixElement();
 			case GisPackage.GIS_DISTANCE_MATRIX_FROM_LOCATION: return createGisDistanceMatrixFromLocation();
 			case GisPackage.GIS_DISTANCE_MATRIX_TO_LOCATION: return createGisDistanceMatrixToLocation();
 			case GisPackage.GIS_ADDRESS_GEOCODED: return createGisAddressGeocoded();
 			case GisPackage.GIS_ADDRESS_GEOCODER: return createGisAddressGeocoder();
-			case GisPackage.GIS_DISTANCE_MATRIX_CALCULATOR: return createGisDistanceMatrixCalculator();
 			case GisPackage.GIS_ADDRESS_STRUCTURED: return createGisAddressStructured();
 			case GisPackage.GIS_ADDRESS_UNSTRUCTURED: return createGisAddressUnstructured();
 			default:
@@ -77,16 +75,6 @@ public class GisFactoryImpl extends EFactoryImpl implements GisFactory {
 	public GisCoordinates createGisCoordinates() {
 		GisCoordinatesImpl gisCoordinates = new GisCoordinatesImpl();
 		return gisCoordinates;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GisAddress createGisAddress() {
-		GisAddressImpl gisAddress = new GisAddressImpl();
-		return gisAddress;
 	}
 
 	/**
@@ -147,16 +135,6 @@ public class GisFactoryImpl extends EFactoryImpl implements GisFactory {
 	public GisAddressGeocoder createGisAddressGeocoder() {
 		GisAddressGeocoderImpl gisAddressGeocoder = new GisAddressGeocoderImpl();
 		return gisAddressGeocoder;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GisDistanceMatrixCalculator createGisDistanceMatrixCalculator() {
-		GisDistanceMatrixCalculatorImpl gisDistanceMatrixCalculator = new GisDistanceMatrixCalculatorImpl();
-		return gisDistanceMatrixCalculator;
 	}
 
 	/**

@@ -255,7 +255,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_53zYYNB0EeSqS5LwIiI2sA" name="Path : EString = /maps/api/geocode/json" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_53zYYNB0EeSqS5LwIiI2sA" name="Path : EString = /maps/api/distancematrix/json" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/Path"/>
           <semanticElements xmi:type="ecore:EAttribute" href="gisgoogle.ecore#//GisDistanceMatrixCalculatorGoogleWS/Path"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_53z_cNB0EeSqS5LwIiI2sA" labelAlignment="LEFT">

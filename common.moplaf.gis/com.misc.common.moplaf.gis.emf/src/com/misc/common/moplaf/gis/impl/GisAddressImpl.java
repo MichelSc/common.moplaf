@@ -38,7 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class GisAddressImpl extends GisLocationImpl implements GisAddress {
+public abstract class GisAddressImpl extends GisLocationImpl implements GisAddress {
 	/**
 	 * The default value of the '{@link #getCountryCode() <em>Country Code</em>}' attribute.
 	 * <!-- begin-user-doc -->

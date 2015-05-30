@@ -1,8 +1,8 @@
 package com.misc.common.moplaf.gisview.nebula.views;
 
 
-import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 
 import org.eclipse.jface.viewers.ISelection;
@@ -11,21 +11,56 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.nebula.widgets.geomap.GeoMap;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.graphics.GC;
+import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.graphics.Image;
 
 import com.misc.common.moplaf.gisview.MapViewerAbstract;
 
 
 public class MapViewer extends MapViewerAbstract {
 
+	public class MapMarker  {
+		private Object modelObject;
+		private float longitude;
+		private float latitude;
+		private Image image;
+		
+		public MapMarker (Object modelObject){
+			this.modelObject = modelObject;
+		}
+
+		public Object getModelObject(){
+			return this.modelObject;
+		}
+	}
+
 	// fields 
 	private GeoMap geoMap;
+	private HashMap<Object, MapMarker> markers= new HashMap<Object, MapMarker>();
 
 	// constructor
 	public MapViewer(Composite parent){
 		// make the control
-		this.geoMap = new GeoMap(parent, SWT.H_SCROLL | SWT.V_SCROLL);
+		this.geoMap = new GeoMap(parent, SWT.H_SCROLL | SWT.V_SCROLL){
+		   // paint control
+		    protected void paintControl(PaintEvent e) {
+				// first the map
+			    super.paintControl(e);
+			    // second the points
+			    GC gc = e.gc;
+			    for ( MapMarker marker : MapViewer.this.markers.values()){
+			    	Point mapposition = this.getMapPosition();
+			        int x = lon2position(marker.longitude, getZoom());
+			        int y = lat2position(marker.latitude, getZoom());
+			        Image icon = marker.image;
+			        gc.drawImage(icon, x-mapposition.x, y-mapposition.y);
+			    } // traverse the points to draw        
+		    } // method paintControl
+		};
 
 		super.hookControl(this.geoMap);
         
@@ -75,22 +110,6 @@ public class MapViewer extends MapViewerAbstract {
 		this.setSelectedElement(selectedObject);
 	}
 
-	// ******************************
-	// map to jaret
-	// ******************************
-	public class MapMarker  {
-		private Object modelObject;
-		private float longitude;
-		private float latitude;
-		
-		public MapMarker (Object modelObject){
-			this.modelObject = modelObject;
-		}
-
-		public Object getModelObject(){
-			return this.modelObject;
-		}
-	}
 	
     public MapMarker createRow(Object modelObject){
         MapMarker marker = new MapMarker(modelObject);
@@ -106,21 +125,33 @@ public class MapViewer extends MapViewerAbstract {
 		super.inputChanged(input, oldInput);
 		
 		if ( input != oldInput){
-			Object modelElement = input;
 			this.refresh();
 		}
 	}
 
 	@Override
 	public void refresh() {
+		// sych the things to show with the state of the widget
+		HashSet<Object> objectsToRemove = new HashSet<Object>(this.markers.keySet());
+		Object objectToShow = this.getInput();
+		if ( this.getILocationProvider().isLocation(objectToShow)){
+			MapMarker marker = this.markers.get(objectToShow);
+			if ( marker==null ){
+				// create
+				marker = new MapMarker(objectToShow);
+			}
+			// update
+			marker.longitude = this.getILocationProvider().getLongitude(objectToShow);
+			marker.latitude  = this.getILocationProvider().getLatitude(objectToShow);
+			marker.image     = this.getILabelProvider().getImage(objectToShow);
+		}
+		// delete
+		for ( Object objectToRemove : objectsToRemove){
+			this.markers.remove(objectToRemove);
+		}
+		
 		this.geoMap.redraw();
 	}
 	
-	private void refresh(Object modelElement){
-		
-	}
-	
-	
-
 		
 }

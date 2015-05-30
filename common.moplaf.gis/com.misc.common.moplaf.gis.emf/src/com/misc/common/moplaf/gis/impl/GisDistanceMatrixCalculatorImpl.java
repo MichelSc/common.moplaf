@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class GisDistanceMatrixCalculatorImpl extends MinimalEObjectImpl.Container implements GisDistanceMatrixCalculator {
+public abstract class GisDistanceMatrixCalculatorImpl extends MinimalEObjectImpl.Container implements GisDistanceMatrixCalculator {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->

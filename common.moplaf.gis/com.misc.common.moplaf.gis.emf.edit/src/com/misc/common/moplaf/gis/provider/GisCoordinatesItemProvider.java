@@ -5,13 +5,13 @@ package com.misc.common.moplaf.gis.provider;
 
 import com.misc.common.moplaf.gis.GisCoordinates;
 import com.misc.common.moplaf.gis.GisPackage;
+import com.misc.common.moplaf.gisview.impl.IItemLocationProvider;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -20,10 +20,11 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.gis.GisCoordinates} object.
  * <!-- begin-user-doc -->
+ * @implements IItemLocationProvider
  * <!-- end-user-doc -->
  * @generated
  */
-public class GisCoordinatesItemProvider extends GisLocationItemProvider {
+public class GisCoordinatesItemProvider extends GisLocationItemProvider implements IItemLocationProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -151,6 +152,26 @@ public class GisCoordinatesItemProvider extends GisLocationItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	@Override
+	public float getLongitude(Object element) {
+		GisCoordinates coordinates = (GisCoordinates)element;
+		float longitude = coordinates.getLongitude();
+		return longitude;
+	}
+
+	@Override
+	public float getLatitude(Object element) {
+		GisCoordinates coordinates = (GisCoordinates)element;
+		float latitude = coordinates.getLatitude();
+		return latitude;
+	}
+
+	@Override
+	public float getElevation(Object element) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

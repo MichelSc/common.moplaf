@@ -95,29 +95,6 @@ public class GisItemProviderAdapterFactory extends GisAdapterFactory implements 
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisAddress} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected GisAddressItemProvider gisAddressItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.GisAddress}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createGisAddressAdapter() {
-		if (gisAddressItemProvider == null) {
-			gisAddressItemProvider = new GisAddressItemProvider(this);
-		}
-
-		return gisAddressItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisDistanceMatrix} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -253,29 +230,6 @@ public class GisItemProviderAdapterFactory extends GisAdapterFactory implements 
 		}
 
 		return gisAddressGeocoderItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.gis.GisDistanceMatrixCalculator} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected GisDistanceMatrixCalculatorItemProvider gisDistanceMatrixCalculatorItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.gis.GisDistanceMatrixCalculator}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createGisDistanceMatrixCalculatorAdapter() {
-		if (gisDistanceMatrixCalculatorItemProvider == null) {
-			gisDistanceMatrixCalculatorItemProvider = new GisDistanceMatrixCalculatorItemProvider(this);
-		}
-
-		return gisDistanceMatrixCalculatorItemProvider;
 	}
 
 	/**
@@ -424,14 +378,12 @@ public class GisItemProviderAdapterFactory extends GisAdapterFactory implements 
 	 */
 	public void dispose() {
 		if (gisCoordinatesItemProvider != null) gisCoordinatesItemProvider.dispose();
-		if (gisAddressItemProvider != null) gisAddressItemProvider.dispose();
 		if (gisDistanceMatrixItemProvider != null) gisDistanceMatrixItemProvider.dispose();
 		if (gisDistanceMatrixElementItemProvider != null) gisDistanceMatrixElementItemProvider.dispose();
 		if (gisDistanceMatrixFromLocationItemProvider != null) gisDistanceMatrixFromLocationItemProvider.dispose();
 		if (gisDistanceMatrixToLocationItemProvider != null) gisDistanceMatrixToLocationItemProvider.dispose();
 		if (gisAddressGeocodedItemProvider != null) gisAddressGeocodedItemProvider.dispose();
 		if (gisAddressGeocoderItemProvider != null) gisAddressGeocoderItemProvider.dispose();
-		if (gisDistanceMatrixCalculatorItemProvider != null) gisDistanceMatrixCalculatorItemProvider.dispose();
 		if (gisAddressStructuredItemProvider != null) gisAddressStructuredItemProvider.dispose();
 		if (gisAddressUnstructuredItemProvider != null) gisAddressUnstructuredItemProvider.dispose();
 	}

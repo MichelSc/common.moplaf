@@ -5,7 +5,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Longitude" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Latitude" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GisAddress" eSuperTypes="#//GisLocation">
+  <eClassifiers xsi:type="ecore:EClass" name="GisAddress" abstract="true" eSuperTypes="#//GisLocation">
     <eOperations name="geocode"/>
     <eOperations name="flushGeocoded"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CountryCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -83,7 +83,7 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GisDistanceMatrixCalculator">
+  <eClassifiers xsi:type="ecore:EClass" name="GisDistanceMatrixCalculator" abstract="true">
     <eOperations name="calculate">
       <eParameters name="matrix" eType="#//GisDistanceMatrix"/>
     </eOperations>

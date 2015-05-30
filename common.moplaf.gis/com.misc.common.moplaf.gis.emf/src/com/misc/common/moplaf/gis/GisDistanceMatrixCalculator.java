@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see com.misc.common.moplaf.gis.GisPackage#getGisDistanceMatrixCalculator()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface GisDistanceMatrixCalculator extends EObject {

@@ -835,7 +835,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		initEAttribute(getGisCoordinates_Longitude(), ecorePackage.getEFloat(), "Longitude", null, 0, 1, GisCoordinates.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGisCoordinates_Latitude(), ecorePackage.getEFloat(), "Latitude", null, 0, 1, GisCoordinates.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(gisAddressEClass, GisAddress.class, "GisAddress", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(gisAddressEClass, GisAddress.class, "GisAddress", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGisAddress_CountryCode(), ecorePackage.getEString(), "CountryCode", null, 0, 1, GisAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGisAddress_GeocodedAddresses(), this.getGisAddressGeocoded(), null, "geocodedAddresses", null, 0, -1, GisAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGisAddress_SelectedGeocodedLocation(), this.getGisAddressGeocoded(), null, "selectedGeocodedLocation", null, 0, 1, GisAddress.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -907,7 +907,7 @@ public class GisPackageImpl extends EPackageImpl implements GisPackage {
 		op = initEOperation(getGisAddressGeocoder__Geocode__GisAddress(), null, "geocode", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getGisAddress(), "address", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(gisDistanceMatrixCalculatorEClass, GisDistanceMatrixCalculator.class, "GisDistanceMatrixCalculator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(gisDistanceMatrixCalculatorEClass, GisDistanceMatrixCalculator.class, "GisDistanceMatrixCalculator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGisDistanceMatrixCalculator_Name(), ecorePackage.getEString(), "Name", null, 0, 1, GisDistanceMatrixCalculator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getGisDistanceMatrixCalculator__Calculate__GisDistanceMatrix(), null, "calculate", 0, 1, IS_UNIQUE, IS_ORDERED);

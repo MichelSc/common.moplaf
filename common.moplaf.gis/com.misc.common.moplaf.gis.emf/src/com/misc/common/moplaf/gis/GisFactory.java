@@ -31,15 +31,6 @@ public interface GisFactory extends EFactory {
 	GisCoordinates createGisCoordinates();
 
 	/**
-	 * Returns a new object of class '<em>Address</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Address</em>'.
-	 * @generated
-	 */
-	GisAddress createGisAddress();
-
-	/**
 	 * Returns a new object of class '<em>Distance Matrix</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,15 +83,6 @@ public interface GisFactory extends EFactory {
 	 * @generated
 	 */
 	GisAddressGeocoder createGisAddressGeocoder();
-
-	/**
-	 * Returns a new object of class '<em>Distance Matrix Calculator</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Distance Matrix Calculator</em>'.
-	 * @generated
-	 */
-	GisDistanceMatrixCalculator createGisDistanceMatrixCalculator();
 
 	/**
 	 * Returns a new object of class '<em>Address Structured</em>'.
