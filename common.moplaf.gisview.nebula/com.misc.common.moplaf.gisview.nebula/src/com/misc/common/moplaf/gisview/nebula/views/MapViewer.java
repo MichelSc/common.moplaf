@@ -111,12 +111,6 @@ public class MapViewer extends MapViewerAbstract {
 	}
 
 	
-    public MapMarker createRow(Object modelObject){
-        MapMarker marker = new MapMarker(modelObject);
-        return marker;
-    }
-    
-    
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.Viewer#inputChanged(java.lang.Object, java.lang.Object)
 	 */
@@ -139,6 +133,7 @@ public class MapViewer extends MapViewerAbstract {
 			if ( marker==null ){
 				// create
 				marker = new MapMarker(objectToShow);
+				this.markers.put(objectToShow, marker);
 			}
 			// update
 			marker.longitude = this.getILocationProvider().getLongitude(objectToShow);
