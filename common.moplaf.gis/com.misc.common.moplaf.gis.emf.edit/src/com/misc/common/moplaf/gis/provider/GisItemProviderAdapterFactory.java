@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.gis.provider;
 
 import com.misc.common.moplaf.gis.util.GisAdapterFactory;
+import com.misc.common.moplaf.gisview.impl.IItemLocationProvider;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,7 +11,6 @@ import java.util.Collection;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -61,7 +61,6 @@ public class GisItemProviderAdapterFactory extends GisAdapterFactory implements 
 	 * This constructs an instance.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public GisItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
@@ -69,6 +68,7 @@ public class GisItemProviderAdapterFactory extends GisAdapterFactory implements 
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
 		supportedTypes.add(IItemPropertySource.class);
+		supportedTypes.add(IItemLocationProvider.class); // non emf interface
 	}
 
 	/**
@@ -318,6 +318,11 @@ public class GisItemProviderAdapterFactory extends GisAdapterFactory implements 
 	public Adapter adapt(Notifier notifier, Object type) {
 		return super.adapt(notifier, this);
 	}
+
+// michel: generated implementation, with following comment
+// michel: do not understand: type is forgotten		
+// javadoc: This implementation substitutes the factory itself as the key for the adapter.
+//			return super.adapt(notifier, this); 
 
 	/**
 	 * <!-- begin-user-doc -->

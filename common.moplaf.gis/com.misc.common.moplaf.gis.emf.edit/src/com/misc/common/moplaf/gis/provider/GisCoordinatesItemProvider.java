@@ -35,6 +35,18 @@ public class GisCoordinatesItemProvider extends GisLocationItemProvider implemen
 		super(adapterFactory);
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.emf.edit.provider.ItemProviderAdapter#isAdapterForType(java.lang.Object)
+	 */
+	@Override
+	public boolean isAdapterForType(Object type) {
+		if ( super.isAdapterForType(type) ){ return true; }
+		if ( type == IItemLocationProvider.class) { return true; }
+		return false;
+	}
+
+
+
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
