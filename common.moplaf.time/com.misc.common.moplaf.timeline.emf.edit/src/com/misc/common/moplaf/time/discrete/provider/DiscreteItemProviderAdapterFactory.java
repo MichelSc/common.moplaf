@@ -197,14 +197,22 @@ public class DiscreteItemProviderAdapterFactory extends DiscreteAdapterFactory i
 	 * This implementation substitutes the factory itself as the key for the adapter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public Adapter adapt(Notifier notifier, Object type) {
-		Adapter adapter =  super.adapt(notifier, this);
-		if ( !adapter.isAdapterForType(type) ){ return null; }
-		return adapter;
+		return super.adapt(notifier, this);
 	}
+	
+	
+		/*
+		 * the following implementation was used, by I cannot find now why
+		 * so I restred the generated one
+		public Adapter adapt(Notifier notifier, Object type) {
+			Adapter adapter =  super.adapt(notifier, this);
+			if ( !adapter.isAdapterForType(type) ){ return null; }
+			return adapter;
+			*/
 
 	/**
 	 * <!-- begin-user-doc -->
