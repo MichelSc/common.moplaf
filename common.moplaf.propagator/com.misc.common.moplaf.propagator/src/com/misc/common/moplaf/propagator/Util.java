@@ -31,7 +31,6 @@ public class Util {
 	/**
 	 * Retrieve the last token of a dot separated string
 	 * @param inputstring
-	 * @param regexdelim
 	 * @return
 	 */
 	public static String LastTokenDotSeparated(String inputstring){
