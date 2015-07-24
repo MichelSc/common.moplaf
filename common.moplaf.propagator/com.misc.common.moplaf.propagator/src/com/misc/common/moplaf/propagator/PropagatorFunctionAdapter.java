@@ -52,7 +52,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
  * </ul>
  * <p>
  * The PropagatorFunctionAdapter life cycle is as follows
- *   It is created by {@link ObjectWithPropagatorFunctionAdapter#addPropagatorFunctionAdapters}.
+ *   It is created by {@link ObjectWithPropagatorFunctionAdapter#addPropagatorFunctionAdapter()}.
  *   The method addPropagatorFunctionAdapters is called by the {@link PropagatorFunctionAdapterManager} when the object is contained.
  *   The propagator is removed, when the object is no longer contained (if not touched) or by the method calculate (if it is touched)
  * @author michel
@@ -91,7 +91,7 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	/**
 	 * Declares the parent PropagatorFunctionAdapter
 	 * To be overridden. Default implementation returns null
-	 * @return
+	 * @return the parent of this propagator
 	 */
 	protected PropagatorFunctionAdapter getParent(){
 		return null;
@@ -100,7 +100,7 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	/**
 	 * Gets the sibling PropagatorFunctionAdapters that must be calculated before this
 	 * To be overridden. Default implementation returns null
-	 * @return
+	 * @return the sibling propagators this propagator depends directly on.
 	 */
 	protected PropagatorFunctionAdapters getAntecedents() {
 		return new PropagatorFunctionAdaptersImpl();
@@ -110,7 +110,6 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	/**
 	 * Calculate the data the PropagatorFunctionAdapter is monitoring. 
 	 * To be overridden.
-	 * @return
 	 */
 	protected void calculate(){}
 
@@ -245,7 +244,6 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	 * Assume that all the parent's antecedents are refreshed.
 	 * Propagate all the touched children and their antecedents.
 	 * Calculate the PropagatorFunctionAdapter.
-	 * @return
 	 */
 	boolean refreshChildrenAndThis()  {
 	
@@ -274,7 +272,6 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	/**
 	 * Refresh the Antecedents
 	 * Do not assume that all the parent's antecedents are refreshed, but refresh them
-	 * @return
 	 */
 	private boolean refreshAntecedents()  {
 	
@@ -308,7 +305,6 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	 * Refresh the PropagatorFunctionAdapter, so as is becomes untouched.
 	 * Make no assumption on the antecedents states or parent states
 	 * Propagate minimally so that this PropagatorFunctionAdapter becomes up to date
-	 * @return
 	 */
 	public boolean refresh()  {
 

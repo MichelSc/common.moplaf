@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  * </ul>
  * 
  * Delegate listening to a collection of listeners (target object of this propagator) or to  {@link 
- * PropagatorDependencyAdapters} (other emf objects naviguable from the target object of this propagator).
+ * PropagatorDependencyAdapter}s (other emf objects naviguable from the target object of this propagator).
  * <p>
  * Two standard Listeners are provided. A {@link FeatureListener}, listening to changes of some feature of this
  * propagator's Notifier and a {@link NavigationFeatureListener}, listening to changes of some reference held by this
@@ -30,8 +30,8 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  * {@link PropagatorDependencyAdapter}. These standards Listeners can be added with the convenience methods
  * {@link #addFeatureListener(Object)} and {@link #addNavigationFeatureListener(Object, Object)} respectively.
  * <p>
- * Registering the {@Link PropagatorDependencyAdapters} is done by the method {@link Listener#addPropagatorFunctionAdapters}, called
- * when this adapter is added to the notifier. Unregistering the {@Link PropagatorDependencyAdapters} is done by the method
+ * Registering the {@link PropagatorDependencyAdapter}s is done by the method {@link Listener#addPropagatorFunctionAdapters}, called
+ * when this adapter is added to the notifier. Unregistering the {@link PropagatorDependencyAdapter}s is done by the method
  * {@link Listener#disposePropagatorFunctionAdapters()}, called when the adapter is removed from the Notifier.
  * <p>
  * Unregistering the propagatorFunctionAdapters is done by the method {@link #disposePropagatorFunctionAdapters}.
