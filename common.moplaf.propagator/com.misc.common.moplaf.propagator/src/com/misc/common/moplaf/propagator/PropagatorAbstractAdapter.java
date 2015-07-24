@@ -12,18 +12,30 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 /**
- * The base class of the Adapters used by the Propagator framework.
+ * The base class of the Adapters used by the Propagator framework. Listens to notifications 
+ * and triggers changes by calling touch().
  * <p>
  * Implement some convenience methods such as
  * <ul>
- * <li> * {@link #isFeatureChanged(Notification, Object)}: if some EMF feature is changed
- * <li>  * {@link #isListFeatureAddedRemoved(Notification, Object)}: if some reference is added/removed
+ * <li>{@link #isFeatureChanged(Notification, Object)}: if some EMF feature is changed
+ * <li>{@link #isListFeatureAddedRemoved(Notification, Object)}: if some reference is added/removed
  * </ul>
- * Listens to notifications and trigger changes by calling touch()
- * Delegate listening to a collection of listeners (target object) or PropagatorDependencyAdapters (other objects).
- * Registering the PropagatorDependencyAdapters is done by the method addPropagatorFunctionAdapters, called
- * when this adapter is added to the notifier
- * Unregistering the propagatorFunctionAdapters is done by the method disposePropagatorFunctionAdapters
+ * 
+ * Delegate listening to a collection of listeners (target object of this propagator) or to  {@link 
+ * PropagatorDependencyAdapters} (other emf objects naviguable from the target object of this propagator).
+ * <p>
+ * Two standard Listeners are provided. A {@link FeatureListener}, listening to changes of some feature of this
+ * propagator's Notifier and a {@link NavigationFeatureListener}, listening to changes of some reference held by this
+ * propagator's Notifier, and allowing to listen to changes in the referred object by receiving a 
+ * {@link PropagatorDependencyAdapter}. These standards Listeners can be added with the convenience methods
+ * {@link #addFeatureListener(Object)} and {@link #addNavigationFeatureListener(Object, Object)} respectively.
+ * <p>
+ * Registering the {@Link PropagatorDependencyAdapters} is done by the method {@link Listener#addPropagatorFunctionAdapters}, called
+ * when this adapter is added to the notifier. Unregistering the {@Link PropagatorDependencyAdapters} is done by the method
+ * {@link Listener#disposePropagatorFunctionAdapters()}, called when the adapter is removed from the Notifier.
+ * <p>
+ * Unregistering the propagatorFunctionAdapters is done by the method {@link #disposePropagatorFunctionAdapters}.
+ * 
  * @author michel
  *
  */

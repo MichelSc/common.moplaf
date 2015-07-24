@@ -21,7 +21,40 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
  * An adapter that maintains itself as an adapter for all contained objects 
  * as they come and go.
  * It can be installed for an {@link EObject}, a {@link Resource}, or a {@link ResourceSet}.
- * Add and removed PropagatorFunctionAdapters for ObjectWithPropagatorFunctionAdapter
+ * <p>
+ * Add and remove {@link PropagatorFunctionAdapter}s for {@link ObjectWithPropagatorFunctionAdapter}
+ * <p>
+ * The PropagatorFunctionAdapterManager is added when the listening must begin, that is
+ * when derived elements must be maintained. This is typically just after the objects are retrieved from
+ * their persistent storage (both primitive and derived elements), so after the Resource is loaded.
+ * In the EMF generated editor, this will be in the createModel method.
+ * <p>
+ * Handle the management of the PropagatorFunctionAdapters of the Notifiers in the containment tree. 
+ * Implement specific behaviors at the following moments:
+ * <ul> 
+ * <li>when the adapter is added: {@link #onAdapterAdded(Notifier)}
+ *   <ul> 
+ *   <li>call the Notifiers's addPropagatorFunctionAdapter {@link ObjectWithPropagatorFunctionAdapter#addPropagatorFunctionAdapter}
+ *   <li>call the propagator's addPropagatorFunctionAdapters {@link PropagatorFunctionAdapter#addPropagatorFunctionAdapters()}
+ *   </ul>
+ * <li>when the adapter is removed: {@link #onAdapterRemoved(Notifier)}
+ *   <ul> 
+ *   <li>call the propagator's disposePropagatorFunctionAdapters {@link PropagatorFunctionAdapter#disposePropagatorFunctionAdapters()}
+ *   <li>remove the untouched propagators
+ *   </ul>
+ * <li>when the Notifier is added: {@link #onNotifierContained(Notifier)}
+ *   <ul> 
+ *   <li>touch the propagators that are touch on owned   {@link PropagatorFunctionAdapter#isTouchOnOwned()}
+ *   </ul>
+ * <li>when the Notifier is removed: {@link #onNotifierNotContained(Notifier)}
+ *   <ul> 
+ *   <li>touch the propagators that are touch on dispose   {@link PropagatorFunctionAdapter#isTouchOnDispose()}
+ *   </ul>
+ * <li>when the Notifier is proxy resolved: {@link #onResolve(Notifier, Notifier)}
+ *   <ul> 
+ *   <li>move the dependency adapters from the proxy to the resolved object {@link PropagatorDependencyAdapter} 
+ *   </ul>
+ * </ul>
  */
 public class PropagatorFunctionAdapterManager extends AdapterImpl
 {

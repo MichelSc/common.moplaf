@@ -15,34 +15,45 @@ import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 
 /**
  * <p>
- * Manage the refresh of a data element by listening to changes, 
+ * Manage the refresh of derived data elements by listening to changes, 
  * remembering when out of date, and declaring data elements this data element depends on.
  * <p>
  * A PropagatorFunctionAdapter: 
  * <ul>
- * <li>implements some refresh logic (method {@link #calculate()})
- * <li>maintains its state {@link #isTouched()}(up to date = untouched, needs refresh = touched)
- * <li> offers a method, insuring all the children are calculated before this (method {@link #propagate()})
+ * <li>implements some refresh logic: method {@link #calculate()}
+ * <li>maintains its touched state 
+ *   <ul>
+ *   <li>whether this propagator is up to date or not (up to date = untouched, needs refresh = touched): {@link #isTouched()}
+ *   <li>a collection of touched children of this propagator{@link #touchedFunctionAdapters} 
+ *   </ul>
+ * <li> offers a method, insuring that this Propagator become up to date: {@link #refresh()}; this entails
+ *   <ul>
+ *   <li>refreshing all antecedents ancestors: the parent, the parent's parent, ..., recursively
+ *   <li>refreshing all antecedents siblings, antecedent's antecedents sibling, ... recursively 
+ *   <li>refreshing all children
+ *   <li>refreshing this Propagator (method  {@link #calculate()})
+ *   </ul>
+ * <li>listens to change notifications 
+ *   <ul>
+ *   <li>of this PropagatorFunctionAdapter's notifier by overriding see {@link #notifyChanged(Notification)}
+ *   <li>of other Notifiers, by delegating to some extension of {@link PropagatorDependencyAdapter} 
  * </ul>
- * </p>
- * Listens to change notifications 
- * <ul>
- * <li>of this PropagatorFunctionAdapter's notifier by overriding see {@link #notifyChanged(Notification)}
- * <li>of other Notifiers, by delegating to some extension of PropagatorDependencyAdapter 
- * </ul>
- * Declares  
- * <ul>
- * <li>a Parent PropagatorFunctionAdapter (method {@link #getParent()}) 
- * <li>a collection of siblings PropagatorFunctionAdapter (method {@link #getAntecedents()})
- * </ul>
+ * <li>declares  
+ *   <ul>
+ *   <li>a Parent {@link PropagatorFunctionAdapter}: method {@link #getParent()} 
+ *   <li>a collection of siblings {@link PropagatorFunctionAdapter} it depends on {@link #getAntecedents()}
+ *   </ul>
  * satisfying 
- * <ul>
- * <li>all the parent's antecedents must be refreshed before its children (the propagatorFunctionAdapter siblings)</li> 
- * <li>among the PropagatorFunctionAdapter's siblings, all the antecedents must be refreshed before the PropagatorFunctionAdapter
+ *   <ul>
+ *   <li>first the antecedents siblings will be refreshed</li> 
+ *   <li>second the children will be refreshed
+ *   <li>finally this propagator will be refreshed
+ *   </ul>
  * </ul>
+ * <p>
  * The PropagatorFunctionAdapter life cycle is as follows
- *   It is created by the ObjectWithPropagatorFunctionAdapter method addPropagatorFunctionAdapters
- *   The method addPropagatorFunctionAdapters is called by the PropagatorFunctionAdapterManager when the object is contained
+ *   It is created by {@link ObjectWithPropagatorFunctionAdapter#addPropagatorFunctionAdapters}.
+ *   The method addPropagatorFunctionAdapters is called by the {@link PropagatorFunctionAdapterManager} when the object is contained.
  *   The propagator is removed, when the object is no longer contained (if not touched) or by the method calculate (if it is touched)
  * @author michel
  */
