@@ -143,15 +143,33 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		this.addListener(new NavigationFeatureListener(feature, adapterdependencytype));
 	}
 	
+	protected void logMessage(String message, String level){
+		String logLine = String.format("Propagator, %4$s: %3$s, object: %1$s, function: %2$s" , 
+		                 Util.LastTokenDotSeparated(this.target.getClass().getName()),
+         		         Util.LastTokenDotSeparated(this.getClass().getName()),
+         		         message, 
+         		         level);
+		CommonPlugin.INSTANCE.log( logLine);
+	}
+	
+	protected void logInfo(String message){
+		this.logMessage(message, "info");
+	}
+	
+	protected void logWarning(String message){
+		this.logMessage(message, "warning");
+	}
+	
+	protected void logError(String message){
+		this.logMessage(message, "error");
+	}
+	
 	// -------------------------------------
 	// activate, deactivate
 	// -------------------------------------
 	public void addPropagatorFunctionAdapters(){
-		/*
-		CommonPlugin.INSTANCE.log( "Activated function: object "
-		         + Util.LastTokenDotSeparated(this.target.getClass().getName())
-		         + ", function "
-		         + Util.LastTokenDotSeparated(this.getClass().getName()));*/
+		//this.logMessage("Activated");
+		
 		
 		if ( this.listeners!=null){
 			for (Listener listener : this.listeners){
@@ -161,11 +179,7 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	}
 	
 	public void disposePropagatorFunctionAdapters(){
-		/*
-		CommonPlugin.INSTANCE.log( "Deactivatedfunction: object "
-		         + Util.LastTokenDotSeparated(this.target.getClass().getName())
-		         + ", function "
-		         + Util.LastTokenDotSeparated(this.getClass().getName()));*/
+		//this.logMessage("Deactivated");
 
 		if ( this.listeners!=null){
 			for (Listener listener : this.listeners){
@@ -206,12 +220,7 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	 * This PropagatorAdapter call touch as a function of the notifications it receives
 	 */
 	public void touch(){
-		/*
-		CommonPlugin.INSTANCE.log( "Touched function: object "
-		         + Util.LastTokenDotSeparated(this.target.getClass().getName())
-		         + ", function "
-		         + Util.LastTokenDotSeparated(this.getClass().getName()));
-        */
+		//this.logMessage("Touched");
 	} 
 	
 	// -------------------------------------
@@ -220,15 +229,7 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	// methods managing dependencies
 	public PropagatorDependencyAdapter addDependency(Notifier targetdependency, 
     												 Object adapterfunctiontype){
-/*
-CommonPlugin.INSTANCE.log( "Add function adapter dependency calc "
-+ Util.LastTokenDotSeparated(dependentfunctionadapter.getClass().getName())
-+ ", target dependency "
-+ Util.LastTokenDotSeparated(targetdependency.getClass().getName())
-+ ", dependency "
-+ Util.LastTokenDotSeparated(((Class)adapterfunctiontype).getName())
-);
-*/
+
 		PropagatorDependencyAdapter dependency = (PropagatorDependencyAdapter) Util.getAdapter(targetdependency, adapterfunctiontype);
 		if ( dependency == null) {
 			// create the dependency
@@ -257,15 +258,7 @@ CommonPlugin.INSTANCE.log( "Add function adapter dependency calc "
 
 public PropagatorDependencyAdapter removeDependency(Notifier targetdependency, 
 												    Object adapterfunctiontype){
-/*
-CommonPlugin.INSTANCE.log( "Remove function adapter dependency calc "
-+ Util.LastTokenDotSeparated(dependentfunctionadapter.getClass().getName())
-+ ", target dependency "
-+ Util.LastTokenDotSeparated(targetdependency.getClass().getName())
-+ ", dependency "
-+ Util.LastTokenDotSeparated(((Class)adapterfunctiontype).getName())
-);
-*/
+
 	PropagatorDependencyAdapter dependency = (PropagatorDependencyAdapter) Util.getAdapter(targetdependency, adapterfunctiontype);
 	if ( dependency != null){
 		// normally, the dependency may not be null

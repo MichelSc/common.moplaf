@@ -167,10 +167,7 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 		if ( parent == null ) { return; } 
 
 		// ok, we touch
-		CommonPlugin.INSTANCE.log( "Touched function: object "
-		         + Util.LastTokenDotSeparated(this.target.getClass().getName())
-		         + ", function "
-		         + Util.LastTokenDotSeparated(this.getClass().getName()));
+		//this.logMessage("Touched");
 		super.touch();
 		this.isTouched = true;
 		parent.getTouchedAdapters().add(this);
@@ -181,11 +178,7 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	private void untouch(){
 		if ( isTouched ){
 			isTouched = false;
-			/*
-			CommonPlugin.INSTANCE.log( "Untouched function: object "
-			         + Util.LastTokenDotSeparated(this.target.getClass().getName())
-			         + ", function "
-			         + Util.LastTokenDotSeparated(this.getClass().getName()));*/
+     		//this.logMessage("Untouched");
 			PropagatorFunctionAdapter parent = this.touchedParent;
 			if ( parent != null ) { 
 				parent.getTouchedAdapters().remove(this);
@@ -216,18 +209,14 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 
 	/**
 	 * Calculate this PropagatorFunctionAdapter
-	 * Assume that all Parent antecedents are calculated, and that all childre are calculated
+	 * Assume that all Parent antecedents are calculated, and that all children are calculated
+	 * @return false when an error occurred, propagator not refreshed
 	 */
-	private void refreshThis()
+	private boolean refreshThis()
 	{
 		if ( this.isTouched ){
 			EObject touchedObject = (EObject)this.getTarget();
-			CommonPlugin.INSTANCE.log( "CalculateInternal function: object "
-	                + com.misc.common.moplaf.propagator.Util.LastTokenDotSeparated(touchedObject.getClass().getName())
-	                + ", function "
-	                + com.misc.common.moplaf.propagator.Util.LastTokenDotSeparated(this.getClass().getName())
-	                + ", objet "
-	                + target.toString());
+			this.logInfo("Calculate");
 			this.calculate();
 			this.untouch();
 			if ( touchedObject.eContainer()==null && touchedObject.eResource()==null){
@@ -237,6 +226,7 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 				touchedObject.eAdapters().remove(this);
 			} 
 		}
+		return true;
 	}
 
 	/**
@@ -244,26 +234,15 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	 * Assume that all the parent's antecedents are refreshed.
 	 * Propagate all the touched children and their antecedents.
 	 * Calculate the PropagatorFunctionAdapter.
+	 * @return false when an error occurred, propagator not refreshed
 	 */
 	boolean refreshChildrenAndThis()  {
 	
-		try{
-		/*
-		CommonPlugin.INSTANCE.log( "Propagate function: object "
-	            + Util.LastTokenDotSeparated(this.getClass().getName())
-	            + ", touched "
-	            + (touchedFunctionAdapters==null ? 0 : touchedFunctionAdapters.size()));
-	            */
-			depthFistSearch(this.touchedFunctionAdapters);
-		    // calculate this
-			this.refreshThis();
-		
-			
-		} catch (Exception e) {
-			CommonPlugin.INSTANCE.log("propagate: exception caught: "+e.getMessage());
-			for (StackTraceElement el : e.getStackTrace()) {
-				CommonPlugin.INSTANCE.log("..: "+el.toString());
-			}
+		if ( !depthFirstSearch(this.touchedFunctionAdapters) ) {
+			return false;
+		}
+	    // calculate this
+		if ( !this.refreshThis() ) {
 			return false;
 		}
 		return true;
@@ -272,15 +251,10 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	/**
 	 * Refresh the Antecedents
 	 * Do not assume that all the parent's antecedents are refreshed, but refresh them
+	 * @return false when an error occurred, propagator not refreshed
 	 */
 	private boolean refreshAntecedents()  {
 	
-		/*
-		CommonPlugin.INSTANCE.log( "PropagateAntecedents function: object "
-	            + Util.LastTokenDotSeparated(this.getClass().getName())
-	            + ", touched "
-	            + (touchedFunctionAdapters==null ? 0 : touchedFunctionAdapters.size()));
-	            */
 	    PropagatorFunctionAdapter parent = this.getCurrentParent();
 	    if ( parent instanceof PropagatorFunctionAdapter) {
 	    	PropagatorFunctionAdapter parentaspropagatorfunctionadapter = (PropagatorFunctionAdapter)parent;
@@ -289,13 +263,7 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	    	}
 	    }
 		
-		try {
-			depthFistSearch(this);
-		} catch (Exception e) {
-			CommonPlugin.INSTANCE.log("propagateAntecedents: exception caught: "+e.getMessage());
-			for (StackTraceElement el : e.getStackTrace()) {
-				CommonPlugin.INSTANCE.log("..: "+el.toString());
-			}
+		if ( !depthFirstSearch(this) ) {
 			return false;
 		}
 		return true;
@@ -305,15 +273,10 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	 * Refresh the PropagatorFunctionAdapter, so as is becomes untouched.
 	 * Make no assumption on the antecedents states or parent states
 	 * Propagate minimally so that this PropagatorFunctionAdapter becomes up to date
+	 * @return false when an error occurred, propagator not refreshed
 	 */
 	public boolean refresh()  {
 
-		/*
-		CommonPlugin.INSTANCE.log( "Refesh function: object "
-                + Util.LastTokenDotSeparated(this.getClass().getName())
-                + ", touched "
-                + (touchedFunctionAdapters==null ? 0 : touchedFunctionAdapters.size()));
-                */
 		
 		// refresh the parent's antecedents and antecedents of this FunctionAdapter
 		if ( !this.refreshAntecedents()){
@@ -341,18 +304,18 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 		PropagatorFunctionAdaptersSet reachedFunctionAdapters    = new PropagatorFunctionAdaptersSet();
 	};
 
-	private static void depthFirstSearch(DepthFirstSearchContext context, PropagatorFunctionAdapter functionAdapter) throws Exception{
+	/**
+	 * Visit functionAdapter antecedents, the antecedents of this latter, and so on recursively. Insure all
+	 * of them are refreshed. Then refresh functionAdapter
+	 * @return false when an error occurred, propagator not refreshed
+	 */
+	private static boolean depthFirstSearch(DepthFirstSearchContext context, PropagatorFunctionAdapter functionAdapter) {
 		// the node is reached
 		context.reachedFunctionAdapters.add(functionAdapter);
 		List<PropagatorFunctionAdapter> antecedents = functionAdapter.getAntecedents();
 
-		/*
-		CommonPlugin.INSTANCE.log( "Propagate depth first search "
-                + Util.LastTokenDotSeparated(functionAdapter.getClass().getName())
-                + ", antecedents "
-                + (antecedents==null ? 0 : antecedents.size()));
-                */
-		
+		//this.logMessage("Visited, not refreshed");
+
 		if ( antecedents!=null){
 			for (PropagatorFunctionAdapter antecedent : antecedents){
 				if ( context.reachedFunctionAdapters.contains(antecedent)){
@@ -363,7 +326,7 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 						//   i.e. parallel to the call tree
 					} else {
 						// this is a backward edge (u,v)
-						//   functionadapter is u
+						//   this functionadapter is u
 						//   antecedent is v
 						// edge (u,v) means
 						//    u depends on v
@@ -387,31 +350,52 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 						//   when backward edge is met
 						//   then the top part of the path, as from the antecedent (which is in the path) is a cycle
 						//   cycle should be logged, to help debugging
-						throw new Exception("PropagatorLayerDependent.Propagate: circularity");
+						
+						antecedent.logError("function revisited=cycle");
+						return false;
 					}
 				}
 				else {
 					// node not reached yet, go farther
-				    depthFirstSearch(context, antecedent); // recursive
+				    if ( !depthFirstSearch(context, antecedent) ){
+						antecedent.logError("antecedents not traversed");
+				    	return false;
+				    }; // recursive
 				}
 			} // traverse the antecedents
 		}
 		// at this point, all the antecedents of functionadapter have been visited, that is, calculated
 		if ( !functionAdapter.refreshChildrenAndThis() ){
-			throw new Exception("PropagatorLayerDependent.Propagate: failed");
+			functionAdapter.logError("this function not refreshed");
+			return false;
 		}
 		context.calculatedFunctionAdapters.add(functionAdapter);
+		return true;
 	}
 	
-	public static void depthFistSearch(PropagatorFunctionAdapter functionAdapter) throws Exception{
+	/**
+	 * Start a depth first traversal of the antecedents and refresh every node visited, with as initial 
+	 * node functionAdapter
+	 * @return false when an error occurred, propagator not refreshed
+	 */
+	public static boolean depthFirstSearch(PropagatorFunctionAdapter functionAdapter) {
 		DepthFirstSearchContext depthFirstSearchContext = new DepthFirstSearchContext();
 		// calculate the touched children
 		// traverse the adapters following a topological order induced by the dependencies
-		depthFirstSearch(depthFirstSearchContext, functionAdapter);
+		if ( !depthFirstSearch(depthFirstSearchContext, functionAdapter) ){
+			functionAdapter.logError("this function not calculated");
+			return false;
+		}
+		return true;
 	}
 	
 	
-	public static void depthFistSearch(PropagatorFunctionAdaptersSet touchedfunctionadapters) throws Exception{
+	/**
+	 * Start a depth first traversal of the antecedents and refresh every node visited, with as initial 
+	 * nodes every node in the collection touchedfunctionadapter
+	 * @return false when an error occurred, propagator not refreshed
+	 */
+	public static boolean depthFirstSearch(PropagatorFunctionAdaptersSet touchedfunctionadapters) {
 		DepthFirstSearchContext depthFirstSearchContext = new DepthFirstSearchContext();
 		// refresh the children
 		// traverse the adapters following a topological order induced by the dependencies
@@ -419,11 +403,15 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 			PropagatorFunctionAdapter topofstack = touchedfunctionadapters.iterator().next(); 
 			//PropagatorFunctionAdapter topofstack = touchedFunctionAdapters.removeLast();
 			if ( !topofstack.isTouched()){
-				CommonPlugin.INSTANCE.log("propagate: error untouched adapter in touched adapters: ");
+				topofstack.logWarning("untouched adapter in touched adapters: ");
 				touchedfunctionadapters.remove(topofstack);
 			} else {
-				depthFirstSearch(depthFirstSearchContext, topofstack);
+				if (!depthFirstSearch(depthFirstSearchContext, topofstack)) {
+					topofstack.logError("this function not calculated");
+					return false;
+				}
 			}
 		} // while some touched adapters
+		return true;
 	}
 }
