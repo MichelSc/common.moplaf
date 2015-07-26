@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  * <li>{@link #isFeatureChanged(Notification, Object)}: if some EMF feature is changed
  * <li>{@link #isListFeatureAddedRemoved(Notification, Object)}: if some reference is added/removed
  * </ul>
- * 
+ * <p>
  * Delegate listening to a collection of listeners (target object of this propagator) or to  {@link 
  * PropagatorDependencyAdapter}s (other emf objects naviguable from the target object of this propagator).
  * <p>
