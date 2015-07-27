@@ -18,7 +18,7 @@ public class Util {
 	 * Retrieve the last token of the input string for a given delimeter
 	 * @param inputstring
 	 * @param regexdelim
-	 * @return
+	 * @return the last token
 	 */
 	public static String LastToken(String inputstring, String regexdelim){
 		String[] tokens = inputstring.split(regexdelim);
@@ -31,7 +31,7 @@ public class Util {
 	/**
 	 * Retrieve the last token of a dot separated string
 	 * @param inputstring
-	 * @return
+	 * @return the last token
 	 */
 	public static String LastTokenDotSeparated(String inputstring){
 		// first \ to escape the \ of the java string literal
@@ -45,7 +45,7 @@ public class Util {
 	 * Format a notification received by a given adapter
 	 * @param adapter
 	 * @param msg
-	 * @return
+	 * @return the formated notification
 	 */
 	public static String FormatNotification(Adapter adapter, Notification msg){
 		Object target   = (adapter==null ? null : adapter.getTarget());
@@ -71,7 +71,7 @@ public class Util {
 	/**
 	 * Convert a event type as number into a string
 	 * @param eventtype
-	 * @return
+	 * @return the event type formated as string
 	 */
 	protected static String getNotificationEventTypeAsString(int eventtype){
 		switch ( eventtype){

@@ -14,7 +14,7 @@ public class AbstractAdapter extends AdapterImpl {
 	 * Return true when the feature receives a new (different) value
 	 * @param msg
 	 * @param feature
-	 * @return
+	 * @return true if the feature's value changed
 	 */
 	protected boolean isFeatureChanged(Notification msg, Object feature) {
 		if ( msg.isTouch() ) { return false; }
@@ -26,7 +26,7 @@ public class AbstractAdapter extends AdapterImpl {
 	 * Return true when the feature is added or removed
 	 * @param msg
 	 * @param feature
-	 * @return
+	 * @return true if some reference is added or removed to the feature
 	 */
 	protected boolean isListFeatureAddedRemoved(Notification msg, Object feature) {
 		if ( msg.isTouch() ) { return false; }

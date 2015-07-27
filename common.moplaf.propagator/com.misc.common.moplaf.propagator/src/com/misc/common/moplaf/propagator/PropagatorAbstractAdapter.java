@@ -12,18 +12,30 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 /**
- * The base class of the Adapters used by the Propagator framework.
+ * The base class of the Adapters used by the Propagator framework. Listens to notifications 
+ * and triggers changes by calling touch().
  * <p>
  * Implement some convenience methods such as
  * <ul>
- * <li> * {@link #isFeatureChanged(Notification, Object)}: if some EMF feature is changed
- * <li>  * {@link #isListFeatureAddedRemoved(Notification, Object)}: if some reference is added/removed
+ * <li>{@link #isFeatureChanged(Notification, Object)}: if some EMF feature is changed
+ * <li>{@link #isListFeatureAddedRemoved(Notification, Object)}: if some reference is added/removed
  * </ul>
- * Listens to notifications and trigger changes by calling touch()
- * Delegate listening to a collection of listeners (target object) or PropagatorDependencyAdapters (other objects).
- * Registering the PropagatorDependencyAdapters is done by the method addPropagatorFunctionAdapters, called
- * when this adapter is added to the notifier
- * Unregistering the propagatorFunctionAdapters is done by the method disposePropagatorFunctionAdapters
+ * <p>
+ * Delegate listening to a collection of listeners (target object of this propagator) or to  {@link 
+ * PropagatorDependencyAdapter}s (other emf objects naviguable from the target object of this propagator).
+ * <p>
+ * Two standard Listeners are provided. A {@link FeatureListener}, listening to changes of some feature of this
+ * propagator's Notifier and a {@link NavigationFeatureListener}, listening to changes of some reference held by this
+ * propagator's Notifier, and allowing to listen to changes in the referred object by receiving a 
+ * {@link PropagatorDependencyAdapter}. These standards Listeners can be added with the convenience methods
+ * {@link #addFeatureListener(Object)} and {@link #addNavigationFeatureListener(Object, Object)} respectively.
+ * <p>
+ * Registering the {@link PropagatorDependencyAdapter}s is done by the method {@link Listener#addPropagatorFunctionAdapters}, called
+ * when this adapter is added to the notifier. Unregistering the {@link PropagatorDependencyAdapter}s is done by the method
+ * {@link Listener#disposePropagatorFunctionAdapters()}, called when the adapter is removed from the Notifier.
+ * <p>
+ * Unregistering the propagatorFunctionAdapters is done by the method {@link #disposePropagatorFunctionAdapters}.
+ * 
  * @author michel
  *
  */
@@ -35,7 +47,7 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		public Listener(){
 		}
 		protected void touch(){
-			PropagatorAbstractAdapter.this.touch();
+			PropagatorAbstractAdapter.this.touch(null);
 		};
 		protected void addPropagatorFunctionAdapters(){};
 		protected void disposePropagatorFunctionAdapters(){};
@@ -77,8 +89,9 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 			  && msg.getEventType()!=Notification.SET) { return; 
 			}
 			// at this point, some change happened in the association
-			PropagatorAbstractAdapter.this.addRemoveDependency(msg, this.adapterFunctionType);
-			PropagatorAbstractAdapter.this.touch();
+			// add/remove the dependency and touch
+			PropagatorAbstractAdapter.this.addRemoveDependency(msg, this.adapterFunctionType, true);
+			//PropagatorAbstractAdapter.this.touch(); // touching done by the dependency
 		}
 		
 		@Override
@@ -88,11 +101,11 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 			if ( featurevalue instanceof EList){
 				EList<EObject> referredobjects = (EList<EObject>)featurevalue;
 				for (EObject referredobject : referredobjects){
-					PropagatorAbstractAdapter.this.addDependency(referredobject, this.adapterFunctionType);
+					PropagatorAbstractAdapter.this.addDependency(referredobject, this.adapterFunctionType, false);
 				}
 			} else if ( featurevalue instanceof EObject){
 				EObject referredobject = (EObject)featurevalue;
-				PropagatorAbstractAdapter.this.addDependency(referredobject, this.adapterFunctionType);
+				PropagatorAbstractAdapter.this.addDependency(referredobject, this.adapterFunctionType,false);
 			}
 		}
 		@Override
@@ -102,11 +115,11 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 			if ( featurevalue instanceof EList){
 				EList<EObject> referredobjects = (EList<EObject>)featurevalue;
 				for (EObject referredobject : referredobjects){
-					PropagatorAbstractAdapter.this.removeDependency(referredobject, this.adapterFunctionType);
+					PropagatorAbstractAdapter.this.removeDependency(referredobject, this.adapterFunctionType, false);
 				}
 			} else if ( featurevalue instanceof EObject){
 				EObject referredobject = (EObject)featurevalue;
-				PropagatorAbstractAdapter.this.removeDependency(referredobject, this.adapterFunctionType);
+				PropagatorAbstractAdapter.this.removeDependency(referredobject, this.adapterFunctionType, false);
 			}
 		}
 	}
@@ -131,15 +144,33 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		this.addListener(new NavigationFeatureListener(feature, adapterdependencytype));
 	}
 	
+	protected void logMessage(String message, String level){
+		String logLine = String.format("Propagator, %4$s: %3$s, object: %1$s, function: %2$s" , 
+		                 Util.LastTokenDotSeparated(this.target.getClass().getName()),
+         		         Util.LastTokenDotSeparated(this.getClass().getName()),
+         		         message, 
+         		         level);
+		CommonPlugin.INSTANCE.log( logLine);
+	}
+	
+	protected void logInfo(String message){
+		this.logMessage(message, "info");
+	}
+	
+	protected void logWarning(String message){
+		this.logMessage(message, "warning");
+	}
+	
+	protected void logError(String message){
+		this.logMessage(message, "error");
+	}
+	
 	// -------------------------------------
 	// activate, deactivate
 	// -------------------------------------
 	public void addPropagatorFunctionAdapters(){
-		/*
-		CommonPlugin.INSTANCE.log( "Activated function: object "
-		         + Util.LastTokenDotSeparated(this.target.getClass().getName())
-		         + ", function "
-		         + Util.LastTokenDotSeparated(this.getClass().getName()));*/
+		//this.logMessage("Activated");
+		
 		
 		if ( this.listeners!=null){
 			for (Listener listener : this.listeners){
@@ -149,11 +180,7 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	}
 	
 	public void disposePropagatorFunctionAdapters(){
-		/*
-		CommonPlugin.INSTANCE.log( "Deactivatedfunction: object "
-		         + Util.LastTokenDotSeparated(this.target.getClass().getName())
-		         + ", function "
-		         + Util.LastTokenDotSeparated(this.getClass().getName()));*/
+		//this.logMessage("Deactivated");
 
 		if ( this.listeners!=null){
 			for (Listener listener : this.listeners){
@@ -193,13 +220,8 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	/**
 	 * This PropagatorAdapter call touch as a function of the notifications it receives
 	 */
-	public void touch(){
-		/*
-		CommonPlugin.INSTANCE.log( "Touched function: object "
-		         + Util.LastTokenDotSeparated(this.target.getClass().getName())
-		         + ", function "
-		         + Util.LastTokenDotSeparated(this.getClass().getName()));
-        */
+	public void touch(Object toucher){
+		this.logInfo("Touched");
 	} 
 	
 	// -------------------------------------
@@ -207,16 +229,9 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	// -------------------------------------
 	// methods managing dependencies
 	public PropagatorDependencyAdapter addDependency(Notifier targetdependency, 
-    												 Object adapterfunctiontype){
-/*
-CommonPlugin.INSTANCE.log( "Add function adapter dependency calc "
-+ Util.LastTokenDotSeparated(dependentfunctionadapter.getClass().getName())
-+ ", target dependency "
-+ Util.LastTokenDotSeparated(targetdependency.getClass().getName())
-+ ", dependency "
-+ Util.LastTokenDotSeparated(((Class)adapterfunctiontype).getName())
-);
-*/
+    												 Object adapterfunctiontype,
+    												 boolean touchAfterAdd){
+
 		PropagatorDependencyAdapter dependency = (PropagatorDependencyAdapter) Util.getAdapter(targetdependency, adapterfunctiontype);
 		if ( dependency == null) {
 			// create the dependency
@@ -232,8 +247,11 @@ CommonPlugin.INSTANCE.log( "Add function adapter dependency calc "
 			}
 		}
 		
-		// add the dependent adpater
+		// add the dependent adapter
 		dependency.getDependentFunctionAdapters().add(this);
+		if ( touchAfterAdd ) {
+			dependency.touch(null);
+		}
 
 		// activate the dependency
 		if ( !((EObject)dependency.getTarget()).eIsProxy() ) {
@@ -244,20 +262,16 @@ CommonPlugin.INSTANCE.log( "Add function adapter dependency calc "
 	}
 
 public PropagatorDependencyAdapter removeDependency(Notifier targetdependency, 
-												    Object adapterfunctiontype){
-/*
-CommonPlugin.INSTANCE.log( "Remove function adapter dependency calc "
-+ Util.LastTokenDotSeparated(dependentfunctionadapter.getClass().getName())
-+ ", target dependency "
-+ Util.LastTokenDotSeparated(targetdependency.getClass().getName())
-+ ", dependency "
-+ Util.LastTokenDotSeparated(((Class)adapterfunctiontype).getName())
-);
-*/
+												    Object adapterfunctiontype,
+												    boolean touchBeforeRemove){
+
 	PropagatorDependencyAdapter dependency = (PropagatorDependencyAdapter) Util.getAdapter(targetdependency, adapterfunctiontype);
 	if ( dependency != null){
 		// normally, the dependency may not be null
 		// unless the referred object has been disposed
+		if ( touchBeforeRemove ) { 
+			dependency.touch(null);
+		}
 		dependency.getDependentFunctionAdapters().remove(this);
 		if ( dependency.getDependentFunctionAdapters().size()==0){
 			dependency.disposePropagatorFunctionAdapters();
@@ -269,25 +283,26 @@ CommonPlugin.INSTANCE.log( "Remove function adapter dependency calc "
 	}
 
 	public void addRemoveDependency(Notification notificationReferenceChange, 
-									Object adapterfunctiontype){
+									Object adapterfunctiontype,
+									boolean touch){
 		Object newvalue = notificationReferenceChange.getNewValue();
 		Object oldvalue = notificationReferenceChange.getOldValue();
 		assert newvalue!=oldvalue;
 		if ( oldvalue instanceof Notifier){
-			this.removeDependency((Notifier)oldvalue, adapterfunctiontype);
+			this.removeDependency((Notifier)oldvalue, adapterfunctiontype, touch);
 			return;
 		} else if ( oldvalue instanceof EList<?> ){
 			for ( Notifier notifier : (EList<Notifier>)oldvalue){
-				this.removeDependency(notifier, adapterfunctiontype);
+				this.removeDependency(notifier, adapterfunctiontype, touch);
 			}
 			
 		}
 		if ( newvalue instanceof Notifier){
-			this.addDependency((Notifier)newvalue, adapterfunctiontype);
+			this.addDependency((Notifier)newvalue, adapterfunctiontype, touch);
 			return;
 		} else if ( newvalue instanceof EList<?> ){
 			for ( Notifier notifier : (EList<Notifier>)newvalue){
-				this.addDependency(notifier, adapterfunctiontype);
+				this.addDependency(notifier, adapterfunctiontype, touch);
 			}
 		}
 		return ;

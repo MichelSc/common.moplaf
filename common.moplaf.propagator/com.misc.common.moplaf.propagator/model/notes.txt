@@ -32,8 +32,14 @@ this is a new idea
   - the scope is the FPA at the top of the hierarchy
   
 for using a plugin supporting propagation
-  - add the ContentsAdapter to the object tree
-     - do the addFunctionAdapter = activate
+  - add the ContentsAdapter PropagatorFunctionAdapter to the object tree
+     - possible places are
+        - in the Editor.createModel
+           - after the model is loaded (up to date at that time)
+           - add it to the resource
+     - do the object.addFunctionAdapter = activate
+       - call adapter.addPropagatorFunctionAdapters on the newly created propagators
      - do the deactivate/dispose/remove (stops listening)
-     - do the on resolve
+       - call adpater.disposePropagatorFunctionAdapters();
+     - do the on resolve (move the adapters after proxy resolution)
   - call the refresh on ...
