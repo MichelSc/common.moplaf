@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getTupleRoot <em>Tuple Root</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getGeneratorFeatureModes <em>Generator Feature Modes</em>}</li>
@@ -33,7 +34,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getSolutionProvider <em>Solution Provider</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getSelected <em>Selected</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getGenerator()
  * @model abstract="true"

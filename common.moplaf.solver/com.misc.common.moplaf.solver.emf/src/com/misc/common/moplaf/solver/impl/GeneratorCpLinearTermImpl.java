@@ -17,11 +17,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorCpLinearTermImpl#getCoeff <em>Coeff</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorCpLinearTermImpl#getCpVar <em>Cp Var</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

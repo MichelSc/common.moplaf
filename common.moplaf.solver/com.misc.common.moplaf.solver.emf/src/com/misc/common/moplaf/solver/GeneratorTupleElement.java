@@ -10,13 +10,13 @@ package com.misc.common.moplaf.solver;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorTupleElement#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorTupleElement#getTuple <em>Tuple</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorTupleElement#getCode <em>Code</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorTupleElement#getSelectedSolutionDisplay <em>Selected Solution Display</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorTupleElement()
  * @model

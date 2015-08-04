@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.SolutionVar#getOptimalValue <em>Optimal Value</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.SolutionVar#getSolution <em>Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.SolutionVar#getVar <em>Var</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getSolutionVar()
  * @model

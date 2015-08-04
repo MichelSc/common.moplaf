@@ -11,11 +11,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorVar#getSolution <em>Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorVar#getSelectedSolutionValue <em>Selected Solution Value</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorVar()
  * @model abstract="true"

@@ -16,13 +16,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleElementImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleElementImpl#getTuple <em>Tuple</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleElementImpl#getCode <em>Code</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleElementImpl#getSelectedSolutionDisplay <em>Selected Solution Display</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

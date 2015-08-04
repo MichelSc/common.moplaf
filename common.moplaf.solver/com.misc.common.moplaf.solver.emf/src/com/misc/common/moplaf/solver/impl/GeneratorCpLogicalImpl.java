@@ -28,12 +28,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorCpLogicalImpl#getTerm <em>Term</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorCpLogicalImpl#isNot <em>Not</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorCpLogicalImpl#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

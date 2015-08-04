@@ -11,10 +11,10 @@ package com.misc.common.moplaf.solver;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.SolutionReader#getFilePath <em>File Path</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getSolutionReader()
  * @model abstract="true"

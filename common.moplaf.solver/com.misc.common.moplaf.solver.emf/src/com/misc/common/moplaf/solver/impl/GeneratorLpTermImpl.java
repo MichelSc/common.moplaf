@@ -23,12 +23,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpTermImpl#getLpVar <em>Lp Var</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpTermImpl#getCoeff <em>Coeff</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpTermImpl#getLpCons <em>Lp Cons</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -17,11 +17,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorCpVarAtomicImpl#getLowerBound <em>Lower Bound</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorCpVarAtomicImpl#getUpperBound <em>Upper Bound</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

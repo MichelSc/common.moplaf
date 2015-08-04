@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpVar#getType <em>Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpVar#getLowerBound <em>Lower Bound</em>}</li>
@@ -19,7 +20,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpVar#getObjectiveCoeff <em>Objective Coeff</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpVar#getLpTerm <em>Lp Term</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorLpVar()
  * @model
@@ -28,6 +28,7 @@ import org.eclipse.emf.common.util.EList;
 public interface GeneratorLpVar extends GeneratorVar {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
+	 * The default value is <code>"Integer"</code>.
 	 * The literals are from the enumeration {@link com.misc.common.moplaf.solver.EnumLpVarType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -39,7 +40,7 @@ public interface GeneratorLpVar extends GeneratorVar {
 	 * @see com.misc.common.moplaf.solver.EnumLpVarType
 	 * @see #setType(EnumLpVarType)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorLpVar_Type()
-	 * @model required="true"
+	 * @model default="Integer" required="true"
 	 * @generated
 	 */
 	EnumLpVarType getType();

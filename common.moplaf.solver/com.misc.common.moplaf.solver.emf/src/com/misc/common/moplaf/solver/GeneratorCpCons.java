@@ -10,10 +10,10 @@ package com.misc.common.moplaf.solver;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorCpCons#isPost <em>Post</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorCpCons()
  * @model abstract="true"

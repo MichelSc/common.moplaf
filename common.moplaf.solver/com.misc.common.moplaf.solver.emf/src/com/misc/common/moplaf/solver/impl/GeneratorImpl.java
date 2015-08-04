@@ -37,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getTupleRoot <em>Tuple Root</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getGeneratorFeatureModes <em>Generator Feature Modes</em>}</li>
@@ -53,7 +54,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getSolutionProvider <em>Solution Provider</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getSelected <em>Selected</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

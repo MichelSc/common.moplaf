@@ -20,11 +20,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorCpLogicalTermImpl#isNot <em>Not</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorCpLogicalTermImpl#getCpCons <em>Cp Cons</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

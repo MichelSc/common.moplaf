@@ -10,11 +10,11 @@ package com.misc.common.moplaf.solver;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorCpVarAtomic#getLowerBound <em>Lower Bound</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorCpVarAtomic#getUpperBound <em>Upper Bound</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorCpVarAtomic()
  * @model

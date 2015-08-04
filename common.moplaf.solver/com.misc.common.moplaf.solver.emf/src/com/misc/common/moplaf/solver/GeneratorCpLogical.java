@@ -11,12 +11,12 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorCpLogical#getTerm <em>Term</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorCpLogical#isNot <em>Not</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorCpLogical#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorCpLogical()
  * @model

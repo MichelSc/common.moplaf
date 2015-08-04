@@ -20,11 +20,11 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionConsImpl#getSolution <em>Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionConsImpl#getCons <em>Cons</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

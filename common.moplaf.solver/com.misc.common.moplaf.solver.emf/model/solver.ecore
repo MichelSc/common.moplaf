@@ -129,7 +129,8 @@
         volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpVar" eSuperTypes="#//GeneratorVar">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" lowerBound="1" eType="#//EnumLpVarType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" lowerBound="1" eType="#//EnumLpVarType"
+        defaultValueLiteral="Integer"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="LowerBound" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="UpperBound" lowerBound="1"
@@ -152,7 +153,8 @@
       <eParameters name="var" eType="#//GeneratorLpVar"/>
       <eParameters name="coef" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="#//EnumLpConsType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="#//EnumLpConsType"
+        defaultValueLiteral="Equal"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="LpTerm" upperBound="-1"
         eType="#//GeneratorLpTerm" containment="true" eOpposite="#//GeneratorLpTerm/LpCons"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="RighHandSide" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
@@ -267,7 +269,8 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverBackground" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverLogLevel" eType="#//EnumSolverLogLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverLogLevel" eType="#//EnumSolverLogLevel"
+        defaultValueLiteral="Normal"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverDump" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunStarted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunInitializationEnded"

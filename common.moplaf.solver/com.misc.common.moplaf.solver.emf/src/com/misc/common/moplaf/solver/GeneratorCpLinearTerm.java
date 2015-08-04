@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorCpLinearTerm#getCoeff <em>Coeff</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorCpLinearTerm#getCpVar <em>Cp Var</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorCpLinearTerm()
  * @model

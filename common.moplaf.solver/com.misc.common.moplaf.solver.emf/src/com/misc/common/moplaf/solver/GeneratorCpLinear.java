@@ -11,12 +11,12 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorCpLinear#getType <em>Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorCpLinear#getRightHandSide <em>Right Hand Side</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorCpLinear#getTerm <em>Term</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorCpLinear()
  * @model

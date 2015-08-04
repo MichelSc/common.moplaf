@@ -17,11 +17,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorVarOverflowImpl#getCostOverFlow <em>Cost Over Flow</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorVarOverflowImpl#isMaxEnforce <em>Max Enforce</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

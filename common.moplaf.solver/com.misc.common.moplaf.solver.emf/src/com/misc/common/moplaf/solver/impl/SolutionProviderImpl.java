@@ -28,12 +28,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionProviderImpl#getSolution <em>Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionProviderImpl#getCurrentSolutionNr <em>Current Solution Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionProviderImpl#getCode <em>Code</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

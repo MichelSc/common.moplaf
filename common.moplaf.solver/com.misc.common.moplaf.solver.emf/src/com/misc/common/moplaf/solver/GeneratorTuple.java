@@ -11,6 +11,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#getGeneratorAsRoot <em>Generator As Root</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#getTupleElement <em>Tuple Element</em>}</li>
@@ -19,7 +20,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#getCons <em>Cons</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#getCode <em>Code</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorTuple()
  * @model abstract="true"

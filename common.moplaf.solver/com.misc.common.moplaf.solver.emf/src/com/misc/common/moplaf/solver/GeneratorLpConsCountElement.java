@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpConsCountElement#getELpConsCount <em>ELp Cons Count</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpConsCountElement#getECount <em>ECount</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpConsCountElement#getEClass <em>EClass</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorLpConsCountElement()
  * @model

@@ -22,12 +22,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionVarImpl#getOptimalValue <em>Optimal Value</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionVarImpl#getSolution <em>Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionVarImpl#getVar <em>Var</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

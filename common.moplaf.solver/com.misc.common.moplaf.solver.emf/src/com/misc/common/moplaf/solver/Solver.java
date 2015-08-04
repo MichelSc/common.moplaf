@@ -15,6 +15,7 @@ import java.util.Date;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getRemarks <em>Remarks</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getStatus <em>Status</em>}</li>
@@ -41,7 +42,6 @@ import java.util.Date;
  *   <li>{@link com.misc.common.moplaf.solver.Solver#isRunTimeOut <em>Run Time Out</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#isInitializing <em>Initializing</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getSolver()
  * @model abstract="true"
@@ -158,6 +158,7 @@ public interface Solver extends SolutionProvider {
 
 	/**
 	 * Returns the value of the '<em><b>Solver Log Level</b></em>' attribute.
+	 * The default value is <code>"Normal"</code>.
 	 * The literals are from the enumeration {@link com.misc.common.moplaf.solver.EnumSolverLogLevel}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -169,7 +170,7 @@ public interface Solver extends SolutionProvider {
 	 * @see com.misc.common.moplaf.solver.EnumSolverLogLevel
 	 * @see #setSolverLogLevel(EnumSolverLogLevel)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolver_SolverLogLevel()
-	 * @model
+	 * @model default="Normal"
 	 * @generated
 	 */
 	EnumSolverLogLevel getSolverLogLevel();

@@ -25,12 +25,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpConsImpl#getType <em>Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpConsImpl#getLpTerm <em>Lp Term</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpConsImpl#getRighHandSide <em>Righ Hand Side</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

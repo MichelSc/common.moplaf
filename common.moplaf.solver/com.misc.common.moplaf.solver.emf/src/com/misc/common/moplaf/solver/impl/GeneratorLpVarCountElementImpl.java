@@ -23,12 +23,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpVarCountElementImpl#getELpVarCount <em>ELp Var Count</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpVarCountElementImpl#getECount <em>ECount</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpVarCountElementImpl#getEClass <em>EClass</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

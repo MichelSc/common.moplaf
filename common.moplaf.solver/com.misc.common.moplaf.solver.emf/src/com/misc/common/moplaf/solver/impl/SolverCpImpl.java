@@ -15,10 +15,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolverCpImpl#isSearchAll <em>Search All</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

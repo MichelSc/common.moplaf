@@ -10,12 +10,12 @@ package com.misc.common.moplaf.solver;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.SolverLp#getSolverOptimalityTolerance <em>Solver Optimality Tolerance</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.SolverLp#isSolverLinearRelaxation <em>Solver Linear Relaxation</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.SolverLp#getSolOptimalityGap <em>Sol Optimality Gap</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getSolverLp()
  * @model abstract="true"

@@ -13,11 +13,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpVarCount#getELpVarCountElement <em>ELp Var Count Element</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpVarCount#getGenerator <em>Generator</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorLpVarCount()
  * @model

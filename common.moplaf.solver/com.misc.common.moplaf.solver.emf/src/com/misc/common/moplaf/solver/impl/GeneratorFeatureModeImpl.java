@@ -26,13 +26,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorFeatureModeImpl#getGenerator <em>Generator</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorFeatureModeImpl#getObjetScope <em>Objet Scope</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorFeatureModeImpl#getCode <em>Code</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorFeatureModeImpl#getERemarks <em>ERemarks</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -186,7 +186,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final EnumSolverLogLevel SOLVER_LOG_LEVEL_EDEFAULT = EnumSolverLogLevel.ENUM_NONE;
+	protected static final EnumSolverLogLevel SOLVER_LOG_LEVEL_EDEFAULT = EnumSolverLogLevel.ENUM_NORMAL;
 
 	/**
 	 * The cached value of the '{@link #getSolverLogLevel() <em>Solver Log Level</em>}' attribute.

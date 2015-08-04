@@ -10,12 +10,12 @@ package com.misc.common.moplaf.solver;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.ILpWriter#getFilePath <em>File Path</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.ILpWriter#getFileFormat <em>File Format</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.ILpWriter#isFileCompressed <em>File Compressed</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getILpWriter()
  * @model interface="true" abstract="true"

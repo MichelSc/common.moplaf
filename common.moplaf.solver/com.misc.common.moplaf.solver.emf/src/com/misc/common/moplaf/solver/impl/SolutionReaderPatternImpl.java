@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionReaderPatternImpl#getLinePattern <em>Line Pattern</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionReaderPatternImpl#getVarNameGroup <em>Var Name Group</em>}</li>
@@ -39,7 +40,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionReaderPatternImpl#getVarObjectiveCoefGroup <em>Var Objective Coef Group</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionReaderPatternImpl#getFirstLine <em>First Line</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

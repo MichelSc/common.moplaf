@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.util.EObjectEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleImpl#getGeneratorAsRoot <em>Generator As Root</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleImpl#getTupleElement <em>Tuple Element</em>}</li>
@@ -33,7 +34,6 @@ import org.eclipse.emf.ecore.util.EObjectEList;
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleImpl#getCons <em>Cons</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleImpl#getCode <em>Code</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

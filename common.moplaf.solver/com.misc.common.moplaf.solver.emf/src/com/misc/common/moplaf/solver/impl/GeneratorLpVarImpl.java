@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpVarImpl#getType <em>Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpVarImpl#getLowerBound <em>Lower Bound</em>}</li>
@@ -30,7 +31,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpVarImpl#getObjectiveCoeff <em>Objective Coeff</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpVarImpl#getLpTerm <em>Lp Term</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

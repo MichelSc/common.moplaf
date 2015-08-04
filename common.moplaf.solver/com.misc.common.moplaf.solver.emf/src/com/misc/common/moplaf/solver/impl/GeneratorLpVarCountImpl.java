@@ -30,11 +30,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpVarCountImpl#getELpVarCountElement <em>ELp Var Count Element</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpVarCountImpl#getGenerator <em>Generator</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

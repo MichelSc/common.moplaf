@@ -11,12 +11,12 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpCons#getType <em>Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpCons#getLpTerm <em>Lp Term</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpCons#getRighHandSide <em>Righ Hand Side</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorLpCons()
  * @model
@@ -25,6 +25,7 @@ import org.eclipse.emf.common.util.EList;
 public interface GeneratorLpCons extends GeneratorCons {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
+	 * The default value is <code>"Equal"</code>.
 	 * The literals are from the enumeration {@link com.misc.common.moplaf.solver.EnumLpConsType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -36,7 +37,7 @@ public interface GeneratorLpCons extends GeneratorCons {
 	 * @see com.misc.common.moplaf.solver.EnumLpConsType
 	 * @see #setType(EnumLpConsType)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorLpCons_Type()
-	 * @model
+	 * @model default="Equal"
 	 * @generated
 	 */
 	EnumLpConsType getType();

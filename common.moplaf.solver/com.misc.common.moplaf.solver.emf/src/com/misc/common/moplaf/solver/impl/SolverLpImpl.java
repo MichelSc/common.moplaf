@@ -17,12 +17,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolverLpImpl#getSolverOptimalityTolerance <em>Solver Optimality Tolerance</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolverLpImpl#isSolverLinearRelaxation <em>Solver Linear Relaxation</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolverLpImpl#getSolOptimalityGap <em>Sol Optimality Gap</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

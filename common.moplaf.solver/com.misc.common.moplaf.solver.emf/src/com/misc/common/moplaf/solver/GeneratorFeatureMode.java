@@ -20,13 +20,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorFeatureMode#getGenerator <em>Generator</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorFeatureMode#getObjetScope <em>Objet Scope</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorFeatureMode#getCode <em>Code</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorFeatureMode#getERemarks <em>ERemarks</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorFeatureMode()
  * @model
