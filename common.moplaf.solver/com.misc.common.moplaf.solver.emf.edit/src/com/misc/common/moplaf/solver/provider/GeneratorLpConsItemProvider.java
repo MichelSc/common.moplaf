@@ -4,13 +4,20 @@ package com.misc.common.moplaf.solver.provider;
 
 
 import com.misc.common.moplaf.solver.GeneratorLpCons;
+import com.misc.common.moplaf.solver.GeneratorLpVar;
 import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.solver.SolverPackage;
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
+
+import org.eclipse.emf.common.command.AbstractCommand;
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -179,4 +186,66 @@ public class GeneratorLpConsItemProvider
 				 SolverFactory.eINSTANCE.createGeneratorLpTerm()));
 	}
 
+	@Override
+	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+			int operation, Collection<?> collection) {
+		CompoundCommand command = new CompoundCommand();
+		GeneratorLpCons thisCons= (GeneratorLpCons) owner;
+		List<Object> otherDroppedThings = new LinkedList<Object>();
+		for (Object element : collection){
+			if ( element instanceof GeneratorLpVar){
+	  	   		GeneratorLpVar droppedVar = (GeneratorLpVar) element;
+			   	ConstructTermCommand addVarCmd = new ConstructTermCommand(thisCons, droppedVar);
+			   	command.append(addVarCmd);
+			} else {
+				otherDroppedThings.add(element);
+			}
+		}
+		if ( otherDroppedThings.size()>0){
+				command.append(super.createDragAndDropCommand(domain, 
+					                                    owner, 
+					                                    location, 
+					                                    operations,
+				                                      	operation, 
+				                                      	otherDroppedThings));
+		}
+		return command;
+	} // method createDragAndDropCommand
+	 
+	public class ConstructTermCommand extends AbstractCommand {
+		   	private GeneratorLpCons constraint;
+		   	private GeneratorLpVar var;
+	   
+		   	public ConstructTermCommand(GeneratorLpCons aConstraint, GeneratorLpVar aVar)  {
+		   		super();
+		   		this.constraint = aConstraint;
+		   		this.var        = aVar;
+		   		String tmp = "construct a constratint term";
+		   		String label = "label:"+tmp;
+		   		String description = "desc:"+tmp;
+		   		this.setDescription(description);
+		   		this.setLabel(label);
+		   	}
+		   
+		   	@Override
+		   	protected boolean prepare(){
+		   		isExecutable = true;
+		   		return isExecutable;
+		   	}
+
+			@Override
+			public boolean canUndo() { 
+				return false; 
+			}
+
+			@Override
+			public void redo() {
+				execute();		
+			}
+			
+			@Override
+			public void execute() {
+				this.constraint.constructTerm(this.var, 1.0f);
+	   }
+	 } // class ExtractorRefreshCommand
 }

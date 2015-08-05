@@ -7,7 +7,7 @@ Bundle-Activator: com.misc.common.moplaf.emf.edit.command.Activator
 Bundle-Vendor: MISC
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.eclipse.emf.common,
+ org.eclipse.emf.common;visibility:=reexport,
  org.eclipse.emf.edit
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
