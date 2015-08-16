@@ -706,7 +706,7 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 				for (GeneratorCons cons : tuple.getCons()){
 					conscounter++;
 					cons.generate();
-					//termscounter += cons.getLpTerm().size();
+					termscounter += cons.getNofTerms();
 				}
 			}
 		}

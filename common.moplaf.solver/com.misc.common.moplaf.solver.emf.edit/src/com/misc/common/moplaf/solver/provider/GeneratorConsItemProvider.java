@@ -10,7 +10,9 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -42,8 +44,31 @@ public class GeneratorConsItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNofTermsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Nof Terms feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNofTermsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GeneratorCons_NofTerms_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorCons_NofTerms_feature", "_UI_GeneratorCons_type"),
+				 SolverPackage.Literals.GENERATOR_CONS__NOF_TERMS,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 getString("_UI__20ConstraintPropertyCategory"),
+				 null));
 	}
 
 	/**
@@ -112,6 +137,9 @@ public class GeneratorConsItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(GeneratorCons.class)) {
+			case SolverPackage.GENERATOR_CONS__NOF_TERMS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case SolverPackage.GENERATOR_CONS__SOLUTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

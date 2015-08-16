@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorCons#getSolution <em>Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.GeneratorCons#getNofTerms <em>Nof Terms</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorCons()
@@ -38,6 +39,21 @@ public interface GeneratorCons extends GeneratorTupleMember {
 	 * @generated
 	 */
 	EList<SolutionCons> getSolution();
+
+	/**
+	 * Returns the value of the '<em><b>Nof Terms</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Nof Terms</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Nof Terms</em>' attribute.
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorCons_NofTerms()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	int getNofTerms();
 
 	/**
 	 * <!-- begin-user-doc -->

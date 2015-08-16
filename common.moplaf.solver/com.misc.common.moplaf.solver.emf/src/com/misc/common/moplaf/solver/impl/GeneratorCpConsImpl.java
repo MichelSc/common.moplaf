@@ -98,6 +98,8 @@ public abstract class GeneratorCpConsImpl extends GeneratorConsImpl implements G
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
+	
+	
 
 	/**
 	 * <!-- begin-user-doc -->

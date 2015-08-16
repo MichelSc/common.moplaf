@@ -137,6 +137,13 @@ public class GeneratorLpConsImpl extends GeneratorConsImpl implements GeneratorL
 		return lpTerm;
 	}
 
+	@Override
+	public int getNofTerms() {
+		return this.getLpTerm().size();
+	}
+
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -160,6 +160,12 @@ public class GeneratorCpLogicalImpl extends GeneratorCpConsImpl implements Gener
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_CP_LOGICAL__TYPE, oldType, type));
 	}
+	
+	
+	@Override
+	public int getNofTerms() {
+		return this.getTerm().size();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

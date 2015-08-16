@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorConsImpl#getSolution <em>Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorConsImpl#getNofTerms <em>Nof Terms</em>}</li>
  * </ul>
  *
  * @generated
@@ -38,6 +39,16 @@ public abstract class GeneratorConsImpl extends GeneratorTupleMemberImpl impleme
 	 * @ordered
 	 */
 	protected EList<SolutionCons> solution;
+
+	/**
+	 * The default value of the '{@link #getNofTerms() <em>Nof Terms</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNofTerms()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int NOF_TERMS_EDEFAULT = 0;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -68,6 +79,17 @@ public abstract class GeneratorConsImpl extends GeneratorTupleMemberImpl impleme
 			solution = new EObjectWithInverseResolvingEList<SolutionCons>(SolutionCons.class, this, SolverPackage.GENERATOR_CONS__SOLUTION, SolverPackage.SOLUTION_CONS__CONS);
 		}
 		return solution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getNofTerms() {
+		// TODO: implement this method to return the 'Nof Terms' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -132,6 +154,8 @@ public abstract class GeneratorConsImpl extends GeneratorTupleMemberImpl impleme
 		switch (featureID) {
 			case SolverPackage.GENERATOR_CONS__SOLUTION:
 				return getSolution();
+			case SolverPackage.GENERATOR_CONS__NOF_TERMS:
+				return getNofTerms();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -178,6 +202,8 @@ public abstract class GeneratorConsImpl extends GeneratorTupleMemberImpl impleme
 		switch (featureID) {
 			case SolverPackage.GENERATOR_CONS__SOLUTION:
 				return solution != null && !solution.isEmpty();
+			case SolverPackage.GENERATOR_CONS__NOF_TERMS:
+				return getNofTerms() != NOF_TERMS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

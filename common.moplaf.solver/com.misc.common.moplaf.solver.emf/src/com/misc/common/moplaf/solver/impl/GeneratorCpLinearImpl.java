@@ -154,6 +154,14 @@ public class GeneratorCpLinearImpl extends GeneratorCpConsImpl implements Genera
 		}
 		return term;
 	}
+	
+	@Override
+	public int getNofTerms() {
+		return this.getTerm().size();
+	}
+
+
+
 
 	/**
 	 * <!-- begin-user-doc -->

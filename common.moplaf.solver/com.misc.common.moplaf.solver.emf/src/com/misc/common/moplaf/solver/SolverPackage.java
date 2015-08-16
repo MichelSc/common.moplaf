@@ -931,13 +931,22 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_CONS__SOLUTION = GENERATOR_TUPLE_MEMBER_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Nof Terms</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CONS__NOF_TERMS = GENERATOR_TUPLE_MEMBER_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Generator Cons</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_CONS_FEATURE_COUNT = GENERATOR_TUPLE_MEMBER_FEATURE_COUNT + 1;
+	int GENERATOR_CONS_FEATURE_COUNT = GENERATOR_TUPLE_MEMBER_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
@@ -1038,6 +1047,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_LP_CONS__SOLUTION = GENERATOR_CONS__SOLUTION;
+
+	/**
+	 * The feature id for the '<em><b>Nof Terms</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_CONS__NOF_TERMS = GENERATOR_CONS__NOF_TERMS;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -3274,6 +3292,15 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_CP_CONS__SOLUTION = GENERATOR_CONS__SOLUTION;
 
 	/**
+	 * The feature id for the '<em><b>Nof Terms</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CP_CONS__NOF_TERMS = GENERATOR_CONS__NOF_TERMS;
+
+	/**
 	 * The feature id for the '<em><b>Post</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3380,6 +3407,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_CP_LINEAR__SOLUTION = GENERATOR_CP_CONS__SOLUTION;
+
+	/**
+	 * The feature id for the '<em><b>Nof Terms</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CP_LINEAR__NOF_TERMS = GENERATOR_CP_CONS__NOF_TERMS;
 
 	/**
 	 * The feature id for the '<em><b>Post</b></em>' attribute.
@@ -3515,6 +3551,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_CP_LOGICAL__SOLUTION = GENERATOR_CP_CONS__SOLUTION;
+
+	/**
+	 * The feature id for the '<em><b>Nof Terms</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CP_LOGICAL__NOF_TERMS = GENERATOR_CP_CONS__NOF_TERMS;
 
 	/**
 	 * The feature id for the '<em><b>Post</b></em>' attribute.
@@ -5174,6 +5219,17 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGeneratorCons_Solution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorCons#getNofTerms <em>Nof Terms</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Nof Terms</em>'.
+	 * @see com.misc.common.moplaf.solver.GeneratorCons#getNofTerms()
+	 * @see #getGeneratorCons()
+	 * @generated
+	 */
+	EAttribute getGeneratorCons_NofTerms();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorCons#generate() <em>Generate</em>}' operation.
@@ -7204,6 +7260,14 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GENERATOR_CONS__SOLUTION = eINSTANCE.getGeneratorCons_Solution();
+
+		/**
+		 * The meta object literal for the '<em><b>Nof Terms</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERATOR_CONS__NOF_TERMS = eINSTANCE.getGeneratorCons_NofTerms();
 
 		/**
 		 * The meta object literal for the '<em><b>Generate</b></em>' operation.

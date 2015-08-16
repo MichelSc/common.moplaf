@@ -120,6 +120,7 @@ public class GeneratorLpConsCountImpl extends MinimalEObjectImpl.Container imple
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_LP_CONS_COUNT__GENERATOR, newGenerator, newGenerator));
 	}
+	
 
 	/**
 	 * <!-- begin-user-doc -->

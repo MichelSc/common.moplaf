@@ -155,6 +155,8 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Solution" upperBound="-1"
         eType="#//SolutionCons" eOpposite="#//SolutionCons/cons"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="NofTerms" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpCons" eSuperTypes="#//GeneratorCons">
     <eOperations name="constructTerm" eType="#//GeneratorLpTerm">

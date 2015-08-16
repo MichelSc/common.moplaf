@@ -110,7 +110,7 @@
           ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorTupleMember/Code"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="30 Solution"
           ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorTupleMember/SelectedSolutionDisplay"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorTupleMember/Label"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorTupleMember/Label"/>
       <genOperations ecoreOperation="solver.ecore#//GeneratorTupleMember/refreshSelectedSolution"/>
     </genClasses>
     <genClasses ecoreClass="solver.ecore#//GeneratorVar" labelFeature="#//solver/GeneratorTupleMember/Label">
@@ -140,6 +140,8 @@
     </genClasses>
     <genClasses ecoreClass="solver.ecore#//GeneratorCons" labelFeature="#//solver/GeneratorTupleMember/Label">
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//GeneratorCons/Solution"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="20 Constraint"
+          ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorCons/NofTerms"/>
       <genOperations ecoreOperation="solver.ecore#//GeneratorCons/generate"/>
       <genOperations ecoreOperation="solver.ecore#//GeneratorCons/getSolution">
         <genParameters ecoreParameter="solver.ecore#//GeneratorCons/getSolution/solver"/>

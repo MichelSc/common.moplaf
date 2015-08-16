@@ -1092,6 +1092,15 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getGeneratorCons_NofTerms() {
+		return (EAttribute)generatorConsEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getGeneratorCons__Generate() {
 		return generatorConsEClass.getEOperations().get(0);
 	}
@@ -2386,6 +2395,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 
 		generatorConsEClass = createEClass(GENERATOR_CONS);
 		createEReference(generatorConsEClass, GENERATOR_CONS__SOLUTION);
+		createEAttribute(generatorConsEClass, GENERATOR_CONS__NOF_TERMS);
 		createEOperation(generatorConsEClass, GENERATOR_CONS___GENERATE);
 		createEOperation(generatorConsEClass, GENERATOR_CONS___GET_SOLUTION__SOLUTION);
 
@@ -2717,6 +2727,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 
 		initEClass(generatorConsEClass, GeneratorCons.class, "GeneratorCons", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGeneratorCons_Solution(), this.getSolutionCons(), this.getSolutionCons_Cons(), "Solution", null, 0, -1, GeneratorCons.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGeneratorCons_NofTerms(), ecorePackage.getEInt(), "NofTerms", null, 0, 1, GeneratorCons.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getGeneratorCons__Generate(), null, "generate", 0, 1, IS_UNIQUE, IS_ORDERED);
 
