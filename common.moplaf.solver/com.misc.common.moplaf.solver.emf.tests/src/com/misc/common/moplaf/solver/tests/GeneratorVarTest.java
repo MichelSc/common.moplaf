@@ -25,7 +25,7 @@ import com.misc.common.moplaf.solver.GeneratorVar;
  * </p>
  * @generated
  */
-public abstract class GeneratorVarTest extends GeneratorTupleElementTest {
+public abstract class GeneratorVarTest extends GeneratorTupleMemberTest {
 
 	/**
 	 * Constructs a new Generator Var test case with the given name.

@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public abstract class GeneratorVarImpl extends GeneratorTupleElementImpl implements GeneratorVar {
+public abstract class GeneratorVarImpl extends GeneratorTupleMemberImpl implements GeneratorVar {
 	/**
 	 * The cached value of the '{@link #getSolution() <em>Solution</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -249,25 +249,6 @@ public abstract class GeneratorVarImpl extends GeneratorTupleElementImpl impleme
 		return super.eIsSet(featureID);
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.misc.common.moplaf.solver.impl.GeneratorTupleElementImpl#onSetTuple(com.misc.common.moplaf.solver.GeneratorTuple)
-	 */
-	@Override
-	public void onSetTuple(GeneratorTuple newTuple) {
-		super.onSetTuple(newTuple);
-		newTuple.getVar().add(this);
-	}
-
-	/* (non-Javadoc)
-	 * @see com.misc.common.moplaf.solver.impl.GeneratorTupleElementImpl#onResetTuple(com.misc.common.moplaf.solver.GeneratorTuple)
-	 */
-	@Override
-	public void onResetTuple(GeneratorTuple oldTuple) {
-		super.onResetTuple(oldTuple);
-		super.onSetTuple(oldTuple);
-		oldTuple.getVar().remove(this);
-	}
-
 
 	/**
 	 * <!-- begin-user-doc -->

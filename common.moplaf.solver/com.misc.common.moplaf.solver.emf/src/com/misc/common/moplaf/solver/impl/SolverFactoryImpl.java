@@ -57,7 +57,6 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case SolverPackage.GENERATOR_TUPLE_ELEMENT: return createGeneratorTupleElement();
 			case SolverPackage.GENERATOR_LP_VAR: return createGeneratorLpVar();
 			case SolverPackage.GENERATOR_LP_CONS: return createGeneratorLpCons();
 			case SolverPackage.GENERATOR_LP_TERM: return createGeneratorLpTerm();
@@ -147,16 +146,6 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GeneratorTupleElement createGeneratorTupleElement() {
-		GeneratorTupleElementImpl generatorTupleElement = new GeneratorTupleElementImpl();
-		return generatorTupleElement;
 	}
 
 	/**

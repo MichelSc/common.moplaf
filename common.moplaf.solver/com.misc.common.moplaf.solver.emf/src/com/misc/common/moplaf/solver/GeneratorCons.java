@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface GeneratorCons extends GeneratorTupleElement {
+public interface GeneratorCons extends GeneratorTupleMember {
 	/**
 	 * Returns the value of the '<em><b>Solution</b></em>' reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.solver.SolutionCons}.

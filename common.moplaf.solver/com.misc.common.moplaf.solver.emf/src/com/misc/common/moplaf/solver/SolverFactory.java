@@ -22,15 +22,6 @@ public interface SolverFactory extends EFactory {
 	SolverFactory eINSTANCE = com.misc.common.moplaf.solver.impl.SolverFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Generator Tuple Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Generator Tuple Element</em>'.
-	 * @generated
-	 */
-	GeneratorTupleElement createGeneratorTupleElement();
-
-	/**
 	 * Returns a new object of class '<em>Generator Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

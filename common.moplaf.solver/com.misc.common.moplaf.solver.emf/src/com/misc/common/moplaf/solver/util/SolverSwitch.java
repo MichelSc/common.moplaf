@@ -79,17 +79,17 @@ public class SolverSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SolverPackage.GENERATOR_TUPLE_ELEMENT: {
-				GeneratorTupleElement generatorTupleElement = (GeneratorTupleElement)theEObject;
-				T result = caseGeneratorTupleElement(generatorTupleElement);
-				if (result == null) result = caseGeneratorElement(generatorTupleElement);
+			case SolverPackage.GENERATOR_TUPLE_MEMBER: {
+				GeneratorTupleMember generatorTupleMember = (GeneratorTupleMember)theEObject;
+				T result = caseGeneratorTupleMember(generatorTupleMember);
+				if (result == null) result = caseGeneratorElement(generatorTupleMember);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SolverPackage.GENERATOR_VAR: {
 				GeneratorVar generatorVar = (GeneratorVar)theEObject;
 				T result = caseGeneratorVar(generatorVar);
-				if (result == null) result = caseGeneratorTupleElement(generatorVar);
+				if (result == null) result = caseGeneratorTupleMember(generatorVar);
 				if (result == null) result = caseGeneratorElement(generatorVar);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -98,7 +98,7 @@ public class SolverSwitch<T> extends Switch<T> {
 				GeneratorLpVar generatorLpVar = (GeneratorLpVar)theEObject;
 				T result = caseGeneratorLpVar(generatorLpVar);
 				if (result == null) result = caseGeneratorVar(generatorLpVar);
-				if (result == null) result = caseGeneratorTupleElement(generatorLpVar);
+				if (result == null) result = caseGeneratorTupleMember(generatorLpVar);
 				if (result == null) result = caseGeneratorElement(generatorLpVar);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -106,7 +106,7 @@ public class SolverSwitch<T> extends Switch<T> {
 			case SolverPackage.GENERATOR_CONS: {
 				GeneratorCons generatorCons = (GeneratorCons)theEObject;
 				T result = caseGeneratorCons(generatorCons);
-				if (result == null) result = caseGeneratorTupleElement(generatorCons);
+				if (result == null) result = caseGeneratorTupleMember(generatorCons);
 				if (result == null) result = caseGeneratorElement(generatorCons);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -115,7 +115,7 @@ public class SolverSwitch<T> extends Switch<T> {
 				GeneratorLpCons generatorLpCons = (GeneratorLpCons)theEObject;
 				T result = caseGeneratorLpCons(generatorLpCons);
 				if (result == null) result = caseGeneratorCons(generatorLpCons);
-				if (result == null) result = caseGeneratorTupleElement(generatorLpCons);
+				if (result == null) result = caseGeneratorTupleMember(generatorLpCons);
 				if (result == null) result = caseGeneratorElement(generatorLpCons);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -260,7 +260,7 @@ public class SolverSwitch<T> extends Switch<T> {
 				GeneratorCpCons generatorCpCons = (GeneratorCpCons)theEObject;
 				T result = caseGeneratorCpCons(generatorCpCons);
 				if (result == null) result = caseGeneratorCons(generatorCpCons);
-				if (result == null) result = caseGeneratorTupleElement(generatorCpCons);
+				if (result == null) result = caseGeneratorTupleMember(generatorCpCons);
 				if (result == null) result = caseGeneratorElement(generatorCpCons);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -270,7 +270,7 @@ public class SolverSwitch<T> extends Switch<T> {
 				T result = caseGeneratorCpLinear(generatorCpLinear);
 				if (result == null) result = caseGeneratorCpCons(generatorCpLinear);
 				if (result == null) result = caseGeneratorCons(generatorCpLinear);
-				if (result == null) result = caseGeneratorTupleElement(generatorCpLinear);
+				if (result == null) result = caseGeneratorTupleMember(generatorCpLinear);
 				if (result == null) result = caseGeneratorElement(generatorCpLinear);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -280,7 +280,7 @@ public class SolverSwitch<T> extends Switch<T> {
 				T result = caseGeneratorCpLogical(generatorCpLogical);
 				if (result == null) result = caseGeneratorCpCons(generatorCpLogical);
 				if (result == null) result = caseGeneratorCons(generatorCpLogical);
-				if (result == null) result = caseGeneratorTupleElement(generatorCpLogical);
+				if (result == null) result = caseGeneratorTupleMember(generatorCpLogical);
 				if (result == null) result = caseGeneratorElement(generatorCpLogical);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -289,7 +289,7 @@ public class SolverSwitch<T> extends Switch<T> {
 				GeneratorCpVar generatorCpVar = (GeneratorCpVar)theEObject;
 				T result = caseGeneratorCpVar(generatorCpVar);
 				if (result == null) result = caseGeneratorVar(generatorCpVar);
-				if (result == null) result = caseGeneratorTupleElement(generatorCpVar);
+				if (result == null) result = caseGeneratorTupleMember(generatorCpVar);
 				if (result == null) result = caseGeneratorElement(generatorCpVar);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -299,7 +299,7 @@ public class SolverSwitch<T> extends Switch<T> {
 				T result = caseGeneratorCpVarAtomic(generatorCpVarAtomic);
 				if (result == null) result = caseGeneratorCpVar(generatorCpVarAtomic);
 				if (result == null) result = caseGeneratorVar(generatorCpVarAtomic);
-				if (result == null) result = caseGeneratorTupleElement(generatorCpVarAtomic);
+				if (result == null) result = caseGeneratorTupleMember(generatorCpVarAtomic);
 				if (result == null) result = caseGeneratorElement(generatorCpVarAtomic);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -373,17 +373,17 @@ public class SolverSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Generator Tuple Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Generator Tuple Member</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Generator Tuple Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Generator Tuple Member</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseGeneratorTupleElement(GeneratorTupleElement object) {
+	public T caseGeneratorTupleMember(GeneratorTupleMember object) {
 		return null;
 	}
 

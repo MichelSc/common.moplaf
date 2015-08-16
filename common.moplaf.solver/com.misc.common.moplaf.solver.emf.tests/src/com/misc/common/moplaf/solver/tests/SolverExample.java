@@ -2,7 +2,7 @@
  */
 package com.misc.common.moplaf.solver.tests;
 
-import com.misc.common.moplaf.solver.GeneratorTupleElement;
+import com.misc.common.moplaf.solver.GeneratorLpVar;
 import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.solver.SolverPackage;
 
@@ -60,7 +60,7 @@ public class SolverExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.solver"));
-				GeneratorTupleElement root = SolverFactory.eINSTANCE.createGeneratorTupleElement();
+				GeneratorLpVar root = SolverFactory.eINSTANCE.createGeneratorLpVar();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

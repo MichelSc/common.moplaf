@@ -16,6 +16,7 @@ import com.misc.common.moplaf.solver.GeneratorTuple;
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#getTupleContainer() <em>Tuple Container</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#getVar() <em>Var</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#getCons() <em>Cons</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#getMembers() <em>Members</em>}</li>
  * </ul>
  * </p>
  * <p>
@@ -26,6 +27,7 @@ import com.misc.common.moplaf.solver.GeneratorTuple;
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#generateTuples() <em>Generate Tuples</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#getGenerator() <em>Get Generator</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#visitTuples(com.misc.common.moplaf.solver.ITupleVisitor) <em>Visit Tuples</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#refreshSelectedSolution() <em>Refresh Selected Solution</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -119,6 +121,19 @@ public abstract class GeneratorTupleTest extends GeneratorElementTest {
 	}
 
 	/**
+	 * Tests the '{@link com.misc.common.moplaf.solver.GeneratorTuple#getMembers() <em>Members</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.solver.GeneratorTuple#getMembers()
+	 * @generated
+	 */
+	public void testGetMembers() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
 	 * Tests the '{@link com.misc.common.moplaf.solver.GeneratorTuple#generateVars() <em>Generate Vars</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -178,6 +193,19 @@ public abstract class GeneratorTupleTest extends GeneratorElementTest {
 	 * @generated
 	 */
 	public void testVisitTuples__ITupleVisitor() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link com.misc.common.moplaf.solver.GeneratorTuple#refreshSelectedSolution() <em>Refresh Selected Solution</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.solver.GeneratorTuple#refreshSelectedSolution()
+	 * @generated
+	 */
+	public void testRefreshSelectedSolution() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

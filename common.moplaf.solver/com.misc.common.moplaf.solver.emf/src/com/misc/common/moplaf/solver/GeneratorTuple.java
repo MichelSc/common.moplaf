@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#getVar <em>Var</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#getCons <em>Cons</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#getCode <em>Code</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#getMembers <em>Members</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorTuple()
@@ -135,6 +136,24 @@ public interface GeneratorTuple extends GeneratorElement {
 	 * @generated
 	 */
 	void setCode(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Members</b></em>' reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.solver.GeneratorTupleMember}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.GeneratorTupleMember#getTuple <em>Tuple</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Members</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Members</em>' reference list.
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorTuple_Members()
+	 * @see com.misc.common.moplaf.solver.GeneratorTupleMember#getTuple
+	 * @model opposite="Tuple" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EList<GeneratorTupleMember> getMembers();
 
 	/**
 	 * <!-- begin-user-doc -->

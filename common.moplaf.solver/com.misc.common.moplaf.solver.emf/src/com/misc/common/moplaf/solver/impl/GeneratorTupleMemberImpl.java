@@ -3,32 +3,37 @@
 package com.misc.common.moplaf.solver.impl;
 
 import com.misc.common.moplaf.solver.GeneratorTuple;
-import com.misc.common.moplaf.solver.GeneratorTupleElement;
+import com.misc.common.moplaf.solver.GeneratorTupleMember;
 import com.misc.common.moplaf.solver.SolverPackage;
+
 import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Generator Tuple Element</b></em>'.
+ * An implementation of the model object '<em><b>Generator Tuple Member</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleElementImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleElementImpl#getTuple <em>Tuple</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleElementImpl#getCode <em>Code</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleElementImpl#getSelectedSolutionDisplay <em>Selected Solution Display</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleMemberImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleMemberImpl#getTuple <em>Tuple</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleMemberImpl#getCode <em>Code</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleMemberImpl#getSelectedSolutionDisplay <em>Selected Solution Display</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class GeneratorTupleElementImpl extends GeneratorElementImpl implements GeneratorTupleElement {
+public abstract class GeneratorTupleMemberImpl extends GeneratorElementImpl implements GeneratorTupleMember {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -84,7 +89,7 @@ public class GeneratorTupleElementImpl extends GeneratorElementImpl implements G
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GeneratorTupleElementImpl() {
+	protected GeneratorTupleMemberImpl() {
 		super();
 	}
 
@@ -95,7 +100,7 @@ public class GeneratorTupleElementImpl extends GeneratorElementImpl implements G
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return SolverPackage.Literals.GENERATOR_TUPLE_ELEMENT;
+		return SolverPackage.Literals.GENERATOR_TUPLE_MEMBER;
 	}
 
 	/**
@@ -116,7 +121,7 @@ public class GeneratorTupleElementImpl extends GeneratorElementImpl implements G
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_TUPLE_ELEMENT__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_TUPLE_MEMBER__NAME, oldName, name));
 	}
 
 	/**
@@ -177,7 +182,7 @@ public class GeneratorTupleElementImpl extends GeneratorElementImpl implements G
 		String oldSelectedSolutionDisplay = selectedSolutionDisplay;
 		selectedSolutionDisplay = newSelectedSolutionDisplay;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_TUPLE_ELEMENT__SELECTED_SOLUTION_DISPLAY, oldSelectedSolutionDisplay, selectedSolutionDisplay));
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_TUPLE_MEMBER__SELECTED_SOLUTION_DISPLAY, oldSelectedSolutionDisplay, selectedSolutionDisplay));
 	}
 
 	/**
@@ -189,67 +194,6 @@ public class GeneratorTupleElementImpl extends GeneratorElementImpl implements G
 		this.setSelectedSolutionDisplay(displaySelectedSolution);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.misc.common.moplaf.solver.impl.GeneratorElementImpl#onOwnerChanged()
-	 */
-	@Override
-	public void onOwnerChanged() {
-		super.onOwnerChanged();
-		this.refreshTuple();
-		this.refreshCode();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public void refreshTuple() {
-		/*
-		if ( !(this.eContainer() instanceof GeneratorTuple) ){
-			throw new UnsupportedOperationException("Container of a tuple element (var or cons) must be a tuple and not : "+this.eContainer().eClass().getName());
-		}
-		GeneratorTuple tupletobe = (GeneratorTuple)this.eContainer();
-		GeneratorTuple tupleasis = this.getTuple();
-		if ( tupletobe!=tupleasis){
-			if (tupleasis!=null){
-				this.onResetTuple(tupleasis);
-			}
-			if ( tupletobe!=null){
-				this.onSetTuple(tupletobe);
-			}
-			this.setTuple(tupletobe);
-		}*/
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public void onSetTuple(GeneratorTuple newTuple) {
-		// default does nothing
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public void onResetTuple(GeneratorTuple oldTuple) {
-		// default does nothing
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public void refreshCode() {
-		/*
-		GeneratorTuple tuple = this.getTuple();
-		String tuplecode = tuple==null ? "null" : tuple.getCode();
-		String code = String.format("%2$s(%1$s)", tuplecode, this.getName());
-		this.setCode(code);
-		*/
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -258,14 +202,14 @@ public class GeneratorTupleElementImpl extends GeneratorElementImpl implements G
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SolverPackage.GENERATOR_TUPLE_ELEMENT__NAME:
+			case SolverPackage.GENERATOR_TUPLE_MEMBER__NAME:
 				return getName();
-			case SolverPackage.GENERATOR_TUPLE_ELEMENT__TUPLE:
+			case SolverPackage.GENERATOR_TUPLE_MEMBER__TUPLE:
 				if (resolve) return getTuple();
 				return basicGetTuple();
-			case SolverPackage.GENERATOR_TUPLE_ELEMENT__CODE:
+			case SolverPackage.GENERATOR_TUPLE_MEMBER__CODE:
 				return getCode();
-			case SolverPackage.GENERATOR_TUPLE_ELEMENT__SELECTED_SOLUTION_DISPLAY:
+			case SolverPackage.GENERATOR_TUPLE_MEMBER__SELECTED_SOLUTION_DISPLAY:
 				return getSelectedSolutionDisplay();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -279,13 +223,13 @@ public class GeneratorTupleElementImpl extends GeneratorElementImpl implements G
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SolverPackage.GENERATOR_TUPLE_ELEMENT__NAME:
+			case SolverPackage.GENERATOR_TUPLE_MEMBER__NAME:
 				setName((String)newValue);
 				return;
-			case SolverPackage.GENERATOR_TUPLE_ELEMENT__CODE:
+			case SolverPackage.GENERATOR_TUPLE_MEMBER__CODE:
 				setCode((String)newValue);
 				return;
-			case SolverPackage.GENERATOR_TUPLE_ELEMENT__SELECTED_SOLUTION_DISPLAY:
+			case SolverPackage.GENERATOR_TUPLE_MEMBER__SELECTED_SOLUTION_DISPLAY:
 				setSelectedSolutionDisplay((String)newValue);
 				return;
 		}
@@ -300,13 +244,13 @@ public class GeneratorTupleElementImpl extends GeneratorElementImpl implements G
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SolverPackage.GENERATOR_TUPLE_ELEMENT__NAME:
+			case SolverPackage.GENERATOR_TUPLE_MEMBER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case SolverPackage.GENERATOR_TUPLE_ELEMENT__CODE:
+			case SolverPackage.GENERATOR_TUPLE_MEMBER__CODE:
 				setCode(CODE_EDEFAULT);
 				return;
-			case SolverPackage.GENERATOR_TUPLE_ELEMENT__SELECTED_SOLUTION_DISPLAY:
+			case SolverPackage.GENERATOR_TUPLE_MEMBER__SELECTED_SOLUTION_DISPLAY:
 				setSelectedSolutionDisplay(SELECTED_SOLUTION_DISPLAY_EDEFAULT);
 				return;
 		}
@@ -321,13 +265,13 @@ public class GeneratorTupleElementImpl extends GeneratorElementImpl implements G
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SolverPackage.GENERATOR_TUPLE_ELEMENT__NAME:
+			case SolverPackage.GENERATOR_TUPLE_MEMBER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case SolverPackage.GENERATOR_TUPLE_ELEMENT__TUPLE:
+			case SolverPackage.GENERATOR_TUPLE_MEMBER__TUPLE:
 				return basicGetTuple() != null;
-			case SolverPackage.GENERATOR_TUPLE_ELEMENT__CODE:
+			case SolverPackage.GENERATOR_TUPLE_MEMBER__CODE:
 				return CODE_EDEFAULT == null ? getCode() != null : !CODE_EDEFAULT.equals(getCode());
-			case SolverPackage.GENERATOR_TUPLE_ELEMENT__SELECTED_SOLUTION_DISPLAY:
+			case SolverPackage.GENERATOR_TUPLE_MEMBER__SELECTED_SOLUTION_DISPLAY:
 				return SELECTED_SOLUTION_DISPLAY_EDEFAULT == null ? selectedSolutionDisplay != null : !SELECTED_SOLUTION_DISPLAY_EDEFAULT.equals(selectedSolutionDisplay);
 		}
 		return super.eIsSet(featureID);
@@ -341,7 +285,7 @@ public class GeneratorTupleElementImpl extends GeneratorElementImpl implements G
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case SolverPackage.GENERATOR_TUPLE_ELEMENT___REFRESH_SELECTED_SOLUTION:
+			case SolverPackage.GENERATOR_TUPLE_MEMBER___REFRESH_SELECTED_SOLUTION:
 				refreshSelectedSolution();
 				return null;
 		}
@@ -366,4 +310,4 @@ public class GeneratorTupleElementImpl extends GeneratorElementImpl implements G
 		return result.toString();
 	}
 
-} //GeneratorTupleElementImpl
+} //GeneratorTupleMemberImpl

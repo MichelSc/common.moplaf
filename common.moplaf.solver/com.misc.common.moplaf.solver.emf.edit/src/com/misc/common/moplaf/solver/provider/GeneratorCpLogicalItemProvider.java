@@ -144,7 +144,7 @@ public class GeneratorCpLogicalItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GeneratorCpLogical)object).getCode();
+		String label = ((GeneratorCpLogical)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GeneratorCpLogical_type") :
 			getString("_UI_GeneratorCpLogical_type") + " " + label;

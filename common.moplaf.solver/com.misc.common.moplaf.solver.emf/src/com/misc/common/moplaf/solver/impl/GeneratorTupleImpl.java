@@ -5,7 +5,7 @@ package com.misc.common.moplaf.solver.impl;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorCons;
 import com.misc.common.moplaf.solver.GeneratorTuple;
-import com.misc.common.moplaf.solver.GeneratorTupleElement;
+import com.misc.common.moplaf.solver.GeneratorTupleMember;
 import com.misc.common.moplaf.solver.GeneratorVar;
 import com.misc.common.moplaf.solver.ITupleVisitor;
 import com.misc.common.moplaf.solver.SolverPackage;
@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.util.EObjectEList;
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleImpl#getVar <em>Var</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleImpl#getCons <em>Cons</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleImpl#getCode <em>Code</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleImpl#getMembers <em>Members</em>}</li>
  * </ul>
  *
  * @generated
@@ -193,7 +194,6 @@ public abstract class GeneratorTupleImpl extends GeneratorElementImpl implements
 				GeneratorCons cons = (GeneratorCons)element;
 				newList.add(cons);
 			}
-			
 		}
 		return newList;
 	}
@@ -217,6 +217,21 @@ public abstract class GeneratorTupleImpl extends GeneratorElementImpl implements
 		code = newCode;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_TUPLE__CODE, oldCode, code));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EList<GeneratorTupleMember> getMembers() {
+		EList<GeneratorTupleMember> newList = new EObjectEList<GeneratorTupleMember>(GeneratorTupleMember.class, this, SolverPackage.GENERATOR_TUPLE__MEMBERS);
+		for ( EObject element : this.eContents()){
+			if ( element instanceof GeneratorTupleMember){
+				GeneratorTupleMember cons = (GeneratorTupleMember)element;
+				newList.add(cons);
+			}
+		}
+		return newList;
 	}
 
 	/**
@@ -275,8 +290,8 @@ public abstract class GeneratorTupleImpl extends GeneratorElementImpl implements
 	 */
 	public void refreshSelectedSolution() {
 		for ( EObject object : this.eContents()){
-			if ( object instanceof GeneratorTupleElement){
-				GeneratorTupleElement element = (GeneratorTupleElement)object;
+			if ( object instanceof GeneratorTupleMember){
+				GeneratorTupleMember element = (GeneratorTupleMember)object;
 				element.refreshSelectedSolution();
 			}
 		}
@@ -304,6 +319,8 @@ public abstract class GeneratorTupleImpl extends GeneratorElementImpl implements
 				return getCons();
 			case SolverPackage.GENERATOR_TUPLE__CODE:
 				return getCode();
+			case SolverPackage.GENERATOR_TUPLE__MEMBERS:
+				return getMembers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -358,6 +375,8 @@ public abstract class GeneratorTupleImpl extends GeneratorElementImpl implements
 				return !getCons().isEmpty();
 			case SolverPackage.GENERATOR_TUPLE__CODE:
 				return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
+			case SolverPackage.GENERATOR_TUPLE__MEMBERS:
+				return !getMembers().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

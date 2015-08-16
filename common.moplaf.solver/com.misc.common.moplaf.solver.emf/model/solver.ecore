@@ -100,18 +100,22 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Cons" upperBound="-1" eType="#//GeneratorCons"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Members" upperBound="-1"
+        eType="#//GeneratorTupleMember" changeable="false" volatile="true" transient="true"
+        derived="true" eOpposite="#//GeneratorTupleMember/Tuple"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GeneratorTupleElement" eSuperTypes="#//GeneratorElement">
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorTupleMember" abstract="true"
+      eSuperTypes="#//GeneratorElement">
     <eOperations name="refreshSelectedSolution"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Tuple" eType="#//GeneratorTuple"
-        changeable="false" volatile="true" transient="true" derived="true"/>
+        changeable="false" volatile="true" transient="true" derived="true" eOpposite="#//GeneratorTuple/Members"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         volatile="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SelectedSolutionDisplay"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GeneratorVar" abstract="true" eSuperTypes="#//GeneratorTupleElement">
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorVar" abstract="true" eSuperTypes="#//GeneratorTupleMember">
     <eOperations name="getSolutionVar" eType="#//SolutionVar">
       <eParameters name="solutionprovider" eType="#//Solution"/>
     </eOperations>
@@ -142,7 +146,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="LpTerm" upperBound="-1"
         eType="#//GeneratorLpTerm" eOpposite="#//GeneratorLpTerm/LpVar"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GeneratorCons" abstract="true" eSuperTypes="#//GeneratorTupleElement">
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorCons" abstract="true" eSuperTypes="#//GeneratorTupleMember">
     <eOperations name="generate"/>
     <eOperations name="getSolution" eType="#//SolutionCons">
       <eParameters name="solver" eType="#//Solution"/>

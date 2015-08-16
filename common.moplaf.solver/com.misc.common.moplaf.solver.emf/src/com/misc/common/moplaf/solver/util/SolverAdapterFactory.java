@@ -76,8 +76,8 @@ public class SolverAdapterFactory extends AdapterFactoryImpl {
 				return createGeneratorTupleAdapter();
 			}
 			@Override
-			public Adapter caseGeneratorTupleElement(GeneratorTupleElement object) {
-				return createGeneratorTupleElementAdapter();
+			public Adapter caseGeneratorTupleMember(GeneratorTupleMember object) {
+				return createGeneratorTupleMemberAdapter();
 			}
 			@Override
 			public Adapter caseGeneratorVar(GeneratorVar object) {
@@ -264,16 +264,16 @@ public class SolverAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.GeneratorTupleElement <em>Generator Tuple Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.GeneratorTupleMember <em>Generator Tuple Member</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.solver.GeneratorTupleElement
+	 * @see com.misc.common.moplaf.solver.GeneratorTupleMember
 	 * @generated
 	 */
-	public Adapter createGeneratorTupleElementAdapter() {
+	public Adapter createGeneratorTupleMemberAdapter() {
 		return null;
 	}
 

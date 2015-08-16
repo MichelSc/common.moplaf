@@ -28,6 +28,7 @@ import junit.framework.TestCase;
  *   <li>{@link com.misc.common.moplaf.solver.Generator#acceptSolution(com.misc.common.moplaf.solver.Solution) <em>Accept Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#selectFeatureMode(com.misc.common.moplaf.solver.GeneratorFeatureMode, com.misc.common.moplaf.solver.GeneratorTuple) <em>Select Feature Mode</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#visitTuples(com.misc.common.moplaf.solver.ITupleVisitor) <em>Visit Tuples</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.Generator#refreshSelectedSolution() <em>Refresh Selected Solution</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -197,6 +198,19 @@ public abstract class GeneratorTest extends TestCase {
 	 * @generated
 	 */
 	public void testVisitTuples__ITupleVisitor() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link com.misc.common.moplaf.solver.Generator#refreshSelectedSolution() <em>Refresh Selected Solution</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.solver.Generator#refreshSelectedSolution()
+	 * @generated
+	 */
+	public void testRefreshSelectedSolution() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

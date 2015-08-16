@@ -72,29 +72,6 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.GeneratorTupleElement} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected GeneratorTupleElementItemProvider generatorTupleElementItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.GeneratorTupleElement}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createGeneratorTupleElementAdapter() {
-		if (generatorTupleElementItemProvider == null) {
-			generatorTupleElementItemProvider = new GeneratorTupleElementItemProvider(this);
-		}
-
-		return generatorTupleElementItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.GeneratorElement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -745,7 +722,6 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 	 * @generated
 	 */
 	public void dispose() {
-		if (generatorTupleElementItemProvider != null) generatorTupleElementItemProvider.dispose();
 		if (generatorLpVarItemProvider != null) generatorLpVarItemProvider.dispose();
 		if (generatorLpConsItemProvider != null) generatorLpConsItemProvider.dispose();
 		if (generatorLpTermItemProvider != null) generatorLpTermItemProvider.dispose();

@@ -89,7 +89,7 @@ public class GeneratorCpVarItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GeneratorCpVar)object).getCode();
+		String label = ((GeneratorCpVar)object).getSelectedSolutionDisplay();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GeneratorCpVar_type") :
 			getString("_UI_GeneratorCpVar_type") + " " + label;

@@ -31,7 +31,6 @@ public class SolverTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new SolverTests("solver Tests");
-		suite.addTestSuite(GeneratorTupleElementTest.class);
 		suite.addTestSuite(GeneratorLpVarTest.class);
 		suite.addTestSuite(GeneratorLpConsTest.class);
 		suite.addTestSuite(GeneratorFeatureModeTest.class);

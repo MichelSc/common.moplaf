@@ -305,16 +305,6 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_TUPLE = 1;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorTupleElementImpl <em>Generator Tuple Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.solver.impl.GeneratorTupleElementImpl
-	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorTupleElement()
-	 * @generated
-	 */
-	int GENERATOR_TUPLE_ELEMENT = 2;
-
-	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorElementImpl <em>Generator Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -397,13 +387,22 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_TUPLE__CODE = GENERATOR_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Members</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_TUPLE__MEMBERS = GENERATOR_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Generator Tuple</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_TUPLE_FEATURE_COUNT = GENERATOR_ELEMENT_FEATURE_COUNT + 6;
+	int GENERATOR_TUPLE_FEATURE_COUNT = GENERATOR_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Generate Vars</em>' operation.
@@ -469,13 +468,23 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_TUPLE_OPERATION_COUNT = GENERATOR_ELEMENT_OPERATION_COUNT + 6;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorTupleMemberImpl <em>Generator Tuple Member</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.solver.impl.GeneratorTupleMemberImpl
+	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorTupleMember()
+	 * @generated
+	 */
+	int GENERATOR_TUPLE_MEMBER = 2;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_TUPLE_ELEMENT__NAME = GENERATOR_ELEMENT_FEATURE_COUNT + 0;
+	int GENERATOR_TUPLE_MEMBER__NAME = GENERATOR_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Tuple</b></em>' reference.
@@ -484,7 +493,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_TUPLE_ELEMENT__TUPLE = GENERATOR_ELEMENT_FEATURE_COUNT + 1;
+	int GENERATOR_TUPLE_MEMBER__TUPLE = GENERATOR_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -493,7 +502,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_TUPLE_ELEMENT__CODE = GENERATOR_ELEMENT_FEATURE_COUNT + 2;
+	int GENERATOR_TUPLE_MEMBER__CODE = GENERATOR_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Selected Solution Display</b></em>' attribute.
@@ -502,16 +511,16 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_TUPLE_ELEMENT__SELECTED_SOLUTION_DISPLAY = GENERATOR_ELEMENT_FEATURE_COUNT + 3;
+	int GENERATOR_TUPLE_MEMBER__SELECTED_SOLUTION_DISPLAY = GENERATOR_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of structural features of the '<em>Generator Tuple Element</em>' class.
+	 * The number of structural features of the '<em>Generator Tuple Member</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_TUPLE_ELEMENT_FEATURE_COUNT = GENERATOR_ELEMENT_FEATURE_COUNT + 4;
+	int GENERATOR_TUPLE_MEMBER_FEATURE_COUNT = GENERATOR_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
@@ -520,16 +529,16 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_TUPLE_ELEMENT___REFRESH_SELECTED_SOLUTION = GENERATOR_ELEMENT_OPERATION_COUNT + 0;
+	int GENERATOR_TUPLE_MEMBER___REFRESH_SELECTED_SOLUTION = GENERATOR_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Generator Tuple Element</em>' class.
+	 * The number of operations of the '<em>Generator Tuple Member</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_TUPLE_ELEMENT_OPERATION_COUNT = GENERATOR_ELEMENT_OPERATION_COUNT + 1;
+	int GENERATOR_TUPLE_MEMBER_OPERATION_COUNT = GENERATOR_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorVarImpl <em>Generator Var</em>}' class.
@@ -548,7 +557,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_VAR__NAME = GENERATOR_TUPLE_ELEMENT__NAME;
+	int GENERATOR_VAR__NAME = GENERATOR_TUPLE_MEMBER__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Tuple</b></em>' reference.
@@ -557,7 +566,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_VAR__TUPLE = GENERATOR_TUPLE_ELEMENT__TUPLE;
+	int GENERATOR_VAR__TUPLE = GENERATOR_TUPLE_MEMBER__TUPLE;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -566,7 +575,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_VAR__CODE = GENERATOR_TUPLE_ELEMENT__CODE;
+	int GENERATOR_VAR__CODE = GENERATOR_TUPLE_MEMBER__CODE;
 
 	/**
 	 * The feature id for the '<em><b>Selected Solution Display</b></em>' attribute.
@@ -575,7 +584,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_VAR__SELECTED_SOLUTION_DISPLAY = GENERATOR_TUPLE_ELEMENT__SELECTED_SOLUTION_DISPLAY;
+	int GENERATOR_VAR__SELECTED_SOLUTION_DISPLAY = GENERATOR_TUPLE_MEMBER__SELECTED_SOLUTION_DISPLAY;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' reference list.
@@ -584,7 +593,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_VAR__SOLUTION = GENERATOR_TUPLE_ELEMENT_FEATURE_COUNT + 0;
+	int GENERATOR_VAR__SOLUTION = GENERATOR_TUPLE_MEMBER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Selected Solution Value</b></em>' attribute.
@@ -593,7 +602,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_VAR__SELECTED_SOLUTION_VALUE = GENERATOR_TUPLE_ELEMENT_FEATURE_COUNT + 1;
+	int GENERATOR_VAR__SELECTED_SOLUTION_VALUE = GENERATOR_TUPLE_MEMBER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Generator Var</em>' class.
@@ -602,7 +611,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_VAR_FEATURE_COUNT = GENERATOR_TUPLE_ELEMENT_FEATURE_COUNT + 2;
+	int GENERATOR_VAR_FEATURE_COUNT = GENERATOR_TUPLE_MEMBER_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
@@ -611,7 +620,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_VAR___REFRESH_SELECTED_SOLUTION = GENERATOR_TUPLE_ELEMENT___REFRESH_SELECTED_SOLUTION;
+	int GENERATOR_VAR___REFRESH_SELECTED_SOLUTION = GENERATOR_TUPLE_MEMBER___REFRESH_SELECTED_SOLUTION;
 
 	/**
 	 * The operation id for the '<em>Get Solution Var</em>' operation.
@@ -620,7 +629,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_VAR___GET_SOLUTION_VAR__SOLUTION = GENERATOR_TUPLE_ELEMENT_OPERATION_COUNT + 0;
+	int GENERATOR_VAR___GET_SOLUTION_VAR__SOLUTION = GENERATOR_TUPLE_MEMBER_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Is Solution One</em>' operation.
@@ -629,7 +638,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_VAR___IS_SOLUTION_ONE__SOLUTION = GENERATOR_TUPLE_ELEMENT_OPERATION_COUNT + 1;
+	int GENERATOR_VAR___IS_SOLUTION_ONE__SOLUTION = GENERATOR_TUPLE_MEMBER_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Is Solution Zero</em>' operation.
@@ -638,7 +647,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_VAR___IS_SOLUTION_ZERO__SOLUTION = GENERATOR_TUPLE_ELEMENT_OPERATION_COUNT + 2;
+	int GENERATOR_VAR___IS_SOLUTION_ZERO__SOLUTION = GENERATOR_TUPLE_MEMBER_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Solution Value</em>' operation.
@@ -647,7 +656,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_VAR___GET_SOLUTION_VALUE__SOLUTION = GENERATOR_TUPLE_ELEMENT_OPERATION_COUNT + 3;
+	int GENERATOR_VAR___GET_SOLUTION_VALUE__SOLUTION = GENERATOR_TUPLE_MEMBER_OPERATION_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Generator Var</em>' class.
@@ -656,7 +665,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_VAR_OPERATION_COUNT = GENERATOR_TUPLE_ELEMENT_OPERATION_COUNT + 4;
+	int GENERATOR_VAR_OPERATION_COUNT = GENERATOR_TUPLE_MEMBER_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpVarImpl <em>Generator Lp Var</em>}' class.
@@ -847,7 +856,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_CONS__NAME = GENERATOR_TUPLE_ELEMENT__NAME;
+	int GENERATOR_CONS__NAME = GENERATOR_TUPLE_MEMBER__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Tuple</b></em>' reference.
@@ -856,7 +865,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_CONS__TUPLE = GENERATOR_TUPLE_ELEMENT__TUPLE;
+	int GENERATOR_CONS__TUPLE = GENERATOR_TUPLE_MEMBER__TUPLE;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -865,7 +874,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_CONS__CODE = GENERATOR_TUPLE_ELEMENT__CODE;
+	int GENERATOR_CONS__CODE = GENERATOR_TUPLE_MEMBER__CODE;
 
 	/**
 	 * The feature id for the '<em><b>Selected Solution Display</b></em>' attribute.
@@ -874,7 +883,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_CONS__SELECTED_SOLUTION_DISPLAY = GENERATOR_TUPLE_ELEMENT__SELECTED_SOLUTION_DISPLAY;
+	int GENERATOR_CONS__SELECTED_SOLUTION_DISPLAY = GENERATOR_TUPLE_MEMBER__SELECTED_SOLUTION_DISPLAY;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' reference list.
@@ -883,7 +892,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_CONS__SOLUTION = GENERATOR_TUPLE_ELEMENT_FEATURE_COUNT + 0;
+	int GENERATOR_CONS__SOLUTION = GENERATOR_TUPLE_MEMBER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Generator Cons</em>' class.
@@ -892,7 +901,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_CONS_FEATURE_COUNT = GENERATOR_TUPLE_ELEMENT_FEATURE_COUNT + 1;
+	int GENERATOR_CONS_FEATURE_COUNT = GENERATOR_TUPLE_MEMBER_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
@@ -901,7 +910,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_CONS___REFRESH_SELECTED_SOLUTION = GENERATOR_TUPLE_ELEMENT___REFRESH_SELECTED_SOLUTION;
+	int GENERATOR_CONS___REFRESH_SELECTED_SOLUTION = GENERATOR_TUPLE_MEMBER___REFRESH_SELECTED_SOLUTION;
 
 	/**
 	 * The operation id for the '<em>Generate</em>' operation.
@@ -910,7 +919,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_CONS___GENERATE = GENERATOR_TUPLE_ELEMENT_OPERATION_COUNT + 0;
+	int GENERATOR_CONS___GENERATE = GENERATOR_TUPLE_MEMBER_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Solution</em>' operation.
@@ -919,7 +928,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_CONS___GET_SOLUTION__SOLUTION = GENERATOR_TUPLE_ELEMENT_OPERATION_COUNT + 1;
+	int GENERATOR_CONS___GET_SOLUTION__SOLUTION = GENERATOR_TUPLE_MEMBER_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Generator Cons</em>' class.
@@ -928,7 +937,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_CONS_OPERATION_COUNT = GENERATOR_TUPLE_ELEMENT_OPERATION_COUNT + 2;
+	int GENERATOR_CONS_OPERATION_COUNT = GENERATOR_TUPLE_MEMBER_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpConsImpl <em>Generator Lp Cons</em>}' class.
@@ -4658,6 +4667,17 @@ public interface SolverPackage extends EPackage {
 	EAttribute getGeneratorTuple_Code();
 
 	/**
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.solver.GeneratorTuple#getMembers <em>Members</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Members</em>'.
+	 * @see com.misc.common.moplaf.solver.GeneratorTuple#getMembers()
+	 * @see #getGeneratorTuple()
+	 * @generated
+	 */
+	EReference getGeneratorTuple_Members();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorTuple#generateVars() <em>Generate Vars</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4718,68 +4738,68 @@ public interface SolverPackage extends EPackage {
 	EOperation getGeneratorTuple__RefreshSelectedSolution();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorTupleElement <em>Generator Tuple Element</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorTupleMember <em>Generator Tuple Member</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Generator Tuple Element</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorTupleElement
+	 * @return the meta object for class '<em>Generator Tuple Member</em>'.
+	 * @see com.misc.common.moplaf.solver.GeneratorTupleMember
 	 * @generated
 	 */
-	EClass getGeneratorTupleElement();
+	EClass getGeneratorTupleMember();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorTupleElement#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorTupleMember#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorTupleElement#getName()
-	 * @see #getGeneratorTupleElement()
+	 * @see com.misc.common.moplaf.solver.GeneratorTupleMember#getName()
+	 * @see #getGeneratorTupleMember()
 	 * @generated
 	 */
-	EAttribute getGeneratorTupleElement_Name();
+	EAttribute getGeneratorTupleMember_Name();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.solver.GeneratorTupleElement#getTuple <em>Tuple</em>}'.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.solver.GeneratorTupleMember#getTuple <em>Tuple</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Tuple</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorTupleElement#getTuple()
-	 * @see #getGeneratorTupleElement()
+	 * @see com.misc.common.moplaf.solver.GeneratorTupleMember#getTuple()
+	 * @see #getGeneratorTupleMember()
 	 * @generated
 	 */
-	EReference getGeneratorTupleElement_Tuple();
+	EReference getGeneratorTupleMember_Tuple();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorTupleElement#getCode <em>Code</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorTupleMember#getCode <em>Code</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Code</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorTupleElement#getCode()
-	 * @see #getGeneratorTupleElement()
+	 * @see com.misc.common.moplaf.solver.GeneratorTupleMember#getCode()
+	 * @see #getGeneratorTupleMember()
 	 * @generated
 	 */
-	EAttribute getGeneratorTupleElement_Code();
+	EAttribute getGeneratorTupleMember_Code();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorTupleElement#getSelectedSolutionDisplay <em>Selected Solution Display</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorTupleMember#getSelectedSolutionDisplay <em>Selected Solution Display</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Selected Solution Display</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorTupleElement#getSelectedSolutionDisplay()
-	 * @see #getGeneratorTupleElement()
+	 * @see com.misc.common.moplaf.solver.GeneratorTupleMember#getSelectedSolutionDisplay()
+	 * @see #getGeneratorTupleMember()
 	 * @generated
 	 */
-	EAttribute getGeneratorTupleElement_SelectedSolutionDisplay();
+	EAttribute getGeneratorTupleMember_SelectedSolutionDisplay();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorTupleElement#refreshSelectedSolution() <em>Refresh Selected Solution</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorTupleMember#refreshSelectedSolution() <em>Refresh Selected Solution</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Refresh Selected Solution</em>' operation.
-	 * @see com.misc.common.moplaf.solver.GeneratorTupleElement#refreshSelectedSolution()
+	 * @see com.misc.common.moplaf.solver.GeneratorTupleMember#refreshSelectedSolution()
 	 * @generated
 	 */
-	EOperation getGeneratorTupleElement__RefreshSelectedSolution();
+	EOperation getGeneratorTupleMember__RefreshSelectedSolution();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorElement <em>Generator Element</em>}'.
@@ -6753,6 +6773,14 @@ public interface SolverPackage extends EPackage {
 		EAttribute GENERATOR_TUPLE__CODE = eINSTANCE.getGeneratorTuple_Code();
 
 		/**
+		 * The meta object literal for the '<em><b>Members</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GENERATOR_TUPLE__MEMBERS = eINSTANCE.getGeneratorTuple_Members();
+
+		/**
 		 * The meta object literal for the '<em><b>Generate Vars</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6801,14 +6829,14 @@ public interface SolverPackage extends EPackage {
 		EOperation GENERATOR_TUPLE___REFRESH_SELECTED_SOLUTION = eINSTANCE.getGeneratorTuple__RefreshSelectedSolution();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorTupleElementImpl <em>Generator Tuple Element</em>}' class.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorTupleMemberImpl <em>Generator Tuple Member</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.solver.impl.GeneratorTupleElementImpl
-		 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorTupleElement()
+		 * @see com.misc.common.moplaf.solver.impl.GeneratorTupleMemberImpl
+		 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorTupleMember()
 		 * @generated
 		 */
-		EClass GENERATOR_TUPLE_ELEMENT = eINSTANCE.getGeneratorTupleElement();
+		EClass GENERATOR_TUPLE_MEMBER = eINSTANCE.getGeneratorTupleMember();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -6816,7 +6844,7 @@ public interface SolverPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GENERATOR_TUPLE_ELEMENT__NAME = eINSTANCE.getGeneratorTupleElement_Name();
+		EAttribute GENERATOR_TUPLE_MEMBER__NAME = eINSTANCE.getGeneratorTupleMember_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Tuple</b></em>' reference feature.
@@ -6824,7 +6852,7 @@ public interface SolverPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GENERATOR_TUPLE_ELEMENT__TUPLE = eINSTANCE.getGeneratorTupleElement_Tuple();
+		EReference GENERATOR_TUPLE_MEMBER__TUPLE = eINSTANCE.getGeneratorTupleMember_Tuple();
 
 		/**
 		 * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
@@ -6832,7 +6860,7 @@ public interface SolverPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GENERATOR_TUPLE_ELEMENT__CODE = eINSTANCE.getGeneratorTupleElement_Code();
+		EAttribute GENERATOR_TUPLE_MEMBER__CODE = eINSTANCE.getGeneratorTupleMember_Code();
 
 		/**
 		 * The meta object literal for the '<em><b>Selected Solution Display</b></em>' attribute feature.
@@ -6840,7 +6868,7 @@ public interface SolverPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GENERATOR_TUPLE_ELEMENT__SELECTED_SOLUTION_DISPLAY = eINSTANCE.getGeneratorTupleElement_SelectedSolutionDisplay();
+		EAttribute GENERATOR_TUPLE_MEMBER__SELECTED_SOLUTION_DISPLAY = eINSTANCE.getGeneratorTupleMember_SelectedSolutionDisplay();
 
 		/**
 		 * The meta object literal for the '<em><b>Refresh Selected Solution</b></em>' operation.
@@ -6848,7 +6876,7 @@ public interface SolverPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GENERATOR_TUPLE_ELEMENT___REFRESH_SELECTED_SOLUTION = eINSTANCE.getGeneratorTupleElement__RefreshSelectedSolution();
+		EOperation GENERATOR_TUPLE_MEMBER___REFRESH_SELECTED_SOLUTION = eINSTANCE.getGeneratorTupleMember__RefreshSelectedSolution();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorElementImpl <em>Generator Element</em>}' class.

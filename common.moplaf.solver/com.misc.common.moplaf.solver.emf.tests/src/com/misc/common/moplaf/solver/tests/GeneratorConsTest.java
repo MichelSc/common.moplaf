@@ -17,7 +17,7 @@ import com.misc.common.moplaf.solver.GeneratorCons;
  * </p>
  * @generated
  */
-public abstract class GeneratorConsTest extends GeneratorTupleElementTest {
+public abstract class GeneratorConsTest extends GeneratorTupleMemberTest {
 
 	/**
 	 * Constructs a new Generator Cons test case with the given name.

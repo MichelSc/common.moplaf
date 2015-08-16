@@ -20,7 +20,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class GeneratorConsItemProvider
-	extends GeneratorTupleElementItemProvider {
+	extends GeneratorTupleMemberItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -94,7 +94,7 @@ public class GeneratorConsItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GeneratorCons)object).getCode();
+		String label = ((GeneratorCons)object).getSelectedSolutionDisplay();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GeneratorCons_type") :
 			getString("_UI_GeneratorCons_type") + " " + label;

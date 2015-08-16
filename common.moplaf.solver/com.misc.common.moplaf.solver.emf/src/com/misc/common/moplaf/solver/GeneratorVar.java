@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface GeneratorVar extends GeneratorTupleElement {
+public interface GeneratorVar extends GeneratorTupleMember {
 	/**
 	 * Returns the value of the '<em><b>Solution</b></em>' reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.solver.SolutionVar}.

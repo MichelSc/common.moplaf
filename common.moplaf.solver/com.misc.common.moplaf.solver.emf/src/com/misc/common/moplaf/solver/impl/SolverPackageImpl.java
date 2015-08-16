@@ -29,7 +29,7 @@ import com.misc.common.moplaf.solver.GeneratorLpVar;
 import com.misc.common.moplaf.solver.GeneratorLpVarCount;
 import com.misc.common.moplaf.solver.GeneratorLpVarCountElement;
 import com.misc.common.moplaf.solver.GeneratorTuple;
-import com.misc.common.moplaf.solver.GeneratorTupleElement;
+import com.misc.common.moplaf.solver.GeneratorTupleMember;
 import com.misc.common.moplaf.solver.GeneratorVar;
 import com.misc.common.moplaf.solver.GeneratorVarOverflow;
 import com.misc.common.moplaf.solver.IGeneratorTool;
@@ -84,7 +84,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass generatorTupleElementEClass = null;
+	private EClass generatorTupleMemberEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -732,6 +732,15 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getGeneratorTuple_Members() {
+		return (EReference)generatorTupleEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getGeneratorTuple__GenerateVars() {
 		return generatorTupleEClass.getEOperations().get(0);
 	}
@@ -786,8 +795,8 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getGeneratorTupleElement() {
-		return generatorTupleElementEClass;
+	public EClass getGeneratorTupleMember() {
+		return generatorTupleMemberEClass;
 	}
 
 	/**
@@ -795,8 +804,8 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGeneratorTupleElement_Name() {
-		return (EAttribute)generatorTupleElementEClass.getEStructuralFeatures().get(0);
+	public EAttribute getGeneratorTupleMember_Name() {
+		return (EAttribute)generatorTupleMemberEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -804,8 +813,8 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGeneratorTupleElement_Tuple() {
-		return (EReference)generatorTupleElementEClass.getEStructuralFeatures().get(1);
+	public EReference getGeneratorTupleMember_Tuple() {
+		return (EReference)generatorTupleMemberEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -813,8 +822,8 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGeneratorTupleElement_Code() {
-		return (EAttribute)generatorTupleElementEClass.getEStructuralFeatures().get(2);
+	public EAttribute getGeneratorTupleMember_Code() {
+		return (EAttribute)generatorTupleMemberEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -822,8 +831,8 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGeneratorTupleElement_SelectedSolutionDisplay() {
-		return (EAttribute)generatorTupleElementEClass.getEStructuralFeatures().get(3);
+	public EAttribute getGeneratorTupleMember_SelectedSolutionDisplay() {
+		return (EAttribute)generatorTupleMemberEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -831,8 +840,8 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getGeneratorTupleElement__RefreshSelectedSolution() {
-		return generatorTupleElementEClass.getEOperations().get(0);
+	public EOperation getGeneratorTupleMember__RefreshSelectedSolution() {
+		return generatorTupleMemberEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -2335,6 +2344,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		createEReference(generatorTupleEClass, GENERATOR_TUPLE__VAR);
 		createEReference(generatorTupleEClass, GENERATOR_TUPLE__CONS);
 		createEAttribute(generatorTupleEClass, GENERATOR_TUPLE__CODE);
+		createEReference(generatorTupleEClass, GENERATOR_TUPLE__MEMBERS);
 		createEOperation(generatorTupleEClass, GENERATOR_TUPLE___GENERATE_VARS);
 		createEOperation(generatorTupleEClass, GENERATOR_TUPLE___GENERATE_CONS);
 		createEOperation(generatorTupleEClass, GENERATOR_TUPLE___GENERATE_TUPLES);
@@ -2342,12 +2352,12 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		createEOperation(generatorTupleEClass, GENERATOR_TUPLE___VISIT_TUPLES__ITUPLEVISITOR);
 		createEOperation(generatorTupleEClass, GENERATOR_TUPLE___REFRESH_SELECTED_SOLUTION);
 
-		generatorTupleElementEClass = createEClass(GENERATOR_TUPLE_ELEMENT);
-		createEAttribute(generatorTupleElementEClass, GENERATOR_TUPLE_ELEMENT__NAME);
-		createEReference(generatorTupleElementEClass, GENERATOR_TUPLE_ELEMENT__TUPLE);
-		createEAttribute(generatorTupleElementEClass, GENERATOR_TUPLE_ELEMENT__CODE);
-		createEAttribute(generatorTupleElementEClass, GENERATOR_TUPLE_ELEMENT__SELECTED_SOLUTION_DISPLAY);
-		createEOperation(generatorTupleElementEClass, GENERATOR_TUPLE_ELEMENT___REFRESH_SELECTED_SOLUTION);
+		generatorTupleMemberEClass = createEClass(GENERATOR_TUPLE_MEMBER);
+		createEAttribute(generatorTupleMemberEClass, GENERATOR_TUPLE_MEMBER__NAME);
+		createEReference(generatorTupleMemberEClass, GENERATOR_TUPLE_MEMBER__TUPLE);
+		createEAttribute(generatorTupleMemberEClass, GENERATOR_TUPLE_MEMBER__CODE);
+		createEAttribute(generatorTupleMemberEClass, GENERATOR_TUPLE_MEMBER__SELECTED_SOLUTION_DISPLAY);
+		createEOperation(generatorTupleMemberEClass, GENERATOR_TUPLE_MEMBER___REFRESH_SELECTED_SOLUTION);
 
 		generatorVarEClass = createEClass(GENERATOR_VAR);
 		createEReference(generatorVarEClass, GENERATOR_VAR__SOLUTION);
@@ -2577,10 +2587,10 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 
 		// Add supertypes to classes
 		generatorTupleEClass.getESuperTypes().add(this.getGeneratorElement());
-		generatorTupleElementEClass.getESuperTypes().add(this.getGeneratorElement());
-		generatorVarEClass.getESuperTypes().add(this.getGeneratorTupleElement());
+		generatorTupleMemberEClass.getESuperTypes().add(this.getGeneratorElement());
+		generatorVarEClass.getESuperTypes().add(this.getGeneratorTupleMember());
 		generatorLpVarEClass.getESuperTypes().add(this.getGeneratorVar());
-		generatorConsEClass.getESuperTypes().add(this.getGeneratorTupleElement());
+		generatorConsEClass.getESuperTypes().add(this.getGeneratorTupleMember());
 		generatorLpConsEClass.getESuperTypes().add(this.getGeneratorCons());
 		generatorConstraintEnablerEClass.getESuperTypes().add(this.getGeneratorFeatureMode());
 		generatorVarOverflowEClass.getESuperTypes().add(this.getGeneratorFeatureMode());
@@ -2647,6 +2657,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		initEReference(getGeneratorTuple_Var(), this.getGeneratorVar(), null, "Var", null, 0, -1, GeneratorTuple.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getGeneratorTuple_Cons(), this.getGeneratorCons(), null, "Cons", null, 0, -1, GeneratorTuple.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGeneratorTuple_Code(), ecorePackage.getEString(), "Code", null, 0, 1, GeneratorTuple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGeneratorTuple_Members(), this.getGeneratorTupleMember(), this.getGeneratorTupleMember_Tuple(), "Members", null, 0, -1, GeneratorTuple.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getGeneratorTuple__GenerateVars(), null, "generateVars", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -2662,13 +2673,13 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 
 		initEOperation(getGeneratorTuple__RefreshSelectedSolution(), null, "refreshSelectedSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(generatorTupleElementEClass, GeneratorTupleElement.class, "GeneratorTupleElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getGeneratorTupleElement_Name(), ecorePackage.getEString(), "Name", null, 0, 1, GeneratorTupleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGeneratorTupleElement_Tuple(), this.getGeneratorTuple(), null, "Tuple", null, 0, 1, GeneratorTupleElement.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGeneratorTupleElement_Code(), ecorePackage.getEString(), "Code", null, 0, 1, GeneratorTupleElement.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGeneratorTupleElement_SelectedSolutionDisplay(), ecorePackage.getEString(), "SelectedSolutionDisplay", null, 0, 1, GeneratorTupleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(generatorTupleMemberEClass, GeneratorTupleMember.class, "GeneratorTupleMember", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGeneratorTupleMember_Name(), ecorePackage.getEString(), "Name", null, 0, 1, GeneratorTupleMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGeneratorTupleMember_Tuple(), this.getGeneratorTuple(), this.getGeneratorTuple_Members(), "Tuple", null, 0, 1, GeneratorTupleMember.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGeneratorTupleMember_Code(), ecorePackage.getEString(), "Code", null, 0, 1, GeneratorTupleMember.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGeneratorTupleMember_SelectedSolutionDisplay(), ecorePackage.getEString(), "SelectedSolutionDisplay", null, 0, 1, GeneratorTupleMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getGeneratorTupleElement__RefreshSelectedSolution(), null, "refreshSelectedSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getGeneratorTupleMember__RefreshSelectedSolution(), null, "refreshSelectedSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(generatorVarEClass, GeneratorVar.class, "GeneratorVar", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGeneratorVar_Solution(), this.getSolutionVar(), this.getSolutionVar_Var(), "Solution", null, 0, -1, GeneratorVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

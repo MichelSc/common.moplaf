@@ -3,7 +3,6 @@
 package com.misc.common.moplaf.solver.impl;
 
 import com.misc.common.moplaf.solver.GeneratorCons;
-import com.misc.common.moplaf.solver.GeneratorTuple;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionCons;
 import com.misc.common.moplaf.solver.SolverPackage;
@@ -29,7 +28,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public abstract class GeneratorConsImpl extends GeneratorTupleElementImpl implements GeneratorCons {
+public abstract class GeneratorConsImpl extends GeneratorTupleMemberImpl implements GeneratorCons {
 	/**
 	 * The cached value of the '{@link #getSolution() <em>Solution</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -183,26 +182,6 @@ public abstract class GeneratorConsImpl extends GeneratorTupleElementImpl implem
 		return super.eIsSet(featureID);
 	}
 	
-	
-
-	/* (non-Javadoc)
-	 * @see com.misc.common.moplaf.solver.impl.GeneratorTupleElementImpl#onSetTuple(com.misc.common.moplaf.solver.GeneratorTuple)
-	 */
-	@Override
-	public void onSetTuple(GeneratorTuple newTuple) {
-		super.onSetTuple(newTuple);
-		newTuple.getCons().add(this);
-	}
-
-	/* (non-Javadoc)
-	 * @see com.misc.common.moplaf.solver.impl.GeneratorTupleElementImpl#onResetTuple(com.misc.common.moplaf.solver.GeneratorTuple)
-	 */
-	@Override
-	public void onResetTuple(GeneratorTuple oldTuple) {
-		super.onResetTuple(oldTuple);
-		super.onSetTuple(oldTuple);
-		oldTuple.getCons().remove(this);
-	}
 
 	/**
 	 * <!-- begin-user-doc -->

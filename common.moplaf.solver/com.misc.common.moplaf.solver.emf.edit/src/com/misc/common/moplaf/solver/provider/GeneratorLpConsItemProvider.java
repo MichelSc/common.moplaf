@@ -140,7 +140,7 @@ public class GeneratorLpConsItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GeneratorLpCons)object).getCode();
+		String label = ((GeneratorLpCons)object).getSelectedSolutionDisplay();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GeneratorLpCons_type") :
 			getString("_UI_GeneratorLpCons_type") + " " + label;
