@@ -43,16 +43,6 @@ public class SolutionLpVarItemProvider
 		return itemPropertyDescriptors;
 	}
 
-	/**
-	 * This returns SolutionLpVar.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SolutionLpVar"));
-	}
 
 	/**
 	 * This returns the label text for the adapted class.

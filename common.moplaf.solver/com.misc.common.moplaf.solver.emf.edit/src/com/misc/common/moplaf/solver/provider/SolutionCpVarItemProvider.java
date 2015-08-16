@@ -43,16 +43,6 @@ public class SolutionCpVarItemProvider
 		return itemPropertyDescriptors;
 	}
 
-	/**
-	 * This returns SolutionCpVar.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SolutionCpVar"));
-	}
 
 	/**
 	 * This returns the label text for the adapted class.

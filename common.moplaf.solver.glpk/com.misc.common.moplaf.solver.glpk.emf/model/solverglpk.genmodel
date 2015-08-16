@@ -8,7 +8,7 @@
   <foreignModel>solverglpk.ecore</foreignModel>
   <genPackages prefix="Solverglpk" basePackage="com.misc.common.moplaf.solver" disposableProviderFactory="true"
       ecorePackage="solverglpk.ecore#/">
-    <genClasses ecoreClass="solverglpk.ecore#//SolverGLPK" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/SolutionProvider/Code">
+    <genClasses image="false" ecoreClass="solverglpk.ecore#//SolverGLPK" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/SolutionProvider/Code">
       <genFeatures createChild="false" propertyCategory="21 Solver GLPK" ecoreFeature="ecore:EAttribute solverglpk.ecore#//SolverGLPK/EnableFeasibilityPump"/>
       <genFeatures createChild="false" propertyCategory="21 Solver GLPK" ecoreFeature="ecore:EAttribute solverglpk.ecore#//SolverGLPK/EnableGomoryCuts"/>
       <genFeatures createChild="false" propertyCategory="21 Solver GLPK" ecoreFeature="ecore:EAttribute solverglpk.ecore#//SolverGLPK/EnableGeneratingMixedCoverCuts"/>

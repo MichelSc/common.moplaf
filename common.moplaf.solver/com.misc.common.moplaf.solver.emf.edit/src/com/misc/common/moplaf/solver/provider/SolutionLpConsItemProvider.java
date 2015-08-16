@@ -46,11 +46,10 @@ public class SolutionLpConsItemProvider
 	 * This returns SolutionLpCons.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SolutionLpCons"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/inspiration.png"));
 	}
 
 	/**

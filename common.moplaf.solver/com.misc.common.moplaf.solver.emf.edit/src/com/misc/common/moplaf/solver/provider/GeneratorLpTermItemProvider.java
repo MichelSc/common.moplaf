@@ -169,11 +169,10 @@ public class GeneratorLpTermItemProvider
 	 * This returns GeneratorLpTerm.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/GeneratorLpTerm"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/square237.png"));
 	}
 
 	/**
