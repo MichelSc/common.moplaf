@@ -119,7 +119,7 @@ public class GeneratorVarItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GeneratorVar)object).getSelectedSolutionDisplay();
+		String label = ((GeneratorVar)object).getLabel();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GeneratorVar_type") :
 			getString("_UI_GeneratorVar_type") + " " + label;

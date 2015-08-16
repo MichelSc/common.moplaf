@@ -48,6 +48,7 @@ public class GeneratorTupleMemberItemProvider extends GeneratorElementItemProvid
 			addNamePropertyDescriptor(object);
 			addCodePropertyDescriptor(object);
 			addSelectedSolutionDisplayPropertyDescriptor(object);
+			addLabelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -119,6 +120,28 @@ public class GeneratorTupleMemberItemProvider extends GeneratorElementItemProvid
 	}
 
 	/**
+	 * This adds a property descriptor for the Label feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLabelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GeneratorTupleMember_Label_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorTupleMember_Label_feature", "_UI_GeneratorTupleMember_type"),
+				 SolverPackage.Literals.GENERATOR_TUPLE_MEMBER__LABEL,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -148,6 +171,7 @@ public class GeneratorTupleMemberItemProvider extends GeneratorElementItemProvid
 			case SolverPackage.GENERATOR_TUPLE_MEMBER__NAME:
 			case SolverPackage.GENERATOR_TUPLE_MEMBER__CODE:
 			case SolverPackage.GENERATOR_TUPLE_MEMBER__SELECTED_SOLUTION_DISPLAY:
+			case SolverPackage.GENERATOR_TUPLE_MEMBER__LABEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -840,6 +840,15 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getGeneratorTupleMember_Label() {
+		return (EAttribute)generatorTupleMemberEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getGeneratorTupleMember__RefreshSelectedSolution() {
 		return generatorTupleMemberEClass.getEOperations().get(0);
 	}
@@ -2357,6 +2366,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		createEReference(generatorTupleMemberEClass, GENERATOR_TUPLE_MEMBER__TUPLE);
 		createEAttribute(generatorTupleMemberEClass, GENERATOR_TUPLE_MEMBER__CODE);
 		createEAttribute(generatorTupleMemberEClass, GENERATOR_TUPLE_MEMBER__SELECTED_SOLUTION_DISPLAY);
+		createEAttribute(generatorTupleMemberEClass, GENERATOR_TUPLE_MEMBER__LABEL);
 		createEOperation(generatorTupleMemberEClass, GENERATOR_TUPLE_MEMBER___REFRESH_SELECTED_SOLUTION);
 
 		generatorVarEClass = createEClass(GENERATOR_VAR);
@@ -2678,6 +2688,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		initEReference(getGeneratorTupleMember_Tuple(), this.getGeneratorTuple(), this.getGeneratorTuple_Members(), "Tuple", null, 0, 1, GeneratorTupleMember.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGeneratorTupleMember_Code(), ecorePackage.getEString(), "Code", null, 0, 1, GeneratorTupleMember.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGeneratorTupleMember_SelectedSolutionDisplay(), ecorePackage.getEString(), "SelectedSolutionDisplay", null, 0, 1, GeneratorTupleMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGeneratorTupleMember_Label(), ecorePackage.getEString(), "Label", null, 0, 1, GeneratorTupleMember.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getGeneratorTupleMember__RefreshSelectedSolution(), null, "refreshSelectedSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
 

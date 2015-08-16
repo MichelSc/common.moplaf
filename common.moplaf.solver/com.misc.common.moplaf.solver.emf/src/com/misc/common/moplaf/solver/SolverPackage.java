@@ -514,13 +514,22 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_TUPLE_MEMBER__SELECTED_SOLUTION_DISPLAY = GENERATOR_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_TUPLE_MEMBER__LABEL = GENERATOR_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Generator Tuple Member</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_TUPLE_MEMBER_FEATURE_COUNT = GENERATOR_ELEMENT_FEATURE_COUNT + 4;
+	int GENERATOR_TUPLE_MEMBER_FEATURE_COUNT = GENERATOR_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
@@ -585,6 +594,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_VAR__SELECTED_SOLUTION_DISPLAY = GENERATOR_TUPLE_MEMBER__SELECTED_SOLUTION_DISPLAY;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_VAR__LABEL = GENERATOR_TUPLE_MEMBER__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' reference list.
@@ -712,6 +730,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_LP_VAR__SELECTED_SOLUTION_DISPLAY = GENERATOR_VAR__SELECTED_SOLUTION_DISPLAY;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_VAR__LABEL = GENERATOR_VAR__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' reference list.
@@ -886,6 +913,15 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_CONS__SELECTED_SOLUTION_DISPLAY = GENERATOR_TUPLE_MEMBER__SELECTED_SOLUTION_DISPLAY;
 
 	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CONS__LABEL = GENERATOR_TUPLE_MEMBER__LABEL;
+
+	/**
 	 * The feature id for the '<em><b>Solution</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -984,6 +1020,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_LP_CONS__SELECTED_SOLUTION_DISPLAY = GENERATOR_CONS__SELECTED_SOLUTION_DISPLAY;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_CONS__LABEL = GENERATOR_CONS__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' reference list.
@@ -3211,6 +3256,15 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_CP_CONS__SELECTED_SOLUTION_DISPLAY = GENERATOR_CONS__SELECTED_SOLUTION_DISPLAY;
 
 	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CP_CONS__LABEL = GENERATOR_CONS__LABEL;
+
+	/**
 	 * The feature id for the '<em><b>Solution</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3308,6 +3362,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_CP_LINEAR__SELECTED_SOLUTION_DISPLAY = GENERATOR_CP_CONS__SELECTED_SOLUTION_DISPLAY;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CP_LINEAR__LABEL = GENERATOR_CP_CONS__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' reference list.
@@ -3436,6 +3499,15 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_CP_LOGICAL__SELECTED_SOLUTION_DISPLAY = GENERATOR_CP_CONS__SELECTED_SOLUTION_DISPLAY;
 
 	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CP_LOGICAL__LABEL = GENERATOR_CP_CONS__LABEL;
+
+	/**
 	 * The feature id for the '<em><b>Solution</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3562,6 +3634,15 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_CP_VAR__SELECTED_SOLUTION_DISPLAY = GENERATOR_VAR__SELECTED_SOLUTION_DISPLAY;
 
 	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CP_VAR__LABEL = GENERATOR_VAR__LABEL;
+
+	/**
 	 * The feature id for the '<em><b>Solution</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3686,6 +3767,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_CP_VAR_ATOMIC__SELECTED_SOLUTION_DISPLAY = GENERATOR_CP_VAR__SELECTED_SOLUTION_DISPLAY;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CP_VAR_ATOMIC__LABEL = GENERATOR_CP_VAR__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' reference list.
@@ -4790,6 +4880,17 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGeneratorTupleMember_SelectedSolutionDisplay();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorTupleMember#getLabel <em>Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Label</em>'.
+	 * @see com.misc.common.moplaf.solver.GeneratorTupleMember#getLabel()
+	 * @see #getGeneratorTupleMember()
+	 * @generated
+	 */
+	EAttribute getGeneratorTupleMember_Label();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorTupleMember#refreshSelectedSolution() <em>Refresh Selected Solution</em>}' operation.
@@ -6869,6 +6970,14 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GENERATOR_TUPLE_MEMBER__SELECTED_SOLUTION_DISPLAY = eINSTANCE.getGeneratorTupleMember_SelectedSolutionDisplay();
+
+		/**
+		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERATOR_TUPLE_MEMBER__LABEL = eINSTANCE.getGeneratorTupleMember_Label();
 
 		/**
 		 * The meta object literal for the '<em><b>Refresh Selected Solution</b></em>' operation.

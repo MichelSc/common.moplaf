@@ -112,7 +112,7 @@ public class GeneratorCpVarAtomicItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GeneratorCpVarAtomic)object).getName();
+		String label = ((GeneratorCpVarAtomic)object).getLabel();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GeneratorCpVarAtomic_type") :
 			getString("_UI_GeneratorCpVarAtomic_type") + " " + label;

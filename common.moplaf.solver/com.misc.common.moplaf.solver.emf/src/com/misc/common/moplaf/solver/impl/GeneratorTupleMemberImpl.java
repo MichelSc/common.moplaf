@@ -2,8 +2,10 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
+import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorTuple;
 import com.misc.common.moplaf.solver.GeneratorTupleMember;
+import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import java.lang.reflect.InvocationTargetException;
@@ -29,6 +31,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleMemberImpl#getTuple <em>Tuple</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleMemberImpl#getCode <em>Code</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleMemberImpl#getSelectedSolutionDisplay <em>Selected Solution Display</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleMemberImpl#getLabel <em>Label</em>}</li>
  * </ul>
  *
  * @generated
@@ -83,6 +86,16 @@ public abstract class GeneratorTupleMemberImpl extends GeneratorElementImpl impl
 	 * @ordered
 	 */
 	protected String selectedSolutionDisplay = SELECTED_SOLUTION_DISPLAY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LABEL_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -189,6 +202,20 @@ public abstract class GeneratorTupleMemberImpl extends GeneratorElementImpl impl
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public String getLabel() {
+		Generator generator = this.getTuple().getGenerator();
+		Solution solution = generator.getSelected();
+		if ( solution==null) {
+			return this.getCode();
+		}
+		return this.getSelectedSolutionDisplay();
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public void refreshSelectedSolution() {
 		String displaySelectedSolution = this.getCode();
 		this.setSelectedSolutionDisplay(displaySelectedSolution);
@@ -211,6 +238,8 @@ public abstract class GeneratorTupleMemberImpl extends GeneratorElementImpl impl
 				return getCode();
 			case SolverPackage.GENERATOR_TUPLE_MEMBER__SELECTED_SOLUTION_DISPLAY:
 				return getSelectedSolutionDisplay();
+			case SolverPackage.GENERATOR_TUPLE_MEMBER__LABEL:
+				return getLabel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -273,6 +302,8 @@ public abstract class GeneratorTupleMemberImpl extends GeneratorElementImpl impl
 				return CODE_EDEFAULT == null ? getCode() != null : !CODE_EDEFAULT.equals(getCode());
 			case SolverPackage.GENERATOR_TUPLE_MEMBER__SELECTED_SOLUTION_DISPLAY:
 				return SELECTED_SOLUTION_DISPLAY_EDEFAULT == null ? selectedSolutionDisplay != null : !SELECTED_SOLUTION_DISPLAY_EDEFAULT.equals(selectedSolutionDisplay);
+			case SolverPackage.GENERATOR_TUPLE_MEMBER__LABEL:
+				return LABEL_EDEFAULT == null ? getLabel() != null : !LABEL_EDEFAULT.equals(getLabel());
 		}
 		return super.eIsSet(featureID);
 	}

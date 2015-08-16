@@ -16,6 +16,7 @@ package com.misc.common.moplaf.solver;
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorTupleMember#getTuple <em>Tuple</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorTupleMember#getCode <em>Code</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorTupleMember#getSelectedSolutionDisplay <em>Selected Solution Display</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.GeneratorTupleMember#getLabel <em>Label</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorTupleMember()
@@ -117,6 +118,21 @@ public interface GeneratorTupleMember extends GeneratorElement {
 	 * @generated
 	 */
 	void setSelectedSolutionDisplay(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Label</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Label</em>' attribute.
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorTupleMember_Label()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getLabel();
 
 	/**
 	 * <!-- begin-user-doc -->

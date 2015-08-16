@@ -94,7 +94,7 @@ public class GeneratorConsItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GeneratorCons)object).getSelectedSolutionDisplay();
+		String label = ((GeneratorCons)object).getLabel();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GeneratorCons_type") :
 			getString("_UI_GeneratorCons_type") + " " + label;

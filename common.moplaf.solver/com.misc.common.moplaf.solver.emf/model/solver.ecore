@@ -114,6 +114,8 @@
         volatile="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SelectedSolutionDisplay"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorVar" abstract="true" eSuperTypes="#//GeneratorTupleMember">
     <eOperations name="getSolutionVar" eType="#//SolutionVar">

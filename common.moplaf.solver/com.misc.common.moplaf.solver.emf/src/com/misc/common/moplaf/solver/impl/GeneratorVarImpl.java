@@ -4,7 +4,6 @@ package com.misc.common.moplaf.solver.impl;
 
 
 import com.misc.common.moplaf.solver.Generator;
-import com.misc.common.moplaf.solver.GeneratorTuple;
 import com.misc.common.moplaf.solver.GeneratorVar;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionVar;
