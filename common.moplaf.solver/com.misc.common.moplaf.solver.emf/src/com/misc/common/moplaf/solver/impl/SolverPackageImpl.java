@@ -2711,7 +2711,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		initEClass(generatorLpVarEClass, GeneratorLpVar.class, "GeneratorLpVar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGeneratorLpVar_Type(), this.getEnumLpVarType(), "Type", "Integer", 1, 1, GeneratorLpVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGeneratorLpVar_LowerBound(), ecorePackage.getEFloat(), "LowerBound", null, 1, 1, GeneratorLpVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGeneratorLpVar_UpperBound(), ecorePackage.getEFloat(), "UpperBound", null, 1, 1, GeneratorLpVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGeneratorLpVar_UpperBound(), ecorePackage.getEFloat(), "UpperBound", "1", 1, 1, GeneratorLpVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGeneratorLpVar_ObjectiveCoeff(), ecorePackage.getEFloat(), "ObjectiveCoeff", null, 1, 1, GeneratorLpVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGeneratorLpVar_LpTerm(), this.getGeneratorLpTerm(), this.getGeneratorLpTerm_LpVar(), "LpTerm", null, 0, -1, GeneratorLpVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

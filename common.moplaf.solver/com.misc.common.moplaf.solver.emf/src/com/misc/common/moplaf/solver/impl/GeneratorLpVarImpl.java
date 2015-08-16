@@ -83,7 +83,7 @@ public class GeneratorLpVarImpl extends GeneratorVarImpl implements GeneratorLpV
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float UPPER_BOUND_EDEFAULT = 0.0F;
+	protected static final float UPPER_BOUND_EDEFAULT = 1.0F;
 
 	/**
 	 * The cached value of the '{@link #getUpperBound() <em>Upper Bound</em>}' attribute.

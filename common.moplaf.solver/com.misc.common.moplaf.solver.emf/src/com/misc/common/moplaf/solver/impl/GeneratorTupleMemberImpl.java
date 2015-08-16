@@ -2,10 +2,8 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
-import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorTuple;
 import com.misc.common.moplaf.solver.GeneratorTupleMember;
-import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import java.lang.reflect.InvocationTargetException;
@@ -203,13 +201,10 @@ public abstract class GeneratorTupleMemberImpl extends GeneratorElementImpl impl
 	 * <!-- end-user-doc -->
 	 */
 	public String getLabel() {
-		Generator generator = this.getTuple().getGenerator();
-		Solution solution = generator.getSelected();
-		if ( solution==null) {
-			return this.getCode();
-		}
-		return this.getSelectedSolutionDisplay();
+		String label =  this.getSelectedSolutionDisplay();
+		if ( label != null) { return label; }
 		
+		return this.getCode();
 	}
 
 	/**
