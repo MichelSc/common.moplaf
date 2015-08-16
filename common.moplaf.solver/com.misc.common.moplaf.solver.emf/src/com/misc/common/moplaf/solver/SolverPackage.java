@@ -277,13 +277,22 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR___VISIT_TUPLES__ITUPLEVISITOR = 7;
 
 	/**
+	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR___REFRESH_SELECTED_SOLUTION = 8;
+
+	/**
 	 * The number of operations of the '<em>Generator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_OPERATION_COUNT = 8;
+	int GENERATOR_OPERATION_COUNT = 9;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorTupleImpl <em>Generator Tuple</em>}' class.
@@ -442,13 +451,22 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_TUPLE___VISIT_TUPLES__ITUPLEVISITOR = GENERATOR_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_TUPLE___REFRESH_SELECTED_SOLUTION = GENERATOR_ELEMENT_OPERATION_COUNT + 5;
+
+	/**
 	 * The number of operations of the '<em>Generator Tuple</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_TUPLE_OPERATION_COUNT = GENERATOR_ELEMENT_OPERATION_COUNT + 5;
+	int GENERATOR_TUPLE_OPERATION_COUNT = GENERATOR_ELEMENT_OPERATION_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -496,13 +514,22 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_TUPLE_ELEMENT_FEATURE_COUNT = GENERATOR_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_TUPLE_ELEMENT___REFRESH_SELECTED_SOLUTION = GENERATOR_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Generator Tuple Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_TUPLE_ELEMENT_OPERATION_COUNT = GENERATOR_ELEMENT_OPERATION_COUNT + 0;
+	int GENERATOR_TUPLE_ELEMENT_OPERATION_COUNT = GENERATOR_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorVarImpl <em>Generator Var</em>}' class.
@@ -576,6 +603,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_VAR_FEATURE_COUNT = GENERATOR_TUPLE_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_VAR___REFRESH_SELECTED_SOLUTION = GENERATOR_TUPLE_ELEMENT___REFRESH_SELECTED_SOLUTION;
 
 	/**
 	 * The operation id for the '<em>Get Solution Var</em>' operation.
@@ -741,6 +777,15 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_LP_VAR_FEATURE_COUNT = GENERATOR_VAR_FEATURE_COUNT + 5;
 
 	/**
+	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_VAR___REFRESH_SELECTED_SOLUTION = GENERATOR_VAR___REFRESH_SELECTED_SOLUTION;
+
+	/**
 	 * The operation id for the '<em>Get Solution Var</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -848,6 +893,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_CONS_FEATURE_COUNT = GENERATOR_TUPLE_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CONS___REFRESH_SELECTED_SOLUTION = GENERATOR_TUPLE_ELEMENT___REFRESH_SELECTED_SOLUTION;
 
 	/**
 	 * The operation id for the '<em>Generate</em>' operation.
@@ -966,6 +1020,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_LP_CONS_FEATURE_COUNT = GENERATOR_CONS_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_CONS___REFRESH_SELECTED_SOLUTION = GENERATOR_CONS___REFRESH_SELECTED_SOLUTION;
 
 	/**
 	 * The operation id for the '<em>Generate</em>' operation.
@@ -3166,6 +3229,15 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_CP_CONS_FEATURE_COUNT = GENERATOR_CONS_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CP_CONS___REFRESH_SELECTED_SOLUTION = GENERATOR_CONS___REFRESH_SELECTED_SOLUTION;
+
+	/**
 	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3281,6 +3353,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_CP_LINEAR_FEATURE_COUNT = GENERATOR_CP_CONS_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CP_LINEAR___REFRESH_SELECTED_SOLUTION = GENERATOR_CP_CONS___REFRESH_SELECTED_SOLUTION;
 
 	/**
 	 * The operation id for the '<em>Generate</em>' operation.
@@ -3400,6 +3481,15 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_CP_LOGICAL_FEATURE_COUNT = GENERATOR_CP_CONS_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CP_LOGICAL___REFRESH_SELECTED_SOLUTION = GENERATOR_CP_CONS___REFRESH_SELECTED_SOLUTION;
+
+	/**
 	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3497,6 +3587,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_CP_VAR_FEATURE_COUNT = GENERATOR_VAR_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CP_VAR___REFRESH_SELECTED_SOLUTION = GENERATOR_VAR___REFRESH_SELECTED_SOLUTION;
 
 	/**
 	 * The operation id for the '<em>Get Solution Var</em>' operation.
@@ -3632,6 +3731,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_CP_VAR_ATOMIC_FEATURE_COUNT = GENERATOR_CP_VAR_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CP_VAR_ATOMIC___REFRESH_SELECTED_SOLUTION = GENERATOR_CP_VAR___REFRESH_SELECTED_SOLUTION;
 
 	/**
 	 * The operation id for the '<em>Get Solution Var</em>' operation.
@@ -4453,6 +4561,16 @@ public interface SolverPackage extends EPackage {
 	EOperation getGenerator__VisitTuples__ITupleVisitor();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.Generator#refreshSelectedSolution() <em>Refresh Selected Solution</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh Selected Solution</em>' operation.
+	 * @see com.misc.common.moplaf.solver.Generator#refreshSelectedSolution()
+	 * @generated
+	 */
+	EOperation getGenerator__RefreshSelectedSolution();
+
+	/**
 	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.solver.Generator#getGeneratorFeatureModes <em>Generator Feature Modes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4590,6 +4708,16 @@ public interface SolverPackage extends EPackage {
 	EOperation getGeneratorTuple__VisitTuples__ITupleVisitor();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorTuple#refreshSelectedSolution() <em>Refresh Selected Solution</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh Selected Solution</em>' operation.
+	 * @see com.misc.common.moplaf.solver.GeneratorTuple#refreshSelectedSolution()
+	 * @generated
+	 */
+	EOperation getGeneratorTuple__RefreshSelectedSolution();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorTupleElement <em>Generator Tuple Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4642,6 +4770,16 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGeneratorTupleElement_SelectedSolutionDisplay();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorTupleElement#refreshSelectedSolution() <em>Refresh Selected Solution</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh Selected Solution</em>' operation.
+	 * @see com.misc.common.moplaf.solver.GeneratorTupleElement#refreshSelectedSolution()
+	 * @generated
+	 */
+	EOperation getGeneratorTupleElement__RefreshSelectedSolution();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorElement <em>Generator Element</em>}'.
@@ -6549,6 +6687,14 @@ public interface SolverPackage extends EPackage {
 		EOperation GENERATOR___VISIT_TUPLES__ITUPLEVISITOR = eINSTANCE.getGenerator__VisitTuples__ITupleVisitor();
 
 		/**
+		 * The meta object literal for the '<em><b>Refresh Selected Solution</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GENERATOR___REFRESH_SELECTED_SOLUTION = eINSTANCE.getGenerator__RefreshSelectedSolution();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorTupleImpl <em>Generator Tuple</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6647,6 +6793,14 @@ public interface SolverPackage extends EPackage {
 		EOperation GENERATOR_TUPLE___VISIT_TUPLES__ITUPLEVISITOR = eINSTANCE.getGeneratorTuple__VisitTuples__ITupleVisitor();
 
 		/**
+		 * The meta object literal for the '<em><b>Refresh Selected Solution</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GENERATOR_TUPLE___REFRESH_SELECTED_SOLUTION = eINSTANCE.getGeneratorTuple__RefreshSelectedSolution();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorTupleElementImpl <em>Generator Tuple Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6687,6 +6841,14 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GENERATOR_TUPLE_ELEMENT__SELECTED_SOLUTION_DISPLAY = eINSTANCE.getGeneratorTupleElement_SelectedSolutionDisplay();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh Selected Solution</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GENERATOR_TUPLE_ELEMENT___REFRESH_SELECTED_SOLUTION = eINSTANCE.getGeneratorTupleElement__RefreshSelectedSolution();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorElementImpl <em>Generator Element</em>}' class.

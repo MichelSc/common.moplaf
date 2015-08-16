@@ -89,7 +89,7 @@ public class GeneratorCpConsItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GeneratorCpCons)object).getCode();
+		String label = ((GeneratorCpCons)object).getSelectedSolutionDisplay();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GeneratorCpCons_type") :
 			getString("_UI_GeneratorCpCons_type") + " " + label;

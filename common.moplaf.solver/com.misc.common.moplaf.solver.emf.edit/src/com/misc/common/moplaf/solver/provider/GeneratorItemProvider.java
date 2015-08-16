@@ -378,6 +378,7 @@ public class GeneratorItemProvider
 			case SolverPackage.GENERATOR__COUNT_CONS:
 			case SolverPackage.GENERATOR__COUNT_VARS:
 			case SolverPackage.GENERATOR__CODE:
+			case SolverPackage.GENERATOR__SELECTED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SolverPackage.GENERATOR__ELP_VAR_COUNT:

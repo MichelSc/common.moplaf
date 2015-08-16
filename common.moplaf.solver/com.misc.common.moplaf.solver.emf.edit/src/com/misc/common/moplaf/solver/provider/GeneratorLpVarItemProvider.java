@@ -178,7 +178,7 @@ public class GeneratorLpVarItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GeneratorLpVar)object).getCode();
+		String label = ((GeneratorLpVar)object).getSelectedSolutionDisplay();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GeneratorLpVar_type") :
 			getString("_UI_GeneratorLpVar_type") + " " + label;

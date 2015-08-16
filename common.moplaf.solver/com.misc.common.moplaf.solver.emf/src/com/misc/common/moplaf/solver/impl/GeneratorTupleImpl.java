@@ -5,6 +5,7 @@ package com.misc.common.moplaf.solver.impl;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorCons;
 import com.misc.common.moplaf.solver.GeneratorTuple;
+import com.misc.common.moplaf.solver.GeneratorTupleElement;
 import com.misc.common.moplaf.solver.GeneratorVar;
 import com.misc.common.moplaf.solver.ITupleVisitor;
 import com.misc.common.moplaf.solver.SolverPackage;
@@ -271,6 +272,19 @@ public abstract class GeneratorTupleImpl extends GeneratorElementImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public void refreshSelectedSolution() {
+		for ( EObject object : this.eContents()){
+			if ( object instanceof GeneratorTupleElement){
+				GeneratorTupleElement element = (GeneratorTupleElement)object;
+				element.refreshSelectedSolution();
+			}
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -375,6 +389,9 @@ public abstract class GeneratorTupleImpl extends GeneratorElementImpl implements
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case SolverPackage.GENERATOR_TUPLE___REFRESH_SELECTED_SOLUTION:
+				refreshSelectedSolution();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

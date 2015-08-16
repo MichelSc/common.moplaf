@@ -5,7 +5,9 @@ package com.misc.common.moplaf.solver.impl;
 import com.misc.common.moplaf.solver.GeneratorTuple;
 import com.misc.common.moplaf.solver.GeneratorTupleElement;
 import com.misc.common.moplaf.solver.SolverPackage;
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -66,6 +68,16 @@ public class GeneratorTupleElementImpl extends GeneratorElementImpl implements G
 	 * @ordered
 	 */
 	protected static final String SELECTED_SOLUTION_DISPLAY_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSelectedSolutionDisplay() <em>Selected Solution Display</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSelectedSolutionDisplay()
+	 * @generated
+	 * @ordered
+	 */
+	protected String selectedSolutionDisplay = SELECTED_SOLUTION_DISPLAY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -150,10 +162,31 @@ public class GeneratorTupleElementImpl extends GeneratorElementImpl implements G
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	public String getSelectedSolutionDisplay() {
-		String code = this.getCode();
-		return code;
+		return selectedSolutionDisplay;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSelectedSolutionDisplay(String newSelectedSolutionDisplay) {
+		String oldSelectedSolutionDisplay = selectedSolutionDisplay;
+		selectedSolutionDisplay = newSelectedSolutionDisplay;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_TUPLE_ELEMENT__SELECTED_SOLUTION_DISPLAY, oldSelectedSolutionDisplay, selectedSolutionDisplay));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void refreshSelectedSolution() {
+		String displaySelectedSolution = this.getCode();
+		this.setSelectedSolutionDisplay(displaySelectedSolution);
 	}
 
 	/* (non-Javadoc)
@@ -252,6 +285,9 @@ public class GeneratorTupleElementImpl extends GeneratorElementImpl implements G
 			case SolverPackage.GENERATOR_TUPLE_ELEMENT__CODE:
 				setCode((String)newValue);
 				return;
+			case SolverPackage.GENERATOR_TUPLE_ELEMENT__SELECTED_SOLUTION_DISPLAY:
+				setSelectedSolutionDisplay((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -269,6 +305,9 @@ public class GeneratorTupleElementImpl extends GeneratorElementImpl implements G
 				return;
 			case SolverPackage.GENERATOR_TUPLE_ELEMENT__CODE:
 				setCode(CODE_EDEFAULT);
+				return;
+			case SolverPackage.GENERATOR_TUPLE_ELEMENT__SELECTED_SOLUTION_DISPLAY:
+				setSelectedSolutionDisplay(SELECTED_SOLUTION_DISPLAY_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -289,9 +328,24 @@ public class GeneratorTupleElementImpl extends GeneratorElementImpl implements G
 			case SolverPackage.GENERATOR_TUPLE_ELEMENT__CODE:
 				return CODE_EDEFAULT == null ? getCode() != null : !CODE_EDEFAULT.equals(getCode());
 			case SolverPackage.GENERATOR_TUPLE_ELEMENT__SELECTED_SOLUTION_DISPLAY:
-				return SELECTED_SOLUTION_DISPLAY_EDEFAULT == null ? getSelectedSolutionDisplay() != null : !SELECTED_SOLUTION_DISPLAY_EDEFAULT.equals(getSelectedSolutionDisplay());
+				return SELECTED_SOLUTION_DISPLAY_EDEFAULT == null ? selectedSolutionDisplay != null : !SELECTED_SOLUTION_DISPLAY_EDEFAULT.equals(selectedSolutionDisplay);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case SolverPackage.GENERATOR_TUPLE_ELEMENT___REFRESH_SELECTED_SOLUTION:
+				refreshSelectedSolution();
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -306,6 +360,8 @@ public class GeneratorTupleElementImpl extends GeneratorElementImpl implements G
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (Name: ");
 		result.append(name);
+		result.append(", SelectedSolutionDisplay: ");
+		result.append(selectedSolutionDisplay);
 		result.append(')');
 		return result.toString();
 	}

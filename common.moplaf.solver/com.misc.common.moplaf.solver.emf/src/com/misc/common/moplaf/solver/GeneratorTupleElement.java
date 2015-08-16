@@ -99,10 +99,29 @@ public interface GeneratorTupleElement extends GeneratorElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Selected Solution Display</em>' attribute.
+	 * @see #setSelectedSolutionDisplay(String)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorTupleElement_SelectedSolutionDisplay()
-	 * @model transient="true" changeable="false" volatile="true"
+	 * @model
 	 * @generated
 	 */
 	String getSelectedSolutionDisplay();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.solver.GeneratorTupleElement#getSelectedSolutionDisplay <em>Selected Solution Display</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Selected Solution Display</em>' attribute.
+	 * @see #getSelectedSolutionDisplay()
+	 * @generated
+	 */
+	void setSelectedSolutionDisplay(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void refreshSelectedSolution();
 
 } // GeneratorTupleElement

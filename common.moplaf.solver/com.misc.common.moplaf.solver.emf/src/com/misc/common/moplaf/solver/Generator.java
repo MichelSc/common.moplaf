@@ -438,6 +438,14 @@ public interface Generator extends EObject {
 	void visitTuples(ITupleVisitor visitor) throws Exception;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void refreshSelectedSolution();
+
+	/**
 	 * Returns the value of the '<em><b>Generator Feature Modes</b></em>' reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.solver.GeneratorFeatureMode}.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.GeneratorFeatureMode#getGenerator <em>Generator</em>}'.

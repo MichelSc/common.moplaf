@@ -101,11 +101,15 @@ public abstract class GeneratorVarImpl extends GeneratorTupleElementImpl impleme
 	 * <!-- end-user-doc -->
 	 */
 	@Override
-	public String getSelectedSolutionDisplay() {
+	public void refreshSelectedSolution() {
 		String code = this.getCode();
 		float value = this.getSelectedSolutionValue();
-		String string = String.format("%1$s=%2$5.1f", code, value);
-		return string;
+		String suffix = "";
+		if ( Math.abs(value)>0.001){
+			suffix = String.format(" =%1$5.1f", value);
+		}
+		String selectedSolutionDisplay = String.format("%1$s %2$s", code, suffix);
+		this.setSelectedSolutionDisplay(selectedSolutionDisplay);
 	}
 
 	/**

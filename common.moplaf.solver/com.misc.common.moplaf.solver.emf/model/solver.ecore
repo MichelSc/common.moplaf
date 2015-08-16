@@ -55,6 +55,7 @@
     <eOperations name="visitTuples" eExceptions="#//Exception">
       <eParameters name="visitor" eType="#//ITupleVisitor"/>
     </eOperations>
+    <eOperations name="refreshSelectedSolution"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="TupleRoot" upperBound="-1"
         eType="#//GeneratorTuple" changeable="false" volatile="true" transient="true"
         derived="true" eOpposite="#//GeneratorTuple/GeneratorAsRoot"/>
@@ -86,6 +87,7 @@
     <eOperations name="visitTuples" eExceptions="#//Exception">
       <eParameters name="visitor" eType="#//ITupleVisitor"/>
     </eOperations>
+    <eOperations name="refreshSelectedSolution"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="GeneratorAsRoot" eType="#//Generator"
         changeable="false" volatile="true" transient="true" derived="true" eOpposite="#//Generator/TupleRoot"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="TupleElement" upperBound="-1"
@@ -100,14 +102,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorTupleElement" eSuperTypes="#//GeneratorElement">
+    <eOperations name="refreshSelectedSolution"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Tuple" eType="#//GeneratorTuple"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         volatile="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SelectedSolutionDisplay"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
-        volatile="true" transient="true"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorVar" abstract="true" eSuperTypes="#//GeneratorTupleElement">
     <eOperations name="getSolutionVar" eType="#//SolutionVar">

@@ -176,4 +176,12 @@ public interface GeneratorTuple extends GeneratorElement {
 	 */
 	void visitTuples(ITupleVisitor visitor) throws Exception;
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void refreshSelectedSolution();
+
 } // GeneratorTuple

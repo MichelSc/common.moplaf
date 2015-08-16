@@ -651,6 +651,15 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getGenerator__RefreshSelectedSolution() {
+		return generatorEClass.getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getGenerator_GeneratorFeatureModes() {
 		return (EReference)generatorEClass.getEStructuralFeatures().get(1);
 	}
@@ -768,6 +777,15 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getGeneratorTuple__RefreshSelectedSolution() {
+		return generatorTupleEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getGeneratorTupleElement() {
 		return generatorTupleElementEClass;
 	}
@@ -806,6 +824,15 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 */
 	public EAttribute getGeneratorTupleElement_SelectedSolutionDisplay() {
 		return (EAttribute)generatorTupleElementEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGeneratorTupleElement__RefreshSelectedSolution() {
+		return generatorTupleElementEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -2299,6 +2326,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		createEOperation(generatorEClass, GENERATOR___ACCEPT_SOLUTION__SOLUTION);
 		createEOperation(generatorEClass, GENERATOR___SELECT_FEATURE_MODE__GENERATORFEATUREMODE_GENERATORTUPLE);
 		createEOperation(generatorEClass, GENERATOR___VISIT_TUPLES__ITUPLEVISITOR);
+		createEOperation(generatorEClass, GENERATOR___REFRESH_SELECTED_SOLUTION);
 
 		generatorTupleEClass = createEClass(GENERATOR_TUPLE);
 		createEReference(generatorTupleEClass, GENERATOR_TUPLE__GENERATOR_AS_ROOT);
@@ -2312,12 +2340,14 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		createEOperation(generatorTupleEClass, GENERATOR_TUPLE___GENERATE_TUPLES);
 		createEOperation(generatorTupleEClass, GENERATOR_TUPLE___GET_GENERATOR);
 		createEOperation(generatorTupleEClass, GENERATOR_TUPLE___VISIT_TUPLES__ITUPLEVISITOR);
+		createEOperation(generatorTupleEClass, GENERATOR_TUPLE___REFRESH_SELECTED_SOLUTION);
 
 		generatorTupleElementEClass = createEClass(GENERATOR_TUPLE_ELEMENT);
 		createEAttribute(generatorTupleElementEClass, GENERATOR_TUPLE_ELEMENT__NAME);
 		createEReference(generatorTupleElementEClass, GENERATOR_TUPLE_ELEMENT__TUPLE);
 		createEAttribute(generatorTupleElementEClass, GENERATOR_TUPLE_ELEMENT__CODE);
 		createEAttribute(generatorTupleElementEClass, GENERATOR_TUPLE_ELEMENT__SELECTED_SOLUTION_DISPLAY);
+		createEOperation(generatorTupleElementEClass, GENERATOR_TUPLE_ELEMENT___REFRESH_SELECTED_SOLUTION);
 
 		generatorVarEClass = createEClass(GENERATOR_VAR);
 		createEReference(generatorVarEClass, GENERATOR_VAR__SOLUTION);
@@ -2608,6 +2638,8 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		addEParameter(op, this.getITupleVisitor(), "visitor", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
+		initEOperation(getGenerator__RefreshSelectedSolution(), null, "refreshSelectedSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(generatorTupleEClass, GeneratorTuple.class, "GeneratorTuple", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGeneratorTuple_GeneratorAsRoot(), this.getGenerator(), this.getGenerator_TupleRoot(), "GeneratorAsRoot", null, 0, 1, GeneratorTuple.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getGeneratorTuple_TupleElement(), this.getGeneratorTuple(), this.getGeneratorTuple_TupleContainer(), "TupleElement", null, 0, -1, GeneratorTuple.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -2628,11 +2660,15 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		addEParameter(op, this.getITupleVisitor(), "visitor", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
+		initEOperation(getGeneratorTuple__RefreshSelectedSolution(), null, "refreshSelectedSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(generatorTupleElementEClass, GeneratorTupleElement.class, "GeneratorTupleElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGeneratorTupleElement_Name(), ecorePackage.getEString(), "Name", null, 0, 1, GeneratorTupleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGeneratorTupleElement_Tuple(), this.getGeneratorTuple(), null, "Tuple", null, 0, 1, GeneratorTupleElement.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGeneratorTupleElement_Code(), ecorePackage.getEString(), "Code", null, 0, 1, GeneratorTupleElement.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGeneratorTupleElement_SelectedSolutionDisplay(), ecorePackage.getEString(), "SelectedSolutionDisplay", null, 0, 1, GeneratorTupleElement.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGeneratorTupleElement_SelectedSolutionDisplay(), ecorePackage.getEString(), "SelectedSolutionDisplay", null, 0, 1, GeneratorTupleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getGeneratorTupleElement__RefreshSelectedSolution(), null, "refreshSelectedSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(generatorVarEClass, GeneratorVar.class, "GeneratorVar", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGeneratorVar_Solution(), this.getSolutionVar(), this.getSolutionVar_Var(), "Solution", null, 0, -1, GeneratorVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

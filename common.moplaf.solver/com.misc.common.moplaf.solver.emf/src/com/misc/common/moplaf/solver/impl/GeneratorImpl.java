@@ -26,6 +26,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -601,11 +603,19 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void setSelected(Solution newSelected) {
 		Solution oldSelected = selected;
 		selected = newSelected;
+		if ( oldSelected!=newSelected ){
+			Resource resource = this.eResource();
+			if ( resource instanceof ResourceImpl){
+				ResourceImpl resourceImpl = (ResourceImpl)resource;
+				if ( !resourceImpl.isLoading()){
+					this.refreshSelectedSolution();
+				}
+			}
+		}
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR__SELECTED, oldSelected, selected));
 	}
@@ -740,6 +750,26 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 	public void visitTuples(ITupleVisitor visitor) throws Exception {
 		for (GeneratorTuple roottuple : this.getTupleRoot()){
 			roottuple.visitTuples(visitor);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void refreshSelectedSolution() {
+		class TupleRefreshor implements ITupleVisitor{
+			@Override
+			public void visitTuple(GeneratorTuple tuple) {
+				tuple.refreshSelectedSolution();
+				}
+			}
+		TupleRefreshor refreshor = new TupleRefreshor();
+		try {
+			this.visitTuples(refreshor);
+		} catch (Exception e) {
+			CommonPlugin.INSTANCE.log("Generator: refresh selected solution failed");
+			e.printStackTrace();
 		}
 	}
 
@@ -1011,6 +1041,9 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case SolverPackage.GENERATOR___REFRESH_SELECTED_SOLUTION:
+				refreshSelectedSolution();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
