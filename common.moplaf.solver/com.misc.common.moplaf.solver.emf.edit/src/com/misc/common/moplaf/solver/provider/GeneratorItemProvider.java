@@ -369,7 +369,6 @@ public class GeneratorItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Generator.class)) {
-			case SolverPackage.GENERATOR__TUPLE_ROOT:
 			case SolverPackage.GENERATOR__OBJECTIVE_TYPE:
 			case SolverPackage.GENERATOR__REMARKS:
 			case SolverPackage.GENERATOR__FOOTPRINT_NOF_VARS:

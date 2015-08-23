@@ -106,9 +106,6 @@ public class GeneratorTupleItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(GeneratorTuple.class)) {
-			case SolverPackage.GENERATOR_TUPLE__TUPLE_ELEMENT:
-			case SolverPackage.GENERATOR_TUPLE__VAR:
-			case SolverPackage.GENERATOR_TUPLE__CONS:
 			case SolverPackage.GENERATOR_TUPLE__CODE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

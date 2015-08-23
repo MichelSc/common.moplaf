@@ -48,7 +48,8 @@
     <genDataTypes ecoreDataType="solver.ecore#//ITupleVisitor"/>
     <genDataTypes ecoreDataType="solver.ecore#//Exception"/>
     <genClasses ecoreClass="solver.ecore#//Generator" labelFeature="#//solver/Generator/Code">
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//Generator/TupleRoot"/>
+      <genFeatures property="None" notify="false" createChild="false" propertyCategory=""
+          ecoreFeature="ecore:EReference solver.ecore#//Generator/TupleRoot"/>
       <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference solver.ecore#//Generator/GeneratorFeatureModes"/>
       <genFeatures createChild="false" propertyCategory="10 General" ecoreFeature="ecore:EAttribute solver.ecore#//Generator/ObjectiveType"/>
@@ -88,10 +89,10 @@
     </genClasses>
     <genClasses ecoreClass="solver.ecore#//GeneratorTuple">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//GeneratorTuple/GeneratorAsRoot"/>
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//GeneratorTuple/TupleElement"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//GeneratorTuple/TupleElement"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//GeneratorTuple/TupleContainer"/>
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//GeneratorTuple/Var"/>
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//GeneratorTuple/Cons"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//GeneratorTuple/Var"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//GeneratorTuple/Cons"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorTuple/Code"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//GeneratorTuple/Members"/>
       <genOperations ecoreOperation="solver.ecore#//GeneratorTuple/generateVars"/>
