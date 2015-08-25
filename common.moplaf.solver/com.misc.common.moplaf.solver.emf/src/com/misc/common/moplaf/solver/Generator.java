@@ -15,10 +15,10 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * A Generator is structured as follows:  
  * <ul>
- *   <li>a {@link Generator} is a tree of tuples: {@link GeneratorTuple}</li>
- *   <li>a {@link Generator} has root {@link GeneratorTuple}s</li>
- *   <li>a {@link GeneratorTuple} has {@link GeneratorTuple} elements (children) and possibly a {@link GeneratorTuple} container (parent)</li>
- *   <li>a {@link GeneratorTuple}, has members: {@link GeneratorTupleMember}s</li>
+ *   <li>a {@link Generator} is a set of trees of tuples: {@link GeneratorTuple}, that is, a forest</li>
+ *   <li>a {@link Generator} has  {@link GeneratorTuple} <em>roots</em></li>
+ *   <li>a {@link GeneratorTuple} has {@link GeneratorTuple} <em>elements</em> (children) and possibly a {@link GeneratorTuple} <em>container</em> (parent)</li>
+ *   <li>a {@link GeneratorTuple}, has : {@link GeneratorTupleMember} <em>members</em></li>
  *   <li>there are two kinds of {@link GeneratorTupleMember}s</li>
  *   <ul>
  *     <li>variables: {@link GeneratorVar}</li>
@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>a helper allowing to traverse all the tuples: interface {@link ITupleVisitor} and method {@link #visitTuples(ITupleVisitor)}</li>
  *   <li>helpers to construct itself: methods {@link #generateTuples()} and {@link #generateRootTuples()} </li>
- *   <li>helpers to construct the vars and cons: methods {@link #generateVars()} and {@link #generateCons()} </li>
+ *   <li>helpers to construct the variables and the constraints: methods {@link #generateVars()} and {@link #generateCons()} </li>
  * </ul>
  * <p>
  * A generator may select one solution among its pool of solutions: {@link #setSelected(Solution)}. The selected solution is used to show
