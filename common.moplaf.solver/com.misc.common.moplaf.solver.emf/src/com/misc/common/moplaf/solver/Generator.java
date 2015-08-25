@@ -9,10 +9,6 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Generator</b></em>'.
  * 
- * Michel doc just for a test
- * <!-- end-user-doc -->
- *
- * <!-- begin-model-doc -->
  * <p>
  * A Generator is a problem formulation (linear, constraints, ...), to which variables ({@link GeneratorVar}) and constraints ({@link GeneratorCons}) are attached.
  * {@link SolutionProvider}s (typically, solvers) will produce {@link Solution}s for this problem formulation.
@@ -41,8 +37,7 @@ import org.eclipse.emf.ecore.EObject;
  *  properties of this Generator elements for the selected solution.
  * <p>
  * 
- * 
- * <!-- end-model-doc -->
+ * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
@@ -375,8 +370,8 @@ public interface Generator extends EObject {
 	 * Returns the value of the '<em><b>Selected</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Selected</em>' reference isn't clear,
-	 * there really should be more of a description here...
+	 * The '<em>Selected</em>' {@link Solution} is the solution used by the Generator to returns 
+	 * information associated to its elements (Vars and Cons) relative to the {@link Solution}.
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Selected</em>' reference.

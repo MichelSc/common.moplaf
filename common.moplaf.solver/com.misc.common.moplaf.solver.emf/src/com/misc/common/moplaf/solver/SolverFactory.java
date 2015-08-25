@@ -130,15 +130,6 @@ public interface SolverFactory extends EFactory {
 	GeneratorVarOverflow createGeneratorVarOverflow();
 
 	/**
-	 * Returns a new object of class '<em>Solution Provider</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Solution Provider</em>'.
-	 * @generated
-	 */
-	SolutionProvider createSolutionProvider();
-
-	/**
 	 * Returns a new object of class '<em>Solution Var</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

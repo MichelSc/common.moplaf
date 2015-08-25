@@ -9,6 +9,12 @@ import com.misc.common.moplaf.solver.GeneratorCons;
  * A test case for the model object '<em><b>Generator Cons</b></em>'.
  * <!-- end-user-doc -->
  * <p>
+ * The following features are tested:
+ * <ul>
+ *   <li>{@link com.misc.common.moplaf.solver.GeneratorCons#getNofTerms() <em>Nof Terms</em>}</li>
+ * </ul>
+ * </p>
+ * <p>
  * The following operations are tested:
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorCons#generate() <em>Generate</em>}</li>
@@ -38,6 +44,19 @@ public abstract class GeneratorConsTest extends GeneratorTupleMemberTest {
 	@Override
 	protected GeneratorCons getFixture() {
 		return (GeneratorCons)fixture;
+	}
+
+	/**
+	 * Tests the '{@link com.misc.common.moplaf.solver.GeneratorCons#getNofTerms() <em>Nof Terms</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.solver.GeneratorCons#getNofTerms()
+	 * @generated
+	 */
+	public void testGetNofTerms() {
+		// TODO: implement this feature getter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 	/**

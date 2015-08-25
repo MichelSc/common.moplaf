@@ -27,7 +27,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getSolutionProvider()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface SolutionProvider extends IGeneratorTool {
@@ -52,6 +52,7 @@ public interface SolutionProvider extends IGeneratorTool {
 
 	/**
 	 * Returns the value of the '<em><b>Current Solution Nr</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Current Solution Nr</em>' attribute isn't clear,
@@ -61,7 +62,7 @@ public interface SolutionProvider extends IGeneratorTool {
 	 * @return the value of the '<em>Current Solution Nr</em>' attribute.
 	 * @see #setCurrentSolutionNr(int)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolutionProvider_CurrentSolutionNr()
-	 * @model
+	 * @model default="0"
 	 * @generated
 	 */
 	int getCurrentSolutionNr();
@@ -116,5 +117,5 @@ public interface SolutionProvider extends IGeneratorTool {
 	 * @model
 	 * @generated
 	 */
-	Solution constructSolution();
+	Solution constructSolution(float value);
 } // SolutionProvider

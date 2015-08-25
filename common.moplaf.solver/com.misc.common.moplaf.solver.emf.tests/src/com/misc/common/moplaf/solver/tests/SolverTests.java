@@ -37,7 +37,6 @@ public class SolverTests extends TestSuite {
 		suite.addTestSuite(GeneratorConstraintEnablerTest.class);
 		suite.addTestSuite(GeneratorVarOverflowTest.class);
 		suite.addTestSuite(SolutionReaderPatternTest.class);
-		suite.addTestSuite(SolutionProviderTest.class);
 		suite.addTestSuite(SolutionTest.class);
 		suite.addTestSuite(SolutionVarTest.class);
 		suite.addTestSuite(SolutionLpVarTest.class);

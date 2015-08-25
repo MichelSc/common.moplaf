@@ -8,6 +8,17 @@ import org.eclipse.emf.ecore.EObject;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Solution</b></em>'.
+ * <p>
+ * A Solution is some solution to a problem formulation {@link Generator} and is produced by
+ * some {@link SolutionProvider}, typically a {@link Solver}.
+ * <p>
+ * A Solution contains
+ * <ul>
+ *   <li>the value of the solution: accessor {@link #getValue()}</li>
+ *   <li>information relative to the solution for some variable: element {@link SolutionVar}</li>
+ *   <li>information relative to the solution for some constraint: element {@link SolutionCons}</li>
+ * </ul>
+ * <p>
  * <!-- end-user-doc -->
  *
  * <p>
@@ -19,6 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.solver.Solution#getProvider <em>Provider</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solution#getSolutionNr <em>Solution Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solution#getCode <em>Code</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.Solution#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getSolution()
@@ -142,6 +154,32 @@ public interface Solution extends EObject {
 	 * @generated
 	 */
 	void setCode(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value</em>' attribute.
+	 * @see #setValue(float)
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolution_Value()
+	 * @model
+	 * @generated
+	 */
+	float getValue();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.solver.Solution#getValue <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value</em>' attribute.
+	 * @see #getValue()
+	 * @generated
+	 */
+	void setValue(float value);
 
 	/**
 	 * <!-- begin-user-doc -->

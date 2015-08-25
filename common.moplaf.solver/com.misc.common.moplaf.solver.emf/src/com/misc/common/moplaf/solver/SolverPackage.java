@@ -1758,7 +1758,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER___CONSTRUCT_SOLUTION = IGENERATOR_TOOL_OPERATION_COUNT + 1;
+	int SOLUTION_PROVIDER___CONSTRUCT_SOLUTION__FLOAT = IGENERATOR_TOOL_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Solution Provider</em>' class.
@@ -1858,7 +1858,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_READER___CONSTRUCT_SOLUTION = SOLUTION_PROVIDER___CONSTRUCT_SOLUTION;
+	int SOLUTION_READER___CONSTRUCT_SOLUTION__FLOAT = SOLUTION_PROVIDER___CONSTRUCT_SOLUTION__FLOAT;
 
 	/**
 	 * The operation id for the '<em>Read Sol From File</em>' operation.
@@ -2021,7 +2021,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_READER_PATTERN___CONSTRUCT_SOLUTION = SOLUTION_READER___CONSTRUCT_SOLUTION;
+	int SOLUTION_READER_PATTERN___CONSTRUCT_SOLUTION__FLOAT = SOLUTION_READER___CONSTRUCT_SOLUTION__FLOAT;
 
 	/**
 	 * The operation id for the '<em>Read Sol From File</em>' operation.
@@ -2437,7 +2437,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER___CONSTRUCT_SOLUTION = SOLUTION_PROVIDER___CONSTRUCT_SOLUTION;
+	int SOLVER___CONSTRUCT_SOLUTION__FLOAT = SOLUTION_PROVIDER___CONSTRUCT_SOLUTION__FLOAT;
 
 	/**
 	 * The operation id for the '<em>Solve</em>' operation.
@@ -2780,7 +2780,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_LP___CONSTRUCT_SOLUTION = SOLVER___CONSTRUCT_SOLUTION;
+	int SOLVER_LP___CONSTRUCT_SOLUTION__FLOAT = SOLVER___CONSTRUCT_SOLUTION__FLOAT;
 
 	/**
 	 * The operation id for the '<em>Solve</em>' operation.
@@ -2986,13 +2986,22 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION__CODE = 4;
 
 	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION__VALUE = 5;
+
+	/**
 	 * The number of structural features of the '<em>Solution</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_FEATURE_COUNT = 5;
+	int SOLUTION_FEATURE_COUNT = 6;
 
 	/**
 	 * The operation id for the '<em>Solution Var Factory</em>' operation.
@@ -4360,7 +4369,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_CP___CONSTRUCT_SOLUTION = SOLVER___CONSTRUCT_SOLUTION;
+	int SOLVER_CP___CONSTRUCT_SOLUTION__FLOAT = SOLVER___CONSTRUCT_SOLUTION__FLOAT;
 
 	/**
 	 * The operation id for the '<em>Solve</em>' operation.
@@ -5021,6 +5030,17 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSolution_Code();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.Solution#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see com.misc.common.moplaf.solver.Solution#getValue()
+	 * @see #getSolution()
+	 * @generated
+	 */
+	EAttribute getSolution_Value();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.Solution#solutionVarFactory() <em>Solution Var Factory</em>}' operation.
@@ -6575,14 +6595,14 @@ public interface SolverPackage extends EPackage {
 	EOperation getSolutionProvider__SolutionFactory();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.SolutionProvider#constructSolution() <em>Construct Solution</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.SolutionProvider#constructSolution(float) <em>Construct Solution</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Construct Solution</em>' operation.
-	 * @see com.misc.common.moplaf.solver.SolutionProvider#constructSolution()
+	 * @see com.misc.common.moplaf.solver.SolutionProvider#constructSolution(float)
 	 * @generated
 	 */
-	EOperation getSolutionProvider__ConstructSolution();
+	EOperation getSolutionProvider__ConstructSolution__float();
 
 	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.solver.EnumLpVarType <em>Enum Lp Var Type</em>}'.
@@ -7102,6 +7122,14 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOLUTION__CODE = eINSTANCE.getSolution_Code();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOLUTION__VALUE = eINSTANCE.getSolution_Value();
 
 		/**
 		 * The meta object literal for the '<em><b>Solution Var Factory</b></em>' operation.
@@ -8345,7 +8373,7 @@ public interface SolverPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SOLUTION_PROVIDER___CONSTRUCT_SOLUTION = eINSTANCE.getSolutionProvider__ConstructSolution();
+		EOperation SOLUTION_PROVIDER___CONSTRUCT_SOLUTION__FLOAT = eINSTANCE.getSolutionProvider__ConstructSolution__float();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.EnumLpVarType <em>Enum Lp Var Type</em>}' enum.

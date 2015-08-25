@@ -452,7 +452,7 @@ public interface SolverglpkPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_GLPK___CONSTRUCT_SOLUTION = SolverPackage.SOLVER_LP___CONSTRUCT_SOLUTION;
+	int SOLVER_GLPK___CONSTRUCT_SOLUTION__FLOAT = SolverPackage.SOLVER_LP___CONSTRUCT_SOLUTION__FLOAT;
 
 	/**
 	 * The operation id for the '<em>Solve</em>' operation.

@@ -7,9 +7,6 @@ import java.util.Date;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Solver</b></em>'.
- * <!-- end-user-doc -->
- *
- * <!-- begin-model-doc -->
  * <p>
  * A Solver is a run of a concrete solver. It provides control how the run must be performed 
  * (MaxDuration, BackgroundProcess) and gives information how the run is or has been performed
@@ -18,8 +15,10 @@ import java.util.Date;
  * A Solver solves a given a problem formulation: interface {@link IGeneratorTool}
  * <p>
  * A Solver produces one or several {@link Solution} for the problem: super class {@link SolutionProvider}.
+ * <p>
+ * To launch the run, call the method {@link #solve()}.
  * 
- * <!-- end-model-doc -->
+ * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:

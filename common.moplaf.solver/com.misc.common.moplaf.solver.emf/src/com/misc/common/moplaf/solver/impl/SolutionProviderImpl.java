@@ -1,6 +1,5 @@
-/**
- */
 package com.misc.common.moplaf.solver.impl;
+
 
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.IGeneratorTool;
@@ -8,10 +7,8 @@ import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionProvider;
 import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.solver.SolverPackage;
-
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -37,7 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class SolutionProviderImpl extends MinimalEObjectImpl.Container implements SolutionProvider {
+public abstract class SolutionProviderImpl extends MinimalEObjectImpl.Container implements SolutionProvider {
 	/**
 	 * The cached value of the '{@link #getSolution() <em>Solution</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -57,6 +54,7 @@ public class SolutionProviderImpl extends MinimalEObjectImpl.Container implement
 	 * @ordered
 	 */
 	protected static final int CURRENT_SOLUTION_NR_EDEFAULT = 0;
+
 	/**
 	 * The cached value of the '{@link #getCurrentSolutionNr() <em>Current Solution Nr</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -96,8 +94,6 @@ public class SolutionProviderImpl extends MinimalEObjectImpl.Container implement
 		super();
 	}
 
-	
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -129,8 +125,6 @@ public class SolutionProviderImpl extends MinimalEObjectImpl.Container implement
 		return currentSolutionNr;
 	}
 
-
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -143,8 +137,6 @@ public class SolutionProviderImpl extends MinimalEObjectImpl.Container implement
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLUTION_PROVIDER__CURRENT_SOLUTION_NR, oldCurrentSolutionNr, currentSolutionNr));
 	}
 
-
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -153,8 +145,6 @@ public class SolutionProviderImpl extends MinimalEObjectImpl.Container implement
 	public String getCode() {
 		return code;
 	}
-
-
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -168,13 +158,14 @@ public class SolutionProviderImpl extends MinimalEObjectImpl.Container implement
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLUTION_PROVIDER__CODE, oldCode, code));
 	}
 
-
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
 	 */
 	public Solution solutionFactory() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
 		Solution newsolution = SolverFactory.eINSTANCE.createSolution();
 		return newsolution;
 	}
@@ -182,18 +173,18 @@ public class SolutionProviderImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
 	 */
-	public Solution constructSolution() {
+	public Solution constructSolution(float value) {
 		int currentNr = this.getCurrentSolutionNr();
 		currentNr++;
 		this.setCurrentSolutionNr(currentNr);
 		Solution newsolution = this.solutionFactory();
 		newsolution.setSolutionNr(currentNr);
 		this.getSolution().add(newsolution);
+		newsolution.setValue(value);
 		return newsolution;
 	}
-
-
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -232,8 +223,6 @@ public class SolutionProviderImpl extends MinimalEObjectImpl.Container implement
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
-
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -247,8 +236,6 @@ public class SolutionProviderImpl extends MinimalEObjectImpl.Container implement
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
-
-
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -267,8 +254,6 @@ public class SolutionProviderImpl extends MinimalEObjectImpl.Container implement
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
-
-
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -293,8 +278,6 @@ public class SolutionProviderImpl extends MinimalEObjectImpl.Container implement
 		super.eSet(featureID, newValue);
 	}
 
-
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -316,8 +299,6 @@ public class SolutionProviderImpl extends MinimalEObjectImpl.Container implement
 		super.eUnset(featureID);
 	}
 
-
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -336,8 +317,6 @@ public class SolutionProviderImpl extends MinimalEObjectImpl.Container implement
 		return super.eIsSet(featureID);
 	}
 
-
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -348,8 +327,8 @@ public class SolutionProviderImpl extends MinimalEObjectImpl.Container implement
 		switch (operationID) {
 			case SolverPackage.SOLUTION_PROVIDER___SOLUTION_FACTORY:
 				return solutionFactory();
-			case SolverPackage.SOLUTION_PROVIDER___CONSTRUCT_SOLUTION:
-				return constructSolution();
+			case SolverPackage.SOLUTION_PROVIDER___CONSTRUCT_SOLUTION__FLOAT:
+				return constructSolution((Float)arguments.get(0));
 			case SolverPackage.SOLUTION_PROVIDER___GET_PARENT_GENERATOR_TOOL:
 				return getParentGeneratorTool();
 			case SolverPackage.SOLUTION_PROVIDER___GET_GENERATOR:
@@ -357,8 +336,6 @@ public class SolutionProviderImpl extends MinimalEObjectImpl.Container implement
 		}
 		return super.eInvoke(operationID, arguments);
 	}
-
-
 
 	/**
 	 * <!-- begin-user-doc -->

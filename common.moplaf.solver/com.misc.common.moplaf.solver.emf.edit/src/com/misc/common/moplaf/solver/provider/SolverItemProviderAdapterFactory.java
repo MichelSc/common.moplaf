@@ -348,29 +348,6 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.SolutionProvider} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SolutionProviderItemProvider solutionProviderItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.SolutionProvider}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSolutionProviderAdapter() {
-		if (solutionProviderItemProvider == null) {
-			solutionProviderItemProvider = new SolutionProviderItemProvider(this);
-		}
-
-		return solutionProviderItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.SolutionVar} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -733,7 +710,6 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 		if (generatorConstraintEnablerItemProvider != null) generatorConstraintEnablerItemProvider.dispose();
 		if (generatorVarOverflowItemProvider != null) generatorVarOverflowItemProvider.dispose();
 		if (solutionReaderPatternItemProvider != null) solutionReaderPatternItemProvider.dispose();
-		if (solutionProviderItemProvider != null) solutionProviderItemProvider.dispose();
 		if (solutionItemProvider != null) solutionItemProvider.dispose();
 		if (solutionVarItemProvider != null) solutionVarItemProvider.dispose();
 		if (solutionLpVarItemProvider != null) solutionLpVarItemProvider.dispose();

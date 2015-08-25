@@ -50,6 +50,7 @@ import com.misc.common.moplaf.solver.solverglpk.SolverglpkPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.solverglpk.impl.SolverGLPKImpl#getFilePath <em>File Path</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solverglpk.impl.SolverGLPKImpl#getFileFormat <em>File Format</em>}</li>
@@ -60,7 +61,6 @@ import com.misc.common.moplaf.solver.solverglpk.SolverglpkPackage;
  *   <li>{@link com.misc.common.moplaf.solver.solverglpk.impl.SolverGLPKImpl#isEnableGeneratingCliqueCuts <em>Enable Generating Clique Cuts</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solverglpk.impl.SolverGLPKImpl#isEnableMixedIntegerRoundingCuts <em>Enable Mixed Integer Rounding Cuts</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -998,8 +998,8 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		else if ( mipstatus == GLPKConstants.GLP_FEAS)   { feasible = true; }
 		else if ( mipstatus == GLPKConstants.GLP_NOFEAS) { unfeasible = true; }
 		if ( feasible || this.isSolverLinearRelaxation()) {
-			Solution newSolution = this.constructSolution();
 			mipvalue = (float)GLPK.glp_mip_obj_val(lp);
+			Solution newSolution = this.constructSolution(mipvalue);
 			for ( Map.Entry<GeneratorLpVar, Number> varentry : vars.entrySet())	{
 				int varindex = varentry.getValue().intValue();
 				GeneratorLpVar lpvar = varentry.getKey();

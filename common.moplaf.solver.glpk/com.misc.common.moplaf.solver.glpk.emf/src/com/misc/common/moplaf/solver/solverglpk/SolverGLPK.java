@@ -12,6 +12,7 @@ import com.misc.common.moplaf.solver.SolverLp;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.solverglpk.SolverGLPK#isEnableFeasibilityPump <em>Enable Feasibility Pump</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solverglpk.SolverGLPK#isEnableGomoryCuts <em>Enable Gomory Cuts</em>}</li>
@@ -19,7 +20,6 @@ import com.misc.common.moplaf.solver.SolverLp;
  *   <li>{@link com.misc.common.moplaf.solver.solverglpk.SolverGLPK#isEnableGeneratingCliqueCuts <em>Enable Generating Clique Cuts</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solverglpk.SolverGLPK#isEnableMixedIntegerRoundingCuts <em>Enable Mixed Integer Rounding Cuts</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.solver.solverglpk.SolverglpkPackage#getSolverGLPK()
  * @model

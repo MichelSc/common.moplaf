@@ -3,11 +3,7 @@
 package com.misc.common.moplaf.solver.tests;
 
 import com.misc.common.moplaf.solver.SolutionProvider;
-import com.misc.common.moplaf.solver.SolverFactory;
-
 import junit.framework.TestCase;
-
-import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,14 +13,14 @@ import junit.textui.TestRunner;
  * The following operations are tested:
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.SolutionProvider#solutionFactory() <em>Solution Factory</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.SolutionProvider#constructSolution() <em>Construct Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.SolutionProvider#constructSolution(float) <em>Construct Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.IGeneratorTool#getParentGeneratorTool() <em>Get Parent Generator Tool</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.IGeneratorTool#getGenerator() <em>Get Generator</em>}</li>
  * </ul>
  * </p>
  * @generated
  */
-public class SolutionProviderTest extends TestCase {
+public abstract class SolutionProviderTest extends TestCase {
 
 	/**
 	 * The fixture for this Solution Provider test case.
@@ -33,15 +29,6 @@ public class SolutionProviderTest extends TestCase {
 	 * @generated
 	 */
 	protected SolutionProvider fixture = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static void main(String[] args) {
-		TestRunner.run(SolutionProviderTest.class);
-	}
 
 	/**
 	 * Constructs a new Solution Provider test case with the given name.
@@ -74,28 +61,6 @@ public class SolutionProviderTest extends TestCase {
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(SolverFactory.eINSTANCE.createSolutionProvider());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
-	}
-
-	/**
 	 * Tests the '{@link com.misc.common.moplaf.solver.SolutionProvider#solutionFactory() <em>Solution Factory</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -109,13 +74,13 @@ public class SolutionProviderTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link com.misc.common.moplaf.solver.SolutionProvider#constructSolution() <em>Construct Solution</em>}' operation.
+	 * Tests the '{@link com.misc.common.moplaf.solver.SolutionProvider#constructSolution(float) <em>Construct Solution</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.solver.SolutionProvider#constructSolution()
+	 * @see com.misc.common.moplaf.solver.SolutionProvider#constructSolution(float)
 	 * @generated
 	 */
-	public void testConstructSolution() {
+	public void testConstructSolution__float() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

@@ -38,6 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionImpl#getProvider <em>Provider</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionImpl#getSolutionNr <em>Solution Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionImpl#getCode <em>Code</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -90,6 +91,25 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	 * @ordered
 	 */
 	protected static final String CODE_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float VALUE_EDEFAULT = 0.0F;
+	/**
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected float value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -217,6 +237,27 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public float getValue() {
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValue(float newValue) {
+		float oldValue = value;
+		value = newValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLUTION__VALUE, oldValue, value));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public SolutionVar solutionVarFactory() {
 		SolutionVar newSolutionVar = SolverFactory.eINSTANCE.createSolutionVar();
@@ -325,6 +366,8 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 				return getSolutionNr();
 			case SolverPackage.SOLUTION__CODE:
 				return getCode();
+			case SolverPackage.SOLUTION__VALUE:
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -355,6 +398,9 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 			case SolverPackage.SOLUTION__CODE:
 				setCode((String)newValue);
 				return;
+			case SolverPackage.SOLUTION__VALUE:
+				setValue((Float)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -382,6 +428,9 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 			case SolverPackage.SOLUTION__CODE:
 				setCode(CODE_EDEFAULT);
 				return;
+			case SolverPackage.SOLUTION__VALUE:
+				setValue(VALUE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -404,6 +453,8 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 				return solutionNr != SOLUTION_NR_EDEFAULT;
 			case SolverPackage.SOLUTION__CODE:
 				return CODE_EDEFAULT == null ? getCode() != null : !CODE_EDEFAULT.equals(getCode());
+			case SolverPackage.SOLUTION__VALUE:
+				return value != VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -440,6 +491,8 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (SolutionNr: ");
 		result.append(solutionNr);
+		result.append(", Value: ");
+		result.append(value);
 		result.append(')');
 		return result.toString();
 	}

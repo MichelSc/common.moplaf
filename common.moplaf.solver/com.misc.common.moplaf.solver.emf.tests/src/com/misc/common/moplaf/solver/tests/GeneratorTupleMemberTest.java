@@ -13,6 +13,7 @@ import com.misc.common.moplaf.solver.GeneratorTupleMember;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorTupleMember#getTuple() <em>Tuple</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorTupleMember#getCode() <em>Code</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.GeneratorTupleMember#getLabel() <em>Label</em>}</li>
  * </ul>
  * </p>
  * <p>
@@ -81,6 +82,19 @@ public abstract class GeneratorTupleMemberTest extends GeneratorElementTest {
 	 */
 	public void testSetCode() {
 		// TODO: implement this feature setter test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link com.misc.common.moplaf.solver.GeneratorTupleMember#getLabel() <em>Label</em>}' feature getter.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.solver.GeneratorTupleMember#getLabel()
+	 * @generated
+	 */
+	public void testGetLabel() {
+		// TODO: implement this feature getter test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();
 	}

@@ -285,6 +285,7 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//Solution/Provider"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//Solution/SolutionNr"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//Solution/Code"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//Solution/Value"/>
       <genOperations ecoreOperation="solver.ecore#//Solution/solutionVarFactory"/>
       <genOperations ecoreOperation="solver.ecore#//Solution/solutionConsFactory"/>
       <genOperations ecoreOperation="solver.ecore#//Solution/constructSolutionCons">

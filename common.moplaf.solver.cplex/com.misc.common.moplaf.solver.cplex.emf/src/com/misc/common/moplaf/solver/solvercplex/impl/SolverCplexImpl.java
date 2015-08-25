@@ -46,12 +46,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getFilePath <em>File Path</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getFileFormat <em>File Format</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#isFileCompressed <em>File Compressed</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -588,8 +588,8 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		else if ( status == Status.Infeasible) { unfeasible = true; }
 		if ( feasible ) {
 			try {
-				Solution newSolution = this.constructSolution();
 				goalvalue = (float) this.lp.getObjValue();
+				Solution newSolution = this.constructSolution(goalvalue);
 				mipgap    = (float) this.lp.getMIPRelativeGap();
 				for ( Map.Entry<GeneratorLpVar, IloNumVar> varentry : vars.entrySet())	{
 					IloNumVar cplexvar = varentry.getValue();
