@@ -35,7 +35,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Generator" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="A Generator is a linear formulation, structured as a tree of tuples (GeneratorTuple), to which variables (GeneratorLpVar) and constraints (GeneratorLpCons) are attached.&#xA;The generator provides a method visitTuples allowing a ITuplevisitor to traverse all the tuples."/>
+      <details key="documentation" value="&lt;p>&#xD;&#xA;A Generator is a problem formulation (linear, constraints, ...), to which variables ({@link GeneratorVar}) and constraints ({@link GeneratorCons}) are attached.&#xD;&#xA;{@link SolutionProvider}s (typically, solvers) will produce {@link Solution}s for this problem formulation.&#xD;&#xA;&lt;p>&#xD;&#xA;A Generator is structured as follows:  &#xD;&#xA;&lt;ul>&#xD;&#xA;  &lt;li>a {@link Generator} is a tree of tuples: {@link GeneratorTuple}&lt;/li>&#xD;&#xA;  &lt;li>a {@link Generator} has root {@link GeneratorTuple}s&lt;/li>&#xD;&#xA;  &lt;li>a {@link GeneratorTuple} has {@link GeneratorTuple} elements (children) and possibly a {@link GeneratorTuple} container (parent)&lt;/li>&#xD;&#xA;  &lt;li>a {@link GeneratorTuple}, has members: {@link GeneratorTupleMember}s&lt;/li>&#xD;&#xA;  &lt;li>there are two kinds of {@link GeneratorTupleMember}s&lt;/li>&#xD;&#xA;  &lt;ul>&#xD;&#xA;    &lt;li>variables: {@link GeneratorVar}&lt;/li>&#xD;&#xA;    &lt;li>constraints: {@link GeneratorCons}&lt;/li>&#xD;&#xA;  &lt;/ul>&#xD;&#xA;&lt;/ul>&#xD;&#xA;&lt;p>&#xD;&#xA;A generator provides&#xD;&#xA;&lt;ul>&#xD;&#xA;  &lt;li>a helper allowing to traverse all the tuples: interface {@link ITupleVisitor} and method {@link #visitTuples(ITupleVisitor)}&lt;/li>&#xD;&#xA;  &lt;li>helpers to construct itself: methods {@link #generateTuples()} and {@link #generateRootTuples()} &lt;/li>&#xD;&#xA;  &lt;li>helpers to construct the vars and cons: methods {@link #generateVars()} and {@link #generateCons()} &lt;/li>&#xD;&#xA;&lt;/ul>&#xD;&#xA;&lt;p>&#xD;&#xA;A generator may select one solution among its pool of solutions: {@link #setSelected(Solution)}. The selected solution is used to show&#xD;&#xA; properties of this Generator elements for the selected solution.&#xD;&#xA;&lt;p>&#xD;&#xA;&#xD;&#xA;"/>
     </eAnnotations>
     <eOperations name="generate"/>
     <eOperations name="generateRootTuples"/>
@@ -262,7 +262,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Solver" abstract="true" eSuperTypes="#//SolutionProvider">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="A Solver is the common implementation of a concrete solver, that must implement the method solverLp()"/>
+      <details key="documentation" value="&lt;p>&#xD;&#xA;A Solver is a run of a concrete solver. It provides control how the run must be performed &#xD;&#xA;(MaxDuration, BackgroundProcess) and gives information how the run is or has been performed&#xD;&#xA;(timestamps, status). &#xD;&#xA;&lt;p>&#xD;&#xA;A Solver solves a given a problem formulation: interface {@link IGeneratorTool}&#xD;&#xA;&lt;p>&#xD;&#xA;A Solver produces one or several {@link Solution} for the problem: super class {@link SolutionProvider}.&#xD;&#xA;"/>
     </eAnnotations>
     <eOperations name="solve">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

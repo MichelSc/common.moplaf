@@ -10,7 +10,15 @@ import java.util.Date;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * A Solver is the common implementation of a concrete solver, that must implement the method solverLp()
+ * <p>
+ * A Solver is a run of a concrete solver. It provides control how the run must be performed 
+ * (MaxDuration, BackgroundProcess) and gives information how the run is or has been performed
+ * (timestamps, status). 
+ * <p>
+ * A Solver solves a given a problem formulation: interface {@link IGeneratorTool}
+ * <p>
+ * A Solver produces one or several {@link Solution} for the problem: super class {@link SolutionProvider}.
+ * 
  * <!-- end-model-doc -->
  *
  * <p>

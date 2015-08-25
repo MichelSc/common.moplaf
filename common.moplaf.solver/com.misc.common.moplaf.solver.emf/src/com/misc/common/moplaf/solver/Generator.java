@@ -5,19 +5,17 @@ package com.misc.common.moplaf.solver;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
-import com.misc.common.moplaf.solver.impl.SolutionProviderImpl;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Generator</b></em>'.
+ * 
+ * Michel doc just for a test
  * <!-- end-user-doc -->
  *
- * <p>
- * 
  * <!-- begin-model-doc -->
+ * <p>
  * A Generator is a problem formulation (linear, constraints, ...), to which variables ({@link GeneratorVar}) and constraints ({@link GeneratorCons}) are attached.
  * {@link SolutionProvider}s (typically, solvers) will produce {@link Solution}s for this problem formulation.
- * 
  * <p>
  * A Generator is structured as follows:  
  * <ul>
@@ -31,22 +29,18 @@ import com.misc.common.moplaf.solver.impl.SolutionProviderImpl;
  *     <li>constraints: {@link GeneratorCons}</li>
  *   </ul>
  * </ul>
- *   
  * <p>
- * 
  * A generator provides
  * <ul>
  *   <li>a helper allowing to traverse all the tuples: interface {@link ITupleVisitor} and method {@link #visitTuples(ITupleVisitor)}</li>
  *   <li>helpers to construct itself: methods {@link #generateTuples()} and {@link #generateRootTuples()} </li>
  *   <li>helpers to construct the vars and cons: methods {@link #generateVars()} and {@link #generateCons()} </li>
  * </ul>
- * 
  * <p>
- * 
  * A generator may select one solution among its pool of solutions: {@link #setSelected(Solution)}. The selected solution is used to show
  *  properties of this Generator elements for the selected solution.
- * 
  * <p>
+ * 
  * 
  * <!-- end-model-doc -->
  *
