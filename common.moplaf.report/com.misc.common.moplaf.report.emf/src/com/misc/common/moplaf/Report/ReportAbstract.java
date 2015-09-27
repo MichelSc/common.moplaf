@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.Report.ReportAbstract#getEngine <em>Engine</em>}</li>
  *   <li>{@link com.misc.common.moplaf.Report.ReportAbstract#getFormat <em>Format</em>}</li>
  *   <li>{@link com.misc.common.moplaf.Report.ReportAbstract#isGenerated <em>Generated</em>}</li>
- *   <li>{@link com.misc.common.moplaf.Report.ReportAbstract#getOutputFile <em>Output File</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.Report.ReportAbstract#getOutputFilePath <em>Output File Path</em>}</li>
  *   <li>{@link com.misc.common.moplaf.Report.ReportAbstract#getLastGenerated <em>Last Generated</em>}</li>
  *   <li>{@link com.misc.common.moplaf.Report.ReportAbstract#getRunMode <em>Run Mode</em>}</li>
  *   <li>{@link com.misc.common.moplaf.Report.ReportAbstract#isMayBeRun <em>May Be Run</em>}</li>
@@ -117,30 +117,31 @@ public interface ReportAbstract extends EObject {
 	void setGenerated(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Output File</b></em>' attribute.
+	 * Returns the value of the '<em><b>Output File Path</b></em>' attribute.
+	 * The default value is <code>"/home/michel/tmp/output.txt"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Output File</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Output File Path</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Output File</em>' attribute.
-	 * @see #setOutputFile(String)
-	 * @see com.misc.common.moplaf.Report.ReportPackage#getReportAbstract_OutputFile()
-	 * @model
+	 * @return the value of the '<em>Output File Path</em>' attribute.
+	 * @see #setOutputFilePath(String)
+	 * @see com.misc.common.moplaf.Report.ReportPackage#getReportAbstract_OutputFilePath()
+	 * @model default="/home/michel/tmp/output.txt"
 	 * @generated
 	 */
-	String getOutputFile();
+	String getOutputFilePath();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.Report.ReportAbstract#getOutputFile <em>Output File</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.Report.ReportAbstract#getOutputFilePath <em>Output File Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Output File</em>' attribute.
-	 * @see #getOutputFile()
+	 * @param value the new value of the '<em>Output File Path</em>' attribute.
+	 * @see #getOutputFilePath()
 	 * @generated
 	 */
-	void setOutputFile(String value);
+	void setOutputFilePath(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Last Generated</b></em>' attribute.
@@ -268,5 +269,13 @@ public interface ReportAbstract extends EObject {
 	 * @generated
 	 */
 	void run();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getReportDesignFilePath();
 
 } // ReportAbstract

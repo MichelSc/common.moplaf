@@ -8,12 +8,14 @@
     <eOperations name="write"/>
     <eOperations name="getContext" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     <eOperations name="run"/>
+    <eOperations name="getReportDesignFilePath" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Engine" eType="#//ReportEngine"
         defaultValueLiteral="Birt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Format" eType="#//ReportRenderFormat"
         defaultValueLiteral="Pdf"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Generated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="OutputFile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="OutputFilePath" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
+        defaultValueLiteral="/home/michel/tmp/output.txt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="LastGenerated" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunMode" eType="#//ReportRunMode"
         defaultValueLiteral="GenerateAndRender"/>

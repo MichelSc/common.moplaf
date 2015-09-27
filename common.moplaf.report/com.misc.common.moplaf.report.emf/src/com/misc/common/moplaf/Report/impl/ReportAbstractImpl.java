@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.Report.impl;
 
+import com.misc.common.moplaf.Report.Plugin;
 import com.misc.common.moplaf.Report.ReportAbstract;
 import com.misc.common.moplaf.Report.ReportEngine;
 import com.misc.common.moplaf.Report.ReportPackage;
@@ -11,7 +12,12 @@ import com.misc.common.moplaf.Report.ReportRunMode;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Date;
-
+import org.eclipse.birt.report.engine.api.EngineConstants;
+import org.eclipse.birt.report.engine.api.EngineException;
+import org.eclipse.birt.report.engine.api.HTMLRenderOption;
+import org.eclipse.birt.report.engine.api.IReportEngine;
+import org.eclipse.birt.report.engine.api.IReportRunnable;
+import org.eclipse.birt.report.engine.api.IRunAndRenderTask;
 import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -33,7 +39,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link com.misc.common.moplaf.Report.impl.ReportAbstractImpl#getEngine <em>Engine</em>}</li>
  *   <li>{@link com.misc.common.moplaf.Report.impl.ReportAbstractImpl#getFormat <em>Format</em>}</li>
  *   <li>{@link com.misc.common.moplaf.Report.impl.ReportAbstractImpl#isGenerated <em>Generated</em>}</li>
- *   <li>{@link com.misc.common.moplaf.Report.impl.ReportAbstractImpl#getOutputFile <em>Output File</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.Report.impl.ReportAbstractImpl#getOutputFilePath <em>Output File Path</em>}</li>
  *   <li>{@link com.misc.common.moplaf.Report.impl.ReportAbstractImpl#getLastGenerated <em>Last Generated</em>}</li>
  *   <li>{@link com.misc.common.moplaf.Report.impl.ReportAbstractImpl#getRunMode <em>Run Mode</em>}</li>
  *   <li>{@link com.misc.common.moplaf.Report.impl.ReportAbstractImpl#isMayBeRun <em>May Be Run</em>}</li>
@@ -104,24 +110,24 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 	protected boolean generated = GENERATED_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getOutputFile() <em>Output File</em>}' attribute.
+	 * The default value of the '{@link #getOutputFilePath() <em>Output File Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOutputFile()
+	 * @see #getOutputFilePath()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String OUTPUT_FILE_EDEFAULT = null;
+	protected static final String OUTPUT_FILE_PATH_EDEFAULT = "/home/michel/tmp/output.txt";
 
 	/**
-	 * The cached value of the '{@link #getOutputFile() <em>Output File</em>}' attribute.
+	 * The cached value of the '{@link #getOutputFilePath() <em>Output File Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOutputFile()
+	 * @see #getOutputFilePath()
 	 * @generated
 	 * @ordered
 	 */
-	protected String outputFile = OUTPUT_FILE_EDEFAULT;
+	protected String outputFilePath = OUTPUT_FILE_PATH_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getLastGenerated() <em>Last Generated</em>}' attribute.
@@ -270,8 +276,8 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getOutputFile() {
-		return outputFile;
+	public String getOutputFilePath() {
+		return outputFilePath;
 	}
 
 	/**
@@ -279,11 +285,11 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOutputFile(String newOutputFile) {
-		String oldOutputFile = outputFile;
-		outputFile = newOutputFile;
+	public void setOutputFilePath(String newOutputFilePath) {
+		String oldOutputFilePath = outputFilePath;
+		outputFilePath = newOutputFilePath;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ReportPackage.REPORT_ABSTRACT__OUTPUT_FILE, oldOutputFile, outputFile));
+			eNotify(new ENotificationImpl(this, Notification.SET, ReportPackage.REPORT_ABSTRACT__OUTPUT_FILE_PATH, oldOutputFilePath, outputFilePath));
 	}
 
 	/**
@@ -359,8 +365,40 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 */
 	public boolean generate() {
-		CommonPlugin.INSTANCE.log("Report.generate: called");
 		boolean generated = false;
+		CommonPlugin.INSTANCE.log("Report.generate: called");
+		try {
+			IReportEngine engine = Plugin.getReportEngine();
+			//Open the report design
+			IReportRunnable design = engine.openReportDesign(this.getReportDesignFilePath()); 
+			
+			//Create task to run and render the report,
+			IRunAndRenderTask task = engine.createRunAndRenderTask(design);
+			
+			//Set parent classloader for engine
+			task.getAppContext().put(EngineConstants.APPCONTEXT_CLASSLOADER_KEY, 
+									ReportAbstractImpl.class.getClassLoader()); 
+			
+			//Set parameter values and validate
+			//task.setParameterValue("Top Percentage", (new Integer(3)));
+			//task.setParameterValue("Top Count", (new Integer(5)));
+			task.validateParameters();
+			
+			//Setup rendering to HTML
+			HTMLRenderOption options = new HTMLRenderOption();		
+			options.setOutputFileName(this.getOutputFilePath());
+			options.setOutputFormat("html");
+			
+			//Setting this to true removes html and body tags
+			options.setEmbeddable(false);
+			task.setRenderOption(options);
+			//run and render report
+			task.run();
+			task.close();
+			generated = true;
+		} catch (EngineException e) {
+			e.printStackTrace();
+		}
 		this.setGenerated(generated);
 		CommonPlugin.INSTANCE.log("Report.generate: done, generated="+generated);
 		return generated;
@@ -425,6 +463,17 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getReportDesignFilePath() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -434,8 +483,8 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 				return getFormat();
 			case ReportPackage.REPORT_ABSTRACT__GENERATED:
 				return isGenerated();
-			case ReportPackage.REPORT_ABSTRACT__OUTPUT_FILE:
-				return getOutputFile();
+			case ReportPackage.REPORT_ABSTRACT__OUTPUT_FILE_PATH:
+				return getOutputFilePath();
 			case ReportPackage.REPORT_ABSTRACT__LAST_GENERATED:
 				return getLastGenerated();
 			case ReportPackage.REPORT_ABSTRACT__RUN_MODE:
@@ -465,8 +514,8 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 			case ReportPackage.REPORT_ABSTRACT__GENERATED:
 				setGenerated((Boolean)newValue);
 				return;
-			case ReportPackage.REPORT_ABSTRACT__OUTPUT_FILE:
-				setOutputFile((String)newValue);
+			case ReportPackage.REPORT_ABSTRACT__OUTPUT_FILE_PATH:
+				setOutputFilePath((String)newValue);
 				return;
 			case ReportPackage.REPORT_ABSTRACT__LAST_GENERATED:
 				setLastGenerated((Date)newValue);
@@ -495,8 +544,8 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 			case ReportPackage.REPORT_ABSTRACT__GENERATED:
 				setGenerated(GENERATED_EDEFAULT);
 				return;
-			case ReportPackage.REPORT_ABSTRACT__OUTPUT_FILE:
-				setOutputFile(OUTPUT_FILE_EDEFAULT);
+			case ReportPackage.REPORT_ABSTRACT__OUTPUT_FILE_PATH:
+				setOutputFilePath(OUTPUT_FILE_PATH_EDEFAULT);
 				return;
 			case ReportPackage.REPORT_ABSTRACT__LAST_GENERATED:
 				setLastGenerated(LAST_GENERATED_EDEFAULT);
@@ -522,8 +571,8 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 				return format != FORMAT_EDEFAULT;
 			case ReportPackage.REPORT_ABSTRACT__GENERATED:
 				return generated != GENERATED_EDEFAULT;
-			case ReportPackage.REPORT_ABSTRACT__OUTPUT_FILE:
-				return OUTPUT_FILE_EDEFAULT == null ? outputFile != null : !OUTPUT_FILE_EDEFAULT.equals(outputFile);
+			case ReportPackage.REPORT_ABSTRACT__OUTPUT_FILE_PATH:
+				return OUTPUT_FILE_PATH_EDEFAULT == null ? outputFilePath != null : !OUTPUT_FILE_PATH_EDEFAULT.equals(outputFilePath);
 			case ReportPackage.REPORT_ABSTRACT__LAST_GENERATED:
 				return LAST_GENERATED_EDEFAULT == null ? lastGenerated != null : !LAST_GENERATED_EDEFAULT.equals(lastGenerated);
 			case ReportPackage.REPORT_ABSTRACT__RUN_MODE:
@@ -557,6 +606,8 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 			case ReportPackage.REPORT_ABSTRACT___RUN:
 				run();
 				return null;
+			case ReportPackage.REPORT_ABSTRACT___GET_REPORT_DESIGN_FILE_PATH:
+				return getReportDesignFilePath();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -577,8 +628,8 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 		result.append(format);
 		result.append(", Generated: ");
 		result.append(generated);
-		result.append(", OutputFile: ");
-		result.append(outputFile);
+		result.append(", OutputFilePath: ");
+		result.append(outputFilePath);
 		result.append(", LastGenerated: ");
 		result.append(lastGenerated);
 		result.append(", RunMode: ");

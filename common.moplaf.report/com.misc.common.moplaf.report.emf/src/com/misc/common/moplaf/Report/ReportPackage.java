@@ -95,13 +95,13 @@ public interface ReportPackage extends EPackage {
 	int REPORT_ABSTRACT__GENERATED = 2;
 
 	/**
-	 * The feature id for the '<em><b>Output File</b></em>' attribute.
+	 * The feature id for the '<em><b>Output File Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REPORT_ABSTRACT__OUTPUT_FILE = 3;
+	int REPORT_ABSTRACT__OUTPUT_FILE_PATH = 3;
 
 	/**
 	 * The feature id for the '<em><b>Last Generated</b></em>' attribute.
@@ -194,13 +194,22 @@ public interface ReportPackage extends EPackage {
 	int REPORT_ABSTRACT___RUN = 4;
 
 	/**
+	 * The operation id for the '<em>Get Report Design File Path</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPORT_ABSTRACT___GET_REPORT_DESIGN_FILE_PATH = 5;
+
+	/**
 	 * The number of operations of the '<em>Abstract</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REPORT_ABSTRACT_OPERATION_COUNT = 5;
+	int REPORT_ABSTRACT_OPERATION_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.Report.ReportEngine <em>Engine</em>}' enum.
@@ -278,15 +287,15 @@ public interface ReportPackage extends EPackage {
 	EAttribute getReportAbstract_Generated();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.Report.ReportAbstract#getOutputFile <em>Output File</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.Report.ReportAbstract#getOutputFilePath <em>Output File Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Output File</em>'.
-	 * @see com.misc.common.moplaf.Report.ReportAbstract#getOutputFile()
+	 * @return the meta object for the attribute '<em>Output File Path</em>'.
+	 * @see com.misc.common.moplaf.Report.ReportAbstract#getOutputFilePath()
 	 * @see #getReportAbstract()
 	 * @generated
 	 */
-	EAttribute getReportAbstract_OutputFile();
+	EAttribute getReportAbstract_OutputFilePath();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.Report.ReportAbstract#getLastGenerated <em>Last Generated</em>}'.
@@ -383,6 +392,16 @@ public interface ReportPackage extends EPackage {
 	EOperation getReportAbstract__Run();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.Report.ReportAbstract#getReportDesignFilePath() <em>Get Report Design File Path</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Report Design File Path</em>' operation.
+	 * @see com.misc.common.moplaf.Report.ReportAbstract#getReportDesignFilePath()
+	 * @generated
+	 */
+	EOperation getReportAbstract__GetReportDesignFilePath();
+
+	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.Report.ReportEngine <em>Engine</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -470,12 +489,12 @@ public interface ReportPackage extends EPackage {
 		EAttribute REPORT_ABSTRACT__GENERATED = eINSTANCE.getReportAbstract_Generated();
 
 		/**
-		 * The meta object literal for the '<em><b>Output File</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Output File Path</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute REPORT_ABSTRACT__OUTPUT_FILE = eINSTANCE.getReportAbstract_OutputFile();
+		EAttribute REPORT_ABSTRACT__OUTPUT_FILE_PATH = eINSTANCE.getReportAbstract_OutputFilePath();
 
 		/**
 		 * The meta object literal for the '<em><b>Last Generated</b></em>' attribute feature.
@@ -548,6 +567,14 @@ public interface ReportPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation REPORT_ABSTRACT___RUN = eINSTANCE.getReportAbstract__Run();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Report Design File Path</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation REPORT_ABSTRACT___GET_REPORT_DESIGN_FILE_PATH = eINSTANCE.getReportAbstract__GetReportDesignFilePath();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.Report.ReportEngine <em>Engine</em>}' enum.

@@ -158,7 +158,7 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getReportAbstract_OutputFile() {
+	public EAttribute getReportAbstract_OutputFilePath() {
 		return (EAttribute)reportAbstractEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -248,6 +248,15 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getReportAbstract__GetReportDesignFilePath() {
+		return reportAbstractEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getReportEngine() {
 		return reportEngineEEnum;
 	}
@@ -302,7 +311,7 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 		createEAttribute(reportAbstractEClass, REPORT_ABSTRACT__ENGINE);
 		createEAttribute(reportAbstractEClass, REPORT_ABSTRACT__FORMAT);
 		createEAttribute(reportAbstractEClass, REPORT_ABSTRACT__GENERATED);
-		createEAttribute(reportAbstractEClass, REPORT_ABSTRACT__OUTPUT_FILE);
+		createEAttribute(reportAbstractEClass, REPORT_ABSTRACT__OUTPUT_FILE_PATH);
 		createEAttribute(reportAbstractEClass, REPORT_ABSTRACT__LAST_GENERATED);
 		createEAttribute(reportAbstractEClass, REPORT_ABSTRACT__RUN_MODE);
 		createEAttribute(reportAbstractEClass, REPORT_ABSTRACT__MAY_BE_RUN);
@@ -312,6 +321,7 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 		createEOperation(reportAbstractEClass, REPORT_ABSTRACT___WRITE);
 		createEOperation(reportAbstractEClass, REPORT_ABSTRACT___GET_CONTEXT);
 		createEOperation(reportAbstractEClass, REPORT_ABSTRACT___RUN);
+		createEOperation(reportAbstractEClass, REPORT_ABSTRACT___GET_REPORT_DESIGN_FILE_PATH);
 
 		// Create enums
 		reportEngineEEnum = createEEnum(REPORT_ENGINE);
@@ -356,7 +366,7 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 		initEAttribute(getReportAbstract_Engine(), this.getReportEngine(), "Engine", "Birt", 0, 1, ReportAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReportAbstract_Format(), this.getReportRenderFormat(), "Format", "Pdf", 0, 1, ReportAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReportAbstract_Generated(), ecorePackage.getEBoolean(), "Generated", null, 0, 1, ReportAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getReportAbstract_OutputFile(), ecorePackage.getEString(), "OutputFile", null, 0, 1, ReportAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getReportAbstract_OutputFilePath(), theEcorePackage.getEString(), "OutputFilePath", "/home/michel/tmp/output.txt", 0, 1, ReportAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReportAbstract_LastGenerated(), theEcorePackage.getEDate(), "LastGenerated", null, 0, 1, ReportAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReportAbstract_RunMode(), this.getReportRunMode(), "RunMode", "GenerateAndRender", 0, 1, ReportAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReportAbstract_MayBeRun(), theEcorePackage.getEBoolean(), "mayBeRun", "false", 0, 1, ReportAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -371,6 +381,8 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 		initEOperation(getReportAbstract__GetContext(), ecorePackage.getEObject(), "getContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getReportAbstract__Run(), null, "run", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getReportAbstract__GetReportDesignFilePath(), theEcorePackage.getEString(), "getReportDesignFilePath", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(reportEngineEEnum, ReportEngine.class, "ReportEngine");
