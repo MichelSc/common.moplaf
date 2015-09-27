@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Report" nsURI="http://www.misc.com/common/moplaf/report/model/0.1"
+    nsPrefix="rpt">
+  <eClassifiers xsi:type="ecore:EClass" name="ReportAbstract" abstract="true">
+    <eOperations name="generate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="render"/>
+    <eOperations name="write"/>
+    <eOperations name="getContext" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eOperations name="run"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Engine" eType="#//ReportEngine"
+        defaultValueLiteral="Birt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Format" eType="#//ReportRenderFormat"
+        defaultValueLiteral="Pdf"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Generated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="OutputFile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LastGenerated" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunMode" eType="#//ReportRunMode"
+        defaultValueLiteral="GenerateAndRender"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mayBeRun" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
+        changeable="false" volatile="true" transient="true" defaultValueLiteral="false"
+        derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mayBeRunFeedback" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ReportEngine">
+    <eLiterals name="EnumReportEngineBirt" literal="Birt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ReportRenderFormat">
+    <eLiterals name="EnumRenderFormatPdf" literal="Pdf"/>
+    <eLiterals name="EnumRederFormatHtml" value="1" literal="Html"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ReportRunMode">
+    <eLiterals name="EnumGenerateOnly" literal="GenerateOnly"/>
+    <eLiterals name="EnumRenderOnly" value="1" literal="RenderOnly"/>
+    <eLiterals name="EnumWriteOnly" value="2" literal="WriteOnly"/>
+    <eLiterals name="EnumGenerateAndRender" value="3" literal="GenerateAndRender"/>
+    <eLiterals name="EnumGenerateAndWrite" value="4" literal="GenerateAndWrite"/>
+  </eClassifiers>
+</ecore:EPackage>

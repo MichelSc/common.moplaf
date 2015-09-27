@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.report.emf/src" modelPluginID="com.misc.common.moplaf.report.emf"
+    modelName="Report" modelPluginClass="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore" operationReflection="true"
+    importOrganizing="true">
+  <foreignModel>Report.ecore</foreignModel>
+  <genPackages prefix="Report" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
+      ecorePackage="Report.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Report.ecore#//ReportEngine">
+      <genEnumLiterals ecoreEnumLiteral="Report.ecore#//ReportEngine/EnumReportEngineBirt"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Report.ecore#//ReportRenderFormat">
+      <genEnumLiterals ecoreEnumLiteral="Report.ecore#//ReportRenderFormat/EnumRenderFormatPdf"/>
+      <genEnumLiterals ecoreEnumLiteral="Report.ecore#//ReportRenderFormat/EnumRederFormatHtml"/>
+    </genEnums>
+    <genClasses ecoreClass="Report.ecore#//ReportAbstract">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Report.ecore#//ReportAbstract/Engine"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Report.ecore#//ReportAbstract/Format"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Report.ecore#//ReportAbstract/Generated"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Report.ecore#//ReportAbstract/OutputFile"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference Report.ecore#//ReportAbstract/Context"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Report.ecore#//ReportAbstract/LastGenerated"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Report.ecore#//ReportAbstract/UserContext"/>
+      <genOperations ecoreOperation="Report.ecore#//ReportAbstract/Generate"/>
+      <genOperations ecoreOperation="Report.ecore#//ReportAbstract/Render"/>
+      <genOperations ecoreOperation="Report.ecore#//ReportAbstract/Write"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
