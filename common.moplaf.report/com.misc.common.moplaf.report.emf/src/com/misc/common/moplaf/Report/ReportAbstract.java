@@ -62,7 +62,7 @@ public interface ReportAbstract extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Format</b></em>' attribute.
-	 * The default value is <code>"Pdf"</code>.
+	 * The default value is <code>"pdf"</code>.
 	 * The literals are from the enumeration {@link com.misc.common.moplaf.Report.ReportRenderFormat}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -74,7 +74,7 @@ public interface ReportAbstract extends EObject {
 	 * @see com.misc.common.moplaf.Report.ReportRenderFormat
 	 * @see #setFormat(ReportRenderFormat)
 	 * @see com.misc.common.moplaf.Report.ReportPackage#getReportAbstract_Format()
-	 * @model default="Pdf"
+	 * @model default="pdf"
 	 * @generated
 	 */
 	ReportRenderFormat getFormat();
@@ -118,7 +118,7 @@ public interface ReportAbstract extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Output File Path</b></em>' attribute.
-	 * The default value is <code>"/home/michel/tmp/output.txt"</code>.
+	 * The default value is <code>"/home/michel/tmp/output"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Output File Path</em>' attribute isn't clear,
@@ -128,7 +128,7 @@ public interface ReportAbstract extends EObject {
 	 * @return the value of the '<em>Output File Path</em>' attribute.
 	 * @see #setOutputFilePath(String)
 	 * @see com.misc.common.moplaf.Report.ReportPackage#getReportAbstract_OutputFilePath()
-	 * @model default="/home/michel/tmp/output.txt"
+	 * @model default="/home/michel/tmp/output"
 	 * @generated
 	 */
 	String getOutputFilePath();

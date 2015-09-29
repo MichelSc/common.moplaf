@@ -385,9 +385,9 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(reportAbstractEClass, ReportAbstract.class, "ReportAbstract", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getReportAbstract_Engine(), this.getReportEngine(), "Engine", "Birt", 0, 1, ReportAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getReportAbstract_Format(), this.getReportRenderFormat(), "Format", "Pdf", 0, 1, ReportAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getReportAbstract_Format(), this.getReportRenderFormat(), "Format", "pdf", 0, 1, ReportAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReportAbstract_Generated(), ecorePackage.getEBoolean(), "Generated", null, 0, 1, ReportAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getReportAbstract_OutputFilePath(), theEcorePackage.getEString(), "OutputFilePath", "/home/michel/tmp/output.txt", 0, 1, ReportAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getReportAbstract_OutputFilePath(), theEcorePackage.getEString(), "OutputFilePath", "/home/michel/tmp/output", 0, 1, ReportAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReportAbstract_LastGenerated(), theEcorePackage.getEDate(), "LastGenerated", null, 0, 1, ReportAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReportAbstract_RunMode(), this.getReportRunMode(), "RunMode", "GenerateAndRender", 0, 1, ReportAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReportAbstract_MayBeRun(), theEcorePackage.getEBoolean(), "mayBeRun", "false", 0, 1, ReportAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -412,7 +412,9 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 		initEEnum(reportRenderFormatEEnum, ReportRenderFormat.class, "ReportRenderFormat");
 		addEEnumLiteral(reportRenderFormatEEnum, ReportRenderFormat.ENUM_RENDER_FORMAT_PDF);
 		addEEnumLiteral(reportRenderFormatEEnum, ReportRenderFormat.ENUM_REDER_FORMAT_HTML);
-		addEEnumLiteral(reportRenderFormatEEnum, ReportRenderFormat.ENUM_RENDER_FORMAT_EXCEL);
+		addEEnumLiteral(reportRenderFormatEEnum, ReportRenderFormat.ENUM_RENDER_FORMAT_XLS);
+		addEEnumLiteral(reportRenderFormatEEnum, ReportRenderFormat.ENUM_RENDER_FORMAT_XLSX);
+		addEEnumLiteral(reportRenderFormatEEnum, ReportRenderFormat.ENUM_RENDER_FORMAT_DOC);
 		addEEnumLiteral(reportRenderFormatEEnum, ReportRenderFormat.ENUM_RENDER_FORMAT_DOCX);
 
 		initEEnum(reportRunModeEEnum, ReportRunMode.class, "ReportRunMode");

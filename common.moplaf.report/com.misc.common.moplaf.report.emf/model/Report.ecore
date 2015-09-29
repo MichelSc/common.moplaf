@@ -16,10 +16,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Engine" eType="#//ReportEngine"
         defaultValueLiteral="Birt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Format" eType="#//ReportRenderFormat"
-        defaultValueLiteral="Pdf"/>
+        defaultValueLiteral="pdf"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Generated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="OutputFilePath" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
-        defaultValueLiteral="/home/michel/tmp/output.txt"/>
+        defaultValueLiteral="/home/michel/tmp/output"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="LastGenerated" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunMode" eType="#//ReportRunMode"
         defaultValueLiteral="GenerateAndRender"/>
@@ -33,10 +33,12 @@
     <eLiterals name="EnumReportEngineBirt" literal="Birt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ReportRenderFormat">
-    <eLiterals name="EnumRenderFormatPdf" literal="Pdf"/>
-    <eLiterals name="EnumRederFormatHtml" value="1" literal="Html"/>
-    <eLiterals name="EnumRenderFormatExcel" value="2" literal="Excel"/>
-    <eLiterals name="EnumRenderFormatDocx" value="3" literal="Docx"/>
+    <eLiterals name="EnumRenderFormatPdf" literal="pdf"/>
+    <eLiterals name="EnumRederFormatHtml" value="1" literal="html"/>
+    <eLiterals name="EnumRenderFormatXls" value="2" literal="xls"/>
+    <eLiterals name="EnumRenderFormatXlsx" value="4" literal="xlsx"/>
+    <eLiterals name="EnumRenderFormatDoc" value="5" literal="doc"/>
+    <eLiterals name="EnumRenderFormatDocx" value="3" literal="docx"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ReportRunMode">
     <eLiterals name="EnumGenerateOnly" literal="GenerateOnly"/>

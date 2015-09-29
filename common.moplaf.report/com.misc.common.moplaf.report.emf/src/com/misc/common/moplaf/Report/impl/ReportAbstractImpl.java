@@ -21,6 +21,7 @@ import org.eclipse.birt.report.engine.api.EXCELRenderOption;
 import org.eclipse.birt.report.engine.api.EngineConstants;
 import org.eclipse.birt.report.engine.api.EngineException;
 import org.eclipse.birt.report.engine.api.HTMLRenderOption;
+import org.eclipse.birt.report.engine.api.IRenderOption;
 import org.eclipse.birt.report.engine.api.IReportEngine;
 import org.eclipse.birt.report.engine.api.IReportRunnable;
 import org.eclipse.birt.report.engine.api.IRunAndRenderTask;
@@ -126,7 +127,7 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String OUTPUT_FILE_PATH_EDEFAULT = "/home/michel/tmp/output.txt";
+	protected static final String OUTPUT_FILE_PATH_EDEFAULT = "/home/michel/tmp/output";
 
 	/**
 	 * The cached value of the '{@link #getOutputFilePath() <em>Output File Path</em>}' attribute.
@@ -410,14 +411,14 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 			switch ( this.getFormat() ){
 				case ENUM_REDER_FORMAT_HTML:
 					HTMLRenderOption optionsHtml = new HTMLRenderOption();		
-					outputFormat = "html";
+					outputFormat = IRenderOption.OUTPUT_FORMAT_HTML;
 					//Setting this to true removes html and body tags
 					optionsHtml.setEmbeddable(false);
 					option = optionsHtml;
 					break;
 				case ENUM_RENDER_FORMAT_PDF:
 					PDFRenderOption optionsPdf = new PDFRenderOption();
-					outputFormat = "pdf";
+					outputFormat = IRenderOption.OUTPUT_FORMAT_PDF;
 					option = optionsPdf;
 					break;
 				case ENUM_RENDER_FORMAT_DOCX:
@@ -425,14 +426,36 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 					outputFormat = "docx";
 					option = optionsDocx;
 					break;
-				case ENUM_RENDER_FORMAT_EXCEL:
-					EXCELRenderOption optionsExcel = new EXCELRenderOption();
+				case ENUM_RENDER_FORMAT_DOC:
+					DocxRenderOption optionsDoc = new DocxRenderOption();
+					outputFormat = "doc";
+					option = optionsDoc;
+					break;
+				case ENUM_RENDER_FORMAT_XLSX:
+					EXCELRenderOption optionsXlsx = new EXCELRenderOption();
+					outputFormat = "xlsx";
+					option = optionsXlsx;
+					break;
+				case ENUM_RENDER_FORMAT_XLS:
+					EXCELRenderOption optionsXls = new EXCELRenderOption();
 					outputFormat = "xls";
-					option = optionsExcel;
+					option = optionsXls;
 					break;
 			}
-			
-			option.setOutputFileName(this.getOutputFilePath());
+
+			// add extension if none
+			String outputPath = this.getOutputFilePath();
+			int lastdot = outputPath.lastIndexOf('.');
+			int lastslash = outputPath.lastIndexOf('/');
+			String extension = "";
+			if ( lastdot>=0 && lastdot>lastslash ){
+				extension = outputPath.substring(lastdot+1);
+			}
+			else if ( extension.length()==0){
+				outputPath= outputPath+"."+outputFormat;
+			}
+
+			option.setOutputFileName(outputPath);
 			option.setOutputFormat(outputFormat);
 			task.setRenderOption(option);
 

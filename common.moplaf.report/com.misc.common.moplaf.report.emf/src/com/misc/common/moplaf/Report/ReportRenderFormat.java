@@ -26,7 +26,7 @@ public enum ReportRenderFormat implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENUM_RENDER_FORMAT_PDF(0, "EnumRenderFormatPdf", "Pdf"),
+	ENUM_RENDER_FORMAT_PDF(0, "EnumRenderFormatPdf", "pdf"),
 
 	/**
 	 * The '<em><b>Enum Reder Format Html</b></em>' literal object.
@@ -36,15 +36,31 @@ public enum ReportRenderFormat implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENUM_REDER_FORMAT_HTML(1, "EnumRederFormatHtml", "Html"), /**
-	 * The '<em><b>Enum Render Format Excel</b></em>' literal object.
+	ENUM_REDER_FORMAT_HTML(1, "EnumRederFormatHtml", "html"), /**
+	 * The '<em><b>Enum Render Format Xls</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ENUM_RENDER_FORMAT_EXCEL_VALUE
+	 * @see #ENUM_RENDER_FORMAT_XLS_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	ENUM_RENDER_FORMAT_EXCEL(2, "EnumRenderFormatExcel", "Excel"), /**
+	ENUM_RENDER_FORMAT_XLS(2, "EnumRenderFormatXls", "xls"), /**
+	 * The '<em><b>Enum Render Format Xlsx</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ENUM_RENDER_FORMAT_XLSX_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ENUM_RENDER_FORMAT_XLSX(4, "EnumRenderFormatXlsx", "xlsx"), /**
+	 * The '<em><b>Enum Render Format Doc</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ENUM_RENDER_FORMAT_DOC_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ENUM_RENDER_FORMAT_DOC(5, "EnumRenderFormatDoc", "doc"), /**
 	 * The '<em><b>Enum Render Format Docx</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -52,7 +68,7 @@ public enum ReportRenderFormat implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENUM_RENDER_FORMAT_DOCX(3, "EnumRenderFormatDocx", "Docx");
+	ENUM_RENDER_FORMAT_DOCX(3, "EnumRenderFormatDocx", "docx");
 
 	/**
 	 * The '<em><b>Enum Render Format Pdf</b></em>' literal value.
@@ -63,7 +79,7 @@ public enum ReportRenderFormat implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #ENUM_RENDER_FORMAT_PDF
-	 * @model name="EnumRenderFormatPdf" literal="Pdf"
+	 * @model name="EnumRenderFormatPdf" literal="pdf"
 	 * @generated
 	 * @ordered
 	 */
@@ -78,26 +94,56 @@ public enum ReportRenderFormat implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #ENUM_REDER_FORMAT_HTML
-	 * @model name="EnumRederFormatHtml" literal="Html"
+	 * @model name="EnumRederFormatHtml" literal="html"
 	 * @generated
 	 * @ordered
 	 */
 	public static final int ENUM_REDER_FORMAT_HTML_VALUE = 1;
 
 	/**
-	 * The '<em><b>Enum Render Format Excel</b></em>' literal value.
+	 * The '<em><b>Enum Render Format Xls</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Enum Render Format Excel</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Enum Render Format Xls</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #ENUM_RENDER_FORMAT_EXCEL
-	 * @model name="EnumRenderFormatExcel" literal="Excel"
+	 * @see #ENUM_RENDER_FORMAT_XLS
+	 * @model name="EnumRenderFormatXls" literal="xls"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENUM_RENDER_FORMAT_EXCEL_VALUE = 2;
+	public static final int ENUM_RENDER_FORMAT_XLS_VALUE = 2;
+
+	/**
+	 * The '<em><b>Enum Render Format Xlsx</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Enum Render Format Xlsx</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #ENUM_RENDER_FORMAT_XLSX
+	 * @model name="EnumRenderFormatXlsx" literal="xlsx"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ENUM_RENDER_FORMAT_XLSX_VALUE = 4;
+
+	/**
+	 * The '<em><b>Enum Render Format Doc</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Enum Render Format Doc</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #ENUM_RENDER_FORMAT_DOC
+	 * @model name="EnumRenderFormatDoc" literal="doc"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ENUM_RENDER_FORMAT_DOC_VALUE = 5;
 
 	/**
 	 * The '<em><b>Enum Render Format Docx</b></em>' literal value.
@@ -108,7 +154,7 @@ public enum ReportRenderFormat implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #ENUM_RENDER_FORMAT_DOCX
-	 * @model name="EnumRenderFormatDocx" literal="Docx"
+	 * @model name="EnumRenderFormatDocx" literal="docx"
 	 * @generated
 	 * @ordered
 	 */
@@ -124,7 +170,9 @@ public enum ReportRenderFormat implements Enumerator {
 		new ReportRenderFormat[] {
 			ENUM_RENDER_FORMAT_PDF,
 			ENUM_REDER_FORMAT_HTML,
-			ENUM_RENDER_FORMAT_EXCEL,
+			ENUM_RENDER_FORMAT_XLS,
+			ENUM_RENDER_FORMAT_XLSX,
+			ENUM_RENDER_FORMAT_DOC,
 			ENUM_RENDER_FORMAT_DOCX,
 		};
 
@@ -184,7 +232,9 @@ public enum ReportRenderFormat implements Enumerator {
 		switch (value) {
 			case ENUM_RENDER_FORMAT_PDF_VALUE: return ENUM_RENDER_FORMAT_PDF;
 			case ENUM_REDER_FORMAT_HTML_VALUE: return ENUM_REDER_FORMAT_HTML;
-			case ENUM_RENDER_FORMAT_EXCEL_VALUE: return ENUM_RENDER_FORMAT_EXCEL;
+			case ENUM_RENDER_FORMAT_XLS_VALUE: return ENUM_RENDER_FORMAT_XLS;
+			case ENUM_RENDER_FORMAT_XLSX_VALUE: return ENUM_RENDER_FORMAT_XLSX;
+			case ENUM_RENDER_FORMAT_DOC_VALUE: return ENUM_RENDER_FORMAT_DOC;
 			case ENUM_RENDER_FORMAT_DOCX_VALUE: return ENUM_RENDER_FORMAT_DOCX;
 		}
 		return null;
