@@ -380,6 +380,9 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 			Bundle bundle = Platform.getBundle(this.getReportBundleID());
 			InputStream file = FileLocator.openStream(bundle, new Path(this.getReportDesignFilePath()), false);
 			//return "//home/michel/git/touse.moplaf/touse.moplaf.report/com.misc.touse.moplaf.report.emf.ToUseReport/model/toUse.rptdesign";
+			// questions
+			//  can I pass an URL
+			//  I should try the URL platform:/<my plugin id>/path/filename instead of using the FileLocator
 			IReportRunnable design = engine.openReportDesign(file); 
 			
 			//Create task to run and render the report,
