@@ -15,15 +15,18 @@ import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.Date;
+
+import org.eclipse.birt.report.engine.api.DocxRenderOption;
+import org.eclipse.birt.report.engine.api.EXCELRenderOption;
 import org.eclipse.birt.report.engine.api.EngineConstants;
 import org.eclipse.birt.report.engine.api.EngineException;
 import org.eclipse.birt.report.engine.api.HTMLRenderOption;
 import org.eclipse.birt.report.engine.api.IReportEngine;
 import org.eclipse.birt.report.engine.api.IReportRunnable;
 import org.eclipse.birt.report.engine.api.IRunAndRenderTask;
+import org.eclipse.birt.report.engine.api.PDFRenderOption;
+import org.eclipse.birt.report.engine.api.RenderOption;
 import org.eclipse.core.runtime.FileLocator;
-import org.eclipse.core.runtime.Path;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -33,7 +36,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.osgi.framework.Bundle;
 
 /**
  * <!-- begin-user-doc -->
@@ -403,13 +405,37 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 			task.validateParameters();
 			
 			//Setup rendering to HTML
-			HTMLRenderOption options = new HTMLRenderOption();		
-			options.setOutputFileName(this.getOutputFilePath());
-			options.setOutputFormat("html");
+			RenderOption option = null;
+			String outputFormat = "";
+			switch ( this.getFormat() ){
+				case ENUM_REDER_FORMAT_HTML:
+					HTMLRenderOption optionsHtml = new HTMLRenderOption();		
+					outputFormat = "html";
+					//Setting this to true removes html and body tags
+					optionsHtml.setEmbeddable(false);
+					option = optionsHtml;
+					break;
+				case ENUM_RENDER_FORMAT_PDF:
+					PDFRenderOption optionsPdf = new PDFRenderOption();
+					outputFormat = "pdf";
+					option = optionsPdf;
+					break;
+				case ENUM_RENDER_FORMAT_DOCX:
+					DocxRenderOption optionsDocx = new DocxRenderOption();
+					outputFormat = "docx";
+					option = optionsDocx;
+					break;
+				case ENUM_RENDER_FORMAT_EXCEL:
+					EXCELRenderOption optionsExcel = new EXCELRenderOption();
+					outputFormat = "xls";
+					option = optionsExcel;
+					break;
+			}
 			
-			//Setting this to true removes html and body tags
-			options.setEmbeddable(false);
-			task.setRenderOption(options);
+			option.setOutputFileName(this.getOutputFilePath());
+			option.setOutputFormat(outputFormat);
+			task.setRenderOption(option);
+
 			//run and render report
 			task.run();
 			task.close();

@@ -275,7 +275,7 @@ public interface ReportAbstract extends EObject {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * URL for the report file.
-	 * Use for instance platform:/bundel/<bundleID>/<path_in_bundle>/<file_Name>
+	 * Use for instance platform:/plugin/<bundleID>/<path_in_bundle>/<file_Name>
 	 * <!-- end-model-doc -->
 	 * @model kind="operation"
 	 * @generated

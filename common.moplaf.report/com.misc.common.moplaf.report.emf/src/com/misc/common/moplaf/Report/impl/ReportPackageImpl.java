@@ -412,6 +412,8 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 		initEEnum(reportRenderFormatEEnum, ReportRenderFormat.class, "ReportRenderFormat");
 		addEEnumLiteral(reportRenderFormatEEnum, ReportRenderFormat.ENUM_RENDER_FORMAT_PDF);
 		addEEnumLiteral(reportRenderFormatEEnum, ReportRenderFormat.ENUM_REDER_FORMAT_HTML);
+		addEEnumLiteral(reportRenderFormatEEnum, ReportRenderFormat.ENUM_RENDER_FORMAT_EXCEL);
+		addEEnumLiteral(reportRenderFormatEEnum, ReportRenderFormat.ENUM_RENDER_FORMAT_DOCX);
 
 		initEEnum(reportRunModeEEnum, ReportRunMode.class, "ReportRunMode");
 		addEEnumLiteral(reportRunModeEEnum, ReportRunMode.ENUM_GENERATE_ONLY);

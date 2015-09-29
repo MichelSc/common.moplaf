@@ -35,6 +35,8 @@
   <eClassifiers xsi:type="ecore:EEnum" name="ReportRenderFormat">
     <eLiterals name="EnumRenderFormatPdf" literal="Pdf"/>
     <eLiterals name="EnumRederFormatHtml" value="1" literal="Html"/>
+    <eLiterals name="EnumRenderFormatExcel" value="2" literal="Excel"/>
+    <eLiterals name="EnumRenderFormatDocx" value="3" literal="Docx"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ReportRunMode">
     <eLiterals name="EnumGenerateOnly" literal="GenerateOnly"/>
