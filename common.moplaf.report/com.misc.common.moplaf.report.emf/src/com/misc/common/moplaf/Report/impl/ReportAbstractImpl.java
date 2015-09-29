@@ -377,13 +377,13 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 		try {
 			IReportEngine engine = Plugin.getReportEngine();
 			//Open the report design
-			Bundle bundle = Platform.getBundle(this.getReportBundleID());
-			InputStream file = FileLocator.openStream(bundle, new Path(this.getReportDesignFilePath()), false);
-			//return "//home/michel/git/touse.moplaf/touse.moplaf.report/com.misc.touse.moplaf.report.emf.ToUseReport/model/toUse.rptdesign";
-			// questions
-			//  can I pass an URL
-			//  I should try the URL platform:/<my plugin id>/path/filename instead of using the FileLocator
+			//Bundle bundle = Platform.getBundle(this.getReportBundleID());
+			//InputStream file = FileLocator.openStream(bundle, new Path(this.getReportDesignFilePath()), false);
+			URL url = new URL(this.getReportDesignFileURL());
+			URL fileUrl = FileLocator.resolve(url);
+			InputStream file = fileUrl.openStream();
 			IReportRunnable design = engine.openReportDesign(file); 
+			file.close();
 			
 			//Create task to run and render the report,
 			IRunAndRenderTask task = engine.createRunAndRenderTask(design);
@@ -476,18 +476,7 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getReportDesignFilePath() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getReportBundleID() {
+	public String getReportDesignFileURL() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -630,10 +619,8 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 			case ReportPackage.REPORT_ABSTRACT___RUN:
 				run();
 				return null;
-			case ReportPackage.REPORT_ABSTRACT___GET_REPORT_DESIGN_FILE_PATH:
-				return getReportDesignFilePath();
-			case ReportPackage.REPORT_ABSTRACT___GET_REPORT_BUNDLE_ID:
-				return getReportBundleID();
+			case ReportPackage.REPORT_ABSTRACT___GET_REPORT_DESIGN_FILE_URL:
+				return getReportDesignFileURL();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

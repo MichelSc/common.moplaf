@@ -195,22 +195,13 @@ public interface ReportPackage extends EPackage {
 	int REPORT_ABSTRACT___RUN = 4;
 
 	/**
-	 * The operation id for the '<em>Get Report Design File Path</em>' operation.
+	 * The operation id for the '<em>Get Report Design File URL</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REPORT_ABSTRACT___GET_REPORT_DESIGN_FILE_PATH = 5;
-
-	/**
-	 * The operation id for the '<em>Get Report Bundle ID</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REPORT_ABSTRACT___GET_REPORT_BUNDLE_ID = 6;
+	int REPORT_ABSTRACT___GET_REPORT_DESIGN_FILE_URL = 5;
 
 	/**
 	 * The number of operations of the '<em>Abstract</em>' class.
@@ -219,7 +210,7 @@ public interface ReportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPORT_ABSTRACT_OPERATION_COUNT = 7;
+	int REPORT_ABSTRACT_OPERATION_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.Report.ReportEngine <em>Engine</em>}' enum.
@@ -413,24 +404,14 @@ public interface ReportPackage extends EPackage {
 	EOperation getReportAbstract__Run();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.Report.ReportAbstract#getReportDesignFilePath() <em>Get Report Design File Path</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.Report.ReportAbstract#getReportDesignFileURL() <em>Get Report Design File URL</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Report Design File Path</em>' operation.
-	 * @see com.misc.common.moplaf.Report.ReportAbstract#getReportDesignFilePath()
+	 * @return the meta object for the '<em>Get Report Design File URL</em>' operation.
+	 * @see com.misc.common.moplaf.Report.ReportAbstract#getReportDesignFileURL()
 	 * @generated
 	 */
-	EOperation getReportAbstract__GetReportDesignFilePath();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.Report.ReportAbstract#getReportBundleID() <em>Get Report Bundle ID</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Report Bundle ID</em>' operation.
-	 * @see com.misc.common.moplaf.Report.ReportAbstract#getReportBundleID()
-	 * @generated
-	 */
-	EOperation getReportAbstract__GetReportBundleID();
+	EOperation getReportAbstract__GetReportDesignFileURL();
 
 	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.Report.ReportEngine <em>Engine</em>}'.
@@ -611,20 +592,12 @@ public interface ReportPackage extends EPackage {
 		EOperation REPORT_ABSTRACT___RUN = eINSTANCE.getReportAbstract__Run();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Report Design File Path</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Report Design File URL</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation REPORT_ABSTRACT___GET_REPORT_DESIGN_FILE_PATH = eINSTANCE.getReportAbstract__GetReportDesignFilePath();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Report Bundle ID</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation REPORT_ABSTRACT___GET_REPORT_BUNDLE_ID = eINSTANCE.getReportAbstract__GetReportBundleID();
+		EOperation REPORT_ABSTRACT___GET_REPORT_DESIGN_FILE_URL = eINSTANCE.getReportAbstract__GetReportDesignFileURL();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.Report.ReportEngine <em>Engine</em>}' enum.

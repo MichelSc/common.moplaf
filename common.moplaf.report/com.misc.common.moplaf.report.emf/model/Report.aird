@@ -74,10 +74,6 @@
                 <styles xmi:type="notation:FontStyle" xmi:id="_8-54kWUnEeW1wLwk0KN-fA" fontName="Oxygen-Sans Sans-Book" fontHeight="8"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_8-54kmUnEeW1wLwk0KN-fA"/>
               </children>
-              <children xmi:type="notation:Node" xmi:id="_FaDPsGZ3EeWkV_1_rGeG-Q" type="3010" element="_FZ4QkGZ3EeWkV_1_rGeG-Q">
-                <styles xmi:type="notation:FontStyle" xmi:id="_FaDPsWZ3EeWkV_1_rGeG-Q" fontHeight="8"/>
-                <layoutConstraint xmi:type="notation:Location" xmi:id="_FaDPsmZ3EeWkV_1_rGeG-Q"/>
-              </children>
               <styles xmi:type="notation:SortingStyle" xmi:id="__Ur-oWTvEeW1wLwk0KN-fA"/>
               <styles xmi:type="notation:FilteringStyle" xmi:id="__Ur-omTvEeW1wLwk0KN-fA"/>
             </children>
@@ -270,18 +266,10 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_8-iFIGUnEeW1wLwk0KN-fA" name="getReportDesignFilePath() : EString" tooltipText="getReportDesignFilePath() : EString">
-          <target xmi:type="ecore:EOperation" href="Report.ecore#//ReportAbstract/getReportDesignFilePath"/>
-          <semanticElements xmi:type="ecore:EOperation" href="Report.ecore#//ReportAbstract/getReportDesignFilePath"/>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_8-iFIGUnEeW1wLwk0KN-fA" name="getReportDesignFileURL() : EString" tooltipText="getReportDesignFileURL() : EString">
+          <target xmi:type="ecore:EOperation" href="Report.ecore#//ReportAbstract/getReportDesignFileURL"/>
+          <semanticElements xmi:type="ecore:EOperation" href="Report.ecore#//ReportAbstract/getReportDesignFileURL"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_8-isMGUnEeW1wLwk0KN-fA" labelAlignment="LEFT">
-            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
-          </ownedStyle>
-          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
-        </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_FZ4QkGZ3EeWkV_1_rGeG-Q" name="getReportBundleID() : EString" tooltipText="getReportBundleID() : EString">
-          <target xmi:type="ecore:EOperation" href="Report.ecore#//ReportAbstract/getReportBundleID"/>
-          <semanticElements xmi:type="ecore:EOperation" href="Report.ecore#//ReportAbstract/getReportBundleID"/>
-          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_FZ43oGZ3EeWkV_1_rGeG-Q" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>

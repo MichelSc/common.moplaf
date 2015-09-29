@@ -257,17 +257,8 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getReportAbstract__GetReportDesignFilePath() {
+	public EOperation getReportAbstract__GetReportDesignFileURL() {
 		return reportAbstractEClass.getEOperations().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getReportAbstract__GetReportBundleID() {
-		return reportAbstractEClass.getEOperations().get(6);
 	}
 
 	/**
@@ -348,8 +339,7 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 		createEOperation(reportAbstractEClass, REPORT_ABSTRACT___WRITE);
 		createEOperation(reportAbstractEClass, REPORT_ABSTRACT___GET_CONTEXT);
 		createEOperation(reportAbstractEClass, REPORT_ABSTRACT___RUN);
-		createEOperation(reportAbstractEClass, REPORT_ABSTRACT___GET_REPORT_DESIGN_FILE_PATH);
-		createEOperation(reportAbstractEClass, REPORT_ABSTRACT___GET_REPORT_BUNDLE_ID);
+		createEOperation(reportAbstractEClass, REPORT_ABSTRACT___GET_REPORT_DESIGN_FILE_URL);
 
 		// Create enums
 		reportEngineEEnum = createEEnum(REPORT_ENGINE);
@@ -413,9 +403,7 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 
 		initEOperation(getReportAbstract__Run(), null, "run", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getReportAbstract__GetReportDesignFilePath(), theEcorePackage.getEString(), "getReportDesignFilePath", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getReportAbstract__GetReportBundleID(), theEcorePackage.getEString(), "getReportBundleID", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getReportAbstract__GetReportDesignFileURL(), theEcorePackage.getEString(), "getReportDesignFileURL", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(reportEngineEEnum, ReportEngine.class, "ReportEngine");

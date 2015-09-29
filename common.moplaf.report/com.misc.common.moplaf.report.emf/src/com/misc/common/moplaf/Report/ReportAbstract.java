@@ -273,17 +273,13 @@ public interface ReportAbstract extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * URL for the report file.
+	 * Use for instance platform:/bundel/<bundleID>/<path_in_bundle>/<file_Name>
+	 * <!-- end-model-doc -->
 	 * @model kind="operation"
 	 * @generated
 	 */
-	String getReportDesignFilePath();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	String getReportBundleID();
+	String getReportDesignFileURL();
 
 } // ReportAbstract
