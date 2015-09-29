@@ -28,7 +28,7 @@ import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.EList;
-
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -393,8 +393,13 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 									ReportAbstractImpl.class.getClassLoader()); 
 			
 			//Set parameter values and validate
-			//task.setParameterValue("Top Percentage", (new Integer(3)));
-			//task.setParameterValue("Top Count", (new Integer(5)));
+			URI resourceURI = this.eResource().getURI();
+			// resource URL
+			//    this gives a path relative to the platform
+			//    should we not make a real url?
+			//    something with "platform:/resource/..."
+			String platformString = resourceURI.toPlatformString(false);
+			task.setParameterValue("ResourceURL", platformString);
 			task.validateParameters();
 			
 			//Setup rendering to HTML
