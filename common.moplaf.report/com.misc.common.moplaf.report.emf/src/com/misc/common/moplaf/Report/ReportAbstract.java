@@ -278,4 +278,12 @@ public interface ReportAbstract extends EObject {
 	 */
 	String getReportDesignFilePath();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getReportBundleID();
+
 } // ReportAbstract

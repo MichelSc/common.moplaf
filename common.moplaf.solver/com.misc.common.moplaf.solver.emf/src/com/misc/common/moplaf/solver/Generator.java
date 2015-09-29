@@ -10,12 +10,13 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Generator</b></em>'.
  * 
  * <p>
- * A Generator is a problem formulation (linear, constraints, ...), to which variables ({@link GeneratorVar}) and constraints ({@link GeneratorCons}) are attached.
+ * A Generator is a problem formulation (linear, constraints, ...), containing variables ({@link GeneratorVar}) and constraints ({@link GeneratorCons}).
+ * <p>
  * {@link SolutionProvider}s (typically, solvers) will produce {@link Solution}s for this problem formulation.
  * <p>
  * A Generator is structured as follows:  
  * <ul>
- *   <li>a {@link Generator} is a set of trees of tuples: {@link GeneratorTuple}, that is, a forest</li>
+ *   <li>a {@link Generator} is a set of trees (a fores) of tuples: {@link GeneratorTuple}</li>
  *   <li>a {@link Generator} has  {@link GeneratorTuple} <em>roots</em></li>
  *   <li>a {@link GeneratorTuple} has {@link GeneratorTuple} <em>elements</em> (children) and possibly a {@link GeneratorTuple} <em>container</em> (parent)</li>
  *   <li>a {@link GeneratorTuple}, has : {@link GeneratorTupleMember} <em>members</em></li>

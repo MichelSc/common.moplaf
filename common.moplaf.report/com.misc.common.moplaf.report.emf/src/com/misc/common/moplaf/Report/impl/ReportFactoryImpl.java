@@ -4,6 +4,7 @@ package com.misc.common.moplaf.Report.impl;
 
 import com.misc.common.moplaf.Report.*;
 
+import java.io.InputStream;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -76,6 +77,8 @@ public class ReportFactoryImpl extends EFactoryImpl implements ReportFactory {
 				return createReportRenderFormatFromString(eDataType, initialValue);
 			case ReportPackage.REPORT_RUN_MODE:
 				return createReportRunModeFromString(eDataType, initialValue);
+			case ReportPackage.INPUT_STREAM:
+				return createInputStreamFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -95,6 +98,8 @@ public class ReportFactoryImpl extends EFactoryImpl implements ReportFactory {
 				return convertReportRenderFormatToString(eDataType, instanceValue);
 			case ReportPackage.REPORT_RUN_MODE:
 				return convertReportRunModeToString(eDataType, instanceValue);
+			case ReportPackage.INPUT_STREAM:
+				return convertInputStreamToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -158,6 +163,24 @@ public class ReportFactoryImpl extends EFactoryImpl implements ReportFactory {
 	 */
 	public String convertReportRunModeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InputStream createInputStreamFromString(EDataType eDataType, String initialValue) {
+		return (InputStream)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertInputStreamToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

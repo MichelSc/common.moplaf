@@ -9,8 +9,10 @@ import com.misc.common.moplaf.Report.ReportPackage;
 import com.misc.common.moplaf.Report.ReportRenderFormat;
 
 import com.misc.common.moplaf.Report.ReportRunMode;
+import java.io.InputStream;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -52,6 +54,13 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	 * @generated
 	 */
 	private EEnum reportRunModeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType inputStreamEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -257,6 +266,15 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getReportAbstract__GetReportBundleID() {
+		return reportAbstractEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getReportEngine() {
 		return reportEngineEEnum;
 	}
@@ -277,6 +295,15 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	 */
 	public EEnum getReportRunMode() {
 		return reportRunModeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getInputStream() {
+		return inputStreamEDataType;
 	}
 
 	/**
@@ -322,11 +349,15 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 		createEOperation(reportAbstractEClass, REPORT_ABSTRACT___GET_CONTEXT);
 		createEOperation(reportAbstractEClass, REPORT_ABSTRACT___RUN);
 		createEOperation(reportAbstractEClass, REPORT_ABSTRACT___GET_REPORT_DESIGN_FILE_PATH);
+		createEOperation(reportAbstractEClass, REPORT_ABSTRACT___GET_REPORT_BUNDLE_ID);
 
 		// Create enums
 		reportEngineEEnum = createEEnum(REPORT_ENGINE);
 		reportRenderFormatEEnum = createEEnum(REPORT_RENDER_FORMAT);
 		reportRunModeEEnum = createEEnum(REPORT_RUN_MODE);
+
+		// Create data types
+		inputStreamEDataType = createEDataType(INPUT_STREAM);
 	}
 
 	/**
@@ -384,6 +415,8 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 
 		initEOperation(getReportAbstract__GetReportDesignFilePath(), theEcorePackage.getEString(), "getReportDesignFilePath", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getReportAbstract__GetReportBundleID(), theEcorePackage.getEString(), "getReportBundleID", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(reportEngineEEnum, ReportEngine.class, "ReportEngine");
 		addEEnumLiteral(reportEngineEEnum, ReportEngine.ENUM_REPORT_ENGINE_BIRT);
@@ -398,6 +431,9 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 		addEEnumLiteral(reportRunModeEEnum, ReportRunMode.ENUM_WRITE_ONLY);
 		addEEnumLiteral(reportRunModeEEnum, ReportRunMode.ENUM_GENERATE_AND_RENDER);
 		addEEnumLiteral(reportRunModeEEnum, ReportRunMode.ENUM_GENERATE_AND_WRITE);
+
+		// Initialize data types
+		initEDataType(inputStreamEDataType, InputStream.class, "InputStream", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

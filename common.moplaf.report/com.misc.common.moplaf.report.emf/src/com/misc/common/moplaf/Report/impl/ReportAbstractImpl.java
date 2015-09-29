@@ -9,8 +9,11 @@ import com.misc.common.moplaf.Report.ReportPackage;
 import com.misc.common.moplaf.Report.ReportRenderFormat;
 
 import com.misc.common.moplaf.Report.ReportRunMode;
-import java.lang.reflect.InvocationTargetException;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
+import java.net.URL;
 import java.util.Date;
 import org.eclipse.birt.report.engine.api.EngineConstants;
 import org.eclipse.birt.report.engine.api.EngineException;
@@ -18,6 +21,9 @@ import org.eclipse.birt.report.engine.api.HTMLRenderOption;
 import org.eclipse.birt.report.engine.api.IReportEngine;
 import org.eclipse.birt.report.engine.api.IReportRunnable;
 import org.eclipse.birt.report.engine.api.IRunAndRenderTask;
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -27,6 +33,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.osgi.framework.Bundle;
 
 /**
  * <!-- begin-user-doc -->
@@ -370,7 +377,10 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 		try {
 			IReportEngine engine = Plugin.getReportEngine();
 			//Open the report design
-			IReportRunnable design = engine.openReportDesign(this.getReportDesignFilePath()); 
+			Bundle bundle = Platform.getBundle(this.getReportBundleID());
+			InputStream file = FileLocator.openStream(bundle, new Path(this.getReportDesignFilePath()), false);
+			//return "//home/michel/git/touse.moplaf/touse.moplaf.report/com.misc.touse.moplaf.report.emf.ToUseReport/model/toUse.rptdesign";
+			IReportRunnable design = engine.openReportDesign(file); 
 			
 			//Create task to run and render the report,
 			IRunAndRenderTask task = engine.createRunAndRenderTask(design);
@@ -396,7 +406,7 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 			task.run();
 			task.close();
 			generated = true;
-		} catch (EngineException e) {
+		} catch (EngineException | IOException e) {
 			e.printStackTrace();
 		}
 		this.setGenerated(generated);
@@ -464,6 +474,17 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 */
 	public String getReportDesignFilePath() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getReportBundleID() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -608,6 +629,8 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 				return null;
 			case ReportPackage.REPORT_ABSTRACT___GET_REPORT_DESIGN_FILE_PATH:
 				return getReportDesignFilePath();
+			case ReportPackage.REPORT_ABSTRACT___GET_REPORT_BUNDLE_ID:
+				return getReportBundleID();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

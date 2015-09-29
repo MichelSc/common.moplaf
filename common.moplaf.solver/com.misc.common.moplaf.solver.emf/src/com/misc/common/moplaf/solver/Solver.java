@@ -12,9 +12,9 @@ import java.util.Date;
  * (MaxDuration, BackgroundProcess) and gives information how the run is or has been performed
  * (timestamps, status). 
  * <p>
- * A Solver solves a given a problem formulation: interface {@link IGeneratorTool}
+ * A Solver solves a given a problem formulation provided by the interface {@link IGeneratorTool}
  * <p>
- * A Solver produces one or several {@link Solution} for the problem: super class {@link SolutionProvider}.
+ * A Solver produces one or several {@link Solution} for the problem, as specified by its super class {@link SolutionProvider}.
  * <p>
  * To launch the run, call the method {@link #solve()}.
  * 

@@ -9,6 +9,7 @@
     <eOperations name="getContext" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     <eOperations name="run"/>
     <eOperations name="getReportDesignFilePath" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eOperations name="getReportBundleID" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Engine" eType="#//ReportEngine"
         defaultValueLiteral="Birt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Format" eType="#//ReportRenderFormat"
@@ -39,4 +40,5 @@
     <eLiterals name="EnumGenerateAndRender" value="3" literal="GenerateAndRender"/>
     <eLiterals name="EnumGenerateAndWrite" value="4" literal="GenerateAndWrite"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="InputStream" instanceClassName="java.io.InputStream"/>
 </ecore:EPackage>

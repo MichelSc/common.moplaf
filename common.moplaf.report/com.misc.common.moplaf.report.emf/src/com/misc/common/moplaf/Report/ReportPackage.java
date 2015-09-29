@@ -4,6 +4,7 @@ package com.misc.common.moplaf.Report;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -203,13 +204,22 @@ public interface ReportPackage extends EPackage {
 	int REPORT_ABSTRACT___GET_REPORT_DESIGN_FILE_PATH = 5;
 
 	/**
+	 * The operation id for the '<em>Get Report Bundle ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPORT_ABSTRACT___GET_REPORT_BUNDLE_ID = 6;
+
+	/**
 	 * The number of operations of the '<em>Abstract</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REPORT_ABSTRACT_OPERATION_COUNT = 6;
+	int REPORT_ABSTRACT_OPERATION_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.Report.ReportEngine <em>Engine</em>}' enum.
@@ -241,6 +251,17 @@ public interface ReportPackage extends EPackage {
 	 * @generated
 	 */
 	int REPORT_RUN_MODE = 3;
+
+
+	/**
+	 * The meta object id for the '<em>Input Stream</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.io.InputStream
+	 * @see com.misc.common.moplaf.Report.impl.ReportPackageImpl#getInputStream()
+	 * @generated
+	 */
+	int INPUT_STREAM = 4;
 
 
 	/**
@@ -402,6 +423,16 @@ public interface ReportPackage extends EPackage {
 	EOperation getReportAbstract__GetReportDesignFilePath();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.Report.ReportAbstract#getReportBundleID() <em>Get Report Bundle ID</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Report Bundle ID</em>' operation.
+	 * @see com.misc.common.moplaf.Report.ReportAbstract#getReportBundleID()
+	 * @generated
+	 */
+	EOperation getReportAbstract__GetReportBundleID();
+
+	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.Report.ReportEngine <em>Engine</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -430,6 +461,17 @@ public interface ReportPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getReportRunMode();
+
+	/**
+	 * Returns the meta object for data type '{@link java.io.InputStream <em>Input Stream</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Input Stream</em>'.
+	 * @see java.io.InputStream
+	 * @model instanceClass="java.io.InputStream"
+	 * @generated
+	 */
+	EDataType getInputStream();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -577,6 +619,14 @@ public interface ReportPackage extends EPackage {
 		EOperation REPORT_ABSTRACT___GET_REPORT_DESIGN_FILE_PATH = eINSTANCE.getReportAbstract__GetReportDesignFilePath();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Report Bundle ID</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation REPORT_ABSTRACT___GET_REPORT_BUNDLE_ID = eINSTANCE.getReportAbstract__GetReportBundleID();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.Report.ReportEngine <em>Engine</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -605,6 +655,16 @@ public interface ReportPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum REPORT_RUN_MODE = eINSTANCE.getReportRunMode();
+
+		/**
+		 * The meta object literal for the '<em>Input Stream</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.io.InputStream
+		 * @see com.misc.common.moplaf.Report.impl.ReportPackageImpl#getInputStream()
+		 * @generated
+		 */
+		EDataType INPUT_STREAM = eINSTANCE.getInputStream();
 
 	}
 
