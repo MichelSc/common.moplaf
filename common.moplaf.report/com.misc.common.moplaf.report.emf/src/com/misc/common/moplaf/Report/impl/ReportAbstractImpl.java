@@ -37,6 +37,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.resource.Resource;
 
 /**
  * <!-- begin-user-doc -->
@@ -396,13 +397,23 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 									ReportAbstractImpl.class.getClassLoader()); 
 			
 			//Set parameter values and validate
-			URI resourceURI = this.eResource().getURI();
+
 			// resource URL
 			//    this gives a path relative to the platform
 			//    should we not make a real url?
 			//    something with "platform:/resource/..."
+			Resource resource = this.eResource();
+			URI resourceURI = resource.getURI();
 			String platformString = resourceURI.toPlatformString(false);
 			task.setParameterValue("ResourceURL", platformString);
+			
+			// context fragment
+			String objectFragment = resource.getURIFragment(this.getContext());
+			task.setParameterValue("ObjectFragment", objectFragment);
+			
+			// context object
+			task.setParameterValue("ContextObject", this.getContext());
+			
 			task.validateParameters();
 			
 			//Setup rendering to HTML
@@ -463,6 +474,7 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 			task.run();
 			task.close();
 			generated = true;
+			this.setLastGenerated(new Date());
 		} catch (EngineException | IOException e) {
 			e.printStackTrace();
 		}
