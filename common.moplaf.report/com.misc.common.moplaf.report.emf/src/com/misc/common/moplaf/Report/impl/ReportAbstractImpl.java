@@ -404,17 +404,20 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 			//    this gives a path relative to the platform
 			//    should we not make a real url?
 			//    something with "platform:/resource/..."
+			/*
 			Resource resource = this.eResource();
 			URI resourceURI = resource.getURI();
 			String platformString = resourceURI.toPlatformString(false);
 			task.setParameterValue("ResourceURL", platformString);
+			*/
 			
 			// context fragment
+			/*
 			String objectFragment = resource.getURIFragment(this.getContext());
 			task.setParameterValue("ObjectFragment", objectFragment);
-			
+			*/
 			// context object
-			task.setParameterValue("ContextObject", this.getContext());
+			//task.setParameterValue("ContextObject", this.getContext());
 			
 			task.validateParameters();
 			
