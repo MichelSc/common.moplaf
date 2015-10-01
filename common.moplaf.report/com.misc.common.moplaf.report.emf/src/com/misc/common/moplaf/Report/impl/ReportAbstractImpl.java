@@ -397,6 +397,8 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 									ReportAbstractImpl.class.getClassLoader()); 
 			
 			//Set parameter values and validate
+			//task.getAppContext().put("michelid", "hello from michel app context");
+			task.getAppContext().put("michelid", this.getContext());
 
 			// resource URL
 			//    this gives a path relative to the platform
