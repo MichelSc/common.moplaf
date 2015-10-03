@@ -30,13 +30,13 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import com.misc.common.moplaf.report.util.DataSetEventHandler;
 import com.misc.common.moplaf.report.Plugin;
 import com.misc.common.moplaf.report.ReportAbstract;
 import com.misc.common.moplaf.report.ReportEngine;
 import com.misc.common.moplaf.report.ReportPackage;
 import com.misc.common.moplaf.report.ReportRenderFormat;
 import com.misc.common.moplaf.report.ReportRunMode;
+import com.misc.common.moplaf.report.birt.RootDataSetEventHandler;
 
 /**
  * <!-- begin-user-doc -->

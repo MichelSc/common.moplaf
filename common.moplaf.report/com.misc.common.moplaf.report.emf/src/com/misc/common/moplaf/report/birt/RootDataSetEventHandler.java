@@ -1,11 +1,11 @@
-package com.misc.common.moplaf.report.util;
+package com.misc.common.moplaf.report.birt;
 
 import org.eclipse.birt.report.engine.api.script.IReportContext;
 import org.eclipse.birt.report.engine.api.script.ScriptException;
 import org.eclipse.birt.report.engine.api.script.eventadapter.DataSetEventAdapter;
 import org.eclipse.birt.report.engine.api.script.instance.IDataSetInstance;
 
-public class DataSetEventHandler extends DataSetEventAdapter {
+public class RootDataSetEventHandler extends DataSetEventAdapter {
 
 	@Override
 	public void beforeOpen(IDataSetInstance dataSet, IReportContext reportContext) throws ScriptException {
