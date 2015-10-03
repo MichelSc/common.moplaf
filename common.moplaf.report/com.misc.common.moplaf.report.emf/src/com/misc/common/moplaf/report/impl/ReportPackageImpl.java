@@ -1,14 +1,7 @@
 /**
  */
-package com.misc.common.moplaf.Report.impl;
+package com.misc.common.moplaf.report.impl;
 
-import com.misc.common.moplaf.Report.ReportAbstract;
-import com.misc.common.moplaf.Report.ReportEngine;
-import com.misc.common.moplaf.Report.ReportFactory;
-import com.misc.common.moplaf.Report.ReportPackage;
-import com.misc.common.moplaf.Report.ReportRenderFormat;
-
-import com.misc.common.moplaf.Report.ReportRunMode;
 import java.io.InputStream;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -19,6 +12,13 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EcorePackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import com.misc.common.moplaf.report.ReportAbstract;
+import com.misc.common.moplaf.report.ReportEngine;
+import com.misc.common.moplaf.report.ReportFactory;
+import com.misc.common.moplaf.report.ReportPackage;
+import com.misc.common.moplaf.report.ReportRenderFormat;
+import com.misc.common.moplaf.report.ReportRunMode;
 
 /**
  * <!-- begin-user-doc -->
@@ -73,7 +73,7 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see com.misc.common.moplaf.Report.ReportPackage#eNS_URI
+	 * @see com.misc.common.moplaf.report.ReportPackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */

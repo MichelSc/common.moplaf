@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.report.emf/src" modelPluginID="com.misc.common.moplaf.report.emf"
-    modelName="Report" modelPluginClass="com.misc.common.moplaf.Report.Plugin" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    modelName="Report" modelPluginClass="com.misc.common.moplaf.report.Plugin" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
     usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore" operationReflection="true"
     importOrganizing="true">
@@ -14,6 +14,10 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Report.ecore#//ReportRenderFormat">
       <genEnumLiterals ecoreEnumLiteral="Report.ecore#//ReportRenderFormat/EnumRenderFormatPdf"/>
       <genEnumLiterals ecoreEnumLiteral="Report.ecore#//ReportRenderFormat/EnumRederFormatHtml"/>
+      <genEnumLiterals ecoreEnumLiteral="Report.ecore#//ReportRenderFormat/EnumRenderFormatXls"/>
+      <genEnumLiterals ecoreEnumLiteral="Report.ecore#//ReportRenderFormat/EnumRenderFormatXlsx"/>
+      <genEnumLiterals ecoreEnumLiteral="Report.ecore#//ReportRenderFormat/EnumRenderFormatDoc"/>
+      <genEnumLiterals ecoreEnumLiteral="Report.ecore#//ReportRenderFormat/EnumRenderFormatDocx"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Report.ecore#//ReportRunMode">
       <genEnumLiterals ecoreEnumLiteral="Report.ecore#//ReportRunMode/EnumGenerateOnly"/>
@@ -22,11 +26,12 @@
       <genEnumLiterals ecoreEnumLiteral="Report.ecore#//ReportRunMode/EnumGenerateAndRender"/>
       <genEnumLiterals ecoreEnumLiteral="Report.ecore#//ReportRunMode/EnumGenerateAndWrite"/>
     </genEnums>
+    <genDataTypes ecoreDataType="Report.ecore#//InputStream"/>
     <genClasses ecoreClass="Report.ecore#//ReportAbstract">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Report.ecore#//ReportAbstract/Engine"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Report.ecore#//ReportAbstract/Format"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Report.ecore#//ReportAbstract/Generated"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Report.ecore#//ReportAbstract/OutputFile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Report.ecore#//ReportAbstract/OutputFilePath"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Report.ecore#//ReportAbstract/LastGenerated"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Report.ecore#//ReportAbstract/RunMode"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Report.ecore#//ReportAbstract/mayBeRun"/>
@@ -36,6 +41,7 @@
       <genOperations ecoreOperation="Report.ecore#//ReportAbstract/write"/>
       <genOperations ecoreOperation="Report.ecore#//ReportAbstract/getContext"/>
       <genOperations ecoreOperation="Report.ecore#//ReportAbstract/run"/>
+      <genOperations ecoreOperation="Report.ecore#//ReportAbstract/getReportDesignFileURL"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

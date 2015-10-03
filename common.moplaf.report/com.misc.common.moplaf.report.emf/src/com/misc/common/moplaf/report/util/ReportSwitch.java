@@ -1,13 +1,13 @@
 /**
  */
-package com.misc.common.moplaf.Report.util;
-
-import com.misc.common.moplaf.Report.*;
+package com.misc.common.moplaf.report.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
+
+import com.misc.common.moplaf.report.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.util.Switch;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see com.misc.common.moplaf.Report.ReportPackage
+ * @see com.misc.common.moplaf.report.ReportPackage
  * @generated
  */
 public class ReportSwitch<T> extends Switch<T> {

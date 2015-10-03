@@ -1,6 +1,6 @@
 /**
  */
-package com.misc.common.moplaf.Report;
+package com.misc.common.moplaf.report;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Run Mode</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see com.misc.common.moplaf.Report.ReportPackage#getReportRunMode()
+ * @see com.misc.common.moplaf.report.ReportPackage#getReportRunMode()
  * @model
  * @generated
  */

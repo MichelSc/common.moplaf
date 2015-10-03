@@ -4,13 +4,30 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: com.misc.common.moplaf.report.emf;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: com.misc.common.moplaf.Report.Plugin$Implementation
+Bundle-Activator: com.misc.common.moplaf.report.Plugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: com.misc.common.moplaf.Report,
- com.misc.common.moplaf.Report.impl,
- com.misc.common.moplaf.Report.util
+Export-Package: com.misc.common.moplaf.report;
+  uses:="org.eclipse.emf.ecore,
+   org.eclipse.emf.common.util,
+   org.eclipse.emf.common,
+   org.eclipse.birt.report.engine.api,
+   org.osgi.framework",
+ com.misc.common.moplaf.report.impl;
+  uses:="com.misc.common.moplaf.report,
+   org.eclipse.emf.ecore,
+   org.eclipse.emf.common.util,
+   org.eclipse.emf.ecore.impl",
+ com.misc.common.moplaf.report.util;
+  uses:="org.eclipse.emf.ecore.util,
+   com.misc.common.moplaf.report,
+   org.eclipse.emf.ecore,
+   org.eclipse.birt.report.engine.api.script,
+   org.eclipse.birt.report.engine.api.script.instance,
+   org.eclipse.emf.common.notify.impl,
+   org.eclipse.birt.report.engine.api.script.eventadapter,
+   org.eclipse.emf.common.notify"
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.birt.report.engine;bundle-version="4.5.0",

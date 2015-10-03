@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Report" nsURI="http://www.misc.com/common/moplaf/report/model/0.1"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="report" nsURI="http://www.misc.com/common/moplaf/report/model/0.1"
     nsPrefix="rpt">
   <eClassifiers xsi:type="ecore:EClass" name="ReportAbstract" abstract="true">
     <eOperations name="generate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>

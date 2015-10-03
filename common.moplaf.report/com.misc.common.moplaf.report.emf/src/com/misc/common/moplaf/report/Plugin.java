@@ -1,11 +1,12 @@
 /**
  */
-package com.misc.common.moplaf.Report;
+package com.misc.common.moplaf.report;
 
 import java.util.logging.Level;
 
 import org.eclipse.birt.core.framework.Platform;
 import org.eclipse.birt.report.engine.api.EngineConfig;
+import org.eclipse.birt.report.engine.api.EngineConstants;
 import org.eclipse.birt.report.engine.api.IReportEngine;
 import org.eclipse.birt.report.engine.api.IReportEngineFactory;
 import org.eclipse.emf.common.CommonPlugin;
@@ -81,20 +82,30 @@ public final class Plugin extends EMFPlugin {
 	static void onStartUp(){
 		CommonPlugin.INSTANCE.log("com.misc.common.moplaf.report.Plugin.onStartUp: called");
 		try{
-			Plugin.engineConfig = new EngineConfig( );
+			// config
+			EngineConfig config = new EngineConfig( );
 			//delete the following line if using BIRT 3.7 (or later) POJO runtime
 			//As of 3.7.2, BIRT now provides an OSGi and a POJO Runtime.
-		
 			//config.setEngineHome( "C:\\birt-runtime-2_6_2\\birt-runtime-2_6_2\\ReportEngine" );
 			//config.setLogConfig("c:/temp", Level.FINE);
-			
-			Platform.startup( Plugin.engineConfig );
+			//CommonPlugin.INSTANCE.log("com.misc.common.moplaf.report.Plugin.onStartUp: WEBAPP_CLASSPATH_KEY "+ config.getProperty(EngineConstants.WEBAPP_CLASSPATH_KEY));
+			//CommonPlugin.INSTANCE.log("com.misc.common.moplaf.report.Plugin.onStartUp: PROJECT_CLASSPATH_KEY "+ config.getProperty(EngineConstants.PROJECT_CLASSPATH_KEY));
+			//CommonPlugin.INSTANCE.log("com.misc.common.moplaf.report.Plugin.onStartUp: WORKSPACE_CLASSPATH_KEY "+ config.getProperty(EngineConstants.WORKSPACE_CLASSPATH_KEY));
+			//CommonPlugin.INSTANCE.log("com.misc.common.moplaf.report.Plugin.onStartUp: APPCONTEXT_CLASSLOADER_KEY "+ config.getProperty(EngineConstants.APPCONTEXT_CLASSLOADER_KEY));
+			//config.setProperty(EngineConstants.WEBAPP_CLASSPATH_KEY, "/home/michel/workspacedt/workspace4birt/lib/test.jar");
+			Platform.startup( config );
+
+			// engine
 			//If using RE API in Eclipse/RCP application this is not needed. */
 			IReportEngineFactory factory = (IReportEngineFactory) Platform
 						.createFactoryObject( IReportEngineFactory.EXTENSION_REPORT_ENGINE_FACTORY );
-			Plugin.engine = factory.createReportEngine( Plugin.engineConfig );
-			Plugin.engine.changeLogLevel( Level.WARNING );
+			IReportEngine engine = factory.createReportEngine( config );
+			engine.changeLogLevel( Level.WARNING );
+
+			// done
 			CommonPlugin.INSTANCE.log("com.misc.common.moplaf.report.Plugin.onStartUp: report engine created");
+			Plugin.engineConfig = config;
+			Plugin.engine = engine;
 			}
 		catch( Exception ex){
 			CommonPlugin.INSTANCE.log("com.misc.common.moplaf.report.Plugin.onStartUp: exception "+ex.getMessage());

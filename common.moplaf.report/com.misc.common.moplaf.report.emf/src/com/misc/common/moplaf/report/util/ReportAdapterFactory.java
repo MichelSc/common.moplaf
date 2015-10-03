@@ -1,8 +1,6 @@
 /**
  */
-package com.misc.common.moplaf.Report.util;
-
-import com.misc.common.moplaf.Report.*;
+package com.misc.common.moplaf.report.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -11,12 +9,14 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import com.misc.common.moplaf.report.*;
+
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see com.misc.common.moplaf.Report.ReportPackage
+ * @see com.misc.common.moplaf.report.ReportPackage
  * @generated
  */
 public class ReportAdapterFactory extends AdapterFactoryImpl {
@@ -92,13 +92,13 @@ public class ReportAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.Report.ReportAbstract <em>Abstract</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.report.ReportAbstract <em>Abstract</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.Report.ReportAbstract
+	 * @see com.misc.common.moplaf.report.ReportAbstract
 	 * @generated
 	 */
 	public Adapter createReportAbstractAdapter() {

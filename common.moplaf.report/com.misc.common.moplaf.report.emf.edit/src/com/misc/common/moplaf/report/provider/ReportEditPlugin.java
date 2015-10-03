@@ -1,6 +1,6 @@
 /**
  */
-package com.misc.common.moplaf.Report.provider;
+package com.misc.common.moplaf.report.provider;
 
 import org.eclipse.emf.common.EMFPlugin;
 

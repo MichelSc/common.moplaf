@@ -1,6 +1,6 @@
 /**
  */
-package com.misc.common.moplaf.Report;
+package com.misc.common.moplaf.report;
 
 import org.eclipse.emf.ecore.EFactory;
 
@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * @see com.misc.common.moplaf.Report.ReportPackage
+ * @see com.misc.common.moplaf.report.ReportPackage
  * @generated
  */
 public interface ReportFactory extends EFactory {
@@ -19,7 +19,7 @@ public interface ReportFactory extends EFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	ReportFactory eINSTANCE = com.misc.common.moplaf.Report.impl.ReportFactoryImpl.init();
+	ReportFactory eINSTANCE = com.misc.common.moplaf.report.impl.ReportFactoryImpl.init();
 
 	/**
 	 * Returns the package supported by this factory.

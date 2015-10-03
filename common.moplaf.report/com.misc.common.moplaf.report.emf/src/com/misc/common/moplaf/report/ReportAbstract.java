@@ -1,6 +1,6 @@
 /**
  */
-package com.misc.common.moplaf.Report;
+package com.misc.common.moplaf.report;
 
 import java.util.Date;
 
@@ -15,17 +15,17 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.Report.ReportAbstract#getEngine <em>Engine</em>}</li>
- *   <li>{@link com.misc.common.moplaf.Report.ReportAbstract#getFormat <em>Format</em>}</li>
- *   <li>{@link com.misc.common.moplaf.Report.ReportAbstract#isGenerated <em>Generated</em>}</li>
- *   <li>{@link com.misc.common.moplaf.Report.ReportAbstract#getOutputFilePath <em>Output File Path</em>}</li>
- *   <li>{@link com.misc.common.moplaf.Report.ReportAbstract#getLastGenerated <em>Last Generated</em>}</li>
- *   <li>{@link com.misc.common.moplaf.Report.ReportAbstract#getRunMode <em>Run Mode</em>}</li>
- *   <li>{@link com.misc.common.moplaf.Report.ReportAbstract#isMayBeRun <em>May Be Run</em>}</li>
- *   <li>{@link com.misc.common.moplaf.Report.ReportAbstract#getMayBeRunFeedback <em>May Be Run Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.report.ReportAbstract#getEngine <em>Engine</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.report.ReportAbstract#getFormat <em>Format</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.report.ReportAbstract#isGenerated <em>Generated</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.report.ReportAbstract#getOutputFilePath <em>Output File Path</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.report.ReportAbstract#getLastGenerated <em>Last Generated</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.report.ReportAbstract#getRunMode <em>Run Mode</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.report.ReportAbstract#isMayBeRun <em>May Be Run</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.report.ReportAbstract#getMayBeRunFeedback <em>May Be Run Feedback</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.Report.ReportPackage#getReportAbstract()
+ * @see com.misc.common.moplaf.report.ReportPackage#getReportAbstract()
  * @model abstract="true"
  * @generated
  */
@@ -33,7 +33,7 @@ public interface ReportAbstract extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Engine</b></em>' attribute.
 	 * The default value is <code>"Birt"</code>.
-	 * The literals are from the enumeration {@link com.misc.common.moplaf.Report.ReportEngine}.
+	 * The literals are from the enumeration {@link com.misc.common.moplaf.report.ReportEngine}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Engine</em>' attribute isn't clear,
@@ -41,20 +41,20 @@ public interface ReportAbstract extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Engine</em>' attribute.
-	 * @see com.misc.common.moplaf.Report.ReportEngine
+	 * @see com.misc.common.moplaf.report.ReportEngine
 	 * @see #setEngine(ReportEngine)
-	 * @see com.misc.common.moplaf.Report.ReportPackage#getReportAbstract_Engine()
+	 * @see com.misc.common.moplaf.report.ReportPackage#getReportAbstract_Engine()
 	 * @model default="Birt"
 	 * @generated
 	 */
 	ReportEngine getEngine();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.Report.ReportAbstract#getEngine <em>Engine</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.report.ReportAbstract#getEngine <em>Engine</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Engine</em>' attribute.
-	 * @see com.misc.common.moplaf.Report.ReportEngine
+	 * @see com.misc.common.moplaf.report.ReportEngine
 	 * @see #getEngine()
 	 * @generated
 	 */
@@ -63,7 +63,7 @@ public interface ReportAbstract extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Format</b></em>' attribute.
 	 * The default value is <code>"pdf"</code>.
-	 * The literals are from the enumeration {@link com.misc.common.moplaf.Report.ReportRenderFormat}.
+	 * The literals are from the enumeration {@link com.misc.common.moplaf.report.ReportRenderFormat}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Format</em>' attribute isn't clear,
@@ -71,20 +71,20 @@ public interface ReportAbstract extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Format</em>' attribute.
-	 * @see com.misc.common.moplaf.Report.ReportRenderFormat
+	 * @see com.misc.common.moplaf.report.ReportRenderFormat
 	 * @see #setFormat(ReportRenderFormat)
-	 * @see com.misc.common.moplaf.Report.ReportPackage#getReportAbstract_Format()
+	 * @see com.misc.common.moplaf.report.ReportPackage#getReportAbstract_Format()
 	 * @model default="pdf"
 	 * @generated
 	 */
 	ReportRenderFormat getFormat();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.Report.ReportAbstract#getFormat <em>Format</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.report.ReportAbstract#getFormat <em>Format</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Format</em>' attribute.
-	 * @see com.misc.common.moplaf.Report.ReportRenderFormat
+	 * @see com.misc.common.moplaf.report.ReportRenderFormat
 	 * @see #getFormat()
 	 * @generated
 	 */
@@ -100,14 +100,14 @@ public interface ReportAbstract extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Generated</em>' attribute.
 	 * @see #setGenerated(boolean)
-	 * @see com.misc.common.moplaf.Report.ReportPackage#getReportAbstract_Generated()
+	 * @see com.misc.common.moplaf.report.ReportPackage#getReportAbstract_Generated()
 	 * @model
 	 * @generated
 	 */
 	boolean isGenerated();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.Report.ReportAbstract#isGenerated <em>Generated</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.report.ReportAbstract#isGenerated <em>Generated</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Generated</em>' attribute.
@@ -127,14 +127,14 @@ public interface ReportAbstract extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Output File Path</em>' attribute.
 	 * @see #setOutputFilePath(String)
-	 * @see com.misc.common.moplaf.Report.ReportPackage#getReportAbstract_OutputFilePath()
+	 * @see com.misc.common.moplaf.report.ReportPackage#getReportAbstract_OutputFilePath()
 	 * @model default="/home/michel/tmp/output"
 	 * @generated
 	 */
 	String getOutputFilePath();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.Report.ReportAbstract#getOutputFilePath <em>Output File Path</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.report.ReportAbstract#getOutputFilePath <em>Output File Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Output File Path</em>' attribute.
@@ -153,14 +153,14 @@ public interface ReportAbstract extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Last Generated</em>' attribute.
 	 * @see #setLastGenerated(Date)
-	 * @see com.misc.common.moplaf.Report.ReportPackage#getReportAbstract_LastGenerated()
+	 * @see com.misc.common.moplaf.report.ReportPackage#getReportAbstract_LastGenerated()
 	 * @model
 	 * @generated
 	 */
 	Date getLastGenerated();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.Report.ReportAbstract#getLastGenerated <em>Last Generated</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.report.ReportAbstract#getLastGenerated <em>Last Generated</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Last Generated</em>' attribute.
@@ -172,7 +172,7 @@ public interface ReportAbstract extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Run Mode</b></em>' attribute.
 	 * The default value is <code>"GenerateAndRender"</code>.
-	 * The literals are from the enumeration {@link com.misc.common.moplaf.Report.ReportRunMode}.
+	 * The literals are from the enumeration {@link com.misc.common.moplaf.report.ReportRunMode}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Run Mode</em>' attribute isn't clear,
@@ -180,20 +180,20 @@ public interface ReportAbstract extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Run Mode</em>' attribute.
-	 * @see com.misc.common.moplaf.Report.ReportRunMode
+	 * @see com.misc.common.moplaf.report.ReportRunMode
 	 * @see #setRunMode(ReportRunMode)
-	 * @see com.misc.common.moplaf.Report.ReportPackage#getReportAbstract_RunMode()
+	 * @see com.misc.common.moplaf.report.ReportPackage#getReportAbstract_RunMode()
 	 * @model default="GenerateAndRender"
 	 * @generated
 	 */
 	ReportRunMode getRunMode();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.Report.ReportAbstract#getRunMode <em>Run Mode</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.report.ReportAbstract#getRunMode <em>Run Mode</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Run Mode</em>' attribute.
-	 * @see com.misc.common.moplaf.Report.ReportRunMode
+	 * @see com.misc.common.moplaf.report.ReportRunMode
 	 * @see #getRunMode()
 	 * @generated
 	 */
@@ -209,7 +209,7 @@ public interface ReportAbstract extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>May Be Run</em>' attribute.
-	 * @see com.misc.common.moplaf.Report.ReportPackage#getReportAbstract_MayBeRun()
+	 * @see com.misc.common.moplaf.report.ReportPackage#getReportAbstract_MayBeRun()
 	 * @model default="false" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
@@ -224,7 +224,7 @@ public interface ReportAbstract extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>May Be Run Feedback</em>' attribute.
-	 * @see com.misc.common.moplaf.Report.ReportPackage#getReportAbstract_MayBeRunFeedback()
+	 * @see com.misc.common.moplaf.report.ReportPackage#getReportAbstract_MayBeRunFeedback()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */

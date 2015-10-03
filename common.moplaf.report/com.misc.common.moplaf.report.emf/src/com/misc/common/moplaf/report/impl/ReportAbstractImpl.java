@@ -1,20 +1,13 @@
 /**
  */
-package com.misc.common.moplaf.Report.impl;
-
-import com.misc.common.moplaf.Report.Plugin;
-import com.misc.common.moplaf.Report.ReportAbstract;
-import com.misc.common.moplaf.Report.ReportEngine;
-import com.misc.common.moplaf.Report.ReportPackage;
-import com.misc.common.moplaf.Report.ReportRenderFormat;
-
-import com.misc.common.moplaf.Report.ReportRunMode;
+package com.misc.common.moplaf.report.impl;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.Date;
+import java.util.Map;
 
 import org.eclipse.birt.report.engine.api.DocxRenderOption;
 import org.eclipse.birt.report.engine.api.EXCELRenderOption;
@@ -32,12 +25,18 @@ import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.resource.Resource;
+
+import com.misc.common.moplaf.report.util.DataSetEventHandler;
+import com.misc.common.moplaf.report.Plugin;
+import com.misc.common.moplaf.report.ReportAbstract;
+import com.misc.common.moplaf.report.ReportEngine;
+import com.misc.common.moplaf.report.ReportPackage;
+import com.misc.common.moplaf.report.ReportRenderFormat;
+import com.misc.common.moplaf.report.ReportRunMode;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,14 +46,14 @@ import org.eclipse.emf.ecore.resource.Resource;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.Report.impl.ReportAbstractImpl#getEngine <em>Engine</em>}</li>
- *   <li>{@link com.misc.common.moplaf.Report.impl.ReportAbstractImpl#getFormat <em>Format</em>}</li>
- *   <li>{@link com.misc.common.moplaf.Report.impl.ReportAbstractImpl#isGenerated <em>Generated</em>}</li>
- *   <li>{@link com.misc.common.moplaf.Report.impl.ReportAbstractImpl#getOutputFilePath <em>Output File Path</em>}</li>
- *   <li>{@link com.misc.common.moplaf.Report.impl.ReportAbstractImpl#getLastGenerated <em>Last Generated</em>}</li>
- *   <li>{@link com.misc.common.moplaf.Report.impl.ReportAbstractImpl#getRunMode <em>Run Mode</em>}</li>
- *   <li>{@link com.misc.common.moplaf.Report.impl.ReportAbstractImpl#isMayBeRun <em>May Be Run</em>}</li>
- *   <li>{@link com.misc.common.moplaf.Report.impl.ReportAbstractImpl#getMayBeRunFeedback <em>May Be Run Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.report.impl.ReportAbstractImpl#getEngine <em>Engine</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.report.impl.ReportAbstractImpl#getFormat <em>Format</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.report.impl.ReportAbstractImpl#isGenerated <em>Generated</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.report.impl.ReportAbstractImpl#getOutputFilePath <em>Output File Path</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.report.impl.ReportAbstractImpl#getLastGenerated <em>Last Generated</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.report.impl.ReportAbstractImpl#getRunMode <em>Run Mode</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.report.impl.ReportAbstractImpl#isMayBeRun <em>May Be Run</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.report.impl.ReportAbstractImpl#getMayBeRunFeedback <em>May Be Run Feedback</em>}</li>
  * </ul>
  *
  * @generated
@@ -380,24 +379,19 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 		CommonPlugin.INSTANCE.log("Report.generate: called");
 		try {
 			IReportEngine engine = Plugin.getReportEngine();
+			Map appContext = engine.getConfig().getAppContext();
+			Object myclassloaderkey = ReportAbstractImpl.class.getClassLoader();
+			appContext.put(EngineConstants.APPCONTEXT_CLASSLOADER_KEY, myclassloaderkey);
+
 			//Open the report design
-			//Bundle bundle = Platform.getBundle(this.getReportBundleID());
-			//InputStream file = FileLocator.openStream(bundle, new Path(this.getReportDesignFilePath()), false);
 			URL url = new URL(this.getReportDesignFileURL());
 			URL fileUrl = FileLocator.resolve(url);
 			InputStream file = fileUrl.openStream();
 			IReportRunnable design = engine.openReportDesign(file); 
 			file.close();
-			
-			//Create task to run and render the report,
 			IRunAndRenderTask task = engine.createRunAndRenderTask(design);
 			
-			//Set parent classloader for engine
-			task.getAppContext().put(EngineConstants.APPCONTEXT_CLASSLOADER_KEY, 
-									ReportAbstractImpl.class.getClassLoader()); 
-			
 			//Set parameter values and validate
-			//task.getAppContext().put("michelid", "hello from michel app context");
 			task.getAppContext().put("michelid", this.getContext());
 
 			// resource URL

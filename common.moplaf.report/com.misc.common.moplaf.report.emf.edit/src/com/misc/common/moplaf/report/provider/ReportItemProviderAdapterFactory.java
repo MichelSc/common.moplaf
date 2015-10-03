@@ -1,8 +1,6 @@
 /**
  */
-package com.misc.common.moplaf.Report.provider;
-
-import com.misc.common.moplaf.Report.util.ReportAdapterFactory;
+package com.misc.common.moplaf.report.provider;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -22,6 +20,8 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+
+import com.misc.common.moplaf.report.util.ReportAdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.

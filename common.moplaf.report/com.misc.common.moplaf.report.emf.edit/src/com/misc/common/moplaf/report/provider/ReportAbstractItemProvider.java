@@ -1,12 +1,12 @@
 /**
  */
-package com.misc.common.moplaf.Report.provider;
+package com.misc.common.moplaf.report.provider;
 
 
-import com.misc.common.moplaf.Report.ReportAbstract;
-import com.misc.common.moplaf.Report.ReportEngine;
-import com.misc.common.moplaf.Report.ReportPackage;
 import com.misc.common.moplaf.emf.edit.command.RunCommand;
+import com.misc.common.moplaf.report.ReportAbstract;
+import com.misc.common.moplaf.report.ReportEngine;
+import com.misc.common.moplaf.report.ReportPackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -30,7 +30,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.Report.ReportAbstract} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.report.ReportAbstract} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated

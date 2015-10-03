@@ -1,6 +1,6 @@
 /**
  */
-package com.misc.common.moplaf.Report;
+package com.misc.common.moplaf.report;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EPackage;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see com.misc.common.moplaf.Report.ReportFactory
+ * @see com.misc.common.moplaf.report.ReportFactory
  * @model kind="package"
  * @generated
  */
@@ -32,7 +32,7 @@ public interface ReportPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNAME = "Report";
+	String eNAME = "report";
 
 	/**
 	 * The package namespace URI.
@@ -56,14 +56,14 @@ public interface ReportPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	ReportPackage eINSTANCE = com.misc.common.moplaf.Report.impl.ReportPackageImpl.init();
+	ReportPackage eINSTANCE = com.misc.common.moplaf.report.impl.ReportPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.Report.impl.ReportAbstractImpl <em>Abstract</em>}' class.
+	 * The meta object id for the '{@link com.misc.common.moplaf.report.impl.ReportAbstractImpl <em>Abstract</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.Report.impl.ReportAbstractImpl
-	 * @see com.misc.common.moplaf.Report.impl.ReportPackageImpl#getReportAbstract()
+	 * @see com.misc.common.moplaf.report.impl.ReportAbstractImpl
+	 * @see com.misc.common.moplaf.report.impl.ReportPackageImpl#getReportAbstract()
 	 * @generated
 	 */
 	int REPORT_ABSTRACT = 0;
@@ -213,32 +213,32 @@ public interface ReportPackage extends EPackage {
 	int REPORT_ABSTRACT_OPERATION_COUNT = 6;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.Report.ReportEngine <em>Engine</em>}' enum.
+	 * The meta object id for the '{@link com.misc.common.moplaf.report.ReportEngine <em>Engine</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.Report.ReportEngine
-	 * @see com.misc.common.moplaf.Report.impl.ReportPackageImpl#getReportEngine()
+	 * @see com.misc.common.moplaf.report.ReportEngine
+	 * @see com.misc.common.moplaf.report.impl.ReportPackageImpl#getReportEngine()
 	 * @generated
 	 */
 	int REPORT_ENGINE = 1;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.Report.ReportRenderFormat <em>Render Format</em>}' enum.
+	 * The meta object id for the '{@link com.misc.common.moplaf.report.ReportRenderFormat <em>Render Format</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.Report.ReportRenderFormat
-	 * @see com.misc.common.moplaf.Report.impl.ReportPackageImpl#getReportRenderFormat()
+	 * @see com.misc.common.moplaf.report.ReportRenderFormat
+	 * @see com.misc.common.moplaf.report.impl.ReportPackageImpl#getReportRenderFormat()
 	 * @generated
 	 */
 	int REPORT_RENDER_FORMAT = 2;
 
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.Report.ReportRunMode <em>Run Mode</em>}' enum.
+	 * The meta object id for the '{@link com.misc.common.moplaf.report.ReportRunMode <em>Run Mode</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.Report.ReportRunMode
-	 * @see com.misc.common.moplaf.Report.impl.ReportPackageImpl#getReportRunMode()
+	 * @see com.misc.common.moplaf.report.ReportRunMode
+	 * @see com.misc.common.moplaf.report.impl.ReportPackageImpl#getReportRunMode()
 	 * @generated
 	 */
 	int REPORT_RUN_MODE = 3;
@@ -249,196 +249,196 @@ public interface ReportPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see java.io.InputStream
-	 * @see com.misc.common.moplaf.Report.impl.ReportPackageImpl#getInputStream()
+	 * @see com.misc.common.moplaf.report.impl.ReportPackageImpl#getInputStream()
 	 * @generated
 	 */
 	int INPUT_STREAM = 4;
 
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.Report.ReportAbstract <em>Abstract</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.report.ReportAbstract <em>Abstract</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Abstract</em>'.
-	 * @see com.misc.common.moplaf.Report.ReportAbstract
+	 * @see com.misc.common.moplaf.report.ReportAbstract
 	 * @generated
 	 */
 	EClass getReportAbstract();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.Report.ReportAbstract#getEngine <em>Engine</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.report.ReportAbstract#getEngine <em>Engine</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Engine</em>'.
-	 * @see com.misc.common.moplaf.Report.ReportAbstract#getEngine()
+	 * @see com.misc.common.moplaf.report.ReportAbstract#getEngine()
 	 * @see #getReportAbstract()
 	 * @generated
 	 */
 	EAttribute getReportAbstract_Engine();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.Report.ReportAbstract#getFormat <em>Format</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.report.ReportAbstract#getFormat <em>Format</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Format</em>'.
-	 * @see com.misc.common.moplaf.Report.ReportAbstract#getFormat()
+	 * @see com.misc.common.moplaf.report.ReportAbstract#getFormat()
 	 * @see #getReportAbstract()
 	 * @generated
 	 */
 	EAttribute getReportAbstract_Format();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.Report.ReportAbstract#isGenerated <em>Generated</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.report.ReportAbstract#isGenerated <em>Generated</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Generated</em>'.
-	 * @see com.misc.common.moplaf.Report.ReportAbstract#isGenerated()
+	 * @see com.misc.common.moplaf.report.ReportAbstract#isGenerated()
 	 * @see #getReportAbstract()
 	 * @generated
 	 */
 	EAttribute getReportAbstract_Generated();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.Report.ReportAbstract#getOutputFilePath <em>Output File Path</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.report.ReportAbstract#getOutputFilePath <em>Output File Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Output File Path</em>'.
-	 * @see com.misc.common.moplaf.Report.ReportAbstract#getOutputFilePath()
+	 * @see com.misc.common.moplaf.report.ReportAbstract#getOutputFilePath()
 	 * @see #getReportAbstract()
 	 * @generated
 	 */
 	EAttribute getReportAbstract_OutputFilePath();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.Report.ReportAbstract#getLastGenerated <em>Last Generated</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.report.ReportAbstract#getLastGenerated <em>Last Generated</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Last Generated</em>'.
-	 * @see com.misc.common.moplaf.Report.ReportAbstract#getLastGenerated()
+	 * @see com.misc.common.moplaf.report.ReportAbstract#getLastGenerated()
 	 * @see #getReportAbstract()
 	 * @generated
 	 */
 	EAttribute getReportAbstract_LastGenerated();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.Report.ReportAbstract#getRunMode <em>Run Mode</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.report.ReportAbstract#getRunMode <em>Run Mode</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Run Mode</em>'.
-	 * @see com.misc.common.moplaf.Report.ReportAbstract#getRunMode()
+	 * @see com.misc.common.moplaf.report.ReportAbstract#getRunMode()
 	 * @see #getReportAbstract()
 	 * @generated
 	 */
 	EAttribute getReportAbstract_RunMode();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.Report.ReportAbstract#isMayBeRun <em>May Be Run</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.report.ReportAbstract#isMayBeRun <em>May Be Run</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>May Be Run</em>'.
-	 * @see com.misc.common.moplaf.Report.ReportAbstract#isMayBeRun()
+	 * @see com.misc.common.moplaf.report.ReportAbstract#isMayBeRun()
 	 * @see #getReportAbstract()
 	 * @generated
 	 */
 	EAttribute getReportAbstract_MayBeRun();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.Report.ReportAbstract#getMayBeRunFeedback <em>May Be Run Feedback</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.report.ReportAbstract#getMayBeRunFeedback <em>May Be Run Feedback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>May Be Run Feedback</em>'.
-	 * @see com.misc.common.moplaf.Report.ReportAbstract#getMayBeRunFeedback()
+	 * @see com.misc.common.moplaf.report.ReportAbstract#getMayBeRunFeedback()
 	 * @see #getReportAbstract()
 	 * @generated
 	 */
 	EAttribute getReportAbstract_MayBeRunFeedback();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.Report.ReportAbstract#generate() <em>Generate</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.report.ReportAbstract#generate() <em>Generate</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Generate</em>' operation.
-	 * @see com.misc.common.moplaf.Report.ReportAbstract#generate()
+	 * @see com.misc.common.moplaf.report.ReportAbstract#generate()
 	 * @generated
 	 */
 	EOperation getReportAbstract__Generate();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.Report.ReportAbstract#render() <em>Render</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.report.ReportAbstract#render() <em>Render</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Render</em>' operation.
-	 * @see com.misc.common.moplaf.Report.ReportAbstract#render()
+	 * @see com.misc.common.moplaf.report.ReportAbstract#render()
 	 * @generated
 	 */
 	EOperation getReportAbstract__Render();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.Report.ReportAbstract#write() <em>Write</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.report.ReportAbstract#write() <em>Write</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Write</em>' operation.
-	 * @see com.misc.common.moplaf.Report.ReportAbstract#write()
+	 * @see com.misc.common.moplaf.report.ReportAbstract#write()
 	 * @generated
 	 */
 	EOperation getReportAbstract__Write();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.Report.ReportAbstract#getContext() <em>Get Context</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.report.ReportAbstract#getContext() <em>Get Context</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Context</em>' operation.
-	 * @see com.misc.common.moplaf.Report.ReportAbstract#getContext()
+	 * @see com.misc.common.moplaf.report.ReportAbstract#getContext()
 	 * @generated
 	 */
 	EOperation getReportAbstract__GetContext();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.Report.ReportAbstract#run() <em>Run</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.report.ReportAbstract#run() <em>Run</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Run</em>' operation.
-	 * @see com.misc.common.moplaf.Report.ReportAbstract#run()
+	 * @see com.misc.common.moplaf.report.ReportAbstract#run()
 	 * @generated
 	 */
 	EOperation getReportAbstract__Run();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.Report.ReportAbstract#getReportDesignFileURL() <em>Get Report Design File URL</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.report.ReportAbstract#getReportDesignFileURL() <em>Get Report Design File URL</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Report Design File URL</em>' operation.
-	 * @see com.misc.common.moplaf.Report.ReportAbstract#getReportDesignFileURL()
+	 * @see com.misc.common.moplaf.report.ReportAbstract#getReportDesignFileURL()
 	 * @generated
 	 */
 	EOperation getReportAbstract__GetReportDesignFileURL();
 
 	/**
-	 * Returns the meta object for enum '{@link com.misc.common.moplaf.Report.ReportEngine <em>Engine</em>}'.
+	 * Returns the meta object for enum '{@link com.misc.common.moplaf.report.ReportEngine <em>Engine</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for enum '<em>Engine</em>'.
-	 * @see com.misc.common.moplaf.Report.ReportEngine
+	 * @see com.misc.common.moplaf.report.ReportEngine
 	 * @generated
 	 */
 	EEnum getReportEngine();
 
 	/**
-	 * Returns the meta object for enum '{@link com.misc.common.moplaf.Report.ReportRenderFormat <em>Render Format</em>}'.
+	 * Returns the meta object for enum '{@link com.misc.common.moplaf.report.ReportRenderFormat <em>Render Format</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for enum '<em>Render Format</em>'.
-	 * @see com.misc.common.moplaf.Report.ReportRenderFormat
+	 * @see com.misc.common.moplaf.report.ReportRenderFormat
 	 * @generated
 	 */
 	EEnum getReportRenderFormat();
 
 	/**
-	 * Returns the meta object for enum '{@link com.misc.common.moplaf.Report.ReportRunMode <em>Run Mode</em>}'.
+	 * Returns the meta object for enum '{@link com.misc.common.moplaf.report.ReportRunMode <em>Run Mode</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for enum '<em>Run Mode</em>'.
-	 * @see com.misc.common.moplaf.Report.ReportRunMode
+	 * @see com.misc.common.moplaf.report.ReportRunMode
 	 * @generated
 	 */
 	EEnum getReportRunMode();
@@ -478,11 +478,11 @@ public interface ReportPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.Report.impl.ReportAbstractImpl <em>Abstract</em>}' class.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.report.impl.ReportAbstractImpl <em>Abstract</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.Report.impl.ReportAbstractImpl
-		 * @see com.misc.common.moplaf.Report.impl.ReportPackageImpl#getReportAbstract()
+		 * @see com.misc.common.moplaf.report.impl.ReportAbstractImpl
+		 * @see com.misc.common.moplaf.report.impl.ReportPackageImpl#getReportAbstract()
 		 * @generated
 		 */
 		EClass REPORT_ABSTRACT = eINSTANCE.getReportAbstract();
@@ -600,31 +600,31 @@ public interface ReportPackage extends EPackage {
 		EOperation REPORT_ABSTRACT___GET_REPORT_DESIGN_FILE_URL = eINSTANCE.getReportAbstract__GetReportDesignFileURL();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.Report.ReportEngine <em>Engine</em>}' enum.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.report.ReportEngine <em>Engine</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.Report.ReportEngine
-		 * @see com.misc.common.moplaf.Report.impl.ReportPackageImpl#getReportEngine()
+		 * @see com.misc.common.moplaf.report.ReportEngine
+		 * @see com.misc.common.moplaf.report.impl.ReportPackageImpl#getReportEngine()
 		 * @generated
 		 */
 		EEnum REPORT_ENGINE = eINSTANCE.getReportEngine();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.Report.ReportRenderFormat <em>Render Format</em>}' enum.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.report.ReportRenderFormat <em>Render Format</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.Report.ReportRenderFormat
-		 * @see com.misc.common.moplaf.Report.impl.ReportPackageImpl#getReportRenderFormat()
+		 * @see com.misc.common.moplaf.report.ReportRenderFormat
+		 * @see com.misc.common.moplaf.report.impl.ReportPackageImpl#getReportRenderFormat()
 		 * @generated
 		 */
 		EEnum REPORT_RENDER_FORMAT = eINSTANCE.getReportRenderFormat();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.Report.ReportRunMode <em>Run Mode</em>}' enum.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.report.ReportRunMode <em>Run Mode</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.Report.ReportRunMode
-		 * @see com.misc.common.moplaf.Report.impl.ReportPackageImpl#getReportRunMode()
+		 * @see com.misc.common.moplaf.report.ReportRunMode
+		 * @see com.misc.common.moplaf.report.impl.ReportPackageImpl#getReportRunMode()
 		 * @generated
 		 */
 		EEnum REPORT_RUN_MODE = eINSTANCE.getReportRunMode();
@@ -634,7 +634,7 @@ public interface ReportPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see java.io.InputStream
-		 * @see com.misc.common.moplaf.Report.impl.ReportPackageImpl#getInputStream()
+		 * @see com.misc.common.moplaf.report.impl.ReportPackageImpl#getInputStream()
 		 * @generated
 		 */
 		EDataType INPUT_STREAM = eINSTANCE.getInputStream();
