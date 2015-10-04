@@ -41,6 +41,8 @@ public final class Plugin extends EMFPlugin {
 	private static EngineConfig engineConfig;
 	
 	private static IReportEngine engine;
+	
+	public static String APPCONTEXT_REPORTCONTEXTOBJECT_KEY = "com.misc.common.moplaf.report.context_object_id";
 
 	/**
 	 * Create the instance.

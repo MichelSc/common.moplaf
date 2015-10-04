@@ -392,7 +392,7 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 			IRunAndRenderTask task = engine.createRunAndRenderTask(design);
 			
 			//Set parameter values and validate
-			task.getAppContext().put("michelid", this.getContext());
+			task.getAppContext().put(Plugin.APPCONTEXT_REPORTCONTEXTOBJECT_KEY, this.getContext());
 
 			// resource URL
 			//    this gives a path relative to the platform
