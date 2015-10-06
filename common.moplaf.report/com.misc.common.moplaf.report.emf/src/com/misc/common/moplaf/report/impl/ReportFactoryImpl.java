@@ -75,8 +75,6 @@ public class ReportFactoryImpl extends EFactoryImpl implements ReportFactory {
 				return createReportEngineFromString(eDataType, initialValue);
 			case ReportPackage.REPORT_RENDER_FORMAT:
 				return createReportRenderFormatFromString(eDataType, initialValue);
-			case ReportPackage.REPORT_RUN_MODE:
-				return createReportRunModeFromString(eDataType, initialValue);
 			case ReportPackage.INPUT_STREAM:
 				return createInputStreamFromString(eDataType, initialValue);
 			default:
@@ -96,8 +94,6 @@ public class ReportFactoryImpl extends EFactoryImpl implements ReportFactory {
 				return convertReportEngineToString(eDataType, instanceValue);
 			case ReportPackage.REPORT_RENDER_FORMAT:
 				return convertReportRenderFormatToString(eDataType, instanceValue);
-			case ReportPackage.REPORT_RUN_MODE:
-				return convertReportRunModeToString(eDataType, instanceValue);
 			case ReportPackage.INPUT_STREAM:
 				return convertInputStreamToString(eDataType, instanceValue);
 			default:
@@ -142,26 +138,6 @@ public class ReportFactoryImpl extends EFactoryImpl implements ReportFactory {
 	 * @generated
 	 */
 	public String convertReportRenderFormatToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ReportRunMode createReportRunModeFromString(EDataType eDataType, String initialValue) {
-		ReportRunMode result = ReportRunMode.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertReportRunModeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

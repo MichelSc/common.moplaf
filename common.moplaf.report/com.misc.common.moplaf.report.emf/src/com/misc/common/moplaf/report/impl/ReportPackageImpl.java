@@ -18,7 +18,6 @@ import com.misc.common.moplaf.report.ReportEngine;
 import com.misc.common.moplaf.report.ReportFactory;
 import com.misc.common.moplaf.report.ReportPackage;
 import com.misc.common.moplaf.report.ReportRenderFormat;
-import com.misc.common.moplaf.report.ReportRunMode;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,13 +46,6 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	 * @generated
 	 */
 	private EEnum reportRenderFormatEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum reportRunModeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -158,7 +150,7 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getReportAbstract_Generated() {
+	public EAttribute getReportAbstract_OutputFilePath() {
 		return (EAttribute)reportAbstractEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -167,7 +159,7 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getReportAbstract_OutputFilePath() {
+	public EAttribute getReportAbstract_LastGenerated() {
 		return (EAttribute)reportAbstractEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -176,7 +168,7 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getReportAbstract_LastGenerated() {
+	public EAttribute getReportAbstract_MayBeRun() {
 		return (EAttribute)reportAbstractEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -185,7 +177,7 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getReportAbstract_RunMode() {
+	public EAttribute getReportAbstract_MayBeRunFeedback() {
 		return (EAttribute)reportAbstractEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -194,25 +186,7 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getReportAbstract_MayBeRun() {
-		return (EAttribute)reportAbstractEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getReportAbstract_MayBeRunFeedback() {
-		return (EAttribute)reportAbstractEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getReportAbstract__Generate() {
+	public EOperation getReportAbstract__GetContext() {
 		return reportAbstractEClass.getEOperations().get(0);
 	}
 
@@ -221,7 +195,7 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getReportAbstract__Render() {
+	public EOperation getReportAbstract__Run() {
 		return reportAbstractEClass.getEOperations().get(1);
 	}
 
@@ -230,35 +204,8 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getReportAbstract__Write() {
-		return reportAbstractEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getReportAbstract__GetContext() {
-		return reportAbstractEClass.getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getReportAbstract__Run() {
-		return reportAbstractEClass.getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EOperation getReportAbstract__GetReportDesignFileURL() {
-		return reportAbstractEClass.getEOperations().get(5);
+		return reportAbstractEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -277,15 +224,6 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	 */
 	public EEnum getReportRenderFormat() {
 		return reportRenderFormatEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EEnum getReportRunMode() {
-		return reportRunModeEEnum;
 	}
 
 	/**
@@ -328,15 +266,10 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 		reportAbstractEClass = createEClass(REPORT_ABSTRACT);
 		createEAttribute(reportAbstractEClass, REPORT_ABSTRACT__ENGINE);
 		createEAttribute(reportAbstractEClass, REPORT_ABSTRACT__FORMAT);
-		createEAttribute(reportAbstractEClass, REPORT_ABSTRACT__GENERATED);
 		createEAttribute(reportAbstractEClass, REPORT_ABSTRACT__OUTPUT_FILE_PATH);
 		createEAttribute(reportAbstractEClass, REPORT_ABSTRACT__LAST_GENERATED);
-		createEAttribute(reportAbstractEClass, REPORT_ABSTRACT__RUN_MODE);
 		createEAttribute(reportAbstractEClass, REPORT_ABSTRACT__MAY_BE_RUN);
 		createEAttribute(reportAbstractEClass, REPORT_ABSTRACT__MAY_BE_RUN_FEEDBACK);
-		createEOperation(reportAbstractEClass, REPORT_ABSTRACT___GENERATE);
-		createEOperation(reportAbstractEClass, REPORT_ABSTRACT___RENDER);
-		createEOperation(reportAbstractEClass, REPORT_ABSTRACT___WRITE);
 		createEOperation(reportAbstractEClass, REPORT_ABSTRACT___GET_CONTEXT);
 		createEOperation(reportAbstractEClass, REPORT_ABSTRACT___RUN);
 		createEOperation(reportAbstractEClass, REPORT_ABSTRACT___GET_REPORT_DESIGN_FILE_URL);
@@ -344,7 +277,6 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 		// Create enums
 		reportEngineEEnum = createEEnum(REPORT_ENGINE);
 		reportRenderFormatEEnum = createEEnum(REPORT_RENDER_FORMAT);
-		reportRunModeEEnum = createEEnum(REPORT_RUN_MODE);
 
 		// Create data types
 		inputStreamEDataType = createEDataType(INPUT_STREAM);
@@ -386,18 +318,10 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 		initEClass(reportAbstractEClass, ReportAbstract.class, "ReportAbstract", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getReportAbstract_Engine(), this.getReportEngine(), "Engine", "Birt", 0, 1, ReportAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReportAbstract_Format(), this.getReportRenderFormat(), "Format", "pdf", 0, 1, ReportAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getReportAbstract_Generated(), ecorePackage.getEBoolean(), "Generated", null, 0, 1, ReportAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReportAbstract_OutputFilePath(), theEcorePackage.getEString(), "OutputFilePath", "/home/michel/tmp/output", 0, 1, ReportAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReportAbstract_LastGenerated(), theEcorePackage.getEDate(), "LastGenerated", null, 0, 1, ReportAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getReportAbstract_RunMode(), this.getReportRunMode(), "RunMode", "GenerateAndRender", 0, 1, ReportAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReportAbstract_MayBeRun(), theEcorePackage.getEBoolean(), "mayBeRun", "false", 0, 1, ReportAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReportAbstract_MayBeRunFeedback(), theEcorePackage.getEString(), "mayBeRunFeedback", null, 0, 1, ReportAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-
-		initEOperation(getReportAbstract__Generate(), ecorePackage.getEBoolean(), "generate", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getReportAbstract__Render(), null, "render", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getReportAbstract__Write(), null, "write", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getReportAbstract__GetContext(), ecorePackage.getEObject(), "getContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -416,13 +340,6 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 		addEEnumLiteral(reportRenderFormatEEnum, ReportRenderFormat.ENUM_RENDER_FORMAT_XLSX);
 		addEEnumLiteral(reportRenderFormatEEnum, ReportRenderFormat.ENUM_RENDER_FORMAT_DOC);
 		addEEnumLiteral(reportRenderFormatEEnum, ReportRenderFormat.ENUM_RENDER_FORMAT_DOCX);
-
-		initEEnum(reportRunModeEEnum, ReportRunMode.class, "ReportRunMode");
-		addEEnumLiteral(reportRunModeEEnum, ReportRunMode.ENUM_GENERATE_ONLY);
-		addEEnumLiteral(reportRunModeEEnum, ReportRunMode.ENUM_RENDER_ONLY);
-		addEEnumLiteral(reportRunModeEEnum, ReportRunMode.ENUM_WRITE_ONLY);
-		addEEnumLiteral(reportRunModeEEnum, ReportRunMode.ENUM_GENERATE_AND_RENDER);
-		addEEnumLiteral(reportRunModeEEnum, ReportRunMode.ENUM_GENERATE_AND_WRITE);
 
 		// Initialize data types
 		initEDataType(inputStreamEDataType, InputStream.class, "InputStream", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

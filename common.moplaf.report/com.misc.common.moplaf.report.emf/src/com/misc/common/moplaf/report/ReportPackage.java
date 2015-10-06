@@ -87,22 +87,13 @@ public interface ReportPackage extends EPackage {
 	int REPORT_ABSTRACT__FORMAT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Generated</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REPORT_ABSTRACT__GENERATED = 2;
-
-	/**
 	 * The feature id for the '<em><b>Output File Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REPORT_ABSTRACT__OUTPUT_FILE_PATH = 3;
+	int REPORT_ABSTRACT__OUTPUT_FILE_PATH = 2;
 
 	/**
 	 * The feature id for the '<em><b>Last Generated</b></em>' attribute.
@@ -111,16 +102,7 @@ public interface ReportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPORT_ABSTRACT__LAST_GENERATED = 4;
-
-	/**
-	 * The feature id for the '<em><b>Run Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REPORT_ABSTRACT__RUN_MODE = 5;
+	int REPORT_ABSTRACT__LAST_GENERATED = 3;
 
 	/**
 	 * The feature id for the '<em><b>May Be Run</b></em>' attribute.
@@ -129,7 +111,7 @@ public interface ReportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPORT_ABSTRACT__MAY_BE_RUN = 6;
+	int REPORT_ABSTRACT__MAY_BE_RUN = 4;
 
 	/**
 	 * The feature id for the '<em><b>May Be Run Feedback</b></em>' attribute.
@@ -138,7 +120,7 @@ public interface ReportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPORT_ABSTRACT__MAY_BE_RUN_FEEDBACK = 7;
+	int REPORT_ABSTRACT__MAY_BE_RUN_FEEDBACK = 5;
 
 	/**
 	 * The number of structural features of the '<em>Abstract</em>' class.
@@ -147,34 +129,7 @@ public interface ReportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPORT_ABSTRACT_FEATURE_COUNT = 8;
-
-	/**
-	 * The operation id for the '<em>Generate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REPORT_ABSTRACT___GENERATE = 0;
-
-	/**
-	 * The operation id for the '<em>Render</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REPORT_ABSTRACT___RENDER = 1;
-
-	/**
-	 * The operation id for the '<em>Write</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REPORT_ABSTRACT___WRITE = 2;
+	int REPORT_ABSTRACT_FEATURE_COUNT = 6;
 
 	/**
 	 * The operation id for the '<em>Get Context</em>' operation.
@@ -183,7 +138,7 @@ public interface ReportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPORT_ABSTRACT___GET_CONTEXT = 3;
+	int REPORT_ABSTRACT___GET_CONTEXT = 0;
 
 	/**
 	 * The operation id for the '<em>Run</em>' operation.
@@ -192,7 +147,7 @@ public interface ReportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPORT_ABSTRACT___RUN = 4;
+	int REPORT_ABSTRACT___RUN = 1;
 
 	/**
 	 * The operation id for the '<em>Get Report Design File URL</em>' operation.
@@ -201,7 +156,7 @@ public interface ReportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPORT_ABSTRACT___GET_REPORT_DESIGN_FILE_URL = 5;
+	int REPORT_ABSTRACT___GET_REPORT_DESIGN_FILE_URL = 2;
 
 	/**
 	 * The number of operations of the '<em>Abstract</em>' class.
@@ -210,7 +165,7 @@ public interface ReportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPORT_ABSTRACT_OPERATION_COUNT = 6;
+	int REPORT_ABSTRACT_OPERATION_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.report.ReportEngine <em>Engine</em>}' enum.
@@ -234,17 +189,6 @@ public interface ReportPackage extends EPackage {
 
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.report.ReportRunMode <em>Run Mode</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.report.ReportRunMode
-	 * @see com.misc.common.moplaf.report.impl.ReportPackageImpl#getReportRunMode()
-	 * @generated
-	 */
-	int REPORT_RUN_MODE = 3;
-
-
-	/**
 	 * The meta object id for the '<em>Input Stream</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -252,7 +196,7 @@ public interface ReportPackage extends EPackage {
 	 * @see com.misc.common.moplaf.report.impl.ReportPackageImpl#getInputStream()
 	 * @generated
 	 */
-	int INPUT_STREAM = 4;
+	int INPUT_STREAM = 3;
 
 
 	/**
@@ -288,17 +232,6 @@ public interface ReportPackage extends EPackage {
 	EAttribute getReportAbstract_Format();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.report.ReportAbstract#isGenerated <em>Generated</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Generated</em>'.
-	 * @see com.misc.common.moplaf.report.ReportAbstract#isGenerated()
-	 * @see #getReportAbstract()
-	 * @generated
-	 */
-	EAttribute getReportAbstract_Generated();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.report.ReportAbstract#getOutputFilePath <em>Output File Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -321,17 +254,6 @@ public interface ReportPackage extends EPackage {
 	EAttribute getReportAbstract_LastGenerated();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.report.ReportAbstract#getRunMode <em>Run Mode</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Run Mode</em>'.
-	 * @see com.misc.common.moplaf.report.ReportAbstract#getRunMode()
-	 * @see #getReportAbstract()
-	 * @generated
-	 */
-	EAttribute getReportAbstract_RunMode();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.report.ReportAbstract#isMayBeRun <em>May Be Run</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -352,36 +274,6 @@ public interface ReportPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getReportAbstract_MayBeRunFeedback();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.report.ReportAbstract#generate() <em>Generate</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Generate</em>' operation.
-	 * @see com.misc.common.moplaf.report.ReportAbstract#generate()
-	 * @generated
-	 */
-	EOperation getReportAbstract__Generate();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.report.ReportAbstract#render() <em>Render</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Render</em>' operation.
-	 * @see com.misc.common.moplaf.report.ReportAbstract#render()
-	 * @generated
-	 */
-	EOperation getReportAbstract__Render();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.report.ReportAbstract#write() <em>Write</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Write</em>' operation.
-	 * @see com.misc.common.moplaf.report.ReportAbstract#write()
-	 * @generated
-	 */
-	EOperation getReportAbstract__Write();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.report.ReportAbstract#getContext() <em>Get Context</em>}' operation.
@@ -432,16 +324,6 @@ public interface ReportPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getReportRenderFormat();
-
-	/**
-	 * Returns the meta object for enum '{@link com.misc.common.moplaf.report.ReportRunMode <em>Run Mode</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Run Mode</em>'.
-	 * @see com.misc.common.moplaf.report.ReportRunMode
-	 * @generated
-	 */
-	EEnum getReportRunMode();
 
 	/**
 	 * Returns the meta object for data type '{@link java.io.InputStream <em>Input Stream</em>}'.
@@ -504,14 +386,6 @@ public interface ReportPackage extends EPackage {
 		EAttribute REPORT_ABSTRACT__FORMAT = eINSTANCE.getReportAbstract_Format();
 
 		/**
-		 * The meta object literal for the '<em><b>Generated</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REPORT_ABSTRACT__GENERATED = eINSTANCE.getReportAbstract_Generated();
-
-		/**
 		 * The meta object literal for the '<em><b>Output File Path</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -528,14 +402,6 @@ public interface ReportPackage extends EPackage {
 		EAttribute REPORT_ABSTRACT__LAST_GENERATED = eINSTANCE.getReportAbstract_LastGenerated();
 
 		/**
-		 * The meta object literal for the '<em><b>Run Mode</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REPORT_ABSTRACT__RUN_MODE = eINSTANCE.getReportAbstract_RunMode();
-
-		/**
 		 * The meta object literal for the '<em><b>May Be Run</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -550,30 +416,6 @@ public interface ReportPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute REPORT_ABSTRACT__MAY_BE_RUN_FEEDBACK = eINSTANCE.getReportAbstract_MayBeRunFeedback();
-
-		/**
-		 * The meta object literal for the '<em><b>Generate</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation REPORT_ABSTRACT___GENERATE = eINSTANCE.getReportAbstract__Generate();
-
-		/**
-		 * The meta object literal for the '<em><b>Render</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation REPORT_ABSTRACT___RENDER = eINSTANCE.getReportAbstract__Render();
-
-		/**
-		 * The meta object literal for the '<em><b>Write</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation REPORT_ABSTRACT___WRITE = eINSTANCE.getReportAbstract__Write();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Context</b></em>' operation.
@@ -618,16 +460,6 @@ public interface ReportPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum REPORT_RENDER_FORMAT = eINSTANCE.getReportRenderFormat();
-
-		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.report.ReportRunMode <em>Run Mode</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.report.ReportRunMode
-		 * @see com.misc.common.moplaf.report.impl.ReportPackageImpl#getReportRunMode()
-		 * @generated
-		 */
-		EEnum REPORT_RUN_MODE = eINSTANCE.getReportRunMode();
 
 		/**
 		 * The meta object literal for the '<em>Input Stream</em>' data type.

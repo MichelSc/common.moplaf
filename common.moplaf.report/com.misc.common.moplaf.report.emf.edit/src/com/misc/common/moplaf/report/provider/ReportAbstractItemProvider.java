@@ -66,10 +66,8 @@ public class ReportAbstractItemProvider
 
 			addEnginePropertyDescriptor(object);
 			addFormatPropertyDescriptor(object);
-			addGeneratedPropertyDescriptor(object);
 			addOutputFilePathPropertyDescriptor(object);
 			addLastGeneratedPropertyDescriptor(object);
-			addRunModePropertyDescriptor(object);
 			addMayBeRunPropertyDescriptor(object);
 			addMayBeRunFeedbackPropertyDescriptor(object);
 		}
@@ -121,28 +119,6 @@ public class ReportAbstractItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Generated feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addGeneratedPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ReportAbstract_Generated_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReportAbstract_Generated_feature", "_UI_ReportAbstract_type"),
-				 ReportPackage.Literals.REPORT_ABSTRACT__GENERATED,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Output File Path feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -178,28 +154,6 @@ public class ReportAbstractItemProvider
 				 getString("_UI_ReportAbstract_LastGenerated_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ReportAbstract_LastGenerated_feature", "_UI_ReportAbstract_type"),
 				 ReportPackage.Literals.REPORT_ABSTRACT__LAST_GENERATED,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Run Mode feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRunModePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ReportAbstract_RunMode_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReportAbstract_RunMode_feature", "_UI_ReportAbstract_type"),
-				 ReportPackage.Literals.REPORT_ABSTRACT__RUN_MODE,
 				 true,
 				 false,
 				 false,
@@ -293,10 +247,8 @@ public class ReportAbstractItemProvider
 		switch (notification.getFeatureID(ReportAbstract.class)) {
 			case ReportPackage.REPORT_ABSTRACT__ENGINE:
 			case ReportPackage.REPORT_ABSTRACT__FORMAT:
-			case ReportPackage.REPORT_ABSTRACT__GENERATED:
 			case ReportPackage.REPORT_ABSTRACT__OUTPUT_FILE_PATH:
 			case ReportPackage.REPORT_ABSTRACT__LAST_GENERATED:
-			case ReportPackage.REPORT_ABSTRACT__RUN_MODE:
 			case ReportPackage.REPORT_ABSTRACT__MAY_BE_RUN:
 			case ReportPackage.REPORT_ABSTRACT__MAY_BE_RUN_FEEDBACK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
@@ -344,7 +296,11 @@ public class ReportAbstractItemProvider
 
 		@Override
 		protected boolean prepare(){
-			if ( this.report==null) { return false; }
+			return false;
+		}
+
+		@Override
+		public boolean canExecute() {
 			return this.report.isMayBeRun();
 		}
 

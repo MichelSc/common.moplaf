@@ -17,10 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.report.ReportAbstract#getEngine <em>Engine</em>}</li>
  *   <li>{@link com.misc.common.moplaf.report.ReportAbstract#getFormat <em>Format</em>}</li>
- *   <li>{@link com.misc.common.moplaf.report.ReportAbstract#isGenerated <em>Generated</em>}</li>
  *   <li>{@link com.misc.common.moplaf.report.ReportAbstract#getOutputFilePath <em>Output File Path</em>}</li>
  *   <li>{@link com.misc.common.moplaf.report.ReportAbstract#getLastGenerated <em>Last Generated</em>}</li>
- *   <li>{@link com.misc.common.moplaf.report.ReportAbstract#getRunMode <em>Run Mode</em>}</li>
  *   <li>{@link com.misc.common.moplaf.report.ReportAbstract#isMayBeRun <em>May Be Run</em>}</li>
  *   <li>{@link com.misc.common.moplaf.report.ReportAbstract#getMayBeRunFeedback <em>May Be Run Feedback</em>}</li>
  * </ul>
@@ -91,32 +89,6 @@ public interface ReportAbstract extends EObject {
 	void setFormat(ReportRenderFormat value);
 
 	/**
-	 * Returns the value of the '<em><b>Generated</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Generated</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Generated</em>' attribute.
-	 * @see #setGenerated(boolean)
-	 * @see com.misc.common.moplaf.report.ReportPackage#getReportAbstract_Generated()
-	 * @model
-	 * @generated
-	 */
-	boolean isGenerated();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.report.ReportAbstract#isGenerated <em>Generated</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Generated</em>' attribute.
-	 * @see #isGenerated()
-	 * @generated
-	 */
-	void setGenerated(boolean value);
-
-	/**
 	 * Returns the value of the '<em><b>Output File Path</b></em>' attribute.
 	 * The default value is <code>"/home/michel/tmp/output"</code>.
 	 * <!-- begin-user-doc -->
@@ -170,36 +142,6 @@ public interface ReportAbstract extends EObject {
 	void setLastGenerated(Date value);
 
 	/**
-	 * Returns the value of the '<em><b>Run Mode</b></em>' attribute.
-	 * The default value is <code>"GenerateAndRender"</code>.
-	 * The literals are from the enumeration {@link com.misc.common.moplaf.report.ReportRunMode}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Run Mode</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Run Mode</em>' attribute.
-	 * @see com.misc.common.moplaf.report.ReportRunMode
-	 * @see #setRunMode(ReportRunMode)
-	 * @see com.misc.common.moplaf.report.ReportPackage#getReportAbstract_RunMode()
-	 * @model default="GenerateAndRender"
-	 * @generated
-	 */
-	ReportRunMode getRunMode();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.report.ReportAbstract#getRunMode <em>Run Mode</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Run Mode</em>' attribute.
-	 * @see com.misc.common.moplaf.report.ReportRunMode
-	 * @see #getRunMode()
-	 * @generated
-	 */
-	void setRunMode(ReportRunMode value);
-
-	/**
 	 * Returns the value of the '<em><b>May Be Run</b></em>' attribute.
 	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
@@ -229,30 +171,6 @@ public interface ReportAbstract extends EObject {
 	 * @generated
 	 */
 	String getMayBeRunFeedback();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	boolean generate();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void render();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void write();
 
 	/**
 	 * <!-- begin-user-doc -->
