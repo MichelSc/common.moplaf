@@ -2,10 +2,12 @@
  */
 package com.misc.common.moplaf.report;
 
+import java.util.Map;
 import java.util.logging.Level;
 
 import org.eclipse.birt.core.framework.Platform;
 import org.eclipse.birt.report.engine.api.EngineConfig;
+import org.eclipse.birt.report.engine.api.EngineConstants;
 import org.eclipse.birt.report.engine.api.IReportEngine;
 import org.eclipse.birt.report.engine.api.IReportEngineFactory;
 import org.eclipse.emf.common.CommonPlugin;
@@ -14,10 +16,22 @@ import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.osgi.framework.BundleContext;
 
+import com.misc.common.moplaf.report.impl.ReportAbstractImpl;
+
 /**
  * This is the central singleton for the Report model plugin.
  * <!-- begin-user-doc -->
- * <!-- end-user-doc -->
+ * <p>
+ * Start and stop the report engine:
+ * <ul>
+ *   <li>create and initialize the report enging config</li>
+ *   <li>start up the report engine at plugin start time</li>
+ *   <li>install the class loader in the engine run time; so that the event handlers of this package can be loaded by birt</li>
+ *   <li>reserves the key {@link #APPCONTEXT_REPORTCONTEXTOBJECT_KEY} in birt app context for storing the context object of the current report</li>
+ *   <li>shut down the report engine at plugin stop time</li>
+ * </ul>
+ * 
+<!-- end-user-doc -->
  * @generated
  */
 public final class Plugin extends EMFPlugin {
@@ -103,6 +117,9 @@ public final class Plugin extends EMFPlugin {
 			IReportEngine engine = factory.createReportEngine( config );
 			engine.changeLogLevel( Level.WARNING );
 
+			Map appContext = engine.getConfig().getAppContext();
+			Object myclassloaderkey = ReportAbstractImpl.class.getClassLoader();
+			appContext.put(EngineConstants.APPCONTEXT_CLASSLOADER_KEY, myclassloaderkey);
 			// done
 			CommonPlugin.INSTANCE.log("com.misc.common.moplaf.report.Plugin.onStartUp: report engine created");
 			Plugin.engineConfig = config;

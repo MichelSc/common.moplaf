@@ -58,7 +58,7 @@
               <styles xmi:type="notation:FilteringStyle" xmi:id="__Ur-omTvEeW1wLwk0KN-fA"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="__UpiYWTvEeW1wLwk0KN-fA" fontName="Oxygen-Sans Sans-Book" fontHeight="8"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__UpiYmTvEeW1wLwk0KN-fA" x="156" y="144" width="327" height="231"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__UpiYmTvEeW1wLwk0KN-fA" x="132" y="168" width="327" height="231"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_DS3EYGTwEeW1wLwk0KN-fA" type="2003" element="_DSppAGTwEeW1wLwk0KN-fA">
             <children xmi:type="notation:Node" xmi:id="_DS4SgGTwEeW1wLwk0KN-fA" type="5007"/>
@@ -71,7 +71,7 @@
               <styles xmi:type="notation:FilteringStyle" xmi:id="_DS4Sg2TwEeW1wLwk0KN-fA"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_DS3EYWTwEeW1wLwk0KN-fA" fontName="Oxygen-Sans Sans-Book" fontHeight="8"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DS3EYmTwEeW1wLwk0KN-fA" x="576" y="84" width="267" height="100"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DS3EYmTwEeW1wLwk0KN-fA" x="600" y="60" width="267" height="100"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_OI9rQGTwEeW1wLwk0KN-fA" type="2003" element="_OIrXYGTwEeW1wLwk0KN-fA">
             <children xmi:type="notation:Node" xmi:id="_OI-SUGTwEeW1wLwk0KN-fA" type="5007"/>

@@ -221,15 +221,17 @@ public class ReportAbstractItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		ReportEngine labelValue = ((ReportAbstract)object).getEngine();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ReportAbstract_type") :
-			getString("_UI_ReportAbstract_type") + " " + label;
+		ReportAbstract report = (ReportAbstract)object;
+		Object contextObject = report.getContext();
+		String contextLabel = "null";
+		if ( contextObject!=null){
+			contextLabel = ((IItemLabelProvider)this.adapterFactory.adapt(contextObject, IItemLabelProvider.class)).getText(contextObject);
+		}
+		
+		return getString("_UI_ReportAbstract_type") + " " + contextLabel;
 	}
 	
 

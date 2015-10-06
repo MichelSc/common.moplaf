@@ -288,11 +288,15 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 	public void run() {
 		boolean generated = false;
 		CommonPlugin.INSTANCE.log("Report.generate: called");
+		CommonPlugin.INSTANCE.log("Report.generate: report "+this.eClass().toString());
+		CommonPlugin.INSTANCE.log("Report.generate: object "+ this.getContext()==null? "null" : this.getContext().toString());
 		try {
 			IReportEngine engine = Plugin.getReportEngine();
 			Map appContext = engine.getConfig().getAppContext();
-			Object myclassloaderkey = ReportAbstractImpl.class.getClassLoader();
-			appContext.put(EngineConstants.APPCONTEXT_CLASSLOADER_KEY, myclassloaderkey);
+
+			//Set parameter values and validate
+			// this must be done before loading the report design and/or creating the task
+			appContext.put(Plugin.APPCONTEXT_REPORTCONTEXTOBJECT_KEY, this.getContext());
 
 			//Open the report design
 			URL url = new URL(this.getReportDesignFileURL());
@@ -302,9 +306,6 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 			file.close();
 			IRunAndRenderTask task = engine.createRunAndRenderTask(design);
 			
-			//Set parameter values and validate
-			task.getAppContext().put(Plugin.APPCONTEXT_REPORTCONTEXTOBJECT_KEY, this.getContext());
-
 			// resource URL
 			//    this gives a path relative to the platform
 			//    should we not make a real url?
@@ -315,14 +316,6 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 			String platformString = resourceURI.toPlatformString(false);
 			task.setParameterValue("ResourceURL", platformString);
 			*/
-			
-			// context fragment
-			/*
-			String objectFragment = resource.getURIFragment(this.getContext());
-			task.setParameterValue("ObjectFragment", objectFragment);
-			*/
-			// context object
-			//task.setParameterValue("ContextObject", this.getContext());
 			
 			task.validateParameters();
 			
