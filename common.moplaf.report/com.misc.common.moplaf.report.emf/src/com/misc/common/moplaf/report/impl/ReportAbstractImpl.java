@@ -11,7 +11,6 @@ import java.util.Map;
 
 import org.eclipse.birt.report.engine.api.DocxRenderOption;
 import org.eclipse.birt.report.engine.api.EXCELRenderOption;
-import org.eclipse.birt.report.engine.api.EngineConstants;
 import org.eclipse.birt.report.engine.api.EngineException;
 import org.eclipse.birt.report.engine.api.HTMLRenderOption;
 import org.eclipse.birt.report.engine.api.IRenderOption;
@@ -39,6 +38,25 @@ import com.misc.common.moplaf.report.ReportRenderFormat;
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Abstract</b></em>'.
+ * <p>
+ * Base class for reports based on some EObject context:
+ * <ul>
+ *   <li>get the report design doc</li>
+ *   <li>set the context object</li>
+ *   <li>generate the report</li>
+ *   <li>write the report</li>
+ * </ul>
+ * <p>
+ * In order to use this class, create a concrete class inheriting from this class:
+ * <ul>
+ *   <li>implement {@link #getReportDesignFileURL()}, returning the url of the report design file, like "platform:/plugin/path/file.rptdesign"</li>
+ *   <li>implement {@link #getContext()}, returning the context object</li>
+ *   <li>create a root ODA EMF Dataset, receiving the context object </li>
+ *   <ul>
+ *     <li>set as event handler for the root dataset the class com.misc.common.moplaf.report.birt.RootDataSetEventHandler</li>
+ *     <li>the function of this event handler is to set the parameter @target with the context object</li>
+ *   </ul>
+ * </ul>
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
@@ -286,7 +304,6 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 */
 	public void run() {
-		boolean generated = false;
 		CommonPlugin.INSTANCE.log("Report.generate: called");
 		CommonPlugin.INSTANCE.log("Report.generate: report "+this.eClass().toString());
 		CommonPlugin.INSTANCE.log("Report.generate: object "+ this.getContext()==null? "null" : this.getContext().toString());
@@ -376,12 +393,12 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 			//run and render report
 			task.run();
 			task.close();
-			generated = true;
+			appContext.put(Plugin.APPCONTEXT_REPORTCONTEXTOBJECT_KEY, null);
 			this.setLastGenerated(new Date());
 		} catch (EngineException | IOException e) {
 			e.printStackTrace();
 		}
-		CommonPlugin.INSTANCE.log("Report.generate: done, generated="+generated);
+		CommonPlugin.INSTANCE.log("Report.generate: done");
 	}
 
 
