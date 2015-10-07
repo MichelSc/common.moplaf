@@ -63,7 +63,6 @@ public class ReportAbstractItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addEnginePropertyDescriptor(object);
 			addFormatPropertyDescriptor(object);
 			addOutputFilePathPropertyDescriptor(object);
 			addLastGeneratedPropertyDescriptor(object);
@@ -73,28 +72,6 @@ public class ReportAbstractItemProvider
 			addDescriptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Engine feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addEnginePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ReportAbstract_Engine_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReportAbstract_Engine_feature", "_UI_ReportAbstract_type"),
-				 ReportPackage.Literals.REPORT_ABSTRACT__ENGINE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -290,7 +267,6 @@ public class ReportAbstractItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ReportAbstract.class)) {
-			case ReportPackage.REPORT_ABSTRACT__ENGINE:
 			case ReportPackage.REPORT_ABSTRACT__FORMAT:
 			case ReportPackage.REPORT_ABSTRACT__OUTPUT_FILE_PATH:
 			case ReportPackage.REPORT_ABSTRACT__LAST_GENERATED:

@@ -67,15 +67,6 @@ public interface BirtPackage extends EPackage {
 	int REPORT_BIRT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Engine</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REPORT_BIRT__ENGINE = ReportPackage.REPORT_ABSTRACT__ENGINE;
-
-	/**
 	 * The feature id for the '<em><b>Format</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

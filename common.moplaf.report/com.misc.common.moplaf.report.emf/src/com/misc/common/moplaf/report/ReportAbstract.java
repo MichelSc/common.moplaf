@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.report.ReportAbstract#getEngine <em>Engine</em>}</li>
  *   <li>{@link com.misc.common.moplaf.report.ReportAbstract#getFormat <em>Format</em>}</li>
  *   <li>{@link com.misc.common.moplaf.report.ReportAbstract#getOutputFilePath <em>Output File Path</em>}</li>
  *   <li>{@link com.misc.common.moplaf.report.ReportAbstract#getLastGenerated <em>Last Generated</em>}</li>
@@ -30,36 +29,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface ReportAbstract extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Engine</b></em>' attribute.
-	 * The default value is <code>"Birt"</code>.
-	 * The literals are from the enumeration {@link com.misc.common.moplaf.report.ReportEngine}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Engine</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Engine</em>' attribute.
-	 * @see com.misc.common.moplaf.report.ReportEngine
-	 * @see #setEngine(ReportEngine)
-	 * @see com.misc.common.moplaf.report.ReportPackage#getReportAbstract_Engine()
-	 * @model default="Birt"
-	 * @generated
-	 */
-	ReportEngine getEngine();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.report.ReportAbstract#getEngine <em>Engine</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Engine</em>' attribute.
-	 * @see com.misc.common.moplaf.report.ReportEngine
-	 * @see #getEngine()
-	 * @generated
-	 */
-	void setEngine(ReportEngine value);
-
 	/**
 	 * Returns the value of the '<em><b>Format</b></em>' attribute.
 	 * The default value is <code>"pdf"</code>.

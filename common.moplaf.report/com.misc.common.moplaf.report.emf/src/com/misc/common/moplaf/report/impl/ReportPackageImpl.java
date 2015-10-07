@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import com.misc.common.moplaf.report.ReportAbstract;
-import com.misc.common.moplaf.report.ReportEngine;
 import com.misc.common.moplaf.report.ReportFactory;
 import com.misc.common.moplaf.report.ReportPackage;
 import com.misc.common.moplaf.report.ReportRenderFormat;
@@ -33,13 +32,6 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	 * @generated
 	 */
 	private EClass reportAbstractEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum reportEngineEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,7 +125,7 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getReportAbstract_Engine() {
+	public EAttribute getReportAbstract_Format() {
 		return (EAttribute)reportAbstractEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -142,7 +134,7 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getReportAbstract_Format() {
+	public EAttribute getReportAbstract_OutputFilePath() {
 		return (EAttribute)reportAbstractEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -151,7 +143,7 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getReportAbstract_OutputFilePath() {
+	public EAttribute getReportAbstract_LastGenerated() {
 		return (EAttribute)reportAbstractEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -160,7 +152,7 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getReportAbstract_LastGenerated() {
+	public EAttribute getReportAbstract_MayBeRun() {
 		return (EAttribute)reportAbstractEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -169,7 +161,7 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getReportAbstract_MayBeRun() {
+	public EAttribute getReportAbstract_MayBeRunFeedback() {
 		return (EAttribute)reportAbstractEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -178,17 +170,8 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getReportAbstract_MayBeRunFeedback() {
-		return (EAttribute)reportAbstractEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getReportAbstract_ReportContext() {
-		return (EReference)reportAbstractEClass.getEStructuralFeatures().get(6);
+		return (EReference)reportAbstractEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -197,7 +180,7 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	 * @generated
 	 */
 	public EAttribute getReportAbstract_Description() {
-		return (EAttribute)reportAbstractEClass.getEStructuralFeatures().get(7);
+		return (EAttribute)reportAbstractEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -216,15 +199,6 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	 */
 	public EOperation getReportAbstract__GetReportDesignFileURL() {
 		return reportAbstractEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EEnum getReportEngine() {
-		return reportEngineEEnum;
 	}
 
 	/**
@@ -274,7 +248,6 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 
 		// Create classes and their features
 		reportAbstractEClass = createEClass(REPORT_ABSTRACT);
-		createEAttribute(reportAbstractEClass, REPORT_ABSTRACT__ENGINE);
 		createEAttribute(reportAbstractEClass, REPORT_ABSTRACT__FORMAT);
 		createEAttribute(reportAbstractEClass, REPORT_ABSTRACT__OUTPUT_FILE_PATH);
 		createEAttribute(reportAbstractEClass, REPORT_ABSTRACT__LAST_GENERATED);
@@ -286,7 +259,6 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 		createEOperation(reportAbstractEClass, REPORT_ABSTRACT___GET_REPORT_DESIGN_FILE_URL);
 
 		// Create enums
-		reportEngineEEnum = createEEnum(REPORT_ENGINE);
 		reportRenderFormatEEnum = createEEnum(REPORT_RENDER_FORMAT);
 
 		// Create data types
@@ -327,7 +299,6 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(reportAbstractEClass, ReportAbstract.class, "ReportAbstract", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getReportAbstract_Engine(), this.getReportEngine(), "Engine", "Birt", 0, 1, ReportAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReportAbstract_Format(), this.getReportRenderFormat(), "Format", "pdf", 0, 1, ReportAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReportAbstract_OutputFilePath(), theEcorePackage.getEString(), "OutputFilePath", "/home/michel/tmp/output", 0, 1, ReportAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReportAbstract_LastGenerated(), theEcorePackage.getEDate(), "LastGenerated", null, 0, 1, ReportAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -341,9 +312,6 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 		initEOperation(getReportAbstract__GetReportDesignFileURL(), theEcorePackage.getEString(), "getReportDesignFileURL", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
-		initEEnum(reportEngineEEnum, ReportEngine.class, "ReportEngine");
-		addEEnumLiteral(reportEngineEEnum, ReportEngine.ENUM_REPORT_ENGINE_BIRT);
-
 		initEEnum(reportRenderFormatEEnum, ReportRenderFormat.class, "ReportRenderFormat");
 		addEEnumLiteral(reportRenderFormatEEnum, ReportRenderFormat.ENUM_RENDER_FORMAT_PDF);
 		addEEnumLiteral(reportRenderFormatEEnum, ReportRenderFormat.ENUM_REDER_FORMAT_HTML);

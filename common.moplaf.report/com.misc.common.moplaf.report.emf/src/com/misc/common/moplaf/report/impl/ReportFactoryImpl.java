@@ -71,8 +71,6 @@ public class ReportFactoryImpl extends EFactoryImpl implements ReportFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case ReportPackage.REPORT_ENGINE:
-				return createReportEngineFromString(eDataType, initialValue);
 			case ReportPackage.REPORT_RENDER_FORMAT:
 				return createReportRenderFormatFromString(eDataType, initialValue);
 			case ReportPackage.INPUT_STREAM:
@@ -90,8 +88,6 @@ public class ReportFactoryImpl extends EFactoryImpl implements ReportFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case ReportPackage.REPORT_ENGINE:
-				return convertReportEngineToString(eDataType, instanceValue);
 			case ReportPackage.REPORT_RENDER_FORMAT:
 				return convertReportRenderFormatToString(eDataType, instanceValue);
 			case ReportPackage.INPUT_STREAM:
@@ -99,26 +95,6 @@ public class ReportFactoryImpl extends EFactoryImpl implements ReportFactory {
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ReportEngine createReportEngineFromString(EDataType eDataType, String initialValue) {
-		ReportEngine result = ReportEngine.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertReportEngineToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

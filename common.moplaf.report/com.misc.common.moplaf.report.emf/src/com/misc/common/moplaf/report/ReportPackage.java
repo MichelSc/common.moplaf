@@ -70,22 +70,13 @@ public interface ReportPackage extends EPackage {
 	int REPORT_ABSTRACT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Engine</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REPORT_ABSTRACT__ENGINE = 0;
-
-	/**
 	 * The feature id for the '<em><b>Format</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REPORT_ABSTRACT__FORMAT = 1;
+	int REPORT_ABSTRACT__FORMAT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Output File Path</b></em>' attribute.
@@ -94,7 +85,7 @@ public interface ReportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPORT_ABSTRACT__OUTPUT_FILE_PATH = 2;
+	int REPORT_ABSTRACT__OUTPUT_FILE_PATH = 1;
 
 	/**
 	 * The feature id for the '<em><b>Last Generated</b></em>' attribute.
@@ -103,7 +94,7 @@ public interface ReportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPORT_ABSTRACT__LAST_GENERATED = 3;
+	int REPORT_ABSTRACT__LAST_GENERATED = 2;
 
 	/**
 	 * The feature id for the '<em><b>May Be Run</b></em>' attribute.
@@ -112,7 +103,7 @@ public interface ReportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPORT_ABSTRACT__MAY_BE_RUN = 4;
+	int REPORT_ABSTRACT__MAY_BE_RUN = 3;
 
 	/**
 	 * The feature id for the '<em><b>May Be Run Feedback</b></em>' attribute.
@@ -121,7 +112,7 @@ public interface ReportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPORT_ABSTRACT__MAY_BE_RUN_FEEDBACK = 5;
+	int REPORT_ABSTRACT__MAY_BE_RUN_FEEDBACK = 4;
 
 	/**
 	 * The feature id for the '<em><b>Report Context</b></em>' reference.
@@ -130,7 +121,7 @@ public interface ReportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPORT_ABSTRACT__REPORT_CONTEXT = 6;
+	int REPORT_ABSTRACT__REPORT_CONTEXT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -139,7 +130,7 @@ public interface ReportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPORT_ABSTRACT__DESCRIPTION = 7;
+	int REPORT_ABSTRACT__DESCRIPTION = 6;
 
 	/**
 	 * The number of structural features of the '<em>Abstract</em>' class.
@@ -148,7 +139,7 @@ public interface ReportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPORT_ABSTRACT_FEATURE_COUNT = 8;
+	int REPORT_ABSTRACT_FEATURE_COUNT = 7;
 
 	/**
 	 * The operation id for the '<em>Run</em>' operation.
@@ -178,16 +169,6 @@ public interface ReportPackage extends EPackage {
 	int REPORT_ABSTRACT_OPERATION_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.report.ReportEngine <em>Engine</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.report.ReportEngine
-	 * @see com.misc.common.moplaf.report.impl.ReportPackageImpl#getReportEngine()
-	 * @generated
-	 */
-	int REPORT_ENGINE = 1;
-
-	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.report.ReportRenderFormat <em>Render Format</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -195,7 +176,7 @@ public interface ReportPackage extends EPackage {
 	 * @see com.misc.common.moplaf.report.impl.ReportPackageImpl#getReportRenderFormat()
 	 * @generated
 	 */
-	int REPORT_RENDER_FORMAT = 2;
+	int REPORT_RENDER_FORMAT = 1;
 
 
 	/**
@@ -206,7 +187,7 @@ public interface ReportPackage extends EPackage {
 	 * @see com.misc.common.moplaf.report.impl.ReportPackageImpl#getInputStream()
 	 * @generated
 	 */
-	int INPUT_STREAM = 3;
+	int INPUT_STREAM = 2;
 
 
 	/**
@@ -218,17 +199,6 @@ public interface ReportPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getReportAbstract();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.report.ReportAbstract#getEngine <em>Engine</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Engine</em>'.
-	 * @see com.misc.common.moplaf.report.ReportAbstract#getEngine()
-	 * @see #getReportAbstract()
-	 * @generated
-	 */
-	EAttribute getReportAbstract_Engine();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.report.ReportAbstract#getFormat <em>Format</em>}'.
@@ -328,16 +298,6 @@ public interface ReportPackage extends EPackage {
 	EOperation getReportAbstract__GetReportDesignFileURL();
 
 	/**
-	 * Returns the meta object for enum '{@link com.misc.common.moplaf.report.ReportEngine <em>Engine</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Engine</em>'.
-	 * @see com.misc.common.moplaf.report.ReportEngine
-	 * @generated
-	 */
-	EEnum getReportEngine();
-
-	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.report.ReportRenderFormat <em>Render Format</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -390,14 +350,6 @@ public interface ReportPackage extends EPackage {
 		 * @generated
 		 */
 		EClass REPORT_ABSTRACT = eINSTANCE.getReportAbstract();
-
-		/**
-		 * The meta object literal for the '<em><b>Engine</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REPORT_ABSTRACT__ENGINE = eINSTANCE.getReportAbstract_Engine();
 
 		/**
 		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
@@ -470,16 +422,6 @@ public interface ReportPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation REPORT_ABSTRACT___GET_REPORT_DESIGN_FILE_URL = eINSTANCE.getReportAbstract__GetReportDesignFileURL();
-
-		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.report.ReportEngine <em>Engine</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.report.ReportEngine
-		 * @see com.misc.common.moplaf.report.impl.ReportPackageImpl#getReportEngine()
-		 * @generated
-		 */
-		EEnum REPORT_ENGINE = eINSTANCE.getReportEngine();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.report.ReportRenderFormat <em>Render Format</em>}' enum.

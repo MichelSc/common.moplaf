@@ -27,10 +27,6 @@
           <children xmi:type="notation:Node" xmi:id="__UpiYGTvEeW1wLwk0KN-fA" type="2003" element="__UX1kGTvEeW1wLwk0KN-fA">
             <children xmi:type="notation:Node" xmi:id="__UqwgGTvEeW1wLwk0KN-fA" type="5007"/>
             <children xmi:type="notation:Node" xmi:id="__Ur-oGTvEeW1wLwk0KN-fA" type="7004">
-              <children xmi:type="notation:Node" xmi:id="_bnYYMGTwEeW1wLwk0KN-fA" type="3010" element="_bnDoEGTwEeW1wLwk0KN-fA">
-                <styles xmi:type="notation:FontStyle" xmi:id="_bnYYMWTwEeW1wLwk0KN-fA" fontColor="2697711" fontName="Oxygen-Sans Sans-Book" fontHeight="8"/>
-                <layoutConstraint xmi:type="notation:Location" xmi:id="_bnYYMmTwEeW1wLwk0KN-fA"/>
-              </children>
               <children xmi:type="notation:Node" xmi:id="_oG8QMGTwEeW1wLwk0KN-fA" type="3010" element="_oGlD0GTwEeW1wLwk0KN-fA">
                 <styles xmi:type="notation:FontStyle" xmi:id="_oG8QMWTwEeW1wLwk0KN-fA" fontColor="2697711" fontName="Oxygen-Sans Sans-Book" fontHeight="8"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_oG8QMmTwEeW1wLwk0KN-fA"/>
@@ -68,19 +64,6 @@
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="__UpiYWTvEeW1wLwk0KN-fA" fontName="Oxygen-Sans Sans-Book" fontHeight="8"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="__UpiYmTvEeW1wLwk0KN-fA" x="132" y="168" width="327" height="231"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_DS3EYGTwEeW1wLwk0KN-fA" type="2003" element="_DSppAGTwEeW1wLwk0KN-fA">
-            <children xmi:type="notation:Node" xmi:id="_DS4SgGTwEeW1wLwk0KN-fA" type="5007"/>
-            <children xmi:type="notation:Node" xmi:id="_DS4SgWTwEeW1wLwk0KN-fA" type="7004">
-              <children xmi:type="notation:Node" xmi:id="_E6wPQGTwEeW1wLwk0KN-fA" type="3010" element="_E6fJgGTwEeW1wLwk0KN-fA">
-                <styles xmi:type="notation:FontStyle" xmi:id="_E6wPQWTwEeW1wLwk0KN-fA" fontName="Oxygen-Sans Sans-Book" fontHeight="8"/>
-                <layoutConstraint xmi:type="notation:Location" xmi:id="_E6wPQmTwEeW1wLwk0KN-fA"/>
-              </children>
-              <styles xmi:type="notation:SortingStyle" xmi:id="_DS4SgmTwEeW1wLwk0KN-fA"/>
-              <styles xmi:type="notation:FilteringStyle" xmi:id="_DS4Sg2TwEeW1wLwk0KN-fA"/>
-            </children>
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_DS3EYWTwEeW1wLwk0KN-fA" fontName="Oxygen-Sans Sans-Book" fontHeight="8"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DS3EYmTwEeW1wLwk0KN-fA" x="600" y="60" width="267" height="100"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_OI9rQGTwEeW1wLwk0KN-fA" type="2003" element="_OIrXYGTwEeW1wLwk0KN-fA">
             <children xmi:type="notation:Node" xmi:id="_OI-SUGTwEeW1wLwk0KN-fA" type="5007"/>
@@ -227,14 +210,6 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@conditionnalStyles.1/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_bnDoEGTwEeW1wLwk0KN-fA" name="Engine : ReportEngine = Birt" tooltipText="">
-          <target xmi:type="ecore:EAttribute" href="Report.ecore#//ReportAbstract/Engine"/>
-          <semanticElements xmi:type="ecore:EAttribute" href="Report.ecore#//ReportAbstract/Engine"/>
-          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_d38FkGTwEeW1wLwk0KN-fA" labelAlignment="LEFT">
-            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
-          </ownedStyle>
-          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
-        </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_oGlD0GTwEeW1wLwk0KN-fA" name="Format : ReportRenderFormat = pdf" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="Report.ecore#//ReportAbstract/Format"/>
           <semanticElements xmi:type="ecore:EAttribute" href="Report.ecore#//ReportAbstract/Format"/>
@@ -292,25 +267,6 @@
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
-        </ownedElements>
-      </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_DSppAGTwEeW1wLwk0KN-fA" name="ReportEngine" tooltipText="" width="12" height="10">
-        <target xmi:type="ecore:EEnum" href="Report.ecore#//ReportEngine"/>
-        <semanticElements xmi:type="ecore:EEnum" href="Report.ecore#//ReportEngine"/>
-        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
-        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
-        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_DSqQEGTwEeW1wLwk0KN-fA" borderColor="125,125,125" backgroundStyle="Liquid" foregroundColor="221,236,202">
-          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@style"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_E6fJgGTwEeW1wLwk0KN-fA" name="EnumReportEngineBirt" tooltipText="">
-          <target xmi:type="ecore:EEnumLiteral" href="Report.ecore#//ReportEngine/EnumReportEngineBirt"/>
-          <semanticElements xmi:type="ecore:EEnumLiteral" href="Report.ecore#//ReportEngine/EnumReportEngineBirt"/>
-          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_E6g-sGTwEeW1wLwk0KN-fA" labelAlignment="LEFT">
-            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
-          </ownedStyle>
-          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
         </ownedElements>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_OIrXYGTwEeW1wLwk0KN-fA" name="ReportRenderFormat" tooltipText="" width="12" height="10">

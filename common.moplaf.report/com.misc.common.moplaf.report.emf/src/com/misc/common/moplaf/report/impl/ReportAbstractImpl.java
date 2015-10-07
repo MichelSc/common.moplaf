@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import com.misc.common.moplaf.report.ReportAbstract;
-import com.misc.common.moplaf.report.ReportEngine;
 import com.misc.common.moplaf.report.ReportPackage;
 import com.misc.common.moplaf.report.ReportRenderFormat;
 
@@ -45,7 +44,6 @@ import com.misc.common.moplaf.report.ReportRenderFormat;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.report.impl.ReportAbstractImpl#getEngine <em>Engine</em>}</li>
  *   <li>{@link com.misc.common.moplaf.report.impl.ReportAbstractImpl#getFormat <em>Format</em>}</li>
  *   <li>{@link com.misc.common.moplaf.report.impl.ReportAbstractImpl#getOutputFilePath <em>Output File Path</em>}</li>
  *   <li>{@link com.misc.common.moplaf.report.impl.ReportAbstractImpl#getLastGenerated <em>Last Generated</em>}</li>
@@ -58,26 +56,6 @@ import com.misc.common.moplaf.report.ReportRenderFormat;
  * @generated
  */
 public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container implements ReportAbstract {
-	/**
-	 * The default value of the '{@link #getEngine() <em>Engine</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEngine()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final ReportEngine ENGINE_EDEFAULT = ReportEngine.ENUM_REPORT_ENGINE_BIRT;
-
-	/**
-	 * The cached value of the '{@link #getEngine() <em>Engine</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEngine()
-	 * @generated
-	 * @ordered
-	 */
-	protected ReportEngine engine = ENGINE_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getFormat() <em>Format</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -185,27 +163,6 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 	@Override
 	protected EClass eStaticClass() {
 		return ReportPackage.Literals.REPORT_ABSTRACT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ReportEngine getEngine() {
-		return engine;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEngine(ReportEngine newEngine) {
-		ReportEngine oldEngine = engine;
-		engine = newEngine == null ? ENGINE_EDEFAULT : newEngine;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ReportPackage.REPORT_ABSTRACT__ENGINE, oldEngine, engine));
 	}
 
 	/**
@@ -356,8 +313,6 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ReportPackage.REPORT_ABSTRACT__ENGINE:
-				return getEngine();
 			case ReportPackage.REPORT_ABSTRACT__FORMAT:
 				return getFormat();
 			case ReportPackage.REPORT_ABSTRACT__OUTPUT_FILE_PATH:
@@ -385,9 +340,6 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ReportPackage.REPORT_ABSTRACT__ENGINE:
-				setEngine((ReportEngine)newValue);
-				return;
 			case ReportPackage.REPORT_ABSTRACT__FORMAT:
 				setFormat((ReportRenderFormat)newValue);
 				return;
@@ -409,9 +361,6 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ReportPackage.REPORT_ABSTRACT__ENGINE:
-				setEngine(ENGINE_EDEFAULT);
-				return;
 			case ReportPackage.REPORT_ABSTRACT__FORMAT:
 				setFormat(FORMAT_EDEFAULT);
 				return;
@@ -433,8 +382,6 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ReportPackage.REPORT_ABSTRACT__ENGINE:
-				return engine != ENGINE_EDEFAULT;
 			case ReportPackage.REPORT_ABSTRACT__FORMAT:
 				return format != FORMAT_EDEFAULT;
 			case ReportPackage.REPORT_ABSTRACT__OUTPUT_FILE_PATH:
@@ -480,9 +427,7 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (Engine: ");
-		result.append(engine);
-		result.append(", Format: ");
+		result.append(" (Format: ");
 		result.append(format);
 		result.append(", OutputFilePath: ");
 		result.append(outputFilePath);
