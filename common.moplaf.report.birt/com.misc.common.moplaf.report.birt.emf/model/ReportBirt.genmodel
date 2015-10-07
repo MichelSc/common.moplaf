@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/com.misc.common.moplaf.report.birt.emf/src" modelPluginID="com.misc.common.moplaf.report.birt.emf"
+    modelName="ReportBirt" modelPluginClass="com.misc.common.moplaf.report.birt.Plugin"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="7.0" copyrightFields="false" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../com.misc.common.moplaf.report.emf/model/Report.genmodel#//report"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>ReportBirt.ecore</foreignModel>
+  <genPackages prefix="Birt" basePackage="com.misc.common.moplaf.report" disposableProviderFactory="true"
+      ecorePackage="ReportBirt.ecore#/">
+    <genClasses ecoreClass="ReportBirt.ecore#//ReportBirt" labelFeature="../../com.misc.common.moplaf.report.emf/model/Report.genmodel#//report/ReportAbstract/Description"/>
+  </genPackages>
+</genmodel:GenModel>

@@ -2,25 +2,8 @@
  */
 package com.misc.common.moplaf.report.impl;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
-import java.net.URL;
 import java.util.Date;
-import java.util.Map;
-
-import org.eclipse.birt.report.engine.api.DocxRenderOption;
-import org.eclipse.birt.report.engine.api.EXCELRenderOption;
-import org.eclipse.birt.report.engine.api.EngineException;
-import org.eclipse.birt.report.engine.api.HTMLRenderOption;
-import org.eclipse.birt.report.engine.api.IRenderOption;
-import org.eclipse.birt.report.engine.api.IReportEngine;
-import org.eclipse.birt.report.engine.api.IReportRunnable;
-import org.eclipse.birt.report.engine.api.IRunAndRenderTask;
-import org.eclipse.birt.report.engine.api.PDFRenderOption;
-import org.eclipse.birt.report.engine.api.RenderOption;
-import org.eclipse.core.runtime.FileLocator;
-import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.EList;
@@ -29,8 +12,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import com.misc.common.moplaf.report.Plugin;
 import com.misc.common.moplaf.report.ReportAbstract;
 import com.misc.common.moplaf.report.ReportEngine;
 import com.misc.common.moplaf.report.ReportPackage;
@@ -344,108 +325,17 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 		return description;
 	}
 
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	public void run() {
-		CommonPlugin.INSTANCE.log("Report.generate: called");
-		CommonPlugin.INSTANCE.log("Report.generate: report "+this.eClass().toString());
-		CommonPlugin.INSTANCE.log("Report.generate: object "+ this.getReportContext()==null? "null" : this.getReportContext().toString());
-		try {
-			IReportEngine engine = Plugin.getReportEngine();
-			Map appContext = engine.getConfig().getAppContext();
-
-			//Set parameter values and validate
-			// this must be done before loading the report design and/or creating the task
-			appContext.put(Plugin.APPCONTEXT_REPORTCONTEXTOBJECT_KEY, this.getReportContext());
-
-			//Open the report design
-			URL url = new URL(this.getReportDesignFileURL());
-			URL fileUrl = FileLocator.resolve(url);
-			InputStream file = fileUrl.openStream();
-			IReportRunnable design = engine.openReportDesign(file); 
-			file.close();
-			IRunAndRenderTask task = engine.createRunAndRenderTask(design);
-			
-			// resource URL
-			//    this gives a path relative to the platform
-			//    should we not make a real url?
-			//    something with "platform:/resource/..."
-			/*
-			Resource resource = this.eResource();
-			URI resourceURI = resource.getURI();
-			String platformString = resourceURI.toPlatformString(false);
-			task.setParameterValue("ResourceURL", platformString);
-			*/
-			
-			task.validateParameters();
-			
-			//Setup rendering to HTML
-			RenderOption option = null;
-			String outputFormat = "";
-			switch ( this.getFormat() ){
-				case ENUM_REDER_FORMAT_HTML:
-					HTMLRenderOption optionsHtml = new HTMLRenderOption();		
-					outputFormat = IRenderOption.OUTPUT_FORMAT_HTML;
-					//Setting this to true removes html and body tags
-					optionsHtml.setEmbeddable(false);
-					option = optionsHtml;
-					break;
-				case ENUM_RENDER_FORMAT_PDF:
-					PDFRenderOption optionsPdf = new PDFRenderOption();
-					outputFormat = IRenderOption.OUTPUT_FORMAT_PDF;
-					option = optionsPdf;
-					break;
-				case ENUM_RENDER_FORMAT_DOCX:
-					DocxRenderOption optionsDocx = new DocxRenderOption();
-					outputFormat = "docx";
-					option = optionsDocx;
-					break;
-				case ENUM_RENDER_FORMAT_DOC:
-					DocxRenderOption optionsDoc = new DocxRenderOption();
-					outputFormat = "doc";
-					option = optionsDoc;
-					break;
-				case ENUM_RENDER_FORMAT_XLSX:
-					EXCELRenderOption optionsXlsx = new EXCELRenderOption();
-					outputFormat = "xlsx";
-					option = optionsXlsx;
-					break;
-				case ENUM_RENDER_FORMAT_XLS:
-					EXCELRenderOption optionsXls = new EXCELRenderOption();
-					outputFormat = "xls";
-					option = optionsXls;
-					break;
-			}
-
-			// add extension if none
-			String outputPath = this.getOutputFilePath();
-			int lastdot = outputPath.lastIndexOf('.');
-			int lastslash = outputPath.lastIndexOf('/');
-			String extension = "";
-			if ( lastdot>=0 && lastdot>lastslash ){
-				extension = outputPath.substring(lastdot+1);
-			}
-			else if ( extension.length()==0){
-				outputPath= outputPath+"."+outputFormat;
-			}
-
-			option.setOutputFileName(outputPath);
-			option.setOutputFormat(outputFormat);
-			task.setRenderOption(option);
-
-			//run and render report
-			task.run();
-			task.close();
-			appContext.put(Plugin.APPCONTEXT_REPORTCONTEXTOBJECT_KEY, null);
-			this.setLastGenerated(new Date());
-		} catch (EngineException | IOException e) {
-			e.printStackTrace();
-		}
-		CommonPlugin.INSTANCE.log("Report.generate: done");
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
-
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ReportBirt -->
+      <package
+            uri="http://www.misc.com/common/moplaf/report/birt/model/0.1"
+            class="com.misc.common.moplaf.report.birt.BirtPackage"
+            genModel="model/ReportBirt.genmodel"/>
+   </extension>
+
+</plugin>
