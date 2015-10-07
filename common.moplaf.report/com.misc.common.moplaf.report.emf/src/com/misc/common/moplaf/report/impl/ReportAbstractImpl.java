@@ -26,6 +26,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -50,7 +51,8 @@ import com.misc.common.moplaf.report.ReportRenderFormat;
  * In order to use this class, create a concrete class inheriting from this class:
  * <ul>
  *   <li>implement {@link #getReportDesignFileURL()}, returning the url of the report design file, like "platform:/plugin/path/file.rptdesign"</li>
- *   <li>implement {@link #getContext()}, returning the context object</li>
+ *   <li>implement {@link #basicGetReportContext()}, returning the context object</li>
+ *   <li>implement {@link #getDescription()}, returning a description for the report being generated</li>
  *   <li>create a root ODA EMF Dataset, receiving the context object </li>
  *   <ul>
  *     <li>set as event handler for the root dataset the class com.misc.common.moplaf.report.birt.RootDataSetEventHandler</li>
@@ -68,6 +70,8 @@ import com.misc.common.moplaf.report.ReportRenderFormat;
  *   <li>{@link com.misc.common.moplaf.report.impl.ReportAbstractImpl#getLastGenerated <em>Last Generated</em>}</li>
  *   <li>{@link com.misc.common.moplaf.report.impl.ReportAbstractImpl#isMayBeRun <em>May Be Run</em>}</li>
  *   <li>{@link com.misc.common.moplaf.report.impl.ReportAbstractImpl#getMayBeRunFeedback <em>May Be Run Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.report.impl.ReportAbstractImpl#getReportContext <em>Report Context</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.report.impl.ReportAbstractImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @generated
@@ -172,6 +176,16 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 	 * @ordered
 	 */
 	protected static final String MAY_BE_RUN_FEEDBACK_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -293,10 +307,41 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 		if ( this.getOutputFilePath().isEmpty() ){
 			feedback = "No output file";
 		}
-		else if ( this.getContext()==null ){
+		else if ( this.getReportContext()==null ){
 			feedback = "No context object";
 		}
 		return feedback;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EObject getReportContext() {
+		EObject reportContext = basicGetReportContext();
+		return reportContext != null && reportContext.eIsProxy() ? eResolveProxy((InternalEObject)reportContext) : reportContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EObject basicGetReportContext() {
+		// TODO: implement this method to return the 'Report Context' reference
+		// -> do not perform proxy resolution
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public String getDescription() {
+		String description = this.getClass().getName();
+		return description;
 	}
 
 	/**
@@ -306,14 +351,14 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 	public void run() {
 		CommonPlugin.INSTANCE.log("Report.generate: called");
 		CommonPlugin.INSTANCE.log("Report.generate: report "+this.eClass().toString());
-		CommonPlugin.INSTANCE.log("Report.generate: object "+ this.getContext()==null? "null" : this.getContext().toString());
+		CommonPlugin.INSTANCE.log("Report.generate: object "+ this.getReportContext()==null? "null" : this.getReportContext().toString());
 		try {
 			IReportEngine engine = Plugin.getReportEngine();
 			Map appContext = engine.getConfig().getAppContext();
 
 			//Set parameter values and validate
 			// this must be done before loading the report design and/or creating the task
-			appContext.put(Plugin.APPCONTEXT_REPORTCONTEXTOBJECT_KEY, this.getContext());
+			appContext.put(Plugin.APPCONTEXT_REPORTCONTEXTOBJECT_KEY, this.getReportContext());
 
 			//Open the report design
 			URL url = new URL(this.getReportDesignFileURL());
@@ -407,18 +452,6 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObject getContext() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getReportDesignFileURL() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -445,6 +478,11 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 				return isMayBeRun();
 			case ReportPackage.REPORT_ABSTRACT__MAY_BE_RUN_FEEDBACK:
 				return getMayBeRunFeedback();
+			case ReportPackage.REPORT_ABSTRACT__REPORT_CONTEXT:
+				if (resolve) return getReportContext();
+				return basicGetReportContext();
+			case ReportPackage.REPORT_ABSTRACT__DESCRIPTION:
+				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -517,6 +555,10 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 				return isMayBeRun() != MAY_BE_RUN_EDEFAULT;
 			case ReportPackage.REPORT_ABSTRACT__MAY_BE_RUN_FEEDBACK:
 				return MAY_BE_RUN_FEEDBACK_EDEFAULT == null ? getMayBeRunFeedback() != null : !MAY_BE_RUN_FEEDBACK_EDEFAULT.equals(getMayBeRunFeedback());
+			case ReportPackage.REPORT_ABSTRACT__REPORT_CONTEXT:
+				return basicGetReportContext() != null;
+			case ReportPackage.REPORT_ABSTRACT__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -529,8 +571,6 @@ public abstract class ReportAbstractImpl extends MinimalEObjectImpl.Container im
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ReportPackage.REPORT_ABSTRACT___GET_CONTEXT:
-				return getContext();
 			case ReportPackage.REPORT_ABSTRACT___RUN:
 				run();
 				return null;

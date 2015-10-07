@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -123,22 +124,31 @@ public interface ReportPackage extends EPackage {
 	int REPORT_ABSTRACT__MAY_BE_RUN_FEEDBACK = 5;
 
 	/**
+	 * The feature id for the '<em><b>Report Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPORT_ABSTRACT__REPORT_CONTEXT = 6;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPORT_ABSTRACT__DESCRIPTION = 7;
+
+	/**
 	 * The number of structural features of the '<em>Abstract</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REPORT_ABSTRACT_FEATURE_COUNT = 6;
-
-	/**
-	 * The operation id for the '<em>Get Context</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REPORT_ABSTRACT___GET_CONTEXT = 0;
+	int REPORT_ABSTRACT_FEATURE_COUNT = 8;
 
 	/**
 	 * The operation id for the '<em>Run</em>' operation.
@@ -147,7 +157,7 @@ public interface ReportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPORT_ABSTRACT___RUN = 1;
+	int REPORT_ABSTRACT___RUN = 0;
 
 	/**
 	 * The operation id for the '<em>Get Report Design File URL</em>' operation.
@@ -156,7 +166,7 @@ public interface ReportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPORT_ABSTRACT___GET_REPORT_DESIGN_FILE_URL = 2;
+	int REPORT_ABSTRACT___GET_REPORT_DESIGN_FILE_URL = 1;
 
 	/**
 	 * The number of operations of the '<em>Abstract</em>' class.
@@ -165,7 +175,7 @@ public interface ReportPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPORT_ABSTRACT_OPERATION_COUNT = 3;
+	int REPORT_ABSTRACT_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.report.ReportEngine <em>Engine</em>}' enum.
@@ -276,14 +286,26 @@ public interface ReportPackage extends EPackage {
 	EAttribute getReportAbstract_MayBeRunFeedback();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.report.ReportAbstract#getContext() <em>Get Context</em>}' operation.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.report.ReportAbstract#getReportContext <em>Report Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Context</em>' operation.
-	 * @see com.misc.common.moplaf.report.ReportAbstract#getContext()
+	 * @return the meta object for the reference '<em>Report Context</em>'.
+	 * @see com.misc.common.moplaf.report.ReportAbstract#getReportContext()
+	 * @see #getReportAbstract()
 	 * @generated
 	 */
-	EOperation getReportAbstract__GetContext();
+	EReference getReportAbstract_ReportContext();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.report.ReportAbstract#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.misc.common.moplaf.report.ReportAbstract#getDescription()
+	 * @see #getReportAbstract()
+	 * @generated
+	 */
+	EAttribute getReportAbstract_Description();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.report.ReportAbstract#run() <em>Run</em>}' operation.
@@ -418,12 +440,20 @@ public interface ReportPackage extends EPackage {
 		EAttribute REPORT_ABSTRACT__MAY_BE_RUN_FEEDBACK = eINSTANCE.getReportAbstract_MayBeRunFeedback();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Context</b></em>' operation.
+		 * The meta object literal for the '<em><b>Report Context</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation REPORT_ABSTRACT___GET_CONTEXT = eINSTANCE.getReportAbstract__GetContext();
+		EReference REPORT_ABSTRACT__REPORT_CONTEXT = eINSTANCE.getReportAbstract_ReportContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REPORT_ABSTRACT__DESCRIPTION = eINSTANCE.getReportAbstract_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Run</b></em>' operation.

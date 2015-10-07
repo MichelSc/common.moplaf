@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -186,8 +187,17 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getReportAbstract__GetContext() {
-		return reportAbstractEClass.getEOperations().get(0);
+	public EReference getReportAbstract_ReportContext() {
+		return (EReference)reportAbstractEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getReportAbstract_Description() {
+		return (EAttribute)reportAbstractEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -196,7 +206,7 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	 * @generated
 	 */
 	public EOperation getReportAbstract__Run() {
-		return reportAbstractEClass.getEOperations().get(1);
+		return reportAbstractEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -205,7 +215,7 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 	 * @generated
 	 */
 	public EOperation getReportAbstract__GetReportDesignFileURL() {
-		return reportAbstractEClass.getEOperations().get(2);
+		return reportAbstractEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -270,7 +280,8 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 		createEAttribute(reportAbstractEClass, REPORT_ABSTRACT__LAST_GENERATED);
 		createEAttribute(reportAbstractEClass, REPORT_ABSTRACT__MAY_BE_RUN);
 		createEAttribute(reportAbstractEClass, REPORT_ABSTRACT__MAY_BE_RUN_FEEDBACK);
-		createEOperation(reportAbstractEClass, REPORT_ABSTRACT___GET_CONTEXT);
+		createEReference(reportAbstractEClass, REPORT_ABSTRACT__REPORT_CONTEXT);
+		createEAttribute(reportAbstractEClass, REPORT_ABSTRACT__DESCRIPTION);
 		createEOperation(reportAbstractEClass, REPORT_ABSTRACT___RUN);
 		createEOperation(reportAbstractEClass, REPORT_ABSTRACT___GET_REPORT_DESIGN_FILE_URL);
 
@@ -322,8 +333,8 @@ public class ReportPackageImpl extends EPackageImpl implements ReportPackage {
 		initEAttribute(getReportAbstract_LastGenerated(), theEcorePackage.getEDate(), "LastGenerated", null, 0, 1, ReportAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReportAbstract_MayBeRun(), theEcorePackage.getEBoolean(), "mayBeRun", "false", 0, 1, ReportAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReportAbstract_MayBeRunFeedback(), theEcorePackage.getEString(), "mayBeRunFeedback", null, 0, 1, ReportAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-
-		initEOperation(getReportAbstract__GetContext(), ecorePackage.getEObject(), "getContext", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEReference(getReportAbstract_ReportContext(), theEcorePackage.getEObject(), null, "reportContext", null, 0, 1, ReportAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getReportAbstract_Description(), theEcorePackage.getEString(), "Description", null, 0, 1, ReportAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getReportAbstract__Run(), null, "run", 0, 1, IS_UNIQUE, IS_ORDERED);
 

@@ -19,27 +19,16 @@
       <genEnumLiterals ecoreEnumLiteral="Report.ecore#//ReportRenderFormat/EnumRenderFormatDoc"/>
       <genEnumLiterals ecoreEnumLiteral="Report.ecore#//ReportRenderFormat/EnumRenderFormatDocx"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Report.ecore#//ReportRunMode">
-      <genEnumLiterals ecoreEnumLiteral="Report.ecore#//ReportRunMode/EnumGenerateOnly"/>
-      <genEnumLiterals ecoreEnumLiteral="Report.ecore#//ReportRunMode/EnumRenderOnly"/>
-      <genEnumLiterals ecoreEnumLiteral="Report.ecore#//ReportRunMode/EnumWriteOnly"/>
-      <genEnumLiterals ecoreEnumLiteral="Report.ecore#//ReportRunMode/EnumGenerateAndRender"/>
-      <genEnumLiterals ecoreEnumLiteral="Report.ecore#//ReportRunMode/EnumGenerateAndWrite"/>
-    </genEnums>
     <genDataTypes ecoreDataType="Report.ecore#//InputStream"/>
-    <genClasses ecoreClass="Report.ecore#//ReportAbstract">
+    <genClasses ecoreClass="Report.ecore#//ReportAbstract" labelFeature="#//report/ReportAbstract/Description">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Report.ecore#//ReportAbstract/Engine"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Report.ecore#//ReportAbstract/Format"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Report.ecore#//ReportAbstract/Generated"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Report.ecore#//ReportAbstract/OutputFilePath"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Report.ecore#//ReportAbstract/LastGenerated"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Report.ecore#//ReportAbstract/RunMode"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Report.ecore#//ReportAbstract/mayBeRun"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Report.ecore#//ReportAbstract/mayBeRunFeedback"/>
-      <genOperations ecoreOperation="Report.ecore#//ReportAbstract/generate"/>
-      <genOperations ecoreOperation="Report.ecore#//ReportAbstract/render"/>
-      <genOperations ecoreOperation="Report.ecore#//ReportAbstract/write"/>
-      <genOperations ecoreOperation="Report.ecore#//ReportAbstract/getContext"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference Report.ecore#//ReportAbstract/reportContext"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute Report.ecore#//ReportAbstract/Description"/>
       <genOperations ecoreOperation="Report.ecore#//ReportAbstract/run"/>
       <genOperations ecoreOperation="Report.ecore#//ReportAbstract/getReportDesignFileURL"/>
     </genClasses>

@@ -21,6 +21,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.report.ReportAbstract#getLastGenerated <em>Last Generated</em>}</li>
  *   <li>{@link com.misc.common.moplaf.report.ReportAbstract#isMayBeRun <em>May Be Run</em>}</li>
  *   <li>{@link com.misc.common.moplaf.report.ReportAbstract#getMayBeRunFeedback <em>May Be Run Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.report.ReportAbstract#getReportContext <em>Report Context</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.report.ReportAbstract#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.report.ReportPackage#getReportAbstract()
@@ -173,12 +175,34 @@ public interface ReportAbstract extends EObject {
 	String getMayBeRunFeedback();
 
 	/**
+	 * Returns the value of the '<em><b>Report Context</b></em>' reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Report Context</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
+	 * @return the value of the '<em>Report Context</em>' reference.
+	 * @see com.misc.common.moplaf.report.ReportPackage#getReportAbstract_ReportContext()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	EObject getContext();
+	EObject getReportContext();
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see com.misc.common.moplaf.report.ReportPackage#getReportAbstract_Description()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getDescription();
 
 	/**
 	 * <!-- begin-user-doc -->

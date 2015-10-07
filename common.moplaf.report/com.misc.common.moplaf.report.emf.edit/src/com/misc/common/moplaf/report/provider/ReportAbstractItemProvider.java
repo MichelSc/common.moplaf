@@ -5,7 +5,6 @@ package com.misc.common.moplaf.report.provider;
 
 import com.misc.common.moplaf.emf.edit.command.RunCommand;
 import com.misc.common.moplaf.report.ReportAbstract;
-import com.misc.common.moplaf.report.ReportEngine;
 import com.misc.common.moplaf.report.ReportPackage;
 
 import java.util.Collection;
@@ -70,6 +69,8 @@ public class ReportAbstractItemProvider
 			addLastGeneratedPropertyDescriptor(object);
 			addMayBeRunPropertyDescriptor(object);
 			addMayBeRunFeedbackPropertyDescriptor(object);
+			addReportContextPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -207,6 +208,50 @@ public class ReportAbstractItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Report Context feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReportContextPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ReportAbstract_reportContext_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ReportAbstract_reportContext_feature", "_UI_ReportAbstract_type"),
+				 ReportPackage.Literals.REPORT_ABSTRACT__REPORT_CONTEXT,
+				 false,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ReportAbstract_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ReportAbstract_Description_feature", "_UI_ReportAbstract_type"),
+				 ReportPackage.Literals.REPORT_ABSTRACT__DESCRIPTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns ReportAbstract.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -217,23 +262,21 @@ public class ReportAbstractItemProvider
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/ReportAbstract"));
 	}
 
+	
+
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		ReportAbstract report = (ReportAbstract)object;
-		Object contextObject = report.getContext();
-		String contextLabel = "null";
-		if ( contextObject!=null){
-			contextLabel = ((IItemLabelProvider)this.adapterFactory.adapt(contextObject, IItemLabelProvider.class)).getText(contextObject);
-		}
-		
-		return getString("_UI_ReportAbstract_type") + " " + contextLabel;
+		String label = ((ReportAbstract)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ReportAbstract_type") :
+			getString("_UI_ReportAbstract_type") + " " + label;
 	}
-	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -253,6 +296,7 @@ public class ReportAbstractItemProvider
 			case ReportPackage.REPORT_ABSTRACT__LAST_GENERATED:
 			case ReportPackage.REPORT_ABSTRACT__MAY_BE_RUN:
 			case ReportPackage.REPORT_ABSTRACT__MAY_BE_RUN_FEEDBACK:
+			case ReportPackage.REPORT_ABSTRACT__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
