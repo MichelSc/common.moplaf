@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: com.misc.common.moplaf.gis.provider.GisEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: com.misc.common.moplaf.gis.provider
 Require-Bundle: org.eclipse.core.runtime,
  com.misc.common.moplaf.gis.emf;visibility:=reexport,

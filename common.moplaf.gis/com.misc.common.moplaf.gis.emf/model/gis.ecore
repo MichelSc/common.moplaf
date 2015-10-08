@@ -77,7 +77,7 @@
     <eOperations name="getCoordinates" eType="#//GisCoordinates"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GisAddressGeocoder">
+  <eClassifiers xsi:type="ecore:EClass" name="GisAddressGeocoder" abstract="true">
     <eOperations name="geocode">
       <eParameters name="address" eType="#//GisAddress"/>
     </eOperations>
