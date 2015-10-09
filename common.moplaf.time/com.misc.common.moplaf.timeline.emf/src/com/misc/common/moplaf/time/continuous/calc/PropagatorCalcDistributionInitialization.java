@@ -1,7 +1,6 @@
 package com.misc.common.moplaf.time.continuous.calc;
 
 import com.misc.common.moplaf.propagator.PropagatorFunctionAdapter;
-import com.misc.common.moplaf.propagator.PropagatorFunctionAdapter;
 import com.misc.common.moplaf.propagator.Util;
 import com.misc.common.moplaf.time.continuous.Distribution;
 

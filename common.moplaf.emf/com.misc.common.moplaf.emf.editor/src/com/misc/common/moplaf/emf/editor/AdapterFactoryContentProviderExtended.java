@@ -1,7 +1,5 @@
 package com.misc.common.moplaf.emf.editor;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
