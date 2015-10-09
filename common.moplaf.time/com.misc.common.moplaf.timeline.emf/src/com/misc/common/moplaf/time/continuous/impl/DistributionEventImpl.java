@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#getMoment <em>Moment</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#getEventNr <em>Event Nr</em>}</li>
@@ -41,7 +42,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#getDistribution <em>Distribution</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

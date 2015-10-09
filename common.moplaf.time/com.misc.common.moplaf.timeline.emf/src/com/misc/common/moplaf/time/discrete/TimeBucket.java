@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeBucket#getBucketStart <em>Bucket Start</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeBucket#getBucketEnd <em>Bucket End</em>}</li>
@@ -21,7 +22,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeBucket#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeBucket#getSeconds <em>Seconds</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeBucket()
  * @model

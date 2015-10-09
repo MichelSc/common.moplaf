@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeLineMerge#getElement <em>Element</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeLineMerge#getTimeLineTo <em>Time Line To</em>}</li>
@@ -20,7 +21,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeLineMerge#getLastElement <em>Last Element</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeLineMerge#getTimeLineFrom <em>Time Line From</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeLineMerge()
  * @model

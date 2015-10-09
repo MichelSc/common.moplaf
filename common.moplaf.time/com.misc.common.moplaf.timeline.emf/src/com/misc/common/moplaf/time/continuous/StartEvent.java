@@ -10,12 +10,12 @@ package com.misc.common.moplaf.time.continuous;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.time.continuous.StartEvent#getAmountAtStart <em>Amount At Start</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.StartEvent#getSlopeAtStart <em>Slope At Start</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.StartEvent#getDistributionAsStart <em>Distribution As Start</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getStartEvent()
  * @model

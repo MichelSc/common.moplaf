@@ -24,10 +24,10 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.CapacityChangeStartImpl#getCapacityChange <em>Capacity Change</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

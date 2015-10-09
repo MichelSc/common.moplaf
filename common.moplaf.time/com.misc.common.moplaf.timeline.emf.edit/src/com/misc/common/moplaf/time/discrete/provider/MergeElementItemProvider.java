@@ -9,6 +9,7 @@ import com.misc.common.moplaf.time.discrete.DiscretePackage;
 import com.misc.common.moplaf.time.discrete.MergeElement;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -292,8 +293,11 @@ public class MergeElementItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		MergeElement mergeElement = (MergeElement)object;
-		return getString("_UI_MergeElement_type") + " " + mergeElement.getPartFromInTo();
+		Date labelValue = ((MergeElement)object).getElementStart();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_MergeElement_type") :
+			getString("_UI_MergeElement_type") + " " + label;
 	}
 
 	/**

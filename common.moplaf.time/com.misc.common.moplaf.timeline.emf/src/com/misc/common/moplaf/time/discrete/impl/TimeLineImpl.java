@@ -36,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeLineImpl#getBucketType <em>Bucket Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeLineImpl#getDescription <em>Description</em>}</li>
@@ -48,7 +49,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeLineImpl#getFirstBucket <em>First Bucket</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeLineImpl#getLastBucket <em>Last Bucket</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

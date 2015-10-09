@@ -11,10 +11,10 @@ import com.misc.common.moplaf.propagator.ObjectWithPropagatorFunctionAdapter;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.time.continuous.CompositeDistributionEvent#getDistribution <em>Distribution</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getCompositeDistributionEvent()
  * @model

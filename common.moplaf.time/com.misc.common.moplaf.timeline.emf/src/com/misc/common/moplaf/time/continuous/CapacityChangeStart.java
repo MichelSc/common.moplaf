@@ -10,10 +10,10 @@ package com.misc.common.moplaf.time.continuous;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.time.continuous.CapacityChangeStart#getCapacityChange <em>Capacity Change</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getCapacityChangeStart()
  * @model extendedMetaData="name='SlopeImpulsion'"

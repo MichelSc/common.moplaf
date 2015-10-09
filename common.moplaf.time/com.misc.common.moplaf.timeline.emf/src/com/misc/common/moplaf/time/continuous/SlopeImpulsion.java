@@ -10,10 +10,10 @@ package com.misc.common.moplaf.time.continuous;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.time.continuous.SlopeImpulsion#getSlopeImpulsion <em>Slope Impulsion</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getSlopeImpulsion()
  * @model abstract="true"

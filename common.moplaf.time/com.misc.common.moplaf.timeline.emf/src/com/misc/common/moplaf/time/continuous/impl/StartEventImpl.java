@@ -25,12 +25,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.StartEventImpl#getAmountAtStart <em>Amount At Start</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.StartEventImpl#getSlopeAtStart <em>Slope At Start</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.StartEventImpl#getDistributionAsStart <em>Distribution As Start</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

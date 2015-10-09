@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeLine#getBucketType <em>Bucket Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeLine#getDescription <em>Description</em>}</li>
@@ -27,7 +28,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeLine#getFirstBucket <em>First Bucket</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeLine#getLastBucket <em>Last Bucket</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeLine()
  * @model

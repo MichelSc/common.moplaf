@@ -48,6 +48,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionImpl#getTimeUnit <em>Time Unit</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionImpl#getHorizonStart <em>Horizon Start</em>}</li>
@@ -61,7 +62,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionImpl#getParentDistribution <em>Parent Distribution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionImpl#getChildDistribution <em>Child Distribution</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

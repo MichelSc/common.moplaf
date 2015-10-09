@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeLineMergeImpl#getElement <em>Element</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeLineMergeImpl#getTimeLineTo <em>Time Line To</em>}</li>
@@ -37,7 +38,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeLineMergeImpl#getLastElement <em>Last Element</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeLineMergeImpl#getTimeLineFrom <em>Time Line From</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

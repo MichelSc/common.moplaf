@@ -12,6 +12,7 @@ import java.util.Date;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getMoment <em>Moment</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getEventNr <em>Event Nr</em>}</li>
@@ -24,7 +25,6 @@ import java.util.Date;
  *   <li>{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getDistribution <em>Distribution</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistributionEvent()
  * @model abstract="true"

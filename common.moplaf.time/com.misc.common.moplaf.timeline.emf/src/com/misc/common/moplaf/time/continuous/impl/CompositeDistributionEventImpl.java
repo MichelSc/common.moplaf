@@ -22,10 +22,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.CompositeDistributionEventImpl#getDistribution <em>Distribution</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

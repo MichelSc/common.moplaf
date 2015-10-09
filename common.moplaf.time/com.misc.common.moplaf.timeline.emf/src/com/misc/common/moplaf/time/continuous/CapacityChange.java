@@ -15,6 +15,7 @@ import java.util.Date;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.time.continuous.CapacityChange#getStart <em>Start</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.CapacityChange#getEnd <em>End</em>}</li>
@@ -22,7 +23,6 @@ import java.util.Date;
  *   <li>{@link com.misc.common.moplaf.time.continuous.CapacityChange#getCapacityChangeStart <em>Capacity Change Start</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.CapacityChange#getCapacityChangeEnd <em>Capacity Change End</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getCapacityChange()
  * @model extendedMetaData="name='StockChange'"

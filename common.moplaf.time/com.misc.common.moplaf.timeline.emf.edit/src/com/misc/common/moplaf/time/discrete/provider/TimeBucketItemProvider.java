@@ -233,8 +233,7 @@ public class TimeBucketItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Date labelValue = ((TimeBucket)object).getBucketStart();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((TimeBucket)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_TimeBucket_type") :
 			getString("_UI_TimeBucket_type") + " " + label;

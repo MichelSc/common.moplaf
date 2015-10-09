@@ -15,6 +15,7 @@ import java.util.Date;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.time.continuous.StockChange#getStart <em>Start</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.StockChange#getEnd <em>End</em>}</li>
@@ -22,7 +23,6 @@ import java.util.Date;
  *   <li>{@link com.misc.common.moplaf.time.continuous.StockChange#getStockChangeStart <em>Stock Change Start</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.StockChange#getStockChangeEnd <em>Stock Change End</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getStockChange()
  * @model

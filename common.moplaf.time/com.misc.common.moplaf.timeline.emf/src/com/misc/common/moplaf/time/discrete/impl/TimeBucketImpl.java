@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeBucketImpl#getBucketStart <em>Bucket Start</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeBucketImpl#getBucketEnd <em>Bucket End</em>}</li>
@@ -31,7 +32,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeBucketImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeBucketImpl#getSeconds <em>Seconds</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

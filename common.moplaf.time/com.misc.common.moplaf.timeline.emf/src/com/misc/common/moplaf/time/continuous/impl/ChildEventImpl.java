@@ -23,10 +23,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.ChildEventImpl#getOriginal <em>Original</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

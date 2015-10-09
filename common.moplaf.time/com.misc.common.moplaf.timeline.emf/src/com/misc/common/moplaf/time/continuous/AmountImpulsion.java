@@ -10,10 +10,10 @@ package com.misc.common.moplaf.time.continuous;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.time.continuous.AmountImpulsion#getAmountImpulsion <em>Amount Impulsion</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getAmountImpulsion()
  * @model abstract="true"

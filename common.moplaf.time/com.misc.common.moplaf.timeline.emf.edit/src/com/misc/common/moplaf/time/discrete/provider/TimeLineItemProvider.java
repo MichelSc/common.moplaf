@@ -5,7 +5,6 @@ package com.misc.common.moplaf.time.discrete.provider;
 
 import com.misc.common.moplaf.time.RefreshCommand;
 import com.misc.common.moplaf.time.continuous.provider.TimelineEditPlugin;
-import com.misc.common.moplaf.time.discrete.BucketType;
 import com.misc.common.moplaf.time.discrete.DiscreteFactory;
 import com.misc.common.moplaf.time.discrete.DiscretePackage;
 import com.misc.common.moplaf.time.discrete.TimeLine;
@@ -326,8 +325,7 @@ public class TimeLineItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BucketType labelValue = ((TimeLine)object).getBucketType();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((TimeLine)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_TimeLine_type") :
 			getString("_UI_TimeLine_type") + " " + label;

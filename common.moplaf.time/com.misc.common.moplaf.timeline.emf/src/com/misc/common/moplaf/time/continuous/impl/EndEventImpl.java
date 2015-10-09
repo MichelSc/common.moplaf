@@ -23,10 +23,10 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.EndEventImpl#getDistributionAsEnd <em>Distribution As End</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

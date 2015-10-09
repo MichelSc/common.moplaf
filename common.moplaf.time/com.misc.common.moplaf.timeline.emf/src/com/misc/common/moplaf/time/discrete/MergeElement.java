@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.time.discrete.MergeElement#getBucketFrom <em>Bucket From</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.MergeElement#getBucketTo <em>Bucket To</em>}</li>
@@ -24,7 +25,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.time.discrete.MergeElement#getElementEnd <em>Element End</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.MergeElement#getSeconds <em>Seconds</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getMergeElement()
  * @model

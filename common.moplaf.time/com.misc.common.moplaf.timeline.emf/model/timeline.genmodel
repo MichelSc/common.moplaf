@@ -173,7 +173,7 @@
         <genEnumLiterals ecoreEnumLiteral="timeline.ecore#//discrete/BucketType/TLHour"/>
       </genEnums>
       <genDataTypes ecoreDataType="timeline.ecore#//discrete/BucketIterator"/>
-      <genClasses ecoreClass="timeline.ecore#//discrete/TimeLine">
+      <genClasses ecoreClass="timeline.ecore#//discrete/TimeLine" labelFeature="#//time/discrete/TimeLine/Description">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timeline.ecore#//discrete/TimeLine/BucketType"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timeline.ecore#//discrete/TimeLine/Description"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timeline.ecore#//discrete/TimeLine/TimeZoneID"/>
@@ -203,7 +203,7 @@
         </genOperations>
         <genOperations ecoreOperation="timeline.ecore#//discrete/TimeLine/createBucket"/>
       </genClasses>
-      <genClasses ecoreClass="timeline.ecore#//discrete/TimeBucket">
+      <genClasses ecoreClass="timeline.ecore#//discrete/TimeBucket" labelFeature="#//time/discrete/TimeBucket/Description">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timeline.ecore#//discrete/TimeBucket/BucketStart"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timeline.ecore#//discrete/TimeBucket/BucketEnd"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -235,7 +235,7 @@
             ecoreFeature="ecore:EReference timeline.ecore#//discrete/TimeLineMerge/TimeLineFrom"/>
         <genOperations ecoreOperation="timeline.ecore#//discrete/TimeLineMerge/refresh"/>
       </genClasses>
-      <genClasses ecoreClass="timeline.ecore#//discrete/MergeElement">
+      <genClasses ecoreClass="timeline.ecore#//discrete/MergeElement" labelFeature="#//time/discrete/MergeElement/ElementStart">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference timeline.ecore#//discrete/MergeElement/BucketFrom"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
