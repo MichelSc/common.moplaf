@@ -45,6 +45,30 @@ import org.eclipse.emf.ecore.util.InternalEList;
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Distribution</b></em>'.
+ * <p>
+ * A Distribution receives 
+ *     <ul>
+ *       <li>{@link CompositeDistributionEvent}s through the relation {@link #compositeEvent}</li>
+ *       <li>atomic {@link DistributionEvent} through the relation {@link #atomicEvent}</li>
+ *       <li>child {@link Distribution}s through the relation {@link #childDistribution}</li>
+ *    </ul>
+ * <p>
+ * The Distribution
+ * <ul>
+ *   <li>aggregate the atomic, the composite and the child events </li>
+ *   <li>sorts the resulting event and publishes the result </li>
+ *     <ul>
+ *       <li>in the relation {@link #sequenceEvent}</li>
+ *       <li>in the attribute {@link DistributionEventImpl#eventNr}</li>
+ *    </ul>
+ *   <li>maintains the value and slope of the distribution at every event</li>
+ *     <ul>
+ *       <li>in the attribute {@link DistributionEventImpl#amountBefore}</li>
+ *       <li>in the attribute {@link DistributionEventImpl#amountAfter}</li>
+ *       <li>in the attribute {@link DistributionEventImpl#slopeBefore}</li>
+ *       <li>in the attribute {@link DistributionEventImpl#slopeAfter}</li>
+ *    </ul>
+ * </ul>
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
