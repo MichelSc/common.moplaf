@@ -55,7 +55,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The Distribution
  * <ul>
- *   <li>aggregate the atomic, the composite and the child events </li>
+ *   <li>aggregates the atomic, the composite and the child events </li>
  *   <li>sorts the resulting event and publishes the result </li>
  *     <ul>
  *       <li>in the relation {@link #sequenceEvent}</li>
