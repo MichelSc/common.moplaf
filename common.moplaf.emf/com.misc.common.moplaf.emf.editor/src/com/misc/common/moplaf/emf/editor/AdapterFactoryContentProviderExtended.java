@@ -322,7 +322,11 @@ public class AdapterFactoryContentProviderExtended extends
     }
     
     public class FeatureSelectors extends LinkedList<FeatureSelector>{
-    	public void addSelectorAll(){
+    	/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+		public void addSelectorAll(){
     		this.add(new FeatureSelectorAll());
     	}
     	public void addSelector(EStructuralFeature feature){

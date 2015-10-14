@@ -27,6 +27,7 @@ import org.eclipse.birt.report.engine.api.RenderOption;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -85,7 +86,7 @@ public class ReportBirtImpl extends ReportAbstractImpl implements ReportBirt {
 		CommonPlugin.INSTANCE.log("Report.generate: object "+ this.getReportContext()==null? "null" : this.getReportContext().toString());
 		try {
 			IReportEngine engine = Plugin.getReportEngine();
-			Map appContext = engine.getConfig().getAppContext();
+			Map<String, EObject> appContext = engine.getConfig().getAppContext();
 	
 			//Set parameter values and validate
 			// this must be done before loading the report design and/or creating the task

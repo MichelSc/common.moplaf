@@ -118,7 +118,7 @@ public final class Plugin extends EMFPlugin {
 			IReportEngine engine = factory.createReportEngine( config );
 			engine.changeLogLevel( Level.WARNING );
 
-			Map appContext = engine.getConfig().getAppContext();
+			Map<String, Object> appContext = engine.getConfig().getAppContext();
 			Object myclassloaderkey = ReportBirt.class.getClassLoader();
 			appContext.put(EngineConstants.APPCONTEXT_CLASSLOADER_KEY, myclassloaderkey);
 			// done
