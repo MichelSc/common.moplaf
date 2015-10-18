@@ -196,7 +196,9 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 		// create a new XY Graph.
 		this.xyGraph = new XYGraph();
 		this.xyGraph.setTitle("Simple Example");
-		this.xyGraph.primaryXAxis.setRange(new Range(0, 200));
+		Date today = new Date();
+		
+		this.xyGraph.primaryXAxis.setRange(new Range(today.getTime(),today.getTime()+1000*60*60*24*30));
 		this.xyGraph.primaryXAxis.setDateEnabled(true);
 		this.xyGraph.primaryXAxis.setAutoScale(true);
 		this.xyGraph.primaryYAxis.setAutoScale(true);
