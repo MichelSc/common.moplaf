@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 
+import org.eclipse.core.runtime.Plugin;
 import org.eclipse.draw2d.LightweightSystem;
+import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -149,11 +151,11 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 					if (y2 > yMax ) { yMax = y2; }
 				}
 
-				xDataMinMax = new Range(xMin, xMax);
-				yDataMinMax = new Range(yMin, yMax);
+				this.xDataMinMax = new Range(xMin, xMax);
+				this.yDataMinMax = new Range(yMin, yMax);
 			} else {
-				xDataMinMax = null;
-				yDataMinMax = null;
+				this.xDataMinMax = null;
+				this.yDataMinMax = null;
 			}
 		}
 
@@ -194,6 +196,10 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 		// create a new XY Graph.
 		this.xyGraph = new XYGraph();
 		this.xyGraph.setTitle("Simple Example");
+		this.xyGraph.primaryXAxis.setRange(new Range(0, 200));
+		this.xyGraph.primaryXAxis.setDateEnabled(true);
+		this.xyGraph.primaryXAxis.setAutoScale(true);
+		this.xyGraph.primaryYAxis.setAutoScale(true);
 		// set it as the content of LightwightSystem
 		lws.setContents(this.xyGraph);
 
@@ -219,7 +225,11 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 		super.inputChanged(input, oldInput);
 		
 		if ( input != oldInput){
-			this.xyGraph.removeAll();
+			CommonPlugin.INSTANCE.log("TimePlotViewer: inputChanged "+input.toString());
+			while ( !this.xyGraph.getPlotArea().getTraceList().isEmpty() ){
+				this.xyGraph.removeTrace(this.xyGraph.getPlotArea().getTraceList().get(0));
+			}
+			//this.xyGraph.removeAll();
 			Object modelElement = input;
 			TimePlotDataProvider dataProvider = new TimePlotDataProvider(modelElement);
 			Trace trace = new Trace("Trace1-XY Plot", xyGraph.primaryXAxis, xyGraph.primaryYAxis, dataProvider);
@@ -231,10 +241,13 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 
 	@Override
 	public void refresh() {
+		CommonPlugin.INSTANCE.log("TimePlotViewer: refresh");
 		for ( Trace trace : this.xyGraph.getPlotArea().getTraceList()){
 			this.refreshTrace(trace);
 		}
+		CommonPlugin.INSTANCE.log("TimePlotViewer: redraw");
 		this.timePlotCanvas.redraw();
+		CommonPlugin.INSTANCE.log("TimePlotViewer: redrawn");
 	}
 	
 	private void refreshTrace(Trace trace){

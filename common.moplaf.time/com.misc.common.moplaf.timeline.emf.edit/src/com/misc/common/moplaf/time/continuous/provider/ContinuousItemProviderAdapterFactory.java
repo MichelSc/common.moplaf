@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.time.continuous.provider;
 
 import com.misc.common.moplaf.time.continuous.util.ContinuousAdapterFactory;
+import com.misc.common.moplaf.timeview.impl.IItemDiscontinuousAmountEventProvider;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -61,7 +62,6 @@ public class ContinuousItemProviderAdapterFactory extends ContinuousAdapterFacto
 	 * This constructs an instance.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public ContinuousItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
@@ -69,6 +69,7 @@ public class ContinuousItemProviderAdapterFactory extends ContinuousAdapterFacto
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
 		supportedTypes.add(IItemPropertySource.class);
+		supportedTypes.add(IItemDiscontinuousAmountEventProvider.class); // non emf interface
 	}
 
 	/**
