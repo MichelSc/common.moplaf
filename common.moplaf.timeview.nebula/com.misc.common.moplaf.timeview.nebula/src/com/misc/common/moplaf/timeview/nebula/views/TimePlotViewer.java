@@ -1,7 +1,7 @@
 package com.misc.common.moplaf.timeview.nebula.views;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Iterator;
 
 import org.eclipse.draw2d.LightweightSystem;
@@ -9,7 +9,14 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.nebula.visualization.xygraph.dataprovider.AbstractDataProvider;
+import org.eclipse.nebula.visualization.xygraph.dataprovider.IDataProviderListener;
+import org.eclipse.nebula.visualization.xygraph.dataprovider.ISample;
+import org.eclipse.nebula.visualization.xygraph.dataprovider.Sample;
+import org.eclipse.nebula.visualization.xygraph.figures.Trace;
 import org.eclipse.nebula.visualization.xygraph.figures.XYGraph;
+import org.eclipse.nebula.visualization.xygraph.linearscale.Range;
+import org.eclipse.nebula.visualization.xygraph.figures.Trace.PointStyle;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
@@ -19,37 +26,9 @@ import com.misc.common.moplaf.timeview.TimePlotViewerAbstract;
 
 
 public class TimePlotViewer extends TimePlotViewerAbstract {
-
-	// fields 
-	private XYGraph xyGraph = null;
-	private Canvas timePlotCanvas = null;
-//	private DefaultHierarchicalTimeBarModel timeBarModel;
-
-	// constructor
-	public TimePlotViewer(Composite parent){
-		this.timePlotCanvas = new Canvas(parent, SWT.H_SCROLL | SWT.V_SCROLL);
-		// make the control
-		// use LightweightSystem to create the bridge between SWT and draw2D
-		final LightweightSystem lws = new LightweightSystem(this.timePlotCanvas);
-
-		// create a new XY Graph.
-		this.xyGraph = new XYGraph();
-		this.xyGraph.setTitle("Simple Example");
-		// set it as the content of LightwightSystem
-		lws.setContents(this.xyGraph);
-
-//		super.hookControl(this.timeBarViewer);
-        // fill the control
-	}
-	
-	@Override
-	public Control getControl() {
-		return this.timePlotCanvas;
-	}
-	
-	// ******************************
+	//-------------------------------------------------------------------------------------
 	// selection management
-	// ******************************
+	//-------------------------------------------------------------------------------------
 	private class TimePlotViewerISeletionListener implements ISelectionChangedListener{
 		private IStructuredSelection oldSelection = null;
 
@@ -87,8 +66,151 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 		
 		this.setSelectedElement(selectedObject);
 	}
+	//-------------------------------------------------------------------------------------
+	// nested classes
+	//-------------------------------------------------------------------------------------
+	public class TimePlotDataProvider extends AbstractDataProvider {
+		
+		private class TimePlotDataProviderModelObject {
+			private Object eventObject;
+			private TimePlotSample sampleBefore;
+			private TimePlotSample sampleAfter;
+			public TimePlotDataProviderModelObject(Object eventObject, Date moment, float amountBefore, float amountAfter){
+				this.eventObject = eventObject;
+				this.sampleBefore = new TimePlotSample(modelObject, true, moment, amountBefore);
+				this.sampleAfter  = new TimePlotSample(modelObject, false, moment, amountAfter);
+			}
+		};
+		
+		protected boolean dataRangedirty = false;
+		private Object modelObject;
+		private ArrayList<TimePlotDataProviderModelObject> eventObjects;
 
-    
+		public TimePlotDataProvider(Object modelObject) {
+			super(true);
+			listeners = new ArrayList<IDataProviderListener>();
+			this.eventObjects = new ArrayList<TimePlotDataProviderModelObject>();
+			this.modelObject = modelObject;
+		}
+		
+		public void addEventObject(Object eventObject){
+			Date moment        = TimePlotViewer.this.getIAmountEventProvider().getEventMoment(eventObject);
+			float amountBefore = TimePlotViewer.this.getIAmountEventProvider().getEventAmountBefore(eventObject);
+			float amountAfter  = TimePlotViewer.this.getIAmountEventProvider().getEventAmountAfter(eventObject);
+			this.eventObjects.add(new TimePlotDataProviderModelObject(eventObject, moment, amountBefore, amountAfter));
+			this.dataRangedirty = true;
+		}
+		
+		public void clear(){
+			this.eventObjects.clear();
+			this.dataRangedirty = true;
+	}
+
+		@Override
+		public int getSize() {
+			return this.eventObjects.size()*2;
+		}
+
+		@Override
+		public ISample getSample(int index) {
+			TimePlotDataProviderModelObject modelObject = this.eventObjects.get(index / 2); // integer division
+			if ( index % 2 == 0 ){
+				return modelObject.sampleBefore;
+			} else {
+				return modelObject.sampleAfter;
+			}
+		}
+
+		@Override
+		protected void innerUpdate() {
+			dataRangedirty = true;
+		}
+
+		@Override
+		protected void updateDataRange() {
+			if (!this.dataRangedirty)
+				return;
+			this.dataRangedirty = false;
+			if (getSize() > 0) {
+				double xMin = Double.MAX_VALUE;
+				double xMax = Double.MIN_VALUE;
+				double yMin = Double.MAX_VALUE;
+				double yMax = Double.MIN_VALUE;
+				for (TimePlotDataProviderModelObject eventObject : this.eventObjects) {
+					double x  = eventObject.sampleBefore.getXValue();
+					double y1 = eventObject.sampleBefore.getYValue();
+					double y2 = eventObject.sampleAfter.getYValue();
+					
+					if (x < xMin ) { xMin = x; }
+					if (x > xMax ) { xMax = x; }
+					if (y1 < yMin ) { yMin = y1; }
+					if (y1 > yMax ) { yMax = y1; }
+					if (y2 < yMin ) { yMin = y2; }
+					if (y2 > yMax ) { yMax = y2; }
+				}
+
+				xDataMinMax = new Range(xMin, xMax);
+				yDataMinMax = new Range(yMin, yMax);
+			} else {
+				xDataMinMax = null;
+				yDataMinMax = null;
+			}
+		}
+
+		
+	}; // class TimePlotDataProvider 
+	//-------------------------------------------------------------------------------------
+	public class TimePlotSample extends Sample {
+		private Object modelObject;
+		private boolean isBefore; 
+
+		public TimePlotSample(Object modelObject, boolean isBefore, Date moment, float amount) {
+			super(moment.getTime(), amount);
+			this.modelObject = modelObject;
+			this.isBefore = isBefore;
+		}
+		
+		public Date getMoment(){
+			return new Date((long)this.getXValue());
+		}
+		
+	}; // class TimePlotSample
+	//-------------------------------------------------------------------------------------
+
+	//-------------------------------------------------------------------------------------
+	// fields 
+	//-------------------------------------------------------------------------------------
+	private XYGraph xyGraph = null;
+	private Canvas timePlotCanvas = null;
+
+	//-------------------------------------------------------------------------------------
+	// constructor
+	public TimePlotViewer(Composite parent){
+		this.timePlotCanvas = new Canvas(parent, SWT.H_SCROLL | SWT.V_SCROLL);
+		// make the control
+		// use LightweightSystem to create the bridge between SWT and draw2D
+		final LightweightSystem lws = new LightweightSystem(this.timePlotCanvas);
+
+		// create a new XY Graph.
+		this.xyGraph = new XYGraph();
+		this.xyGraph.setTitle("Simple Example");
+		// set it as the content of LightwightSystem
+		lws.setContents(this.xyGraph);
+
+//		super.hookControl(this.timeBarViewer);
+        // fill the control
+	}
+	
+	//-------------------------------------------------------------------------------------
+	@Override
+	public Control getControl() {
+		return this.timePlotCanvas;
+	}
+	//-------------------------------------------------------------------------------------
+	
+	//-------------------------------------------------------------------------------------
+	// keep model and plot in synch
+	//-------------------------------------------------------------------------------------
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.Viewer#inputChanged(java.lang.Object, java.lang.Object)
 	 */
@@ -97,113 +219,49 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 		super.inputChanged(input, oldInput);
 		
 		if ( input != oldInput){
-//			DefaultHierarchicalTimeBarModel model = null;
-//			GanttViewerRow rootNode = null;
-//			Object modelElement = input;
-//	        rootNode = this.createRow(modelElement);
-//			model = new DefaultHierarchicalTimeBarModel(rootNode);
-//			this.timeBarModel = model;
-//			this.timeBarViewer.setModel(timeBarModel);
+			this.xyGraph.removeAll();
+			Object modelElement = input;
+			TimePlotDataProvider dataProvider = new TimePlotDataProvider(modelElement);
+			Trace trace = new Trace("Trace1-XY Plot", xyGraph.primaryXAxis, xyGraph.primaryYAxis, dataProvider);
+			trace.setPointStyle(PointStyle.XCROSS);
+			this.xyGraph.addTrace(trace);
 			this.refresh();
 		}
 	}
 
 	@Override
 	public void refresh() {
-//		if ( this.timeBarModel!=null) {
-//		
-//			GanttViewerRow rootNode = (GanttViewerRow)this.timeBarModel.getRootNode();
-//			if ( rootNode != null){
-//				this.refreshNode(rootNode);
-//			}
-//			
-//			this.timeBarViewer.getHierarchicalViewState().setExpandedRecursive(rootNode, true);
-//		}
-//		this.timeBarViewer.redraw();
-	}
-	
-	public void refreshNodeLabel(Object row){
-//		String labelToBe = this.getILabelProvider().getText(row.getModelObject());
-//		String labelAsIs = row.getGanttRowHeader().getLabel();
-//		if ( !labelToBe.equals(labelAsIs)){
-//			row.getGanttRowHeader().setLabel(labelToBe);
-//		}
-	}
-	
-	
-	public void refreshNode(Object interval){
-//		Object modelElement = interval.getModelObject();
-//		// begin
-//		Date startToBe = this.getIIntervalEventProvider().getIntervalEventStart(modelElement);
-//		JaretDate startAsIs = interval.getBegin();
-//		if (  startAsIs==null || startToBe.compareTo(startAsIs.getDate())!= 0 ){
-//			interval.setBegin(new JaretDate(startToBe));
-//		}
-//		
-//		// end
-//		Date endToBe   = this.getIIntervalEventProvider().getIntervalEventEnd(modelElement);
-//		JaretDate endAsIs = interval.getEnd();
-//		if (  endAsIs == null || endToBe.compareTo(endAsIs.getDate())!= 0 ){
-//			interval.setEnd(new JaretDate(endToBe));
-//		}
-	}
-
-	public void refreshNode2(Object row){
-		// refresh the label
-		this.refreshNodeLabel(row);
-		
-		// refresh the child rows
-		// get the as is
-//		Object modelElement = row.getModelObject();
-//		HashMap<Object, GanttViewerRow> ganttChildRowsAsIs = new HashMap<Object, GanttViewerRow>();
-//		HashMap<Object, GanttViewerInterval> childIntervalsAsIs = new HashMap<Object, GanttViewerInterval>();
-//		for ( TimeBarNode childRowAsIs : row.getChildren()){
-//			GanttViewerRow ganttChildRowAsIs = (GanttViewerRow) childRowAsIs;
-//			ganttChildRowsAsIs.put(ganttChildRowAsIs.getModelObject(), ganttChildRowAsIs);
-//		}
-//		for (  Interval intervalAsIs : row.getIntervals()){
-//			GanttViewerInterval ganttIntervalAsIs = (GanttViewerInterval)intervalAsIs;
-//			childIntervalsAsIs.put(ganttIntervalAsIs.getModelObject(), ganttIntervalAsIs);
-//		}
-//		
-//		// update the child rows
-//		Object[] childrenModelElement = this.getTreeContentProvider().getChildren(modelElement);
-//		for (Object childModelElement : childrenModelElement) {
-//			if( this.getIIntervalEventProvider().isIntervalEvent(childModelElement) ) {
-//				// the node is an interval
-//				GanttViewerInterval ganttInterval = childIntervalsAsIs.get(childModelElement);
-//				if ( ganttInterval == null){
-//					// create the interval
-//					ganttInterval = this.createInterval(childModelElement);
-//					this.refreshNode(ganttInterval);
-//					row.addInterval(ganttInterval);
-//				} else {
-//					// refresh the interval
-//					childIntervalsAsIs.remove(childModelElement);
-//					this.refreshNode(ganttInterval);
-//				}
-//			} else {
-//				// the node is a row
-//				GanttViewerRow ganttChildRow = ganttChildRowsAsIs.get(childModelElement);
-//				if ( ganttChildRow == null){
-//					// create the row
-//					ganttChildRow= this.createRow(childModelElement);
-//					row.addNode(ganttChildRow);
-//				}
-//				else {
-//					ganttChildRowsAsIs.remove(modelElement);
-//				}
-//				this.refreshNode(ganttChildRow);
-//			}
-//		}
-//		
-//		// remove the rows too many
-//		for(GanttViewerRow rowAsIs : ganttChildRowsAsIs.values()){
-//			row.remNode(rowAsIs);
-//		}
-//		// remove the intervals too many
-//		for ( GanttViewerInterval intervalAsIs : childIntervalsAsIs.values()){
-//			row.remInterval(intervalAsIs);
+		for ( Trace trace : this.xyGraph.getPlotArea().getTraceList()){
+			this.refreshTrace(trace);
 		}
+		this.timePlotCanvas.redraw();
 	}
+	
+	private void refreshTrace(Trace trace){
+		TimePlotDataProvider dataProvider = (TimePlotDataProvider)trace.getDataProvider();
+		Object modelObject = dataProvider.modelObject;
+		
+		// refresh the label
+		String labelToBe = this.getILabelProvider().getText(modelObject);
+		String labelAsIs = "";
+		if ( !labelToBe.equals(labelAsIs)){
+			// to do: do something with the label
+		}
+		
+		dataProvider.clear();
+		// update the child rows
+		Object[] childrenModelElement = this.getTreeContentProvider().getChildren(modelObject);
+		for (Object childModelElement : childrenModelElement) {
+			if( this.getIAmountEventProvider().isDiscontinuousAmountEvent(childModelElement) ) {
+				dataProvider.addEventObject(childModelElement);
+			} else {
+				// the object is ignored
+			}  // the child is an event
+		} // traverse the children of the model object
+	} // method refreshTrace
+}; // class TimePlotViewer
+
+
+	
+	
 
