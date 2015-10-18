@@ -5,7 +5,11 @@ import java.util.Date;
 import java.util.Iterator;
 
 import org.eclipse.core.runtime.Plugin;
+import org.eclipse.draw2d.KeyEvent;
+import org.eclipse.draw2d.KeyListener;
 import org.eclipse.draw2d.LightweightSystem;
+import org.eclipse.draw2d.MouseEvent;
+import org.eclipse.draw2d.MouseListener;
 import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -15,14 +19,20 @@ import org.eclipse.nebula.visualization.xygraph.dataprovider.AbstractDataProvide
 import org.eclipse.nebula.visualization.xygraph.dataprovider.IDataProviderListener;
 import org.eclipse.nebula.visualization.xygraph.dataprovider.ISample;
 import org.eclipse.nebula.visualization.xygraph.dataprovider.Sample;
+import org.eclipse.nebula.visualization.xygraph.figures.ToolbarArmedXYGraph;
 import org.eclipse.nebula.visualization.xygraph.figures.Trace;
 import org.eclipse.nebula.visualization.xygraph.figures.XYGraph;
+import org.eclipse.nebula.visualization.xygraph.figures.ZoomType;
 import org.eclipse.nebula.visualization.xygraph.linearscale.Range;
 import org.eclipse.nebula.visualization.xygraph.figures.Trace.PointStyle;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.ImageData;
+import org.eclipse.swt.graphics.ImageLoader;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.FileDialog;
 
 import com.misc.common.moplaf.timeview.TimePlotViewerAbstract;
 
@@ -184,6 +194,7 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 	//-------------------------------------------------------------------------------------
 	private XYGraph xyGraph = null;
 	private Canvas timePlotCanvas = null;
+	private ToolbarArmedXYGraph toolbarArmedXYGraph = null;
 
 	//-------------------------------------------------------------------------------------
 	// constructor
@@ -197,16 +208,76 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 		this.xyGraph = new XYGraph();
 		this.xyGraph.setTitle("Simple Example");
 		Date today = new Date();
+		this.toolbarArmedXYGraph = new ToolbarArmedXYGraph(this.xyGraph);
+
 		
 		this.xyGraph.primaryXAxis.setRange(new Range(today.getTime(),today.getTime()+1000*60*60*24*30));
 		this.xyGraph.primaryXAxis.setDateEnabled(true);
 		this.xyGraph.primaryXAxis.setAutoScale(true);
 		this.xyGraph.primaryYAxis.setAutoScale(true);
-		// set it as the content of LightwightSystem
-		lws.setContents(this.xyGraph);
 
-//		super.hookControl(this.timeBarViewer);
-        // fill the control
+		this.toolbarArmedXYGraph.addMouseListener(new MouseListener.Stub() {
+			@Override
+			public void mousePressed(final MouseEvent me) {
+				toolbarArmedXYGraph.requestFocus();
+			}
+		});
+
+		toolbarArmedXYGraph.addKeyListener(new KeyListener.Stub() {
+			@Override
+			public void keyPressed(final KeyEvent ke) {
+				if ((ke.getState() == SWT.CONTROL) && (ke.keycode == 'z')) {
+					xyGraph.getOperationsManager().undo();
+				}
+				if ((ke.getState() == SWT.CONTROL) && (ke.keycode == 'y')) {
+					xyGraph.getOperationsManager().redo();
+				}
+				if ((ke.getState() == SWT.CONTROL) && (ke.keycode == 'x')) {
+					xyGraph.performAutoScale();
+				}
+				if ((ke.getState() == SWT.CONTROL) && (ke.keycode == 's')) {
+					final ImageLoader loader = new ImageLoader();
+					loader.data = new ImageData[] { xyGraph.getImage().getImageData() };
+					final FileDialog dialog = new FileDialog(Display.getDefault().getShells()[0], SWT.SAVE);
+					dialog.setFilterNames(new String[] { "PNG Files", "All Files (*.*)" });
+					dialog.setFilterExtensions(new String[] { "*.png", "*.*" }); // Windows
+					final String path = dialog.open();
+					if ((path != null) && !path.equals("")) {
+						loader.save(path, SWT.IMAGE_PNG);
+					}
+				}
+				if ((ke.getState() == SWT.CONTROL) && (ke.keycode + 'a' - 97 == 't')) {
+					switch (xyGraph.getZoomType()) {
+					case RUBBERBAND_ZOOM:
+						xyGraph.setZoomType(ZoomType.HORIZONTAL_ZOOM);
+						break;
+					case HORIZONTAL_ZOOM:
+						xyGraph.setZoomType(ZoomType.VERTICAL_ZOOM);
+						break;
+					case VERTICAL_ZOOM:
+						xyGraph.setZoomType(ZoomType.ZOOM_IN);
+						break;
+					case ZOOM_IN:
+						xyGraph.setZoomType(ZoomType.ZOOM_OUT);
+						break;
+					case ZOOM_OUT:
+						xyGraph.setZoomType(ZoomType.PANNING);
+						break;
+					case PANNING:
+						xyGraph.setZoomType(ZoomType.NONE);
+						break;
+					case NONE:
+						xyGraph.setZoomType(ZoomType.RUBBERBAND_ZOOM);
+						break;
+					default:
+						break;
+					}
+				}
+			}
+		});
+
+		// set it as the content of LightwightSystem
+		lws.setContents(this.toolbarArmedXYGraph);
 	}
 	
 	//-------------------------------------------------------------------------------------
