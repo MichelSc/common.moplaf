@@ -2,9 +2,7 @@ package com.misc.common.moplaf.timeview.nebula.views;
 
 import org.eclipse.swt.widgets.Composite;
 
-import com.misc.common.moplaf.timeview.GanttViewerAbstract;
 import com.misc.common.moplaf.timeview.TimePlotViewerAbstract;
-import com.misc.common.moplaf.timeview.impl.GanttViewAbstract;
 import com.misc.common.moplaf.timeview.impl.TimePlotViewAbstract;
 
 public class TimePlotView extends TimePlotViewAbstract {

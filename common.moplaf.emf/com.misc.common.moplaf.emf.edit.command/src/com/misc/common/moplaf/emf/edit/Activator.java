@@ -1,4 +1,5 @@
-package com.misc.common.moplaf.emf.edit.command;
+package com.misc.common.moplaf.emf.edit;
+
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;

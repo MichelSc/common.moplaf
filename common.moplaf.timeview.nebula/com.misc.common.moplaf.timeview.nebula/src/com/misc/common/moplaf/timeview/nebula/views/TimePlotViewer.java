@@ -1,8 +1,11 @@
 package com.misc.common.moplaf.timeview.nebula.views;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedList;
 
 import org.eclipse.core.runtime.Plugin;
 import org.eclipse.draw2d.KeyEvent;
@@ -89,7 +92,7 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 			private TimePlotSample sampleAfter;
 			public TimePlotDataProviderModelObject(Object eventObject, Date moment, float amountBefore, float amountAfter){
 				this.eventObject = eventObject;
-				this.sampleBefore = new TimePlotSample(modelObject, true, moment, amountBefore);
+				this.sampleBefore = new TimePlotSample(modelObject, true,  moment, amountBefore);
 				this.sampleAfter  = new TimePlotSample(modelObject, false, moment, amountAfter);
 			}
 		};
@@ -299,15 +302,8 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 		
 		if ( input != oldInput){
 			CommonPlugin.INSTANCE.log("TimePlotViewer: inputChanged "+input.toString());
-			while ( !this.xyGraph.getPlotArea().getTraceList().isEmpty() ){
-				this.xyGraph.removeTrace(this.xyGraph.getPlotArea().getTraceList().get(0));
-			}
 			//this.xyGraph.removeAll();
 			Object modelElement = input;
-			TimePlotDataProvider dataProvider = new TimePlotDataProvider(modelElement);
-			Trace trace = new Trace("Trace1-XY Plot", xyGraph.primaryXAxis, xyGraph.primaryYAxis, dataProvider);
-			trace.setPointStyle(PointStyle.XCROSS);
-			this.xyGraph.addTrace(trace);
 			this.refresh();
 		}
 	}
@@ -315,9 +311,39 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 	@Override
 	public void refresh() {
 		CommonPlugin.INSTANCE.log("TimePlotViewer: refresh");
+
+		Object[] childrenModelElement = this.getTreeContentProvider().getChildren(this.getInput());
+		HashSet<Object> children = new HashSet<Object>(Arrays.asList(childrenModelElement));
+
+		LinkedList<Trace> tracesToRemove = new LinkedList<Trace>();
+		
 		for ( Trace trace : this.xyGraph.getPlotArea().getTraceList()){
-			this.refreshTrace(trace);
+			TimePlotDataProvider dataprovider = (TimePlotDataProvider)trace.getDataProvider();
+			if ( ! children.contains(dataprovider.modelObject) ){
+				tracesToRemove.add(trace);
+			} else {
+				children.remove(dataprovider.modelObject);
+			}
 		}
+		
+		// do the removes
+		for ( Trace traceToRemove : tracesToRemove){
+			this.xyGraph.removeTrace(traceToRemove);
+		}
+		
+		// do the adds
+		for( Object modelObjectToAdd : children){
+			String traceLabel = this.getILabelProvider().getText(modelObjectToAdd);
+			TimePlotDataProvider dataProvider = new TimePlotDataProvider(modelObjectToAdd);
+			Trace trace = new Trace(traceLabel, xyGraph.primaryXAxis, xyGraph.primaryYAxis, dataProvider);
+			trace.setPointStyle(PointStyle.XCROSS);
+			this.xyGraph.addTrace(trace);
+		}
+		
+		for ( Trace traceAsIs : this.xyGraph.getPlotArea().getTraceList()){
+			this.refreshTrace(traceAsIs);
+		}
+		
 		CommonPlugin.INSTANCE.log("TimePlotViewer: redraw");
 		this.timePlotCanvas.redraw();
 		CommonPlugin.INSTANCE.log("TimePlotViewer: redrawn");
@@ -326,13 +352,6 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 	private void refreshTrace(Trace trace){
 		TimePlotDataProvider dataProvider = (TimePlotDataProvider)trace.getDataProvider();
 		Object modelObject = dataProvider.modelObject;
-		
-		// refresh the label
-		String labelToBe = this.getILabelProvider().getText(modelObject);
-		String labelAsIs = "";
-		if ( !labelToBe.equals(labelAsIs)){
-			// to do: do something with the label
-		}
 		
 		dataProvider.clear();
 		// update the child rows

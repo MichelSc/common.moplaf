@@ -10,6 +10,7 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.viewers.*;
 import org.eclipse.ui.*;
 
+import com.misc.common.moplaf.emf.edit.ui.provider.AdapterFactoryArrayContentProvider;
 import com.misc.common.moplaf.timeview.TimePlotViewerAbstract;
 
 public abstract class TimePlotViewAbstract extends ViewPart {
@@ -22,7 +23,7 @@ public abstract class TimePlotViewAbstract extends ViewPart {
 	private TimePlotViewerAbstract viewer;
 	private ISelectionListener selectionListener;
 	private ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
-
+	
 	/**
 	 * Implement the interface ISelectionListener
 	 * <!-- begin-user-doc -->
@@ -35,11 +36,13 @@ public abstract class TimePlotViewAbstract extends ViewPart {
 			if (  TimePlotViewAbstract.this.viewer != null && part!= TimePlotViewAbstract.this) {
 				if (  !selection.isEmpty() 
 				  && selection instanceof IStructuredSelection) {
-					Object selectedElement = ((IStructuredSelection)selection).getFirstElement();
-					// set the input of the widget
-					if (TimePlotViewAbstract.this.viewer.getInput() != selectedElement) {
-						TimePlotViewAbstract.this.viewer.setInput(selectedElement);
-					}
+					IStructuredSelection structuredSelection = (IStructuredSelection)selection;
+					TimePlotViewAbstract.this.viewer.setInput(structuredSelection.toArray());
+//					Object selectedElement = ((IStructuredSelection)selection).getFirstElement();
+//					// set the input of the widget
+//					if (TimePlotViewAbstract.this.viewer.getInput() != selectedElement) {
+//						TimePlotViewAbstract.this.viewer.setInput(selectedElement);
+//					}
 				} // there is a selection
 			} // there is a viewer
 		}
@@ -62,7 +65,7 @@ public abstract class TimePlotViewAbstract extends ViewPart {
 	 */
 	public void createPartControl(Composite parent) {
         this.viewer = this.createViewer(parent);
-        this.viewer.setContentProvider(new AdapterFactoryContentProvider(this.adapterFactory));
+        this.viewer.setContentProvider(new AdapterFactoryArrayContentProvider(this.adapterFactory));
 		this.viewer.setLabelProvider(new AdapterFactoryLabelProvider(this.adapterFactory));
 		this.viewer.setAmountEventProvider(new AdapterFactoryDiscontinuousAmountEventProvider(this.adapterFactory));
 
