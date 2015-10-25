@@ -27,7 +27,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.time.continuous.DistributionEvent} object.
  * <!-- begin-user-doc -->
- * @implements IItemDiscontinuousAmountEventProvider.java
+ * @implements IItemDiscontinuousAmountEventProvider
  * <!-- end-user-doc -->
  * @generated
  */

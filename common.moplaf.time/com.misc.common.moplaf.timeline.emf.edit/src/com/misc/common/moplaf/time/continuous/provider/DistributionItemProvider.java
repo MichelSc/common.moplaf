@@ -6,6 +6,8 @@ package com.misc.common.moplaf.time.continuous.provider;
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.TimeUnit;
+import com.misc.common.moplaf.timeview.impl.IItemAmountEventsProvider;
+
 import java.util.Collection;
 import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -26,17 +28,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.time.continuous.Distribution} object.
  * <!-- begin-user-doc -->
+ * @implements IItemAmountEventsProvider
  * <!-- end-user-doc -->
  * @generated
  */
 public class DistributionItemProvider
 	extends ItemProviderAdapter
 	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, IItemAmountEventsProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -47,6 +46,17 @@ public class DistributionItemProvider
 		super(adapterFactory);
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.emf.edit.provider.ItemProviderAdapter#isAdapterForType(java.lang.Object)
+	 */
+	@Override
+	public boolean isAdapterForType(Object type) {
+		if ( super.isAdapterForType(type) ){ return true; }
+		if ( type == IItemAmountEventsProvider.class) { return true; }
+		return false;
+	}
+
+	
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
@@ -350,6 +360,12 @@ public class DistributionItemProvider
 	@Override
 	public ResourceLocator getResourceLocator() {
 		return TimelineEditPlugin.INSTANCE;
+	}
+
+	@Override
+	public Object[] getAmountEvents(Object element) {
+		Distribution distribution = (Distribution) element;
+		return distribution.getSequenceEvent().toArray();
 	}
 
 }

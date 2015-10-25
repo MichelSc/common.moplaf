@@ -15,7 +15,7 @@ public abstract class TimePlotViewerAbstract extends ContentViewer {
 
 	private Object selectedElement = null;
 	private ISelection currentSelection = null;
-	private IDiscontinuousAmountEventProvider amountEventProvider = null;
+	private IAmountEventProvider amountEventProvider = null;
 
 	// providers management
 	@Override
@@ -30,7 +30,7 @@ public abstract class TimePlotViewerAbstract extends ContentViewer {
 		super.setLabelProvider(provider);
 	}
 	
-	public void setAmountEventProvider(IDiscontinuousAmountEventProvider eventProvider){
+	public void setAmountEventProvider(IAmountEventProvider eventProvider){
 		this.amountEventProvider = eventProvider;
 	}
 	
@@ -60,7 +60,7 @@ public abstract class TimePlotViewerAbstract extends ContentViewer {
 		return (ILabelProvider)this.getLabelProvider();
 	}
 	
-	protected IDiscontinuousAmountEventProvider getIAmountEventProvider(){
+	protected IAmountEventProvider getIAmountEventProvider(){
 		return this.amountEventProvider;
 	}
 	

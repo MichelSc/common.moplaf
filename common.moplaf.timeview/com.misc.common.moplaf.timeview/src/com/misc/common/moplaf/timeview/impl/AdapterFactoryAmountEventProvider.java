@@ -4,20 +4,25 @@ import java.util.Date;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 
-import com.misc.common.moplaf.timeview.IDiscontinuousAmountEventProvider;
+import com.misc.common.moplaf.timeview.IAmountEventProvider;
 
-public class AdapterFactoryDiscontinuousAmountEventProvider implements
-		IDiscontinuousAmountEventProvider {
+public class AdapterFactoryAmountEventProvider implements
+		IAmountEventProvider {
 
 	private AdapterFactory adapterFactory;
 	
+	// cached event
 	private Object  lastElement = null;
 	private Date    lastElementEventMoment;
 	private float   lastElementAmountBefore;
 	private float   lastElementAmountAfter;
-	private boolean lastElementIsAmountEventProvider;
 	
-	private void getamountEventItemProvider(Object element){
+	// cached events
+	private Object   lastEventsElement = null;
+	private Object[] lastEventsElementEvents;
+	private boolean  lastEventsIsEvents = false;
+	
+	private void getAmountEventItemProvider(Object element){
 		if ( element == this.lastElement ) { return ; }
 
 		this.lastElement = element;
@@ -27,7 +32,6 @@ public class AdapterFactoryDiscontinuousAmountEventProvider implements
 			this.lastElementEventMoment  = dicontinuousEventItemProvider.getEventMoment(element);
 			this.lastElementAmountBefore = dicontinuousEventItemProvider.getEventAmountBefore(element);
 			this.lastElementAmountAfter  = dicontinuousEventItemProvider.getEventAmountAfter(element);
-			this.lastElementIsAmountEventProvider = true;
 			return;
 		}
 		
@@ -36,41 +40,70 @@ public class AdapterFactoryDiscontinuousAmountEventProvider implements
 			this.lastElementEventMoment  = amountEventItemProvider.getEventMoment(element);
 			this.lastElementAmountBefore = amountEventItemProvider.getEventAmount(element);
 			this.lastElementAmountAfter  = this.lastElementAmountBefore;
-			this.lastElementIsAmountEventProvider = true;
 			return;
 		}
 		
-		this.lastElementIsAmountEventProvider = false;
+		return;
+	}
+	
+	private void getAmountEventsItemProvider(Object element){
+		if ( element == this.lastEventsElement ) { return ; }
+
+		this.lastEventsElement = element;
+
+		IItemAmountEventsProvider eventsItemProvider = (IItemAmountEventsProvider) this.adapterFactory.adapt(element, IItemAmountEventsProvider.class);
+		if ( eventsItemProvider!= null) {
+			this.lastEventsElementEvents  = eventsItemProvider.getAmountEvents(element);
+			this.lastEventsIsEvents = true;
+			return;
+		}
+		
+		this.lastEventsElementEvents  = null;
+		this.lastEventsIsEvents = false;
 		return;
 	}
 	
 	// constructor
-	public AdapterFactoryDiscontinuousAmountEventProvider(AdapterFactory adapterFactory){
+	public AdapterFactoryAmountEventProvider(AdapterFactory adapterFactory){
 		this.adapterFactory = adapterFactory;
 	}
 	
-	@Override
-	public boolean isDiscontinuousAmountEvent(Object element){
-		this.getamountEventItemProvider(element);
-		return this.lastElementIsAmountEventProvider;
-	}
-
+	// event properties getter
 	@Override
 	public Date getEventMoment(Object element) {
-		this.getamountEventItemProvider(element);
+		this.getAmountEventItemProvider(element);
 		return this.lastElementEventMoment;
 	}
 
 	@Override
 	public float getEventAmountBefore(Object element) {
-		this.getamountEventItemProvider(element);
+		this.getAmountEventItemProvider(element);
 		return this.lastElementAmountBefore;
 	}
 
 	@Override
 	public float getEventAmountAfter(Object element) {
-		this.getamountEventItemProvider(element);
+		this.getAmountEventItemProvider(element);
 		return this.lastElementAmountAfter;
+	}
+
+	// events collection getter
+	@Override
+	public boolean isAmountEvents(Object element) {
+		this.getAmountEventsItemProvider(element);
+		return this.lastEventsIsEvents;
+	}
+
+	@Override
+	public Object[] getAmountEvents(Object element) {
+		this.getAmountEventsItemProvider(element);
+		return this.lastEventsElementEvents;
+	}
+	
+	public void dispose(){
+		this.lastElement = null;
+		this.lastEventsElement = null;
+		this.lastEventsElementEvents = null;
 	}
 
 }

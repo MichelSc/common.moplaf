@@ -7,7 +7,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-import org.eclipse.core.runtime.Plugin;
 import org.eclipse.draw2d.KeyEvent;
 import org.eclipse.draw2d.KeyListener;
 import org.eclipse.draw2d.LightweightSystem;
@@ -333,11 +332,14 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 		
 		// do the adds
 		for( Object modelObjectToAdd : children){
-			String traceLabel = this.getILabelProvider().getText(modelObjectToAdd);
-			TimePlotDataProvider dataProvider = new TimePlotDataProvider(modelObjectToAdd);
-			Trace trace = new Trace(traceLabel, xyGraph.primaryXAxis, xyGraph.primaryYAxis, dataProvider);
-			trace.setPointStyle(PointStyle.XCROSS);
-			this.xyGraph.addTrace(trace);
+			if ( this.getIAmountEventProvider().isAmountEvents(modelObjectToAdd)){
+				// it is a collection of events
+				String traceLabel = this.getILabelProvider().getText(modelObjectToAdd);
+				TimePlotDataProvider dataProvider = new TimePlotDataProvider(modelObjectToAdd);
+				Trace trace = new Trace(traceLabel, xyGraph.primaryXAxis, xyGraph.primaryYAxis, dataProvider);
+				trace.setPointStyle(PointStyle.XCROSS);
+				this.xyGraph.addTrace(trace);
+			}
 		}
 		
 		for ( Trace traceAsIs : this.xyGraph.getPlotArea().getTraceList()){
@@ -355,13 +357,9 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 		
 		dataProvider.clear();
 		// update the child rows
-		Object[] childrenModelElement = this.getTreeContentProvider().getChildren(modelObject);
+		Object[] childrenModelElement = this.getIAmountEventProvider().getAmountEvents(modelObject);
 		for (Object childModelElement : childrenModelElement) {
-			if( this.getIAmountEventProvider().isDiscontinuousAmountEvent(childModelElement) ) {
-				dataProvider.addEventObject(childModelElement);
-			} else {
-				// the object is ignored
-			}  // the child is an event
+			dataProvider.addEventObject(childModelElement);
 		} // traverse the children of the model object
 	} // method refreshTrace
 }; // class TimePlotViewer

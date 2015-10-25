@@ -67,7 +67,7 @@ public abstract class TimePlotViewAbstract extends ViewPart {
         this.viewer = this.createViewer(parent);
         this.viewer.setContentProvider(new AdapterFactoryArrayContentProvider(this.adapterFactory));
 		this.viewer.setLabelProvider(new AdapterFactoryLabelProvider(this.adapterFactory));
-		this.viewer.setAmountEventProvider(new AdapterFactoryDiscontinuousAmountEventProvider(this.adapterFactory));
+		this.viewer.setAmountEventProvider(new AdapterFactoryAmountEventProvider(this.adapterFactory));
 
 		// register the selection listener
 		this.selectionListener = new SiteSelectionListener();
