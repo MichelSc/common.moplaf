@@ -123,9 +123,11 @@ public class GanttViewer extends GanttViewerAbstract {
 	// ******************************
 	public class GanttViewerRow extends DefaultTimeBarNode {
 		private Object modelObject;
-		public GanttViewerRow (Object modelObject){
+		private boolean withEvents = true;
+		public GanttViewerRow (Object modelObject, boolean withEvents){
 			super(new DefaultRowHeader("new row"));
 			this.modelObject = modelObject;
+			this.withEvents = withEvents;
 		}
 		public DefaultRowHeader getGanttRowHeader(){
 			return (DefaultRowHeader)this.getRowHeader();
@@ -145,8 +147,8 @@ public class GanttViewer extends GanttViewerAbstract {
 		}
 	}
 	
-    public GanttViewerRow createRow(Object modelObject){
-        GanttViewerRow tbr = new GanttViewerRow(modelObject);
+    public GanttViewerRow createRow(Object modelObject, boolean withEvents){
+        GanttViewerRow tbr = new GanttViewerRow(modelObject, withEvents);
         return tbr;
     }
     
@@ -166,9 +168,10 @@ public class GanttViewer extends GanttViewerAbstract {
 			DefaultHierarchicalTimeBarModel model = null;
 			GanttViewerRow rootNode = null;
 			Object modelElement = input;
-	        //rootNode = this.createRow(modelElement);
-			//model = new DefaultHierarchicalTimeBarModel(rootNode);
-			//this.timeBarModel = model;
+			boolean eventsOnRoot = this.getIIntervalEventProvider().isIntervalEvents(input);
+	        rootNode = this.createRow(modelElement, eventsOnRoot);
+			model = new DefaultHierarchicalTimeBarModel(rootNode);
+			this.timeBarModel = model;
 			this.timeBarViewer.setModel(timeBarModel);
 			this.refresh();
 		}
@@ -180,7 +183,7 @@ public class GanttViewer extends GanttViewerAbstract {
 		
 			GanttViewerRow rootNode = (GanttViewerRow)this.timeBarModel.getRootNode();
 			if ( rootNode != null){
-				this.refreshNode(rootNode);
+				this.refreshNodeRow(rootNode);
 			}
 			
 			this.timeBarViewer.getHierarchicalViewState().setExpandedRecursive(rootNode, true);
@@ -195,7 +198,6 @@ public class GanttViewer extends GanttViewerAbstract {
 			row.getGanttRowHeader().setLabel(labelToBe);
 		}
 	}
-	
 	
 	public void refreshNodeInterval(GanttViewerInterval interval){
 		Object modelElement = interval.getModelObject();
@@ -214,95 +216,77 @@ public class GanttViewer extends GanttViewerAbstract {
 		}
 	}
 
-	public void refreshNodeRow(GanttViewerRow row){
+	private void refreshNodeRow(GanttViewerRow row){
 		// refresh the label
 		this.refreshNodeLabel(row);
 		this.refreshNodeRowSubrows(row);
 		this.refreshNodeRowIntervals(row);
 	}
 	
-	public void refreshNodeRowSubrows(GanttViewerRow row){
-		// refresh the child rows
-		// get the as is
-		Object modelElement = row.getModelObject();
-		HashMap<Object, GanttViewerRow> ganttChildRowsAsIs = new HashMap<Object, GanttViewerRow>();
-		for ( TimeBarNode childRowAsIs : row.getChildren()){
-			GanttViewerRow ganttChildRowAsIs = (GanttViewerRow) childRowAsIs;
-			ganttChildRowsAsIs.put(ganttChildRowAsIs.getModelObject(), ganttChildRowAsIs);
-		}
-		// update the child rows
+	private void refreshNodeRowSubrows(GanttViewerRow row, HashMap<Object, GanttViewerRow> ganttChildRowsAsIs, Object modelElement){
 		Object[] childrenModelElement = this.getTreeContentProvider().getChildren(modelElement);
 		for (Object childModelElement : childrenModelElement) {
 			if( this.getIIntervalEventProvider().isIntervalEvents(childModelElement) ) {
-				// the node is a row
+				// the model element is a row
 				GanttViewerRow ganttChildRow = ganttChildRowsAsIs.get(childModelElement);
 				if ( ganttChildRow == null){
 					// create the row
-					ganttChildRow= this.createRow(childModelElement);
+					ganttChildRow= this.createRow(childModelElement, true);
 					row.addNode(ganttChildRow);
 				}
 				else {
+					// update
 					ganttChildRowsAsIs.remove(modelElement);
 				}
 				this.refreshNodeRow(ganttChildRow);
+			} else { 
+				// the model element is not a row
+				this.refreshNodeRowSubrows(row, ganttChildRowsAsIs, childModelElement);
 			}
-		}
+	    }
 	}
 
-	public void refreshNodeRowIntervals(GanttViewerRow row){
-	}
-	
-	
-		
+	private void refreshNodeRowSubrows(GanttViewerRow row){
 		// refresh the child rows
 		// get the as is
-		Object modelElement = row.getModelObject();
 		HashMap<Object, GanttViewerRow> ganttChildRowsAsIs = new HashMap<Object, GanttViewerRow>();
-		HashMap<Object, GanttViewerInterval> childIntervalsAsIs = new HashMap<Object, GanttViewerInterval>();
 		for ( TimeBarNode childRowAsIs : row.getChildren()){
 			GanttViewerRow ganttChildRowAsIs = (GanttViewerRow) childRowAsIs;
 			ganttChildRowsAsIs.put(ganttChildRowAsIs.getModelObject(), ganttChildRowAsIs);
 		}
+		// do the refresh
+		this.refreshNodeRowSubrows(row,  ganttChildRowsAsIs, row.getModelObject());
+		// remove the rows too many
+		for(GanttViewerRow rowAsIs : ganttChildRowsAsIs.values()){
+			row.remNode(rowAsIs);
+		}
+	}
+
+	private void refreshNodeRowIntervals(GanttViewerRow row){
+		HashMap<Object, GanttViewerInterval> childIntervalsAsIs = new HashMap<Object, GanttViewerInterval>();
 		for (  Interval intervalAsIs : row.getIntervals()){
 			GanttViewerInterval ganttIntervalAsIs = (GanttViewerInterval)intervalAsIs;
 			childIntervalsAsIs.put(ganttIntervalAsIs.getModelObject(), ganttIntervalAsIs);
 		}
 		
-		// update the child rows
-		Object[] childrenModelElement = this.getTreeContentProvider().getChildren(modelElement);
-		for (Object childModelElement : childrenModelElement) {
-			if( this.getIIntervalEventProvider().isIntervalEvent(childModelElement) ) {
+		if ( row.withEvents )  {
+			Object[] childrenModelElement = this.getIIntervalEventProvider().getIntervalEvents(row.getModelObject());
+			for (Object childModelElement : childrenModelElement) {
 				// the node is an interval
 				GanttViewerInterval ganttInterval = childIntervalsAsIs.get(childModelElement);
 				if ( ganttInterval == null){
 					// create the interval
 					ganttInterval = this.createInterval(childModelElement);
-					this.refreshNode(ganttInterval);
+					this.refreshNodeInterval(ganttInterval);
 					row.addInterval(ganttInterval);
 				} else {
-					// refresh the interval
+					// update the interval
 					childIntervalsAsIs.remove(childModelElement);
-					this.refreshNode(ganttInterval);
+					this.refreshNodeInterval(ganttInterval);
 				}
-			} else {
-				// the node is a row
-				GanttViewerRow ganttChildRow = ganttChildRowsAsIs.get(childModelElement);
-				if ( ganttChildRow == null){
-					// create the row
-					ganttChildRow= this.createRow(childModelElement);
-					row.addNode(ganttChildRow);
-				}
-				else {
-					ganttChildRowsAsIs.remove(modelElement);
-				}
-				this.refreshNode(ganttChildRow);
 			}
 		}
 		
-		// remove the rows too many
-		for(GanttViewerRow rowAsIs : ganttChildRowsAsIs.values()){
-			row.remNode(rowAsIs);
-		}
 		// remove the intervals too many
 		for ( GanttViewerInterval intervalAsIs : childIntervalsAsIs.values()){
 			row.remInterval(intervalAsIs);
