@@ -14,6 +14,7 @@ import org.eclipse.jface.action.*;
 import org.eclipse.ui.*;
 import org.eclipse.swt.widgets.Menu;
 
+import com.misc.common.moplaf.emf.edit.ui.provider.AdapterFactoryArrayContentProvider;
 import com.misc.common.moplaf.timeview.GanttViewerAbstract;
 import com.misc.common.moplaf.timeview.impl.AdapterFactoryIntervalEventProvider;
 
@@ -45,11 +46,8 @@ public abstract class GanttViewAbstract extends ViewPart {
 			if (  GanttViewAbstract.this.viewer != null && part!= GanttViewAbstract.this) {
 				if (  !selection.isEmpty() 
 				  && selection instanceof IStructuredSelection) {
-					Object selectedElement = ((IStructuredSelection)selection).getFirstElement();
-					// set the input of the widget
-					if (GanttViewAbstract.this.viewer.getInput() != selectedElement) {
-						GanttViewAbstract.this.viewer.setInput(selectedElement);
-					}
+					IStructuredSelection structuredSelection = (IStructuredSelection)selection;
+					GanttViewAbstract.this.viewer.setInput(structuredSelection.toArray());
 				} // there is a selection
 			} // there is a viewer
 		}
@@ -73,7 +71,7 @@ public abstract class GanttViewAbstract extends ViewPart {
 	public void createPartControl(Composite parent) {
         //GridData gd = new GridData(GridData.FILL_BOTH);
         this.viewer = this.createViewer(parent);
-        this.viewer.setContentProvider(new AdapterFactoryContentProvider(this.adapterFactory));
+        this.viewer.setContentProvider(new AdapterFactoryArrayContentProvider(this.adapterFactory));
 		this.viewer.setLabelProvider(new AdapterFactoryLabelProvider(this.adapterFactory));
 		this.viewer.setIntervalEventProvider(new AdapterFactoryIntervalEventProvider(this.adapterFactory));
 

@@ -67,6 +67,13 @@ public class AdapterFactoryAmountEventProvider implements
 	public AdapterFactoryAmountEventProvider(AdapterFactory adapterFactory){
 		this.adapterFactory = adapterFactory;
 	}
+
+	// dispose
+	public void dispose(){
+		this.lastElement = null;
+		this.lastEventsElement = null;
+		this.lastEventsElementEvents = null;
+	}
 	
 	// event properties getter
 	@Override
@@ -100,10 +107,5 @@ public class AdapterFactoryAmountEventProvider implements
 		return this.lastEventsElementEvents;
 	}
 	
-	public void dispose(){
-		this.lastElement = null;
-		this.lastEventsElement = null;
-		this.lastEventsElementEvents = null;
-	}
 
 }

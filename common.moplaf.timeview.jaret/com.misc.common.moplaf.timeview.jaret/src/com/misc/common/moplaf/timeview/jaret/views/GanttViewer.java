@@ -166,9 +166,9 @@ public class GanttViewer extends GanttViewerAbstract {
 			DefaultHierarchicalTimeBarModel model = null;
 			GanttViewerRow rootNode = null;
 			Object modelElement = input;
-	        rootNode = this.createRow(modelElement);
-			model = new DefaultHierarchicalTimeBarModel(rootNode);
-			this.timeBarModel = model;
+	        //rootNode = this.createRow(modelElement);
+			//model = new DefaultHierarchicalTimeBarModel(rootNode);
+			//this.timeBarModel = model;
 			this.timeBarViewer.setModel(timeBarModel);
 			this.refresh();
 		}
@@ -197,7 +197,7 @@ public class GanttViewer extends GanttViewerAbstract {
 	}
 	
 	
-	public void refreshNode(GanttViewerInterval interval){
+	public void refreshNodeInterval(GanttViewerInterval interval){
 		Object modelElement = interval.getModelObject();
 		// begin
 		Date startToBe = this.getIIntervalEventProvider().getIntervalEventStart(modelElement);
@@ -214,9 +214,45 @@ public class GanttViewer extends GanttViewerAbstract {
 		}
 	}
 
-	public void refreshNode(GanttViewerRow row){
+	public void refreshNodeRow(GanttViewerRow row){
 		// refresh the label
 		this.refreshNodeLabel(row);
+		this.refreshNodeRowSubrows(row);
+		this.refreshNodeRowIntervals(row);
+	}
+	
+	public void refreshNodeRowSubrows(GanttViewerRow row){
+		// refresh the child rows
+		// get the as is
+		Object modelElement = row.getModelObject();
+		HashMap<Object, GanttViewerRow> ganttChildRowsAsIs = new HashMap<Object, GanttViewerRow>();
+		for ( TimeBarNode childRowAsIs : row.getChildren()){
+			GanttViewerRow ganttChildRowAsIs = (GanttViewerRow) childRowAsIs;
+			ganttChildRowsAsIs.put(ganttChildRowAsIs.getModelObject(), ganttChildRowAsIs);
+		}
+		// update the child rows
+		Object[] childrenModelElement = this.getTreeContentProvider().getChildren(modelElement);
+		for (Object childModelElement : childrenModelElement) {
+			if( this.getIIntervalEventProvider().isIntervalEvents(childModelElement) ) {
+				// the node is a row
+				GanttViewerRow ganttChildRow = ganttChildRowsAsIs.get(childModelElement);
+				if ( ganttChildRow == null){
+					// create the row
+					ganttChildRow= this.createRow(childModelElement);
+					row.addNode(ganttChildRow);
+				}
+				else {
+					ganttChildRowsAsIs.remove(modelElement);
+				}
+				this.refreshNodeRow(ganttChildRow);
+			}
+		}
+	}
+
+	public void refreshNodeRowIntervals(GanttViewerRow row){
+	}
+	
+	
 		
 		// refresh the child rows
 		// get the as is

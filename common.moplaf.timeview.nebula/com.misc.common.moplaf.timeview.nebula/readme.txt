@@ -1,0 +1,1 @@
+this plugin needs the component nebula.visualization.xygraph 
