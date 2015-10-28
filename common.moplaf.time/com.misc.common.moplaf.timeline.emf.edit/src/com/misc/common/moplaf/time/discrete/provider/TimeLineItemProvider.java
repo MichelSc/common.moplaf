@@ -8,6 +8,7 @@ import com.misc.common.moplaf.time.continuous.provider.TimelineEditPlugin;
 import com.misc.common.moplaf.time.discrete.DiscreteFactory;
 import com.misc.common.moplaf.time.discrete.DiscretePackage;
 import com.misc.common.moplaf.time.discrete.TimeLine;
+import com.misc.common.moplaf.timeview.impl.IItemIntervalEventsProvider;
 
 import java.util.Collection;
 import java.util.List;
@@ -33,17 +34,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.time.discrete.TimeLine} object.
  * <!-- begin-user-doc -->
+ * @implements IItemIntervalEventsProvider
  * <!-- end-user-doc -->
  * @generated
  */
 public class TimeLineItemProvider
 	extends ItemProviderAdapter
 	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, IItemIntervalEventsProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -53,6 +51,18 @@ public class TimeLineItemProvider
 	public TimeLineItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
+	
+	/* (non-Javadoc)
+	 * @see org.eclipse.emf.edit.provider.ItemProviderAdapter#isAdapterForType(java.lang.Object)
+	 */
+	@Override
+	public boolean isAdapterForType(Object type) {
+		if ( super.isAdapterForType(type) ){ return true; }
+		if ( type == IItemIntervalEventsProvider.class) { return true; }
+		return false;
+	}
+
+
 
 	/**
 	 * This returns the property descriptors for the adapted class.
@@ -416,4 +426,10 @@ public class TimeLineItemProvider
 		}
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand
+
+	@Override
+	public Object[] getIntervalEvents(Object element) {
+		TimeLine timeLine = (TimeLine)element;
+		return timeLine.getBucket().toArray();
+	}
 }

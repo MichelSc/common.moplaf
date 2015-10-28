@@ -9,15 +9,20 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated timeline -->
       <factory
+            uri="http://com.misc.common.moplaf.timeline.time.continuous"
             class="com.misc.common.moplaf.time.continuous.provider.ContinuousItemProviderAdapterFactory"
-            supportedTypes="com.misc.common.moplaf.timeview.impl.IItemAmountEventsProvider com.misc.common.moplaf.timeview.impl.IItemDiscontinuousAmountEventProvider"
-            uri="http://com.misc.common.moplaf.timeline.time.continuous"/>
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
    </extension>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             class="com.misc.common.moplaf.time.discrete.provider.DiscreteItemProviderAdapterFactory"
-            supportedTypes="com.misc.common.moplaf.timeview.impl.IItemIntervalEventProvider"
+            supportedTypes="com.misc.common.moplaf.timeview.impl.IItemIntervalEventProvider com.misc.common.moplaf.timeview.impl.IItemIntervalEventsProvider"
             uri="http://com.misc.common.moplaf.timeline.time.discrete"/>
    </extension>
 

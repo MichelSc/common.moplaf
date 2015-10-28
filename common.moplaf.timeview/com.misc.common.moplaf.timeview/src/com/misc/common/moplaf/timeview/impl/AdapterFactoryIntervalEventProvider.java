@@ -69,12 +69,12 @@ public class AdapterFactoryIntervalEventProvider implements
 
 	@Override
 	public boolean isIntervalEvents(Object element){
-		this.getIntervalEventItemProvider(element);
+		this.getIntervalEventsItemProvider(element);
 		return this.lastEventsIsEvents;
 	}
 	@Override
 	public Object[] getIntervalEvents(Object element) {
-		this.getIntervalEventItemProvider(element);
+		this.getIntervalEventsItemProvider(element);
 		return this.lastEventsElementEvents;
 	}
 
