@@ -9,14 +9,9 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated timeline -->
       <factory
-            uri="http://com.misc.common.moplaf.timeline.time.continuous"
             class="com.misc.common.moplaf.time.continuous.provider.ContinuousItemProviderAdapterFactory"
-            supportedTypes=
-              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
-               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
-               org.eclipse.emf.edit.provider.ITreeItemContentProvider
-               org.eclipse.emf.edit.provider.IItemLabelProvider
-               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+            supportedTypes="com.misc.common.moplaf.timeview.impl.IItemAmountEventsProvider com.misc.common.moplaf.timeview.impl.IItemDiscontinuousAmountEventProvider"
+            uri="http://com.misc.common.moplaf.timeline.time.continuous"/>
    </extension>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
