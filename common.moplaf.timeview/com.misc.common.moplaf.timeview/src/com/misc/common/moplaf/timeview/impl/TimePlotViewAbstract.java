@@ -11,6 +11,7 @@ import org.eclipse.jface.viewers.*;
 import org.eclipse.ui.*;
 
 import com.misc.common.moplaf.emf.edit.ui.provider.AdapterFactoryArrayContentProvider;
+import com.misc.common.moplaf.emf.edit.ui.provider.AdapterFactoryArrayLabelProvider;
 import com.misc.common.moplaf.timeview.TimePlotViewerAbstract;
 
 public abstract class TimePlotViewAbstract extends ViewPart {
@@ -60,9 +61,10 @@ public abstract class TimePlotViewAbstract extends ViewPart {
 	 */
 	public void createPartControl(Composite parent) {
         this.viewer = this.createViewer(parent);
-        this.viewer.setContentProvider(new AdapterFactoryArrayContentProvider(this.adapterFactory));
-		this.viewer.setLabelProvider(new AdapterFactoryLabelProvider(this.adapterFactory));
-		this.viewer.setAmountEventProvider(new AdapterFactoryAmountEventProvider(this.adapterFactory));
+        this.viewer.setContentProvider    (new AdapterFactoryArrayContentProvider(this.adapterFactory));
+		this.viewer.setLabelProvider      (new AdapterFactoryArrayLabelProvider  (this.adapterFactory));
+		this.viewer.setColorProvider      (new AdapterFactoryArrayLabelProvider  (this.adapterFactory));
+		this.viewer.setAmountEventProvider(new AdapterFactoryAmountEventProvider (this.adapterFactory));
 
 		// register the selection listener
 		this.selectionListener = new SiteSelectionListener();

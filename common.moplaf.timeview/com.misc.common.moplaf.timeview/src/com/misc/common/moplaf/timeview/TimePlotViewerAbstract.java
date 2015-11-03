@@ -3,6 +3,7 @@ package com.misc.common.moplaf.timeview;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.jface.viewers.ContentViewer;
 import org.eclipse.jface.viewers.IBaseLabelProvider;
+import org.eclipse.jface.viewers.IColorProvider;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ISelection;
@@ -16,6 +17,7 @@ public abstract class TimePlotViewerAbstract extends ContentViewer {
 	private Object selectedElement = null;
 	private ISelection currentSelection = null;
 	private IAmountEventProvider amountEventProvider = null;
+	private IColorProvider       colorProvider = null;
 
 	// providers management
 	@Override
@@ -28,6 +30,10 @@ public abstract class TimePlotViewerAbstract extends ContentViewer {
 	public void setLabelProvider(IBaseLabelProvider provider) {
 		assertLabelProviderType(provider);
 		super.setLabelProvider(provider);
+	}
+	
+	public void setColorProvider(IColorProvider provider) {
+		this.colorProvider = provider;
 	}
 	
 	public void setAmountEventProvider(IAmountEventProvider eventProvider){
@@ -62,6 +68,10 @@ public abstract class TimePlotViewerAbstract extends ContentViewer {
 	
 	protected IAmountEventProvider getIAmountEventProvider(){
 		return this.amountEventProvider;
+	}
+	
+	protected IColorProvider getIColorProvider(){
+		return this.colorProvider;
 	}
 	
 	// selection management

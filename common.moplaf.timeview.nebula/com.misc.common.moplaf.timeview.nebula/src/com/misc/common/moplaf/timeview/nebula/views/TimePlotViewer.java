@@ -28,6 +28,7 @@ import org.eclipse.nebula.visualization.xygraph.figures.ZoomType;
 import org.eclipse.nebula.visualization.xygraph.linearscale.Range;
 import org.eclipse.nebula.visualization.xygraph.figures.Trace.PointStyle;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.graphics.ImageLoader;
 import org.eclipse.swt.widgets.Canvas;
@@ -335,9 +336,11 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 			if ( this.getIAmountEventProvider().isAmountEvents(modelObjectToAdd)){
 				// it is a collection of events
 				String traceLabel = this.getILabelProvider().getText(modelObjectToAdd);
+				Color  color      = this.getIColorProvider().getForeground(modelObjectToAdd);
 				TimePlotDataProvider dataProvider = new TimePlotDataProvider(modelObjectToAdd);
 				Trace trace = new Trace(traceLabel, xyGraph.primaryXAxis, xyGraph.primaryYAxis, dataProvider);
 				trace.setPointStyle(PointStyle.XCROSS);
+				trace.setBackgroundColor(color);
 				this.xyGraph.addTrace(trace);
 			}
 		}
