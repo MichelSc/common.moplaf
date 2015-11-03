@@ -22,6 +22,8 @@ import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.RGB;
+import org.eclipse.swt.widgets.ColorDialog;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.DateTime;
@@ -29,8 +31,6 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.ui.views.properties.IPropertyDescriptor;
 import org.eclipse.ui.views.properties.IPropertySource;
 import org.eclipse.emf.common.ui.celleditor.ExtendedDialogCellEditor;
-
-
 
 /**
  * This AdapterFactoryContentProvider provides specialized PropertySource and PropertyDescriptior, allowing
@@ -63,19 +63,23 @@ public class AdapterFactoryContentProviderExtended extends
 			   if ( AdapterFactoryContentProviderExtended.this.editDates.isFeatureSelected(eFeature)
 				 && eDataType.getInstanceClass() == Date.class ){
 			  	  	return editDate(composite, object, eFeature);
-			   }  // if class is Date
+			   }  // if class is Date and feature is selected as Date
 			   else if ( AdapterFactoryContentProviderExtended.this.editDateTimes.isFeatureSelected(eFeature)
 				 && eDataType.getInstanceClass() == Date.class ){
 			  	  	return editDateTime(composite, object, eFeature);
-			   }  // if class is Date
+			   }  // if class is Date and feature is selected as DateTime
 			   else if ( AdapterFactoryContentProviderExtended.this.editTimes.isFeatureSelected(eFeature)
 				 && eDataType.getInstanceClass() == float.class ){
 			  	  	return editTime(composite, object, eFeature);
-			   }  // if class is Date
+			   }  // if class is float and feature is selected as time
 			   else if ( AdapterFactoryContentProviderExtended.this.editFilePaths.isFeatureSelected(eFeature)
 				 && eDataType.getInstanceClass() == String.class ){
 			  	  	return editFilePath(composite, object, eFeature);
-			   }  // if class is Date
+			   }  // if class is String and feature is selected as file path
+			   else if ( AdapterFactoryContentProviderExtended.this.editColors.isFeatureSelected(eFeature)
+				 && eDataType.getInstanceClass() == int.class ){
+			  	  	return editColor(composite, object, eFeature);
+			   }  // if class is String and feature is selected as file path
 		   }
 		   return super.createPropertyEditor(composite);
 		}  // create property editor
@@ -97,7 +101,26 @@ public class AdapterFactoryContentProviderExtended extends
 	         };  // class ExtendedDialogCellEditor
 	         return result;  // return from EditDate
 		}  // method EditDate
-
+		
+		// Edit a field Color as Integer
+		CellEditor editColor(Composite composite, Object object, EStructuralFeature feature){
+			EObject eObject = (EObject)object;
+	    	final int colorAsIs= (Integer)eObject.eGet(feature);
+	    	final int b = colorAsIs % 256;
+	    	final int rest = (colorAsIs-b)/256;
+	    	final int g = rest % 256;
+	    	final int r = rest / 256;
+	    	ExtendedDialogCellEditor result = new ExtendedDialogCellEditor(composite, getEditLabelProvider()){
+	            	protected Object openDialogBox(Control cellEditorWindow) {
+	                ColorDialog d = new ColorDialog (cellEditorWindow.getShell(), SWT.OPEN);
+  	                d.setRGB(new RGB(r, g, b));
+	                RGB colorToBe = d.open();  // open the dialog
+	                Integer toReturn = 256 * ( 256 * colorToBe.red + colorToBe.blue )+ colorToBe.blue;
+	                return toReturn;
+	            	} // opendialogBox
+	         };  // class ExtendedDialogCellEditor
+	         return result;  // return from EditDate
+		}  // method EditDate
 
 		// Edit a field EDate
 		CellEditor editDate(Composite composite, Object object, EStructuralFeature feature)
@@ -150,7 +173,6 @@ public class AdapterFactoryContentProviderExtended extends
 	         };  // class ExtendedDialogCellEditor
 	         return result;  // return from EditDate
 		}  // method EditDate
-
 
 		// Edit a field EDateTime
 		CellEditor editDateTime(Composite composite, Object object, EStructuralFeature feature)		{
@@ -219,8 +241,7 @@ public class AdapterFactoryContentProviderExtended extends
 	         return result;  // return from EditDateTime
 		}  // method EditDateTime
 
-
-		// Edit a field Time
+		// Edit a field Time as float
 		CellEditor editTime(Composite composite, Object object, EStructuralFeature feature)
 		{
 	    	CellEditor result = null;
@@ -271,7 +292,6 @@ public class AdapterFactoryContentProviderExtended extends
 	         return result;  // return from EditTime
 		}  // method EditTime
 	}  // class POPropertyDescriptor
-	
 	
     abstract class FeatureSelector {
     	boolean isFeatureSelected(EStructuralFeature feature){
@@ -350,6 +370,7 @@ public class AdapterFactoryContentProviderExtended extends
     public FeatureSelectors editTimes     = new FeatureSelectors();
     public FeatureSelectors editDateTimes = new FeatureSelectors();
     public FeatureSelectors editFilePaths = new FeatureSelectors();
+    public FeatureSelectors editColors    = new FeatureSelectors();
 	
 	// subclass PropertySourcePrivate
 	private class PropertySourcePrivate extends PropertySource {
@@ -362,12 +383,12 @@ public class AdapterFactoryContentProviderExtended extends
 			return new PropertyDescriptorPrivate(object, itemPropertyDescriptor);
 		}		
 	}  // subclass POPropertySource
+
 	// constructor
-	
-	public AdapterFactoryContentProviderExtended(AdapterFactory adapterFactory)
-	{
+	public AdapterFactoryContentProviderExtended(AdapterFactory adapterFactory){
 		super(adapterFactory);
 	}
+	
 	// create property source
 	protected IPropertySource createPropertySource(Object object,
 			                                       IItemPropertySource itemPropertySource) {
