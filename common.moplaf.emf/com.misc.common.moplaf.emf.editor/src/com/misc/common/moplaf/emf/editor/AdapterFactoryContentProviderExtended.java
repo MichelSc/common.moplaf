@@ -31,6 +31,8 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.ui.views.properties.IPropertyDescriptor;
 import org.eclipse.ui.views.properties.IPropertySource;
 
+import com.misc.common.moplaf.emf.edit.Util;
+
 import org.eclipse.emf.common.ui.celleditor.ExtendedDialogCellEditor;
 
 /**
@@ -109,17 +111,13 @@ public class AdapterFactoryContentProviderExtended extends
 		CellEditor editColor(Composite composite, Object object, EStructuralFeature feature){
 			EObject eObject = (EObject)object;
 	    	final int colorAsIs= (Integer)eObject.eGet(feature);
-	    	final int b = colorAsIs % 256;
-	    	final int rest = (colorAsIs-b)/256;
-	    	final int g = rest % 256;
-	    	final int r = rest / 256;
+	    	final RGB rgbAsIs = Util.integerToRgb(colorAsIs);
 	    	ExtendedDialogCellEditor result = new ExtendedDialogCellEditor(composite, getEditLabelProvider()){
 	            	protected Object openDialogBox(Control cellEditorWindow) {
 	                ColorDialog d = new ColorDialog (cellEditorWindow.getShell(), SWT.OPEN);
-  	                d.setRGB(new RGB(r, g, b));
-	                RGB colorToBe = d.open();  // open the dialog
-	                if ( colorToBe == null ) { return null; }
-	                Integer toReturn = 256 * ( 256 * colorToBe.red + colorToBe.green )+ colorToBe.blue;
+  	                d.setRGB(rgbAsIs);
+	                RGB rgbToBe = d.open();  // open the dialog
+	                Integer toReturn = Util.rgbToInt(rgbToBe);
 	                return toReturn;
 	            	} // opendialogBox
 	         };  // class ExtendedDialogCellEditor

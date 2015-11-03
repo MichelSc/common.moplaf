@@ -340,7 +340,7 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 				TimePlotDataProvider dataProvider = new TimePlotDataProvider(modelObjectToAdd);
 				Trace trace = new Trace(traceLabel, xyGraph.primaryXAxis, xyGraph.primaryYAxis, dataProvider);
 				trace.setPointStyle(PointStyle.XCROSS);
-				trace.setBackgroundColor(color);
+				trace.setTraceColor(color);
 				this.xyGraph.addTrace(trace);
 			}
 		}
