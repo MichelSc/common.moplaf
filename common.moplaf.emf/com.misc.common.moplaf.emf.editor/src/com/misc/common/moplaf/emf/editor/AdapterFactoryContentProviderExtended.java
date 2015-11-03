@@ -30,18 +30,21 @@ import org.eclipse.swt.widgets.DateTime;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.ui.views.properties.IPropertyDescriptor;
 import org.eclipse.ui.views.properties.IPropertySource;
+
 import org.eclipse.emf.common.ui.celleditor.ExtendedDialogCellEditor;
 
 /**
+ * <!-- begin-user-doc -->
  * This AdapterFactoryContentProvider provides specialized PropertySource and PropertyDescriptior, allowing
  * to edit date and time with a calendar dialog.
  * 
  * Usage, in an emf editor project
- *   1) add com.misc.common.moplaf.emf.editor in the plugin dependencies
- *   2) in the PropertySheetPage, use this ContentProvider as PropertySourceProvider
- *   3) add appropriate feature selectors to the editDates, e.g. call AddSelectorAll
+ * <ul>
+ *   <li>1) add com.misc.common.moplaf.emf.editor in the plugin dependencies</li>
+ *   <li>2) in the the method getPropertySheetPage, use this ContentProvider as PropertySourceProvider</li>
+ *   <li>3) add appropriate feature selectors to the editDates, e.g. call AddSelectorAll</li>
+ * </ul>
  * 
- * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
@@ -115,7 +118,8 @@ public class AdapterFactoryContentProviderExtended extends
 	                ColorDialog d = new ColorDialog (cellEditorWindow.getShell(), SWT.OPEN);
   	                d.setRGB(new RGB(r, g, b));
 	                RGB colorToBe = d.open();  // open the dialog
-	                Integer toReturn = 256 * ( 256 * colorToBe.red + colorToBe.blue )+ colorToBe.blue;
+	                if ( colorToBe == null ) { return null; }
+	                Integer toReturn = 256 * ( 256 * colorToBe.red + colorToBe.green )+ colorToBe.blue;
 	                return toReturn;
 	            	} // opendialogBox
 	         };  // class ExtendedDialogCellEditor
