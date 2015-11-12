@@ -10,22 +10,31 @@ import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.GC;
+import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
 
 import com.misc.common.moplaf.timeview.GanttViewerAbstract;
 
 import de.jaret.util.date.Interval;
 import de.jaret.util.date.IntervalImpl;
 import de.jaret.util.date.JaretDate;
+import de.jaret.util.swt.SwtGraphicsHelper;
+import de.jaret.util.ui.timebars.TimeBarViewerDelegate;
 import de.jaret.util.ui.timebars.model.DefaultHierarchicalTimeBarModel;
 import de.jaret.util.ui.timebars.model.DefaultRowHeader;
 import de.jaret.util.ui.timebars.model.DefaultTimeBarNode;
 import de.jaret.util.ui.timebars.model.TimeBarNode;
 import de.jaret.util.ui.timebars.swt.TimeBarViewer;
 import de.jaret.util.ui.timebars.swt.renderer.DefaultHierarchyRenderer;
+import de.jaret.util.ui.timebars.swt.renderer.DefaultRenderer;
 import de.jaret.util.ui.timebars.swt.renderer.DefaultTitleRenderer;
 import de.jaret.util.ui.timebars.strategy.DefaultOverlapStrategy;
+import de.jaret.util.ui.timebars.TimeBarViewerInterface;
+
 
 public class GanttViewer extends GanttViewerAbstract {
 
@@ -46,8 +55,11 @@ public class GanttViewer extends GanttViewerAbstract {
 		this.timeBarViewer.addSelectionChangedListener(new GanttViewerISeletionListener());
 		this.timeBarViewer.setInitialDisplayRange(new JaretDate(), 365*24*60*60);
 
+		this.timeBarViewer.setTimeBarRenderer(new IntervalRendeder());
+
 		((DefaultOverlapStrategy) this.timeBarViewer.getOverlapStrategy()).setAssumeSortedIntervals(false);
-        DefaultTitleRenderer titleRenderer = new DefaultTitleRenderer();
+
+		DefaultTitleRenderer titleRenderer = new DefaultTitleRenderer();
 //titleRenderer.setBackgroundRscName("/de/jaret/examples/timebars/hierarchy/swt/titlebg.png");
         this.timeBarViewer.setTitleRenderer(titleRenderer);
         this.timeBarViewer.setTitle("Gantt chart");
@@ -76,6 +88,83 @@ public class GanttViewer extends GanttViewerAbstract {
 	public Control getControl() {
 		return timeBarViewer;
 	}
+	
+	// ******************************
+	// Renderer
+	// ******************************
+	protected class IntervalRendeder extends DefaultRenderer{
+		
+		private Color getForeground(Interval interval, boolean selected){
+			Color color = null;
+			if ( interval instanceof GanttViewerInterval){
+				GanttViewerInterval ganttInterval = (GanttViewerInterval)interval;
+				color = ganttInterval.getForegroundToBe();
+			} 
+			if ( color == null){
+				color = Display.getCurrent().getSystemColor(SWT.COLOR_BLACK);
+			}
+			return color;
+		}
+		
+		private Color getBackground(Interval interval, boolean selected){
+			Color color = null;
+	        if (!selected) {
+	        	// not selected
+				if ( interval instanceof GanttViewerInterval){
+					GanttViewerInterval ganttInterval = (GanttViewerInterval)interval;
+					color = ganttInterval.getBackgroundToBe();
+				} 
+				if ( color == null) {
+		            color = Display.getCurrent().getSystemColor(SWT.COLOR_GRAY);
+				}
+	        } else {
+	        	// selected
+	            color = Display.getCurrent().getSystemColor(SWT.COLOR_BLUE);
+	        }
+			return color;
+		}
+		
+		private String getText(Interval interval){
+			if ( interval instanceof GanttViewerInterval){
+				GanttViewerInterval ganttInterval = (GanttViewerInterval)interval;
+				return ganttInterval.getTextToBe();
+			}
+			return interval.toString();
+		}
+		@Override
+	    public void draw(GC gc, Rectangle drawingArea, TimeBarViewerDelegate delegate, Interval interval,
+	            boolean selected, boolean printing, boolean overlap) {
+	        _delegate = delegate;
+			
+	        drawFocus(gc, drawingArea, delegate, interval, selected, printing, overlap);
+
+	        boolean horizontal = delegate.getOrientation() == TimeBarViewerInterface.Orientation.HORIZONTAL;
+	        Rectangle iRect = getIRect(horizontal, drawingArea, overlap);
+
+	        Color bg = gc.getBackground();
+	        Color fg = gc.getForeground();
+	        
+	        String str = this.getText(interval);
+            gc.setBackground(this.getBackground(interval, selected));
+            gc.setForeground(this.getForeground(interval, selected));
+	        gc.fillRectangle(iRect);
+	        gc.drawRectangle(iRect);
+	        SwtGraphicsHelper.drawStringCentered(gc, str, iRect);
+
+	        gc.setBackground(bg);
+	        gc.setForeground(fg);
+	    }
+		@Override
+	    public String getToolTipText(TimeBarViewerDelegate delegate, Interval interval, Rectangle drawingArea, int x,
+	            int y, boolean overlapping) {
+	        if (contains(delegate, interval, drawingArea, x, y, overlapping)) {
+	            return this.getText(interval);
+	        }
+	        return null;
+	    }
+		
+	};
+
 	
 	// ******************************
 	// selection management
@@ -119,7 +208,7 @@ public class GanttViewer extends GanttViewerAbstract {
 	}
 
 	// ******************************
-	// map to jaret
+	// map to jaret Row
 	// ******************************
 	public class GanttViewerRow extends DefaultTimeBarNode {
 		private Object modelObject;
@@ -135,8 +224,16 @@ public class GanttViewer extends GanttViewerAbstract {
 		public Object getModelObject(){
 			return this.modelObject;
 		}
+		
+		public String getTextToBe(){
+			String labelToBe = GanttViewer.this.getILabelProvider().getText(this.modelObject);
+			return labelToBe;
+		}
 	}
 	
+	// ******************************
+	// map to jaret Interval
+	// ******************************
 	public class GanttViewerInterval extends IntervalImpl {
 		private Object modelObject;
 		public GanttViewerInterval(Object modelObject){
@@ -144,6 +241,30 @@ public class GanttViewer extends GanttViewerAbstract {
 		}
 		public Object getModelObject(){
 			return this.modelObject;
+		}
+		
+		public String getTextToBe(){
+			String labelToBe = GanttViewer.this.getILabelProvider().getText(this.modelObject);
+			return labelToBe;
+		}
+		
+		public Color getForegroundToBe(){
+			Color colorToBe = GanttViewer.this.getIColorProvider().getForeground(this.modelObject);
+			return colorToBe;
+		}
+
+		public Color getBackgroundToBe(){
+			Color colorToBe = GanttViewer.this.getIColorProvider().getBackground(this.modelObject);
+			return colorToBe;
+		}
+		
+		public Date getStartToBe(){
+			Date startToBe = GanttViewer.this.getIIntervalEventProvider().getIntervalEventStart(this.modelObject);
+			return startToBe;
+		}
+		public Date getEndToBe(){
+			Date endToBe = GanttViewer.this.getIIntervalEventProvider().getIntervalEventEnd(this.modelObject);
+			return endToBe;
 		}
 	}
 	
@@ -192,7 +313,7 @@ public class GanttViewer extends GanttViewerAbstract {
 	}
 	
 	public void refreshNodeLabel(GanttViewerRow row){
-		String labelToBe = this.getILabelProvider().getText(row.getModelObject());
+		String labelToBe = row.getTextToBe();
 		String labelAsIs = row.getGanttRowHeader().getLabel();
 		if ( !labelToBe.equals(labelAsIs)){
 			row.getGanttRowHeader().setLabel(labelToBe);
@@ -200,16 +321,15 @@ public class GanttViewer extends GanttViewerAbstract {
 	}
 	
 	public void refreshNodeInterval(GanttViewerInterval interval){
-		Object modelElement = interval.getModelObject();
 		// begin
-		Date startToBe = this.getIIntervalEventProvider().getIntervalEventStart(modelElement);
+		Date startToBe = interval.getStartToBe();
 		JaretDate startAsIs = interval.getBegin();
 		if (  startAsIs==null || startToBe.compareTo(startAsIs.getDate())!= 0 ){
 			interval.setBegin(new JaretDate(startToBe));
 		}
 		
 		// end
-		Date endToBe   = this.getIIntervalEventProvider().getIntervalEventEnd(modelElement);
+		Date endToBe   = interval.getEndToBe();
 		JaretDate endAsIs = interval.getEnd();
 		if (  endAsIs == null || endToBe.compareTo(endAsIs.getDate())!= 0 ){
 			interval.setEnd(new JaretDate(endToBe));

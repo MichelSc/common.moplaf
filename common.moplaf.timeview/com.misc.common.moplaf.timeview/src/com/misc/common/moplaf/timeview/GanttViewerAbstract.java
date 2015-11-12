@@ -3,6 +3,7 @@ package com.misc.common.moplaf.timeview;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.jface.viewers.ContentViewer;
 import org.eclipse.jface.viewers.IBaseLabelProvider;
+import org.eclipse.jface.viewers.IColorProvider;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ISelection;
@@ -13,8 +14,9 @@ import org.eclipse.jface.viewers.StructuredSelection;
 
 public abstract class GanttViewerAbstract extends ContentViewer {
 
-	private Object selectedElement = null;
-	private ISelection currentSelection = null;
+	private Object                 selectedElement = null;
+	private ISelection             currentSelection = null;
+	private IColorProvider         colorProvider = null;
 	private IIntervalEventProvider intervalEventProvider = null;
 
 	// providers management
@@ -28,6 +30,10 @@ public abstract class GanttViewerAbstract extends ContentViewer {
 	public void setLabelProvider(IBaseLabelProvider provider) {
 		assertLabelProviderType(provider);
 		super.setLabelProvider(provider);
+	}
+	
+	public void setColorProvider(IColorProvider provider) {
+		this.colorProvider = provider;
 	}
 	
 	public void setIntervalEventProvider(IIntervalEventProvider eventProvider){
@@ -58,6 +64,10 @@ public abstract class GanttViewerAbstract extends ContentViewer {
 	
 	protected ILabelProvider getILabelProvider(){
 		return (ILabelProvider)this.getLabelProvider();
+	}
+	
+	protected IColorProvider getIColorProvider(){
+		return this.colorProvider;
 	}
 	
 	protected IIntervalEventProvider getIIntervalEventProvider(){

@@ -15,6 +15,7 @@ import org.eclipse.ui.*;
 import org.eclipse.swt.widgets.Menu;
 
 import com.misc.common.moplaf.emf.edit.ui.provider.AdapterFactoryArrayContentProvider;
+import com.misc.common.moplaf.emf.edit.ui.provider.AdapterFactoryArrayLabelProvider;
 import com.misc.common.moplaf.timeview.GanttViewerAbstract;
 import com.misc.common.moplaf.timeview.impl.AdapterFactoryIntervalEventProvider;
 
@@ -71,8 +72,9 @@ public abstract class GanttViewAbstract extends ViewPart {
 	public void createPartControl(Composite parent) {
         //GridData gd = new GridData(GridData.FILL_BOTH);
         this.viewer = this.createViewer(parent);
-        this.viewer.setContentProvider(new AdapterFactoryArrayContentProvider(this.adapterFactory));
-		this.viewer.setLabelProvider(new AdapterFactoryLabelProvider(this.adapterFactory));
+        this.viewer.setContentProvider      (new AdapterFactoryArrayContentProvider (this.adapterFactory));
+		this.viewer.setLabelProvider        (new AdapterFactoryArrayLabelProvider   (this.adapterFactory));
+		this.viewer.setColorProvider        (new AdapterFactoryArrayLabelProvider   (this.adapterFactory));
 		this.viewer.setIntervalEventProvider(new AdapterFactoryIntervalEventProvider(this.adapterFactory));
 
         //viewer.setLayoutData(gd);

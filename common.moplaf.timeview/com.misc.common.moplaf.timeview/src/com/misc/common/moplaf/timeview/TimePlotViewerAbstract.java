@@ -14,10 +14,10 @@ import org.eclipse.jface.viewers.StructuredSelection;
 
 public abstract class TimePlotViewerAbstract extends ContentViewer {
 
-	private Object selectedElement = null;
-	private ISelection currentSelection = null;
-	private IAmountEventProvider amountEventProvider = null;
+	private Object               selectedElement = null;
+	private ISelection           currentSelection = null;
 	private IColorProvider       colorProvider = null;
+	private IAmountEventProvider amountEventProvider = null;
 
 	// providers management
 	@Override
