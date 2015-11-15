@@ -320,20 +320,36 @@ public class GanttViewer extends GanttViewerAbstract {
 		}
 	}
 	
-	public void refreshNodeInterval(GanttViewerInterval interval){
+	public boolean refreshNodeInterval(GanttViewerInterval interval){
+		boolean valid = true;
 		// begin
-		Date startToBe = interval.getStartToBe();
+		Date      startToBe = interval.getStartToBe();
 		JaretDate startAsIs = interval.getBegin();
-		if (  startAsIs==null || startToBe.compareTo(startAsIs.getDate())!= 0 ){
-			interval.setBegin(new JaretDate(startToBe));
+		if( startToBe==null){
+			valid = false;
+			if (startAsIs != null ) {
+				interval.setBegin( null);
+			}
+		}  else {
+			if (  startAsIs==null || startToBe.compareTo(startAsIs.getDate())!= 0 ){
+					interval.setBegin(new JaretDate(startToBe));
+			}
 		}
 		
 		// end
-		Date endToBe   = interval.getEndToBe();
+		Date      endToBe = interval.getEndToBe();
 		JaretDate endAsIs = interval.getEnd();
-		if (  endAsIs == null || endToBe.compareTo(endAsIs.getDate())!= 0 ){
-			interval.setEnd(new JaretDate(endToBe));
+		if ( endToBe == null) {
+			valid = false;
+			if ( endAsIs != null ) {
+				interval.setEnd(null);
+			}
+		} else {
+			if (  endAsIs == null || endToBe.compareTo(endAsIs.getDate())!= 0 ){
+				interval.setEnd(new JaretDate(endToBe));
+			}
 		}
+		return valid;
 	}
 
 	private void refreshNodeRow(GanttViewerRow row){
@@ -397,12 +413,16 @@ public class GanttViewer extends GanttViewerAbstract {
 				if ( ganttInterval == null){
 					// create the interval
 					ganttInterval = this.createInterval(childModelElement);
-					this.refreshNodeInterval(ganttInterval);
-					row.addInterval(ganttInterval);
+					if ( this.refreshNodeInterval(ganttInterval) ) {
+						// interval is valid: so add it
+						row.addInterval(ganttInterval);
+					}
 				} else {
 					// update the interval
-					childIntervalsAsIs.remove(childModelElement);
-					this.refreshNodeInterval(ganttInterval);
+					if ( this.refreshNodeInterval(ganttInterval) ){
+						// interval is valid: not to be removed
+						childIntervalsAsIs.remove(childModelElement);
+					}
 				}
 			}
 		}
