@@ -142,15 +142,14 @@ public class AdapterFactoryContentProviderExtended extends
 	                      dateTime[0] = new DateTime(dialogArea, SWT.CALENDAR | SWT.LONG);
 	                      // initialize the widget
    	          	    	  final GregorianCalendar calendarasis = new GregorianCalendar();
-   	          	    	  if ( dateasis != null) {
-   	   	       	    	      calendarasis.setTime(dateasis);
-   		                      fields[0] = calendarasis.get(Calendar.YEAR);
-   		                      fields[1] = calendarasis.get(Calendar.MONTH);
-   		                      fields[2] = calendarasis.get(Calendar.DAY_OF_MONTH);
-   		                      dateTime[0].setYear   (fields[0]);
-   		                      dateTime[0].setMonth  (fields[1]);
-   		                      dateTime[0].setDay    (fields[2]);
-   	          	    	  }
+   	          	    	  Date initialDate = dateasis == null ? new Date() : dateasis;
+   	       	    	      calendarasis.setTime(initialDate);
+	                      fields[0] = calendarasis.get(Calendar.YEAR);
+	                      fields[1] = calendarasis.get(Calendar.MONTH);
+	                      fields[2] = calendarasis.get(Calendar.DAY_OF_MONTH);
+	                      dateTime[0].setYear   (fields[0]);
+	                      dateTime[0].setMonth  (fields[1]);
+	                      dateTime[0].setDay    (fields[2]);
 	                      // add the selection listener
 	                      dateTime[0].addSelectionListener(new SelectionAdapter(){
 	                          public void widgetSelected(SelectionEvent e) {
@@ -259,15 +258,14 @@ public class AdapterFactoryContentProviderExtended extends
 	                      // create the widget
 	                      dateTime[0] = new DateTime(dialogArea, SWT.TIME | SWT.LONG);
 	                      // initialize the widget
-   	          	    	  if ( timeasis != null) {
-   	          	    		  int hours = (int) Math.floor(timeasis);
-   	          	    		  double minutesnotrounded = (timeasis-hours)*60.0;
-   	          	    		  int minutes = (int) Math.floor(minutesnotrounded);
-   	          	    		  int seconds = (int) Math.round((minutesnotrounded-minutes)*60.0);
-   		                      dateTime[0].setHours  (hours);
-   		                      dateTime[0].setMinutes(minutes);
-   		                      dateTime[0].setSeconds(seconds);
-   	          	    	  }
+	                      Float intialTime = timeasis == null ? 0.0f : timeasis;
+          	    		  int hours = (int) Math.floor(intialTime);
+          	    		  double minutesnotrounded = (timeasis-hours)*60.0;
+          	    		  int minutes = (int) Math.floor(minutesnotrounded);
+          	    		  int seconds = (int) Math.round((minutesnotrounded-minutes)*60.0);
+	                      dateTime[0].setHours  (hours);
+	                      dateTime[0].setMinutes(minutes);
+	                      dateTime[0].setSeconds(seconds);
 	                      // add the selection listener
 	                      dateTime[0].addSelectionListener(new SelectionAdapter(){
 	                          public void widgetSelected(SelectionEvent e) {
