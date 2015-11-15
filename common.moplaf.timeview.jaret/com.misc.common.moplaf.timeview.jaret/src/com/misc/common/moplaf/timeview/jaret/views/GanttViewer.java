@@ -10,6 +10,8 @@ import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.MouseWheelListener;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Rectangle;
@@ -47,7 +49,7 @@ public class GanttViewer extends GanttViewerAbstract {
 		// make the control
 		this.timeBarViewer = new TimeBarViewer(parent, SWT.H_SCROLL | SWT.V_SCROLL);
 		this.timeBarViewer.setTimeScalePosition(TimeBarViewer.TIMESCALE_POSITION_TOP);
-		this.timeBarViewer.setPixelPerSecond(0.05);
+		this.timeBarViewer.setPixelPerSecond(0.05); // this is the scale
 		this.timeBarViewer.setDrawRowGrid(true);
 		this.timeBarViewer.setSelectionDelta(6);
 		//this.timeBarViewer.setHierarchyWidth(5);
@@ -65,6 +67,22 @@ public class GanttViewer extends GanttViewerAbstract {
         this.timeBarViewer.setTitle("Gantt chart");
 
 		super.hookControl(this.timeBarViewer);
+        this.timeBarViewer.addMouseWheelListener(new MouseWheelListener() {
+
+			@Override
+			public void mouseScrolled(MouseEvent e) {
+				TimeBarViewer tbv = GanttViewer.this.timeBarViewer;
+				double pps = tbv.getPixelPerSecond();
+	            int count = e.count;
+	            if ( count >0 ){
+	            	tbv.setPixelPerSecond(pps*2.0);
+	            } else if ( count<0 ){
+	            	tbv.setPixelPerSecond(pps/2.0);
+	            }
+			}
+        	
+        });
+
 		/*
         this.timeBarViewer.addMouseListener(new MouseListener() {
 
