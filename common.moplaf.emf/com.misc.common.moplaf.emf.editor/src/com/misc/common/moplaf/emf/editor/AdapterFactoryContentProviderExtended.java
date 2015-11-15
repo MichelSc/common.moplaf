@@ -194,21 +194,20 @@ public class AdapterFactoryContentProviderExtended extends
 	                      dateTime[1] = new DateTime(dialogArea, SWT.TIME | SWT.LONG);
 	                      // initialize the widget
    	          	    	  final GregorianCalendar calendarasis = new GregorianCalendar();
-   	          	    	  if ( dateasis != null) {
-   	   	       	    	      calendarasis.setTime(dateasis);
-   		                      fields[0] = calendarasis.get(Calendar.YEAR);
-   		                      fields[1] = calendarasis.get(Calendar.MONTH);
-   		                      fields[2] = calendarasis.get(Calendar.DAY_OF_MONTH);
-   		                      fields[3] = calendarasis.get(Calendar.HOUR);
-   		                      fields[4] = calendarasis.get(Calendar.MINUTE);
-   		                      fields[5] = calendarasis.get(Calendar.SECOND);
-   		                      dateTime[0].setYear   (fields[0]);
-   		                      dateTime[0].setMonth  (fields[1]);
-   		                      dateTime[0].setDay    (fields[2]);
-   		                      dateTime[1].setHours  (fields[3]);
-   		                      dateTime[1].setMinutes(fields[4]);
-   		                      dateTime[1].setSeconds(fields[5]);
-   	          	    	  }
+   	          	    	  Date initialDate = dateasis==null ? new Date() : dateasis;
+   	       	    	      calendarasis.setTime(initialDate);
+	                      fields[0] = calendarasis.get(Calendar.YEAR);
+	                      fields[1] = calendarasis.get(Calendar.MONTH);
+	                      fields[2] = calendarasis.get(Calendar.DAY_OF_MONTH);
+	                      fields[3] = calendarasis.get(Calendar.HOUR);
+	                      fields[4] = calendarasis.get(Calendar.MINUTE);
+	                      fields[5] = calendarasis.get(Calendar.SECOND);
+	                      dateTime[0].setYear   (fields[0]);
+	                      dateTime[0].setMonth  (fields[1]);
+	                      dateTime[0].setDay    (fields[2]);
+	                      dateTime[1].setHours  (fields[3]);
+	                      dateTime[1].setMinutes(fields[4]);
+	                      dateTime[1].setSeconds(fields[5]);
 	                      // add the selection listener
 	                      dateTime[0].addSelectionListener(new SelectionAdapter(){
 	                          public void widgetSelected(SelectionEvent e) {
