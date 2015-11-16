@@ -11,6 +11,9 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.MouseListener;
+import org.eclipse.swt.events.MouseMoveListener;
+import org.eclipse.swt.events.MouseTrackListener;
 import org.eclipse.swt.events.MouseWheelListener;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.GC;
@@ -67,39 +70,14 @@ public class GanttViewer extends GanttViewerAbstract {
         this.timeBarViewer.setTitle("Gantt chart");
 
 		super.hookControl(this.timeBarViewer);
-        this.timeBarViewer.addMouseWheelListener(new MouseWheelListener() {
+		
+		GanttViewerMouseListener mouseListener = new GanttViewerMouseListener();
+		
+        this.timeBarViewer.addMouseWheelListener(mouseListener);
+        this.timeBarViewer.addMouseMoveListener(mouseListener);
+        this.timeBarViewer.addMouseTrackListener(mouseListener);
+        this.timeBarViewer.addMouseListener(mouseListener);
 
-			@Override
-			public void mouseScrolled(MouseEvent e) {
-				TimeBarViewer tbv = GanttViewer.this.timeBarViewer;
-				double pps = tbv.getPixelPerSecond();
-	            int count = e.count;
-	            if ( count >0 ){
-	            	tbv.setPixelPerSecond(pps*2.0);
-	            } else if ( count<0 ){
-	            	tbv.setPixelPerSecond(pps/2.0);
-	            }
-			}
-        	
-        });
-
-		/*
-        this.timeBarViewer.addMouseListener(new MouseListener() {
-
-            public void mouseDoubleClick(MouseEvent e) {
-                DoubleClickEvent event = new DoubleClickEvent(GanttViewer.this, getSelection());
-                // do something
-            }
-
-            public void mouseDown(MouseEvent e) {
-            }
-
-            public void mouseUp(MouseEvent e) {
-            }
-
-        });*/
-        
-        // fill the control
 	}
 	
 	@Override
@@ -183,6 +161,66 @@ public class GanttViewer extends GanttViewerAbstract {
 		
 	};
 
+	// ******************************
+	// mouse management
+	// ******************************
+	protected class GanttViewerMouseListener implements MouseWheelListener, MouseTrackListener, MouseMoveListener, MouseListener{
+		private String formatMouseEvent(MouseEvent e){
+			String formattedEvent = String.format("event x=%d, y=%d, button=%d, count=%d", e.x, e.y, e.button, e.count);
+			return formattedEvent;
+		}
+		// mouse wheel listener
+		@Override
+		public void mouseScrolled(MouseEvent e) {
+			TimeBarViewer tbv = GanttViewer.this.timeBarViewer;
+			double pps = tbv.getPixelPerSecond();
+            int count = e.count;
+            if ( count >0 ){
+            	tbv.setPixelPerSecond(pps*2.0);
+            } else if ( count<0 ){
+            	tbv.setPixelPerSecond(pps/2.0);
+            }
+		}
+
+		// mouse move listenere
+		@Override
+		public void mouseMove(MouseEvent e) {
+			//System.out.println("move "+this.formatMouseEvent(e));
+		}
+
+		// mouse track listener
+		@Override
+		public void mouseEnter(MouseEvent e) {
+			System.out.println("enter "+this.formatMouseEvent(e));
+		}
+
+		@Override
+		public void mouseExit(MouseEvent e) {
+			System.out.println("exit "+this.formatMouseEvent(e));
+		}
+
+		@Override
+		public void mouseHover(MouseEvent e) {
+			System.out.println("hover "+this.formatMouseEvent(e));
+		}
+
+		// mouse listener
+		@Override
+		public void mouseDoubleClick(MouseEvent e) {
+            //DoubleClickEvent event = new DoubleClickEvent(GanttViewer.this, getSelection());
+            // do something
+		}
+
+		@Override
+		public void mouseDown(MouseEvent e) {
+			System.out.println("down "+this.formatMouseEvent(e));
+		}
+
+		@Override
+		public void mouseUp(MouseEvent e) {
+			System.out.println("up "+this.formatMouseEvent(e));
+		}
+    };
 	
 	// ******************************
 	// selection management
