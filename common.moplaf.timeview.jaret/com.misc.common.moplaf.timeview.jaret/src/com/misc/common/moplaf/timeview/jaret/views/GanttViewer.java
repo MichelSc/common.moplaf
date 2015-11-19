@@ -169,39 +169,60 @@ public class GanttViewer extends GanttViewerAbstract {
 			String formattedEvent = String.format("event x=%d, y=%d, button=%d, count=%d", e.x, e.y, e.button, e.count);
 			return formattedEvent;
 		}
+		private boolean xMoving = false;
+		private int xAsFromStartMoving;
+		private JaretDate startDateAsStartMoving;
+		private void startMoving(int xInitial){
+			if ( !xMoving){
+				this.xMoving = true;
+				this.xAsFromStartMoving = xInitial;
+				this.startDateAsStartMoving = GanttViewer.this.timeBarViewer.getStartDate();
+			}
+		}
+		private void stopMoving(){
+			this.xMoving = false;
+		}
 		// mouse wheel listener
 		@Override
 		public void mouseScrolled(MouseEvent e) {
 			TimeBarViewer tbv = GanttViewer.this.timeBarViewer;
-			double pps = tbv.getPixelPerSecond();
             int count = e.count;
-            if ( count >0 ){
-            	tbv.setPixelPerSecond(pps*2.0);
-            } else if ( count<0 ){
-            	tbv.setPixelPerSecond(pps/2.0);
-            }
+			int secondsDisplayedAsIs = tbv.getSecondsDisplayed();
+			int secondsDisplayedToBe = count>0 ? secondsDisplayedAsIs/2 : secondsDisplayedAsIs*2;
+			tbv.setSecondsDisplayed(secondsDisplayedToBe, true);
 		}
 
-		// mouse move listenere
+		// mouse move listener
 		@Override
 		public void mouseMove(MouseEvent e) {
-			//System.out.println("move "+this.formatMouseEvent(e));
+			if ( this.xMoving){
+				TimeBarViewer tbv = GanttViewer.this.timeBarViewer;
+				double xDelta = this.xAsFromStartMoving-e.x;
+				double secondsDelta = xDelta/tbv.getPixelPerSecond();
+				JaretDate startToBe = new JaretDate(this.startDateAsStartMoving);
+				startToBe.advanceSeconds(secondsDelta);
+				tbv.setStartDate(startToBe);
+//				System.out.format("mouse move %s, seconds=%f, startDate=%s %n", 
+//						          this.formatMouseEvent(e),
+//						          secondsDelta,
+//						          startToBe.toDisplayString());
+			}
 		}
 
 		// mouse track listener
 		@Override
 		public void mouseEnter(MouseEvent e) {
-			System.out.println("enter "+this.formatMouseEvent(e));
+//			System.out.println("enter "+this.formatMouseEvent(e));
 		}
 
 		@Override
 		public void mouseExit(MouseEvent e) {
-			System.out.println("exit "+this.formatMouseEvent(e));
+			this.stopMoving();
 		}
 
 		@Override
 		public void mouseHover(MouseEvent e) {
-			System.out.println("hover "+this.formatMouseEvent(e));
+//			System.out.println("hover "+this.formatMouseEvent(e));
 		}
 
 		// mouse listener
@@ -213,12 +234,13 @@ public class GanttViewer extends GanttViewerAbstract {
 
 		@Override
 		public void mouseDown(MouseEvent e) {
-			System.out.println("down "+this.formatMouseEvent(e));
+//			System.out.println("mouse down "+this.formatMouseEvent(e));
+			this.startMoving(e.x);
 		}
 
 		@Override
 		public void mouseUp(MouseEvent e) {
-			System.out.println("up "+this.formatMouseEvent(e));
+			this.stopMoving();
 		}
     };
 	
