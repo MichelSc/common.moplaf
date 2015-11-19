@@ -91,5 +91,8 @@ public abstract class GanttViewerAbstract extends ContentViewer {
 			this.fireSelectionChanged(new SelectionChangedEvent(this, this.getSelection()));
 		}
 	}
+	
+	public void refresh(){
+	}
 
 }

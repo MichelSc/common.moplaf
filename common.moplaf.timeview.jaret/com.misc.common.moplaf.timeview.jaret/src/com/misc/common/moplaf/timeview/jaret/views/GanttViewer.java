@@ -378,6 +378,7 @@ public class GanttViewer extends GanttViewerAbstract {
 
 	@Override
 	public void refresh() {
+		
 		if ( this.timeBarModel!=null) {
 		
 			GanttViewerRow rootNode = (GanttViewerRow)this.timeBarModel.getRootNode();
