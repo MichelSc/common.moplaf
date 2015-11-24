@@ -154,7 +154,7 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	}
 	
 	protected void logInfo(String message){
-		this.logMessage(message, "info");
+		//this.logMessage(message, "info");
 	}
 	
 	protected void logWarning(String message){
