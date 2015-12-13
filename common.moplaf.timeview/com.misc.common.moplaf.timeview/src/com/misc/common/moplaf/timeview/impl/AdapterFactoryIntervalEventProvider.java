@@ -1,5 +1,6 @@
 package com.misc.common.moplaf.timeview.impl;
 
+import java.util.Collection;
 import java.util.Date;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -18,7 +19,7 @@ public class AdapterFactoryIntervalEventProvider implements
 	
 	// cached events
 	private Object   lastEventsElement = null;
-	private Object[] lastEventsElementEvents;
+	private Collection<?> lastEventsElementEvents;
 	private boolean  lastEventsIsEvents = false;
 	
 	private void getIntervalEventItemProvider(Object element){
@@ -75,7 +76,7 @@ public class AdapterFactoryIntervalEventProvider implements
 	@Override
 	public Object[] getIntervalEvents(Object element) {
 		this.getIntervalEventsItemProvider(element);
-		return this.lastEventsElementEvents;
+		return this.lastEventsElementEvents.toArray();
 	}
 
 }

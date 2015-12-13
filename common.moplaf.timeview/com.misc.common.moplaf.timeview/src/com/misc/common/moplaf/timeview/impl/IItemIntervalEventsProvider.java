@@ -1,5 +1,7 @@
 package com.misc.common.moplaf.timeview.impl;
 
+import java.util.Collection;
+
 public interface IItemIntervalEventsProvider {
-	Object[] getIntervalEvents(Object element);
+	Collection<?> getIntervalEvents(Object element);
 }

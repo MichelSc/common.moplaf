@@ -428,8 +428,8 @@ public class TimeLineItemProvider
 	} //method createCommand
 
 	@Override
-	public Object[] getIntervalEvents(Object element) {
+	public Collection<?> getIntervalEvents(Object element) {
 		TimeLine timeLine = (TimeLine)element;
-		return timeLine.getBucket().toArray();
+		return timeLine.getBucket();
 	}
 }

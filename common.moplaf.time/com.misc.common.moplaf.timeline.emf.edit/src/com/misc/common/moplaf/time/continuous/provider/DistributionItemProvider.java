@@ -363,9 +363,9 @@ public class DistributionItemProvider
 	}
 
 	@Override
-	public Object[] getAmountEvents(Object element) {
+	public Collection<?> getAmountEvents(Object element) {
 		Distribution distribution = (Distribution) element;
-		return distribution.getSequenceEvent().toArray();
+		return distribution.getSequenceEvent();
 	}
 
 }
