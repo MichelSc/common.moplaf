@@ -232,17 +232,9 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	}
 	
 	private void untouch(){
-		boolean untouchParent = false;
 		if ( isTouched ){
-			isTouched = false;
-			untouchParent = true;
-     		//this.logMessage("Untouched");
-		}
-		if ( this.touchers!=null){
+			this.isTouched = false;
 			this.touchers = null;
-			untouchParent = true;
-		}
-		if ( untouchParent ) {
 			PropagatorFunctionAdapter parent = this.touchedParent;
 			if ( parent != null ) { 
 				parent.getTouchedAdapters().remove(this);
