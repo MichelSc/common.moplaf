@@ -218,14 +218,18 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 		//this.logMessage("Touched");
 		// touch super
 		super.touch(toucher);
+
 		// touch parent
 		this.touchedParent = parent;
 		parent.touch();
+		
 		// touch this
 		parent.getTouchedAdapters().add(this);
 		this.isTouched = true;
+		
+		// toucher tracking
 		if ( toucher==null){
-			this.touchers = null; // touchers are not tracked 
+			this.touchers = null; // touchers are not tracked any longer
 		} else {
 			this.getOrCreateTouchers().add(toucher);
 		}
