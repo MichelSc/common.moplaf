@@ -96,7 +96,9 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	}
 	
 	public boolean isTouched() { 
-		return this.isTouched; }
+		if ( this.isTouched ) { return true; }
+		return false;
+	}
 	
 	protected boolean isTouchOnOwned() { return true; }
 	
@@ -181,8 +183,15 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	}
 	
 	public void touch(Object toucher){
-		// already touched
-		if ( this.isTouched ){ return; }
+		if ( this.isTouched ){
+			// already touched
+			if ( this.touchers==null ) { return; };
+			if ( toucher==null ){ return; }
+			// already touched by touchers
+			// some (new) toucher
+			this.touchers.add(toucher);
+			return;
+			}
 		
 		if (!this.isActive) { return; }
 
@@ -207,26 +216,38 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 
 		// ok, we touch
 		//this.logMessage("Touched");
+		// touch super
 		super.touch(toucher);
-		this.isTouched = true;
-		parent.getTouchedAdapters().add(this);
+		// touch parent
 		this.touchedParent = parent;
-		if ( toucher!=null){
+		parent.touch();
+		// touch this
+		parent.getTouchedAdapters().add(this);
+		this.isTouched = true;
+		if ( toucher==null){
+			this.touchers = null; // touchers are not tracked 
+		} else {
 			this.getOrCreateTouchers().add(toucher);
 		}
-		parent.touch();
 	}
 	
 	private void untouch(){
+		boolean untouchParent = false;
 		if ( isTouched ){
 			isTouched = false;
+			untouchParent = true;
      		//this.logMessage("Untouched");
+		}
+		if ( this.touchers!=null){
+			this.touchers = null;
+			untouchParent = true;
+		}
+		if ( untouchParent ) {
 			PropagatorFunctionAdapter parent = this.touchedParent;
 			if ( parent != null ) { 
 				parent.getTouchedAdapters().remove(this);
 				this.touchedParent = null;
 			}
-			this.touchers = null;
 		}
 	}
 	
@@ -253,7 +274,7 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	/**
 	 * Calculate this PropagatorFunctionAdapter
 	 * Assume that all Parent antecedents are calculated, and that all children are calculated
-	 * @return false when an error occurred, propagator not refreshed
+	 * @return false when an error occurred, propagtor not refreshed
 	 */
 	private boolean refreshThis()
 	{
