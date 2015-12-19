@@ -5,8 +5,8 @@ Bundle-SymbolicName: com.misc.common.moplaf.propagator.preference;singleton:=tru
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.misc.common.moplaf.propagator.preference.Activator
 Bundle-Vendor: MISC
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime
+Require-Bundle: org.eclipse.ui;visibility:=reexport,
+ org.eclipse.core.runtime;visibility:=reexport
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: com.misc.common.moplaf.propagator.preference;
