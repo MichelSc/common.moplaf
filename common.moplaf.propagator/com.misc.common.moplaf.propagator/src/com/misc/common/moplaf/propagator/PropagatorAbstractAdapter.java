@@ -12,14 +12,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 /**
- * The base class of the Adapters used by the Propagator framework. Listens to notifications 
+ * The base class of the propagators used by theframework. Listens to notifications 
  * and triggers changes by calling touch().
- * <p>
- * Implement some convenience methods such as
- * <ul>
- * <li>{@link #isFeatureChanged(Notification, Object)}: if some EMF feature is changed
- * <li>{@link #isListFeatureAddedRemoved(Notification, Object)}: if some reference is added/removed
- * </ul>
  * <p>
  * Delegate listening to a collection of listeners (target object of this propagator) or to  {@link 
  * PropagatorDependencyAdapter}s (other emf objects naviguable from the target object of this propagator).
@@ -251,6 +245,13 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		// add the dependent adapter
 		dependency.getDependentFunctionAdapters().add(this);
 		if ( touchAfterAdd ) {
+			if ( dependency.isTrackToucher() ){
+				this.touch(targetdependency);
+			} else {
+				this.touch(null);
+			}
+				
+				
 			this.touch(null);
 		}
 
@@ -271,7 +272,11 @@ public PropagatorDependencyAdapter removeDependency(Notifier targetdependency,
 		// normally, the dependency may not be null
 		// unless the referred object has been disposed
 		if ( touchBeforeRemove ) { 
-			this.touch(null);
+			if ( dependency.isTrackToucher() ){
+				this.touch(targetdependency);
+			} else {
+				this.touch(null);
+			}
 		}
 		dependency.getDependentFunctionAdapters().remove(this);
 		if ( dependency.getDependentFunctionAdapters().size()==0){

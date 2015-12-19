@@ -61,7 +61,7 @@ public abstract class PropagatorDependencyAdapter extends PropagatorAbstractAdap
 					newToucher = this.getTarget();
 				}
 				functionadapter.touch(newToucher);
-			} // traverse the function adapters
+			} // traverse the depending function adapters
 		}
 	} 
 };
