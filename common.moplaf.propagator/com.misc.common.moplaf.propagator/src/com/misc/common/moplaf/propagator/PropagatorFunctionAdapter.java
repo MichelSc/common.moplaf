@@ -58,10 +58,26 @@ import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
  *   </ul>
  * </ul>
  * <p>
- * The PropagatorFunctionAdapter life cycle is as follows
- *   It is created by {@link ObjectWithPropagatorFunctionAdapter#addPropagatorFunctionAdapter()}.
- *   The method addPropagatorFunctionAdapters is called by the {@link PropagatorFunctionAdapterManager} when the object is contained.
- *   The propagator is removed, when the object is no longer contained (if not touched) or by the method {@link #untouch()} (if touched).
+ * The {@link PropagatorFunctionAdapter} life cycle is as follows
+ * <ul>
+ *   <li>It is created by {@link ObjectWithPropagatorFunctionAdapter#addPropagatorFunctionAdapter()}, called by the method {@link PropagatorFunctionAdapterManager#onAdapterAdded}</li>
+ *   <ul>
+ *     <li>either when the object is contained</li>
+ *     <li>or when the {@link PropagatorFunctionAdapterManager} is added to the scope of the propagation</li>
+ *   </ul>
+ *   <li>The propagator is removed by the method {@link PropagatorFunctionAdapterManager#onAdapterRemoved} </li>
+ *   <ul>
+ *     <li>either when the object is no longer contained</li>
+ *     <li>or when the {@link PropagatorFunctionAdapterManager} is removed from the scope of the propagation</li>
+ *   </ul>
+ *   <li>The propagator removal will be delayed when touched, to the  {@link #untouch()} </li>
+ *   <li>When a {@link PropagatorFunctionAdapter} is added, following methods are called to initialize it</li>
+ *   <ul>
+ *     <li>method {@link PropagatorAbstractAdapter#addPropagatorFunctionAdapters}</li>
+ *     <li>method {@link PropagatorFunctionAdapter#refreshParent} </li>
+ *   </ul>
+ * </ul>
+ *   
  *   
  * @author michel
  */
@@ -80,20 +96,12 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	
 	// members
 	private boolean isTouched = false;
-	private boolean isActive = true;
 	private PropagatorFunctionAdapter touchedParent = null;
 	private TouchersSet touchers = null;
 	
 	protected PropagatorFunctionAdaptersSet touchedFunctionAdapters = new PropagatorFunctionAdaptersSet();
 
 	private PropagatorFunctionAdapter currentParent = null;
-	
-	private PropagatorFunctionAdapter getCurrentParent(){
-		if ( this.currentParent==null){
-			this.currentParent = this.getParent();
-		}
-		return this.currentParent;
-	}
 	
 	public boolean isTouched() { 
 		if ( this.isTouched ) { return true; }
@@ -128,6 +136,13 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	 */
 	protected PropagatorFunctionAdapter getParent(){
 		return null;
+	}
+	
+	public void refreshParent(){
+		PropagatorFunctionAdapter parentAsIs = this.getParent();
+		if ( parentAsIs != this.currentParent ){
+			this.currentParent = parentAsIs;
+		}
 	}
 	
 	/**
@@ -193,13 +208,12 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 			return;
 			}
 		
-		if (!this.isActive) { return; }
-
 		// is the resource loading?
 		Notifier target = this.getTarget();
 		if (!(target instanceof EObject)) { return; }
 		
 		Resource resource = ((EObject) target).eResource();
+		/*
 		if (resource == null) { return ; } // no resource means object under construction means not loading
 		
 		if (!(resource instanceof ResourceImpl) ) { return ; }
@@ -207,11 +221,15 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 		ResourceImpl r = (ResourceImpl) resource;
 					if (r.isLoading() ){
 			return;
+		}*/
+		if ( resource instanceof ResourceImpl) {
+			ResourceImpl r = (ResourceImpl) resource;
+			if (r.isLoading() ){ return; }
 		}
 
 		// if no parent, the touch is not done
 		//   we want to keep track of the touched elements
-		PropagatorFunctionAdapter parent = this.getCurrentParent();
+		PropagatorFunctionAdapter parent = this.currentParent;
 		if ( parent == null ) { return; } 
 
 		// ok, we touch
@@ -249,7 +267,8 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	
 	private void refreshTouch(){
 		if ( this.isTouched ){
-			PropagatorFunctionAdapter newparent = this.getCurrentParent();
+			this.refreshParent();
+			PropagatorFunctionAdapter newparent = this.currentParent;
 			PropagatorFunctionAdapter oldparent = this.touchedParent;
 			if ( newparent != oldparent){
 				if ( oldparent != null){
@@ -321,7 +340,7 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	 */
 	private boolean refreshAntecedents()  {
 	
-	    PropagatorFunctionAdapter parent = this.getCurrentParent();
+	    PropagatorFunctionAdapter parent = this.currentParent;
 	    if ( parent instanceof PropagatorFunctionAdapter) {
 	    	PropagatorFunctionAdapter parentaspropagatorfunctionadapter = (PropagatorFunctionAdapter)parent;
 	    	if ( !parentaspropagatorfunctionadapter.refreshAntecedents() ){

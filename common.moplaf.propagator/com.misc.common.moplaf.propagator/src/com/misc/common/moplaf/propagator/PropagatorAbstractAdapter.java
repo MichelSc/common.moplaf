@@ -145,16 +145,17 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	}
 	
 	protected void logMessage(String message, String level){
-		String logLine = String.format("Propagator, %4$s: %3$s, object: %1$s, function: %2$s" , 
+		String logLine = String.format("Propagator, %4$s: %3$s, object: %1$s, function: %2$s, object %5$s" , 
 		                 Util.LastTokenDotSeparated(this.target.getClass().getName()),
          		         Util.LastTokenDotSeparated(this.getClass().getName()),
          		         message, 
-         		         level);
+         		         level, 
+         		         this.target);
 		CommonPlugin.INSTANCE.log( logLine);
 	}
 	
 	protected void logInfo(String message){
-		//this.logMessage(message, "info");
+		this.logMessage(message, "info");
 	}
 	
 	protected void logWarning(String message){
@@ -250,7 +251,7 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		// add the dependent adapter
 		dependency.getDependentFunctionAdapters().add(this);
 		if ( touchAfterAdd ) {
-			dependency.touch(null);
+			this.touch(null);
 		}
 
 		// activate the dependency
@@ -270,7 +271,7 @@ public PropagatorDependencyAdapter removeDependency(Notifier targetdependency,
 		// normally, the dependency may not be null
 		// unless the referred object has been disposed
 		if ( touchBeforeRemove ) { 
-			dependency.touch(null);
+			this.touch(null);
 		}
 		dependency.getDependentFunctionAdapters().remove(this);
 		if ( dependency.getDependentFunctionAdapters().size()==0){
