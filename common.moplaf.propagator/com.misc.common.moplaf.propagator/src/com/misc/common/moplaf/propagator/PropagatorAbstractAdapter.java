@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.ui.PlatformUI;
 
 /**
  * The base class of the propagators used by theframework. Listens to notifications 
@@ -149,15 +150,21 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	}
 	
 	protected void logInfo(String message){
-		this.logMessage(message, "info");
+		if ( Plugin.INSTANCE.getLogOnInfo() ){
+			this.logMessage(message, "info");
+		}
 	}
 	
 	protected void logWarning(String message){
-		this.logMessage(message, "warning");
+		if ( Plugin.INSTANCE.getLogOnWarning() ){
+			this.logMessage(message, "warning");
+		}
 	}
 	
 	protected void logError(String message){
-		this.logMessage(message, "error");
+		if ( Plugin.INSTANCE.getLogOnError() ){
+			this.logMessage(message, "error");
+		}
 	}
 	
 	// -------------------------------------
