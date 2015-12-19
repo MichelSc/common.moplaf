@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Preference
+Bundle-SymbolicName: com.misc.common.moplaf.propagator.preference;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.misc.common.moplaf.propagator.preference.Activator
+Bundle-Vendor: MISC
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Export-Package: com.misc.common.moplaf.propagator.preference;
+  uses:="org.osgi.framework,
+   org.eclipse.ui,
+   org.eclipse.jface.preference,
+   org.eclipse.ui.plugin"

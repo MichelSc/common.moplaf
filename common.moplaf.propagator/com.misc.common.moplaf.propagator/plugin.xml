@@ -14,13 +14,5 @@
             class="com.misc.common.moplaf.propagator.PropagatorPackage"
             genModel="model/propagator.genmodel"/>
    </extension>
-   <extension
-         point="org.eclipse.ui.preferencePages">
-      <page
-            class="com.misc.common.moplaf.propagator.PluginPreferencePage"
-            id="com.misc.common.moplaf.propagator.page1"
-            name="Moplaf/Propagator">
-      </page>
-   </extension>
 
 </plugin>

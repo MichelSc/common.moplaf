@@ -1,24 +1,20 @@
-package com.misc.common.moplaf.propagator;
+package com.misc.common.moplaf.propagator.preference;
 
 import org.eclipse.jface.preference.BooleanFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
-import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 import org.eclipse.ui.PlatformUI;
 
-public class PluginPreferencePage extends FieldEditorPreferencePage implements IWorkbenchPreferencePage, PrefConstants {
-	
-	private IPreferenceStore preferenceStore = null;
-	
-	public PluginPreferencePage() {
+public class PreferencePage extends FieldEditorPreferencePage implements IWorkbenchPreferencePage, PrefConstants {
+
+	public PreferencePage() {
 		super(GRID);
 	}
 
 	@Override
 	public void init(IWorkbench workbench) {
-		this.preferenceStore = PlatformUI.getPreferenceStore();
-		this.setPreferenceStore(this.preferenceStore);
+		this.setPreferenceStore(PlatformUI.getPreferenceStore());
 	}
 
 	@Override
@@ -27,4 +23,5 @@ public class PluginPreferencePage extends FieldEditorPreferencePage implements I
 		this.addField(new BooleanFieldEditor(PREF_LOG_ON_WARNING, "Log warnings:", this.getFieldEditorParent()));
 		this.addField(new BooleanFieldEditor(PREF_LOG_ON_ERROR  , "Log errors:"  , this.getFieldEditorParent()));
 	}
+
 }

@@ -2,8 +2,6 @@
  */
 package com.misc.common.moplaf.propagator;
 
-import java.util.Map;
-import java.util.logging.Level;
 
 import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.EMFPlugin;
@@ -14,6 +12,8 @@ import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.ui.PlatformUI;
 import org.osgi.framework.BundleContext;
+
+import com.misc.common.moplaf.propagator.preference.PrefConstants;
 
 
 /**

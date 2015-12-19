@@ -1,4 +1,4 @@
-package com.misc.common.moplaf.propagator;
+package com.misc.common.moplaf.propagator.preference;
 
 public interface PrefConstants {
 	
