@@ -10,9 +10,9 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
-import org.eclipse.ui.PlatformUI;
 import org.osgi.framework.BundleContext;
 
+import com.misc.common.moplaf.propagator.preference.Activator;
 import com.misc.common.moplaf.propagator.preference.PrefConstants;
 
 
@@ -87,29 +87,33 @@ public final class Plugin extends EMFPlugin implements PrefConstants{
 		return this.logOnError;
 	}
 
-	static public void onStartUp(){
+	public void onStartUp(){
 		CommonPlugin.INSTANCE.log("com.misc.common.moplaf.propagator.Plugin.onStartUp: called");
 
-		final Plugin plugin = Plugin.INSTANCE;
-		final IPreferenceStore prefStore = PlatformUI.getPreferenceStore();
-		plugin.logOnInfo    = prefStore.getBoolean(PREF_LOG_ON_INFO);
-		plugin.logOnWarning = prefStore.getBoolean(PREF_LOG_ON_WARNING);
-		plugin.logOnError   = prefStore.getBoolean(PREF_LOG_ON_ERROR);
+		final IPreferenceStore prefStore = Activator.getDefault().getPreferenceStore();
+		this.logOnInfo    = prefStore.getBoolean(PREF_LOG_ON_INFO);
+		this.logOnWarning = prefStore.getBoolean(PREF_LOG_ON_WARNING);
+		this.logOnError   = prefStore.getBoolean(PREF_LOG_ON_ERROR);
 		
 		prefStore.addPropertyChangeListener(new IPropertyChangeListener() {
 		      public void propertyChange(PropertyChangeEvent event) {
 		    	  String property = event.getProperty();
 		    	  Object newValue = event.getNewValue();
 		    	  
+		    	  Boolean newValueAsBoolean = false;
+		    	  if ( newValue instanceof Boolean ){
+		    		  newValueAsBoolean = (Boolean)newValue;
+		    	  }
+
 		    	  if ( property == PREF_LOG_ON_INFO ){
-				  		plugin.logOnInfo = (Boolean)newValue;
+				  		Plugin.this.logOnInfo = newValueAsBoolean;
 		    	  } else if ( property == PREF_LOG_ON_WARNING ){
-						plugin.logOnWarning = (Boolean)newValue;
+						Plugin.this.logOnWarning = newValueAsBoolean;
 		    	  } else if ( property == PREF_LOG_ON_ERROR ){
-						plugin.logOnError = (Boolean)newValue;
+						Plugin.this.logOnError = newValueAsBoolean;
 		    	  }
 		       }});
-		
+
 		CommonPlugin.INSTANCE.log("com.misc.common.moplaf.propagator.Plugin.onStartUp: done");
 	}
 
@@ -142,7 +146,7 @@ public final class Plugin extends EMFPlugin implements PrefConstants{
 		@Override
 		public void start(BundleContext context) throws Exception {
 			super.start(context);
-			Plugin.onStartUp();
+			Plugin.INSTANCE.onStartUp();
 		}
 
 	}

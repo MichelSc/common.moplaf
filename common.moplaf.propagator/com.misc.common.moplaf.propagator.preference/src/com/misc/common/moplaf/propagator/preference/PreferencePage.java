@@ -4,17 +4,16 @@ import org.eclipse.jface.preference.BooleanFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
-import org.eclipse.ui.PlatformUI;
 
 public class PreferencePage extends FieldEditorPreferencePage implements IWorkbenchPreferencePage, PrefConstants {
 
 	public PreferencePage() {
 		super(GRID);
 	}
-
+	
 	@Override
 	public void init(IWorkbench workbench) {
-		this.setPreferenceStore(PlatformUI.getPreferenceStore());
+		this.setPreferenceStore(Activator.getDefault().getPreferenceStore());
 	}
 
 	@Override
