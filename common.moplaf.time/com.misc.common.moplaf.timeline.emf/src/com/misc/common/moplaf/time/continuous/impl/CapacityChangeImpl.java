@@ -9,13 +9,18 @@ import com.misc.common.moplaf.time.continuous.ContinuousFactory;
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
 
+import com.misc.common.moplaf.time.continuous.DistributionEvent;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +30,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.impl.CapacityChangeImpl#getDistribution <em>Distribution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.impl.CapacityChangeImpl#getProvidedEvents <em>Provided Events</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.CapacityChangeImpl#getStart <em>Start</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.CapacityChangeImpl#getEnd <em>End</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.CapacityChangeImpl#getAmount <em>Amount</em>}</li>
@@ -34,7 +41,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class CapacityChangeImpl extends CompositeDistributionEventImpl implements CapacityChange {
+public class CapacityChangeImpl extends MinimalEObjectImpl.Container implements CapacityChange {
 	/**
 	 * The default value of the '{@link #getStart() <em>Start</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -124,13 +131,6 @@ public class CapacityChangeImpl extends CompositeDistributionEventImpl implement
 		super();
 	}
 
-	/* (non-Javadoc)
-	 * @see com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#addPropagatorFunctionAdapter()
-	@Override
-	public void addPropagatorFunctionAdapter() {
-	}
-	 */
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -140,6 +140,37 @@ public class CapacityChangeImpl extends CompositeDistributionEventImpl implement
 	protected EClass eStaticClass() {
 		return ContinuousPackage.Literals.CAPACITY_CHANGE;
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Distribution getDistribution() {
+		Distribution distribution = basicGetDistribution();
+		return distribution != null && distribution.eIsProxy() ? (Distribution)eResolveProxy((InternalEObject)distribution) : distribution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Distribution basicGetDistribution() {
+		return (Distribution)this.eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EList<DistributionEvent> getProvidedEvents() {
+		EObjectEList list = new EObjectEList(DistributionEvent.class, 
+				                             this, 
+				                             ContinuousPackage.DISTRIBUTION_EVENTS_PROVIDER__PROVIDED_EVENTS);
+		list.add(this.getCapacityChangeStart());
+		list.add(this.getCapacityChangeEnd());
+		return list;
+		}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -334,6 +365,11 @@ public class CapacityChangeImpl extends CompositeDistributionEventImpl implement
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case ContinuousPackage.CAPACITY_CHANGE__DISTRIBUTION:
+				if (resolve) return getDistribution();
+				return basicGetDistribution();
+			case ContinuousPackage.CAPACITY_CHANGE__PROVIDED_EVENTS:
+				return getProvidedEvents();
 			case ContinuousPackage.CAPACITY_CHANGE__START:
 				return getStart();
 			case ContinuousPackage.CAPACITY_CHANGE__END:
@@ -410,6 +446,10 @@ public class CapacityChangeImpl extends CompositeDistributionEventImpl implement
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case ContinuousPackage.CAPACITY_CHANGE__DISTRIBUTION:
+				return basicGetDistribution() != null;
+			case ContinuousPackage.CAPACITY_CHANGE__PROVIDED_EVENTS:
+				return !getProvidedEvents().isEmpty();
 			case ContinuousPackage.CAPACITY_CHANGE__START:
 				return START_EDEFAULT == null ? start != null : !START_EDEFAULT.equals(start);
 			case ContinuousPackage.CAPACITY_CHANGE__END:
@@ -422,6 +462,24 @@ public class CapacityChangeImpl extends CompositeDistributionEventImpl implement
 				return capacityChangeEnd != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ContinuousPackage.CAPACITY_CHANGE___REFRESH_EVENT:
+				refreshEvent();
+				return null;
+			case ContinuousPackage.CAPACITY_CHANGE___ADD_PROPAGATOR_FUNCTION_ADAPTER:
+				addPropagatorFunctionAdapter();
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -474,6 +532,17 @@ public class CapacityChangeImpl extends CompositeDistributionEventImpl implement
 				newend.setCapacityChange(this);
 			}
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void addPropagatorFunctionAdapter() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 } //CapacityChangeImpl

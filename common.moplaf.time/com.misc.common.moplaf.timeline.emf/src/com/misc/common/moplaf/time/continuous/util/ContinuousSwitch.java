@@ -79,10 +79,10 @@ public class ContinuousSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ContinuousPackage.COMPOSITE_DISTRIBUTION_EVENT: {
-				CompositeDistributionEvent compositeDistributionEvent = (CompositeDistributionEvent)theEObject;
-				T result = caseCompositeDistributionEvent(compositeDistributionEvent);
-				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(compositeDistributionEvent);
+			case ContinuousPackage.DISTRIBUTION_EVENTS_PROVIDER: {
+				DistributionEventsProvider distributionEventsProvider = (DistributionEventsProvider)theEObject;
+				T result = caseDistributionEventsProvider(distributionEventsProvider);
+				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(distributionEventsProvider);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -145,7 +145,7 @@ public class ContinuousSwitch<T> extends Switch<T> {
 			case ContinuousPackage.CAPACITY_CHANGE: {
 				CapacityChange capacityChange = (CapacityChange)theEObject;
 				T result = caseCapacityChange(capacityChange);
-				if (result == null) result = caseCompositeDistributionEvent(capacityChange);
+				if (result == null) result = caseDistributionEventsProvider(capacityChange);
 				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(capacityChange);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -171,7 +171,7 @@ public class ContinuousSwitch<T> extends Switch<T> {
 			case ContinuousPackage.STOCK_CHANGE: {
 				StockChange stockChange = (StockChange)theEObject;
 				T result = caseStockChange(stockChange);
-				if (result == null) result = caseCompositeDistributionEvent(stockChange);
+				if (result == null) result = caseDistributionEventsProvider(stockChange);
 				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(stockChange);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -191,6 +191,26 @@ public class ContinuousSwitch<T> extends Switch<T> {
 				if (result == null) result = caseSlopeImpulsion(stockChangeEnd);
 				if (result == null) result = caseDistributionEvent(stockChangeEnd);
 				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(stockChangeEnd);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ContinuousPackage.AMOUNT_IMPULSION_ATOMIC: {
+				AmountImpulsionAtomic amountImpulsionAtomic = (AmountImpulsionAtomic)theEObject;
+				T result = caseAmountImpulsionAtomic(amountImpulsionAtomic);
+				if (result == null) result = caseAmountImpulsion(amountImpulsionAtomic);
+				if (result == null) result = caseDistributionEventsProvider(amountImpulsionAtomic);
+				if (result == null) result = caseDistributionEvent(amountImpulsionAtomic);
+				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(amountImpulsionAtomic);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ContinuousPackage.SLOPE_IMPULSION_ATOMIC: {
+				SlopeImpulsionAtomic slopeImpulsionAtomic = (SlopeImpulsionAtomic)theEObject;
+				T result = caseSlopeImpulsionAtomic(slopeImpulsionAtomic);
+				if (result == null) result = caseSlopeImpulsion(slopeImpulsionAtomic);
+				if (result == null) result = caseDistributionEventsProvider(slopeImpulsionAtomic);
+				if (result == null) result = caseDistributionEvent(slopeImpulsionAtomic);
+				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(slopeImpulsionAtomic);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -225,6 +245,21 @@ public class ContinuousSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDistributionEvent(DistributionEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Distribution Events Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Distribution Events Provider</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDistributionEventsProvider(DistributionEventsProvider object) {
 		return null;
 	}
 
@@ -349,6 +384,36 @@ public class ContinuousSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Amount Impulsion Atomic</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Amount Impulsion Atomic</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAmountImpulsionAtomic(AmountImpulsionAtomic object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Slope Impulsion Atomic</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Slope Impulsion Atomic</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSlopeImpulsionAtomic(SlopeImpulsionAtomic object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Object With Propagator Function Adapter</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -360,21 +425,6 @@ public class ContinuousSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseObjectWithPropagatorFunctionAdapter(ObjectWithPropagatorFunctionAdapter object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Composite Distribution Event</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Composite Distribution Event</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCompositeDistributionEvent(CompositeDistributionEvent object) {
 		return null;
 	}
 

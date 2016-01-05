@@ -74,8 +74,8 @@ public class ContinuousAdapterFactory extends AdapterFactoryImpl {
 				return createDistributionEventAdapter();
 			}
 			@Override
-			public Adapter caseCompositeDistributionEvent(CompositeDistributionEvent object) {
-				return createCompositeDistributionEventAdapter();
+			public Adapter caseDistributionEventsProvider(DistributionEventsProvider object) {
+				return createDistributionEventsProviderAdapter();
 			}
 			@Override
 			public Adapter caseChildEvent(ChildEvent object) {
@@ -130,6 +130,14 @@ public class ContinuousAdapterFactory extends AdapterFactoryImpl {
 				return createStockChangeEndAdapter();
 			}
 			@Override
+			public Adapter caseAmountImpulsionAtomic(AmountImpulsionAtomic object) {
+				return createAmountImpulsionAtomicAdapter();
+			}
+			@Override
+			public Adapter caseSlopeImpulsionAtomic(SlopeImpulsionAtomic object) {
+				return createSlopeImpulsionAtomicAdapter();
+			}
+			@Override
 			public Adapter caseObjectWithPropagatorFunctionAdapter(ObjectWithPropagatorFunctionAdapter object) {
 				return createObjectWithPropagatorFunctionAdapterAdapter();
 			}
@@ -178,6 +186,20 @@ public class ContinuousAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDistributionEventAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.DistributionEventsProvider <em>Distribution Events Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.time.continuous.DistributionEventsProvider
+	 * @generated
+	 */
+	public Adapter createDistributionEventsProviderAdapter() {
 		return null;
 	}
 
@@ -294,6 +316,34 @@ public class ContinuousAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.AmountImpulsionAtomic <em>Amount Impulsion Atomic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.time.continuous.AmountImpulsionAtomic
+	 * @generated
+	 */
+	public Adapter createAmountImpulsionAtomicAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.SlopeImpulsionAtomic <em>Slope Impulsion Atomic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.time.continuous.SlopeImpulsionAtomic
+	 * @generated
+	 */
+	public Adapter createSlopeImpulsionAtomicAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.propagator.ObjectWithPropagatorFunctionAdapter <em>Object With Propagator Function Adapter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -304,20 +354,6 @@ public class ContinuousAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createObjectWithPropagatorFunctionAdapterAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.CompositeDistributionEvent <em>Composite Distribution Event</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.CompositeDistributionEvent
-	 * @generated
-	 */
-	public Adapter createCompositeDistributionEventAdapter() {
 		return null;
 	}
 

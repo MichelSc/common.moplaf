@@ -67,13 +67,22 @@ public interface ContinuousFactory extends EFactory {
 	StockChangeEnd createStockChangeEnd();
 
 	/**
-	 * Returns a new object of class '<em>Composite Distribution Event</em>'.
+	 * Returns a new object of class '<em>Amount Impulsion Atomic</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Composite Distribution Event</em>'.
+	 * @return a new object of class '<em>Amount Impulsion Atomic</em>'.
 	 * @generated
 	 */
-	CompositeDistributionEvent createCompositeDistributionEvent();
+	AmountImpulsionAtomic createAmountImpulsionAtomic();
+
+	/**
+	 * Returns a new object of class '<em>Slope Impulsion Atomic</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Slope Impulsion Atomic</em>'.
+	 * @generated
+	 */
+	SlopeImpulsionAtomic createSlopeImpulsionAtomic();
 
 	/**
 	 * Returns a new object of class '<em>Child Event</em>'.

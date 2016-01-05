@@ -28,7 +28,7 @@ import java.util.Date;
  * @model
  * @generated
  */
-public interface StockChange extends CompositeDistributionEvent {
+public interface StockChange extends DistributionEventsProvider {
 	/**
 	 * Returns the value of the '<em><b>Start</b></em>' attribute.
 	 * <!-- begin-user-doc -->

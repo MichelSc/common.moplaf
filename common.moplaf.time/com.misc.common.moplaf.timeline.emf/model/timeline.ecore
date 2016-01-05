@@ -103,8 +103,6 @@
           defaultValueLiteral="2000-01-01"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="HorizonEnd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"
           defaultValueLiteral="2099-12-31"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="AtomicEvent" upperBound="-1"
-          eType="#//continuous/DistributionEvent" eOpposite="#//continuous/DistributionEvent/Distribution"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ChildEvent" upperBound="-1"
           eType="#//continuous/ChildEvent" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="SequenceEvent" upperBound="-1"
@@ -113,8 +111,8 @@
           eType="#//continuous/StartEvent" containment="true" eOpposite="#//continuous/StartEvent/DistributionAsStart"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="End" lowerBound="1" eType="#//continuous/EndEvent"
           containment="true" eOpposite="#//continuous/EndEvent/DistributionAsEnd"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="CompositeEvent" upperBound="-1"
-          eType="#//continuous/CompositeDistributionEvent" eOpposite="#//continuous/CompositeDistributionEvent/Distribution"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="EventsProviders" upperBound="-1"
+          eType="#//continuous/DistributionEventsProvider" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ParentDistribution" eType="#//continuous/Distribution"
           eOpposite="#//continuous/Distribution/ChildDistribution"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ChildDistribution" upperBound="-1"
@@ -143,13 +141,16 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="SlopeAfter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
           iD="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="Distribution" eType="#//continuous/Distribution"
-          eOpposite="#//continuous/Distribution/AtomicEvent"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CompositeDistributionEvent" eSuperTypes="../../com.misc.common.moplaf.propagator/model/propagator.ecore#//ObjectWithPropagatorFunctionAdapter">
+    <eClassifiers xsi:type="ecore:EClass" name="DistributionEventsProvider" abstract="true"
+        interface="true" eSuperTypes="../../com.misc.common.moplaf.propagator/model/propagator.ecore#//ObjectWithPropagatorFunctionAdapter">
       <eOperations name="refreshEvent"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="Distribution" eType="#//continuous/Distribution"
-          eOpposite="#//continuous/Distribution/CompositeEvent"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Distribution" lowerBound="1"
+          eType="#//continuous/Distribution" changeable="false" volatile="true" transient="true"
+          derived="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ProvidedEvents" upperBound="-1"
+          eType="#//continuous/DistributionEvent" changeable="false" volatile="true"
+          transient="true" derived="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ChildEvent" eSuperTypes="#//continuous/DistributionEvent">
       <eStructuralFeatures xsi:type="ecore:EReference" name="Original" lowerBound="1"
@@ -179,7 +180,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="SlopeAbsolute" abstract="true" eSuperTypes="#//continuous/DistributionEvent">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="SlopeAbsolute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CapacityChange" eSuperTypes="#//continuous/CompositeDistributionEvent">
+    <eClassifiers xsi:type="ecore:EClass" name="CapacityChange" eSuperTypes="#//continuous/DistributionEventsProvider">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A change in Amount for an given interval of time. The value of the Distribution is increased by the given Amount at the start of the interval of time and decreased by the same Amount at the end of the interval of time."/>
       </eAnnotations>
@@ -208,7 +209,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="CapacityChange" eType="#//continuous/CapacityChange"
           eOpposite="#//continuous/CapacityChange/CapacityChangeEnd"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="StockChange" eSuperTypes="#//continuous/CompositeDistributionEvent">
+    <eClassifiers xsi:type="ecore:EClass" name="StockChange" eSuperTypes="#//continuous/DistributionEventsProvider">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A change of Amount spread in a given interval of time. The amount of the Distribution increases with a given Slope during the given time interval"/>
       </eAnnotations>
@@ -231,6 +232,8 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="StockChange" lowerBound="1"
           eType="#//continuous/StockChange" eOpposite="#//continuous/StockChange/StockChangeEnd"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AmountImpulsionAtomic" eSuperTypes="#//continuous/AmountImpulsion #//continuous/DistributionEventsProvider"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SlopeImpulsionAtomic" eSuperTypes="#//continuous/SlopeImpulsion #//continuous/DistributionEventsProvider"/>
   </eSubpackages>
   <eSubpackages name="discrete" nsURI="http://com.misc.common.moplaf.timeline.time.discrete"
       nsPrefix="tid">

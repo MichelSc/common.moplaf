@@ -23,7 +23,6 @@ import java.util.Date;
  *   <li>{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getSlopeBefore <em>Slope Before</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getSlopeAfter <em>Slope After</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getDescription <em>Description</em>}</li>
- *   <li>{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getDistribution <em>Distribution</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistributionEvent()
@@ -269,34 +268,6 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctionAdapter {
 	 * @generated
 	 */
 	void setDescription(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Distribution</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.continuous.Distribution#getAtomicEvent <em>Atomic Event</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Distribution</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Distribution</em>' reference.
-	 * @see #setDistribution(Distribution)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistributionEvent_Distribution()
-	 * @see com.misc.common.moplaf.time.continuous.Distribution#getAtomicEvent
-	 * @model opposite="AtomicEvent"
-	 * @generated
-	 */
-	Distribution getDistribution();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getDistribution <em>Distribution</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Distribution</em>' reference.
-	 * @see #getDistribution()
-	 * @generated
-	 */
-	void setDistribution(Distribution value);
 
 	/**
 	 * <!-- begin-user-doc -->

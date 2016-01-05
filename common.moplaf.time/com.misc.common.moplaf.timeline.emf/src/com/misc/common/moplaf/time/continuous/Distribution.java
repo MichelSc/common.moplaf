@@ -22,12 +22,11 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#getTimeUnit <em>Time Unit</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#getHorizonStart <em>Horizon Start</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#getHorizonEnd <em>Horizon End</em>}</li>
- *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#getAtomicEvent <em>Atomic Event</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#getChildEvent <em>Child Event</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#getSequenceEvent <em>Sequence Event</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#getStart <em>Start</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#getEnd <em>End</em>}</li>
- *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#getCompositeEvent <em>Composite Event</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#getEventsProviders <em>Events Providers</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#getParentDistribution <em>Parent Distribution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#getChildDistribution <em>Child Distribution</em>}</li>
  * </ul>
@@ -37,24 +36,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
-	/**
-	 * Returns the value of the '<em><b>Atomic Event</b></em>' reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.time.continuous.DistributionEvent}.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getDistribution <em>Distribution</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Atomic Event</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Atomic Event</em>' reference list.
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistribution_AtomicEvent()
-	 * @see com.misc.common.moplaf.time.continuous.DistributionEvent#getDistribution
-	 * @model opposite="Distribution"
-	 * @generated
-	 */
-	EList<DistributionEvent> getAtomicEvent();
-
 	/**
 	 * Returns the value of the '<em><b>Start</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.continuous.StartEvent#getDistributionAsStart <em>Distribution As Start</em>}'.
@@ -110,6 +91,22 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	 * @generated
 	 */
 	void setEnd(EndEvent value);
+
+	/**
+	 * Returns the value of the '<em><b>Events Providers</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.time.continuous.DistributionEventsProvider}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Events Providers</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Events Providers</em>' containment reference list.
+	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistribution_EventsProviders()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<DistributionEventsProvider> getEventsProviders();
 
 	/**
 	 * Returns the value of the '<em><b>Time Unit</b></em>' attribute.
@@ -209,24 +206,6 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	 * @generated
 	 */
 	EList<DistributionEvent> getSequenceEvent();
-
-	/**
-	 * Returns the value of the '<em><b>Composite Event</b></em>' reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.time.continuous.CompositeDistributionEvent}.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.continuous.CompositeDistributionEvent#getDistribution <em>Distribution</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Composite Event</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Composite Event</em>' reference list.
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistribution_CompositeEvent()
-	 * @see com.misc.common.moplaf.time.continuous.CompositeDistributionEvent#getDistribution
-	 * @model opposite="Distribution"
-	 * @generated
-	 */
-	EList<CompositeDistributionEvent> getCompositeEvent();
 
 	/**
 	 * Returns the value of the '<em><b>Child Event</b></em>' containment reference list.

@@ -58,7 +58,6 @@ public class ContinuousFactoryImpl extends EFactoryImpl implements ContinuousFac
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case ContinuousPackage.DISTRIBUTION: return createDistribution();
-			case ContinuousPackage.COMPOSITE_DISTRIBUTION_EVENT: return createCompositeDistributionEvent();
 			case ContinuousPackage.CHILD_EVENT: return createChildEvent();
 			case ContinuousPackage.START_EVENT: return createStartEvent();
 			case ContinuousPackage.END_EVENT: return createEndEvent();
@@ -68,6 +67,8 @@ public class ContinuousFactoryImpl extends EFactoryImpl implements ContinuousFac
 			case ContinuousPackage.STOCK_CHANGE: return createStockChange();
 			case ContinuousPackage.STOCK_CHANGE_START: return createStockChangeStart();
 			case ContinuousPackage.STOCK_CHANGE_END: return createStockChangeEnd();
+			case ContinuousPackage.AMOUNT_IMPULSION_ATOMIC: return createAmountImpulsionAtomic();
+			case ContinuousPackage.SLOPE_IMPULSION_ATOMIC: return createSlopeImpulsionAtomic();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -158,9 +159,19 @@ public class ContinuousFactoryImpl extends EFactoryImpl implements ContinuousFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CompositeDistributionEvent createCompositeDistributionEvent() {
-		CompositeDistributionEventImpl compositeDistributionEvent = new CompositeDistributionEventImpl();
-		return compositeDistributionEvent;
+	public AmountImpulsionAtomic createAmountImpulsionAtomic() {
+		AmountImpulsionAtomicImpl amountImpulsionAtomic = new AmountImpulsionAtomicImpl();
+		return amountImpulsionAtomic;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SlopeImpulsionAtomic createSlopeImpulsionAtomic() {
+		SlopeImpulsionAtomicImpl slopeImpulsionAtomic = new SlopeImpulsionAtomicImpl();
+		return slopeImpulsionAtomic;
 	}
 
 	/**
