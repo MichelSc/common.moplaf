@@ -403,7 +403,7 @@ public class PropagatorFunctionAdapterManager extends AdapterImpl
 
 
   /**
-   * Handles the management of PropagatorFunctionAdapters (adds) when a Notifer enters the scope of the propagation
+   * Handles the management of PropagatorFunctionAdapters (adds) when a Notifier enters the scope of the propagation
    * Either if notifier is added or this PropagatorFunctionAdapterManger is added to the notifier
    */
   void onAdapterAdded(Notifier notifier){

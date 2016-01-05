@@ -174,11 +174,13 @@ public class ChildEventImpl extends DistributionEventImpl implements ChildEvent 
 	 */
 	@Override
 	public void refreshAmountAfter() {
-		DistributionEvent originalEvent = this.getOriginal();
-		float amountAfter = this.getAmountBefore()
-				          + originalEvent.getAmountAfter()
-				          - originalEvent.getAmountBefore();
-		this.setAmountAfter(amountAfter);
+		if ( this.isAlive() ){
+			DistributionEvent originalEvent = this.getOriginal();
+			float amountAfter = this.getAmountBefore()
+					          + originalEvent.getAmountAfter()
+					          - originalEvent.getAmountBefore();
+			this.setAmountAfter(amountAfter);
+		}
 	}
 
 	/* (non-Javadoc)
@@ -186,11 +188,13 @@ public class ChildEventImpl extends DistributionEventImpl implements ChildEvent 
 	 */
 	@Override
 	public void refreshSlopeAfter() {
-		DistributionEvent originalEvent = this.getOriginal();
-		float slopeAfter = this.getSlopeBefore()
-				         + originalEvent.getSlopeAfter()
-				         - originalEvent.getSlopeBefore();
-		this.setSlopeAfter(slopeAfter);
+		if ( this.isAlive() ){
+			DistributionEvent originalEvent = this.getOriginal();
+			float slopeAfter = this.getSlopeBefore()
+					         + originalEvent.getSlopeAfter()
+					         - originalEvent.getSlopeBefore();
+			this.setSlopeAfter(slopeAfter);
+		}
 	}
 
 	/* (non-Javadoc)
@@ -198,9 +202,15 @@ public class ChildEventImpl extends DistributionEventImpl implements ChildEvent 
 	 */
 	@Override
 	public void refreshMoment() {
-		DistributionEvent originalEvent = this.getOriginal();
-		Date moment = originalEvent.getMoment();
-		this.setMoment(moment);
+		if ( this.isAlive() ){
+			DistributionEvent originalEvent = this.getOriginal();
+			Date moment = originalEvent.getMoment();
+			this.setMoment(moment);
+		}
+	}
+	
+	private boolean isAlive(){
+		return this.eContainer()!=null;
 	}
 	
 	
