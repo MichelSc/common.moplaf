@@ -5,7 +5,6 @@ package com.misc.common.moplaf.time.continuous.impl;
 import com.misc.common.moplaf.propagator.PropagatorFunctionAdapter;
 import com.misc.common.moplaf.propagator.Util;
 import com.misc.common.moplaf.time.continuous.ChildEvent;
-import com.misc.common.moplaf.time.continuous.CompositeDistributionEvent;
 import com.misc.common.moplaf.time.continuous.ContinuousFactory;
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
@@ -671,12 +670,14 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	private void refreshSequenceEventContent() {
 		HashSet<DistributionEvent> eventstobe = new HashSet<DistributionEvent>();
 
-		for(DistributionEvent currentEvent : this.getAtomicEvent()){
-			Date moment = currentEvent.getMoment();
-			if( moment!=null
-			 && moment.compareTo(this.getHorizonStart())>=0
-			 && moment.compareTo(this.getHorizonEnd())<=0 ){
-				eventstobe.add(currentEvent);
+		for (DistributionEventsProvider eventProvider : this.getEventsProviders()){
+			for(DistributionEvent currentEvent : eventProvider.getProvidedEvents()){
+				Date moment = currentEvent.getMoment();
+				if( moment!=null
+				 && moment.compareTo(this.getHorizonStart())>=0
+				 && moment.compareTo(this.getHorizonEnd())<=0 ){
+					eventstobe.add(currentEvent);
+				}
 			}
 		}
 
@@ -730,7 +731,7 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 		// to be events
 		HashSet<DistributionEvent> childEventsToBe = new HashSet<DistributionEvent>();
 		for ( Distribution childDistribution : this.getChildDistribution()){
-			for ( DistributionEvent childEvent : childDistribution.getAtomicEvent()){
+			for ( DistributionEvent childEvent : childDistribution.getSequenceEvent()){
 				childEventsToBe.add(childEvent);
 			}
 		}
@@ -742,7 +743,6 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 			DistributionEvent originalEvent = childEventAsIs.getOriginal();
 			if ( originalEvent==null || !childEventsToBe.contains(originalEvent)){
 				// the original event is not to be: remove the derived event
-				childEventAsIs.setDistribution(null);
 				childEventAsIs.setOriginal(null);
 				childEventIter.remove();
 			} else {
@@ -754,7 +754,6 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 		// create the child event
 		for ( DistributionEvent childEventToBe : childEventsToBe){
 			ChildEvent newEvent = ContinuousFactory.eINSTANCE.createChildEvent();
-			newEvent.setDistribution(this);
 			newEvent.setOriginal(childEventToBe);
 			this.getChildEvent().add(newEvent);
 		}
