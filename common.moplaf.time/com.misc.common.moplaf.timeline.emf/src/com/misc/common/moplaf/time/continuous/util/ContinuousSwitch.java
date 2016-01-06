@@ -223,6 +223,26 @@ public class ContinuousSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC: {
+				AmountAbsoluteAtomic amountAbsoluteAtomic = (AmountAbsoluteAtomic)theEObject;
+				T result = caseAmountAbsoluteAtomic(amountAbsoluteAtomic);
+				if (result == null) result = caseAmountAbsolute(amountAbsoluteAtomic);
+				if (result == null) result = caseDistributionEventsProvider(amountAbsoluteAtomic);
+				if (result == null) result = caseDistributionEvent(amountAbsoluteAtomic);
+				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(amountAbsoluteAtomic);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ContinuousPackage.SLOPE_ABSOLUTE_ATOMIC: {
+				SlopeAbsoluteAtomic slopeAbsoluteAtomic = (SlopeAbsoluteAtomic)theEObject;
+				T result = caseSlopeAbsoluteAtomic(slopeAbsoluteAtomic);
+				if (result == null) result = caseSlopeAbsolute(slopeAbsoluteAtomic);
+				if (result == null) result = caseDistributionEventsProvider(slopeAbsoluteAtomic);
+				if (result == null) result = caseDistributionEvent(slopeAbsoluteAtomic);
+				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(slopeAbsoluteAtomic);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -434,6 +454,36 @@ public class ContinuousSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCompositeEvent(CompositeEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Amount Absolute Atomic</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Amount Absolute Atomic</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAmountAbsoluteAtomic(AmountAbsoluteAtomic object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Slope Absolute Atomic</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Slope Absolute Atomic</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSlopeAbsoluteAtomic(SlopeAbsoluteAtomic object) {
 		return null;
 	}
 

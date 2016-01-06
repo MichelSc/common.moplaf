@@ -142,6 +142,14 @@ public class ContinuousAdapterFactory extends AdapterFactoryImpl {
 				return createCompositeEventAdapter();
 			}
 			@Override
+			public Adapter caseAmountAbsoluteAtomic(AmountAbsoluteAtomic object) {
+				return createAmountAbsoluteAtomicAdapter();
+			}
+			@Override
+			public Adapter caseSlopeAbsoluteAtomic(SlopeAbsoluteAtomic object) {
+				return createSlopeAbsoluteAtomicAdapter();
+			}
+			@Override
 			public Adapter caseObjectWithPropagatorFunctionAdapter(ObjectWithPropagatorFunctionAdapter object) {
 				return createObjectWithPropagatorFunctionAdapterAdapter();
 			}
@@ -358,6 +366,34 @@ public class ContinuousAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCompositeEventAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.AmountAbsoluteAtomic <em>Amount Absolute Atomic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.time.continuous.AmountAbsoluteAtomic
+	 * @generated
+	 */
+	public Adapter createAmountAbsoluteAtomicAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.SlopeAbsoluteAtomic <em>Slope Absolute Atomic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.time.continuous.SlopeAbsoluteAtomic
+	 * @generated
+	 */
+	public Adapter createSlopeAbsoluteAtomicAdapter() {
 		return null;
 	}
 

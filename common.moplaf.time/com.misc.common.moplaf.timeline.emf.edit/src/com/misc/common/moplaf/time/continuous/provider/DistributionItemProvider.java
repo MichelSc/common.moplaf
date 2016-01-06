@@ -324,6 +324,16 @@ public class DistributionItemProvider
 			(createChildParameter
 				(ContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
 				 ContinuousFactory.eINSTANCE.createSlopeImpulsionAtomic()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
+				 ContinuousFactory.eINSTANCE.createAmountAbsoluteAtomic()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
+				 ContinuousFactory.eINSTANCE.createSlopeAbsoluteAtomic()));
 	}
 
 	/**

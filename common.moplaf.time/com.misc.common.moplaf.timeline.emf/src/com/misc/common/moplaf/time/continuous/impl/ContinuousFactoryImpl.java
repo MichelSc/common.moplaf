@@ -69,6 +69,8 @@ public class ContinuousFactoryImpl extends EFactoryImpl implements ContinuousFac
 			case ContinuousPackage.STOCK_CHANGE_END: return createStockChangeEnd();
 			case ContinuousPackage.AMOUNT_IMPULSION_ATOMIC: return createAmountImpulsionAtomic();
 			case ContinuousPackage.SLOPE_IMPULSION_ATOMIC: return createSlopeImpulsionAtomic();
+			case ContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC: return createAmountAbsoluteAtomic();
+			case ContinuousPackage.SLOPE_ABSOLUTE_ATOMIC: return createSlopeAbsoluteAtomic();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -172,6 +174,26 @@ public class ContinuousFactoryImpl extends EFactoryImpl implements ContinuousFac
 	public SlopeImpulsionAtomic createSlopeImpulsionAtomic() {
 		SlopeImpulsionAtomicImpl slopeImpulsionAtomic = new SlopeImpulsionAtomicImpl();
 		return slopeImpulsionAtomic;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AmountAbsoluteAtomic createAmountAbsoluteAtomic() {
+		AmountAbsoluteAtomicImpl amountAbsoluteAtomic = new AmountAbsoluteAtomicImpl();
+		return amountAbsoluteAtomic;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SlopeAbsoluteAtomic createSlopeAbsoluteAtomic() {
+		SlopeAbsoluteAtomicImpl slopeAbsoluteAtomic = new SlopeAbsoluteAtomicImpl();
+		return slopeAbsoluteAtomic;
 	}
 
 	/**

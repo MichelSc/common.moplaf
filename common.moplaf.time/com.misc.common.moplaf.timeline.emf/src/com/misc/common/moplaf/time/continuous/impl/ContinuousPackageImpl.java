@@ -4,6 +4,7 @@ package com.misc.common.moplaf.time.continuous.impl;
 
 import com.misc.common.moplaf.propagator.PropagatorPackage;
 import com.misc.common.moplaf.time.continuous.AmountAbsolute;
+import com.misc.common.moplaf.time.continuous.AmountAbsoluteAtomic;
 import com.misc.common.moplaf.time.continuous.AmountImpulsion;
 import com.misc.common.moplaf.time.continuous.AmountImpulsionAtomic;
 import com.misc.common.moplaf.time.continuous.CapacityChange;
@@ -18,6 +19,7 @@ import com.misc.common.moplaf.time.continuous.DistributionEvent;
 import com.misc.common.moplaf.time.continuous.DistributionEventsProvider;
 import com.misc.common.moplaf.time.continuous.EndEvent;
 import com.misc.common.moplaf.time.continuous.SlopeAbsolute;
+import com.misc.common.moplaf.time.continuous.SlopeAbsoluteAtomic;
 import com.misc.common.moplaf.time.continuous.SlopeImpulsion;
 import com.misc.common.moplaf.time.continuous.SlopeImpulsionAtomic;
 import com.misc.common.moplaf.time.continuous.StartEvent;
@@ -139,6 +141,20 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * @generated
 	 */
 	private EClass compositeEventEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass amountAbsoluteAtomicEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass slopeAbsoluteAtomicEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -940,6 +956,24 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getAmountAbsoluteAtomic() {
+		return amountAbsoluteAtomicEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSlopeAbsoluteAtomic() {
+		return slopeAbsoluteAtomicEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getChildEvent() {
 		return childEventEClass;
 	}
@@ -1187,6 +1221,10 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		compositeEventEClass = createEClass(COMPOSITE_EVENT);
 		createEOperation(compositeEventEClass, COMPOSITE_EVENT___REFRESH_EVENT);
 
+		amountAbsoluteAtomicEClass = createEClass(AMOUNT_ABSOLUTE_ATOMIC);
+
+		slopeAbsoluteAtomicEClass = createEClass(SLOPE_ABSOLUTE_ATOMIC);
+
 		// Create enums
 		timeUnitEEnum = createEEnum(TIME_UNIT);
 	}
@@ -1243,6 +1281,10 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		slopeImpulsionAtomicEClass.getESuperTypes().add(this.getDistributionEventsProvider());
 		compositeEventEClass.getESuperTypes().add(this.getDistributionEventsProvider());
 		compositeEventEClass.getESuperTypes().add(thePropagatorPackage.getObjectWithPropagatorFunctionAdapter());
+		amountAbsoluteAtomicEClass.getESuperTypes().add(this.getAmountAbsolute());
+		amountAbsoluteAtomicEClass.getESuperTypes().add(this.getDistributionEventsProvider());
+		slopeAbsoluteAtomicEClass.getESuperTypes().add(this.getSlopeAbsolute());
+		slopeAbsoluteAtomicEClass.getESuperTypes().add(this.getDistributionEventsProvider());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(distributionEClass, Distribution.class, "Distribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1391,6 +1433,10 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		initEClass(compositeEventEClass, CompositeEvent.class, "CompositeEvent", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEOperation(getCompositeEvent__RefreshEvent(), null, "refreshEvent", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(amountAbsoluteAtomicEClass, AmountAbsoluteAtomic.class, "AmountAbsoluteAtomic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(slopeAbsoluteAtomicEClass, SlopeAbsoluteAtomic.class, "SlopeAbsoluteAtomic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(timeUnitEEnum, TimeUnit.class, "TimeUnit");

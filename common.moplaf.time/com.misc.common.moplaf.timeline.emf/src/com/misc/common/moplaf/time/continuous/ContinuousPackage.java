@@ -3463,6 +3463,422 @@ public interface ContinuousPackage extends EPackage {
 	int SLOPE_IMPULSION_ATOMIC_OPERATION_COUNT = SLOPE_IMPULSION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountAbsoluteAtomicImpl <em>Amount Absolute Atomic</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.impl.AmountAbsoluteAtomicImpl
+	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getAmountAbsoluteAtomic()
+	 * @generated
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC = 19;
+
+	/**
+	 * The feature id for the '<em><b>Moment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC__MOMENT = AMOUNT_ABSOLUTE__MOMENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Nr</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC__EVENT_NR = AMOUNT_ABSOLUTE__EVENT_NR;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC__NEXT = AMOUNT_ABSOLUTE__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Previous</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC__PREVIOUS = AMOUNT_ABSOLUTE__PREVIOUS;
+
+	/**
+	 * The feature id for the '<em><b>Amount Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC__AMOUNT_BEFORE = AMOUNT_ABSOLUTE__AMOUNT_BEFORE;
+
+	/**
+	 * The feature id for the '<em><b>Amount After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC__AMOUNT_AFTER = AMOUNT_ABSOLUTE__AMOUNT_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Slope Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC__SLOPE_BEFORE = AMOUNT_ABSOLUTE__SLOPE_BEFORE;
+
+	/**
+	 * The feature id for the '<em><b>Slope After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC__SLOPE_AFTER = AMOUNT_ABSOLUTE__SLOPE_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC__DESCRIPTION = AMOUNT_ABSOLUTE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC__DISTRIBUTION_AS_SEQUENCE = AMOUNT_ABSOLUTE__DISTRIBUTION_AS_SEQUENCE;
+
+	/**
+	 * The feature id for the '<em><b>Amount Absolute</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC__AMOUNT_ABSOLUTE = AMOUNT_ABSOLUTE__AMOUNT_ABSOLUTE;
+
+	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC__DISTRIBUTION = AMOUNT_ABSOLUTE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Provided Events</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC__PROVIDED_EVENTS = AMOUNT_ABSOLUTE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Amount Absolute Atomic</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC_FEATURE_COUNT = AMOUNT_ABSOLUTE_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC___ADD_PROPAGATOR_FUNCTION_ADAPTER = AMOUNT_ABSOLUTE___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+
+	/**
+	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC___REFRESH_SLOPE_BEFORE = AMOUNT_ABSOLUTE___REFRESH_SLOPE_BEFORE;
+
+	/**
+	 * The operation id for the '<em>Refresh Amount Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC___REFRESH_AMOUNT_BEFORE = AMOUNT_ABSOLUTE___REFRESH_AMOUNT_BEFORE;
+
+	/**
+	 * The operation id for the '<em>Refresh Amount After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC___REFRESH_AMOUNT_AFTER = AMOUNT_ABSOLUTE___REFRESH_AMOUNT_AFTER;
+
+	/**
+	 * The operation id for the '<em>Refresh Slope After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC___REFRESH_SLOPE_AFTER = AMOUNT_ABSOLUTE___REFRESH_SLOPE_AFTER;
+
+	/**
+	 * The operation id for the '<em>Refresh Moment</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC___REFRESH_MOMENT = AMOUNT_ABSOLUTE___REFRESH_MOMENT;
+
+	/**
+	 * The operation id for the '<em>Refresh Description</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC___REFRESH_DESCRIPTION = AMOUNT_ABSOLUTE___REFRESH_DESCRIPTION;
+
+	/**
+	 * The number of operations of the '<em>Amount Absolute Atomic</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC_OPERATION_COUNT = AMOUNT_ABSOLUTE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeAbsoluteAtomicImpl <em>Slope Absolute Atomic</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.impl.SlopeAbsoluteAtomicImpl
+	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getSlopeAbsoluteAtomic()
+	 * @generated
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC = 20;
+
+	/**
+	 * The feature id for the '<em><b>Moment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC__MOMENT = SLOPE_ABSOLUTE__MOMENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Nr</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC__EVENT_NR = SLOPE_ABSOLUTE__EVENT_NR;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC__NEXT = SLOPE_ABSOLUTE__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Previous</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC__PREVIOUS = SLOPE_ABSOLUTE__PREVIOUS;
+
+	/**
+	 * The feature id for the '<em><b>Amount Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC__AMOUNT_BEFORE = SLOPE_ABSOLUTE__AMOUNT_BEFORE;
+
+	/**
+	 * The feature id for the '<em><b>Amount After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC__AMOUNT_AFTER = SLOPE_ABSOLUTE__AMOUNT_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Slope Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC__SLOPE_BEFORE = SLOPE_ABSOLUTE__SLOPE_BEFORE;
+
+	/**
+	 * The feature id for the '<em><b>Slope After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC__SLOPE_AFTER = SLOPE_ABSOLUTE__SLOPE_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC__DESCRIPTION = SLOPE_ABSOLUTE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC__DISTRIBUTION_AS_SEQUENCE = SLOPE_ABSOLUTE__DISTRIBUTION_AS_SEQUENCE;
+
+	/**
+	 * The feature id for the '<em><b>Slope Absolute</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC__SLOPE_ABSOLUTE = SLOPE_ABSOLUTE__SLOPE_ABSOLUTE;
+
+	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC__DISTRIBUTION = SLOPE_ABSOLUTE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Provided Events</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC__PROVIDED_EVENTS = SLOPE_ABSOLUTE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Slope Absolute Atomic</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC_FEATURE_COUNT = SLOPE_ABSOLUTE_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC___ADD_PROPAGATOR_FUNCTION_ADAPTER = SLOPE_ABSOLUTE___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+
+	/**
+	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC___REFRESH_SLOPE_BEFORE = SLOPE_ABSOLUTE___REFRESH_SLOPE_BEFORE;
+
+	/**
+	 * The operation id for the '<em>Refresh Amount Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC___REFRESH_AMOUNT_BEFORE = SLOPE_ABSOLUTE___REFRESH_AMOUNT_BEFORE;
+
+	/**
+	 * The operation id for the '<em>Refresh Amount After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC___REFRESH_AMOUNT_AFTER = SLOPE_ABSOLUTE___REFRESH_AMOUNT_AFTER;
+
+	/**
+	 * The operation id for the '<em>Refresh Slope After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC___REFRESH_SLOPE_AFTER = SLOPE_ABSOLUTE___REFRESH_SLOPE_AFTER;
+
+	/**
+	 * The operation id for the '<em>Refresh Moment</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC___REFRESH_MOMENT = SLOPE_ABSOLUTE___REFRESH_MOMENT;
+
+	/**
+	 * The operation id for the '<em>Refresh Description</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC___REFRESH_DESCRIPTION = SLOPE_ABSOLUTE___REFRESH_DESCRIPTION;
+
+	/**
+	 * The number of operations of the '<em>Slope Absolute Atomic</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC_OPERATION_COUNT = SLOPE_ABSOLUTE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.TimeUnit <em>Time Unit</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3470,7 +3886,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getTimeUnit()
 	 * @generated
 	 */
-	int TIME_UNIT = 19;
+	int TIME_UNIT = 21;
 
 
 	/**
@@ -4272,6 +4688,26 @@ public interface ContinuousPackage extends EPackage {
 	EOperation getCompositeEvent__RefreshEvent();
 
 	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.AmountAbsoluteAtomic <em>Amount Absolute Atomic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Amount Absolute Atomic</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.AmountAbsoluteAtomic
+	 * @generated
+	 */
+	EClass getAmountAbsoluteAtomic();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.SlopeAbsoluteAtomic <em>Slope Absolute Atomic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Slope Absolute Atomic</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.SlopeAbsoluteAtomic
+	 * @generated
+	 */
+	EClass getSlopeAbsoluteAtomic();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.ChildEvent <em>Child Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5066,6 +5502,26 @@ public interface ContinuousPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation COMPOSITE_EVENT___REFRESH_EVENT = eINSTANCE.getCompositeEvent__RefreshEvent();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountAbsoluteAtomicImpl <em>Amount Absolute Atomic</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.time.continuous.impl.AmountAbsoluteAtomicImpl
+		 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getAmountAbsoluteAtomic()
+		 * @generated
+		 */
+		EClass AMOUNT_ABSOLUTE_ATOMIC = eINSTANCE.getAmountAbsoluteAtomic();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeAbsoluteAtomicImpl <em>Slope Absolute Atomic</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.time.continuous.impl.SlopeAbsoluteAtomicImpl
+		 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getSlopeAbsoluteAtomic()
+		 * @generated
+		 */
+		EClass SLOPE_ABSOLUTE_ATOMIC = eINSTANCE.getSlopeAbsoluteAtomic();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.ChildEventImpl <em>Child Event</em>}' class.

@@ -85,6 +85,24 @@ public interface ContinuousFactory extends EFactory {
 	SlopeImpulsionAtomic createSlopeImpulsionAtomic();
 
 	/**
+	 * Returns a new object of class '<em>Amount Absolute Atomic</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Amount Absolute Atomic</em>'.
+	 * @generated
+	 */
+	AmountAbsoluteAtomic createAmountAbsoluteAtomic();
+
+	/**
+	 * Returns a new object of class '<em>Slope Absolute Atomic</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Slope Absolute Atomic</em>'.
+	 * @generated
+	 */
+	SlopeAbsoluteAtomic createSlopeAbsoluteAtomic();
+
+	/**
 	 * Returns a new object of class '<em>Child Event</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

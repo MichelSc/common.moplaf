@@ -232,6 +232,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="CompositeEvent" abstract="true" eSuperTypes="#//continuous/DistributionEventsProvider ../../com.misc.common.moplaf.propagator/model/propagator.ecore#//ObjectWithPropagatorFunctionAdapter">
       <eOperations name="refreshEvent"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AmountAbsoluteAtomic" eSuperTypes="#//continuous/AmountAbsolute #//continuous/DistributionEventsProvider"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SlopeAbsoluteAtomic" eSuperTypes="#//continuous/SlopeAbsolute #//continuous/DistributionEventsProvider"/>
   </eSubpackages>
   <eSubpackages name="discrete" nsURI="http://com.misc.common.moplaf.timeline.time.discrete"
       nsPrefix="tid">

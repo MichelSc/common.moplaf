@@ -236,6 +236,52 @@ public class ContinuousItemProviderAdapterFactory extends ContinuousAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.AmountAbsoluteAtomic} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AmountAbsoluteAtomicItemProvider amountAbsoluteAtomicItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.AmountAbsoluteAtomic}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAmountAbsoluteAtomicAdapter() {
+		if (amountAbsoluteAtomicItemProvider == null) {
+			amountAbsoluteAtomicItemProvider = new AmountAbsoluteAtomicItemProvider(this);
+		}
+
+		return amountAbsoluteAtomicItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.SlopeAbsoluteAtomic} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SlopeAbsoluteAtomicItemProvider slopeAbsoluteAtomicItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.SlopeAbsoluteAtomic}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSlopeAbsoluteAtomicAdapter() {
+		if (slopeAbsoluteAtomicItemProvider == null) {
+			slopeAbsoluteAtomicItemProvider = new SlopeAbsoluteAtomicItemProvider(this);
+		}
+
+		return slopeAbsoluteAtomicItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.ChildEvent} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -461,6 +507,8 @@ public class ContinuousItemProviderAdapterFactory extends ContinuousAdapterFacto
 		if (stockChangeEndItemProvider != null) stockChangeEndItemProvider.dispose();
 		if (amountImpulsionAtomicItemProvider != null) amountImpulsionAtomicItemProvider.dispose();
 		if (slopeImpulsionAtomicItemProvider != null) slopeImpulsionAtomicItemProvider.dispose();
+		if (amountAbsoluteAtomicItemProvider != null) amountAbsoluteAtomicItemProvider.dispose();
+		if (slopeAbsoluteAtomicItemProvider != null) slopeAbsoluteAtomicItemProvider.dispose();
 	}
 
 }
