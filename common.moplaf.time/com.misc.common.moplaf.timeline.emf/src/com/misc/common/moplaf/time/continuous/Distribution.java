@@ -194,6 +194,7 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	/**
 	 * Returns the value of the '<em><b>Sequence Event</b></em>' reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.time.continuous.DistributionEvent}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getDistributionAsSequence <em>Distribution As Sequence</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sequence Event</em>' reference list isn't clear,
@@ -202,7 +203,8 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sequence Event</em>' reference list.
 	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistribution_SequenceEvent()
-	 * @model
+	 * @see com.misc.common.moplaf.time.continuous.DistributionEvent#getDistributionAsSequence
+	 * @model opposite="DistributionAsSequence"
 	 * @generated
 	 */
 	EList<DistributionEvent> getSequenceEvent();

@@ -32,7 +32,6 @@ public class ContinuousTests extends TestSuite {
 	public static Test suite() {
 		TestSuite suite = new ContinuousTests("continuous Tests");
 		suite.addTestSuite(DistributionTest.class);
-		suite.addTestSuite(CompositeDistributionEventTest.class);
 		suite.addTestSuite(ChildEventTest.class);
 		suite.addTestSuite(StartEventTest.class);
 		suite.addTestSuite(EndEventTest.class);
@@ -42,6 +41,8 @@ public class ContinuousTests extends TestSuite {
 		suite.addTestSuite(StockChangeTest.class);
 		suite.addTestSuite(StockChangeStartTest.class);
 		suite.addTestSuite(StockChangeEndTest.class);
+		suite.addTestSuite(AmountImpulsionAtomicTest.class);
+		suite.addTestSuite(SlopeImpulsionAtomicTest.class);
 		return suite;
 	}
 

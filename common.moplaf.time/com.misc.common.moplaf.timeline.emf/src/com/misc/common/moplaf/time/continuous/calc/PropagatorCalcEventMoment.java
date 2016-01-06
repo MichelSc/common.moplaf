@@ -13,7 +13,7 @@ public class PropagatorCalcEventMoment extends PropagatorFunctionAdapter {
 	@Override
 	protected PropagatorFunctionAdapter getParent() {
 		DistributionEvent event = (DistributionEvent)this.target;
-		Distribution distribution = event.getDistribution();
+		Distribution distribution = event.getDistributionAsSequence();
 		PropagatorFunctionAdapter parent = Util.getPropagatorFunctionAdapter(distribution, PropagatorCalcDistributionSequence.class);
 		return parent;
 	}

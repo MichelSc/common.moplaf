@@ -12,7 +12,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class StockChangeTest extends CompositeDistributionEventTest {
+public class StockChangeTest extends CompositeEventTest {
 
 	/**
 	 * <!-- begin-user-doc -->

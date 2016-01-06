@@ -75,7 +75,7 @@ public class DistributionEventItemProvider
 			addSlopeBeforePropertyDescriptor(object);
 			addSlopeAfterPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
-			addDistributionPropertyDescriptor(object);
+			addDistributionAsSequencePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -279,24 +279,24 @@ public class DistributionEventItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Distribution feature.
+	 * This adds a property descriptor for the Distribution As Sequence feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDistributionPropertyDescriptor(Object object) {
+	protected void addDistributionAsSequencePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DistributionEvent_Distribution_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DistributionEvent_Distribution_feature", "_UI_DistributionEvent_type"),
-				 ContinuousPackage.Literals.DISTRIBUTION_EVENT__DISTRIBUTION,
+				 getString("_UI_DistributionEvent_DistributionAsSequence_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DistributionEvent_DistributionAsSequence_feature", "_UI_DistributionEvent_type"),
+				 ContinuousPackage.Literals.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE,
 				 true,
 				 false,
 				 true,
 				 null,
-				 getString("_UI__1eventPropertyCategory"),
+				 null,
 				 null));
 	}
 
@@ -344,7 +344,6 @@ public class DistributionEventItemProvider
 			case ContinuousPackage.DISTRIBUTION_EVENT__SLOPE_BEFORE:
 			case ContinuousPackage.DISTRIBUTION_EVENT__SLOPE_AFTER:
 			case ContinuousPackage.DISTRIBUTION_EVENT__DESCRIPTION:
-			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

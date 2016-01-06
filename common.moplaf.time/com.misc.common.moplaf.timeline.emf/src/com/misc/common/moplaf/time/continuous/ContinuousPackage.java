@@ -413,13 +413,22 @@ public interface ContinuousPackage extends EPackage {
 	int DISTRIBUTION_EVENT__DESCRIPTION = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_FEATURE_COUNT + 9;
+
+	/**
 	 * The number of structural features of the '<em>Distribution Event</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_EVENT_FEATURE_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_FEATURE_COUNT + 9;
+	int DISTRIBUTION_EVENT_FEATURE_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_FEATURE_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
@@ -510,7 +519,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_EVENTS_PROVIDER__DISTRIBUTION = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_FEATURE_COUNT + 0;
+	int DISTRIBUTION_EVENTS_PROVIDER__DISTRIBUTION = 0;
 
 	/**
 	 * The feature id for the '<em><b>Provided Events</b></em>' reference list.
@@ -519,7 +528,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_EVENTS_PROVIDER__PROVIDED_EVENTS = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_FEATURE_COUNT + 1;
+	int DISTRIBUTION_EVENTS_PROVIDER__PROVIDED_EVENTS = 1;
 
 	/**
 	 * The number of structural features of the '<em>Distribution Events Provider</em>' class.
@@ -528,25 +537,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_EVENTS_PROVIDER_FEATURE_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISTRIBUTION_EVENTS_PROVIDER___ADD_PROPAGATOR_FUNCTION_ADAPTER = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER___ADD_PROPAGATOR_FUNCTION_ADAPTER;
-
-	/**
-	 * The operation id for the '<em>Refresh Event</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISTRIBUTION_EVENTS_PROVIDER___REFRESH_EVENT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 0;
+	int DISTRIBUTION_EVENTS_PROVIDER_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Distribution Events Provider</em>' class.
@@ -555,7 +546,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_EVENTS_PROVIDER_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 1;
+	int DISTRIBUTION_EVENTS_PROVIDER_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountImpulsionImpl <em>Amount Impulsion</em>}' class.
@@ -687,6 +678,15 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHILD_EVENT__DESCRIPTION = DISTRIBUTION_EVENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHILD_EVENT__DISTRIBUTION_AS_SEQUENCE = DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE;
 
 	/**
 	 * The feature id for the '<em><b>Original</b></em>' reference.
@@ -868,6 +868,15 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int START_EVENT__DESCRIPTION = DISTRIBUTION_EVENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START_EVENT__DISTRIBUTION_AS_SEQUENCE = DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE;
 
 	/**
 	 * The feature id for the '<em><b>Amount At Start</b></em>' attribute.
@@ -1069,6 +1078,15 @@ public interface ContinuousPackage extends EPackage {
 	int END_EVENT__DESCRIPTION = DISTRIBUTION_EVENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT__DISTRIBUTION_AS_SEQUENCE = DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE;
+
+	/**
 	 * The feature id for the '<em><b>Distribution As End</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1238,6 +1256,15 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int AMOUNT_IMPULSION__DESCRIPTION = DISTRIBUTION_EVENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION__DISTRIBUTION_AS_SEQUENCE = DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE;
 
 	/**
 	 * The feature id for the '<em><b>Amount Impulsion</b></em>' attribute.
@@ -1420,6 +1447,15 @@ public interface ContinuousPackage extends EPackage {
 	int SLOPE_IMPULSION__DESCRIPTION = DISTRIBUTION_EVENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_IMPULSION__DISTRIBUTION_AS_SEQUENCE = DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE;
+
+	/**
 	 * The feature id for the '<em><b>Slope Impulsion</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1600,6 +1636,15 @@ public interface ContinuousPackage extends EPackage {
 	int AMOUNT_ABSOLUTE__DESCRIPTION = DISTRIBUTION_EVENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE__DISTRIBUTION_AS_SEQUENCE = DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE;
+
+	/**
 	 * The feature id for the '<em><b>Amount Absolute</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1771,6 +1816,15 @@ public interface ContinuousPackage extends EPackage {
 	int SLOPE_ABSOLUTE__DESCRIPTION = DISTRIBUTION_EVENT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE__DISTRIBUTION_AS_SEQUENCE = DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE;
+
+	/**
 	 * The feature id for the '<em><b>Slope Absolute</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1861,6 +1915,70 @@ public interface ContinuousPackage extends EPackage {
 	int SLOPE_ABSOLUTE_OPERATION_COUNT = DISTRIBUTION_EVENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.CompositeEventImpl <em>Composite Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.impl.CompositeEventImpl
+	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getCompositeEvent()
+	 * @generated
+	 */
+	int COMPOSITE_EVENT = 18;
+
+	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_EVENT__DISTRIBUTION = DISTRIBUTION_EVENTS_PROVIDER__DISTRIBUTION;
+
+	/**
+	 * The feature id for the '<em><b>Provided Events</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_EVENT__PROVIDED_EVENTS = DISTRIBUTION_EVENTS_PROVIDER__PROVIDED_EVENTS;
+
+	/**
+	 * The number of structural features of the '<em>Composite Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_EVENT_FEATURE_COUNT = DISTRIBUTION_EVENTS_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER = DISTRIBUTION_EVENTS_PROVIDER_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Refresh Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_EVENT___REFRESH_EVENT = DISTRIBUTION_EVENTS_PROVIDER_OPERATION_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Composite Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_EVENT_OPERATION_COUNT = DISTRIBUTION_EVENTS_PROVIDER_OPERATION_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.CapacityChangeImpl <em>Capacity Change</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1877,7 +1995,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE__DISTRIBUTION = DISTRIBUTION_EVENTS_PROVIDER__DISTRIBUTION;
+	int CAPACITY_CHANGE__DISTRIBUTION = COMPOSITE_EVENT__DISTRIBUTION;
 
 	/**
 	 * The feature id for the '<em><b>Provided Events</b></em>' reference list.
@@ -1886,7 +2004,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE__PROVIDED_EVENTS = DISTRIBUTION_EVENTS_PROVIDER__PROVIDED_EVENTS;
+	int CAPACITY_CHANGE__PROVIDED_EVENTS = COMPOSITE_EVENT__PROVIDED_EVENTS;
 
 	/**
 	 * The feature id for the '<em><b>Start</b></em>' attribute.
@@ -1895,7 +2013,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE__START = DISTRIBUTION_EVENTS_PROVIDER_FEATURE_COUNT + 0;
+	int CAPACITY_CHANGE__START = COMPOSITE_EVENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>End</b></em>' attribute.
@@ -1904,7 +2022,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE__END = DISTRIBUTION_EVENTS_PROVIDER_FEATURE_COUNT + 1;
+	int CAPACITY_CHANGE__END = COMPOSITE_EVENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Amount</b></em>' attribute.
@@ -1913,7 +2031,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE__AMOUNT = DISTRIBUTION_EVENTS_PROVIDER_FEATURE_COUNT + 2;
+	int CAPACITY_CHANGE__AMOUNT = COMPOSITE_EVENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Capacity Change Start</b></em>' containment reference.
@@ -1922,7 +2040,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE__CAPACITY_CHANGE_START = DISTRIBUTION_EVENTS_PROVIDER_FEATURE_COUNT + 3;
+	int CAPACITY_CHANGE__CAPACITY_CHANGE_START = COMPOSITE_EVENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Capacity Change End</b></em>' containment reference.
@@ -1931,7 +2049,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE__CAPACITY_CHANGE_END = DISTRIBUTION_EVENTS_PROVIDER_FEATURE_COUNT + 4;
+	int CAPACITY_CHANGE__CAPACITY_CHANGE_END = COMPOSITE_EVENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Capacity Change</em>' class.
@@ -1940,7 +2058,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_FEATURE_COUNT = DISTRIBUTION_EVENTS_PROVIDER_FEATURE_COUNT + 5;
+	int CAPACITY_CHANGE_FEATURE_COUNT = COMPOSITE_EVENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
@@ -1949,7 +2067,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE___ADD_PROPAGATOR_FUNCTION_ADAPTER = DISTRIBUTION_EVENTS_PROVIDER___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+	int CAPACITY_CHANGE___ADD_PROPAGATOR_FUNCTION_ADAPTER = COMPOSITE_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Event</em>' operation.
@@ -1958,7 +2076,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE___REFRESH_EVENT = DISTRIBUTION_EVENTS_PROVIDER___REFRESH_EVENT;
+	int CAPACITY_CHANGE___REFRESH_EVENT = COMPOSITE_EVENT___REFRESH_EVENT;
 
 	/**
 	 * The number of operations of the '<em>Capacity Change</em>' class.
@@ -1967,7 +2085,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_OPERATION_COUNT = DISTRIBUTION_EVENTS_PROVIDER_OPERATION_COUNT + 0;
+	int CAPACITY_CHANGE_OPERATION_COUNT = COMPOSITE_EVENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.StockChangeImpl <em>Stock Change</em>}' class.
@@ -2089,6 +2207,15 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int CAPACITY_CHANGE_START__DESCRIPTION = AMOUNT_IMPULSION__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE_START__DISTRIBUTION_AS_SEQUENCE = AMOUNT_IMPULSION__DISTRIBUTION_AS_SEQUENCE;
 
 	/**
 	 * The feature id for the '<em><b>Amount Impulsion</b></em>' attribute.
@@ -2290,6 +2417,15 @@ public interface ContinuousPackage extends EPackage {
 	int CAPACITY_CHANGE_END__DESCRIPTION = AMOUNT_IMPULSION__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE_END__DISTRIBUTION_AS_SEQUENCE = AMOUNT_IMPULSION__DISTRIBUTION_AS_SEQUENCE;
+
+	/**
 	 * The feature id for the '<em><b>Amount Impulsion</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2404,7 +2540,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE__DISTRIBUTION = DISTRIBUTION_EVENTS_PROVIDER__DISTRIBUTION;
+	int STOCK_CHANGE__DISTRIBUTION = COMPOSITE_EVENT__DISTRIBUTION;
 
 	/**
 	 * The feature id for the '<em><b>Provided Events</b></em>' reference list.
@@ -2413,7 +2549,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE__PROVIDED_EVENTS = DISTRIBUTION_EVENTS_PROVIDER__PROVIDED_EVENTS;
+	int STOCK_CHANGE__PROVIDED_EVENTS = COMPOSITE_EVENT__PROVIDED_EVENTS;
 
 	/**
 	 * The feature id for the '<em><b>Start</b></em>' attribute.
@@ -2422,7 +2558,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE__START = DISTRIBUTION_EVENTS_PROVIDER_FEATURE_COUNT + 0;
+	int STOCK_CHANGE__START = COMPOSITE_EVENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>End</b></em>' attribute.
@@ -2431,7 +2567,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE__END = DISTRIBUTION_EVENTS_PROVIDER_FEATURE_COUNT + 1;
+	int STOCK_CHANGE__END = COMPOSITE_EVENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Slope</b></em>' attribute.
@@ -2440,7 +2576,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE__SLOPE = DISTRIBUTION_EVENTS_PROVIDER_FEATURE_COUNT + 2;
+	int STOCK_CHANGE__SLOPE = COMPOSITE_EVENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Stock Change Start</b></em>' containment reference.
@@ -2449,7 +2585,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE__STOCK_CHANGE_START = DISTRIBUTION_EVENTS_PROVIDER_FEATURE_COUNT + 3;
+	int STOCK_CHANGE__STOCK_CHANGE_START = COMPOSITE_EVENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Stock Change End</b></em>' containment reference.
@@ -2458,7 +2594,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE__STOCK_CHANGE_END = DISTRIBUTION_EVENTS_PROVIDER_FEATURE_COUNT + 4;
+	int STOCK_CHANGE__STOCK_CHANGE_END = COMPOSITE_EVENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Stock Change</em>' class.
@@ -2467,7 +2603,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_FEATURE_COUNT = DISTRIBUTION_EVENTS_PROVIDER_FEATURE_COUNT + 5;
+	int STOCK_CHANGE_FEATURE_COUNT = COMPOSITE_EVENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
@@ -2476,7 +2612,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE___ADD_PROPAGATOR_FUNCTION_ADAPTER = DISTRIBUTION_EVENTS_PROVIDER___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+	int STOCK_CHANGE___ADD_PROPAGATOR_FUNCTION_ADAPTER = COMPOSITE_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Event</em>' operation.
@@ -2485,7 +2621,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE___REFRESH_EVENT = DISTRIBUTION_EVENTS_PROVIDER___REFRESH_EVENT;
+	int STOCK_CHANGE___REFRESH_EVENT = COMPOSITE_EVENT___REFRESH_EVENT;
 
 	/**
 	 * The number of operations of the '<em>Stock Change</em>' class.
@@ -2494,7 +2630,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_OPERATION_COUNT = DISTRIBUTION_EVENTS_PROVIDER_OPERATION_COUNT + 0;
+	int STOCK_CHANGE_OPERATION_COUNT = COMPOSITE_EVENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Moment</b></em>' attribute.
@@ -2576,6 +2712,15 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int STOCK_CHANGE_START__DESCRIPTION = SLOPE_IMPULSION__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE_START__DISTRIBUTION_AS_SEQUENCE = SLOPE_IMPULSION__DISTRIBUTION_AS_SEQUENCE;
 
 	/**
 	 * The feature id for the '<em><b>Slope Impulsion</b></em>' attribute.
@@ -2765,6 +2910,15 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int STOCK_CHANGE_END__DESCRIPTION = SLOPE_IMPULSION__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE_END__DISTRIBUTION_AS_SEQUENCE = SLOPE_IMPULSION__DISTRIBUTION_AS_SEQUENCE;
 
 	/**
 	 * The feature id for the '<em><b>Slope Impulsion</b></em>' attribute.
@@ -2966,6 +3120,15 @@ public interface ContinuousPackage extends EPackage {
 	int AMOUNT_IMPULSION_ATOMIC__DESCRIPTION = AMOUNT_IMPULSION__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION_ATOMIC__DISTRIBUTION_AS_SEQUENCE = AMOUNT_IMPULSION__DISTRIBUTION_AS_SEQUENCE;
+
+	/**
 	 * The feature id for the '<em><b>Amount Impulsion</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3074,22 +3237,13 @@ public interface ContinuousPackage extends EPackage {
 	int AMOUNT_IMPULSION_ATOMIC___REFRESH_AMOUNT_IMPULSION = AMOUNT_IMPULSION___REFRESH_AMOUNT_IMPULSION;
 
 	/**
-	 * The operation id for the '<em>Refresh Event</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC___REFRESH_EVENT = AMOUNT_IMPULSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Amount Impulsion Atomic</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION_ATOMIC_OPERATION_COUNT = AMOUNT_IMPULSION_OPERATION_COUNT + 1;
+	int AMOUNT_IMPULSION_ATOMIC_OPERATION_COUNT = AMOUNT_IMPULSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeImpulsionAtomicImpl <em>Slope Impulsion Atomic</em>}' class.
@@ -3181,6 +3335,15 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int SLOPE_IMPULSION_ATOMIC__DESCRIPTION = SLOPE_IMPULSION__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_IMPULSION_ATOMIC__DISTRIBUTION_AS_SEQUENCE = SLOPE_IMPULSION__DISTRIBUTION_AS_SEQUENCE;
 
 	/**
 	 * The feature id for the '<em><b>Slope Impulsion</b></em>' attribute.
@@ -3291,22 +3454,13 @@ public interface ContinuousPackage extends EPackage {
 	int SLOPE_IMPULSION_ATOMIC___REFRESH_SLOPE_IMPULSION = SLOPE_IMPULSION___REFRESH_SLOPE_IMPULSION;
 
 	/**
-	 * The operation id for the '<em>Refresh Event</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLOPE_IMPULSION_ATOMIC___REFRESH_EVENT = SLOPE_IMPULSION_OPERATION_COUNT + 0;
-
-	/**
 	 * The number of operations of the '<em>Slope Impulsion Atomic</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC_OPERATION_COUNT = SLOPE_IMPULSION_OPERATION_COUNT + 1;
+	int SLOPE_IMPULSION_ATOMIC_OPERATION_COUNT = SLOPE_IMPULSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.TimeUnit <em>Time Unit</em>}' enum.
@@ -3316,7 +3470,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getTimeUnit()
 	 * @generated
 	 */
-	int TIME_UNIT = 18;
+	int TIME_UNIT = 19;
 
 
 	/**
@@ -3699,6 +3853,17 @@ public interface ContinuousPackage extends EPackage {
 	EAttribute getDistributionEvent_Description();
 
 	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getDistributionAsSequence <em>Distribution As Sequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Distribution As Sequence</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.DistributionEvent#getDistributionAsSequence()
+	 * @see #getDistributionEvent()
+	 * @generated
+	 */
+	EReference getDistributionEvent_DistributionAsSequence();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.DistributionEvent#refreshSlopeBefore() <em>Refresh Slope Before</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3789,16 +3954,6 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDistributionEventsProvider_ProvidedEvents();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.DistributionEventsProvider#refreshEvent() <em>Refresh Event</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Refresh Event</em>' operation.
-	 * @see com.misc.common.moplaf.time.continuous.DistributionEventsProvider#refreshEvent()
-	 * @generated
-	 */
-	EOperation getDistributionEventsProvider__RefreshEvent();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.AmountImpulsion <em>Amount Impulsion</em>}'.
@@ -4095,6 +4250,26 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSlopeImpulsionAtomic();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.CompositeEvent <em>Composite Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Composite Event</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.CompositeEvent
+	 * @generated
+	 */
+	EClass getCompositeEvent();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.CompositeEvent#refreshEvent() <em>Refresh Event</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh Event</em>' operation.
+	 * @see com.misc.common.moplaf.time.continuous.CompositeEvent#refreshEvent()
+	 * @generated
+	 */
+	EOperation getCompositeEvent__RefreshEvent();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.ChildEvent <em>Child Event</em>}'.
@@ -4549,6 +4724,14 @@ public interface ContinuousPackage extends EPackage {
 		EAttribute DISTRIBUTION_EVENT__DESCRIPTION = eINSTANCE.getDistributionEvent_Description();
 
 		/**
+		 * The meta object literal for the '<em><b>Distribution As Sequence</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE = eINSTANCE.getDistributionEvent_DistributionAsSequence();
+
+		/**
 		 * The meta object literal for the '<em><b>Refresh Slope Before</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4621,14 +4804,6 @@ public interface ContinuousPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DISTRIBUTION_EVENTS_PROVIDER__PROVIDED_EVENTS = eINSTANCE.getDistributionEventsProvider_ProvidedEvents();
-
-		/**
-		 * The meta object literal for the '<em><b>Refresh Event</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation DISTRIBUTION_EVENTS_PROVIDER___REFRESH_EVENT = eINSTANCE.getDistributionEventsProvider__RefreshEvent();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountImpulsionImpl <em>Amount Impulsion</em>}' class.
@@ -4873,6 +5048,24 @@ public interface ContinuousPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SLOPE_IMPULSION_ATOMIC = eINSTANCE.getSlopeImpulsionAtomic();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.CompositeEventImpl <em>Composite Event</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.time.continuous.impl.CompositeEventImpl
+		 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getCompositeEvent()
+		 * @generated
+		 */
+		EClass COMPOSITE_EVENT = eINSTANCE.getCompositeEvent();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh Event</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COMPOSITE_EVENT___REFRESH_EVENT = eINSTANCE.getCompositeEvent__RefreshEvent();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.ChildEventImpl <em>Child Event</em>}' class.

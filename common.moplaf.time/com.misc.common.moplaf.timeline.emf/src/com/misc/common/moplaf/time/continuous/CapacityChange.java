@@ -28,7 +28,7 @@ import java.util.Date;
  * @model extendedMetaData="name='StockChange'"
  * @generated
  */
-public interface CapacityChange extends DistributionEventsProvider {
+public interface CapacityChange extends CompositeEvent {
 	/**
 	 * Returns the value of the '<em><b>Start</b></em>' attribute.
 	 * <!-- begin-user-doc -->

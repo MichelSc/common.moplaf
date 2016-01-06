@@ -2,8 +2,8 @@
  */
 package com.misc.common.moplaf.time.continuous;
 
-import com.misc.common.moplaf.propagator.ObjectWithPropagatorFunctionAdapter;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface DistributionEventsProvider extends ObjectWithPropagatorFunctionAdapter {
+public interface DistributionEventsProvider extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Distribution</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -53,13 +53,5 @@ public interface DistributionEventsProvider extends ObjectWithPropagatorFunction
 	 * @generated
 	 */
 	EList<DistributionEvent> getProvidedEvents();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void refreshEvent();
 
 } // DistributionEventsProvider

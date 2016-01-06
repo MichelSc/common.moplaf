@@ -82,7 +82,6 @@ public class ContinuousSwitch<T> extends Switch<T> {
 			case ContinuousPackage.DISTRIBUTION_EVENTS_PROVIDER: {
 				DistributionEventsProvider distributionEventsProvider = (DistributionEventsProvider)theEObject;
 				T result = caseDistributionEventsProvider(distributionEventsProvider);
-				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(distributionEventsProvider);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -145,6 +144,7 @@ public class ContinuousSwitch<T> extends Switch<T> {
 			case ContinuousPackage.CAPACITY_CHANGE: {
 				CapacityChange capacityChange = (CapacityChange)theEObject;
 				T result = caseCapacityChange(capacityChange);
+				if (result == null) result = caseCompositeEvent(capacityChange);
 				if (result == null) result = caseDistributionEventsProvider(capacityChange);
 				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(capacityChange);
 				if (result == null) result = defaultCase(theEObject);
@@ -171,6 +171,7 @@ public class ContinuousSwitch<T> extends Switch<T> {
 			case ContinuousPackage.STOCK_CHANGE: {
 				StockChange stockChange = (StockChange)theEObject;
 				T result = caseStockChange(stockChange);
+				if (result == null) result = caseCompositeEvent(stockChange);
 				if (result == null) result = caseDistributionEventsProvider(stockChange);
 				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(stockChange);
 				if (result == null) result = defaultCase(theEObject);
@@ -211,6 +212,14 @@ public class ContinuousSwitch<T> extends Switch<T> {
 				if (result == null) result = caseDistributionEventsProvider(slopeImpulsionAtomic);
 				if (result == null) result = caseDistributionEvent(slopeImpulsionAtomic);
 				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(slopeImpulsionAtomic);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ContinuousPackage.COMPOSITE_EVENT: {
+				CompositeEvent compositeEvent = (CompositeEvent)theEObject;
+				T result = caseCompositeEvent(compositeEvent);
+				if (result == null) result = caseDistributionEventsProvider(compositeEvent);
+				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(compositeEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -410,6 +419,21 @@ public class ContinuousSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSlopeImpulsionAtomic(SlopeImpulsionAtomic object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Composite Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Composite Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCompositeEvent(CompositeEvent object) {
 		return null;
 	}
 

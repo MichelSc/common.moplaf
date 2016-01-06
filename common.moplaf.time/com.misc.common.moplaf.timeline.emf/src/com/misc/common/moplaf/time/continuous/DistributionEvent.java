@@ -23,6 +23,7 @@ import java.util.Date;
  *   <li>{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getSlopeBefore <em>Slope Before</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getSlopeAfter <em>Slope After</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getDistributionAsSequence <em>Distribution As Sequence</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistributionEvent()
@@ -268,6 +269,34 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctionAdapter {
 	 * @generated
 	 */
 	void setDescription(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Distribution As Sequence</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.continuous.Distribution#getSequenceEvent <em>Sequence Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Distribution As Sequence</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Distribution As Sequence</em>' reference.
+	 * @see #setDistributionAsSequence(Distribution)
+	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistributionEvent_DistributionAsSequence()
+	 * @see com.misc.common.moplaf.time.continuous.Distribution#getSequenceEvent
+	 * @model opposite="SequenceEvent"
+	 * @generated
+	 */
+	Distribution getDistributionAsSequence();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getDistributionAsSequence <em>Distribution As Sequence</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Distribution As Sequence</em>' reference.
+	 * @see #getDistributionAsSequence()
+	 * @generated
+	 */
+	void setDistributionAsSequence(Distribution value);
 
 	/**
 	 * <!-- begin-user-doc -->

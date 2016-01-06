@@ -10,6 +10,7 @@ import com.misc.common.moplaf.time.continuous.CapacityChange;
 import com.misc.common.moplaf.time.continuous.CapacityChangeEnd;
 import com.misc.common.moplaf.time.continuous.CapacityChangeStart;
 import com.misc.common.moplaf.time.continuous.ChildEvent;
+import com.misc.common.moplaf.time.continuous.CompositeEvent;
 import com.misc.common.moplaf.time.continuous.ContinuousFactory;
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
@@ -131,6 +132,13 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * @generated
 	 */
 	private EClass slopeImpulsionAtomicEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass compositeEventEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -572,6 +580,15 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getDistributionEvent_DistributionAsSequence() {
+		return (EReference)distributionEventEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getDistributionEvent__RefreshSlopeBefore() {
 		return distributionEventEClass.getEOperations().get(0);
 	}
@@ -646,15 +663,6 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 */
 	public EReference getDistributionEventsProvider_ProvidedEvents() {
 		return (EReference)distributionEventsProviderEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getDistributionEventsProvider__RefreshEvent() {
-		return distributionEventsProviderEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -914,6 +922,24 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getCompositeEvent() {
+		return compositeEventEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getCompositeEvent__RefreshEvent() {
+		return compositeEventEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getChildEvent() {
 		return childEventEClass;
 	}
@@ -1091,6 +1117,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		createEAttribute(distributionEventEClass, DISTRIBUTION_EVENT__SLOPE_BEFORE);
 		createEAttribute(distributionEventEClass, DISTRIBUTION_EVENT__SLOPE_AFTER);
 		createEAttribute(distributionEventEClass, DISTRIBUTION_EVENT__DESCRIPTION);
+		createEReference(distributionEventEClass, DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE);
 		createEOperation(distributionEventEClass, DISTRIBUTION_EVENT___REFRESH_SLOPE_BEFORE);
 		createEOperation(distributionEventEClass, DISTRIBUTION_EVENT___REFRESH_AMOUNT_BEFORE);
 		createEOperation(distributionEventEClass, DISTRIBUTION_EVENT___REFRESH_AMOUNT_AFTER);
@@ -1101,7 +1128,6 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		distributionEventsProviderEClass = createEClass(DISTRIBUTION_EVENTS_PROVIDER);
 		createEReference(distributionEventsProviderEClass, DISTRIBUTION_EVENTS_PROVIDER__DISTRIBUTION);
 		createEReference(distributionEventsProviderEClass, DISTRIBUTION_EVENTS_PROVIDER__PROVIDED_EVENTS);
-		createEOperation(distributionEventsProviderEClass, DISTRIBUTION_EVENTS_PROVIDER___REFRESH_EVENT);
 
 		childEventEClass = createEClass(CHILD_EVENT);
 		createEReference(childEventEClass, CHILD_EVENT__ORIGINAL);
@@ -1158,6 +1184,9 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 
 		slopeImpulsionAtomicEClass = createEClass(SLOPE_IMPULSION_ATOMIC);
 
+		compositeEventEClass = createEClass(COMPOSITE_EVENT);
+		createEOperation(compositeEventEClass, COMPOSITE_EVENT___REFRESH_EVENT);
+
 		// Create enums
 		timeUnitEEnum = createEEnum(TIME_UNIT);
 	}
@@ -1195,7 +1224,6 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		// Add supertypes to classes
 		distributionEClass.getESuperTypes().add(thePropagatorPackage.getObjectWithPropagatorFunctionAdapter());
 		distributionEventEClass.getESuperTypes().add(thePropagatorPackage.getObjectWithPropagatorFunctionAdapter());
-		distributionEventsProviderEClass.getESuperTypes().add(thePropagatorPackage.getObjectWithPropagatorFunctionAdapter());
 		childEventEClass.getESuperTypes().add(this.getDistributionEvent());
 		startEventEClass.getESuperTypes().add(this.getDistributionEvent());
 		endEventEClass.getESuperTypes().add(this.getDistributionEvent());
@@ -1203,16 +1231,18 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		slopeImpulsionEClass.getESuperTypes().add(this.getDistributionEvent());
 		amountAbsoluteEClass.getESuperTypes().add(this.getDistributionEvent());
 		slopeAbsoluteEClass.getESuperTypes().add(this.getDistributionEvent());
-		capacityChangeEClass.getESuperTypes().add(this.getDistributionEventsProvider());
+		capacityChangeEClass.getESuperTypes().add(this.getCompositeEvent());
 		capacityChangeStartEClass.getESuperTypes().add(this.getAmountImpulsion());
 		capacityChangeEndEClass.getESuperTypes().add(this.getAmountImpulsion());
-		stockChangeEClass.getESuperTypes().add(this.getDistributionEventsProvider());
+		stockChangeEClass.getESuperTypes().add(this.getCompositeEvent());
 		stockChangeStartEClass.getESuperTypes().add(this.getSlopeImpulsion());
 		stockChangeEndEClass.getESuperTypes().add(this.getSlopeImpulsion());
 		amountImpulsionAtomicEClass.getESuperTypes().add(this.getAmountImpulsion());
 		amountImpulsionAtomicEClass.getESuperTypes().add(this.getDistributionEventsProvider());
 		slopeImpulsionAtomicEClass.getESuperTypes().add(this.getSlopeImpulsion());
 		slopeImpulsionAtomicEClass.getESuperTypes().add(this.getDistributionEventsProvider());
+		compositeEventEClass.getESuperTypes().add(this.getDistributionEventsProvider());
+		compositeEventEClass.getESuperTypes().add(thePropagatorPackage.getObjectWithPropagatorFunctionAdapter());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(distributionEClass, Distribution.class, "Distribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1220,7 +1250,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		initEAttribute(getDistribution_HorizonStart(), ecorePackage.getEDate(), "HorizonStart", "2000-01-01", 0, 1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDistribution_HorizonEnd(), ecorePackage.getEDate(), "HorizonEnd", "2099-12-31", 0, 1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDistribution_ChildEvent(), this.getChildEvent(), null, "ChildEvent", null, 0, -1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDistribution_SequenceEvent(), this.getDistributionEvent(), null, "SequenceEvent", null, 0, -1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDistribution_SequenceEvent(), this.getDistributionEvent(), this.getDistributionEvent_DistributionAsSequence(), "SequenceEvent", null, 0, -1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDistribution_Start(), this.getStartEvent(), this.getStartEvent_DistributionAsStart(), "Start", null, 1, 1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDistribution_End(), this.getEndEvent(), this.getEndEvent_DistributionAsEnd(), "End", null, 1, 1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDistribution_EventsProviders(), this.getDistributionEventsProvider(), null, "EventsProviders", null, 0, -1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1283,6 +1313,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		initEAttribute(getDistributionEvent_SlopeBefore(), ecorePackage.getEFloat(), "SlopeBefore", null, 0, 1, DistributionEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDistributionEvent_SlopeAfter(), ecorePackage.getEFloat(), "SlopeAfter", null, 0, 1, DistributionEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDistributionEvent_Description(), ecorePackage.getEString(), "Description", null, 0, 1, DistributionEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDistributionEvent_DistributionAsSequence(), this.getDistribution(), this.getDistribution_SequenceEvent(), "DistributionAsSequence", null, 0, 1, DistributionEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getDistributionEvent__RefreshSlopeBefore(), null, "refreshSlopeBefore", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1299,8 +1330,6 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		initEClass(distributionEventsProviderEClass, DistributionEventsProvider.class, "DistributionEventsProvider", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDistributionEventsProvider_Distribution(), this.getDistribution(), null, "Distribution", null, 1, 1, DistributionEventsProvider.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getDistributionEventsProvider_ProvidedEvents(), this.getDistributionEvent(), null, "ProvidedEvents", null, 0, -1, DistributionEventsProvider.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-
-		initEOperation(getDistributionEventsProvider__RefreshEvent(), null, "refreshEvent", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(childEventEClass, ChildEvent.class, "ChildEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getChildEvent_Original(), this.getDistributionEvent(), null, "Original", null, 1, 1, ChildEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1359,6 +1388,10 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 
 		initEClass(slopeImpulsionAtomicEClass, SlopeImpulsionAtomic.class, "SlopeImpulsionAtomic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(compositeEventEClass, CompositeEvent.class, "CompositeEvent", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getCompositeEvent__RefreshEvent(), null, "refreshEvent", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(timeUnitEEnum, TimeUnit.class, "TimeUnit");
 		addEEnumLiteral(timeUnitEEnum, TimeUnit.HOUR);
@@ -1406,18 +1439,6 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		   source, 
 		   new String[] {
 			 "name", "StockChange"
-		   });	
-		addAnnotation
-		  (capacityChangeStartEClass, 
-		   source, 
-		   new String[] {
-			 "name", "SlopeImpulsion"
-		   });	
-		addAnnotation
-		  (capacityChangeEndEClass, 
-		   source, 
-		   new String[] {
-			 "name", "SlopeImpulsion"
 		   });	
 		addAnnotation
 		  (stockChangeEndEClass, 

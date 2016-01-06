@@ -5,7 +5,7 @@ import com.misc.common.moplaf.propagator.PropagatorFunctionAdapters;
 import com.misc.common.moplaf.propagator.Util;
 import com.misc.common.moplaf.time.continuous.Distribution;
 
-public class PropagatorLayerDistributionAtomicEvents extends PropagatorFunctionAdapter {
+public class PropagatorLayerCompositeEventRefresh extends PropagatorFunctionAdapter {
 
 	@Override
 	protected PropagatorFunctionAdapter getParent() {

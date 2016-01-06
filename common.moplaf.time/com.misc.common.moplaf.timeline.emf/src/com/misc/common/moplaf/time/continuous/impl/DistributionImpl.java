@@ -18,7 +18,7 @@ import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionChi
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionInitialization;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionSequence;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionAmounts;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionAtomicEvents;
+import com.misc.common.moplaf.time.continuous.calc.PropagatorLayerCompositeEventRefresh;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionDescriptions;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionSlopes;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorScopeDistribution;
@@ -39,7 +39,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -408,7 +407,7 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	 */
 	public EList<DistributionEvent> getSequenceEvent() {
 		if (sequenceEvent == null) {
-			sequenceEvent = new EObjectResolvingEList<DistributionEvent>(DistributionEvent.class, this, ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENT);
+			sequenceEvent = new EObjectWithInverseResolvingEList<DistributionEvent>(DistributionEvent.class, this, ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENT, ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE);
 		}
 		return sequenceEvent;
 	}
@@ -656,7 +655,7 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	private void refreshStart() {
 		if ( this.getStart()==null){
 			StartEvent start = ContinuousFactory.eINSTANCE.createStartEvent();
-			start.setDistribution(this);
+			start.setDistributionAsStart(this);
 			this.setStart(start);
 		}
 	}
@@ -664,7 +663,7 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	private void refreshEnd() {
 		if ( this.getEnd()==null){
 			EndEvent end = ContinuousFactory.eINSTANCE.createEndEvent();
-			end.setDistribution(this);
+			end.setDistributionAsEnd(this);
 			this.setEnd(end);
 		}
 	}
@@ -775,7 +774,7 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	 * <!-- end-user-doc -->
 	 */
 	public void addPropagatorFunctionAdapter() {
-		Util.adapt(this, PropagatorLayerDistributionAtomicEvents.class);
+		Util.adapt(this, PropagatorLayerCompositeEventRefresh.class);
 		Util.adapt(this, PropagatorCalcDistributionChildEvents.class);
 		Util.adapt(this, PropagatorCalcDistributionSequence.class);
 		Util.adapt(this, PropagatorLayerDistributionSlopes.class);
@@ -794,6 +793,8 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENT:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSequenceEvent()).basicAdd(otherEnd, msgs);
 			case ContinuousPackage.DISTRIBUTION__START:
 				if (start != null)
 					msgs = ((InternalEObject)start).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ContinuousPackage.DISTRIBUTION__START, null, msgs);
@@ -822,6 +823,8 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 		switch (featureID) {
 			case ContinuousPackage.DISTRIBUTION__CHILD_EVENT:
 				return ((InternalEList<?>)getChildEvent()).basicRemove(otherEnd, msgs);
+			case ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENT:
+				return ((InternalEList<?>)getSequenceEvent()).basicRemove(otherEnd, msgs);
 			case ContinuousPackage.DISTRIBUTION__START:
 				return basicSetStart(null, msgs);
 			case ContinuousPackage.DISTRIBUTION__END:

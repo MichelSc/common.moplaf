@@ -10,7 +10,6 @@ import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
 
 import com.misc.common.moplaf.time.continuous.DistributionEvent;
-import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -19,7 +18,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectEList;
 
 /**
@@ -30,8 +28,6 @@ import org.eclipse.emf.ecore.util.EObjectEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.time.continuous.impl.CapacityChangeImpl#getDistribution <em>Distribution</em>}</li>
- *   <li>{@link com.misc.common.moplaf.time.continuous.impl.CapacityChangeImpl#getProvidedEvents <em>Provided Events</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.CapacityChangeImpl#getStart <em>Start</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.CapacityChangeImpl#getEnd <em>End</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.CapacityChangeImpl#getAmount <em>Amount</em>}</li>
@@ -41,7 +37,7 @@ import org.eclipse.emf.ecore.util.EObjectEList;
  *
  * @generated
  */
-public class CapacityChangeImpl extends MinimalEObjectImpl.Container implements CapacityChange {
+public class CapacityChangeImpl extends CompositeEventImpl implements CapacityChange {
 	/**
 	 * The default value of the '{@link #getStart() <em>Start</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -139,24 +135,6 @@ public class CapacityChangeImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	protected EClass eStaticClass() {
 		return ContinuousPackage.Literals.CAPACITY_CHANGE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Distribution getDistribution() {
-		Distribution distribution = basicGetDistribution();
-		return distribution != null && distribution.eIsProxy() ? (Distribution)eResolveProxy((InternalEObject)distribution) : distribution;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public Distribution basicGetDistribution() {
-		return (Distribution)this.eContainer();
 	}
 
 	/**
@@ -365,11 +343,6 @@ public class CapacityChangeImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContinuousPackage.CAPACITY_CHANGE__DISTRIBUTION:
-				if (resolve) return getDistribution();
-				return basicGetDistribution();
-			case ContinuousPackage.CAPACITY_CHANGE__PROVIDED_EVENTS:
-				return getProvidedEvents();
 			case ContinuousPackage.CAPACITY_CHANGE__START:
 				return getStart();
 			case ContinuousPackage.CAPACITY_CHANGE__END:
@@ -446,10 +419,6 @@ public class CapacityChangeImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.CAPACITY_CHANGE__DISTRIBUTION:
-				return basicGetDistribution() != null;
-			case ContinuousPackage.CAPACITY_CHANGE__PROVIDED_EVENTS:
-				return !getProvidedEvents().isEmpty();
 			case ContinuousPackage.CAPACITY_CHANGE__START:
 				return START_EDEFAULT == null ? start != null : !START_EDEFAULT.equals(start);
 			case ContinuousPackage.CAPACITY_CHANGE__END:
@@ -462,24 +431,6 @@ public class CapacityChangeImpl extends MinimalEObjectImpl.Container implements 
 				return capacityChangeEnd != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case ContinuousPackage.CAPACITY_CHANGE___REFRESH_EVENT:
-				refreshEvent();
-				return null;
-			case ContinuousPackage.CAPACITY_CHANGE___ADD_PROPAGATOR_FUNCTION_ADAPTER:
-				addPropagatorFunctionAdapter();
-				return null;
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -512,37 +463,22 @@ public class CapacityChangeImpl extends MinimalEObjectImpl.Container implements 
 		if ( distribution == null){
 			CapacityChangeStart oldstart = this.getCapacityChangeStart();
 			if ( oldstart!=null){				
-				oldstart.setDistribution(null);
 				this.setCapacityChangeStart(null);
 			}
 			CapacityChangeEnd oldend = this.getCapacityChangeEnd();
 			if ( oldend!=null){
-				oldend.setDistribution(null);
 				this.setCapacityChangeEnd(null);
 			}
 		} else {
 			if ( this.getCapacityChangeStart()==null){
 				CapacityChangeStart newstart = ContinuousFactory.eINSTANCE.createCapacityChangeStart();
-				newstart.setDistribution(distribution);
 				newstart.setCapacityChange(this);
 			}
 			if ( this.getCapacityChangeEnd()==null){
 				CapacityChangeEnd newend= ContinuousFactory.eINSTANCE.createCapacityChangeEnd();
-				newend.setDistribution(distribution);
 				newend.setCapacityChange(this);
 			}
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void addPropagatorFunctionAdapter() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 } //CapacityChangeImpl

@@ -190,26 +190,49 @@ public class ContinuousItemProviderAdapterFactory extends ContinuousAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.CompositeDistributionEvent} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.AmountImpulsionAtomic} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CompositeDistributionEventItemProvider compositeDistributionEventItemProvider;
+	protected AmountImpulsionAtomicItemProvider amountImpulsionAtomicItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.CompositeDistributionEvent}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.AmountImpulsionAtomic}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createCompositeDistributionEventAdapter() {
-		if (compositeDistributionEventItemProvider == null) {
-			compositeDistributionEventItemProvider = new CompositeDistributionEventItemProvider(this);
+	public Adapter createAmountImpulsionAtomicAdapter() {
+		if (amountImpulsionAtomicItemProvider == null) {
+			amountImpulsionAtomicItemProvider = new AmountImpulsionAtomicItemProvider(this);
 		}
 
-		return compositeDistributionEventItemProvider;
+		return amountImpulsionAtomicItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.SlopeImpulsionAtomic} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SlopeImpulsionAtomicItemProvider slopeImpulsionAtomicItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.SlopeImpulsionAtomic}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSlopeImpulsionAtomicAdapter() {
+		if (slopeImpulsionAtomicItemProvider == null) {
+			slopeImpulsionAtomicItemProvider = new SlopeImpulsionAtomicItemProvider(this);
+		}
+
+		return slopeImpulsionAtomicItemProvider;
 	}
 
 	/**
@@ -427,7 +450,6 @@ public class ContinuousItemProviderAdapterFactory extends ContinuousAdapterFacto
 	 */
 	public void dispose() {
 		if (distributionItemProvider != null) distributionItemProvider.dispose();
-		if (compositeDistributionEventItemProvider != null) compositeDistributionEventItemProvider.dispose();
 		if (childEventItemProvider != null) childEventItemProvider.dispose();
 		if (startEventItemProvider != null) startEventItemProvider.dispose();
 		if (endEventItemProvider != null) endEventItemProvider.dispose();
@@ -437,6 +459,8 @@ public class ContinuousItemProviderAdapterFactory extends ContinuousAdapterFacto
 		if (stockChangeItemProvider != null) stockChangeItemProvider.dispose();
 		if (stockChangeStartItemProvider != null) stockChangeStartItemProvider.dispose();
 		if (stockChangeEndItemProvider != null) stockChangeEndItemProvider.dispose();
+		if (amountImpulsionAtomicItemProvider != null) amountImpulsionAtomicItemProvider.dispose();
+		if (slopeImpulsionAtomicItemProvider != null) slopeImpulsionAtomicItemProvider.dispose();
 	}
 
 }

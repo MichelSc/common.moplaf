@@ -7,8 +7,6 @@ import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.DistributionEvent;
 import com.misc.common.moplaf.time.continuous.DistributionEventsProvider;
 import com.misc.common.moplaf.time.continuous.SlopeImpulsionAtomic;
-
-import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -84,17 +82,6 @@ public class SlopeImpulsionAtomicImpl extends SlopeImpulsionImpl implements Slop
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void refreshEvent() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -155,37 +142,6 @@ public class SlopeImpulsionAtomicImpl extends SlopeImpulsionImpl implements Slop
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == DistributionEventsProvider.class) {
-			switch (baseOperationID) {
-				case ContinuousPackage.DISTRIBUTION_EVENTS_PROVIDER___REFRESH_EVENT: return ContinuousPackage.SLOPE_IMPULSION_ATOMIC___REFRESH_EVENT;
-				default: return -1;
-			}
-		}
-		return super.eDerivedOperationID(baseOperationID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case ContinuousPackage.SLOPE_IMPULSION_ATOMIC___REFRESH_EVENT:
-				refreshEvent();
-				return null;
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 } //SlopeImpulsionAtomicImpl

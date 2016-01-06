@@ -16,7 +16,7 @@ package com.misc.common.moplaf.time.continuous;
  * </ul>
  *
  * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getCapacityChangeEnd()
- * @model extendedMetaData="name='SlopeImpulsion'"
+ * @model
  * @generated
  */
 public interface CapacityChangeEnd extends AmountImpulsion {

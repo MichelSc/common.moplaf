@@ -40,6 +40,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#getSlopeBefore <em>Slope Before</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#getSlopeAfter <em>Slope After</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#getDistributionAsSequence <em>Distribution As Sequence</em>}</li>
  * </ul>
  *
  * @generated
@@ -204,6 +205,16 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 	 * @ordered
 	 */
 	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getDistributionAsSequence() <em>Distribution As Sequence</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDistributionAsSequence()
+	 * @generated
+	 * @ordered
+	 */
+	protected Distribution distributionAsSequence;
 
 	/**
 	 * The cached value of the '{@link #getDistribution() <em>Distribution</em>}' reference.
@@ -503,6 +514,66 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Distribution getDistributionAsSequence() {
+		if (distributionAsSequence != null && distributionAsSequence.eIsProxy()) {
+			InternalEObject oldDistributionAsSequence = (InternalEObject)distributionAsSequence;
+			distributionAsSequence = (Distribution)eResolveProxy(oldDistributionAsSequence);
+			if (distributionAsSequence != oldDistributionAsSequence) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE, oldDistributionAsSequence, distributionAsSequence));
+			}
+		}
+		return distributionAsSequence;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Distribution basicGetDistributionAsSequence() {
+		return distributionAsSequence;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDistributionAsSequence(Distribution newDistributionAsSequence, NotificationChain msgs) {
+		Distribution oldDistributionAsSequence = distributionAsSequence;
+		distributionAsSequence = newDistributionAsSequence;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE, oldDistributionAsSequence, newDistributionAsSequence);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDistributionAsSequence(Distribution newDistributionAsSequence) {
+		if (newDistributionAsSequence != distributionAsSequence) {
+			NotificationChain msgs = null;
+			if (distributionAsSequence != null)
+				msgs = ((InternalEObject)distributionAsSequence).eInverseRemove(this, ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENT, Distribution.class, msgs);
+			if (newDistributionAsSequence != null)
+				msgs = ((InternalEObject)newDistributionAsSequence).eInverseAdd(this, ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENT, Distribution.class, msgs);
+			msgs = basicSetDistributionAsSequence(newDistributionAsSequence, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE, newDistributionAsSequence, newDistributionAsSequence));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public void refreshSlopeBefore() {
 		DistributionEvent previous = this.getPrevious();
@@ -527,7 +598,7 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 			return;
 		}
 		float slopeBefore = this.getSlopeBefore();
-		float durationBefore = this.getDistribution().getDuration(previous.getMoment(), this.getMoment());
+		float durationBefore = this.getDistributionAsSequence().getDuration(previous.getMoment(), this.getMoment());
 		float amount = slopeBefore*durationBefore+previous.getAmountAfter();
 		this.setAmountBefore(amount);
 	}
@@ -598,6 +669,10 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 				if (previous != null)
 					msgs = ((InternalEObject)previous).eInverseRemove(this, ContinuousPackage.DISTRIBUTION_EVENT__NEXT, DistributionEvent.class, msgs);
 				return basicSetPrevious((DistributionEvent)otherEnd, msgs);
+			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
+				if (distributionAsSequence != null)
+					msgs = ((InternalEObject)distributionAsSequence).eInverseRemove(this, ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENT, Distribution.class, msgs);
+				return basicSetDistributionAsSequence((Distribution)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -614,6 +689,8 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 				return basicSetNext(null, msgs);
 			case ContinuousPackage.DISTRIBUTION_EVENT__PREVIOUS:
 				return basicSetPrevious(null, msgs);
+			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
+				return basicSetDistributionAsSequence(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -646,6 +723,9 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 				return getSlopeAfter();
 			case ContinuousPackage.DISTRIBUTION_EVENT__DESCRIPTION:
 				return getDescription();
+			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
+				if (resolve) return getDistributionAsSequence();
+				return basicGetDistributionAsSequence();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -684,6 +764,9 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 				return;
 			case ContinuousPackage.DISTRIBUTION_EVENT__DESCRIPTION:
 				setDescription((String)newValue);
+				return;
+			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
+				setDistributionAsSequence((Distribution)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -724,6 +807,9 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 			case ContinuousPackage.DISTRIBUTION_EVENT__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
+			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
+				setDistributionAsSequence((Distribution)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -754,6 +840,8 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 				return slopeAfter != SLOPE_AFTER_EDEFAULT;
 			case ContinuousPackage.DISTRIBUTION_EVENT__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
+				return distributionAsSequence != null;
 		}
 		return super.eIsSet(featureID);
 	}

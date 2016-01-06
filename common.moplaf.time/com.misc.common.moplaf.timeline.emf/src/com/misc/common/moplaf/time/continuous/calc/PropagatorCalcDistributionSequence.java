@@ -22,7 +22,7 @@ public class PropagatorCalcDistributionSequence extends PropagatorFunctionAdapte
 	protected PropagatorFunctionAdapters getAntecedents() {
 		Distribution distribution = (Distribution)this.target;
 		PropagatorFunctionAdapters antecedents = super.getAntecedents();
-		PropagatorFunctionAdapter calcDistributionSequence = Util.getPropagatorFunctionAdapter(distribution, PropagatorLayerDistributionAtomicEvents.class);
+		PropagatorFunctionAdapter calcDistributionSequence = Util.getPropagatorFunctionAdapter(distribution, PropagatorLayerCompositeEventRefresh.class);
 		antecedents.add(calcDistributionSequence);
 		PropagatorFunctionAdapter calcDistributionChildEvent = Util.getPropagatorFunctionAdapter(distribution, PropagatorCalcDistributionChildEvents.class);
 		antecedents.add(calcDistributionChildEvent);
@@ -38,7 +38,8 @@ public class PropagatorCalcDistributionSequence extends PropagatorFunctionAdapte
 	@Override
 	protected void addListeners() {
 		super.addListeners();
-		this.addNavigationFeatureListener(ContinuousPackage.Literals.DISTRIBUTION__ATOMIC_EVENT, DependencyDistributionEvent.class);
+		this.addNavigationFeatureListener(ContinuousPackage.Literals.DISTRIBUTION__SEQUENCE_EVENT, DependencyDistributionEvent.class);
+		this.addFeatureListener(ContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS);
 	}
 
 	static public class DependencyDistributionEvent extends PropagatorDependencyAdapter{

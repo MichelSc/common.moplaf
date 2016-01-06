@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.time.continuous.provider;
 
 
+import com.misc.common.moplaf.time.continuous.ContinuousFactory;
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.TimeUnit;
@@ -71,35 +72,11 @@ public class DistributionItemProvider
 			addTimeUnitPropertyDescriptor(object);
 			addHorizonStartPropertyDescriptor(object);
 			addHorizonEndPropertyDescriptor(object);
-			addAtomicEventPropertyDescriptor(object);
 			addSequenceEventPropertyDescriptor(object);
-			addCompositeEventPropertyDescriptor(object);
 			addParentDistributionPropertyDescriptor(object);
 			addChildDistributionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Atomic Event feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAtomicEventPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Distribution_AtomicEvent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Distribution_AtomicEvent_feature", "_UI_Distribution_type"),
-				 ContinuousPackage.Literals.DISTRIBUTION__ATOMIC_EVENT,
-				 true,
-				 false,
-				 true,
-				 null,
-				 getString("_UI__3eventPropertyCategory"),
-				 null));
 	}
 
 	/**
@@ -191,28 +168,6 @@ public class DistributionItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Composite Event feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCompositeEventPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Distribution_CompositeEvent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Distribution_CompositeEvent_feature", "_UI_Distribution_type"),
-				 ContinuousPackage.Literals.DISTRIBUTION__COMPOSITE_EVENT,
-				 true,
-				 false,
-				 true,
-				 null,
-				 getString("_UI__3eventPropertyCategory"),
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Parent Distribution feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -269,6 +224,7 @@ public class DistributionItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ContinuousPackage.Literals.DISTRIBUTION__SEQUENCE_EVENT);
+			childrenFeatures.add(ContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS);
 		}
 		return childrenFeatures;
 	}
@@ -327,12 +283,11 @@ public class DistributionItemProvider
 			case ContinuousPackage.DISTRIBUTION__TIME_UNIT:
 			case ContinuousPackage.DISTRIBUTION__HORIZON_START:
 			case ContinuousPackage.DISTRIBUTION__HORIZON_END:
-			case ContinuousPackage.DISTRIBUTION__ATOMIC_EVENT:
 			case ContinuousPackage.DISTRIBUTION__CHILD_EVENT:
-			case ContinuousPackage.DISTRIBUTION__COMPOSITE_EVENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENT:
+			case ContinuousPackage.DISTRIBUTION__EVENTS_PROVIDERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -349,6 +304,26 @@ public class DistributionItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
+				 ContinuousFactory.eINSTANCE.createCapacityChange()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
+				 ContinuousFactory.eINSTANCE.createStockChange()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
+				 ContinuousFactory.eINSTANCE.createAmountImpulsionAtomic()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
+				 ContinuousFactory.eINSTANCE.createSlopeImpulsionAtomic()));
 	}
 
 	/**
