@@ -1279,8 +1279,8 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		amountImpulsionAtomicEClass.getESuperTypes().add(this.getDistributionEventsProvider());
 		slopeImpulsionAtomicEClass.getESuperTypes().add(this.getSlopeImpulsion());
 		slopeImpulsionAtomicEClass.getESuperTypes().add(this.getDistributionEventsProvider());
-		compositeEventEClass.getESuperTypes().add(this.getDistributionEventsProvider());
 		compositeEventEClass.getESuperTypes().add(thePropagatorPackage.getObjectWithPropagatorFunctionAdapter());
+		compositeEventEClass.getESuperTypes().add(this.getDistributionEventsProvider());
 		amountAbsoluteAtomicEClass.getESuperTypes().add(this.getAmountAbsolute());
 		amountAbsoluteAtomicEClass.getESuperTypes().add(this.getDistributionEventsProvider());
 		slopeAbsoluteAtomicEClass.getESuperTypes().add(this.getSlopeAbsolute());

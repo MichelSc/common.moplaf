@@ -680,6 +680,9 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 				}
 			}
 		}
+		eventstobe.add(this.getStart());
+		eventstobe.add(this.getEnd());
+		
 
 		EList<DistributionEvent> eventsasis = this.getSequenceEvent();
 		eventsasis.retainAll(eventstobe);

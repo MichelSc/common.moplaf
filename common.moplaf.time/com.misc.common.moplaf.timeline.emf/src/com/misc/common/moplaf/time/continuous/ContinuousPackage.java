@@ -1931,7 +1931,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_EVENT__DISTRIBUTION = DISTRIBUTION_EVENTS_PROVIDER__DISTRIBUTION;
+	int COMPOSITE_EVENT__DISTRIBUTION = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Provided Events</b></em>' reference list.
@@ -1940,7 +1940,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_EVENT__PROVIDED_EVENTS = DISTRIBUTION_EVENTS_PROVIDER__PROVIDED_EVENTS;
+	int COMPOSITE_EVENT__PROVIDED_EVENTS = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Composite Event</em>' class.
@@ -1949,7 +1949,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_EVENT_FEATURE_COUNT = DISTRIBUTION_EVENTS_PROVIDER_FEATURE_COUNT + 0;
+	int COMPOSITE_EVENT_FEATURE_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
@@ -1958,7 +1958,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER = DISTRIBUTION_EVENTS_PROVIDER_OPERATION_COUNT + 0;
+	int COMPOSITE_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER___ADD_PROPAGATOR_FUNCTION_ADAPTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Event</em>' operation.
@@ -1967,7 +1967,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_EVENT___REFRESH_EVENT = DISTRIBUTION_EVENTS_PROVIDER_OPERATION_COUNT + 1;
+	int COMPOSITE_EVENT___REFRESH_EVENT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Composite Event</em>' class.
@@ -1976,7 +1976,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_EVENT_OPERATION_COUNT = DISTRIBUTION_EVENTS_PROVIDER_OPERATION_COUNT + 2;
+	int COMPOSITE_EVENT_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.CapacityChangeImpl <em>Capacity Change</em>}' class.

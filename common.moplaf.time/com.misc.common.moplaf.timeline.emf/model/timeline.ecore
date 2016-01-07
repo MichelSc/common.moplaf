@@ -229,7 +229,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AmountImpulsionAtomic" eSuperTypes="#//continuous/AmountImpulsion #//continuous/DistributionEventsProvider"/>
     <eClassifiers xsi:type="ecore:EClass" name="SlopeImpulsionAtomic" eSuperTypes="#//continuous/SlopeImpulsion #//continuous/DistributionEventsProvider"/>
-    <eClassifiers xsi:type="ecore:EClass" name="CompositeEvent" abstract="true" eSuperTypes="#//continuous/DistributionEventsProvider ../../com.misc.common.moplaf.propagator/model/propagator.ecore#//ObjectWithPropagatorFunctionAdapter">
+    <eClassifiers xsi:type="ecore:EClass" name="CompositeEvent" abstract="true" eSuperTypes="../../com.misc.common.moplaf.propagator/model/propagator.ecore#//ObjectWithPropagatorFunctionAdapter #//continuous/DistributionEventsProvider">
       <eOperations name="refreshEvent"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AmountAbsoluteAtomic" eSuperTypes="#//continuous/AmountAbsolute #//continuous/DistributionEventsProvider"/>

@@ -2,13 +2,12 @@
  */
 package com.misc.common.moplaf.time.continuous.impl;
 
-import com.misc.common.moplaf.propagator.ObjectWithPropagatorFunctionAdapter;
-import com.misc.common.moplaf.propagator.PropagatorPackage;
 import com.misc.common.moplaf.propagator.Util;
 import com.misc.common.moplaf.time.continuous.CompositeEvent;
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.DistributionEvent;
+import com.misc.common.moplaf.time.continuous.DistributionEventsProvider;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcCompositeEventRefreshEvents;
 
 import java.lang.reflect.InvocationTargetException;
@@ -137,14 +136,32 @@ public abstract class CompositeEventImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 */
 	@Override
-	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
-		if (baseClass == ObjectWithPropagatorFunctionAdapter.class) {
-			switch (baseOperationID) {
-				case PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER___ADD_PROPAGATOR_FUNCTION_ADAPTER: return ContinuousPackage.COMPOSITE_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == DistributionEventsProvider.class) {
+			switch (derivedFeatureID) {
+				case ContinuousPackage.COMPOSITE_EVENT__DISTRIBUTION: return ContinuousPackage.DISTRIBUTION_EVENTS_PROVIDER__DISTRIBUTION;
+				case ContinuousPackage.COMPOSITE_EVENT__PROVIDED_EVENTS: return ContinuousPackage.DISTRIBUTION_EVENTS_PROVIDER__PROVIDED_EVENTS;
 				default: return -1;
 			}
 		}
-		return super.eDerivedOperationID(baseOperationID, baseClass);
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == DistributionEventsProvider.class) {
+			switch (baseFeatureID) {
+				case ContinuousPackage.DISTRIBUTION_EVENTS_PROVIDER__DISTRIBUTION: return ContinuousPackage.COMPOSITE_EVENT__DISTRIBUTION;
+				case ContinuousPackage.DISTRIBUTION_EVENTS_PROVIDER__PROVIDED_EVENTS: return ContinuousPackage.COMPOSITE_EVENT__PROVIDED_EVENTS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

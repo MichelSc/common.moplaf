@@ -145,8 +145,8 @@ public class ContinuousSwitch<T> extends Switch<T> {
 				CapacityChange capacityChange = (CapacityChange)theEObject;
 				T result = caseCapacityChange(capacityChange);
 				if (result == null) result = caseCompositeEvent(capacityChange);
-				if (result == null) result = caseDistributionEventsProvider(capacityChange);
 				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(capacityChange);
+				if (result == null) result = caseDistributionEventsProvider(capacityChange);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -172,8 +172,8 @@ public class ContinuousSwitch<T> extends Switch<T> {
 				StockChange stockChange = (StockChange)theEObject;
 				T result = caseStockChange(stockChange);
 				if (result == null) result = caseCompositeEvent(stockChange);
-				if (result == null) result = caseDistributionEventsProvider(stockChange);
 				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(stockChange);
+				if (result == null) result = caseDistributionEventsProvider(stockChange);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -218,8 +218,8 @@ public class ContinuousSwitch<T> extends Switch<T> {
 			case ContinuousPackage.COMPOSITE_EVENT: {
 				CompositeEvent compositeEvent = (CompositeEvent)theEObject;
 				T result = caseCompositeEvent(compositeEvent);
-				if (result == null) result = caseDistributionEventsProvider(compositeEvent);
 				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(compositeEvent);
+				if (result == null) result = caseDistributionEventsProvider(compositeEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

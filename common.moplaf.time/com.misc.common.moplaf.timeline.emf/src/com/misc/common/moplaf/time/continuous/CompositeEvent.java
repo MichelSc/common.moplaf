@@ -15,7 +15,7 @@ import com.misc.common.moplaf.propagator.ObjectWithPropagatorFunctionAdapter;
  * @model abstract="true"
  * @generated
  */
-public interface CompositeEvent extends DistributionEventsProvider, ObjectWithPropagatorFunctionAdapter {
+public interface CompositeEvent extends ObjectWithPropagatorFunctionAdapter, DistributionEventsProvider {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
