@@ -8,7 +8,7 @@ public class PropagatorCalcCapacityChangeEndMoment extends	PropagatorCalcEventMo
 	@Override
 	protected void addListeners() {
 		super.addListeners();
-		this.addNavigationFeatureListener(ContinuousPackage.Literals.CAPACITY_CHANGE_END__CAPACITY_CHANGE, DependencyCapacityChangeStart.class);
+		this.addNavigationFeatureListener(ContinuousPackage.Literals.CAPACITY_CHANGE_END__PROVIDER, DependencyCapacityChangeStart.class);
 	}
 
 	static public class DependencyCapacityChangeStart extends PropagatorDependencyAdapter{

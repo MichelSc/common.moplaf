@@ -8,7 +8,7 @@ public class PropagatorCalcStockChangeStartMoment extends PropagatorCalcEventMom
 	@Override
 	protected void addListeners() {
 		super.addListeners();
-		this.addNavigationFeatureListener(ContinuousPackage.Literals.STOCK_CHANGE_START__STOCK_CHANGE, DependencyStockChangeStart.class);
+		this.addNavigationFeatureListener(ContinuousPackage.Literals.STOCK_CHANGE_START__PROVIDER, DependencyStockChangeStart.class);
 	}
 
 	static public class DependencyStockChangeStart extends PropagatorDependencyAdapter{

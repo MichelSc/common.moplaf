@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.time.continuous.impl.StockChangeStartImpl#getStockChange <em>Stock Change</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.impl.StockChangeStartImpl#getProvider <em>Provider</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,8 +67,8 @@ public class StockChangeStartImpl extends SlopeImpulsionImpl implements StockCha
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StockChange getStockChange() {
-		if (eContainerFeatureID() != ContinuousPackage.STOCK_CHANGE_START__STOCK_CHANGE) return null;
+	public StockChange getProvider() {
+		if (eContainerFeatureID() != ContinuousPackage.STOCK_CHANGE_START__PROVIDER) return null;
 		return (StockChange)eInternalContainer();
 	}
 
@@ -77,8 +77,8 @@ public class StockChangeStartImpl extends SlopeImpulsionImpl implements StockCha
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetStockChange(StockChange newStockChange, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newStockChange, ContinuousPackage.STOCK_CHANGE_START__STOCK_CHANGE, msgs);
+	public NotificationChain basicSetProvider(StockChange newProvider, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newProvider, ContinuousPackage.STOCK_CHANGE_START__PROVIDER, msgs);
 		return msgs;
 	}
 
@@ -87,20 +87,20 @@ public class StockChangeStartImpl extends SlopeImpulsionImpl implements StockCha
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStockChange(StockChange newStockChange) {
-		if (newStockChange != eInternalContainer() || (eContainerFeatureID() != ContinuousPackage.STOCK_CHANGE_START__STOCK_CHANGE && newStockChange != null)) {
-			if (EcoreUtil.isAncestor(this, newStockChange))
+	public void setProvider(StockChange newProvider) {
+		if (newProvider != eInternalContainer() || (eContainerFeatureID() != ContinuousPackage.STOCK_CHANGE_START__PROVIDER && newProvider != null)) {
+			if (EcoreUtil.isAncestor(this, newProvider))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newStockChange != null)
-				msgs = ((InternalEObject)newStockChange).eInverseAdd(this, ContinuousPackage.STOCK_CHANGE__STOCK_CHANGE_START, StockChange.class, msgs);
-			msgs = basicSetStockChange(newStockChange, msgs);
+			if (newProvider != null)
+				msgs = ((InternalEObject)newProvider).eInverseAdd(this, ContinuousPackage.STOCK_CHANGE__START_EVENT, StockChange.class, msgs);
+			msgs = basicSetProvider(newProvider, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.STOCK_CHANGE_START__STOCK_CHANGE, newStockChange, newStockChange));
+			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.STOCK_CHANGE_START__PROVIDER, newProvider, newProvider));
 	}
 
 	/**
@@ -111,10 +111,10 @@ public class StockChangeStartImpl extends SlopeImpulsionImpl implements StockCha
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContinuousPackage.STOCK_CHANGE_START__STOCK_CHANGE:
+			case ContinuousPackage.STOCK_CHANGE_START__PROVIDER:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetStockChange((StockChange)otherEnd, msgs);
+				return basicSetProvider((StockChange)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -127,8 +127,8 @@ public class StockChangeStartImpl extends SlopeImpulsionImpl implements StockCha
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContinuousPackage.STOCK_CHANGE_START__STOCK_CHANGE:
-				return basicSetStockChange(null, msgs);
+			case ContinuousPackage.STOCK_CHANGE_START__PROVIDER:
+				return basicSetProvider(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -141,8 +141,8 @@ public class StockChangeStartImpl extends SlopeImpulsionImpl implements StockCha
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case ContinuousPackage.STOCK_CHANGE_START__STOCK_CHANGE:
-				return eInternalContainer().eInverseRemove(this, ContinuousPackage.STOCK_CHANGE__STOCK_CHANGE_START, StockChange.class, msgs);
+			case ContinuousPackage.STOCK_CHANGE_START__PROVIDER:
+				return eInternalContainer().eInverseRemove(this, ContinuousPackage.STOCK_CHANGE__START_EVENT, StockChange.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -155,8 +155,8 @@ public class StockChangeStartImpl extends SlopeImpulsionImpl implements StockCha
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContinuousPackage.STOCK_CHANGE_START__STOCK_CHANGE:
-				return getStockChange();
+			case ContinuousPackage.STOCK_CHANGE_START__PROVIDER:
+				return getProvider();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -169,8 +169,8 @@ public class StockChangeStartImpl extends SlopeImpulsionImpl implements StockCha
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContinuousPackage.STOCK_CHANGE_START__STOCK_CHANGE:
-				setStockChange((StockChange)newValue);
+			case ContinuousPackage.STOCK_CHANGE_START__PROVIDER:
+				setProvider((StockChange)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -184,8 +184,8 @@ public class StockChangeStartImpl extends SlopeImpulsionImpl implements StockCha
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.STOCK_CHANGE_START__STOCK_CHANGE:
-				setStockChange((StockChange)null);
+			case ContinuousPackage.STOCK_CHANGE_START__PROVIDER:
+				setProvider((StockChange)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -199,8 +199,8 @@ public class StockChangeStartImpl extends SlopeImpulsionImpl implements StockCha
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.STOCK_CHANGE_START__STOCK_CHANGE:
-				return getStockChange() != null;
+			case ContinuousPackage.STOCK_CHANGE_START__PROVIDER:
+				return getProvider() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -211,7 +211,7 @@ public class StockChangeStartImpl extends SlopeImpulsionImpl implements StockCha
 	 */
 	@Override
 	public void refreshSlopeImpulsion() {
-		float amount = this.getStockChange().getSlope();
+		float amount = this.getProvider().getSlope();
 		this.setSlopeImpulsion(amount);
 	}
 
@@ -221,7 +221,7 @@ public class StockChangeStartImpl extends SlopeImpulsionImpl implements StockCha
 	 */
 	@Override
 	public void refreshMoment() {
-		Date moment = this.getStockChange().getStart();
+		Date moment = this.getProvider().getStart();
 		this.setMoment(moment);
 	}
 

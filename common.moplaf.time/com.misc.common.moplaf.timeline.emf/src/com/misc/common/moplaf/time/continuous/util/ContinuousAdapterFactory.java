@@ -74,10 +74,6 @@ public class ContinuousAdapterFactory extends AdapterFactoryImpl {
 				return createDistributionEventAdapter();
 			}
 			@Override
-			public Adapter caseDistributionEventsProvider(DistributionEventsProvider object) {
-				return createDistributionEventsProviderAdapter();
-			}
-			@Override
 			public Adapter caseChildEvent(ChildEvent object) {
 				return createChildEventAdapter();
 			}
@@ -106,20 +102,12 @@ public class ContinuousAdapterFactory extends AdapterFactoryImpl {
 				return createSlopeAbsoluteAdapter();
 			}
 			@Override
-			public Adapter caseCapacityChange(CapacityChange object) {
-				return createCapacityChangeAdapter();
-			}
-			@Override
 			public Adapter caseCapacityChangeStart(CapacityChangeStart object) {
 				return createCapacityChangeStartAdapter();
 			}
 			@Override
 			public Adapter caseCapacityChangeEnd(CapacityChangeEnd object) {
 				return createCapacityChangeEndAdapter();
-			}
-			@Override
-			public Adapter caseStockChange(StockChange object) {
-				return createStockChangeAdapter();
 			}
 			@Override
 			public Adapter caseStockChangeStart(StockChangeStart object) {
@@ -138,16 +126,48 @@ public class ContinuousAdapterFactory extends AdapterFactoryImpl {
 				return createSlopeImpulsionAtomicAdapter();
 			}
 			@Override
-			public Adapter caseCompositeEvent(CompositeEvent object) {
-				return createCompositeEventAdapter();
-			}
-			@Override
 			public Adapter caseAmountAbsoluteAtomic(AmountAbsoluteAtomic object) {
 				return createAmountAbsoluteAtomicAdapter();
 			}
 			@Override
 			public Adapter caseSlopeAbsoluteAtomic(SlopeAbsoluteAtomic object) {
 				return createSlopeAbsoluteAtomicAdapter();
+			}
+			@Override
+			public Adapter caseEventsProviderAbstract(EventsProviderAbstract object) {
+				return createEventsProviderAbstractAdapter();
+			}
+			@Override
+			public Adapter caseEventsProvider(EventsProvider object) {
+				return createEventsProviderAdapter();
+			}
+			@Override
+			public Adapter caseStockChange(StockChange object) {
+				return createStockChangeAdapter();
+			}
+			@Override
+			public Adapter caseCapacityChange(CapacityChange object) {
+				return createCapacityChangeAdapter();
+			}
+			@Override
+			public Adapter caseEventProvider(EventProvider object) {
+				return createEventProviderAdapter();
+			}
+			@Override
+			public Adapter caseSlopeImpulsionProvider(SlopeImpulsionProvider object) {
+				return createSlopeImpulsionProviderAdapter();
+			}
+			@Override
+			public Adapter caseAmountImpulsionProvider(AmountImpulsionProvider object) {
+				return createAmountImpulsionProviderAdapter();
+			}
+			@Override
+			public Adapter caseAmountAbsoluteProvider(AmountAbsoluteProvider object) {
+				return createAmountAbsoluteProviderAdapter();
+			}
+			@Override
+			public Adapter caseSlopeAbsoluteProvider(SlopeAbsoluteProvider object) {
+				return createSlopeAbsoluteProviderAdapter();
 			}
 			@Override
 			public Adapter caseObjectWithPropagatorFunctionAdapter(ObjectWithPropagatorFunctionAdapter object) {
@@ -198,20 +218,6 @@ public class ContinuousAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDistributionEventAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.DistributionEventsProvider <em>Distribution Events Provider</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.DistributionEventsProvider
-	 * @generated
-	 */
-	public Adapter createDistributionEventsProviderAdapter() {
 		return null;
 	}
 
@@ -286,6 +292,76 @@ public class ContinuousAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.EventProvider <em>Event Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.time.continuous.EventProvider
+	 * @generated
+	 */
+	public Adapter createEventProviderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.SlopeImpulsionProvider <em>Slope Impulsion Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.time.continuous.SlopeImpulsionProvider
+	 * @generated
+	 */
+	public Adapter createSlopeImpulsionProviderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.AmountImpulsionProvider <em>Amount Impulsion Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.time.continuous.AmountImpulsionProvider
+	 * @generated
+	 */
+	public Adapter createAmountImpulsionProviderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.AmountAbsoluteProvider <em>Amount Absolute Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.time.continuous.AmountAbsoluteProvider
+	 * @generated
+	 */
+	public Adapter createAmountAbsoluteProviderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.SlopeAbsoluteProvider <em>Slope Absolute Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.time.continuous.SlopeAbsoluteProvider
+	 * @generated
+	 */
+	public Adapter createSlopeAbsoluteProviderAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.StockChange <em>Stock Change</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -356,20 +432,6 @@ public class ContinuousAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.CompositeEvent <em>Composite Event</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.CompositeEvent
-	 * @generated
-	 */
-	public Adapter createCompositeEventAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.AmountAbsoluteAtomic <em>Amount Absolute Atomic</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -394,6 +456,34 @@ public class ContinuousAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSlopeAbsoluteAtomicAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.EventsProviderAbstract <em>Events Provider Abstract</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.time.continuous.EventsProviderAbstract
+	 * @generated
+	 */
+	public Adapter createEventsProviderAbstractAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.EventsProvider <em>Events Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.time.continuous.EventsProvider
+	 * @generated
+	 */
+	public Adapter createEventsProviderAdapter() {
 		return null;
 	}
 

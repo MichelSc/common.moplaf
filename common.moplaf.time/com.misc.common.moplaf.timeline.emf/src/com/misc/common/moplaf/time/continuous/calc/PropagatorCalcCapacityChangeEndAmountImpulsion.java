@@ -10,7 +10,7 @@ public class PropagatorCalcCapacityChangeEndAmountImpulsion extends PropagatorCa
 	@Override
 	protected void addListeners() {
 		super.addListeners();
-		this.addNavigationFeatureListener(ContinuousPackage.Literals.CAPACITY_CHANGE_END__CAPACITY_CHANGE, DependencyCapacityChangeAmount.class);
+		this.addNavigationFeatureListener(ContinuousPackage.Literals.CAPACITY_CHANGE_END__PROVIDER, DependencyCapacityChangeAmount.class);
 	}
 
 	static public class DependencyCapacityChangeAmount extends PropagatorDependencyAdapter{

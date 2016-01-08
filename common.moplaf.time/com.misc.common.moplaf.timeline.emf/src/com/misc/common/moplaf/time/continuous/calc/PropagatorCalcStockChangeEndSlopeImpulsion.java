@@ -9,7 +9,7 @@ public class PropagatorCalcStockChangeEndSlopeImpulsion extends PropagatorCalcSl
 	@Override
 	protected void addListeners() {
 		super.addListeners();
-		this.addNavigationFeatureListener(ContinuousPackage.Literals.STOCK_CHANGE_END__STOCK_CHANGE, DependencyStockChangeSlope.class);
+		this.addNavigationFeatureListener(ContinuousPackage.Literals.STOCK_CHANGE_END__PROVIDER, DependencyStockChangeSlope.class);
 	}
 
 	static public class DependencyStockChangeSlope extends PropagatorDependencyAdapter{

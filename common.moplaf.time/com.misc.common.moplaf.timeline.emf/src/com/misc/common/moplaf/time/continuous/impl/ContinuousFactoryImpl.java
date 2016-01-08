@@ -61,16 +61,20 @@ public class ContinuousFactoryImpl extends EFactoryImpl implements ContinuousFac
 			case ContinuousPackage.CHILD_EVENT: return createChildEvent();
 			case ContinuousPackage.START_EVENT: return createStartEvent();
 			case ContinuousPackage.END_EVENT: return createEndEvent();
-			case ContinuousPackage.CAPACITY_CHANGE: return createCapacityChange();
 			case ContinuousPackage.CAPACITY_CHANGE_START: return createCapacityChangeStart();
 			case ContinuousPackage.CAPACITY_CHANGE_END: return createCapacityChangeEnd();
-			case ContinuousPackage.STOCK_CHANGE: return createStockChange();
 			case ContinuousPackage.STOCK_CHANGE_START: return createStockChangeStart();
 			case ContinuousPackage.STOCK_CHANGE_END: return createStockChangeEnd();
 			case ContinuousPackage.AMOUNT_IMPULSION_ATOMIC: return createAmountImpulsionAtomic();
 			case ContinuousPackage.SLOPE_IMPULSION_ATOMIC: return createSlopeImpulsionAtomic();
 			case ContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC: return createAmountAbsoluteAtomic();
 			case ContinuousPackage.SLOPE_ABSOLUTE_ATOMIC: return createSlopeAbsoluteAtomic();
+			case ContinuousPackage.STOCK_CHANGE: return createStockChange();
+			case ContinuousPackage.CAPACITY_CHANGE: return createCapacityChange();
+			case ContinuousPackage.SLOPE_IMPULSION_PROVIDER: return createSlopeImpulsionProvider();
+			case ContinuousPackage.AMOUNT_IMPULSION_PROVIDER: return createAmountImpulsionProvider();
+			case ContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER: return createAmountAbsoluteProvider();
+			case ContinuousPackage.SLOPE_ABSOLUTE_PROVIDER: return createSlopeAbsoluteProvider();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -124,6 +128,46 @@ public class ContinuousFactoryImpl extends EFactoryImpl implements ContinuousFac
 	public CapacityChange createCapacityChange() {
 		CapacityChangeImpl capacityChange = new CapacityChangeImpl();
 		return capacityChange;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SlopeImpulsionProvider createSlopeImpulsionProvider() {
+		SlopeImpulsionProviderImpl slopeImpulsionProvider = new SlopeImpulsionProviderImpl();
+		return slopeImpulsionProvider;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AmountImpulsionProvider createAmountImpulsionProvider() {
+		AmountImpulsionProviderImpl amountImpulsionProvider = new AmountImpulsionProviderImpl();
+		return amountImpulsionProvider;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AmountAbsoluteProvider createAmountAbsoluteProvider() {
+		AmountAbsoluteProviderImpl amountAbsoluteProvider = new AmountAbsoluteProviderImpl();
+		return amountAbsoluteProvider;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SlopeAbsoluteProvider createSlopeAbsoluteProvider() {
+		SlopeAbsoluteProviderImpl slopeAbsoluteProvider = new SlopeAbsoluteProviderImpl();
+		return slopeAbsoluteProvider;
 	}
 
 	/**

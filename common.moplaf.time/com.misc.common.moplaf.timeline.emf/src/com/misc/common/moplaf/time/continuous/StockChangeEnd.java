@@ -12,7 +12,7 @@ package com.misc.common.moplaf.time.continuous;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.time.continuous.StockChangeEnd#getStockChange <em>Stock Change</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.StockChangeEnd#getProvider <em>Provider</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getStockChangeEnd()
@@ -22,30 +22,30 @@ package com.misc.common.moplaf.time.continuous;
 public interface StockChangeEnd extends SlopeImpulsion {
 
 	/**
-	 * Returns the value of the '<em><b>Stock Change</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.continuous.StockChange#getStockChangeEnd <em>Stock Change End</em>}'.
+	 * Returns the value of the '<em><b>Provider</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.continuous.StockChange#getEndEvent <em>End Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Stock Change</em>' container reference isn't clear,
+	 * If the meaning of the '<em>Provider</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Stock Change</em>' container reference.
-	 * @see #setStockChange(StockChange)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getStockChangeEnd_StockChange()
-	 * @see com.misc.common.moplaf.time.continuous.StockChange#getStockChangeEnd
-	 * @model opposite="StockChangeEnd" required="true" transient="false"
+	 * @return the value of the '<em>Provider</em>' container reference.
+	 * @see #setProvider(StockChange)
+	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getStockChangeEnd_Provider()
+	 * @see com.misc.common.moplaf.time.continuous.StockChange#getEndEvent
+	 * @model opposite="EndEvent" required="true" transient="false"
 	 * @generated
 	 */
-	StockChange getStockChange();
+	StockChange getProvider();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.StockChangeEnd#getStockChange <em>Stock Change</em>}' container reference.
+	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.StockChangeEnd#getProvider <em>Provider</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Stock Change</em>' container reference.
-	 * @see #getStockChange()
+	 * @param value the new value of the '<em>Provider</em>' container reference.
+	 * @see #getProvider()
 	 * @generated
 	 */
-	void setStockChange(StockChange value);
+	void setProvider(StockChange value);
 } // StockChangeEnd

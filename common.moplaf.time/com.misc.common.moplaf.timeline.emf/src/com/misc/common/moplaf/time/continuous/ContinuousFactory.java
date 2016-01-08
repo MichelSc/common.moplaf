@@ -40,6 +40,42 @@ public interface ContinuousFactory extends EFactory {
 	CapacityChange createCapacityChange();
 
 	/**
+	 * Returns a new object of class '<em>Slope Impulsion Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Slope Impulsion Provider</em>'.
+	 * @generated
+	 */
+	SlopeImpulsionProvider createSlopeImpulsionProvider();
+
+	/**
+	 * Returns a new object of class '<em>Amount Impulsion Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Amount Impulsion Provider</em>'.
+	 * @generated
+	 */
+	AmountImpulsionProvider createAmountImpulsionProvider();
+
+	/**
+	 * Returns a new object of class '<em>Amount Absolute Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Amount Absolute Provider</em>'.
+	 * @generated
+	 */
+	AmountAbsoluteProvider createAmountAbsoluteProvider();
+
+	/**
+	 * Returns a new object of class '<em>Slope Absolute Provider</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Slope Absolute Provider</em>'.
+	 * @generated
+	 */
+	SlopeAbsoluteProvider createSlopeAbsoluteProvider();
+
+	/**
 	 * Returns a new object of class '<em>Stock Change</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

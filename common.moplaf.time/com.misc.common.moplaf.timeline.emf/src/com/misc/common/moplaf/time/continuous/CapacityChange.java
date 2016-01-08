@@ -20,15 +20,15 @@ import java.util.Date;
  *   <li>{@link com.misc.common.moplaf.time.continuous.CapacityChange#getStart <em>Start</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.CapacityChange#getEnd <em>End</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.CapacityChange#getAmount <em>Amount</em>}</li>
- *   <li>{@link com.misc.common.moplaf.time.continuous.CapacityChange#getCapacityChangeStart <em>Capacity Change Start</em>}</li>
- *   <li>{@link com.misc.common.moplaf.time.continuous.CapacityChange#getCapacityChangeEnd <em>Capacity Change End</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.CapacityChange#getStartEvent <em>Start Event</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.CapacityChange#getEndEvent <em>End Event</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getCapacityChange()
  * @model extendedMetaData="name='StockChange'"
  * @generated
  */
-public interface CapacityChange extends CompositeEvent {
+public interface CapacityChange extends EventsProvider {
 	/**
 	 * Returns the value of the '<em><b>Start</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -108,59 +108,59 @@ public interface CapacityChange extends CompositeEvent {
 	void setAmount(float value);
 
 	/**
-	 * Returns the value of the '<em><b>Capacity Change Start</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.continuous.CapacityChangeStart#getCapacityChange <em>Capacity Change</em>}'.
+	 * Returns the value of the '<em><b>Start Event</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.continuous.CapacityChangeStart#getProvider <em>Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Capacity Change Start</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Start Event</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Capacity Change Start</em>' containment reference.
-	 * @see #setCapacityChangeStart(CapacityChangeStart)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getCapacityChange_CapacityChangeStart()
-	 * @see com.misc.common.moplaf.time.continuous.CapacityChangeStart#getCapacityChange
-	 * @model opposite="CapacityChange" containment="true"
+	 * @return the value of the '<em>Start Event</em>' containment reference.
+	 * @see #setStartEvent(CapacityChangeStart)
+	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getCapacityChange_StartEvent()
+	 * @see com.misc.common.moplaf.time.continuous.CapacityChangeStart#getProvider
+	 * @model opposite="Provider" containment="true"
 	 * @generated
 	 */
-	CapacityChangeStart getCapacityChangeStart();
+	CapacityChangeStart getStartEvent();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.CapacityChange#getCapacityChangeStart <em>Capacity Change Start</em>}' containment reference.
+	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.CapacityChange#getStartEvent <em>Start Event</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Capacity Change Start</em>' containment reference.
-	 * @see #getCapacityChangeStart()
+	 * @param value the new value of the '<em>Start Event</em>' containment reference.
+	 * @see #getStartEvent()
 	 * @generated
 	 */
-	void setCapacityChangeStart(CapacityChangeStart value);
+	void setStartEvent(CapacityChangeStart value);
 
 	/**
-	 * Returns the value of the '<em><b>Capacity Change End</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.continuous.CapacityChangeEnd#getCapacityChange <em>Capacity Change</em>}'.
+	 * Returns the value of the '<em><b>End Event</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.continuous.CapacityChangeEnd#getProvider <em>Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Capacity Change End</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>End Event</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Capacity Change End</em>' containment reference.
-	 * @see #setCapacityChangeEnd(CapacityChangeEnd)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getCapacityChange_CapacityChangeEnd()
-	 * @see com.misc.common.moplaf.time.continuous.CapacityChangeEnd#getCapacityChange
-	 * @model opposite="CapacityChange" containment="true"
+	 * @return the value of the '<em>End Event</em>' containment reference.
+	 * @see #setEndEvent(CapacityChangeEnd)
+	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getCapacityChange_EndEvent()
+	 * @see com.misc.common.moplaf.time.continuous.CapacityChangeEnd#getProvider
+	 * @model opposite="Provider" containment="true"
 	 * @generated
 	 */
-	CapacityChangeEnd getCapacityChangeEnd();
+	CapacityChangeEnd getEndEvent();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.CapacityChange#getCapacityChangeEnd <em>Capacity Change End</em>}' containment reference.
+	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.CapacityChange#getEndEvent <em>End Event</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Capacity Change End</em>' containment reference.
-	 * @see #getCapacityChangeEnd()
+	 * @param value the new value of the '<em>End Event</em>' containment reference.
+	 * @see #getEndEvent()
 	 * @generated
 	 */
-	void setCapacityChangeEnd(CapacityChangeEnd value);
+	void setEndEvent(CapacityChangeEnd value);
 
 } // CapacityChange

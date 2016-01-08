@@ -530,52 +530,6 @@ public interface ContinuousPackage extends EPackage {
 	int DISTRIBUTION_EVENT_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 6;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.DistributionEventsProvider <em>Distribution Events Provider</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.DistributionEventsProvider
-	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getDistributionEventsProvider()
-	 * @generated
-	 */
-	int DISTRIBUTION_EVENTS_PROVIDER = 2;
-
-	/**
-	 * The feature id for the '<em><b>Distribution</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISTRIBUTION_EVENTS_PROVIDER__DISTRIBUTION = 0;
-
-	/**
-	 * The feature id for the '<em><b>Provided Events</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISTRIBUTION_EVENTS_PROVIDER__PROVIDED_EVENTS = 1;
-
-	/**
-	 * The number of structural features of the '<em>Distribution Events Provider</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISTRIBUTION_EVENTS_PROVIDER_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Distribution Events Provider</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISTRIBUTION_EVENTS_PROVIDER_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountImpulsionImpl <em>Amount Impulsion</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -583,7 +537,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getAmountImpulsion()
 	 * @generated
 	 */
-	int AMOUNT_IMPULSION = 6;
+	int AMOUNT_IMPULSION = 5;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeImpulsionImpl <em>Slope Impulsion</em>}' class.
@@ -593,7 +547,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getSlopeImpulsion()
 	 * @generated
 	 */
-	int SLOPE_IMPULSION = 7;
+	int SLOPE_IMPULSION = 6;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountAbsoluteImpl <em>Amount Absolute</em>}' class.
@@ -603,7 +557,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getAmountAbsolute()
 	 * @generated
 	 */
-	int AMOUNT_ABSOLUTE = 8;
+	int AMOUNT_ABSOLUTE = 7;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeAbsoluteImpl <em>Slope Absolute</em>}' class.
@@ -613,7 +567,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getSlopeAbsolute()
 	 * @generated
 	 */
-	int SLOPE_ABSOLUTE = 9;
+	int SLOPE_ABSOLUTE = 8;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.ChildEventImpl <em>Child Event</em>}' class.
@@ -623,7 +577,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getChildEvent()
 	 * @generated
 	 */
-	int CHILD_EVENT = 3;
+	int CHILD_EVENT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Moment</b></em>' attribute.
@@ -822,7 +776,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getStartEvent()
 	 * @generated
 	 */
-	int START_EVENT = 4;
+	int START_EVENT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Moment</b></em>' attribute.
@@ -1039,7 +993,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getEndEvent()
 	 * @generated
 	 */
-	int END_EVENT = 5;
+	int END_EVENT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Moment</b></em>' attribute.
@@ -2005,70 +1959,6 @@ public interface ContinuousPackage extends EPackage {
 	int SLOPE_ABSOLUTE_OPERATION_COUNT = DISTRIBUTION_EVENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.CompositeEventImpl <em>Composite Event</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.impl.CompositeEventImpl
-	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getCompositeEvent()
-	 * @generated
-	 */
-	int COMPOSITE_EVENT = 18;
-
-	/**
-	 * The feature id for the '<em><b>Distribution</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITE_EVENT__DISTRIBUTION = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Provided Events</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITE_EVENT__PROVIDED_EVENTS = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Composite Event</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITE_EVENT_FEATURE_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITE_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER___ADD_PROPAGATOR_FUNCTION_ADAPTER;
-
-	/**
-	 * The operation id for the '<em>Refresh Event</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITE_EVENT___REFRESH_EVENT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Composite Event</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITE_EVENT_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.CapacityChangeImpl <em>Capacity Change</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2076,106 +1966,57 @@ public interface ContinuousPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getCapacityChange()
 	 * @generated
 	 */
-	int CAPACITY_CHANGE = 10;
+	int CAPACITY_CHANGE = 20;
 
 	/**
-	 * The feature id for the '<em><b>Distribution</b></em>' reference.
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.EventProviderImpl <em>Event Provider</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.impl.EventProviderImpl
+	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getEventProvider()
 	 * @generated
-	 * @ordered
 	 */
-	int CAPACITY_CHANGE__DISTRIBUTION = COMPOSITE_EVENT__DISTRIBUTION;
+	int EVENT_PROVIDER = 21;
 
 	/**
-	 * The feature id for the '<em><b>Provided Events</b></em>' reference list.
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeImpulsionProviderImpl <em>Slope Impulsion Provider</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.impl.SlopeImpulsionProviderImpl
+	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getSlopeImpulsionProvider()
 	 * @generated
-	 * @ordered
 	 */
-	int CAPACITY_CHANGE__PROVIDED_EVENTS = COMPOSITE_EVENT__PROVIDED_EVENTS;
+	int SLOPE_IMPULSION_PROVIDER = 22;
 
 	/**
-	 * The feature id for the '<em><b>Start</b></em>' attribute.
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountImpulsionProviderImpl <em>Amount Impulsion Provider</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.impl.AmountImpulsionProviderImpl
+	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getAmountImpulsionProvider()
 	 * @generated
-	 * @ordered
 	 */
-	int CAPACITY_CHANGE__START = COMPOSITE_EVENT_FEATURE_COUNT + 0;
+	int AMOUNT_IMPULSION_PROVIDER = 23;
 
 	/**
-	 * The feature id for the '<em><b>End</b></em>' attribute.
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountAbsoluteProviderImpl <em>Amount Absolute Provider</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.impl.AmountAbsoluteProviderImpl
+	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getAmountAbsoluteProvider()
 	 * @generated
-	 * @ordered
 	 */
-	int CAPACITY_CHANGE__END = COMPOSITE_EVENT_FEATURE_COUNT + 1;
+	int AMOUNT_ABSOLUTE_PROVIDER = 24;
 
 	/**
-	 * The feature id for the '<em><b>Amount</b></em>' attribute.
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeAbsoluteProviderImpl <em>Slope Absolute Provider</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.impl.SlopeAbsoluteProviderImpl
+	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getSlopeAbsoluteProvider()
 	 * @generated
-	 * @ordered
 	 */
-	int CAPACITY_CHANGE__AMOUNT = COMPOSITE_EVENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Capacity Change Start</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPACITY_CHANGE__CAPACITY_CHANGE_START = COMPOSITE_EVENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Capacity Change End</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPACITY_CHANGE__CAPACITY_CHANGE_END = COMPOSITE_EVENT_FEATURE_COUNT + 4;
-
-	/**
-	 * The number of structural features of the '<em>Capacity Change</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPACITY_CHANGE_FEATURE_COUNT = COMPOSITE_EVENT_FEATURE_COUNT + 5;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPACITY_CHANGE___ADD_PROPAGATOR_FUNCTION_ADAPTER = COMPOSITE_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
-
-	/**
-	 * The operation id for the '<em>Refresh Event</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPACITY_CHANGE___REFRESH_EVENT = COMPOSITE_EVENT___REFRESH_EVENT;
-
-	/**
-	 * The number of operations of the '<em>Capacity Change</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPACITY_CHANGE_OPERATION_COUNT = COMPOSITE_EVENT_OPERATION_COUNT + 0;
+	int SLOPE_ABSOLUTE_PROVIDER = 25;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.StockChangeImpl <em>Stock Change</em>}' class.
@@ -2185,7 +2026,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getStockChange()
 	 * @generated
 	 */
-	int STOCK_CHANGE = 13;
+	int STOCK_CHANGE = 19;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.StockChangeStartImpl <em>Stock Change Start</em>}' class.
@@ -2195,7 +2036,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getStockChangeStart()
 	 * @generated
 	 */
-	int STOCK_CHANGE_START = 14;
+	int STOCK_CHANGE_START = 11;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.StockChangeEndImpl <em>Stock Change End</em>}' class.
@@ -2205,7 +2046,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getStockChangeEnd()
 	 * @generated
 	 */
-	int STOCK_CHANGE_END = 15;
+	int STOCK_CHANGE_END = 12;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.CapacityChangeStartImpl <em>Capacity Change Start</em>}' class.
@@ -2215,7 +2056,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getCapacityChangeStart()
 	 * @generated
 	 */
-	int CAPACITY_CHANGE_START = 11;
+	int CAPACITY_CHANGE_START = 9;
 
 	/**
 	 * The feature id for the '<em><b>Moment</b></em>' attribute.
@@ -2326,13 +2167,13 @@ public interface ContinuousPackage extends EPackage {
 	int CAPACITY_CHANGE_START__AMOUNT_IMPULSION = AMOUNT_IMPULSION__AMOUNT_IMPULSION;
 
 	/**
-	 * The feature id for the '<em><b>Capacity Change</b></em>' container reference.
+	 * The feature id for the '<em><b>Provider</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START__CAPACITY_CHANGE = AMOUNT_IMPULSION_FEATURE_COUNT + 0;
+	int CAPACITY_CHANGE_START__PROVIDER = AMOUNT_IMPULSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Capacity Change Start</em>' class.
@@ -2432,7 +2273,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getCapacityChangeEnd()
 	 * @generated
 	 */
-	int CAPACITY_CHANGE_END = 12;
+	int CAPACITY_CHANGE_END = 10;
 
 	/**
 	 * The feature id for the '<em><b>Moment</b></em>' attribute.
@@ -2543,13 +2384,13 @@ public interface ContinuousPackage extends EPackage {
 	int CAPACITY_CHANGE_END__AMOUNT_IMPULSION = AMOUNT_IMPULSION__AMOUNT_IMPULSION;
 
 	/**
-	 * The feature id for the '<em><b>Capacity Change</b></em>' container reference.
+	 * The feature id for the '<em><b>Provider</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_END__CAPACITY_CHANGE = AMOUNT_IMPULSION_FEATURE_COUNT + 0;
+	int CAPACITY_CHANGE_END__PROVIDER = AMOUNT_IMPULSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Capacity Change End</em>' class.
@@ -2640,105 +2481,6 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int CAPACITY_CHANGE_END_OPERATION_COUNT = AMOUNT_IMPULSION_OPERATION_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Distribution</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOCK_CHANGE__DISTRIBUTION = COMPOSITE_EVENT__DISTRIBUTION;
-
-	/**
-	 * The feature id for the '<em><b>Provided Events</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOCK_CHANGE__PROVIDED_EVENTS = COMPOSITE_EVENT__PROVIDED_EVENTS;
-
-	/**
-	 * The feature id for the '<em><b>Start</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOCK_CHANGE__START = COMPOSITE_EVENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>End</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOCK_CHANGE__END = COMPOSITE_EVENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Slope</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOCK_CHANGE__SLOPE = COMPOSITE_EVENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Stock Change Start</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOCK_CHANGE__STOCK_CHANGE_START = COMPOSITE_EVENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Stock Change End</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOCK_CHANGE__STOCK_CHANGE_END = COMPOSITE_EVENT_FEATURE_COUNT + 4;
-
-	/**
-	 * The number of structural features of the '<em>Stock Change</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOCK_CHANGE_FEATURE_COUNT = COMPOSITE_EVENT_FEATURE_COUNT + 5;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOCK_CHANGE___ADD_PROPAGATOR_FUNCTION_ADAPTER = COMPOSITE_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
-
-	/**
-	 * The operation id for the '<em>Refresh Event</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOCK_CHANGE___REFRESH_EVENT = COMPOSITE_EVENT___REFRESH_EVENT;
-
-	/**
-	 * The number of operations of the '<em>Stock Change</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOCK_CHANGE_OPERATION_COUNT = COMPOSITE_EVENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Moment</b></em>' attribute.
@@ -2849,13 +2591,13 @@ public interface ContinuousPackage extends EPackage {
 	int STOCK_CHANGE_START__SLOPE_IMPULSION = SLOPE_IMPULSION__SLOPE_IMPULSION;
 
 	/**
-	 * The feature id for the '<em><b>Stock Change</b></em>' container reference.
+	 * The feature id for the '<em><b>Provider</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START__STOCK_CHANGE = SLOPE_IMPULSION_FEATURE_COUNT + 0;
+	int STOCK_CHANGE_START__PROVIDER = SLOPE_IMPULSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Stock Change Start</em>' class.
@@ -3056,13 +2798,13 @@ public interface ContinuousPackage extends EPackage {
 	int STOCK_CHANGE_END__SLOPE_IMPULSION = SLOPE_IMPULSION__SLOPE_IMPULSION;
 
 	/**
-	 * The feature id for the '<em><b>Stock Change</b></em>' container reference.
+	 * The feature id for the '<em><b>Provider</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_END__STOCK_CHANGE = SLOPE_IMPULSION_FEATURE_COUNT + 0;
+	int STOCK_CHANGE_END__PROVIDER = SLOPE_IMPULSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Stock Change End</em>' class.
@@ -3162,7 +2904,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getAmountImpulsionAtomic()
 	 * @generated
 	 */
-	int AMOUNT_IMPULSION_ATOMIC = 16;
+	int AMOUNT_IMPULSION_ATOMIC = 13;
 
 	/**
 	 * The feature id for the '<em><b>Moment</b></em>' attribute.
@@ -3273,22 +3015,13 @@ public interface ContinuousPackage extends EPackage {
 	int AMOUNT_IMPULSION_ATOMIC__AMOUNT_IMPULSION = AMOUNT_IMPULSION__AMOUNT_IMPULSION;
 
 	/**
-	 * The feature id for the '<em><b>Distribution</b></em>' reference.
+	 * The feature id for the '<em><b>Provider</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION_ATOMIC__DISTRIBUTION = AMOUNT_IMPULSION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Provided Events</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC__PROVIDED_EVENTS = AMOUNT_IMPULSION_FEATURE_COUNT + 1;
+	int AMOUNT_IMPULSION_ATOMIC__PROVIDER = AMOUNT_IMPULSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Amount Impulsion Atomic</em>' class.
@@ -3297,7 +3030,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION_ATOMIC_FEATURE_COUNT = AMOUNT_IMPULSION_FEATURE_COUNT + 2;
+	int AMOUNT_IMPULSION_ATOMIC_FEATURE_COUNT = AMOUNT_IMPULSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
@@ -3388,7 +3121,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getSlopeImpulsionAtomic()
 	 * @generated
 	 */
-	int SLOPE_IMPULSION_ATOMIC = 17;
+	int SLOPE_IMPULSION_ATOMIC = 14;
 
 	/**
 	 * The feature id for the '<em><b>Moment</b></em>' attribute.
@@ -3499,22 +3232,13 @@ public interface ContinuousPackage extends EPackage {
 	int SLOPE_IMPULSION_ATOMIC__SLOPE_IMPULSION = SLOPE_IMPULSION__SLOPE_IMPULSION;
 
 	/**
-	 * The feature id for the '<em><b>Distribution</b></em>' reference.
+	 * The feature id for the '<em><b>Provider</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC__DISTRIBUTION = SLOPE_IMPULSION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Provided Events</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLOPE_IMPULSION_ATOMIC__PROVIDED_EVENTS = SLOPE_IMPULSION_FEATURE_COUNT + 1;
+	int SLOPE_IMPULSION_ATOMIC__PROVIDER = SLOPE_IMPULSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Slope Impulsion Atomic</em>' class.
@@ -3523,7 +3247,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_ATOMIC_FEATURE_COUNT = SLOPE_IMPULSION_FEATURE_COUNT + 2;
+	int SLOPE_IMPULSION_ATOMIC_FEATURE_COUNT = SLOPE_IMPULSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
@@ -3614,7 +3338,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getAmountAbsoluteAtomic()
 	 * @generated
 	 */
-	int AMOUNT_ABSOLUTE_ATOMIC = 19;
+	int AMOUNT_ABSOLUTE_ATOMIC = 15;
 
 	/**
 	 * The feature id for the '<em><b>Moment</b></em>' attribute.
@@ -3725,22 +3449,13 @@ public interface ContinuousPackage extends EPackage {
 	int AMOUNT_ABSOLUTE_ATOMIC__AMOUNT_ABSOLUTE = AMOUNT_ABSOLUTE__AMOUNT_ABSOLUTE;
 
 	/**
-	 * The feature id for the '<em><b>Distribution</b></em>' reference.
+	 * The feature id for the '<em><b>Provider</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE_ATOMIC__DISTRIBUTION = AMOUNT_ABSOLUTE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Provided Events</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_ABSOLUTE_ATOMIC__PROVIDED_EVENTS = AMOUNT_ABSOLUTE_FEATURE_COUNT + 1;
+	int AMOUNT_ABSOLUTE_ATOMIC__PROVIDER = AMOUNT_ABSOLUTE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Amount Absolute Atomic</em>' class.
@@ -3749,7 +3464,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE_ATOMIC_FEATURE_COUNT = AMOUNT_ABSOLUTE_FEATURE_COUNT + 2;
+	int AMOUNT_ABSOLUTE_ATOMIC_FEATURE_COUNT = AMOUNT_ABSOLUTE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
@@ -3831,7 +3546,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getSlopeAbsoluteAtomic()
 	 * @generated
 	 */
-	int SLOPE_ABSOLUTE_ATOMIC = 20;
+	int SLOPE_ABSOLUTE_ATOMIC = 16;
 
 	/**
 	 * The feature id for the '<em><b>Moment</b></em>' attribute.
@@ -3942,22 +3657,13 @@ public interface ContinuousPackage extends EPackage {
 	int SLOPE_ABSOLUTE_ATOMIC__SLOPE_ABSOLUTE = SLOPE_ABSOLUTE__SLOPE_ABSOLUTE;
 
 	/**
-	 * The feature id for the '<em><b>Distribution</b></em>' reference.
+	 * The feature id for the '<em><b>Provider</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE_ATOMIC__DISTRIBUTION = SLOPE_ABSOLUTE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Provided Events</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLOPE_ABSOLUTE_ATOMIC__PROVIDED_EVENTS = SLOPE_ABSOLUTE_FEATURE_COUNT + 1;
+	int SLOPE_ABSOLUTE_ATOMIC__PROVIDER = SLOPE_ABSOLUTE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Slope Absolute Atomic</em>' class.
@@ -3966,7 +3672,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE_ATOMIC_FEATURE_COUNT = SLOPE_ABSOLUTE_FEATURE_COUNT + 2;
+	int SLOPE_ABSOLUTE_ATOMIC_FEATURE_COUNT = SLOPE_ABSOLUTE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
@@ -4041,6 +3747,665 @@ public interface ContinuousPackage extends EPackage {
 	int SLOPE_ABSOLUTE_ATOMIC_OPERATION_COUNT = SLOPE_ABSOLUTE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.EventsProviderAbstractImpl <em>Events Provider Abstract</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.impl.EventsProviderAbstractImpl
+	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getEventsProviderAbstract()
+	 * @generated
+	 */
+	int EVENTS_PROVIDER_ABSTRACT = 17;
+
+	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENTS_PROVIDER_ABSTRACT__DISTRIBUTION = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Events Provider Abstract</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENTS_PROVIDER_ABSTRACT_FEATURE_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENTS_PROVIDER_ABSTRACT___ADD_PROPAGATOR_FUNCTION_ADAPTER = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+
+	/**
+	 * The operation id for the '<em>Refresh Events</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENTS_PROVIDER_ABSTRACT___REFRESH_EVENTS = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Events Provider Abstract</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENTS_PROVIDER_ABSTRACT_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.EventsProviderImpl <em>Events Provider</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.impl.EventsProviderImpl
+	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getEventsProvider()
+	 * @generated
+	 */
+	int EVENTS_PROVIDER = 18;
+
+	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENTS_PROVIDER__DISTRIBUTION = EVENTS_PROVIDER_ABSTRACT__DISTRIBUTION;
+
+	/**
+	 * The feature id for the '<em><b>Provided Events</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENTS_PROVIDER__PROVIDED_EVENTS = EVENTS_PROVIDER_ABSTRACT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Events Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENTS_PROVIDER_FEATURE_COUNT = EVENTS_PROVIDER_ABSTRACT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENTS_PROVIDER___ADD_PROPAGATOR_FUNCTION_ADAPTER = EVENTS_PROVIDER_ABSTRACT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+
+	/**
+	 * The operation id for the '<em>Refresh Events</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENTS_PROVIDER___REFRESH_EVENTS = EVENTS_PROVIDER_ABSTRACT___REFRESH_EVENTS;
+
+	/**
+	 * The number of operations of the '<em>Events Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENTS_PROVIDER_OPERATION_COUNT = EVENTS_PROVIDER_ABSTRACT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE__DISTRIBUTION = EVENTS_PROVIDER__DISTRIBUTION;
+
+	/**
+	 * The feature id for the '<em><b>Provided Events</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE__PROVIDED_EVENTS = EVENTS_PROVIDER__PROVIDED_EVENTS;
+
+	/**
+	 * The feature id for the '<em><b>Start</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE__START = EVENTS_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE__END = EVENTS_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Slope</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE__SLOPE = EVENTS_PROVIDER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Start Event</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE__START_EVENT = EVENTS_PROVIDER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>End Event</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE__END_EVENT = EVENTS_PROVIDER_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>Stock Change</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE_FEATURE_COUNT = EVENTS_PROVIDER_FEATURE_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE___ADD_PROPAGATOR_FUNCTION_ADAPTER = EVENTS_PROVIDER___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+
+	/**
+	 * The operation id for the '<em>Refresh Events</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE___REFRESH_EVENTS = EVENTS_PROVIDER___REFRESH_EVENTS;
+
+	/**
+	 * The number of operations of the '<em>Stock Change</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE_OPERATION_COUNT = EVENTS_PROVIDER_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE__DISTRIBUTION = EVENTS_PROVIDER__DISTRIBUTION;
+
+	/**
+	 * The feature id for the '<em><b>Provided Events</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE__PROVIDED_EVENTS = EVENTS_PROVIDER__PROVIDED_EVENTS;
+
+	/**
+	 * The feature id for the '<em><b>Start</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE__START = EVENTS_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>End</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE__END = EVENTS_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Amount</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE__AMOUNT = EVENTS_PROVIDER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Start Event</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE__START_EVENT = EVENTS_PROVIDER_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>End Event</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE__END_EVENT = EVENTS_PROVIDER_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>Capacity Change</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE_FEATURE_COUNT = EVENTS_PROVIDER_FEATURE_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE___ADD_PROPAGATOR_FUNCTION_ADAPTER = EVENTS_PROVIDER___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+
+	/**
+	 * The operation id for the '<em>Refresh Events</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE___REFRESH_EVENTS = EVENTS_PROVIDER___REFRESH_EVENTS;
+
+	/**
+	 * The number of operations of the '<em>Capacity Change</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE_OPERATION_COUNT = EVENTS_PROVIDER_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_PROVIDER__DISTRIBUTION = EVENTS_PROVIDER_ABSTRACT__DISTRIBUTION;
+
+	/**
+	 * The feature id for the '<em><b>Provided Event</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_PROVIDER__PROVIDED_EVENT = EVENTS_PROVIDER_ABSTRACT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Event Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_PROVIDER_FEATURE_COUNT = EVENTS_PROVIDER_ABSTRACT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTION_ADAPTER = EVENTS_PROVIDER_ABSTRACT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+
+	/**
+	 * The operation id for the '<em>Refresh Events</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_PROVIDER___REFRESH_EVENTS = EVENTS_PROVIDER_ABSTRACT___REFRESH_EVENTS;
+
+	/**
+	 * The number of operations of the '<em>Event Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_PROVIDER_OPERATION_COUNT = EVENTS_PROVIDER_ABSTRACT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_IMPULSION_PROVIDER__DISTRIBUTION = EVENT_PROVIDER__DISTRIBUTION;
+
+	/**
+	 * The feature id for the '<em><b>Provided Event</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_IMPULSION_PROVIDER__PROVIDED_EVENT = EVENT_PROVIDER__PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Event</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_IMPULSION_PROVIDER__EVENT = EVENT_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Slope Impulsion</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_IMPULSION_PROVIDER__SLOPE_IMPULSION = EVENT_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Slope Impulsion Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_IMPULSION_PROVIDER_FEATURE_COUNT = EVENT_PROVIDER_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_IMPULSION_PROVIDER___ADD_PROPAGATOR_FUNCTION_ADAPTER = EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+
+	/**
+	 * The operation id for the '<em>Refresh Events</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_IMPULSION_PROVIDER___REFRESH_EVENTS = EVENT_PROVIDER___REFRESH_EVENTS;
+
+	/**
+	 * The number of operations of the '<em>Slope Impulsion Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_IMPULSION_PROVIDER_OPERATION_COUNT = EVENT_PROVIDER_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION_PROVIDER__DISTRIBUTION = EVENT_PROVIDER__DISTRIBUTION;
+
+	/**
+	 * The feature id for the '<em><b>Provided Event</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION_PROVIDER__PROVIDED_EVENT = EVENT_PROVIDER__PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Event</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION_PROVIDER__EVENT = EVENT_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Amount Impulsion</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION_PROVIDER__AMOUNT_IMPULSION = EVENT_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Amount Impulsion Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION_PROVIDER_FEATURE_COUNT = EVENT_PROVIDER_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION_PROVIDER___ADD_PROPAGATOR_FUNCTION_ADAPTER = EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+
+	/**
+	 * The operation id for the '<em>Refresh Events</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION_PROVIDER___REFRESH_EVENTS = EVENT_PROVIDER___REFRESH_EVENTS;
+
+	/**
+	 * The number of operations of the '<em>Amount Impulsion Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION_PROVIDER_OPERATION_COUNT = EVENT_PROVIDER_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_PROVIDER__DISTRIBUTION = EVENT_PROVIDER__DISTRIBUTION;
+
+	/**
+	 * The feature id for the '<em><b>Provided Event</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_PROVIDER__PROVIDED_EVENT = EVENT_PROVIDER__PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Event</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_PROVIDER__EVENT = EVENT_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Amount Absolute</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_PROVIDER__AMOUNT_ABSOLUTE = EVENT_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Amount Absolute Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_PROVIDER_FEATURE_COUNT = EVENT_PROVIDER_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_PROVIDER___ADD_PROPAGATOR_FUNCTION_ADAPTER = EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+
+	/**
+	 * The operation id for the '<em>Refresh Events</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_PROVIDER___REFRESH_EVENTS = EVENT_PROVIDER___REFRESH_EVENTS;
+
+	/**
+	 * The number of operations of the '<em>Amount Absolute Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_PROVIDER_OPERATION_COUNT = EVENT_PROVIDER_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_PROVIDER__DISTRIBUTION = EVENT_PROVIDER__DISTRIBUTION;
+
+	/**
+	 * The feature id for the '<em><b>Provided Event</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_PROVIDER__PROVIDED_EVENT = EVENT_PROVIDER__PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Event</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_PROVIDER__EVENT = EVENT_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Slope Absolute</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_PROVIDER__SLOPE_ABSOLUTE = EVENT_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Slope Absolute Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_PROVIDER_FEATURE_COUNT = EVENT_PROVIDER_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_PROVIDER___ADD_PROPAGATOR_FUNCTION_ADAPTER = EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+
+	/**
+	 * The operation id for the '<em>Refresh Events</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_PROVIDER___REFRESH_EVENTS = EVENT_PROVIDER___REFRESH_EVENTS;
+
+	/**
+	 * The number of operations of the '<em>Slope Absolute Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_PROVIDER_OPERATION_COUNT = EVENT_PROVIDER_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.TimeUnit <em>Time Unit</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4048,7 +4413,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getTimeUnit()
 	 * @generated
 	 */
-	int TIME_UNIT = 21;
+	int TIME_UNIT = 26;
 
 
 	/**
@@ -4534,38 +4899,6 @@ public interface ContinuousPackage extends EPackage {
 	EOperation getDistributionEvent__RefreshDescription();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.DistributionEventsProvider <em>Distribution Events Provider</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Distribution Events Provider</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.DistributionEventsProvider
-	 * @generated
-	 */
-	EClass getDistributionEventsProvider();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.DistributionEventsProvider#getDistribution <em>Distribution</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Distribution</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.DistributionEventsProvider#getDistribution()
-	 * @see #getDistributionEventsProvider()
-	 * @generated
-	 */
-	EReference getDistributionEventsProvider_Distribution();
-
-	/**
-	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.time.continuous.DistributionEventsProvider#getProvidedEvents <em>Provided Events</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Provided Events</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.DistributionEventsProvider#getProvidedEvents()
-	 * @see #getDistributionEventsProvider()
-	 * @generated
-	 */
-	EReference getDistributionEventsProvider_ProvidedEvents();
-
-	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.AmountImpulsion <em>Amount Impulsion</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4713,26 +5046,175 @@ public interface ContinuousPackage extends EPackage {
 	EAttribute getCapacityChange_Amount();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.time.continuous.CapacityChange#getCapacityChangeStart <em>Capacity Change Start</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.time.continuous.CapacityChange#getStartEvent <em>Start Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Capacity Change Start</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.CapacityChange#getCapacityChangeStart()
+	 * @return the meta object for the containment reference '<em>Start Event</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.CapacityChange#getStartEvent()
 	 * @see #getCapacityChange()
 	 * @generated
 	 */
-	EReference getCapacityChange_CapacityChangeStart();
+	EReference getCapacityChange_StartEvent();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.time.continuous.CapacityChange#getCapacityChangeEnd <em>Capacity Change End</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.time.continuous.CapacityChange#getEndEvent <em>End Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Capacity Change End</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.CapacityChange#getCapacityChangeEnd()
+	 * @return the meta object for the containment reference '<em>End Event</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.CapacityChange#getEndEvent()
 	 * @see #getCapacityChange()
 	 * @generated
 	 */
-	EReference getCapacityChange_CapacityChangeEnd();
+	EReference getCapacityChange_EndEvent();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.EventProvider <em>Event Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Event Provider</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.EventProvider
+	 * @generated
+	 */
+	EClass getEventProvider();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.EventProvider#getProvidedEvent <em>Provided Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Provided Event</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.EventProvider#getProvidedEvent()
+	 * @see #getEventProvider()
+	 * @generated
+	 */
+	EReference getEventProvider_ProvidedEvent();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.SlopeImpulsionProvider <em>Slope Impulsion Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Slope Impulsion Provider</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.SlopeImpulsionProvider
+	 * @generated
+	 */
+	EClass getSlopeImpulsionProvider();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.time.continuous.SlopeImpulsionProvider#getEvent <em>Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Event</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.SlopeImpulsionProvider#getEvent()
+	 * @see #getSlopeImpulsionProvider()
+	 * @generated
+	 */
+	EReference getSlopeImpulsionProvider_Event();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.time.continuous.SlopeImpulsionProvider#getSlopeImpulsion <em>Slope Impulsion</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Slope Impulsion</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.SlopeImpulsionProvider#getSlopeImpulsion()
+	 * @see #getSlopeImpulsionProvider()
+	 * @generated
+	 */
+	EAttribute getSlopeImpulsionProvider_SlopeImpulsion();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.AmountImpulsionProvider <em>Amount Impulsion Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Amount Impulsion Provider</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.AmountImpulsionProvider
+	 * @generated
+	 */
+	EClass getAmountImpulsionProvider();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.time.continuous.AmountImpulsionProvider#getEvent <em>Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Event</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.AmountImpulsionProvider#getEvent()
+	 * @see #getAmountImpulsionProvider()
+	 * @generated
+	 */
+	EReference getAmountImpulsionProvider_Event();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.time.continuous.AmountImpulsionProvider#getAmountImpulsion <em>Amount Impulsion</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Amount Impulsion</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.AmountImpulsionProvider#getAmountImpulsion()
+	 * @see #getAmountImpulsionProvider()
+	 * @generated
+	 */
+	EAttribute getAmountImpulsionProvider_AmountImpulsion();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.AmountAbsoluteProvider <em>Amount Absolute Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Amount Absolute Provider</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.AmountAbsoluteProvider
+	 * @generated
+	 */
+	EClass getAmountAbsoluteProvider();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.time.continuous.AmountAbsoluteProvider#getEvent <em>Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Event</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.AmountAbsoluteProvider#getEvent()
+	 * @see #getAmountAbsoluteProvider()
+	 * @generated
+	 */
+	EReference getAmountAbsoluteProvider_Event();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.time.continuous.AmountAbsoluteProvider#getAmountAbsolute <em>Amount Absolute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Amount Absolute</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.AmountAbsoluteProvider#getAmountAbsolute()
+	 * @see #getAmountAbsoluteProvider()
+	 * @generated
+	 */
+	EAttribute getAmountAbsoluteProvider_AmountAbsolute();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.SlopeAbsoluteProvider <em>Slope Absolute Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Slope Absolute Provider</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.SlopeAbsoluteProvider
+	 * @generated
+	 */
+	EClass getSlopeAbsoluteProvider();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.time.continuous.SlopeAbsoluteProvider#getEvent <em>Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Event</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.SlopeAbsoluteProvider#getEvent()
+	 * @see #getSlopeAbsoluteProvider()
+	 * @generated
+	 */
+	EReference getSlopeAbsoluteProvider_Event();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.time.continuous.SlopeAbsoluteProvider#getSlopeAbsolute <em>Slope Absolute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Slope Absolute</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.SlopeAbsoluteProvider#getSlopeAbsolute()
+	 * @see #getSlopeAbsoluteProvider()
+	 * @generated
+	 */
+	EAttribute getSlopeAbsoluteProvider_SlopeAbsolute();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.StockChange <em>Stock Change</em>}'.
@@ -4778,26 +5260,26 @@ public interface ContinuousPackage extends EPackage {
 	EAttribute getStockChange_Slope();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.time.continuous.StockChange#getStockChangeStart <em>Stock Change Start</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.time.continuous.StockChange#getStartEvent <em>Start Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Stock Change Start</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.StockChange#getStockChangeStart()
+	 * @return the meta object for the containment reference '<em>Start Event</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.StockChange#getStartEvent()
 	 * @see #getStockChange()
 	 * @generated
 	 */
-	EReference getStockChange_StockChangeStart();
+	EReference getStockChange_StartEvent();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.time.continuous.StockChange#getStockChangeEnd <em>Stock Change End</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.time.continuous.StockChange#getEndEvent <em>End Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Stock Change End</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.StockChange#getStockChangeEnd()
+	 * @return the meta object for the containment reference '<em>End Event</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.StockChange#getEndEvent()
 	 * @see #getStockChange()
 	 * @generated
 	 */
-	EReference getStockChange_StockChangeEnd();
+	EReference getStockChange_EndEvent();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.StockChangeStart <em>Stock Change Start</em>}'.
@@ -4810,15 +5292,15 @@ public interface ContinuousPackage extends EPackage {
 	EClass getStockChangeStart();
 
 	/**
-	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.time.continuous.StockChangeStart#getStockChange <em>Stock Change</em>}'.
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.time.continuous.StockChangeStart#getProvider <em>Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Stock Change</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.StockChangeStart#getStockChange()
+	 * @return the meta object for the container reference '<em>Provider</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.StockChangeStart#getProvider()
 	 * @see #getStockChangeStart()
 	 * @generated
 	 */
-	EReference getStockChangeStart_StockChange();
+	EReference getStockChangeStart_Provider();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.StockChangeEnd <em>Stock Change End</em>}'.
@@ -4831,15 +5313,15 @@ public interface ContinuousPackage extends EPackage {
 	EClass getStockChangeEnd();
 
 	/**
-	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.time.continuous.StockChangeEnd#getStockChange <em>Stock Change</em>}'.
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.time.continuous.StockChangeEnd#getProvider <em>Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Stock Change</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.StockChangeEnd#getStockChange()
+	 * @return the meta object for the container reference '<em>Provider</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.StockChangeEnd#getProvider()
 	 * @see #getStockChangeEnd()
 	 * @generated
 	 */
-	EReference getStockChangeEnd_StockChange();
+	EReference getStockChangeEnd_Provider();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.AmountImpulsionAtomic <em>Amount Impulsion Atomic</em>}'.
@@ -4852,6 +5334,17 @@ public interface ContinuousPackage extends EPackage {
 	EClass getAmountImpulsionAtomic();
 
 	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.time.continuous.AmountImpulsionAtomic#getProvider <em>Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Provider</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.AmountImpulsionAtomic#getProvider()
+	 * @see #getAmountImpulsionAtomic()
+	 * @generated
+	 */
+	EReference getAmountImpulsionAtomic_Provider();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.SlopeImpulsionAtomic <em>Slope Impulsion Atomic</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4862,24 +5355,15 @@ public interface ContinuousPackage extends EPackage {
 	EClass getSlopeImpulsionAtomic();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.CompositeEvent <em>Composite Event</em>}'.
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.time.continuous.SlopeImpulsionAtomic#getProvider <em>Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Composite Event</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.CompositeEvent
+	 * @return the meta object for the container reference '<em>Provider</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.SlopeImpulsionAtomic#getProvider()
+	 * @see #getSlopeImpulsionAtomic()
 	 * @generated
 	 */
-	EClass getCompositeEvent();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.CompositeEvent#refreshEvent() <em>Refresh Event</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Refresh Event</em>' operation.
-	 * @see com.misc.common.moplaf.time.continuous.CompositeEvent#refreshEvent()
-	 * @generated
-	 */
-	EOperation getCompositeEvent__RefreshEvent();
+	EReference getSlopeImpulsionAtomic_Provider();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.AmountAbsoluteAtomic <em>Amount Absolute Atomic</em>}'.
@@ -4892,6 +5376,17 @@ public interface ContinuousPackage extends EPackage {
 	EClass getAmountAbsoluteAtomic();
 
 	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.time.continuous.AmountAbsoluteAtomic#getProvider <em>Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Provider</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.AmountAbsoluteAtomic#getProvider()
+	 * @see #getAmountAbsoluteAtomic()
+	 * @generated
+	 */
+	EReference getAmountAbsoluteAtomic_Provider();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.SlopeAbsoluteAtomic <em>Slope Absolute Atomic</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4900,6 +5395,69 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSlopeAbsoluteAtomic();
+
+	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.time.continuous.SlopeAbsoluteAtomic#getProvider <em>Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Provider</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.SlopeAbsoluteAtomic#getProvider()
+	 * @see #getSlopeAbsoluteAtomic()
+	 * @generated
+	 */
+	EReference getSlopeAbsoluteAtomic_Provider();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.EventsProviderAbstract <em>Events Provider Abstract</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Events Provider Abstract</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.EventsProviderAbstract
+	 * @generated
+	 */
+	EClass getEventsProviderAbstract();
+
+	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.time.continuous.EventsProviderAbstract#getDistribution <em>Distribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Distribution</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.EventsProviderAbstract#getDistribution()
+	 * @see #getEventsProviderAbstract()
+	 * @generated
+	 */
+	EReference getEventsProviderAbstract_Distribution();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.EventsProviderAbstract#refreshEvents() <em>Refresh Events</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh Events</em>' operation.
+	 * @see com.misc.common.moplaf.time.continuous.EventsProviderAbstract#refreshEvents()
+	 * @generated
+	 */
+	EOperation getEventsProviderAbstract__RefreshEvents();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.EventsProvider <em>Events Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Events Provider</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.EventsProvider
+	 * @generated
+	 */
+	EClass getEventsProvider();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.time.continuous.EventsProvider#getProvidedEvents <em>Provided Events</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Provided Events</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.EventsProvider#getProvidedEvents()
+	 * @see #getEventsProvider()
+	 * @generated
+	 */
+	EReference getEventsProvider_ProvidedEvents();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.ChildEvent <em>Child Event</em>}'.
@@ -4997,15 +5555,15 @@ public interface ContinuousPackage extends EPackage {
 	EClass getCapacityChangeStart();
 
 	/**
-	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.time.continuous.CapacityChangeStart#getCapacityChange <em>Capacity Change</em>}'.
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.time.continuous.CapacityChangeStart#getProvider <em>Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Capacity Change</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.CapacityChangeStart#getCapacityChange()
+	 * @return the meta object for the container reference '<em>Provider</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.CapacityChangeStart#getProvider()
 	 * @see #getCapacityChangeStart()
 	 * @generated
 	 */
-	EReference getCapacityChangeStart_CapacityChange();
+	EReference getCapacityChangeStart_Provider();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.CapacityChangeEnd <em>Capacity Change End</em>}'.
@@ -5018,15 +5576,15 @@ public interface ContinuousPackage extends EPackage {
 	EClass getCapacityChangeEnd();
 
 	/**
-	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.time.continuous.CapacityChangeEnd#getCapacityChange <em>Capacity Change</em>}'.
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.time.continuous.CapacityChangeEnd#getProvider <em>Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Capacity Change</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.CapacityChangeEnd#getCapacityChange()
+	 * @return the meta object for the container reference '<em>Provider</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.CapacityChangeEnd#getProvider()
 	 * @see #getCapacityChangeEnd()
 	 * @generated
 	 */
-	EReference getCapacityChangeEnd_CapacityChange();
+	EReference getCapacityChangeEnd_Provider();
 
 	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.time.continuous.TimeUnit <em>Time Unit</em>}'.
@@ -5434,32 +5992,6 @@ public interface ContinuousPackage extends EPackage {
 		EOperation DISTRIBUTION_EVENT___REFRESH_DESCRIPTION = eINSTANCE.getDistributionEvent__RefreshDescription();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.DistributionEventsProvider <em>Distribution Events Provider</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.time.continuous.DistributionEventsProvider
-		 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getDistributionEventsProvider()
-		 * @generated
-		 */
-		EClass DISTRIBUTION_EVENTS_PROVIDER = eINSTANCE.getDistributionEventsProvider();
-
-		/**
-		 * The meta object literal for the '<em><b>Distribution</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DISTRIBUTION_EVENTS_PROVIDER__DISTRIBUTION = eINSTANCE.getDistributionEventsProvider_Distribution();
-
-		/**
-		 * The meta object literal for the '<em><b>Provided Events</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DISTRIBUTION_EVENTS_PROVIDER__PROVIDED_EVENTS = eINSTANCE.getDistributionEventsProvider_ProvidedEvents();
-
-		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountImpulsionImpl <em>Amount Impulsion</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5582,20 +6114,142 @@ public interface ContinuousPackage extends EPackage {
 		EAttribute CAPACITY_CHANGE__AMOUNT = eINSTANCE.getCapacityChange_Amount();
 
 		/**
-		 * The meta object literal for the '<em><b>Capacity Change Start</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Start Event</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CAPACITY_CHANGE__CAPACITY_CHANGE_START = eINSTANCE.getCapacityChange_CapacityChangeStart();
+		EReference CAPACITY_CHANGE__START_EVENT = eINSTANCE.getCapacityChange_StartEvent();
 
 		/**
-		 * The meta object literal for the '<em><b>Capacity Change End</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>End Event</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CAPACITY_CHANGE__CAPACITY_CHANGE_END = eINSTANCE.getCapacityChange_CapacityChangeEnd();
+		EReference CAPACITY_CHANGE__END_EVENT = eINSTANCE.getCapacityChange_EndEvent();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.EventProviderImpl <em>Event Provider</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.time.continuous.impl.EventProviderImpl
+		 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getEventProvider()
+		 * @generated
+		 */
+		EClass EVENT_PROVIDER = eINSTANCE.getEventProvider();
+
+		/**
+		 * The meta object literal for the '<em><b>Provided Event</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EVENT_PROVIDER__PROVIDED_EVENT = eINSTANCE.getEventProvider_ProvidedEvent();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeImpulsionProviderImpl <em>Slope Impulsion Provider</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.time.continuous.impl.SlopeImpulsionProviderImpl
+		 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getSlopeImpulsionProvider()
+		 * @generated
+		 */
+		EClass SLOPE_IMPULSION_PROVIDER = eINSTANCE.getSlopeImpulsionProvider();
+
+		/**
+		 * The meta object literal for the '<em><b>Event</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SLOPE_IMPULSION_PROVIDER__EVENT = eINSTANCE.getSlopeImpulsionProvider_Event();
+
+		/**
+		 * The meta object literal for the '<em><b>Slope Impulsion</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SLOPE_IMPULSION_PROVIDER__SLOPE_IMPULSION = eINSTANCE.getSlopeImpulsionProvider_SlopeImpulsion();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountImpulsionProviderImpl <em>Amount Impulsion Provider</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.time.continuous.impl.AmountImpulsionProviderImpl
+		 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getAmountImpulsionProvider()
+		 * @generated
+		 */
+		EClass AMOUNT_IMPULSION_PROVIDER = eINSTANCE.getAmountImpulsionProvider();
+
+		/**
+		 * The meta object literal for the '<em><b>Event</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AMOUNT_IMPULSION_PROVIDER__EVENT = eINSTANCE.getAmountImpulsionProvider_Event();
+
+		/**
+		 * The meta object literal for the '<em><b>Amount Impulsion</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AMOUNT_IMPULSION_PROVIDER__AMOUNT_IMPULSION = eINSTANCE.getAmountImpulsionProvider_AmountImpulsion();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountAbsoluteProviderImpl <em>Amount Absolute Provider</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.time.continuous.impl.AmountAbsoluteProviderImpl
+		 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getAmountAbsoluteProvider()
+		 * @generated
+		 */
+		EClass AMOUNT_ABSOLUTE_PROVIDER = eINSTANCE.getAmountAbsoluteProvider();
+
+		/**
+		 * The meta object literal for the '<em><b>Event</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AMOUNT_ABSOLUTE_PROVIDER__EVENT = eINSTANCE.getAmountAbsoluteProvider_Event();
+
+		/**
+		 * The meta object literal for the '<em><b>Amount Absolute</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AMOUNT_ABSOLUTE_PROVIDER__AMOUNT_ABSOLUTE = eINSTANCE.getAmountAbsoluteProvider_AmountAbsolute();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeAbsoluteProviderImpl <em>Slope Absolute Provider</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.time.continuous.impl.SlopeAbsoluteProviderImpl
+		 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getSlopeAbsoluteProvider()
+		 * @generated
+		 */
+		EClass SLOPE_ABSOLUTE_PROVIDER = eINSTANCE.getSlopeAbsoluteProvider();
+
+		/**
+		 * The meta object literal for the '<em><b>Event</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SLOPE_ABSOLUTE_PROVIDER__EVENT = eINSTANCE.getSlopeAbsoluteProvider_Event();
+
+		/**
+		 * The meta object literal for the '<em><b>Slope Absolute</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SLOPE_ABSOLUTE_PROVIDER__SLOPE_ABSOLUTE = eINSTANCE.getSlopeAbsoluteProvider_SlopeAbsolute();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.StockChangeImpl <em>Stock Change</em>}' class.
@@ -5632,20 +6286,20 @@ public interface ContinuousPackage extends EPackage {
 		EAttribute STOCK_CHANGE__SLOPE = eINSTANCE.getStockChange_Slope();
 
 		/**
-		 * The meta object literal for the '<em><b>Stock Change Start</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Start Event</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STOCK_CHANGE__STOCK_CHANGE_START = eINSTANCE.getStockChange_StockChangeStart();
+		EReference STOCK_CHANGE__START_EVENT = eINSTANCE.getStockChange_StartEvent();
 
 		/**
-		 * The meta object literal for the '<em><b>Stock Change End</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>End Event</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STOCK_CHANGE__STOCK_CHANGE_END = eINSTANCE.getStockChange_StockChangeEnd();
+		EReference STOCK_CHANGE__END_EVENT = eINSTANCE.getStockChange_EndEvent();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.StockChangeStartImpl <em>Stock Change Start</em>}' class.
@@ -5658,12 +6312,12 @@ public interface ContinuousPackage extends EPackage {
 		EClass STOCK_CHANGE_START = eINSTANCE.getStockChangeStart();
 
 		/**
-		 * The meta object literal for the '<em><b>Stock Change</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Provider</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STOCK_CHANGE_START__STOCK_CHANGE = eINSTANCE.getStockChangeStart_StockChange();
+		EReference STOCK_CHANGE_START__PROVIDER = eINSTANCE.getStockChangeStart_Provider();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.StockChangeEndImpl <em>Stock Change End</em>}' class.
@@ -5676,12 +6330,12 @@ public interface ContinuousPackage extends EPackage {
 		EClass STOCK_CHANGE_END = eINSTANCE.getStockChangeEnd();
 
 		/**
-		 * The meta object literal for the '<em><b>Stock Change</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Provider</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STOCK_CHANGE_END__STOCK_CHANGE = eINSTANCE.getStockChangeEnd_StockChange();
+		EReference STOCK_CHANGE_END__PROVIDER = eINSTANCE.getStockChangeEnd_Provider();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountImpulsionAtomicImpl <em>Amount Impulsion Atomic</em>}' class.
@@ -5694,6 +6348,14 @@ public interface ContinuousPackage extends EPackage {
 		EClass AMOUNT_IMPULSION_ATOMIC = eINSTANCE.getAmountImpulsionAtomic();
 
 		/**
+		 * The meta object literal for the '<em><b>Provider</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AMOUNT_IMPULSION_ATOMIC__PROVIDER = eINSTANCE.getAmountImpulsionAtomic_Provider();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeImpulsionAtomicImpl <em>Slope Impulsion Atomic</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5704,22 +6366,12 @@ public interface ContinuousPackage extends EPackage {
 		EClass SLOPE_IMPULSION_ATOMIC = eINSTANCE.getSlopeImpulsionAtomic();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.CompositeEventImpl <em>Composite Event</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.time.continuous.impl.CompositeEventImpl
-		 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getCompositeEvent()
-		 * @generated
-		 */
-		EClass COMPOSITE_EVENT = eINSTANCE.getCompositeEvent();
-
-		/**
-		 * The meta object literal for the '<em><b>Refresh Event</b></em>' operation.
+		 * The meta object literal for the '<em><b>Provider</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation COMPOSITE_EVENT___REFRESH_EVENT = eINSTANCE.getCompositeEvent__RefreshEvent();
+		EReference SLOPE_IMPULSION_ATOMIC__PROVIDER = eINSTANCE.getSlopeImpulsionAtomic_Provider();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountAbsoluteAtomicImpl <em>Amount Absolute Atomic</em>}' class.
@@ -5732,6 +6384,14 @@ public interface ContinuousPackage extends EPackage {
 		EClass AMOUNT_ABSOLUTE_ATOMIC = eINSTANCE.getAmountAbsoluteAtomic();
 
 		/**
+		 * The meta object literal for the '<em><b>Provider</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AMOUNT_ABSOLUTE_ATOMIC__PROVIDER = eINSTANCE.getAmountAbsoluteAtomic_Provider();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeAbsoluteAtomicImpl <em>Slope Absolute Atomic</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5740,6 +6400,58 @@ public interface ContinuousPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SLOPE_ABSOLUTE_ATOMIC = eINSTANCE.getSlopeAbsoluteAtomic();
+
+		/**
+		 * The meta object literal for the '<em><b>Provider</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SLOPE_ABSOLUTE_ATOMIC__PROVIDER = eINSTANCE.getSlopeAbsoluteAtomic_Provider();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.EventsProviderAbstractImpl <em>Events Provider Abstract</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.time.continuous.impl.EventsProviderAbstractImpl
+		 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getEventsProviderAbstract()
+		 * @generated
+		 */
+		EClass EVENTS_PROVIDER_ABSTRACT = eINSTANCE.getEventsProviderAbstract();
+
+		/**
+		 * The meta object literal for the '<em><b>Distribution</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EVENTS_PROVIDER_ABSTRACT__DISTRIBUTION = eINSTANCE.getEventsProviderAbstract_Distribution();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh Events</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation EVENTS_PROVIDER_ABSTRACT___REFRESH_EVENTS = eINSTANCE.getEventsProviderAbstract__RefreshEvents();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.EventsProviderImpl <em>Events Provider</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.time.continuous.impl.EventsProviderImpl
+		 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getEventsProvider()
+		 * @generated
+		 */
+		EClass EVENTS_PROVIDER = eINSTANCE.getEventsProvider();
+
+		/**
+		 * The meta object literal for the '<em><b>Provided Events</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EVENTS_PROVIDER__PROVIDED_EVENTS = eINSTANCE.getEventsProvider_ProvidedEvents();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.ChildEventImpl <em>Child Event</em>}' class.
@@ -5822,12 +6534,12 @@ public interface ContinuousPackage extends EPackage {
 		EClass CAPACITY_CHANGE_START = eINSTANCE.getCapacityChangeStart();
 
 		/**
-		 * The meta object literal for the '<em><b>Capacity Change</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Provider</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CAPACITY_CHANGE_START__CAPACITY_CHANGE = eINSTANCE.getCapacityChangeStart_CapacityChange();
+		EReference CAPACITY_CHANGE_START__PROVIDER = eINSTANCE.getCapacityChangeStart_Provider();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.CapacityChangeEndImpl <em>Capacity Change End</em>}' class.
@@ -5840,12 +6552,12 @@ public interface ContinuousPackage extends EPackage {
 		EClass CAPACITY_CHANGE_END = eINSTANCE.getCapacityChangeEnd();
 
 		/**
-		 * The meta object literal for the '<em><b>Capacity Change</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Provider</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CAPACITY_CHANGE_END__CAPACITY_CHANGE = eINSTANCE.getCapacityChangeEnd_CapacityChange();
+		EReference CAPACITY_CHANGE_END__PROVIDER = eINSTANCE.getCapacityChangeEnd_Provider();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.TimeUnit <em>Time Unit</em>}' enum.

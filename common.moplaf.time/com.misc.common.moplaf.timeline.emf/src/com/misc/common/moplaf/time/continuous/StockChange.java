@@ -20,15 +20,15 @@ import java.util.Date;
  *   <li>{@link com.misc.common.moplaf.time.continuous.StockChange#getStart <em>Start</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.StockChange#getEnd <em>End</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.StockChange#getSlope <em>Slope</em>}</li>
- *   <li>{@link com.misc.common.moplaf.time.continuous.StockChange#getStockChangeStart <em>Stock Change Start</em>}</li>
- *   <li>{@link com.misc.common.moplaf.time.continuous.StockChange#getStockChangeEnd <em>Stock Change End</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.StockChange#getStartEvent <em>Start Event</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.StockChange#getEndEvent <em>End Event</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getStockChange()
  * @model
  * @generated
  */
-public interface StockChange extends CompositeEvent {
+public interface StockChange extends EventsProvider {
 	/**
 	 * Returns the value of the '<em><b>Start</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -108,59 +108,59 @@ public interface StockChange extends CompositeEvent {
 	void setSlope(float value);
 
 	/**
-	 * Returns the value of the '<em><b>Stock Change Start</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.continuous.StockChangeStart#getStockChange <em>Stock Change</em>}'.
+	 * Returns the value of the '<em><b>Start Event</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.continuous.StockChangeStart#getProvider <em>Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Stock Change Start</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Start Event</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Stock Change Start</em>' containment reference.
-	 * @see #setStockChangeStart(StockChangeStart)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getStockChange_StockChangeStart()
-	 * @see com.misc.common.moplaf.time.continuous.StockChangeStart#getStockChange
-	 * @model opposite="StockChange" containment="true"
+	 * @return the value of the '<em>Start Event</em>' containment reference.
+	 * @see #setStartEvent(StockChangeStart)
+	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getStockChange_StartEvent()
+	 * @see com.misc.common.moplaf.time.continuous.StockChangeStart#getProvider
+	 * @model opposite="Provider" containment="true"
 	 * @generated
 	 */
-	StockChangeStart getStockChangeStart();
+	StockChangeStart getStartEvent();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.StockChange#getStockChangeStart <em>Stock Change Start</em>}' containment reference.
+	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.StockChange#getStartEvent <em>Start Event</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Stock Change Start</em>' containment reference.
-	 * @see #getStockChangeStart()
+	 * @param value the new value of the '<em>Start Event</em>' containment reference.
+	 * @see #getStartEvent()
 	 * @generated
 	 */
-	void setStockChangeStart(StockChangeStart value);
+	void setStartEvent(StockChangeStart value);
 
 	/**
-	 * Returns the value of the '<em><b>Stock Change End</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.continuous.StockChangeEnd#getStockChange <em>Stock Change</em>}'.
+	 * Returns the value of the '<em><b>End Event</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.continuous.StockChangeEnd#getProvider <em>Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Stock Change End</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>End Event</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Stock Change End</em>' containment reference.
-	 * @see #setStockChangeEnd(StockChangeEnd)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getStockChange_StockChangeEnd()
-	 * @see com.misc.common.moplaf.time.continuous.StockChangeEnd#getStockChange
-	 * @model opposite="StockChange" containment="true"
+	 * @return the value of the '<em>End Event</em>' containment reference.
+	 * @see #setEndEvent(StockChangeEnd)
+	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getStockChange_EndEvent()
+	 * @see com.misc.common.moplaf.time.continuous.StockChangeEnd#getProvider
+	 * @model opposite="Provider" containment="true"
 	 * @generated
 	 */
-	StockChangeEnd getStockChangeEnd();
+	StockChangeEnd getEndEvent();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.StockChange#getStockChangeEnd <em>Stock Change End</em>}' containment reference.
+	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.StockChange#getEndEvent <em>End Event</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Stock Change End</em>' containment reference.
-	 * @see #getStockChangeEnd()
+	 * @param value the new value of the '<em>End Event</em>' containment reference.
+	 * @see #getEndEvent()
 	 * @generated
 	 */
-	void setStockChangeEnd(StockChangeEnd value);
+	void setEndEvent(StockChangeEnd value);
 
 } // StockChange

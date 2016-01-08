@@ -5,13 +5,17 @@ package com.misc.common.moplaf.time.continuous.impl;
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.DistributionEvent;
-import com.misc.common.moplaf.time.continuous.DistributionEventsProvider;
 import com.misc.common.moplaf.time.continuous.SlopeImpulsionAtomic;
+import com.misc.common.moplaf.time.continuous.SlopeImpulsionProvider;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,8 +25,7 @@ import org.eclipse.emf.ecore.util.EObjectEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.time.continuous.impl.SlopeImpulsionAtomicImpl#getDistribution <em>Distribution</em>}</li>
- *   <li>{@link com.misc.common.moplaf.time.continuous.impl.SlopeImpulsionAtomicImpl#getProvidedEvents <em>Provided Events</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.impl.SlopeImpulsionAtomicImpl#getProvider <em>Provider</em>}</li>
  * </ul>
  *
  * @generated
@@ -52,9 +55,84 @@ public class SlopeImpulsionAtomicImpl extends SlopeImpulsionImpl implements Slop
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Distribution getDistribution() {
-		Distribution distribution = basicGetDistribution();
-		return distribution != null && distribution.eIsProxy() ? (Distribution)eResolveProxy((InternalEObject)distribution) : distribution;
+	public SlopeImpulsionProvider getProvider() {
+		if (eContainerFeatureID() != ContinuousPackage.SLOPE_IMPULSION_ATOMIC__PROVIDER) return null;
+		return (SlopeImpulsionProvider)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetProvider(SlopeImpulsionProvider newProvider, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newProvider, ContinuousPackage.SLOPE_IMPULSION_ATOMIC__PROVIDER, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProvider(SlopeImpulsionProvider newProvider) {
+		if (newProvider != eInternalContainer() || (eContainerFeatureID() != ContinuousPackage.SLOPE_IMPULSION_ATOMIC__PROVIDER && newProvider != null)) {
+			if (EcoreUtil.isAncestor(this, newProvider))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newProvider != null)
+				msgs = ((InternalEObject)newProvider).eInverseAdd(this, ContinuousPackage.SLOPE_IMPULSION_PROVIDER__EVENT, SlopeImpulsionProvider.class, msgs);
+			msgs = basicSetProvider(newProvider, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.SLOPE_IMPULSION_ATOMIC__PROVIDER, newProvider, newProvider));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ContinuousPackage.SLOPE_IMPULSION_ATOMIC__PROVIDER:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetProvider((SlopeImpulsionProvider)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ContinuousPackage.SLOPE_IMPULSION_ATOMIC__PROVIDER:
+				return basicSetProvider(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case ContinuousPackage.SLOPE_IMPULSION_ATOMIC__PROVIDER:
+				return eInternalContainer().eInverseRemove(this, ContinuousPackage.SLOPE_IMPULSION_PROVIDER__EVENT, SlopeImpulsionProvider.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -68,28 +146,13 @@ public class SlopeImpulsionAtomicImpl extends SlopeImpulsionImpl implements Slop
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 */
-	public EList<DistributionEvent> getProvidedEvents() {
-		EObjectEList list = new EObjectEList(DistributionEvent.class, 
-							                this, 
-							                ContinuousPackage.DISTRIBUTION_EVENTS_PROVIDER__PROVIDED_EVENTS);
-		list.add(this);
-		return list;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContinuousPackage.SLOPE_IMPULSION_ATOMIC__DISTRIBUTION:
-				if (resolve) return getDistribution();
-				return basicGetDistribution();
-			case ContinuousPackage.SLOPE_IMPULSION_ATOMIC__PROVIDED_EVENTS:
-				return getProvidedEvents();
+			case ContinuousPackage.SLOPE_IMPULSION_ATOMIC__PROVIDER:
+				return getProvider();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -100,48 +163,42 @@ public class SlopeImpulsionAtomicImpl extends SlopeImpulsionImpl implements Slop
 	 * @generated
 	 */
 	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case ContinuousPackage.SLOPE_IMPULSION_ATOMIC__PROVIDER:
+				setProvider((SlopeImpulsionProvider)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case ContinuousPackage.SLOPE_IMPULSION_ATOMIC__PROVIDER:
+				setProvider((SlopeImpulsionProvider)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.SLOPE_IMPULSION_ATOMIC__DISTRIBUTION:
-				return basicGetDistribution() != null;
-			case ContinuousPackage.SLOPE_IMPULSION_ATOMIC__PROVIDED_EVENTS:
-				return !getProvidedEvents().isEmpty();
+			case ContinuousPackage.SLOPE_IMPULSION_ATOMIC__PROVIDER:
+				return getProvider() != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == DistributionEventsProvider.class) {
-			switch (derivedFeatureID) {
-				case ContinuousPackage.SLOPE_IMPULSION_ATOMIC__DISTRIBUTION: return ContinuousPackage.DISTRIBUTION_EVENTS_PROVIDER__DISTRIBUTION;
-				case ContinuousPackage.SLOPE_IMPULSION_ATOMIC__PROVIDED_EVENTS: return ContinuousPackage.DISTRIBUTION_EVENTS_PROVIDER__PROVIDED_EVENTS;
-				default: return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == DistributionEventsProvider.class) {
-			switch (baseFeatureID) {
-				case ContinuousPackage.DISTRIBUTION_EVENTS_PROVIDER__DISTRIBUTION: return ContinuousPackage.SLOPE_IMPULSION_ATOMIC__DISTRIBUTION;
-				case ContinuousPackage.DISTRIBUTION_EVENTS_PROVIDER__PROVIDED_EVENTS: return ContinuousPackage.SLOPE_IMPULSION_ATOMIC__PROVIDED_EVENTS;
-				default: return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //SlopeImpulsionAtomicImpl
