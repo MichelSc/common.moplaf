@@ -7,7 +7,6 @@ import java.util.Date;
 import com.misc.common.moplaf.propagator.Util;
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
-import com.misc.common.moplaf.time.continuous.DistributionEvent;
 import com.misc.common.moplaf.time.continuous.StartEvent;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStartEventAmountAfter;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStartEventMoment;
@@ -15,11 +14,9 @@ import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStartEventSlope
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**

@@ -98,14 +98,19 @@
           <details key="documentation" value="Refreshes all the derived data elements of the Distribution (event sequence, amount and slope)"/>
         </eAnnotations>
       </eOperations>
+      <eOperations name="refreshProvidedEvents">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Refreshes all the data elements related to the sequece of events (reference SequenceEvent, DistributionEvent EventNr, Next-Previous"/>
+        </eAnnotations>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="TimeUnit" eType="#//continuous/TimeUnit"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="HorizonStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"
           defaultValueLiteral="2000-01-01"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="HorizonEnd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"
           defaultValueLiteral="2099-12-31"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="ChildEvent" upperBound="-1"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ChildEvents" upperBound="-1"
           eType="#//continuous/ChildEvent" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="SequenceEvent" upperBound="-1"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SequenceEvents" upperBound="-1"
           eType="#//continuous/DistributionEvent" eOpposite="#//continuous/DistributionEvent/DistributionAsSequence"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Start" lowerBound="1"
           eType="#//continuous/StartEvent" containment="true" eOpposite="#//continuous/StartEvent/DistributionAsStart"/>
@@ -117,6 +122,8 @@
           eOpposite="#//continuous/Distribution/ChildDistribution"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ChildDistribution" upperBound="-1"
           eType="#//continuous/Distribution" eOpposite="#//continuous/Distribution/ParentDistribution"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ProvidedEvents" upperBound="-1"
+          eType="#//continuous/DistributionEvent" eOpposite="#//continuous/DistributionEvent/DistributionAsProvidedEvent"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DistributionEvent" abstract="true"
         eSuperTypes="../../com.misc.common.moplaf.propagator/model/propagator.ecore#//ObjectWithPropagatorFunctionAdapter">
@@ -142,7 +149,9 @@
           iD="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="DistributionAsSequence"
-          eType="#//continuous/Distribution" eOpposite="#//continuous/Distribution/SequenceEvent"/>
+          eType="#//continuous/Distribution" eOpposite="#//continuous/Distribution/SequenceEvents"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="DistributionAsProvidedEvent"
+          eType="#//continuous/Distribution" eOpposite="#//continuous/Distribution/ProvidedEvents"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DistributionEventsProvider" abstract="true"
         interface="true">

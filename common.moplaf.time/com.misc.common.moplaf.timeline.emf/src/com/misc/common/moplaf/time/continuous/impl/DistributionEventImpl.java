@@ -41,6 +41,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#getSlopeAfter <em>Slope After</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#getDistributionAsSequence <em>Distribution As Sequence</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#getDistributionAsProvidedEvent <em>Distribution As Provided Event</em>}</li>
  * </ul>
  *
  * @generated
@@ -215,6 +216,16 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 	 * @ordered
 	 */
 	protected Distribution distributionAsSequence;
+
+	/**
+	 * The cached value of the '{@link #getDistributionAsProvidedEvent() <em>Distribution As Provided Event</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDistributionAsProvidedEvent()
+	 * @generated
+	 * @ordered
+	 */
+	protected Distribution distributionAsProvidedEvent;
 
 	/**
 	 * The cached value of the '{@link #getDistribution() <em>Distribution</em>}' reference.
@@ -561,14 +572,74 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 		if (newDistributionAsSequence != distributionAsSequence) {
 			NotificationChain msgs = null;
 			if (distributionAsSequence != null)
-				msgs = ((InternalEObject)distributionAsSequence).eInverseRemove(this, ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENT, Distribution.class, msgs);
+				msgs = ((InternalEObject)distributionAsSequence).eInverseRemove(this, ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENTS, Distribution.class, msgs);
 			if (newDistributionAsSequence != null)
-				msgs = ((InternalEObject)newDistributionAsSequence).eInverseAdd(this, ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENT, Distribution.class, msgs);
+				msgs = ((InternalEObject)newDistributionAsSequence).eInverseAdd(this, ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENTS, Distribution.class, msgs);
 			msgs = basicSetDistributionAsSequence(newDistributionAsSequence, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE, newDistributionAsSequence, newDistributionAsSequence));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Distribution getDistributionAsProvidedEvent() {
+		if (distributionAsProvidedEvent != null && distributionAsProvidedEvent.eIsProxy()) {
+			InternalEObject oldDistributionAsProvidedEvent = (InternalEObject)distributionAsProvidedEvent;
+			distributionAsProvidedEvent = (Distribution)eResolveProxy(oldDistributionAsProvidedEvent);
+			if (distributionAsProvidedEvent != oldDistributionAsProvidedEvent) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT, oldDistributionAsProvidedEvent, distributionAsProvidedEvent));
+			}
+		}
+		return distributionAsProvidedEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Distribution basicGetDistributionAsProvidedEvent() {
+		return distributionAsProvidedEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDistributionAsProvidedEvent(Distribution newDistributionAsProvidedEvent, NotificationChain msgs) {
+		Distribution oldDistributionAsProvidedEvent = distributionAsProvidedEvent;
+		distributionAsProvidedEvent = newDistributionAsProvidedEvent;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT, oldDistributionAsProvidedEvent, newDistributionAsProvidedEvent);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDistributionAsProvidedEvent(Distribution newDistributionAsProvidedEvent) {
+		if (newDistributionAsProvidedEvent != distributionAsProvidedEvent) {
+			NotificationChain msgs = null;
+			if (distributionAsProvidedEvent != null)
+				msgs = ((InternalEObject)distributionAsProvidedEvent).eInverseRemove(this, ContinuousPackage.DISTRIBUTION__PROVIDED_EVENTS, Distribution.class, msgs);
+			if (newDistributionAsProvidedEvent != null)
+				msgs = ((InternalEObject)newDistributionAsProvidedEvent).eInverseAdd(this, ContinuousPackage.DISTRIBUTION__PROVIDED_EVENTS, Distribution.class, msgs);
+			msgs = basicSetDistributionAsProvidedEvent(newDistributionAsProvidedEvent, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT, newDistributionAsProvidedEvent, newDistributionAsProvidedEvent));
 	}
 
 	/**
@@ -598,7 +669,7 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 			return;
 		}
 		float slopeBefore = this.getSlopeBefore();
-		float durationBefore = this.getDistributionAsSequence().getDuration(previous.getMoment(), this.getMoment());
+		float durationBefore = this.getDistributionAsProvidedEvent().getDuration(previous.getMoment(), this.getMoment());
 		float amount = slopeBefore*durationBefore+previous.getAmountAfter();
 		this.setAmountBefore(amount);
 	}
@@ -671,8 +742,12 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 				return basicSetPrevious((DistributionEvent)otherEnd, msgs);
 			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
 				if (distributionAsSequence != null)
-					msgs = ((InternalEObject)distributionAsSequence).eInverseRemove(this, ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENT, Distribution.class, msgs);
+					msgs = ((InternalEObject)distributionAsSequence).eInverseRemove(this, ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENTS, Distribution.class, msgs);
 				return basicSetDistributionAsSequence((Distribution)otherEnd, msgs);
+			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT:
+				if (distributionAsProvidedEvent != null)
+					msgs = ((InternalEObject)distributionAsProvidedEvent).eInverseRemove(this, ContinuousPackage.DISTRIBUTION__PROVIDED_EVENTS, Distribution.class, msgs);
+				return basicSetDistributionAsProvidedEvent((Distribution)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -691,6 +766,8 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 				return basicSetPrevious(null, msgs);
 			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
 				return basicSetDistributionAsSequence(null, msgs);
+			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT:
+				return basicSetDistributionAsProvidedEvent(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -726,6 +803,9 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
 				if (resolve) return getDistributionAsSequence();
 				return basicGetDistributionAsSequence();
+			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT:
+				if (resolve) return getDistributionAsProvidedEvent();
+				return basicGetDistributionAsProvidedEvent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -767,6 +847,9 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 				return;
 			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
 				setDistributionAsSequence((Distribution)newValue);
+				return;
+			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT:
+				setDistributionAsProvidedEvent((Distribution)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -810,6 +893,9 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
 				setDistributionAsSequence((Distribution)null);
 				return;
+			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT:
+				setDistributionAsProvidedEvent((Distribution)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -842,6 +928,8 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
 				return distributionAsSequence != null;
+			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT:
+				return distributionAsProvidedEvent != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -11,7 +11,7 @@ public class PropagatorCalcEventDescription extends PropagatorFunctionAdapter {
 	@Override
 	protected PropagatorFunctionAdapter getParent() {
 		DistributionEvent event = (DistributionEvent)this.target;
-		Distribution distribution = event.getDistributionAsSequence();
+		Distribution distribution = event.getDistributionAsProvidedEvent();
 		PropagatorFunctionAdapter parent = Util.getPropagatorFunctionAdapter(distribution, PropagatorLayerDistributionDescriptions.class);
 		return parent;
 	}

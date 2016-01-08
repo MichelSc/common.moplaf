@@ -22,13 +22,14 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#getTimeUnit <em>Time Unit</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#getHorizonStart <em>Horizon Start</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#getHorizonEnd <em>Horizon End</em>}</li>
- *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#getChildEvent <em>Child Event</em>}</li>
- *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#getSequenceEvent <em>Sequence Event</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#getChildEvents <em>Child Events</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#getSequenceEvents <em>Sequence Events</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#getStart <em>Start</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#getEnd <em>End</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#getEventsProviders <em>Events Providers</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#getParentDistribution <em>Parent Distribution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#getChildDistribution <em>Child Distribution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#getProvidedEvents <em>Provided Events</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistribution()
@@ -192,38 +193,38 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	void setHorizonEnd(Date value);
 
 	/**
-	 * Returns the value of the '<em><b>Sequence Event</b></em>' reference list.
+	 * Returns the value of the '<em><b>Child Events</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.time.continuous.ChildEvent}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Child Events</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Child Events</em>' containment reference list.
+	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistribution_ChildEvents()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ChildEvent> getChildEvents();
+
+	/**
+	 * Returns the value of the '<em><b>Sequence Events</b></em>' reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.time.continuous.DistributionEvent}.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getDistributionAsSequence <em>Distribution As Sequence</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Sequence Event</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Sequence Events</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sequence Event</em>' reference list.
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistribution_SequenceEvent()
+	 * @return the value of the '<em>Sequence Events</em>' reference list.
+	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistribution_SequenceEvents()
 	 * @see com.misc.common.moplaf.time.continuous.DistributionEvent#getDistributionAsSequence
 	 * @model opposite="DistributionAsSequence"
 	 * @generated
 	 */
-	EList<DistributionEvent> getSequenceEvent();
-
-	/**
-	 * Returns the value of the '<em><b>Child Event</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.time.continuous.ChildEvent}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Child Event</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Child Event</em>' containment reference list.
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistribution_ChildEvent()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<ChildEvent> getChildEvent();
+	EList<DistributionEvent> getSequenceEvents();
 
 	/**
 	 * Returns the value of the '<em><b>Parent Distribution</b></em>' reference.
@@ -270,6 +271,24 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	 * @generated
 	 */
 	EList<Distribution> getChildDistribution();
+
+	/**
+	 * Returns the value of the '<em><b>Provided Events</b></em>' reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.time.continuous.DistributionEvent}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getDistributionAsProvidedEvent <em>Distribution As Provided Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Provided Events</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Provided Events</em>' reference list.
+	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistribution_ProvidedEvents()
+	 * @see com.misc.common.moplaf.time.continuous.DistributionEvent#getDistributionAsProvidedEvent
+	 * @model opposite="DistributionAsProvidedEvent"
+	 * @generated
+	 */
+	EList<DistributionEvent> getProvidedEvents();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -428,6 +447,17 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	 * @generated
 	 */
 	void refreshChildEvent();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Refreshes all the data elements related to the sequece of events (reference SequenceEvent, DistributionEvent EventNr, Next-Previous
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	void refreshProvidedEvents();
 
 	/**
 	 * <!-- begin-user-doc -->

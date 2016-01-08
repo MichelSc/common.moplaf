@@ -72,9 +72,10 @@ public class DistributionItemProvider
 			addTimeUnitPropertyDescriptor(object);
 			addHorizonStartPropertyDescriptor(object);
 			addHorizonEndPropertyDescriptor(object);
-			addSequenceEventPropertyDescriptor(object);
+			addSequenceEventsPropertyDescriptor(object);
 			addParentDistributionPropertyDescriptor(object);
 			addChildDistributionPropertyDescriptor(object);
+			addProvidedEventsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -146,24 +147,24 @@ public class DistributionItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Sequence Event feature.
+	 * This adds a property descriptor for the Sequence Events feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSequenceEventPropertyDescriptor(Object object) {
+	protected void addSequenceEventsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Distribution_SequenceEvent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Distribution_SequenceEvent_feature", "_UI_Distribution_type"),
-				 ContinuousPackage.Literals.DISTRIBUTION__SEQUENCE_EVENT,
+				 getString("_UI_Distribution_SequenceEvents_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Distribution_SequenceEvents_feature", "_UI_Distribution_type"),
+				 ContinuousPackage.Literals.DISTRIBUTION__SEQUENCE_EVENTS,
 				 true,
 				 false,
 				 true,
 				 null,
-				 getString("_UI__3eventPropertyCategory"),
+				 null,
 				 null));
 	}
 
@@ -212,6 +213,28 @@ public class DistributionItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Provided Events feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addProvidedEventsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Distribution_ProvidedEvents_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Distribution_ProvidedEvents_feature", "_UI_Distribution_type"),
+				 ContinuousPackage.Literals.DISTRIBUTION__PROVIDED_EVENTS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -223,7 +246,7 @@ public class DistributionItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ContinuousPackage.Literals.DISTRIBUTION__SEQUENCE_EVENT);
+			childrenFeatures.add(ContinuousPackage.Literals.DISTRIBUTION__CHILD_EVENTS);
 			childrenFeatures.add(ContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS);
 		}
 		return childrenFeatures;
@@ -283,10 +306,9 @@ public class DistributionItemProvider
 			case ContinuousPackage.DISTRIBUTION__TIME_UNIT:
 			case ContinuousPackage.DISTRIBUTION__HORIZON_START:
 			case ContinuousPackage.DISTRIBUTION__HORIZON_END:
-			case ContinuousPackage.DISTRIBUTION__CHILD_EVENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENT:
+			case ContinuousPackage.DISTRIBUTION__CHILD_EVENTS:
 			case ContinuousPackage.DISTRIBUTION__EVENTS_PROVIDERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -304,6 +326,11 @@ public class DistributionItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContinuousPackage.Literals.DISTRIBUTION__CHILD_EVENTS,
+				 ContinuousFactory.eINSTANCE.createChildEvent()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -350,7 +377,7 @@ public class DistributionItemProvider
 	@Override
 	public Collection<?> getAmountEvents(Object element) {
 		Distribution distribution = (Distribution) element;
-		return distribution.getSequenceEvent();
+		return distribution.getSequenceEvents();
 	}
 
 }

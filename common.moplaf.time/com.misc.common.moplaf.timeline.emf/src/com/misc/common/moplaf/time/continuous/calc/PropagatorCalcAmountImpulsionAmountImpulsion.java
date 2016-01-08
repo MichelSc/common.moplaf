@@ -11,7 +11,7 @@ public class PropagatorCalcAmountImpulsionAmountImpulsion extends PropagatorFunc
 	@Override
 	protected PropagatorFunctionAdapter getParent() {
 		AmountImpulsion event = (AmountImpulsion)this.target;
-		Distribution distribution = event.getDistributionAsSequence();
+		Distribution distribution = event.getDistributionAsProvidedEvent();
 		PropagatorFunctionAdapter parent = Util.getPropagatorFunctionAdapter(distribution, PropagatorLayerDistributionAmounts.class);
 		return parent;
 	}

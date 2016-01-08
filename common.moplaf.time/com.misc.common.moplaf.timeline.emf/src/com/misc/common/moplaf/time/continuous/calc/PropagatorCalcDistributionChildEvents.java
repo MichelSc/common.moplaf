@@ -33,7 +33,7 @@ public class PropagatorCalcDistributionChildEvents extends PropagatorFunctionAda
 		protected void addListeners() {
 			super.addListeners();
 			this.addNavigationFeatureListener(ContinuousPackage.Literals.DISTRIBUTION__CHILD_DISTRIBUTION, DependencyDistributionChildDistribution.class);
-			this.addFeatureListener(ContinuousPackage.Literals.DISTRIBUTION__CHILD_EVENT);
+			this.addFeatureListener(ContinuousPackage.Literals.DISTRIBUTION__CHILD_EVENTS);
 		}
 	}; 
 };

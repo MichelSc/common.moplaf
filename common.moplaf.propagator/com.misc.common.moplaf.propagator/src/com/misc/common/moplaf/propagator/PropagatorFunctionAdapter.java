@@ -76,6 +76,8 @@ import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
  *     <li>method {@link PropagatorAbstractAdapter#addPropagatorFunctionAdapters}</li>
  *     <li>method {@link PropagatorFunctionAdapter#refreshParent} </li>
  *   </ul>
+ *   <li>The Parent of the a PropagatorFunctionAdapter is supposed to be available at the first touch, and is
+ *   supposed never change. Touches are lost with ownership.</li>
  * </ul>
  *   
  *   
@@ -139,8 +141,8 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	}
 	
 	public void refreshParent(){
-		PropagatorFunctionAdapter parentAsIs = this.getParent();
-		if ( parentAsIs != this.currentParent ){
+		if ( this.currentParent==null){
+			PropagatorFunctionAdapter parentAsIs = this.getParent();
 			this.currentParent = parentAsIs;
 		}
 	}
@@ -229,6 +231,7 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 
 		// if no parent, the touch is not done
 		//   we want to keep track of the touched elements
+		this.refreshParent();
 		PropagatorFunctionAdapter parent = this.currentParent;
 		if ( parent == null ) { return; } 
 
@@ -266,8 +269,8 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	}
 	
 	private void refreshTouch(){
+		this.logError("PropagatorFuntionAdapter.refreshTouch: no longer supported, touches are lost when parent changes");
 		if ( this.isTouched ){
-			this.refreshParent();
 			PropagatorFunctionAdapter newparent = this.currentParent;
 			PropagatorFunctionAdapter oldparent = this.touchedParent;
 			if ( newparent != oldparent){

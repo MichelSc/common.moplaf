@@ -335,8 +335,8 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDistribution_SequenceEvent() {
-		return (EReference)distributionEClass.getEStructuralFeatures().get(4);
+	public EReference getDistribution_ChildEvents() {
+		return (EReference)distributionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -344,8 +344,8 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDistribution_ChildEvent() {
-		return (EReference)distributionEClass.getEStructuralFeatures().get(3);
+	public EReference getDistribution_SequenceEvents() {
+		return (EReference)distributionEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -364,6 +364,15 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 */
 	public EReference getDistribution_ChildDistribution() {
 		return (EReference)distributionEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDistribution_ProvidedEvents() {
+		return (EReference)distributionEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -497,6 +506,15 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getDistribution__RefreshProvidedEvents() {
+		return distributionEClass.getEOperations().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getDistribution__Refresh() {
 		return distributionEClass.getEOperations().get(14);
 	}
@@ -598,6 +616,15 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 */
 	public EReference getDistributionEvent_DistributionAsSequence() {
 		return (EReference)distributionEventEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDistributionEvent_DistributionAsProvidedEvent() {
+		return (EReference)distributionEventEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -1118,13 +1145,14 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		createEAttribute(distributionEClass, DISTRIBUTION__TIME_UNIT);
 		createEAttribute(distributionEClass, DISTRIBUTION__HORIZON_START);
 		createEAttribute(distributionEClass, DISTRIBUTION__HORIZON_END);
-		createEReference(distributionEClass, DISTRIBUTION__CHILD_EVENT);
-		createEReference(distributionEClass, DISTRIBUTION__SEQUENCE_EVENT);
+		createEReference(distributionEClass, DISTRIBUTION__CHILD_EVENTS);
+		createEReference(distributionEClass, DISTRIBUTION__SEQUENCE_EVENTS);
 		createEReference(distributionEClass, DISTRIBUTION__START);
 		createEReference(distributionEClass, DISTRIBUTION__END);
 		createEReference(distributionEClass, DISTRIBUTION__EVENTS_PROVIDERS);
 		createEReference(distributionEClass, DISTRIBUTION__PARENT_DISTRIBUTION);
 		createEReference(distributionEClass, DISTRIBUTION__CHILD_DISTRIBUTION);
+		createEReference(distributionEClass, DISTRIBUTION__PROVIDED_EVENTS);
 		createEOperation(distributionEClass, DISTRIBUTION___GET_DURATION__DATE_DATE);
 		createEOperation(distributionEClass, DISTRIBUTION___GET_EVENT_BEFORE__DATE);
 		createEOperation(distributionEClass, DISTRIBUTION___GET_EVENT_AFTER__DATE);
@@ -1140,6 +1168,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		createEOperation(distributionEClass, DISTRIBUTION___REFRESH_SEQUENCE);
 		createEOperation(distributionEClass, DISTRIBUTION___REFRESH_CHILD_EVENT);
 		createEOperation(distributionEClass, DISTRIBUTION___REFRESH);
+		createEOperation(distributionEClass, DISTRIBUTION___REFRESH_PROVIDED_EVENTS);
 
 		distributionEventEClass = createEClass(DISTRIBUTION_EVENT);
 		createEAttribute(distributionEventEClass, DISTRIBUTION_EVENT__MOMENT);
@@ -1152,6 +1181,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		createEAttribute(distributionEventEClass, DISTRIBUTION_EVENT__SLOPE_AFTER);
 		createEAttribute(distributionEventEClass, DISTRIBUTION_EVENT__DESCRIPTION);
 		createEReference(distributionEventEClass, DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE);
+		createEReference(distributionEventEClass, DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT);
 		createEOperation(distributionEventEClass, DISTRIBUTION_EVENT___REFRESH_SLOPE_BEFORE);
 		createEOperation(distributionEventEClass, DISTRIBUTION_EVENT___REFRESH_AMOUNT_BEFORE);
 		createEOperation(distributionEventEClass, DISTRIBUTION_EVENT___REFRESH_AMOUNT_AFTER);
@@ -1291,13 +1321,14 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		initEAttribute(getDistribution_TimeUnit(), this.getTimeUnit(), "TimeUnit", null, 0, 1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDistribution_HorizonStart(), ecorePackage.getEDate(), "HorizonStart", "2000-01-01", 0, 1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDistribution_HorizonEnd(), ecorePackage.getEDate(), "HorizonEnd", "2099-12-31", 0, 1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDistribution_ChildEvent(), this.getChildEvent(), null, "ChildEvent", null, 0, -1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDistribution_SequenceEvent(), this.getDistributionEvent(), this.getDistributionEvent_DistributionAsSequence(), "SequenceEvent", null, 0, -1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDistribution_ChildEvents(), this.getChildEvent(), null, "ChildEvents", null, 0, -1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDistribution_SequenceEvents(), this.getDistributionEvent(), this.getDistributionEvent_DistributionAsSequence(), "SequenceEvents", null, 0, -1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDistribution_Start(), this.getStartEvent(), this.getStartEvent_DistributionAsStart(), "Start", null, 1, 1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDistribution_End(), this.getEndEvent(), this.getEndEvent_DistributionAsEnd(), "End", null, 1, 1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDistribution_EventsProviders(), this.getDistributionEventsProvider(), null, "EventsProviders", null, 0, -1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDistribution_ParentDistribution(), this.getDistribution(), this.getDistribution_ChildDistribution(), "ParentDistribution", null, 0, 1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDistribution_ChildDistribution(), this.getDistribution(), this.getDistribution_ParentDistribution(), "ChildDistribution", null, 0, -1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDistribution_ProvidedEvents(), this.getDistributionEvent(), this.getDistributionEvent_DistributionAsProvidedEvent(), "ProvidedEvents", null, 0, -1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getDistribution__GetDuration__Date_Date(), ecorePackage.getEFloat(), "getDuration", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "from", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1345,6 +1376,8 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 
 		initEOperation(getDistribution__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getDistribution__RefreshProvidedEvents(), null, "refreshProvidedEvents", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(distributionEventEClass, DistributionEvent.class, "DistributionEvent", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDistributionEvent_Moment(), ecorePackage.getEDate(), "Moment", null, 0, 1, DistributionEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDistributionEvent_EventNr(), ecorePackage.getEInt(), "EventNr", null, 0, 1, DistributionEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1355,7 +1388,8 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		initEAttribute(getDistributionEvent_SlopeBefore(), ecorePackage.getEFloat(), "SlopeBefore", null, 0, 1, DistributionEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDistributionEvent_SlopeAfter(), ecorePackage.getEFloat(), "SlopeAfter", null, 0, 1, DistributionEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDistributionEvent_Description(), ecorePackage.getEString(), "Description", null, 0, 1, DistributionEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDistributionEvent_DistributionAsSequence(), this.getDistribution(), this.getDistribution_SequenceEvent(), "DistributionAsSequence", null, 0, 1, DistributionEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDistributionEvent_DistributionAsSequence(), this.getDistribution(), this.getDistribution_SequenceEvents(), "DistributionAsSequence", null, 0, 1, DistributionEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDistributionEvent_DistributionAsProvidedEvent(), this.getDistribution(), this.getDistribution_ProvidedEvents(), "DistributionAsProvidedEvent", null, 0, 1, DistributionEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getDistributionEvent__RefreshSlopeBefore(), null, "refreshSlopeBefore", 0, 1, IS_UNIQUE, IS_ORDERED);
 

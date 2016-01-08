@@ -417,7 +417,6 @@ public class PropagatorFunctionAdapterManager extends AdapterImpl
 			for (Adapter adapter : objectWithPropagator.eAdapters()) {
 				if (adapter instanceof PropagatorFunctionAdapter) {
 					PropagatorFunctionAdapter propagator = (PropagatorFunctionAdapter) adapter;
-					((PropagatorFunctionAdapter) adapter).refreshParent();
 					propagator.addPropagatorFunctionAdapters();
 				}
 			}

@@ -24,6 +24,7 @@ import java.util.Date;
  *   <li>{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getSlopeAfter <em>Slope After</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getDistributionAsSequence <em>Distribution As Sequence</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getDistributionAsProvidedEvent <em>Distribution As Provided Event</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistributionEvent()
@@ -272,7 +273,7 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctionAdapter {
 
 	/**
 	 * Returns the value of the '<em><b>Distribution As Sequence</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.continuous.Distribution#getSequenceEvent <em>Sequence Event</em>}'.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.continuous.Distribution#getSequenceEvents <em>Sequence Events</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Distribution As Sequence</em>' reference isn't clear,
@@ -282,8 +283,8 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctionAdapter {
 	 * @return the value of the '<em>Distribution As Sequence</em>' reference.
 	 * @see #setDistributionAsSequence(Distribution)
 	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistributionEvent_DistributionAsSequence()
-	 * @see com.misc.common.moplaf.time.continuous.Distribution#getSequenceEvent
-	 * @model opposite="SequenceEvent"
+	 * @see com.misc.common.moplaf.time.continuous.Distribution#getSequenceEvents
+	 * @model opposite="SequenceEvents"
 	 * @generated
 	 */
 	Distribution getDistributionAsSequence();
@@ -297,6 +298,34 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctionAdapter {
 	 * @generated
 	 */
 	void setDistributionAsSequence(Distribution value);
+
+	/**
+	 * Returns the value of the '<em><b>Distribution As Provided Event</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.continuous.Distribution#getProvidedEvents <em>Provided Events</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Distribution As Provided Event</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Distribution As Provided Event</em>' reference.
+	 * @see #setDistributionAsProvidedEvent(Distribution)
+	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistributionEvent_DistributionAsProvidedEvent()
+	 * @see com.misc.common.moplaf.time.continuous.Distribution#getProvidedEvents
+	 * @model opposite="ProvidedEvents"
+	 * @generated
+	 */
+	Distribution getDistributionAsProvidedEvent();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getDistributionAsProvidedEvent <em>Distribution As Provided Event</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Distribution As Provided Event</em>' reference.
+	 * @see #getDistributionAsProvidedEvent()
+	 * @generated
+	 */
+	void setDistributionAsProvidedEvent(Distribution value);
 
 	/**
 	 * <!-- begin-user-doc -->

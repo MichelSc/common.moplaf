@@ -76,13 +76,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionImpl#getTimeUnit <em>Time Unit</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionImpl#getHorizonStart <em>Horizon Start</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionImpl#getHorizonEnd <em>Horizon End</em>}</li>
- *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionImpl#getChildEvent <em>Child Event</em>}</li>
- *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionImpl#getSequenceEvent <em>Sequence Event</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionImpl#getChildEvents <em>Child Events</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionImpl#getSequenceEvents <em>Sequence Events</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionImpl#getStart <em>Start</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionImpl#getEnd <em>End</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionImpl#getEventsProviders <em>Events Providers</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionImpl#getParentDistribution <em>Parent Distribution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionImpl#getChildDistribution <em>Child Distribution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionImpl#getProvidedEvents <em>Provided Events</em>}</li>
  * </ul>
  *
  * @generated
@@ -150,24 +151,24 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	protected Date horizonEnd = HORIZON_END_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getChildEvent() <em>Child Event</em>}' containment reference list.
+	 * The cached value of the '{@link #getChildEvents() <em>Child Events</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getChildEvent()
+	 * @see #getChildEvents()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ChildEvent> childEvent;
+	protected EList<ChildEvent> childEvents;
 
 	/**
-	 * The cached value of the '{@link #getSequenceEvent() <em>Sequence Event</em>}' reference list.
+	 * The cached value of the '{@link #getSequenceEvents() <em>Sequence Events</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSequenceEvent()
+	 * @see #getSequenceEvents()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DistributionEvent> sequenceEvent;
+	protected EList<DistributionEvent> sequenceEvents;
 
 	/**
 	 * The cached value of the '{@link #getStart() <em>Start</em>}' containment reference.
@@ -218,6 +219,16 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	 * @ordered
 	 */
 	protected EList<Distribution> childDistribution;
+
+	/**
+	 * The cached value of the '{@link #getProvidedEvents() <em>Provided Events</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProvidedEvents()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DistributionEvent> providedEvents;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -404,11 +415,11 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<DistributionEvent> getSequenceEvent() {
-		if (sequenceEvent == null) {
-			sequenceEvent = new EObjectWithInverseResolvingEList<DistributionEvent>(DistributionEvent.class, this, ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENT, ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE);
+	public EList<ChildEvent> getChildEvents() {
+		if (childEvents == null) {
+			childEvents = new EObjectContainmentEList<ChildEvent>(ChildEvent.class, this, ContinuousPackage.DISTRIBUTION__CHILD_EVENTS);
 		}
-		return sequenceEvent;
+		return childEvents;
 	}
 
 	/**
@@ -416,11 +427,11 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ChildEvent> getChildEvent() {
-		if (childEvent == null) {
-			childEvent = new EObjectContainmentEList<ChildEvent>(ChildEvent.class, this, ContinuousPackage.DISTRIBUTION__CHILD_EVENT);
+	public EList<DistributionEvent> getSequenceEvents() {
+		if (sequenceEvents == null) {
+			sequenceEvents = new EObjectWithInverseResolvingEList<DistributionEvent>(DistributionEvent.class, this, ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENTS, ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE);
 		}
-		return childEvent;
+		return sequenceEvents;
 	}
 
 	/**
@@ -493,6 +504,18 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 			childDistribution = new EObjectWithInverseResolvingEList<Distribution>(Distribution.class, this, ContinuousPackage.DISTRIBUTION__CHILD_DISTRIBUTION, ContinuousPackage.DISTRIBUTION__PARENT_DISTRIBUTION);
 		}
 		return childDistribution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DistributionEvent> getProvidedEvents() {
+		if (providedEvents == null) {
+			providedEvents = new EObjectWithInverseResolvingEList<DistributionEvent>(DistributionEvent.class, this, ContinuousPackage.DISTRIBUTION__PROVIDED_EVENTS, ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT);
+		}
+		return providedEvents;
 	}
 
 	/**
@@ -666,32 +689,43 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 			this.setEnd(end);
 		}
 	}
+	
+	private boolean isSequenceEvent(DistributionEvent event){
+		Date moment = event.getMoment();
+		if( moment==null ) { return false; }
+		if( moment.compareTo(this.getHorizonStart())<0 ) { return false; }
+		if( moment.compareTo(this.getHorizonEnd())  >0 ) { return false; }
+		return true;	
+	}
 
 	private void refreshSequenceEventContent() {
 		HashSet<DistributionEvent> eventstobe = new HashSet<DistributionEvent>();
 
-		for (DistributionEventsProvider eventProvider : this.getEventsProviders()){
-			for(DistributionEvent currentEvent : eventProvider.getProvidedEvents()){
-				Date moment = currentEvent.getMoment();
-				if( moment!=null
-				 && moment.compareTo(this.getHorizonStart())>=0
-				 && moment.compareTo(this.getHorizonEnd())<=0 ){
-					eventstobe.add(currentEvent);
-				}
+		// provided events
+		for(DistributionEvent currentEvent : this.getProvidedEvents()){
+			if ( this.isSequenceEvent(currentEvent)){
+				eventstobe.add(currentEvent);
 			}
 		}
+		// child events
+		for(DistributionEvent currentEvent : this.getChildEvents()){
+			if ( this.isSequenceEvent(currentEvent)){
+				eventstobe.add(currentEvent);
+			}
+		}
+		// horizon events
 		eventstobe.add(this.getStart());
 		eventstobe.add(this.getEnd());
 		
 
-		EList<DistributionEvent> eventsasis = this.getSequenceEvent();
+		EList<DistributionEvent> eventsasis = this.getSequenceEvents();
 		eventsasis.retainAll(eventstobe);
 		eventstobe.removeAll(eventsasis);
 		eventsasis.addAll(eventstobe);
 	}
 	
 	private void refreshSequenceEventSort() {
-		ECollections.sort(this.getSequenceEvent(), 
+		ECollections.sort(this.getSequenceEvents(), 
 				         new Comparator<DistributionEvent>(){
 
 							@Override
@@ -707,7 +741,7 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	private void refreshSequenceEventNextPrevious() {
 		DistributionEvent previousEvent = null;
 		int eventNr = 0;
-		for(DistributionEvent currentEvent : this.getSequenceEvent()){
+		for(DistributionEvent currentEvent : this.getSequenceEvents()){
 			currentEvent.setEventNr(eventNr);
 			currentEvent.setPrevious(previousEvent);
 			eventNr++;
@@ -734,13 +768,13 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 		// to be events
 		HashSet<DistributionEvent> childEventsToBe = new HashSet<DistributionEvent>();
 		for ( Distribution childDistribution : this.getChildDistribution()){
-			for ( DistributionEvent childEvent : childDistribution.getSequenceEvent()){
+			for ( DistributionEvent childEvent : childDistribution.getSequenceEvents()){
 				childEventsToBe.add(childEvent);
 			}
 		}
 		
 		// as is events
-		Iterator<ChildEvent> childEventIter = this.getChildEvent().iterator();
+		Iterator<ChildEvent> childEventIter = this.getChildEvents().iterator();
 		while ( childEventIter.hasNext()){
 			ChildEvent childEventAsIs = childEventIter.next();
 			DistributionEvent originalEvent = childEventAsIs.getOriginal();
@@ -758,8 +792,27 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 		for ( DistributionEvent childEventToBe : childEventsToBe){
 			ChildEvent newEvent = ContinuousFactory.eINSTANCE.createChildEvent();
 			newEvent.setOriginal(childEventToBe);
-			this.getChildEvent().add(newEvent);
+			this.getChildEvents().add(newEvent);
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void refreshProvidedEvents() {
+		HashSet<DistributionEvent> eventstobe = new HashSet<DistributionEvent>();
+
+		for (DistributionEventsProvider eventProvider : this.getEventsProviders()){
+			for(DistributionEvent currentEvent : eventProvider.getProvidedEvents()){
+				eventstobe.add(currentEvent);
+			}
+		}
+		
+		EList<DistributionEvent> eventsasis = this.getProvidedEvents();
+		eventsasis.retainAll(eventstobe);
+		eventstobe.removeAll(eventsasis);
+		eventsasis.addAll(eventstobe);
 	}
 
 	/**
@@ -795,8 +848,8 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENT:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSequenceEvent()).basicAdd(otherEnd, msgs);
+			case ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSequenceEvents()).basicAdd(otherEnd, msgs);
 			case ContinuousPackage.DISTRIBUTION__START:
 				if (start != null)
 					msgs = ((InternalEObject)start).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ContinuousPackage.DISTRIBUTION__START, null, msgs);
@@ -811,6 +864,8 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 				return basicSetParentDistribution((Distribution)otherEnd, msgs);
 			case ContinuousPackage.DISTRIBUTION__CHILD_DISTRIBUTION:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getChildDistribution()).basicAdd(otherEnd, msgs);
+			case ContinuousPackage.DISTRIBUTION__PROVIDED_EVENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProvidedEvents()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -823,10 +878,10 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContinuousPackage.DISTRIBUTION__CHILD_EVENT:
-				return ((InternalEList<?>)getChildEvent()).basicRemove(otherEnd, msgs);
-			case ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENT:
-				return ((InternalEList<?>)getSequenceEvent()).basicRemove(otherEnd, msgs);
+			case ContinuousPackage.DISTRIBUTION__CHILD_EVENTS:
+				return ((InternalEList<?>)getChildEvents()).basicRemove(otherEnd, msgs);
+			case ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENTS:
+				return ((InternalEList<?>)getSequenceEvents()).basicRemove(otherEnd, msgs);
 			case ContinuousPackage.DISTRIBUTION__START:
 				return basicSetStart(null, msgs);
 			case ContinuousPackage.DISTRIBUTION__END:
@@ -837,6 +892,8 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 				return basicSetParentDistribution(null, msgs);
 			case ContinuousPackage.DISTRIBUTION__CHILD_DISTRIBUTION:
 				return ((InternalEList<?>)getChildDistribution()).basicRemove(otherEnd, msgs);
+			case ContinuousPackage.DISTRIBUTION__PROVIDED_EVENTS:
+				return ((InternalEList<?>)getProvidedEvents()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -855,10 +912,10 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 				return getHorizonStart();
 			case ContinuousPackage.DISTRIBUTION__HORIZON_END:
 				return getHorizonEnd();
-			case ContinuousPackage.DISTRIBUTION__CHILD_EVENT:
-				return getChildEvent();
-			case ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENT:
-				return getSequenceEvent();
+			case ContinuousPackage.DISTRIBUTION__CHILD_EVENTS:
+				return getChildEvents();
+			case ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENTS:
+				return getSequenceEvents();
 			case ContinuousPackage.DISTRIBUTION__START:
 				return getStart();
 			case ContinuousPackage.DISTRIBUTION__END:
@@ -870,6 +927,8 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 				return basicGetParentDistribution();
 			case ContinuousPackage.DISTRIBUTION__CHILD_DISTRIBUTION:
 				return getChildDistribution();
+			case ContinuousPackage.DISTRIBUTION__PROVIDED_EVENTS:
+				return getProvidedEvents();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -892,13 +951,13 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 			case ContinuousPackage.DISTRIBUTION__HORIZON_END:
 				setHorizonEnd((Date)newValue);
 				return;
-			case ContinuousPackage.DISTRIBUTION__CHILD_EVENT:
-				getChildEvent().clear();
-				getChildEvent().addAll((Collection<? extends ChildEvent>)newValue);
+			case ContinuousPackage.DISTRIBUTION__CHILD_EVENTS:
+				getChildEvents().clear();
+				getChildEvents().addAll((Collection<? extends ChildEvent>)newValue);
 				return;
-			case ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENT:
-				getSequenceEvent().clear();
-				getSequenceEvent().addAll((Collection<? extends DistributionEvent>)newValue);
+			case ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENTS:
+				getSequenceEvents().clear();
+				getSequenceEvents().addAll((Collection<? extends DistributionEvent>)newValue);
 				return;
 			case ContinuousPackage.DISTRIBUTION__START:
 				setStart((StartEvent)newValue);
@@ -916,6 +975,10 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 			case ContinuousPackage.DISTRIBUTION__CHILD_DISTRIBUTION:
 				getChildDistribution().clear();
 				getChildDistribution().addAll((Collection<? extends Distribution>)newValue);
+				return;
+			case ContinuousPackage.DISTRIBUTION__PROVIDED_EVENTS:
+				getProvidedEvents().clear();
+				getProvidedEvents().addAll((Collection<? extends DistributionEvent>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -938,11 +1001,11 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 			case ContinuousPackage.DISTRIBUTION__HORIZON_END:
 				setHorizonEnd(HORIZON_END_EDEFAULT);
 				return;
-			case ContinuousPackage.DISTRIBUTION__CHILD_EVENT:
-				getChildEvent().clear();
+			case ContinuousPackage.DISTRIBUTION__CHILD_EVENTS:
+				getChildEvents().clear();
 				return;
-			case ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENT:
-				getSequenceEvent().clear();
+			case ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENTS:
+				getSequenceEvents().clear();
 				return;
 			case ContinuousPackage.DISTRIBUTION__START:
 				setStart((StartEvent)null);
@@ -958,6 +1021,9 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 				return;
 			case ContinuousPackage.DISTRIBUTION__CHILD_DISTRIBUTION:
 				getChildDistribution().clear();
+				return;
+			case ContinuousPackage.DISTRIBUTION__PROVIDED_EVENTS:
+				getProvidedEvents().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -977,10 +1043,10 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 				return HORIZON_START_EDEFAULT == null ? horizonStart != null : !HORIZON_START_EDEFAULT.equals(horizonStart);
 			case ContinuousPackage.DISTRIBUTION__HORIZON_END:
 				return HORIZON_END_EDEFAULT == null ? horizonEnd != null : !HORIZON_END_EDEFAULT.equals(horizonEnd);
-			case ContinuousPackage.DISTRIBUTION__CHILD_EVENT:
-				return childEvent != null && !childEvent.isEmpty();
-			case ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENT:
-				return sequenceEvent != null && !sequenceEvent.isEmpty();
+			case ContinuousPackage.DISTRIBUTION__CHILD_EVENTS:
+				return childEvents != null && !childEvents.isEmpty();
+			case ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENTS:
+				return sequenceEvents != null && !sequenceEvents.isEmpty();
 			case ContinuousPackage.DISTRIBUTION__START:
 				return start != null;
 			case ContinuousPackage.DISTRIBUTION__END:
@@ -991,6 +1057,8 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 				return parentDistribution != null;
 			case ContinuousPackage.DISTRIBUTION__CHILD_DISTRIBUTION:
 				return childDistribution != null && !childDistribution.isEmpty();
+			case ContinuousPackage.DISTRIBUTION__PROVIDED_EVENTS:
+				return providedEvents != null && !providedEvents.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1036,6 +1104,9 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 				return null;
 			case ContinuousPackage.DISTRIBUTION___REFRESH:
 				refresh();
+				return null;
+			case ContinuousPackage.DISTRIBUTION___REFRESH_PROVIDED_EVENTS:
+				refreshProvidedEvents();
 				return null;
 			case ContinuousPackage.DISTRIBUTION___ADD_PROPAGATOR_FUNCTION_ADAPTER:
 				addPropagatorFunctionAdapter();
