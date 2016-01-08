@@ -15,6 +15,7 @@ import com.misc.common.moplaf.time.continuous.StartEvent;
 import com.misc.common.moplaf.time.continuous.TimeUnit;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionChildEvents;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionInitialization;
+import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionProvidedEvents;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionSequence;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionAmounts;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorLayerCompositeEventRefresh;
@@ -679,6 +680,7 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 			StartEvent start = ContinuousFactory.eINSTANCE.createStartEvent();
 			start.setDistributionAsStart(this);
 			this.setStart(start);
+			start.refreshMoment();
 		}
 	}
 	
@@ -687,6 +689,7 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 			EndEvent end = ContinuousFactory.eINSTANCE.createEndEvent();
 			end.setDistributionAsEnd(this);
 			this.setEnd(end);
+			end.refreshMoment();
 		}
 	}
 	
@@ -716,8 +719,7 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 		// horizon events
 		eventstobe.add(this.getStart());
 		eventstobe.add(this.getEnd());
-		
-
+	
 		EList<DistributionEvent> eventsasis = this.getSequenceEvents();
 		eventsasis.retainAll(eventstobe);
 		eventstobe.removeAll(eventsasis);
@@ -831,6 +833,7 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	public void addPropagatorFunctionAdapter() {
 		Util.adapt(this, PropagatorLayerCompositeEventRefresh.class);
 		Util.adapt(this, PropagatorCalcDistributionChildEvents.class);
+		Util.adapt(this, PropagatorCalcDistributionProvidedEvents.class);
 		Util.adapt(this, PropagatorCalcDistributionSequence.class);
 		Util.adapt(this, PropagatorLayerDistributionSlopes.class);
 		Util.adapt(this, PropagatorLayerDistributionAmounts.class);

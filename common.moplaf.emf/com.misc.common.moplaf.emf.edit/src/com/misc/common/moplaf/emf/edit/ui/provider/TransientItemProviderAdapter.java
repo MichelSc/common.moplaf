@@ -40,7 +40,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
  * </li>
  * <li>In the Child class
  *   <ul>
- *   <li>Override getParent and return this ChildrenItemAdapter, accessed via the gette in the Parent class</li>
+ *   <li>Override getParent and return this ChildrenItemAdapter, accessed via the getter in the Parent class</li>
  *   </ul> 
  * </li>
  * </ul> 

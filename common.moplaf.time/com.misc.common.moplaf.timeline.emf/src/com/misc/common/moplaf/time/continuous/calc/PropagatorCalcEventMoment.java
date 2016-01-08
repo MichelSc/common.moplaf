@@ -18,19 +18,6 @@ public class PropagatorCalcEventMoment extends PropagatorFunctionAdapter {
 		return parent;
 	}
 	
-	
-
-	/* (non-Javadoc)
-	 * @see com.misc.common.moplaf.propagator.PropagatorFunctionAdapter#isTouchOnOwned()
-	 */
-	@Override
-	protected boolean isTouchOnOwned() {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
-
-
 	@Override
 	protected void calculate() {
 		DistributionEvent event = (DistributionEvent)this.target;

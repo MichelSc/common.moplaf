@@ -9,6 +9,7 @@ import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.TimeUnit;
 import com.misc.common.moplaf.timeview.impl.IItemAmountEventsProvider;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -246,7 +247,7 @@ public class DistributionItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ContinuousPackage.Literals.DISTRIBUTION__CHILD_EVENTS);
+			childrenFeatures.add(ContinuousPackage.Literals.DISTRIBUTION__SEQUENCE_EVENTS);
 			childrenFeatures.add(ContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS);
 		}
 		return childrenFeatures;
@@ -306,9 +307,9 @@ public class DistributionItemProvider
 			case ContinuousPackage.DISTRIBUTION__TIME_UNIT:
 			case ContinuousPackage.DISTRIBUTION__HORIZON_START:
 			case ContinuousPackage.DISTRIBUTION__HORIZON_END:
+			case ContinuousPackage.DISTRIBUTION__CHILD_EVENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ContinuousPackage.DISTRIBUTION__CHILD_EVENTS:
 			case ContinuousPackage.DISTRIBUTION__EVENTS_PROVIDERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -326,11 +327,6 @@ public class DistributionItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ContinuousPackage.Literals.DISTRIBUTION__CHILD_EVENTS,
-				 ContinuousFactory.eINSTANCE.createChildEvent()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -374,6 +370,37 @@ public class DistributionItemProvider
 		return TimelineEditPlugin.INSTANCE;
 	}
 
+	protected List<Object> children = null;
+	
+	private void initChildren(){
+		if ( this.children==null){
+			children = new ArrayList<Object>();
+			Distribution distribution = (Distribution)this.target;
+			this.children.add(new DistributionEventProvidersItemProvider(adapterFactory, distribution));
+		}
+	}
+
+	@Override
+	public Collection<?> getChildren(Object object) {
+		//Collection<Object> superchildren = (Collection<Object>) super.getChildren(object);
+		this.initChildren();
+		//superchildren.addAll(children);
+		//return superchildren;
+		return this.children;
+	}
+	
+	public Object getEventsProviders(){
+		this.initChildren();
+		return this.children.get(0);
+	}
+
+	public Object getSequenceEvents(){
+		this.initChildren();
+		return this.children.get(1);
+	}
+
+	
+	
 	@Override
 	public Collection<?> getAmountEvents(Object element) {
 		Distribution distribution = (Distribution) element;
