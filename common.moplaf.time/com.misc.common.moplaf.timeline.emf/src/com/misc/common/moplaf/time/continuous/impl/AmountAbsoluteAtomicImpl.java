@@ -72,6 +72,7 @@ public class AmountAbsoluteAtomicImpl extends AmountAbsoluteImpl implements Amou
 		return (AmountAbsoluteProvider)eInternalContainer();
 	}
 
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

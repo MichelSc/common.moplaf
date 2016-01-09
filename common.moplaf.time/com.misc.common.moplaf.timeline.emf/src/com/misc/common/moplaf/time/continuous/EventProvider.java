@@ -32,22 +32,11 @@ public interface EventProvider extends EventsProviderAbstract {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Provided Event</em>' reference.
-	 * @see #setProvidedEvent(DistributionEvent)
 	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getEventProvider_ProvidedEvent()
-	 * @model
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	DistributionEvent getProvidedEvent();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.EventProvider#getProvidedEvent <em>Provided Event</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Provided Event</em>' reference.
-	 * @see #getProvidedEvent()
-	 * @generated
-	 */
-	void setProvidedEvent(DistributionEvent value);
 
 	/**
 	 * Returns the value of the '<em><b>Moment</b></em>' attribute.

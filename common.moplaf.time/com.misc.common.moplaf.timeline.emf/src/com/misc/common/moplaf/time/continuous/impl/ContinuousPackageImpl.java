@@ -1720,7 +1720,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		initEOperation(getEventsProviderAbstract__RefreshEvents(), null, "refreshEvents", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(eventsProviderEClass, EventsProvider.class, "EventsProvider", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEventsProvider_ProvidedEvents(), this.getDistributionEvent(), null, "ProvidedEvents", null, 0, -1, EventsProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEventsProvider_ProvidedEvents(), this.getDistributionEvent(), null, "ProvidedEvents", null, 0, -1, EventsProvider.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(stockChangeEClass, StockChange.class, "StockChange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStockChange_Start(), ecorePackage.getEDate(), "Start", null, 0, 1, StockChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1737,7 +1737,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		initEReference(getCapacityChange_EndEvent(), this.getCapacityChangeEnd(), this.getCapacityChangeEnd_Provider(), "EndEvent", null, 0, 1, CapacityChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eventProviderEClass, EventProvider.class, "EventProvider", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEventProvider_ProvidedEvent(), this.getDistributionEvent(), null, "ProvidedEvent", null, 0, 1, EventProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEventProvider_ProvidedEvent(), this.getDistributionEvent(), null, "ProvidedEvent", null, 0, 1, EventProvider.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEventProvider_Moment(), ecorePackage.getEDate(), "Moment", null, 0, 1, EventProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(slopeImpulsionProviderEClass, SlopeImpulsionProvider.class, "SlopeImpulsionProvider", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

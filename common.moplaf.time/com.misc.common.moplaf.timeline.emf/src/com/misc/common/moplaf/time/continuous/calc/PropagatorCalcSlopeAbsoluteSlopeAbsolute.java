@@ -2,7 +2,6 @@ package com.misc.common.moplaf.time.continuous.calc;
 
 import com.misc.common.moplaf.propagator.PropagatorFunctionAdapter;
 import com.misc.common.moplaf.propagator.Util;
-import com.misc.common.moplaf.time.continuous.AmountImpulsion;
 import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.SlopeAbsolute;
 
@@ -11,7 +10,7 @@ public class PropagatorCalcSlopeAbsoluteSlopeAbsolute extends PropagatorFunction
 
 	@Override
 	protected PropagatorFunctionAdapter getParent() {
-		AmountImpulsion event = (AmountImpulsion)this.target;
+		SlopeAbsolute event = (SlopeAbsolute)this.target;
 		Distribution distribution = event.getDistributionAsProvidedEvent();
 		PropagatorFunctionAdapter parent = Util.getPropagatorFunctionAdapter(distribution, PropagatorLayerDistributionSlopes.class);
 		return parent;

@@ -5,6 +5,7 @@ package com.misc.common.moplaf.time.continuous.impl;
 import com.misc.common.moplaf.time.continuous.ContinuousFactory;
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
+import com.misc.common.moplaf.time.continuous.DistributionEvent;
 import com.misc.common.moplaf.time.continuous.SlopeImpulsionAtomic;
 import com.misc.common.moplaf.time.continuous.SlopeImpulsionProvider;
 
@@ -79,6 +80,15 @@ public class SlopeImpulsionProviderImpl extends EventProviderImpl implements Slo
 	protected EClass eStaticClass() {
 		return ContinuousPackage.Literals.SLOPE_IMPULSION_PROVIDER;
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public DistributionEvent basicGetProvidedEvent() {
+		return this.getEvent();
+	}
+
 
 	/**
 	 * <!-- begin-user-doc -->

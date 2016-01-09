@@ -30,16 +30,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public abstract class EventProviderImpl extends EventsProviderAbstractImpl implements EventProvider {
 	/**
-	 * The cached value of the '{@link #getProvidedEvent() <em>Provided Event</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProvidedEvent()
-	 * @generated
-	 * @ordered
-	 */
-	protected DistributionEvent providedEvent;
-
-	/**
 	 * The default value of the '{@link #getMoment() <em>Moment</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,15 +73,8 @@ public abstract class EventProviderImpl extends EventsProviderAbstractImpl imple
 	 * @generated
 	 */
 	public DistributionEvent getProvidedEvent() {
-		if (providedEvent != null && providedEvent.eIsProxy()) {
-			InternalEObject oldProvidedEvent = (InternalEObject)providedEvent;
-			providedEvent = (DistributionEvent)eResolveProxy(oldProvidedEvent);
-			if (providedEvent != oldProvidedEvent) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ContinuousPackage.EVENT_PROVIDER__PROVIDED_EVENT, oldProvidedEvent, providedEvent));
-			}
-		}
-		return providedEvent;
+		DistributionEvent providedEvent = basicGetProvidedEvent();
+		return providedEvent != null && providedEvent.eIsProxy() ? (DistributionEvent)eResolveProxy((InternalEObject)providedEvent) : providedEvent;
 	}
 
 	/**
@@ -100,19 +83,10 @@ public abstract class EventProviderImpl extends EventsProviderAbstractImpl imple
 	 * @generated
 	 */
 	public DistributionEvent basicGetProvidedEvent() {
-		return providedEvent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setProvidedEvent(DistributionEvent newProvidedEvent) {
-		DistributionEvent oldProvidedEvent = providedEvent;
-		providedEvent = newProvidedEvent;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.EVENT_PROVIDER__PROVIDED_EVENT, oldProvidedEvent, providedEvent));
+		// TODO: implement this method to return the 'Provided Event' reference
+		// -> do not perform proxy resolution
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -161,9 +135,6 @@ public abstract class EventProviderImpl extends EventsProviderAbstractImpl imple
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContinuousPackage.EVENT_PROVIDER__PROVIDED_EVENT:
-				setProvidedEvent((DistributionEvent)newValue);
-				return;
 			case ContinuousPackage.EVENT_PROVIDER__MOMENT:
 				setMoment((Date)newValue);
 				return;
@@ -179,9 +150,6 @@ public abstract class EventProviderImpl extends EventsProviderAbstractImpl imple
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.EVENT_PROVIDER__PROVIDED_EVENT:
-				setProvidedEvent((DistributionEvent)null);
-				return;
 			case ContinuousPackage.EVENT_PROVIDER__MOMENT:
 				setMoment(MOMENT_EDEFAULT);
 				return;
@@ -198,7 +166,7 @@ public abstract class EventProviderImpl extends EventsProviderAbstractImpl imple
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ContinuousPackage.EVENT_PROVIDER__PROVIDED_EVENT:
-				return providedEvent != null;
+				return basicGetProvidedEvent() != null;
 			case ContinuousPackage.EVENT_PROVIDER__MOMENT:
 				return MOMENT_EDEFAULT == null ? moment != null : !MOMENT_EDEFAULT.equals(moment);
 		}

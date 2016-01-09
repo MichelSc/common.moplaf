@@ -5,14 +5,9 @@ package com.misc.common.moplaf.time.continuous.impl;
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.DistributionEvent;
 import com.misc.common.moplaf.time.continuous.EventsProvider;
-
-import java.util.Collection;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,16 +23,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * @generated
  */
 public abstract class EventsProviderImpl extends EventsProviderAbstractImpl implements EventsProvider {
-	/**
-	 * The cached value of the '{@link #getProvidedEvents() <em>Provided Events</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProvidedEvents()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DistributionEvent> providedEvents;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -63,10 +48,11 @@ public abstract class EventsProviderImpl extends EventsProviderAbstractImpl impl
 	 * @generated
 	 */
 	public EList<DistributionEvent> getProvidedEvents() {
-		if (providedEvents == null) {
-			providedEvents = new EObjectResolvingEList<DistributionEvent>(DistributionEvent.class, this, ContinuousPackage.EVENTS_PROVIDER__PROVIDED_EVENTS);
-		}
-		return providedEvents;
+		// TODO: implement this method to return the 'Provided Events' reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -88,43 +74,11 @@ public abstract class EventsProviderImpl extends EventsProviderAbstractImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case ContinuousPackage.EVENTS_PROVIDER__PROVIDED_EVENTS:
-				getProvidedEvents().clear();
-				getProvidedEvents().addAll((Collection<? extends DistributionEvent>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-			case ContinuousPackage.EVENTS_PROVIDER__PROVIDED_EVENTS:
-				getProvidedEvents().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ContinuousPackage.EVENTS_PROVIDER__PROVIDED_EVENTS:
-				return providedEvents != null && !providedEvents.isEmpty();
+				return !getProvidedEvents().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

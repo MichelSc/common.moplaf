@@ -32,7 +32,7 @@ public interface EventsProvider extends EventsProviderAbstract {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Provided Events</em>' reference list.
 	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getEventsProvider_ProvidedEvents()
-	 * @model
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	EList<DistributionEvent> getProvidedEvents();

@@ -226,7 +226,8 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EventsProvider" abstract="true" eSuperTypes="#//continuous/EventsProviderAbstract">
       <eStructuralFeatures xsi:type="ecore:EReference" name="ProvidedEvents" upperBound="-1"
-          eType="#//continuous/DistributionEvent"/>
+          eType="#//continuous/DistributionEvent" changeable="false" volatile="true"
+          transient="true" derived="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="StockChange" eSuperTypes="#//continuous/EventsProvider">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -256,7 +257,8 @@
           containment="true" eOpposite="#//continuous/CapacityChangeEnd/Provider"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EventProvider" abstract="true" eSuperTypes="#//continuous/EventsProviderAbstract">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="ProvidedEvent" eType="#//continuous/DistributionEvent"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ProvidedEvent" eType="#//continuous/DistributionEvent"
+          changeable="false" volatile="true" transient="true" derived="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="Moment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SlopeImpulsionProvider" eSuperTypes="#//continuous/EventProvider">

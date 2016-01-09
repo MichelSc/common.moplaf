@@ -7,6 +7,7 @@ import com.misc.common.moplaf.time.continuous.AmountAbsoluteProvider;
 import com.misc.common.moplaf.time.continuous.ContinuousFactory;
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
+import com.misc.common.moplaf.time.continuous.DistributionEvent;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -78,6 +79,15 @@ public class AmountAbsoluteProviderImpl extends EventProviderImpl implements Amo
 	@Override
 	protected EClass eStaticClass() {
 		return ContinuousPackage.Literals.AMOUNT_ABSOLUTE_PROVIDER;
+	}
+	
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public DistributionEvent basicGetProvidedEvent() {
+		return this.getEvent();
 	}
 
 	/**
