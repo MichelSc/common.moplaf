@@ -12,8 +12,8 @@ public class DistributionNodesItemProvider extends TransientItemProviderAdapter 
 			Distribution distribution) {
 		super(adapterFactory);
 
-	distribution.eAdapters().add(this);
-}
+		distribution.eAdapters().add(this);
+	}
 
 	/**
 	 * Return the resource locator for this item provider's resources.

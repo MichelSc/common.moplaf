@@ -24,7 +24,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class CapacityChangeItemProvider
-	extends CompositeEventItemProvider {
+	extends EventsProviderItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -131,8 +131,8 @@ public class CapacityChangeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ContinuousPackage.Literals.CAPACITY_CHANGE__CAPACITY_CHANGE_START);
-			childrenFeatures.add(ContinuousPackage.Literals.CAPACITY_CHANGE__CAPACITY_CHANGE_END);
+			childrenFeatures.add(ContinuousPackage.Literals.CAPACITY_CHANGE__START_EVENT);
+			childrenFeatures.add(ContinuousPackage.Literals.CAPACITY_CHANGE__END_EVENT);
 		}
 		return childrenFeatures;
 	}
@@ -193,8 +193,8 @@ public class CapacityChangeItemProvider
 			case ContinuousPackage.CAPACITY_CHANGE__AMOUNT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ContinuousPackage.CAPACITY_CHANGE__CAPACITY_CHANGE_START:
-			case ContinuousPackage.CAPACITY_CHANGE__CAPACITY_CHANGE_END:
+			case ContinuousPackage.CAPACITY_CHANGE__START_EVENT:
+			case ContinuousPackage.CAPACITY_CHANGE__END_EVENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -214,12 +214,12 @@ public class CapacityChangeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContinuousPackage.Literals.CAPACITY_CHANGE__CAPACITY_CHANGE_START,
+				(ContinuousPackage.Literals.CAPACITY_CHANGE__START_EVENT,
 				 ContinuousFactory.eINSTANCE.createCapacityChangeStart()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContinuousPackage.Literals.CAPACITY_CHANGE__CAPACITY_CHANGE_END,
+				(ContinuousPackage.Literals.CAPACITY_CHANGE__END_EVENT,
 				 ContinuousFactory.eINSTANCE.createCapacityChangeEnd()));
 	}
 

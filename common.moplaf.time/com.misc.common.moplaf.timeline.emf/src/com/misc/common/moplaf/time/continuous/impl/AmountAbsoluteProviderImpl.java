@@ -4,8 +4,6 @@ package com.misc.common.moplaf.time.continuous.impl;
 
 import com.misc.common.moplaf.time.continuous.AmountAbsoluteAtomic;
 import com.misc.common.moplaf.time.continuous.AmountAbsoluteProvider;
-import com.misc.common.moplaf.time.continuous.CapacityChangeEnd;
-import com.misc.common.moplaf.time.continuous.CapacityChangeStart;
 import com.misc.common.moplaf.time.continuous.ContinuousFactory;
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;

@@ -31,12 +31,23 @@ public interface EventsProviderAbstract extends ObjectWithPropagatorFunctionAdap
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Distribution</em>' container reference.
+	 * @see #setDistribution(Distribution)
 	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getEventsProviderAbstract_Distribution()
 	 * @see com.misc.common.moplaf.time.continuous.Distribution#getEventsProviders
-	 * @model opposite="EventsProviders" required="true" changeable="false" volatile="true" derived="true"
+	 * @model opposite="EventsProviders" required="true" transient="false"
 	 * @generated
 	 */
 	Distribution getDistribution();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.EventsProviderAbstract#getDistribution <em>Distribution</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Distribution</em>' container reference.
+	 * @see #getDistribution()
+	 * @generated
+	 */
+	void setDistribution(Distribution value);
 
 	/**
 	 * <!-- begin-user-doc -->

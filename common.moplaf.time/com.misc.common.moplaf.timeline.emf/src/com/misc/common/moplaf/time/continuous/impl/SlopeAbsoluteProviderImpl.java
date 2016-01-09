@@ -2,7 +2,6 @@
  */
 package com.misc.common.moplaf.time.continuous.impl;
 
-import com.misc.common.moplaf.time.continuous.AmountAbsoluteAtomic;
 import com.misc.common.moplaf.time.continuous.ContinuousFactory;
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;

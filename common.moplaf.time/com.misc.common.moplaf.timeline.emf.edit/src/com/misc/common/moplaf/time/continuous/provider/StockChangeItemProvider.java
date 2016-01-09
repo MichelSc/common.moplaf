@@ -24,7 +24,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class StockChangeItemProvider
-	extends CompositeEventItemProvider {
+	extends EventsProviderItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -131,8 +131,8 @@ public class StockChangeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ContinuousPackage.Literals.STOCK_CHANGE__STOCK_CHANGE_START);
-			childrenFeatures.add(ContinuousPackage.Literals.STOCK_CHANGE__STOCK_CHANGE_END);
+			childrenFeatures.add(ContinuousPackage.Literals.STOCK_CHANGE__START_EVENT);
+			childrenFeatures.add(ContinuousPackage.Literals.STOCK_CHANGE__END_EVENT);
 		}
 		return childrenFeatures;
 	}
@@ -193,8 +193,8 @@ public class StockChangeItemProvider
 			case ContinuousPackage.STOCK_CHANGE__SLOPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ContinuousPackage.STOCK_CHANGE__STOCK_CHANGE_START:
-			case ContinuousPackage.STOCK_CHANGE__STOCK_CHANGE_END:
+			case ContinuousPackage.STOCK_CHANGE__START_EVENT:
+			case ContinuousPackage.STOCK_CHANGE__END_EVENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -214,12 +214,12 @@ public class StockChangeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContinuousPackage.Literals.STOCK_CHANGE__STOCK_CHANGE_START,
+				(ContinuousPackage.Literals.STOCK_CHANGE__START_EVENT,
 				 ContinuousFactory.eINSTANCE.createStockChangeStart()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContinuousPackage.Literals.STOCK_CHANGE__STOCK_CHANGE_END,
+				(ContinuousPackage.Literals.STOCK_CHANGE__END_EVENT,
 				 ContinuousFactory.eINSTANCE.createStockChangeEnd()));
 	}
 

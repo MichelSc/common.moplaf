@@ -331,32 +331,32 @@ public class DistributionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
-				 ContinuousFactory.eINSTANCE.createCapacityChange()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
 				 ContinuousFactory.eINSTANCE.createStockChange()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
-				 ContinuousFactory.eINSTANCE.createAmountImpulsionAtomic()));
+				 ContinuousFactory.eINSTANCE.createCapacityChange()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
-				 ContinuousFactory.eINSTANCE.createSlopeImpulsionAtomic()));
+				 ContinuousFactory.eINSTANCE.createSlopeImpulsionProvider()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
-				 ContinuousFactory.eINSTANCE.createAmountAbsoluteAtomic()));
+				 ContinuousFactory.eINSTANCE.createSlopeAbsoluteProvider()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
-				 ContinuousFactory.eINSTANCE.createSlopeAbsoluteAtomic()));
+				 ContinuousFactory.eINSTANCE.createAmountImpulsionProvider()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
+				 ContinuousFactory.eINSTANCE.createAmountAbsoluteProvider()));
 	}
 
 	/**
@@ -376,7 +376,8 @@ public class DistributionItemProvider
 		if ( this.children==null){
 			children = new ArrayList<Object>();
 			Distribution distribution = (Distribution)this.target;
-			this.children.add(new DistributionEventProvidersItemProvider(adapterFactory, distribution));
+			this.children.add(new DistributionEventsProvidersItemProvider(adapterFactory, distribution));
+			this.children.add(new DistributionDistributionEventsItemProvider(adapterFactory, distribution));
 		}
 	}
 
@@ -398,8 +399,6 @@ public class DistributionItemProvider
 		this.initChildren();
 		return this.children.get(1);
 	}
-
-	
 	
 	@Override
 	public Collection<?> getAmountEvents(Object element) {

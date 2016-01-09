@@ -95,7 +95,7 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 
 	/**
 	 * Returns the value of the '<em><b>Events Providers</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.time.continuous.EventsProvider}.
+	 * The list contents are of type {@link com.misc.common.moplaf.time.continuous.EventsProviderAbstract}.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.continuous.EventsProviderAbstract#getDistribution <em>Distribution</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -109,7 +109,7 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	 * @model opposite="Distribution" containment="true"
 	 * @generated
 	 */
-	EList<EventsProvider> getEventsProviders();
+	EList<EventsProviderAbstract> getEventsProviders();
 
 	/**
 	 * Returns the value of the '<em><b>Time Unit</b></em>' attribute.

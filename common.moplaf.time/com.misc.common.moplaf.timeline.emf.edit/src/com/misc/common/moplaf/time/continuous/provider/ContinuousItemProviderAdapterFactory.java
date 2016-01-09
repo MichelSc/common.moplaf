@@ -16,6 +16,7 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.provider.Disposable;
 import org.eclipse.emf.edit.provider.IChangeNotifier;
 import org.eclipse.emf.edit.provider.IDisposable;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -52,6 +53,14 @@ public class ContinuousItemProviderAdapterFactory extends ContinuousAdapterFacto
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
 
 	/**
+	 * This keeps track of all the item providers created, so that they can be {@link #dispose disposed}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Disposable disposable = new Disposable();
+
+	/**
 	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -75,14 +84,6 @@ public class ContinuousItemProviderAdapterFactory extends ContinuousAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.Distribution} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DistributionItemProvider distributionItemProvider;
-
-	/**
 	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.Distribution}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -90,20 +91,8 @@ public class ContinuousItemProviderAdapterFactory extends ContinuousAdapterFacto
 	 */
 	@Override
 	public Adapter createDistributionAdapter() {
-		if (distributionItemProvider == null) {
-			distributionItemProvider = new DistributionItemProvider(this);
-		}
-
-		return distributionItemProvider;
+		return new DistributionItemProvider(this);
 	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.CapacityChange} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CapacityChangeItemProvider capacityChangeItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.CapacityChange}.
@@ -113,20 +102,52 @@ public class ContinuousItemProviderAdapterFactory extends ContinuousAdapterFacto
 	 */
 	@Override
 	public Adapter createCapacityChangeAdapter() {
-		if (capacityChangeItemProvider == null) {
-			capacityChangeItemProvider = new CapacityChangeItemProvider(this);
-		}
-
-		return capacityChangeItemProvider;
+		return new CapacityChangeItemProvider(this);
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.StockChange} instances.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.SlopeImpulsionProvider}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected StockChangeItemProvider stockChangeItemProvider;
+	@Override
+	public Adapter createSlopeImpulsionProviderAdapter() {
+		return new SlopeImpulsionProviderItemProvider(this);
+	}
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.SlopeAbsoluteProvider}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSlopeAbsoluteProviderAdapter() {
+		return new SlopeAbsoluteProviderItemProvider(this);
+	}
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.AmountImpulsionProvider}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAmountImpulsionProviderAdapter() {
+		return new AmountImpulsionProviderItemProvider(this);
+	}
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.AmountAbsoluteProvider}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAmountAbsoluteProviderAdapter() {
+		return new AmountAbsoluteProviderItemProvider(this);
+	}
 
 	/**
 	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.StockChange}.
@@ -136,20 +157,8 @@ public class ContinuousItemProviderAdapterFactory extends ContinuousAdapterFacto
 	 */
 	@Override
 	public Adapter createStockChangeAdapter() {
-		if (stockChangeItemProvider == null) {
-			stockChangeItemProvider = new StockChangeItemProvider(this);
-		}
-
-		return stockChangeItemProvider;
+		return new StockChangeItemProvider(this);
 	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.StockChangeStart} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected StockChangeStartItemProvider stockChangeStartItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.StockChangeStart}.
@@ -159,20 +168,8 @@ public class ContinuousItemProviderAdapterFactory extends ContinuousAdapterFacto
 	 */
 	@Override
 	public Adapter createStockChangeStartAdapter() {
-		if (stockChangeStartItemProvider == null) {
-			stockChangeStartItemProvider = new StockChangeStartItemProvider(this);
-		}
-
-		return stockChangeStartItemProvider;
+		return new StockChangeStartItemProvider(this);
 	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.StockChangeEnd} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected StockChangeEndItemProvider stockChangeEndItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.StockChangeEnd}.
@@ -182,20 +179,8 @@ public class ContinuousItemProviderAdapterFactory extends ContinuousAdapterFacto
 	 */
 	@Override
 	public Adapter createStockChangeEndAdapter() {
-		if (stockChangeEndItemProvider == null) {
-			stockChangeEndItemProvider = new StockChangeEndItemProvider(this);
-		}
-
-		return stockChangeEndItemProvider;
+		return new StockChangeEndItemProvider(this);
 	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.AmountImpulsionAtomic} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AmountImpulsionAtomicItemProvider amountImpulsionAtomicItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.AmountImpulsionAtomic}.
@@ -205,20 +190,8 @@ public class ContinuousItemProviderAdapterFactory extends ContinuousAdapterFacto
 	 */
 	@Override
 	public Adapter createAmountImpulsionAtomicAdapter() {
-		if (amountImpulsionAtomicItemProvider == null) {
-			amountImpulsionAtomicItemProvider = new AmountImpulsionAtomicItemProvider(this);
-		}
-
-		return amountImpulsionAtomicItemProvider;
+		return new AmountImpulsionAtomicItemProvider(this);
 	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.SlopeImpulsionAtomic} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SlopeImpulsionAtomicItemProvider slopeImpulsionAtomicItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.SlopeImpulsionAtomic}.
@@ -228,20 +201,8 @@ public class ContinuousItemProviderAdapterFactory extends ContinuousAdapterFacto
 	 */
 	@Override
 	public Adapter createSlopeImpulsionAtomicAdapter() {
-		if (slopeImpulsionAtomicItemProvider == null) {
-			slopeImpulsionAtomicItemProvider = new SlopeImpulsionAtomicItemProvider(this);
-		}
-
-		return slopeImpulsionAtomicItemProvider;
+		return new SlopeImpulsionAtomicItemProvider(this);
 	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.AmountAbsoluteAtomic} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AmountAbsoluteAtomicItemProvider amountAbsoluteAtomicItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.AmountAbsoluteAtomic}.
@@ -251,20 +212,8 @@ public class ContinuousItemProviderAdapterFactory extends ContinuousAdapterFacto
 	 */
 	@Override
 	public Adapter createAmountAbsoluteAtomicAdapter() {
-		if (amountAbsoluteAtomicItemProvider == null) {
-			amountAbsoluteAtomicItemProvider = new AmountAbsoluteAtomicItemProvider(this);
-		}
-
-		return amountAbsoluteAtomicItemProvider;
+		return new AmountAbsoluteAtomicItemProvider(this);
 	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.SlopeAbsoluteAtomic} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SlopeAbsoluteAtomicItemProvider slopeAbsoluteAtomicItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.SlopeAbsoluteAtomic}.
@@ -274,20 +223,8 @@ public class ContinuousItemProviderAdapterFactory extends ContinuousAdapterFacto
 	 */
 	@Override
 	public Adapter createSlopeAbsoluteAtomicAdapter() {
-		if (slopeAbsoluteAtomicItemProvider == null) {
-			slopeAbsoluteAtomicItemProvider = new SlopeAbsoluteAtomicItemProvider(this);
-		}
-
-		return slopeAbsoluteAtomicItemProvider;
+		return new SlopeAbsoluteAtomicItemProvider(this);
 	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.ChildEvent} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ChildEventItemProvider childEventItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.ChildEvent}.
@@ -297,20 +234,8 @@ public class ContinuousItemProviderAdapterFactory extends ContinuousAdapterFacto
 	 */
 	@Override
 	public Adapter createChildEventAdapter() {
-		if (childEventItemProvider == null) {
-			childEventItemProvider = new ChildEventItemProvider(this);
-		}
-
-		return childEventItemProvider;
+		return new ChildEventItemProvider(this);
 	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.StartEvent} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected StartEventItemProvider startEventItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.StartEvent}.
@@ -320,20 +245,8 @@ public class ContinuousItemProviderAdapterFactory extends ContinuousAdapterFacto
 	 */
 	@Override
 	public Adapter createStartEventAdapter() {
-		if (startEventItemProvider == null) {
-			startEventItemProvider = new StartEventItemProvider(this);
-		}
-
-		return startEventItemProvider;
+		return new StartEventItemProvider(this);
 	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.EndEvent} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EndEventItemProvider endEventItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.EndEvent}.
@@ -343,20 +256,8 @@ public class ContinuousItemProviderAdapterFactory extends ContinuousAdapterFacto
 	 */
 	@Override
 	public Adapter createEndEventAdapter() {
-		if (endEventItemProvider == null) {
-			endEventItemProvider = new EndEventItemProvider(this);
-		}
-
-		return endEventItemProvider;
+		return new EndEventItemProvider(this);
 	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.CapacityChangeStart} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CapacityChangeStartItemProvider capacityChangeStartItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.CapacityChangeStart}.
@@ -366,20 +267,8 @@ public class ContinuousItemProviderAdapterFactory extends ContinuousAdapterFacto
 	 */
 	@Override
 	public Adapter createCapacityChangeStartAdapter() {
-		if (capacityChangeStartItemProvider == null) {
-			capacityChangeStartItemProvider = new CapacityChangeStartItemProvider(this);
-		}
-
-		return capacityChangeStartItemProvider;
+		return new CapacityChangeStartItemProvider(this);
 	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.CapacityChangeEnd} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CapacityChangeEndItemProvider capacityChangeEndItemProvider;
 
 	/**
 	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.CapacityChangeEnd}.
@@ -389,11 +278,7 @@ public class ContinuousItemProviderAdapterFactory extends ContinuousAdapterFacto
 	 */
 	@Override
 	public Adapter createCapacityChangeEndAdapter() {
-		if (capacityChangeEndItemProvider == null) {
-			capacityChangeEndItemProvider = new CapacityChangeEndItemProvider(this);
-		}
-
-		return capacityChangeEndItemProvider;
+		return new CapacityChangeEndItemProvider(this);
 	}
 
 	/**
@@ -455,6 +340,20 @@ public class ContinuousItemProviderAdapterFactory extends ContinuousAdapterFacto
 	}
 
 	/**
+	 * Associates an adapter with a notifier via the base implementation, then records it to ensure it will be disposed.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected void associate(Adapter adapter, Notifier target) {
+		super.associate(adapter, target);
+		if (adapter != null) {
+			disposable.add(adapter);
+		}
+	}
+
+	/**
 	 * This adds a listener.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -495,20 +394,7 @@ public class ContinuousItemProviderAdapterFactory extends ContinuousAdapterFacto
 	 * @generated
 	 */
 	public void dispose() {
-		if (distributionItemProvider != null) distributionItemProvider.dispose();
-		if (childEventItemProvider != null) childEventItemProvider.dispose();
-		if (startEventItemProvider != null) startEventItemProvider.dispose();
-		if (endEventItemProvider != null) endEventItemProvider.dispose();
-		if (capacityChangeItemProvider != null) capacityChangeItemProvider.dispose();
-		if (capacityChangeStartItemProvider != null) capacityChangeStartItemProvider.dispose();
-		if (capacityChangeEndItemProvider != null) capacityChangeEndItemProvider.dispose();
-		if (stockChangeItemProvider != null) stockChangeItemProvider.dispose();
-		if (stockChangeStartItemProvider != null) stockChangeStartItemProvider.dispose();
-		if (stockChangeEndItemProvider != null) stockChangeEndItemProvider.dispose();
-		if (amountImpulsionAtomicItemProvider != null) amountImpulsionAtomicItemProvider.dispose();
-		if (slopeImpulsionAtomicItemProvider != null) slopeImpulsionAtomicItemProvider.dispose();
-		if (amountAbsoluteAtomicItemProvider != null) amountAbsoluteAtomicItemProvider.dispose();
-		if (slopeAbsoluteAtomicItemProvider != null) slopeAbsoluteAtomicItemProvider.dispose();
+		disposable.dispose();
 	}
 
 }

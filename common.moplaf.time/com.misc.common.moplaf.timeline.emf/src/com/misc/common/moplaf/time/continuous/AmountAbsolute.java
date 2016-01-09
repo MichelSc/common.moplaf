@@ -46,4 +46,12 @@ public interface AmountAbsolute extends DistributionEvent {
 	 */
 	void setAmountAbsolute(float value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void refreshAmountAbsolute();
+
 } // AmountAbsolute

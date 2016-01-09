@@ -7,7 +7,9 @@ import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.SlopeAbsolute;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeAbsoluteSlopeAfter;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -99,6 +101,17 @@ public abstract class SlopeAbsoluteImpl extends DistributionEventImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void refreshSlopeAbsolute() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -150,6 +163,21 @@ public abstract class SlopeAbsoluteImpl extends DistributionEventImpl implements
 				return slopeAbsolute != SLOPE_ABSOLUTE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ContinuousPackage.SLOPE_ABSOLUTE___REFRESH_SLOPE_ABSOLUTE:
+				refreshSlopeAbsolute();
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

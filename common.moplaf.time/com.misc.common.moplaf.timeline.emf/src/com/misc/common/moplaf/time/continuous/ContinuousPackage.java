@@ -1761,13 +1761,22 @@ public interface ContinuousPackage extends EPackage {
 	int AMOUNT_ABSOLUTE___REFRESH_DESCRIPTION = DISTRIBUTION_EVENT___REFRESH_DESCRIPTION;
 
 	/**
+	 * The operation id for the '<em>Refresh Amount Absolute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE___REFRESH_AMOUNT_ABSOLUTE = DISTRIBUTION_EVENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Amount Absolute</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE_OPERATION_COUNT = DISTRIBUTION_EVENT_OPERATION_COUNT + 0;
+	int AMOUNT_ABSOLUTE_OPERATION_COUNT = DISTRIBUTION_EVENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Moment</b></em>' attribute.
@@ -1950,13 +1959,22 @@ public interface ContinuousPackage extends EPackage {
 	int SLOPE_ABSOLUTE___REFRESH_DESCRIPTION = DISTRIBUTION_EVENT___REFRESH_DESCRIPTION;
 
 	/**
+	 * The operation id for the '<em>Refresh Slope Absolute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE___REFRESH_SLOPE_ABSOLUTE = DISTRIBUTION_EVENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Slope Absolute</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE_OPERATION_COUNT = DISTRIBUTION_EVENT_OPERATION_COUNT + 0;
+	int SLOPE_ABSOLUTE_OPERATION_COUNT = DISTRIBUTION_EVENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.CapacityChangeImpl <em>Capacity Change</em>}' class.
@@ -1996,7 +2014,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getAmountImpulsionProvider()
 	 * @generated
 	 */
-	int AMOUNT_IMPULSION_PROVIDER = 23;
+	int AMOUNT_IMPULSION_PROVIDER = 24;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountAbsoluteProviderImpl <em>Amount Absolute Provider</em>}' class.
@@ -2006,7 +2024,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getAmountAbsoluteProvider()
 	 * @generated
 	 */
-	int AMOUNT_ABSOLUTE_PROVIDER = 24;
+	int AMOUNT_ABSOLUTE_PROVIDER = 25;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeAbsoluteProviderImpl <em>Slope Absolute Provider</em>}' class.
@@ -2016,7 +2034,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getSlopeAbsoluteProvider()
 	 * @generated
 	 */
-	int SLOPE_ABSOLUTE_PROVIDER = 25;
+	int SLOPE_ABSOLUTE_PROVIDER = 23;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.StockChangeImpl <em>Stock Change</em>}' class.
@@ -3530,6 +3548,15 @@ public interface ContinuousPackage extends EPackage {
 	int AMOUNT_ABSOLUTE_ATOMIC___REFRESH_DESCRIPTION = AMOUNT_ABSOLUTE___REFRESH_DESCRIPTION;
 
 	/**
+	 * The operation id for the '<em>Refresh Amount Absolute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC___REFRESH_AMOUNT_ABSOLUTE = AMOUNT_ABSOLUTE___REFRESH_AMOUNT_ABSOLUTE;
+
+	/**
 	 * The number of operations of the '<em>Amount Absolute Atomic</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3736,6 +3763,15 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int SLOPE_ABSOLUTE_ATOMIC___REFRESH_DESCRIPTION = SLOPE_ABSOLUTE___REFRESH_DESCRIPTION;
+
+	/**
+	 * The operation id for the '<em>Refresh Slope Absolute</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC___REFRESH_SLOPE_ABSOLUTE = SLOPE_ABSOLUTE___REFRESH_SLOPE_ABSOLUTE;
 
 	/**
 	 * The number of operations of the '<em>Slope Absolute Atomic</em>' class.
@@ -4082,13 +4118,22 @@ public interface ContinuousPackage extends EPackage {
 	int EVENT_PROVIDER__PROVIDED_EVENT = EVENTS_PROVIDER_ABSTRACT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Moment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_PROVIDER__MOMENT = EVENTS_PROVIDER_ABSTRACT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Event Provider</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_PROVIDER_FEATURE_COUNT = EVENTS_PROVIDER_ABSTRACT_FEATURE_COUNT + 1;
+	int EVENT_PROVIDER_FEATURE_COUNT = EVENTS_PROVIDER_ABSTRACT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
@@ -4134,6 +4179,15 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int SLOPE_IMPULSION_PROVIDER__PROVIDED_EVENT = EVENT_PROVIDER__PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Moment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_IMPULSION_PROVIDER__MOMENT = EVENT_PROVIDER__MOMENT;
 
 	/**
 	 * The feature id for the '<em><b>Event</b></em>' containment reference.
@@ -4196,6 +4250,87 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
+	int SLOPE_ABSOLUTE_PROVIDER__DISTRIBUTION = EVENT_PROVIDER__DISTRIBUTION;
+
+	/**
+	 * The feature id for the '<em><b>Provided Event</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_PROVIDER__PROVIDED_EVENT = EVENT_PROVIDER__PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Moment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_PROVIDER__MOMENT = EVENT_PROVIDER__MOMENT;
+
+	/**
+	 * The feature id for the '<em><b>Event</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_PROVIDER__EVENT = EVENT_PROVIDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Slope Absolute</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_PROVIDER__SLOPE_ABSOLUTE = EVENT_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Slope Absolute Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_PROVIDER_FEATURE_COUNT = EVENT_PROVIDER_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_PROVIDER___ADD_PROPAGATOR_FUNCTION_ADAPTER = EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+
+	/**
+	 * The operation id for the '<em>Refresh Events</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_PROVIDER___REFRESH_EVENTS = EVENT_PROVIDER___REFRESH_EVENTS;
+
+	/**
+	 * The number of operations of the '<em>Slope Absolute Provider</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_PROVIDER_OPERATION_COUNT = EVENT_PROVIDER_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
 	int AMOUNT_IMPULSION_PROVIDER__DISTRIBUTION = EVENT_PROVIDER__DISTRIBUTION;
 
 	/**
@@ -4206,6 +4341,15 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int AMOUNT_IMPULSION_PROVIDER__PROVIDED_EVENT = EVENT_PROVIDER__PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Moment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION_PROVIDER__MOMENT = EVENT_PROVIDER__MOMENT;
 
 	/**
 	 * The feature id for the '<em><b>Event</b></em>' containment reference.
@@ -4280,6 +4424,15 @@ public interface ContinuousPackage extends EPackage {
 	int AMOUNT_ABSOLUTE_PROVIDER__PROVIDED_EVENT = EVENT_PROVIDER__PROVIDED_EVENT;
 
 	/**
+	 * The feature id for the '<em><b>Moment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_PROVIDER__MOMENT = EVENT_PROVIDER__MOMENT;
+
+	/**
 	 * The feature id for the '<em><b>Event</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4332,78 +4485,6 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int AMOUNT_ABSOLUTE_PROVIDER_OPERATION_COUNT = EVENT_PROVIDER_OPERATION_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Distribution</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLOPE_ABSOLUTE_PROVIDER__DISTRIBUTION = EVENT_PROVIDER__DISTRIBUTION;
-
-	/**
-	 * The feature id for the '<em><b>Provided Event</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLOPE_ABSOLUTE_PROVIDER__PROVIDED_EVENT = EVENT_PROVIDER__PROVIDED_EVENT;
-
-	/**
-	 * The feature id for the '<em><b>Event</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLOPE_ABSOLUTE_PROVIDER__EVENT = EVENT_PROVIDER_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Slope Absolute</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLOPE_ABSOLUTE_PROVIDER__SLOPE_ABSOLUTE = EVENT_PROVIDER_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Slope Absolute Provider</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLOPE_ABSOLUTE_PROVIDER_FEATURE_COUNT = EVENT_PROVIDER_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLOPE_ABSOLUTE_PROVIDER___ADD_PROPAGATOR_FUNCTION_ADAPTER = EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTION_ADAPTER;
-
-	/**
-	 * The operation id for the '<em>Refresh Events</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLOPE_ABSOLUTE_PROVIDER___REFRESH_EVENTS = EVENT_PROVIDER___REFRESH_EVENTS;
-
-	/**
-	 * The number of operations of the '<em>Slope Absolute Provider</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLOPE_ABSOLUTE_PROVIDER_OPERATION_COUNT = EVENT_PROVIDER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.TimeUnit <em>Time Unit</em>}' enum.
@@ -4982,6 +5063,16 @@ public interface ContinuousPackage extends EPackage {
 	EAttribute getAmountAbsolute_AmountAbsolute();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.AmountAbsolute#refreshAmountAbsolute() <em>Refresh Amount Absolute</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh Amount Absolute</em>' operation.
+	 * @see com.misc.common.moplaf.time.continuous.AmountAbsolute#refreshAmountAbsolute()
+	 * @generated
+	 */
+	EOperation getAmountAbsolute__RefreshAmountAbsolute();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.SlopeAbsolute <em>Slope Absolute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5001,6 +5092,16 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSlopeAbsolute_SlopeAbsolute();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.SlopeAbsolute#refreshSlopeAbsolute() <em>Refresh Slope Absolute</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh Slope Absolute</em>' operation.
+	 * @see com.misc.common.moplaf.time.continuous.SlopeAbsolute#refreshSlopeAbsolute()
+	 * @generated
+	 */
+	EOperation getSlopeAbsolute__RefreshSlopeAbsolute();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.CapacityChange <em>Capacity Change</em>}'.
@@ -5087,6 +5188,17 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getEventProvider_ProvidedEvent();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.time.continuous.EventProvider#getMoment <em>Moment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Moment</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.EventProvider#getMoment()
+	 * @see #getEventProvider()
+	 * @generated
+	 */
+	EAttribute getEventProvider_Moment();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.SlopeImpulsionProvider <em>Slope Impulsion Provider</em>}'.
@@ -6062,6 +6174,14 @@ public interface ContinuousPackage extends EPackage {
 		EAttribute AMOUNT_ABSOLUTE__AMOUNT_ABSOLUTE = eINSTANCE.getAmountAbsolute_AmountAbsolute();
 
 		/**
+		 * The meta object literal for the '<em><b>Refresh Amount Absolute</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation AMOUNT_ABSOLUTE___REFRESH_AMOUNT_ABSOLUTE = eINSTANCE.getAmountAbsolute__RefreshAmountAbsolute();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeAbsoluteImpl <em>Slope Absolute</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6078,6 +6198,14 @@ public interface ContinuousPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SLOPE_ABSOLUTE__SLOPE_ABSOLUTE = eINSTANCE.getSlopeAbsolute_SlopeAbsolute();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh Slope Absolute</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SLOPE_ABSOLUTE___REFRESH_SLOPE_ABSOLUTE = eINSTANCE.getSlopeAbsolute__RefreshSlopeAbsolute();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.CapacityChangeImpl <em>Capacity Change</em>}' class.
@@ -6146,6 +6274,14 @@ public interface ContinuousPackage extends EPackage {
 		 * @generated
 		 */
 		EReference EVENT_PROVIDER__PROVIDED_EVENT = eINSTANCE.getEventProvider_ProvidedEvent();
+
+		/**
+		 * The meta object literal for the '<em><b>Moment</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EVENT_PROVIDER__MOMENT = eINSTANCE.getEventProvider_Moment();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeImpulsionProviderImpl <em>Slope Impulsion Provider</em>}' class.

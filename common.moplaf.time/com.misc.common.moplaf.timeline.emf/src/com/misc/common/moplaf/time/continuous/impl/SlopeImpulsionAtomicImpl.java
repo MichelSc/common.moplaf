@@ -2,19 +2,21 @@
  */
 package com.misc.common.moplaf.time.continuous.impl;
 
+import com.misc.common.moplaf.propagator.Util;
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
-import com.misc.common.moplaf.time.continuous.DistributionEvent;
 import com.misc.common.moplaf.time.continuous.SlopeImpulsionAtomic;
 import com.misc.common.moplaf.time.continuous.SlopeImpulsionProvider;
+import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeImpulsionAtomicRefreshMoment;
+import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeImpulsionAtomicSlopeImpulsion;
+
+import java.util.Date;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -38,6 +40,15 @@ public class SlopeImpulsionAtomicImpl extends SlopeImpulsionImpl implements Slop
 	 */
 	protected SlopeImpulsionAtomicImpl() {
 		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void addPropagatorFunctionAdapter() {
+		Util.adapt(this, PropagatorCalcSlopeImpulsionAtomicRefreshMoment.class);
+		Util.adapt(this, PropagatorCalcSlopeImpulsionAtomicSlopeImpulsion.class);
 	}
 
 	/**
@@ -201,4 +212,17 @@ public class SlopeImpulsionAtomicImpl extends SlopeImpulsionImpl implements Slop
 		return super.eIsSet(featureID);
 	}
 
+	@Override
+	public void refreshMoment() {
+		Date moment = this.getProvider().getMoment();
+		this.setMoment(moment);
+	}
+
+	@Override
+	public void refreshSlopeImpulsion() {
+		float impulsion = this.getProvider().getSlopeImpulsion();
+		this.setSlopeImpulsion(impulsion);
+	}
+	
+	
 } //SlopeImpulsionAtomicImpl

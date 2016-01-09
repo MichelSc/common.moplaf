@@ -72,9 +72,9 @@ public class ContinuousFactoryImpl extends EFactoryImpl implements ContinuousFac
 			case ContinuousPackage.STOCK_CHANGE: return createStockChange();
 			case ContinuousPackage.CAPACITY_CHANGE: return createCapacityChange();
 			case ContinuousPackage.SLOPE_IMPULSION_PROVIDER: return createSlopeImpulsionProvider();
+			case ContinuousPackage.SLOPE_ABSOLUTE_PROVIDER: return createSlopeAbsoluteProvider();
 			case ContinuousPackage.AMOUNT_IMPULSION_PROVIDER: return createAmountImpulsionProvider();
 			case ContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER: return createAmountAbsoluteProvider();
-			case ContinuousPackage.SLOPE_ABSOLUTE_PROVIDER: return createSlopeAbsoluteProvider();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

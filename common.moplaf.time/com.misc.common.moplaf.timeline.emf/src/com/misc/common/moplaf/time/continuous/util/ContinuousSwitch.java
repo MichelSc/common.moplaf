@@ -257,6 +257,15 @@ public class ContinuousSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ContinuousPackage.SLOPE_ABSOLUTE_PROVIDER: {
+				SlopeAbsoluteProvider slopeAbsoluteProvider = (SlopeAbsoluteProvider)theEObject;
+				T result = caseSlopeAbsoluteProvider(slopeAbsoluteProvider);
+				if (result == null) result = caseEventProvider(slopeAbsoluteProvider);
+				if (result == null) result = caseEventsProviderAbstract(slopeAbsoluteProvider);
+				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(slopeAbsoluteProvider);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ContinuousPackage.AMOUNT_IMPULSION_PROVIDER: {
 				AmountImpulsionProvider amountImpulsionProvider = (AmountImpulsionProvider)theEObject;
 				T result = caseAmountImpulsionProvider(amountImpulsionProvider);
@@ -272,15 +281,6 @@ public class ContinuousSwitch<T> extends Switch<T> {
 				if (result == null) result = caseEventProvider(amountAbsoluteProvider);
 				if (result == null) result = caseEventsProviderAbstract(amountAbsoluteProvider);
 				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(amountAbsoluteProvider);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ContinuousPackage.SLOPE_ABSOLUTE_PROVIDER: {
-				SlopeAbsoluteProvider slopeAbsoluteProvider = (SlopeAbsoluteProvider)theEObject;
-				T result = caseSlopeAbsoluteProvider(slopeAbsoluteProvider);
-				if (result == null) result = caseEventProvider(slopeAbsoluteProvider);
-				if (result == null) result = caseEventsProviderAbstract(slopeAbsoluteProvider);
-				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(slopeAbsoluteProvider);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

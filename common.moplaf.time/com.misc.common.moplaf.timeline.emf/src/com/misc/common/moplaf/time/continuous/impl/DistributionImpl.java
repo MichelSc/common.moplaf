@@ -41,6 +41,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -194,6 +195,16 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	protected EndEvent end;
 
 	/**
+	 * The cached value of the '{@link #getEventsProviders() <em>Events Providers</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEventsProviders()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<EventsProviderAbstract> eventsProviders;
+
+	/**
 	 * The cached value of the '{@link #getParentDistribution() <em>Parent Distribution</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -333,12 +344,11 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EventsProvider> getEventsProviders() {
-		// TODO: implement this method to return the 'Events Providers' containment reference list
-		// Ensure that you remove @generated or mark it @generated NOT
-		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-		throw new UnsupportedOperationException();
+	public EList<EventsProviderAbstract> getEventsProviders() {
+		if (eventsProviders == null) {
+			eventsProviders = new EObjectContainmentWithInverseEList<EventsProviderAbstract>(EventsProviderAbstract.class, this, ContinuousPackage.DISTRIBUTION__EVENTS_PROVIDERS, ContinuousPackage.EVENTS_PROVIDER_ABSTRACT__DISTRIBUTION);
+		}
+		return eventsProviders;
 	}
 
 	/**
@@ -861,6 +871,8 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 				if (end != null)
 					msgs = ((InternalEObject)end).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ContinuousPackage.DISTRIBUTION__END, null, msgs);
 				return basicSetEnd((EndEvent)otherEnd, msgs);
+			case ContinuousPackage.DISTRIBUTION__EVENTS_PROVIDERS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getEventsProviders()).basicAdd(otherEnd, msgs);
 			case ContinuousPackage.DISTRIBUTION__PARENT_DISTRIBUTION:
 				if (parentDistribution != null)
 					msgs = ((InternalEObject)parentDistribution).eInverseRemove(this, ContinuousPackage.DISTRIBUTION__CHILD_DISTRIBUTION, Distribution.class, msgs);
@@ -970,7 +982,7 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 				return;
 			case ContinuousPackage.DISTRIBUTION__EVENTS_PROVIDERS:
 				getEventsProviders().clear();
-				getEventsProviders().addAll((Collection<? extends EventsProvider>)newValue);
+				getEventsProviders().addAll((Collection<? extends EventsProviderAbstract>)newValue);
 				return;
 			case ContinuousPackage.DISTRIBUTION__PARENT_DISTRIBUTION:
 				setParentDistribution((Distribution)newValue);
@@ -1055,7 +1067,7 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 			case ContinuousPackage.DISTRIBUTION__END:
 				return end != null;
 			case ContinuousPackage.DISTRIBUTION__EVENTS_PROVIDERS:
-				return !getEventsProviders().isEmpty();
+				return eventsProviders != null && !eventsProviders.isEmpty();
 			case ContinuousPackage.DISTRIBUTION__PARENT_DISTRIBUTION:
 				return parentDistribution != null;
 			case ContinuousPackage.DISTRIBUTION__CHILD_DISTRIBUTION:

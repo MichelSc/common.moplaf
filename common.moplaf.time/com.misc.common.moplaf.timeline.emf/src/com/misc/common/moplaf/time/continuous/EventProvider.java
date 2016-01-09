@@ -2,6 +2,8 @@
  */
 package com.misc.common.moplaf.time.continuous;
 
+import java.util.Date;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -13,6 +15,7 @@ package com.misc.common.moplaf.time.continuous;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.time.continuous.EventProvider#getProvidedEvent <em>Provided Event</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.EventProvider#getMoment <em>Moment</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getEventProvider()
@@ -45,5 +48,31 @@ public interface EventProvider extends EventsProviderAbstract {
 	 * @generated
 	 */
 	void setProvidedEvent(DistributionEvent value);
+
+	/**
+	 * Returns the value of the '<em><b>Moment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Moment</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Moment</em>' attribute.
+	 * @see #setMoment(Date)
+	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getEventProvider_Moment()
+	 * @model
+	 * @generated
+	 */
+	Date getMoment();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.EventProvider#getMoment <em>Moment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Moment</em>' attribute.
+	 * @see #getMoment()
+	 * @generated
+	 */
+	void setMoment(Date value);
 
 } // EventProvider

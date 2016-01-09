@@ -158,16 +158,16 @@ public class ContinuousAdapterFactory extends AdapterFactoryImpl {
 				return createSlopeImpulsionProviderAdapter();
 			}
 			@Override
+			public Adapter caseSlopeAbsoluteProvider(SlopeAbsoluteProvider object) {
+				return createSlopeAbsoluteProviderAdapter();
+			}
+			@Override
 			public Adapter caseAmountImpulsionProvider(AmountImpulsionProvider object) {
 				return createAmountImpulsionProviderAdapter();
 			}
 			@Override
 			public Adapter caseAmountAbsoluteProvider(AmountAbsoluteProvider object) {
 				return createAmountAbsoluteProviderAdapter();
-			}
-			@Override
-			public Adapter caseSlopeAbsoluteProvider(SlopeAbsoluteProvider object) {
-				return createSlopeAbsoluteProviderAdapter();
 			}
 			@Override
 			public Adapter caseObjectWithPropagatorFunctionAdapter(ObjectWithPropagatorFunctionAdapter object) {

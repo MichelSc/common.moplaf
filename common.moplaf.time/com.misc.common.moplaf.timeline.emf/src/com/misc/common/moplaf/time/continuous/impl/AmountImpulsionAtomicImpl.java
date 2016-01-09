@@ -2,19 +2,21 @@
  */
 package com.misc.common.moplaf.time.continuous.impl;
 
+import com.misc.common.moplaf.propagator.Util;
 import com.misc.common.moplaf.time.continuous.AmountImpulsionAtomic;
 import com.misc.common.moplaf.time.continuous.AmountImpulsionProvider;
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
-import com.misc.common.moplaf.time.continuous.DistributionEvent;
+import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountImpulsionAtomicAmountImpulsion;
+import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountImpulsionAtomicRefreshMoment;
+
+import java.util.Date;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -40,6 +42,16 @@ public class AmountImpulsionAtomicImpl extends AmountImpulsionImpl implements Am
 		super();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void addPropagatorFunctionAdapter() {
+		Util.adapt(this, PropagatorCalcAmountImpulsionAtomicRefreshMoment.class);
+		Util.adapt(this, PropagatorCalcAmountImpulsionAtomicAmountImpulsion.class);
+	}
+
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -201,4 +213,17 @@ public class AmountImpulsionAtomicImpl extends AmountImpulsionImpl implements Am
 		return super.eIsSet(featureID);
 	}
 
+	@Override
+	public void refreshMoment() {
+		Date moment = this.getProvider().getMoment();
+		this.setMoment(moment);
+	}
+
+	@Override
+	public void refreshAmountImpulsion() {
+		float impulsion = this.getProvider().getAmountImpulsion();
+		this.setAmountImpulsion(impulsion);
+	}
+
+	
 } //AmountImpulsionAtomicImpl

@@ -46,4 +46,12 @@ public interface SlopeAbsolute extends DistributionEvent {
 	 */
 	void setSlopeAbsolute(float value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void refreshSlopeAbsolute();
+
 } // SlopeAbsolute

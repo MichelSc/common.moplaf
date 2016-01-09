@@ -7,7 +7,9 @@ import com.misc.common.moplaf.time.continuous.AmountAbsolute;
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAmountAfter;
 
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -101,6 +103,18 @@ public abstract class AmountAbsoluteImpl extends DistributionEventImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void refreshAmountAbsolute() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -153,6 +167,22 @@ public abstract class AmountAbsoluteImpl extends DistributionEventImpl implement
 		}
 		return super.eIsSet(featureID);
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case ContinuousPackage.AMOUNT_ABSOLUTE___REFRESH_AMOUNT_ABSOLUTE:
+				refreshAmountAbsolute();
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
 
 	/**
 	 * <!-- begin-user-doc -->

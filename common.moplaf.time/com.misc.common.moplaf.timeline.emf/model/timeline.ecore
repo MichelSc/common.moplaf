@@ -117,7 +117,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="End" lowerBound="1" eType="#//continuous/EndEvent"
           containment="true" eOpposite="#//continuous/EndEvent/DistributionAsEnd"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="EventsProviders" upperBound="-1"
-          eType="#//continuous/EventsProvider" containment="true" eOpposite="#//continuous/EventsProviderAbstract/Distribution"/>
+          eType="#//continuous/EventsProviderAbstract" containment="true" eOpposite="#//continuous/EventsProviderAbstract/Distribution"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ParentDistribution" eType="#//continuous/Distribution"
           eOpposite="#//continuous/Distribution/ChildDistribution"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ChildDistribution" upperBound="-1"
@@ -176,9 +176,11 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="SlopeImpulsion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AmountAbsolute" abstract="true" eSuperTypes="#//continuous/DistributionEvent">
+      <eOperations name="refreshAmountAbsolute"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="AmountAbsolute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SlopeAbsolute" abstract="true" eSuperTypes="#//continuous/DistributionEvent">
+      <eOperations name="refreshSlopeAbsolute"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="SlopeAbsolute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CapacityChangeStart" eSuperTypes="#//continuous/AmountImpulsion">
@@ -220,8 +222,7 @@
         eSuperTypes="../../com.misc.common.moplaf.propagator/model/propagator.ecore#//ObjectWithPropagatorFunctionAdapter">
       <eOperations name="refreshEvents"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Distribution" lowerBound="1"
-          eType="#//continuous/Distribution" changeable="false" volatile="true" transient="true"
-          derived="true" eOpposite="#//continuous/Distribution/EventsProviders"/>
+          eType="#//continuous/Distribution" eOpposite="#//continuous/Distribution/EventsProviders"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EventsProvider" abstract="true" eSuperTypes="#//continuous/EventsProviderAbstract">
       <eStructuralFeatures xsi:type="ecore:EReference" name="ProvidedEvents" upperBound="-1"
@@ -256,6 +257,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EventProvider" abstract="true" eSuperTypes="#//continuous/EventsProviderAbstract">
       <eStructuralFeatures xsi:type="ecore:EReference" name="ProvidedEvent" eType="#//continuous/DistributionEvent"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="Moment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SlopeImpulsionProvider" eSuperTypes="#//continuous/EventProvider">
       <eStructuralFeatures xsi:type="ecore:EReference" name="Event" eType="#//continuous/SlopeImpulsionAtomic"

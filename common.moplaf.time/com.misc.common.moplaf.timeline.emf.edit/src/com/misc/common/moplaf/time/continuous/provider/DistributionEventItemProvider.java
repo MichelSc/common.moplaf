@@ -348,6 +348,17 @@ public class DistributionEventItemProvider
 			getString("_UI_DistributionEvent_type") + " " + label;
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.emf.edit.provider.ItemProviderAdapter#getParent(java.lang.Object)
+	 */
+	@Override
+	public Object getParent(Object object) {
+		Object distribution = super.getParent(object);
+		DistributionItemProvider distributionIP = (DistributionItemProvider)adapterFactory.adapt(distribution, IEditingDomainItemProvider.class);
+		return distributionIP==null ? null : distributionIP.getSequenceEvents();
+	}
+
+	
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
