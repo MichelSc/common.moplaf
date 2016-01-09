@@ -4,6 +4,7 @@ package com.misc.common.moplaf.time.continuous.provider;
 
 
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
+import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.DistributionEvent;
 import com.misc.common.moplaf.timeview.impl.IItemDiscontinuousAmountEventProvider;
 
@@ -353,7 +354,8 @@ public class DistributionEventItemProvider
 	 */
 	@Override
 	public Object getParent(Object object) {
-		Object distribution = super.getParent(object);
+		DistributionEvent event = (DistributionEvent) object;
+		Distribution distribution = event.getDistributionAsSequence();
 		DistributionItemProvider distributionIP = (DistributionItemProvider)adapterFactory.adapt(distribution, IEditingDomainItemProvider.class);
 		return distributionIP==null ? null : distributionIP.getSequenceEvents();
 	}

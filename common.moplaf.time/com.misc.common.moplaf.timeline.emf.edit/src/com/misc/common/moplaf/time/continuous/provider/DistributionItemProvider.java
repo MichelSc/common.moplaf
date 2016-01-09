@@ -308,8 +308,11 @@ public class DistributionItemProvider
 			case ContinuousPackage.DISTRIBUTION__HORIZON_START:
 			case ContinuousPackage.DISTRIBUTION__HORIZON_END:
 			case ContinuousPackage.DISTRIBUTION__CHILD_EVENTS:
+			case ContinuousPackage.DISTRIBUTION__PARENT_DISTRIBUTION:
+			case ContinuousPackage.DISTRIBUTION__CHILD_DISTRIBUTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENTS:
 			case ContinuousPackage.DISTRIBUTION__EVENTS_PROVIDERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

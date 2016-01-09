@@ -48,6 +48,7 @@ public class AmountAbsoluteAtomicImpl extends AmountAbsoluteImpl implements Amou
 	 * <!-- end-user-doc -->
 	 */
 	public void addPropagatorFunctionAdapter() {
+		super.addPropagatorFunctionAdapter();
 		Util.adapt(this, PropagatorCalcAmountAbsoluteAtomicRefreshMoment.class);
 		Util.adapt(this, PropagatorCalcAmountAbsoluteAtomicAmountAbsolute.class);
 	}

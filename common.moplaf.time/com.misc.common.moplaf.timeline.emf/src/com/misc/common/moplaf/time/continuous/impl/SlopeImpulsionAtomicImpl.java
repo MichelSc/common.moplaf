@@ -47,6 +47,7 @@ public class SlopeImpulsionAtomicImpl extends SlopeImpulsionImpl implements Slop
 	 * <!-- end-user-doc -->
 	 */
 	public void addPropagatorFunctionAdapter() {
+		super.addPropagatorFunctionAdapter();
 		Util.adapt(this, PropagatorCalcSlopeImpulsionAtomicRefreshMoment.class);
 		Util.adapt(this, PropagatorCalcSlopeImpulsionAtomicSlopeImpulsion.class);
 	}

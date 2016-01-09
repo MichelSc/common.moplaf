@@ -48,6 +48,7 @@ public class SlopeAbsoluteAtomicImpl extends SlopeAbsoluteImpl implements SlopeA
 	 * <!-- end-user-doc -->
 	 */
 	public void addPropagatorFunctionAdapter() {
+		super.addPropagatorFunctionAdapter();
 		Util.adapt(this, PropagatorCalcSlopeAbsoluteAtomicRefreshMoment.class);
 		Util.adapt(this, PropagatorCalcSlopeAbsoluteAtomicSlopeAbsolute.class);
 	}

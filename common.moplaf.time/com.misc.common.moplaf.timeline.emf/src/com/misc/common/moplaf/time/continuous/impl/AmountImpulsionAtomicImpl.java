@@ -47,6 +47,7 @@ public class AmountImpulsionAtomicImpl extends AmountImpulsionImpl implements Am
 	 * <!-- end-user-doc -->
 	 */
 	public void addPropagatorFunctionAdapter() {
+		super.addPropagatorFunctionAdapter();
 		Util.adapt(this, PropagatorCalcAmountImpulsionAtomicRefreshMoment.class);
 		Util.adapt(this, PropagatorCalcAmountImpulsionAtomicAmountImpulsion.class);
 	}
