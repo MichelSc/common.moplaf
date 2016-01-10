@@ -681,20 +681,58 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	private void refreshStart() {
 		if ( this.getStart()==null){
 			StartEvent start = ContinuousFactory.eINSTANCE.createStartEvent();
-			start.setDistributionAsStart(this);
-			this.setStart(start);
-			start.refreshMoment();
+//			start.setDistributionAsStart(this); // owning
+			this.setStart(start); // owning
+//			start.refreshMoment();
 		}
 	}
 	
 	private void refreshEnd() {
 		if ( this.getEnd()==null){
 			EndEvent end = ContinuousFactory.eINSTANCE.createEndEvent();
-			end.setDistributionAsEnd(this);
+//			end.setDistributionAsEnd(this);
 			this.setEnd(end);
-			end.refreshMoment();
+//			end.refreshMoment();
 		}
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void refreshProvidedEvents() {
+		HashSet<DistributionEvent> eventstobe = new HashSet<DistributionEvent>();
+
+		// from providers
+		for (EventsProviderAbstract provider: this.getEventsProviders()){
+			if ( provider instanceof EventsProvider ){
+				EventsProvider eventsProvider = (EventsProvider)provider;
+				for(DistributionEvent currentEvent : eventsProvider.getProvidedEvents()){
+					eventstobe.add(currentEvent);
+				}
+			}
+			else if ( provider instanceof EventProvider){
+				EventProvider eventProvider = (EventProvider)provider;
+				eventstobe.add(eventProvider.getProvidedEvent());
+			}
+		}
+
+		// child events
+		for(DistributionEvent currentEvent : this.getChildEvents()){
+			eventstobe.add(currentEvent);
+		}
+		
+		// horizon events
+		eventstobe.add(this.getStart());
+		eventstobe.add(this.getEnd());
+
+		// and refresh
+		EList<DistributionEvent> eventsasis = this.getProvidedEvents();
+		eventsasis.retainAll(eventstobe);
+		eventstobe.removeAll(eventsasis);
+		eventsasis.addAll(eventstobe);
+	}
+
 	
 	private boolean isSequenceEvent(DistributionEvent event){
 		Date moment = event.getMoment();
@@ -713,15 +751,6 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 				eventstobe.add(currentEvent);
 			}
 		}
-		// child events
-		for(DistributionEvent currentEvent : this.getChildEvents()){
-			if ( this.isSequenceEvent(currentEvent)){
-				eventstobe.add(currentEvent);
-			}
-		}
-		// horizon events
-		eventstobe.add(this.getStart());
-		eventstobe.add(this.getEnd());
 	
 		EList<DistributionEvent> eventsasis = this.getSequenceEvents();
 		eventsasis.retainAll(eventstobe);
@@ -799,32 +828,6 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 			newEvent.setOriginal(childEventToBe);
 			this.getChildEvents().add(newEvent);
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public void refreshProvidedEvents() {
-		HashSet<DistributionEvent> eventstobe = new HashSet<DistributionEvent>();
-
-		for (EventsProviderAbstract provider: this.getEventsProviders()){
-			if ( provider instanceof EventsProvider ){
-				EventsProvider eventsProvider = (EventsProvider)provider;
-				for(DistributionEvent currentEvent : eventsProvider.getProvidedEvents()){
-					eventstobe.add(currentEvent);
-				}
-			}
-			else if ( provider instanceof EventProvider){
-				EventProvider eventProvider = (EventProvider)provider;
-				eventstobe.add(eventProvider.getProvidedEvent());
-			}
-		}
-		
-		EList<DistributionEvent> eventsasis = this.getProvidedEvents();
-		eventsasis.retainAll(eventstobe);
-		eventstobe.removeAll(eventsasis);
-		eventsasis.addAll(eventstobe);
 	}
 
 	/**

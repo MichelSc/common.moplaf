@@ -30,6 +30,7 @@ public class PropagatorCalcChildEventMoment extends PropagatorCalcEventMoment {
 	protected void addListeners() {
 		super.addListeners();
 		this.addNavigationFeatureListener(ContinuousPackage.Literals.CHILD_EVENT__ORIGINAL, DependencyDistributionEventMoment.class);
+		this.addFeatureListener(ContinuousPackage.Literals.CHILD_EVENT__ORIGINAL);
 	}
 
 	static public class DependencyDistributionEventMoment extends PropagatorDependencyAdapter{

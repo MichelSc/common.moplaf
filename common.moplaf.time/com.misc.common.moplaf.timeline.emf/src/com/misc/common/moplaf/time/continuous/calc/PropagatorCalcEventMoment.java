@@ -2,8 +2,10 @@ package com.misc.common.moplaf.time.continuous.calc;
 
 import com.misc.common.moplaf.propagator.PropagatorFunctionAdapter;
 import com.misc.common.moplaf.propagator.Util;
+import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.DistributionEvent;
+import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEndEventMoment.DependencyDistributionEnd;
 
 // this means that the object is touched upon containment
 //   as a consequence, it will be refreshed
@@ -22,5 +24,11 @@ public class PropagatorCalcEventMoment extends PropagatorFunctionAdapter {
 	protected void calculate() {
 		DistributionEvent event = (DistributionEvent)this.target;
 		event.refreshMoment();
+	}
+
+	@Override
+	protected void addListeners() {
+		super.addListeners();
+		this.addFeatureListener(ContinuousPackage.Literals.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT);
 	}
 };

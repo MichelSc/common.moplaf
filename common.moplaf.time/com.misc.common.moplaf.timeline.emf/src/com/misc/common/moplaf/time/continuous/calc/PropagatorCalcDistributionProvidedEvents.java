@@ -35,6 +35,7 @@ public class PropagatorCalcDistributionProvidedEvents extends PropagatorFunction
 	protected void addListeners() {
 		super.addListeners();
 		this.addFeatureListener(ContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS);
+		this.addFeatureListener(ContinuousPackage.Literals.DISTRIBUTION__CHILD_EVENTS);
 	}
 
 };
