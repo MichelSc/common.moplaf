@@ -700,6 +700,42 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public void refreshChildEvent() {
+		// to be events
+		HashSet<DistributionEvent> childEventsToBe = new HashSet<DistributionEvent>();
+		for ( Distribution childDistribution : this.getChildDistribution()){
+			for ( DistributionEvent childEvent : childDistribution.getSequenceEvents()){
+				childEventsToBe.add(childEvent);
+			}
+		}
+		
+		// as is events
+		Iterator<ChildEvent> childEventIter = this.getChildEvents().iterator();
+		while ( childEventIter.hasNext()){
+			ChildEvent childEventAsIs = childEventIter.next();
+			DistributionEvent originalEvent = childEventAsIs.getOriginal();
+			if ( originalEvent==null || !childEventsToBe.contains(originalEvent)){
+				// the original event is not to be: remove the derived event
+				childEventAsIs.setOriginal(null);
+				childEventIter.remove();
+			} else {
+				// the original event does not need to be created
+				 childEventsToBe.remove(originalEvent);
+			}
+		}
+		
+		// create the child event
+		for ( DistributionEvent childEventToBe : childEventsToBe){
+			ChildEvent newEvent = ContinuousFactory.eINSTANCE.createChildEvent();
+			newEvent.setOriginal(childEventToBe);
+			this.getChildEvents().add(newEvent);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public void refreshProvidedEvents() {
 		HashSet<DistributionEvent> eventstobe = new HashSet<DistributionEvent>();
 
@@ -743,19 +779,31 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	}
 
 	private void refreshSequenceEventContent() {
-		HashSet<DistributionEvent> eventstobe = new HashSet<DistributionEvent>();
-
-		// provided events
+		// to be events
+		HashSet<DistributionEvent> eventsToBe = new HashSet<DistributionEvent>();
 		for(DistributionEvent currentEvent : this.getProvidedEvents()){
 			if ( this.isSequenceEvent(currentEvent)){
-				eventstobe.add(currentEvent);
+				eventsToBe.add(currentEvent);
 			}
 		}
 	
-		EList<DistributionEvent> eventsasis = this.getSequenceEvents();
-		eventsasis.retainAll(eventstobe);
-		eventstobe.removeAll(eventsasis);
-		eventsasis.addAll(eventstobe);
+		// as is events
+		Iterator<DistributionEvent> sequenceEventIter = this.getSequenceEvents().iterator();
+		while ( sequenceEventIter.hasNext()){
+			DistributionEvent sequenceEventAsIs = sequenceEventIter.next();
+			boolean removed = eventsToBe.remove(sequenceEventAsIs);
+			if ( !removed ){
+				// the original event is not to be: remove the sequence event asis
+				sequenceEventAsIs.setNext(null);
+				sequenceEventAsIs.setPrevious(null);
+				sequenceEventIter.remove();
+			} 
+		}
+		
+		// create the child event
+		for ( DistributionEvent eventToBe: eventsToBe){
+			this.getSequenceEvents().add(eventToBe);
+		}
 	}
 	
 	private void refreshSequenceEventSort() {
@@ -793,42 +841,6 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	}
 	
 			
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public void refreshChildEvent() {
-		// to be events
-		HashSet<DistributionEvent> childEventsToBe = new HashSet<DistributionEvent>();
-		for ( Distribution childDistribution : this.getChildDistribution()){
-			for ( DistributionEvent childEvent : childDistribution.getSequenceEvents()){
-				childEventsToBe.add(childEvent);
-			}
-		}
-		
-		// as is events
-		Iterator<ChildEvent> childEventIter = this.getChildEvents().iterator();
-		while ( childEventIter.hasNext()){
-			ChildEvent childEventAsIs = childEventIter.next();
-			DistributionEvent originalEvent = childEventAsIs.getOriginal();
-			if ( originalEvent==null || !childEventsToBe.contains(originalEvent)){
-				// the original event is not to be: remove the derived event
-				childEventAsIs.setOriginal(null);
-				childEventIter.remove();
-			} else {
-				// the original event does not need to be created
-				 childEventsToBe.remove(originalEvent);
-			}
-		}
-		
-		// create the child event
-		for ( DistributionEvent childEventToBe : childEventsToBe){
-			ChildEvent newEvent = ContinuousFactory.eINSTANCE.createChildEvent();
-			newEvent.setOriginal(childEventToBe);
-			this.getChildEvents().add(newEvent);
-		}
-	}
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -22,6 +22,8 @@ public class PropagatorCalcDistributionProvidedEvents extends PropagatorFunction
 		PropagatorFunctionAdapters antecedents = super.getAntecedents();
 		PropagatorFunctionAdapter calcDistributionSequence = Util.getPropagatorFunctionAdapter(distribution, PropagatorLayerCompositeEventRefresh.class);
 		antecedents.add(calcDistributionSequence);
+		PropagatorFunctionAdapter calcDistributionChildEvent = Util.getPropagatorFunctionAdapter(distribution, PropagatorCalcDistributionChildEvents.class);
+		antecedents.add(calcDistributionChildEvent);
 		return antecedents;
 	}
 	
