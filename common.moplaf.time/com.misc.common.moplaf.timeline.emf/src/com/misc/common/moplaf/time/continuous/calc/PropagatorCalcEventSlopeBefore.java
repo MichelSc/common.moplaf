@@ -39,6 +39,7 @@ public class PropagatorCalcEventSlopeBefore extends PropagatorFunctionAdapter {
 	@Override
 	protected void addListeners() {
 		super.addListeners();
+		this.addFeatureListener(ContinuousPackage.Literals.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE);
 		this.addNavigationFeatureListener(ContinuousPackage.Literals.DISTRIBUTION_EVENT__PREVIOUS, DependencyEventBeforeSlopeAfter.class);
 	}
 

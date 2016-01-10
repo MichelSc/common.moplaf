@@ -37,5 +37,6 @@ public class PropagatorCalcEventSlopeAfter extends PropagatorFunctionAdapter {
 	protected void addListeners() {
 		super.addListeners();
 		this.addFeatureListener(ContinuousPackage.Literals.DISTRIBUTION_EVENT__SLOPE_BEFORE);
+		this.addFeatureListener(ContinuousPackage.Literals.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE);
 	}
 };

@@ -36,6 +36,7 @@ public class PropagatorCalcEventAmountAfter extends PropagatorFunctionAdapter {
 	@Override
 	protected void addListeners() {
 		super.addListeners();
+		this.addFeatureListener(ContinuousPackage.Literals.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE);
 		this.addFeatureListener(ContinuousPackage.Literals.DISTRIBUTION_EVENT__AMOUNT_BEFORE);
 	}
 	
