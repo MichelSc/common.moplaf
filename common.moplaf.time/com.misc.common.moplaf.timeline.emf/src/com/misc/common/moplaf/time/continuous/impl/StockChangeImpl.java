@@ -468,7 +468,6 @@ public class StockChangeImpl extends EventsProviderImpl implements StockChange {
 
 	@Override
 	public void refreshEvents() {
-		super.refreshEvents();
 		Distribution distribution = this.getDistribution();
 		if ( distribution == null){
 			StockChangeStart oldstart = this.getStartEvent();

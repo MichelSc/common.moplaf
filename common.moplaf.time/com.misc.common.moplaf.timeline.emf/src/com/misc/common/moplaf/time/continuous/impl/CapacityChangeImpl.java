@@ -456,7 +456,6 @@ public class CapacityChangeImpl extends EventsProviderImpl implements CapacityCh
 	 */
 	@Override
 	public void refreshEvents() {
-		super.refreshEvents();
 		Distribution distribution = this.getDistribution();
 		if ( distribution == null){
 			CapacityChangeStart oldstart = this.getStartEvent();
