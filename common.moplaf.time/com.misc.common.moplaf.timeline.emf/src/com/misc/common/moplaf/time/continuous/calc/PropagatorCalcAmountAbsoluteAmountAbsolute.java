@@ -11,7 +11,7 @@ public class PropagatorCalcAmountAbsoluteAmountAbsolute extends PropagatorFuncti
 	@Override
 	protected PropagatorFunctionAdapter getParent() {
 		AmountAbsolute event = (AmountAbsolute)this.target;
-		Distribution distribution = event.getDistributionAsProvidedEvent();
+		Distribution distribution = event.getDistributionAsSequence();
 		PropagatorFunctionAdapter parent = Util.getPropagatorFunctionAdapter(distribution, PropagatorLayerDistributionAmounts.class);
 		return parent;
 	}

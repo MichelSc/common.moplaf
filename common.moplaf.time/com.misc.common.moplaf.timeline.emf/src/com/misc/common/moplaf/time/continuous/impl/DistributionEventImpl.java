@@ -669,7 +669,7 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 			return;
 		}
 		float slopeBefore = this.getSlopeBefore();
-		float durationBefore = this.getDistributionAsProvidedEvent().getDuration(previous.getMoment(), this.getMoment());
+		float durationBefore = this.getDistributionAsSequence().getDuration(previous.getMoment(), this.getMoment());
 		float amount = slopeBefore*durationBefore+previous.getAmountAfter();
 		this.setAmountBefore(amount);
 	}

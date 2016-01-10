@@ -11,7 +11,7 @@ public class PropagatorCalcSlopeImpulsionSlopeImpulsion extends PropagatorFuncti
 	@Override
 	protected PropagatorFunctionAdapter getParent() {
 		SlopeImpulsion event = (SlopeImpulsion)this.target;
-		Distribution distribution = event.getDistributionAsProvidedEvent();
+		Distribution distribution = event.getDistributionAsSequence();
 		PropagatorFunctionAdapter parent = Util.getPropagatorFunctionAdapter(distribution, PropagatorLayerDistributionSlopes.class);
 		return parent;
 	}
