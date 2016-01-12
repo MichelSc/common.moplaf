@@ -21,7 +21,7 @@
         <genFeatures createChild="false" propertyCategory="1 time" ecoreFeature="ecore:EAttribute timeline.ecore#//continuous/Distribution/TimeUnit"/>
         <genFeatures createChild="false" propertyCategory="1 time" ecoreFeature="ecore:EAttribute timeline.ecore#//continuous/Distribution/HorizonStart"/>
         <genFeatures createChild="false" propertyCategory="1 time" ecoreFeature="ecore:EAttribute timeline.ecore#//continuous/Distribution/HorizonEnd"/>
-        <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference timeline.ecore#//continuous/Distribution/ChildEvents"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EReference timeline.ecore#//continuous/Distribution/ChildEvents"/>
         <genFeatures children="true" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference timeline.ecore#//continuous/Distribution/SequenceEvents"/>
         <genFeatures property="None" notify="false" createChild="false" propertyCategory="3 event"

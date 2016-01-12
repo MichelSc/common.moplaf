@@ -1,16 +1,15 @@
 package com.misc.common.moplaf.propagator;
 
 import java.lang.reflect.Constructor;
+import java.util.Collection;
 import java.util.LinkedList;
 
 import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.ui.PlatformUI;
 
 /**
  * The base class of the propagators used by theframework. Listens to notifications 
@@ -93,8 +92,8 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		protected void addPropagatorFunctionAdapters(){
 			EObject object = (EObject) PropagatorAbstractAdapter.this.getTarget();
 			Object featurevalue = object.eGet((EStructuralFeature) this.feature, false ); // no resolve
-			if ( featurevalue instanceof EList){
-				EList<EObject> referredobjects = (EList<EObject>)featurevalue;
+			if ( featurevalue instanceof Collection<?>){
+				Collection<EObject> referredobjects = (Collection<EObject>)featurevalue;
 				for (EObject referredobject : referredobjects){
 					PropagatorAbstractAdapter.this.addDependency(referredobject, this.adapterFunctionType, false);
 				}
@@ -107,8 +106,8 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		protected void disposePropagatorFunctionAdapters(){
 			EObject object = (EObject) PropagatorAbstractAdapter.this.getTarget();
 			Object featurevalue = object.eGet((EStructuralFeature) this.feature);
-			if ( featurevalue instanceof EList){
-				EList<EObject> referredobjects = (EList<EObject>)featurevalue;
+			if ( featurevalue instanceof Collection<?>){
+				Collection<EObject> referredobjects = (Collection<EObject>)featurevalue;
 				for (EObject referredobject : referredobjects){
 					PropagatorAbstractAdapter.this.removeDependency(referredobject, this.adapterFunctionType, false);
 				}
@@ -304,18 +303,22 @@ public PropagatorDependencyAdapter removeDependency(Notifier targetdependency,
 		if ( oldvalue instanceof Notifier){
 			this.removeDependency((Notifier)oldvalue, adapterfunctiontype, touch);
 			return;
-		} else if ( oldvalue instanceof EList<?> ){
-			for ( Notifier notifier : (EList<Notifier>)oldvalue){
-				this.removeDependency(notifier, adapterfunctiontype, touch);
+		} else if ( oldvalue instanceof Collection<?> ){
+			for ( Object element : (Collection<Object>)oldvalue){
+				if ( element instanceof Notifier) {
+					this.removeDependency((Notifier)element, adapterfunctiontype, touch);
+				}
 			}
 			
 		}
 		if ( newvalue instanceof Notifier){
 			this.addDependency((Notifier)newvalue, adapterfunctiontype, touch);
 			return;
-		} else if ( newvalue instanceof EList<?> ){
-			for ( Notifier notifier : (EList<Notifier>)newvalue){
-				this.addDependency(notifier, adapterfunctiontype, touch);
+		} else if ( newvalue instanceof Collection<?> ){
+			for ( Object element : (Collection<Object>)newvalue){
+				if ( element instanceof Notifier) {
+					this.addDependency((Notifier)element, adapterfunctiontype, touch);
+				}
 			}
 		}
 		return ;

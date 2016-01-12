@@ -230,7 +230,7 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctionAdapter {
 	 * @return the value of the '<em>Slope After</em>' attribute.
 	 * @see #setSlopeAfter(float)
 	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistributionEvent_SlopeAfter()
-	 * @model id="true"
+	 * @model
 	 * @generated
 	 */
 	float getSlopeAfter();
