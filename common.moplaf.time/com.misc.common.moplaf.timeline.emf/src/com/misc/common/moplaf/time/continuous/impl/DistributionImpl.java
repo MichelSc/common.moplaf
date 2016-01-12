@@ -717,7 +717,7 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 			if ( originalEvent==null || !childEventsToBe.contains(originalEvent)){
 				// the original event is not to be: remove the derived event
 				childEventAsIs.setOriginal(null);
-				childEventIter.remove();
+				childEventIter.remove(); // owning
 			} else {
 				// the original event does not need to be created
 				 childEventsToBe.remove(originalEvent);
@@ -726,10 +726,15 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 		
 		// create the child event
 		for ( DistributionEvent childEventToBe : childEventsToBe){
-			ChildEvent newEvent = ContinuousFactory.eINSTANCE.createChildEvent();
+			ChildEvent newEvent = ContinuousFactory.eINSTANCE.createChildEvent(); 
 			newEvent.setOriginal(childEventToBe);
-			this.getChildEvents().add(newEvent);
+			this.getChildEvents().add(newEvent); // owning
 		}
+		
+		// for every child distribution, 
+		//    for every of its sequence event, there is a child event
+		//    and vice versa
+		
 	}
 
 	/**
