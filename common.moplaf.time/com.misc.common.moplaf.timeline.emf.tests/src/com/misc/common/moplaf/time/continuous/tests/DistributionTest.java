@@ -31,6 +31,7 @@ import junit.textui.TestRunner;
  *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#refreshSequence() <em>Refresh Sequence</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#refreshChildEvent() <em>Refresh Child Event</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#refresh() <em>Refresh</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#refreshProvidedEvents() <em>Refresh Provided Events</em>}</li>
  *   <li>{@link com.misc.common.moplaf.propagator.ObjectWithPropagatorFunctionAdapter#addPropagatorFunctionAdapter() <em>Add Propagator Function Adapter</em>}</li>
  * </ul>
  * </p>
@@ -297,6 +298,19 @@ public class DistributionTest extends TestCase {
 	 * @generated
 	 */
 	public void testRefresh() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
+	}
+
+	/**
+	 * Tests the '{@link com.misc.common.moplaf.time.continuous.Distribution#refreshProvidedEvents() <em>Refresh Provided Events</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.Distribution#refreshProvidedEvents()
+	 * @generated
+	 */
+	public void testRefreshProvidedEvents() {
 		// TODO: implement this operation test method
 		// Ensure that you remove @generated or mark it @generated NOT
 		fail();

@@ -294,6 +294,7 @@ public PropagatorDependencyAdapter removeDependency(Notifier targetdependency,
 	    
 	}
 
+
 	public void addRemoveDependency(Notification notificationReferenceChange, 
 									Object adapterfunctiontype,
 									boolean touch){

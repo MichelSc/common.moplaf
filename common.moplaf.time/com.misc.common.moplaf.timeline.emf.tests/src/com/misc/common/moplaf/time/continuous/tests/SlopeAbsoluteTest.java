@@ -8,6 +8,12 @@ import com.misc.common.moplaf.time.continuous.SlopeAbsolute;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Slope Absolute</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.SlopeAbsolute#refreshSlopeAbsolute() <em>Refresh Slope Absolute</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public abstract class SlopeAbsoluteTest extends DistributionEventTest {
@@ -31,6 +37,19 @@ public abstract class SlopeAbsoluteTest extends DistributionEventTest {
 	@Override
 	protected SlopeAbsolute getFixture() {
 		return (SlopeAbsolute)fixture;
+	}
+
+	/**
+	 * Tests the '{@link com.misc.common.moplaf.time.continuous.SlopeAbsolute#refreshSlopeAbsolute() <em>Refresh Slope Absolute</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.SlopeAbsolute#refreshSlopeAbsolute()
+	 * @generated
+	 */
+	public void testRefreshSlopeAbsolute() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //SlopeAbsoluteTest
