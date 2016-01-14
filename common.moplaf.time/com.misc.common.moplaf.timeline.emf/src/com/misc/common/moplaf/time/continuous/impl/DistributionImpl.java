@@ -736,7 +736,7 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 		//    and vice versa
 		
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

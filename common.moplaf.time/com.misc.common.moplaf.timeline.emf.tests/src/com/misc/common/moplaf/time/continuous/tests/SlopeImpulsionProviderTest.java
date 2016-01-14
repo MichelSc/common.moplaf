@@ -3,17 +3,17 @@
 package com.misc.common.moplaf.time.continuous.tests;
 
 import com.misc.common.moplaf.time.continuous.ContinuousFactory;
-import com.misc.common.moplaf.time.continuous.SlopeAbsoluteAtomic;
+import com.misc.common.moplaf.time.continuous.SlopeImpulsionProvider;
 
 import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Slope Absolute Atomic</b></em>'.
+ * A test case for the model object '<em><b>Slope Impulsion Provider</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class SlopeAbsoluteAtomicTest extends SlopeAbsoluteTest {
+public class SlopeImpulsionProviderTest extends EventProviderTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +21,28 @@ public class SlopeAbsoluteAtomicTest extends SlopeAbsoluteTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(SlopeAbsoluteAtomicTest.class);
+		TestRunner.run(SlopeImpulsionProviderTest.class);
 	}
 
 	/**
-	 * Constructs a new Slope Absolute Atomic test case with the given name.
+	 * Constructs a new Slope Impulsion Provider test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SlopeAbsoluteAtomicTest(String name) {
+	public SlopeImpulsionProviderTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Slope Absolute Atomic test case.
+	 * Returns the fixture for this Slope Impulsion Provider test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected SlopeAbsoluteAtomic getFixture() {
-		return (SlopeAbsoluteAtomic)fixture;
+	protected SlopeImpulsionProvider getFixture() {
+		return (SlopeImpulsionProvider)fixture;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class SlopeAbsoluteAtomicTest extends SlopeAbsoluteTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(ContinuousFactory.eINSTANCE.createSlopeAbsoluteAtomic());
+		setFixture(ContinuousFactory.eINSTANCE.createSlopeImpulsionProvider());
 	}
 
 	/**
@@ -67,4 +67,4 @@ public class SlopeAbsoluteAtomicTest extends SlopeAbsoluteTest {
 		setFixture(null);
 	}
 
-} //SlopeAbsoluteAtomicTest
+} //SlopeImpulsionProviderTest

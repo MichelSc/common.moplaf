@@ -12,7 +12,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CapacityChangeTest extends CompositeEventTest {
+public class CapacityChangeTest extends EventsProviderTest {
 
 	/**
 	 * <!-- begin-user-doc -->

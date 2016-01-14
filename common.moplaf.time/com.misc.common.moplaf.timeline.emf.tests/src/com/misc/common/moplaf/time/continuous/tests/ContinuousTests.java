@@ -35,16 +35,20 @@ public class ContinuousTests extends TestSuite {
 		suite.addTestSuite(ChildEventTest.class);
 		suite.addTestSuite(StartEventTest.class);
 		suite.addTestSuite(EndEventTest.class);
-		suite.addTestSuite(CapacityChangeTest.class);
 		suite.addTestSuite(CapacityChangeStartTest.class);
 		suite.addTestSuite(CapacityChangeEndTest.class);
-		suite.addTestSuite(StockChangeTest.class);
 		suite.addTestSuite(StockChangeStartTest.class);
 		suite.addTestSuite(StockChangeEndTest.class);
 		suite.addTestSuite(AmountImpulsionAtomicTest.class);
 		suite.addTestSuite(SlopeImpulsionAtomicTest.class);
 		suite.addTestSuite(AmountAbsoluteAtomicTest.class);
 		suite.addTestSuite(SlopeAbsoluteAtomicTest.class);
+		suite.addTestSuite(StockChangeTest.class);
+		suite.addTestSuite(CapacityChangeTest.class);
+		suite.addTestSuite(SlopeImpulsionProviderTest.class);
+		suite.addTestSuite(SlopeAbsoluteProviderTest.class);
+		suite.addTestSuite(AmountImpulsionProviderTest.class);
+		suite.addTestSuite(AmountAbsoluteProviderTest.class);
 		return suite;
 	}
 
