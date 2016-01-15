@@ -421,7 +421,39 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	 * @model
 	 * @generated
 	 */
-	float getIntegralAmount(Date from, Date to);
+	float getCumulatedAmount(Date from, Date to);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Date getEarliestBelow(Date after, float duration, float amount);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Date getLatestBelow(Date before, float duration, float amount);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Date getEarliestAbove(Date after, float duration, float amount);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Date getLatestAbove(Date before, float duration, float amount);
 
 	/**
 	 * <!-- begin-user-doc -->

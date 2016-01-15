@@ -277,13 +277,49 @@ public interface ContinuousPackage extends EPackage {
 	int DISTRIBUTION___GET_AVERAGE_AMOUNT__DATE_DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 9;
 
 	/**
-	 * The operation id for the '<em>Get Integral Amount</em>' operation.
+	 * The operation id for the '<em>Get Cumulated Amount</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_INTEGRAL_AMOUNT__DATE_DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 10;
+	int DISTRIBUTION___GET_CUMULATED_AMOUNT__DATE_DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 10;
+
+	/**
+	 * The operation id for the '<em>Get Earliest Below</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTRIBUTION___GET_EARLIEST_BELOW__DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 11;
+
+	/**
+	 * The operation id for the '<em>Get Latest Below</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTRIBUTION___GET_LATEST_BELOW__DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 12;
+
+	/**
+	 * The operation id for the '<em>Get Earliest Above</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTRIBUTION___GET_EARLIEST_ABOVE__DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 13;
+
+	/**
+	 * The operation id for the '<em>Get Latest Above</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTRIBUTION___GET_LATEST_ABOVE__DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Refresh Init</em>' operation.
@@ -292,7 +328,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___REFRESH_INIT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 11;
+	int DISTRIBUTION___REFRESH_INIT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 15;
 
 	/**
 	 * The operation id for the '<em>Refresh Sequence</em>' operation.
@@ -301,7 +337,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___REFRESH_SEQUENCE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 12;
+	int DISTRIBUTION___REFRESH_SEQUENCE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Refresh Child Event</em>' operation.
@@ -310,7 +346,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___REFRESH_CHILD_EVENT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 13;
+	int DISTRIBUTION___REFRESH_CHILD_EVENT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 17;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -319,7 +355,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___REFRESH = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 14;
+	int DISTRIBUTION___REFRESH = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Refresh Provided Events</em>' operation.
@@ -328,7 +364,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___REFRESH_PROVIDED_EVENTS = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 15;
+	int DISTRIBUTION___REFRESH_PROVIDED_EVENTS = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 19;
 
 	/**
 	 * The number of operations of the '<em>Distribution</em>' class.
@@ -337,7 +373,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 16;
+	int DISTRIBUTION_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 20;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl <em>Distribution Event</em>}' class.
@@ -467,13 +503,31 @@ public interface ContinuousPackage extends EPackage {
 	int DISTRIBUTION_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER___ADD_PROPAGATOR_FUNCTION_ADAPTER;
 
 	/**
+	 * The operation id for the '<em>Get Amount Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTRIBUTION_EVENT___GET_AMOUNT_BEFORE__DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Amount After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 1;
+
+	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_EVENT___REFRESH_SLOPE_BEFORE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 0;
+	int DISTRIBUTION_EVENT___REFRESH_SLOPE_BEFORE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount Before</em>' operation.
@@ -482,7 +536,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_EVENT___REFRESH_AMOUNT_BEFORE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 1;
+	int DISTRIBUTION_EVENT___REFRESH_AMOUNT_BEFORE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount After</em>' operation.
@@ -491,7 +545,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_EVENT___REFRESH_AMOUNT_AFTER = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 2;
+	int DISTRIBUTION_EVENT___REFRESH_AMOUNT_AFTER = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope After</em>' operation.
@@ -500,7 +554,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_EVENT___REFRESH_SLOPE_AFTER = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 3;
+	int DISTRIBUTION_EVENT___REFRESH_SLOPE_AFTER = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Refresh Moment</em>' operation.
@@ -509,7 +563,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_EVENT___REFRESH_MOMENT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 4;
+	int DISTRIBUTION_EVENT___REFRESH_MOMENT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Refresh Description</em>' operation.
@@ -518,7 +572,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_EVENT___REFRESH_DESCRIPTION = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 5;
+	int DISTRIBUTION_EVENT___REFRESH_DESCRIPTION = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>Distribution Event</em>' class.
@@ -527,7 +581,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_EVENT_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 6;
+	int DISTRIBUTION_EVENT_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountImpulsionImpl <em>Amount Impulsion</em>}' class.
@@ -704,6 +758,24 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHILD_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER = DISTRIBUTION_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+
+	/**
+	 * The operation id for the '<em>Get Amount Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHILD_EVENT___GET_AMOUNT_BEFORE__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_BEFORE__DATE;
+
+	/**
+	 * The operation id for the '<em>Get Amount After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHILD_EVENT___GET_AMOUNT_AFTER__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
@@ -923,6 +995,24 @@ public interface ContinuousPackage extends EPackage {
 	int START_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER = DISTRIBUTION_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
 
 	/**
+	 * The operation id for the '<em>Get Amount Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START_EVENT___GET_AMOUNT_BEFORE__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_BEFORE__DATE;
+
+	/**
+	 * The operation id for the '<em>Get Amount After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START_EVENT___GET_AMOUNT_AFTER__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE;
+
+	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1122,6 +1212,24 @@ public interface ContinuousPackage extends EPackage {
 	int END_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER = DISTRIBUTION_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
 
 	/**
+	 * The operation id for the '<em>Get Amount Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT___GET_AMOUNT_BEFORE__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_BEFORE__DATE;
+
+	/**
+	 * The operation id for the '<em>Get Amount After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT___GET_AMOUNT_AFTER__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE;
+
+	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1309,6 +1417,24 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int AMOUNT_IMPULSION___ADD_PROPAGATOR_FUNCTION_ADAPTER = DISTRIBUTION_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+
+	/**
+	 * The operation id for the '<em>Get Amount Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION___GET_AMOUNT_BEFORE__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_BEFORE__DATE;
+
+	/**
+	 * The operation id for the '<em>Get Amount After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION___GET_AMOUNT_AFTER__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
@@ -1509,6 +1635,24 @@ public interface ContinuousPackage extends EPackage {
 	int SLOPE_IMPULSION___ADD_PROPAGATOR_FUNCTION_ADAPTER = DISTRIBUTION_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
 
 	/**
+	 * The operation id for the '<em>Get Amount Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_IMPULSION___GET_AMOUNT_BEFORE__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_BEFORE__DATE;
+
+	/**
+	 * The operation id for the '<em>Get Amount After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_IMPULSION___GET_AMOUNT_AFTER__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE;
+
+	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1707,6 +1851,24 @@ public interface ContinuousPackage extends EPackage {
 	int AMOUNT_ABSOLUTE___ADD_PROPAGATOR_FUNCTION_ADAPTER = DISTRIBUTION_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
 
 	/**
+	 * The operation id for the '<em>Get Amount Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE___GET_AMOUNT_BEFORE__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_BEFORE__DATE;
+
+	/**
+	 * The operation id for the '<em>Get Amount After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE___GET_AMOUNT_AFTER__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE;
+
+	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1903,6 +2065,24 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int SLOPE_ABSOLUTE___ADD_PROPAGATOR_FUNCTION_ADAPTER = DISTRIBUTION_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+
+	/**
+	 * The operation id for the '<em>Get Amount Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE___GET_AMOUNT_BEFORE__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_BEFORE__DATE;
+
+	/**
+	 * The operation id for the '<em>Get Amount After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE___GET_AMOUNT_AFTER__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
@@ -2212,6 +2392,24 @@ public interface ContinuousPackage extends EPackage {
 	int CAPACITY_CHANGE_START___ADD_PROPAGATOR_FUNCTION_ADAPTER = AMOUNT_IMPULSION___ADD_PROPAGATOR_FUNCTION_ADAPTER;
 
 	/**
+	 * The operation id for the '<em>Get Amount Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE_START___GET_AMOUNT_BEFORE__DATE = AMOUNT_IMPULSION___GET_AMOUNT_BEFORE__DATE;
+
+	/**
+	 * The operation id for the '<em>Get Amount After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE_START___GET_AMOUNT_AFTER__DATE = AMOUNT_IMPULSION___GET_AMOUNT_AFTER__DATE;
+
+	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2429,6 +2627,24 @@ public interface ContinuousPackage extends EPackage {
 	int CAPACITY_CHANGE_END___ADD_PROPAGATOR_FUNCTION_ADAPTER = AMOUNT_IMPULSION___ADD_PROPAGATOR_FUNCTION_ADAPTER;
 
 	/**
+	 * The operation id for the '<em>Get Amount Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE_END___GET_AMOUNT_BEFORE__DATE = AMOUNT_IMPULSION___GET_AMOUNT_BEFORE__DATE;
+
+	/**
+	 * The operation id for the '<em>Get Amount After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE_END___GET_AMOUNT_AFTER__DATE = AMOUNT_IMPULSION___GET_AMOUNT_AFTER__DATE;
+
+	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2636,6 +2852,24 @@ public interface ContinuousPackage extends EPackage {
 	int STOCK_CHANGE_START___ADD_PROPAGATOR_FUNCTION_ADAPTER = SLOPE_IMPULSION___ADD_PROPAGATOR_FUNCTION_ADAPTER;
 
 	/**
+	 * The operation id for the '<em>Get Amount Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE_START___GET_AMOUNT_BEFORE__DATE = SLOPE_IMPULSION___GET_AMOUNT_BEFORE__DATE;
+
+	/**
+	 * The operation id for the '<em>Get Amount After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE_START___GET_AMOUNT_AFTER__DATE = SLOPE_IMPULSION___GET_AMOUNT_AFTER__DATE;
+
+	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2841,6 +3075,24 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int STOCK_CHANGE_END___ADD_PROPAGATOR_FUNCTION_ADAPTER = SLOPE_IMPULSION___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+
+	/**
+	 * The operation id for the '<em>Get Amount Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE_END___GET_AMOUNT_BEFORE__DATE = SLOPE_IMPULSION___GET_AMOUNT_BEFORE__DATE;
+
+	/**
+	 * The operation id for the '<em>Get Amount After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE_END___GET_AMOUNT_AFTER__DATE = SLOPE_IMPULSION___GET_AMOUNT_AFTER__DATE;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
@@ -3060,6 +3312,24 @@ public interface ContinuousPackage extends EPackage {
 	int AMOUNT_IMPULSION_ATOMIC___ADD_PROPAGATOR_FUNCTION_ADAPTER = AMOUNT_IMPULSION___ADD_PROPAGATOR_FUNCTION_ADAPTER;
 
 	/**
+	 * The operation id for the '<em>Get Amount Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION_ATOMIC___GET_AMOUNT_BEFORE__DATE = AMOUNT_IMPULSION___GET_AMOUNT_BEFORE__DATE;
+
+	/**
+	 * The operation id for the '<em>Get Amount After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION_ATOMIC___GET_AMOUNT_AFTER__DATE = AMOUNT_IMPULSION___GET_AMOUNT_AFTER__DATE;
+
+	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3275,6 +3545,24 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int SLOPE_IMPULSION_ATOMIC___ADD_PROPAGATOR_FUNCTION_ADAPTER = SLOPE_IMPULSION___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+
+	/**
+	 * The operation id for the '<em>Get Amount Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_IMPULSION_ATOMIC___GET_AMOUNT_BEFORE__DATE = SLOPE_IMPULSION___GET_AMOUNT_BEFORE__DATE;
+
+	/**
+	 * The operation id for the '<em>Get Amount After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_IMPULSION_ATOMIC___GET_AMOUNT_AFTER__DATE = SLOPE_IMPULSION___GET_AMOUNT_AFTER__DATE;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
@@ -3494,6 +3782,24 @@ public interface ContinuousPackage extends EPackage {
 	int AMOUNT_ABSOLUTE_ATOMIC___ADD_PROPAGATOR_FUNCTION_ADAPTER = AMOUNT_ABSOLUTE___ADD_PROPAGATOR_FUNCTION_ADAPTER;
 
 	/**
+	 * The operation id for the '<em>Get Amount Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC___GET_AMOUNT_BEFORE__DATE = AMOUNT_ABSOLUTE___GET_AMOUNT_BEFORE__DATE;
+
+	/**
+	 * The operation id for the '<em>Get Amount After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC___GET_AMOUNT_AFTER__DATE = AMOUNT_ABSOLUTE___GET_AMOUNT_AFTER__DATE;
+
+	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3709,6 +4015,24 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int SLOPE_ABSOLUTE_ATOMIC___ADD_PROPAGATOR_FUNCTION_ADAPTER = SLOPE_ABSOLUTE___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+
+	/**
+	 * The operation id for the '<em>Get Amount Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC___GET_AMOUNT_BEFORE__DATE = SLOPE_ABSOLUTE___GET_AMOUNT_BEFORE__DATE;
+
+	/**
+	 * The operation id for the '<em>Get Amount After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC___GET_AMOUNT_AFTER__DATE = SLOPE_ABSOLUTE___GET_AMOUNT_AFTER__DATE;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
@@ -4729,14 +5053,54 @@ public interface ContinuousPackage extends EPackage {
 	EOperation getDistribution__GetAverageAmount__Date_Date();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getIntegralAmount(java.util.Date, java.util.Date) <em>Get Integral Amount</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getCumulatedAmount(java.util.Date, java.util.Date) <em>Get Cumulated Amount</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Integral Amount</em>' operation.
-	 * @see com.misc.common.moplaf.time.continuous.Distribution#getIntegralAmount(java.util.Date, java.util.Date)
+	 * @return the meta object for the '<em>Get Cumulated Amount</em>' operation.
+	 * @see com.misc.common.moplaf.time.continuous.Distribution#getCumulatedAmount(java.util.Date, java.util.Date)
 	 * @generated
 	 */
-	EOperation getDistribution__GetIntegralAmount__Date_Date();
+	EOperation getDistribution__GetCumulatedAmount__Date_Date();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getEarliestBelow(java.util.Date, float, float) <em>Get Earliest Below</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Earliest Below</em>' operation.
+	 * @see com.misc.common.moplaf.time.continuous.Distribution#getEarliestBelow(java.util.Date, float, float)
+	 * @generated
+	 */
+	EOperation getDistribution__GetEarliestBelow__Date_float_float();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getLatestBelow(java.util.Date, float, float) <em>Get Latest Below</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Latest Below</em>' operation.
+	 * @see com.misc.common.moplaf.time.continuous.Distribution#getLatestBelow(java.util.Date, float, float)
+	 * @generated
+	 */
+	EOperation getDistribution__GetLatestBelow__Date_float_float();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getEarliestAbove(java.util.Date, float, float) <em>Get Earliest Above</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Earliest Above</em>' operation.
+	 * @see com.misc.common.moplaf.time.continuous.Distribution#getEarliestAbove(java.util.Date, float, float)
+	 * @generated
+	 */
+	EOperation getDistribution__GetEarliestAbove__Date_float_float();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getLatestAbove(java.util.Date, float, float) <em>Get Latest Above</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Latest Above</em>' operation.
+	 * @see com.misc.common.moplaf.time.continuous.Distribution#getLatestAbove(java.util.Date, float, float)
+	 * @generated
+	 */
+	EOperation getDistribution__GetLatestAbove__Date_float_float();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#refreshInit() <em>Refresh Init</em>}' operation.
@@ -4918,6 +5282,26 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDistributionEvent_DistributionAsProvidedEvent();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getAmountBefore(java.util.Date) <em>Get Amount Before</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Amount Before</em>' operation.
+	 * @see com.misc.common.moplaf.time.continuous.DistributionEvent#getAmountBefore(java.util.Date)
+	 * @generated
+	 */
+	EOperation getDistributionEvent__GetAmountBefore__Date();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getAmountAfter(java.util.Date) <em>Get Amount After</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Amount After</em>' operation.
+	 * @see com.misc.common.moplaf.time.continuous.DistributionEvent#getAmountAfter(java.util.Date)
+	 * @generated
+	 */
+	EOperation getDistributionEvent__GetAmountAfter__Date();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.DistributionEvent#refreshSlopeBefore() <em>Refresh Slope Before</em>}' operation.
@@ -5910,12 +6294,44 @@ public interface ContinuousPackage extends EPackage {
 		EOperation DISTRIBUTION___GET_AVERAGE_AMOUNT__DATE_DATE = eINSTANCE.getDistribution__GetAverageAmount__Date_Date();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Integral Amount</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Cumulated Amount</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation DISTRIBUTION___GET_INTEGRAL_AMOUNT__DATE_DATE = eINSTANCE.getDistribution__GetIntegralAmount__Date_Date();
+		EOperation DISTRIBUTION___GET_CUMULATED_AMOUNT__DATE_DATE = eINSTANCE.getDistribution__GetCumulatedAmount__Date_Date();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Earliest Below</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DISTRIBUTION___GET_EARLIEST_BELOW__DATE_FLOAT_FLOAT = eINSTANCE.getDistribution__GetEarliestBelow__Date_float_float();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Latest Below</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DISTRIBUTION___GET_LATEST_BELOW__DATE_FLOAT_FLOAT = eINSTANCE.getDistribution__GetLatestBelow__Date_float_float();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Earliest Above</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DISTRIBUTION___GET_EARLIEST_ABOVE__DATE_FLOAT_FLOAT = eINSTANCE.getDistribution__GetEarliestAbove__Date_float_float();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Latest Above</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DISTRIBUTION___GET_LATEST_ABOVE__DATE_FLOAT_FLOAT = eINSTANCE.getDistribution__GetLatestAbove__Date_float_float();
 
 		/**
 		 * The meta object literal for the '<em><b>Refresh Init</b></em>' operation.
@@ -6054,6 +6470,22 @@ public interface ContinuousPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT = eINSTANCE.getDistributionEvent_DistributionAsProvidedEvent();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Amount Before</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DISTRIBUTION_EVENT___GET_AMOUNT_BEFORE__DATE = eINSTANCE.getDistributionEvent__GetAmountBefore__Date();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Amount After</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE = eINSTANCE.getDistributionEvent__GetAmountAfter__Date();
 
 		/**
 		 * The meta object literal for the '<em><b>Refresh Slope Before</b></em>' operation.

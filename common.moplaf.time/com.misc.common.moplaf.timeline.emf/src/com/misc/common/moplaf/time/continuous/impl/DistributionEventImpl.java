@@ -646,6 +646,32 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public float getAmountBefore(Date moment) {
+		Distribution distribution = this.getDistributionAsSequence();
+		float amountBefore = this.getAmountBefore();
+		float slopeBefore  = this.getSlopeBefore();
+		float duration = distribution.getDuration(moment, this.getMoment());
+		float amount = amountBefore-duration*slopeBefore;
+		return amount;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public float getAmountAfter(Date moment) {
+		Distribution distribution = this.getDistributionAsSequence();
+		float amountAfter = this.getAmountAfter();
+		float slopeAfter = this.getSlopeAfter();
+		float duration = distribution.getDuration(this.getMoment(), moment );
+		float amount = amountAfter+duration*slopeAfter;
+		return amount;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public void refreshSlopeBefore() {
 		DistributionEvent previous = this.getPrevious();
 		if ( previous==null){
@@ -942,6 +968,10 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case ContinuousPackage.DISTRIBUTION_EVENT___GET_AMOUNT_BEFORE__DATE:
+				return getAmountBefore((Date)arguments.get(0));
+			case ContinuousPackage.DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE:
+				return getAmountAfter((Date)arguments.get(0));
 			case ContinuousPackage.DISTRIBUTION_EVENT___REFRESH_SLOPE_BEFORE:
 				refreshSlopeBefore();
 				return null;

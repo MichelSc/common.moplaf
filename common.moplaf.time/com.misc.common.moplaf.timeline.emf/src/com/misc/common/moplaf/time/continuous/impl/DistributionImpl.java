@@ -51,18 +51,25 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * A Distribution receives 
  *     <ul>
- *       <li>{@link CompositeDistributionEvent}s through the relation {@link #compositeEvent}</li>
- *       <li>atomic {@link DistributionEvent} through the relation {@link #atomicEvent}</li>
+ *       <li>{@link EventsProvider}s through the relation {@link #eventsProviders}</li>
  *       <li>child {@link Distribution}s through the relation {@link #childDistribution}</li>
  *    </ul>
  * <p>
  * The Distribution
  * <ul>
- *   <li>aggregates the atomic, the composite and the child events </li>
- *   <li>sorts the resulting event and publishes the result </li>
+ *   <li>consider the events </li>
+ *     <ul>
+ *       <li>{@link #startEvent} and {@link #endEvent}</li>
+ *       <li>provided by the {@link EventsProvider}s</li>
+ *       <li>belonging to the child {@link Distribution}s</li>
+ *    </ul>
+ *   <li>select the considered events in the horizon
+ *   <li>sorts the selected events </li>
+ *   <li>publishes the resulting sets of events </li>
  *     <ul>
  *       <li>in the relation {@link #sequenceEvent}</li>
  *       <li>in the attribute {@link DistributionEventImpl#eventNr}</li>
+ *       <li>in the references {@link DistributionEventImpl#next} and {@link DistributionEventImpl#previous}</li>
  *    </ul>
  *   <li>maintains the value and slope of the distribution at every event</li>
  *     <ul>
@@ -556,7 +563,7 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	public DistributionEvent getEventBefore(Date time) {
 		DistributionEvent currentEvent = this.getEnd();
 		while (currentEvent!=null){
-			if ( currentEvent.getMoment().compareTo(time)<0 ){
+			if ( currentEvent.getMoment().compareTo(time)<=0 ){
 				return currentEvent;
 			}
 			currentEvent = currentEvent.getPrevious();
@@ -571,7 +578,7 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	public DistributionEvent getEventAfter(Date time) {
 		DistributionEvent currentEvent = this.getStart();
 		while (currentEvent!=null){
-			if ( currentEvent.getMoment().compareTo(time)>0 ){
+			if ( currentEvent.getMoment().compareTo(time)>=0 ){
 				return currentEvent;
 			}
 			currentEvent = currentEvent.getNext();
@@ -584,12 +591,9 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	 * <!-- end-user-doc -->
 	 */
 	public float getAmountBefore(Date time) {
-		DistributionEvent eventBefore = this.getEventBefore(time);
-		float durationFromBefore = this.getDuration(eventBefore.getMoment(), time);
-		float amountAtBefore = eventBefore.getAmountAfter();
-		float slopeAtBefore = eventBefore.getSlopeAfter();
-		float amount = amountAtBefore+durationFromBefore*slopeAtBefore;
-		return amount;
+		DistributionEvent eventAfter = this.getEventAfter(time);
+		float amountBefore = eventAfter.getAmountBefore(time);
+		return amountBefore;
 	}
 
 	/**
@@ -597,12 +601,9 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	 * <!-- end-user-doc -->
 	 */
 	public float getAmountAfter(Date time) {
-		DistributionEvent eventAfter = this.getEventAfter(time);
-		float durationToAfter = this.getDuration(time, eventAfter.getMoment());
-		float amountAtAfter = eventAfter.getAmountBefore();
-		float slopeAtAfter = eventAfter.getSlopeBefore();
-		float amount = amountAtAfter-durationToAfter*slopeAtAfter;
-		return amount;
+		DistributionEvent eventBefore = this.getEventBefore(time);
+		float amountAfter = eventBefore.getAmountAfter(time);
+		return amountAfter;
 	}
 
 	/**
@@ -610,8 +611,8 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	 * <!-- end-user-doc -->
 	 */
 	public float getSlopeBefore(Date time) {
-		DistributionEvent eventBefore = this.getEventBefore(time);
-		float slopeAtBefore = eventBefore.getSlopeAfter();
+		DistributionEvent eventAfter = this.getEventAfter(time);
+		float slopeAtBefore = eventAfter.getSlopeBefore();
 		return slopeAtBefore;
 	}
 
@@ -620,9 +621,9 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	 * <!-- end-user-doc -->
 	 */
 	public float getSlopeAfter(Date time) {
-		DistributionEvent eventAfter = this.getEventAfter(time);
-		float slopeAtAfter = eventAfter.getSlopeBefore();
-		return slopeAtAfter;
+		DistributionEvent eventBefore = this.getEventBefore(time);
+		float slopeAfter = eventBefore.getSlopeAfter();
+		return slopeAfter;
 	}
 
 	/**
@@ -650,9 +651,53 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public float getAverageAmount(Date from, Date to) {
+		float duration = this.getDuration(from, to);
+		float cumulated = this.getCumulatedAmount(from, to);
+		float average = 0.0f;
+		if( cumulated != 0.0f){
+			average = cumulated/duration;
+		}
+		return average; 
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public float getCumulatedAmount(Date from, Date to) {
+		DistributionEvent eventBefore = this.getEventBefore(from);
+		DistributionEvent eventAfter  = this.getEventAfter(to);
+		DistributionEvent currentEvent = eventBefore;
+		float cumulated = 0.0f;
+		while ( currentEvent!=null && currentEvent.getEventNr()<=eventAfter.getEventNr()){
+			DistributionEvent nextEvent = currentEvent.getNext();
+			Date blockStart = currentEvent.getMoment();
+			Date blockEnd   = currentEvent.getMoment();
+			Date startFrom = blockStart;
+			if ( startFrom.compareTo(from)<0){
+				startFrom = from;
+			}
+			Date endTo = blockEnd;
+			if ( endTo.compareTo(to)>0){
+				endTo = to;
+			}
+			float startAmount = currentEvent.getAmountAfter(startFrom);
+			float endAmount = nextEvent.getAmountBefore(endTo);
+			float duration = this.getDuration(startFrom, endTo);
+			cumulated = cumulated+(startAmount+endAmount)/2.0f*duration;
+			currentEvent = nextEvent;
+		} 
+		return cumulated;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Date getEarliestBelow(Date after, float duration, float amount) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -663,7 +708,29 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getIntegralAmount(Date from, Date to) {
+	public Date getLatestBelow(Date before, float duration, float amount) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Date getEarliestAbove(Date after, float duration, float amount) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Date getLatestAbove(Date before, float duration, float amount) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -1126,8 +1193,16 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 				return getMaxAmount((Date)arguments.get(0), (Date)arguments.get(1));
 			case ContinuousPackage.DISTRIBUTION___GET_AVERAGE_AMOUNT__DATE_DATE:
 				return getAverageAmount((Date)arguments.get(0), (Date)arguments.get(1));
-			case ContinuousPackage.DISTRIBUTION___GET_INTEGRAL_AMOUNT__DATE_DATE:
-				return getIntegralAmount((Date)arguments.get(0), (Date)arguments.get(1));
+			case ContinuousPackage.DISTRIBUTION___GET_CUMULATED_AMOUNT__DATE_DATE:
+				return getCumulatedAmount((Date)arguments.get(0), (Date)arguments.get(1));
+			case ContinuousPackage.DISTRIBUTION___GET_EARLIEST_BELOW__DATE_FLOAT_FLOAT:
+				return getEarliestBelow((Date)arguments.get(0), (Float)arguments.get(1), (Float)arguments.get(2));
+			case ContinuousPackage.DISTRIBUTION___GET_LATEST_BELOW__DATE_FLOAT_FLOAT:
+				return getLatestBelow((Date)arguments.get(0), (Float)arguments.get(1), (Float)arguments.get(2));
+			case ContinuousPackage.DISTRIBUTION___GET_EARLIEST_ABOVE__DATE_FLOAT_FLOAT:
+				return getEarliestAbove((Date)arguments.get(0), (Float)arguments.get(1), (Float)arguments.get(2));
+			case ContinuousPackage.DISTRIBUTION___GET_LATEST_ABOVE__DATE_FLOAT_FLOAT:
+				return getLatestAbove((Date)arguments.get(0), (Float)arguments.get(1), (Float)arguments.get(2));
 			case ContinuousPackage.DISTRIBUTION___REFRESH_INIT:
 				refreshInit();
 				return null;

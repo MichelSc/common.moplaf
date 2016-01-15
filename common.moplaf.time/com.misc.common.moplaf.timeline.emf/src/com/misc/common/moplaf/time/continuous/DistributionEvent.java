@@ -333,6 +333,22 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctionAdapter {
 	 * @model
 	 * @generated
 	 */
+	float getAmountBefore(Date moment);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	float getAmountAfter(Date moment);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	void refreshSlopeBefore();
 
 	/**

@@ -510,7 +510,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDistribution__GetIntegralAmount__Date_Date() {
+	public EOperation getDistribution__GetCumulatedAmount__Date_Date() {
 		return distributionEClass.getEOperations().get(10);
 	}
 
@@ -519,7 +519,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDistribution__RefreshInit() {
+	public EOperation getDistribution__GetEarliestBelow__Date_float_float() {
 		return distributionEClass.getEOperations().get(11);
 	}
 
@@ -528,7 +528,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDistribution__RefreshSequence() {
+	public EOperation getDistribution__GetLatestBelow__Date_float_float() {
 		return distributionEClass.getEOperations().get(12);
 	}
 
@@ -537,7 +537,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDistribution__RefreshChildEvent() {
+	public EOperation getDistribution__GetEarliestAbove__Date_float_float() {
 		return distributionEClass.getEOperations().get(13);
 	}
 
@@ -546,7 +546,16 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDistribution__RefreshProvidedEvents() {
+	public EOperation getDistribution__GetLatestAbove__Date_float_float() {
+		return distributionEClass.getEOperations().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getDistribution__RefreshInit() {
 		return distributionEClass.getEOperations().get(15);
 	}
 
@@ -555,8 +564,35 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getDistribution__RefreshSequence() {
+		return distributionEClass.getEOperations().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getDistribution__RefreshChildEvent() {
+		return distributionEClass.getEOperations().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getDistribution__RefreshProvidedEvents() {
+		return distributionEClass.getEOperations().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getDistribution__Refresh() {
-		return distributionEClass.getEOperations().get(14);
+		return distributionEClass.getEOperations().get(18);
 	}
 
 	/**
@@ -672,7 +708,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDistributionEvent__RefreshSlopeBefore() {
+	public EOperation getDistributionEvent__GetAmountBefore__Date() {
 		return distributionEventEClass.getEOperations().get(0);
 	}
 
@@ -681,7 +717,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDistributionEvent__RefreshAmountBefore() {
+	public EOperation getDistributionEvent__GetAmountAfter__Date() {
 		return distributionEventEClass.getEOperations().get(1);
 	}
 
@@ -690,7 +726,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDistributionEvent__RefreshAmountAfter() {
+	public EOperation getDistributionEvent__RefreshSlopeBefore() {
 		return distributionEventEClass.getEOperations().get(2);
 	}
 
@@ -699,7 +735,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDistributionEvent__RefreshSlopeAfter() {
+	public EOperation getDistributionEvent__RefreshAmountBefore() {
 		return distributionEventEClass.getEOperations().get(3);
 	}
 
@@ -708,7 +744,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDistributionEvent__RefreshMoment() {
+	public EOperation getDistributionEvent__RefreshAmountAfter() {
 		return distributionEventEClass.getEOperations().get(4);
 	}
 
@@ -717,8 +753,26 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDistributionEvent__RefreshDescription() {
+	public EOperation getDistributionEvent__RefreshSlopeAfter() {
 		return distributionEventEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getDistributionEvent__RefreshMoment() {
+		return distributionEventEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getDistributionEvent__RefreshDescription() {
+		return distributionEventEClass.getEOperations().get(7);
 	}
 
 	/**
@@ -1392,7 +1446,11 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		createEOperation(distributionEClass, DISTRIBUTION___GET_MIN_AMOUNT__DATE_DATE);
 		createEOperation(distributionEClass, DISTRIBUTION___GET_MAX_AMOUNT__DATE_DATE);
 		createEOperation(distributionEClass, DISTRIBUTION___GET_AVERAGE_AMOUNT__DATE_DATE);
-		createEOperation(distributionEClass, DISTRIBUTION___GET_INTEGRAL_AMOUNT__DATE_DATE);
+		createEOperation(distributionEClass, DISTRIBUTION___GET_CUMULATED_AMOUNT__DATE_DATE);
+		createEOperation(distributionEClass, DISTRIBUTION___GET_EARLIEST_BELOW__DATE_FLOAT_FLOAT);
+		createEOperation(distributionEClass, DISTRIBUTION___GET_LATEST_BELOW__DATE_FLOAT_FLOAT);
+		createEOperation(distributionEClass, DISTRIBUTION___GET_EARLIEST_ABOVE__DATE_FLOAT_FLOAT);
+		createEOperation(distributionEClass, DISTRIBUTION___GET_LATEST_ABOVE__DATE_FLOAT_FLOAT);
 		createEOperation(distributionEClass, DISTRIBUTION___REFRESH_INIT);
 		createEOperation(distributionEClass, DISTRIBUTION___REFRESH_SEQUENCE);
 		createEOperation(distributionEClass, DISTRIBUTION___REFRESH_CHILD_EVENT);
@@ -1411,6 +1469,8 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		createEAttribute(distributionEventEClass, DISTRIBUTION_EVENT__DESCRIPTION);
 		createEReference(distributionEventEClass, DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE);
 		createEReference(distributionEventEClass, DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT);
+		createEOperation(distributionEventEClass, DISTRIBUTION_EVENT___GET_AMOUNT_BEFORE__DATE);
+		createEOperation(distributionEventEClass, DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE);
 		createEOperation(distributionEventEClass, DISTRIBUTION_EVENT___REFRESH_SLOPE_BEFORE);
 		createEOperation(distributionEventEClass, DISTRIBUTION_EVENT___REFRESH_AMOUNT_BEFORE);
 		createEOperation(distributionEventEClass, DISTRIBUTION_EVENT___REFRESH_AMOUNT_AFTER);
@@ -1620,9 +1680,29 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		addEParameter(op, ecorePackage.getEDate(), "from", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "to", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getDistribution__GetIntegralAmount__Date_Date(), ecorePackage.getEFloat(), "getIntegralAmount", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getDistribution__GetCumulatedAmount__Date_Date(), ecorePackage.getEFloat(), "getCumulatedAmount", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "from", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "to", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getDistribution__GetEarliestBelow__Date_float_float(), ecorePackage.getEDate(), "getEarliestBelow", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDate(), "after", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEFloat(), "duration", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEFloat(), "amount", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getDistribution__GetLatestBelow__Date_float_float(), ecorePackage.getEDate(), "getLatestBelow", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDate(), "before", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEFloat(), "duration", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEFloat(), "amount", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getDistribution__GetEarliestAbove__Date_float_float(), ecorePackage.getEDate(), "getEarliestAbove", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDate(), "after", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEFloat(), "duration", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEFloat(), "amount", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getDistribution__GetLatestAbove__Date_float_float(), ecorePackage.getEDate(), "getLatestAbove", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDate(), "before", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEFloat(), "duration", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEFloat(), "amount", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getDistribution__RefreshInit(), null, "refreshInit", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1646,6 +1726,12 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		initEAttribute(getDistributionEvent_Description(), ecorePackage.getEString(), "Description", null, 0, 1, DistributionEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDistributionEvent_DistributionAsSequence(), this.getDistribution(), this.getDistribution_SequenceEvents(), "DistributionAsSequence", null, 0, 1, DistributionEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDistributionEvent_DistributionAsProvidedEvent(), this.getDistribution(), this.getDistribution_ProvidedEvents(), "DistributionAsProvidedEvent", null, 0, 1, DistributionEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getDistributionEvent__GetAmountBefore__Date(), ecorePackage.getEFloat(), "getAmountBefore", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDate(), "moment", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getDistributionEvent__GetAmountAfter__Date(), ecorePackage.getEFloat(), "getAmountAfter", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDate(), "moment", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getDistributionEvent__RefreshSlopeBefore(), null, "refreshSlopeBefore", 0, 1, IS_UNIQUE, IS_ORDERED);
 

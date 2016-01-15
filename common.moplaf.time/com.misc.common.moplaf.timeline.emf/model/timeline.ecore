@@ -79,12 +79,32 @@
         <eParameters name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
         <eParameters name="to" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
       </eOperations>
-      <eOperations name="getIntegralAmount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+      <eOperations name="getCumulatedAmount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Returns the integral of the amount between two given times&#xA;"/>
         </eAnnotations>
         <eParameters name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
         <eParameters name="to" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eOperations>
+      <eOperations name="getEarliestBelow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
+        <eParameters name="after" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+        <eParameters name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+        <eParameters name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+      </eOperations>
+      <eOperations name="getLatestBelow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
+        <eParameters name="before" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+        <eParameters name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+        <eParameters name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+      </eOperations>
+      <eOperations name="getEarliestAbove" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
+        <eParameters name="after" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+        <eParameters name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+        <eParameters name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+      </eOperations>
+      <eOperations name="getLatestAbove" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
+        <eParameters name="before" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+        <eParameters name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+        <eParameters name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
       </eOperations>
       <eOperations name="refreshInit"/>
       <eOperations name="refreshSequence">
@@ -130,6 +150,12 @@
       <eAnnotations source="http://www.obeo.fr/dsl/dnc/archetype">
         <details key="archetype" value="Thing"/>
       </eAnnotations>
+      <eOperations name="getAmountBefore" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+        <eParameters name="moment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eOperations>
+      <eOperations name="getAmountAfter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+        <eParameters name="moment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eOperations>
       <eOperations name="refreshSlopeBefore"/>
       <eOperations name="refreshAmountBefore"/>
       <eOperations name="refreshAmountAfter"/>

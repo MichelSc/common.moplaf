@@ -25,6 +25,11 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Events Provider Abstract</b></em>'.
+ * <p>
+ * {@link EventsProviderAbstractImpl}s are given to {@link DistributionImpl}s in order to provide them with
+ * {@link DistributionEventImpl}s. Two kinds of providers are supported: {@link EventsProviderImpl}, 
+ * providing several events, and {@link EventProviderImpl}, providing a single event at a given moment. 
+ * 
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
