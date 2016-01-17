@@ -349,6 +349,22 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctionAdapter {
 	 * @model
 	 * @generated
 	 */
+	boolean isBefore(DistributionEvent other);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean isStrictBefore(DistributionEvent other);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	void refreshSlopeBefore();
 
 	/**

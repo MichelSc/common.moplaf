@@ -664,8 +664,26 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 		float amountAfter = this.getAmountAfter();
 		float slopeAfter = this.getSlopeAfter();
 		float duration = distribution.getDuration(this.getMoment(), moment );
-		float amount = amountAfter+duration*slopeAfter;
+		float amount   = amountAfter+duration*slopeAfter;
 		return amount;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public boolean isBefore(DistributionEvent other) {
+		boolean isBefore = this.getEventNr()<=other.getEventNr();
+		return isBefore;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public boolean isStrictBefore(DistributionEvent other) {
+		boolean isBefore = this.getEventNr()<other.getEventNr();
+		return isBefore;
 	}
 
 	/**
@@ -972,6 +990,10 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 				return getAmountBefore((Date)arguments.get(0));
 			case ContinuousPackage.DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE:
 				return getAmountAfter((Date)arguments.get(0));
+			case ContinuousPackage.DISTRIBUTION_EVENT___IS_BEFORE__DISTRIBUTIONEVENT:
+				return isBefore((DistributionEvent)arguments.get(0));
+			case ContinuousPackage.DISTRIBUTION_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT:
+				return isStrictBefore((DistributionEvent)arguments.get(0));
 			case ContinuousPackage.DISTRIBUTION_EVENT___REFRESH_SLOPE_BEFORE:
 				refreshSlopeBefore();
 				return null;

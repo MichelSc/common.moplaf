@@ -5,6 +5,7 @@ package com.misc.common.moplaf.time.continuous;
 import com.misc.common.moplaf.propagator.PropagatorPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
@@ -196,13 +197,31 @@ public interface ContinuousPackage extends EPackage {
 	int DISTRIBUTION___GET_DURATION__DATE_DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get Moment</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTRIBUTION___GET_MOMENT__DATE_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 1;
+
+	/**
 	 * The operation id for the '<em>Get Event Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_EVENT_BEFORE__DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 1;
+	int DISTRIBUTION___GET_EVENT_BEFORE__DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Event Strict Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTRIBUTION___GET_EVENT_STRICT_BEFORE__DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Event After</em>' operation.
@@ -211,7 +230,16 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_EVENT_AFTER__DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 2;
+	int DISTRIBUTION___GET_EVENT_AFTER__DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Get Event Strict After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTRIBUTION___GET_EVENT_STRICT_AFTER__DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
@@ -220,7 +248,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_AMOUNT_BEFORE__DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 3;
+	int DISTRIBUTION___GET_AMOUNT_BEFORE__DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Get Amount After</em>' operation.
@@ -229,7 +257,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_AMOUNT_AFTER__DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 4;
+	int DISTRIBUTION___GET_AMOUNT_AFTER__DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Get Slope Before</em>' operation.
@@ -238,7 +266,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_SLOPE_BEFORE__DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 5;
+	int DISTRIBUTION___GET_SLOPE_BEFORE__DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Get Slope After</em>' operation.
@@ -247,7 +275,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_SLOPE_AFTER__DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 6;
+	int DISTRIBUTION___GET_SLOPE_AFTER__DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Get Min Amount</em>' operation.
@@ -256,7 +284,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_MIN_AMOUNT__DATE_DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 7;
+	int DISTRIBUTION___GET_MIN_AMOUNT__DATE_DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Get Max Amount</em>' operation.
@@ -265,7 +293,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_MAX_AMOUNT__DATE_DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 8;
+	int DISTRIBUTION___GET_MAX_AMOUNT__DATE_DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Get Average Amount</em>' operation.
@@ -274,7 +302,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_AVERAGE_AMOUNT__DATE_DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 9;
+	int DISTRIBUTION___GET_AVERAGE_AMOUNT__DATE_DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Get Cumulated Amount</em>' operation.
@@ -283,7 +311,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_CUMULATED_AMOUNT__DATE_DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 10;
+	int DISTRIBUTION___GET_CUMULATED_AMOUNT__DATE_DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Get Earliest Below</em>' operation.
@@ -292,7 +320,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_EARLIEST_BELOW__DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 11;
+	int DISTRIBUTION___GET_EARLIEST_BELOW__DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Get Latest Below</em>' operation.
@@ -301,7 +329,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_LATEST_BELOW__DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 12;
+	int DISTRIBUTION___GET_LATEST_BELOW__DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 15;
 
 	/**
 	 * The operation id for the '<em>Get Earliest Above</em>' operation.
@@ -310,7 +338,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_EARLIEST_ABOVE__DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 13;
+	int DISTRIBUTION___GET_EARLIEST_ABOVE__DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Get Latest Above</em>' operation.
@@ -319,7 +347,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_LATEST_ABOVE__DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 14;
+	int DISTRIBUTION___GET_LATEST_ABOVE__DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 17;
 
 	/**
 	 * The operation id for the '<em>Refresh Init</em>' operation.
@@ -328,7 +356,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___REFRESH_INIT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 15;
+	int DISTRIBUTION___REFRESH_INIT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Refresh Sequence</em>' operation.
@@ -337,7 +365,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___REFRESH_SEQUENCE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 16;
+	int DISTRIBUTION___REFRESH_SEQUENCE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 19;
 
 	/**
 	 * The operation id for the '<em>Refresh Child Event</em>' operation.
@@ -346,7 +374,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___REFRESH_CHILD_EVENT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 17;
+	int DISTRIBUTION___REFRESH_CHILD_EVENT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 20;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -355,7 +383,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___REFRESH = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 18;
+	int DISTRIBUTION___REFRESH = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 21;
 
 	/**
 	 * The operation id for the '<em>Refresh Provided Events</em>' operation.
@@ -364,7 +392,16 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___REFRESH_PROVIDED_EVENTS = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 19;
+	int DISTRIBUTION___REFRESH_PROVIDED_EVENTS = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 22;
+
+	/**
+	 * The operation id for the '<em>Accept</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTRIBUTION___ACCEPT__DATE_DATE_DISTRIBUTIONVISITOR = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 23;
 
 	/**
 	 * The number of operations of the '<em>Distribution</em>' class.
@@ -373,7 +410,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 20;
+	int DISTRIBUTION_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 24;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl <em>Distribution Event</em>}' class.
@@ -521,13 +558,31 @@ public interface ContinuousPackage extends EPackage {
 	int DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Is Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTRIBUTION_EVENT___IS_BEFORE__DISTRIBUTIONEVENT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Is Strict Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTRIBUTION_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 3;
+
+	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_EVENT___REFRESH_SLOPE_BEFORE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 2;
+	int DISTRIBUTION_EVENT___REFRESH_SLOPE_BEFORE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount Before</em>' operation.
@@ -536,7 +591,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_EVENT___REFRESH_AMOUNT_BEFORE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 3;
+	int DISTRIBUTION_EVENT___REFRESH_AMOUNT_BEFORE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount After</em>' operation.
@@ -545,7 +600,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_EVENT___REFRESH_AMOUNT_AFTER = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 4;
+	int DISTRIBUTION_EVENT___REFRESH_AMOUNT_AFTER = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope After</em>' operation.
@@ -554,7 +609,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_EVENT___REFRESH_SLOPE_AFTER = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 5;
+	int DISTRIBUTION_EVENT___REFRESH_SLOPE_AFTER = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Refresh Moment</em>' operation.
@@ -563,7 +618,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_EVENT___REFRESH_MOMENT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 6;
+	int DISTRIBUTION_EVENT___REFRESH_MOMENT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Refresh Description</em>' operation.
@@ -572,7 +627,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_EVENT___REFRESH_DESCRIPTION = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 7;
+	int DISTRIBUTION_EVENT___REFRESH_DESCRIPTION = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>Distribution Event</em>' class.
@@ -581,7 +636,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_EVENT_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 8;
+	int DISTRIBUTION_EVENT_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountImpulsionImpl <em>Amount Impulsion</em>}' class.
@@ -776,6 +831,24 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHILD_EVENT___GET_AMOUNT_AFTER__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE;
+
+	/**
+	 * The operation id for the '<em>Is Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHILD_EVENT___IS_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
+	 * The operation id for the '<em>Is Strict Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHILD_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
@@ -1013,6 +1086,24 @@ public interface ContinuousPackage extends EPackage {
 	int START_EVENT___GET_AMOUNT_AFTER__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE;
 
 	/**
+	 * The operation id for the '<em>Is Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START_EVENT___IS_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
+	 * The operation id for the '<em>Is Strict Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1230,6 +1321,24 @@ public interface ContinuousPackage extends EPackage {
 	int END_EVENT___GET_AMOUNT_AFTER__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE;
 
 	/**
+	 * The operation id for the '<em>Is Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT___IS_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
+	 * The operation id for the '<em>Is Strict Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1435,6 +1544,24 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int AMOUNT_IMPULSION___GET_AMOUNT_AFTER__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE;
+
+	/**
+	 * The operation id for the '<em>Is Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION___IS_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
+	 * The operation id for the '<em>Is Strict Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
@@ -1653,6 +1780,24 @@ public interface ContinuousPackage extends EPackage {
 	int SLOPE_IMPULSION___GET_AMOUNT_AFTER__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE;
 
 	/**
+	 * The operation id for the '<em>Is Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_IMPULSION___IS_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
+	 * The operation id for the '<em>Is Strict Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_IMPULSION___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1869,6 +2014,24 @@ public interface ContinuousPackage extends EPackage {
 	int AMOUNT_ABSOLUTE___GET_AMOUNT_AFTER__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE;
 
 	/**
+	 * The operation id for the '<em>Is Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE___IS_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
+	 * The operation id for the '<em>Is Strict Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2083,6 +2246,24 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int SLOPE_ABSOLUTE___GET_AMOUNT_AFTER__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE;
+
+	/**
+	 * The operation id for the '<em>Is Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE___IS_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
+	 * The operation id for the '<em>Is Strict Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
@@ -2410,6 +2591,24 @@ public interface ContinuousPackage extends EPackage {
 	int CAPACITY_CHANGE_START___GET_AMOUNT_AFTER__DATE = AMOUNT_IMPULSION___GET_AMOUNT_AFTER__DATE;
 
 	/**
+	 * The operation id for the '<em>Is Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE_START___IS_BEFORE__DISTRIBUTIONEVENT = AMOUNT_IMPULSION___IS_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
+	 * The operation id for the '<em>Is Strict Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE_START___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = AMOUNT_IMPULSION___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2645,6 +2844,24 @@ public interface ContinuousPackage extends EPackage {
 	int CAPACITY_CHANGE_END___GET_AMOUNT_AFTER__DATE = AMOUNT_IMPULSION___GET_AMOUNT_AFTER__DATE;
 
 	/**
+	 * The operation id for the '<em>Is Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE_END___IS_BEFORE__DISTRIBUTIONEVENT = AMOUNT_IMPULSION___IS_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
+	 * The operation id for the '<em>Is Strict Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE_END___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = AMOUNT_IMPULSION___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2870,6 +3087,24 @@ public interface ContinuousPackage extends EPackage {
 	int STOCK_CHANGE_START___GET_AMOUNT_AFTER__DATE = SLOPE_IMPULSION___GET_AMOUNT_AFTER__DATE;
 
 	/**
+	 * The operation id for the '<em>Is Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE_START___IS_BEFORE__DISTRIBUTIONEVENT = SLOPE_IMPULSION___IS_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
+	 * The operation id for the '<em>Is Strict Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE_START___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = SLOPE_IMPULSION___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3093,6 +3328,24 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int STOCK_CHANGE_END___GET_AMOUNT_AFTER__DATE = SLOPE_IMPULSION___GET_AMOUNT_AFTER__DATE;
+
+	/**
+	 * The operation id for the '<em>Is Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE_END___IS_BEFORE__DISTRIBUTIONEVENT = SLOPE_IMPULSION___IS_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
+	 * The operation id for the '<em>Is Strict Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE_END___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = SLOPE_IMPULSION___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
@@ -3330,6 +3583,24 @@ public interface ContinuousPackage extends EPackage {
 	int AMOUNT_IMPULSION_ATOMIC___GET_AMOUNT_AFTER__DATE = AMOUNT_IMPULSION___GET_AMOUNT_AFTER__DATE;
 
 	/**
+	 * The operation id for the '<em>Is Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION_ATOMIC___IS_BEFORE__DISTRIBUTIONEVENT = AMOUNT_IMPULSION___IS_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
+	 * The operation id for the '<em>Is Strict Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION_ATOMIC___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = AMOUNT_IMPULSION___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3563,6 +3834,24 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int SLOPE_IMPULSION_ATOMIC___GET_AMOUNT_AFTER__DATE = SLOPE_IMPULSION___GET_AMOUNT_AFTER__DATE;
+
+	/**
+	 * The operation id for the '<em>Is Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_IMPULSION_ATOMIC___IS_BEFORE__DISTRIBUTIONEVENT = SLOPE_IMPULSION___IS_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
+	 * The operation id for the '<em>Is Strict Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_IMPULSION_ATOMIC___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = SLOPE_IMPULSION___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
@@ -3800,6 +4089,24 @@ public interface ContinuousPackage extends EPackage {
 	int AMOUNT_ABSOLUTE_ATOMIC___GET_AMOUNT_AFTER__DATE = AMOUNT_ABSOLUTE___GET_AMOUNT_AFTER__DATE;
 
 	/**
+	 * The operation id for the '<em>Is Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC___IS_BEFORE__DISTRIBUTIONEVENT = AMOUNT_ABSOLUTE___IS_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
+	 * The operation id for the '<em>Is Strict Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = AMOUNT_ABSOLUTE___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4033,6 +4340,24 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int SLOPE_ABSOLUTE_ATOMIC___GET_AMOUNT_AFTER__DATE = SLOPE_ABSOLUTE___GET_AMOUNT_AFTER__DATE;
+
+	/**
+	 * The operation id for the '<em>Is Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC___IS_BEFORE__DISTRIBUTIONEVENT = SLOPE_ABSOLUTE___IS_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
+	 * The operation id for the '<em>Is Strict Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = SLOPE_ABSOLUTE___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
@@ -4811,6 +5136,16 @@ public interface ContinuousPackage extends EPackage {
 	int AMOUNT_ABSOLUTE_PROVIDER_OPERATION_COUNT = EVENT_PROVIDER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '<em>Distribution Visitor</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.DistributionVisitor
+	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getDistributionVisitor()
+	 * @generated
+	 */
+	int DISTRIBUTION_VISITOR = 27;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.TimeUnit <em>Time Unit</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4963,6 +5298,16 @@ public interface ContinuousPackage extends EPackage {
 	EOperation getDistribution__GetDuration__Date_Date();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getMoment(java.util.Date, float) <em>Get Moment</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Moment</em>' operation.
+	 * @see com.misc.common.moplaf.time.continuous.Distribution#getMoment(java.util.Date, float)
+	 * @generated
+	 */
+	EOperation getDistribution__GetMoment__Date_float();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getEventBefore(java.util.Date) <em>Get Event Before</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4973,6 +5318,16 @@ public interface ContinuousPackage extends EPackage {
 	EOperation getDistribution__GetEventBefore__Date();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getEventStrictBefore(java.util.Date) <em>Get Event Strict Before</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Event Strict Before</em>' operation.
+	 * @see com.misc.common.moplaf.time.continuous.Distribution#getEventStrictBefore(java.util.Date)
+	 * @generated
+	 */
+	EOperation getDistribution__GetEventStrictBefore__Date();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getEventAfter(java.util.Date) <em>Get Event After</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4981,6 +5336,16 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getDistribution__GetEventAfter__Date();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getEventStrictAfter(java.util.Date) <em>Get Event Strict After</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Event Strict After</em>' operation.
+	 * @see com.misc.common.moplaf.time.continuous.Distribution#getEventStrictAfter(java.util.Date)
+	 * @generated
+	 */
+	EOperation getDistribution__GetEventStrictAfter__Date();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getAmountBefore(java.util.Date) <em>Get Amount Before</em>}' operation.
@@ -5143,6 +5508,16 @@ public interface ContinuousPackage extends EPackage {
 	EOperation getDistribution__RefreshProvidedEvents();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#accept(java.util.Date, java.util.Date, com.misc.common.moplaf.time.continuous.DistributionVisitor) <em>Accept</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Accept</em>' operation.
+	 * @see com.misc.common.moplaf.time.continuous.Distribution#accept(java.util.Date, java.util.Date, com.misc.common.moplaf.time.continuous.DistributionVisitor)
+	 * @generated
+	 */
+	EOperation getDistribution__Accept__Date_Date_DistributionVisitor();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#refresh() <em>Refresh</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5302,6 +5677,26 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getDistributionEvent__GetAmountAfter__Date();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.DistributionEvent#isBefore(com.misc.common.moplaf.time.continuous.DistributionEvent) <em>Is Before</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Before</em>' operation.
+	 * @see com.misc.common.moplaf.time.continuous.DistributionEvent#isBefore(com.misc.common.moplaf.time.continuous.DistributionEvent)
+	 * @generated
+	 */
+	EOperation getDistributionEvent__IsBefore__DistributionEvent();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.DistributionEvent#isStrictBefore(com.misc.common.moplaf.time.continuous.DistributionEvent) <em>Is Strict Before</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Strict Before</em>' operation.
+	 * @see com.misc.common.moplaf.time.continuous.DistributionEvent#isStrictBefore(com.misc.common.moplaf.time.continuous.DistributionEvent)
+	 * @generated
+	 */
+	EOperation getDistributionEvent__IsStrictBefore__DistributionEvent();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.DistributionEvent#refreshSlopeBefore() <em>Refresh Slope Before</em>}' operation.
@@ -5679,6 +6074,17 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAmountAbsoluteProvider_AmountAbsolute();
+
+	/**
+	 * Returns the meta object for data type '{@link com.misc.common.moplaf.time.continuous.DistributionVisitor <em>Distribution Visitor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Distribution Visitor</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.DistributionVisitor
+	 * @model instanceClass="com.misc.common.moplaf.time.continuous.DistributionVisitor"
+	 * @generated
+	 */
+	EDataType getDistributionVisitor();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.SlopeAbsoluteProvider <em>Slope Absolute Provider</em>}'.
@@ -6222,6 +6628,14 @@ public interface ContinuousPackage extends EPackage {
 		EOperation DISTRIBUTION___GET_DURATION__DATE_DATE = eINSTANCE.getDistribution__GetDuration__Date_Date();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Moment</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DISTRIBUTION___GET_MOMENT__DATE_FLOAT = eINSTANCE.getDistribution__GetMoment__Date_float();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Event Before</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6230,12 +6644,28 @@ public interface ContinuousPackage extends EPackage {
 		EOperation DISTRIBUTION___GET_EVENT_BEFORE__DATE = eINSTANCE.getDistribution__GetEventBefore__Date();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Event Strict Before</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DISTRIBUTION___GET_EVENT_STRICT_BEFORE__DATE = eINSTANCE.getDistribution__GetEventStrictBefore__Date();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Event After</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation DISTRIBUTION___GET_EVENT_AFTER__DATE = eINSTANCE.getDistribution__GetEventAfter__Date();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Event Strict After</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DISTRIBUTION___GET_EVENT_STRICT_AFTER__DATE = eINSTANCE.getDistribution__GetEventStrictAfter__Date();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Amount Before</b></em>' operation.
@@ -6366,6 +6796,14 @@ public interface ContinuousPackage extends EPackage {
 		EOperation DISTRIBUTION___REFRESH_PROVIDED_EVENTS = eINSTANCE.getDistribution__RefreshProvidedEvents();
 
 		/**
+		 * The meta object literal for the '<em><b>Accept</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DISTRIBUTION___ACCEPT__DATE_DATE_DISTRIBUTIONVISITOR = eINSTANCE.getDistribution__Accept__Date_Date_DistributionVisitor();
+
+		/**
 		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6486,6 +6924,22 @@ public interface ContinuousPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE = eINSTANCE.getDistributionEvent__GetAmountAfter__Date();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Before</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DISTRIBUTION_EVENT___IS_BEFORE__DISTRIBUTIONEVENT = eINSTANCE.getDistributionEvent__IsBefore__DistributionEvent();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Strict Before</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DISTRIBUTION_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = eINSTANCE.getDistributionEvent__IsStrictBefore__DistributionEvent();
 
 		/**
 		 * The meta object literal for the '<em><b>Refresh Slope Before</b></em>' operation.
@@ -6792,6 +7246,16 @@ public interface ContinuousPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute AMOUNT_ABSOLUTE_PROVIDER__AMOUNT_ABSOLUTE = eINSTANCE.getAmountAbsoluteProvider_AmountAbsolute();
+
+		/**
+		 * The meta object literal for the '<em>Distribution Visitor</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.time.continuous.DistributionVisitor
+		 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getDistributionVisitor()
+		 * @generated
+		 */
+		EDataType DISTRIBUTION_VISITOR = eINSTANCE.getDistributionVisitor();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.SlopeAbsoluteProviderImpl <em>Slope Absolute Provider</em>}' class.

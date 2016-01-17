@@ -307,6 +307,14 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	Date getMoment(Date from, float duration);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Return the latest event before
 	 *  the given time
@@ -321,6 +329,19 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
+	 * Return the latest event before
+	 *  the given time
+	 * 
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	DistributionEvent getEventStrictBefore(Date time);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
 	 * Return the earliest event after the given time
 	 * 
 	 * <!-- end-model-doc -->
@@ -328,6 +349,19 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	 * @generated
 	 */
 	DistributionEvent getEventAfter(Date time);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Return the latest event before
+	 *  the given time
+	 * 
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	DistributionEvent getEventStrictAfter(Date time);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -492,6 +526,14 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	 * @generated
 	 */
 	void refreshProvidedEvents();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model visitorDataType="com.misc.common.moplaf.time.continuous.DistributionVisitor"
+	 * @generated
+	 */
+	void accept(Date from, Date to, DistributionVisitor visitor);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -90,6 +90,8 @@ public class ContinuousFactoryImpl extends EFactoryImpl implements ContinuousFac
 		switch (eDataType.getClassifierID()) {
 			case ContinuousPackage.TIME_UNIT:
 				return createTimeUnitFromString(eDataType, initialValue);
+			case ContinuousPackage.DISTRIBUTION_VISITOR:
+				return createDistributionVisitorFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -105,6 +107,8 @@ public class ContinuousFactoryImpl extends EFactoryImpl implements ContinuousFac
 		switch (eDataType.getClassifierID()) {
 			case ContinuousPackage.TIME_UNIT:
 				return convertTimeUnitToString(eDataType, instanceValue);
+			case ContinuousPackage.DISTRIBUTION_VISITOR:
+				return convertDistributionVisitorToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -308,6 +312,24 @@ public class ContinuousFactoryImpl extends EFactoryImpl implements ContinuousFac
 	 */
 	public String convertTimeUnitToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DistributionVisitor createDistributionVisitorFromString(EDataType eDataType, String initialValue) {
+		return (DistributionVisitor)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertDistributionVisitorToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

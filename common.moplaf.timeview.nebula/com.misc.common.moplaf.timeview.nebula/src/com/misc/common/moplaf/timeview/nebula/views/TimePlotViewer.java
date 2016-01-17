@@ -212,9 +212,10 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 		this.xyGraph.setTitle("Simple Example");
 		Date today = new Date();
 		this.toolbarArmedXYGraph = new ToolbarArmedXYGraph(this.xyGraph);
-
 		
-		this.xyGraph.primaryXAxis.setRange(new Range(today.getTime(),today.getTime()+1000*60*60*24*30));
+		long start = today.getTime();
+		long end = start+1000L*60L*60L*24L*30L;
+		this.xyGraph.primaryXAxis.setRange(new Range(start,end));
 		this.xyGraph.primaryXAxis.setDateEnabled(true);
 		this.xyGraph.primaryXAxis.setAutoScale(true);
 		this.xyGraph.primaryYAxis.setAutoScale(true);
@@ -313,25 +314,24 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 		CommonPlugin.INSTANCE.log("TimePlotViewer: refresh");
 
 		Object[] childrenModelElement = this.getTreeContentProvider().getChildren(this.getInput());
+		
 		HashSet<Object> children = new HashSet<Object>(Arrays.asList(childrenModelElement));
 
 		LinkedList<Trace> tracesToRemove = new LinkedList<Trace>();
-		
+
+		boolean allRemoved = true;
 		for ( Trace trace : this.xyGraph.getPlotArea().getTraceList()){
 			TimePlotDataProvider dataprovider = (TimePlotDataProvider)trace.getDataProvider();
 			if ( ! children.contains(dataprovider.modelObject) ){
 				tracesToRemove.add(trace);
 			} else {
 				children.remove(dataprovider.modelObject);
+				allRemoved = false;
 			}
 		}
 		
-		// do the removes
-		for ( Trace traceToRemove : tracesToRemove){
-			this.xyGraph.removeTrace(traceToRemove);
-		}
-		
 		// do the adds
+		boolean somethingAdded = false;
 		for( Object modelObjectToAdd : children){
 			if ( this.getIAmountEventProvider().isAmountEvents(modelObjectToAdd)){
 				// it is a collection of events
@@ -342,7 +342,18 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 				trace.setPointStyle(PointStyle.XCROSS);
 				trace.setTraceColor(color);
 				this.xyGraph.addTrace(trace);
+				somethingAdded = true;
 			}
+		}
+		
+		if ( allRemoved && !somethingAdded){
+			// the chart will be empty: we keep is as it si
+			return;
+		}
+		
+		// do the removes
+		for ( Trace traceToRemove : tracesToRemove){
+			this.xyGraph.removeTrace(traceToRemove);
 		}
 		
 		for ( Trace traceAsIs : this.xyGraph.getPlotArea().getTraceList()){

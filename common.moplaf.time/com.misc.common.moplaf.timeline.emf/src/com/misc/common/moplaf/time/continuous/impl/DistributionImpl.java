@@ -9,6 +9,7 @@ import com.misc.common.moplaf.time.continuous.ContinuousFactory;
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.DistributionEvent;
+import com.misc.common.moplaf.time.continuous.DistributionVisitor;
 import com.misc.common.moplaf.time.continuous.EndEvent;
 import com.misc.common.moplaf.time.continuous.EventProvider;
 import com.misc.common.moplaf.time.continuous.EventsProvider;
@@ -528,13 +529,8 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 		}
 		return providedEvents;
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public float getDuration(Date from, Date to) {
-		float millis = (float)(to.getTime()-from.getTime());
+	
+	private float toDuration(long millis){
 		float duration = 0.0f;
 		switch ( this.getTimeUnit()){
 		case DAY :
@@ -554,6 +550,55 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 			break;
 		}
 		return duration;
+	}
+	
+	private long toMillis(float duration){
+		float millis = 0;
+		switch ( this.getTimeUnit()){
+		case DAY :
+			millis = duration*1000.0f*60.0f*60.0f*24.0f;
+			break;
+		case HOUR :
+			millis = duration*1000.0f*60.0f*60.0f;
+			break;
+		case MINUTE :
+			millis = duration*1000.0f*60.0f;
+			break;
+		case SECOND :
+			millis = duration*1000.0f;
+			break;
+		case MILLI :
+			duration = millis;
+			break;
+		}
+		return (long) millis;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public float getDuration(Date from, Date to) {
+		float duration = 0.0f;
+		long fromTime = from.getTime();
+		long toTime   = to.getTime();
+		if ( fromTime!=toTime){
+			duration = this.toDuration(toTime-fromTime);
+		}
+		return duration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Date getMoment(Date from, float duration) {
+		Date moment = from;
+		if ( duration != 0.0f){
+			long time = from.getTime()+this.toMillis(duration);
+			moment = new Date(time);
+		}
+		return moment;
 	}
 
 	/**
@@ -575,10 +620,40 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public DistributionEvent getEventStrictBefore(Date time) {
+		DistributionEvent currentEvent = this.getEnd();
+		while (currentEvent!=null){
+			if ( currentEvent.getMoment().compareTo(time)<0 ){
+				return currentEvent;
+			}
+			currentEvent = currentEvent.getPrevious();
+		}
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public DistributionEvent getEventAfter(Date time) {
 		DistributionEvent currentEvent = this.getStart();
 		while (currentEvent!=null){
 			if ( currentEvent.getMoment().compareTo(time)>=0 ){
+				return currentEvent;
+			}
+			currentEvent = currentEvent.getNext();
+		}
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public DistributionEvent getEventStrictAfter(Date time) {
+		DistributionEvent currentEvent = this.getStart();
+		while (currentEvent!=null){
+			if ( currentEvent.getMoment().compareTo(time)>0 ){
 				return currentEvent;
 			}
 			currentEvent = currentEvent.getNext();
@@ -625,27 +700,54 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 		float slopeAfter = eventBefore.getSlopeAfter();
 		return slopeAfter;
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public float getMinAmount(Date from, Date to) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	
+	private class Minimor implements DistributionVisitor {
+		private float minimum = Float.MAX_VALUE;
+		public float getMinimum(){
+			return this.minimum;
+		}
+		@Override
+		public boolean visit(Date moment, float amount) {
+			if ( amount<this.minimum){
+				this.minimum = amount;
+			}
+			return false;
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 */
+	public float getMinAmount(Date from, Date to) {
+		Minimor visitor = new Minimor();
+		this.accept(from, to, visitor);
+		return visitor.getMinimum();
+	}
+
+	private class Maximor implements DistributionVisitor {
+		private float maximum = Float.MIN_VALUE;
+		public float getMaximum(){
+			return this.maximum;
+		}
+		@Override
+		public boolean visit(Date moment, float amount) {
+			if ( amount>this.maximum){
+				this.maximum = amount;
+			}
+			return false;
+		}
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public float getMaxAmount(Date from, Date to) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		Maximor visitor = new Maximor();
+		this.accept(from, to, visitor);
+		return visitor.getMaximum();
 	}
 
 	/**
@@ -661,46 +763,105 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 		}
 		return average; 
 	}
+	
+	private class Cumulator implements DistributionVisitor{
+		private Date previousMoment = null;
+		private float previousAmount;
+		private float cumulatedAmount = 0.0f;
+		public float getCumulatedAmount() {
+			return this.cumulatedAmount;
+		}
+		@Override
+		public boolean visit(Date moment, float amount) {
+			if ( this.previousMoment!=null){
+				float startAmount = this.previousAmount;
+				float endAmount = amount;
+				float duration = DistributionImpl.this.getDuration(this.previousMoment, moment);
+				this.cumulatedAmount += (startAmount+endAmount)/2.0f*duration;
+			}
+			this.previousAmount = amount;
+			this.previousMoment = moment;
+			return false;
+		}
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
 	public float getCumulatedAmount(Date from, Date to) {
-		DistributionEvent eventBefore = this.getEventBefore(from);
-		DistributionEvent eventAfter  = this.getEventAfter(to);
-		DistributionEvent currentEvent = eventBefore;
-		float cumulated = 0.0f;
-		while ( currentEvent!=null && currentEvent.getEventNr()<=eventAfter.getEventNr()){
-			DistributionEvent nextEvent = currentEvent.getNext();
-			Date blockStart = currentEvent.getMoment();
-			Date blockEnd   = currentEvent.getMoment();
-			Date startFrom = blockStart;
-			if ( startFrom.compareTo(from)<0){
-				startFrom = from;
-			}
-			Date endTo = blockEnd;
-			if ( endTo.compareTo(to)>0){
-				endTo = to;
-			}
-			float startAmount = currentEvent.getAmountAfter(startFrom);
-			float endAmount = nextEvent.getAmountBefore(endTo);
-			float duration = this.getDuration(startFrom, endTo);
-			cumulated = cumulated+(startAmount+endAmount)/2.0f*duration;
-			currentEvent = nextEvent;
-		} 
+		Cumulator visitor = new Cumulator();
+		this.accept(from, to, visitor);
+		float cumulated = visitor.getCumulatedAmount();
 		return cumulated;
 	}
 
+	private class EarliestBelowGettor implements DistributionVisitor{
+		private Date previousMoment;
+		private float previousAmount;
+		private boolean previousBelow;
+		private float maxAmount;
+		private float minDuration;
+		private Date belowAsFrom = null;
+		private Date belowUntil = null;
+		private Date earliestBelow = null;
+		public EarliestBelowGettor(float maxAmount, float minDuration){
+			this.maxAmount = maxAmount;
+			this.minDuration = minDuration;
+		}
+		public Date getEarliestBelow() {
+			return this.earliestBelow;
+		}
+		@Override
+		public boolean visit(Date moment, float amount) {
+			boolean currentBelow = amount<=this.maxAmount;
+			if ( currentBelow){
+				this.belowUntil = moment;
+				if ( this.previousBelow){
+					// case below before and below now
+				} else {
+					// case below before and above now
+					Date crossOver = moment;
+					if ( this.previousMoment!=null){
+						float duration = DistributionImpl.this.getDuration(this.previousMoment, moment)
+								       * (maxAmount-this.previousAmount) / (amount-this.previousAmount);
+						crossOver = DistributionImpl.this.getMoment(this.previousMoment, duration);
+					}
+					this.belowAsFrom = crossOver;
+				}
+			} else {
+				// now above
+//				this.belowUntil = null;
+				if ( this.previousBelow){
+					// case below before and above now
+					float duration = DistributionImpl.this.getDuration(this.previousMoment, moment)
+							       * (maxAmount-this.previousAmount) / (amount-this.previousAmount);
+					this.belowUntil = DistributionImpl.this.getMoment(this.previousMoment, duration);
+				} else {
+					// case above before and below now
+				}
+			}
+			if ( this.belowAsFrom!=null && this.belowUntil!=null){
+				float durationUnder = DistributionImpl.this.getDuration(this. belowAsFrom, this.belowUntil);
+				if ( durationUnder>=this.minDuration) {
+					this.earliestBelow = this.belowAsFrom;
+					return true;
+				}
+			}
+			this.previousAmount = amount;
+			this.previousMoment = moment;
+			this.previousBelow = currentBelow;
+			return false;
+		} // method visit
+	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public Date getEarliestBelow(Date after, float duration, float amount) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		EarliestBelowGettor visitor = new EarliestBelowGettor(amount, duration);
+		this.accept(after, this.getHorizonEnd(), visitor);
+		return visitor.getEarliestBelow();
 	}
 
 	/**
@@ -748,18 +909,14 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	private void refreshStart() {
 		if ( this.getStart()==null){
 			StartEvent start = ContinuousFactory.eINSTANCE.createStartEvent();
-//			start.setDistributionAsStart(this); // owning
 			this.setStart(start); // owning
-//			start.refreshMoment();
 		}
 	}
 	
 	private void refreshEnd() {
 		if ( this.getEnd()==null){
 			EndEvent end = ContinuousFactory.eINSTANCE.createEndEvent();
-//			end.setDistributionAsEnd(this);
 			this.setEnd(end);
-//			end.refreshMoment();
 		}
 	}
 
@@ -842,6 +999,54 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	}
 
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void accept(Date from, Date to, DistributionVisitor visitor) {
+		if ( from == null ) { return ; }
+		if ( to == null ) { return ; }
+		if ( from.compareTo(to)<0 ){
+			// forward visit
+			DistributionEvent firstEvent = this.getEventStrictAfter(from);
+			DistributionEvent lastEvent = this.getEventStrictBefore(to);
+			float firstAmount = firstEvent.getAmountBefore(from);
+			visitor.visit(from, firstAmount);
+			DistributionEvent currentEvent = firstEvent;
+			while (currentEvent.isBefore(lastEvent)){
+				float amountBefore = currentEvent.getAmountBefore();
+				float amountAfter = currentEvent.getAmountAfter();
+				Date moment = currentEvent.getMoment();
+				visitor.visit(moment, amountBefore);
+				if ( amountBefore!=amountAfter){
+					visitor.visit(moment, amountAfter);
+				}
+				currentEvent = currentEvent.getNext();
+			}
+			float lastAmount = lastEvent.getAmountAfter(to);
+			visitor.visit(to, lastAmount);
+		} else {
+			// backward visit
+			DistributionEvent firstEvent = this.getEventStrictAfter(from);
+			DistributionEvent lastEvent = this.getEventStrictBefore(to);
+			float lastAmount = lastEvent.getAmountAfter(to);
+			visitor.visit(to, lastAmount);
+			DistributionEvent currentEvent = lastEvent;
+			while (firstEvent.isBefore(currentEvent)){
+				float amountBefore = currentEvent.getAmountBefore();
+				float amountAfter = currentEvent.getAmountAfter();
+				Date moment = currentEvent.getMoment();
+				visitor.visit(moment, amountBefore);
+				if ( amountBefore!=amountAfter){
+					visitor.visit(moment, amountAfter);
+				}
+				currentEvent = currentEvent.getPrevious();
+			}
+			float firstAmount = firstEvent.getAmountBefore(from);
+			visitor.visit(from, firstAmount);
+		}
+	}
+
 	private boolean isSequenceEvent(DistributionEvent event){
 		Date moment = event.getMoment();
 		if( moment==null ) { return false; }
@@ -1175,10 +1380,16 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 		switch (operationID) {
 			case ContinuousPackage.DISTRIBUTION___GET_DURATION__DATE_DATE:
 				return getDuration((Date)arguments.get(0), (Date)arguments.get(1));
+			case ContinuousPackage.DISTRIBUTION___GET_MOMENT__DATE_FLOAT:
+				return getMoment((Date)arguments.get(0), (Float)arguments.get(1));
 			case ContinuousPackage.DISTRIBUTION___GET_EVENT_BEFORE__DATE:
 				return getEventBefore((Date)arguments.get(0));
+			case ContinuousPackage.DISTRIBUTION___GET_EVENT_STRICT_BEFORE__DATE:
+				return getEventStrictBefore((Date)arguments.get(0));
 			case ContinuousPackage.DISTRIBUTION___GET_EVENT_AFTER__DATE:
 				return getEventAfter((Date)arguments.get(0));
+			case ContinuousPackage.DISTRIBUTION___GET_EVENT_STRICT_AFTER__DATE:
+				return getEventStrictAfter((Date)arguments.get(0));
 			case ContinuousPackage.DISTRIBUTION___GET_AMOUNT_BEFORE__DATE:
 				return getAmountBefore((Date)arguments.get(0));
 			case ContinuousPackage.DISTRIBUTION___GET_AMOUNT_AFTER__DATE:
@@ -1217,6 +1428,9 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 				return null;
 			case ContinuousPackage.DISTRIBUTION___REFRESH_PROVIDED_EVENTS:
 				refreshProvidedEvents();
+				return null;
+			case ContinuousPackage.DISTRIBUTION___ACCEPT__DATE_DATE_DISTRIBUTIONVISITOR:
+				accept((Date)arguments.get(0), (Date)arguments.get(1), (DistributionVisitor)arguments.get(2));
 				return null;
 			case ContinuousPackage.DISTRIBUTION___ADD_PROPAGATOR_FUNCTION_ADAPTER:
 				addPropagatorFunctionAdapter();
