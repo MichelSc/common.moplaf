@@ -814,7 +814,7 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 		}
 		@Override
 		public boolean visit(Date moment, float amount) {
-			boolean currentBelow = amount<=this.maxAmount;
+			boolean currentBelow = this.maxAmount <= amount;
 			if ( currentBelow){
 				this.belowUntil = moment;
 				if ( this.previousBelow){
