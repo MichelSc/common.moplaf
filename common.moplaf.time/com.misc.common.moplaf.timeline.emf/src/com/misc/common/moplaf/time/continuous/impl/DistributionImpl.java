@@ -755,10 +755,10 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	 * <!-- end-user-doc -->
 	 */
 	public float getAverageAmount(Date from, Date to) {
-		float duration = this.getDuration(from, to);
 		float cumulated = this.getCumulatedAmount(from, to);
 		float average = 0.0f;
 		if( cumulated != 0.0f){
+			float duration = this.getDuration(from, to);
 			average = cumulated/duration;
 		}
 		return average; 
