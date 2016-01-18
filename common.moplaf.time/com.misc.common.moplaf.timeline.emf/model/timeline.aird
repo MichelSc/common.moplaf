@@ -224,6 +224,10 @@
                 <styles xmi:type="notation:FontStyle" xmi:id="_fQYlEbupEeWDZ5t04OyVWg" fontName="Oxygen-Sans Sans-Book" fontHeight="8"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_fQYlErupEeWDZ5t04OyVWg"/>
               </children>
+              <children xmi:type="notation:Node" xmi:id="_xeNCAL26EeWjr8dRyibc1Q" type="3010" element="_xdID8L26EeWjr8dRyibc1Q">
+                <styles xmi:type="notation:FontStyle" xmi:id="_xeNCAb26EeWjr8dRyibc1Q" fontName="Segoe UI" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_xeNCAr26EeWjr8dRyibc1Q"/>
+              </children>
               <children xmi:type="notation:Node" xmi:id="_h-mJImy_EeS8xaqIEkJGCQ" type="3010" element="_h93wYGy_EeS8xaqIEkJGCQ">
                 <styles xmi:type="notation:FontStyle" xmi:id="_KSBbKW5VEeWZ1vzK2L4mhw"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_h-mJI2y_EeS8xaqIEkJGCQ"/>
@@ -922,6 +926,15 @@
           <semanticElements xmi:type="ecore:EOperation" href="timeline.ecore#//continuous/DistributionEvent/isBefore"/>
           <semanticElements xmi:type="ecore:EParameter" href="timeline.ecore#//continuous/DistributionEvent/isBefore/other"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_fQItcbupEeWDZ5t04OyVWg" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_xdID8L26EeWjr8dRyibc1Q" name="isStrictBefore(other DistributionEvent) : EBoolean" tooltipText="isStrictBefore(other) : EBoolean">
+          <target xmi:type="ecore:EOperation" href="timeline.ecore#//continuous/DistributionEvent/isStrictBefore"/>
+          <semanticElements xmi:type="ecore:EOperation" href="timeline.ecore#//continuous/DistributionEvent/isStrictBefore"/>
+          <semanticElements xmi:type="ecore:EParameter" href="timeline.ecore#//continuous/DistributionEvent/isStrictBefore/other"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_xdJSEL26EeWjr8dRyibc1Q" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>

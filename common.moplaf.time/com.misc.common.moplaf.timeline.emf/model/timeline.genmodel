@@ -145,6 +145,9 @@
         <genOperations ecoreOperation="timeline.ecore#//continuous/DistributionEvent/isBefore">
           <genParameters ecoreParameter="timeline.ecore#//continuous/DistributionEvent/isBefore/other"/>
         </genOperations>
+        <genOperations ecoreOperation="timeline.ecore#//continuous/DistributionEvent/isStrictBefore">
+          <genParameters ecoreParameter="timeline.ecore#//continuous/DistributionEvent/isStrictBefore/other"/>
+        </genOperations>
         <genOperations ecoreOperation="timeline.ecore#//continuous/DistributionEvent/refreshSlopeBefore"/>
         <genOperations ecoreOperation="timeline.ecore#//continuous/DistributionEvent/refreshAmountBefore"/>
         <genOperations ecoreOperation="timeline.ecore#//continuous/DistributionEvent/refreshAmountAfter"/>
