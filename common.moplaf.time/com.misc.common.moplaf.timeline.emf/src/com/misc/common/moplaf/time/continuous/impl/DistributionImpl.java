@@ -916,18 +916,21 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 		}
 		@Override
 		public boolean visit(Date moment, float amount) {
-			float deltaOutput = amount - this.previousAmount;
-			float maxDeltaOutput = 0.0f;
+			float previousDuration = 0.0f;
 			if ( this.previousMoment!=null && this.previousMoment.compareTo(moment)<0){
-				float currentDuration = DistributionImpl.this.getDuration(this.previousMoment, moment);
-				maxDeltaOutput = this.ratePossible*currentDuration;
-				}
-			if ( deltaOutput>maxDeltaOutput){
-				deltaOutput = maxDeltaOutput;
+				previousDuration = DistributionImpl.this.getDuration(this.previousMoment, moment);
 			}
+			float deltaOutput = this.ratePossible*previousDuration;
 			float currentOutput = this.previousOutput+deltaOutput;
+			if ( currentOutput>amount){
+				currentOutput = amount;
+			}
 			if ( currentOutput>=this.outputPossible){
-				float durationOffset = (this.outputPossible-currentOutput)*this.ratePossible; // negative
+				float durationOffset = 0.0f;
+				if ( previousDuration>0.0f) {
+					float previousRate = (amount-this.previousAmount)/previousDuration;
+				    durationOffset = (this.outputPossible-currentOutput)*(previousRate-this.ratePossible); // negative
+				}
 				Date earliestEnd = DistributionImpl.this.getMoment(moment, durationOffset);
 				this.earliestOutput = DistributionImpl.this.getMoment(earliestEnd, -this.durationPossible);
 				return true; // do stop
