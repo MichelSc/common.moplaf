@@ -12,7 +12,6 @@ import org.eclipse.draw2d.KeyListener;
 import org.eclipse.draw2d.LightweightSystem;
 import org.eclipse.draw2d.MouseEvent;
 import org.eclipse.draw2d.MouseListener;
-import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -302,16 +301,14 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 		super.inputChanged(input, oldInput);
 		
 		if ( input != oldInput){
-			CommonPlugin.INSTANCE.log("TimePlotViewer: inputChanged "+input.toString());
-			//this.xyGraph.removeAll();
-			Object modelElement = input;
+			//CommonPlugin.INSTANCE.log("TimePlotViewer: inputChanged "+input.toString());
 			this.refresh();
 		}
 	}
 
 	@Override
 	public void refresh() {
-		CommonPlugin.INSTANCE.log("TimePlotViewer: refresh");
+		//CommonPlugin.INSTANCE.log("TimePlotViewer: refresh");
 
 		Object[] childrenModelElement = this.getTreeContentProvider().getChildren(this.getInput());
 		
@@ -360,9 +357,7 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 			this.refreshTrace(traceAsIs);
 		}
 		
-		CommonPlugin.INSTANCE.log("TimePlotViewer: redraw");
 		this.timePlotCanvas.redraw();
-		CommonPlugin.INSTANCE.log("TimePlotViewer: redrawn");
 	}
 	
 	private void refreshTrace(Trace trace){

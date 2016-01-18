@@ -928,7 +928,7 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 		// to be events
 		HashSet<DistributionEvent> childEventsToBe = new HashSet<DistributionEvent>();
 		for ( Distribution childDistribution : this.getChildDistribution()){
-			for ( DistributionEvent childEvent : childDistribution.getSequenceEvents()){
+			for ( DistributionEvent childEvent : childDistribution.getProvidedEvents()){
 				childEventsToBe.add(childEvent);
 			}
 		}

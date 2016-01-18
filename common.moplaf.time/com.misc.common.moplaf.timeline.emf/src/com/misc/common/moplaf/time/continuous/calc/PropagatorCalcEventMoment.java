@@ -5,7 +5,6 @@ import com.misc.common.moplaf.propagator.Util;
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.DistributionEvent;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEndEventMoment.DependencyDistributionEnd;
 
 // this means that the object is touched upon containment
 //   as a consequence, it will be refreshed
