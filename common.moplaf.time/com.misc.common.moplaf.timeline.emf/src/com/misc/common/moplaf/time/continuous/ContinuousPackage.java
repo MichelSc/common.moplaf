@@ -350,13 +350,22 @@ public interface ContinuousPackage extends EPackage {
 	int DISTRIBUTION___GET_LATEST_ABOVE__DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 17;
 
 	/**
+	 * The operation id for the '<em>Get Earliest Output Possible</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTRIBUTION___GET_EARLIEST_OUTPUT_POSSIBLE__DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 18;
+
+	/**
 	 * The operation id for the '<em>Refresh Init</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___REFRESH_INIT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 18;
+	int DISTRIBUTION___REFRESH_INIT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 19;
 
 	/**
 	 * The operation id for the '<em>Refresh Sequence</em>' operation.
@@ -365,7 +374,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___REFRESH_SEQUENCE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 19;
+	int DISTRIBUTION___REFRESH_SEQUENCE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 20;
 
 	/**
 	 * The operation id for the '<em>Refresh Child Event</em>' operation.
@@ -374,7 +383,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___REFRESH_CHILD_EVENT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 20;
+	int DISTRIBUTION___REFRESH_CHILD_EVENT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 21;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -383,7 +392,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___REFRESH = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 21;
+	int DISTRIBUTION___REFRESH = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 22;
 
 	/**
 	 * The operation id for the '<em>Refresh Provided Events</em>' operation.
@@ -392,7 +401,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___REFRESH_PROVIDED_EVENTS = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 22;
+	int DISTRIBUTION___REFRESH_PROVIDED_EVENTS = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 23;
 
 	/**
 	 * The operation id for the '<em>Accept</em>' operation.
@@ -401,7 +410,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___ACCEPT__DATE_DATE_DISTRIBUTIONVISITOR = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 23;
+	int DISTRIBUTION___ACCEPT__DATE_DATE_DISTRIBUTIONVISITOR = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 24;
 
 	/**
 	 * The number of operations of the '<em>Distribution</em>' class.
@@ -410,7 +419,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 24;
+	int DISTRIBUTION_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 25;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl <em>Distribution Event</em>}' class.
@@ -5468,6 +5477,16 @@ public interface ContinuousPackage extends EPackage {
 	EOperation getDistribution__GetLatestAbove__Date_float_float();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getEarliestOutputPossible(java.util.Date, float, float) <em>Get Earliest Output Possible</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Earliest Output Possible</em>' operation.
+	 * @see com.misc.common.moplaf.time.continuous.Distribution#getEarliestOutputPossible(java.util.Date, float, float)
+	 * @generated
+	 */
+	EOperation getDistribution__GetEarliestOutputPossible__Date_float_float();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#refreshInit() <em>Refresh Init</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6762,6 +6781,14 @@ public interface ContinuousPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation DISTRIBUTION___GET_LATEST_ABOVE__DATE_FLOAT_FLOAT = eINSTANCE.getDistribution__GetLatestAbove__Date_float_float();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Earliest Output Possible</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DISTRIBUTION___GET_EARLIEST_OUTPUT_POSSIBLE__DATE_FLOAT_FLOAT = eINSTANCE.getDistribution__GetEarliestOutputPossible__Date_float_float();
 
 		/**
 		 * The meta object literal for the '<em><b>Refresh Init</b></em>' operation.

@@ -58,13 +58,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The Distribution
  * <ul>
- *   <li>consider the events </li>
+ *   <li>considers the events </li>
  *     <ul>
  *       <li>{@link #startEvent} and {@link #endEvent}</li>
  *       <li>provided by the {@link EventsProvider}s</li>
  *       <li>belonging to the child {@link Distribution}s</li>
  *    </ul>
- *   <li>select the considered events in the horizon
+ *   <li>selects the considered events in the horizon
  *   <li>sorts the selected events </li>
  *   <li>publishes the resulting sets of events </li>
  *     <ul>
@@ -701,7 +701,7 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 		return slopeAfter;
 	}
 	
-	private class Minimor implements DistributionVisitor {
+	private class MinAmountVisitor implements DistributionVisitor {
 		private float minimum = Float.MAX_VALUE;
 		public float getMinimum(){
 			return this.minimum;
@@ -720,12 +720,12 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	 * <!-- end-user-doc -->
 	 */
 	public float getMinAmount(Date from, Date to) {
-		Minimor visitor = new Minimor();
+		MinAmountVisitor visitor = new MinAmountVisitor();
 		this.accept(from, to, visitor);
 		return visitor.getMinimum();
 	}
 
-	private class Maximor implements DistributionVisitor {
+	private class MaxAmountVisitor implements DistributionVisitor {
 		private float maximum = Float.MIN_VALUE;
 		public float getMaximum(){
 			return this.maximum;
@@ -745,7 +745,7 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	 * <!-- end-user-doc -->
 	 */
 	public float getMaxAmount(Date from, Date to) {
-		Maximor visitor = new Maximor();
+		MaxAmountVisitor visitor = new MaxAmountVisitor();
 		this.accept(from, to, visitor);
 		return visitor.getMaximum();
 	}
@@ -764,7 +764,7 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 		return average; 
 	}
 	
-	private class Cumulator implements DistributionVisitor{
+	private class CumulatedAmountVisitor implements DistributionVisitor{
 		private Date previousMoment = null;
 		private float previousAmount;
 		private float cumulatedAmount = 0.0f;
@@ -790,13 +790,13 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	 * <!-- end-user-doc -->
 	 */
 	public float getCumulatedAmount(Date from, Date to) {
-		Cumulator visitor = new Cumulator();
+		CumulatedAmountVisitor visitor = new CumulatedAmountVisitor();
 		this.accept(from, to, visitor);
 		float cumulated = visitor.getCumulatedAmount();
 		return cumulated;
 	}
 
-	private class EarliestBelowGettor implements DistributionVisitor{
+	private class EarliestBelowVisitor implements DistributionVisitor{
 		private Date previousMoment;
 		private float previousAmount;
 		private boolean previousBelow;
@@ -805,7 +805,7 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 		private Date belowAsFrom = null;
 		private Date belowUntil = null;
 		private Date earliestBelow = null;
-		public EarliestBelowGettor(float maxAmount, float minDuration){
+		public EarliestBelowVisitor(float maxAmount, float minDuration){
 			this.maxAmount = maxAmount;
 			this.minDuration = minDuration;
 		}
@@ -854,12 +854,13 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 			return false;
 		} // method visit
 	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
 	public Date getEarliestBelow(Date after, float duration, float amount) {
-		EarliestBelowGettor visitor = new EarliestBelowGettor(amount, duration);
+		EarliestBelowVisitor visitor = new EarliestBelowVisitor(amount, duration);
 		this.accept(after, this.getHorizonEnd(), visitor);
 		return visitor.getEarliestBelow();
 	}
@@ -895,6 +896,57 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
+	}
+
+	private class EarliestOutputVisitor implements DistributionVisitor{
+		private Date  previousMoment = null;
+		private float previousAmount;
+		private float previousOutput = 0.0f;
+		private float outputPossible;
+		private float durationPossible;
+		private float ratePossible;
+		private Date earliestOutput = null;
+		public EarliestOutputVisitor(float amount, float duration){
+			this.outputPossible   = amount;
+			this.durationPossible = duration;
+			this.ratePossible     = amount/duration;
+		}
+		public Date getEarliestOutput() {
+			return this.earliestOutput;
+		}
+		@Override
+		public boolean visit(Date moment, float amount) {
+			float deltaOutput = amount - this.previousAmount;
+			float maxDeltaOutput = 0.0f;
+			if ( this.previousMoment!=null && this.previousMoment.compareTo(moment)<0){
+				float currentDuration = DistributionImpl.this.getDuration(this.previousMoment, moment);
+				maxDeltaOutput = this.ratePossible*currentDuration;
+				}
+			if ( deltaOutput>maxDeltaOutput){
+				deltaOutput = maxDeltaOutput;
+			}
+			float currentOutput = this.previousOutput+deltaOutput;
+			if ( currentOutput>=this.outputPossible){
+				float durationOffset = (this.outputPossible-currentOutput)*this.ratePossible; // negative
+				Date earliestEnd = DistributionImpl.this.getMoment(moment, durationOffset);
+				this.earliestOutput = DistributionImpl.this.getMoment(earliestEnd, -this.durationPossible);
+				return true; // do stop
+			}
+			this.previousAmount = amount;
+			this.previousMoment = moment;
+			this.previousOutput = currentOutput;
+			return false; // do not stop
+		} // method visit
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Date getEarliestOutputPossible(Date after, float duration, float amount) {
+		EarliestOutputVisitor visitor = new EarliestOutputVisitor(amount, duration);
+		this.accept(after, this.getHorizonEnd(), visitor);
+		return visitor.getEarliestOutput();
 	}
 
 	/**
@@ -1414,6 +1466,8 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 				return getEarliestAbove((Date)arguments.get(0), (Float)arguments.get(1), (Float)arguments.get(2));
 			case ContinuousPackage.DISTRIBUTION___GET_LATEST_ABOVE__DATE_FLOAT_FLOAT:
 				return getLatestAbove((Date)arguments.get(0), (Float)arguments.get(1), (Float)arguments.get(2));
+			case ContinuousPackage.DISTRIBUTION___GET_EARLIEST_OUTPUT_POSSIBLE__DATE_FLOAT_FLOAT:
+				return getEarliestOutputPossible((Date)arguments.get(0), (Float)arguments.get(1), (Float)arguments.get(2));
 			case ContinuousPackage.DISTRIBUTION___REFRESH_INIT:
 				refreshInit();
 				return null;
