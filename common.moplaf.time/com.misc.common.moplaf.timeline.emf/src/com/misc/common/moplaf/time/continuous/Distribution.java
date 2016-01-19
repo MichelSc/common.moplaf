@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>considers the events </li>
  *     <ul>
- *       <li>{@link #startEvent} and {@link #endEvent}</li>
+ *       <li>{@link StartEvent} and {@link EndEvent}</li>
  *       <li>provided by the {@link EventsProvider}s</li>
  *       <li>belonging to the child {@link Distribution}s</li>
  *    </ul>
@@ -32,7 +32,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>sorts the selected events </li>
  *   <li>publishes the resulting sets of events </li>
  *     <ul>
- *       <li>in the relation {@link #sequenceEvent}</li>
+ *       <li>in the relation {@link DistributionImpl#sequenceEvents}</li>
  *       <li>in the attribute {@link DistributionEventImpl#eventNr}</li>
  *       <li>in the references {@link DistributionEventImpl#next} and {@link DistributionEventImpl#previous}</li>
  *    </ul>
