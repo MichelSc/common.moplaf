@@ -501,7 +501,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDistribution__GetSlopeBefore__Date() {
+	public EOperation getDistribution__GetAmount__Date() {
 		return distributionEClass.getEOperations().get(8);
 	}
 
@@ -510,7 +510,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDistribution__GetSlopeAfter__Date() {
+	public EOperation getDistribution__GetSlopeBefore__Date() {
 		return distributionEClass.getEOperations().get(9);
 	}
 
@@ -519,7 +519,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDistribution__GetMinAmount__Date_Date() {
+	public EOperation getDistribution__GetSlopeAfter__Date() {
 		return distributionEClass.getEOperations().get(10);
 	}
 
@@ -528,7 +528,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDistribution__GetMaxAmount__Date_Date() {
+	public EOperation getDistribution__GetMinAmount__Date_Date() {
 		return distributionEClass.getEOperations().get(11);
 	}
 
@@ -537,7 +537,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDistribution__GetAverageAmount__Date_Date() {
+	public EOperation getDistribution__GetMaxAmount__Date_Date() {
 		return distributionEClass.getEOperations().get(12);
 	}
 
@@ -546,7 +546,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDistribution__GetCumulatedAmount__Date_Date() {
+	public EOperation getDistribution__GetAverageAmount__Date_Date() {
 		return distributionEClass.getEOperations().get(13);
 	}
 
@@ -555,7 +555,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDistribution__GetEarliestBelow__Date_float_float() {
+	public EOperation getDistribution__GetCumulatedAmount__Date_Date() {
 		return distributionEClass.getEOperations().get(14);
 	}
 
@@ -564,7 +564,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDistribution__GetLatestBelow__Date_float_float() {
+	public EOperation getDistribution__GetEarliestBelow__Date_float_float() {
 		return distributionEClass.getEOperations().get(15);
 	}
 
@@ -573,7 +573,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDistribution__GetEarliestAbove__Date_float_float() {
+	public EOperation getDistribution__GetLatestBelow__Date_float_float() {
 		return distributionEClass.getEOperations().get(16);
 	}
 
@@ -582,7 +582,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDistribution__GetLatestAbove__Date_float_float() {
+	public EOperation getDistribution__GetEarliestAbove__Date_float_float() {
 		return distributionEClass.getEOperations().get(17);
 	}
 
@@ -591,7 +591,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDistribution__GetEarliestOutputPossible__float_Date_float_float() {
+	public EOperation getDistribution__GetLatestAbove__Date_float_float() {
 		return distributionEClass.getEOperations().get(18);
 	}
 
@@ -600,7 +600,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDistribution__RefreshInit() {
+	public EOperation getDistribution__GetEarliestOutputPossible__float_Date_float_float() {
 		return distributionEClass.getEOperations().get(19);
 	}
 
@@ -609,7 +609,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDistribution__RefreshSequence() {
+	public EOperation getDistribution__RefreshInit() {
 		return distributionEClass.getEOperations().get(20);
 	}
 
@@ -618,7 +618,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDistribution__RefreshChildEvent() {
+	public EOperation getDistribution__RefreshSequence() {
 		return distributionEClass.getEOperations().get(21);
 	}
 
@@ -627,8 +627,8 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDistribution__RefreshProvidedEvents() {
-		return distributionEClass.getEOperations().get(23);
+	public EOperation getDistribution__RefreshChildEvent() {
+		return distributionEClass.getEOperations().get(22);
 	}
 
 	/**
@@ -636,7 +636,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDistribution__Accept__Date_Date_DistributionVisitor() {
+	public EOperation getDistribution__RefreshProvidedEvents() {
 		return distributionEClass.getEOperations().get(24);
 	}
 
@@ -645,8 +645,17 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getDistribution__Accept__Date_Date_DistributionVisitor() {
+		return distributionEClass.getEOperations().get(25);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getDistribution__Refresh() {
-		return distributionEClass.getEOperations().get(22);
+		return distributionEClass.getEOperations().get(23);
 	}
 
 	/**
@@ -1525,6 +1534,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		createEOperation(distributionEClass, DISTRIBUTION___GET_EVENT_STRICT_AFTER__DATE);
 		createEOperation(distributionEClass, DISTRIBUTION___GET_AMOUNT_BEFORE__DATE);
 		createEOperation(distributionEClass, DISTRIBUTION___GET_AMOUNT_AFTER__DATE);
+		createEOperation(distributionEClass, DISTRIBUTION___GET_AMOUNT__DATE);
 		createEOperation(distributionEClass, DISTRIBUTION___GET_SLOPE_BEFORE__DATE);
 		createEOperation(distributionEClass, DISTRIBUTION___GET_SLOPE_AFTER__DATE);
 		createEOperation(distributionEClass, DISTRIBUTION___GET_MIN_AMOUNT__DATE_DATE);
@@ -1761,6 +1771,9 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		addEParameter(op, ecorePackage.getEDate(), "time", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getDistribution__GetAmountAfter__Date(), ecorePackage.getEFloat(), "getAmountAfter", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDate(), "time", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getDistribution__GetAmount__Date(), ecorePackage.getEFloat(), "getAmount", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "time", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getDistribution__GetSlopeBefore__Date(), ecorePackage.getEFloat(), "getSlopeBefore", 0, 1, IS_UNIQUE, IS_ORDERED);

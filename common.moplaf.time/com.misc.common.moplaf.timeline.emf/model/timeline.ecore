@@ -12,9 +12,6 @@
       <eLiterals name="Day" value="4"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Distribution" eSuperTypes="../../com.misc.common.moplaf.propagator/model/propagator.ecore#//ObjectWithPropagatorFunctionAdapter">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="A Distribution implements a generalized function of time (java Date). The function is piecewise linear. The Distribution nor its slope are continuous. For every time t, the value of the function (its amount) as wel as its slope are known before and after the time."/>
-      </eAnnotations>
       <eOperations name="getDuration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Returns the duration between two times in the unit of the distribution&#xA;"/>
@@ -59,6 +56,12 @@
       <eOperations name="getAmountAfter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Returns the value of the Distribution at the right of the given time"/>
+        </eAnnotations>
+        <eParameters name="time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eOperations>
+      <eOperations name="getAmount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Returns the value of the Distribution on the left of the given time"/>
         </eAnnotations>
         <eParameters name="time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
       </eOperations>

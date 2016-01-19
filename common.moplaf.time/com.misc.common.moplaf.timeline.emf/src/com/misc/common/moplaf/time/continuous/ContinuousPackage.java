@@ -260,13 +260,22 @@ public interface ContinuousPackage extends EPackage {
 	int DISTRIBUTION___GET_AMOUNT_AFTER__DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 7;
 
 	/**
+	 * The operation id for the '<em>Get Amount</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTRIBUTION___GET_AMOUNT__DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 8;
+
+	/**
 	 * The operation id for the '<em>Get Slope Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_SLOPE_BEFORE__DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 8;
+	int DISTRIBUTION___GET_SLOPE_BEFORE__DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Get Slope After</em>' operation.
@@ -275,7 +284,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_SLOPE_AFTER__DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 9;
+	int DISTRIBUTION___GET_SLOPE_AFTER__DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Get Min Amount</em>' operation.
@@ -284,7 +293,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_MIN_AMOUNT__DATE_DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 10;
+	int DISTRIBUTION___GET_MIN_AMOUNT__DATE_DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Get Max Amount</em>' operation.
@@ -293,7 +302,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_MAX_AMOUNT__DATE_DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 11;
+	int DISTRIBUTION___GET_MAX_AMOUNT__DATE_DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Get Average Amount</em>' operation.
@@ -302,7 +311,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_AVERAGE_AMOUNT__DATE_DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 12;
+	int DISTRIBUTION___GET_AVERAGE_AMOUNT__DATE_DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Get Cumulated Amount</em>' operation.
@@ -311,7 +320,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_CUMULATED_AMOUNT__DATE_DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 13;
+	int DISTRIBUTION___GET_CUMULATED_AMOUNT__DATE_DATE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Get Earliest Below</em>' operation.
@@ -320,7 +329,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_EARLIEST_BELOW__DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 14;
+	int DISTRIBUTION___GET_EARLIEST_BELOW__DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 15;
 
 	/**
 	 * The operation id for the '<em>Get Latest Below</em>' operation.
@@ -329,7 +338,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_LATEST_BELOW__DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 15;
+	int DISTRIBUTION___GET_LATEST_BELOW__DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Get Earliest Above</em>' operation.
@@ -338,7 +347,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_EARLIEST_ABOVE__DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 16;
+	int DISTRIBUTION___GET_EARLIEST_ABOVE__DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 17;
 
 	/**
 	 * The operation id for the '<em>Get Latest Above</em>' operation.
@@ -347,7 +356,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_LATEST_ABOVE__DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 17;
+	int DISTRIBUTION___GET_LATEST_ABOVE__DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Get Earliest Output Possible</em>' operation.
@@ -356,7 +365,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_EARLIEST_OUTPUT_POSSIBLE__FLOAT_DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 18;
+	int DISTRIBUTION___GET_EARLIEST_OUTPUT_POSSIBLE__FLOAT_DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 19;
 
 	/**
 	 * The operation id for the '<em>Refresh Init</em>' operation.
@@ -365,7 +374,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___REFRESH_INIT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 19;
+	int DISTRIBUTION___REFRESH_INIT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 20;
 
 	/**
 	 * The operation id for the '<em>Refresh Sequence</em>' operation.
@@ -374,7 +383,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___REFRESH_SEQUENCE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 20;
+	int DISTRIBUTION___REFRESH_SEQUENCE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 21;
 
 	/**
 	 * The operation id for the '<em>Refresh Child Event</em>' operation.
@@ -383,7 +392,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___REFRESH_CHILD_EVENT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 21;
+	int DISTRIBUTION___REFRESH_CHILD_EVENT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 22;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -392,7 +401,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___REFRESH = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 22;
+	int DISTRIBUTION___REFRESH = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 23;
 
 	/**
 	 * The operation id for the '<em>Refresh Provided Events</em>' operation.
@@ -401,7 +410,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___REFRESH_PROVIDED_EVENTS = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 23;
+	int DISTRIBUTION___REFRESH_PROVIDED_EVENTS = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 24;
 
 	/**
 	 * The operation id for the '<em>Accept</em>' operation.
@@ -410,7 +419,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___ACCEPT__DATE_DATE_DISTRIBUTIONVISITOR = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 24;
+	int DISTRIBUTION___ACCEPT__DATE_DATE_DISTRIBUTIONVISITOR = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 25;
 
 	/**
 	 * The number of operations of the '<em>Distribution</em>' class.
@@ -419,7 +428,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 25;
+	int DISTRIBUTION_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 26;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl <em>Distribution Event</em>}' class.
@@ -5377,6 +5386,16 @@ public interface ContinuousPackage extends EPackage {
 	EOperation getDistribution__GetAmountAfter__Date();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getAmount(java.util.Date) <em>Get Amount</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Amount</em>' operation.
+	 * @see com.misc.common.moplaf.time.continuous.Distribution#getAmount(java.util.Date)
+	 * @generated
+	 */
+	EOperation getDistribution__GetAmount__Date();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getSlopeBefore(java.util.Date) <em>Get Slope Before</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6701,6 +6720,14 @@ public interface ContinuousPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation DISTRIBUTION___GET_AMOUNT_AFTER__DATE = eINSTANCE.getDistribution__GetAmountAfter__Date();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Amount</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DISTRIBUTION___GET_AMOUNT__DATE = eINSTANCE.getDistribution__GetAmount__Date();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Slope Before</b></em>' operation.

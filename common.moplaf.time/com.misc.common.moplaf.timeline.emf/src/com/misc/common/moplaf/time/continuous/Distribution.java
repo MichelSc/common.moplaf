@@ -3,17 +3,48 @@
 package com.misc.common.moplaf.time.continuous;
 
 import com.misc.common.moplaf.propagator.ObjectWithPropagatorFunctionAdapter;
+import com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl;
+
 import java.util.Date;
 import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Distribution</b></em>'.
+ * A Distribution implements a generalized function of time (java Date). The function is piecewise linear.
+ *  The Distribution nor its slope are continuous. For every time t, 
+ * the value of the function (its amount) as well as its slope are maintained before and after any time.
+ * <p>
+ * A Distribution receives 
+ *     <ul>
+ *       <li>{@link EventsProvider}s through the relation {@link #eventsProviders}</li>
+ *       <li>child {@link Distribution}s through the relation {@link #childDistribution}</li>
+ *    </ul>
+ * <p>
+ * The Distribution
+ * <ul>
+ *   <li>considers the events </li>
+ *     <ul>
+ *       <li>{@link #startEvent} and {@link #endEvent}</li>
+ *       <li>provided by the {@link EventsProvider}s</li>
+ *       <li>belonging to the child {@link Distribution}s</li>
+ *    </ul>
+ *   <li>selects the considered events in the horizon
+ *   <li>sorts the selected events </li>
+ *   <li>publishes the resulting sets of events </li>
+ *     <ul>
+ *       <li>in the relation {@link #sequenceEvent}</li>
+ *       <li>in the attribute {@link DistributionEventImpl#eventNr}</li>
+ *       <li>in the references {@link DistributionEventImpl#next} and {@link DistributionEventImpl#previous}</li>
+ *    </ul>
+ *   <li>maintains the value and slope of the distribution at every event</li>
+ *     <ul>
+ *       <li>in the attribute {@link DistributionEventImpl#amountBefore}</li>
+ *       <li>in the attribute {@link DistributionEventImpl#amountAfter}</li>
+ *       <li>in the attribute {@link DistributionEventImpl#slopeBefore}</li>
+ *       <li>in the attribute {@link DistributionEventImpl#slopeAfter}</li>
+ *    </ul>
+ * </ul>
  * <!-- end-user-doc -->
- *
- * <!-- begin-model-doc -->
- * A Distribution implements a generalized function of time (java Date). The function is piecewise linear. The Distribution nor its slope are continuous. For every time t, the value of the function (its amount) as wel as its slope are known before and after the time.
- * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
@@ -389,6 +420,17 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
+	 * Returns the value of the Distribution on the left of the given time
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	float getAmount(Date time);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
 	 * Returns the slope of the Distribution at the left of the given time
 	 * 
 	 * <!-- end-model-doc -->
@@ -491,6 +533,19 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Return the earliest moment when it is possible to produce continuously a quantity {@code amount}
+	 * during {@code duration} while staying under this Distribution and above a minimum 
+	 * amount {@code above}.
+	 * <p>
+	 * Say {@code rate} is {@code amount / duration}. Then the returned earliestMoment 
+	 * satisfies: for every {@code moment } between  {@code earliestMoment } and {@code earliestMoment + duration}, we 
+	 * have: {@code above + moment * rate} is below the {@code this.getAmount(moment)}. 
+	 * 
+	 * @param above minimal amount that may not be used
+	 * @param after    look up for an earliest moment after this time
+	 * @param duration duration for the production
+	 * @param amount   amount produce
+	 * @return         earliest moment when possible to product
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated

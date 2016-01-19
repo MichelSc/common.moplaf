@@ -48,38 +48,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Distribution</b></em>'.
- * <p>
- * A Distribution receives 
- *     <ul>
- *       <li>{@link EventsProvider}s through the relation {@link #eventsProviders}</li>
- *       <li>child {@link Distribution}s through the relation {@link #childDistribution}</li>
- *    </ul>
- * <p>
- * The Distribution
- * <ul>
- *   <li>considers the events </li>
- *     <ul>
- *       <li>{@link #startEvent} and {@link #endEvent}</li>
- *       <li>provided by the {@link EventsProvider}s</li>
- *       <li>belonging to the child {@link Distribution}s</li>
- *    </ul>
- *   <li>selects the considered events in the horizon
- *   <li>sorts the selected events </li>
- *   <li>publishes the resulting sets of events </li>
- *     <ul>
- *       <li>in the relation {@link #sequenceEvent}</li>
- *       <li>in the attribute {@link DistributionEventImpl#eventNr}</li>
- *       <li>in the references {@link DistributionEventImpl#next} and {@link DistributionEventImpl#previous}</li>
- *    </ul>
- *   <li>maintains the value and slope of the distribution at every event</li>
- *     <ul>
- *       <li>in the attribute {@link DistributionEventImpl#amountBefore}</li>
- *       <li>in the attribute {@link DistributionEventImpl#amountAfter}</li>
- *       <li>in the attribute {@link DistributionEventImpl#slopeBefore}</li>
- *       <li>in the attribute {@link DistributionEventImpl#slopeAfter}</li>
- *    </ul>
- * </ul>
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
@@ -679,6 +647,18 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 		DistributionEvent eventBefore = this.getEventBefore(time);
 		float amountAfter = eventBefore.getAmountAfter(time);
 		return amountAfter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public float getAmount(Date time) {
+		DistributionEvent eventAfter = this.getEventAfter(time);
+		if ( eventAfter.getMoment().compareTo(time)!=0){
+			return eventAfter.getAmountBefore(time);
+		}
+		return (eventAfter.getAmountBefore()+eventAfter.getAmountAfter())/2.0f;
 	}
 
 	/**
@@ -1454,6 +1434,8 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 				return getAmountBefore((Date)arguments.get(0));
 			case ContinuousPackage.DISTRIBUTION___GET_AMOUNT_AFTER__DATE:
 				return getAmountAfter((Date)arguments.get(0));
+			case ContinuousPackage.DISTRIBUTION___GET_AMOUNT__DATE:
+				return getAmount((Date)arguments.get(0));
 			case ContinuousPackage.DISTRIBUTION___GET_SLOPE_BEFORE__DATE:
 				return getSlopeBefore((Date)arguments.get(0));
 			case ContinuousPackage.DISTRIBUTION___GET_SLOPE_AFTER__DATE:
