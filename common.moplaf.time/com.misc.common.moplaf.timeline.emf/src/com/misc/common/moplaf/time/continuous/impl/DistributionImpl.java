@@ -901,12 +901,13 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	private class EarliestOutputVisitor implements DistributionVisitor{
 		private Date  previousMoment = null;
 		private float previousAmount;
-		private float previousOutput = 0.0f;
+		private float previousOutput;
 		private float outputPossible;
 		private float durationPossible;
 		private float ratePossible;
 		private Date earliestOutput = null;
-		public EarliestOutputVisitor(float amount, float duration){
+		public EarliestOutputVisitor(float above, float amount, float duration){
+			this.previousOutput   = above;
 			this.outputPossible   = amount;
 			this.durationPossible = duration;
 			this.ratePossible     = amount/duration;
@@ -929,9 +930,13 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 				float durationOffset = 0.0f;
 				if ( previousDuration>0.0f) {
 					float previousRate = (amount-this.previousAmount)/previousDuration;
-				    durationOffset = (this.outputPossible-currentOutput)*(previousRate-this.ratePossible); // negative
+				    float durationDistribution = (this.outputPossible-this.previousOutput)*this.ratePossible; 
+				    durationOffset = (this.outputPossible-this.previousAmount)*previousRate;
+				    if ( durationDistribution>durationOffset){
+				    	durationOffset = durationDistribution;
+				    }
 				}
-				Date earliestEnd = DistributionImpl.this.getMoment(moment, durationOffset);
+				Date earliestEnd = DistributionImpl.this.getMoment(this.previousMoment, durationOffset);
 				this.earliestOutput = DistributionImpl.this.getMoment(earliestEnd, -this.durationPossible);
 				return true; // do stop
 			}
@@ -946,8 +951,8 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public Date getEarliestOutputPossible(Date after, float duration, float amount) {
-		EarliestOutputVisitor visitor = new EarliestOutputVisitor(amount, duration);
+	public Date getEarliestOutputPossible(float above, Date after, float duration, float amount) {
+		EarliestOutputVisitor visitor = new EarliestOutputVisitor(above, amount, duration);
 		this.accept(after, this.getHorizonEnd(), visitor);
 		return visitor.getEarliestOutput();
 	}
@@ -1469,8 +1474,8 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 				return getEarliestAbove((Date)arguments.get(0), (Float)arguments.get(1), (Float)arguments.get(2));
 			case ContinuousPackage.DISTRIBUTION___GET_LATEST_ABOVE__DATE_FLOAT_FLOAT:
 				return getLatestAbove((Date)arguments.get(0), (Float)arguments.get(1), (Float)arguments.get(2));
-			case ContinuousPackage.DISTRIBUTION___GET_EARLIEST_OUTPUT_POSSIBLE__DATE_FLOAT_FLOAT:
-				return getEarliestOutputPossible((Date)arguments.get(0), (Float)arguments.get(1), (Float)arguments.get(2));
+			case ContinuousPackage.DISTRIBUTION___GET_EARLIEST_OUTPUT_POSSIBLE__FLOAT_DATE_FLOAT_FLOAT:
+				return getEarliestOutputPossible((Float)arguments.get(0), (Date)arguments.get(1), (Float)arguments.get(2), (Float)arguments.get(3));
 			case ContinuousPackage.DISTRIBUTION___REFRESH_INIT:
 				refreshInit();
 				return null;

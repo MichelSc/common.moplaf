@@ -123,6 +123,7 @@
         <eParameters name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
       </eOperations>
       <eOperations name="getEarliestOutputPossible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
+        <eParameters name="above" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
         <eParameters name="after" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
         <eParameters name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
         <eParameters name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>

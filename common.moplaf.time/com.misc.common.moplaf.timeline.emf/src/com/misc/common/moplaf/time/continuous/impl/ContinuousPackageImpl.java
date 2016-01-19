@@ -591,7 +591,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDistribution__GetEarliestOutputPossible__Date_float_float() {
+	public EOperation getDistribution__GetEarliestOutputPossible__float_Date_float_float() {
 		return distributionEClass.getEOperations().get(18);
 	}
 
@@ -1535,7 +1535,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		createEOperation(distributionEClass, DISTRIBUTION___GET_LATEST_BELOW__DATE_FLOAT_FLOAT);
 		createEOperation(distributionEClass, DISTRIBUTION___GET_EARLIEST_ABOVE__DATE_FLOAT_FLOAT);
 		createEOperation(distributionEClass, DISTRIBUTION___GET_LATEST_ABOVE__DATE_FLOAT_FLOAT);
-		createEOperation(distributionEClass, DISTRIBUTION___GET_EARLIEST_OUTPUT_POSSIBLE__DATE_FLOAT_FLOAT);
+		createEOperation(distributionEClass, DISTRIBUTION___GET_EARLIEST_OUTPUT_POSSIBLE__FLOAT_DATE_FLOAT_FLOAT);
 		createEOperation(distributionEClass, DISTRIBUTION___REFRESH_INIT);
 		createEOperation(distributionEClass, DISTRIBUTION___REFRESH_SEQUENCE);
 		createEOperation(distributionEClass, DISTRIBUTION___REFRESH_CHILD_EVENT);
@@ -1805,7 +1805,8 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		addEParameter(op, ecorePackage.getEFloat(), "duration", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEFloat(), "amount", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getDistribution__GetEarliestOutputPossible__Date_float_float(), ecorePackage.getEDate(), "getEarliestOutputPossible", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getDistribution__GetEarliestOutputPossible__float_Date_float_float(), ecorePackage.getEDate(), "getEarliestOutputPossible", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEFloat(), "above", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "after", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEFloat(), "duration", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEFloat(), "amount", 0, 1, IS_UNIQUE, IS_ORDERED);

@@ -495,7 +495,7 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	 * @model
 	 * @generated
 	 */
-	Date getEarliestOutputPossible(Date after, float duration, float amount);
+	Date getEarliestOutputPossible(float above, Date after, float duration, float amount);
 
 	/**
 	 * <!-- begin-user-doc -->

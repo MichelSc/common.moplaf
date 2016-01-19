@@ -356,7 +356,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___GET_EARLIEST_OUTPUT_POSSIBLE__DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 18;
+	int DISTRIBUTION___GET_EARLIEST_OUTPUT_POSSIBLE__FLOAT_DATE_FLOAT_FLOAT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 18;
 
 	/**
 	 * The operation id for the '<em>Refresh Init</em>' operation.
@@ -5477,14 +5477,14 @@ public interface ContinuousPackage extends EPackage {
 	EOperation getDistribution__GetLatestAbove__Date_float_float();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getEarliestOutputPossible(java.util.Date, float, float) <em>Get Earliest Output Possible</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#getEarliestOutputPossible(float, java.util.Date, float, float) <em>Get Earliest Output Possible</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Earliest Output Possible</em>' operation.
-	 * @see com.misc.common.moplaf.time.continuous.Distribution#getEarliestOutputPossible(java.util.Date, float, float)
+	 * @see com.misc.common.moplaf.time.continuous.Distribution#getEarliestOutputPossible(float, java.util.Date, float, float)
 	 * @generated
 	 */
-	EOperation getDistribution__GetEarliestOutputPossible__Date_float_float();
+	EOperation getDistribution__GetEarliestOutputPossible__float_Date_float_float();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.continuous.Distribution#refreshInit() <em>Refresh Init</em>}' operation.
@@ -6788,7 +6788,7 @@ public interface ContinuousPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation DISTRIBUTION___GET_EARLIEST_OUTPUT_POSSIBLE__DATE_FLOAT_FLOAT = eINSTANCE.getDistribution__GetEarliestOutputPossible__Date_float_float();
+		EOperation DISTRIBUTION___GET_EARLIEST_OUTPUT_POSSIBLE__FLOAT_DATE_FLOAT_FLOAT = eINSTANCE.getDistribution__GetEarliestOutputPossible__float_Date_float_float();
 
 		/**
 		 * The meta object literal for the '<em><b>Refresh Init</b></em>' operation.
