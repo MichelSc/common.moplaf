@@ -16,7 +16,12 @@ import java.util.Collection;
  * </ul> 
  * In the project's ProviderAdapterFactory, you may need to change 
  * <ul>
- *   <li>the method {@link #isFactoryForType}</li>
+ *   <li>the method {@link #isFactoryForType} (apparently not)</li>
+ *   <li> add the following lines in the constructors (apparenlty yes)
+ *     <ul>
+ *     <li>	<code>supportedTypes.add(IItemIntervalEventProvider.class); // non emf interface </code></li>
+ *     <li>	<code>supportedTypes.add(IItemIntervalEventsProvider.class); // non emf interface </code></li>
+ *     </ul>
  * </ul> 
  * In the plugin.xml,  
  * <ul>
