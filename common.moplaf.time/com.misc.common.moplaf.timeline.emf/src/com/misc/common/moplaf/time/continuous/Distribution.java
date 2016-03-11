@@ -501,6 +501,17 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Returns the earliest moment after the moment {@code after} when the distribution is at least {@code amount} for
+	 * the given {@code duration}.
+	 * <p>
+	 * The returned earliestMoment 
+	 * satisfies: for every {@code moment } between  {@code earliestMoment } and {@code earliestMoment + duration}, we 
+	 * have: {@code amount} is below {@code this.getAmount(moment)}. 
+	 * 
+	 * @param after    the moment after which capacity must be available
+	 * @param duration the duration for of the required capacity
+	 * @param amount   the amount of the required capacity
+	 * @return         earliest moment when the required capacity is available
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
@@ -539,13 +550,13 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	 * <p>
 	 * Say {@code rate} is {@code amount / duration}. Then the returned earliestMoment 
 	 * satisfies: for every {@code moment } between  {@code earliestMoment } and {@code earliestMoment + duration}, we 
-	 * have: {@code above + moment * rate} is below the {@code this.getAmount(moment)}. 
+	 * have: {@code above + moment * rate} is below {@code this.getAmount(moment)}. 
 	 * 
-	 * @param above minimal amount that may not be used
-	 * @param after    look up for an earliest moment after this time
-	 * @param duration duration for the production
-	 * @param amount   amount produce
-	 * @return         earliest moment when possible to product
+	 * @param above    the minimal amount that may not be used
+	 * @param after    the moment after which production must start
+	 * @param duration the duration for the production
+	 * @param amount   the amount to produce
+	 * @return         earliest moment when possible to produce
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
