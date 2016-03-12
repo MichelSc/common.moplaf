@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Emf
+Bundle-SymbolicName: com.misc.common.moplaf.emf
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.misc.common.moplaf.emf.Activator
+Bundle-Vendor: MISC
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Export-Package: com.misc.common.moplaf.emf
