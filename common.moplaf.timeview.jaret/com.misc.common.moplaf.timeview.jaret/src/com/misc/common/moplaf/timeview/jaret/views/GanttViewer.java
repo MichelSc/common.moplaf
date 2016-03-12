@@ -438,25 +438,32 @@ public class GanttViewer extends GanttViewerAbstract {
 		this.refreshNodeRowIntervals(row);
 	}
 	
-	private void refreshNodeRowSubrows(GanttViewerRow row, HashMap<Object, GanttViewerRow> ganttChildRowsAsIs, Object modelElement){
+	private void refreshNodeRowSubrows(GanttViewerRow row, 
+			                           HashMap<Object, GanttViewerRow> ganttChildRowsAsIs, 
+			                           Object modelElement){
 		Object[] childrenModelElement = this.getTreeContentProvider().getChildren(modelElement);
 		for (Object childModelElement : childrenModelElement) {
-			if( this.getIIntervalEventProvider().isIntervalEvents(childModelElement) ) {
-				// the model element is a row
-				GanttViewerRow ganttChildRow = ganttChildRowsAsIs.get(childModelElement);
-				if ( ganttChildRow == null){
-					// create the row
-					ganttChildRow= this.createRow(childModelElement, true);
-					row.addNode(ganttChildRow);
+			if ( modelElement.getClass().isArray() || this.getTreeContentProvider().getParent(childModelElement)==modelElement){
+				// the parent of child is modelElement, this is an actual child
+				// this restriction avoid recursion
+				if( this.getIIntervalEventProvider().isIntervalEvents(childModelElement) ) {
+					// the model element is a row
+					GanttViewerRow ganttChildRow = ganttChildRowsAsIs.get(childModelElement);
+					if ( ganttChildRow == null){
+						// create the row
+						ganttChildRow= this.createRow(childModelElement, true);
+						row.addNode(ganttChildRow);
+					}
+					else {
+						// update
+						ganttChildRowsAsIs.remove(modelElement);
+					}
+					this.refreshNodeRow(ganttChildRow);
+				} else { 
+					// the model element is not a row
+					// recursive
+					this.refreshNodeRowSubrows(row, ganttChildRowsAsIs, childModelElement);
 				}
-				else {
-					// update
-					ganttChildRowsAsIs.remove(modelElement);
-				}
-				this.refreshNodeRow(ganttChildRow);
-			} else { 
-				// the model element is not a row
-				this.refreshNodeRowSubrows(row, ganttChildRowsAsIs, childModelElement);
 			}
 	    }
 	}
