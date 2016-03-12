@@ -31,7 +31,7 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.ui.views.properties.IPropertyDescriptor;
 import org.eclipse.ui.views.properties.IPropertySource;
 
-import com.misc.common.moplaf.emf.edit.Util;
+import com.misc.common.moplaf.emf.Util;
 
 import org.eclipse.emf.common.ui.celleditor.ExtendedDialogCellEditor;
 
