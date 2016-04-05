@@ -17,8 +17,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpVar#getType <em>Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpVar#getLowerBound <em>Lower Bound</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpVar#getUpperBound <em>Upper Bound</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpVar#getObjectiveCoeff <em>Objective Coeff</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpVar#getLpTerm <em>Lp Term</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpVar#getLpGoalTerm <em>Lp Goal Term</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorLpVar()
@@ -110,32 +110,6 @@ public interface GeneratorLpVar extends GeneratorVar {
 	void setUpperBound(float value);
 
 	/**
-	 * Returns the value of the '<em><b>Objective Coeff</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Objective Coeff</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Objective Coeff</em>' attribute.
-	 * @see #setObjectiveCoeff(float)
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorLpVar_ObjectiveCoeff()
-	 * @model required="true"
-	 * @generated
-	 */
-	float getObjectiveCoeff();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.solver.GeneratorLpVar#getObjectiveCoeff <em>Objective Coeff</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Objective Coeff</em>' attribute.
-	 * @see #getObjectiveCoeff()
-	 * @generated
-	 */
-	void setObjectiveCoeff(float value);
-
-	/**
 	 * Returns the value of the '<em><b>Lp Term</b></em>' reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.solver.GeneratorLpTerm}.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.GeneratorLpTerm#getLpVar <em>Lp Var</em>}'.
@@ -152,5 +126,23 @@ public interface GeneratorLpVar extends GeneratorVar {
 	 * @generated
 	 */
 	EList<GeneratorLpTerm> getLpTerm();
+
+	/**
+	 * Returns the value of the '<em><b>Lp Goal Term</b></em>' reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.solver.GeneratorLpGoalTerm}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.GeneratorLpGoalTerm#getLpVar <em>Lp Var</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Lp Goal Term</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Lp Goal Term</em>' reference list.
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorLpVar_LpGoalTerm()
+	 * @see com.misc.common.moplaf.solver.GeneratorLpGoalTerm#getLpVar
+	 * @model opposite="LpVar"
+	 * @generated
+	 */
+	EList<GeneratorLpGoalTerm> getLpGoalTerm();
 
 } // GeneratorLpVar

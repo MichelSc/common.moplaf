@@ -3,33 +3,37 @@
 package com.misc.common.moplaf.solver.provider;
 
 
-import com.misc.common.moplaf.solver.GeneratorLpVar;
+import com.misc.common.moplaf.solver.GeneratorLpGoal;
+import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.solver.SolverPackage;
+
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.solver.GeneratorLpVar} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.solver.GeneratorLpGoal} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class GeneratorLpVarItemProvider
-	extends GeneratorVarItemProvider {
+public class GeneratorLpGoalItemProvider extends GeneratorGoalItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GeneratorLpVarItemProvider(AdapterFactory adapterFactory) {
+	public GeneratorLpGoalItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -44,98 +48,52 @@ public class GeneratorLpVarItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTypePropertyDescriptor(object);
-			addLowerBoundPropertyDescriptor(object);
-			addUpperBoundPropertyDescriptor(object);
-			addLpGoalTermPropertyDescriptor(object);
+			addObjectiveTypePropertyDescriptor(object);
+			addGoalWeightPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Type feature.
+	 * This adds a property descriptor for the Objective Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTypePropertyDescriptor(Object object) {
+	protected void addObjectiveTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GeneratorLpVar_Type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorLpVar_Type_feature", "_UI_GeneratorLpVar_type"),
-				 SolverPackage.Literals.GENERATOR_LP_VAR__TYPE,
+				 getString("_UI_GeneratorLpGoal_ObjectiveType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorLpGoal_ObjectiveType_feature", "_UI_GeneratorLpGoal_type"),
+				 SolverPackage.Literals.GENERATOR_LP_GOAL__OBJECTIVE_TYPE,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__20VariablePropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Lower Bound feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addLowerBoundPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GeneratorLpVar_LowerBound_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorLpVar_LowerBound_feature", "_UI_GeneratorLpVar_type"),
-				 SolverPackage.Literals.GENERATOR_LP_VAR__LOWER_BOUND,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 getString("_UI__20VariablePropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Upper Bound feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addUpperBoundPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GeneratorLpVar_UpperBound_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorLpVar_UpperBound_feature", "_UI_GeneratorLpVar_type"),
-				 SolverPackage.Literals.GENERATOR_LP_VAR__UPPER_BOUND,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 getString("_UI__20VariablePropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Lp Goal Term feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addLpGoalTermPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GeneratorLpVar_LpGoalTerm_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorLpVar_LpGoalTerm_feature", "_UI_GeneratorLpVar_type"),
-				 SolverPackage.Literals.GENERATOR_LP_VAR__LP_GOAL_TERM,
-				 true,
-				 false,
-				 true,
 				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Goal Weight feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGoalWeightPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GeneratorLpGoal_GoalWeight_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorLpGoal_GoalWeight_feature", "_UI_GeneratorLpGoal_type"),
+				 SolverPackage.Literals.GENERATOR_LP_GOAL__GOAL_WEIGHT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -152,7 +110,7 @@ public class GeneratorLpVarItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SolverPackage.Literals.GENERATOR_LP_VAR__LP_TERM);
+			childrenFeatures.add(SolverPackage.Literals.GENERATOR_LP_GOAL__LP_GOAL_TERM);
 		}
 		return childrenFeatures;
 	}
@@ -171,6 +129,17 @@ public class GeneratorLpVarItemProvider
 	}
 
 	/**
+	 * This returns GeneratorLpGoal.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/GeneratorLpGoal"));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -178,11 +147,12 @@ public class GeneratorLpVarItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GeneratorLpVar)object).getLabel();
+		String label = ((GeneratorLpGoal)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_GeneratorLpVar_type") :
-			getString("_UI_GeneratorLpVar_type") + " " + label;
+			getString("_UI_GeneratorLpGoal_type") :
+			getString("_UI_GeneratorLpGoal_type") + " " + label;
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -195,11 +165,13 @@ public class GeneratorLpVarItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(GeneratorLpVar.class)) {
-			case SolverPackage.GENERATOR_LP_VAR__TYPE:
-			case SolverPackage.GENERATOR_LP_VAR__LOWER_BOUND:
-			case SolverPackage.GENERATOR_LP_VAR__UPPER_BOUND:
+		switch (notification.getFeatureID(GeneratorLpGoal.class)) {
+			case SolverPackage.GENERATOR_LP_GOAL__OBJECTIVE_TYPE:
+			case SolverPackage.GENERATOR_LP_GOAL__GOAL_WEIGHT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case SolverPackage.GENERATOR_LP_GOAL__LP_GOAL_TERM:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -215,6 +187,11 @@ public class GeneratorLpVarItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SolverPackage.Literals.GENERATOR_LP_GOAL__LP_GOAL_TERM,
+				 SolverFactory.eINSTANCE.createGeneratorLpGoalTerm()));
 	}
 
 }

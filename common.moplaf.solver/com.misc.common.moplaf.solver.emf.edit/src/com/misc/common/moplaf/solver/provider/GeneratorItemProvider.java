@@ -66,7 +66,6 @@ public class GeneratorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addObjectiveTypePropertyDescriptor(object);
 			addRemarksPropertyDescriptor(object);
 			addFootprintNofVarsPropertyDescriptor(object);
 			addFootprintNofConsPropertyDescriptor(object);
@@ -75,30 +74,9 @@ public class GeneratorItemProvider
 			addCountVarsPropertyDescriptor(object);
 			addCodePropertyDescriptor(object);
 			addSelectedPropertyDescriptor(object);
+			addGoalsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Objective Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addObjectiveTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Generator_ObjectiveType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_ObjectiveType_feature", "_UI_Generator_type"),
-				 SolverPackage.Literals.GENERATOR__OBJECTIVE_TYPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10GeneralPropertyCategory"),
-				 null));
 	}
 
 	/**
@@ -303,6 +281,28 @@ public class GeneratorItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Goals feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGoalsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Generator_Goals_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_Goals_feature", "_UI_Generator_type"),
+				 SolverPackage.Literals.GENERATOR__GOALS,
+				 false,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -369,7 +369,6 @@ public class GeneratorItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Generator.class)) {
-			case SolverPackage.GENERATOR__OBJECTIVE_TYPE:
 			case SolverPackage.GENERATOR__REMARKS:
 			case SolverPackage.GENERATOR__FOOTPRINT_NOF_VARS:
 			case SolverPackage.GENERATOR__FOOTPRINT_NOF_CONS:

@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.solver.Solution#getSolutionNr <em>Solution Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solution#getCode <em>Code</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solution#getValue <em>Value</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.Solution#getGoal <em>Goal</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getSolution()
@@ -180,6 +181,24 @@ public interface Solution extends EObject {
 	 * @generated
 	 */
 	void setValue(float value);
+
+	/**
+	 * Returns the value of the '<em><b>Goal</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.solver.SolutionGoal}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.SolutionGoal#getSolution <em>Solution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Goal</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Goal</em>' containment reference list.
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolution_Goal()
+	 * @see com.misc.common.moplaf.solver.SolutionGoal#getSolution
+	 * @model opposite="Solution" containment="true"
+	 * @generated
+	 */
+	EList<SolutionGoal> getGoal();
 
 	/**
 	 * <!-- begin-user-doc -->

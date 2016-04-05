@@ -216,6 +216,26 @@ public class SolverAdapterFactory extends AdapterFactoryImpl {
 				return createGeneratorElementAdapter();
 			}
 			@Override
+			public Adapter caseGeneratorGoal(GeneratorGoal object) {
+				return createGeneratorGoalAdapter();
+			}
+			@Override
+			public Adapter caseGeneratorLpGoal(GeneratorLpGoal object) {
+				return createGeneratorLpGoalAdapter();
+			}
+			@Override
+			public Adapter caseGeneratorLpGoalTerm(GeneratorLpGoalTerm object) {
+				return createGeneratorLpGoalTermAdapter();
+			}
+			@Override
+			public Adapter caseSolutionGoal(SolutionGoal object) {
+				return createSolutionGoalAdapter();
+			}
+			@Override
+			public Adapter caseSolutionLpGoal(SolutionLpGoal object) {
+				return createSolutionLpGoalAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -288,6 +308,76 @@ public class SolverAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGeneratorElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.GeneratorGoal <em>Generator Goal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.solver.GeneratorGoal
+	 * @generated
+	 */
+	public Adapter createGeneratorGoalAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.GeneratorLpGoal <em>Generator Lp Goal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.solver.GeneratorLpGoal
+	 * @generated
+	 */
+	public Adapter createGeneratorLpGoalAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.GeneratorLpGoalTerm <em>Generator Lp Goal Term</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.solver.GeneratorLpGoalTerm
+	 * @generated
+	 */
+	public Adapter createGeneratorLpGoalTermAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.SolutionGoal <em>Solution Goal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.solver.SolutionGoal
+	 * @generated
+	 */
+	public Adapter createSolutionGoalAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.SolutionLpGoal <em>Solution Lp Goal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.solver.SolutionLpGoal
+	 * @generated
+	 */
+	public Adapter createSolutionLpGoalAdapter() {
 		return null;
 	}
 

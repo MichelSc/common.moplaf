@@ -95,6 +95,98 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.GeneratorLpGoal} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GeneratorLpGoalItemProvider generatorLpGoalItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.GeneratorLpGoal}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGeneratorLpGoalAdapter() {
+		if (generatorLpGoalItemProvider == null) {
+			generatorLpGoalItemProvider = new GeneratorLpGoalItemProvider(this);
+		}
+
+		return generatorLpGoalItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.GeneratorLpGoalTerm} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GeneratorLpGoalTermItemProvider generatorLpGoalTermItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.GeneratorLpGoalTerm}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGeneratorLpGoalTermAdapter() {
+		if (generatorLpGoalTermItemProvider == null) {
+			generatorLpGoalTermItemProvider = new GeneratorLpGoalTermItemProvider(this);
+		}
+
+		return generatorLpGoalTermItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.SolutionGoal} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SolutionGoalItemProvider solutionGoalItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.SolutionGoal}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSolutionGoalAdapter() {
+		if (solutionGoalItemProvider == null) {
+			solutionGoalItemProvider = new SolutionGoalItemProvider(this);
+		}
+
+		return solutionGoalItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.SolutionLpGoal} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SolutionLpGoalItemProvider solutionLpGoalItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.SolutionLpGoal}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSolutionLpGoalAdapter() {
+		if (solutionLpGoalItemProvider == null) {
+			solutionLpGoalItemProvider = new SolutionLpGoalItemProvider(this);
+		}
+
+		return solutionLpGoalItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.Solution} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -722,6 +814,10 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 		if (generatorCpLogicalTermItemProvider != null) generatorCpLogicalTermItemProvider.dispose();
 		if (solutionCpVarItemProvider != null) solutionCpVarItemProvider.dispose();
 		if (generatorElementItemProvider != null) generatorElementItemProvider.dispose();
+		if (generatorLpGoalItemProvider != null) generatorLpGoalItemProvider.dispose();
+		if (generatorLpGoalTermItemProvider != null) generatorLpGoalTermItemProvider.dispose();
+		if (solutionGoalItemProvider != null) solutionGoalItemProvider.dispose();
+		if (solutionLpGoalItemProvider != null) solutionLpGoalItemProvider.dispose();
 	}
 
 }

@@ -6,6 +6,7 @@ import com.misc.common.moplaf.solver.GeneratorCons;
 import com.misc.common.moplaf.solver.GeneratorVar;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionCons;
+import com.misc.common.moplaf.solver.SolutionGoal;
 import com.misc.common.moplaf.solver.SolutionProvider;
 import com.misc.common.moplaf.solver.SolutionVar;
 import com.misc.common.moplaf.solver.SolverFactory;
@@ -39,6 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionImpl#getSolutionNr <em>Solution Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionImpl#getCode <em>Code</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionImpl#getGoal <em>Goal</em>}</li>
  * </ul>
  *
  * @generated
@@ -110,6 +112,16 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	 * @ordered
 	 */
 	protected float value = VALUE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getGoal() <em>Goal</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGoal()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SolutionGoal> goal;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -258,6 +270,18 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<SolutionGoal> getGoal() {
+		if (goal == null) {
+			goal = new EObjectContainmentWithInverseEList<SolutionGoal>(SolutionGoal.class, this, SolverPackage.SOLUTION__GOAL, SolverPackage.SOLUTION_GOAL__SOLUTION);
+		}
+		return goal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public SolutionVar solutionVarFactory() {
 		SolutionVar newSolutionVar = SolverFactory.eINSTANCE.createSolutionVar();
@@ -312,6 +336,8 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetProvider((SolutionProvider)otherEnd, msgs);
+			case SolverPackage.SOLUTION__GOAL:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getGoal()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -330,6 +356,8 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 				return ((InternalEList<?>)getCons()).basicRemove(otherEnd, msgs);
 			case SolverPackage.SOLUTION__PROVIDER:
 				return basicSetProvider(null, msgs);
+			case SolverPackage.SOLUTION__GOAL:
+				return ((InternalEList<?>)getGoal()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -368,6 +396,8 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 				return getCode();
 			case SolverPackage.SOLUTION__VALUE:
 				return getValue();
+			case SolverPackage.SOLUTION__GOAL:
+				return getGoal();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -401,6 +431,10 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 			case SolverPackage.SOLUTION__VALUE:
 				setValue((Float)newValue);
 				return;
+			case SolverPackage.SOLUTION__GOAL:
+				getGoal().clear();
+				getGoal().addAll((Collection<? extends SolutionGoal>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -431,6 +465,9 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 			case SolverPackage.SOLUTION__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
+			case SolverPackage.SOLUTION__GOAL:
+				getGoal().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -455,6 +492,8 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 				return CODE_EDEFAULT == null ? getCode() != null : !CODE_EDEFAULT.equals(getCode());
 			case SolverPackage.SOLUTION__VALUE:
 				return value != VALUE_EDEFAULT;
+			case SolverPackage.SOLUTION__GOAL:
+				return goal != null && !goal.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

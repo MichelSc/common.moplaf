@@ -2,10 +2,10 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
-import com.misc.common.moplaf.solver.EnumObjectiveType;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorCons;
 import com.misc.common.moplaf.solver.GeneratorFeatureMode;
+import com.misc.common.moplaf.solver.GeneratorGoal;
 import com.misc.common.moplaf.solver.GeneratorLpConsCount;
 import com.misc.common.moplaf.solver.GeneratorLpVarCount;
 import com.misc.common.moplaf.solver.GeneratorTuple;
@@ -43,7 +43,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getTupleRoot <em>Tuple Root</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getGeneratorFeatureModes <em>Generator Feature Modes</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getObjectiveType <em>Objective Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getRemarks <em>Remarks</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getFootprintNofVars <em>Footprint Nof Vars</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getFootprintNofCons <em>Footprint Nof Cons</em>}</li>
@@ -55,6 +54,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getCode <em>Code</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getSolutionProvider <em>Solution Provider</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getSelected <em>Selected</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getGoals <em>Goals</em>}</li>
  * </ul>
  *
  * @generated
@@ -69,26 +69,6 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 	 * @ordered
 	 */
 	protected EList<GeneratorFeatureMode> generatorFeatureModes;
-
-	/**
-	 * The default value of the '{@link #getObjectiveType() <em>Objective Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getObjectiveType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final EnumObjectiveType OBJECTIVE_TYPE_EDEFAULT = EnumObjectiveType.MAXIMUM;
-
-	/**
-	 * The cached value of the '{@link #getObjectiveType() <em>Objective Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getObjectiveType()
-	 * @generated
-	 * @ordered
-	 */
-	protected EnumObjectiveType objectiveType = OBJECTIVE_TYPE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getRemarks() <em>Remarks</em>}' attribute.
@@ -287,10 +267,7 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 		// Ensure that you remove @generated or mark it @generated NOT
 		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
 		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-		// Ensure that you remove @generated or mark it @generated NOT
-		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-		EList<GeneratorTuple> newList = new EObjectEList<GeneratorTuple>(GeneratorTuple.class, this, SolverPackage.GENERATOR___GENERATE_ROOT_TUPLES);
+		EList<GeneratorTuple> newList = new EObjectEList<GeneratorTuple>(GeneratorTuple.class, this, SolverPackage.GENERATOR__TUPLE_ROOT);
 		for ( EObject element : this.eContents()){
 			if ( element instanceof GeneratorTuple){
 				GeneratorTuple tuple= (GeneratorTuple)element;
@@ -299,27 +276,6 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 			
 		}
 		return newList;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EnumObjectiveType getObjectiveType() {
-		return objectiveType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setObjectiveType(EnumObjectiveType newObjectiveType) {
-		EnumObjectiveType oldObjectiveType = objectiveType;
-		objectiveType = newObjectiveType == null ? OBJECTIVE_TYPE_EDEFAULT : newObjectiveType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR__OBJECTIVE_TYPE, oldObjectiveType, objectiveType));
 	}
 
 	/**
@@ -624,6 +580,25 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public EList<GeneratorGoal> getGoals() {
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		EList<GeneratorGoal> newList = new EObjectEList<GeneratorGoal>(GeneratorGoal.class, this, SolverPackage.GENERATOR__GOALS);
+		for ( EObject element : this.eContents()){
+			if ( element instanceof GeneratorGoal){
+				GeneratorGoal goal= (GeneratorGoal)element;
+				newList.add(goal);
+			}
+			
+		}
+		return newList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public void generate() {
 		CommonPlugin.INSTANCE.log("Generator.generate: called");
 		//this.getTupleRoot().clear();
@@ -639,6 +614,8 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 		CommonPlugin.INSTANCE.log("Generator.generate: vars generated");
 		this.generateCons();
 		CommonPlugin.INSTANCE.log("Generator.generate: con generated");
+		this.generateGoals();
+		CommonPlugin.INSTANCE.log("Generator.generate: goals generated");
 	}
 
 	/**
@@ -719,6 +696,14 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 		}
 		this.setFootprintNofCons(consgenerator.conscounter);
 		this.setFootprintNofTerms(consgenerator.termscounter);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Generate the goals. Default implementation does nothing
+	 * <!-- end-user-doc -->
+	 */
+	public void generateGoals() {
 	}
 
 	/**
@@ -838,8 +823,6 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 				return getTupleRoot();
 			case SolverPackage.GENERATOR__GENERATOR_FEATURE_MODES:
 				return getGeneratorFeatureModes();
-			case SolverPackage.GENERATOR__OBJECTIVE_TYPE:
-				return getObjectiveType();
 			case SolverPackage.GENERATOR__REMARKS:
 				return getRemarks();
 			case SolverPackage.GENERATOR__FOOTPRINT_NOF_VARS:
@@ -863,6 +846,8 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 			case SolverPackage.GENERATOR__SELECTED:
 				if (resolve) return getSelected();
 				return basicGetSelected();
+			case SolverPackage.GENERATOR__GOALS:
+				return getGoals();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -879,9 +864,6 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 			case SolverPackage.GENERATOR__GENERATOR_FEATURE_MODES:
 				getGeneratorFeatureModes().clear();
 				getGeneratorFeatureModes().addAll((Collection<? extends GeneratorFeatureMode>)newValue);
-				return;
-			case SolverPackage.GENERATOR__OBJECTIVE_TYPE:
-				setObjectiveType((EnumObjectiveType)newValue);
 				return;
 			case SolverPackage.GENERATOR__REMARKS:
 				setRemarks((String)newValue);
@@ -927,9 +909,6 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 		switch (featureID) {
 			case SolverPackage.GENERATOR__GENERATOR_FEATURE_MODES:
 				getGeneratorFeatureModes().clear();
-				return;
-			case SolverPackage.GENERATOR__OBJECTIVE_TYPE:
-				setObjectiveType(OBJECTIVE_TYPE_EDEFAULT);
 				return;
 			case SolverPackage.GENERATOR__REMARKS:
 				setRemarks(REMARKS_EDEFAULT);
@@ -977,8 +956,6 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 				return !getTupleRoot().isEmpty();
 			case SolverPackage.GENERATOR__GENERATOR_FEATURE_MODES:
 				return generatorFeatureModes != null && !generatorFeatureModes.isEmpty();
-			case SolverPackage.GENERATOR__OBJECTIVE_TYPE:
-				return objectiveType != OBJECTIVE_TYPE_EDEFAULT;
 			case SolverPackage.GENERATOR__REMARKS:
 				return REMARKS_EDEFAULT == null ? remarks != null : !REMARKS_EDEFAULT.equals(remarks);
 			case SolverPackage.GENERATOR__FOOTPRINT_NOF_VARS:
@@ -1001,6 +978,8 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 				return !getSolutionProvider().isEmpty();
 			case SolverPackage.GENERATOR__SELECTED:
 				return selected != null;
+			case SolverPackage.GENERATOR__GOALS:
+				return !getGoals().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1027,6 +1006,9 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 				return null;
 			case SolverPackage.GENERATOR___GENERATE_CONS:
 				generateCons();
+				return null;
+			case SolverPackage.GENERATOR___GENERATE_GOALS:
+				generateGoals();
 				return null;
 			case SolverPackage.GENERATOR___ACCEPT_SOLUTION__SOLUTION:
 				acceptSolution((Solution)arguments.get(0));
@@ -1058,9 +1040,7 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (ObjectiveType: ");
-		result.append(objectiveType);
-		result.append(", Remarks: ");
+		result.append(" (Remarks: ");
 		result.append(remarks);
 		result.append(", FootprintNofVars: ");
 		result.append(footprintNofVars);

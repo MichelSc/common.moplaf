@@ -46,7 +46,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getTupleRoot <em>Tuple Root</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getGeneratorFeatureModes <em>Generator Feature Modes</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.Generator#getObjectiveType <em>Objective Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getRemarks <em>Remarks</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getFootprintNofVars <em>Footprint Nof Vars</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getFootprintNofCons <em>Footprint Nof Cons</em>}</li>
@@ -58,6 +57,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getCode <em>Code</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getSolutionProvider <em>Solution Provider</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getSelected <em>Selected</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.Generator#getGoals <em>Goals</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getGenerator()
@@ -82,36 +82,6 @@ public interface Generator extends EObject {
 	 * @generated
 	 */
 	EList<GeneratorTuple> getTupleRoot();
-
-	/**
-	 * Returns the value of the '<em><b>Objective Type</b></em>' attribute.
-	 * The default value is <code>"Maximum"</code>.
-	 * The literals are from the enumeration {@link com.misc.common.moplaf.solver.EnumObjectiveType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Objective Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Objective Type</em>' attribute.
-	 * @see com.misc.common.moplaf.solver.EnumObjectiveType
-	 * @see #setObjectiveType(EnumObjectiveType)
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getGenerator_ObjectiveType()
-	 * @model default="Maximum"
-	 * @generated
-	 */
-	EnumObjectiveType getObjectiveType();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.solver.Generator#getObjectiveType <em>Objective Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Objective Type</em>' attribute.
-	 * @see com.misc.common.moplaf.solver.EnumObjectiveType
-	 * @see #getObjectiveType()
-	 * @generated
-	 */
-	void setObjectiveType(EnumObjectiveType value);
 
 	/**
 	 * Returns the value of the '<em><b>Remarks</b></em>' attribute.
@@ -394,6 +364,24 @@ public interface Generator extends EObject {
 	void setSelected(Solution value);
 
 	/**
+	 * Returns the value of the '<em><b>Goals</b></em>' reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.solver.GeneratorGoal}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.GeneratorGoal#getGenerator <em>Generator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Goals</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Goals</em>' reference list.
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getGenerator_Goals()
+	 * @see com.misc.common.moplaf.solver.GeneratorGoal#getGenerator
+	 * @model opposite="Generator" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EList<GeneratorGoal> getGoals();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
@@ -432,6 +420,14 @@ public interface Generator extends EObject {
 	 * @generated
 	 */
 	void generateCons();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void generateGoals();
 
 	/**
 	 * <!-- begin-user-doc -->

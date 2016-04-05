@@ -31,6 +31,42 @@ public interface SolverFactory extends EFactory {
 	GeneratorElement createGeneratorElement();
 
 	/**
+	 * Returns a new object of class '<em>Generator Lp Goal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Generator Lp Goal</em>'.
+	 * @generated
+	 */
+	GeneratorLpGoal createGeneratorLpGoal();
+
+	/**
+	 * Returns a new object of class '<em>Generator Lp Goal Term</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Generator Lp Goal Term</em>'.
+	 * @generated
+	 */
+	GeneratorLpGoalTerm createGeneratorLpGoalTerm();
+
+	/**
+	 * Returns a new object of class '<em>Solution Goal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Solution Goal</em>'.
+	 * @generated
+	 */
+	SolutionGoal createSolutionGoal();
+
+	/**
+	 * Returns a new object of class '<em>Solution Lp Goal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Solution Lp Goal</em>'.
+	 * @generated
+	 */
+	SolutionLpGoal createSolutionLpGoal();
+
+	/**
 	 * Returns a new object of class '<em>Solution</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

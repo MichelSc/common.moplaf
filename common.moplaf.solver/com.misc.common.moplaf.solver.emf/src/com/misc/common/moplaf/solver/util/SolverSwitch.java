@@ -338,6 +338,38 @@ public class SolverSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SolverPackage.GENERATOR_GOAL: {
+				GeneratorGoal generatorGoal = (GeneratorGoal)theEObject;
+				T result = caseGeneratorGoal(generatorGoal);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SolverPackage.GENERATOR_LP_GOAL: {
+				GeneratorLpGoal generatorLpGoal = (GeneratorLpGoal)theEObject;
+				T result = caseGeneratorLpGoal(generatorLpGoal);
+				if (result == null) result = caseGeneratorGoal(generatorLpGoal);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SolverPackage.GENERATOR_LP_GOAL_TERM: {
+				GeneratorLpGoalTerm generatorLpGoalTerm = (GeneratorLpGoalTerm)theEObject;
+				T result = caseGeneratorLpGoalTerm(generatorLpGoalTerm);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SolverPackage.SOLUTION_GOAL: {
+				SolutionGoal solutionGoal = (SolutionGoal)theEObject;
+				T result = caseSolutionGoal(solutionGoal);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SolverPackage.SOLUTION_LP_GOAL: {
+				SolutionLpGoal solutionLpGoal = (SolutionLpGoal)theEObject;
+				T result = caseSolutionLpGoal(solutionLpGoal);
+				if (result == null) result = caseSolutionGoal(solutionLpGoal);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -399,6 +431,81 @@ public class SolverSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGeneratorElement(GeneratorElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Generator Goal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Generator Goal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGeneratorGoal(GeneratorGoal object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Generator Lp Goal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Generator Lp Goal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGeneratorLpGoal(GeneratorLpGoal object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Generator Lp Goal Term</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Generator Lp Goal Term</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGeneratorLpGoalTerm(GeneratorLpGoalTerm object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Solution Goal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Solution Goal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSolutionGoal(SolutionGoal object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Solution Lp Goal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Solution Lp Goal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSolutionLpGoal(SolutionLpGoal object) {
 		return null;
 	}
 

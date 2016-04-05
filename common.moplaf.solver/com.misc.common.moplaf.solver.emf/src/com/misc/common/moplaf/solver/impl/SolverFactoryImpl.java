@@ -80,6 +80,10 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 			case SolverPackage.GENERATOR_CP_LOGICAL_TERM: return createGeneratorCpLogicalTerm();
 			case SolverPackage.SOLUTION_CP_VAR: return createSolutionCpVar();
 			case SolverPackage.GENERATOR_ELEMENT: return createGeneratorElement();
+			case SolverPackage.GENERATOR_LP_GOAL: return createGeneratorLpGoal();
+			case SolverPackage.GENERATOR_LP_GOAL_TERM: return createGeneratorLpGoalTerm();
+			case SolverPackage.SOLUTION_GOAL: return createSolutionGoal();
+			case SolverPackage.SOLUTION_LP_GOAL: return createSolutionLpGoal();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -155,6 +159,46 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 	public GeneratorElement createGeneratorElement() {
 		GeneratorElementImpl generatorElement = new GeneratorElementImpl();
 		return generatorElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GeneratorLpGoal createGeneratorLpGoal() {
+		GeneratorLpGoalImpl generatorLpGoal = new GeneratorLpGoalImpl();
+		return generatorLpGoal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GeneratorLpGoalTerm createGeneratorLpGoalTerm() {
+		GeneratorLpGoalTermImpl generatorLpGoalTerm = new GeneratorLpGoalTermImpl();
+		return generatorLpGoalTerm;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SolutionGoal createSolutionGoal() {
+		SolutionGoalImpl solutionGoal = new SolutionGoalImpl();
+		return solutionGoal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SolutionLpGoal createSolutionLpGoal() {
+		SolutionLpGoalImpl solutionLpGoal = new SolutionLpGoalImpl();
+		return solutionLpGoal;
 	}
 
 	/**
