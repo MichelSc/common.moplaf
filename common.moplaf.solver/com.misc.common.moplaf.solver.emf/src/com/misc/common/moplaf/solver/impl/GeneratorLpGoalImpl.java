@@ -5,8 +5,8 @@ package com.misc.common.moplaf.solver.impl;
 import com.misc.common.moplaf.solver.EnumObjectiveType;
 import com.misc.common.moplaf.solver.GeneratorLpGoal;
 import com.misc.common.moplaf.solver.GeneratorLpGoalTerm;
-import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
+import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.solver.SolverPackage;
 
@@ -37,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl#getObjectiveType <em>Objective Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl#getLpGoalTerm <em>Lp Goal Term</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl#getGoalWeight <em>Goal Weight</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl#getSelectedSolutionValue <em>Selected Solution Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -91,6 +92,16 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	 * @ordered
 	 */
 	protected float goalWeight = GOAL_WEIGHT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSelectedSolutionValue() <em>Selected Solution Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSelectedSolutionValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float SELECTED_SOLUTION_VALUE_EDEFAULT = 0.0F;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -168,6 +179,17 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public float getSelectedSolutionValue() {
+		// TODO: implement this method to return the 'Selected Solution Value' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public GeneratorLpGoalTerm constructTerm(GeneratorLpVar var, float coef) {
 		GeneratorLpGoalTerm term = SolverFactory.eINSTANCE.createGeneratorLpGoalTerm();
@@ -175,6 +197,17 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 		term.setLpVar(var);
 		this.getLpGoalTerm().add(term);
 		return term;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public float getSolutionValue(Solution solver) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -220,6 +253,8 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 				return getLpGoalTerm();
 			case SolverPackage.GENERATOR_LP_GOAL__GOAL_WEIGHT:
 				return getGoalWeight();
+			case SolverPackage.GENERATOR_LP_GOAL__SELECTED_SOLUTION_VALUE:
+				return getSelectedSolutionValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -282,6 +317,8 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 				return lpGoalTerm != null && !lpGoalTerm.isEmpty();
 			case SolverPackage.GENERATOR_LP_GOAL__GOAL_WEIGHT:
 				return goalWeight != GOAL_WEIGHT_EDEFAULT;
+			case SolverPackage.GENERATOR_LP_GOAL__SELECTED_SOLUTION_VALUE:
+				return getSelectedSolutionValue() != SELECTED_SOLUTION_VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -296,6 +333,8 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 		switch (operationID) {
 			case SolverPackage.GENERATOR_LP_GOAL___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT:
 				return constructTerm((GeneratorLpVar)arguments.get(0), (Float)arguments.get(1));
+			case SolverPackage.GENERATOR_LP_GOAL___GET_SOLUTION_VALUE__SOLUTION:
+				return getSolutionValue((Solution)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

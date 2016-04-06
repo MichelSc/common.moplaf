@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpGoal#getObjectiveType <em>Objective Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpGoal#getLpGoalTerm <em>Lp Goal Term</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpGoal#getGoalWeight <em>Goal Weight</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpGoal#getSelectedSolutionValue <em>Selected Solution Value</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorLpGoal()
@@ -98,11 +99,34 @@ public interface GeneratorLpGoal extends GeneratorGoal {
 	void setGoalWeight(float value);
 
 	/**
+	 * Returns the value of the '<em><b>Selected Solution Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Selected Solution Value</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Selected Solution Value</em>' attribute.
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorLpGoal_SelectedSolutionValue()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	float getSelectedSolutionValue();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
 	GeneratorLpGoalTerm constructTerm(GeneratorLpVar var, float coef);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	float getSolutionValue(Solution solver);
 
 } // GeneratorLpGoal

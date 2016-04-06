@@ -4463,13 +4463,22 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_GOAL_FEATURE_COUNT = 4;
 
 	/**
+	 * The operation id for the '<em>Get Solution Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_GOAL___GET_SOLUTION_GOAL__SOLUTION = 0;
+
+	/**
 	 * The number of operations of the '<em>Generator Goal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_GOAL_OPERATION_COUNT = 0;
+	int GENERATOR_GOAL_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl <em>Generator Lp Goal</em>}' class.
@@ -4545,13 +4554,31 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_LP_GOAL__GOAL_WEIGHT = GENERATOR_GOAL_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Selected Solution Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_GOAL__SELECTED_SOLUTION_VALUE = GENERATOR_GOAL_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Generator Lp Goal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_LP_GOAL_FEATURE_COUNT = GENERATOR_GOAL_FEATURE_COUNT + 3;
+	int GENERATOR_LP_GOAL_FEATURE_COUNT = GENERATOR_GOAL_FEATURE_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Get Solution Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_GOAL___GET_SOLUTION_GOAL__SOLUTION = GENERATOR_GOAL___GET_SOLUTION_GOAL__SOLUTION;
 
 	/**
 	 * The operation id for the '<em>Construct Term</em>' operation.
@@ -4563,13 +4590,22 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_LP_GOAL___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT = GENERATOR_GOAL_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get Solution Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_GOAL___GET_SOLUTION_VALUE__SOLUTION = GENERATOR_GOAL_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Generator Lp Goal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_LP_GOAL_OPERATION_COUNT = GENERATOR_GOAL_OPERATION_COUNT + 1;
+	int GENERATOR_LP_GOAL_OPERATION_COUNT = GENERATOR_GOAL_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalTermImpl <em>Generator Lp Goal Term</em>}' class.
@@ -5369,6 +5405,16 @@ public interface SolverPackage extends EPackage {
 	EReference getGeneratorGoal_Solution();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorGoal#getSolutionGoal(com.misc.common.moplaf.solver.Solution) <em>Get Solution Goal</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Solution Goal</em>' operation.
+	 * @see com.misc.common.moplaf.solver.GeneratorGoal#getSolutionGoal(com.misc.common.moplaf.solver.Solution)
+	 * @generated
+	 */
+	EOperation getGeneratorGoal__GetSolutionGoal__Solution();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorLpGoal <em>Generator Lp Goal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5412,6 +5458,17 @@ public interface SolverPackage extends EPackage {
 	EAttribute getGeneratorLpGoal_GoalWeight();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorLpGoal#getSelectedSolutionValue <em>Selected Solution Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Selected Solution Value</em>'.
+	 * @see com.misc.common.moplaf.solver.GeneratorLpGoal#getSelectedSolutionValue()
+	 * @see #getGeneratorLpGoal()
+	 * @generated
+	 */
+	EAttribute getGeneratorLpGoal_SelectedSolutionValue();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorLpGoal#constructTerm(com.misc.common.moplaf.solver.GeneratorLpVar, float) <em>Construct Term</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5420,6 +5477,16 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getGeneratorLpGoal__ConstructTerm__GeneratorLpVar_float();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorLpGoal#getSolutionValue(com.misc.common.moplaf.solver.Solution) <em>Get Solution Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Solution Value</em>' operation.
+	 * @see com.misc.common.moplaf.solver.GeneratorLpGoal#getSolutionValue(com.misc.common.moplaf.solver.Solution)
+	 * @generated
+	 */
+	EOperation getGeneratorLpGoal__GetSolutionValue__Solution();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorLpGoalTerm <em>Generator Lp Goal Term</em>}'.
@@ -7686,6 +7753,14 @@ public interface SolverPackage extends EPackage {
 		EReference GENERATOR_GOAL__SOLUTION = eINSTANCE.getGeneratorGoal_Solution();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Solution Goal</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GENERATOR_GOAL___GET_SOLUTION_GOAL__SOLUTION = eINSTANCE.getGeneratorGoal__GetSolutionGoal__Solution();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl <em>Generator Lp Goal</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7720,12 +7795,28 @@ public interface SolverPackage extends EPackage {
 		EAttribute GENERATOR_LP_GOAL__GOAL_WEIGHT = eINSTANCE.getGeneratorLpGoal_GoalWeight();
 
 		/**
+		 * The meta object literal for the '<em><b>Selected Solution Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERATOR_LP_GOAL__SELECTED_SOLUTION_VALUE = eINSTANCE.getGeneratorLpGoal_SelectedSolutionValue();
+
+		/**
 		 * The meta object literal for the '<em><b>Construct Term</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation GENERATOR_LP_GOAL___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT = eINSTANCE.getGeneratorLpGoal__ConstructTerm__GeneratorLpVar_float();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Solution Value</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GENERATOR_LP_GOAL___GET_SOLUTION_VALUE__SOLUTION = eINSTANCE.getGeneratorLpGoal__GetSolutionValue__Solution();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalTermImpl <em>Generator Lp Goal Term</em>}' class.

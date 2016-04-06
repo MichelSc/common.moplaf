@@ -398,6 +398,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorGoal" abstract="true">
+    <eOperations name="getSolutionGoal" eType="#//SolutionGoal">
+      <eParameters name="solutionprovider" eType="#//Solution"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Generator" eType="#//Generator"
         changeable="false" volatile="true" transient="true" derived="true" eOpposite="#//Generator/Goals"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="SubGoal" eType="#//GeneratorGoal"
@@ -411,12 +414,18 @@
       <eParameters name="var" eType="#//GeneratorLpVar"/>
       <eParameters name="coef" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     </eOperations>
+    <eOperations name="getSolutionValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+      <eParameters name="solver" eType="#//Solution"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ObjectiveType" eType="#//EnumObjectiveType"
         defaultValueLiteral="Maximum"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="LpGoalTerm" upperBound="-1"
         eType="#//GeneratorLpGoalTerm" containment="true" eOpposite="#//GeneratorLpGoalTerm/LpGoal"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="GoalWeight" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SelectedSolutionValue"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat" changeable="false"
+        volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpGoalTerm">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Coeff" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>

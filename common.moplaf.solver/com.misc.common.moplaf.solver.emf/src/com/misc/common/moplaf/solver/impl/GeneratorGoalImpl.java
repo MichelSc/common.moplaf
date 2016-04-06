@@ -4,9 +4,11 @@ package com.misc.common.moplaf.solver.impl;
 
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorGoal;
+import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionGoal;
 import com.misc.common.moplaf.solver.SolverPackage;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -189,6 +191,17 @@ public abstract class GeneratorGoalImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SolutionGoal getSolutionGoal(Solution solutionprovider) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -291,6 +304,20 @@ public abstract class GeneratorGoalImpl extends MinimalEObjectImpl.Container imp
 				return solution != null && !solution.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case SolverPackage.GENERATOR_GOAL___GET_SOLUTION_GOAL__SOLUTION:
+				return getSolutionGoal((Solution)arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

@@ -102,4 +102,12 @@ public interface GeneratorGoal extends EObject {
 	 */
 	EList<SolutionGoal> getSolution();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	SolutionGoal getSolutionGoal(Solution solutionprovider);
+
 } // GeneratorGoal
