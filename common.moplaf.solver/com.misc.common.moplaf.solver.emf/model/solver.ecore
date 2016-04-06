@@ -399,7 +399,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorGoal" abstract="true">
     <eOperations name="getSolutionGoal" eType="#//SolutionGoal">
-      <eParameters name="solutionprovider" eType="#//Solution"/>
+      <eParameters name="solution" eType="#//Solution"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Generator" eType="#//Generator"
         changeable="false" volatile="true" transient="true" derived="true" eOpposite="#//Generator/Goals"/>
@@ -415,7 +415,7 @@
       <eParameters name="coef" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     </eOperations>
     <eOperations name="getSolutionValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
-      <eParameters name="solver" eType="#//Solution"/>
+      <eParameters name="solution" eType="#//Solution"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ObjectiveType" eType="#//EnumObjectiveType"
         defaultValueLiteral="Maximum"/>

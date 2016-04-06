@@ -3,10 +3,12 @@
 package com.misc.common.moplaf.solver.impl;
 
 import com.misc.common.moplaf.solver.EnumObjectiveType;
+import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorLpGoal;
 import com.misc.common.moplaf.solver.GeneratorLpGoalTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
 import com.misc.common.moplaf.solver.Solution;
+import com.misc.common.moplaf.solver.SolutionLpGoal;
 import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.solver.SolverPackage;
 
@@ -179,12 +181,11 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public float getSelectedSolutionValue() {
-		// TODO: implement this method to return the 'Selected Solution Value' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		Generator generator = this.getGenerator();
+		Solution solution = generator.getSelected();
+		return this.getSolutionValue(solution);
 	}
 
 	/**
@@ -202,12 +203,11 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public float getSolutionValue(Solution solver) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public float getSolutionValue(Solution solution) {
+		SolutionLpGoal solutionGoal = (SolutionLpGoal)this.getSolutionGoal(solution);
+		if ( solutionGoal==null) { return 0.0f; }
+		return solutionGoal.getOptimalValue();
 	}
 
 	/**

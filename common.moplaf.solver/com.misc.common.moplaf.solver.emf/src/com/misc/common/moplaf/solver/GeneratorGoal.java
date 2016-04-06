@@ -108,6 +108,6 @@ public interface GeneratorGoal extends EObject {
 	 * @model
 	 * @generated
 	 */
-	SolutionGoal getSolutionGoal(Solution solutionprovider);
+	SolutionGoal getSolutionGoal(Solution solution);
 
 } // GeneratorGoal

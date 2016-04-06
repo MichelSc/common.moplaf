@@ -6,6 +6,7 @@ import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorGoal;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionGoal;
+import com.misc.common.moplaf.solver.SolutionVar;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import java.lang.reflect.InvocationTargetException;
@@ -189,12 +190,14 @@ public abstract class GeneratorGoalImpl extends MinimalEObjectImpl.Container imp
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public SolutionGoal getSolutionGoal(Solution solutionprovider) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public SolutionGoal getSolutionGoal(Solution solution) {
+		for(SolutionGoal currentgoal : this.getSolution()) {
+			if ( currentgoal.getSolution()==solution) {
+				return currentgoal;
+			}
+		}
+		return null;
 	}
 
 	/**

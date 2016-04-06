@@ -115,9 +115,9 @@ public abstract class GeneratorVarImpl extends GeneratorTupleMemberImpl implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public SolutionVar getSolutionVar(Solution solutionprovider) {
+	public SolutionVar getSolutionVar(Solution solution) {
 		for(SolutionVar currentsol : this.getSolution()) {
-			if ( currentsol.getSolution()==solutionprovider) {
+			if ( currentsol.getSolution()==solution) {
 				return currentsol;
 			}
 		}

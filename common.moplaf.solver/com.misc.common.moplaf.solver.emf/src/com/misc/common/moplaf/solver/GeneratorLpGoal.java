@@ -127,6 +127,6 @@ public interface GeneratorLpGoal extends GeneratorGoal {
 	 * @model
 	 * @generated
 	 */
-	float getSolutionValue(Solution solver);
+	float getSolutionValue(Solution solution);
 
 } // GeneratorLpGoal

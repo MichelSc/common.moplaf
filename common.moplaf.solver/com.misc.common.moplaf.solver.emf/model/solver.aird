@@ -965,10 +965,10 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_MMfhsPwFEeWmbOm-vaxq1A" name="getSolutionGoal(solutionprovider Solution) : SolutionGoal" tooltipText="getSolutionGoal(solutionprovider) : SolutionGoal">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_MMfhsPwFEeWmbOm-vaxq1A" name="getSolutionGoal(solution Solution) : SolutionGoal" tooltipText="getSolutionGoal(solution) : SolutionGoal">
           <target xmi:type="ecore:EOperation" href="solver.ecore#//GeneratorGoal/getSolutionGoal"/>
           <semanticElements xmi:type="ecore:EOperation" href="solver.ecore#//GeneratorGoal/getSolutionGoal"/>
-          <semanticElements xmi:type="ecore:EParameter" href="solver.ecore#//GeneratorGoal/getSolutionGoal/solutionprovider"/>
+          <semanticElements xmi:type="ecore:EParameter" href="solver.ecore#//GeneratorGoal/getSolutionGoal/solution"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_MMfhsfwFEeWmbOm-vaxq1A" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
           </ownedStyle>
@@ -3916,10 +3916,10 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_MM2uEPwFEeWmbOm-vaxq1A" name="getSolutionGoal(solutionprovider Solution) : SolutionGoal" tooltipText="getSolutionGoal(solutionprovider) : SolutionGoal">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_MM2uEPwFEeWmbOm-vaxq1A" name="getSolutionGoal(solution Solution) : SolutionGoal" tooltipText="getSolutionGoal(solution) : SolutionGoal">
           <target xmi:type="ecore:EOperation" href="solver.ecore#//GeneratorGoal/getSolutionGoal"/>
           <semanticElements xmi:type="ecore:EOperation" href="solver.ecore#//GeneratorGoal/getSolutionGoal"/>
-          <semanticElements xmi:type="ecore:EParameter" href="solver.ecore#//GeneratorGoal/getSolutionGoal/solutionprovider"/>
+          <semanticElements xmi:type="ecore:EParameter" href="solver.ecore#//GeneratorGoal/getSolutionGoal/solution"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_MM3VIPwFEeWmbOm-vaxq1A" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
           </ownedStyle>
@@ -3979,10 +3979,10 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_bzIfYPwFEeWmbOm-vaxq1A" name="getSolutionValue(solver Solution) : EFloat" tooltipText="getSolutionValue(solver) : EFloat">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_bzIfYPwFEeWmbOm-vaxq1A" name="getSolutionValue(solution Solution) : EFloat" tooltipText="getSolutionValue(solution) : EFloat">
           <target xmi:type="ecore:EOperation" href="solver.ecore#//GeneratorLpGoal/getSolutionValue"/>
           <semanticElements xmi:type="ecore:EOperation" href="solver.ecore#//GeneratorLpGoal/getSolutionValue"/>
-          <semanticElements xmi:type="ecore:EParameter" href="solver.ecore#//GeneratorLpGoal/getSolutionValue/solver"/>
+          <semanticElements xmi:type="ecore:EParameter" href="solver.ecore#//GeneratorLpGoal/getSolutionValue/solution"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_bzIfYfwFEeWmbOm-vaxq1A" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
           </ownedStyle>
@@ -5599,10 +5599,10 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_MM_4APwFEeWmbOm-vaxq1A" name="getSolutionGoal(solutionprovider Solution) : SolutionGoal" tooltipText="getSolutionGoal(solutionprovider) : SolutionGoal">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_MM_4APwFEeWmbOm-vaxq1A" name="getSolutionGoal(solution Solution) : SolutionGoal" tooltipText="getSolutionGoal(solution) : SolutionGoal">
           <target xmi:type="ecore:EOperation" href="solver.ecore#//GeneratorGoal/getSolutionGoal"/>
           <semanticElements xmi:type="ecore:EOperation" href="solver.ecore#//GeneratorGoal/getSolutionGoal"/>
-          <semanticElements xmi:type="ecore:EParameter" href="solver.ecore#//GeneratorGoal/getSolutionGoal/solutionprovider"/>
+          <semanticElements xmi:type="ecore:EParameter" href="solver.ecore#//GeneratorGoal/getSolutionGoal/solution"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_MM_4AfwFEeWmbOm-vaxq1A" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
           </ownedStyle>
