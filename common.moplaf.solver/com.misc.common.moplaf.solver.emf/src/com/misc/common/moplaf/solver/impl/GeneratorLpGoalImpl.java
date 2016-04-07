@@ -38,7 +38,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl#getObjectiveType <em>Objective Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl#getLpGoalTerm <em>Lp Goal Term</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl#getGoalWeight <em>Goal Weight</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl#getSelectedSolutionValue <em>Selected Solution Value</em>}</li>
  * </ul>
  *
@@ -74,26 +73,6 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	 * @ordered
 	 */
 	protected EList<GeneratorLpGoalTerm> lpGoalTerm;
-
-	/**
-	 * The default value of the '{@link #getGoalWeight() <em>Goal Weight</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGoalWeight()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final float GOAL_WEIGHT_EDEFAULT = 0.0F;
-
-	/**
-	 * The cached value of the '{@link #getGoalWeight() <em>Goal Weight</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGoalWeight()
-	 * @generated
-	 * @ordered
-	 */
-	protected float goalWeight = GOAL_WEIGHT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getSelectedSolutionValue() <em>Selected Solution Value</em>}' attribute.
@@ -155,27 +134,6 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 			lpGoalTerm = new EObjectContainmentWithInverseEList<GeneratorLpGoalTerm>(GeneratorLpGoalTerm.class, this, SolverPackage.GENERATOR_LP_GOAL__LP_GOAL_TERM, SolverPackage.GENERATOR_LP_GOAL_TERM__LP_GOAL);
 		}
 		return lpGoalTerm;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public float getGoalWeight() {
-		return goalWeight;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setGoalWeight(float newGoalWeight) {
-		float oldGoalWeight = goalWeight;
-		goalWeight = newGoalWeight;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_LP_GOAL__GOAL_WEIGHT, oldGoalWeight, goalWeight));
 	}
 
 	/**
@@ -251,8 +209,6 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 				return getObjectiveType();
 			case SolverPackage.GENERATOR_LP_GOAL__LP_GOAL_TERM:
 				return getLpGoalTerm();
-			case SolverPackage.GENERATOR_LP_GOAL__GOAL_WEIGHT:
-				return getGoalWeight();
 			case SolverPackage.GENERATOR_LP_GOAL__SELECTED_SOLUTION_VALUE:
 				return getSelectedSolutionValue();
 		}
@@ -275,9 +231,6 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 				getLpGoalTerm().clear();
 				getLpGoalTerm().addAll((Collection<? extends GeneratorLpGoalTerm>)newValue);
 				return;
-			case SolverPackage.GENERATOR_LP_GOAL__GOAL_WEIGHT:
-				setGoalWeight((Float)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -296,9 +249,6 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 			case SolverPackage.GENERATOR_LP_GOAL__LP_GOAL_TERM:
 				getLpGoalTerm().clear();
 				return;
-			case SolverPackage.GENERATOR_LP_GOAL__GOAL_WEIGHT:
-				setGoalWeight(GOAL_WEIGHT_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -315,8 +265,6 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 				return objectiveType != OBJECTIVE_TYPE_EDEFAULT;
 			case SolverPackage.GENERATOR_LP_GOAL__LP_GOAL_TERM:
 				return lpGoalTerm != null && !lpGoalTerm.isEmpty();
-			case SolverPackage.GENERATOR_LP_GOAL__GOAL_WEIGHT:
-				return goalWeight != GOAL_WEIGHT_EDEFAULT;
 			case SolverPackage.GENERATOR_LP_GOAL__SELECTED_SOLUTION_VALUE:
 				return getSelectedSolutionValue() != SELECTED_SOLUTION_VALUE_EDEFAULT;
 		}
@@ -351,8 +299,6 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (ObjectiveType: ");
 		result.append(objectiveType);
-		result.append(", GoalWeight: ");
-		result.append(goalWeight);
 		result.append(')');
 		return result.toString();
 	}

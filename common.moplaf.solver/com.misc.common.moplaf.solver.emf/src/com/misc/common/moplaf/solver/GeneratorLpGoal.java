@@ -15,7 +15,6 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpGoal#getObjectiveType <em>Objective Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpGoal#getLpGoalTerm <em>Lp Goal Term</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpGoal#getGoalWeight <em>Goal Weight</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpGoal#getSelectedSolutionValue <em>Selected Solution Value</em>}</li>
  * </ul>
  *
@@ -71,32 +70,6 @@ public interface GeneratorLpGoal extends GeneratorGoal {
 	 * @generated
 	 */
 	EList<GeneratorLpGoalTerm> getLpGoalTerm();
-
-	/**
-	 * Returns the value of the '<em><b>Goal Weight</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Goal Weight</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Goal Weight</em>' attribute.
-	 * @see #setGoalWeight(float)
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorLpGoal_GoalWeight()
-	 * @model required="true"
-	 * @generated
-	 */
-	float getGoalWeight();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.solver.GeneratorLpGoal#getGoalWeight <em>Goal Weight</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Goal Weight</em>' attribute.
-	 * @see #getGoalWeight()
-	 * @generated
-	 */
-	void setGoalWeight(float value);
 
 	/**
 	 * Returns the value of the '<em><b>Selected Solution Value</b></em>' attribute.

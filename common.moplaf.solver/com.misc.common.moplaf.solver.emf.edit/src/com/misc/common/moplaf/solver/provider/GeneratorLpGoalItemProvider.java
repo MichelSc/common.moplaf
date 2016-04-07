@@ -49,7 +49,6 @@ public class GeneratorLpGoalItemProvider extends GeneratorGoalItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addObjectiveTypePropertyDescriptor(object);
-			addGoalWeightPropertyDescriptor(object);
 			addSelectedSolutionValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -73,28 +72,6 @@ public class GeneratorLpGoalItemProvider extends GeneratorGoalItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Goal Weight feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addGoalWeightPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GeneratorLpGoal_GoalWeight_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorLpGoal_GoalWeight_feature", "_UI_GeneratorLpGoal_type"),
-				 SolverPackage.Literals.GENERATOR_LP_GOAL__GOAL_WEIGHT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -190,7 +167,6 @@ public class GeneratorLpGoalItemProvider extends GeneratorGoalItemProvider {
 
 		switch (notification.getFeatureID(GeneratorLpGoal.class)) {
 			case SolverPackage.GENERATOR_LP_GOAL__OBJECTIVE_TYPE:
-			case SolverPackage.GENERATOR_LP_GOAL__GOAL_WEIGHT:
 			case SolverPackage.GENERATOR_LP_GOAL__SELECTED_SOLUTION_VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

@@ -4572,22 +4572,13 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_LP_GOAL__LP_GOAL_TERM = GENERATOR_GOAL_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Goal Weight</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_GOAL__GOAL_WEIGHT = GENERATOR_GOAL_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Selected Solution Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_LP_GOAL__SELECTED_SOLUTION_VALUE = GENERATOR_GOAL_FEATURE_COUNT + 3;
+	int GENERATOR_LP_GOAL__SELECTED_SOLUTION_VALUE = GENERATOR_GOAL_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Generator Lp Goal</em>' class.
@@ -4596,7 +4587,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_LP_GOAL_FEATURE_COUNT = GENERATOR_GOAL_FEATURE_COUNT + 4;
+	int GENERATOR_LP_GOAL_FEATURE_COUNT = GENERATOR_GOAL_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Solution Goal</em>' operation.
@@ -5472,17 +5463,6 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGeneratorLpGoal_LpGoalTerm();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorLpGoal#getGoalWeight <em>Goal Weight</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Goal Weight</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpGoal#getGoalWeight()
-	 * @see #getGeneratorLpGoal()
-	 * @generated
-	 */
-	EAttribute getGeneratorLpGoal_GoalWeight();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorLpGoal#getSelectedSolutionValue <em>Selected Solution Value</em>}'.
@@ -7823,14 +7803,6 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GENERATOR_LP_GOAL__LP_GOAL_TERM = eINSTANCE.getGeneratorLpGoal_LpGoalTerm();
-
-		/**
-		 * The meta object literal for the '<em><b>Goal Weight</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GENERATOR_LP_GOAL__GOAL_WEIGHT = eINSTANCE.getGeneratorLpGoal_GoalWeight();
 
 		/**
 		 * The meta object literal for the '<em><b>Selected Solution Value</b></em>' attribute feature.
