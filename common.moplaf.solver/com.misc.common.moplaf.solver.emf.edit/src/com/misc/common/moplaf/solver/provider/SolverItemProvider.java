@@ -71,6 +71,7 @@ public class SolverItemProvider
 			addSolOptimalPropertyDescriptor(object);
 			addRunInterruptedPropertyDescriptor(object);
 			addRunTimeOutPropertyDescriptor(object);
+			addGoalToSolvePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -160,6 +161,28 @@ public class SolverItemProvider
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 getString("_UI__30RunPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Goal To Solve feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGoalToSolvePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Solver_GoalToSolve_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Solver_GoalToSolve_feature", "_UI_Solver_type"),
+				 SolverPackage.Literals.SOLVER__GOAL_TO_SOLVE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
 				 null));
 	}
 

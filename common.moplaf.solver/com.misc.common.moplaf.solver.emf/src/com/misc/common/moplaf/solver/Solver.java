@@ -48,6 +48,7 @@ import java.util.Date;
  *   <li>{@link com.misc.common.moplaf.solver.Solver#isFinished <em>Finished</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#isRunTimeOut <em>Run Time Out</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#isInitializing <em>Initializing</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.Solver#getGoalToSolve <em>Goal To Solve</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getSolver()
@@ -613,6 +614,32 @@ public interface Solver extends SolutionProvider {
 	 * @generated
 	 */
 	void setInitializing(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Goal To Solve</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Goal To Solve</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Goal To Solve</em>' reference.
+	 * @see #setGoalToSolve(GeneratorGoal)
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolver_GoalToSolve()
+	 * @model
+	 * @generated
+	 */
+	GeneratorGoal getGoalToSolve();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.solver.Solver#getGoalToSolve <em>Goal To Solve</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Goal To Solve</em>' reference.
+	 * @see #getGoalToSolve()
+	 * @generated
+	 */
+	void setGoalToSolve(GeneratorGoal value);
 
 	/**
 	 * Returns the value of the '<em><b>Solving</b></em>' attribute.

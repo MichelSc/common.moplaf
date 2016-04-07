@@ -4,6 +4,7 @@ package com.misc.common.moplaf.solver.impl;
 
 import com.misc.common.moplaf.solver.EnumSolverLogLevel;
 import com.misc.common.moplaf.solver.Generator;
+import com.misc.common.moplaf.solver.GeneratorGoal;
 import com.misc.common.moplaf.solver.IGeneratorTool;
 import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverPackage;
@@ -22,6 +23,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
@@ -558,6 +560,16 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 */
 	protected boolean initializing = INITIALIZING_EDEFAULT;
 
+	/**
+	 * The cached value of the '{@link #getGoalToSolve() <em>Goal To Solve</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGoalToSolve()
+	 * @generated
+	 * @ordered
+	 */
+	protected GeneratorGoal goalToSolve;
+
 	protected IProgressMonitor eMonitor;
 
 	/**
@@ -682,6 +694,44 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		initializing = newInitializing;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__INITIALIZING, oldInitializing, initializing));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GeneratorGoal getGoalToSolve() {
+		if (goalToSolve != null && goalToSolve.eIsProxy()) {
+			InternalEObject oldGoalToSolve = (InternalEObject)goalToSolve;
+			goalToSolve = (GeneratorGoal)eResolveProxy(oldGoalToSolve);
+			if (goalToSolve != oldGoalToSolve) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SolverPackage.SOLVER__GOAL_TO_SOLVE, oldGoalToSolve, goalToSolve));
+			}
+		}
+		return goalToSolve;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GeneratorGoal basicGetGoalToSolve() {
+		return goalToSolve;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGoalToSolve(GeneratorGoal newGoalToSolve) {
+		GeneratorGoal oldGoalToSolve = goalToSolve;
+		goalToSolve = newGoalToSolve;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__GOAL_TO_SOLVE, oldGoalToSolve, goalToSolve));
 	}
 
 	/**
@@ -1417,6 +1467,9 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return isRunTimeOut();
 			case SolverPackage.SOLVER__INITIALIZING:
 				return isInitializing();
+			case SolverPackage.SOLVER__GOAL_TO_SOLVE:
+				if (resolve) return getGoalToSolve();
+				return basicGetGoalToSolve();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1500,6 +1553,9 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return;
 			case SolverPackage.SOLVER__INITIALIZING:
 				setInitializing((Boolean)newValue);
+				return;
+			case SolverPackage.SOLVER__GOAL_TO_SOLVE:
+				setGoalToSolve((GeneratorGoal)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1585,6 +1641,9 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			case SolverPackage.SOLVER__INITIALIZING:
 				setInitializing(INITIALIZING_EDEFAULT);
 				return;
+			case SolverPackage.SOLVER__GOAL_TO_SOLVE:
+				setGoalToSolve((GeneratorGoal)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1645,6 +1704,8 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return runTimeOut != RUN_TIME_OUT_EDEFAULT;
 			case SolverPackage.SOLVER__INITIALIZING:
 				return initializing != INITIALIZING_EDEFAULT;
+			case SolverPackage.SOLVER__GOAL_TO_SOLVE:
+				return goalToSolve != null;
 		}
 		return super.eIsSet(featureID);
 	}

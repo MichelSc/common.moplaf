@@ -28,9 +28,12 @@ import org.gnu.glpk.glp_tree;
 
 import com.misc.common.moplaf.solver.EnumLpFileFormat;
 import com.misc.common.moplaf.solver.EnumLpVarType;
+import com.misc.common.moplaf.solver.EnumObjectiveType;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorCons;
 import com.misc.common.moplaf.solver.GeneratorLpCons;
+import com.misc.common.moplaf.solver.GeneratorLpGoal;
+import com.misc.common.moplaf.solver.GeneratorLpGoalTerm;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
 import com.misc.common.moplaf.solver.GeneratorTuple;
@@ -43,6 +46,7 @@ import com.misc.common.moplaf.solver.SolverPackage;
 import com.misc.common.moplaf.solver.impl.SolverLpImpl;
 import com.misc.common.moplaf.solver.solverglpk.SolverGLPK;
 import com.misc.common.moplaf.solver.solverglpk.SolverglpkPackage;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -802,19 +806,9 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 
 			// create the problem in GLPK
 
-			int direction = 0;
 			lp = GLPK.glp_create_prob();
 			GLPK.glp_set_prob_name(lp, this.getCode());
 			GLPK.glp_set_obj_name(lp, "z");
-			switch (generator.getObjectiveType() ) {
-		    case MAXIMUM:
-				direction = GLPKConstants.GLP_MAX;
-		        break;
-		    case MINIMUM:
-				direction = GLPKConstants.GLP_MIN;
-		        break;
-		    };  // switch on objective type
-			GLPK.glp_set_obj_dir(lp, direction);
 
 			// create the variables in GLPK
 			EnumLpVarType integertype = EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER;
@@ -825,7 +819,6 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 				float lb = lpvar.getLowerBound();
 				float ub = lpvar.getUpperBound();
 				int kind = GLPKConstants.GLP_CV;
-				float coefficient = lpvar.getObjectiveCoeff();
 				if ( !this.isSolverLinearRelaxation() && lpvar.getType()==integertype)	{
 					kind = GLPKConstants.GLP_IV;
 				}
@@ -833,7 +826,6 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 				GLPK.glp_set_col_name(lp, varindex, varname);
 				GLPK.glp_set_col_kind(lp, varindex, kind);
 				GLPK.glp_set_col_bnds(lp, varindex, GLPKConstants.GLP_DB, lb, ub); 
-				GLPK.glp_set_obj_coef(lp, varindex, coefficient);
 			} // traverse the vars
 		
 			// create the constraints
@@ -873,6 +865,29 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 			    } // traverse the terms
 			GLPK.glp_set_mat_row(lp, consindex, nofterms, ind, val);
 			} // traverse the constraints
+			
+			GeneratorLpGoal goal = (GeneratorLpGoal) this.getGoalToSolve();
+			if ( goal != null) {
+				// direction
+				int direction = 0;
+				if ( goal.getObjectiveType()==EnumObjectiveType.MINIMUM){
+					direction = GLPKConstants.GLP_MIN;
+				} else if ( goal.getObjectiveType()==EnumObjectiveType.MAXIMUM){
+					direction = GLPKConstants.GLP_MAX;
+				}
+				GLPK.glp_set_obj_dir(lp, direction);
+				// terms
+				for ( GeneratorLpGoalTerm goalTerm : goal.getLpGoalTerm()){
+					// create the objective coefficient
+					GeneratorLpVar lpvar = goalTerm.getLpVar();
+					float coefficient = goalTerm.getCoeff();
+					if ( coefficient!=0.0f){
+					    int varindex = vars.get(lpvar).intValue();
+						GLPK.glp_set_obj_coef(lp, varindex, coefficient);
+					}
+				}
+			}
+
 		}
 		catch (Exception e)
 		{

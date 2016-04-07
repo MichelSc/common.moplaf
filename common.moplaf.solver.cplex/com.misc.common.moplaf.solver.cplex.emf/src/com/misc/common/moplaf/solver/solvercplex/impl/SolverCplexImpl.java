@@ -21,6 +21,8 @@ import com.misc.common.moplaf.solver.EnumObjectiveType;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorCons;
 import com.misc.common.moplaf.solver.GeneratorLpCons;
+import com.misc.common.moplaf.solver.GeneratorLpGoal;
+import com.misc.common.moplaf.solver.GeneratorLpGoalTerm;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
 import com.misc.common.moplaf.solver.GeneratorTuple;
@@ -213,8 +215,6 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		try {
 			this.lp = new IloCplex();
 			
-			// objective expression
-			final IloLinearNumExpr objective = this.lp.linearNumExpr();
 			// map the variables
 			this.vars = new HashMap<GeneratorLpVar, IloNumVar>();
 			class VarMapper implements ITupleVisitor{
@@ -226,7 +226,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 						}
 						GeneratorLpVar lpvar = (GeneratorLpVar)var;
 						IloNumVarType vartypetobe = IloNumVarType.Float; 
-						if ( !SolverCplexImpl.this.isSolverLinearRelaxation() && lpvar.getType()==EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER)	{
+						if ( !SolverCplexImpl.this.isSolverLinearRelaxation() && lpvar.getType()==EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER){
 							vartypetobe = IloNumVarType.Int; 
 						}
 						float lb = lpvar.getLowerBound();
@@ -235,24 +235,33 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 						// create the var
 						IloNumVar cplexvar = SolverCplexImpl.this.lp.numVar(lb, ub, vartypetobe, name);
 						SolverCplexImpl.this.vars.put(lpvar, cplexvar);
-						// create the objective coefficient
-						float coefficient = lpvar.getObjectiveCoeff();
-						if ( coefficient!=0.0f){
-							objective.addTerm(coefficient, cplexvar);
-						}
-						//CommonPlugin.INSTANCE.log("..var "+varnumber+","+lpvar.getECode());
-					}
-				}
+					}  // traverse the vars of the tuple
+				}  // method visitTuple
 			}; // VarMapper
 			VarMapper varmapper = new VarMapper();
 			generator.visitTuples(varmapper);
 			
-			// objective 
-			if ( generator.getObjectiveType()==EnumObjectiveType.MINIMUM){
-				this.lp.addMinimize(objective);
-			} else if ( generator.getObjectiveType()==EnumObjectiveType.MAXIMUM){
-				this.lp.addMaximize(objective);
+			// objective expression
+			final IloLinearNumExpr objective = this.lp.linearNumExpr();
+			
+			GeneratorLpGoal goal = (GeneratorLpGoal) this.getGoalToSolve();
+			if ( goal != null) {
+				if ( goal.getObjectiveType()==EnumObjectiveType.MINIMUM){
+					this.lp.addMinimize(objective);
+				} else if ( goal.getObjectiveType()==EnumObjectiveType.MAXIMUM){
+					this.lp.addMaximize(objective);
+				}
+				for ( GeneratorLpGoalTerm goalTerm : goal.getLpGoalTerm()){
+					// create the objective coefficient
+					GeneratorLpVar lpvar = goalTerm.getLpVar();
+					float coefficient = goalTerm.getCoeff();
+					if ( coefficient!=0.0f){
+					    IloNumVar cplexvar = vars.get(lpvar);
+						objective.addTerm(coefficient, cplexvar);
+					}
+				}
 			}
+				
 			// map the constraints
 			this.cons = new HashMap<GeneratorLpCons, IloRange>();
 			class ConsMapper implements ITupleVisitor{
@@ -288,7 +297,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 						//CommonPlugin.INSTANCE.log("..var "+varnumber+","+lpvar.getECode());
 					}
 				}
-			};
+			}; // class ConsMapper
 			ConsMapper consmapper = new ConsMapper();
 			generator.visitTuples(consmapper);
 

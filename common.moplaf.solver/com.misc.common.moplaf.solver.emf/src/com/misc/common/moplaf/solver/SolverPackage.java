@@ -2404,13 +2404,22 @@ public interface SolverPackage extends EPackage {
 	int SOLVER__INITIALIZING = SOLUTION_PROVIDER_FEATURE_COUNT + 23;
 
 	/**
+	 * The feature id for the '<em><b>Goal To Solve</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER__GOAL_TO_SOLVE = SOLUTION_PROVIDER_FEATURE_COUNT + 24;
+
+	/**
 	 * The number of structural features of the '<em>Solver</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_FEATURE_COUNT = SOLUTION_PROVIDER_FEATURE_COUNT + 24;
+	int SOLVER_FEATURE_COUNT = SOLUTION_PROVIDER_FEATURE_COUNT + 25;
 
 	/**
 	 * The operation id for the '<em>Get Parent Generator Tool</em>' operation.
@@ -2718,6 +2727,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP__INITIALIZING = SOLVER__INITIALIZING;
+
+	/**
+	 * The feature id for the '<em><b>Goal To Solve</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP__GOAL_TO_SOLVE = SOLVER__GOAL_TO_SOLVE;
 
 	/**
 	 * The feature id for the '<em><b>Solver Optimality Tolerance</b></em>' attribute.
@@ -4334,6 +4352,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_CP__INITIALIZING = SOLVER__INITIALIZING;
+
+	/**
+	 * The feature id for the '<em><b>Goal To Solve</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP__GOAL_TO_SOLVE = SOLVER__GOAL_TO_SOLVE;
 
 	/**
 	 * The feature id for the '<em><b>Search All</b></em>' attribute.
@@ -6494,6 +6521,17 @@ public interface SolverPackage extends EPackage {
 	EAttribute getSolver_Initializing();
 
 	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.solver.Solver#getGoalToSolve <em>Goal To Solve</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Goal To Solve</em>'.
+	 * @see com.misc.common.moplaf.solver.Solver#getGoalToSolve()
+	 * @see #getSolver()
+	 * @generated
+	 */
+	EReference getSolver_GoalToSolve();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.Solver#isSolving <em>Solving</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8603,6 +8641,14 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOLVER__INITIALIZING = eINSTANCE.getSolver_Initializing();
+
+		/**
+		 * The meta object literal for the '<em><b>Goal To Solve</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SOLVER__GOAL_TO_SOLVE = eINSTANCE.getSolver_GoalToSolve();
 
 		/**
 		 * The meta object literal for the '<em><b>Solving</b></em>' attribute feature.
