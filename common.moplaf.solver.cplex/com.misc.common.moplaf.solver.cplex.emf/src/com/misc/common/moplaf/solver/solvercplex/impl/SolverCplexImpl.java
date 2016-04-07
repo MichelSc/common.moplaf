@@ -246,11 +246,6 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 			
 			GeneratorLpGoal goal = (GeneratorLpGoal) this.getGoalToSolve();
 			if ( goal != null) {
-				if ( goal.getObjectiveType()==EnumObjectiveType.MINIMUM){
-					this.lp.addMinimize(objective);
-				} else if ( goal.getObjectiveType()==EnumObjectiveType.MAXIMUM){
-					this.lp.addMaximize(objective);
-				}
 				for ( GeneratorLpGoalTerm goalTerm : goal.getLpGoalTerm()){
 					// create the objective coefficient
 					GeneratorLpVar lpvar = goalTerm.getLpVar();
@@ -259,6 +254,11 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 					    IloNumVar cplexvar = vars.get(lpvar);
 						objective.addTerm(coefficient, cplexvar);
 					}
+				}
+				if ( goal.getObjectiveType()==EnumObjectiveType.MINIMUM){
+					this.lp.addMinimize(objective);
+				} else if ( goal.getObjectiveType()==EnumObjectiveType.MAXIMUM){
+					this.lp.addMaximize(objective);
 				}
 			}
 				
@@ -367,7 +367,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		try {
 			this.lp.exportModel(filePath);
 		} catch (IloException e) {
-			CommonPlugin.INSTANCE.log("SolverCplex: write failed");
+			CommonPlugin.INSTANCE.log("SolverCplex: write failed, "+e.getMessage());
 		}
 		if( owningmodel ){
 			this.releaseLp();
