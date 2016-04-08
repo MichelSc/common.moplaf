@@ -301,15 +301,15 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 			ConsMapper consmapper = new ConsMapper();
 			generator.visitTuples(consmapper);
 
-			// create the problem in GLPK
+			// create the problem in Cplex
 		} 
 		catch (IloException e) {
 			e.printStackTrace();
-			CommonPlugin.INSTANCE.log("SolverCplex: load failed, ilog exception");
+			CommonPlugin.INSTANCE.log("SolverCplex: load failed, ilog exception "+e.getMessage());
 			this.releaseLp();
 		} catch (Exception e) {
 			e.printStackTrace();
-			CommonPlugin.INSTANCE.log("SolverCplex: load failed, general exception");
+			CommonPlugin.INSTANCE.log("SolverCplex: load failed, general exception "+e.getMessage());
 		}
 	} // method lp load
 	
@@ -326,29 +326,28 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 			.bz2 (if bzip2 is properly installed)
 	 */
 	public void writeLpToFile() {
-		boolean owningmodel = false;
-		if ( true){
-			this.loadLp();
-			owningmodel = true;
-		}
-		
+		this.loadLp();
+		this.writeLpToFilePrivate();
+		this.releaseLp();
+	}
+
+	private void writeLpToFilePrivate() {
 		String filepath = this.getFilePath();
 		if ( filepath==null){
 			CommonPlugin.INSTANCE.log("SolverCplex: no file path, write aborted");
 			return;
 		}
+		
+		// get the extension as is
 		int lastdot = filepath.lastIndexOf('.');
 		int lastslash = filepath.lastIndexOf('/');
 		String extension = "";
 		if ( lastdot>=0 && lastdot>lastslash ){
 			extension = filepath.substring(lastdot+1);
 		}
-		if ( this.isFileCompressed() ){
-			if ( !extension.equals(".gz")){
-				filepath = filepath+".gz";
-			}
-		}
-		else if ( extension.length()==0){
+		
+		// augment file path with extension, if no extension present
+		if ( extension.length()==0){
 			switch (this.getFileFormat() ) {
 		    case FILE_FORMAT_MPS:
 				filepath = filepath+".mps";
@@ -362,15 +361,19 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		    default:
 				filepath = filepath+".sav";
 		        break;
-		    }  // switch on constraint type
+		    }  // switch on format type
+		}
+		
+		// augment the file path with ".gz", if compressed and the extension is not already this
+		if ( this.isFileCompressed() ){
+			if ( !extension.equals(".gz")){
+				filepath = filepath+".gz";
+			}
 		}
 		try {
 			this.lp.exportModel(filePath);
 		} catch (IloException e) {
 			CommonPlugin.INSTANCE.log("SolverCplex: write failed, "+e.getMessage());
-		}
-		if( owningmodel ){
-			this.releaseLp();
 		}
 	}
 
@@ -563,7 +566,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		this.onInitializationEnd();
 		
 		if ( this.isSolverDump()){
-			this.writeLpToFile();
+			this.writeLpToFilePrivate();
 		}
 		
 		// solve
@@ -574,7 +577,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 				CommonPlugin.INSTANCE.log("SolverCplex: continuous solve returned ");
 			} // if liear relaxed
 			else {
-				CommonPlugin.INSTANCE.log("SolverGLPK: mip solver returned ");
+				CommonPlugin.INSTANCE.log("SolverCplex: mip solver returned ");
 				SolverCplexCallbackMIPInfo callback = new SolverCplexCallbackMIPInfo();
 				this.lp.use(callback);
 				feasible = this.lp.solve(); 
@@ -582,7 +585,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 			} // if mip
 		}
 		catch (Exception e)		{
-			CommonPlugin.INSTANCE.log("SolverGLPK: solve failed "+e);
+			CommonPlugin.INSTANCE.log("SolverCplex: solve failed "+e);
 		}
 		
 		this.onSolvingEnd();
