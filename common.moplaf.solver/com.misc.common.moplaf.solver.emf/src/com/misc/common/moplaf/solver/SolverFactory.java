@@ -76,6 +76,15 @@ public interface SolverFactory extends EFactory {
 	Solution createSolution();
 
 	/**
+	 * Returns a new object of class '<em>Solution Lp</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Solution Lp</em>'.
+	 * @generated
+	 */
+	SolutionLp createSolutionLp();
+
+	/**
 	 * Returns a new object of class '<em>Generator Lp Var</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

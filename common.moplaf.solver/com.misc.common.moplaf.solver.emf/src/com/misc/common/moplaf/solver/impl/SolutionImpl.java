@@ -332,6 +332,17 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SolutionGoal solutionGoalFactory() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public SolutionCons constructSolutionCons(GeneratorCons cons) {
 		SolutionCons newSolutionCons = this.solutionConsFactory();
@@ -553,6 +564,8 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 				return solutionVarFactory();
 			case SolverPackage.SOLUTION___SOLUTION_CONS_FACTORY:
 				return solutionConsFactory();
+			case SolverPackage.SOLUTION___SOLUTION_GOAL_FACTORY:
+				return solutionGoalFactory();
 			case SolverPackage.SOLUTION___CONSTRUCT_SOLUTION_CONS__GENERATORCONS:
 				return constructSolutionCons((GeneratorCons)arguments.get(0));
 			case SolverPackage.SOLUTION___CONSTRUCT_SOLUTION_VAR__GENERATORVAR:

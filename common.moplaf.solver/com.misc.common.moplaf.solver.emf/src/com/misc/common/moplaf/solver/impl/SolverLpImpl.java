@@ -2,6 +2,8 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
+import com.misc.common.moplaf.solver.Solution;
+import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.solver.SolverLp;
 import com.misc.common.moplaf.solver.SolverPackage;
 
@@ -267,4 +269,11 @@ public abstract class SolverLpImpl extends SolverImpl implements SolverLp {
 		return result.toString();
 	}
 
+	@Override
+	public Solution solutionFactory() {
+		Solution newsolution = SolverFactory.eINSTANCE.createSolutionLp();
+		return newsolution;
+	}
+
+	
 } //SolverLpImpl

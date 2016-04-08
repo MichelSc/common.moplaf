@@ -215,6 +215,15 @@ public class SolverSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SolverPackage.SOLVER_CP: {
+				SolverCp solverCp = (SolverCp)theEObject;
+				T result = caseSolverCp(solverCp);
+				if (result == null) result = caseSolver(solverCp);
+				if (result == null) result = caseSolutionProvider(solverCp);
+				if (result == null) result = caseIGeneratorTool(solverCp);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case SolverPackage.SOLVER_LP: {
 				SolverLp solverLp = (SolverLp)theEObject;
 				T result = caseSolverLp(solverLp);
@@ -227,6 +236,13 @@ public class SolverSwitch<T> extends Switch<T> {
 			case SolverPackage.SOLUTION: {
 				Solution solution = (Solution)theEObject;
 				T result = caseSolution(solution);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SolverPackage.SOLUTION_LP: {
+				SolutionLp solutionLp = (SolutionLp)theEObject;
+				T result = caseSolutionLp(solutionLp);
+				if (result == null) result = caseSolution(solutionLp);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -243,6 +259,13 @@ public class SolverSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SolverPackage.SOLUTION_CP_VAR: {
+				SolutionCpVar solutionCpVar = (SolutionCpVar)theEObject;
+				T result = caseSolutionCpVar(solutionCpVar);
+				if (result == null) result = caseSolutionVar(solutionCpVar);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case SolverPackage.SOLUTION_CONS: {
 				SolutionCons solutionCons = (SolutionCons)theEObject;
 				T result = caseSolutionCons(solutionCons);
@@ -253,6 +276,19 @@ public class SolverSwitch<T> extends Switch<T> {
 				SolutionLpCons solutionLpCons = (SolutionLpCons)theEObject;
 				T result = caseSolutionLpCons(solutionLpCons);
 				if (result == null) result = caseSolutionCons(solutionLpCons);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SolverPackage.SOLUTION_GOAL: {
+				SolutionGoal solutionGoal = (SolutionGoal)theEObject;
+				T result = caseSolutionGoal(solutionGoal);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SolverPackage.SOLUTION_LP_GOAL: {
+				SolutionLpGoal solutionLpGoal = (SolutionLpGoal)theEObject;
+				T result = caseSolutionLpGoal(solutionLpGoal);
+				if (result == null) result = caseSolutionGoal(solutionLpGoal);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -316,22 +352,6 @@ public class SolverSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SolverPackage.SOLUTION_CP_VAR: {
-				SolutionCpVar solutionCpVar = (SolutionCpVar)theEObject;
-				T result = caseSolutionCpVar(solutionCpVar);
-				if (result == null) result = caseSolutionVar(solutionCpVar);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SolverPackage.SOLVER_CP: {
-				SolverCp solverCp = (SolverCp)theEObject;
-				T result = caseSolverCp(solverCp);
-				if (result == null) result = caseSolver(solverCp);
-				if (result == null) result = caseSolutionProvider(solverCp);
-				if (result == null) result = caseIGeneratorTool(solverCp);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case SolverPackage.GENERATOR_ELEMENT: {
 				GeneratorElement generatorElement = (GeneratorElement)theEObject;
 				T result = caseGeneratorElement(generatorElement);
@@ -354,19 +374,6 @@ public class SolverSwitch<T> extends Switch<T> {
 			case SolverPackage.GENERATOR_LP_GOAL_TERM: {
 				GeneratorLpGoalTerm generatorLpGoalTerm = (GeneratorLpGoalTerm)theEObject;
 				T result = caseGeneratorLpGoalTerm(generatorLpGoalTerm);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SolverPackage.SOLUTION_GOAL: {
-				SolutionGoal solutionGoal = (SolutionGoal)theEObject;
-				T result = caseSolutionGoal(solutionGoal);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SolverPackage.SOLUTION_LP_GOAL: {
-				SolutionLpGoal solutionLpGoal = (SolutionLpGoal)theEObject;
-				T result = caseSolutionLpGoal(solutionLpGoal);
-				if (result == null) result = caseSolutionGoal(solutionLpGoal);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -521,6 +528,21 @@ public class SolverSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSolution(Solution object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Solution Lp</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Solution Lp</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSolutionLp(SolutionLp object) {
 		return null;
 	}
 

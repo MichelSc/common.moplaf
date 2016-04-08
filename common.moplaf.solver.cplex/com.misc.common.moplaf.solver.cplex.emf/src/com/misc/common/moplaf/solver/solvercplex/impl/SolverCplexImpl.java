@@ -29,7 +29,8 @@ import com.misc.common.moplaf.solver.GeneratorTuple;
 import com.misc.common.moplaf.solver.GeneratorVar;
 import com.misc.common.moplaf.solver.ILpWriter;
 import com.misc.common.moplaf.solver.ITupleVisitor;
-import com.misc.common.moplaf.solver.Solution;
+import com.misc.common.moplaf.solver.SolutionLp;
+import com.misc.common.moplaf.solver.SolutionLpGoal;
 import com.misc.common.moplaf.solver.SolutionVar;
 import com.misc.common.moplaf.solver.SolverPackage;
 import com.misc.common.moplaf.solver.impl.SolverLpImpl;
@@ -601,7 +602,9 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		if ( feasible ) {
 			try {
 				goalvalue = (float) this.lp.getObjValue();
-				Solution newSolution = this.constructSolution(goalvalue);
+				SolutionLp newSolution = (SolutionLp) this.constructSolution(goalvalue);
+				SolutionLpGoal newGoal = (SolutionLpGoal)newSolution.constructSolutionGoal();
+				newGoal.setOptimalValue(goalvalue);
 				mipgap    = (float) this.lp.getMIPRelativeGap();
 				for ( Map.Entry<GeneratorLpVar, IloNumVar> varentry : vars.entrySet())	{
 					IloNumVar cplexvar = varentry.getValue();

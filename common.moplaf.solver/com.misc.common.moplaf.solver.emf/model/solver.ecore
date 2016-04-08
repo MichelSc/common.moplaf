@@ -309,6 +309,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="GoalToSolve" eType="#//GeneratorGoal"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="InitialSolution" eType="#//Solution"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SolverCp" abstract="true" eSuperTypes="#//Solver">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SearchAll" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolverLp" abstract="true" eSuperTypes="#//Solver">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverOptimalityTolerance"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat" defaultValueLiteral="0.05"/>
@@ -319,6 +322,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Solution">
     <eOperations name="solutionVarFactory" eType="#//SolutionVar"/>
     <eOperations name="solutionConsFactory" eType="#//SolutionCons"/>
+    <eOperations name="solutionGoalFactory" eType="#//SolutionGoal"/>
     <eOperations name="constructSolutionCons" eType="#//SolutionCons">
       <eParameters name="cons" eType="#//GeneratorCons"/>
     </eOperations>
@@ -339,6 +343,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Goal" eType="#//SolutionGoal"
         containment="true" eOpposite="#//SolutionGoal/Solution"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SolutionLp" eSuperTypes="#//Solution"/>
   <eClassifiers xsi:type="ecore:EClass" name="SolutionVar">
     <eOperations name="isOne" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="isZero" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -349,6 +354,7 @@
         eOpposite="#//GeneratorVar/Solution"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolutionLpVar" eSuperTypes="#//SolutionVar"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SolutionCpVar" eSuperTypes="#//SolutionVar"/>
   <eClassifiers xsi:type="ecore:EClass" name="SolutionCons">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Solution" lowerBound="1"
         eType="#//Solution" eOpposite="#//Solution/Cons"/>
@@ -356,6 +362,15 @@
         eOpposite="#//GeneratorCons/Solution"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolutionLpCons" eSuperTypes="#//SolutionCons"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SolutionGoal">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Solution" lowerBound="1"
+        eType="#//Solution" eOpposite="#//Solution/Goal"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Goal" lowerBound="1" eType="#//GeneratorGoal"
+        eOpposite="#//GeneratorGoal/Solution"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SolutionLpGoal" eSuperTypes="#//SolutionGoal">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="OptimalValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="ITupleVisitor" instanceClassName="com.misc.common.moplaf.solver.ITupleVisitor"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Exception" instanceClassName="java.lang.Exception"/>
   <eClassifiers xsi:type="ecore:EEnum" name="EnumLpFileFormat">
@@ -395,10 +410,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Not" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CpCons" eType="#//GeneratorCpCons"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SolutionCpVar" eSuperTypes="#//SolutionVar"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SolverCp" abstract="true" eSuperTypes="#//Solver">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SearchAll" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorGoal" abstract="true">
     <eOperations name="getSolutionGoal" eType="#//SolutionGoal">
@@ -434,14 +445,5 @@
         eOpposite="#//GeneratorLpVar/LpGoalTerm"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="LpGoal" lowerBound="1"
         eType="#//GeneratorLpGoal" eOpposite="#//GeneratorLpGoal/LpGoalTerm"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SolutionGoal">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Solution" lowerBound="1"
-        eType="#//Solution" eOpposite="#//Solution/Goal"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Goal" lowerBound="1" eType="#//GeneratorGoal"
-        eOpposite="#//GeneratorGoal/Solution"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SolutionLpGoal" eSuperTypes="#//SolutionGoal">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="OptimalValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
 </ecore:EPackage>

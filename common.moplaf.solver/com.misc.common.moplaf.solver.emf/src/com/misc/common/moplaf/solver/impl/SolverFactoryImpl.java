@@ -69,21 +69,22 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 			case SolverPackage.GENERATOR_VAR_OVERFLOW: return createGeneratorVarOverflow();
 			case SolverPackage.SOLUTION_READER_PATTERN: return createSolutionReaderPattern();
 			case SolverPackage.SOLUTION: return createSolution();
+			case SolverPackage.SOLUTION_LP: return createSolutionLp();
 			case SolverPackage.SOLUTION_VAR: return createSolutionVar();
 			case SolverPackage.SOLUTION_LP_VAR: return createSolutionLpVar();
+			case SolverPackage.SOLUTION_CP_VAR: return createSolutionCpVar();
 			case SolverPackage.SOLUTION_CONS: return createSolutionCons();
 			case SolverPackage.SOLUTION_LP_CONS: return createSolutionLpCons();
+			case SolverPackage.SOLUTION_GOAL: return createSolutionGoal();
+			case SolverPackage.SOLUTION_LP_GOAL: return createSolutionLpGoal();
 			case SolverPackage.GENERATOR_CP_LINEAR: return createGeneratorCpLinear();
 			case SolverPackage.GENERATOR_CP_LOGICAL: return createGeneratorCpLogical();
 			case SolverPackage.GENERATOR_CP_VAR_ATOMIC: return createGeneratorCpVarAtomic();
 			case SolverPackage.GENERATOR_CP_LINEAR_TERM: return createGeneratorCpLinearTerm();
 			case SolverPackage.GENERATOR_CP_LOGICAL_TERM: return createGeneratorCpLogicalTerm();
-			case SolverPackage.SOLUTION_CP_VAR: return createSolutionCpVar();
 			case SolverPackage.GENERATOR_ELEMENT: return createGeneratorElement();
 			case SolverPackage.GENERATOR_LP_GOAL: return createGeneratorLpGoal();
 			case SolverPackage.GENERATOR_LP_GOAL_TERM: return createGeneratorLpGoalTerm();
-			case SolverPackage.SOLUTION_GOAL: return createSolutionGoal();
-			case SolverPackage.SOLUTION_LP_GOAL: return createSolutionLpGoal();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -209,6 +210,16 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 	public Solution createSolution() {
 		SolutionImpl solution = new SolutionImpl();
 		return solution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SolutionLp createSolutionLp() {
+		SolutionLpImpl solutionLp = new SolutionLpImpl();
+		return solutionLp;
 	}
 
 	/**

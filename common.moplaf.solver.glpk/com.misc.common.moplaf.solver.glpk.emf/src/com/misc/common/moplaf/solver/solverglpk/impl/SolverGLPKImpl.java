@@ -40,7 +40,8 @@ import com.misc.common.moplaf.solver.GeneratorTuple;
 import com.misc.common.moplaf.solver.GeneratorVar;
 import com.misc.common.moplaf.solver.ILpWriter;
 import com.misc.common.moplaf.solver.ITupleVisitor;
-import com.misc.common.moplaf.solver.Solution;
+import com.misc.common.moplaf.solver.SolutionLp;
+import com.misc.common.moplaf.solver.SolutionLpGoal;
 import com.misc.common.moplaf.solver.SolutionVar;
 import com.misc.common.moplaf.solver.SolverPackage;
 import com.misc.common.moplaf.solver.impl.SolverLpImpl;
@@ -1014,7 +1015,9 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		else if ( mipstatus == GLPKConstants.GLP_NOFEAS) { unfeasible = true; }
 		if ( feasible || this.isSolverLinearRelaxation()) {
 			mipvalue = (float)GLPK.glp_mip_obj_val(lp);
-			Solution newSolution = this.constructSolution(mipvalue);
+			SolutionLp newSolution = (SolutionLp) this.constructSolution(mipvalue);
+			SolutionLpGoal newGoal = (SolutionLpGoal)newSolution.constructSolutionGoal();
+			newGoal.setOptimalValue(mipvalue);
 			for ( Map.Entry<GeneratorLpVar, Number> varentry : vars.entrySet())	{
 				int varindex = varentry.getValue().intValue();
 				GeneratorLpVar lpvar = varentry.getKey();

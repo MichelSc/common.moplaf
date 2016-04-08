@@ -232,6 +232,14 @@ public interface Solution extends EObject {
 	 * @model
 	 * @generated
 	 */
+	SolutionGoal solutionGoalFactory();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	SolutionCons constructSolutionCons(GeneratorCons cons);
 
 	/**

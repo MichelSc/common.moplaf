@@ -152,12 +152,20 @@ public class SolverAdapterFactory extends AdapterFactoryImpl {
 				return createSolverAdapter();
 			}
 			@Override
+			public Adapter caseSolverCp(SolverCp object) {
+				return createSolverCpAdapter();
+			}
+			@Override
 			public Adapter caseSolverLp(SolverLp object) {
 				return createSolverLpAdapter();
 			}
 			@Override
 			public Adapter caseSolution(Solution object) {
 				return createSolutionAdapter();
+			}
+			@Override
+			public Adapter caseSolutionLp(SolutionLp object) {
+				return createSolutionLpAdapter();
 			}
 			@Override
 			public Adapter caseSolutionVar(SolutionVar object) {
@@ -168,12 +176,24 @@ public class SolverAdapterFactory extends AdapterFactoryImpl {
 				return createSolutionLpVarAdapter();
 			}
 			@Override
+			public Adapter caseSolutionCpVar(SolutionCpVar object) {
+				return createSolutionCpVarAdapter();
+			}
+			@Override
 			public Adapter caseSolutionCons(SolutionCons object) {
 				return createSolutionConsAdapter();
 			}
 			@Override
 			public Adapter caseSolutionLpCons(SolutionLpCons object) {
 				return createSolutionLpConsAdapter();
+			}
+			@Override
+			public Adapter caseSolutionGoal(SolutionGoal object) {
+				return createSolutionGoalAdapter();
+			}
+			@Override
+			public Adapter caseSolutionLpGoal(SolutionLpGoal object) {
+				return createSolutionLpGoalAdapter();
 			}
 			@Override
 			public Adapter caseGeneratorCpCons(GeneratorCpCons object) {
@@ -204,14 +224,6 @@ public class SolverAdapterFactory extends AdapterFactoryImpl {
 				return createGeneratorCpLogicalTermAdapter();
 			}
 			@Override
-			public Adapter caseSolutionCpVar(SolutionCpVar object) {
-				return createSolutionCpVarAdapter();
-			}
-			@Override
-			public Adapter caseSolverCp(SolverCp object) {
-				return createSolverCpAdapter();
-			}
-			@Override
 			public Adapter caseGeneratorElement(GeneratorElement object) {
 				return createGeneratorElementAdapter();
 			}
@@ -226,14 +238,6 @@ public class SolverAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseGeneratorLpGoalTerm(GeneratorLpGoalTerm object) {
 				return createGeneratorLpGoalTermAdapter();
-			}
-			@Override
-			public Adapter caseSolutionGoal(SolutionGoal object) {
-				return createSolutionGoalAdapter();
-			}
-			@Override
-			public Adapter caseSolutionLpGoal(SolutionLpGoal object) {
-				return createSolutionLpGoalAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -392,6 +396,20 @@ public class SolverAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSolutionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.SolutionLp <em>Solution Lp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.solver.SolutionLp
+	 * @generated
+	 */
+	public Adapter createSolutionLpAdapter() {
 		return null;
 	}
 

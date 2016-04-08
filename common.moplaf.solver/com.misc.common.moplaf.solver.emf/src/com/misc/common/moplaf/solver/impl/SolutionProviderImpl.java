@@ -164,8 +164,6 @@ public abstract class SolutionProviderImpl extends MinimalEObjectImpl.Container 
 	 * @generated NOT
 	 */
 	public Solution solutionFactory() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
 		Solution newsolution = SolverFactory.eINSTANCE.createSolution();
 		return newsolution;
 	}

@@ -210,6 +210,29 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.SolutionLp} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SolutionLpItemProvider solutionLpItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.SolutionLp}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSolutionLpAdapter() {
+		if (solutionLpItemProvider == null) {
+			solutionLpItemProvider = new SolutionLpItemProvider(this);
+		}
+
+		return solutionLpItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.GeneratorLpVar} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -803,21 +826,22 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 		if (generatorVarOverflowItemProvider != null) generatorVarOverflowItemProvider.dispose();
 		if (solutionReaderPatternItemProvider != null) solutionReaderPatternItemProvider.dispose();
 		if (solutionItemProvider != null) solutionItemProvider.dispose();
+		if (solutionLpItemProvider != null) solutionLpItemProvider.dispose();
 		if (solutionVarItemProvider != null) solutionVarItemProvider.dispose();
 		if (solutionLpVarItemProvider != null) solutionLpVarItemProvider.dispose();
+		if (solutionCpVarItemProvider != null) solutionCpVarItemProvider.dispose();
 		if (solutionConsItemProvider != null) solutionConsItemProvider.dispose();
 		if (solutionLpConsItemProvider != null) solutionLpConsItemProvider.dispose();
+		if (solutionGoalItemProvider != null) solutionGoalItemProvider.dispose();
+		if (solutionLpGoalItemProvider != null) solutionLpGoalItemProvider.dispose();
 		if (generatorCpLinearItemProvider != null) generatorCpLinearItemProvider.dispose();
 		if (generatorCpLogicalItemProvider != null) generatorCpLogicalItemProvider.dispose();
 		if (generatorCpVarAtomicItemProvider != null) generatorCpVarAtomicItemProvider.dispose();
 		if (generatorCpLinearTermItemProvider != null) generatorCpLinearTermItemProvider.dispose();
 		if (generatorCpLogicalTermItemProvider != null) generatorCpLogicalTermItemProvider.dispose();
-		if (solutionCpVarItemProvider != null) solutionCpVarItemProvider.dispose();
 		if (generatorElementItemProvider != null) generatorElementItemProvider.dispose();
 		if (generatorLpGoalItemProvider != null) generatorLpGoalItemProvider.dispose();
 		if (generatorLpGoalTermItemProvider != null) generatorLpGoalTermItemProvider.dispose();
-		if (solutionGoalItemProvider != null) solutionGoalItemProvider.dispose();
-		if (solutionLpGoalItemProvider != null) solutionLpGoalItemProvider.dispose();
 	}
 
 }
