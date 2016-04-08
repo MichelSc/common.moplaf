@@ -1184,6 +1184,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			// solver already started
 			// create a copy and reset its status
 			EcoreUtil.Copier solverCopier = new EcoreUtil.Copier(){
+				@Override
 				protected void copyContainment(EReference eReference,
                          					   EObject eObject, 
                          					   EObject copyEObject) {
@@ -1192,6 +1193,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				}
 			};
 			SolverImpl newSolver = (SolverImpl) solverCopier.copy(this);
+			solverCopier.copyReferences();
 			EObject thisContainer = this.eContainer();
 			EStructuralFeature containingFeature = this.eContainingFeature();
 			if ( containingFeature.isMany()){
@@ -1199,7 +1201,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				newSolver.setCode(this.getCode()+" (copy)");
 				EList containedObjects = (EList) thisContainer.eGet(containingFeature);
 				containedObjects.add(newSolver);
-				
 			}
 		} 
 		else {
