@@ -372,7 +372,8 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 			}
 		}
 		try {
-			this.lp.exportModel(filePath);
+			CommonPlugin.INSTANCE.log("SolverCplex: write to file "+filepath);
+			this.lp.exportModel(filepath);
 		} catch (IloException e) {
 			CommonPlugin.INSTANCE.log("SolverCplex: write failed, "+e.getMessage());
 		}

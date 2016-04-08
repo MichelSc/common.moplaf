@@ -364,12 +364,11 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public SolutionGoal constructSolutionGoal() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		SolutionGoal newSolutionGoal = this.solutionGoalFactory();
+		newSolutionGoal.setSolution(this);
+		return newSolutionGoal;
 	}
 
 	/**
