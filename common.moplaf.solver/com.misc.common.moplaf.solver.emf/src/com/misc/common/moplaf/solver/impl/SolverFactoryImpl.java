@@ -75,8 +75,6 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 			case SolverPackage.SOLUTION_CP_VAR: return createSolutionCpVar();
 			case SolverPackage.SOLUTION_CONS: return createSolutionCons();
 			case SolverPackage.SOLUTION_LP_CONS: return createSolutionLpCons();
-			case SolverPackage.SOLUTION_GOAL: return createSolutionGoal();
-			case SolverPackage.SOLUTION_LP_GOAL: return createSolutionLpGoal();
 			case SolverPackage.GENERATOR_CP_LINEAR: return createGeneratorCpLinear();
 			case SolverPackage.GENERATOR_CP_LOGICAL: return createGeneratorCpLogical();
 			case SolverPackage.GENERATOR_CP_VAR_ATOMIC: return createGeneratorCpVarAtomic();
@@ -180,26 +178,6 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 	public GeneratorLpGoalTerm createGeneratorLpGoalTerm() {
 		GeneratorLpGoalTermImpl generatorLpGoalTerm = new GeneratorLpGoalTermImpl();
 		return generatorLpGoalTerm;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SolutionGoal createSolutionGoal() {
-		SolutionGoalImpl solutionGoal = new SolutionGoalImpl();
-		return solutionGoal;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SolutionLpGoal createSolutionLpGoal() {
-		SolutionLpGoalImpl solutionLpGoal = new SolutionLpGoalImpl();
-		return solutionLpGoal;
 	}
 
 	/**

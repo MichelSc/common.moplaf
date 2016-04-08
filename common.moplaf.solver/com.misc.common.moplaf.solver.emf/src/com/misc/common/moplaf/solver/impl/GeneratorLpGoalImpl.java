@@ -8,7 +8,7 @@ import com.misc.common.moplaf.solver.GeneratorLpGoal;
 import com.misc.common.moplaf.solver.GeneratorLpGoalTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
 import com.misc.common.moplaf.solver.Solution;
-import com.misc.common.moplaf.solver.SolutionLpGoal;
+import com.misc.common.moplaf.solver.SolutionLp;
 import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.solver.SolverPackage;
 
@@ -163,9 +163,9 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	 * <!-- end-user-doc -->
 	 */
 	public float getSolutionValue(Solution solution) {
-		SolutionLpGoal solutionGoal = (SolutionLpGoal)this.getSolutionGoal(solution);
-		if ( solutionGoal==null) { return 0.0f; }
-		return solutionGoal.getOptimalValue();
+		SolutionLp solutionLp = (SolutionLp)solution;
+		if ( solutionLp==null) { return 0.0f; }
+		return solutionLp.getGoalValue();
 	}
 
 	/**

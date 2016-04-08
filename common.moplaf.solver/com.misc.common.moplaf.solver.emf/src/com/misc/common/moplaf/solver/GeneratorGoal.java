@@ -2,8 +2,6 @@
  */
 package com.misc.common.moplaf.solver;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -18,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorGoal#getGenerator <em>Generator</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorGoal#getSubGoal <em>Sub Goal</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorGoal#getName <em>Name</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.GeneratorGoal#getSolution <em>Solution</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorGoal()
@@ -83,31 +80,5 @@ public interface GeneratorGoal extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Solution</b></em>' reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.solver.SolutionGoal}.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.SolutionGoal#getGoal <em>Goal</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Solution</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Solution</em>' reference list.
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorGoal_Solution()
-	 * @see com.misc.common.moplaf.solver.SolutionGoal#getGoal
-	 * @model opposite="Goal"
-	 * @generated
-	 */
-	EList<SolutionGoal> getSolution();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	SolutionGoal getSolutionGoal(Solution solution);
 
 } // GeneratorGoal

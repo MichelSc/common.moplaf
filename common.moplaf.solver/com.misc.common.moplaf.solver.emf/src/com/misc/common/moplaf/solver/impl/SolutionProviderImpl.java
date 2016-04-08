@@ -173,14 +173,13 @@ public abstract class SolutionProviderImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Solution constructSolution(float value) {
+	public Solution constructSolution() {
 		int currentNr = this.getCurrentSolutionNr();
 		currentNr++;
 		this.setCurrentSolutionNr(currentNr);
 		Solution newsolution = this.solutionFactory();
 		newsolution.setSolutionNr(currentNr);
 		this.getSolution().add(newsolution);
-		newsolution.setValue(value);
 		return newsolution;
 	}
 
@@ -325,8 +324,8 @@ public abstract class SolutionProviderImpl extends MinimalEObjectImpl.Container 
 		switch (operationID) {
 			case SolverPackage.SOLUTION_PROVIDER___SOLUTION_FACTORY:
 				return solutionFactory();
-			case SolverPackage.SOLUTION_PROVIDER___CONSTRUCT_SOLUTION__FLOAT:
-				return constructSolution((Float)arguments.get(0));
+			case SolverPackage.SOLUTION_PROVIDER___CONSTRUCT_SOLUTION:
+				return constructSolution();
 			case SolverPackage.SOLUTION_PROVIDER___GET_PARENT_GENERATOR_TOOL:
 				return getParentGeneratorTool();
 			case SolverPackage.SOLUTION_PROVIDER___GET_GENERATOR:

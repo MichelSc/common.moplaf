@@ -473,7 +473,7 @@ public class SolutionReaderPatternImpl extends SolutionReaderImpl implements Sol
 				}  // traverse the tuple vars
 			}  // visit tuple
 		}; // class visitor
-		Solution newSolution = this.constructSolution(0.0f);
+		Solution newSolution = this.constructSolution();
 		VarVisitor varvisitor = new VarVisitor(newSolution);
 		try {
 			generator.visitTuples(varvisitor);

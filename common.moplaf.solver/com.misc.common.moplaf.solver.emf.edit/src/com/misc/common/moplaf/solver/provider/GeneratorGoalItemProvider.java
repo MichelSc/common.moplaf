@@ -63,7 +63,6 @@ public class GeneratorGoalItemProvider
 			addGeneratorPropertyDescriptor(object);
 			addSubGoalPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
-			addSolutionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -130,28 +129,6 @@ public class GeneratorGoalItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Solution feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSolutionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GeneratorGoal_Solution_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorGoal_Solution_feature", "_UI_GeneratorGoal_type"),
-				 SolverPackage.Literals.GENERATOR_GOAL__SOLUTION,
-				 true,
-				 false,
-				 true,
-				 null,
 				 null,
 				 null));
 	}

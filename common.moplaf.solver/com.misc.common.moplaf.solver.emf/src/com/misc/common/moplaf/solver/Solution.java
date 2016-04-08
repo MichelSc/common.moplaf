@@ -30,8 +30,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.solver.Solution#getProvider <em>Provider</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solution#getSolutionNr <em>Solution Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solution#getCode <em>Code</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.Solution#getValue <em>Value</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.Solution#getGoal <em>Goal</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getSolution()
@@ -157,60 +155,6 @@ public interface Solution extends EObject {
 	void setCode(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Value</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see #setValue(float)
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolution_Value()
-	 * @model
-	 * @generated
-	 */
-	float getValue();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.solver.Solution#getValue <em>Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value</em>' attribute.
-	 * @see #getValue()
-	 * @generated
-	 */
-	void setValue(float value);
-
-	/**
-	 * Returns the value of the '<em><b>Goal</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.SolutionGoal#getSolution <em>Solution</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Goal</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Goal</em>' containment reference.
-	 * @see #setGoal(SolutionGoal)
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolution_Goal()
-	 * @see com.misc.common.moplaf.solver.SolutionGoal#getSolution
-	 * @model opposite="Solution" containment="true"
-	 * @generated
-	 */
-	SolutionGoal getGoal();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.solver.Solution#getGoal <em>Goal</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Goal</em>' containment reference.
-	 * @see #getGoal()
-	 * @generated
-	 */
-	void setGoal(SolutionGoal value);
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
@@ -232,14 +176,6 @@ public interface Solution extends EObject {
 	 * @model
 	 * @generated
 	 */
-	SolutionGoal solutionGoalFactory();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
 	SolutionCons constructSolutionCons(GeneratorCons cons);
 
 	/**
@@ -249,12 +185,4 @@ public interface Solution extends EObject {
 	 * @generated
 	 */
 	SolutionVar constructSolutionVar(GeneratorVar var);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	SolutionGoal constructSolutionGoal();
 } // Solution

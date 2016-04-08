@@ -310,6 +310,24 @@ public interface SolvercplexPackage extends EPackage {
 	int SOLVER_CPLEX__INITIALIZING = SolverPackage.SOLVER_LP__INITIALIZING;
 
 	/**
+	 * The feature id for the '<em><b>Goal To Solve</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX__GOAL_TO_SOLVE = SolverPackage.SOLVER_LP__GOAL_TO_SOLVE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Solution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX__INITIAL_SOLUTION = SolverPackage.SOLVER_LP__INITIAL_SOLUTION;
+
+	/**
 	 * The feature id for the '<em><b>Solver Optimality Tolerance</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -406,7 +424,7 @@ public interface SolvercplexPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_CPLEX___CONSTRUCT_SOLUTION__FLOAT = SolverPackage.SOLVER_LP___CONSTRUCT_SOLUTION__FLOAT;
+	int SOLVER_CPLEX___CONSTRUCT_SOLUTION = SolverPackage.SOLVER_LP___CONSTRUCT_SOLUTION;
 
 	/**
 	 * The operation id for the '<em>Solve</em>' operation.

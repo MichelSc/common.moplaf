@@ -117,5 +117,5 @@ public interface SolutionProvider extends IGeneratorTool {
 	 * @model
 	 * @generated
 	 */
-	Solution constructSolution(float value);
+	Solution constructSolution();
 } // SolutionProvider

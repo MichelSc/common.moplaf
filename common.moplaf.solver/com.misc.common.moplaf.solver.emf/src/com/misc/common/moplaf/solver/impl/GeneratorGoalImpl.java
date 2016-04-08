@@ -4,26 +4,14 @@ package com.misc.common.moplaf.solver.impl;
 
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorGoal;
-import com.misc.common.moplaf.solver.Solution;
-import com.misc.common.moplaf.solver.SolutionGoal;
 import com.misc.common.moplaf.solver.SolverPackage;
-
-import java.lang.reflect.InvocationTargetException;
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,7 +24,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl#getGenerator <em>Generator</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl#getSubGoal <em>Sub Goal</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl#getSolution <em>Solution</em>}</li>
  * </ul>
  *
  * @generated
@@ -61,16 +48,6 @@ public abstract class GeneratorGoalImpl extends MinimalEObjectImpl.Container imp
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getSolution() <em>Solution</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSolution()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<SolutionGoal> solution;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -179,60 +156,6 @@ public abstract class GeneratorGoalImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SolutionGoal> getSolution() {
-		if (solution == null) {
-			solution = new EObjectWithInverseResolvingEList<SolutionGoal>(SolutionGoal.class, this, SolverPackage.GENERATOR_GOAL__SOLUTION, SolverPackage.SOLUTION_GOAL__GOAL);
-		}
-		return solution;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public SolutionGoal getSolutionGoal(Solution solution) {
-		for(SolutionGoal currentgoal : this.getSolution()) {
-			if ( currentgoal.getSolution()==solution) {
-				return currentgoal;
-			}
-		}
-		return null;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case SolverPackage.GENERATOR_GOAL__SOLUTION:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSolution()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case SolverPackage.GENERATOR_GOAL__SOLUTION:
-				return ((InternalEList<?>)getSolution()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -244,8 +167,6 @@ public abstract class GeneratorGoalImpl extends MinimalEObjectImpl.Container imp
 				return basicGetSubGoal();
 			case SolverPackage.GENERATOR_GOAL__NAME:
 				return getName();
-			case SolverPackage.GENERATOR_GOAL__SOLUTION:
-				return getSolution();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -262,10 +183,6 @@ public abstract class GeneratorGoalImpl extends MinimalEObjectImpl.Container imp
 			case SolverPackage.GENERATOR_GOAL__NAME:
 				setName((String)newValue);
 				return;
-			case SolverPackage.GENERATOR_GOAL__SOLUTION:
-				getSolution().clear();
-				getSolution().addAll((Collection<? extends SolutionGoal>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -280,9 +197,6 @@ public abstract class GeneratorGoalImpl extends MinimalEObjectImpl.Container imp
 		switch (featureID) {
 			case SolverPackage.GENERATOR_GOAL__NAME:
 				setName(NAME_EDEFAULT);
-				return;
-			case SolverPackage.GENERATOR_GOAL__SOLUTION:
-				getSolution().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -302,24 +216,8 @@ public abstract class GeneratorGoalImpl extends MinimalEObjectImpl.Container imp
 				return basicGetSubGoal() != null;
 			case SolverPackage.GENERATOR_GOAL__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case SolverPackage.GENERATOR_GOAL__SOLUTION:
-				return solution != null && !solution.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case SolverPackage.GENERATOR_GOAL___GET_SOLUTION_GOAL__SOLUTION:
-				return getSolutionGoal((Solution)arguments.get(0));
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
