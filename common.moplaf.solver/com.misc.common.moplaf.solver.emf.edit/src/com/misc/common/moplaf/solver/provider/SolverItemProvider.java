@@ -72,6 +72,7 @@ public class SolverItemProvider
 			addRunInterruptedPropertyDescriptor(object);
 			addRunTimeOutPropertyDescriptor(object);
 			addGoalToSolvePropertyDescriptor(object);
+			addInitialSolutionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -178,6 +179,28 @@ public class SolverItemProvider
 				 getString("_UI_Solver_GoalToSolve_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Solver_GoalToSolve_feature", "_UI_Solver_type"),
 				 SolverPackage.Literals.SOLVER__GOAL_TO_SOLVE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 getString("_UI__10GeneralPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Initial Solution feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInitialSolutionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Solver_InitialSolution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Solver_InitialSolution_feature", "_UI_Solver_type"),
+				 SolverPackage.Literals.SOLVER__INITIAL_SOLUTION,
 				 true,
 				 false,
 				 true,

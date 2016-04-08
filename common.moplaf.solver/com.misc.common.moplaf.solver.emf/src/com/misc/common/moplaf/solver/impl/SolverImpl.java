@@ -6,6 +6,7 @@ import com.misc.common.moplaf.solver.EnumSolverLogLevel;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorGoal;
 import com.misc.common.moplaf.solver.IGeneratorTool;
+import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverPackage;
 
@@ -570,6 +571,16 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 */
 	protected GeneratorGoal goalToSolve;
 
+	/**
+	 * The cached value of the '{@link #getInitialSolution() <em>Initial Solution</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInitialSolution()
+	 * @generated
+	 * @ordered
+	 */
+	protected Solution initialSolution;
+
 	protected IProgressMonitor eMonitor;
 
 	/**
@@ -732,6 +743,44 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		goalToSolve = newGoalToSolve;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__GOAL_TO_SOLVE, oldGoalToSolve, goalToSolve));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Solution getInitialSolution() {
+		if (initialSolution != null && initialSolution.eIsProxy()) {
+			InternalEObject oldInitialSolution = (InternalEObject)initialSolution;
+			initialSolution = (Solution)eResolveProxy(oldInitialSolution);
+			if (initialSolution != oldInitialSolution) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SolverPackage.SOLVER__INITIAL_SOLUTION, oldInitialSolution, initialSolution));
+			}
+		}
+		return initialSolution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Solution basicGetInitialSolution() {
+		return initialSolution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInitialSolution(Solution newInitialSolution) {
+		Solution oldInitialSolution = initialSolution;
+		initialSolution = newInitialSolution;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__INITIAL_SOLUTION, oldInitialSolution, initialSolution));
 	}
 
 	/**
@@ -1471,6 +1520,9 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			case SolverPackage.SOLVER__GOAL_TO_SOLVE:
 				if (resolve) return getGoalToSolve();
 				return basicGetGoalToSolve();
+			case SolverPackage.SOLVER__INITIAL_SOLUTION:
+				if (resolve) return getInitialSolution();
+				return basicGetInitialSolution();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1557,6 +1609,9 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return;
 			case SolverPackage.SOLVER__GOAL_TO_SOLVE:
 				setGoalToSolve((GeneratorGoal)newValue);
+				return;
+			case SolverPackage.SOLVER__INITIAL_SOLUTION:
+				setInitialSolution((Solution)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1645,6 +1700,9 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			case SolverPackage.SOLVER__GOAL_TO_SOLVE:
 				setGoalToSolve((GeneratorGoal)null);
 				return;
+			case SolverPackage.SOLVER__INITIAL_SOLUTION:
+				setInitialSolution((Solution)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1707,6 +1765,8 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return initializing != INITIALIZING_EDEFAULT;
 			case SolverPackage.SOLVER__GOAL_TO_SOLVE:
 				return goalToSolve != null;
+			case SolverPackage.SOLVER__INITIAL_SOLUTION:
+				return initialSolution != null;
 		}
 		return super.eIsSet(featureID);
 	}

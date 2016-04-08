@@ -114,14 +114,14 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	protected float value = VALUE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getGoal() <em>Goal</em>}' containment reference list.
+	 * The cached value of the '{@link #getGoal() <em>Goal</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getGoal()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SolutionGoal> goal;
+	protected SolutionGoal goal;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -272,11 +272,42 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SolutionGoal> getGoal() {
-		if (goal == null) {
-			goal = new EObjectContainmentWithInverseEList<SolutionGoal>(SolutionGoal.class, this, SolverPackage.SOLUTION__GOAL, SolverPackage.SOLUTION_GOAL__SOLUTION);
-		}
+	public SolutionGoal getGoal() {
 		return goal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetGoal(SolutionGoal newGoal, NotificationChain msgs) {
+		SolutionGoal oldGoal = goal;
+		goal = newGoal;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SolverPackage.SOLUTION__GOAL, oldGoal, newGoal);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGoal(SolutionGoal newGoal) {
+		if (newGoal != goal) {
+			NotificationChain msgs = null;
+			if (goal != null)
+				msgs = ((InternalEObject)goal).eInverseRemove(this, SolverPackage.SOLUTION_GOAL__SOLUTION, SolutionGoal.class, msgs);
+			if (newGoal != null)
+				msgs = ((InternalEObject)newGoal).eInverseAdd(this, SolverPackage.SOLUTION_GOAL__SOLUTION, SolutionGoal.class, msgs);
+			msgs = basicSetGoal(newGoal, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLUTION__GOAL, newGoal, newGoal));
 	}
 
 	/**
@@ -324,6 +355,17 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SolutionGoal constructSolutionGoal() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -337,7 +379,9 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetProvider((SolutionProvider)otherEnd, msgs);
 			case SolverPackage.SOLUTION__GOAL:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getGoal()).basicAdd(otherEnd, msgs);
+				if (goal != null)
+					msgs = ((InternalEObject)goal).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SolverPackage.SOLUTION__GOAL, null, msgs);
+				return basicSetGoal((SolutionGoal)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -357,7 +401,7 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 			case SolverPackage.SOLUTION__PROVIDER:
 				return basicSetProvider(null, msgs);
 			case SolverPackage.SOLUTION__GOAL:
-				return ((InternalEList<?>)getGoal()).basicRemove(otherEnd, msgs);
+				return basicSetGoal(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -432,8 +476,7 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 				setValue((Float)newValue);
 				return;
 			case SolverPackage.SOLUTION__GOAL:
-				getGoal().clear();
-				getGoal().addAll((Collection<? extends SolutionGoal>)newValue);
+				setGoal((SolutionGoal)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -466,7 +509,7 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 				setValue(VALUE_EDEFAULT);
 				return;
 			case SolverPackage.SOLUTION__GOAL:
-				getGoal().clear();
+				setGoal((SolutionGoal)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -493,7 +536,7 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 			case SolverPackage.SOLUTION__VALUE:
 				return value != VALUE_EDEFAULT;
 			case SolverPackage.SOLUTION__GOAL:
-				return goal != null && !goal.isEmpty();
+				return goal != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -514,6 +557,8 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 				return constructSolutionCons((GeneratorCons)arguments.get(0));
 			case SolverPackage.SOLUTION___CONSTRUCT_SOLUTION_VAR__GENERATORVAR:
 				return constructSolutionVar((GeneratorVar)arguments.get(0));
+			case SolverPackage.SOLUTION___CONSTRUCT_SOLUTION_GOAL:
+				return constructSolutionGoal();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

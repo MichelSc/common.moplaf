@@ -277,6 +277,8 @@
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//Solver/Initializing"/>
       <genFeatures notify="false" createChild="false" propertyCategory="10 General"
           propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//Solver/GoalToSolve"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="10 General"
+          propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//Solver/InitialSolution"/>
       <genOperations ecoreOperation="solver.ecore#//Solver/solve"/>
     </genClasses>
     <genClasses image="false" ecoreClass="solver.ecore#//SolverLp" labelFeature="#//solver/SolutionProvider/Code">

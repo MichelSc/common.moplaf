@@ -307,6 +307,7 @@
         defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Initializing" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="GoalToSolve" eType="#//GeneratorGoal"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="InitialSolution" eType="#//Solution"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolverLp" abstract="true" eSuperTypes="#//Solver">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverOptimalityTolerance"
@@ -324,6 +325,7 @@
     <eOperations name="constructSolutionVar" eType="#//SolutionVar">
       <eParameters name="var" eType="#//GeneratorVar"/>
     </eOperations>
+    <eOperations name="constructSolutionGoal" eType="#//SolutionGoal"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Var" upperBound="-1" eType="#//SolutionVar"
         containment="true" eOpposite="#//SolutionVar/Solution"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Cons" upperBound="-1" eType="#//SolutionCons"
@@ -334,7 +336,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         volatile="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Goal" upperBound="-1" eType="#//SolutionGoal"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Goal" eType="#//SolutionGoal"
         containment="true" eOpposite="#//SolutionGoal/Solution"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolutionVar">

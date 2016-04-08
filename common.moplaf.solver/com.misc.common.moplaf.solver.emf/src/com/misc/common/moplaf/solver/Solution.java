@@ -183,8 +183,7 @@ public interface Solution extends EObject {
 	void setValue(float value);
 
 	/**
-	 * Returns the value of the '<em><b>Goal</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.solver.SolutionGoal}.
+	 * Returns the value of the '<em><b>Goal</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.SolutionGoal#getSolution <em>Solution</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -192,13 +191,24 @@ public interface Solution extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Goal</em>' containment reference list.
+	 * @return the value of the '<em>Goal</em>' containment reference.
+	 * @see #setGoal(SolutionGoal)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolution_Goal()
 	 * @see com.misc.common.moplaf.solver.SolutionGoal#getSolution
 	 * @model opposite="Solution" containment="true"
 	 * @generated
 	 */
-	EList<SolutionGoal> getGoal();
+	SolutionGoal getGoal();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.solver.Solution#getGoal <em>Goal</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Goal</em>' containment reference.
+	 * @see #getGoal()
+	 * @generated
+	 */
+	void setGoal(SolutionGoal value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -231,4 +241,12 @@ public interface Solution extends EObject {
 	 * @generated
 	 */
 	SolutionVar constructSolutionVar(GeneratorVar var);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	SolutionGoal constructSolutionGoal();
 } // Solution

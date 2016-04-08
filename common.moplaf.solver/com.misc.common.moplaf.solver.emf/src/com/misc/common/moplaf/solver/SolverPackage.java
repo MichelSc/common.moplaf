@@ -2413,13 +2413,22 @@ public interface SolverPackage extends EPackage {
 	int SOLVER__GOAL_TO_SOLVE = SOLUTION_PROVIDER_FEATURE_COUNT + 24;
 
 	/**
+	 * The feature id for the '<em><b>Initial Solution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER__INITIAL_SOLUTION = SOLUTION_PROVIDER_FEATURE_COUNT + 25;
+
+	/**
 	 * The number of structural features of the '<em>Solver</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_FEATURE_COUNT = SOLUTION_PROVIDER_FEATURE_COUNT + 25;
+	int SOLVER_FEATURE_COUNT = SOLUTION_PROVIDER_FEATURE_COUNT + 26;
 
 	/**
 	 * The operation id for the '<em>Get Parent Generator Tool</em>' operation.
@@ -2738,6 +2747,15 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_LP__GOAL_TO_SOLVE = SOLVER__GOAL_TO_SOLVE;
 
 	/**
+	 * The feature id for the '<em><b>Initial Solution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP__INITIAL_SOLUTION = SOLVER__INITIAL_SOLUTION;
+
+	/**
 	 * The feature id for the '<em><b>Solver Optimality Tolerance</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3022,7 +3040,7 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION__VALUE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Goal</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Goal</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3076,13 +3094,22 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION___CONSTRUCT_SOLUTION_VAR__GENERATORVAR = 3;
 
 	/**
+	 * The operation id for the '<em>Construct Solution Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION___CONSTRUCT_SOLUTION_GOAL = 4;
+
+	/**
 	 * The number of operations of the '<em>Solution</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_OPERATION_COUNT = 4;
+	int SOLUTION_OPERATION_COUNT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Optimal Value</b></em>' attribute.
@@ -4361,6 +4388,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_CP__GOAL_TO_SOLVE = SOLVER__GOAL_TO_SOLVE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Solution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP__INITIAL_SOLUTION = SOLVER__INITIAL_SOLUTION;
 
 	/**
 	 * The feature id for the '<em><b>Search All</b></em>' attribute.
@@ -5668,10 +5704,10 @@ public interface SolverPackage extends EPackage {
 	EAttribute getSolution_Value();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.solver.Solution#getGoal <em>Goal</em>}'.
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.solver.Solution#getGoal <em>Goal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Goal</em>'.
+	 * @return the meta object for the containment reference '<em>Goal</em>'.
 	 * @see com.misc.common.moplaf.solver.Solution#getGoal()
 	 * @see #getSolution()
 	 * @generated
@@ -5717,6 +5753,16 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getSolution__ConstructSolutionVar__GeneratorVar();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.Solution#constructSolutionGoal() <em>Construct Solution Goal</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Construct Solution Goal</em>' operation.
+	 * @see com.misc.common.moplaf.solver.Solution#constructSolutionGoal()
+	 * @generated
+	 */
+	EOperation getSolution__ConstructSolutionGoal();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorVar <em>Generator Var</em>}'.
@@ -6510,6 +6556,17 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSolver_GoalToSolve();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.solver.Solver#getInitialSolution <em>Initial Solution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Initial Solution</em>'.
+	 * @see com.misc.common.moplaf.solver.Solver#getInitialSolution()
+	 * @see #getSolver()
+	 * @generated
+	 */
+	EReference getSolver_InitialSolution();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.Solver#isSolving <em>Solving</em>}'.
@@ -7965,7 +8022,7 @@ public interface SolverPackage extends EPackage {
 		EAttribute SOLUTION__VALUE = eINSTANCE.getSolution_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Goal</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Goal</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -8003,6 +8060,14 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SOLUTION___CONSTRUCT_SOLUTION_VAR__GENERATORVAR = eINSTANCE.getSolution__ConstructSolutionVar__GeneratorVar();
+
+		/**
+		 * The meta object literal for the '<em><b>Construct Solution Goal</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SOLUTION___CONSTRUCT_SOLUTION_GOAL = eINSTANCE.getSolution__ConstructSolutionGoal();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorVarImpl <em>Generator Var</em>}' class.
@@ -8621,6 +8686,14 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SOLVER__GOAL_TO_SOLVE = eINSTANCE.getSolver_GoalToSolve();
+
+		/**
+		 * The meta object literal for the '<em><b>Initial Solution</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SOLVER__INITIAL_SOLUTION = eINSTANCE.getSolver_InitialSolution();
 
 		/**
 		 * The meta object literal for the '<em><b>Solving</b></em>' attribute feature.
