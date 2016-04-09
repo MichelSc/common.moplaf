@@ -753,12 +753,14 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 			float mipgap = 0.0f;
 			// set the info fields
 			 try {
-				 if (where == GRB.CB_MESSAGE && false) {
+				 if (where == GRB.CB_MESSAGE ) {
+					 /*
 			        String st = getStringInfo(GRB.CB_MSG_STRING);
 			        if (st != null) {
 			        	progress = "Message: "+st;
 			        	feedback = true;
 			        }
+			        */
 			     } 
 				 else if (where == GRB.CB_PRESOLVE) {
 			        int cdels = getIntInfo(GRB.CB_PRE_COLDEL);
@@ -801,11 +803,13 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 				        SolverGurobiImpl.this.setSolOptimalityGap(mipgap); // update gap
 			        }
 				 } 
-				 else if (where == GRB.CB_MIPSOL && false) {
+				 else if (where == GRB.CB_MIPSOL ) {
+					 /*
 				    double obj     = getDoubleInfo(GRB.CB_MIPSOL_OBJ);
 				    int    nodecnt = (int) getDoubleInfo(GRB.CB_MIPSOL_NODCNT);
 				    progress = "MIPSOL: at "+ nodecnt + "+ obj "+obj;
 		        	feedback = true;
+		        	*/
 				 }
 			 } 
 			 catch (GRBException e) {

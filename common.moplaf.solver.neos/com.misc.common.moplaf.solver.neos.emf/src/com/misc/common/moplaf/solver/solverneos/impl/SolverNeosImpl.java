@@ -2,7 +2,6 @@
  */
 package com.misc.common.moplaf.solver.solverneos.impl;
 
-import com.misc.common.moplaf.solver.EnumObjectiveType;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.ILpWriter;
 import com.misc.common.moplaf.solver.SolutionReader;
@@ -962,9 +961,7 @@ public class SolverNeosImpl extends SolverLpImpl implements SolverNeos {
 		neosJob.addParam(this.getSolverInput().getLiteral().toLowerCase(), model);
 		neosJob.addParam("email", this.getJobSubmitterEmail()); // not sure the right plance; might be before the model
 		Generator generator = this.getGenerator();
-		if ( generator.getObjectiveType()==EnumObjectiveType.MAXIMUM){
-			neosJob.addParam("maximize", "yes");
-		}
+		neosJob.addParam("maximize", "yes");
 
 		// submit the job
 		Vector params = new Vector();
