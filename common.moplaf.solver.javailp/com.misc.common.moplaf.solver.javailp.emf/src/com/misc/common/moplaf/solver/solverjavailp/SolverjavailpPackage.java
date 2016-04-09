@@ -40,7 +40,7 @@ public interface SolverjavailpPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://com.misc.common.moplaf.solver.javailp.emf";
+	String eNS_URI = "http://www.misc.com/common.moplaf.solver.javailp.emf";
 
 	/**
 	 * The package namespace name.
@@ -310,6 +310,24 @@ public interface SolverjavailpPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_JAVA_ILP__INITIALIZING = SolverPackage.SOLVER_LP__INITIALIZING;
+
+	/**
+	 * The feature id for the '<em><b>Goal To Solve</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JAVA_ILP__GOAL_TO_SOLVE = SolverPackage.SOLVER_LP__GOAL_TO_SOLVE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Solution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JAVA_ILP__INITIAL_SOLUTION = SolverPackage.SOLVER_LP__INITIAL_SOLUTION;
 
 	/**
 	 * The feature id for the '<em><b>Solver Optimality Tolerance</b></em>' attribute.

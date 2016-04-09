@@ -17,8 +17,8 @@
       <genEnumLiterals ecoreEnumLiteral="solverjavailp.ecore#//SolverJavaILPType/Mosek"/>
       <genEnumLiterals ecoreEnumLiteral="solverjavailp.ecore#//SolverJavaILPType/SAT4J"/>
     </genEnums>
-    <genClasses ecoreClass="solverjavailp.ecore#//SolverJavaILP" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/SolutionProvider/Code">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solverjavailp.ecore#//SolverJavaILP/Type"/>
+    <genClasses image="false" ecoreClass="solverjavailp.ecore#//SolverJavaILP" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/SolutionProvider/Code">
+      <genFeatures createChild="false" propertyCategory="10 General" ecoreFeature="ecore:EAttribute solverjavailp.ecore#//SolverJavaILP/Type"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

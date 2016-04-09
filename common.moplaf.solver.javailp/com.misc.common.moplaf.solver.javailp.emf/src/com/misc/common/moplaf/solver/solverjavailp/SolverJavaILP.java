@@ -12,10 +12,10 @@ import com.misc.common.moplaf.solver.SolverLp;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.solverjavailp.SolverJavaILP#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.solver.solverjavailp.SolverjavailpPackage#getSolverJavaILP()
  * @model

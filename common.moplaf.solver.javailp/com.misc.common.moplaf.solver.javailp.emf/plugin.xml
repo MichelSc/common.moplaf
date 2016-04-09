@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated solverjavailp -->
       <package
-            uri="http://com.misc.common.moplaf.solver.javailp.emf"
+            uri="http://www.misc.com/common.moplaf.solver.javailp.emf"
             class="com.misc.common.moplaf.solver.solverjavailp.SolverjavailpPackage"
             genModel="model/solverjavailp.genmodel"/>
    </extension>

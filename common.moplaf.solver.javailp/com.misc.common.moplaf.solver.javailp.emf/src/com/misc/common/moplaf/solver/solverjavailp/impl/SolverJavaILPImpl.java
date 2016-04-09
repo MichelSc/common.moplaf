@@ -7,22 +7,26 @@ import java.lang.reflect.InvocationTargetException;
 
 import com.misc.common.moplaf.solver.EnumLpFileFormat;
 import com.misc.common.moplaf.solver.EnumLpVarType;
+import com.misc.common.moplaf.solver.EnumObjectiveType;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorCons;
 import com.misc.common.moplaf.solver.GeneratorLpCons;
+import com.misc.common.moplaf.solver.GeneratorLpGoal;
+import com.misc.common.moplaf.solver.GeneratorLpGoalTerm;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
 import com.misc.common.moplaf.solver.GeneratorTuple;
 import com.misc.common.moplaf.solver.GeneratorVar;
 import com.misc.common.moplaf.solver.ILpWriter;
 import com.misc.common.moplaf.solver.ITupleVisitor;
-import com.misc.common.moplaf.solver.Solution;
+import com.misc.common.moplaf.solver.SolutionLp;
 import com.misc.common.moplaf.solver.SolutionVar;
 import com.misc.common.moplaf.solver.SolverPackage;
 import com.misc.common.moplaf.solver.impl.SolverLpImpl;
 import com.misc.common.moplaf.solver.solverjavailp.SolverJavaILP;
 import com.misc.common.moplaf.solver.solverjavailp.SolverJavaILPType;
 import com.misc.common.moplaf.solver.solverjavailp.SolverjavailpPackage;
+
 
 import net.sf.javailp.Linear;
 import net.sf.javailp.OptType;
@@ -50,13 +54,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.solverjavailp.impl.SolverJavaILPImpl#getFilePath <em>File Path</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solverjavailp.impl.SolverJavaILPImpl#getFileFormat <em>File Format</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solverjavailp.impl.SolverJavaILPImpl#isFileCompressed <em>File Compressed</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solverjavailp.impl.SolverJavaILPImpl#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -515,36 +519,25 @@ public class SolverJavaILPImpl extends SolverLpImpl implements SolverJavaILP {
 			// problem initialization
 			this.problem = new Problem();
 			
-			// objective
-			final Linear linearobjective = new Linear();
-			class VarObjective implements ITupleVisitor{
-				@Override
-				public void visitTuple(GeneratorTuple tuple) {
-					for ( GeneratorVar var : tuple.getVar()){
-						if ( !(var  instanceof GeneratorLpVar)){
-							throw new UnsupportedOperationException("Variable type not supported by solver: "+var.eClass().getName());
-						}
-						GeneratorLpVar lpvar = (GeneratorLpVar)var;
-						float coefficient = lpvar.getObjectiveCoeff();
-						if ( coefficient != 0.0f)	{
-							linearobjective.add(coefficient, lpvar.getCode());
-						} // non zero coefficient
-					} // traverse the vars
-				} // visit Tuple
-			}; // class VarObjective
-			VarObjective varobjective = new VarObjective();
-			generator.visitTuples(varobjective);
 			
-			if ( linearobjective.size()==0 ) return ;
-			
-			switch (generator.getObjectiveType() ) {
-		    case MAXIMUM:
-				this.problem.setObjective(linearobjective, OptType.MAX);
-		        break;
-		    case MINIMUM:
-				this.problem.setObjective(linearobjective, OptType.MIN);
-		        break;
-		    }  // switch on objective type
+			GeneratorLpGoal goal = (GeneratorLpGoal) this.getGoalToSolve();
+			if ( goal != null) {
+				final Linear linearobjective = new Linear();
+				for ( GeneratorLpGoalTerm goalTerm : goal.getLpGoalTerm()){
+					// create the objective coefficient
+					GeneratorLpVar lpvar = goalTerm.getLpVar();
+					float coefficient = goalTerm.getCoeff();
+					if ( coefficient!=0.0f){
+						linearobjective.add(coefficient, lpvar.getCode());
+					}
+				}
+				if ( linearobjective.size()==0 ) return ;
+				if ( goal.getObjectiveType()==EnumObjectiveType.MINIMUM){
+					this.problem.setObjective(linearobjective, OptType.MIN);
+				} else if ( goal.getObjectiveType()==EnumObjectiveType.MAXIMUM){
+					this.problem.setObjective(linearobjective, OptType.MAX);
+				}
+			}
 			
 			// constraints
 			class ConsAdder implements ITupleVisitor{
@@ -648,29 +641,31 @@ public class SolverJavaILPImpl extends SolverLpImpl implements SolverJavaILP {
 				objective = result.getObjective().floatValue();
 				
 				class VarSolProvider implements ITupleVisitor{
-					private Solution solution;
-					public VarSolProvider(Solution asolution){
+					private SolutionLp solution;
+					public VarSolProvider(SolutionLp asolution){
 						this.solution = asolution;
-					}
+					} // constructor
 					@Override
 					public void visitTuple(GeneratorTuple tuple) {
 						for ( GeneratorVar var : tuple.getVar()){
-							SolutionVar solvervar = this.solution.constructSolutionVar(var);
 							Number optimalvalue = result.getPrimalValue(var.getCode());
-							float floatoptimalvalue = 0.0f;
 							if ( optimalvalue == null ){
 	//							CommonPlugin.INSTANCE.log("..var "+lpvar.getECode()+" : null optimal value");
 							}
-							else{
-								floatoptimalvalue = optimalvalue.floatValue();
+							else {
+								SolutionVar solvervar = this.solution.constructSolutionVar(var);
+								float floatoptimalvalue = optimalvalue.floatValue();
+								if ( floatoptimalvalue!=0.0f) {
+									solvervar.setOptimalValue(floatoptimalvalue);
+								}
 							}
-							solvervar.setOptimalValue(floatoptimalvalue);
-						}
-					}
-				};
-				Solution newSolution = this.constructSolution();
+						} // traverse the vars in the tuple
+					}  // visit the tuple
+				}; // class visitor
+				SolutionLp newSolution = (SolutionLp)this.constructSolution();
 				VarSolProvider varsolprovider = new VarSolProvider(newSolution);
 				generator.visitTuples(varsolprovider);
+				newSolution.setGoalValue(objective);
 			}  // there is a result
 		
 		this.setSolFeasible(feasible);
