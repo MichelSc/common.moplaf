@@ -7175,7 +7175,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.SolutionProvider#constructSolution()
 	 * @generated
 	 */
-	EOperation getSolutionProvider__ConstructSolution__float();
+	EOperation getSolutionProvider__ConstructSolution();
 
 	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.solver.EnumLpVarType <em>Enum Lp Var Type</em>}'.
@@ -9098,7 +9098,7 @@ public interface SolverPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SOLUTION_PROVIDER___CONSTRUCT_SOLUTION = eINSTANCE.getSolutionProvider__ConstructSolution__float();
+		EOperation SOLUTION_PROVIDER___CONSTRUCT_SOLUTION = eINSTANCE.getSolutionProvider__ConstructSolution();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.EnumLpVarType <em>Enum Lp Var Type</em>}' enum.

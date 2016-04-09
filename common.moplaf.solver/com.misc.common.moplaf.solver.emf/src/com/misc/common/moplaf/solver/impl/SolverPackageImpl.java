@@ -2438,7 +2438,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSolutionProvider__ConstructSolution__float() {
+	public EOperation getSolutionProvider__ConstructSolution() {
 		return solutionProviderEClass.getEOperations().get(1);
 	}
 
@@ -3048,7 +3048,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 
 		initEOperation(getSolutionProvider__SolutionFactory(), this.getSolution(), "solutionFactory", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getSolutionProvider__ConstructSolution__float(), this.getSolution(), "constructSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getSolutionProvider__ConstructSolution(), this.getSolution(), "constructSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(solverEClass, Solver.class, "Solver", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSolver_Remarks(), ecorePackage.getEString(), "Remarks", null, 0, 1, Solver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

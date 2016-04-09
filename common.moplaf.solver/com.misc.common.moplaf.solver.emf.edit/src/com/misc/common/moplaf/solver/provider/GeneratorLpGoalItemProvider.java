@@ -129,17 +129,6 @@ public class GeneratorLpGoalItemProvider extends GeneratorGoalItemProvider {
 	}
 
 	/**
-	 * This returns GeneratorLpGoal.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/GeneratorLpGoal"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

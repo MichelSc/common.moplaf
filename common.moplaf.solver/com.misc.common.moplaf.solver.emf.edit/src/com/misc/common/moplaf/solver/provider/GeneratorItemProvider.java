@@ -74,7 +74,6 @@ public class GeneratorItemProvider
 			addCountVarsPropertyDescriptor(object);
 			addCodePropertyDescriptor(object);
 			addSelectedPropertyDescriptor(object);
-			addGoalsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -278,28 +277,6 @@ public class GeneratorItemProvider
 				 null,
 				 null,
 				 null));*/
-	}
-
-	/**
-	 * This adds a property descriptor for the Goals feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addGoalsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Generator_Goals_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_Goals_feature", "_UI_Generator_type"),
-				 SolverPackage.Literals.GENERATOR__GOALS,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
