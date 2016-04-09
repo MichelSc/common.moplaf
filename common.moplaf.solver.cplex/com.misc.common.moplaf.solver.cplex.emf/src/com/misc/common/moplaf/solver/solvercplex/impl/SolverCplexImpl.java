@@ -576,7 +576,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		try  {
 			if ( this.isSolverLinearRelaxation() ) {
 				CommonPlugin.INSTANCE.log("SolverCplex: continuous solve returned ");
-			} // if liear relaxed
+			} // if linear relaxed
 			else {
 				CommonPlugin.INSTANCE.log("SolverCplex: mip solver returned ");
 				SolverCplexCallbackMIPInfo callback = new SolverCplexCallbackMIPInfo();

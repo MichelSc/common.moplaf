@@ -12,11 +12,11 @@ import com.misc.common.moplaf.solver.SolverLp;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.solvergurobi.SolverGurobi#getMaxNofThreads <em>Max Nof Threads</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solvergurobi.SolverGurobi#getSolverLog <em>Solver Log</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.solver.solvergurobi.SolvergurobiPackage#getSolverGurobi()
  * @model

@@ -206,7 +206,7 @@ public class SolvergurobiPackageImpl extends EPackageImpl implements Solvergurob
 	 * @generated
 	 */
 	protected void createNullAnnotations() {
-		String source = null;		
+		String source = null;	
 		addAnnotation
 		  (solverGurobiEClass, 
 		   source, 

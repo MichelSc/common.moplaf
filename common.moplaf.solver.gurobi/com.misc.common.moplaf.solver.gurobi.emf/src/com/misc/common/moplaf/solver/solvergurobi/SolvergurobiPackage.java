@@ -39,7 +39,7 @@ public interface SolvergurobiPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://com.misc.common.moplaf.solver.gurobi.emf";
+	String eNS_URI = "http://www.misc.com/common.moplaf.solver.gurobi.emf";
 
 	/**
 	 * The package namespace name.
@@ -75,6 +75,15 @@ public interface SolvergurobiPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_GUROBI__SOLUTION = SolverPackage.SOLVER_LP__SOLUTION;
+
+	/**
+	 * The feature id for the '<em><b>Current Solution Nr</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GUROBI__CURRENT_SOLUTION_NR = SolverPackage.SOLVER_LP__CURRENT_SOLUTION_NR;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -300,6 +309,24 @@ public interface SolvergurobiPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_GUROBI__INITIALIZING = SolverPackage.SOLVER_LP__INITIALIZING;
+
+	/**
+	 * The feature id for the '<em><b>Goal To Solve</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GUROBI__GOAL_TO_SOLVE = SolverPackage.SOLVER_LP__GOAL_TO_SOLVE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Solution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GUROBI__INITIAL_SOLUTION = SolverPackage.SOLVER_LP__INITIAL_SOLUTION;
 
 	/**
 	 * The feature id for the '<em><b>Solver Optimality Tolerance</b></em>' attribute.

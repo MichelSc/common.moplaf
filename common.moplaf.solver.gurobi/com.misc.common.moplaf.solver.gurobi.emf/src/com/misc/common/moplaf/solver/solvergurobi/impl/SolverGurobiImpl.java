@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.solver.solvergurobi.impl;
 
 import gurobi.GRB;
+import gurobi.GRB.DoubleAttr;
 import gurobi.GRBConstr;
 import gurobi.GRBEnv;
 import gurobi.GRBException;
@@ -13,16 +14,19 @@ import gurobi.GRBCallback;
 
 import com.misc.common.moplaf.solver.EnumLpFileFormat;
 import com.misc.common.moplaf.solver.EnumLpVarType;
+import com.misc.common.moplaf.solver.EnumObjectiveType;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorCons;
 import com.misc.common.moplaf.solver.GeneratorLpCons;
+import com.misc.common.moplaf.solver.GeneratorLpGoal;
+import com.misc.common.moplaf.solver.GeneratorLpGoalTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorTuple;
 import com.misc.common.moplaf.solver.GeneratorVar;
 import com.misc.common.moplaf.solver.ILpWriter;
 import com.misc.common.moplaf.solver.ITupleVisitor;
-import com.misc.common.moplaf.solver.Solution;
+import com.misc.common.moplaf.solver.SolutionLp;
 import com.misc.common.moplaf.solver.SolutionVar;
 import com.misc.common.moplaf.solver.SolverPackage;
 import com.misc.common.moplaf.solver.impl.SolverLpImpl;
@@ -45,6 +49,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.solvergurobi.impl.SolverGurobiImpl#getFilePath <em>File Path</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solvergurobi.impl.SolverGurobiImpl#getFileFormat <em>File Format</em>}</li>
@@ -52,7 +57,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.misc.common.moplaf.solver.solvergurobi.impl.SolverGurobiImpl#getMaxNofThreads <em>Max Nof Threads</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solvergurobi.impl.SolverGurobiImpl#getSolverLog <em>Solver Log</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -553,16 +557,6 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 
 			// create the model
 			this.model = new GRBModel(env);
-			int direction = GRB.MAXIMIZE;
-			switch (generator.getObjectiveType() ) {
-		    case MAXIMUM:
-				direction = GRB.MAXIMIZE;
-		        break;
-		    case MINIMUM:
-				direction = GRB.MINIMIZE;
-		        break;
-		    }  // switch on objective type
-			this.model.set(GRB.IntAttr.ModelSense, direction);
 			this.model.setCallback(new SolverCallback());
 
 			// create the variables
@@ -579,13 +573,12 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 						float lb = lpvar.getLowerBound();
 						float ub = lpvar.getUpperBound();
 						char kind = GRB.CONTINUOUS;
-						float coefficient = lpvar.getObjectiveCoeff();
 						if ( !SolverGurobiImpl.this.isSolverLinearRelaxation()	&& lpvar.getType()==integertype)	{
 							kind = GRB.INTEGER;
 						}
 						String varname = lpvar.getCode();
 						// create the variable
-						GRBVar grbvar = SolverGurobiImpl.this.model.addVar(lb, ub, coefficient, kind, varname);
+						GRBVar grbvar = SolverGurobiImpl.this.model.addVar(lb, ub, 0.0, kind, varname);
 					    // remember the variable  
 						SolverGurobiImpl.this.vars.put(lpvar, grbvar);
 						//CommonPlugin.INSTANCE.log("..var "+varnumber+","+lpvar.getECode());
@@ -594,7 +587,27 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 			}; // class visitor
 			VarMapper varmapper = new VarMapper();
 			generator.visitTuples(varmapper);
-			
+
+			GeneratorLpGoal goal = (GeneratorLpGoal) this.getGoalToSolve();
+			if ( goal != null) {
+				for ( GeneratorLpGoalTerm goalTerm : goal.getLpGoalTerm()){
+					// create the objective coefficient
+					GeneratorLpVar lpvar = goalTerm.getLpVar();
+					float coefficient = goalTerm.getCoeff();
+					if ( coefficient!=0.0f){
+						GRBVar grbvar = vars.get(lpvar);
+						grbvar.set(DoubleAttr.Obj, coefficient);
+					}
+				}
+				int direction = GRB.MAXIMIZE;
+				if ( goal.getObjectiveType()==EnumObjectiveType.MINIMUM){
+					direction = GRB.MINIMIZE;
+				} else if ( goal.getObjectiveType()==EnumObjectiveType.MAXIMUM){
+					direction = GRB.MAXIMIZE;
+				}
+				this.model.set(GRB.IntAttr.ModelSense, direction);
+		    }  // switch on objective type
+
 			this.model.update();
 		
 			// map the constraints
@@ -679,8 +692,9 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 			boolean unfeasible = status==GRB.INFEASIBLE;
 			float mipvalue = 0.0f;
 			if ( feasible || this.isSolverLinearRelaxation()) {
-				Solution newSolution = this.constructSolution();
+				SolutionLp newSolution = (SolutionLp) this.constructSolution();
 				mipvalue = (float)model.get(GRB.DoubleAttr.ObjVal);
+				newSolution.setGoalValue(mipvalue);
 				for ( Map.Entry<GeneratorLpVar, GRBVar> varentry : this.vars.entrySet()) {
 					GeneratorLpVar lpvar = varentry.getKey();
 					SolutionVar solvervar = newSolution.constructSolutionVar(lpvar);
