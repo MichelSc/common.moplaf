@@ -64,6 +64,7 @@ public class GeneratorLpTermItemProvider
 			addLpVarPropertyDescriptor(object);
 			addCoeffPropertyDescriptor(object);
 			addLpConsPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -135,6 +136,28 @@ public class GeneratorLpTermItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GeneratorLpTerm_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorLpTerm_Description_feature", "_UI_GeneratorLpTerm_type"),
+				 SolverPackage.Literals.GENERATOR_LP_TERM__DESCRIPTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -183,8 +206,10 @@ public class GeneratorLpTermItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		GeneratorLpTerm generatorLpTerm = (GeneratorLpTerm)object;
-		return getString("_UI_GeneratorLpTerm_type") + " " + generatorLpTerm.getCoeff();
+		String label = ((GeneratorLpTerm)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_GeneratorLpTerm_type") :
+			getString("_UI_GeneratorLpTerm_type") + " " + label;
 	}
 
 	/**
@@ -200,6 +225,7 @@ public class GeneratorLpTermItemProvider
 
 		switch (notification.getFeatureID(GeneratorLpTerm.class)) {
 			case SolverPackage.GENERATOR_LP_TERM__COEFF:
+			case SolverPackage.GENERATOR_LP_TERM__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

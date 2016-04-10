@@ -1185,13 +1185,22 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_LP_TERM__LP_CONS = 2;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_TERM__DESCRIPTION = 3;
+
+	/**
 	 * The number of structural features of the '<em>Generator Lp Term</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_LP_TERM_FEATURE_COUNT = 3;
+	int GENERATOR_LP_TERM_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Generator Lp Term</em>' class.
@@ -4754,13 +4763,22 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_LP_GOAL_TERM__LP_GOAL = 2;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_GOAL_TERM__DESCRIPTION = 3;
+
+	/**
 	 * The number of structural features of the '<em>Generator Lp Goal Term</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_LP_GOAL_TERM_FEATURE_COUNT = 3;
+	int GENERATOR_LP_GOAL_TERM_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Generator Lp Goal Term</em>' class.
@@ -5508,6 +5526,17 @@ public interface SolverPackage extends EPackage {
 	EReference getGeneratorLpGoalTerm_LpGoal();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorLpGoalTerm#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.misc.common.moplaf.solver.GeneratorLpGoalTerm#getDescription()
+	 * @see #getGeneratorLpGoalTerm()
+	 * @generated
+	 */
+	EAttribute getGeneratorLpGoalTerm_Description();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.Solution <em>Solution</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5917,6 +5946,17 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGeneratorLpTerm_LpCons();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorLpTerm#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.misc.common.moplaf.solver.GeneratorLpTerm#getDescription()
+	 * @see #getGeneratorLpTerm()
+	 * @generated
+	 */
+	EAttribute getGeneratorLpTerm_Description();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorLpConsCountElement <em>Generator Lp Cons Count Element</em>}'.
@@ -7773,6 +7813,14 @@ public interface SolverPackage extends EPackage {
 		EReference GENERATOR_LP_GOAL_TERM__LP_GOAL = eINSTANCE.getGeneratorLpGoalTerm_LpGoal();
 
 		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERATOR_LP_GOAL_TERM__DESCRIPTION = eINSTANCE.getGeneratorLpGoalTerm_Description();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.SolutionImpl <em>Solution</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8097,6 +8145,14 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GENERATOR_LP_TERM__LP_CONS = eINSTANCE.getGeneratorLpTerm_LpCons();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERATOR_LP_TERM__DESCRIPTION = eINSTANCE.getGeneratorLpTerm_Description();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpConsCountElementImpl <em>Generator Lp Cons Count Element</em>}' class.

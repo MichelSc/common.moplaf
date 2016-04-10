@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpTermImpl#getLpVar <em>Lp Var</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpTermImpl#getCoeff <em>Coeff</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpTermImpl#getLpCons <em>Lp Cons</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpTermImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @generated
@@ -62,6 +63,16 @@ public class GeneratorLpTermImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected float coeff = COEFF_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -207,6 +218,18 @@ public class GeneratorLpTermImpl extends MinimalEObjectImpl.Container implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public String getDescription() {
+		GeneratorLpVar var = this.getLpVar();
+		float coefficient = this.getCoeff();
+		String varcode = var==null ? "null" : var.getCode();
+		String code = String.format("%2$.1f %1$s", varcode, coefficient);
+		return code;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -269,6 +292,8 @@ public class GeneratorLpTermImpl extends MinimalEObjectImpl.Container implements
 				return getCoeff();
 			case SolverPackage.GENERATOR_LP_TERM__LP_CONS:
 				return getLpCons();
+			case SolverPackage.GENERATOR_LP_TERM__DESCRIPTION:
+				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -329,6 +354,8 @@ public class GeneratorLpTermImpl extends MinimalEObjectImpl.Container implements
 				return coeff != COEFF_EDEFAULT;
 			case SolverPackage.GENERATOR_LP_TERM__LP_CONS:
 				return getLpCons() != null;
+			case SolverPackage.GENERATOR_LP_TERM__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 		}
 		return super.eIsSet(featureID);
 	}

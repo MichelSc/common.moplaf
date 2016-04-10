@@ -159,12 +159,13 @@
         <genParameters ecoreParameter="solver.ecore#//GeneratorLpCons/constructTerm/coef"/>
       </genOperations>
     </genClasses>
-    <genClasses ecoreClass="solver.ecore#//GeneratorLpTerm">
+    <genClasses ecoreClass="solver.ecore#//GeneratorLpTerm" labelFeature="#//solver/GeneratorLpTerm/Description">
       <genFeatures property="Readonly" notify="false" children="true" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpTerm/LpVar"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpTerm/Coeff"/>
       <genFeatures property="Readonly" notify="false" children="true" createChild="false"
           ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpTerm/LpCons"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpTerm/Description"/>
     </genClasses>
     <genClasses ecoreClass="solver.ecore#//GeneratorLpConsCountElement">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpConsCountElement/ELpConsCount"/>
@@ -367,10 +368,12 @@
         <genParameters ecoreParameter="solver.ecore#//GeneratorLpGoal/getSolutionValue/solution"/>
       </genOperations>
     </genClasses>
-    <genClasses ecoreClass="solver.ecore#//GeneratorLpGoalTerm">
+    <genClasses ecoreClass="solver.ecore#//GeneratorLpGoalTerm" labelFeature="#//solver/GeneratorLpGoalTerm/Description">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpGoalTerm/Coeff"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpGoalTerm/LpVar"/>
+      <genFeatures notify="false" children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpGoalTerm/LpVar"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpGoalTerm/LpGoal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpGoalTerm/Description"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

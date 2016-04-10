@@ -31,6 +31,7 @@ import org.neos.client.NeosXmlRpcClient;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.solverneos.impl.SolverNeosImpl#getLpWriter <em>Lp Writer</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solverneos.impl.SolverNeosImpl#getSolReader <em>Sol Reader</em>}</li>
@@ -51,7 +52,6 @@ import org.neos.client.NeosXmlRpcClient;
  *   <li>{@link com.misc.common.moplaf.solver.solverneos.impl.SolverNeosImpl#getJobSubmitterEmail <em>Job Submitter Email</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solverneos.impl.SolverNeosImpl#getJobResult <em>Job Result</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -922,12 +922,13 @@ public class SolverNeosImpl extends SolverLpImpl implements SolverNeos {
 		
 		SolutionReader solreader = this.getSolReader();
 		if ( solreader == null){
-			CommonPlugin.INSTANCE.log("SolverNeos: no reader");
+			CommonPlugin.INSTANCE.log("SolverNeos: no reader, abort");
 		}
+		else {
+			solreader.setSolAsString(result);
 
-		solreader.setSolAsString(result);
-
-		CommonPlugin.INSTANCE.log("SolverNeos: solution constructed");
+			CommonPlugin.INSTANCE.log("SolverNeos: solution constructed");
+		}
 		
 	}
 
@@ -949,12 +950,17 @@ public class SolverNeosImpl extends SolverLpImpl implements SolverNeos {
 	public void submitJob() {
 		if ( this.isJobSubmitted()) { return ; }
 		CommonPlugin.INSTANCE.log("SolverNeos: submitJob");
+
+		// make the lp
+		ILpWriter modelprovider = this.getLpWriter();
+		if ( modelprovider==null){
+			CommonPlugin.INSTANCE.log("SolverNeos: no lp writer, abort");
+		}
+		String model = modelprovider.getLpAsString();
+		
 		// get the client
 		NeosXmlRpcClient neosclient = this.getNeosClient();
 		
-		// make the job
-		ILpWriter modelprovider = this.getLpWriter();
-		String model = modelprovider.getLpAsString();
 		NeosJobXml neosJob = new NeosJobXml(this.getSolverCategory().getLiteral(), 
 				                            this.getSolverName()    .getLiteral(),
 				                            this.getSolverInput()   .getLiteral());

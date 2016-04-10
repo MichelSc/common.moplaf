@@ -42,7 +42,7 @@ public interface SolverneosPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://com.misc.common.moplaf.solver.neos.emf";
+	String eNS_URI = "http://www.misc.com/common/moplaf/solver/neos/model/0.1";
 
 	/**
 	 * The package namespace name.
@@ -312,6 +312,24 @@ public interface SolverneosPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_NEOS__INITIALIZING = SolverPackage.SOLVER_LP__INITIALIZING;
+
+	/**
+	 * The feature id for the '<em><b>Goal To Solve</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_NEOS__GOAL_TO_SOLVE = SolverPackage.SOLVER_LP__GOAL_TO_SOLVE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Solution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_NEOS__INITIAL_SOLUTION = SolverPackage.SOLVER_LP__INITIAL_SOLUTION;
 
 	/**
 	 * The feature id for the '<em><b>Solver Optimality Tolerance</b></em>' attribute.

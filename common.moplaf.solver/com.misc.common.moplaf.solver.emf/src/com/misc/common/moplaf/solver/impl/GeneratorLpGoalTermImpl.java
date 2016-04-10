@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalTermImpl#getCoeff <em>Coeff</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalTermImpl#getLpVar <em>Lp Var</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalTermImpl#getLpGoal <em>Lp Goal</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalTermImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,6 +64,16 @@ public class GeneratorLpGoalTermImpl extends MinimalEObjectImpl.Container implem
 	 * @ordered
 	 */
 	protected GeneratorLpVar lpVar;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -208,6 +219,18 @@ public class GeneratorLpGoalTermImpl extends MinimalEObjectImpl.Container implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public String getDescription() {
+		GeneratorLpVar var = this.getLpVar();
+		float coefficient = this.getCoeff();
+		String varcode = var==null ? "null" : var.getCode();
+		String code = String.format("%2$.1f %1$s", varcode, coefficient);
+		return code;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -270,6 +293,8 @@ public class GeneratorLpGoalTermImpl extends MinimalEObjectImpl.Container implem
 				return basicGetLpVar();
 			case SolverPackage.GENERATOR_LP_GOAL_TERM__LP_GOAL:
 				return getLpGoal();
+			case SolverPackage.GENERATOR_LP_GOAL_TERM__DESCRIPTION:
+				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -330,6 +355,8 @@ public class GeneratorLpGoalTermImpl extends MinimalEObjectImpl.Container implem
 				return lpVar != null;
 			case SolverPackage.GENERATOR_LP_GOAL_TERM__LP_GOAL:
 				return getLpGoal() != null;
+			case SolverPackage.GENERATOR_LP_GOAL_TERM__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 		}
 		return super.eIsSet(featureID);
 	}

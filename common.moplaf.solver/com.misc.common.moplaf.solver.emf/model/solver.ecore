@@ -174,6 +174,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Coeff" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="LpCons" lowerBound="1"
         eType="#//GeneratorLpCons" eOpposite="#//GeneratorLpCons/LpTerm"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpConsCountElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ELpConsCount" lowerBound="1"
@@ -426,5 +428,7 @@
         eOpposite="#//GeneratorLpVar/LpGoalTerm"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="LpGoal" lowerBound="1"
         eType="#//GeneratorLpGoal" eOpposite="#//GeneratorLpGoal/LpGoalTerm"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
 </ecore:EPackage>

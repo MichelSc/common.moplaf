@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated solverneos -->
       <factory
-            uri="http://com.misc.common.moplaf.solver.neos.emf"
+            uri="http://www.misc.com/common/moplaf/solver/neos/model/0.1"
             class="com.misc.common.moplaf.solver.solverneos.provider.SolverneosItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider

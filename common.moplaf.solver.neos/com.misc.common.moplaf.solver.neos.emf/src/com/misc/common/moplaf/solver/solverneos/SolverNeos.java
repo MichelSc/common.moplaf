@@ -14,6 +14,7 @@ import java.util.Date;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.solverneos.SolverNeos#getLpWriter <em>Lp Writer</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solverneos.SolverNeos#getSolReader <em>Sol Reader</em>}</li>
@@ -34,7 +35,6 @@ import java.util.Date;
  *   <li>{@link com.misc.common.moplaf.solver.solverneos.SolverNeos#getJobSubmitterEmail <em>Job Submitter Email</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solverneos.SolverNeos#getJobResult <em>Job Result</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.solver.solverneos.SolverneosPackage#getSolverNeos()
  * @model
