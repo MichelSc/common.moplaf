@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="com.misc.common.moplaf.preference.pageMain"
+            class="com.misc.common.moplaf.solver.preference.PreferencePage"
+            id="com.misc.common.moplaf.solver.preference.page"
+            name="Solver">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.misc.common.moplaf.solver.preference.PreferenceInitializer">
+      </initializer>
+   </extension>
+
+</plugin>
