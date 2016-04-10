@@ -1005,6 +1005,14 @@ public class SolverNeosImpl extends SolverLpImpl implements SolverNeos {
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
+	
+	
+
+	@Override
+	protected void resetStatus() {
+		this.jobSubmitted = false;
+		super.resetStatus();
+	}
 
 	/* (non-Javadoc)
 	 * @see com.misc.common.moplaf.solver.impl.SolverImpl#solveLp()

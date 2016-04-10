@@ -1241,13 +1241,16 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 					super.copyContainment(eReference, eObject, copyEObject);
 				}
 			};
+			// copy the solver
 			SolverImpl newSolver = (SolverImpl) solverCopier.copy(this);
 			solverCopier.copyReferences();
+			newSolver.resetStatus();
+			newSolver.setCode(this.getCode()+" (copy)");
+			
+			// owns the new solver
 			EObject thisContainer = this.eContainer();
 			EStructuralFeature containingFeature = this.eContainingFeature();
 			if ( containingFeature.isMany()){
-				newSolver.resetStatus();
-				newSolver.setCode(this.getCode()+" (copy)");
 				EList containedObjects = (EList) thisContainer.eGet(containingFeature);
 				containedObjects.add(newSolver);
 			}
@@ -1302,7 +1305,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		this.setStatus(status);
 	}
 	
-	private void resetStatus(){
+	protected void resetStatus(){
 		this.setInitializing(false);
 		this.setSolving     (false); 
 		this.setFinalizing  (false); 

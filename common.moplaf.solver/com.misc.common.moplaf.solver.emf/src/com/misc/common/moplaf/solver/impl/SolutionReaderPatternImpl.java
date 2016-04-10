@@ -466,8 +466,11 @@ public class SolutionReaderPatternImpl extends SolutionReaderImpl implements Sol
 					String varname = var.getCode();
 					Float varvalue = varmap.get(varname);
 					if ( varvalue != null){
-						 SolutionVar solvervar = this.solution.constructSolutionVar(var);
-						 solvervar.setOptimalValue(varvalue);
+						float varValueAsFloat = varvalue.floatValue();
+						if ( varValueAsFloat!= 0.0f ){
+							 SolutionVar solvervar = this.solution.constructSolutionVar(var);
+							 solvervar.setOptimalValue(varValueAsFloat);
+						}
 					} // non zero optimal value
 					//CommonPlugin.INSTANCE.log("..var "+varnumber+","+lpvar.getECode());
 				}  // traverse the tuple vars
