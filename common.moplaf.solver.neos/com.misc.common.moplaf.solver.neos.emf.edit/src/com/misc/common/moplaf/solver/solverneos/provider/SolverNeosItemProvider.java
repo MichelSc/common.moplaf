@@ -3,7 +3,6 @@
 package com.misc.common.moplaf.solver.solverneos.provider;
 
 
-import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.solver.provider.SolverLpItemProvider;
 import com.misc.common.moplaf.solver.solverneos.SolverNeos;
 import com.misc.common.moplaf.solver.solverneos.SolverneosPackage;
@@ -12,7 +11,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -466,36 +464,6 @@ public class SolverNeosItemProvider
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(SolverneosPackage.Literals.SOLVER_NEOS__SOL_READER);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -521,6 +489,7 @@ public class SolverNeosItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SolverNeos.class)) {
+			case SolverneosPackage.SOLVER_NEOS__SOL_READER:
 			case SolverneosPackage.SOLVER_NEOS__SERVER_HOST:
 			case SolverneosPackage.SOLVER_NEOS__SERVER_PORT:
 			case SolverneosPackage.SOLVER_NEOS__SOLVER_CATEGORY:
@@ -539,9 +508,6 @@ public class SolverNeosItemProvider
 			case SolverneosPackage.SOLVER_NEOS__JOB_RESULT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case SolverneosPackage.SOLVER_NEOS__SOL_READER:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -556,11 +522,6 @@ public class SolverNeosItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SolverneosPackage.Literals.SOLVER_NEOS__SOL_READER,
-				 SolverFactory.eINSTANCE.createSolutionReaderPattern()));
 	}
 
 	/**

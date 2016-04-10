@@ -181,8 +181,10 @@ public class SolutionReaderPatternItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		SolutionReaderPattern solutionReaderPattern = (SolutionReaderPattern)object;
-		return getString("_UI_SolutionReaderPattern_type") + " " + solutionReaderPattern.getVarNameGroup();
+		String label = ((SolutionReaderPattern)object).getCode();
+		return label == null || label.length() == 0 ?
+			getString("_UI_SolutionReaderPattern_type") :
+			getString("_UI_SolutionReaderPattern_type") + " " + label;
 	}
 
 	/**

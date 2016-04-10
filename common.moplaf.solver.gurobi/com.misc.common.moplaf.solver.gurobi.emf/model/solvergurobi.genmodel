@@ -9,8 +9,8 @@
   <genPackages prefix="Solvergurobi" basePackage="com.misc.common.moplaf.solver" disposableProviderFactory="true"
       ecorePackage="solvergurobi.ecore#/">
     <genClasses image="false" ecoreClass="solvergurobi.ecore#//SolverGurobi" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/SolutionProvider/Code">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solvergurobi.ecore#//SolverGurobi/MaxNofThreads"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solvergurobi.ecore#//SolverGurobi/SolverLog"/>
+      <genFeatures createChild="false" propertyCategory="21 Solver Gurobi" ecoreFeature="ecore:EAttribute solvergurobi.ecore#//SolverGurobi/MaxNofThreads"/>
+      <genFeatures createChild="false" propertyCategory="21 Solver GLPK" ecoreFeature="ecore:EAttribute solvergurobi.ecore#//SolverGurobi/SolverLog"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

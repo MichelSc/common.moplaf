@@ -203,14 +203,14 @@
       <genOperations ecoreOperation="solver.ecore#//IGeneratorTool/getParentGeneratorTool"/>
       <genOperations ecoreOperation="solver.ecore#//IGeneratorTool/getGenerator"/>
     </genClasses>
-    <genClasses ecoreClass="solver.ecore#//SolutionReader">
+    <genClasses ecoreClass="solver.ecore#//SolutionReader" labelFeature="#//solver/SolutionProvider/Code">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolutionReader/FilePath"/>
       <genOperations ecoreOperation="solver.ecore#//SolutionReader/readSolFromFile"/>
       <genOperations ecoreOperation="solver.ecore#//SolutionReader/setSolAsString">
         <genParameters ecoreParameter="solver.ecore#//SolutionReader/setSolAsString/solution"/>
       </genOperations>
     </genClasses>
-    <genClasses ecoreClass="solver.ecore#//SolutionReaderPattern">
+    <genClasses ecoreClass="solver.ecore#//SolutionReaderPattern" labelFeature="#//solver/SolutionProvider/Code">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolutionReaderPattern/LinePattern"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolutionReaderPattern/VarNameGroup"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolutionReaderPattern/VarOptimalValueGroup"/>

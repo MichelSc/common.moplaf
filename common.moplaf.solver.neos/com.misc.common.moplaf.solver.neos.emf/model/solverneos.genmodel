@@ -26,8 +26,8 @@
     <genClasses image="false" ecoreClass="solverneos.ecore#//SolverNeos" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/SolutionProvider/Code">
       <genFeatures notify="false" createChild="false" propertyCategory="21 Solver Neos"
           propertySortChoices="true" ecoreFeature="ecore:EReference solverneos.ecore#//SolverNeos/LpWriter"/>
-      <genFeatures children="true" createChild="true" propertyCategory="21 Solver Neos"
-          propertySortChoices="true" ecoreFeature="ecore:EReference solverneos.ecore#//SolverNeos/SolReader"/>
+      <genFeatures createChild="false" propertyCategory="21 Solver Neos" propertySortChoices="true"
+          ecoreFeature="ecore:EReference solverneos.ecore#//SolverNeos/SolReader"/>
       <genFeatures createChild="false" propertyCategory="21 Solver Neos" ecoreFeature="ecore:EAttribute solverneos.ecore#//SolverNeos/ServerHost"/>
       <genFeatures createChild="false" propertyCategory="21 Solver Neos" ecoreFeature="ecore:EAttribute solverneos.ecore#//SolverNeos/ServerPort"/>
       <genFeatures createChild="false" propertyCategory="21 Solver Neos" ecoreFeature="ecore:EAttribute solverneos.ecore#//SolverNeos/SolverCategory"/>

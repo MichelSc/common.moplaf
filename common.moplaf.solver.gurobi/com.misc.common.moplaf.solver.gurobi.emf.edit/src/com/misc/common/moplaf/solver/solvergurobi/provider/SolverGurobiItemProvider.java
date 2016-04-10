@@ -139,7 +139,7 @@ public class SolverGurobiItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__21SolverGurobiPropertyCategory"),
 				 null));
 	}
 
@@ -161,7 +161,7 @@ public class SolverGurobiItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__21SolverGLPKPropertyCategory"),
 				 null));
 	}
 

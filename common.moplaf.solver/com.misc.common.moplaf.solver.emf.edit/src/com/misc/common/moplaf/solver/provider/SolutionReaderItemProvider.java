@@ -89,8 +89,10 @@ public class SolutionReaderItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		SolutionReader solutionReader = (SolutionReader)object;
-		return getString("_UI_SolutionReader_type") + " " + solutionReader.getCurrentSolutionNr();
+		String label = ((SolutionReader)object).getCode();
+		return label == null || label.length() == 0 ?
+			getString("_UI_SolutionReader_type") :
+			getString("_UI_SolutionReader_type") + " " + label;
 	}
 
 	/**
