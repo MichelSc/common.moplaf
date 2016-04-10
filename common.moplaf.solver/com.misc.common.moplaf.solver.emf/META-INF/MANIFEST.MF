@@ -4,6 +4,7 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: com.misc.common.moplaf.solver.emf;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
+Bundle-Activator: com.misc.common.moplaf.solver.Plugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
@@ -11,5 +12,6 @@ Export-Package: com.misc.common.moplaf.solver,
  com.misc.common.moplaf.solver.impl,
  com.misc.common.moplaf.solver.util
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport,
+ com.misc.common.moplaf.solver.preference;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy

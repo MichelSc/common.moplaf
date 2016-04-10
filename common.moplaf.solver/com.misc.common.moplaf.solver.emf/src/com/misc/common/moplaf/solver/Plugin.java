@@ -1,7 +1,6 @@
 /**
  */
-package com.misc.common.moplaf.propagator;
-
+package com.misc.common.moplaf.solver;
 
 import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.EMFPlugin;
@@ -12,18 +11,17 @@ import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.osgi.framework.BundleContext;
 
-import com.misc.common.moplaf.propagator.preference.Activator;
-import com.misc.common.moplaf.propagator.preference.PrefConstants;
-
+import com.misc.common.moplaf.solver.preference.Activator;
+import com.misc.common.moplaf.solver.preference.PrefConstants;
 
 /**
- * This is the central singleton for the Propagator model plugin.
+ * This is the central singleton for the Solver model plugin.
  * <!-- begin-user-doc -->
  * @implements PrefConstants
  * <!-- end-user-doc -->
  * @generated
  */
-public final class Plugin extends EMFPlugin implements PrefConstants{
+public final class Plugin extends EMFPlugin implements PrefConstants {
 	private boolean logOnInfo    = false;
 	private boolean logOnWarning = false;
 	private boolean logOnError   = false;
@@ -75,7 +73,7 @@ public final class Plugin extends EMFPlugin implements PrefConstants{
 	public static Implementation getPlugin() {
 		return plugin;
 	}
-	
+
 	public boolean getLogOnInfo(){
 		return this.logOnInfo;
 	}
@@ -88,8 +86,34 @@ public final class Plugin extends EMFPlugin implements PrefConstants{
 		return this.logOnError;
 	}
 
+	protected void logMessage(String message, String level){
+		String logLine = String.format("Solver: %2$s: %1$s" , 
+				         		         message, 
+				         		         level);
+		CommonPlugin.INSTANCE.log( logLine);
+	}
+	
+	public void logInfo(String message){
+		if ( this.getLogOnInfo() ){
+			this.logMessage(message, "info");
+		}
+	}
+	
+	public void logWarning(String message){
+		if ( this.getLogOnWarning() ){
+			this.logMessage(message, "warning");
+		}
+	}
+	
+	public void logError(String message){
+		if ( this.getLogOnError() ){
+			this.logMessage(message, "error");
+		}
+	}
+	
+
 	public void onStartUp(){
-		CommonPlugin.INSTANCE.log("com.misc.common.moplaf.propagator.Plugin.onStartUp: called");
+		CommonPlugin.INSTANCE.log("com.misc.common.moplaf.solver.Plugin.onStartUp: called");
 
 		final IPreferenceStore prefStore = Activator.getDefault().getPreferenceStore();
 		this.logOnInfo    = prefStore.getBoolean(PREF_LOG_ON_INFO);
@@ -115,9 +139,10 @@ public final class Plugin extends EMFPlugin implements PrefConstants{
 		    	  }
 		       }});
 
-		CommonPlugin.INSTANCE.log("com.misc.common.moplaf.propagator.Plugin.onStartUp: done");
+		CommonPlugin.INSTANCE.log("com.misc.common.moplaf.solver.Plugin.onStartUp: done");
 	}
 
+	
 	/**
 	 * The actual implementation of the Eclipse <b>Plugin</b>.
 	 * <!-- begin-user-doc -->
@@ -149,7 +174,6 @@ public final class Plugin extends EMFPlugin implements PrefConstants{
 			super.start(context);
 			Plugin.INSTANCE.onStartUp();
 		}
-
 	}
 
 }

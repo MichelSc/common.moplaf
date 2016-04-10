@@ -6,6 +6,7 @@ import com.misc.common.moplaf.solver.EnumSolverLogLevel;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorGoal;
 import com.misc.common.moplaf.solver.IGeneratorTool;
+import com.misc.common.moplaf.solver.Plugin;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverPackage;
@@ -17,7 +18,6 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
-import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -1189,11 +1189,11 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- end-user-doc -->
 	 */
 	public void solve() {
-		CommonPlugin.INSTANCE.log("ESolver.ESolve: called");
+		Plugin.INSTANCE.logInfo("solve called");
 		Generator generator = this.getGenerator();
 		
 		if ( generator == null ) {
-			CommonPlugin.INSTANCE.log("ESolver.ESolve: no generator set");
+			Plugin.INSTANCE.logError("solve, no generator set");
 		}
 		else  {
 			this.setRunRequestTerminate(false);
@@ -1202,7 +1202,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 					     protected IStatus run(IProgressMonitor monitor) {
 					    	    eMonitor = monitor;
 					    	    monitor.beginTask("Initialization", 100);
-			  					CommonPlugin.INSTANCE.log("ESolver.ESolve: job started");
+					    	    Plugin.INSTANCE.logInfo("Solve, job started");
 			  					SolverImpl.this.solveRun();
 								eMonitor = null;
 					            return Status.OK_STATUS;
@@ -1211,13 +1211,13 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				  job.setPriority(Job.SHORT);
 				  job.setUser(true);
 				  job.setSystem(false);
-				  CommonPlugin.INSTANCE.log("Solver: job submitted");
+				  Plugin.INSTANCE.logInfo("solve, job submitted");
 				  job.schedule(); // start as soon as possible			}
 			}
 			else {
 				this.solveRun();
 			} // synchronous
-		    CommonPlugin.INSTANCE.log("Solver: finished");
+			Plugin.INSTANCE.logInfo("solve finished");
 		}
 	}
 	
@@ -1332,7 +1332,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			eMonitor.setTaskName("initializing");
 			eMonitor.worked(0);
 		}
-		CommonPlugin.INSTANCE.log("Solver: STARTED");
+		Plugin.INSTANCE.logInfo("STARTED");
 		Date currenttime = new Date();
 		this.setRunStarted(currenttime);
 		this.setInitializing(true);
@@ -1352,7 +1352,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			eMonitor.setTaskName("solving");
 			eMonitor.worked(0);
 		}
-		CommonPlugin.INSTANCE.log("Solver: INITIALIZED");
+		Plugin.INSTANCE.logInfo("INITIALIZED");
 		Date currenttime = new Date();
 		this.setRunInitializationEnded(currenttime);
 		float duration = (currenttime.getTime()-this.getRunStarted().getTime())/1000.0f;
@@ -1374,7 +1374,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			eMonitor.setTaskName("finalizing");
 			eMonitor.worked(100);
 		}
-		CommonPlugin.INSTANCE.log("Solver: SOLVED");
+		Plugin.INSTANCE.logInfo("SOLVED");
 		Date currenttime = new Date();
 		this.setRunSolvingEnded(currenttime);
 		float duration = (currenttime.getTime()-this.getRunInitializationEnded().getTime())/1000.0f;
@@ -1396,7 +1396,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			eMonitor.setTaskName("finished");
 			eMonitor.worked(100);
 		}
-		CommonPlugin.INSTANCE.log("Solver: FINISHED");
+		Plugin.INSTANCE.logInfo("FINISHED");
 		Date currenttime = new Date();
 		this.setRunFinalizationEnded(currenttime);
 		float duration = (currenttime.getTime()-this.getRunSolvingEnded().getTime())/1000.0f;
