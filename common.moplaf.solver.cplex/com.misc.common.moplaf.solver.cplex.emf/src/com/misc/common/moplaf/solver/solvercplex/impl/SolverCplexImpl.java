@@ -13,6 +13,7 @@ import ilog.cplex.IloCplex;
 import ilog.cplex.IloCplex.Status;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,6 +30,7 @@ import com.misc.common.moplaf.solver.GeneratorTuple;
 import com.misc.common.moplaf.solver.GeneratorVar;
 import com.misc.common.moplaf.solver.ILpWriter;
 import com.misc.common.moplaf.solver.ITupleVisitor;
+import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionLp;
 import com.misc.common.moplaf.solver.SolutionVar;
 import com.misc.common.moplaf.solver.SolverPackage;
@@ -206,6 +208,18 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		this.cons = null;
 	}
 	
+	private void initSolution(){
+		Solution initialSolution = this.getInitialSolution();
+		this.lp.addMIPStart();
+		ArrayList<IloNumVar> varsArray   = new ArrayList<IloNumVar>();
+		ArrayList<double>    valuesArray = new ArrayList<double>();
+		for ( SolutionVar varSol : this.getInitialSolution().getVar()){
+			float optimalValue = varSol.getOptimalValue();
+		    IloNumVar cplexvar = vars.get(varSol.getVar());
+		    varsArray.
+			
+		}
+	}
 
 
 	private void loadLp(){
@@ -619,7 +633,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 			catch (IloException e) {
 			}
 			if ( optimal) {
-				mipgap = 0.0f;
+				mipgap = 0.0f; // michel 20160415: not sure this is correct
 			}
 		}
 		this.setSolFeasible(feasible);

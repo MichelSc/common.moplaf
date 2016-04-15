@@ -4719,6 +4719,10 @@
                 <styles xmi:type="notation:FontStyle" xmi:id="_O_egkfteEeW2JK_2CC4dOw" fontName="Oxygen-Sans Sans-Book" fontHeight="8"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_O_egkvteEeW2JK_2CC4dOw"/>
               </children>
+              <children xmi:type="notation:Node" xmi:id="_OLvB8AMeEearxJvD04t03w" type="3010" element="_OLpiYAMeEearxJvD04t03w">
+                <styles xmi:type="notation:FontStyle" xmi:id="_OLvB8QMeEearxJvD04t03w" fontName="Segoe UI" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_OLvB8gMeEearxJvD04t03w"/>
+              </children>
               <styles xmi:type="notation:SortingStyle" xmi:id="_O_d5gvteEeW2JK_2CC4dOw"/>
               <styles xmi:type="notation:FilteringStyle" xmi:id="_O_d5g_teEeW2JK_2CC4dOw"/>
             </children>
@@ -5819,6 +5823,14 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_OLpiYAMeEearxJvD04t03w" name="getGenerator() : Generator" tooltipText="getGenerator() : Generator">
+          <target xmi:type="ecore:EOperation" href="solver.ecore#//GeneratorGoal/getGenerator"/>
+          <semanticElements xmi:type="ecore:EOperation" href="solver.ecore#//GeneratorGoal/getGenerator"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_OLqJcAMeEearxJvD04t03w" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+        </ownedElements>
       </ownedDiagramElements>
       <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_O_YZ8PteEeW2JK_2CC4dOw" name="[0..1] /SubGoal" visible="false" sourceNode="_O_QeIPteEeW2JK_2CC4dOw" targetNode="_O_QeIPteEeW2JK_2CC4dOw">
         <target xmi:type="ecore:EReference" href="solver.ecore#//GeneratorGoal/SubGoal"/>
@@ -5835,9 +5847,9 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_O_aPIPteEeW2JK_2CC4dOw" sourceNode="_pGQXYPZ_EeSIMfSvBv3WNg" targetNode="_O_QeIPteEeW2JK_2CC4dOw" beginLabel="[0..1] /Generator" endLabel="[0..*] /Goals">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_O_aPIPteEeW2JK_2CC4dOw" sourceNode="_pGQXYPZ_EeSIMfSvBv3WNg" targetNode="_O_QeIPteEeW2JK_2CC4dOw" beginLabel="[0..1] /GeneratorAsRoot" endLabel="[0..*] /GoalsRoot">
         <target xmi:type="ecore:EReference" href="solver.ecore#//Generator/GoalsRoot"/>
-        <semanticElements xmi:type="ecore:EReference" href="solver.ecore#//GeneratorGoal/Generator"/>
+        <semanticElements xmi:type="ecore:EReference" href="solver.ecore#//GeneratorGoal/GeneratorAsRoot"/>
         <semanticElements xmi:type="ecore:EReference" href="solver.ecore#//Generator/GoalsRoot"/>
         <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_O_aPIfteEeW2JK_2CC4dOw" description="_sBQI4vZ_EeSIMfSvBv3WNg" sourceArrow="InputArrow" strokeColor="114,159,207">
           <customFeatures>routingStyle</customFeatures>
