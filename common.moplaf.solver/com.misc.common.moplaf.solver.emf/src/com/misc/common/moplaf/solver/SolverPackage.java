@@ -187,13 +187,13 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR__SELECTED = 12;
 
 	/**
-	 * The feature id for the '<em><b>Goals</b></em>' reference list.
+	 * The feature id for the '<em><b>Goals Root</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__GOALS = 13;
+	int GENERATOR__GOALS_ROOT = 13;
 
 	/**
 	 * The number of structural features of the '<em>Generator</em>' class.
@@ -1670,22 +1670,13 @@ public interface SolverPackage extends EPackage {
 	int IGENERATOR_TOOL_FEATURE_COUNT = 0;
 
 	/**
-	 * The operation id for the '<em>Get Parent Generator Tool</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IGENERATOR_TOOL___GET_PARENT_GENERATOR_TOOL = 0;
-
-	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IGENERATOR_TOOL___GET_GENERATOR = 1;
+	int IGENERATOR_TOOL___GET_GENERATOR = 0;
 
 	/**
 	 * The number of operations of the '<em>IGenerator Tool</em>' class.
@@ -1694,7 +1685,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IGENERATOR_TOOL_OPERATION_COUNT = 2;
+	int IGENERATOR_TOOL_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionProviderImpl <em>Solution Provider</em>}' class.
@@ -1741,15 +1732,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_PROVIDER_FEATURE_COUNT = IGENERATOR_TOOL_FEATURE_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Get Parent Generator Tool</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_PROVIDER___GET_PARENT_GENERATOR_TOOL = IGENERATOR_TOOL___GET_PARENT_GENERATOR_TOOL;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -1841,15 +1823,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_READER_FEATURE_COUNT = SOLUTION_PROVIDER_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Get Parent Generator Tool</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_READER___GET_PARENT_GENERATOR_TOOL = SOLUTION_PROVIDER___GET_PARENT_GENERATOR_TOOL;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -2006,15 +1979,6 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_READER_PATTERN_FEATURE_COUNT = SOLUTION_READER_FEATURE_COUNT + 5;
 
 	/**
-	 * The operation id for the '<em>Get Parent Generator Tool</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_READER_PATTERN___GET_PARENT_GENERATOR_TOOL = SOLUTION_READER___GET_PARENT_GENERATOR_TOOL;
-
-	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2123,15 +2087,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int ILP_WRITER_FEATURE_COUNT = IGENERATOR_TOOL_FEATURE_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Get Parent Generator Tool</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ILP_WRITER___GET_PARENT_GENERATOR_TOOL = IGENERATOR_TOOL___GET_PARENT_GENERATOR_TOOL;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -2438,15 +2393,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_FEATURE_COUNT = SOLUTION_PROVIDER_FEATURE_COUNT + 26;
-
-	/**
-	 * The operation id for the '<em>Get Parent Generator Tool</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER___GET_PARENT_GENERATOR_TOOL = SOLUTION_PROVIDER___GET_PARENT_GENERATOR_TOOL;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -2933,15 +2879,6 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_CP_FEATURE_COUNT = SOLVER_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Get Parent Generator Tool</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_CP___GET_PARENT_GENERATOR_TOOL = SOLVER___GET_PARENT_GENERATOR_TOOL;
-
-	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3282,15 +3219,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP_FEATURE_COUNT = SOLVER_FEATURE_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Get Parent Generator Tool</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_LP___GET_PARENT_GENERATOR_TOOL = SOLVER___GET_PARENT_GENERATOR_TOOL;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -4601,13 +4529,13 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_CP_LOGICAL_TERM_OPERATION_COUNT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Generator</b></em>' reference.
+	 * The feature id for the '<em><b>Generator As Root</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_GOAL__GENERATOR = 0;
+	int GENERATOR_GOAL__GENERATOR_AS_ROOT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Sub Goal</b></em>' reference.
@@ -4637,22 +4565,31 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_GOAL_FEATURE_COUNT = 3;
 
 	/**
+	 * The operation id for the '<em>Get Generator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_GOAL___GET_GENERATOR = 0;
+
+	/**
 	 * The number of operations of the '<em>Generator Goal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_GOAL_OPERATION_COUNT = 0;
+	int GENERATOR_GOAL_OPERATION_COUNT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Generator</b></em>' reference.
+	 * The feature id for the '<em><b>Generator As Root</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_LP_GOAL__GENERATOR = GENERATOR_GOAL__GENERATOR;
+	int GENERATOR_LP_GOAL__GENERATOR_AS_ROOT = GENERATOR_GOAL__GENERATOR_AS_ROOT;
 
 	/**
 	 * The feature id for the '<em><b>Sub Goal</b></em>' reference.
@@ -4707,6 +4644,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_LP_GOAL_FEATURE_COUNT = GENERATOR_GOAL_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get Generator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_GOAL___GET_GENERATOR = GENERATOR_GOAL___GET_GENERATOR;
 
 	/**
 	 * The operation id for the '<em>Construct Term</em>' operation.
@@ -5023,15 +4969,15 @@ public interface SolverPackage extends EPackage {
 	EReference getGenerator_Selected();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.solver.Generator#getGoals <em>Goals</em>}'.
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.solver.Generator#getGoalsRoot <em>Goals Root</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Goals</em>'.
-	 * @see com.misc.common.moplaf.solver.Generator#getGoals()
+	 * @return the meta object for the reference list '<em>Goals Root</em>'.
+	 * @see com.misc.common.moplaf.solver.Generator#getGoalsRoot()
 	 * @see #getGenerator()
 	 * @generated
 	 */
-	EReference getGenerator_Goals();
+	EReference getGenerator_GoalsRoot();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.Generator#generate() <em>Generate</em>}' operation.
@@ -5387,15 +5333,15 @@ public interface SolverPackage extends EPackage {
 	EClass getGeneratorGoal();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.solver.GeneratorGoal#getGenerator <em>Generator</em>}'.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.solver.GeneratorGoal#getGeneratorAsRoot <em>Generator As Root</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Generator</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorGoal#getGenerator()
+	 * @return the meta object for the reference '<em>Generator As Root</em>'.
+	 * @see com.misc.common.moplaf.solver.GeneratorGoal#getGeneratorAsRoot()
 	 * @see #getGeneratorGoal()
 	 * @generated
 	 */
-	EReference getGeneratorGoal_Generator();
+	EReference getGeneratorGoal_GeneratorAsRoot();
 
 	/**
 	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.solver.GeneratorGoal#getSubGoal <em>Sub Goal</em>}'.
@@ -5418,6 +5364,16 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGeneratorGoal_Name();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorGoal#getGenerator() <em>Get Generator</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Generator</em>' operation.
+	 * @see com.misc.common.moplaf.solver.GeneratorGoal#getGenerator()
+	 * @generated
+	 */
+	EOperation getGeneratorGoal__GetGenerator();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorLpGoal <em>Generator Lp Goal</em>}'.
@@ -7135,16 +7091,6 @@ public interface SolverPackage extends EPackage {
 	EClass getIGeneratorTool();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.IGeneratorTool#getParentGeneratorTool() <em>Get Parent Generator Tool</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Parent Generator Tool</em>' operation.
-	 * @see com.misc.common.moplaf.solver.IGeneratorTool#getParentGeneratorTool()
-	 * @generated
-	 */
-	EOperation getIGeneratorTool__GetParentGeneratorTool();
-
-	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.IGeneratorTool#getGenerator() <em>Get Generator</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7417,12 +7363,12 @@ public interface SolverPackage extends EPackage {
 		EReference GENERATOR__SELECTED = eINSTANCE.getGenerator_Selected();
 
 		/**
-		 * The meta object literal for the '<em><b>Goals</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Goals Root</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GENERATOR__GOALS = eINSTANCE.getGenerator_Goals();
+		EReference GENERATOR__GOALS_ROOT = eINSTANCE.getGenerator_GoalsRoot();
 
 		/**
 		 * The meta object literal for the '<em><b>Generator Feature Modes</b></em>' reference list feature.
@@ -7705,12 +7651,12 @@ public interface SolverPackage extends EPackage {
 		EClass GENERATOR_GOAL = eINSTANCE.getGeneratorGoal();
 
 		/**
-		 * The meta object literal for the '<em><b>Generator</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Generator As Root</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GENERATOR_GOAL__GENERATOR = eINSTANCE.getGeneratorGoal_Generator();
+		EReference GENERATOR_GOAL__GENERATOR_AS_ROOT = eINSTANCE.getGeneratorGoal_GeneratorAsRoot();
 
 		/**
 		 * The meta object literal for the '<em><b>Sub Goal</b></em>' reference feature.
@@ -7727,6 +7673,14 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GENERATOR_GOAL__NAME = eINSTANCE.getGeneratorGoal_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Generator</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GENERATOR_GOAL___GET_GENERATOR = eINSTANCE.getGeneratorGoal__GetGenerator();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl <em>Generator Lp Goal</em>}' class.
@@ -9089,14 +9043,6 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EClass IGENERATOR_TOOL = eINSTANCE.getIGeneratorTool();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Parent Generator Tool</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation IGENERATOR_TOOL___GET_PARENT_GENERATOR_TOOL = eINSTANCE.getIGeneratorTool__GetParentGeneratorTool();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Generator</b></em>' operation.

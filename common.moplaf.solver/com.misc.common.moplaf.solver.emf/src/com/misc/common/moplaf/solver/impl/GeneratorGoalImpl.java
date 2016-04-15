@@ -5,7 +5,9 @@ package com.misc.common.moplaf.solver.impl;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorGoal;
 import com.misc.common.moplaf.solver.SolverPackage;
+import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -21,7 +23,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl#getGenerator <em>Generator</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl#getGeneratorAsRoot <em>Generator As Root</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl#getSubGoal <em>Sub Goal</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl#getName <em>Name</em>}</li>
  * </ul>
@@ -73,9 +75,30 @@ public abstract class GeneratorGoalImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Generator getGeneratorAsRoot() {
+		Generator generatorAsRoot = basicGetGeneratorAsRoot();
+		return generatorAsRoot != null && generatorAsRoot.eIsProxy() ? (Generator)eResolveProxy((InternalEObject)generatorAsRoot) : generatorAsRoot;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Generator basicGetGeneratorAsRoot() {
+		if ( !this.isRoot() ){ return null; }
+		return (Generator)this.eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public Generator getGenerator() {
-		Generator generator = basicGetGenerator();
-		return generator != null && generator.eIsProxy() ? (Generator)eResolveProxy((InternalEObject)generator) : generator;
+		if ( this.isRoot() ){
+			return this.getGeneratorAsRoot();
+		}
+		GeneratorGoal superGoal = (GeneratorGoal)this.eContainer();
+		return superGoal.getGenerator();
 	}
 
 	private boolean isRoot(){
@@ -91,16 +114,6 @@ public abstract class GeneratorGoalImpl extends MinimalEObjectImpl.Container imp
 		if ( this.isSubGoal() ) { return; } 
 		throw new UnsupportedOperationException("Container of a goal must be a Generator or another goal, and not : "+this.eContainer().eClass().getName());
     }
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public Generator basicGetGenerator() {
-		this.checkContained();
-		Generator generator = (Generator)this.eContainer();
-		return generator;
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -159,9 +172,9 @@ public abstract class GeneratorGoalImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SolverPackage.GENERATOR_GOAL__GENERATOR:
-				if (resolve) return getGenerator();
-				return basicGetGenerator();
+			case SolverPackage.GENERATOR_GOAL__GENERATOR_AS_ROOT:
+				if (resolve) return getGeneratorAsRoot();
+				return basicGetGeneratorAsRoot();
 			case SolverPackage.GENERATOR_GOAL__SUB_GOAL:
 				if (resolve) return getSubGoal();
 				return basicGetSubGoal();
@@ -210,14 +223,28 @@ public abstract class GeneratorGoalImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SolverPackage.GENERATOR_GOAL__GENERATOR:
-				return basicGetGenerator() != null;
+			case SolverPackage.GENERATOR_GOAL__GENERATOR_AS_ROOT:
+				return basicGetGeneratorAsRoot() != null;
 			case SolverPackage.GENERATOR_GOAL__SUB_GOAL:
 				return basicGetSubGoal() != null;
 			case SolverPackage.GENERATOR_GOAL__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case SolverPackage.GENERATOR_GOAL___GET_GENERATOR:
+				return getGenerator();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

@@ -17,14 +17,6 @@ import org.eclipse.emf.ecore.EObject;
 public interface IGeneratorTool extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	IGeneratorTool getParentGeneratorTool();
-
-	/**
-	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Generator</em>' reference isn't clear,
 	 * there really should be more of a description here...

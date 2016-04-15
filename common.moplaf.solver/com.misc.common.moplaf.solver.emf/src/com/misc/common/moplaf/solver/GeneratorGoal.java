@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.solver.GeneratorGoal#getGenerator <em>Generator</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.GeneratorGoal#getGeneratorAsRoot <em>Generator As Root</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorGoal#getSubGoal <em>Sub Goal</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorGoal#getName <em>Name</em>}</li>
  * </ul>
@@ -24,18 +24,30 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface GeneratorGoal extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Generator</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.Generator#getGoals <em>Goals</em>}'.
+	 * Returns the value of the '<em><b>Generator As Root</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.Generator#getGoalsRoot <em>Goals Root</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Generator As Root</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Generator As Root</em>' reference.
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorGoal_GeneratorAsRoot()
+	 * @see com.misc.common.moplaf.solver.Generator#getGoalsRoot
+	 * @model opposite="GoalsRoot" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	Generator getGeneratorAsRoot();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Generator</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Generator</em>' reference.
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorGoal_Generator()
-	 * @see com.misc.common.moplaf.solver.Generator#getGoals
-	 * @model opposite="Goals" transient="true" changeable="false" volatile="true" derived="true"
+	 * @model kind="operation"
 	 * @generated
 	 */
 	Generator getGenerator();

@@ -60,7 +60,7 @@ public class GeneratorGoalItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addGeneratorPropertyDescriptor(object);
+			addGeneratorAsRootPropertyDescriptor(object);
 			addSubGoalPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 		}
@@ -68,19 +68,19 @@ public class GeneratorGoalItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Generator feature.
+	 * This adds a property descriptor for the Generator As Root feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addGeneratorPropertyDescriptor(Object object) {
+	protected void addGeneratorAsRootPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GeneratorGoal_Generator_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorGoal_Generator_feature", "_UI_GeneratorGoal_type"),
-				 SolverPackage.Literals.GENERATOR_GOAL__GENERATOR,
+				 getString("_UI_GeneratorGoal_GeneratorAsRoot_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorGoal_GeneratorAsRoot_feature", "_UI_GeneratorGoal_type"),
+				 SolverPackage.Literals.GENERATOR_GOAL__GENERATOR_AS_ROOT,
 				 false,
 				 false,
 				 false,

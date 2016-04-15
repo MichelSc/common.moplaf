@@ -74,6 +74,7 @@ public class GeneratorItemProvider
 			addCountVarsPropertyDescriptor(object);
 			addCodePropertyDescriptor(object);
 			addSelectedPropertyDescriptor(object);
+			addGoalsRootPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -277,6 +278,28 @@ public class GeneratorItemProvider
 				 null,
 				 null,
 				 null));*/
+	}
+
+	/**
+	 * This adds a property descriptor for the Goals Root feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGoalsRootPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Generator_GoalsRoot_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_GoalsRoot_feature", "_UI_Generator_type"),
+				 SolverPackage.Literals.GENERATOR__GOALS_ROOT,
+				 false,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**

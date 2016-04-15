@@ -74,9 +74,9 @@
         eType="#//SolutionProvider" changeable="false" volatile="true" transient="true"
         derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Selected" eType="#//Solution"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Goals" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="GoalsRoot" upperBound="-1"
         eType="#//GeneratorGoal" changeable="false" volatile="true" transient="true"
-        derived="true" eOpposite="#//GeneratorGoal/Generator"/>
+        derived="true" eOpposite="#//GeneratorGoal/GeneratorAsRoot"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorTuple" abstract="true" eSuperTypes="#//GeneratorElement">
     <eOperations name="generateVars"/>
@@ -220,7 +220,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxEnforce" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IGeneratorTool" abstract="true" interface="true">
-    <eOperations name="getParentGeneratorTool" eType="#//IGeneratorTool"/>
     <eOperations name="getGenerator" eType="#//Generator"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolutionReader" abstract="true" eSuperTypes="#//SolutionProvider">
@@ -400,8 +399,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorGoal" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Generator" eType="#//Generator"
-        changeable="false" volatile="true" transient="true" derived="true" eOpposite="#//Generator/Goals"/>
+    <eOperations name="getGenerator" eType="#//Generator"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="GeneratorAsRoot" eType="#//Generator"
+        changeable="false" volatile="true" transient="true" derived="true" eOpposite="#//Generator/GoalsRoot"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="SubGoal" eType="#//GeneratorGoal"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

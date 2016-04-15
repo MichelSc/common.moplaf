@@ -2,7 +2,6 @@ package com.misc.common.moplaf.solver.impl;
 
 
 import com.misc.common.moplaf.solver.Generator;
-import com.misc.common.moplaf.solver.IGeneratorTool;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionProvider;
 import com.misc.common.moplaf.solver.SolverFactory;
@@ -188,17 +187,6 @@ public abstract class SolutionProviderImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IGeneratorTool getParentGeneratorTool() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Generator getGenerator() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -326,8 +314,6 @@ public abstract class SolutionProviderImpl extends MinimalEObjectImpl.Container 
 				return solutionFactory();
 			case SolverPackage.SOLUTION_PROVIDER___CONSTRUCT_SOLUTION:
 				return constructSolution();
-			case SolverPackage.SOLUTION_PROVIDER___GET_PARENT_GENERATOR_TOOL:
-				return getParentGeneratorTool();
 			case SolverPackage.SOLUTION_PROVIDER___GET_GENERATOR:
 				return getGenerator();
 		}
