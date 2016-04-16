@@ -4,6 +4,7 @@ package com.misc.common.moplaf.solver.solverneos.impl;
 
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.ILpWriter;
+import com.misc.common.moplaf.solver.Plugin;
 import com.misc.common.moplaf.solver.SolutionReader;
 import com.misc.common.moplaf.solver.impl.SolverLpImpl;
 import com.misc.common.moplaf.solver.solverneos.EnumNeosSolverCategory;
@@ -15,7 +16,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
 import java.util.Vector;
 import org.apache.xmlrpc.XmlRpcException;
-import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -70,7 +70,7 @@ public class SolverNeosImpl extends SolverLpImpl implements SolverNeos {
 							                   this.getServerHost(), 
 							                   this.getServerPort(), 
 							                   e.getMessage());
-				CommonPlugin.INSTANCE.log("SolverNeos: connect failed: "+message);
+				Plugin.INSTANCE.logError("SolverNeos: connect failed: "+message);
 				this.neosClient = null;
 			}
 		}
@@ -861,7 +861,7 @@ public class SolverNeosImpl extends SolverLpImpl implements SolverNeos {
 	public void retrieveJobStatus() {
 		if ( ! this.isJobSubmitted()) { return ; }
 		if ( this.isJobDone() ) { return ; }
-		CommonPlugin.INSTANCE.log("SolverNeos: getJobStatus");
+		Plugin.INSTANCE.logInfo("SolverNeos: getJobStatus");
 		NeosXmlRpcClient neosclient = this.getNeosClient();
 		Vector params = new Vector();
 		params.add(this.getJobNumber());
@@ -870,8 +870,7 @@ public class SolverNeosImpl extends SolverLpImpl implements SolverNeos {
 		try {
 			status = (String) neosclient.execute("getJobStatus", params);
 		} catch (XmlRpcException e) {
-			e.printStackTrace();
-			CommonPlugin.INSTANCE.log("SolverNeos: getJobStatus failed, "+ e.getMessage());
+			Plugin.INSTANCE.logError("SolverNeos: getJobStatus failed, "+ e.getMessage());
 		}	
 		this.setJobNeosStatus(status);
 		this.setJobLastStatus(new Date());
@@ -879,7 +878,7 @@ public class SolverNeosImpl extends SolverLpImpl implements SolverNeos {
 			this.setJobDone(true);
 			this.setJobStatus("done");
 		}
-		CommonPlugin.INSTANCE.log("SolverNeos: getJobStatus: "+ status);
+		Plugin.INSTANCE.logInfo("SolverNeos: getJobStatus: "+ status);
 	}
 
 	/**
@@ -889,7 +888,7 @@ public class SolverNeosImpl extends SolverLpImpl implements SolverNeos {
 	public void retrieveJobResult() {
 		if ( !this.isJobSubmitted()) { return ; }
 		if ( !this.isJobDone() )     { return ; }
-		CommonPlugin.INSTANCE.log("SolverNeos: retrieveJobResult");
+		Plugin.INSTANCE.logInfo("SolverNeos: retrieveJobResult");
 		NeosXmlRpcClient neosclient = this.getNeosClient();
 		Vector params = new Vector();
 		params.add(this.getJobNumber());
@@ -900,20 +899,19 @@ public class SolverNeosImpl extends SolverLpImpl implements SolverNeos {
 			Object retval = neosclient.execute("getFinalResults", params);
 			if (retval instanceof String) {
 				  result = (String) retval;
-					CommonPlugin.INSTANCE.log("SolverNeos: result retrieved String");
+				  Plugin.INSTANCE.logInfo("SolverNeos: result retrieved String");
 				} else if (retval instanceof byte[]) {
 				  result = (new String((byte[]) retval));
-					CommonPlugin.INSTANCE.log("SolverNeos: result retrieved byte[]");
+				  Plugin.INSTANCE.logInfo("SolverNeos: result retrieved byte[]");
 				} else {
-					CommonPlugin.INSTANCE.log("SolverNeos: result retrieved "+ retval.getClass().toString());
+					Plugin.INSTANCE.logInfo("SolverNeos: result retrieved "+ retval.getClass().toString());
 					
 				}
 		} catch (XmlRpcException e) {
-			e.printStackTrace();
-			CommonPlugin.INSTANCE.log("SolverNeos: retrieveJobResult failed, "+e.getMessage());
+			Plugin.INSTANCE.logError("SolverNeos: retrieveJobResult failed, "+e.getMessage());
 		}	
 
-		CommonPlugin.INSTANCE.log("SolverNeos: result "+result);
+		Plugin.INSTANCE.logInfo("SolverNeos: result "+result);
 		
 		this.setJobResultRetrieved(true);
 		this.setJobResult(result);
@@ -922,12 +920,12 @@ public class SolverNeosImpl extends SolverLpImpl implements SolverNeos {
 		
 		SolutionReader solreader = this.getSolReader();
 		if ( solreader == null){
-			CommonPlugin.INSTANCE.log("SolverNeos: no reader, abort");
+			Plugin.INSTANCE.logWarning("SolverNeos: no reader, abort");
 		}
 		else {
 			solreader.setSolAsString(result);
 
-			CommonPlugin.INSTANCE.log("SolverNeos: solution constructed");
+			Plugin.INSTANCE.logInfo("SolverNeos: solution constructed");
 		}
 		
 	}
@@ -949,12 +947,12 @@ public class SolverNeosImpl extends SolverLpImpl implements SolverNeos {
 	 */
 	public void submitJob() {
 		if ( this.isJobSubmitted()) { return ; }
-		CommonPlugin.INSTANCE.log("SolverNeos: submitJob");
+		Plugin.INSTANCE.logInfo("SolverNeos: submitJob");
 
 		// make the lp
 		ILpWriter modelprovider = this.getLpWriter();
 		if ( modelprovider==null){
-			CommonPlugin.INSTANCE.log("SolverNeos: no lp writer, abort");
+			Plugin.INSTANCE.logWarning("SolverNeos: no lp writer, abort");
 		}
 		String model = modelprovider.getLpAsString();
 		
@@ -972,14 +970,13 @@ public class SolverNeosImpl extends SolverLpImpl implements SolverNeos {
 		// submit the job
 		Vector params = new Vector();
 		String jobString = neosJob.toXMLString();
-		CommonPlugin.INSTANCE.log("SolverNeos: job xml, "+jobString);
+		Plugin.INSTANCE.logInfo("SolverNeos: job xml, "+jobString);
 		params.add(jobString);	
 		Object[] results = null;
 		try {
 			results = (Object[]) neosclient.execute("submitJob", params);
 		} catch (XmlRpcException e) {
-			CommonPlugin.INSTANCE.log("SolverNeos: submitJob failed, "+e.getMessage());
-			e.printStackTrace();
+			Plugin.INSTANCE.logError("SolverNeos: submitJob failed, "+e.getMessage());
 		}
 
 		/* Get returned values of job number and job password */
@@ -1036,12 +1033,12 @@ public class SolverNeosImpl extends SolverLpImpl implements SolverNeos {
 			}
 			else if ( currenttime.getTime()-this.getRunInitializationEnded().getTime()>this.getSolverMaxDuration()*1000) {
 				// more time elpased than allocated
-				CommonPlugin.INSTANCE.log("SolverNeos: solver time out");
+				Plugin.INSTANCE.logWarning("SolverNeos: solver time out");
 				this.setRunTimeOut(true);
 				finished = true;
 			} else if ( this.isRunRequestTerminate() ){
 				// interrupted
-				CommonPlugin.INSTANCE.log("SolverNeos: solver interrupted");
+				Plugin.INSTANCE.logWarning("SolverNeos: solver interrupted");
 				this.setRunInterrupted(true);
 				finished = true;
 			} else if ( currenttime.getTime()-getJobLastStatus().getTime()<this.getSolverPollDuration()*1000 ){
@@ -1049,7 +1046,7 @@ public class SolverNeosImpl extends SolverLpImpl implements SolverNeos {
 				try {
 					Thread.sleep(this.getSolverPollDuration()*1000/10);
 				} catch (InterruptedException e) {
-					CommonPlugin.INSTANCE.log("SolverNeos: solver interrupted via interruption");
+					Plugin.INSTANCE.logError("SolverNeos: solver interrupted via interruption");
 					this.setRunInterrupted(true);
 					finished = true;
 				};

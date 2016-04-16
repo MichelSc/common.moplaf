@@ -19,6 +19,7 @@ import com.misc.common.moplaf.solver.GeneratorTuple;
 import com.misc.common.moplaf.solver.GeneratorVar;
 import com.misc.common.moplaf.solver.ILpWriter;
 import com.misc.common.moplaf.solver.ITupleVisitor;
+import com.misc.common.moplaf.solver.Plugin;
 import com.misc.common.moplaf.solver.SolutionLp;
 import com.misc.common.moplaf.solver.SolutionVar;
 import com.misc.common.moplaf.solver.SolverPackage;
@@ -42,7 +43,6 @@ import net.sf.javailp.SolverFactoryMiniSat;
 import net.sf.javailp.SolverFactoryMosek;
 import net.sf.javailp.SolverFactorySAT4J;
 
-import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -261,7 +261,7 @@ public class SolverJavaILPImpl extends SolverLpImpl implements SolverJavaILP {
 			output.flush();
 			output.close();
 		} catch (Exception e) {
-		CommonPlugin.INSTANCE.log("Solver: error dump lp"+e.toString());
+			Plugin.INSTANCE.logError("Solver: error dump lp"+e.toString());
 		}
 	}
 
@@ -602,7 +602,7 @@ public class SolverJavaILPImpl extends SolverLpImpl implements SolverJavaILP {
 			generator.visitTuples(varadder);
 		} 
 		catch (Exception e) {
-			CommonPlugin.INSTANCE.log("SolverJavaILP: load failed "+e);
+			Plugin.INSTANCE.logError("SolverJavaILP: load failed "+e);
 		} 
 	} // method lp load
 	
@@ -675,7 +675,7 @@ public class SolverJavaILPImpl extends SolverLpImpl implements SolverJavaILP {
 		}
 		catch (Exception e) {
 			e.printStackTrace();
-			CommonPlugin.INSTANCE.log("SolverJavaILP: load failed "+e);
+			Plugin.INSTANCE.logError("SolverJavaILP: load failed "+e);
 		}
 		
 		// release the lp

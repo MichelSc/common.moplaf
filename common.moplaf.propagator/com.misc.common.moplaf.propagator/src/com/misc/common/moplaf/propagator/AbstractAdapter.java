@@ -2,11 +2,6 @@ package com.misc.common.moplaf.propagator;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
-
-import com.misc.common.moplaf.propagator.PropagatorAbstractAdapter.FeatureListener;
-import com.misc.common.moplaf.propagator.PropagatorAbstractAdapter.Listener;
-import com.misc.common.moplaf.propagator.PropagatorAbstractAdapter.NavigationFeatureListener;
-
 /**
  * The base class of the Adapters used by the Propagator framework. Listens to notifications. 
  * <p>

@@ -15,12 +15,12 @@ import com.misc.common.moplaf.solver.GeneratorTuple;
 import com.misc.common.moplaf.solver.GeneratorVar;
 import com.misc.common.moplaf.solver.IGeneratorTool;
 import com.misc.common.moplaf.solver.ITupleVisitor;
+import com.misc.common.moplaf.solver.Plugin;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionReaderPattern;
 import com.misc.common.moplaf.solver.SolutionVar;
 import com.misc.common.moplaf.solver.SolverPackage;
 
-import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -399,7 +399,7 @@ public class SolutionReaderPatternImpl extends SolutionReaderImpl implements Sol
 		try {
 			scanner  = new Scanner(new File(this.getFilePath()));
 		} catch (FileNotFoundException e) {
-			CommonPlugin.INSTANCE.log("SolutionReader: file not found");
+			Plugin.INSTANCE.logError("SolutionReader: file not found");
 			return;
 		}
 		this.setSolAsScanner(scanner);
@@ -415,11 +415,11 @@ public class SolutionReaderPatternImpl extends SolutionReaderImpl implements Sol
 	}
 	
 	public void setSolAsScanner(Scanner scanner){
-		CommonPlugin.INSTANCE.log("SolutionReader: SetSolAsScanner called");
+		Plugin.INSTANCE.logInfo("SolutionReader: SetSolAsScanner called");
 		
 		Generator generator = this.getGenerator();
 		if ( generator == null )		{
-			CommonPlugin.INSTANCE.log("SolutionReader: no generator set");
+			Plugin.INSTANCE.logWarning("SolutionReader: no generator set");
 			return;
 		}
 		
@@ -451,7 +451,7 @@ public class SolutionReaderPatternImpl extends SolutionReaderImpl implements Sol
 			} // line to be considered
 			linenbr++;
 		} // traverse the lines
-		CommonPlugin.INSTANCE.log("SolutionReader: read("+linenbr+"), value "+objective);
+		Plugin.INSTANCE.logInfo("SolutionReader: read("+linenbr+"), value "+objective);
 		
 		
 		class VarVisitor implements ITupleVisitor{
@@ -482,10 +482,10 @@ public class SolutionReaderPatternImpl extends SolutionReaderImpl implements Sol
 			generator.visitTuples(varvisitor);
 		} catch (Exception e) {
 			e.printStackTrace();
-			CommonPlugin.INSTANCE.log("SolutionReader: exception while constructing the solution, "+e.getMessage());
+			Plugin.INSTANCE.logError("SolutionReader: exception while constructing the solution, "+e.getMessage());
 		}
 		
-		CommonPlugin.INSTANCE.log("SolutionReader: finished");
+		Plugin.INSTANCE.logInfo("SolutionReader: finished");
 	}  // method run
 	
 	

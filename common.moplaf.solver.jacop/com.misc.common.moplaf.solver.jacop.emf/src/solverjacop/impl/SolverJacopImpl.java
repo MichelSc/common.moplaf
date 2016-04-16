@@ -23,11 +23,11 @@ import com.misc.common.moplaf.solver.GeneratorCpVarAtomic;
 import com.misc.common.moplaf.solver.GeneratorTuple;
 import com.misc.common.moplaf.solver.GeneratorVar;
 import com.misc.common.moplaf.solver.ITupleVisitor;
+import com.misc.common.moplaf.solver.Plugin;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionVar;
 import com.misc.common.moplaf.solver.impl.SolverCpImpl;
 
-import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.ecore.EClass;
 import org.jacop.constraints.And;
 import org.jacop.constraints.Constraint;
@@ -240,8 +240,7 @@ public class SolverJacopImpl extends SolverCpImpl implements SolverJacop {
 
 		}
 		catch (Exception e) {
-			e.printStackTrace();
-			CommonPlugin.INSTANCE.log("SolverJacop: load failed, reason "+e.getMessage());
+			Plugin.INSTANCE.logError("SolverJacop: load failed, reason "+e.getMessage());
 			this.releaseCp();
 		}
 	} // method lp load
@@ -292,7 +291,7 @@ public class SolverJacopImpl extends SolverCpImpl implements SolverJacop {
         	 public boolean executeAfterSolution(Search<IntVar> search, 
         			 SelectChoicePoint<IntVar> select) { 
         		 		boolean stop = super.executeAfterSolution(search, select); 
-        				CommonPlugin.INSTANCE.log("SolutionListener.executeAfterSolution, stop="+stop);
+        		 		Plugin.INSTANCE.logInfo("SolutionListener.executeAfterSolution, stop="+stop);
         				// read the solution
         				Solution newSolution = SolverJacopImpl.this.constructSolution();
         				for ( Map.Entry<GeneratorCpVar, IntVar> varentry : SolverJacopImpl.this.vars.entrySet())	{

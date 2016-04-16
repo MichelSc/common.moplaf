@@ -10,6 +10,7 @@ import com.misc.common.moplaf.solver.GeneratorLpConsCount;
 import com.misc.common.moplaf.solver.GeneratorLpVarCount;
 import com.misc.common.moplaf.solver.GeneratorTuple;
 import com.misc.common.moplaf.solver.ITupleVisitor;
+import com.misc.common.moplaf.solver.Plugin;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionProvider;
 import com.misc.common.moplaf.solver.SolverPackage;
@@ -17,7 +18,6 @@ import com.misc.common.moplaf.solver.SolverPackage;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
-import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -600,7 +600,7 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 */
 	public void generate() {
-		CommonPlugin.INSTANCE.log("Generator.generate: called");
+		Plugin.INSTANCE.logInfo("Generator.generate: called");
 		//this.getTupleRoot().clear();
 		while ( !this.getTupleRoot().isEmpty()){
 			EcoreUtil.delete(this.getTupleRoot().get(0), true);
@@ -608,16 +608,16 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 		while ( !this.getGoalsRoot().isEmpty()){
 			EcoreUtil.delete(this.getGoalsRoot().get(0), true);
 		}
-		CommonPlugin.INSTANCE.log("Generator.generate: flushed");
+		Plugin.INSTANCE.logInfo("Generator.generate: flushed");
 	
 		this.generateTuples();
-		CommonPlugin.INSTANCE.log("Generator.generate: tuples generated");
+		Plugin.INSTANCE.logInfo("Generator.generate: tuples generated");
 		this.generateVars();
-		CommonPlugin.INSTANCE.log("Generator.generate: vars generated");
+		Plugin.INSTANCE.logInfo("Generator.generate: vars generated");
 		this.generateCons();
-		CommonPlugin.INSTANCE.log("Generator.generate: con generated");
+		Plugin.INSTANCE.logInfo("Generator.generate: con generated");
 		this.generateGoals();
-		CommonPlugin.INSTANCE.log("Generator.generate: goals generated");
+		Plugin.INSTANCE.logInfo("Generator.generate: goals generated");
 	}
 
 	/**
@@ -644,7 +644,7 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 				}
 			});
 		} catch (Exception e) {
-			CommonPlugin.INSTANCE.log("Generator: generating tuples failed");
+			Plugin.INSTANCE.logError("Generator: generating tuples failed, "+e.getMessage());
 		}
 	}
 
@@ -665,8 +665,7 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 		try {
 			this.visitTuples(vargenerator);
 		} catch (Exception e) {
-			CommonPlugin.INSTANCE.log("Generator: generating vars failed");
-			e.printStackTrace();
+			Plugin.INSTANCE.logError("Generator: generating vars failed, "+e.getMessage());
 		}
 		this.setFootprintNofVars(vargenerator.varcounter);
 	}
@@ -693,8 +692,7 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 		try {
 			this.visitTuples(consgenerator);
 		} catch (Exception e) {
-			CommonPlugin.INSTANCE.log("Generator: generating cons failed");
-			e.printStackTrace();
+			Plugin.INSTANCE.logError("Generator: generating cons failed, "+e.getMessage());
 		}
 		this.setFootprintNofCons(consgenerator.conscounter);
 		this.setFootprintNofTerms(consgenerator.termscounter);
@@ -755,8 +753,7 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 		try {
 			this.visitTuples(refreshor);
 		} catch (Exception e) {
-			CommonPlugin.INSTANCE.log("Generator: refresh selected solution failed");
-			e.printStackTrace();
+			Plugin.INSTANCE.logError("Generator: refresh selected solution failed, "+e.getMessage());
 		}
 	}
 

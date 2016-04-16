@@ -26,6 +26,7 @@ import com.misc.common.moplaf.solver.GeneratorTuple;
 import com.misc.common.moplaf.solver.GeneratorVar;
 import com.misc.common.moplaf.solver.ILpWriter;
 import com.misc.common.moplaf.solver.ITupleVisitor;
+import com.misc.common.moplaf.solver.Plugin;
 import com.misc.common.moplaf.solver.SolutionLp;
 import com.misc.common.moplaf.solver.SolutionVar;
 import com.misc.common.moplaf.solver.SolverPackage;
@@ -37,7 +38,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -301,7 +301,7 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 		try {
 			model.write(filepath);
 		} catch (GRBException e) {
-			CommonPlugin.INSTANCE.log("SolverGurobi: write failed");
+			Plugin.INSTANCE.logError("SolverGurobi: write failed, "+e.getMessage());
 		}
 		
 		if( owningmodel ){
@@ -529,7 +529,7 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 			try {
 				env.dispose();
 			} catch (GRBException e) {
-				CommonPlugin.INSTANCE.log("SolverGurobi: release failed");
+				Plugin.INSTANCE.logError("SolverGurobi: release failed, "+e.getMessage());
 			}
 			this.env = null;
 		}
@@ -654,7 +654,7 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 		}
 		catch (Exception e)
 		{
-			CommonPlugin.INSTANCE.log("SolverGurobi: load failed "+e.getMessage());
+			Plugin.INSTANCE.logError("SolverGurobi: load failed "+e.getMessage());
 			this.releaseLp();
 		}
 	} // method lp load
@@ -676,7 +676,7 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 			this.model.optimize();
 		}
 		catch (Exception e)	{
-			CommonPlugin.INSTANCE.log("SolverGurobi: solve failed");
+			Plugin.INSTANCE.logError("SolverGurobi: solve failed, "+e.getMessage());
 		}
 		
 	    this.onSolvingEnd();
@@ -686,7 +686,7 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 			int status;
 			status = model.get(GRB.IntAttr.Status);
 			String statusasstring = format_status(status);
-			CommonPlugin.INSTANCE.log("ESolver Gurobi returned with status "+statusasstring);
+			Plugin.INSTANCE.logInfo("ESolver Gurobi returned with status "+statusasstring);
 			boolean optimal    = status==GRB.OPTIMAL;
 			boolean feasible   = model.get(GRB.IntAttr.SolCount)>0;
 			boolean unfeasible = status==GRB.INFEASIBLE;
@@ -711,7 +711,7 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 			this.setSolOptimal(optimal);
 			this.setSolValue(mipvalue);
 		} catch (GRBException e) {
-			CommonPlugin.INSTANCE.log("SolverGurobi: solution build failed");
+			Plugin.INSTANCE.logError("SolverGurobi: solution build failed, "+e.getMessage());
 		}
 		
 		// release the lp
@@ -813,8 +813,7 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 				 }
 			 } 
 			 catch (GRBException e) {
-				 CommonPlugin.INSTANCE.log("SolverGurobi: call back failed, Error code: " + e.getErrorCode() + ". " +e.getMessage());
-				 //e.printStackTrace();
+				 Plugin.INSTANCE.logError("SolverGurobi: call back failed, Error code: " + e.getErrorCode() + ". " +e.getMessage());
 			 }			
 			
 			// do the call  back
@@ -825,7 +824,7 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 			if ( SolverGurobiImpl.this.isRunRequestTerminate() )	{
 				// terminate
 				this.abort();
-				CommonPlugin.INSTANCE.log("ESolver Request for terminate");
+				Plugin.INSTANCE.logWarning("ESolver Request for terminate");
 			}
 	 	}  // method call back
 	}  // class SolverCallback
