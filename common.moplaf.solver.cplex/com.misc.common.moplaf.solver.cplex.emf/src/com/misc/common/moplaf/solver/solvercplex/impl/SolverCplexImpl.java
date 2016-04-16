@@ -13,7 +13,6 @@ import ilog.cplex.IloCplex;
 import ilog.cplex.IloCplex.Status;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,6 +29,7 @@ import com.misc.common.moplaf.solver.GeneratorTuple;
 import com.misc.common.moplaf.solver.GeneratorVar;
 import com.misc.common.moplaf.solver.ILpWriter;
 import com.misc.common.moplaf.solver.ITupleVisitor;
+import com.misc.common.moplaf.solver.Plugin;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionLp;
 import com.misc.common.moplaf.solver.SolutionVar;
@@ -38,7 +38,6 @@ import com.misc.common.moplaf.solver.impl.SolverLpImpl;
 import com.misc.common.moplaf.solver.solvercplex.SolverCplex;
 import com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage;
 
-import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -209,15 +208,24 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 	}
 	
 	private void initSolution(){
-		Solution initialSolution = this.getInitialSolution();
-		this.lp.addMIPStart();
-		ArrayList<IloNumVar> varsArray   = new ArrayList<IloNumVar>();
-		ArrayList<double>    valuesArray = new ArrayList<double>();
-		for ( SolutionVar varSol : this.getInitialSolution().getVar()){
-			float optimalValue = varSol.getOptimalValue();
-		    IloNumVar cplexvar = vars.get(varSol.getVar());
-		    varsArray.
-			
+		try {
+			this.lp.addMIPStart();
+			Solution initialSolution = this.getInitialSolution();
+			int nofVars = initialSolution.getVar().size();
+			IloNumVar[] varsArray   = new IloNumVar[nofVars];
+			double[]    valuesArray = new double[nofVars];
+			int i = 0;
+			for ( SolutionVar varSol : this.getInitialSolution().getVar()){
+				float optimalValue = varSol.getOptimalValue();
+			    IloNumVar cplexvar = vars.get(varSol.getVar());
+			    varsArray[i] = cplexvar;
+			    valuesArray[i] = optimalValue;
+			}
+			this.lp.addMIPStart(varsArray, valuesArray);
+		} catch (IloException e) {
+			e.printStackTrace();
+			Plugin.INSTANCE.logError("SolverCplex: init mip start failed, ilog exception "+e.getMessage());
+			this.releaseLp();
 		}
 	}
 
@@ -308,7 +316,6 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 					    };  // switch on constraint type
 					    range.setName(lpcons.getCode());
 						SolverCplexImpl.this.cons.put(lpcons, range);
-						//CommonPlugin.INSTANCE.log("..var "+varnumber+","+lpvar.getECode());
 					}
 				}
 			}; // class ConsMapper
@@ -319,11 +326,11 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		} 
 		catch (IloException e) {
 			e.printStackTrace();
-			CommonPlugin.INSTANCE.log("SolverCplex: load failed, ilog exception "+e.getMessage());
+			Plugin.INSTANCE.logError("SolverCplex: load failed, ilog exception "+e.getMessage());
 			this.releaseLp();
 		} catch (Exception e) {
 			e.printStackTrace();
-			CommonPlugin.INSTANCE.log("SolverCplex: load failed, general exception "+e.getMessage());
+			Plugin.INSTANCE.logError("SolverCplex: load failed, general exception "+e.getMessage());
 		}
 	} // method lp load
 	
@@ -348,7 +355,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 	private void writeLpToFilePrivate() {
 		String filepath = this.getFilePath();
 		if ( filepath==null){
-			CommonPlugin.INSTANCE.log("SolverCplex: no file path, write aborted");
+			Plugin.INSTANCE.logWarning("SolverCplex: no file path, write aborted");
 			return;
 		}
 		
@@ -385,10 +392,10 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 			}
 		}
 		try {
-			CommonPlugin.INSTANCE.log("SolverCplex: write to file "+filepath);
+			Plugin.INSTANCE.logInfo("SolverCplex: write to file "+filepath);
 			this.lp.exportModel(filepath);
 		} catch (IloException e) {
-			CommonPlugin.INSTANCE.log("SolverCplex: write failed, "+e.getMessage());
+			Plugin.INSTANCE.logError("SolverCplex: write failed, "+e.getMessage());
 		}
 	}
 
@@ -589,10 +596,10 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		boolean feasible   = false;
 		try  {
 			if ( this.isSolverLinearRelaxation() ) {
-				CommonPlugin.INSTANCE.log("SolverCplex: continuous solve returned ");
+				Plugin.INSTANCE.logInfo("SolverCplex: continuous solve returned ");
 			} // if linear relaxed
 			else {
-				CommonPlugin.INSTANCE.log("SolverCplex: mip solver returned ");
+				Plugin.INSTANCE.logInfo("SolverCplex: mip solver returned");
 				SolverCplexCallbackMIPInfo callback = new SolverCplexCallbackMIPInfo();
 				this.lp.use(callback);
 				feasible = this.lp.solve(); 
@@ -600,7 +607,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 			} // if mip
 		}
 		catch (Exception e)		{
-			CommonPlugin.INSTANCE.log("SolverCplex: solve failed "+e);
+			Plugin.INSTANCE.logError("SolverCplex: solve failed "+e);
 		}
 		
 		this.onSolvingEnd();
@@ -677,7 +684,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 			
 			if ( SolverCplexImpl.this.isRunRequestTerminate() ) {
 				// terminate
-				CommonPlugin.INSTANCE.log("SolverCplex Request for terminate");
+				Plugin.INSTANCE.logInfo("SolverCplex Request for terminate");
 				this.abort();
 				SolverCplexImpl.this.setRunInterrupted(true);
 			}

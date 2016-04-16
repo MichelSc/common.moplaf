@@ -38,7 +38,7 @@ public interface SolverjacopPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://com.misc.common.moplaf.solver.jacop.emf";
+	String eNS_URI = "http://www.misc.com/common.moplaf.solver.jacop.emf";
 
 	/**
 	 * The package namespace name.
@@ -74,6 +74,15 @@ public interface SolverjacopPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_JACOP__SOLUTION = SolverPackage.SOLVER_CP__SOLUTION;
+
+	/**
+	 * The feature id for the '<em><b>Current Solution Nr</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP__CURRENT_SOLUTION_NR = SolverPackage.SOLVER_CP__CURRENT_SOLUTION_NR;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -301,6 +310,33 @@ public interface SolverjacopPackage extends EPackage {
 	int SOLVER_JACOP__INITIALIZING = SolverPackage.SOLVER_CP__INITIALIZING;
 
 	/**
+	 * The feature id for the '<em><b>Goal To Solve</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP__GOAL_TO_SOLVE = SolverPackage.SOLVER_CP__GOAL_TO_SOLVE;
+
+	/**
+	 * The feature id for the '<em><b>Initial Solution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP__INITIAL_SOLUTION = SolverPackage.SOLVER_CP__INITIAL_SOLUTION;
+
+	/**
+	 * The feature id for the '<em><b>Search All</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP__SEARCH_ALL = SolverPackage.SOLVER_CP__SEARCH_ALL;
+
+	/**
 	 * The number of structural features of the '<em>Solver Jacop</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -308,15 +344,6 @@ public interface SolverjacopPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_JACOP_FEATURE_COUNT = SolverPackage.SOLVER_CP_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Get Parent Generator Tool</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_JACOP___GET_PARENT_GENERATOR_TOOL = SolverPackage.SOLVER_CP___GET_PARENT_GENERATOR_TOOL;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.

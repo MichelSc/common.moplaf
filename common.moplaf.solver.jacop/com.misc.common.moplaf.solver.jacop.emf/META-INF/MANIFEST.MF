@@ -12,6 +12,6 @@ Export-Package: solverjacop,
  solverjacop.impl,
  solverjacop.util
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore;visibility:=reexport,
  com.misc.common.moplaf.solver.emf;visibility:=reexport
 Bundle-ActivationPolicy: lazy

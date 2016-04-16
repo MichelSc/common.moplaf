@@ -410,15 +410,6 @@ public interface SolvergurobiPackage extends EPackage {
 	int SOLVER_GUROBI_FEATURE_COUNT = SolverPackage.SOLVER_LP_FEATURE_COUNT + 5;
 
 	/**
-	 * The operation id for the '<em>Get Parent Generator Tool</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_GUROBI___GET_PARENT_GENERATOR_TOOL = SolverPackage.SOLVER_LP___GET_PARENT_GENERATOR_TOOL;
-
-	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
