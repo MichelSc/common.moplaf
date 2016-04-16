@@ -80,8 +80,10 @@ public class SolutionLpItemProvider extends SolutionItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		SolutionLp solutionLp = (SolutionLp)object;
-		return getString("_UI_SolutionLp_type") + " " + solutionLp.getSolutionNr();
+		String label = ((SolutionLp)object).getCode();
+		return label == null || label.length() == 0 ?
+			getString("_UI_SolutionLp_type") :
+			getString("_UI_SolutionLp_type") + " " + label;
 	}
 	
 

@@ -10,7 +10,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -40,12 +39,15 @@ import com.misc.common.moplaf.solver.GeneratorTuple;
 import com.misc.common.moplaf.solver.GeneratorVar;
 import com.misc.common.moplaf.solver.ILpWriter;
 import com.misc.common.moplaf.solver.ITupleVisitor;
+import com.misc.common.moplaf.solver.Plugin;
+import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionLp;
 import com.misc.common.moplaf.solver.SolutionVar;
 import com.misc.common.moplaf.solver.SolverPackage;
 import com.misc.common.moplaf.solver.impl.SolverLpImpl;
 import com.misc.common.moplaf.solver.solverglpk.SolverGLPK;
 import com.misc.common.moplaf.solver.solverglpk.SolverglpkPackage;
+
 
 
 /**
@@ -429,7 +431,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		
 		String filepath = this.getFilePath();
 		if ( filepath==null){
-			CommonPlugin.INSTANCE.log("SolverGLPK: no file path, write aborted");
+			Plugin.INSTANCE.logWarning("SolverGLPK: no file path, write aborted");
 			return;
 		}
 		int lastdot = filepath.lastIndexOf('.');
@@ -495,17 +497,16 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		    StringBuilder  stringBuilder = new StringBuilder();
 		    String         ls = System.getProperty("line.separator");
 		    while( ( line = reader.readLine() ) != null ) {
-				//CommonPlugin.INSTANCE.log(".. line read: "+line);
 		        stringBuilder.append( line );
 		        stringBuilder.append( ls );
 		    }
 		    toreturn = stringBuilder.toString();
 		    reader.close();
 		} catch (FileNotFoundException e) {
-			CommonPlugin.INSTANCE.log("SolverGLPK: file not found");
+			Plugin.INSTANCE.logError("SolverGLPK: file not found");
 			e.printStackTrace();
 		} catch (IOException e) {
-			CommonPlugin.INSTANCE.log("SolverGLPK: io exception");
+			Plugin.INSTANCE.logError("SolverGLPK: io exception");
 			e.printStackTrace();
 		}
 	    return toreturn;
@@ -750,6 +751,11 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 	private Map<GeneratorLpCons, Number> cons;
 	private String actualfilepath = null;
 	 
+	/**
+	 * <!-- begin-user-doc -->
+	 * Release GLPK structure
+	 * <!-- end-user-doc -->
+	 */
 	private void releaseLp(){
 		// Free memory
 		if ( this.lp!=null){
@@ -761,6 +767,38 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * Return an array of the initial solution to be used in the presolve
+	 * <!-- end-user-doc -->
+	 */
+	private SWIGTYPE_p_double initSolution(){
+		try {
+			Solution initialSolution = this.getInitialSolution();
+			if ( initialSolution != null) {
+				
+			}
+			int nofVars = this.vars.size();
+			SWIGTYPE_p_double array = GLPK.new_doubleArray(nofVars);
+			for ( SolutionVar varSol : this.getInitialSolution().getVar()){
+				double optimalValue = varSol.getOptimalValue();
+			    int varindex = vars.get(varSol.getVar()).intValue();
+			    GLPK.doubleArray_setitem(array, varindex, optimalValue);
+			}
+		    return array;
+		} catch (Exception e) {
+			e.printStackTrace();
+			Plugin.INSTANCE.logError("SolverGlok: init mip start failed, exception "+e.getMessage());
+			this.releaseLp();
+		}
+		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Load the lp from the generator into the GLPK structure
+	 * <!-- end-user-doc -->
+	 */
 	private void loadLp(){
 		this.releaseLp(); // release the current model, if any
 		Generator generator = this.getGenerator();
@@ -778,7 +816,6 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 						}
 						int varnumber = ++counter;
 						SolverGLPKImpl.this.vars.put((GeneratorLpVar)var, varnumber);
-						//CommonPlugin.INSTANCE.log("..var "+varnumber+","+lpvar.getECode());
 					}
 				}
 			};
@@ -797,7 +834,6 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 						}
 						int consnumber = ++counter;
 						SolverGLPKImpl.this.cons.put((GeneratorLpCons)cons, consnumber);
-						//CommonPlugin.INSTANCE.log("..var "+varnumber+","+lpvar.getECode());
 					}
 				}
 			};
@@ -892,15 +928,19 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		catch (Exception e)
 		{
 			e.printStackTrace();
-			CommonPlugin.INSTANCE.log("SolverGLPK: load failed");
+			Plugin.INSTANCE.logError("SolverGLPK: load failed, "+e.getMessage());
 			this.releaseLp();
 		}
 	} // method lp load
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * Solve the lp with GLPK the linear formulation provided by the Generator
+	 * <!-- end-user-doc -->
+	 */
 	@Override
 	public void solveSolver() {
 
-		// load the lp
 		this.loadLp();
 		if ( this.lp==null ) { return; }
 
@@ -910,49 +950,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 			this.writeLpToFile();
 		}
 		
-		GlpkCallbackListener listener = new GlpkCallbackListener(){
-			@Override
-			public void callback(glp_tree tree) {
-				glp_prob problem = GLPK.glp_ios_get_prob(tree);
-				// gap
-				float mipgap = (float)GLPK.glp_ios_mip_gap(tree);
-		        
-		        // Progress
-				//int reason = GLPK.glp_ios_reason(tree);
-				String progress = "solving";
-				
-				// depth
-				SWIGTYPE_p_int nofActiveNodesS  = GLPK.new_intArray(1);
-				SWIGTYPE_p_int nofNodesCurrentS = GLPK.new_intArray(1);
-				SWIGTYPE_p_int nofNodesTotalS   = GLPK.new_intArray(1);
-				GLPK.glp_ios_tree_size(tree, nofActiveNodesS, nofNodesCurrentS, nofNodesTotalS);
-				int nofActiveNodes  = GLPK.intArray_getitem(nofActiveNodesS, 0);
-				int nofNodesCurrent = GLPK.intArray_getitem(nofNodesCurrentS, 0);
-				int nofNodesTotal   = GLPK.intArray_getitem(nofNodesTotalS, 0);
-		        String depth = String.format("actives %1$d, current %2$d, total: %3$d", nofActiveNodes, nofNodesCurrent, nofNodesTotal); 
-				
-				// value
-				int mipstatus = GLPK.glp_mip_status(problem);
-				float mipvalue = 0.0f;
-				boolean feasible = false;
-				if      (  mipstatus == GLPKConstants.GLP_OPT
-		                || mipstatus == GLPKConstants.GLP_FEAS)  {
-					feasible = true;
-					mipvalue = (float)GLPK.glp_mip_obj_val(problem);
-				}
-				
-				SolverGLPKImpl.this.onSolverFeedback(depth, progress, mipgap, mipvalue, feasible);
-				SolverGLPKImpl.this.setSolOptimalityGap(mipgap);
-				
-				if ( SolverGLPKImpl.this.isRunRequestTerminate() ) {
-					// terminate
-					CommonPlugin.INSTANCE.log("SolverGLPK Request for terminate");
-					GLPK.glp_ios_terminate(tree);
-					SolverGLPKImpl.this.setRunInterrupted(true);
-				}
-			} // method call back
-		}; // class listener
-
+		GlpkCallbackListener listener = new CallBackListener(); 
 		int rc = 1;
 		GlpkCallback.addListener(listener);
 		try  {
@@ -960,7 +958,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 				glp_smcp parm = new glp_smcp();
 				GLPK.glp_init_smcp(parm);
 				rc = GLPK.glp_simplex(lp, parm);
-				CommonPlugin.INSTANCE.log("SolverGLPK: smcp returned "+rc);
+				Plugin.INSTANCE.logInfo("SolverGLPK: smcp returned "+rc);
 			}
 			else {
 				glp_iocp parm = new glp_iocp();
@@ -992,11 +990,11 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 				//parm.setTol_int(0.001);
 				rc = GLPK.glp_intopt(lp, parm);
 				String rcstring = format_intopt_rc(rc);
-				CommonPlugin.INSTANCE.log("SolverGLPK: intopt returned "+rcstring);
+				Plugin.INSTANCE.logInfo("SolverGLPK: intopt returned "+rcstring);
 			} // if mip
 		}
 		catch (Exception e)		{
-			CommonPlugin.INSTANCE.log("SolverGLPK: solve failed "+e);
+			Plugin.INSTANCE.logError("SolverGLPK: solve failed "+e);
 		}
 		GlpkCallback.removeListener(listener);
 		//Number objective = result.getObjective();
@@ -1045,6 +1043,167 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		
 	} // method SolveLp
 
+
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * Implement the call back from GLPK
+	 * <!-- end-user-doc -->
+	 */
+	private class CallBackListener implements GlpkCallbackListener{
+		@Override
+		public void callback(glp_tree tree) {
+			
+			int reason = GLPK.glp_ios_reason(tree);
+
+			if ( reason == GLPKConstants.GLP_IROWGEN ) {
+//				Request for row generation
+//				
+//				The callback routine is called with the reason code GLP_IROWGEN if LP relaxation of the current
+//				subproblem has just been solved to optimality and its objective value is better than the best known
+//				integer feasible solution.
+//				In response the callback routine may add one or more “lazy” constraints (rows), which are
+//				violated by the current optimal solution of LP relaxation, using API routines glp_add_rows,
+//				glp_set_row_name, glp_set_row_bnds, and glp_set_mat_row, in which case the solver will per-
+//				form re-optimization of LP relaxation. If there are no violated constraints, the callback routine
+//				should just return.
+//				Note that components of optimal solution to LP relaxation can be obtained with API
+//				routines glp_get_obj_val, glp_get_row_prim, glp_get_row_dual, glp_get_col_prim, and
+//				glp_get_col_dual.
+			} else if ( reason == GLPKConstants.GLP_IHEUR ) {
+//				Request for heuristic solution
+//				
+//				The callback routine is called with the reason code GLP_IHEUR if LP relaxation of the current
+//				subproblem being solved to optimality is integer infeasible (i.e. values of some structural variables
+//				of integer kind are fractional), though its objective value is better than the best known integer
+//				feasible solution.
+//				In response the callback routine may try applying a primal heuristic to find an integer feasible
+//				solution,3 which is better than the best known one. In case of success the callback routine may
+//				store such better solution in the problem object using the routine glp_ios_heur_sol.
+				if (GLPK.glp_ios_curr_node(tree) == 1 ){
+					SWIGTYPE_p_double initialSolution = SolverGLPKImpl.this.initSolution();
+					if ( initialSolution!=null){
+						Plugin.INSTANCE.logInfo("SolverGLPK: presolve");
+						int rc = GLPK.glp_ios_heur_sol(tree, initialSolution); 
+						Plugin.INSTANCE.logInfo("SolverGLPK: presolve returned "+rc);
+					}
+				}
+				
+			} else if ( reason == GLPKConstants.GLP_ICUTGEN ) {
+//				Request for cut generation
+//				
+//				The callback routine is called with the reason code GLP_ICUTGEN if LP relaxation of the current
+//				subproblem being solved to optimality is integer infeasible (i.e. values of some structural variables
+//				of integer kind are fractional), though its objective value is better than the best known integer
+//				feasible solution.
+//				In response the callback routine may reformulate the current subproblem (before it will be
+//				splitted up due to branching) by adding to the problem object one or more cutting plane constraints,
+//				which cut off the fractional optimal point from the MIP polytope.4
+//				Adding cutting plane constraints may be performed in two ways. One way is the same as
+//				for the reason code GLP_IROWGEN (see above), in which case the callback routine adds new rows
+//				corresponding to cutting plane constraints directly to the current subproblem.
+//				The other way is to add cutting plane constraints to the cut pool, a set of cutting plane con-
+//				straints maintained by the solver, rather than directly to the current subproblem. In this case
+//				after return from the callback routine the solver looks through the cut pool, selects efficient cutting
+//				plane constraints, adds them to the current subproblem, drops other constraints, and then performs
+//				re-optimization.
+			} else if ( reason == GLPKConstants.GLP_IBRANCH ) {
+//			    Request for branching
+//				
+//				The callback routine is called with the reason code GLP_IBRANCH if LP relaxation of the current
+//				subproblem being solved to optimality is integer infeasible (i.e. values of some structural variables
+//				of integer kind are fractional), though its objective value is better than the best known integer
+//				feasible solution.
+//				In response the callback routine may choose some variable suitable for branching (i.e. integer
+//				variable, whose value in optimal solution to LP relaxation of the current subproblem is fractional)
+//				and pass its ordinal number to the solver using the routine glp_ios_branch_upon, in which case
+//				the solver splits the current subproblem in two new subproblems and continues the search. If no
+//				Integer feasible to the original MIP problem, not to the current subproblem.
+//				Since these constraints are added to the current subproblem, they may be globally as well as locally valid.
+//				choice is made by the callback routine, the solver uses a branching technique specified by the control
+//				parameter br_tech.
+			} else if ( reason == GLPKConstants.GLP_IBINGO ) {
+//   			Better integer solution found
+//				
+//				The callback routine is called with the reason code GLP_IBINGO if LP relaxation of the current
+//				subproblem being solved to optimality is integer feasible (i.e. values of all structural variables of
+//				integer kind are integral within the working precision) and its objective value is better than the
+//				best known integer feasible solution.
+//				Optimal solution components for LP relaxation can be obtained in the same way as for the
+//				reason code GLP_IROWGEN (see above).
+//				Components of the new MIP solution can be obtained with API routines glp_mip_obj_val,
+//				glp_mip_row_val, and glp_mip_col_val. Note, however, that due to row/cut generation there
+//				may be additional rows in the problem object.
+//				The difference between optimal solution to LP relaxation and corresponding MIP solution is
+//				that in the former case some structural variables of integer kind (namely, basic variables) may have
+//				values, which are close to nearest integers within the working precision, while in the latter case all
+//				such variables have exact integral values.
+//				The reason GLP_IBINGO is intended only for informational purposes, so the callback routine
+//				should not modify the problem object in this case.
+			} else if ( reason == GLPKConstants.GLP_ISELECT ) {
+//	            Request for subproblem selection
+//				
+//				The callback routine is called with the reason code GLP_ISELECT if the current subproblem has
+//				been fathomed and therefore there is no current subproblem.
+//				In response the callback routine may select some subproblem from the active list and pass its
+//				reference number to the solver using the routine glp_ios_select_node, in which case the solver
+//				continues the search from the specified active subproblem. If no selection is made by the callback
+//				routine, the solver uses a backtracking technique specified by the control parameter bt_tech.
+//				To explore the active list (i.e. active nodes of the branch-and-bound tree) the callback routine
+//				may use the routines glp_ios_next_node and glp_ios_prev_node.
+//				Request for preprocessing
+			} else if ( reason == GLPKConstants.GLP_IPREPRO ) {
+//				Request for preprocessing
+//				
+//				The callback routine is called with the reason code GLP_IPREPRO if the current subproblem has
+//				just been selected from the active list and its LP relaxation is not solved yet.
+//				In response the callback routine may perform some preprocessing of the current subproblem like
+//				tightening bounds of some variables or removing bounds of some redundant constraints.
+			} else {
+				 /* ignore call for other reasons */
+			}
+
+			glp_prob problem = GLPK.glp_ios_get_prob(tree);
+			// gap
+			float mipgap = (float)GLPK.glp_ios_mip_gap(tree);
+	        
+	        // Progress
+			//int reason = GLPK.glp_ios_reason(tree);
+			String progress = "solving";
+			
+			// depth
+			SWIGTYPE_p_int nofActiveNodesS  = GLPK.new_intArray(1);
+			SWIGTYPE_p_int nofNodesCurrentS = GLPK.new_intArray(1);
+			SWIGTYPE_p_int nofNodesTotalS   = GLPK.new_intArray(1);
+			GLPK.glp_ios_tree_size(tree, nofActiveNodesS, nofNodesCurrentS, nofNodesTotalS);
+			int nofActiveNodes  = GLPK.intArray_getitem(nofActiveNodesS,  0);
+			int nofNodesCurrent = GLPK.intArray_getitem(nofNodesCurrentS, 0);
+			int nofNodesTotal   = GLPK.intArray_getitem(nofNodesTotalS,   0);
+	        String depth = String.format("actives %1$d, current %2$d, total: %3$d", nofActiveNodes, nofNodesCurrent, nofNodesTotal); 
+			
+			// value
+			int mipstatus = GLPK.glp_mip_status(problem);
+			float mipvalue = 0.0f;
+			boolean feasible = false;
+			if      (  mipstatus == GLPKConstants.GLP_OPT
+	                || mipstatus == GLPKConstants.GLP_FEAS)  {
+				feasible = true;
+				mipvalue = (float)GLPK.glp_mip_obj_val(problem);
+			}
+			
+			SolverGLPKImpl.this.onSolverFeedback(depth, progress, mipgap, mipvalue, feasible);
+			SolverGLPKImpl.this.setSolOptimalityGap(mipgap);
+			
+			if ( SolverGLPKImpl.this.isRunRequestTerminate() ) {
+				// terminate
+				Plugin.INSTANCE.logWarning("SolverGLPK: Request for terminate");
+				GLPK.glp_ios_terminate(tree);
+				SolverGLPKImpl.this.setRunInterrupted(true);
+			}
+		} // method call back
+	}; // class listener
+
+	
 	static String format_intopt_rc(int rc)
 	{
 		String rcstring = "";

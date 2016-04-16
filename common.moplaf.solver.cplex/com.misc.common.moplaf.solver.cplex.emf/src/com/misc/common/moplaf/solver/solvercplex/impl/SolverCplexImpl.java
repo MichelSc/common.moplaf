@@ -209,7 +209,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 	
 	private void initSolution(){
 		try {
-			this.lp.addMIPStart();
+			//this.lp.addMIPStart();
 			Solution initialSolution = this.getInitialSolution();
 			int nofVars = initialSolution.getVar().size();
 			IloNumVar[] varsArray   = new IloNumVar[nofVars];
@@ -220,11 +220,14 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 			    IloNumVar cplexvar = vars.get(varSol.getVar());
 			    varsArray[i] = cplexvar;
 			    valuesArray[i] = optimalValue;
+			    i++;
 			}
 			this.lp.addMIPStart(varsArray, valuesArray);
 		} catch (IloException e) {
-			e.printStackTrace();
 			Plugin.INSTANCE.logError("SolverCplex: init mip start failed, ilog exception "+e.getMessage());
+			this.releaseLp();
+		} catch (Exception e) {
+			Plugin.INSTANCE.logError("SolverCplex: init mip start failed, java exception "+e.getMessage());
 			this.releaseLp();
 		}
 	}
@@ -584,6 +587,10 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		// load the lp
 		this.loadLp();
 		if ( this.lp==null ) { return; }
+		
+		if ( this.getInitialSolution()!=null ){
+			this.initSolution();
+		}
 
 		this.onInitializationEnd();
 		
