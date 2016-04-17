@@ -772,26 +772,31 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 	 * Return an array of the initial solution to be used in the presolve
 	 * <!-- end-user-doc -->
 	 */
-	private SWIGTYPE_p_double initSolution(){
+	private int initSolution(glp_tree tree){
 		try {
 			Solution initialSolution = this.getInitialSolution();
 			if ( initialSolution != null) {
-				
-			}
-			int nofVars = this.vars.size();
-			SWIGTYPE_p_double array = GLPK.new_doubleArray(nofVars);
-			for ( SolutionVar varSol : this.getInitialSolution().getVar()){
-				double optimalValue = varSol.getOptimalValue();
-			    int varindex = vars.get(varSol.getVar()).intValue();
-			    GLPK.doubleArray_setitem(array, varindex, optimalValue);
-			}
-		    return array;
+				Plugin.INSTANCE.logInfo("SolverGLPK: presolve");
+				int nofVars = this.vars.size();
+				SWIGTYPE_p_double array = GLPK.new_doubleArray(nofVars);
+				for ( int i=0; i<nofVars; i++){
+				    GLPK.doubleArray_setitem(array, i, 0.0);
+				}
+				for ( SolutionVar varSol : this.getInitialSolution().getVar()){
+					double optimalValue = varSol.getOptimalValue();
+				    int varindex = vars.get(varSol.getVar()).intValue();
+				    GLPK.doubleArray_setitem(array, varindex, optimalValue);
+				}
+				int rc = GLPK.glp_ios_heur_sol(tree, array); 
+				Plugin.INSTANCE.logInfo("SolverGLPK: presolve returned (0=accepted) "+rc);
+				GLPK.delete_doubleArray(array);
+				return rc;
+     		}
 		} catch (Exception e) {
-			e.printStackTrace();
-			Plugin.INSTANCE.logError("SolverGlok: init mip start failed, exception "+e.getMessage());
+			Plugin.INSTANCE.logError("SolverGlpk: init mip start failed, exception "+e.getMessage());
 			this.releaseLp();
 		}
-		return null;
+		return 0;
 	}
 
 	/**
@@ -939,7 +944,8 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 	 * <!-- end-user-doc -->
 	 */
 	@Override
-	public void solveSolver() {
+	protected void solveSolver() {
+		//super.solveSolver();
 
 		this.loadLp();
 		if ( this.lp==null ) { return; }
@@ -1051,10 +1057,19 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 	 * <!-- end-user-doc -->
 	 */
 	private class CallBackListener implements GlpkCallbackListener{
+		private SWIGTYPE_p_int nofActiveNodesS  = GLPK.new_intArray(1);
+		private SWIGTYPE_p_int nofNodesCurrentS = GLPK.new_intArray(1);
+		private SWIGTYPE_p_int nofNodesTotalS   = GLPK.new_intArray(1);
+		
 		@Override
 		public void callback(glp_tree tree) {
 			
 			int reason = GLPK.glp_ios_reason(tree);
+			/*
+			int node = GLPK.glp_ios_curr_node(tree);
+			String logline = String.format("CallBack, reason=%s, node=%d", format_callback_reason(reason), node);
+			Plugin.INSTANCE.logInfo("SolverGLPK: "+logline);
+			*/
 
 			if ( reason == GLPKConstants.GLP_IROWGEN ) {
 //				Request for row generation
@@ -1081,12 +1096,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 //				solution,3 which is better than the best known one. In case of success the callback routine may
 //				store such better solution in the problem object using the routine glp_ios_heur_sol.
 				if (GLPK.glp_ios_curr_node(tree) == 1 ){
-					SWIGTYPE_p_double initialSolution = SolverGLPKImpl.this.initSolution();
-					if ( initialSolution!=null){
-						Plugin.INSTANCE.logInfo("SolverGLPK: presolve");
-						int rc = GLPK.glp_ios_heur_sol(tree, initialSolution); 
-						Plugin.INSTANCE.logInfo("SolverGLPK: presolve returned "+rc);
-					}
+					SolverGLPKImpl.this.initSolution(tree);
 				}
 				
 			} else if ( reason == GLPKConstants.GLP_ICUTGEN ) {
@@ -1172,9 +1182,6 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 			String progress = "solving";
 			
 			// depth
-			SWIGTYPE_p_int nofActiveNodesS  = GLPK.new_intArray(1);
-			SWIGTYPE_p_int nofNodesCurrentS = GLPK.new_intArray(1);
-			SWIGTYPE_p_int nofNodesTotalS   = GLPK.new_intArray(1);
 			GLPK.glp_ios_tree_size(tree, nofActiveNodesS, nofNodesCurrentS, nofNodesTotalS);
 			int nofActiveNodes  = GLPK.intArray_getitem(nofActiveNodesS,  0);
 			int nofNodesCurrent = GLPK.intArray_getitem(nofNodesCurrentS, 0);
@@ -1204,8 +1211,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 	}; // class listener
 
 	
-	static String format_intopt_rc(int rc)
-	{
+	static String format_intopt_rc(int rc){
 		String rcstring = "";
 		if      ( rc == 0                        )  { rcstring = "IntOpt_RC_Zero" ; } 
 		else if ( rc == GLPKConstants.GLP_EBOUND )  { rcstring = "IntOpt_RC_GLP_EBOUND"; }
@@ -1218,6 +1224,19 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		else if ( rc == GLPKConstants.GLP_ESTOP )   { rcstring = "IntOpt_RC_GLP_ESTOP"; }
         else                                        { rcstring = "IntOpt_RC_Unknown"; }
 		return rcstring;
+	}
+	
+	
+	static String format_callback_reason(int reason){
+		String reasonstring = "";
+		if      ( reason == GLPKConstants.GLP_IROWGEN ) { reasonstring = "glp_ios_reason_GLP_IROWGEN"; }
+		else if ( reason == GLPKConstants.GLP_IHEUR )   { reasonstring = "glp_ios_reason_GLP_IHEUR"; }
+		else if ( reason == GLPKConstants.GLP_ICUTGEN ) { reasonstring = "glp_ios_reason_GLP_ICUTGEN"; }
+		else if ( reason == GLPKConstants.GLP_IBRANCH ) { reasonstring = "glp_ios_reason_GLP_IBRANCH"; }
+		else if ( reason == GLPKConstants.GLP_IBINGO )  { reasonstring = "glp_ios_reason_GLP_IBINGO"; }
+		else if ( reason == GLPKConstants.GLP_ISELECT ) { reasonstring = "glp_ios_reason_GLP_ISELECT"; }
+		else if ( reason == GLPKConstants.GLP_IPREPRO ) { reasonstring = "glp_ios_reason_GLP_IPREPRO"; }
+		return reasonstring; 
 	}
 	
 	static void write_lp_solution(glp_prob lp) {
