@@ -3,7 +3,6 @@
 package com.misc.common.moplaf.solver.impl;
 
 import com.misc.common.moplaf.solver.EnumLpVarType;
-import com.misc.common.moplaf.solver.GeneratorLpGoalTerm;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
 import com.misc.common.moplaf.solver.SolverPackage;
@@ -30,7 +29,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpVarImpl#getLowerBound <em>Lower Bound</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpVarImpl#getUpperBound <em>Upper Bound</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpVarImpl#getLpTerm <em>Lp Term</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpVarImpl#getLpGoalTerm <em>Lp Goal Term</em>}</li>
  * </ul>
  *
  * @generated
@@ -105,16 +103,6 @@ public class GeneratorLpVarImpl extends GeneratorVarImpl implements GeneratorLpV
 	 * @ordered
 	 */
 	protected EList<GeneratorLpTerm> lpTerm;
-
-	/**
-	 * The cached value of the '{@link #getLpGoalTerm() <em>Lp Goal Term</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLpGoalTerm()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<GeneratorLpGoalTerm> lpGoalTerm;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -215,26 +203,12 @@ public class GeneratorLpVarImpl extends GeneratorVarImpl implements GeneratorLpV
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<GeneratorLpGoalTerm> getLpGoalTerm() {
-		if (lpGoalTerm == null) {
-			lpGoalTerm = new EObjectWithInverseResolvingEList<GeneratorLpGoalTerm>(GeneratorLpGoalTerm.class, this, SolverPackage.GENERATOR_LP_VAR__LP_GOAL_TERM, SolverPackage.GENERATOR_LP_GOAL_TERM__LP_VAR);
-		}
-		return lpGoalTerm;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case SolverPackage.GENERATOR_LP_VAR__LP_TERM:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getLpTerm()).basicAdd(otherEnd, msgs);
-			case SolverPackage.GENERATOR_LP_VAR__LP_GOAL_TERM:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getLpGoalTerm()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -249,8 +223,6 @@ public class GeneratorLpVarImpl extends GeneratorVarImpl implements GeneratorLpV
 		switch (featureID) {
 			case SolverPackage.GENERATOR_LP_VAR__LP_TERM:
 				return ((InternalEList<?>)getLpTerm()).basicRemove(otherEnd, msgs);
-			case SolverPackage.GENERATOR_LP_VAR__LP_GOAL_TERM:
-				return ((InternalEList<?>)getLpGoalTerm()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -271,8 +243,6 @@ public class GeneratorLpVarImpl extends GeneratorVarImpl implements GeneratorLpV
 				return getUpperBound();
 			case SolverPackage.GENERATOR_LP_VAR__LP_TERM:
 				return getLpTerm();
-			case SolverPackage.GENERATOR_LP_VAR__LP_GOAL_TERM:
-				return getLpGoalTerm();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -299,10 +269,6 @@ public class GeneratorLpVarImpl extends GeneratorVarImpl implements GeneratorLpV
 				getLpTerm().clear();
 				getLpTerm().addAll((Collection<? extends GeneratorLpTerm>)newValue);
 				return;
-			case SolverPackage.GENERATOR_LP_VAR__LP_GOAL_TERM:
-				getLpGoalTerm().clear();
-				getLpGoalTerm().addAll((Collection<? extends GeneratorLpGoalTerm>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -327,9 +293,6 @@ public class GeneratorLpVarImpl extends GeneratorVarImpl implements GeneratorLpV
 			case SolverPackage.GENERATOR_LP_VAR__LP_TERM:
 				getLpTerm().clear();
 				return;
-			case SolverPackage.GENERATOR_LP_VAR__LP_GOAL_TERM:
-				getLpGoalTerm().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -350,8 +313,6 @@ public class GeneratorLpVarImpl extends GeneratorVarImpl implements GeneratorLpV
 				return upperBound != UPPER_BOUND_EDEFAULT;
 			case SolverPackage.GENERATOR_LP_VAR__LP_TERM:
 				return lpTerm != null && !lpTerm.isEmpty();
-			case SolverPackage.GENERATOR_LP_VAR__LP_GOAL_TERM:
-				return lpGoalTerm != null && !lpGoalTerm.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

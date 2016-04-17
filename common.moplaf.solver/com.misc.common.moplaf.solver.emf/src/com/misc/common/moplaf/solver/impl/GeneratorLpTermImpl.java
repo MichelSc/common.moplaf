@@ -2,7 +2,7 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
-import com.misc.common.moplaf.solver.GeneratorLpCons;
+import com.misc.common.moplaf.solver.GeneratorLpLinear;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
 import com.misc.common.moplaf.solver.SolverPackage;
@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpTermImpl#getLpVar <em>Lp Var</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpTermImpl#getCoeff <em>Coeff</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpTermImpl#getLpCons <em>Lp Cons</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpTermImpl#getLpLinear <em>Lp Linear</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpTermImpl#getDescription <em>Description</em>}</li>
  * </ul>
  *
@@ -179,9 +179,9 @@ public class GeneratorLpTermImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GeneratorLpCons getLpCons() {
-		if (eContainerFeatureID() != SolverPackage.GENERATOR_LP_TERM__LP_CONS) return null;
-		return (GeneratorLpCons)eInternalContainer();
+	public GeneratorLpLinear getLpLinear() {
+		if (eContainerFeatureID() != SolverPackage.GENERATOR_LP_TERM__LP_LINEAR) return null;
+		return (GeneratorLpLinear)eInternalContainer();
 	}
 
 	/**
@@ -189,8 +189,8 @@ public class GeneratorLpTermImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetLpCons(GeneratorLpCons newLpCons, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newLpCons, SolverPackage.GENERATOR_LP_TERM__LP_CONS, msgs);
+	public NotificationChain basicSetLpLinear(GeneratorLpLinear newLpLinear, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newLpLinear, SolverPackage.GENERATOR_LP_TERM__LP_LINEAR, msgs);
 		return msgs;
 	}
 
@@ -199,20 +199,20 @@ public class GeneratorLpTermImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLpCons(GeneratorLpCons newLpCons) {
-		if (newLpCons != eInternalContainer() || (eContainerFeatureID() != SolverPackage.GENERATOR_LP_TERM__LP_CONS && newLpCons != null)) {
-			if (EcoreUtil.isAncestor(this, newLpCons))
+	public void setLpLinear(GeneratorLpLinear newLpLinear) {
+		if (newLpLinear != eInternalContainer() || (eContainerFeatureID() != SolverPackage.GENERATOR_LP_TERM__LP_LINEAR && newLpLinear != null)) {
+			if (EcoreUtil.isAncestor(this, newLpLinear))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newLpCons != null)
-				msgs = ((InternalEObject)newLpCons).eInverseAdd(this, SolverPackage.GENERATOR_LP_CONS__LP_TERM, GeneratorLpCons.class, msgs);
-			msgs = basicSetLpCons(newLpCons, msgs);
+			if (newLpLinear != null)
+				msgs = ((InternalEObject)newLpLinear).eInverseAdd(this, SolverPackage.GENERATOR_LP_LINEAR__LP_TERM, GeneratorLpLinear.class, msgs);
+			msgs = basicSetLpLinear(newLpLinear, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_LP_TERM__LP_CONS, newLpCons, newLpCons));
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_LP_TERM__LP_LINEAR, newLpLinear, newLpLinear));
 	}
 
 	/**
@@ -239,10 +239,10 @@ public class GeneratorLpTermImpl extends MinimalEObjectImpl.Container implements
 				if (lpVar != null)
 					msgs = ((InternalEObject)lpVar).eInverseRemove(this, SolverPackage.GENERATOR_LP_VAR__LP_TERM, GeneratorLpVar.class, msgs);
 				return basicSetLpVar((GeneratorLpVar)otherEnd, msgs);
-			case SolverPackage.GENERATOR_LP_TERM__LP_CONS:
+			case SolverPackage.GENERATOR_LP_TERM__LP_LINEAR:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetLpCons((GeneratorLpCons)otherEnd, msgs);
+				return basicSetLpLinear((GeneratorLpLinear)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -257,8 +257,8 @@ public class GeneratorLpTermImpl extends MinimalEObjectImpl.Container implements
 		switch (featureID) {
 			case SolverPackage.GENERATOR_LP_TERM__LP_VAR:
 				return basicSetLpVar(null, msgs);
-			case SolverPackage.GENERATOR_LP_TERM__LP_CONS:
-				return basicSetLpCons(null, msgs);
+			case SolverPackage.GENERATOR_LP_TERM__LP_LINEAR:
+				return basicSetLpLinear(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -271,8 +271,8 @@ public class GeneratorLpTermImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case SolverPackage.GENERATOR_LP_TERM__LP_CONS:
-				return eInternalContainer().eInverseRemove(this, SolverPackage.GENERATOR_LP_CONS__LP_TERM, GeneratorLpCons.class, msgs);
+			case SolverPackage.GENERATOR_LP_TERM__LP_LINEAR:
+				return eInternalContainer().eInverseRemove(this, SolverPackage.GENERATOR_LP_LINEAR__LP_TERM, GeneratorLpLinear.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -290,8 +290,8 @@ public class GeneratorLpTermImpl extends MinimalEObjectImpl.Container implements
 				return basicGetLpVar();
 			case SolverPackage.GENERATOR_LP_TERM__COEFF:
 				return getCoeff();
-			case SolverPackage.GENERATOR_LP_TERM__LP_CONS:
-				return getLpCons();
+			case SolverPackage.GENERATOR_LP_TERM__LP_LINEAR:
+				return getLpLinear();
 			case SolverPackage.GENERATOR_LP_TERM__DESCRIPTION:
 				return getDescription();
 		}
@@ -312,8 +312,8 @@ public class GeneratorLpTermImpl extends MinimalEObjectImpl.Container implements
 			case SolverPackage.GENERATOR_LP_TERM__COEFF:
 				setCoeff((Float)newValue);
 				return;
-			case SolverPackage.GENERATOR_LP_TERM__LP_CONS:
-				setLpCons((GeneratorLpCons)newValue);
+			case SolverPackage.GENERATOR_LP_TERM__LP_LINEAR:
+				setLpLinear((GeneratorLpLinear)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -333,8 +333,8 @@ public class GeneratorLpTermImpl extends MinimalEObjectImpl.Container implements
 			case SolverPackage.GENERATOR_LP_TERM__COEFF:
 				setCoeff(COEFF_EDEFAULT);
 				return;
-			case SolverPackage.GENERATOR_LP_TERM__LP_CONS:
-				setLpCons((GeneratorLpCons)null);
+			case SolverPackage.GENERATOR_LP_TERM__LP_LINEAR:
+				setLpLinear((GeneratorLpLinear)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -352,8 +352,8 @@ public class GeneratorLpTermImpl extends MinimalEObjectImpl.Container implements
 				return lpVar != null;
 			case SolverPackage.GENERATOR_LP_TERM__COEFF:
 				return coeff != COEFF_EDEFAULT;
-			case SolverPackage.GENERATOR_LP_TERM__LP_CONS:
-				return getLpCons() != null;
+			case SolverPackage.GENERATOR_LP_TERM__LP_LINEAR:
+				return getLpLinear() != null;
 			case SolverPackage.GENERATOR_LP_TERM__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 		}

@@ -19,7 +19,6 @@ import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorCons;
 import com.misc.common.moplaf.solver.GeneratorLpCons;
 import com.misc.common.moplaf.solver.GeneratorLpGoal;
-import com.misc.common.moplaf.solver.GeneratorLpGoalTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorTuple;
@@ -590,7 +589,7 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 
 			GeneratorLpGoal goal = (GeneratorLpGoal) this.getGoalToSolve();
 			if ( goal != null) {
-				for ( GeneratorLpGoalTerm goalTerm : goal.getLpGoalTerm()){
+				for ( GeneratorLpTerm goalTerm : goal.getLpTerm()){
 					// create the objective coefficient
 					GeneratorLpVar lpvar = goalTerm.getLpVar();
 					float coefficient = goalTerm.getCoeff();

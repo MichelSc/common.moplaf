@@ -47,7 +47,6 @@ public class GeneratorLpVarItemProvider
 			addTypePropertyDescriptor(object);
 			addLowerBoundPropertyDescriptor(object);
 			addUpperBoundPropertyDescriptor(object);
-			addLpGoalTermPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -115,28 +114,6 @@ public class GeneratorLpVarItemProvider
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 getString("_UI__20VariablePropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Lp Goal Term feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addLpGoalTermPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GeneratorLpVar_LpGoalTerm_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorLpVar_LpGoalTerm_feature", "_UI_GeneratorLpVar_type"),
-				 SolverPackage.Literals.GENERATOR_LP_VAR__LP_GOAL_TERM,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
 				 null));
 	}
 

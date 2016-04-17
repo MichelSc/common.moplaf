@@ -52,10 +52,33 @@ public class GeneratorLpConsItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addLpTermPropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
 			addRighHandSidePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Lp Term feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLpTermPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GeneratorLpLinear_LpTerm_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorLpLinear_LpTerm_feature", "_UI_GeneratorLpLinear_type"),
+				 SolverPackage.Literals.GENERATOR_LP_LINEAR__LP_TERM,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -114,7 +137,7 @@ public class GeneratorLpConsItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SolverPackage.Literals.GENERATOR_LP_CONS__LP_TERM);
+			childrenFeatures.add(SolverPackage.Literals.GENERATOR_LP_LINEAR__LP_TERM);
 		}
 		return childrenFeatures;
 	}
@@ -162,9 +185,6 @@ public class GeneratorLpConsItemProvider
 			case SolverPackage.GENERATOR_LP_CONS__RIGH_HAND_SIDE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case SolverPackage.GENERATOR_LP_CONS__LP_TERM:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -182,7 +202,7 @@ public class GeneratorLpConsItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SolverPackage.Literals.GENERATOR_LP_CONS__LP_TERM,
+				(SolverPackage.Literals.GENERATOR_LP_LINEAR__LP_TERM,
 				 SolverFactory.eINSTANCE.createGeneratorLpTerm()));
 	}
 

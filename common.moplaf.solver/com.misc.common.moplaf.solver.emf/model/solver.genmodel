@@ -138,33 +138,24 @@
       <genFeatures createChild="false" propertyCategory="20 Variable" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpVar/UpperBound"/>
       <genFeatures property="None" notify="false" children="true" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpVar/LpTerm"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpVar/LpGoalTerm"/>
     </genClasses>
     <genClasses ecoreClass="solver.ecore#//GeneratorCons" labelFeature="#//solver/GeneratorTupleMember/Label">
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//GeneratorCons/Solution"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="20 Constraint"
           ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorCons/NofTerms"/>
-      <genOperations ecoreOperation="solver.ecore#//GeneratorCons/generate"/>
       <genOperations ecoreOperation="solver.ecore#//GeneratorCons/getSolution">
         <genParameters ecoreParameter="solver.ecore#//GeneratorCons/getSolution/solver"/>
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="solver.ecore#//GeneratorLpCons" labelFeature="#//solver/GeneratorTupleMember/Label">
       <genFeatures createChild="false" propertyCategory="20 Constraint" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpCons/Type"/>
-      <genFeatures property="None" children="true" createChild="true" propertyCategory=""
-          ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpCons/LpTerm"/>
       <genFeatures createChild="false" propertyCategory="20 Constraint" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpCons/RighHandSide"/>
-      <genOperations ecoreOperation="solver.ecore#//GeneratorLpCons/constructTerm">
-        <genParameters ecoreParameter="solver.ecore#//GeneratorLpCons/constructTerm/var"/>
-        <genParameters ecoreParameter="solver.ecore#//GeneratorLpCons/constructTerm/coef"/>
-      </genOperations>
     </genClasses>
     <genClasses ecoreClass="solver.ecore#//GeneratorLpTerm" labelFeature="#//solver/GeneratorLpTerm/Description">
       <genFeatures property="Readonly" notify="false" children="true" createChild="false"
           propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpTerm/LpVar"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpTerm/Coeff"/>
-      <genFeatures property="Readonly" notify="false" children="true" createChild="false"
-          ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpTerm/LpCons"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpTerm/LpLinear"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpTerm/Description"/>
     </genClasses>
     <genClasses ecoreClass="solver.ecore#//GeneratorLpConsCountElement">
@@ -358,22 +349,18 @@
     </genClasses>
     <genClasses image="false" ecoreClass="solver.ecore#//GeneratorLpGoal">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpGoal/ObjectiveType"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpGoal/LpGoalTerm"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpGoal/SelectedSolutionValue"/>
-      <genOperations ecoreOperation="solver.ecore#//GeneratorLpGoal/constructTerm">
-        <genParameters ecoreParameter="solver.ecore#//GeneratorLpGoal/constructTerm/var"/>
-        <genParameters ecoreParameter="solver.ecore#//GeneratorLpGoal/constructTerm/coef"/>
-      </genOperations>
       <genOperations ecoreOperation="solver.ecore#//GeneratorLpGoal/getSolutionValue">
         <genParameters ecoreParameter="solver.ecore#//GeneratorLpGoal/getSolutionValue/solution"/>
       </genOperations>
     </genClasses>
-    <genClasses ecoreClass="solver.ecore#//GeneratorLpGoalTerm" labelFeature="#//solver/GeneratorLpGoalTerm/Description">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpGoalTerm/Coeff"/>
-      <genFeatures notify="false" children="true" createChild="false" propertySortChoices="true"
-          ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpGoalTerm/LpVar"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpGoalTerm/LpGoal"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpGoalTerm/Description"/>
+    <genClasses ecoreClass="solver.ecore#//GeneratorLpLinear">
+      <genFeatures notify="false" children="true" createChild="true" propertySortChoices="true"
+          ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpLinear/LpTerm"/>
+      <genOperations ecoreOperation="solver.ecore#//GeneratorLpLinear/constructTerm">
+        <genParameters ecoreParameter="solver.ecore#//GeneratorLpLinear/constructTerm/var"/>
+        <genParameters ecoreParameter="solver.ecore#//GeneratorLpLinear/constructTerm/coef"/>
+      </genOperations>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

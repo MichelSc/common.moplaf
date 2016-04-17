@@ -12,9 +12,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -48,10 +46,33 @@ public class GeneratorLpGoalItemProvider extends GeneratorGoalItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addLpTermPropertyDescriptor(object);
 			addObjectiveTypePropertyDescriptor(object);
 			addSelectedSolutionValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Lp Term feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLpTermPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GeneratorLpLinear_LpTerm_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorLpLinear_LpTerm_feature", "_UI_GeneratorLpLinear_type"),
+				 SolverPackage.Literals.GENERATOR_LP_LINEAR__LP_TERM,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -110,7 +131,7 @@ public class GeneratorLpGoalItemProvider extends GeneratorGoalItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SolverPackage.Literals.GENERATOR_LP_GOAL__LP_GOAL_TERM);
+			childrenFeatures.add(SolverPackage.Literals.GENERATOR_LP_LINEAR__LP_TERM);
 		}
 		return childrenFeatures;
 	}
@@ -159,9 +180,6 @@ public class GeneratorLpGoalItemProvider extends GeneratorGoalItemProvider {
 			case SolverPackage.GENERATOR_LP_GOAL__SELECTED_SOLUTION_VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case SolverPackage.GENERATOR_LP_GOAL__LP_GOAL_TERM:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -179,8 +197,8 @@ public class GeneratorLpGoalItemProvider extends GeneratorGoalItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SolverPackage.Literals.GENERATOR_LP_GOAL__LP_GOAL_TERM,
-				 SolverFactory.eINSTANCE.createGeneratorLpGoalTerm()));
+				(SolverPackage.Literals.GENERATOR_LP_LINEAR__LP_TERM,
+				 SolverFactory.eINSTANCE.createGeneratorLpTerm()));
 	}
 
 }

@@ -5,7 +5,8 @@ package com.misc.common.moplaf.solver.impl;
 import com.misc.common.moplaf.solver.EnumObjectiveType;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorLpGoal;
-import com.misc.common.moplaf.solver.GeneratorLpGoalTerm;
+import com.misc.common.moplaf.solver.GeneratorLpLinear;
+import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionLp;
@@ -14,7 +15,6 @@ import com.misc.common.moplaf.solver.SolverPackage;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -36,14 +35,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl#getLpTerm <em>Lp Term</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl#getObjectiveType <em>Objective Type</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl#getLpGoalTerm <em>Lp Goal Term</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl#getSelectedSolutionValue <em>Selected Solution Value</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorLpGoal {
+	/**
+	 * The cached value of the '{@link #getLpTerm() <em>Lp Term</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLpTerm()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<GeneratorLpTerm> lpTerm;
+
 	/**
 	 * The default value of the '{@link #getObjectiveType() <em>Objective Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -63,16 +72,6 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	 * @ordered
 	 */
 	protected EnumObjectiveType objectiveType = OBJECTIVE_TYPE_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getLpGoalTerm() <em>Lp Goal Term</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLpGoalTerm()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<GeneratorLpGoalTerm> lpGoalTerm;
 
 	/**
 	 * The default value of the '{@link #getSelectedSolutionValue() <em>Selected Solution Value</em>}' attribute.
@@ -108,6 +107,26 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<GeneratorLpTerm> getLpTerm() {
+		if (lpTerm == null) {
+			lpTerm = new EObjectContainmentWithInverseEList<GeneratorLpTerm>(GeneratorLpTerm.class, this, SolverPackage.GENERATOR_LP_GOAL__LP_TERM, SolverPackage.GENERATOR_LP_TERM__LP_LINEAR);
+		}
+		return lpTerm;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public int getNofTerms() {
+		return this.getLpTerm().size();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EnumObjectiveType getObjectiveType() {
 		return objectiveType;
 	}
@@ -127,18 +146,6 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<GeneratorLpGoalTerm> getLpGoalTerm() {
-		if (lpGoalTerm == null) {
-			lpGoalTerm = new EObjectContainmentWithInverseEList<GeneratorLpGoalTerm>(GeneratorLpGoalTerm.class, this, SolverPackage.GENERATOR_LP_GOAL__LP_GOAL_TERM, SolverPackage.GENERATOR_LP_GOAL_TERM__LP_GOAL);
-		}
-		return lpGoalTerm;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 */
 	public float getSelectedSolutionValue() {
 		Generator generator = this.getGenerator();
@@ -150,11 +157,11 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public GeneratorLpGoalTerm constructTerm(GeneratorLpVar var, float coef) {
-		GeneratorLpGoalTerm term = SolverFactory.eINSTANCE.createGeneratorLpGoalTerm();
+	public GeneratorLpTerm constructTerm(GeneratorLpVar var, float coef) {
+		GeneratorLpTerm term = SolverFactory.eINSTANCE.createGeneratorLpTerm();
 		term.setCoeff(coef);
 		term.setLpVar(var);
-		this.getLpGoalTerm().add(term);
+		this.getLpTerm().add(term);
 		return term;
 	}
 
@@ -177,8 +184,8 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SolverPackage.GENERATOR_LP_GOAL__LP_GOAL_TERM:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getLpGoalTerm()).basicAdd(otherEnd, msgs);
+			case SolverPackage.GENERATOR_LP_GOAL__LP_TERM:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getLpTerm()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -191,8 +198,8 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SolverPackage.GENERATOR_LP_GOAL__LP_GOAL_TERM:
-				return ((InternalEList<?>)getLpGoalTerm()).basicRemove(otherEnd, msgs);
+			case SolverPackage.GENERATOR_LP_GOAL__LP_TERM:
+				return ((InternalEList<?>)getLpTerm()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -205,10 +212,10 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case SolverPackage.GENERATOR_LP_GOAL__LP_TERM:
+				return getLpTerm();
 			case SolverPackage.GENERATOR_LP_GOAL__OBJECTIVE_TYPE:
 				return getObjectiveType();
-			case SolverPackage.GENERATOR_LP_GOAL__LP_GOAL_TERM:
-				return getLpGoalTerm();
 			case SolverPackage.GENERATOR_LP_GOAL__SELECTED_SOLUTION_VALUE:
 				return getSelectedSolutionValue();
 		}
@@ -224,12 +231,12 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case SolverPackage.GENERATOR_LP_GOAL__LP_TERM:
+				getLpTerm().clear();
+				getLpTerm().addAll((Collection<? extends GeneratorLpTerm>)newValue);
+				return;
 			case SolverPackage.GENERATOR_LP_GOAL__OBJECTIVE_TYPE:
 				setObjectiveType((EnumObjectiveType)newValue);
-				return;
-			case SolverPackage.GENERATOR_LP_GOAL__LP_GOAL_TERM:
-				getLpGoalTerm().clear();
-				getLpGoalTerm().addAll((Collection<? extends GeneratorLpGoalTerm>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -243,11 +250,11 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case SolverPackage.GENERATOR_LP_GOAL__LP_TERM:
+				getLpTerm().clear();
+				return;
 			case SolverPackage.GENERATOR_LP_GOAL__OBJECTIVE_TYPE:
 				setObjectiveType(OBJECTIVE_TYPE_EDEFAULT);
-				return;
-			case SolverPackage.GENERATOR_LP_GOAL__LP_GOAL_TERM:
-				getLpGoalTerm().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -261,10 +268,10 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case SolverPackage.GENERATOR_LP_GOAL__LP_TERM:
+				return lpTerm != null && !lpTerm.isEmpty();
 			case SolverPackage.GENERATOR_LP_GOAL__OBJECTIVE_TYPE:
 				return objectiveType != OBJECTIVE_TYPE_EDEFAULT;
-			case SolverPackage.GENERATOR_LP_GOAL__LP_GOAL_TERM:
-				return lpGoalTerm != null && !lpGoalTerm.isEmpty();
 			case SolverPackage.GENERATOR_LP_GOAL__SELECTED_SOLUTION_VALUE:
 				return getSelectedSolutionValue() != SELECTED_SOLUTION_VALUE_EDEFAULT;
 		}
@@ -277,12 +284,60 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	 * @generated
 	 */
 	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == GeneratorLpLinear.class) {
+			switch (derivedFeatureID) {
+				case SolverPackage.GENERATOR_LP_GOAL__LP_TERM: return SolverPackage.GENERATOR_LP_LINEAR__LP_TERM;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == GeneratorLpLinear.class) {
+			switch (baseFeatureID) {
+				case SolverPackage.GENERATOR_LP_LINEAR__LP_TERM: return SolverPackage.GENERATOR_LP_GOAL__LP_TERM;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == GeneratorLpLinear.class) {
+			switch (baseOperationID) {
+				case SolverPackage.GENERATOR_LP_LINEAR___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT: return SolverPackage.GENERATOR_LP_GOAL___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case SolverPackage.GENERATOR_LP_GOAL___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT:
-				return constructTerm((GeneratorLpVar)arguments.get(0), (Float)arguments.get(1));
 			case SolverPackage.GENERATOR_LP_GOAL___GET_SOLUTION_VALUE__SOLUTION:
 				return getSolutionValue((Solution)arguments.get(0));
+			case SolverPackage.GENERATOR_LP_GOAL___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT:
+				return constructTerm((GeneratorLpVar)arguments.get(0), (Float)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

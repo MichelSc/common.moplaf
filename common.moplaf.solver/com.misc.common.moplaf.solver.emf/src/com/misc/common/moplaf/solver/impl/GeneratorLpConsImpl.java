@@ -4,6 +4,7 @@ package com.misc.common.moplaf.solver.impl;
 
 import com.misc.common.moplaf.solver.EnumLpConsType;
 import com.misc.common.moplaf.solver.GeneratorLpCons;
+import com.misc.common.moplaf.solver.GeneratorLpLinear;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
 import com.misc.common.moplaf.solver.SolverFactory;
@@ -27,14 +28,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpConsImpl#getType <em>Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpConsImpl#getLpTerm <em>Lp Term</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpConsImpl#getType <em>Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpConsImpl#getRighHandSide <em>Righ Hand Side</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class GeneratorLpConsImpl extends GeneratorConsImpl implements GeneratorLpCons {
+	/**
+	 * The cached value of the '{@link #getLpTerm() <em>Lp Term</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLpTerm()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<GeneratorLpTerm> lpTerm;
+
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -54,16 +65,6 @@ public class GeneratorLpConsImpl extends GeneratorConsImpl implements GeneratorL
 	 * @ordered
 	 */
 	protected EnumLpConsType type = TYPE_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getLpTerm() <em>Lp Term</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLpTerm()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<GeneratorLpTerm> lpTerm;
 
 	/**
 	 * The default value of the '{@link #getRighHandSide() <em>Righ Hand Side</em>}' attribute.
@@ -132,17 +133,18 @@ public class GeneratorLpConsImpl extends GeneratorConsImpl implements GeneratorL
 	 */
 	public EList<GeneratorLpTerm> getLpTerm() {
 		if (lpTerm == null) {
-			lpTerm = new EObjectContainmentWithInverseEList<GeneratorLpTerm>(GeneratorLpTerm.class, this, SolverPackage.GENERATOR_LP_CONS__LP_TERM, SolverPackage.GENERATOR_LP_TERM__LP_CONS);
+			lpTerm = new EObjectContainmentWithInverseEList<GeneratorLpTerm>(GeneratorLpTerm.class, this, SolverPackage.GENERATOR_LP_CONS__LP_TERM, SolverPackage.GENERATOR_LP_TERM__LP_LINEAR);
 		}
 		return lpTerm;
 	}
 
-	@Override
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public int getNofTerms() {
 		return this.getLpTerm().size();
 	}
-
-
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -165,20 +167,19 @@ public class GeneratorLpConsImpl extends GeneratorConsImpl implements GeneratorL
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_LP_CONS__RIGH_HAND_SIDE, oldRighHandSide, righHandSide));
 	}
 
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
 	public GeneratorLpTerm constructTerm(GeneratorLpVar var, float coef) {
-		GeneratorLpTerm term = SolverFactory.eINSTANCE.createGeneratorLpTerm();
-		term.setCoeff(coef);
-		term.setLpVar(var);
-		this.getLpTerm().add(term);
-		return term;
-	}
+			GeneratorLpTerm term = SolverFactory.eINSTANCE.createGeneratorLpTerm();
+			term.setCoeff(coef);
+			term.setLpVar(var);
+			this.getLpTerm().add(term);
+			return term;
+		}
 
-
-	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -216,10 +217,10 @@ public class GeneratorLpConsImpl extends GeneratorConsImpl implements GeneratorL
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SolverPackage.GENERATOR_LP_CONS__TYPE:
-				return getType();
 			case SolverPackage.GENERATOR_LP_CONS__LP_TERM:
 				return getLpTerm();
+			case SolverPackage.GENERATOR_LP_CONS__TYPE:
+				return getType();
 			case SolverPackage.GENERATOR_LP_CONS__RIGH_HAND_SIDE:
 				return getRighHandSide();
 		}
@@ -235,12 +236,12 @@ public class GeneratorLpConsImpl extends GeneratorConsImpl implements GeneratorL
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SolverPackage.GENERATOR_LP_CONS__TYPE:
-				setType((EnumLpConsType)newValue);
-				return;
 			case SolverPackage.GENERATOR_LP_CONS__LP_TERM:
 				getLpTerm().clear();
 				getLpTerm().addAll((Collection<? extends GeneratorLpTerm>)newValue);
+				return;
+			case SolverPackage.GENERATOR_LP_CONS__TYPE:
+				setType((EnumLpConsType)newValue);
 				return;
 			case SolverPackage.GENERATOR_LP_CONS__RIGH_HAND_SIDE:
 				setRighHandSide((Float)newValue);
@@ -257,11 +258,11 @@ public class GeneratorLpConsImpl extends GeneratorConsImpl implements GeneratorL
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SolverPackage.GENERATOR_LP_CONS__TYPE:
-				setType(TYPE_EDEFAULT);
-				return;
 			case SolverPackage.GENERATOR_LP_CONS__LP_TERM:
 				getLpTerm().clear();
+				return;
+			case SolverPackage.GENERATOR_LP_CONS__TYPE:
+				setType(TYPE_EDEFAULT);
 				return;
 			case SolverPackage.GENERATOR_LP_CONS__RIGH_HAND_SIDE:
 				setRighHandSide(RIGH_HAND_SIDE_EDEFAULT);
@@ -278,14 +279,62 @@ public class GeneratorLpConsImpl extends GeneratorConsImpl implements GeneratorL
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SolverPackage.GENERATOR_LP_CONS__TYPE:
-				return type != TYPE_EDEFAULT;
 			case SolverPackage.GENERATOR_LP_CONS__LP_TERM:
 				return lpTerm != null && !lpTerm.isEmpty();
+			case SolverPackage.GENERATOR_LP_CONS__TYPE:
+				return type != TYPE_EDEFAULT;
 			case SolverPackage.GENERATOR_LP_CONS__RIGH_HAND_SIDE:
 				return righHandSide != RIGH_HAND_SIDE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == GeneratorLpLinear.class) {
+			switch (derivedFeatureID) {
+				case SolverPackage.GENERATOR_LP_CONS__LP_TERM: return SolverPackage.GENERATOR_LP_LINEAR__LP_TERM;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == GeneratorLpLinear.class) {
+			switch (baseFeatureID) {
+				case SolverPackage.GENERATOR_LP_LINEAR__LP_TERM: return SolverPackage.GENERATOR_LP_CONS__LP_TERM;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == GeneratorLpLinear.class) {
+			switch (baseOperationID) {
+				case SolverPackage.GENERATOR_LP_LINEAR___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT: return SolverPackage.GENERATOR_LP_CONS___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
 	}
 
 	/**

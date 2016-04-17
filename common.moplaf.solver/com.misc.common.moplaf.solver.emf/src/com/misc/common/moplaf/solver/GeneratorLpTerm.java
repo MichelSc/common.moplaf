@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpTerm#getLpVar <em>Lp Var</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpTerm#getCoeff <em>Coeff</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpTerm#getLpCons <em>Lp Cons</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpTerm#getLpLinear <em>Lp Linear</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpTerm#getDescription <em>Description</em>}</li>
  * </ul>
  *
@@ -79,32 +79,32 @@ public interface GeneratorLpTerm extends EObject {
 	void setCoeff(float value);
 
 	/**
-	 * Returns the value of the '<em><b>Lp Cons</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.GeneratorLpCons#getLpTerm <em>Lp Term</em>}'.
+	 * Returns the value of the '<em><b>Lp Linear</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.GeneratorLpLinear#getLpTerm <em>Lp Term</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Lp Cons</em>' container reference isn't clear,
+	 * If the meaning of the '<em>Lp Linear</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Lp Cons</em>' container reference.
-	 * @see #setLpCons(GeneratorLpCons)
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorLpTerm_LpCons()
-	 * @see com.misc.common.moplaf.solver.GeneratorLpCons#getLpTerm
+	 * @return the value of the '<em>Lp Linear</em>' container reference.
+	 * @see #setLpLinear(GeneratorLpLinear)
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorLpTerm_LpLinear()
+	 * @see com.misc.common.moplaf.solver.GeneratorLpLinear#getLpTerm
 	 * @model opposite="LpTerm" required="true" transient="false"
 	 * @generated
 	 */
-	GeneratorLpCons getLpCons();
+	GeneratorLpLinear getLpLinear();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.solver.GeneratorLpTerm#getLpCons <em>Lp Cons</em>}' container reference.
+	 * Sets the value of the '{@link com.misc.common.moplaf.solver.GeneratorLpTerm#getLpLinear <em>Lp Linear</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Lp Cons</em>' container reference.
-	 * @see #getLpCons()
+	 * @param value the new value of the '<em>Lp Linear</em>' container reference.
+	 * @see #getLpLinear()
 	 * @generated
 	 */
-	void setLpCons(GeneratorLpCons value);
+	void setLpLinear(GeneratorLpLinear value);
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.

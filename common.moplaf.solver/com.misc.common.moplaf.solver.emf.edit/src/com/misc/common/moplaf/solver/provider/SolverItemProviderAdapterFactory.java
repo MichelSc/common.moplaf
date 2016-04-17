@@ -118,26 +118,26 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.GeneratorLpGoalTerm} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.GeneratorLpLinear} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GeneratorLpGoalTermItemProvider generatorLpGoalTermItemProvider;
+	protected GeneratorLpLinearItemProvider generatorLpLinearItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.GeneratorLpGoalTerm}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.GeneratorLpLinear}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createGeneratorLpGoalTermAdapter() {
-		if (generatorLpGoalTermItemProvider == null) {
-			generatorLpGoalTermItemProvider = new GeneratorLpGoalTermItemProvider(this);
+	public Adapter createGeneratorLpLinearAdapter() {
+		if (generatorLpLinearItemProvider == null) {
+			generatorLpLinearItemProvider = new GeneratorLpLinearItemProvider(this);
 		}
 
-		return generatorLpGoalTermItemProvider;
+		return generatorLpLinearItemProvider;
 	}
 
 	/**
@@ -793,7 +793,7 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 		if (generatorCpLogicalTermItemProvider != null) generatorCpLogicalTermItemProvider.dispose();
 		if (generatorElementItemProvider != null) generatorElementItemProvider.dispose();
 		if (generatorLpGoalItemProvider != null) generatorLpGoalItemProvider.dispose();
-		if (generatorLpGoalTermItemProvider != null) generatorLpGoalTermItemProvider.dispose();
+		if (generatorLpLinearItemProvider != null) generatorLpLinearItemProvider.dispose();
 	}
 
 }

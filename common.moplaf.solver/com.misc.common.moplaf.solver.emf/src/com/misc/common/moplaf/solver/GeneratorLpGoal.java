@@ -2,8 +2,6 @@
  */
 package com.misc.common.moplaf.solver;
 
-import org.eclipse.emf.common.util.EList;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Generator Lp Goal</b></em>'.
@@ -14,7 +12,6 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpGoal#getObjectiveType <em>Objective Type</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpGoal#getLpGoalTerm <em>Lp Goal Term</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpGoal#getSelectedSolutionValue <em>Selected Solution Value</em>}</li>
  * </ul>
  *
@@ -22,7 +19,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface GeneratorLpGoal extends GeneratorGoal {
+public interface GeneratorLpGoal extends GeneratorGoal, GeneratorLpLinear {
 	/**
 	 * Returns the value of the '<em><b>Objective Type</b></em>' attribute.
 	 * The default value is <code>"Maximum"</code>.
@@ -54,24 +51,6 @@ public interface GeneratorLpGoal extends GeneratorGoal {
 	void setObjectiveType(EnumObjectiveType value);
 
 	/**
-	 * Returns the value of the '<em><b>Lp Goal Term</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.solver.GeneratorLpGoalTerm}.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.GeneratorLpGoalTerm#getLpGoal <em>Lp Goal</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Lp Goal Term</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Lp Goal Term</em>' containment reference list.
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorLpGoal_LpGoalTerm()
-	 * @see com.misc.common.moplaf.solver.GeneratorLpGoalTerm#getLpGoal
-	 * @model opposite="LpGoal" containment="true"
-	 * @generated
-	 */
-	EList<GeneratorLpGoalTerm> getLpGoalTerm();
-
-	/**
 	 * Returns the value of the '<em><b>Selected Solution Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -85,14 +64,6 @@ public interface GeneratorLpGoal extends GeneratorGoal {
 	 * @generated
 	 */
 	float getSelectedSolutionValue();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	GeneratorLpGoalTerm constructTerm(GeneratorLpVar var, float coef);
 
 	/**
 	 * <!-- begin-user-doc -->

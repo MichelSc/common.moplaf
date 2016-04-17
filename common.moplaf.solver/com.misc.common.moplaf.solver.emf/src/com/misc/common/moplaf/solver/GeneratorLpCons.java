@@ -2,8 +2,6 @@
  */
 package com.misc.common.moplaf.solver;
 
-import org.eclipse.emf.common.util.EList;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Generator Lp Cons</b></em>'.
@@ -14,7 +12,6 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpCons#getType <em>Type</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpCons#getLpTerm <em>Lp Term</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorLpCons#getRighHandSide <em>Righ Hand Side</em>}</li>
  * </ul>
  *
@@ -22,7 +19,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface GeneratorLpCons extends GeneratorCons {
+public interface GeneratorLpCons extends GeneratorCons, GeneratorLpLinear {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
 	 * The default value is <code>"Equal"</code>.
@@ -54,24 +51,6 @@ public interface GeneratorLpCons extends GeneratorCons {
 	void setType(EnumLpConsType value);
 
 	/**
-	 * Returns the value of the '<em><b>Lp Term</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.solver.GeneratorLpTerm}.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.GeneratorLpTerm#getLpCons <em>Lp Cons</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Lp Term</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Lp Term</em>' containment reference list.
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorLpCons_LpTerm()
-	 * @see com.misc.common.moplaf.solver.GeneratorLpTerm#getLpCons
-	 * @model opposite="LpCons" containment="true"
-	 * @generated
-	 */
-	EList<GeneratorLpTerm> getLpTerm();
-
-	/**
 	 * Returns the value of the '<em><b>Righ Hand Side</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -96,13 +75,5 @@ public interface GeneratorLpCons extends GeneratorCons {
 	 * @generated
 	 */
 	void setRighHandSide(float value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	GeneratorLpTerm constructTerm(GeneratorLpVar var, float coef);
 
 } // GeneratorLpCons

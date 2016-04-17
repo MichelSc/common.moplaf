@@ -26,7 +26,7 @@ import com.misc.common.moplaf.solver.GeneratorLpCons;
 import com.misc.common.moplaf.solver.GeneratorLpConsCount;
 import com.misc.common.moplaf.solver.GeneratorLpConsCountElement;
 import com.misc.common.moplaf.solver.GeneratorLpGoal;
-import com.misc.common.moplaf.solver.GeneratorLpGoalTerm;
+import com.misc.common.moplaf.solver.GeneratorLpLinear;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
 import com.misc.common.moplaf.solver.GeneratorLpVarCount;
@@ -116,7 +116,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass generatorLpGoalTermEClass = null;
+	private EClass generatorLpLinearEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -971,26 +971,8 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGeneratorLpGoal_LpGoalTerm() {
-		return (EReference)generatorLpGoalEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getGeneratorLpGoal_SelectedSolutionValue() {
-		return (EAttribute)generatorLpGoalEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getGeneratorLpGoal__ConstructTerm__GeneratorLpVar_float() {
-		return generatorLpGoalEClass.getEOperations().get(0);
+		return (EAttribute)generatorLpGoalEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -999,7 +981,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * @generated
 	 */
 	public EOperation getGeneratorLpGoal__GetSolutionValue__Solution() {
-		return generatorLpGoalEClass.getEOperations().get(1);
+		return generatorLpGoalEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1007,8 +989,8 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getGeneratorLpGoalTerm() {
-		return generatorLpGoalTermEClass;
+	public EClass getGeneratorLpLinear() {
+		return generatorLpLinearEClass;
 	}
 
 	/**
@@ -1016,8 +998,8 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGeneratorLpGoalTerm_Coeff() {
-		return (EAttribute)generatorLpGoalTermEClass.getEStructuralFeatures().get(0);
+	public EReference getGeneratorLpLinear_LpTerm() {
+		return (EReference)generatorLpLinearEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1025,26 +1007,8 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGeneratorLpGoalTerm_LpVar() {
-		return (EReference)generatorLpGoalTermEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getGeneratorLpGoalTerm_LpGoal() {
-		return (EReference)generatorLpGoalTermEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getGeneratorLpGoalTerm_Description() {
-		return (EAttribute)generatorLpGoalTermEClass.getEStructuralFeatures().get(3);
+	public EOperation getGeneratorLpLinear__ConstructTerm__GeneratorLpVar_float() {
+		return generatorLpLinearEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1268,15 +1232,6 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGeneratorLpVar_LpGoalTerm() {
-		return (EReference)generatorLpVarEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getGeneratorCons() {
 		return generatorConsEClass;
 	}
@@ -1304,17 +1259,8 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getGeneratorCons__Generate() {
-		return generatorConsEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EOperation getGeneratorCons__GetSolution__Solution() {
-		return generatorConsEClass.getEOperations().get(1);
+		return generatorConsEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1340,26 +1286,8 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGeneratorLpCons_LpTerm() {
-		return (EReference)generatorLpConsEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getGeneratorLpCons_RighHandSide() {
-		return (EAttribute)generatorLpConsEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getGeneratorLpCons__ConstructTerm__GeneratorLpVar_float() {
-		return generatorLpConsEClass.getEOperations().get(0);
+		return (EAttribute)generatorLpConsEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1394,7 +1322,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGeneratorLpTerm_LpCons() {
+	public EReference getGeneratorLpTerm_LpLinear() {
 		return (EReference)generatorLpTermEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -2613,24 +2541,20 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		createEAttribute(generatorLpVarEClass, GENERATOR_LP_VAR__LOWER_BOUND);
 		createEAttribute(generatorLpVarEClass, GENERATOR_LP_VAR__UPPER_BOUND);
 		createEReference(generatorLpVarEClass, GENERATOR_LP_VAR__LP_TERM);
-		createEReference(generatorLpVarEClass, GENERATOR_LP_VAR__LP_GOAL_TERM);
 
 		generatorConsEClass = createEClass(GENERATOR_CONS);
 		createEReference(generatorConsEClass, GENERATOR_CONS__SOLUTION);
 		createEAttribute(generatorConsEClass, GENERATOR_CONS__NOF_TERMS);
-		createEOperation(generatorConsEClass, GENERATOR_CONS___GENERATE);
 		createEOperation(generatorConsEClass, GENERATOR_CONS___GET_SOLUTION__SOLUTION);
 
 		generatorLpConsEClass = createEClass(GENERATOR_LP_CONS);
 		createEAttribute(generatorLpConsEClass, GENERATOR_LP_CONS__TYPE);
-		createEReference(generatorLpConsEClass, GENERATOR_LP_CONS__LP_TERM);
 		createEAttribute(generatorLpConsEClass, GENERATOR_LP_CONS__RIGH_HAND_SIDE);
-		createEOperation(generatorLpConsEClass, GENERATOR_LP_CONS___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT);
 
 		generatorLpTermEClass = createEClass(GENERATOR_LP_TERM);
 		createEReference(generatorLpTermEClass, GENERATOR_LP_TERM__LP_VAR);
 		createEAttribute(generatorLpTermEClass, GENERATOR_LP_TERM__COEFF);
-		createEReference(generatorLpTermEClass, GENERATOR_LP_TERM__LP_CONS);
+		createEReference(generatorLpTermEClass, GENERATOR_LP_TERM__LP_LINEAR);
 		createEAttribute(generatorLpTermEClass, GENERATOR_LP_TERM__DESCRIPTION);
 
 		generatorLpConsCountElementEClass = createEClass(GENERATOR_LP_CONS_COUNT_ELEMENT);
@@ -2799,16 +2723,12 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 
 		generatorLpGoalEClass = createEClass(GENERATOR_LP_GOAL);
 		createEAttribute(generatorLpGoalEClass, GENERATOR_LP_GOAL__OBJECTIVE_TYPE);
-		createEReference(generatorLpGoalEClass, GENERATOR_LP_GOAL__LP_GOAL_TERM);
 		createEAttribute(generatorLpGoalEClass, GENERATOR_LP_GOAL__SELECTED_SOLUTION_VALUE);
-		createEOperation(generatorLpGoalEClass, GENERATOR_LP_GOAL___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT);
 		createEOperation(generatorLpGoalEClass, GENERATOR_LP_GOAL___GET_SOLUTION_VALUE__SOLUTION);
 
-		generatorLpGoalTermEClass = createEClass(GENERATOR_LP_GOAL_TERM);
-		createEAttribute(generatorLpGoalTermEClass, GENERATOR_LP_GOAL_TERM__COEFF);
-		createEReference(generatorLpGoalTermEClass, GENERATOR_LP_GOAL_TERM__LP_VAR);
-		createEReference(generatorLpGoalTermEClass, GENERATOR_LP_GOAL_TERM__LP_GOAL);
-		createEAttribute(generatorLpGoalTermEClass, GENERATOR_LP_GOAL_TERM__DESCRIPTION);
+		generatorLpLinearEClass = createEClass(GENERATOR_LP_LINEAR);
+		createEReference(generatorLpLinearEClass, GENERATOR_LP_LINEAR__LP_TERM);
+		createEOperation(generatorLpLinearEClass, GENERATOR_LP_LINEAR___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT);
 
 		// Create enums
 		enumLpVarTypeEEnum = createEEnum(ENUM_LP_VAR_TYPE);
@@ -2858,6 +2778,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		generatorLpVarEClass.getESuperTypes().add(this.getGeneratorVar());
 		generatorConsEClass.getESuperTypes().add(this.getGeneratorTupleMember());
 		generatorLpConsEClass.getESuperTypes().add(this.getGeneratorCons());
+		generatorLpConsEClass.getESuperTypes().add(this.getGeneratorLpLinear());
 		generatorConstraintEnablerEClass.getESuperTypes().add(this.getGeneratorFeatureMode());
 		generatorVarOverflowEClass.getESuperTypes().add(this.getGeneratorFeatureMode());
 		solutionReaderEClass.getESuperTypes().add(this.getSolutionProvider());
@@ -2877,6 +2798,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		generatorCpVarEClass.getESuperTypes().add(this.getGeneratorVar());
 		generatorCpVarAtomicEClass.getESuperTypes().add(this.getGeneratorCpVar());
 		generatorLpGoalEClass.getESuperTypes().add(this.getGeneratorGoal());
+		generatorLpGoalEClass.getESuperTypes().add(this.getGeneratorLpLinear());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(generatorEClass, Generator.class, "Generator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2973,30 +2895,22 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		initEAttribute(getGeneratorLpVar_LowerBound(), ecorePackage.getEFloat(), "LowerBound", null, 1, 1, GeneratorLpVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGeneratorLpVar_UpperBound(), ecorePackage.getEFloat(), "UpperBound", "1", 1, 1, GeneratorLpVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGeneratorLpVar_LpTerm(), this.getGeneratorLpTerm(), this.getGeneratorLpTerm_LpVar(), "LpTerm", null, 0, -1, GeneratorLpVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGeneratorLpVar_LpGoalTerm(), this.getGeneratorLpGoalTerm(), this.getGeneratorLpGoalTerm_LpVar(), "LpGoalTerm", null, 0, -1, GeneratorLpVar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(generatorConsEClass, GeneratorCons.class, "GeneratorCons", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGeneratorCons_Solution(), this.getSolutionCons(), this.getSolutionCons_Cons(), "Solution", null, 0, -1, GeneratorCons.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGeneratorCons_NofTerms(), ecorePackage.getEInt(), "NofTerms", null, 0, 1, GeneratorCons.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-
-		initEOperation(getGeneratorCons__Generate(), null, "generate", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getGeneratorCons__GetSolution__Solution(), this.getSolutionCons(), "getSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getSolution(), "solver", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(generatorLpConsEClass, GeneratorLpCons.class, "GeneratorLpCons", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGeneratorLpCons_Type(), this.getEnumLpConsType(), "Type", "Equal", 0, 1, GeneratorLpCons.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGeneratorLpCons_LpTerm(), this.getGeneratorLpTerm(), this.getGeneratorLpTerm_LpCons(), "LpTerm", null, 0, -1, GeneratorLpCons.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGeneratorLpCons_RighHandSide(), ecorePackage.getEFloat(), "RighHandSide", null, 0, 1, GeneratorLpCons.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getGeneratorLpCons__ConstructTerm__GeneratorLpVar_float(), this.getGeneratorLpTerm(), "constructTerm", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getGeneratorLpVar(), "var", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEFloat(), "coef", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(generatorLpTermEClass, GeneratorLpTerm.class, "GeneratorLpTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGeneratorLpTerm_LpVar(), this.getGeneratorLpVar(), this.getGeneratorLpVar_LpTerm(), "LpVar", null, 1, 1, GeneratorLpTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGeneratorLpTerm_Coeff(), ecorePackage.getEFloat(), "Coeff", null, 0, 1, GeneratorLpTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGeneratorLpTerm_LpCons(), this.getGeneratorLpCons(), this.getGeneratorLpCons_LpTerm(), "LpCons", null, 1, 1, GeneratorLpTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGeneratorLpTerm_LpLinear(), this.getGeneratorLpLinear(), this.getGeneratorLpLinear_LpTerm(), "LpLinear", null, 1, 1, GeneratorLpTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGeneratorLpTerm_Description(), ecorePackage.getEString(), "Description", null, 0, 1, GeneratorLpTerm.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(generatorLpConsCountElementEClass, GeneratorLpConsCountElement.class, "GeneratorLpConsCountElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3185,21 +3099,17 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 
 		initEClass(generatorLpGoalEClass, GeneratorLpGoal.class, "GeneratorLpGoal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGeneratorLpGoal_ObjectiveType(), this.getEnumObjectiveType(), "ObjectiveType", "Maximum", 0, 1, GeneratorLpGoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGeneratorLpGoal_LpGoalTerm(), this.getGeneratorLpGoalTerm(), this.getGeneratorLpGoalTerm_LpGoal(), "LpGoalTerm", null, 0, -1, GeneratorLpGoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGeneratorLpGoal_SelectedSolutionValue(), ecorePackage.getEFloat(), "SelectedSolutionValue", null, 0, 1, GeneratorLpGoal.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getGeneratorLpGoal__ConstructTerm__GeneratorLpVar_float(), this.getGeneratorLpGoalTerm(), "constructTerm", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getGeneratorLpVar(), "var", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEFloat(), "coef", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getGeneratorLpGoal__GetSolutionValue__Solution(), ecorePackage.getEFloat(), "getSolutionValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getSolution(), "solution", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(generatorLpGoalTermEClass, GeneratorLpGoalTerm.class, "GeneratorLpGoalTerm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getGeneratorLpGoalTerm_Coeff(), ecorePackage.getEFloat(), "Coeff", null, 0, 1, GeneratorLpGoalTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGeneratorLpGoalTerm_LpVar(), this.getGeneratorLpVar(), this.getGeneratorLpVar_LpGoalTerm(), "LpVar", null, 1, 1, GeneratorLpGoalTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGeneratorLpGoalTerm_LpGoal(), this.getGeneratorLpGoal(), this.getGeneratorLpGoal_LpGoalTerm(), "LpGoal", null, 1, 1, GeneratorLpGoalTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGeneratorLpGoalTerm_Description(), ecorePackage.getEString(), "Description", null, 0, 1, GeneratorLpGoalTerm.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(generatorLpLinearEClass, GeneratorLpLinear.class, "GeneratorLpLinear", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getGeneratorLpLinear_LpTerm(), this.getGeneratorLpTerm(), this.getGeneratorLpTerm_LpLinear(), "LpTerm", null, 0, -1, GeneratorLpLinear.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getGeneratorLpLinear__ConstructTerm__GeneratorLpVar_float(), this.getGeneratorLpTerm(), "constructTerm", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getGeneratorLpVar(), "var", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEFloat(), "coef", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(enumLpVarTypeEEnum, EnumLpVarType.class, "EnumLpVarType");

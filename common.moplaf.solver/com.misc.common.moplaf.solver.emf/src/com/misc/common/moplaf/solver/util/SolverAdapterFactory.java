@@ -228,8 +228,8 @@ public class SolverAdapterFactory extends AdapterFactoryImpl {
 				return createGeneratorLpGoalAdapter();
 			}
 			@Override
-			public Adapter caseGeneratorLpGoalTerm(GeneratorLpGoalTerm object) {
-				return createGeneratorLpGoalTermAdapter();
+			public Adapter caseGeneratorLpLinear(GeneratorLpLinear object) {
+				return createGeneratorLpLinearAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -336,16 +336,16 @@ public class SolverAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.GeneratorLpGoalTerm <em>Generator Lp Goal Term</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.GeneratorLpLinear <em>Generator Lp Linear</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpGoalTerm
+	 * @see com.misc.common.moplaf.solver.GeneratorLpLinear
 	 * @generated
 	 */
-	public Adapter createGeneratorLpGoalTermAdapter() {
+	public Adapter createGeneratorLpLinearAdapter() {
 		return null;
 	}
 

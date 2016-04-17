@@ -804,22 +804,13 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_LP_VAR__LP_TERM = GENERATOR_VAR_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Lp Goal Term</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_VAR__LP_GOAL_TERM = GENERATOR_VAR_FEATURE_COUNT + 4;
-
-	/**
 	 * The number of structural features of the '<em>Generator Lp Var</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_LP_VAR_FEATURE_COUNT = GENERATOR_VAR_FEATURE_COUNT + 5;
+	int GENERATOR_LP_VAR_FEATURE_COUNT = GENERATOR_VAR_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
@@ -967,22 +958,13 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_CONS___REFRESH_SELECTED_SOLUTION = GENERATOR_TUPLE_MEMBER___REFRESH_SELECTED_SOLUTION;
 
 	/**
-	 * The operation id for the '<em>Generate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_CONS___GENERATE = GENERATOR_TUPLE_MEMBER_OPERATION_COUNT + 0;
-
-	/**
 	 * The operation id for the '<em>Get Solution</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_CONS___GET_SOLUTION__SOLUTION = GENERATOR_TUPLE_MEMBER_OPERATION_COUNT + 1;
+	int GENERATOR_CONS___GET_SOLUTION__SOLUTION = GENERATOR_TUPLE_MEMBER_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Generator Cons</em>' class.
@@ -991,7 +973,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_CONS_OPERATION_COUNT = GENERATOR_TUPLE_MEMBER_OPERATION_COUNT + 2;
+	int GENERATOR_CONS_OPERATION_COUNT = GENERATOR_TUPLE_MEMBER_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpConsImpl <em>Generator Lp Cons</em>}' class.
@@ -1067,22 +1049,22 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_LP_CONS__NOF_TERMS = GENERATOR_CONS__NOF_TERMS;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_CONS__TYPE = GENERATOR_CONS_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Lp Term</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_LP_CONS__LP_TERM = GENERATOR_CONS_FEATURE_COUNT + 1;
+	int GENERATOR_LP_CONS__LP_TERM = GENERATOR_CONS_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_CONS__TYPE = GENERATOR_CONS_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Righ Hand Side</b></em>' attribute.
@@ -1110,15 +1092,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_LP_CONS___REFRESH_SELECTED_SOLUTION = GENERATOR_CONS___REFRESH_SELECTED_SOLUTION;
-
-	/**
-	 * The operation id for the '<em>Generate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_CONS___GENERATE = GENERATOR_CONS___GENERATE;
 
 	/**
 	 * The operation id for the '<em>Get Solution</em>' operation.
@@ -1176,13 +1149,13 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_LP_TERM__COEFF = 1;
 
 	/**
-	 * The feature id for the '<em><b>Lp Cons</b></em>' container reference.
+	 * The feature id for the '<em><b>Lp Linear</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_LP_TERM__LP_CONS = 2;
+	int GENERATOR_LP_TERM__LP_LINEAR = 2;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -3754,16 +3727,6 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_LP_GOAL = 39;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalTermImpl <em>Generator Lp Goal Term</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.solver.impl.GeneratorLpGoalTermImpl
-	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpGoalTerm()
-	 * @generated
-	 */
-	int GENERATOR_LP_GOAL_TERM = 40;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3852,15 +3815,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_CP_CONS___REFRESH_SELECTED_SOLUTION = GENERATOR_CONS___REFRESH_SELECTED_SOLUTION;
-
-	/**
-	 * The operation id for the '<em>Generate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_CP_CONS___GENERATE = GENERATOR_CONS___GENERATE;
 
 	/**
 	 * The operation id for the '<em>Get Solution</em>' operation.
@@ -3998,15 +3952,6 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_CP_LINEAR___REFRESH_SELECTED_SOLUTION = GENERATOR_CP_CONS___REFRESH_SELECTED_SOLUTION;
 
 	/**
-	 * The operation id for the '<em>Generate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_CP_LINEAR___GENERATE = GENERATOR_CP_CONS___GENERATE;
-
-	/**
 	 * The operation id for the '<em>Get Solution</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4140,15 +4085,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_CP_LOGICAL___REFRESH_SELECTED_SOLUTION = GENERATOR_CP_CONS___REFRESH_SELECTED_SOLUTION;
-
-	/**
-	 * The operation id for the '<em>Generate</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_CP_LOGICAL___GENERATE = GENERATOR_CP_CONS___GENERATE;
 
 	/**
 	 * The operation id for the '<em>Get Solution</em>' operation.
@@ -4610,22 +4546,22 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_LP_GOAL__NAME = GENERATOR_GOAL__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Lp Term</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_GOAL__LP_TERM = GENERATOR_GOAL_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Objective Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_LP_GOAL__OBJECTIVE_TYPE = GENERATOR_GOAL_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Lp Goal Term</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_GOAL__LP_GOAL_TERM = GENERATOR_GOAL_FEATURE_COUNT + 1;
+	int GENERATOR_LP_GOAL__OBJECTIVE_TYPE = GENERATOR_GOAL_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Selected Solution Value</b></em>' attribute.
@@ -4682,58 +4618,50 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_LP_GOAL_OPERATION_COUNT = GENERATOR_GOAL_OPERATION_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Coeff</b></em>' attribute.
+	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpLinearImpl <em>Generator Lp Linear</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.solver.impl.GeneratorLpLinearImpl
+	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpLinear()
 	 * @generated
-	 * @ordered
 	 */
-	int GENERATOR_LP_GOAL_TERM__COEFF = 0;
+	int GENERATOR_LP_LINEAR = 40;
 
 	/**
-	 * The feature id for the '<em><b>Lp Var</b></em>' reference.
+	 * The feature id for the '<em><b>Lp Term</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_LP_GOAL_TERM__LP_VAR = 1;
+	int GENERATOR_LP_LINEAR__LP_TERM = 0;
 
 	/**
-	 * The feature id for the '<em><b>Lp Goal</b></em>' container reference.
+	 * The number of structural features of the '<em>Generator Lp Linear</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_LP_GOAL_TERM__LP_GOAL = 2;
+	int GENERATOR_LP_LINEAR_FEATURE_COUNT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * The operation id for the '<em>Construct Term</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_LP_GOAL_TERM__DESCRIPTION = 3;
+	int GENERATOR_LP_LINEAR___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT = 0;
 
 	/**
-	 * The number of structural features of the '<em>Generator Lp Goal Term</em>' class.
+	 * The number of operations of the '<em>Generator Lp Linear</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_LP_GOAL_TERM_FEATURE_COUNT = 4;
-
-	/**
-	 * The number of operations of the '<em>Generator Lp Goal Term</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_GOAL_TERM_OPERATION_COUNT = 0;
+	int GENERATOR_LP_LINEAR_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '<em>ITuple Visitor</em>' data type.
@@ -5397,17 +5325,6 @@ public interface SolverPackage extends EPackage {
 	EAttribute getGeneratorLpGoal_ObjectiveType();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.solver.GeneratorLpGoal#getLpGoalTerm <em>Lp Goal Term</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Lp Goal Term</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpGoal#getLpGoalTerm()
-	 * @see #getGeneratorLpGoal()
-	 * @generated
-	 */
-	EReference getGeneratorLpGoal_LpGoalTerm();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorLpGoal#getSelectedSolutionValue <em>Selected Solution Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5417,16 +5334,6 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGeneratorLpGoal_SelectedSolutionValue();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorLpGoal#constructTerm(com.misc.common.moplaf.solver.GeneratorLpVar, float) <em>Construct Term</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Construct Term</em>' operation.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpGoal#constructTerm(com.misc.common.moplaf.solver.GeneratorLpVar, float)
-	 * @generated
-	 */
-	EOperation getGeneratorLpGoal__ConstructTerm__GeneratorLpVar_float();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorLpGoal#getSolutionValue(com.misc.common.moplaf.solver.Solution) <em>Get Solution Value</em>}' operation.
@@ -5439,58 +5346,35 @@ public interface SolverPackage extends EPackage {
 	EOperation getGeneratorLpGoal__GetSolutionValue__Solution();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorLpGoalTerm <em>Generator Lp Goal Term</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorLpLinear <em>Generator Lp Linear</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Generator Lp Goal Term</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpGoalTerm
+	 * @return the meta object for class '<em>Generator Lp Linear</em>'.
+	 * @see com.misc.common.moplaf.solver.GeneratorLpLinear
 	 * @generated
 	 */
-	EClass getGeneratorLpGoalTerm();
+	EClass getGeneratorLpLinear();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorLpGoalTerm#getCoeff <em>Coeff</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.solver.GeneratorLpLinear#getLpTerm <em>Lp Term</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Coeff</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpGoalTerm#getCoeff()
-	 * @see #getGeneratorLpGoalTerm()
+	 * @return the meta object for the containment reference list '<em>Lp Term</em>'.
+	 * @see com.misc.common.moplaf.solver.GeneratorLpLinear#getLpTerm()
+	 * @see #getGeneratorLpLinear()
 	 * @generated
 	 */
-	EAttribute getGeneratorLpGoalTerm_Coeff();
+	EReference getGeneratorLpLinear_LpTerm();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.solver.GeneratorLpGoalTerm#getLpVar <em>Lp Var</em>}'.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorLpLinear#constructTerm(com.misc.common.moplaf.solver.GeneratorLpVar, float) <em>Construct Term</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Lp Var</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpGoalTerm#getLpVar()
-	 * @see #getGeneratorLpGoalTerm()
+	 * @return the meta object for the '<em>Construct Term</em>' operation.
+	 * @see com.misc.common.moplaf.solver.GeneratorLpLinear#constructTerm(com.misc.common.moplaf.solver.GeneratorLpVar, float)
 	 * @generated
 	 */
-	EReference getGeneratorLpGoalTerm_LpVar();
-
-	/**
-	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.solver.GeneratorLpGoalTerm#getLpGoal <em>Lp Goal</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Lp Goal</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpGoalTerm#getLpGoal()
-	 * @see #getGeneratorLpGoalTerm()
-	 * @generated
-	 */
-	EReference getGeneratorLpGoalTerm_LpGoal();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorLpGoalTerm#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpGoalTerm#getDescription()
-	 * @see #getGeneratorLpGoalTerm()
-	 * @generated
-	 */
-	EAttribute getGeneratorLpGoalTerm_Description();
+	EOperation getGeneratorLpLinear__ConstructTerm__GeneratorLpVar_float();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.Solution <em>Solution</em>}'.
@@ -5745,17 +5629,6 @@ public interface SolverPackage extends EPackage {
 	EReference getGeneratorLpVar_LpTerm();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.solver.GeneratorLpVar#getLpGoalTerm <em>Lp Goal Term</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Lp Goal Term</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpVar#getLpGoalTerm()
-	 * @see #getGeneratorLpVar()
-	 * @generated
-	 */
-	EReference getGeneratorLpVar_LpGoalTerm();
-
-	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorCons <em>Generator Cons</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5786,16 +5659,6 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGeneratorCons_NofTerms();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorCons#generate() <em>Generate</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Generate</em>' operation.
-	 * @see com.misc.common.moplaf.solver.GeneratorCons#generate()
-	 * @generated
-	 */
-	EOperation getGeneratorCons__Generate();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorCons#getSolution(com.misc.common.moplaf.solver.Solution) <em>Get Solution</em>}' operation.
@@ -5829,17 +5692,6 @@ public interface SolverPackage extends EPackage {
 	EAttribute getGeneratorLpCons_Type();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.solver.GeneratorLpCons#getLpTerm <em>Lp Term</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Lp Term</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpCons#getLpTerm()
-	 * @see #getGeneratorLpCons()
-	 * @generated
-	 */
-	EReference getGeneratorLpCons_LpTerm();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorLpCons#getRighHandSide <em>Righ Hand Side</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5849,16 +5701,6 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGeneratorLpCons_RighHandSide();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorLpCons#constructTerm(com.misc.common.moplaf.solver.GeneratorLpVar, float) <em>Construct Term</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Construct Term</em>' operation.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpCons#constructTerm(com.misc.common.moplaf.solver.GeneratorLpVar, float)
-	 * @generated
-	 */
-	EOperation getGeneratorLpCons__ConstructTerm__GeneratorLpVar_float();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorLpTerm <em>Generator Lp Term</em>}'.
@@ -5893,15 +5735,15 @@ public interface SolverPackage extends EPackage {
 	EAttribute getGeneratorLpTerm_Coeff();
 
 	/**
-	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.solver.GeneratorLpTerm#getLpCons <em>Lp Cons</em>}'.
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.solver.GeneratorLpTerm#getLpLinear <em>Lp Linear</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Lp Cons</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpTerm#getLpCons()
+	 * @return the meta object for the container reference '<em>Lp Linear</em>'.
+	 * @see com.misc.common.moplaf.solver.GeneratorLpTerm#getLpLinear()
 	 * @see #getGeneratorLpTerm()
 	 * @generated
 	 */
-	EReference getGeneratorLpTerm_LpCons();
+	EReference getGeneratorLpTerm_LpLinear();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorLpTerm#getDescription <em>Description</em>}'.
@@ -7701,28 +7543,12 @@ public interface SolverPackage extends EPackage {
 		EAttribute GENERATOR_LP_GOAL__OBJECTIVE_TYPE = eINSTANCE.getGeneratorLpGoal_ObjectiveType();
 
 		/**
-		 * The meta object literal for the '<em><b>Lp Goal Term</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GENERATOR_LP_GOAL__LP_GOAL_TERM = eINSTANCE.getGeneratorLpGoal_LpGoalTerm();
-
-		/**
 		 * The meta object literal for the '<em><b>Selected Solution Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute GENERATOR_LP_GOAL__SELECTED_SOLUTION_VALUE = eINSTANCE.getGeneratorLpGoal_SelectedSolutionValue();
-
-		/**
-		 * The meta object literal for the '<em><b>Construct Term</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation GENERATOR_LP_GOAL___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT = eINSTANCE.getGeneratorLpGoal__ConstructTerm__GeneratorLpVar_float();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Solution Value</b></em>' operation.
@@ -7733,46 +7559,30 @@ public interface SolverPackage extends EPackage {
 		EOperation GENERATOR_LP_GOAL___GET_SOLUTION_VALUE__SOLUTION = eINSTANCE.getGeneratorLpGoal__GetSolutionValue__Solution();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalTermImpl <em>Generator Lp Goal Term</em>}' class.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpLinearImpl <em>Generator Lp Linear</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.solver.impl.GeneratorLpGoalTermImpl
-		 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpGoalTerm()
+		 * @see com.misc.common.moplaf.solver.impl.GeneratorLpLinearImpl
+		 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpLinear()
 		 * @generated
 		 */
-		EClass GENERATOR_LP_GOAL_TERM = eINSTANCE.getGeneratorLpGoalTerm();
+		EClass GENERATOR_LP_LINEAR = eINSTANCE.getGeneratorLpLinear();
 
 		/**
-		 * The meta object literal for the '<em><b>Coeff</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Lp Term</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GENERATOR_LP_GOAL_TERM__COEFF = eINSTANCE.getGeneratorLpGoalTerm_Coeff();
+		EReference GENERATOR_LP_LINEAR__LP_TERM = eINSTANCE.getGeneratorLpLinear_LpTerm();
 
 		/**
-		 * The meta object literal for the '<em><b>Lp Var</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Construct Term</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GENERATOR_LP_GOAL_TERM__LP_VAR = eINSTANCE.getGeneratorLpGoalTerm_LpVar();
-
-		/**
-		 * The meta object literal for the '<em><b>Lp Goal</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GENERATOR_LP_GOAL_TERM__LP_GOAL = eINSTANCE.getGeneratorLpGoalTerm_LpGoal();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GENERATOR_LP_GOAL_TERM__DESCRIPTION = eINSTANCE.getGeneratorLpGoalTerm_Description();
+		EOperation GENERATOR_LP_LINEAR___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT = eINSTANCE.getGeneratorLpLinear__ConstructTerm__GeneratorLpVar_float();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.SolutionImpl <em>Solution</em>}' class.
@@ -7975,14 +7785,6 @@ public interface SolverPackage extends EPackage {
 		EReference GENERATOR_LP_VAR__LP_TERM = eINSTANCE.getGeneratorLpVar_LpTerm();
 
 		/**
-		 * The meta object literal for the '<em><b>Lp Goal Term</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GENERATOR_LP_VAR__LP_GOAL_TERM = eINSTANCE.getGeneratorLpVar_LpGoalTerm();
-
-		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorConsImpl <em>Generator Cons</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8007,14 +7809,6 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GENERATOR_CONS__NOF_TERMS = eINSTANCE.getGeneratorCons_NofTerms();
-
-		/**
-		 * The meta object literal for the '<em><b>Generate</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation GENERATOR_CONS___GENERATE = eINSTANCE.getGeneratorCons__Generate();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Solution</b></em>' operation.
@@ -8043,28 +7837,12 @@ public interface SolverPackage extends EPackage {
 		EAttribute GENERATOR_LP_CONS__TYPE = eINSTANCE.getGeneratorLpCons_Type();
 
 		/**
-		 * The meta object literal for the '<em><b>Lp Term</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GENERATOR_LP_CONS__LP_TERM = eINSTANCE.getGeneratorLpCons_LpTerm();
-
-		/**
 		 * The meta object literal for the '<em><b>Righ Hand Side</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute GENERATOR_LP_CONS__RIGH_HAND_SIDE = eINSTANCE.getGeneratorLpCons_RighHandSide();
-
-		/**
-		 * The meta object literal for the '<em><b>Construct Term</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation GENERATOR_LP_CONS___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT = eINSTANCE.getGeneratorLpCons__ConstructTerm__GeneratorLpVar_float();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpTermImpl <em>Generator Lp Term</em>}' class.
@@ -8093,12 +7871,12 @@ public interface SolverPackage extends EPackage {
 		EAttribute GENERATOR_LP_TERM__COEFF = eINSTANCE.getGeneratorLpTerm_Coeff();
 
 		/**
-		 * The meta object literal for the '<em><b>Lp Cons</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Lp Linear</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GENERATOR_LP_TERM__LP_CONS = eINSTANCE.getGeneratorLpTerm_LpCons();
+		EReference GENERATOR_LP_TERM__LP_LINEAR = eINSTANCE.getGeneratorLpTerm_LpLinear();
 
 		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.

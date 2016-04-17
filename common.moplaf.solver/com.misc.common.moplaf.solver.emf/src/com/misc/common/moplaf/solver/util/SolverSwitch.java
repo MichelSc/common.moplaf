@@ -115,6 +115,7 @@ public class SolverSwitch<T> extends Switch<T> {
 				GeneratorLpCons generatorLpCons = (GeneratorLpCons)theEObject;
 				T result = caseGeneratorLpCons(generatorLpCons);
 				if (result == null) result = caseGeneratorCons(generatorLpCons);
+				if (result == null) result = caseGeneratorLpLinear(generatorLpCons);
 				if (result == null) result = caseGeneratorTupleMember(generatorLpCons);
 				if (result == null) result = caseGeneratorElement(generatorLpCons);
 				if (result == null) result = defaultCase(theEObject);
@@ -355,12 +356,13 @@ public class SolverSwitch<T> extends Switch<T> {
 				GeneratorLpGoal generatorLpGoal = (GeneratorLpGoal)theEObject;
 				T result = caseGeneratorLpGoal(generatorLpGoal);
 				if (result == null) result = caseGeneratorGoal(generatorLpGoal);
+				if (result == null) result = caseGeneratorLpLinear(generatorLpGoal);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SolverPackage.GENERATOR_LP_GOAL_TERM: {
-				GeneratorLpGoalTerm generatorLpGoalTerm = (GeneratorLpGoalTerm)theEObject;
-				T result = caseGeneratorLpGoalTerm(generatorLpGoalTerm);
+			case SolverPackage.GENERATOR_LP_LINEAR: {
+				GeneratorLpLinear generatorLpLinear = (GeneratorLpLinear)theEObject;
+				T result = caseGeneratorLpLinear(generatorLpLinear);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -459,17 +461,17 @@ public class SolverSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Generator Lp Goal Term</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Generator Lp Linear</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Generator Lp Goal Term</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Generator Lp Linear</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseGeneratorLpGoalTerm(GeneratorLpGoalTerm object) {
+	public T caseGeneratorLpLinear(GeneratorLpLinear object) {
 		return null;
 	}
 

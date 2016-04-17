@@ -217,9 +217,6 @@ public abstract class GeneratorConsImpl extends GeneratorTupleMemberImpl impleme
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case SolverPackage.GENERATOR_CONS___GENERATE:
-				generate();
-				return null;
 			case SolverPackage.GENERATOR_CONS___GET_SOLUTION__SOLUTION:
 				return getSolution((Solution)arguments.get(0));
 		}

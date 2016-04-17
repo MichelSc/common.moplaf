@@ -683,7 +683,6 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 				tuple.generateCons();
 				for (GeneratorCons cons : tuple.getCons()){
 					conscounter++;
-					cons.generate();
 					termscounter += cons.getNofTerms();
 				}
 			}

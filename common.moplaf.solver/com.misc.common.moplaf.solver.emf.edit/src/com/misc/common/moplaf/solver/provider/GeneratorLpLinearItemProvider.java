@@ -3,7 +3,7 @@
 package com.misc.common.moplaf.solver.provider;
 
 
-import com.misc.common.moplaf.solver.GeneratorLpGoalTerm;
+import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import java.util.Collection;
@@ -22,17 +22,15 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.solver.GeneratorLpGoalTerm} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.solver.GeneratorLpLinear} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class GeneratorLpGoalTermItemProvider 
+public class GeneratorLpLinearItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -46,7 +44,7 @@ public class GeneratorLpGoalTermItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GeneratorLpGoalTermItemProvider(AdapterFactory adapterFactory) {
+	public GeneratorLpLinearItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -61,75 +59,29 @@ public class GeneratorLpGoalTermItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCoeffPropertyDescriptor(object);
-			addLpVarPropertyDescriptor(object);
-			addDescriptionPropertyDescriptor(object);
+			addLpTermPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Coeff feature.
+	 * This adds a property descriptor for the Lp Term feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCoeffPropertyDescriptor(Object object) {
+	protected void addLpTermPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GeneratorLpGoalTerm_Coeff_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorLpGoalTerm_Coeff_feature", "_UI_GeneratorLpGoalTerm_type"),
-				 SolverPackage.Literals.GENERATOR_LP_GOAL_TERM__COEFF,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Lp Var feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addLpVarPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GeneratorLpGoalTerm_LpVar_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorLpGoalTerm_LpVar_feature", "_UI_GeneratorLpGoalTerm_type"),
-				 SolverPackage.Literals.GENERATOR_LP_GOAL_TERM__LP_VAR,
+				 getString("_UI_GeneratorLpLinear_LpTerm_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorLpLinear_LpTerm_feature", "_UI_GeneratorLpLinear_type"),
+				 SolverPackage.Literals.GENERATOR_LP_LINEAR__LP_TERM,
 				 true,
 				 false,
 				 true,
 				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Description feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GeneratorLpGoalTerm_Description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorLpGoalTerm_Description_feature", "_UI_GeneratorLpGoalTerm_type"),
-				 SolverPackage.Literals.GENERATOR_LP_GOAL_TERM__DESCRIPTION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -146,7 +98,7 @@ public class GeneratorLpGoalTermItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SolverPackage.Literals.GENERATOR_LP_GOAL_TERM__LP_VAR);
+			childrenFeatures.add(SolverPackage.Literals.GENERATOR_LP_LINEAR__LP_TERM);
 		}
 		return childrenFeatures;
 	}
@@ -165,13 +117,14 @@ public class GeneratorLpGoalTermItemProvider
 	}
 
 	/**
-	 * This returns GeneratorLpGoalTerm.gif.
+	 * This returns GeneratorLpLinear.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/square237.png"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/GeneratorLpLinear"));
 	}
 
 	/**
@@ -182,10 +135,7 @@ public class GeneratorLpGoalTermItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GeneratorLpGoalTerm)object).getDescription();
-		return label == null || label.length() == 0 ?
-			getString("_UI_GeneratorLpGoalTerm_type") :
-			getString("_UI_GeneratorLpGoalTerm_type") + " " + label;
+		return getString("_UI_GeneratorLpLinear_type");
 	}
 	
 
@@ -199,13 +149,6 @@ public class GeneratorLpGoalTermItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(GeneratorLpGoalTerm.class)) {
-			case SolverPackage.GENERATOR_LP_GOAL_TERM__COEFF:
-			case SolverPackage.GENERATOR_LP_GOAL_TERM__DESCRIPTION:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 
@@ -219,6 +162,11 @@ public class GeneratorLpGoalTermItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SolverPackage.Literals.GENERATOR_LP_LINEAR__LP_TERM,
+				 SolverFactory.eINSTANCE.createGeneratorLpTerm()));
 	}
 
 	/**
