@@ -84,7 +84,7 @@ public abstract class GeneratorCpConsImpl extends GeneratorConsImpl implements G
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_CP_CONS__POST, oldPost, post));
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

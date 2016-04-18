@@ -87,4 +87,12 @@ public interface GeneratorVar extends GeneratorTupleMember {
 	 */
 	float getSolutionValue(Solution solver);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
+	 * @generated
+	 */
+	void build(Solver builder) throws Exception;
+
 } // GeneratorVar

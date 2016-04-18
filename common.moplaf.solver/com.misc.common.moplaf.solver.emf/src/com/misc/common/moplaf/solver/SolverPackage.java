@@ -686,13 +686,22 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_VAR___GET_SOLUTION_VALUE__SOLUTION = GENERATOR_TUPLE_MEMBER_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Build</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_VAR___BUILD__SOLVER = GENERATOR_TUPLE_MEMBER_OPERATION_COUNT + 4;
+
+	/**
 	 * The number of operations of the '<em>Generator Var</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_VAR_OPERATION_COUNT = GENERATOR_TUPLE_MEMBER_OPERATION_COUNT + 4;
+	int GENERATOR_VAR_OPERATION_COUNT = GENERATOR_TUPLE_MEMBER_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpVarImpl <em>Generator Lp Var</em>}' class.
@@ -858,6 +867,15 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_LP_VAR___GET_SOLUTION_VALUE__SOLUTION = GENERATOR_VAR___GET_SOLUTION_VALUE__SOLUTION;
 
 	/**
+	 * The operation id for the '<em>Build</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_VAR___BUILD__SOLVER = GENERATOR_VAR___BUILD__SOLVER;
+
+	/**
 	 * The number of operations of the '<em>Generator Lp Var</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -967,13 +985,22 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_CONS___GET_SOLUTION__SOLUTION = GENERATOR_TUPLE_MEMBER_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Build</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CONS___BUILD__SOLVER = GENERATOR_TUPLE_MEMBER_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Generator Cons</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_CONS_OPERATION_COUNT = GENERATOR_TUPLE_MEMBER_OPERATION_COUNT + 1;
+	int GENERATOR_CONS_OPERATION_COUNT = GENERATOR_TUPLE_MEMBER_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpConsImpl <em>Generator Lp Cons</em>}' class.
@@ -1101,6 +1128,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_LP_CONS___GET_SOLUTION__SOLUTION = GENERATOR_CONS___GET_SOLUTION__SOLUTION;
+
+	/**
+	 * The operation id for the '<em>Build</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_CONS___BUILD__SOLVER = GENERATOR_CONS___BUILD__SOLVER;
 
 	/**
 	 * The operation id for the '<em>Construct Term</em>' operation.
@@ -2404,13 +2440,76 @@ public interface SolverPackage extends EPackage {
 	int SOLVER___SOLVE = SOLUTION_PROVIDER_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Build</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER___BUILD = SOLUTION_PROVIDER_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Build Var</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER___BUILD_VAR__GENERATORVAR = SOLUTION_PROVIDER_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Build Lp Var</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER___BUILD_LP_VAR__GENERATORLPVAR = SOLUTION_PROVIDER_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Build Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER___BUILD_GOAL__GENERATORGOAL = SOLUTION_PROVIDER_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Build Lp Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER___BUILD_LP_GOAL__GENERATORLPGOAL = SOLUTION_PROVIDER_OPERATION_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Build Cons</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER___BUILD_CONS__GENERATORCONS = SOLUTION_PROVIDER_OPERATION_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Build Lp Cons</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER___BUILD_LP_CONS__GENERATORLPCONS = SOLUTION_PROVIDER_OPERATION_COUNT + 7;
+
+	/**
 	 * The number of operations of the '<em>Solver</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_OPERATION_COUNT = SOLUTION_PROVIDER_OPERATION_COUNT + 1;
+	int SOLVER_OPERATION_COUNT = SOLUTION_PROVIDER_OPERATION_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolverLpImpl <em>Lp</em>}' class.
@@ -2888,6 +2987,69 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_CP___SOLVE = SOLVER___SOLVE;
 
 	/**
+	 * The operation id for the '<em>Build</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP___BUILD = SOLVER___BUILD;
+
+	/**
+	 * The operation id for the '<em>Build Var</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP___BUILD_VAR__GENERATORVAR = SOLVER___BUILD_VAR__GENERATORVAR;
+
+	/**
+	 * The operation id for the '<em>Build Lp Var</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP___BUILD_LP_VAR__GENERATORLPVAR = SOLVER___BUILD_LP_VAR__GENERATORLPVAR;
+
+	/**
+	 * The operation id for the '<em>Build Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP___BUILD_GOAL__GENERATORGOAL = SOLVER___BUILD_GOAL__GENERATORGOAL;
+
+	/**
+	 * The operation id for the '<em>Build Lp Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP___BUILD_LP_GOAL__GENERATORLPGOAL = SOLVER___BUILD_LP_GOAL__GENERATORLPGOAL;
+
+	/**
+	 * The operation id for the '<em>Build Cons</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP___BUILD_CONS__GENERATORCONS = SOLVER___BUILD_CONS__GENERATORCONS;
+
+	/**
+	 * The operation id for the '<em>Build Lp Cons</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP___BUILD_LP_CONS__GENERATORLPCONS = SOLVER___BUILD_LP_CONS__GENERATORLPCONS;
+
+	/**
 	 * The number of operations of the '<em>Cp</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3228,6 +3390,69 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP___SOLVE = SOLVER___SOLVE;
+
+	/**
+	 * The operation id for the '<em>Build</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP___BUILD = SOLVER___BUILD;
+
+	/**
+	 * The operation id for the '<em>Build Var</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP___BUILD_VAR__GENERATORVAR = SOLVER___BUILD_VAR__GENERATORVAR;
+
+	/**
+	 * The operation id for the '<em>Build Lp Var</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP___BUILD_LP_VAR__GENERATORLPVAR = SOLVER___BUILD_LP_VAR__GENERATORLPVAR;
+
+	/**
+	 * The operation id for the '<em>Build Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP___BUILD_GOAL__GENERATORGOAL = SOLVER___BUILD_GOAL__GENERATORGOAL;
+
+	/**
+	 * The operation id for the '<em>Build Lp Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP___BUILD_LP_GOAL__GENERATORLPGOAL = SOLVER___BUILD_LP_GOAL__GENERATORLPGOAL;
+
+	/**
+	 * The operation id for the '<em>Build Cons</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP___BUILD_CONS__GENERATORCONS = SOLVER___BUILD_CONS__GENERATORCONS;
+
+	/**
+	 * The operation id for the '<em>Build Lp Cons</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP___BUILD_LP_CONS__GENERATORLPCONS = SOLVER___BUILD_LP_CONS__GENERATORLPCONS;
 
 	/**
 	 * The number of operations of the '<em>Lp</em>' class.
@@ -3826,6 +4051,15 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_CP_CONS___GET_SOLUTION__SOLUTION = GENERATOR_CONS___GET_SOLUTION__SOLUTION;
 
 	/**
+	 * The operation id for the '<em>Build</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CP_CONS___BUILD__SOLVER = GENERATOR_CONS___BUILD__SOLVER;
+
+	/**
 	 * The number of operations of the '<em>Generator Cp Cons</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3959,6 +4193,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_CP_LINEAR___GET_SOLUTION__SOLUTION = GENERATOR_CP_CONS___GET_SOLUTION__SOLUTION;
+
+	/**
+	 * The operation id for the '<em>Build</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CP_LINEAR___BUILD__SOLVER = GENERATOR_CP_CONS___BUILD__SOLVER;
 
 	/**
 	 * The number of operations of the '<em>Generator Cp Linear</em>' class.
@@ -4096,6 +4339,15 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_CP_LOGICAL___GET_SOLUTION__SOLUTION = GENERATOR_CP_CONS___GET_SOLUTION__SOLUTION;
 
 	/**
+	 * The operation id for the '<em>Build</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CP_LOGICAL___BUILD__SOLVER = GENERATOR_CP_CONS___BUILD__SOLVER;
+
+	/**
 	 * The number of operations of the '<em>Generator Cp Logical</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4229,6 +4481,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_CP_VAR___GET_SOLUTION_VALUE__SOLUTION = GENERATOR_VAR___GET_SOLUTION_VALUE__SOLUTION;
+
+	/**
+	 * The operation id for the '<em>Build</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CP_VAR___BUILD__SOLVER = GENERATOR_VAR___BUILD__SOLVER;
 
 	/**
 	 * The number of operations of the '<em>Generator Cp Var</em>' class.
@@ -4384,6 +4645,15 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_CP_VAR_ATOMIC___GET_SOLUTION_VALUE__SOLUTION = GENERATOR_CP_VAR___GET_SOLUTION_VALUE__SOLUTION;
 
 	/**
+	 * The operation id for the '<em>Build</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CP_VAR_ATOMIC___BUILD__SOLVER = GENERATOR_CP_VAR___BUILD__SOLVER;
+
+	/**
 	 * The number of operations of the '<em>Generator Cp Var Atomic</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4510,13 +4780,22 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_GOAL___GET_GENERATOR = 0;
 
 	/**
+	 * The operation id for the '<em>Build</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_GOAL___BUILD__SOLVER = 1;
+
+	/**
 	 * The number of operations of the '<em>Generator Goal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_GOAL_OPERATION_COUNT = 1;
+	int GENERATOR_GOAL_OPERATION_COUNT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Generator As Root</b></em>' reference.
@@ -4589,6 +4868,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_LP_GOAL___GET_GENERATOR = GENERATOR_GOAL___GET_GENERATOR;
+
+	/**
+	 * The operation id for the '<em>Build</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_GOAL___BUILD__SOLVER = GENERATOR_GOAL___BUILD__SOLVER;
 
 	/**
 	 * The operation id for the '<em>Construct Term</em>' operation.
@@ -5304,6 +5592,16 @@ public interface SolverPackage extends EPackage {
 	EOperation getGeneratorGoal__GetGenerator();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorGoal#build(com.misc.common.moplaf.solver.Solver) <em>Build</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Build</em>' operation.
+	 * @see com.misc.common.moplaf.solver.GeneratorGoal#build(com.misc.common.moplaf.solver.Solver)
+	 * @generated
+	 */
+	EOperation getGeneratorGoal__Build__Solver();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorLpGoal <em>Generator Lp Goal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5575,6 +5873,16 @@ public interface SolverPackage extends EPackage {
 	EOperation getGeneratorVar__GetSolutionValue__Solution();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorVar#build(com.misc.common.moplaf.solver.Solver) <em>Build</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Build</em>' operation.
+	 * @see com.misc.common.moplaf.solver.GeneratorVar#build(com.misc.common.moplaf.solver.Solver)
+	 * @generated
+	 */
+	EOperation getGeneratorVar__Build__Solver();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorLpVar <em>Generator Lp Var</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5669,6 +5977,16 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getGeneratorCons__GetSolution__Solution();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorCons#build(com.misc.common.moplaf.solver.Solver) <em>Build</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Build</em>' operation.
+	 * @see com.misc.common.moplaf.solver.GeneratorCons#build(com.misc.common.moplaf.solver.Solver)
+	 * @generated
+	 */
+	EOperation getGeneratorCons__Build__Solver();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorLpCons <em>Generator Lp Cons</em>}'.
@@ -6317,6 +6635,76 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getSolver__Solve();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.Solver#build() <em>Build</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Build</em>' operation.
+	 * @see com.misc.common.moplaf.solver.Solver#build()
+	 * @generated
+	 */
+	EOperation getSolver__Build();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.Solver#buildVar(com.misc.common.moplaf.solver.GeneratorVar) <em>Build Var</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Build Var</em>' operation.
+	 * @see com.misc.common.moplaf.solver.Solver#buildVar(com.misc.common.moplaf.solver.GeneratorVar)
+	 * @generated
+	 */
+	EOperation getSolver__BuildVar__GeneratorVar();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.Solver#buildLpVar(com.misc.common.moplaf.solver.GeneratorLpVar) <em>Build Lp Var</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Build Lp Var</em>' operation.
+	 * @see com.misc.common.moplaf.solver.Solver#buildLpVar(com.misc.common.moplaf.solver.GeneratorLpVar)
+	 * @generated
+	 */
+	EOperation getSolver__BuildLpVar__GeneratorLpVar();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.Solver#buildGoal(com.misc.common.moplaf.solver.GeneratorGoal) <em>Build Goal</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Build Goal</em>' operation.
+	 * @see com.misc.common.moplaf.solver.Solver#buildGoal(com.misc.common.moplaf.solver.GeneratorGoal)
+	 * @generated
+	 */
+	EOperation getSolver__BuildGoal__GeneratorGoal();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.Solver#buildLpGoal(com.misc.common.moplaf.solver.GeneratorLpGoal) <em>Build Lp Goal</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Build Lp Goal</em>' operation.
+	 * @see com.misc.common.moplaf.solver.Solver#buildLpGoal(com.misc.common.moplaf.solver.GeneratorLpGoal)
+	 * @generated
+	 */
+	EOperation getSolver__BuildLpGoal__GeneratorLpGoal();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.Solver#buildCons(com.misc.common.moplaf.solver.GeneratorCons) <em>Build Cons</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Build Cons</em>' operation.
+	 * @see com.misc.common.moplaf.solver.Solver#buildCons(com.misc.common.moplaf.solver.GeneratorCons)
+	 * @generated
+	 */
+	EOperation getSolver__BuildCons__GeneratorCons();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.Solver#buildLpCons(com.misc.common.moplaf.solver.GeneratorLpCons) <em>Build Lp Cons</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Build Lp Cons</em>' operation.
+	 * @see com.misc.common.moplaf.solver.Solver#buildLpCons(com.misc.common.moplaf.solver.GeneratorLpCons)
+	 * @generated
+	 */
+	EOperation getSolver__BuildLpCons__GeneratorLpCons();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.SolverLp <em>Lp</em>}'.
@@ -7525,6 +7913,14 @@ public interface SolverPackage extends EPackage {
 		EOperation GENERATOR_GOAL___GET_GENERATOR = eINSTANCE.getGeneratorGoal__GetGenerator();
 
 		/**
+		 * The meta object literal for the '<em><b>Build</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GENERATOR_GOAL___BUILD__SOLVER = eINSTANCE.getGeneratorGoal__Build__Solver();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl <em>Generator Lp Goal</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7743,6 +8139,14 @@ public interface SolverPackage extends EPackage {
 		EOperation GENERATOR_VAR___GET_SOLUTION_VALUE__SOLUTION = eINSTANCE.getGeneratorVar__GetSolutionValue__Solution();
 
 		/**
+		 * The meta object literal for the '<em><b>Build</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GENERATOR_VAR___BUILD__SOLVER = eINSTANCE.getGeneratorVar__Build__Solver();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpVarImpl <em>Generator Lp Var</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7817,6 +8221,14 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation GENERATOR_CONS___GET_SOLUTION__SOLUTION = eINSTANCE.getGeneratorCons__GetSolution__Solution();
+
+		/**
+		 * The meta object literal for the '<em><b>Build</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GENERATOR_CONS___BUILD__SOLVER = eINSTANCE.getGeneratorCons__Build__Solver();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpConsImpl <em>Generator Lp Cons</em>}' class.
@@ -8317,6 +8729,62 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SOLVER___SOLVE = eINSTANCE.getSolver__Solve();
+
+		/**
+		 * The meta object literal for the '<em><b>Build</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SOLVER___BUILD = eINSTANCE.getSolver__Build();
+
+		/**
+		 * The meta object literal for the '<em><b>Build Var</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SOLVER___BUILD_VAR__GENERATORVAR = eINSTANCE.getSolver__BuildVar__GeneratorVar();
+
+		/**
+		 * The meta object literal for the '<em><b>Build Lp Var</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SOLVER___BUILD_LP_VAR__GENERATORLPVAR = eINSTANCE.getSolver__BuildLpVar__GeneratorLpVar();
+
+		/**
+		 * The meta object literal for the '<em><b>Build Goal</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SOLVER___BUILD_GOAL__GENERATORGOAL = eINSTANCE.getSolver__BuildGoal__GeneratorGoal();
+
+		/**
+		 * The meta object literal for the '<em><b>Build Lp Goal</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SOLVER___BUILD_LP_GOAL__GENERATORLPGOAL = eINSTANCE.getSolver__BuildLpGoal__GeneratorLpGoal();
+
+		/**
+		 * The meta object literal for the '<em><b>Build Cons</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SOLVER___BUILD_CONS__GENERATORCONS = eINSTANCE.getSolver__BuildCons__GeneratorCons();
+
+		/**
+		 * The meta object literal for the '<em><b>Build Lp Cons</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SOLVER___BUILD_LP_CONS__GENERATORLPCONS = eINSTANCE.getSolver__BuildLpCons__GeneratorLpCons();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.SolverLpImpl <em>Lp</em>}' class.

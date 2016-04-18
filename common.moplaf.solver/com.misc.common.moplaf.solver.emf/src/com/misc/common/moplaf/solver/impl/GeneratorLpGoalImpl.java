@@ -10,6 +10,7 @@ import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionLp;
+import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.solver.SolverPackage;
 
@@ -173,6 +174,15 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 		SolutionLp solutionLp = (SolutionLp)solution;
 		if ( solutionLp==null) { return 0.0f; }
 		return solutionLp.getGoalValue();
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public void build(Solver builder) throws Exception {
+		builder.buildLpGoal(this);
 	}
 
 	/**

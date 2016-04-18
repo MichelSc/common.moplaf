@@ -5,6 +5,7 @@ package com.misc.common.moplaf.solver.impl;
 import com.misc.common.moplaf.solver.GeneratorCons;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionCons;
+import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverPackage;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
@@ -120,6 +121,15 @@ public abstract class GeneratorConsImpl extends GeneratorTupleMemberImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void build(Solver builder) throws Exception {
+		builder.buildCons(this);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -219,6 +229,14 @@ public abstract class GeneratorConsImpl extends GeneratorTupleMemberImpl impleme
 		switch (operationID) {
 			case SolverPackage.GENERATOR_CONS___GET_SOLUTION__SOLUTION:
 				return getSolution((Solution)arguments.get(0));
+			case SolverPackage.GENERATOR_CONS___BUILD__SOLVER:
+				try {
+					build((Solver)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

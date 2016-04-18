@@ -4,6 +4,7 @@ package com.misc.common.moplaf.solver.impl;
 
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorGoal;
+import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverPackage;
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
@@ -99,6 +100,14 @@ public abstract class GeneratorGoalImpl extends MinimalEObjectImpl.Container imp
 		}
 		GeneratorGoal superGoal = (GeneratorGoal)this.eContainer();
 		return superGoal.getGenerator();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void build(Solver builder) throws Exception {
+		builder.buildGoal(this);
 	}
 
 	private boolean isRoot(){
@@ -243,6 +252,14 @@ public abstract class GeneratorGoalImpl extends MinimalEObjectImpl.Container imp
 		switch (operationID) {
 			case SolverPackage.GENERATOR_GOAL___GET_GENERATOR:
 				return getGenerator();
+			case SolverPackage.GENERATOR_GOAL___BUILD__SOLVER:
+				try {
+					build((Solver)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

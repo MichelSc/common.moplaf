@@ -7,6 +7,7 @@ import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorVar;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionVar;
+import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import java.lang.reflect.InvocationTargetException;
@@ -158,6 +159,14 @@ public abstract class GeneratorVarImpl extends GeneratorTupleMemberImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public void build(Solver builder) throws Exception {
+		builder.buildVar(this);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -265,6 +274,14 @@ public abstract class GeneratorVarImpl extends GeneratorTupleMemberImpl implemen
 				return isSolutionZero((Solution)arguments.get(0));
 			case SolverPackage.GENERATOR_VAR___GET_SOLUTION_VALUE__SOLUTION:
 				return getSolutionValue((Solution)arguments.get(0));
+			case SolverPackage.GENERATOR_VAR___BUILD__SOLVER:
+				try {
+					build((Solver)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

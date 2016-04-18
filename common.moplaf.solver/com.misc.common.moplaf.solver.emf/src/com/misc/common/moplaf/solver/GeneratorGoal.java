@@ -53,6 +53,14 @@ public interface GeneratorGoal extends EObject {
 	Generator getGenerator();
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
+	 * @generated
+	 */
+	void build(Solver builder) throws Exception;
+
+	/**
 	 * Returns the value of the '<em><b>Sub Goal</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>

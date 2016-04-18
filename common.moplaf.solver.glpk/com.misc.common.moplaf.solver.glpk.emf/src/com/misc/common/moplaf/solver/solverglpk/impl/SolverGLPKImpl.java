@@ -25,19 +25,17 @@ import org.gnu.glpk.glp_prob;
 import org.gnu.glpk.glp_smcp;
 import org.gnu.glpk.glp_tree;
 
+import com.misc.common.moplaf.solver.EnumLpConsType;
 import com.misc.common.moplaf.solver.EnumLpFileFormat;
 import com.misc.common.moplaf.solver.EnumLpVarType;
 import com.misc.common.moplaf.solver.EnumObjectiveType;
 import com.misc.common.moplaf.solver.Generator;
-import com.misc.common.moplaf.solver.GeneratorCons;
 import com.misc.common.moplaf.solver.GeneratorLpCons;
 import com.misc.common.moplaf.solver.GeneratorLpGoal;
+import com.misc.common.moplaf.solver.GeneratorLpLinear;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
-import com.misc.common.moplaf.solver.GeneratorTuple;
-import com.misc.common.moplaf.solver.GeneratorVar;
 import com.misc.common.moplaf.solver.ILpWriter;
-import com.misc.common.moplaf.solver.ITupleVisitor;
 import com.misc.common.moplaf.solver.Plugin;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionLp;
@@ -46,7 +44,6 @@ import com.misc.common.moplaf.solver.SolverPackage;
 import com.misc.common.moplaf.solver.impl.SolverLpImpl;
 import com.misc.common.moplaf.solver.solverglpk.SolverGLPK;
 import com.misc.common.moplaf.solver.solverglpk.SolverglpkPackage;
-
 
 
 /**
@@ -749,6 +746,8 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 	private Map<GeneratorLpVar, Number> vars;
 	private Map<GeneratorLpCons, Number> cons;
 	private String actualfilepath = null;
+	private int var_counter = 0;
+	private int cons_counter = 0;
 	 
 	/**
 	 * <!-- begin-user-doc -->
@@ -763,7 +762,8 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		}
 		this.vars = null;
 		this.cons = null;
-		
+		this.var_counter  = 0;
+		this.cons_counter = 0;
 	}
 	
 	/**
@@ -798,6 +798,100 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		return 0;
 	}
 
+	
+	/**
+     * Build the lp var
+	 */
+	@Override
+	public void buildLpVar(GeneratorLpVar var) throws Exception {
+		// map
+		int varnumber = this.var_counter;
+		this.var_counter++;
+		this.vars.put((GeneratorLpVar)var, varnumber);
+		
+		// make the var
+		float lb = var.getLowerBound();
+		float ub = var.getUpperBound();
+		int kind = GLPKConstants.GLP_CV;
+		if ( !this.isSolverLinearRelaxation() && var.getType()==EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER)	{
+			kind = GLPKConstants.GLP_IV;
+		}
+		String varname = var.getCode();
+		GLPK.glp_set_col_name(this.lp, varnumber, varname);
+		GLPK.glp_set_col_kind(this.lp, varnumber, kind);
+		GLPK.glp_set_col_bnds(this.lp, varnumber, GLPKConstants.GLP_DB, lb, ub); 
+	}
+
+	/**
+     * Build the lp cons
+	 */
+	@Override
+	protected void buildLpCons(Object cons, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
+		// map the constraint
+		int consnumber = this.cons_counter;
+		this.cons_counter++;
+		this.cons.put((GeneratorLpCons)cons, consnumber);
+
+		// make the constraint
+		//String rowname = lpcons.getCode();
+		String rowname = "to do";
+		int nofterms = linear.getLpTerm().size();
+		float lb = rhs;
+		float ub = rhs;
+		int kind = GLPKConstants.GLP_DB;
+		switch (type ) {
+		    case ENUM_LITERAL_LP_CONS_EQUAL:
+				kind = GLPKConstants.GLP_FX;
+		        break;
+		    case ENUM_LITERAL_LP_CONS_BIGGER_OR_EQUAL:
+				kind = GLPKConstants.GLP_LO;
+		        break;
+		    case ENUM_LITERAL_LP_CONS_SMALLER_OR_EQUAL:
+				kind = GLPKConstants.GLP_UP;
+		        break;
+		    };  // switch on constraint type
+	    SWIGTYPE_p_int ind = GLPK.new_intArray(nofterms+1);
+	    SWIGTYPE_p_double val = GLPK.new_doubleArray(nofterms+1);
+	    GLPK.glp_set_row_name(this.lp, consnumber, rowname);
+	    GLPK.glp_set_row_bnds(this.lp, consnumber, kind, lb, ub);
+	    int termindex = 0;
+	    for ( GeneratorLpTerm lpterm : linear.getLpTerm())			{
+	    	termindex++;
+		    GeneratorLpVar lpvar = lpterm.getLpVar();
+		    int lpvarindex = this.vars.get(lpvar).intValue();
+		    float coefficient = lpterm.getCoeff();
+		    GLPK.intArray_setitem   (ind, termindex, lpvarindex);
+		    GLPK.doubleArray_setitem(val, termindex, coefficient);
+	    } // traverse the terms
+	    GLPK.glp_set_mat_row(this.lp, consnumber, nofterms, ind, val);
+	}
+
+	/**
+     * Build the lp goal
+	 */
+	@Override
+	public void buildLpGoal(GeneratorLpGoal goal) throws Exception {
+		// direction
+		int direction = 0;
+		if ( goal.getObjectiveType()==EnumObjectiveType.MINIMUM){
+			direction = GLPKConstants.GLP_MIN;
+		} else if ( goal.getObjectiveType()==EnumObjectiveType.MAXIMUM){
+			direction = GLPKConstants.GLP_MAX;
+		}
+		GLPK.glp_set_obj_dir(this.lp, direction);
+		// terms
+		for ( GeneratorLpTerm goalTerm : goal.getLpTerm()){
+			// create the objective coefficient
+			GeneratorLpVar lpvar = goalTerm.getLpVar();
+			float coefficient = goalTerm.getCoeff();
+			if ( coefficient!=0.0f){
+			    int varindex = this.vars.get(lpvar).intValue();
+				GLPK.glp_set_obj_coef(this.lp, varindex, coefficient);
+			}
+		}
+	}
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * Load the lp from the generator into the GLPK structure
@@ -808,130 +902,18 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		Generator generator = this.getGenerator();
 		if ( generator == null) { return; }
 		try {
-			// map the variables
 			this.vars = new HashMap<GeneratorLpVar, Number>();
-			class VarMapper implements ITupleVisitor{
-				private int counter =0;
-				@Override
-				public void visitTuple(GeneratorTuple tuple) {
-					for ( GeneratorVar var : tuple.getVar()){
-						if ( !(var  instanceof GeneratorLpVar)){
-							throw new UnsupportedOperationException("Variable type not supported by solver: "+var.eClass().getName());
-						}
-						int varnumber = ++counter;
-						SolverGLPKImpl.this.vars.put((GeneratorLpVar)var, varnumber);
-					}
-				}
-			};
-			VarMapper varmapper = new VarMapper();
-			generator.visitTuples(varmapper);
-			
-			// map the constraints
 			this.cons = new HashMap<GeneratorLpCons, Number>();
-			class ConsMapper implements ITupleVisitor{
-				private int counter = 0;
-				@Override
-				public void visitTuple(GeneratorTuple tuple) {
-					for ( GeneratorCons cons : tuple.getCons()){
-						if ( !(cons instanceof GeneratorLpCons)){
-							throw new UnsupportedOperationException("Constraint type not supported by solver: "+cons.eClass().getName());
-						}
-						int consnumber = ++counter;
-						SolverGLPKImpl.this.cons.put((GeneratorLpCons)cons, consnumber);
-					}
-				}
-			};
-			ConsMapper consmapper = new ConsMapper();
-			generator.visitTuples(consmapper);
 
 			// create the problem in GLPK
-
-			lp = GLPK.glp_create_prob();
-			GLPK.glp_set_prob_name(lp, this.getCode());
-			GLPK.glp_set_obj_name(lp, "z");
-
-			// create the variables in GLPK
-			EnumLpVarType integertype = EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER;
-			GLPK.glp_add_cols(lp, this.vars.size());
-			for ( Map.Entry<GeneratorLpVar, Number> varentry : vars.entrySet()){
-				int varindex = varentry.getValue().intValue();
-				GeneratorLpVar lpvar = varentry.getKey();
-				float lb = lpvar.getLowerBound();
-				float ub = lpvar.getUpperBound();
-				int kind = GLPKConstants.GLP_CV;
-				if ( !this.isSolverLinearRelaxation() && lpvar.getType()==integertype)	{
-					kind = GLPKConstants.GLP_IV;
-				}
-				String varname = lpvar.getCode();
-				GLPK.glp_set_col_name(lp, varindex, varname);
-				GLPK.glp_set_col_kind(lp, varindex, kind);
-				GLPK.glp_set_col_bnds(lp, varindex, GLPKConstants.GLP_DB, lb, ub); 
-			} // traverse the vars
-		
-			// create the constraints
-			GLPK.glp_add_rows(lp, this.cons.size());
-			for ( Map.Entry<GeneratorLpCons, Number> consentry : this.cons.entrySet())
-				{
-				int consindex = consentry.getValue().intValue();
-				GeneratorLpCons lpcons = consentry.getKey();
-				String rowname = lpcons.getCode();
-				int nofterms = lpcons.getLpTerm().size();
-				float lb = lpcons.getRighHandSide();
-				float ub = lpcons.getRighHandSide();
-				int kind = GLPKConstants.GLP_DB;
-				switch (lpcons.getType() ) {
-			    case ENUM_LITERAL_LP_CONS_EQUAL:
-					kind = GLPKConstants.GLP_FX;
-			        break;
-			    case ENUM_LITERAL_LP_CONS_BIGGER_OR_EQUAL:
-					kind = GLPKConstants.GLP_LO;
-			        break;
-			    case ENUM_LITERAL_LP_CONS_SMALLER_OR_EQUAL:
-					kind = GLPKConstants.GLP_UP;
-			        break;
-			    };  // switch on constraint type
-			    SWIGTYPE_p_int ind = GLPK.new_intArray(nofterms+1);
-			    SWIGTYPE_p_double val = GLPK.new_doubleArray(nofterms+1);
-			    GLPK.glp_set_row_name(lp, consindex, rowname);
-			    GLPK.glp_set_row_bnds(lp, consindex, kind, lb, ub);
-			    int termindex = 0;
-			    for ( GeneratorLpTerm lpterm : lpcons.getLpTerm())			{
-			    	termindex++;
-				    GeneratorLpVar lpvar = lpterm.getLpVar();
-				    int lpvarindex = vars.get(lpvar).intValue();
-				    float coefficient = lpterm.getCoeff();
-				    GLPK.intArray_setitem   (ind, termindex, lpvarindex);
-				    GLPK.doubleArray_setitem(val, termindex, coefficient);
-			    } // traverse the terms
-			GLPK.glp_set_mat_row(lp, consindex, nofterms, ind, val);
-			} // traverse the constraints
-			
-			GeneratorLpGoal goal = (GeneratorLpGoal) this.getGoalToSolve();
-			if ( goal != null) {
-				// direction
-				int direction = 0;
-				if ( goal.getObjectiveType()==EnumObjectiveType.MINIMUM){
-					direction = GLPKConstants.GLP_MIN;
-				} else if ( goal.getObjectiveType()==EnumObjectiveType.MAXIMUM){
-					direction = GLPKConstants.GLP_MAX;
-				}
-				GLPK.glp_set_obj_dir(lp, direction);
-				// terms
-				for ( GeneratorLpTerm goalTerm : goal.getLpTerm()){
-					// create the objective coefficient
-					GeneratorLpVar lpvar = goalTerm.getLpVar();
-					float coefficient = goalTerm.getCoeff();
-					if ( coefficient!=0.0f){
-					    int varindex = vars.get(lpvar).intValue();
-						GLPK.glp_set_obj_coef(lp, varindex, coefficient);
-					}
-				}
-			}
-
+			this.lp = GLPK.glp_create_prob();
+			GLPK.glp_add_cols(this.lp, generator.getFootprintNofVars());
+			GLPK.glp_add_rows(this.lp, generator.getFootprintNofCons());
+			GLPK.glp_set_prob_name(this.lp, this.getCode());
+			GLPK.glp_set_obj_name(this.lp, "z");
+			this.build();
 		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
+		catch (Exception e) {
 			Plugin.INSTANCE.logError("SolverGLPK: load failed, "+e.getMessage());
 			this.releaseLp();
 		}
@@ -1076,7 +1058,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 //				The callback routine is called with the reason code GLP_IROWGEN if LP relaxation of the current
 //				subproblem has just been solved to optimality and its objective value is better than the best known
 //				integer feasible solution.
-//				In response the callback routine may add one or more “lazy” constraints (rows), which are
+//				In response the callback routine may add one or more constraints (rows), which are
 //				violated by the current optimal solution of LP relaxation, using API routines glp_add_rows,
 //				glp_set_row_name, glp_set_row_bnds, and glp_set_mat_row, in which case the solver will per-
 //				form re-optimization of LP relaxation. If there are no violated constraints, the callback routine

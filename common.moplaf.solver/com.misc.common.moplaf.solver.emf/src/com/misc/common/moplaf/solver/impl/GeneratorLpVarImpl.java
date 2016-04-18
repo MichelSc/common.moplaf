@@ -5,6 +5,7 @@ package com.misc.common.moplaf.solver.impl;
 import com.misc.common.moplaf.solver.EnumLpVarType;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
+import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import java.util.Collection;
@@ -112,6 +113,17 @@ public class GeneratorLpVarImpl extends GeneratorVarImpl implements GeneratorLpV
 	protected GeneratorLpVarImpl() {
 		super();
 	}
+	
+	
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public void build(Solver builder) throws Exception {
+		builder.buildLpVar(this);
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -197,6 +209,7 @@ public class GeneratorLpVarImpl extends GeneratorVarImpl implements GeneratorLpV
 		}
 		return lpTerm;
 	}
+	
 
 	/**
 	 * <!-- begin-user-doc -->

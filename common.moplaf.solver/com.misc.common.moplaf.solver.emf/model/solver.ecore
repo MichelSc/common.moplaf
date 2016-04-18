@@ -129,6 +129,9 @@
     <eOperations name="getSolutionValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
       <eParameters name="solver" eType="#//Solution"/>
     </eOperations>
+    <eOperations name="build" eExceptions="#//Exception">
+      <eParameters name="builder" eType="#//Solver"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Solution" upperBound="-1"
         eType="#//SolutionVar" eOpposite="#//SolutionVar/var"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SelectedSolutionValue"
@@ -148,6 +151,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorCons" abstract="true" eSuperTypes="#//GeneratorTupleMember">
     <eOperations name="getSolution" eType="#//SolutionCons">
       <eParameters name="solver" eType="#//Solution"/>
+    </eOperations>
+    <eOperations name="build" eExceptions="#//Exception">
+      <eParameters name="builder" eType="#//Solver"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Solution" upperBound="-1"
         eType="#//SolutionCons" eOpposite="#//SolutionCons/cons"/>
@@ -257,6 +263,25 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Method to be called by the client to solve the lp and to produce the solution&#xA;"/>
       </eAnnotations>
+    </eOperations>
+    <eOperations name="build" eExceptions="#//Exception"/>
+    <eOperations name="buildVar" eExceptions="#//Exception">
+      <eParameters name="var" eType="#//GeneratorVar"/>
+    </eOperations>
+    <eOperations name="buildLpVar" eExceptions="#//Exception">
+      <eParameters name="var" eType="#//GeneratorLpVar"/>
+    </eOperations>
+    <eOperations name="buildGoal" eExceptions="#//Exception">
+      <eParameters name="goal" eType="#//GeneratorGoal"/>
+    </eOperations>
+    <eOperations name="buildLpGoal" eExceptions="#//Exception">
+      <eParameters name="goal" eType="#//GeneratorLpGoal"/>
+    </eOperations>
+    <eOperations name="buildCons" eExceptions="#//Exception">
+      <eParameters name="cons" eType="#//GeneratorCons"/>
+    </eOperations>
+    <eOperations name="buildLpCons" eExceptions="#//Exception">
+      <eParameters name="cons" eType="#//GeneratorLpCons"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Remarks" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -391,6 +416,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorGoal" abstract="true">
     <eOperations name="getGenerator" eType="#//Generator"/>
+    <eOperations name="build" eExceptions="#//Exception">
+      <eParameters name="builder" eType="#//Solver"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="GeneratorAsRoot" eType="#//Generator"
         changeable="false" volatile="true" transient="true" derived="true" eOpposite="#//Generator/GoalsRoot"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="SubGoal" eType="#//GeneratorGoal"

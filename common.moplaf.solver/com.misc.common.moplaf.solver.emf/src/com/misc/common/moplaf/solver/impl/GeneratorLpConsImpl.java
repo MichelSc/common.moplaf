@@ -7,6 +7,7 @@ import com.misc.common.moplaf.solver.GeneratorLpCons;
 import com.misc.common.moplaf.solver.GeneratorLpLinear;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
+import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.solver.SolverPackage;
 import java.lang.reflect.InvocationTargetException;
@@ -179,6 +180,18 @@ public class GeneratorLpConsImpl extends GeneratorConsImpl implements GeneratorL
 			this.getLpTerm().add(term);
 			return term;
 		}
+
+	
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+
+	@Override
+	public void build(Solver builder) throws Exception {
+		builder.buildLpCons(this);
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

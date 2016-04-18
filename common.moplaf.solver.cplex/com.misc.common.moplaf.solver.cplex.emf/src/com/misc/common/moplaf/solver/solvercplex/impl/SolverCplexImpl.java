@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.solver.solvercplex.impl;
 
+import com.misc.common.moplaf.solver.EnumLpConsType;
 import com.misc.common.moplaf.solver.EnumLpFileFormat;
 
 import ilog.concert.IloException;
@@ -19,9 +20,8 @@ import java.util.Map;
 import com.misc.common.moplaf.solver.EnumLpVarType;
 import com.misc.common.moplaf.solver.EnumObjectiveType;
 import com.misc.common.moplaf.solver.Generator;
-import com.misc.common.moplaf.solver.GeneratorCons;
-import com.misc.common.moplaf.solver.GeneratorLpCons;
 import com.misc.common.moplaf.solver.GeneratorLpGoal;
+import com.misc.common.moplaf.solver.GeneratorLpLinear;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
 import com.misc.common.moplaf.solver.GeneratorTuple;
@@ -197,8 +197,8 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 	// private declarations
 	private IloCplex lp;
 	private Map<GeneratorLpVar, IloNumVar> vars;
-	private Map<GeneratorLpCons, IloRange> cons;
-//	private String actualfilepath = null;
+//	private Map<GeneratorLpCons, IloRange> cons;
+	private Map<Object, IloRange> cons;
 	 
 	private void releaseLp(){
 		this.lp = null;
@@ -231,100 +231,89 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		}
 	}
 
+	
+	/**
+     * Build the lp var
+	 */
+	@Override
+	public void buildLpVar(GeneratorLpVar var) throws Exception {
+		IloNumVarType vartypetobe = IloNumVarType.Float; 
+		if ( !this.isSolverLinearRelaxation() && var.getType()==EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER){
+			vartypetobe = IloNumVarType.Int; 
+		}
+		float lb = var.getLowerBound();
+		float ub = var.getUpperBound();
+		String name = var.getCode();
+		// create the var
+		IloNumVar cplexvar = SolverCplexImpl.this.lp.numVar(lb, ub, vartypetobe, name);
+		SolverCplexImpl.this.vars.put(var, cplexvar);
+	}
 
+	/**
+     * Build the lp cons
+	 */
+	@Override
+	protected void buildLpCons(Object cons, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
+		IloLinearNumExpr expr = SolverCplexImpl.this.lp.linearNumExpr();
+	    for ( GeneratorLpTerm lpterm : linear.getLpTerm())			{
+		    GeneratorLpVar lpvar = lpterm.getLpVar();
+		    IloNumVar cplexvar = vars.get(lpvar);
+		    float coefficient = lpterm.getCoeff();
+		    expr.addTerm(coefficient, cplexvar);;
+	    } // traverse the terms
+	    IloRange range = null;
+		switch (type ) {
+	    case ENUM_LITERAL_LP_CONS_EQUAL:
+	    	range = SolverCplexImpl.this.lp.addEq(expr, rhs);
+	        break;
+	    case ENUM_LITERAL_LP_CONS_BIGGER_OR_EQUAL:
+	    	range = SolverCplexImpl.this.lp.addGe(expr, rhs);
+	        break;
+	    case ENUM_LITERAL_LP_CONS_SMALLER_OR_EQUAL:
+	    	range = SolverCplexImpl.this.lp.addLe(expr, rhs);
+	        break;
+	    };  // switch on constraint type
+	    //range.setName(lpcons.getCode());
+		SolverCplexImpl.this.cons.put(cons, range);
+	}
+
+	/**
+     * Build the lp goal
+	 */
+	@Override
+	public void buildLpGoal(GeneratorLpGoal goal) throws Exception {
+		final IloLinearNumExpr objective = this.lp.linearNumExpr();
+		
+		for ( GeneratorLpTerm goalTerm : goal.getLpTerm()){
+			// create the objective coefficient
+			GeneratorLpVar lpvar = goalTerm.getLpVar();
+			float coefficient = goalTerm.getCoeff();
+			if ( coefficient!=0.0f){
+			    IloNumVar cplexvar = vars.get(lpvar);
+				objective.addTerm(coefficient, cplexvar);
+			}
+		}
+		if ( goal.getObjectiveType()==EnumObjectiveType.MINIMUM){
+			this.lp.addMinimize(objective);
+		} else if ( goal.getObjectiveType()==EnumObjectiveType.MAXIMUM){
+			this.lp.addMaximize(objective);
+		}
+	}
+
+	/**
+	*   Load the lp
+    */
 	private void loadLp(){
 		this.releaseLp(); // release the current model, if any
 		Generator generator = this.getGenerator();
 		if ( generator == null) { return; }
 		try {
 			this.lp = new IloCplex();
-			
-			// map the variables
 			this.vars = new HashMap<GeneratorLpVar, IloNumVar>();
-			class VarMapper implements ITupleVisitor{
-				@Override
-				public void visitTuple(GeneratorTuple tuple) throws IloException {
-					for ( GeneratorVar var : tuple.getVar()){
-						if ( !(var  instanceof GeneratorLpVar)){
-							throw new UnsupportedOperationException("Variable type not supported by solver: "+var.eClass().getName());
-						}
-						GeneratorLpVar lpvar = (GeneratorLpVar)var;
-						IloNumVarType vartypetobe = IloNumVarType.Float; 
-						if ( !SolverCplexImpl.this.isSolverLinearRelaxation() && lpvar.getType()==EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER){
-							vartypetobe = IloNumVarType.Int; 
-						}
-						float lb = lpvar.getLowerBound();
-						float ub = lpvar.getUpperBound();
-						String name = lpvar.getCode();
-						// create the var
-						IloNumVar cplexvar = SolverCplexImpl.this.lp.numVar(lb, ub, vartypetobe, name);
-						SolverCplexImpl.this.vars.put(lpvar, cplexvar);
-					}  // traverse the vars of the tuple
-				}  // method visitTuple
-			}; // VarMapper
-			VarMapper varmapper = new VarMapper();
-			generator.visitTuples(varmapper);
+			this.cons = new HashMap<Object, IloRange>();
 			
-			// objective expression
-			final IloLinearNumExpr objective = this.lp.linearNumExpr();
-			
-			GeneratorLpGoal goal = (GeneratorLpGoal) this.getGoalToSolve();
-			if ( goal != null) {
-				for ( GeneratorLpTerm goalTerm : goal.getLpTerm()){
-					// create the objective coefficient
-					GeneratorLpVar lpvar = goalTerm.getLpVar();
-					float coefficient = goalTerm.getCoeff();
-					if ( coefficient!=0.0f){
-					    IloNumVar cplexvar = vars.get(lpvar);
-						objective.addTerm(coefficient, cplexvar);
-					}
-				}
-				if ( goal.getObjectiveType()==EnumObjectiveType.MINIMUM){
-					this.lp.addMinimize(objective);
-				} else if ( goal.getObjectiveType()==EnumObjectiveType.MAXIMUM){
-					this.lp.addMaximize(objective);
-				}
-			}
-				
-			// map the constraints
-			this.cons = new HashMap<GeneratorLpCons, IloRange>();
-			class ConsMapper implements ITupleVisitor{
-				@Override
-				public void visitTuple(GeneratorTuple tuple) throws IloException {
-					for ( GeneratorCons cons : tuple.getCons()){
-						if ( !(cons instanceof GeneratorLpCons)){
-							throw new UnsupportedOperationException("Constraint type not supported by solver: "+cons.eClass().getName());
-						}
-						GeneratorLpCons lpcons = (GeneratorLpCons)cons;
-						IloLinearNumExpr expr = SolverCplexImpl.this.lp.linearNumExpr();
-					    for ( GeneratorLpTerm lpterm : lpcons.getLpTerm())			{
-						    GeneratorLpVar lpvar = lpterm.getLpVar();
-						    IloNumVar cplexvar = vars.get(lpvar);
-						    float coefficient = lpterm.getCoeff();
-						    expr.addTerm(coefficient, cplexvar);;
-					    } // traverse the terms
-					    IloRange range = null;
-					    float rhs = lpcons.getRighHandSide();
-						switch (lpcons.getType() ) {
-					    case ENUM_LITERAL_LP_CONS_EQUAL:
-					    	range = SolverCplexImpl.this.lp.addEq(expr, rhs);
-					        break;
-					    case ENUM_LITERAL_LP_CONS_BIGGER_OR_EQUAL:
-					    	range = SolverCplexImpl.this.lp.addGe(expr, rhs);
-					        break;
-					    case ENUM_LITERAL_LP_CONS_SMALLER_OR_EQUAL:
-					    	range = SolverCplexImpl.this.lp.addLe(expr, rhs);
-					        break;
-					    };  // switch on constraint type
-					    range.setName(lpcons.getCode());
-						SolverCplexImpl.this.cons.put(lpcons, range);
-					}
-				}
-			}; // class ConsMapper
-			ConsMapper consmapper = new ConsMapper();
-			generator.visitTuples(consmapper);
-
 			// create the problem in Cplex
+			this.build();
 		} 
 		catch (IloException e) {
 			e.printStackTrace();
@@ -336,24 +325,29 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		}
 	} // method lp load
 	
-	/*
-	 * Writes the active model to the file specified by filename.
-		The file format is determined by the extension of the filename. 
-		The following extensions are recognized on most platforms:
-			.sav
-			.mps
-			.lp
-			.sav.gz (if gzip is properly installed)
-			.mps.gz (if gzip is properly installed)
-			.lp.gz (if gzip is properly installed)
-			.bz2 (if bzip2 is properly installed)
-	 */
+	/**
+	*   Writes the active model to the file specified by filename.
+	*	The file format is determined by the extension of the filename. 
+	*	The following extensions are recognized on most platforms:
+	*	<ul>
+    *     <li>.mps </li>
+    *     <li>.lp </li>
+    *     <li>.sav.gz (if gzip is properly installed) </li>
+    *     <li>.mps.gz (if gzip is properly installed) </li>
+    *     <li>.lp.gz (if gzip is properly installed)</li>
+    *     <li>.bz2 (if bzip2 is properly installed) </li>
+	*	</ul>
+    */
 	public void writeLpToFile() {
 		this.loadLp();
 		this.writeLpToFilePrivate();
 		this.releaseLp();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	private void writeLpToFilePrivate() {
 		String filepath = this.getFilePath();
 		if ( filepath==null){

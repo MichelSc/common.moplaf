@@ -2,10 +2,19 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
+import com.misc.common.moplaf.solver.EnumLpConsType;
 import com.misc.common.moplaf.solver.EnumSolverLogLevel;
 import com.misc.common.moplaf.solver.Generator;
+import com.misc.common.moplaf.solver.GeneratorCons;
 import com.misc.common.moplaf.solver.GeneratorGoal;
+import com.misc.common.moplaf.solver.GeneratorLpCons;
+import com.misc.common.moplaf.solver.GeneratorLpGoal;
+import com.misc.common.moplaf.solver.GeneratorLpLinear;
+import com.misc.common.moplaf.solver.GeneratorLpVar;
+import com.misc.common.moplaf.solver.GeneratorTuple;
+import com.misc.common.moplaf.solver.GeneratorVar;
 import com.misc.common.moplaf.solver.IGeneratorTool;
+import com.misc.common.moplaf.solver.ITupleVisitor;
 import com.misc.common.moplaf.solver.Plugin;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.Solver;
@@ -591,6 +600,68 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	protected SolverImpl() {
 		super();
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void buildLpVar(GeneratorLpVar var) throws Exception {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void buildGoal(GeneratorGoal goal) throws Exception {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void buildLpGoal(GeneratorLpGoal goal) throws Exception {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void buildCons(GeneratorCons cons) throws Exception {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void buildLpCons(GeneratorLpCons cons) throws Exception {
+		this.buildLpCons(cons, cons, cons.getRighHandSide(), cons.getType());
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	protected void buildLpCons(Object cons, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1221,6 +1292,54 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		}
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void build() throws Exception {
+		Generator generator = this.getGenerator();
+		// build the vars
+		class VarMapper implements ITupleVisitor{
+			@Override
+			public void visitTuple(GeneratorTuple tuple) throws Exception {
+				for ( GeneratorVar var : tuple.getVar()){
+					var.build(SolverImpl.this);
+				}  // traverse the vars of the tuple
+			}  // method visitTuple
+		}; // VarMapper
+		VarMapper varmapper = new VarMapper();
+		generator.visitTuples(varmapper);
+
+		// build the objective 
+		if ( goalToSolve != null) {
+			goalToSolve.build(SolverImpl.this);
+		}
+		
+		// build the normal constraints
+		class ConsMapper implements ITupleVisitor{
+			@Override
+			public void visitTuple(GeneratorTuple tuple) throws Exception {
+				for ( GeneratorCons cons : tuple.getCons()){
+					cons.build(SolverImpl.this);
+				}
+			}
+		}; // class ConsMapper
+		ConsMapper consmapper = new ConsMapper();
+		generator.visitTuples(consmapper);
+		
+		// build the constraints implied by other solvers
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void buildVar(GeneratorVar var) throws Exception {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1792,6 +1911,62 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			case SolverPackage.SOLVER___SOLVE:
 				solve();
 				return null;
+			case SolverPackage.SOLVER___BUILD:
+				try {
+					build();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case SolverPackage.SOLVER___BUILD_VAR__GENERATORVAR:
+				try {
+					buildVar((GeneratorVar)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case SolverPackage.SOLVER___BUILD_LP_VAR__GENERATORLPVAR:
+				try {
+					buildLpVar((GeneratorLpVar)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case SolverPackage.SOLVER___BUILD_GOAL__GENERATORGOAL:
+				try {
+					buildGoal((GeneratorGoal)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case SolverPackage.SOLVER___BUILD_LP_GOAL__GENERATORLPGOAL:
+				try {
+					buildLpGoal((GeneratorLpGoal)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case SolverPackage.SOLVER___BUILD_CONS__GENERATORCONS:
+				try {
+					buildCons((GeneratorCons)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case SolverPackage.SOLVER___BUILD_LP_CONS__GENERATORLPCONS:
+				try {
+					buildLpCons((GeneratorLpCons)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}
