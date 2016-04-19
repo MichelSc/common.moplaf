@@ -403,8 +403,6 @@ public abstract class GeneratorTupleImpl extends GeneratorElementImpl implements
 			case SolverPackage.GENERATOR_TUPLE___GENERATE_TUPLES:
 				generateTuples();
 				return null;
-			case SolverPackage.GENERATOR_TUPLE___GET_GENERATOR:
-				return getGenerator();
 			case SolverPackage.GENERATOR_TUPLE___VISIT_TUPLES__ITUPLEVISITOR:
 				try {
 					visitTuples((ITupleVisitor)arguments.get(0));

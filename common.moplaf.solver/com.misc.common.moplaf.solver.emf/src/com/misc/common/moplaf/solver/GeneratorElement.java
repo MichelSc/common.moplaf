@@ -37,4 +37,12 @@ public interface GeneratorElement extends EObject {
 	 */
 	String getCode();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	Generator getGenerator();
+
 } // GeneratorElement

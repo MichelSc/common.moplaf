@@ -40,18 +40,6 @@ public interface GeneratorGoal extends GeneratorElement {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Generator</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @model kind="operation"
-	 * @generated
-	 */
-	Generator getGenerator();
-
-	/**
-	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
 	 * @generated

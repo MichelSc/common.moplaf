@@ -810,6 +810,12 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		this.vars.put((GeneratorLpVar)var, varnumber);
 		
 		// make the var
+		int nofColsAsIs = GLPK.glp_get_num_cols(this.lp); 
+		if ( varnumber > nofColsAsIs ){
+			GLPK.glp_add_cols(this.lp, varnumber-nofColsAsIs);
+		}
+		
+		// fill in the var
 		float lb = var.getLowerBound();
 		float ub = var.getUpperBound();
 		int kind = GLPKConstants.GLP_CV;
@@ -831,8 +837,14 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		int consnumber = this.cons_counter;
 		this.cons_counter++;
 		this.cons.put(element, consnumber);
-
+		
 		// make the constraint
+		int nofRowsAsIs = GLPK.glp_get_num_rows(this.lp); 
+		if ( consnumber > nofRowsAsIs ){
+			GLPK.glp_add_rows(this.lp, consnumber-nofRowsAsIs);
+		}
+
+		// fill in the constraint
 		String rowname = element.getCode();
 		int nofterms = linear.getLpTerm().size();
 		float lb = rhs;
@@ -878,6 +890,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 			direction = GLPKConstants.GLP_MAX;
 		}
 		GLPK.glp_set_obj_dir(this.lp, direction);
+		GLPK.glp_set_obj_name(this.lp, goal.getCode());
 		// terms
 		for ( GeneratorLpTerm goalTerm : goal.getLpTerm()){
 			// create the objective coefficient
@@ -904,12 +917,11 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 			this.vars = new HashMap<GeneratorLpVar, Number>();
 			this.cons = new HashMap<GeneratorElement, Number>();
 
-			// create the problem in GLPK
+			// create the problem in GLPK and initialize
 			this.lp = GLPK.glp_create_prob();
 			GLPK.glp_add_cols(this.lp, generator.getFootprintNofVars());
 			GLPK.glp_add_rows(this.lp, generator.getFootprintNofCons());
 			GLPK.glp_set_prob_name(this.lp, this.getCode());
-			GLPK.glp_set_obj_name(this.lp, "z");
 			this.build();
 		}
 		catch (Exception e) {

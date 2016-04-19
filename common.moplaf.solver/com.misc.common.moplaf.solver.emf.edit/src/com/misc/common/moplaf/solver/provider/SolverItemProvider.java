@@ -229,7 +229,7 @@ public class SolverItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__10GeneralPropertyCategory"),
 				 null));
 	}
 
@@ -251,7 +251,7 @@ public class SolverItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__10GeneralPropertyCategory"),
 				 null));
 	}
 

@@ -342,13 +342,22 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_ELEMENT_FEATURE_COUNT = 1;
 
 	/**
+	 * The operation id for the '<em>Get Generator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_ELEMENT___GET_GENERATOR = 0;
+
+	/**
 	 * The number of operations of the '<em>Generator Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_ELEMENT_OPERATION_COUNT = 0;
+	int GENERATOR_ELEMENT_OPERATION_COUNT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -432,6 +441,15 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_TUPLE_FEATURE_COUNT = GENERATOR_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
+	 * The operation id for the '<em>Get Generator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_TUPLE___GET_GENERATOR = GENERATOR_ELEMENT___GET_GENERATOR;
+
+	/**
 	 * The operation id for the '<em>Generate Vars</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -459,22 +477,13 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_TUPLE___GENERATE_TUPLES = GENERATOR_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Get Generator</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_TUPLE___GET_GENERATOR = GENERATOR_ELEMENT_OPERATION_COUNT + 3;
-
-	/**
 	 * The operation id for the '<em>Visit Tuples</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_TUPLE___VISIT_TUPLES__ITUPLEVISITOR = GENERATOR_ELEMENT_OPERATION_COUNT + 4;
+	int GENERATOR_TUPLE___VISIT_TUPLES__ITUPLEVISITOR = GENERATOR_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
@@ -483,7 +492,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_TUPLE___REFRESH_SELECTED_SOLUTION = GENERATOR_ELEMENT_OPERATION_COUNT + 5;
+	int GENERATOR_TUPLE___REFRESH_SELECTED_SOLUTION = GENERATOR_ELEMENT_OPERATION_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Generator Tuple</em>' class.
@@ -492,7 +501,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_TUPLE_OPERATION_COUNT = GENERATOR_ELEMENT_OPERATION_COUNT + 6;
+	int GENERATOR_TUPLE_OPERATION_COUNT = GENERATOR_ELEMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorTupleMemberImpl <em>Generator Tuple Member</em>}' class.
@@ -557,6 +566,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_TUPLE_MEMBER_FEATURE_COUNT = GENERATOR_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Get Generator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_TUPLE_MEMBER___GET_GENERATOR = GENERATOR_ELEMENT___GET_GENERATOR;
 
 	/**
 	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
@@ -657,6 +675,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_VAR_FEATURE_COUNT = GENERATOR_TUPLE_MEMBER_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Generator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_VAR___GET_GENERATOR = GENERATOR_TUPLE_MEMBER___GET_GENERATOR;
 
 	/**
 	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
@@ -840,6 +867,15 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_LP_VAR_FEATURE_COUNT = GENERATOR_VAR_FEATURE_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Get Generator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_VAR___GET_GENERATOR = GENERATOR_VAR___GET_GENERATOR;
+
+	/**
 	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -985,6 +1021,15 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_CONS_FEATURE_COUNT = GENERATOR_TUPLE_MEMBER_FEATURE_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Get Generator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CONS___GET_GENERATOR = GENERATOR_TUPLE_MEMBER___GET_GENERATOR;
+
+	/**
 	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1128,6 +1173,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_LP_CONS_FEATURE_COUNT = GENERATOR_CONS_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get Generator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_CONS___GET_GENERATOR = GENERATOR_CONS___GET_GENERATOR;
 
 	/**
 	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
@@ -4159,6 +4213,15 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_CP_CONS_FEATURE_COUNT = GENERATOR_CONS_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Get Generator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CP_CONS___GET_GENERATOR = GENERATOR_CONS___GET_GENERATOR;
+
+	/**
 	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4313,6 +4376,15 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_CP_LINEAR_FEATURE_COUNT = GENERATOR_CP_CONS_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Get Generator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CP_LINEAR___GET_GENERATOR = GENERATOR_CP_CONS___GET_GENERATOR;
+
+	/**
 	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4457,6 +4529,15 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_CP_LOGICAL_FEATURE_COUNT = GENERATOR_CP_CONS_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Get Generator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CP_LOGICAL___GET_GENERATOR = GENERATOR_CP_CONS___GET_GENERATOR;
+
+	/**
 	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4572,6 +4653,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_CP_VAR_FEATURE_COUNT = GENERATOR_VAR_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Generator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CP_VAR___GET_GENERATOR = GENERATOR_VAR___GET_GENERATOR;
 
 	/**
 	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
@@ -4734,6 +4824,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_CP_VAR_ATOMIC_FEATURE_COUNT = GENERATOR_CP_VAR_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Generator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CP_VAR_ATOMIC___GET_GENERATOR = GENERATOR_CP_VAR___GET_GENERATOR;
 
 	/**
 	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
@@ -4922,7 +5021,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_GOAL___GET_GENERATOR = GENERATOR_ELEMENT_OPERATION_COUNT + 0;
+	int GENERATOR_GOAL___GET_GENERATOR = GENERATOR_ELEMENT___GET_GENERATOR;
 
 	/**
 	 * The operation id for the '<em>Build</em>' operation.
@@ -4931,7 +5030,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_GOAL___BUILD__SOLVER = GENERATOR_ELEMENT_OPERATION_COUNT + 1;
+	int GENERATOR_GOAL___BUILD__SOLVER = GENERATOR_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Build Cons</em>' operation.
@@ -4940,7 +5039,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_GOAL___BUILD_CONS__SOLVER_SOLVER = GENERATOR_ELEMENT_OPERATION_COUNT + 2;
+	int GENERATOR_GOAL___BUILD_CONS__SOLVER_SOLVER = GENERATOR_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Generator Goal</em>' class.
@@ -4949,7 +5048,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_GOAL_OPERATION_COUNT = GENERATOR_ELEMENT_OPERATION_COUNT + 3;
+	int GENERATOR_GOAL_OPERATION_COUNT = GENERATOR_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -5586,16 +5685,6 @@ public interface SolverPackage extends EPackage {
 	EOperation getGeneratorTuple__GenerateTuples();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorTuple#getGenerator() <em>Get Generator</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Generator</em>' operation.
-	 * @see com.misc.common.moplaf.solver.GeneratorTuple#getGenerator()
-	 * @generated
-	 */
-	EOperation getGeneratorTuple__GetGenerator();
-
-	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorTuple#visitTuples(com.misc.common.moplaf.solver.ITupleVisitor) <em>Visit Tuples</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5701,6 +5790,16 @@ public interface SolverPackage extends EPackage {
 	EAttribute getGeneratorElement_Code();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorElement#getGenerator() <em>Get Generator</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Generator</em>' operation.
+	 * @see com.misc.common.moplaf.solver.GeneratorElement#getGenerator()
+	 * @generated
+	 */
+	EOperation getGeneratorElement__GetGenerator();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorGoal <em>Generator Goal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5742,16 +5841,6 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGeneratorGoal_Name();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorGoal#getGenerator() <em>Get Generator</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Generator</em>' operation.
-	 * @see com.misc.common.moplaf.solver.GeneratorGoal#getGenerator()
-	 * @generated
-	 */
-	EOperation getGeneratorGoal__GetGenerator();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorGoal#build(com.misc.common.moplaf.solver.Solver) <em>Build</em>}' operation.
@@ -7993,14 +8082,6 @@ public interface SolverPackage extends EPackage {
 		EOperation GENERATOR_TUPLE___GENERATE_TUPLES = eINSTANCE.getGeneratorTuple__GenerateTuples();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Generator</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation GENERATOR_TUPLE___GET_GENERATOR = eINSTANCE.getGeneratorTuple__GetGenerator();
-
-		/**
 		 * The meta object literal for the '<em><b>Visit Tuples</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8085,6 +8166,14 @@ public interface SolverPackage extends EPackage {
 		EAttribute GENERATOR_ELEMENT__CODE = eINSTANCE.getGeneratorElement_Code();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Generator</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GENERATOR_ELEMENT___GET_GENERATOR = eINSTANCE.getGeneratorElement__GetGenerator();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl <em>Generator Goal</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8117,14 +8206,6 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GENERATOR_GOAL__NAME = eINSTANCE.getGeneratorGoal_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Get Generator</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation GENERATOR_GOAL___GET_GENERATOR = eINSTANCE.getGeneratorGoal__GetGenerator();
 
 		/**
 		 * The meta object literal for the '<em><b>Build</b></em>' operation.

@@ -79,6 +79,7 @@
         derived="true" eOpposite="#//GeneratorGoal/GeneratorAsRoot"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorElement">
+    <eOperations name="getGenerator" eType="#//Generator"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
@@ -86,7 +87,6 @@
     <eOperations name="generateVars"/>
     <eOperations name="generateCons"/>
     <eOperations name="generateTuples"/>
-    <eOperations name="getGenerator" eType="#//Generator"/>
     <eOperations name="visitTuples" eExceptions="#//Exception">
       <eParameters name="visitor" eType="#//ITupleVisitor"/>
     </eOperations>
@@ -429,7 +429,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CpCons" eType="#//GeneratorCpCons"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorGoal" abstract="true" eSuperTypes="#//GeneratorElement">
-    <eOperations name="getGenerator" eType="#//Generator"/>
     <eOperations name="build" eExceptions="#//Exception">
       <eParameters name="builder" eType="#//Solver"/>
     </eOperations>
