@@ -768,6 +768,7 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 	 * @generated
 	 */
 	public void dispose() {
+		if (generatorElementItemProvider != null) generatorElementItemProvider.dispose();
 		if (generatorLpVarItemProvider != null) generatorLpVarItemProvider.dispose();
 		if (generatorLpConsItemProvider != null) generatorLpConsItemProvider.dispose();
 		if (generatorLpTermItemProvider != null) generatorLpTermItemProvider.dispose();
@@ -791,7 +792,6 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 		if (generatorCpVarAtomicItemProvider != null) generatorCpVarAtomicItemProvider.dispose();
 		if (generatorCpLinearTermItemProvider != null) generatorCpLinearTermItemProvider.dispose();
 		if (generatorCpLogicalTermItemProvider != null) generatorCpLogicalTermItemProvider.dispose();
-		if (generatorElementItemProvider != null) generatorElementItemProvider.dispose();
 		if (generatorLpGoalItemProvider != null) generatorLpGoalItemProvider.dispose();
 		if (generatorLpLinearItemProvider != null) generatorLpLinearItemProvider.dispose();
 	}

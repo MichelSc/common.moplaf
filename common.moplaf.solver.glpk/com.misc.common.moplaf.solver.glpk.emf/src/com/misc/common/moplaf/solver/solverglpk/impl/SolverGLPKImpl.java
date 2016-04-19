@@ -30,7 +30,7 @@ import com.misc.common.moplaf.solver.EnumLpFileFormat;
 import com.misc.common.moplaf.solver.EnumLpVarType;
 import com.misc.common.moplaf.solver.EnumObjectiveType;
 import com.misc.common.moplaf.solver.Generator;
-import com.misc.common.moplaf.solver.GeneratorLpCons;
+import com.misc.common.moplaf.solver.GeneratorElement;
 import com.misc.common.moplaf.solver.GeneratorLpGoal;
 import com.misc.common.moplaf.solver.GeneratorLpLinear;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
@@ -744,7 +744,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
     // private declarations
 	private glp_prob lp;
 	private Map<GeneratorLpVar, Number> vars;
-	private Map<GeneratorLpCons, Number> cons;
+	private Map<GeneratorElement, Number> cons;
 	private String actualfilepath = null;
 	private int var_counter = 0;
 	private int cons_counter = 0;
@@ -826,15 +826,14 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
      * Build the lp cons
 	 */
 	@Override
-	protected void buildLpCons(Object cons, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
+	protected void buildLpCons(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
 		// map the constraint
 		int consnumber = this.cons_counter;
 		this.cons_counter++;
-		this.cons.put((GeneratorLpCons)cons, consnumber);
+		this.cons.put(element, consnumber);
 
 		// make the constraint
-		//String rowname = lpcons.getCode();
-		String rowname = "to do";
+		String rowname = element.getCode();
 		int nofterms = linear.getLpTerm().size();
 		float lb = rhs;
 		float ub = rhs;
@@ -903,7 +902,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		if ( generator == null) { return; }
 		try {
 			this.vars = new HashMap<GeneratorLpVar, Number>();
-			this.cons = new HashMap<GeneratorLpCons, Number>();
+			this.cons = new HashMap<GeneratorElement, Number>();
 
 			// create the problem in GLPK
 			this.lp = GLPK.glp_create_prob();

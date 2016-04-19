@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#getTupleContainer <em>Tuple Container</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#getVar <em>Var</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#getCons <em>Cons</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#getCode <em>Code</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorTuple#getMembers <em>Members</em>}</li>
  * </ul>
  *
@@ -112,30 +112,30 @@ public interface GeneratorTuple extends GeneratorElement {
 	EList<GeneratorCons> getCons();
 
 	/**
-	 * Returns the value of the '<em><b>Code</b></em>' attribute.
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Code</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Code</em>' attribute.
-	 * @see #setCode(String)
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorTuple_Code()
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorTuple_Name()
 	 * @model
 	 * @generated
 	 */
-	String getCode();
+	String getName();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.solver.GeneratorTuple#getCode <em>Code</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.solver.GeneratorTuple#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Code</em>' attribute.
-	 * @see #getCode()
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
 	 * @generated
 	 */
-	void setCode(String value);
+	void setName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Members</b></em>' reference list.

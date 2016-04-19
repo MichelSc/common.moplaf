@@ -72,6 +72,12 @@ public class SolverSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SolverPackage.GENERATOR_ELEMENT: {
+				GeneratorElement generatorElement = (GeneratorElement)theEObject;
+				T result = caseGeneratorElement(generatorElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case SolverPackage.GENERATOR_TUPLE: {
 				GeneratorTuple generatorTuple = (GeneratorTuple)theEObject;
 				T result = caseGeneratorTuple(generatorTuple);
@@ -340,15 +346,10 @@ public class SolverSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SolverPackage.GENERATOR_ELEMENT: {
-				GeneratorElement generatorElement = (GeneratorElement)theEObject;
-				T result = caseGeneratorElement(generatorElement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case SolverPackage.GENERATOR_GOAL: {
 				GeneratorGoal generatorGoal = (GeneratorGoal)theEObject;
 				T result = caseGeneratorGoal(generatorGoal);
+				if (result == null) result = caseGeneratorElement(generatorGoal);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -357,6 +358,7 @@ public class SolverSwitch<T> extends Switch<T> {
 				T result = caseGeneratorLpGoal(generatorLpGoal);
 				if (result == null) result = caseGeneratorGoal(generatorLpGoal);
 				if (result == null) result = caseGeneratorLpLinear(generatorLpGoal);
+				if (result == null) result = caseGeneratorElement(generatorLpGoal);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

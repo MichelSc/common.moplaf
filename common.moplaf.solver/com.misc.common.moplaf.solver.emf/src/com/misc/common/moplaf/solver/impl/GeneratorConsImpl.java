@@ -122,7 +122,9 @@ public abstract class GeneratorConsImpl extends GeneratorTupleMemberImpl impleme
 	 * @generated
 	 */
 	public void build(Solver builder) throws Exception {
-		builder.buildCons(this);
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**

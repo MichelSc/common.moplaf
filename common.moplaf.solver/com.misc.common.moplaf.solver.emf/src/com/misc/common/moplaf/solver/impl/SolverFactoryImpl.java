@@ -57,6 +57,7 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case SolverPackage.GENERATOR_ELEMENT: return createGeneratorElement();
 			case SolverPackage.GENERATOR_LP_VAR: return createGeneratorLpVar();
 			case SolverPackage.GENERATOR_LP_CONS: return createGeneratorLpCons();
 			case SolverPackage.GENERATOR_LP_TERM: return createGeneratorLpTerm();
@@ -80,7 +81,6 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 			case SolverPackage.GENERATOR_CP_VAR_ATOMIC: return createGeneratorCpVarAtomic();
 			case SolverPackage.GENERATOR_CP_LINEAR_TERM: return createGeneratorCpLinearTerm();
 			case SolverPackage.GENERATOR_CP_LOGICAL_TERM: return createGeneratorCpLogicalTerm();
-			case SolverPackage.GENERATOR_ELEMENT: return createGeneratorElement();
 			case SolverPackage.GENERATOR_LP_GOAL: return createGeneratorLpGoal();
 			case SolverPackage.GENERATOR_LP_LINEAR: return createGeneratorLpLinear();
 			default:

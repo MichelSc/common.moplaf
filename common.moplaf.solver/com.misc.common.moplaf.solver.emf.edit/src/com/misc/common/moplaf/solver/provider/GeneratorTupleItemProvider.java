@@ -43,25 +43,25 @@ public class GeneratorTupleItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCodePropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Code feature.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCodePropertyDescriptor(Object object) {
+	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GeneratorTuple_Code_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorTuple_Code_feature", "_UI_GeneratorTuple_type"),
-				 SolverPackage.Literals.GENERATOR_TUPLE__CODE,
+				 getString("_UI_GeneratorTuple_Name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorTuple_Name_feature", "_UI_GeneratorTuple_type"),
+				 SolverPackage.Literals.GENERATOR_TUPLE__NAME,
 				 true,
 				 false,
 				 false,
@@ -88,7 +88,7 @@ public class GeneratorTupleItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GeneratorTuple)object).getCode();
+		String label = ((GeneratorTuple)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GeneratorTuple_type") :
 			getString("_UI_GeneratorTuple_type") + " " + label;
@@ -106,7 +106,7 @@ public class GeneratorTupleItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(GeneratorTuple.class)) {
-			case SolverPackage.GENERATOR_TUPLE__CODE:
+			case SolverPackage.GENERATOR_TUPLE__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

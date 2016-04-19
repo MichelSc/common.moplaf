@@ -27,7 +27,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleMemberImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleMemberImpl#getTuple <em>Tuple</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleMemberImpl#getCode <em>Code</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleMemberImpl#getSelectedSolutionDisplay <em>Selected Solution Display</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleMemberImpl#getLabel <em>Label</em>}</li>
  * </ul>
@@ -54,16 +53,6 @@ public abstract class GeneratorTupleMemberImpl extends GeneratorElementImpl impl
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getCode() <em>Code</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCode()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String CODE_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getSelectedSolutionDisplay() <em>Selected Solution Display</em>}' attribute.
@@ -229,8 +218,6 @@ public abstract class GeneratorTupleMemberImpl extends GeneratorElementImpl impl
 			case SolverPackage.GENERATOR_TUPLE_MEMBER__TUPLE:
 				if (resolve) return getTuple();
 				return basicGetTuple();
-			case SolverPackage.GENERATOR_TUPLE_MEMBER__CODE:
-				return getCode();
 			case SolverPackage.GENERATOR_TUPLE_MEMBER__SELECTED_SOLUTION_DISPLAY:
 				return getSelectedSolutionDisplay();
 			case SolverPackage.GENERATOR_TUPLE_MEMBER__LABEL:
@@ -250,9 +237,6 @@ public abstract class GeneratorTupleMemberImpl extends GeneratorElementImpl impl
 			case SolverPackage.GENERATOR_TUPLE_MEMBER__NAME:
 				setName((String)newValue);
 				return;
-			case SolverPackage.GENERATOR_TUPLE_MEMBER__CODE:
-				setCode((String)newValue);
-				return;
 			case SolverPackage.GENERATOR_TUPLE_MEMBER__SELECTED_SOLUTION_DISPLAY:
 				setSelectedSolutionDisplay((String)newValue);
 				return;
@@ -270,9 +254,6 @@ public abstract class GeneratorTupleMemberImpl extends GeneratorElementImpl impl
 		switch (featureID) {
 			case SolverPackage.GENERATOR_TUPLE_MEMBER__NAME:
 				setName(NAME_EDEFAULT);
-				return;
-			case SolverPackage.GENERATOR_TUPLE_MEMBER__CODE:
-				setCode(CODE_EDEFAULT);
 				return;
 			case SolverPackage.GENERATOR_TUPLE_MEMBER__SELECTED_SOLUTION_DISPLAY:
 				setSelectedSolutionDisplay(SELECTED_SOLUTION_DISPLAY_EDEFAULT);
@@ -293,8 +274,6 @@ public abstract class GeneratorTupleMemberImpl extends GeneratorElementImpl impl
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case SolverPackage.GENERATOR_TUPLE_MEMBER__TUPLE:
 				return basicGetTuple() != null;
-			case SolverPackage.GENERATOR_TUPLE_MEMBER__CODE:
-				return CODE_EDEFAULT == null ? getCode() != null : !CODE_EDEFAULT.equals(getCode());
 			case SolverPackage.GENERATOR_TUPLE_MEMBER__SELECTED_SOLUTION_DISPLAY:
 				return SELECTED_SOLUTION_DISPLAY_EDEFAULT == null ? selectedSolutionDisplay != null : !SELECTED_SOLUTION_DISPLAY_EDEFAULT.equals(selectedSolutionDisplay);
 			case SolverPackage.GENERATOR_TUPLE_MEMBER__LABEL:

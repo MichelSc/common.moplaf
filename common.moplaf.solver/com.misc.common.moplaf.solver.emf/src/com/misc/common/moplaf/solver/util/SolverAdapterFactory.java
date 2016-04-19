@@ -72,6 +72,10 @@ public class SolverAdapterFactory extends AdapterFactoryImpl {
 				return createGeneratorAdapter();
 			}
 			@Override
+			public Adapter caseGeneratorElement(GeneratorElement object) {
+				return createGeneratorElementAdapter();
+			}
+			@Override
 			public Adapter caseGeneratorTuple(GeneratorTuple object) {
 				return createGeneratorTupleAdapter();
 			}
@@ -214,10 +218,6 @@ public class SolverAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseGeneratorCpLogicalTerm(GeneratorCpLogicalTerm object) {
 				return createGeneratorCpLogicalTermAdapter();
-			}
-			@Override
-			public Adapter caseGeneratorElement(GeneratorElement object) {
-				return createGeneratorElementAdapter();
 			}
 			@Override
 			public Adapter caseGeneratorGoal(GeneratorGoal object) {

@@ -311,7 +311,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorTuple()
 	 * @generated
 	 */
-	int GENERATOR_TUPLE = 1;
+	int GENERATOR_TUPLE = 2;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorElementImpl <em>Generator Element</em>}' class.
@@ -321,7 +321,16 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorElement()
 	 * @generated
 	 */
-	int GENERATOR_ELEMENT = 37;
+	int GENERATOR_ELEMENT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_ELEMENT__CODE = 0;
 
 	/**
 	 * The number of structural features of the '<em>Generator Element</em>' class.
@@ -330,7 +339,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_ELEMENT_FEATURE_COUNT = 0;
+	int GENERATOR_ELEMENT_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Generator Element</em>' class.
@@ -340,6 +349,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_TUPLE__CODE = GENERATOR_ELEMENT__CODE;
 
 	/**
 	 * The feature id for the '<em><b>Generator As Root</b></em>' reference.
@@ -387,13 +405,13 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_TUPLE__CONS = GENERATOR_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_TUPLE__CODE = GENERATOR_ELEMENT_FEATURE_COUNT + 5;
+	int GENERATOR_TUPLE__NAME = GENERATOR_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Members</b></em>' reference list.
@@ -484,7 +502,16 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorTupleMember()
 	 * @generated
 	 */
-	int GENERATOR_TUPLE_MEMBER = 2;
+	int GENERATOR_TUPLE_MEMBER = 3;
+
+	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_TUPLE_MEMBER__CODE = GENERATOR_ELEMENT__CODE;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -505,22 +532,13 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_TUPLE_MEMBER__TUPLE = GENERATOR_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Code</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_TUPLE_MEMBER__CODE = GENERATOR_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Selected Solution Display</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_TUPLE_MEMBER__SELECTED_SOLUTION_DISPLAY = GENERATOR_ELEMENT_FEATURE_COUNT + 3;
+	int GENERATOR_TUPLE_MEMBER__SELECTED_SOLUTION_DISPLAY = GENERATOR_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -529,7 +547,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_TUPLE_MEMBER__LABEL = GENERATOR_ELEMENT_FEATURE_COUNT + 4;
+	int GENERATOR_TUPLE_MEMBER__LABEL = GENERATOR_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Generator Tuple Member</em>' class.
@@ -538,7 +556,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_TUPLE_MEMBER_FEATURE_COUNT = GENERATOR_ELEMENT_FEATURE_COUNT + 5;
+	int GENERATOR_TUPLE_MEMBER_FEATURE_COUNT = GENERATOR_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
@@ -566,7 +584,16 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorVar()
 	 * @generated
 	 */
-	int GENERATOR_VAR = 3;
+	int GENERATOR_VAR = 4;
+
+	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_VAR__CODE = GENERATOR_TUPLE_MEMBER__CODE;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -585,15 +612,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_VAR__TUPLE = GENERATOR_TUPLE_MEMBER__TUPLE;
-
-	/**
-	 * The feature id for the '<em><b>Code</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_VAR__CODE = GENERATOR_TUPLE_MEMBER__CODE;
 
 	/**
 	 * The feature id for the '<em><b>Selected Solution Display</b></em>' attribute.
@@ -711,7 +729,16 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpVar()
 	 * @generated
 	 */
-	int GENERATOR_LP_VAR = 4;
+	int GENERATOR_LP_VAR = 5;
+
+	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_VAR__CODE = GENERATOR_VAR__CODE;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -730,15 +757,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_LP_VAR__TUPLE = GENERATOR_VAR__TUPLE;
-
-	/**
-	 * The feature id for the '<em><b>Code</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_VAR__CODE = GENERATOR_VAR__CODE;
 
 	/**
 	 * The feature id for the '<em><b>Selected Solution Display</b></em>' attribute.
@@ -892,7 +910,16 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCons()
 	 * @generated
 	 */
-	int GENERATOR_CONS = 5;
+	int GENERATOR_CONS = 6;
+
+	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CONS__CODE = GENERATOR_TUPLE_MEMBER__CODE;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -911,15 +938,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_CONS__TUPLE = GENERATOR_TUPLE_MEMBER__TUPLE;
-
-	/**
-	 * The feature id for the '<em><b>Code</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_CONS__CODE = GENERATOR_TUPLE_MEMBER__CODE;
 
 	/**
 	 * The feature id for the '<em><b>Selected Solution Display</b></em>' attribute.
@@ -1010,7 +1028,16 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpCons()
 	 * @generated
 	 */
-	int GENERATOR_LP_CONS = 6;
+	int GENERATOR_LP_CONS = 7;
+
+	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_CONS__CODE = GENERATOR_CONS__CODE;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1029,15 +1056,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_LP_CONS__TUPLE = GENERATOR_CONS__TUPLE;
-
-	/**
-	 * The feature id for the '<em><b>Code</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_CONS__CODE = GENERATOR_CONS__CODE;
 
 	/**
 	 * The feature id for the '<em><b>Selected Solution Display</b></em>' attribute.
@@ -1164,7 +1182,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpTerm()
 	 * @generated
 	 */
-	int GENERATOR_LP_TERM = 7;
+	int GENERATOR_LP_TERM = 8;
 
 	/**
 	 * The feature id for the '<em><b>Lp Var</b></em>' reference.
@@ -1228,7 +1246,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpConsCountElement()
 	 * @generated
 	 */
-	int GENERATOR_LP_CONS_COUNT_ELEMENT = 8;
+	int GENERATOR_LP_CONS_COUNT_ELEMENT = 9;
 
 	/**
 	 * The feature id for the '<em><b>ELp Cons Count</b></em>' container reference.
@@ -1283,7 +1301,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpVarCountElement()
 	 * @generated
 	 */
-	int GENERATOR_LP_VAR_COUNT_ELEMENT = 9;
+	int GENERATOR_LP_VAR_COUNT_ELEMENT = 10;
 
 	/**
 	 * The feature id for the '<em><b>ELp Var Count</b></em>' container reference.
@@ -1338,7 +1356,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpVarCount()
 	 * @generated
 	 */
-	int GENERATOR_LP_VAR_COUNT = 10;
+	int GENERATOR_LP_VAR_COUNT = 11;
 
 	/**
 	 * The feature id for the '<em><b>ELp Var Count Element</b></em>' containment reference list.
@@ -1384,7 +1402,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpConsCount()
 	 * @generated
 	 */
-	int GENERATOR_LP_CONS_COUNT = 11;
+	int GENERATOR_LP_CONS_COUNT = 12;
 
 	/**
 	 * The feature id for the '<em><b>Lp Cons Count Element</b></em>' containment reference list.
@@ -1430,7 +1448,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorFeatureMode()
 	 * @generated
 	 */
-	int GENERATOR_FEATURE_MODE = 12;
+	int GENERATOR_FEATURE_MODE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Generator</b></em>' reference.
@@ -1503,7 +1521,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorConstraintEnabler()
 	 * @generated
 	 */
-	int GENERATOR_CONSTRAINT_ENABLER = 13;
+	int GENERATOR_CONSTRAINT_ENABLER = 14;
 
 	/**
 	 * The feature id for the '<em><b>Generator</b></em>' reference.
@@ -1576,7 +1594,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorVarOverflow()
 	 * @generated
 	 */
-	int GENERATOR_VAR_OVERFLOW = 14;
+	int GENERATOR_VAR_OVERFLOW = 15;
 
 	/**
 	 * The feature id for the '<em><b>Generator</b></em>' reference.
@@ -1667,7 +1685,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getIGeneratorTool()
 	 * @generated
 	 */
-	int IGENERATOR_TOOL = 15;
+	int IGENERATOR_TOOL = 16;
 
 	/**
 	 * The number of structural features of the '<em>IGenerator Tool</em>' class.
@@ -1704,7 +1722,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionProvider()
 	 * @generated
 	 */
-	int SOLUTION_PROVIDER = 19;
+	int SOLUTION_PROVIDER = 20;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
@@ -1786,7 +1804,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionReader()
 	 * @generated
 	 */
-	int SOLUTION_READER = 16;
+	int SOLUTION_READER = 17;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
@@ -1895,7 +1913,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionReaderPattern()
 	 * @generated
 	 */
-	int SOLUTION_READER_PATTERN = 17;
+	int SOLUTION_READER_PATTERN = 18;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
@@ -2049,7 +2067,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolver()
 	 * @generated
 	 */
-	int SOLVER = 20;
+	int SOLVER = 21;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.ILpWriter <em>ILp Writer</em>}' class.
@@ -2059,7 +2077,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getILpWriter()
 	 * @generated
 	 */
-	int ILP_WRITER = 18;
+	int ILP_WRITER = 19;
 
 	/**
 	 * The feature id for the '<em><b>File Path</b></em>' attribute.
@@ -2519,7 +2537,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolverLp()
 	 * @generated
 	 */
-	int SOLVER_LP = 22;
+	int SOLVER_LP = 23;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionVarImpl <em>Solution Var</em>}' class.
@@ -2529,7 +2547,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionVar()
 	 * @generated
 	 */
-	int SOLUTION_VAR = 25;
+	int SOLUTION_VAR = 26;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionLpVarImpl <em>Solution Lp Var</em>}' class.
@@ -2539,7 +2557,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionLpVar()
 	 * @generated
 	 */
-	int SOLUTION_LP_VAR = 26;
+	int SOLUTION_LP_VAR = 27;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionConsImpl <em>Solution Cons</em>}' class.
@@ -2549,7 +2567,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionCons()
 	 * @generated
 	 */
-	int SOLUTION_CONS = 28;
+	int SOLUTION_CONS = 29;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionLpConsImpl <em>Solution Lp Cons</em>}' class.
@@ -2559,7 +2577,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionLpCons()
 	 * @generated
 	 */
-	int SOLUTION_LP_CONS = 29;
+	int SOLUTION_LP_CONS = 30;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpConsImpl <em>Generator Cp Cons</em>}' class.
@@ -2569,7 +2587,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpCons()
 	 * @generated
 	 */
-	int GENERATOR_CP_CONS = 30;
+	int GENERATOR_CP_CONS = 31;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpLinearImpl <em>Generator Cp Linear</em>}' class.
@@ -2579,7 +2597,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpLinear()
 	 * @generated
 	 */
-	int GENERATOR_CP_LINEAR = 31;
+	int GENERATOR_CP_LINEAR = 32;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpLogicalImpl <em>Generator Cp Logical</em>}' class.
@@ -2589,7 +2607,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpLogical()
 	 * @generated
 	 */
-	int GENERATOR_CP_LOGICAL = 32;
+	int GENERATOR_CP_LOGICAL = 33;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpVarImpl <em>Generator Cp Var</em>}' class.
@@ -2599,7 +2617,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpVar()
 	 * @generated
 	 */
-	int GENERATOR_CP_VAR = 33;
+	int GENERATOR_CP_VAR = 34;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpVarAtomicImpl <em>Generator Cp Var Atomic</em>}' class.
@@ -2609,7 +2627,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpVarAtomic()
 	 * @generated
 	 */
-	int GENERATOR_CP_VAR_ATOMIC = 34;
+	int GENERATOR_CP_VAR_ATOMIC = 35;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpLinearTermImpl <em>Generator Cp Linear Term</em>}' class.
@@ -2619,7 +2637,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpLinearTerm()
 	 * @generated
 	 */
-	int GENERATOR_CP_LINEAR_TERM = 35;
+	int GENERATOR_CP_LINEAR_TERM = 36;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpLogicalTermImpl <em>Generator Cp Logical Term</em>}' class.
@@ -2629,7 +2647,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpLogicalTerm()
 	 * @generated
 	 */
-	int GENERATOR_CP_LOGICAL_TERM = 36;
+	int GENERATOR_CP_LOGICAL_TERM = 37;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionCpVarImpl <em>Solution Cp Var</em>}' class.
@@ -2639,7 +2657,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionCpVar()
 	 * @generated
 	 */
-	int SOLUTION_CP_VAR = 27;
+	int SOLUTION_CP_VAR = 28;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolverCpImpl <em>Cp</em>}' class.
@@ -2649,7 +2667,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolverCp()
 	 * @generated
 	 */
-	int SOLVER_CP = 21;
+	int SOLVER_CP = 22;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionImpl <em>Solution</em>}' class.
@@ -2659,7 +2677,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolution()
 	 * @generated
 	 */
-	int SOLUTION = 23;
+	int SOLUTION = 24;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionLpImpl <em>Solution Lp</em>}' class.
@@ -2669,7 +2687,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionLp()
 	 * @generated
 	 */
-	int SOLUTION_LP = 24;
+	int SOLUTION_LP = 25;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
@@ -3952,6 +3970,15 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_LP_GOAL = 39;
 
 	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CP_CONS__CODE = GENERATOR_CONS__CODE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3968,15 +3995,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_CP_CONS__TUPLE = GENERATOR_CONS__TUPLE;
-
-	/**
-	 * The feature id for the '<em><b>Code</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_CP_CONS__CODE = GENERATOR_CONS__CODE;
 
 	/**
 	 * The feature id for the '<em><b>Selected Solution Display</b></em>' attribute.
@@ -4069,6 +4087,15 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_CP_CONS_OPERATION_COUNT = GENERATOR_CONS_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CP_LINEAR__CODE = GENERATOR_CP_CONS__CODE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4085,15 +4112,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_CP_LINEAR__TUPLE = GENERATOR_CP_CONS__TUPLE;
-
-	/**
-	 * The feature id for the '<em><b>Code</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_CP_LINEAR__CODE = GENERATOR_CP_CONS__CODE;
 
 	/**
 	 * The feature id for the '<em><b>Selected Solution Display</b></em>' attribute.
@@ -4213,6 +4231,15 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_CP_LINEAR_OPERATION_COUNT = GENERATOR_CP_CONS_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CP_LOGICAL__CODE = GENERATOR_CP_CONS__CODE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4229,15 +4256,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_CP_LOGICAL__TUPLE = GENERATOR_CP_CONS__TUPLE;
-
-	/**
-	 * The feature id for the '<em><b>Code</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_CP_LOGICAL__CODE = GENERATOR_CP_CONS__CODE;
 
 	/**
 	 * The feature id for the '<em><b>Selected Solution Display</b></em>' attribute.
@@ -4357,6 +4375,15 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_CP_LOGICAL_OPERATION_COUNT = GENERATOR_CP_CONS_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CP_VAR__CODE = GENERATOR_VAR__CODE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4373,15 +4400,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_CP_VAR__TUPLE = GENERATOR_VAR__TUPLE;
-
-	/**
-	 * The feature id for the '<em><b>Code</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_CP_VAR__CODE = GENERATOR_VAR__CODE;
 
 	/**
 	 * The feature id for the '<em><b>Selected Solution Display</b></em>' attribute.
@@ -4501,6 +4519,15 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_CP_VAR_OPERATION_COUNT = GENERATOR_VAR_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_CP_VAR_ATOMIC__CODE = GENERATOR_CP_VAR__CODE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4517,15 +4544,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_CP_VAR_ATOMIC__TUPLE = GENERATOR_CP_VAR__TUPLE;
-
-	/**
-	 * The feature id for the '<em><b>Code</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_CP_VAR_ATOMIC__CODE = GENERATOR_CP_VAR__CODE;
 
 	/**
 	 * The feature id for the '<em><b>Selected Solution Display</b></em>' attribute.
@@ -4735,13 +4753,22 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_CP_LOGICAL_TERM_OPERATION_COUNT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_GOAL__CODE = GENERATOR_ELEMENT__CODE;
+
+	/**
 	 * The feature id for the '<em><b>Generator As Root</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_GOAL__GENERATOR_AS_ROOT = 0;
+	int GENERATOR_GOAL__GENERATOR_AS_ROOT = GENERATOR_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Sub Goal</b></em>' reference.
@@ -4750,7 +4777,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_GOAL__SUB_GOAL = 1;
+	int GENERATOR_GOAL__SUB_GOAL = GENERATOR_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4759,7 +4786,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_GOAL__NAME = 2;
+	int GENERATOR_GOAL__NAME = GENERATOR_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Generator Goal</em>' class.
@@ -4768,7 +4795,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_GOAL_FEATURE_COUNT = 3;
+	int GENERATOR_GOAL_FEATURE_COUNT = GENERATOR_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -4777,7 +4804,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_GOAL___GET_GENERATOR = 0;
+	int GENERATOR_GOAL___GET_GENERATOR = GENERATOR_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Build</em>' operation.
@@ -4786,7 +4813,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_GOAL___BUILD__SOLVER = 1;
+	int GENERATOR_GOAL___BUILD__SOLVER = GENERATOR_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Generator Goal</em>' class.
@@ -4795,7 +4822,16 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_GOAL_OPERATION_COUNT = 2;
+	int GENERATOR_GOAL_OPERATION_COUNT = GENERATOR_ELEMENT_OPERATION_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_GOAL__CODE = GENERATOR_GOAL__CODE;
 
 	/**
 	 * The feature id for the '<em><b>Generator As Root</b></em>' reference.
@@ -5372,15 +5408,15 @@ public interface SolverPackage extends EPackage {
 	EReference getGeneratorTuple_Cons();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorTuple#getCode <em>Code</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorTuple#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Code</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorTuple#getCode()
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.solver.GeneratorTuple#getName()
 	 * @see #getGeneratorTuple()
 	 * @generated
 	 */
-	EAttribute getGeneratorTuple_Code();
+	EAttribute getGeneratorTuple_Name();
 
 	/**
 	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.solver.GeneratorTuple#getMembers <em>Members</em>}'.
@@ -5486,17 +5522,6 @@ public interface SolverPackage extends EPackage {
 	EReference getGeneratorTupleMember_Tuple();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorTupleMember#getCode <em>Code</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Code</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorTupleMember#getCode()
-	 * @see #getGeneratorTupleMember()
-	 * @generated
-	 */
-	EAttribute getGeneratorTupleMember_Code();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorTupleMember#getSelectedSolutionDisplay <em>Selected Solution Display</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5537,6 +5562,17 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getGeneratorElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorElement#getCode <em>Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Code</em>'.
+	 * @see com.misc.common.moplaf.solver.GeneratorElement#getCode()
+	 * @see #getGeneratorElement()
+	 * @generated
+	 */
+	EAttribute getGeneratorElement_Code();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorGoal <em>Generator Goal</em>}'.
@@ -7739,12 +7775,12 @@ public interface SolverPackage extends EPackage {
 		EReference GENERATOR_TUPLE__CONS = eINSTANCE.getGeneratorTuple_Cons();
 
 		/**
-		 * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GENERATOR_TUPLE__CODE = eINSTANCE.getGeneratorTuple_Code();
+		EAttribute GENERATOR_TUPLE__NAME = eINSTANCE.getGeneratorTuple_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Members</b></em>' reference list feature.
@@ -7829,14 +7865,6 @@ public interface SolverPackage extends EPackage {
 		EReference GENERATOR_TUPLE_MEMBER__TUPLE = eINSTANCE.getGeneratorTupleMember_Tuple();
 
 		/**
-		 * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GENERATOR_TUPLE_MEMBER__CODE = eINSTANCE.getGeneratorTupleMember_Code();
-
-		/**
 		 * The meta object literal for the '<em><b>Selected Solution Display</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7869,6 +7897,14 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EClass GENERATOR_ELEMENT = eINSTANCE.getGeneratorElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERATOR_ELEMENT__CODE = eINSTANCE.getGeneratorElement_Code();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl <em>Generator Goal</em>}' class.

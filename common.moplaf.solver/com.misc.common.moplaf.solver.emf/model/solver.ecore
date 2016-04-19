@@ -78,6 +78,10 @@
         eType="#//GeneratorGoal" changeable="false" volatile="true" transient="true"
         derived="true" eOpposite="#//GeneratorGoal/GeneratorAsRoot"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorTuple" abstract="true" eSuperTypes="#//GeneratorElement">
     <eOperations name="generateVars"/>
     <eOperations name="generateCons"/>
@@ -98,7 +102,7 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Cons" upperBound="-1" eType="#//GeneratorCons"
         changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Members" upperBound="-1"
         eType="#//GeneratorTupleMember" changeable="false" volatile="true" transient="true"
         derived="true" eOpposite="#//GeneratorTupleMember/Tuple"/>
@@ -109,8 +113,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Tuple" eType="#//GeneratorTuple"
         changeable="false" volatile="true" transient="true" derived="true" eOpposite="#//GeneratorTuple/Members"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        volatile="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SelectedSolutionDisplay"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -413,8 +415,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Not" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CpCons" eType="#//GeneratorCpCons"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GeneratorElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="GeneratorGoal" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorGoal" abstract="true" eSuperTypes="#//GeneratorElement">
     <eOperations name="getGenerator" eType="#//Generator"/>
     <eOperations name="build" eExceptions="#//Exception">
       <eParameters name="builder" eType="#//Solver"/>

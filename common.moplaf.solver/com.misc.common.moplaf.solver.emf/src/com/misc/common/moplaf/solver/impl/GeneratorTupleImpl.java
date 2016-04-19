@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.util.EObjectEList;
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleImpl#getTupleContainer <em>Tuple Container</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleImpl#getVar <em>Var</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleImpl#getCons <em>Cons</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleImpl#getCode <em>Code</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorTupleImpl#getMembers <em>Members</em>}</li>
  * </ul>
  *
@@ -41,24 +41,24 @@ import org.eclipse.emf.ecore.util.EObjectEList;
  */
 public abstract class GeneratorTupleImpl extends GeneratorElementImpl implements GeneratorTuple {
 	/**
-	 * The default value of the '{@link #getCode() <em>Code</em>}' attribute.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCode()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CODE_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getCode() <em>Code</em>}' attribute.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCode()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String code = CODE_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -197,14 +197,19 @@ public abstract class GeneratorTupleImpl extends GeneratorElementImpl implements
 		}
 		return newList;
 	}
+	
+	public String getCode() {
+		return this.getName();
+	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getCode() {
-		return code;
+	public String getName() {
+		return name;
 	}
 
 	/**
@@ -212,11 +217,11 @@ public abstract class GeneratorTupleImpl extends GeneratorElementImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCode(String newCode) {
-		String oldCode = code;
-		code = newCode;
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_TUPLE__CODE, oldCode, code));
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_TUPLE__NAME, oldName, name));
 	}
 
 	/**
@@ -317,8 +322,8 @@ public abstract class GeneratorTupleImpl extends GeneratorElementImpl implements
 				return getVar();
 			case SolverPackage.GENERATOR_TUPLE__CONS:
 				return getCons();
-			case SolverPackage.GENERATOR_TUPLE__CODE:
-				return getCode();
+			case SolverPackage.GENERATOR_TUPLE__NAME:
+				return getName();
 			case SolverPackage.GENERATOR_TUPLE__MEMBERS:
 				return getMembers();
 		}
@@ -333,8 +338,8 @@ public abstract class GeneratorTupleImpl extends GeneratorElementImpl implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SolverPackage.GENERATOR_TUPLE__CODE:
-				setCode((String)newValue);
+			case SolverPackage.GENERATOR_TUPLE__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -348,8 +353,8 @@ public abstract class GeneratorTupleImpl extends GeneratorElementImpl implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SolverPackage.GENERATOR_TUPLE__CODE:
-				setCode(CODE_EDEFAULT);
+			case SolverPackage.GENERATOR_TUPLE__NAME:
+				setName(NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -373,8 +378,8 @@ public abstract class GeneratorTupleImpl extends GeneratorElementImpl implements
 				return !getVar().isEmpty();
 			case SolverPackage.GENERATOR_TUPLE__CONS:
 				return !getCons().isEmpty();
-			case SolverPackage.GENERATOR_TUPLE__CODE:
-				return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
+			case SolverPackage.GENERATOR_TUPLE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case SolverPackage.GENERATOR_TUPLE__MEMBERS:
 				return !getMembers().isEmpty();
 		}
@@ -425,8 +430,8 @@ public abstract class GeneratorTupleImpl extends GeneratorElementImpl implements
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (Code: ");
-		result.append(code);
+		result.append(" (Name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

@@ -2,8 +2,6 @@
  */
 package com.misc.common.moplaf.solver;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Generator Goal</b></em>'.
@@ -22,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface GeneratorGoal extends EObject {
+public interface GeneratorGoal extends GeneratorElement {
 	/**
 	 * Returns the value of the '<em><b>Generator As Root</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.Generator#getGoalsRoot <em>Goals Root</em>}'.

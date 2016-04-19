@@ -20,6 +20,7 @@ import java.util.Map;
 import com.misc.common.moplaf.solver.EnumLpVarType;
 import com.misc.common.moplaf.solver.EnumObjectiveType;
 import com.misc.common.moplaf.solver.Generator;
+import com.misc.common.moplaf.solver.GeneratorElement;
 import com.misc.common.moplaf.solver.GeneratorLpGoal;
 import com.misc.common.moplaf.solver.GeneratorLpLinear;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
@@ -197,8 +198,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 	// private declarations
 	private IloCplex lp;
 	private Map<GeneratorLpVar, IloNumVar> vars;
-//	private Map<GeneratorLpCons, IloRange> cons;
-	private Map<Object, IloRange> cons;
+	private Map<GeneratorElement, IloRange> cons;
 	 
 	private void releaseLp(){
 		this.lp = null;
@@ -253,7 +253,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
      * Build the lp cons
 	 */
 	@Override
-	protected void buildLpCons(Object cons, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
+	protected void buildLpCons(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
 		IloLinearNumExpr expr = SolverCplexImpl.this.lp.linearNumExpr();
 	    for ( GeneratorLpTerm lpterm : linear.getLpTerm())			{
 		    GeneratorLpVar lpvar = lpterm.getLpVar();
@@ -273,8 +273,8 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 	    	range = SolverCplexImpl.this.lp.addLe(expr, rhs);
 	        break;
 	    };  // switch on constraint type
-	    //range.setName(lpcons.getCode());
-		SolverCplexImpl.this.cons.put(cons, range);
+	    range.setName(element.getCode());
+		this.cons.put(element, range);
 	}
 
 	/**
@@ -310,7 +310,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		try {
 			this.lp = new IloCplex();
 			this.vars = new HashMap<GeneratorLpVar, IloNumVar>();
-			this.cons = new HashMap<Object, IloRange>();
+			this.cons = new HashMap<GeneratorElement, IloRange>();
 			
 			// create the problem in Cplex
 			this.build();

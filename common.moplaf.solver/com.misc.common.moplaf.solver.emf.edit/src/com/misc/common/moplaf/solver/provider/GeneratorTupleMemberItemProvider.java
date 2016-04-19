@@ -46,7 +46,6 @@ public class GeneratorTupleMemberItemProvider extends GeneratorElementItemProvid
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addCodePropertyDescriptor(object);
 			addSelectedSolutionDisplayPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -67,28 +66,6 @@ public class GeneratorTupleMemberItemProvider extends GeneratorElementItemProvid
 				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorTupleMember_Name_feature", "_UI_GeneratorTupleMember_type"),
 				 SolverPackage.Literals.GENERATOR_TUPLE_MEMBER__NAME,
 				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10GeneralPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Code feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCodePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GeneratorTupleMember_Code_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorTupleMember_Code_feature", "_UI_GeneratorTupleMember_type"),
-				 SolverPackage.Literals.GENERATOR_TUPLE_MEMBER__CODE,
-				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -146,7 +123,6 @@ public class GeneratorTupleMemberItemProvider extends GeneratorElementItemProvid
 
 		switch (notification.getFeatureID(GeneratorTupleMember.class)) {
 			case SolverPackage.GENERATOR_TUPLE_MEMBER__NAME:
-			case SolverPackage.GENERATOR_TUPLE_MEMBER__CODE:
 			case SolverPackage.GENERATOR_TUPLE_MEMBER__SELECTED_SOLUTION_DISPLAY:
 			case SolverPackage.GENERATOR_TUPLE_MEMBER__LABEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
