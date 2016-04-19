@@ -762,8 +762,8 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		}
 		this.vars = null;
 		this.cons = null;
-		this.var_counter  = 0;
-		this.cons_counter = 0;
+		this.var_counter  = 1;
+		this.cons_counter = 1;
 	}
 	
 	/**

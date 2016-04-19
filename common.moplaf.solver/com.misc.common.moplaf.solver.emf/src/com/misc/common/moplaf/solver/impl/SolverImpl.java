@@ -1312,8 +1312,8 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		generator.visitTuples(varmapper);
 
 		// build the objective 
-		if ( goalToSolve != null) {
-			goalToSolve.build(SolverImpl.this);
+		if ( this.getGoalToSolve() != null) {
+			this.getGoalToSolve().build(SolverImpl.this);
 		}
 		
 		// build the normal constraints
@@ -1328,7 +1328,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		ConsMapper consmapper = new ConsMapper();
 		generator.visitTuples(consmapper);
 		
-		// build the constraints implied by other solvers
+		// build the constraints implied by super solvers
 	}
 
 	/**

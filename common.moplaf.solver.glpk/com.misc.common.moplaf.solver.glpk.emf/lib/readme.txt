@@ -30,3 +30,4 @@ glpk
   
   first aid
     if libglpk_java.so is not found, add its location to the env variable LD_LIBRARY_PATH in the run configurations
+    if glpk_4_55.dll is not found, add it to the System32 folder
