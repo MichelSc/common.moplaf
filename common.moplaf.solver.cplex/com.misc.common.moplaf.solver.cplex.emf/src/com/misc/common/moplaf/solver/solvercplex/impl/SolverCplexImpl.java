@@ -280,7 +280,6 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 	@Override
 	public void buildLpGoal(GeneratorLpGoal goal) throws Exception {
 		final IloLinearNumExpr objective = this.lp.linearNumExpr();
-		
 		for ( GeneratorLpTerm goalTerm : goal.getLpTerm()){
 			// create the objective coefficient
 			GeneratorLpVar lpvar = goalTerm.getLpVar();

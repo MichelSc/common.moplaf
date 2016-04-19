@@ -875,6 +875,8 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		    GLPK.doubleArray_setitem(val, termindex, coefficient);
 	    } // traverse the terms
 	    GLPK.glp_set_mat_row(this.lp, consnumber, nofterms, ind, val);
+	    GLPK.delete_intArray(ind);
+	    GLPK.delete_doubleArray(val);
 	}
 
 	/**
