@@ -55,7 +55,6 @@ public class SolverItemProvider
 			addStatusPropertyDescriptor(object);
 			addSolverMaxDurationPropertyDescriptor(object);
 			addSolverBackgroundPropertyDescriptor(object);
-			addSolValuePropertyDescriptor(object);
 			addSolverLogLevelPropertyDescriptor(object);
 			addSolverDumpPropertyDescriptor(object);
 			addRunStartedPropertyDescriptor(object);
@@ -66,13 +65,16 @@ public class SolverItemProvider
 			addRunDurationFinalizationPropertyDescriptor(object);
 			addRunDurationSolvingPropertyDescriptor(object);
 			addRunRequestTerminatePropertyDescriptor(object);
+			addRunTimeOutPropertyDescriptor(object);
 			addSolUnfeasiblePropertyDescriptor(object);
 			addSolFeasiblePropertyDescriptor(object);
 			addSolOptimalPropertyDescriptor(object);
+			addSolValuePropertyDescriptor(object);
 			addRunInterruptedPropertyDescriptor(object);
-			addRunTimeOutPropertyDescriptor(object);
 			addGoalToSolvePropertyDescriptor(object);
 			addInitialSolutionPropertyDescriptor(object);
+			addNextToSolvePropertyDescriptor(object);
+			addPreviousSolvedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -206,6 +208,50 @@ public class SolverItemProvider
 				 true,
 				 null,
 				 getString("_UI__10GeneralPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Next To Solve feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNextToSolvePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Solver_nextToSolve_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Solver_nextToSolve_feature", "_UI_Solver_type"),
+				 SolverPackage.Literals.SOLVER__NEXT_TO_SOLVE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Previous Solved feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPreviousSolvedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Solver_previousSolved_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Solver_previousSolved_feature", "_UI_Solver_type"),
+				 SolverPackage.Literals.SOLVER__PREVIOUS_SOLVED,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
 				 null));
 	}
 
@@ -601,7 +647,6 @@ public class SolverItemProvider
 			case SolverPackage.SOLVER__STATUS:
 			case SolverPackage.SOLVER__SOLVER_MAX_DURATION:
 			case SolverPackage.SOLVER__SOLVER_BACKGROUND:
-			case SolverPackage.SOLVER__SOL_VALUE:
 			case SolverPackage.SOLVER__SOLVER_LOG_LEVEL:
 			case SolverPackage.SOLVER__SOLVER_DUMP:
 			case SolverPackage.SOLVER__RUN_STARTED:
@@ -612,15 +657,16 @@ public class SolverItemProvider
 			case SolverPackage.SOLVER__RUN_DURATION_FINALIZATION:
 			case SolverPackage.SOLVER__RUN_DURATION_SOLVING:
 			case SolverPackage.SOLVER__RUN_REQUEST_TERMINATE:
+			case SolverPackage.SOLVER__RUN_TIME_OUT:
 			case SolverPackage.SOLVER__SOL_UNFEASIBLE:
 			case SolverPackage.SOLVER__SOL_FEASIBLE:
 			case SolverPackage.SOLVER__SOL_OPTIMAL:
+			case SolverPackage.SOLVER__SOL_VALUE:
 			case SolverPackage.SOLVER__RUN_INTERRUPTED:
+			case SolverPackage.SOLVER__INITIALIZING:
 			case SolverPackage.SOLVER__SOLVING:
 			case SolverPackage.SOLVER__FINALIZING:
 			case SolverPackage.SOLVER__FINISHED:
-			case SolverPackage.SOLVER__RUN_TIME_OUT:
-			case SolverPackage.SOLVER__INITIALIZING:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

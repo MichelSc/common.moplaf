@@ -2413,13 +2413,31 @@ public interface SolverPackage extends EPackage {
 	int SOLVER__INITIAL_SOLUTION = SOLUTION_PROVIDER_FEATURE_COUNT + 25;
 
 	/**
+	 * The feature id for the '<em><b>Next To Solve</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER__NEXT_TO_SOLVE = SOLUTION_PROVIDER_FEATURE_COUNT + 26;
+
+	/**
+	 * The feature id for the '<em><b>Previous Solved</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER__PREVIOUS_SOLVED = SOLUTION_PROVIDER_FEATURE_COUNT + 27;
+
+	/**
 	 * The number of structural features of the '<em>Solver</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_FEATURE_COUNT = SOLUTION_PROVIDER_FEATURE_COUNT + 26;
+	int SOLVER_FEATURE_COUNT = SOLUTION_PROVIDER_FEATURE_COUNT + 28;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -2969,6 +2987,24 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_CP__INITIAL_SOLUTION = SOLVER__INITIAL_SOLUTION;
 
 	/**
+	 * The feature id for the '<em><b>Next To Solve</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP__NEXT_TO_SOLVE = SOLVER__NEXT_TO_SOLVE;
+
+	/**
+	 * The feature id for the '<em><b>Previous Solved</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP__PREVIOUS_SOLVED = SOLVER__PREVIOUS_SOLVED;
+
+	/**
 	 * The feature id for the '<em><b>Search All</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3372,6 +3408,24 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP__INITIAL_SOLUTION = SOLVER__INITIAL_SOLUTION;
+
+	/**
+	 * The feature id for the '<em><b>Next To Solve</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP__NEXT_TO_SOLVE = SOLVER__NEXT_TO_SOLVE;
+
+	/**
+	 * The feature id for the '<em><b>Previous Solved</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP__PREVIOUS_SOLVED = SOLVER__PREVIOUS_SOLVED;
 
 	/**
 	 * The feature id for the '<em><b>Solver Optimality Tolerance</b></em>' attribute.
@@ -6712,6 +6766,28 @@ public interface SolverPackage extends EPackage {
 	EReference getSolver_InitialSolution();
 
 	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.solver.Solver#getNextToSolve <em>Next To Solve</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Next To Solve</em>'.
+	 * @see com.misc.common.moplaf.solver.Solver#getNextToSolve()
+	 * @see #getSolver()
+	 * @generated
+	 */
+	EReference getSolver_NextToSolve();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.solver.Solver#getPreviousSolved <em>Previous Solved</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Previous Solved</em>'.
+	 * @see com.misc.common.moplaf.solver.Solver#getPreviousSolved()
+	 * @see #getSolver()
+	 * @generated
+	 */
+	EReference getSolver_PreviousSolved();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.Solver#isSolving <em>Solving</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8843,6 +8919,22 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SOLVER__INITIAL_SOLUTION = eINSTANCE.getSolver_InitialSolution();
+
+		/**
+		 * The meta object literal for the '<em><b>Next To Solve</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SOLVER__NEXT_TO_SOLVE = eINSTANCE.getSolver_NextToSolve();
+
+		/**
+		 * The meta object literal for the '<em><b>Previous Solved</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SOLVER__PREVIOUS_SOLVED = eINSTANCE.getSolver_PreviousSolved();
 
 		/**
 		 * The meta object literal for the '<em><b>Solving</b></em>' attribute feature.

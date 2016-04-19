@@ -29,6 +29,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -591,6 +592,26 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 */
 	protected Solution initialSolution;
 
+	/**
+	 * The cached value of the '{@link #getNextToSolve() <em>Next To Solve</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNextToSolve()
+	 * @generated
+	 * @ordered
+	 */
+	protected Solver nextToSolve;
+
+	/**
+	 * The cached value of the '{@link #getPreviousSolved() <em>Previous Solved</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPreviousSolved()
+	 * @generated
+	 * @ordered
+	 */
+	protected Solver previousSolved;
+
 	protected IProgressMonitor eMonitor;
 
 	/**
@@ -672,6 +693,42 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	public void buildConsFromGoal(Solver previousSolver) throws Exception {
 		GeneratorGoal goal = previousSolver.getGoalToSolve();
 		goal.buildCons(this, previousSolver);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SolverPackage.SOLVER__NEXT_TO_SOLVE:
+				if (nextToSolve != null)
+					msgs = ((InternalEObject)nextToSolve).eInverseRemove(this, SolverPackage.SOLVER__PREVIOUS_SOLVED, Solver.class, msgs);
+				return basicSetNextToSolve((Solver)otherEnd, msgs);
+			case SolverPackage.SOLVER__PREVIOUS_SOLVED:
+				if (previousSolved != null)
+					msgs = ((InternalEObject)previousSolved).eInverseRemove(this, SolverPackage.SOLVER__NEXT_TO_SOLVE, Solver.class, msgs);
+				return basicSetPreviousSolved((Solver)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SolverPackage.SOLVER__NEXT_TO_SOLVE:
+				return basicSetNextToSolve(null, msgs);
+			case SolverPackage.SOLVER__PREVIOUS_SOLVED:
+				return basicSetPreviousSolved(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -863,6 +920,126 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		initialSolution = newInitialSolution;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__INITIAL_SOLUTION, oldInitialSolution, initialSolution));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Solver getNextToSolve() {
+		if (nextToSolve != null && nextToSolve.eIsProxy()) {
+			InternalEObject oldNextToSolve = (InternalEObject)nextToSolve;
+			nextToSolve = (Solver)eResolveProxy(oldNextToSolve);
+			if (nextToSolve != oldNextToSolve) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SolverPackage.SOLVER__NEXT_TO_SOLVE, oldNextToSolve, nextToSolve));
+			}
+		}
+		return nextToSolve;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Solver basicGetNextToSolve() {
+		return nextToSolve;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetNextToSolve(Solver newNextToSolve, NotificationChain msgs) {
+		Solver oldNextToSolve = nextToSolve;
+		nextToSolve = newNextToSolve;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__NEXT_TO_SOLVE, oldNextToSolve, newNextToSolve);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNextToSolve(Solver newNextToSolve) {
+		if (newNextToSolve != nextToSolve) {
+			NotificationChain msgs = null;
+			if (nextToSolve != null)
+				msgs = ((InternalEObject)nextToSolve).eInverseRemove(this, SolverPackage.SOLVER__PREVIOUS_SOLVED, Solver.class, msgs);
+			if (newNextToSolve != null)
+				msgs = ((InternalEObject)newNextToSolve).eInverseAdd(this, SolverPackage.SOLVER__PREVIOUS_SOLVED, Solver.class, msgs);
+			msgs = basicSetNextToSolve(newNextToSolve, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__NEXT_TO_SOLVE, newNextToSolve, newNextToSolve));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Solver getPreviousSolved() {
+		if (previousSolved != null && previousSolved.eIsProxy()) {
+			InternalEObject oldPreviousSolved = (InternalEObject)previousSolved;
+			previousSolved = (Solver)eResolveProxy(oldPreviousSolved);
+			if (previousSolved != oldPreviousSolved) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SolverPackage.SOLVER__PREVIOUS_SOLVED, oldPreviousSolved, previousSolved));
+			}
+		}
+		return previousSolved;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Solver basicGetPreviousSolved() {
+		return previousSolved;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPreviousSolved(Solver newPreviousSolved, NotificationChain msgs) {
+		Solver oldPreviousSolved = previousSolved;
+		previousSolved = newPreviousSolved;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__PREVIOUS_SOLVED, oldPreviousSolved, newPreviousSolved);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPreviousSolved(Solver newPreviousSolved) {
+		if (newPreviousSolved != previousSolved) {
+			NotificationChain msgs = null;
+			if (previousSolved != null)
+				msgs = ((InternalEObject)previousSolved).eInverseRemove(this, SolverPackage.SOLVER__NEXT_TO_SOLVE, Solver.class, msgs);
+			if (newPreviousSolved != null)
+				msgs = ((InternalEObject)newPreviousSolved).eInverseAdd(this, SolverPackage.SOLVER__NEXT_TO_SOLVE, Solver.class, msgs);
+			msgs = basicSetPreviousSolved(newPreviousSolved, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__PREVIOUS_SOLVED, newPreviousSolved, newPreviousSolved));
 	}
 
 	/**
@@ -1338,7 +1515,12 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		ConsMapper consmapper = new ConsMapper();
 		generator.visitTuples(consmapper);
 		
-		// build the constraints implied by super solvers
+		// build the constraints implied by previous solvers
+		Solver previousSolved = this.getPreviousSolved();
+		while ( previousSolved!=null){
+			this.buildConsFromGoal(previousSolved);
+			previousSolved = previousSolved.getPreviousSolved();
+		}
 	}
 
 	/**
@@ -1663,6 +1845,12 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			case SolverPackage.SOLVER__INITIAL_SOLUTION:
 				if (resolve) return getInitialSolution();
 				return basicGetInitialSolution();
+			case SolverPackage.SOLVER__NEXT_TO_SOLVE:
+				if (resolve) return getNextToSolve();
+				return basicGetNextToSolve();
+			case SolverPackage.SOLVER__PREVIOUS_SOLVED:
+				if (resolve) return getPreviousSolved();
+				return basicGetPreviousSolved();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1752,6 +1940,12 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return;
 			case SolverPackage.SOLVER__INITIAL_SOLUTION:
 				setInitialSolution((Solution)newValue);
+				return;
+			case SolverPackage.SOLVER__NEXT_TO_SOLVE:
+				setNextToSolve((Solver)newValue);
+				return;
+			case SolverPackage.SOLVER__PREVIOUS_SOLVED:
+				setPreviousSolved((Solver)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1843,6 +2037,12 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			case SolverPackage.SOLVER__INITIAL_SOLUTION:
 				setInitialSolution((Solution)null);
 				return;
+			case SolverPackage.SOLVER__NEXT_TO_SOLVE:
+				setNextToSolve((Solver)null);
+				return;
+			case SolverPackage.SOLVER__PREVIOUS_SOLVED:
+				setPreviousSolved((Solver)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1907,6 +2107,10 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return goalToSolve != null;
 			case SolverPackage.SOLVER__INITIAL_SOLUTION:
 				return initialSolution != null;
+			case SolverPackage.SOLVER__NEXT_TO_SOLVE:
+				return nextToSolve != null;
+			case SolverPackage.SOLVER__PREVIOUS_SOLVED:
+				return previousSolved != null;
 		}
 		return super.eIsSet(featureID);
 	}

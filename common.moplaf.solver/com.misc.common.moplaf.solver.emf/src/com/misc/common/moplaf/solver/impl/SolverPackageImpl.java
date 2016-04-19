@@ -1808,6 +1808,24 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSolver_NextToSolve() {
+		return (EReference)solverEClass.getEStructuralFeatures().get(26);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSolver_PreviousSolved() {
+		return (EReference)solverEClass.getEStructuralFeatures().get(27);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getSolver_Solving() {
 		return (EAttribute)solverEClass.getEStructuralFeatures().get(21);
 	}
@@ -2765,6 +2783,8 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		createEAttribute(solverEClass, SOLVER__FINISHED);
 		createEReference(solverEClass, SOLVER__GOAL_TO_SOLVE);
 		createEReference(solverEClass, SOLVER__INITIAL_SOLUTION);
+		createEReference(solverEClass, SOLVER__NEXT_TO_SOLVE);
+		createEReference(solverEClass, SOLVER__PREVIOUS_SOLVED);
 		createEOperation(solverEClass, SOLVER___SOLVE);
 		createEOperation(solverEClass, SOLVER___BUILD);
 		createEOperation(solverEClass, SOLVER___BUILD_VAR__GENERATORVAR);
@@ -3151,6 +3171,8 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		initEAttribute(getSolver_Finished(), ecorePackage.getEBoolean(), "Finished", null, 0, 1, Solver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSolver_GoalToSolve(), this.getGeneratorGoal(), null, "GoalToSolve", null, 0, 1, Solver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSolver_InitialSolution(), this.getSolution(), null, "InitialSolution", null, 0, 1, Solver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSolver_NextToSolve(), this.getSolver(), this.getSolver_PreviousSolved(), "nextToSolve", null, 0, 1, Solver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSolver_PreviousSolved(), this.getSolver(), this.getSolver_NextToSolve(), "previousSolved", null, 0, 1, Solver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getSolver__Solve(), null, "solve", 0, 1, IS_UNIQUE, IS_ORDERED);
 

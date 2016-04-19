@@ -334,6 +334,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Finished" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="GoalToSolve" eType="#//GeneratorGoal"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="InitialSolution" eType="#//Solution"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nextToSolve" eType="#//Solver"
+        eOpposite="#//Solver/previousSolved"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="previousSolved" eType="#//Solver"
+        eOpposite="#//Solver/nextToSolve"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolverCp" abstract="true" eSuperTypes="#//Solver">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SearchAll" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>

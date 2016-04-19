@@ -787,13 +787,13 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 		if (solutionCpVarItemProvider != null) solutionCpVarItemProvider.dispose();
 		if (solutionConsItemProvider != null) solutionConsItemProvider.dispose();
 		if (solutionLpConsItemProvider != null) solutionLpConsItemProvider.dispose();
-		if (generatorLpLinearItemProvider != null) generatorLpLinearItemProvider.dispose();
 		if (generatorCpLinearItemProvider != null) generatorCpLinearItemProvider.dispose();
 		if (generatorCpLogicalItemProvider != null) generatorCpLogicalItemProvider.dispose();
 		if (generatorCpVarAtomicItemProvider != null) generatorCpVarAtomicItemProvider.dispose();
 		if (generatorCpLinearTermItemProvider != null) generatorCpLinearTermItemProvider.dispose();
 		if (generatorCpLogicalTermItemProvider != null) generatorCpLogicalTermItemProvider.dispose();
 		if (generatorLpGoalItemProvider != null) generatorLpGoalItemProvider.dispose();
+		if (generatorLpLinearItemProvider != null) generatorLpLinearItemProvider.dispose();
 	}
 
 }

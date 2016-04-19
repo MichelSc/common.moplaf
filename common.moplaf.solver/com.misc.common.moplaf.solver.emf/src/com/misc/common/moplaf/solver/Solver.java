@@ -50,6 +50,8 @@ import java.util.Date;
  *   <li>{@link com.misc.common.moplaf.solver.Solver#isFinished <em>Finished</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getGoalToSolve <em>Goal To Solve</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getInitialSolution <em>Initial Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.Solver#getNextToSolve <em>Next To Solve</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.Solver#getPreviousSolved <em>Previous Solved</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getSolver()
@@ -667,6 +669,62 @@ public interface Solver extends SolutionProvider {
 	 * @generated
 	 */
 	void setInitialSolution(Solution value);
+
+	/**
+	 * Returns the value of the '<em><b>Next To Solve</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.Solver#getPreviousSolved <em>Previous Solved</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Next To Solve</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Next To Solve</em>' reference.
+	 * @see #setNextToSolve(Solver)
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolver_NextToSolve()
+	 * @see com.misc.common.moplaf.solver.Solver#getPreviousSolved
+	 * @model opposite="previousSolved"
+	 * @generated
+	 */
+	Solver getNextToSolve();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.solver.Solver#getNextToSolve <em>Next To Solve</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Next To Solve</em>' reference.
+	 * @see #getNextToSolve()
+	 * @generated
+	 */
+	void setNextToSolve(Solver value);
+
+	/**
+	 * Returns the value of the '<em><b>Previous Solved</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.Solver#getNextToSolve <em>Next To Solve</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Previous Solved</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Previous Solved</em>' reference.
+	 * @see #setPreviousSolved(Solver)
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolver_PreviousSolved()
+	 * @see com.misc.common.moplaf.solver.Solver#getNextToSolve
+	 * @model opposite="nextToSolve"
+	 * @generated
+	 */
+	Solver getPreviousSolved();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.solver.Solver#getPreviousSolved <em>Previous Solved</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Previous Solved</em>' reference.
+	 * @see #getPreviousSolved()
+	 * @generated
+	 */
+	void setPreviousSolved(Solver value);
 
 	/**
 	 * Returns the value of the '<em><b>Solving</b></em>' attribute.
