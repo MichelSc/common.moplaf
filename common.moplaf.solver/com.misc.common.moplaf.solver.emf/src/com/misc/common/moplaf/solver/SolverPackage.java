@@ -2215,22 +2215,13 @@ public interface SolverPackage extends EPackage {
 	int SOLVER__SOLVER_BACKGROUND = SOLUTION_PROVIDER_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Sol Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER__SOL_VALUE = SOLUTION_PROVIDER_FEATURE_COUNT + 4;
-
-	/**
 	 * The feature id for the '<em><b>Solver Log Level</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__SOLVER_LOG_LEVEL = SOLUTION_PROVIDER_FEATURE_COUNT + 5;
+	int SOLVER__SOLVER_LOG_LEVEL = SOLUTION_PROVIDER_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Solver Dump</b></em>' attribute.
@@ -2239,7 +2230,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__SOLVER_DUMP = SOLUTION_PROVIDER_FEATURE_COUNT + 6;
+	int SOLVER__SOLVER_DUMP = SOLUTION_PROVIDER_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Run Started</b></em>' attribute.
@@ -2248,7 +2239,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__RUN_STARTED = SOLUTION_PROVIDER_FEATURE_COUNT + 7;
+	int SOLVER__RUN_STARTED = SOLUTION_PROVIDER_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Run Initialization Ended</b></em>' attribute.
@@ -2257,7 +2248,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__RUN_INITIALIZATION_ENDED = SOLUTION_PROVIDER_FEATURE_COUNT + 8;
+	int SOLVER__RUN_INITIALIZATION_ENDED = SOLUTION_PROVIDER_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Run Solving Ended</b></em>' attribute.
@@ -2266,7 +2257,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__RUN_SOLVING_ENDED = SOLUTION_PROVIDER_FEATURE_COUNT + 9;
+	int SOLVER__RUN_SOLVING_ENDED = SOLUTION_PROVIDER_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Run Finalization Ended</b></em>' attribute.
@@ -2275,7 +2266,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__RUN_FINALIZATION_ENDED = SOLUTION_PROVIDER_FEATURE_COUNT + 10;
+	int SOLVER__RUN_FINALIZATION_ENDED = SOLUTION_PROVIDER_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Run Duration Initialization</b></em>' attribute.
@@ -2284,7 +2275,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__RUN_DURATION_INITIALIZATION = SOLUTION_PROVIDER_FEATURE_COUNT + 11;
+	int SOLVER__RUN_DURATION_INITIALIZATION = SOLUTION_PROVIDER_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Run Duration Finalization</b></em>' attribute.
@@ -2293,7 +2284,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__RUN_DURATION_FINALIZATION = SOLUTION_PROVIDER_FEATURE_COUNT + 12;
+	int SOLVER__RUN_DURATION_FINALIZATION = SOLUTION_PROVIDER_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Run Duration Solving</b></em>' attribute.
@@ -2302,7 +2293,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__RUN_DURATION_SOLVING = SOLUTION_PROVIDER_FEATURE_COUNT + 13;
+	int SOLVER__RUN_DURATION_SOLVING = SOLUTION_PROVIDER_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Run Request Terminate</b></em>' attribute.
@@ -2311,7 +2302,16 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__RUN_REQUEST_TERMINATE = SOLUTION_PROVIDER_FEATURE_COUNT + 14;
+	int SOLVER__RUN_REQUEST_TERMINATE = SOLUTION_PROVIDER_FEATURE_COUNT + 13;
+
+	/**
+	 * The feature id for the '<em><b>Run Time Out</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER__RUN_TIME_OUT = SOLUTION_PROVIDER_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Sol Unfeasible</b></em>' attribute.
@@ -2341,49 +2341,22 @@ public interface SolverPackage extends EPackage {
 	int SOLVER__SOL_OPTIMAL = SOLUTION_PROVIDER_FEATURE_COUNT + 17;
 
 	/**
+	 * The feature id for the '<em><b>Sol Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER__SOL_VALUE = SOLUTION_PROVIDER_FEATURE_COUNT + 18;
+
+	/**
 	 * The feature id for the '<em><b>Run Interrupted</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__RUN_INTERRUPTED = SOLUTION_PROVIDER_FEATURE_COUNT + 18;
-
-	/**
-	 * The feature id for the '<em><b>Solving</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER__SOLVING = SOLUTION_PROVIDER_FEATURE_COUNT + 19;
-
-	/**
-	 * The feature id for the '<em><b>Finalizing</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER__FINALIZING = SOLUTION_PROVIDER_FEATURE_COUNT + 20;
-
-	/**
-	 * The feature id for the '<em><b>Finished</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER__FINISHED = SOLUTION_PROVIDER_FEATURE_COUNT + 21;
-
-	/**
-	 * The feature id for the '<em><b>Run Time Out</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER__RUN_TIME_OUT = SOLUTION_PROVIDER_FEATURE_COUNT + 22;
+	int SOLVER__RUN_INTERRUPTED = SOLUTION_PROVIDER_FEATURE_COUNT + 19;
 
 	/**
 	 * The feature id for the '<em><b>Initializing</b></em>' attribute.
@@ -2392,7 +2365,34 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__INITIALIZING = SOLUTION_PROVIDER_FEATURE_COUNT + 23;
+	int SOLVER__INITIALIZING = SOLUTION_PROVIDER_FEATURE_COUNT + 20;
+
+	/**
+	 * The feature id for the '<em><b>Solving</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER__SOLVING = SOLUTION_PROVIDER_FEATURE_COUNT + 21;
+
+	/**
+	 * The feature id for the '<em><b>Finalizing</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER__FINALIZING = SOLUTION_PROVIDER_FEATURE_COUNT + 22;
+
+	/**
+	 * The feature id for the '<em><b>Finished</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER__FINISHED = SOLUTION_PROVIDER_FEATURE_COUNT + 23;
 
 	/**
 	 * The feature id for the '<em><b>Goal To Solve</b></em>' reference.
@@ -2521,13 +2521,31 @@ public interface SolverPackage extends EPackage {
 	int SOLVER___BUILD_LP_CONS__GENERATORLPCONS = SOLUTION_PROVIDER_OPERATION_COUNT + 7;
 
 	/**
+	 * The operation id for the '<em>Build Lp Cons</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE = SOLUTION_PROVIDER_OPERATION_COUNT + 8;
+
+	/**
+	 * The operation id for the '<em>Build Cons From Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER___BUILD_CONS_FROM_GOAL__SOLVER = SOLUTION_PROVIDER_OPERATION_COUNT + 9;
+
+	/**
 	 * The number of operations of the '<em>Solver</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_OPERATION_COUNT = SOLUTION_PROVIDER_OPERATION_COUNT + 8;
+	int SOLVER_OPERATION_COUNT = SOLUTION_PROVIDER_OPERATION_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolverLpImpl <em>Lp</em>}' class.
@@ -2597,7 +2615,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpLinear()
 	 * @generated
 	 */
-	int GENERATOR_CP_LINEAR = 33;
+	int GENERATOR_CP_LINEAR = 32;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpLogicalImpl <em>Generator Cp Logical</em>}' class.
@@ -2607,7 +2625,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpLogical()
 	 * @generated
 	 */
-	int GENERATOR_CP_LOGICAL = 34;
+	int GENERATOR_CP_LOGICAL = 33;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpVarImpl <em>Generator Cp Var</em>}' class.
@@ -2617,7 +2635,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpVar()
 	 * @generated
 	 */
-	int GENERATOR_CP_VAR = 35;
+	int GENERATOR_CP_VAR = 34;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpVarAtomicImpl <em>Generator Cp Var Atomic</em>}' class.
@@ -2627,7 +2645,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpVarAtomic()
 	 * @generated
 	 */
-	int GENERATOR_CP_VAR_ATOMIC = 36;
+	int GENERATOR_CP_VAR_ATOMIC = 35;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpLinearTermImpl <em>Generator Cp Linear Term</em>}' class.
@@ -2637,7 +2655,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpLinearTerm()
 	 * @generated
 	 */
-	int GENERATOR_CP_LINEAR_TERM = 37;
+	int GENERATOR_CP_LINEAR_TERM = 36;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpLogicalTermImpl <em>Generator Cp Logical Term</em>}' class.
@@ -2647,7 +2665,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpLogicalTerm()
 	 * @generated
 	 */
-	int GENERATOR_CP_LOGICAL_TERM = 38;
+	int GENERATOR_CP_LOGICAL_TERM = 37;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionCpVarImpl <em>Solution Cp Var</em>}' class.
@@ -2753,15 +2771,6 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_CP__SOLVER_BACKGROUND = SOLVER__SOLVER_BACKGROUND;
 
 	/**
-	 * The feature id for the '<em><b>Sol Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_CP__SOL_VALUE = SOLVER__SOL_VALUE;
-
-	/**
 	 * The feature id for the '<em><b>Solver Log Level</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2852,6 +2861,15 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_CP__RUN_REQUEST_TERMINATE = SOLVER__RUN_REQUEST_TERMINATE;
 
 	/**
+	 * The feature id for the '<em><b>Run Time Out</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP__RUN_TIME_OUT = SOLVER__RUN_TIME_OUT;
+
+	/**
 	 * The feature id for the '<em><b>Sol Unfeasible</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2879,6 +2897,15 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_CP__SOL_OPTIMAL = SOLVER__SOL_OPTIMAL;
 
 	/**
+	 * The feature id for the '<em><b>Sol Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP__SOL_VALUE = SOLVER__SOL_VALUE;
+
+	/**
 	 * The feature id for the '<em><b>Run Interrupted</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2886,6 +2913,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_CP__RUN_INTERRUPTED = SOLVER__RUN_INTERRUPTED;
+
+	/**
+	 * The feature id for the '<em><b>Initializing</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP__INITIALIZING = SOLVER__INITIALIZING;
 
 	/**
 	 * The feature id for the '<em><b>Solving</b></em>' attribute.
@@ -2913,24 +2949,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_CP__FINISHED = SOLVER__FINISHED;
-
-	/**
-	 * The feature id for the '<em><b>Run Time Out</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_CP__RUN_TIME_OUT = SOLVER__RUN_TIME_OUT;
-
-	/**
-	 * The feature id for the '<em><b>Initializing</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_CP__INITIALIZING = SOLVER__INITIALIZING;
 
 	/**
 	 * The feature id for the '<em><b>Goal To Solve</b></em>' reference.
@@ -3068,6 +3086,24 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_CP___BUILD_LP_CONS__GENERATORLPCONS = SOLVER___BUILD_LP_CONS__GENERATORLPCONS;
 
 	/**
+	 * The operation id for the '<em>Build Lp Cons</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE = SOLVER___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE;
+
+	/**
+	 * The operation id for the '<em>Build Cons From Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP___BUILD_CONS_FROM_GOAL__SOLVER = SOLVER___BUILD_CONS_FROM_GOAL__SOLVER;
+
+	/**
 	 * The number of operations of the '<em>Cp</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3138,15 +3174,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP__SOLVER_BACKGROUND = SOLVER__SOLVER_BACKGROUND;
-
-	/**
-	 * The feature id for the '<em><b>Sol Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_LP__SOL_VALUE = SOLVER__SOL_VALUE;
 
 	/**
 	 * The feature id for the '<em><b>Solver Log Level</b></em>' attribute.
@@ -3239,6 +3266,15 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_LP__RUN_REQUEST_TERMINATE = SOLVER__RUN_REQUEST_TERMINATE;
 
 	/**
+	 * The feature id for the '<em><b>Run Time Out</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP__RUN_TIME_OUT = SOLVER__RUN_TIME_OUT;
+
+	/**
 	 * The feature id for the '<em><b>Sol Unfeasible</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3266,6 +3302,15 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_LP__SOL_OPTIMAL = SOLVER__SOL_OPTIMAL;
 
 	/**
+	 * The feature id for the '<em><b>Sol Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP__SOL_VALUE = SOLVER__SOL_VALUE;
+
+	/**
 	 * The feature id for the '<em><b>Run Interrupted</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3273,6 +3318,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP__RUN_INTERRUPTED = SOLVER__RUN_INTERRUPTED;
+
+	/**
+	 * The feature id for the '<em><b>Initializing</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP__INITIALIZING = SOLVER__INITIALIZING;
 
 	/**
 	 * The feature id for the '<em><b>Solving</b></em>' attribute.
@@ -3300,24 +3354,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP__FINISHED = SOLVER__FINISHED;
-
-	/**
-	 * The feature id for the '<em><b>Run Time Out</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_LP__RUN_TIME_OUT = SOLVER__RUN_TIME_OUT;
-
-	/**
-	 * The feature id for the '<em><b>Initializing</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_LP__INITIALIZING = SOLVER__INITIALIZING;
 
 	/**
 	 * The feature id for the '<em><b>Goal To Solve</b></em>' reference.
@@ -3471,6 +3507,24 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP___BUILD_LP_CONS__GENERATORLPCONS = SOLVER___BUILD_LP_CONS__GENERATORLPCONS;
+
+	/**
+	 * The operation id for the '<em>Build Lp Cons</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE = SOLVER___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE;
+
+	/**
+	 * The operation id for the '<em>Build Cons From Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP___BUILD_CONS_FROM_GOAL__SOLVER = SOLVER___BUILD_CONS_FROM_GOAL__SOLVER;
 
 	/**
 	 * The number of operations of the '<em>Lp</em>' class.
@@ -3957,7 +4011,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorGoal()
 	 * @generated
 	 */
-	int GENERATOR_GOAL = 39;
+	int GENERATOR_GOAL = 38;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl <em>Generator Lp Goal</em>}' class.
@@ -3967,7 +4021,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpGoal()
 	 * @generated
 	 */
-	int GENERATOR_LP_GOAL = 40;
+	int GENERATOR_LP_GOAL = 39;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -4094,43 +4148,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpLinear()
 	 * @generated
 	 */
-	int GENERATOR_LP_LINEAR = 32;
-
-	/**
-	 * The feature id for the '<em><b>Lp Term</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_LINEAR__LP_TERM = 0;
-
-	/**
-	 * The number of structural features of the '<em>Generator Lp Linear</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_LINEAR_FEATURE_COUNT = 1;
-
-	/**
-	 * The operation id for the '<em>Construct Term</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_LINEAR___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT = 0;
-
-	/**
-	 * The number of operations of the '<em>Generator Lp Linear</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_LINEAR_OPERATION_COUNT = 1;
+	int GENERATOR_LP_LINEAR = 40;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -4862,13 +4880,22 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_GOAL___BUILD__SOLVER = GENERATOR_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Build Cons</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_GOAL___BUILD_CONS__SOLVER_SOLVER = GENERATOR_ELEMENT_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Generator Goal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_GOAL_OPERATION_COUNT = GENERATOR_ELEMENT_OPERATION_COUNT + 2;
+	int GENERATOR_GOAL_OPERATION_COUNT = GENERATOR_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -4961,6 +4988,15 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_LP_GOAL___BUILD__SOLVER = GENERATOR_GOAL___BUILD__SOLVER;
 
 	/**
+	 * The operation id for the '<em>Build Cons</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_GOAL___BUILD_CONS__SOLVER_SOLVER = GENERATOR_GOAL___BUILD_CONS__SOLVER_SOLVER;
+
+	/**
 	 * The operation id for the '<em>Construct Term</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4986,6 +5022,42 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_LP_GOAL_OPERATION_COUNT = GENERATOR_GOAL_OPERATION_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Lp Term</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_LINEAR__LP_TERM = 0;
+
+	/**
+	 * The number of structural features of the '<em>Generator Lp Linear</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_LINEAR_FEATURE_COUNT = 1;
+
+	/**
+	 * The operation id for the '<em>Construct Term</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_LINEAR___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT = 0;
+
+	/**
+	 * The number of operations of the '<em>Generator Lp Linear</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_LINEAR_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '<em>ITuple Visitor</em>' data type.
@@ -5636,6 +5708,16 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getGeneratorGoal__Build__Solver();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorGoal#buildCons(com.misc.common.moplaf.solver.Solver, com.misc.common.moplaf.solver.Solver) <em>Build Cons</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Build Cons</em>' operation.
+	 * @see com.misc.common.moplaf.solver.GeneratorGoal#buildCons(com.misc.common.moplaf.solver.Solver, com.misc.common.moplaf.solver.Solver)
+	 * @generated
+	 */
+	EOperation getGeneratorGoal__BuildCons__Solver_Solver();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorLpGoal <em>Generator Lp Goal</em>}'.
@@ -6741,6 +6823,26 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getSolver__BuildLpCons__GeneratorLpCons();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.Solver#buildLpCons(com.misc.common.moplaf.solver.GeneratorElement, com.misc.common.moplaf.solver.GeneratorLpLinear, float, com.misc.common.moplaf.solver.EnumLpConsType) <em>Build Lp Cons</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Build Lp Cons</em>' operation.
+	 * @see com.misc.common.moplaf.solver.Solver#buildLpCons(com.misc.common.moplaf.solver.GeneratorElement, com.misc.common.moplaf.solver.GeneratorLpLinear, float, com.misc.common.moplaf.solver.EnumLpConsType)
+	 * @generated
+	 */
+	EOperation getSolver__BuildLpCons__GeneratorElement_GeneratorLpLinear_float_EnumLpConsType();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.Solver#buildConsFromGoal(com.misc.common.moplaf.solver.Solver) <em>Build Cons From Goal</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Build Cons From Goal</em>' operation.
+	 * @see com.misc.common.moplaf.solver.Solver#buildConsFromGoal(com.misc.common.moplaf.solver.Solver)
+	 * @generated
+	 */
+	EOperation getSolver__BuildConsFromGoal__Solver();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.SolverLp <em>Lp</em>}'.
@@ -7957,6 +8059,14 @@ public interface SolverPackage extends EPackage {
 		EOperation GENERATOR_GOAL___BUILD__SOLVER = eINSTANCE.getGeneratorGoal__Build__Solver();
 
 		/**
+		 * The meta object literal for the '<em><b>Build Cons</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GENERATOR_GOAL___BUILD_CONS__SOLVER_SOLVER = eINSTANCE.getGeneratorGoal__BuildCons__Solver_Solver();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl <em>Generator Lp Goal</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8821,6 +8931,22 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SOLVER___BUILD_LP_CONS__GENERATORLPCONS = eINSTANCE.getSolver__BuildLpCons__GeneratorLpCons();
+
+		/**
+		 * The meta object literal for the '<em><b>Build Lp Cons</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SOLVER___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE = eINSTANCE.getSolver__BuildLpCons__GeneratorElement_GeneratorLpLinear_float_EnumLpConsType();
+
+		/**
+		 * The meta object literal for the '<em><b>Build Cons From Goal</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SOLVER___BUILD_CONS_FROM_GOAL__SOLVER = eINSTANCE.getSolver__BuildConsFromGoal__Solver();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.SolverLpImpl <em>Lp</em>}' class.

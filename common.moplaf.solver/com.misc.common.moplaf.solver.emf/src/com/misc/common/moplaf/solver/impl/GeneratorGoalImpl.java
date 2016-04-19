@@ -109,6 +109,17 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 		builder.buildGoal(this);
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void buildCons(Solver solver, Solver previousSolver) throws Exception {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
 	private boolean isRoot(){
 		return this.eContainer() instanceof Generator; 
 	}
@@ -260,6 +271,14 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 			case SolverPackage.GENERATOR_GOAL___BUILD__SOLVER:
 				try {
 					build((Solver)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case SolverPackage.GENERATOR_GOAL___BUILD_CONS__SOLVER_SOLVER:
+				try {
+					buildCons((Solver)arguments.get(0), (Solver)arguments.get(1));
 					return null;
 				}
 				catch (Throwable throwable) {

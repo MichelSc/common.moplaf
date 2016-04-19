@@ -28,7 +28,6 @@ import java.util.Date;
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getStatus <em>Status</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getSolverMaxDuration <em>Solver Max Duration</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#isSolverBackground <em>Solver Background</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.Solver#getSolValue <em>Sol Value</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getSolverLogLevel <em>Solver Log Level</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#isSolverDump <em>Solver Dump</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getRunStarted <em>Run Started</em>}</li>
@@ -39,15 +38,16 @@ import java.util.Date;
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getRunDurationFinalization <em>Run Duration Finalization</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getRunDurationSolving <em>Run Duration Solving</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#isRunRequestTerminate <em>Run Request Terminate</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.Solver#isRunTimeOut <em>Run Time Out</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#isSolUnfeasible <em>Sol Unfeasible</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#isSolFeasible <em>Sol Feasible</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#isSolOptimal <em>Sol Optimal</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.Solver#getSolValue <em>Sol Value</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#isRunInterrupted <em>Run Interrupted</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.Solver#isInitializing <em>Initializing</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#isSolving <em>Solving</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#isFinalizing <em>Finalizing</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#isFinished <em>Finished</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.Solver#isRunTimeOut <em>Run Time Out</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.Solver#isInitializing <em>Initializing</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getGoalToSolve <em>Goal To Solve</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getInitialSolution <em>Initial Solution</em>}</li>
  * </ul>
@@ -813,5 +813,21 @@ public interface Solver extends SolutionProvider {
 	 * @generated
 	 */
 	void buildLpCons(GeneratorLpCons cons) throws Exception;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
+	 * @generated
+	 */
+	void buildLpCons(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
+	 * @generated
+	 */
+	void buildConsFromGoal(Solver previousSolver) throws Exception;
 
 } // Solver

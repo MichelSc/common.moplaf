@@ -172,26 +172,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	protected boolean solverBackground = SOLVER_BACKGROUND_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getSolValue() <em>Sol Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSolValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final float SOL_VALUE_EDEFAULT = 0.0F;
-
-	/**
-	 * The cached value of the '{@link #getSolValue() <em>Sol Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSolValue()
-	 * @generated
-	 * @ordered
-	 */
-	protected float solValue = SOL_VALUE_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getSolverLogLevel() <em>Solver Log Level</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -392,6 +372,26 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	protected boolean runRequestTerminate = RUN_REQUEST_TERMINATE_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #isRunTimeOut() <em>Run Time Out</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRunTimeOut()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean RUN_TIME_OUT_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isRunTimeOut() <em>Run Time Out</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRunTimeOut()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean runTimeOut = RUN_TIME_OUT_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #isSolUnfeasible() <em>Sol Unfeasible</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -452,6 +452,26 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	protected boolean solOptimal = SOL_OPTIMAL_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getSolValue() <em>Sol Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSolValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float SOL_VALUE_EDEFAULT = 0.0F;
+
+	/**
+	 * The cached value of the '{@link #getSolValue() <em>Sol Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSolValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected float solValue = SOL_VALUE_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #isRunInterrupted() <em>Run Interrupted</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -470,6 +490,26 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * @ordered
 	 */
 	protected boolean runInterrupted = RUN_INTERRUPTED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isInitializing() <em>Initializing</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInitializing()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean INITIALIZING_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isInitializing() <em>Initializing</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInitializing()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean initializing = INITIALIZING_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isSolving() <em>Solving</em>}' attribute.
@@ -530,46 +570,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * @ordered
 	 */
 	protected boolean finished = FINISHED_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isRunTimeOut() <em>Run Time Out</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isRunTimeOut()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean RUN_TIME_OUT_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isRunTimeOut() <em>Run Time Out</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isRunTimeOut()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean runTimeOut = RUN_TIME_OUT_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isInitializing() <em>Initializing</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isInitializing()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean INITIALIZING_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isInitializing() <em>Initializing</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isInitializing()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean initializing = INITIALIZING_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getGoalToSolve() <em>Goal To Solve</em>}' reference.
@@ -657,12 +657,22 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
-	protected void buildLpCons(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
+	public void buildLpCons(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
+		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void buildConsFromGoal(Solver previousSolver) throws Exception {
+		GeneratorGoal goal = previousSolver.getGoalToSolve();
+		goal.buildCons(this, previousSolver);
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1607,8 +1617,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return getSolverMaxDuration();
 			case SolverPackage.SOLVER__SOLVER_BACKGROUND:
 				return isSolverBackground();
-			case SolverPackage.SOLVER__SOL_VALUE:
-				return getSolValue();
 			case SolverPackage.SOLVER__SOLVER_LOG_LEVEL:
 				return getSolverLogLevel();
 			case SolverPackage.SOLVER__SOLVER_DUMP:
@@ -1629,24 +1637,26 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return getRunDurationSolving();
 			case SolverPackage.SOLVER__RUN_REQUEST_TERMINATE:
 				return isRunRequestTerminate();
+			case SolverPackage.SOLVER__RUN_TIME_OUT:
+				return isRunTimeOut();
 			case SolverPackage.SOLVER__SOL_UNFEASIBLE:
 				return isSolUnfeasible();
 			case SolverPackage.SOLVER__SOL_FEASIBLE:
 				return isSolFeasible();
 			case SolverPackage.SOLVER__SOL_OPTIMAL:
 				return isSolOptimal();
+			case SolverPackage.SOLVER__SOL_VALUE:
+				return getSolValue();
 			case SolverPackage.SOLVER__RUN_INTERRUPTED:
 				return isRunInterrupted();
+			case SolverPackage.SOLVER__INITIALIZING:
+				return isInitializing();
 			case SolverPackage.SOLVER__SOLVING:
 				return isSolving();
 			case SolverPackage.SOLVER__FINALIZING:
 				return isFinalizing();
 			case SolverPackage.SOLVER__FINISHED:
 				return isFinished();
-			case SolverPackage.SOLVER__RUN_TIME_OUT:
-				return isRunTimeOut();
-			case SolverPackage.SOLVER__INITIALIZING:
-				return isInitializing();
 			case SolverPackage.SOLVER__GOAL_TO_SOLVE:
 				if (resolve) return getGoalToSolve();
 				return basicGetGoalToSolve();
@@ -1676,9 +1686,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return;
 			case SolverPackage.SOLVER__SOLVER_BACKGROUND:
 				setSolverBackground((Boolean)newValue);
-				return;
-			case SolverPackage.SOLVER__SOL_VALUE:
-				setSolValue((Float)newValue);
 				return;
 			case SolverPackage.SOLVER__SOLVER_LOG_LEVEL:
 				setSolverLogLevel((EnumSolverLogLevel)newValue);
@@ -1710,6 +1717,9 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			case SolverPackage.SOLVER__RUN_REQUEST_TERMINATE:
 				setRunRequestTerminate((Boolean)newValue);
 				return;
+			case SolverPackage.SOLVER__RUN_TIME_OUT:
+				setRunTimeOut((Boolean)newValue);
+				return;
 			case SolverPackage.SOLVER__SOL_UNFEASIBLE:
 				setSolUnfeasible((Boolean)newValue);
 				return;
@@ -1719,8 +1729,14 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			case SolverPackage.SOLVER__SOL_OPTIMAL:
 				setSolOptimal((Boolean)newValue);
 				return;
+			case SolverPackage.SOLVER__SOL_VALUE:
+				setSolValue((Float)newValue);
+				return;
 			case SolverPackage.SOLVER__RUN_INTERRUPTED:
 				setRunInterrupted((Boolean)newValue);
+				return;
+			case SolverPackage.SOLVER__INITIALIZING:
+				setInitializing((Boolean)newValue);
 				return;
 			case SolverPackage.SOLVER__SOLVING:
 				setSolving((Boolean)newValue);
@@ -1730,12 +1746,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return;
 			case SolverPackage.SOLVER__FINISHED:
 				setFinished((Boolean)newValue);
-				return;
-			case SolverPackage.SOLVER__RUN_TIME_OUT:
-				setRunTimeOut((Boolean)newValue);
-				return;
-			case SolverPackage.SOLVER__INITIALIZING:
-				setInitializing((Boolean)newValue);
 				return;
 			case SolverPackage.SOLVER__GOAL_TO_SOLVE:
 				setGoalToSolve((GeneratorGoal)newValue);
@@ -1767,9 +1777,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			case SolverPackage.SOLVER__SOLVER_BACKGROUND:
 				setSolverBackground(SOLVER_BACKGROUND_EDEFAULT);
 				return;
-			case SolverPackage.SOLVER__SOL_VALUE:
-				setSolValue(SOL_VALUE_EDEFAULT);
-				return;
 			case SolverPackage.SOLVER__SOLVER_LOG_LEVEL:
 				setSolverLogLevel(SOLVER_LOG_LEVEL_EDEFAULT);
 				return;
@@ -1800,6 +1807,9 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			case SolverPackage.SOLVER__RUN_REQUEST_TERMINATE:
 				setRunRequestTerminate(RUN_REQUEST_TERMINATE_EDEFAULT);
 				return;
+			case SolverPackage.SOLVER__RUN_TIME_OUT:
+				setRunTimeOut(RUN_TIME_OUT_EDEFAULT);
+				return;
 			case SolverPackage.SOLVER__SOL_UNFEASIBLE:
 				setSolUnfeasible(SOL_UNFEASIBLE_EDEFAULT);
 				return;
@@ -1809,8 +1819,14 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			case SolverPackage.SOLVER__SOL_OPTIMAL:
 				setSolOptimal(SOL_OPTIMAL_EDEFAULT);
 				return;
+			case SolverPackage.SOLVER__SOL_VALUE:
+				setSolValue(SOL_VALUE_EDEFAULT);
+				return;
 			case SolverPackage.SOLVER__RUN_INTERRUPTED:
 				setRunInterrupted(RUN_INTERRUPTED_EDEFAULT);
+				return;
+			case SolverPackage.SOLVER__INITIALIZING:
+				setInitializing(INITIALIZING_EDEFAULT);
 				return;
 			case SolverPackage.SOLVER__SOLVING:
 				setSolving(SOLVING_EDEFAULT);
@@ -1820,12 +1836,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return;
 			case SolverPackage.SOLVER__FINISHED:
 				setFinished(FINISHED_EDEFAULT);
-				return;
-			case SolverPackage.SOLVER__RUN_TIME_OUT:
-				setRunTimeOut(RUN_TIME_OUT_EDEFAULT);
-				return;
-			case SolverPackage.SOLVER__INITIALIZING:
-				setInitializing(INITIALIZING_EDEFAULT);
 				return;
 			case SolverPackage.SOLVER__GOAL_TO_SOLVE:
 				setGoalToSolve((GeneratorGoal)null);
@@ -1853,8 +1863,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return solverMaxDuration != SOLVER_MAX_DURATION_EDEFAULT;
 			case SolverPackage.SOLVER__SOLVER_BACKGROUND:
 				return solverBackground != SOLVER_BACKGROUND_EDEFAULT;
-			case SolverPackage.SOLVER__SOL_VALUE:
-				return solValue != SOL_VALUE_EDEFAULT;
 			case SolverPackage.SOLVER__SOLVER_LOG_LEVEL:
 				return solverLogLevel != SOLVER_LOG_LEVEL_EDEFAULT;
 			case SolverPackage.SOLVER__SOLVER_DUMP:
@@ -1875,24 +1883,26 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return runDurationSolving != RUN_DURATION_SOLVING_EDEFAULT;
 			case SolverPackage.SOLVER__RUN_REQUEST_TERMINATE:
 				return runRequestTerminate != RUN_REQUEST_TERMINATE_EDEFAULT;
+			case SolverPackage.SOLVER__RUN_TIME_OUT:
+				return runTimeOut != RUN_TIME_OUT_EDEFAULT;
 			case SolverPackage.SOLVER__SOL_UNFEASIBLE:
 				return solUnfeasible != SOL_UNFEASIBLE_EDEFAULT;
 			case SolverPackage.SOLVER__SOL_FEASIBLE:
 				return solFeasible != SOL_FEASIBLE_EDEFAULT;
 			case SolverPackage.SOLVER__SOL_OPTIMAL:
 				return solOptimal != SOL_OPTIMAL_EDEFAULT;
+			case SolverPackage.SOLVER__SOL_VALUE:
+				return solValue != SOL_VALUE_EDEFAULT;
 			case SolverPackage.SOLVER__RUN_INTERRUPTED:
 				return runInterrupted != RUN_INTERRUPTED_EDEFAULT;
+			case SolverPackage.SOLVER__INITIALIZING:
+				return initializing != INITIALIZING_EDEFAULT;
 			case SolverPackage.SOLVER__SOLVING:
 				return solving != SOLVING_EDEFAULT;
 			case SolverPackage.SOLVER__FINALIZING:
 				return finalizing != FINALIZING_EDEFAULT;
 			case SolverPackage.SOLVER__FINISHED:
 				return finished != FINISHED_EDEFAULT;
-			case SolverPackage.SOLVER__RUN_TIME_OUT:
-				return runTimeOut != RUN_TIME_OUT_EDEFAULT;
-			case SolverPackage.SOLVER__INITIALIZING:
-				return initializing != INITIALIZING_EDEFAULT;
 			case SolverPackage.SOLVER__GOAL_TO_SOLVE:
 				return goalToSolve != null;
 			case SolverPackage.SOLVER__INITIAL_SOLUTION:
@@ -1968,6 +1978,22 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case SolverPackage.SOLVER___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE:
+				try {
+					buildLpCons((GeneratorElement)arguments.get(0), (GeneratorLpLinear)arguments.get(1), (Float)arguments.get(2), (EnumLpConsType)arguments.get(3));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case SolverPackage.SOLVER___BUILD_CONS_FROM_GOAL__SOLVER:
+				try {
+					buildConsFromGoal((Solver)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -1990,8 +2016,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		result.append(solverMaxDuration);
 		result.append(", SolverBackground: ");
 		result.append(solverBackground);
-		result.append(", SolValue: ");
-		result.append(solValue);
 		result.append(", SolverLogLevel: ");
 		result.append(solverLogLevel);
 		result.append(", SolverDump: ");
@@ -2012,24 +2036,26 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		result.append(runDurationSolving);
 		result.append(", RunRequestTerminate: ");
 		result.append(runRequestTerminate);
+		result.append(", RunTimeOut: ");
+		result.append(runTimeOut);
 		result.append(", SolUnfeasible: ");
 		result.append(solUnfeasible);
 		result.append(", SolFeasible: ");
 		result.append(solFeasible);
 		result.append(", SolOptimal: ");
 		result.append(solOptimal);
+		result.append(", SolValue: ");
+		result.append(solValue);
 		result.append(", RunInterrupted: ");
 		result.append(runInterrupted);
+		result.append(", Initializing: ");
+		result.append(initializing);
 		result.append(", Solving: ");
 		result.append(solving);
 		result.append(", Finalizing: ");
 		result.append(finalizing);
 		result.append(", Finished: ");
 		result.append(finished);
-		result.append(", RunTimeOut: ");
-		result.append(runTimeOut);
-		result.append(", Initializing: ");
-		result.append(initializing);
 		result.append(')');
 		return result.toString();
 	}

@@ -826,7 +826,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
      * Build the lp cons
 	 */
 	@Override
-	protected void buildLpCons(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
+	public void buildLpCons(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
 		// map the constraint
 		int consnumber = this.cons_counter;
 		this.cons_counter++;

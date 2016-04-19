@@ -59,6 +59,14 @@ public interface GeneratorGoal extends GeneratorElement {
 	void build(Solver builder) throws Exception;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
+	 * @generated
+	 */
+	void buildCons(Solver solver, Solver previousSolver) throws Exception;
+
+	/**
 	 * Returns the value of the '<em><b>Sub Goal</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>

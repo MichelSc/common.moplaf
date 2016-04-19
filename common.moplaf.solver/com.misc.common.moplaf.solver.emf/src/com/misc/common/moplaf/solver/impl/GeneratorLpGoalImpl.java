@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
+import com.misc.common.moplaf.solver.EnumLpConsType;
 import com.misc.common.moplaf.solver.EnumObjectiveType;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorLpGoal;
@@ -183,6 +184,28 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	@Override
 	public void build(Solver builder) throws Exception {
 		builder.buildLpGoal(this);
+	}
+	
+	
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public void buildCons(Solver solver, Solver previousSolver) throws Exception {
+		float rhs = previousSolver.getSolValue();
+		GeneratorLpLinear linearExpr = this;
+		EnumLpConsType direction = EnumLpConsType.ENUM_LITERAL_LP_CONS_EQUAL;
+		switch ( this.getObjectiveType().ordinal()){
+		case EnumObjectiveType.MAXIMUM_VALUE:
+			direction = EnumLpConsType.ENUM_LITERAL_LP_CONS_BIGGER_OR_EQUAL;
+			break;
+		case EnumObjectiveType.MINIMUM_VALUE:
+			direction = EnumLpConsType.ENUM_LITERAL_LP_CONS_SMALLER_OR_EQUAL;
+			break;
+		}
+		solver.buildLpCons(this, linearExpr, rhs,  direction);
 	}
 
 	/**

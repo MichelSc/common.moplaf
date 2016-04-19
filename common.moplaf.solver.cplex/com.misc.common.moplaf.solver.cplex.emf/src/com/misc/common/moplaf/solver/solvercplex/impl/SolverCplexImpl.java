@@ -253,7 +253,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
      * Build the lp cons
 	 */
 	@Override
-	protected void buildLpCons(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
+	public void buildLpCons(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
 		IloLinearNumExpr expr = SolverCplexImpl.this.lp.linearNumExpr();
 	    for ( GeneratorLpTerm lpterm : linear.getLpTerm())			{
 		    GeneratorLpVar lpvar = lpterm.getLpVar();

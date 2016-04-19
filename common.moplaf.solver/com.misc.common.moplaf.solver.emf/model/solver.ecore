@@ -285,6 +285,15 @@
     <eOperations name="buildLpCons" eExceptions="#//Exception">
       <eParameters name="cons" eType="#//GeneratorLpCons"/>
     </eOperations>
+    <eOperations name="buildLpCons" eExceptions="#//Exception">
+      <eParameters name="element" eType="#//GeneratorElement"/>
+      <eParameters name="linear" eType="#//GeneratorLpLinear"/>
+      <eParameters name="rhs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+      <eParameters name="type" eType="#//EnumLpConsType"/>
+    </eOperations>
+    <eOperations name="buildConsFromGoal" eExceptions="#//Exception">
+      <eParameters name="previousSolver" eType="#//Solver"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Remarks" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverMaxDuration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
@@ -294,7 +303,6 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverBackground" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverLogLevel" eType="#//EnumSolverLogLevel"
         defaultValueLiteral="Normal"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverDump" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -309,20 +317,21 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunDurationSolving" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunRequestTerminate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunTimeOut" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolUnfeasible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolFeasible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolOptimal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunInterrupted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Initializing" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Solving" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Finalizing" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Finished" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunTimeOut" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        defaultValueLiteral="false"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Initializing" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="GoalToSolve" eType="#//GeneratorGoal"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="InitialSolution" eType="#//Solution"/>
   </eClassifiers>
@@ -419,6 +428,10 @@
     <eOperations name="getGenerator" eType="#//Generator"/>
     <eOperations name="build" eExceptions="#//Exception">
       <eParameters name="builder" eType="#//Solver"/>
+    </eOperations>
+    <eOperations name="buildCons" eExceptions="#//Exception">
+      <eParameters name="solver" eType="#//Solver"/>
+      <eParameters name="previousSolver" eType="#//Solver"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="GeneratorAsRoot" eType="#//Generator"
         changeable="false" volatile="true" transient="true" derived="true" eOpposite="#//Generator/GoalsRoot"/>

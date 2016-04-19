@@ -196,10 +196,6 @@ public class SolverAdapterFactory extends AdapterFactoryImpl {
 				return createGeneratorCpConsAdapter();
 			}
 			@Override
-			public Adapter caseGeneratorLpLinear(GeneratorLpLinear object) {
-				return createGeneratorLpLinearAdapter();
-			}
-			@Override
 			public Adapter caseGeneratorCpLinear(GeneratorCpLinear object) {
 				return createGeneratorCpLinearAdapter();
 			}
@@ -230,6 +226,10 @@ public class SolverAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseGeneratorLpGoal(GeneratorLpGoal object) {
 				return createGeneratorLpGoalAdapter();
+			}
+			@Override
+			public Adapter caseGeneratorLpLinear(GeneratorLpLinear object) {
+				return createGeneratorLpLinearAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {

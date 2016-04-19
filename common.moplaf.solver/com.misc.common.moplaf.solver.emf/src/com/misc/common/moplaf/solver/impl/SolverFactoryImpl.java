@@ -76,13 +76,13 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 			case SolverPackage.SOLUTION_CP_VAR: return createSolutionCpVar();
 			case SolverPackage.SOLUTION_CONS: return createSolutionCons();
 			case SolverPackage.SOLUTION_LP_CONS: return createSolutionLpCons();
-			case SolverPackage.GENERATOR_LP_LINEAR: return createGeneratorLpLinear();
 			case SolverPackage.GENERATOR_CP_LINEAR: return createGeneratorCpLinear();
 			case SolverPackage.GENERATOR_CP_LOGICAL: return createGeneratorCpLogical();
 			case SolverPackage.GENERATOR_CP_VAR_ATOMIC: return createGeneratorCpVarAtomic();
 			case SolverPackage.GENERATOR_CP_LINEAR_TERM: return createGeneratorCpLinearTerm();
 			case SolverPackage.GENERATOR_CP_LOGICAL_TERM: return createGeneratorCpLogicalTerm();
 			case SolverPackage.GENERATOR_LP_GOAL: return createGeneratorLpGoal();
+			case SolverPackage.GENERATOR_LP_LINEAR: return createGeneratorLpLinear();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
