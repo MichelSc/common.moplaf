@@ -151,6 +151,12 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 		return null;
 	}
 
+	
+	public String getCode() {
+		return this.getName();
+	}
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -295,6 +295,12 @@ public class SolverSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SolverPackage.GENERATOR_LP_LINEAR: {
+				GeneratorLpLinear generatorLpLinear = (GeneratorLpLinear)theEObject;
+				T result = caseGeneratorLpLinear(generatorLpLinear);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case SolverPackage.GENERATOR_CP_LINEAR: {
 				GeneratorCpLinear generatorCpLinear = (GeneratorCpLinear)theEObject;
 				T result = caseGeneratorCpLinear(generatorCpLinear);
@@ -359,12 +365,6 @@ public class SolverSwitch<T> extends Switch<T> {
 				if (result == null) result = caseGeneratorGoal(generatorLpGoal);
 				if (result == null) result = caseGeneratorLpLinear(generatorLpGoal);
 				if (result == null) result = caseGeneratorElement(generatorLpGoal);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SolverPackage.GENERATOR_LP_LINEAR: {
-				GeneratorLpLinear generatorLpLinear = (GeneratorLpLinear)theEObject;
-				T result = caseGeneratorLpLinear(generatorLpLinear);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

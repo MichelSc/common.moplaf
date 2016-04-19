@@ -2789,6 +2789,10 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		generatorCpConsEClass = createEClass(GENERATOR_CP_CONS);
 		createEAttribute(generatorCpConsEClass, GENERATOR_CP_CONS__POST);
 
+		generatorLpLinearEClass = createEClass(GENERATOR_LP_LINEAR);
+		createEReference(generatorLpLinearEClass, GENERATOR_LP_LINEAR__LP_TERM);
+		createEOperation(generatorLpLinearEClass, GENERATOR_LP_LINEAR___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT);
+
 		generatorCpLinearEClass = createEClass(GENERATOR_CP_LINEAR);
 		createEAttribute(generatorCpLinearEClass, GENERATOR_CP_LINEAR__TYPE);
 		createEAttribute(generatorCpLinearEClass, GENERATOR_CP_LINEAR__RIGHT_HAND_SIDE);
@@ -2825,10 +2829,6 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		createEAttribute(generatorLpGoalEClass, GENERATOR_LP_GOAL__OBJECTIVE_TYPE);
 		createEAttribute(generatorLpGoalEClass, GENERATOR_LP_GOAL__SELECTED_SOLUTION_VALUE);
 		createEOperation(generatorLpGoalEClass, GENERATOR_LP_GOAL___GET_SOLUTION_VALUE__SOLUTION);
-
-		generatorLpLinearEClass = createEClass(GENERATOR_LP_LINEAR);
-		createEReference(generatorLpLinearEClass, GENERATOR_LP_LINEAR__LP_TERM);
-		createEOperation(generatorLpLinearEClass, GENERATOR_LP_LINEAR___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT);
 
 		// Create enums
 		enumLpVarTypeEEnum = createEEnum(ENUM_LP_VAR_TYPE);
@@ -3201,6 +3201,13 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		initEClass(generatorCpConsEClass, GeneratorCpCons.class, "GeneratorCpCons", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGeneratorCpCons_Post(), ecorePackage.getEBoolean(), "Post", null, 0, 1, GeneratorCpCons.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(generatorLpLinearEClass, GeneratorLpLinear.class, "GeneratorLpLinear", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getGeneratorLpLinear_LpTerm(), this.getGeneratorLpTerm(), this.getGeneratorLpTerm_LpLinear(), "LpTerm", null, 0, -1, GeneratorLpLinear.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getGeneratorLpLinear__ConstructTerm__GeneratorLpVar_float(), this.getGeneratorLpTerm(), "constructTerm", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getGeneratorLpVar(), "var", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEFloat(), "coef", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(generatorCpLinearEClass, GeneratorCpLinear.class, "GeneratorCpLinear", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGeneratorCpLinear_Type(), this.getEnumCpLinearType(), "Type", null, 0, 1, GeneratorCpLinear.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGeneratorCpLinear_RightHandSide(), ecorePackage.getEInt(), "RightHandSide", null, 0, 1, GeneratorCpLinear.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3243,13 +3250,6 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 
 		op = initEOperation(getGeneratorLpGoal__GetSolutionValue__Solution(), ecorePackage.getEFloat(), "getSolutionValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getSolution(), "solution", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(generatorLpLinearEClass, GeneratorLpLinear.class, "GeneratorLpLinear", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGeneratorLpLinear_LpTerm(), this.getGeneratorLpTerm(), this.getGeneratorLpTerm_LpLinear(), "LpTerm", null, 0, -1, GeneratorLpLinear.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getGeneratorLpLinear__ConstructTerm__GeneratorLpVar_float(), this.getGeneratorLpTerm(), "constructTerm", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getGeneratorLpVar(), "var", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEFloat(), "coef", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(enumLpVarTypeEEnum, EnumLpVarType.class, "EnumLpVarType");

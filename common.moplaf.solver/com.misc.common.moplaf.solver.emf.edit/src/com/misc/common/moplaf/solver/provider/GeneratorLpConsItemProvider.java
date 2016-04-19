@@ -52,33 +52,10 @@ public class GeneratorLpConsItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addLpTermPropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
 			addRighHandSidePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Lp Term feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addLpTermPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GeneratorLpLinear_LpTerm_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorLpLinear_LpTerm_feature", "_UI_GeneratorLpLinear_type"),
-				 SolverPackage.Literals.GENERATOR_LP_LINEAR__LP_TERM,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**

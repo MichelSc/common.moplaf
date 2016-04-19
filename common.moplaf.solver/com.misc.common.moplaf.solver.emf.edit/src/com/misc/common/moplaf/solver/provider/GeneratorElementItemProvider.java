@@ -75,11 +75,11 @@ public class GeneratorElementItemProvider
 				 getString("_UI_GeneratorElement_Code_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorElement_Code_feature", "_UI_GeneratorElement_type"),
 				 SolverPackage.Literals.GENERATOR_ELEMENT__CODE,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10GeneralPropertyCategory"),
 				 null));
 	}
 

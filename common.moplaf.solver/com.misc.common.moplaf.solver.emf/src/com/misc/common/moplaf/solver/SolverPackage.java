@@ -2597,7 +2597,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpLinear()
 	 * @generated
 	 */
-	int GENERATOR_CP_LINEAR = 32;
+	int GENERATOR_CP_LINEAR = 33;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpLogicalImpl <em>Generator Cp Logical</em>}' class.
@@ -2607,7 +2607,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpLogical()
 	 * @generated
 	 */
-	int GENERATOR_CP_LOGICAL = 33;
+	int GENERATOR_CP_LOGICAL = 34;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpVarImpl <em>Generator Cp Var</em>}' class.
@@ -2617,7 +2617,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpVar()
 	 * @generated
 	 */
-	int GENERATOR_CP_VAR = 34;
+	int GENERATOR_CP_VAR = 35;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpVarAtomicImpl <em>Generator Cp Var Atomic</em>}' class.
@@ -2627,7 +2627,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpVarAtomic()
 	 * @generated
 	 */
-	int GENERATOR_CP_VAR_ATOMIC = 35;
+	int GENERATOR_CP_VAR_ATOMIC = 36;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpLinearTermImpl <em>Generator Cp Linear Term</em>}' class.
@@ -2637,7 +2637,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpLinearTerm()
 	 * @generated
 	 */
-	int GENERATOR_CP_LINEAR_TERM = 36;
+	int GENERATOR_CP_LINEAR_TERM = 37;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpLogicalTermImpl <em>Generator Cp Logical Term</em>}' class.
@@ -2647,7 +2647,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpLogicalTerm()
 	 * @generated
 	 */
-	int GENERATOR_CP_LOGICAL_TERM = 37;
+	int GENERATOR_CP_LOGICAL_TERM = 38;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionCpVarImpl <em>Solution Cp Var</em>}' class.
@@ -3957,7 +3957,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorGoal()
 	 * @generated
 	 */
-	int GENERATOR_GOAL = 38;
+	int GENERATOR_GOAL = 39;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl <em>Generator Lp Goal</em>}' class.
@@ -3967,7 +3967,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpGoal()
 	 * @generated
 	 */
-	int GENERATOR_LP_GOAL = 39;
+	int GENERATOR_LP_GOAL = 40;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -4085,6 +4085,52 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_CP_CONS_OPERATION_COUNT = GENERATOR_CONS_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpLinearImpl <em>Generator Lp Linear</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.solver.impl.GeneratorLpLinearImpl
+	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpLinear()
+	 * @generated
+	 */
+	int GENERATOR_LP_LINEAR = 32;
+
+	/**
+	 * The feature id for the '<em><b>Lp Term</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_LINEAR__LP_TERM = 0;
+
+	/**
+	 * The number of structural features of the '<em>Generator Lp Linear</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_LINEAR_FEATURE_COUNT = 1;
+
+	/**
+	 * The operation id for the '<em>Construct Term</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_LINEAR___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT = 0;
+
+	/**
+	 * The number of operations of the '<em>Generator Lp Linear</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_LINEAR_OPERATION_COUNT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -4940,52 +4986,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_LP_GOAL_OPERATION_COUNT = GENERATOR_GOAL_OPERATION_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpLinearImpl <em>Generator Lp Linear</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.solver.impl.GeneratorLpLinearImpl
-	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpLinear()
-	 * @generated
-	 */
-	int GENERATOR_LP_LINEAR = 40;
-
-	/**
-	 * The feature id for the '<em><b>Lp Term</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_LINEAR__LP_TERM = 0;
-
-	/**
-	 * The number of structural features of the '<em>Generator Lp Linear</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_LINEAR_FEATURE_COUNT = 1;
-
-	/**
-	 * The operation id for the '<em>Construct Term</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_LINEAR___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT = 0;
-
-	/**
-	 * The number of operations of the '<em>Generator Lp Linear</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_LINEAR_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '<em>ITuple Visitor</em>' data type.

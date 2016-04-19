@@ -170,6 +170,7 @@ public class GeneratorLpTermItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(SolverPackage.Literals.GENERATOR_LP_TERM__LP_VAR);
+			childrenFeatures.add(SolverPackage.Literals.GENERATOR_LP_TERM__LP_LINEAR);
 		}
 		return childrenFeatures;
 	}

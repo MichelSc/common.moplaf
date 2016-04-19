@@ -13,7 +13,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -45,33 +44,9 @@ public class GeneratorGoalItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addGeneratorAsRootPropertyDescriptor(object);
 			addSubGoalPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Generator As Root feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addGeneratorAsRootPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GeneratorGoal_GeneratorAsRoot_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorGoal_GeneratorAsRoot_feature", "_UI_GeneratorGoal_type"),
-				 SolverPackage.Literals.GENERATOR_GOAL__GENERATOR_AS_ROOT,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -88,33 +63,11 @@ public class GeneratorGoalItemProvider
 				 getString("_UI_GeneratorGoal_SubGoal_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorGoal_SubGoal_feature", "_UI_GeneratorGoal_type"),
 				 SolverPackage.Literals.GENERATOR_GOAL__SUB_GOAL,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GeneratorGoal_Name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorGoal_Name_feature", "_UI_GeneratorGoal_type"),
-				 SolverPackage.Literals.GENERATOR_GOAL__NAME,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
+				 getString("_UI__10GeneralPropertyCategory"),
 				 null));
 	}
 
