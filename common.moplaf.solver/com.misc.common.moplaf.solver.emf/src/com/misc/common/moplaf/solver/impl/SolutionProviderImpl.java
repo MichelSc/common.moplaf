@@ -198,6 +198,17 @@ public abstract class SolutionProviderImpl extends MinimalEObjectImpl.Container 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void dispose() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -316,6 +327,9 @@ public abstract class SolutionProviderImpl extends MinimalEObjectImpl.Container 
 				return constructSolution();
 			case SolverPackage.SOLUTION_PROVIDER___GET_GENERATOR:
 				return getGenerator();
+			case SolverPackage.SOLUTION_PROVIDER___DISPOSE:
+				dispose();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

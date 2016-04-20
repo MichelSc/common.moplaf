@@ -646,6 +646,7 @@ public interface Solver extends SolutionProvider {
 
 	/**
 	 * Returns the value of the '<em><b>Initial Solution</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.Solution#getSolverAsInitialSolution <em>Solver As Initial Solution</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Initial Solution</em>' reference isn't clear,
@@ -655,7 +656,8 @@ public interface Solver extends SolutionProvider {
 	 * @return the value of the '<em>Initial Solution</em>' reference.
 	 * @see #setInitialSolution(Solution)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolver_InitialSolution()
-	 * @model
+	 * @see com.misc.common.moplaf.solver.Solution#getSolverAsInitialSolution
+	 * @model opposite="SolverAsInitialSolution"
 	 * @generated
 	 */
 	Solution getInitialSolution();

@@ -25,11 +25,13 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.solver.Solution#getVar <em>Var</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.Solution#getCons <em>Cons</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solution#getProvider <em>Provider</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solution#getSolutionNr <em>Solution Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solution#getCode <em>Code</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.Solution#getSolverAsInitialSolution <em>Solver As Initial Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.Solution#getElements <em>Elements</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.Solution#getVars <em>Vars</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.Solution#getCons <em>Cons</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getSolution()
@@ -37,42 +39,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Solution extends EObject {
-
-	/**
-	 * Returns the value of the '<em><b>Var</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.solver.SolutionVar}.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.SolutionVar#getSolution <em>Solution</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Var</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Var</em>' containment reference list.
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolution_Var()
-	 * @see com.misc.common.moplaf.solver.SolutionVar#getSolution
-	 * @model opposite="Solution" containment="true"
-	 * @generated
-	 */
-	EList<SolutionVar> getVar();
-
-	/**
-	 * Returns the value of the '<em><b>Cons</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.solver.SolutionCons}.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.SolutionCons#getSolution <em>Solution</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Cons</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Cons</em>' containment reference list.
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolution_Cons()
-	 * @see com.misc.common.moplaf.solver.SolutionCons#getSolution
-	 * @model opposite="Solution" containment="true"
-	 * @generated
-	 */
-	EList<SolutionCons> getCons();
 
 	/**
 	 * Returns the value of the '<em><b>Provider</b></em>' container reference.
@@ -155,6 +121,74 @@ public interface Solution extends EObject {
 	void setCode(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Solver As Initial Solution</b></em>' reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.solver.Solver}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.Solver#getInitialSolution <em>Initial Solution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Solver As Initial Solution</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Solver As Initial Solution</em>' reference list.
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolution_SolverAsInitialSolution()
+	 * @see com.misc.common.moplaf.solver.Solver#getInitialSolution
+	 * @model opposite="InitialSolution"
+	 * @generated
+	 */
+	EList<Solver> getSolverAsInitialSolution();
+
+	/**
+	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.solver.SolutionElement}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.SolutionElement#getSolution <em>Solution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Elements</em>' containment reference list.
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolution_Elements()
+	 * @see com.misc.common.moplaf.solver.SolutionElement#getSolution
+	 * @model opposite="Solution" containment="true"
+	 * @generated
+	 */
+	EList<SolutionElement> getElements();
+
+	/**
+	 * Returns the value of the '<em><b>Vars</b></em>' reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.solver.SolutionVar}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Vars</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Vars</em>' reference list.
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolution_Vars()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EList<SolutionVar> getVars();
+
+	/**
+	 * Returns the value of the '<em><b>Cons</b></em>' reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.solver.SolutionCons}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Cons</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Cons</em>' reference list.
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolution_Cons()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EList<SolutionCons> getCons();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
@@ -185,4 +219,12 @@ public interface Solution extends EObject {
 	 * @generated
 	 */
 	SolutionVar constructSolutionVar(GeneratorVar var);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void dispose();
 } // Solution

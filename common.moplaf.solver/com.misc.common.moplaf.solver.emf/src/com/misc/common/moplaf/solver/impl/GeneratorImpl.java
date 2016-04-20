@@ -54,7 +54,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getCode <em>Code</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getSolutionProvider <em>Solution Provider</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getSelected <em>Selected</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getGoalsRoot <em>Goals Root</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getGoals <em>Goals</em>}</li>
  * </ul>
  *
  * @generated
@@ -580,11 +580,11 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public EList<GeneratorGoal> getGoalsRoot() {
+	public EList<GeneratorGoal> getGoals() {
 		// Ensure that you remove @generated or mark it @generated NOT
 		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
 		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-		EList<GeneratorGoal> newList = new EObjectEList<GeneratorGoal>(GeneratorGoal.class, this, SolverPackage.GENERATOR__GOALS_ROOT);
+		EList<GeneratorGoal> newList = new EObjectEList<GeneratorGoal>(GeneratorGoal.class, this, SolverPackage.GENERATOR__GOALS);
 		for ( EObject element : this.eContents()){
 			if ( element instanceof GeneratorGoal){
 				GeneratorGoal goal= (GeneratorGoal)element;
@@ -605,8 +605,8 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 		while ( !this.getTupleRoot().isEmpty()){
 			EcoreUtil.delete(this.getTupleRoot().get(0), true);
 		}
-		while ( !this.getGoalsRoot().isEmpty()){
-			EcoreUtil.delete(this.getGoalsRoot().get(0), true);
+		while ( !this.getGoals().isEmpty()){
+			EcoreUtil.delete(this.getGoals().get(0), true);
 		}
 		Plugin.INSTANCE.logInfo("Generator.generate: flushed");
 	
@@ -844,8 +844,8 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 			case SolverPackage.GENERATOR__SELECTED:
 				if (resolve) return getSelected();
 				return basicGetSelected();
-			case SolverPackage.GENERATOR__GOALS_ROOT:
-				return getGoalsRoot();
+			case SolverPackage.GENERATOR__GOALS:
+				return getGoals();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -976,8 +976,8 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 				return !getSolutionProvider().isEmpty();
 			case SolverPackage.GENERATOR__SELECTED:
 				return selected != null;
-			case SolverPackage.GENERATOR__GOALS_ROOT:
-				return !getGoalsRoot().isEmpty();
+			case SolverPackage.GENERATOR__GOALS:
+				return !getGoals().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

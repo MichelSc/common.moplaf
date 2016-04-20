@@ -293,6 +293,7 @@ public class GeneratorItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(SolverPackage.Literals.GENERATOR__ELP_VAR_COUNT);
 			childrenFeatures.add(SolverPackage.Literals.GENERATOR__ELP_CONS_COUNT);
+			childrenFeatures.add(SolverPackage.Literals.GENERATOR__GOALS);
 		}
 		return childrenFeatures;
 	}

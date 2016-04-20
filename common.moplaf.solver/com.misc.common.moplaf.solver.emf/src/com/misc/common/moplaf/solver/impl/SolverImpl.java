@@ -703,6 +703,10 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case SolverPackage.SOLVER__INITIAL_SOLUTION:
+				if (initialSolution != null)
+					msgs = ((InternalEObject)initialSolution).eInverseRemove(this, SolverPackage.SOLUTION__SOLVER_AS_INITIAL_SOLUTION, Solution.class, msgs);
+				return basicSetInitialSolution((Solution)otherEnd, msgs);
 			case SolverPackage.SOLVER__NEXT_TO_SOLVE:
 				if (nextToSolve != null)
 					msgs = ((InternalEObject)nextToSolve).eInverseRemove(this, SolverPackage.SOLVER__PREVIOUS_SOLVED, Solver.class, msgs);
@@ -723,6 +727,8 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case SolverPackage.SOLVER__INITIAL_SOLUTION:
+				return basicSetInitialSolution(null, msgs);
 			case SolverPackage.SOLVER__NEXT_TO_SOLVE:
 				return basicSetNextToSolve(null, msgs);
 			case SolverPackage.SOLVER__PREVIOUS_SOLVED:
@@ -915,11 +921,33 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setInitialSolution(Solution newInitialSolution) {
+	public NotificationChain basicSetInitialSolution(Solution newInitialSolution, NotificationChain msgs) {
 		Solution oldInitialSolution = initialSolution;
 		initialSolution = newInitialSolution;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__INITIAL_SOLUTION, oldInitialSolution, initialSolution));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__INITIAL_SOLUTION, oldInitialSolution, newInitialSolution);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInitialSolution(Solution newInitialSolution) {
+		if (newInitialSolution != initialSolution) {
+			NotificationChain msgs = null;
+			if (initialSolution != null)
+				msgs = ((InternalEObject)initialSolution).eInverseRemove(this, SolverPackage.SOLUTION__SOLVER_AS_INITIAL_SOLUTION, Solution.class, msgs);
+			if (newInitialSolution != null)
+				msgs = ((InternalEObject)newInitialSolution).eInverseAdd(this, SolverPackage.SOLUTION__SOLVER_AS_INITIAL_SOLUTION, Solution.class, msgs);
+			msgs = basicSetInitialSolution(newInitialSolution, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__INITIAL_SOLUTION, newInitialSolution, newInitialSolution));
 	}
 
 	/**
@@ -1776,12 +1804,8 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		if ( parent instanceof IGeneratorTool ) {
 			return ((IGeneratorTool)parent).getGenerator();
 		}
-		else if ( parent instanceof Generator){
-			return (Generator)parent;
-		}
 		return null;
 	}
-
 
 	/**
 	 * <!-- begin-user-doc -->

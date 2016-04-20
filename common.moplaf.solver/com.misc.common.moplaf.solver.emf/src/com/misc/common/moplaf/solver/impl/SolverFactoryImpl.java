@@ -70,6 +70,7 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 			case SolverPackage.GENERATOR_VAR_OVERFLOW: return createGeneratorVarOverflow();
 			case SolverPackage.SOLUTION_READER_PATTERN: return createSolutionReaderPattern();
 			case SolverPackage.SOLUTION: return createSolution();
+			case SolverPackage.SOLUTION_ELEMENT: return createSolutionElement();
 			case SolverPackage.SOLUTION_LP: return createSolutionLp();
 			case SolverPackage.SOLUTION_VAR: return createSolutionVar();
 			case SolverPackage.SOLUTION_LP_VAR: return createSolutionLpVar();
@@ -188,6 +189,16 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 	public Solution createSolution() {
 		SolutionImpl solution = new SolutionImpl();
 		return solution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SolutionElement createSolutionElement() {
+		SolutionElementImpl solutionElement = new SolutionElementImpl();
+		return solutionElement;
 	}
 
 	/**

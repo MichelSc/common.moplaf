@@ -57,7 +57,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getCode <em>Code</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getSolutionProvider <em>Solution Provider</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getSelected <em>Selected</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.Generator#getGoalsRoot <em>Goals Root</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.Generator#getGoals <em>Goals</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getGenerator()
@@ -364,22 +364,22 @@ public interface Generator extends EObject {
 	void setSelected(Solution value);
 
 	/**
-	 * Returns the value of the '<em><b>Goals Root</b></em>' reference list.
+	 * Returns the value of the '<em><b>Goals</b></em>' reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.solver.GeneratorGoal}.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.GeneratorGoal#getGeneratorAsRoot <em>Generator As Root</em>}'.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.GeneratorGoal#getGenerator <em>Generator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Goals Root</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Goals</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Goals Root</em>' reference list.
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getGenerator_GoalsRoot()
-	 * @see com.misc.common.moplaf.solver.GeneratorGoal#getGeneratorAsRoot
-	 * @model opposite="GeneratorAsRoot" transient="true" changeable="false" volatile="true" derived="true"
+	 * @return the value of the '<em>Goals</em>' reference list.
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getGenerator_Goals()
+	 * @see com.misc.common.moplaf.solver.GeneratorGoal#getGenerator
+	 * @model opposite="Generator" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	EList<GeneratorGoal> getGoalsRoot();
+	EList<GeneratorGoal> getGoals();
 
 	/**
 	 * <!-- begin-user-doc -->

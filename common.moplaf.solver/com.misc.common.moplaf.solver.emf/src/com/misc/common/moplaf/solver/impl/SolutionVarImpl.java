@@ -3,7 +3,6 @@
 package com.misc.common.moplaf.solver.impl;
 
 import com.misc.common.moplaf.solver.GeneratorVar;
-import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionVar;
 import com.misc.common.moplaf.solver.SolverPackage;
 import java.lang.reflect.InvocationTargetException;
@@ -13,8 +12,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,13 +22,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionVarImpl#getOptimalValue <em>Optimal Value</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionVarImpl#getSolution <em>Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionVarImpl#getVar <em>Var</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SolutionVarImpl extends MinimalEObjectImpl.Container implements SolutionVar {
+public class SolutionVarImpl extends SolutionElementImpl implements SolutionVar {
 	/**
 	 * The default value of the '{@link #getOptimalValue() <em>Optimal Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -100,47 +96,6 @@ public class SolutionVarImpl extends MinimalEObjectImpl.Container implements Sol
 		optimalValue = newOptimalValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLUTION_VAR__OPTIMAL_VALUE, oldOptimalValue, optimalValue));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Solution getSolution() {
-		if (eContainerFeatureID() != SolverPackage.SOLUTION_VAR__SOLUTION) return null;
-		return (Solution)eInternalContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetSolution(Solution newSolution, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newSolution, SolverPackage.SOLUTION_VAR__SOLUTION, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSolution(Solution newSolution) {
-		if (newSolution != eInternalContainer() || (eContainerFeatureID() != SolverPackage.SOLUTION_VAR__SOLUTION && newSolution != null)) {
-			if (EcoreUtil.isAncestor(this, newSolution))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newSolution != null)
-				msgs = ((InternalEObject)newSolution).eInverseAdd(this, SolverPackage.SOLUTION__VAR, Solution.class, msgs);
-			msgs = basicSetSolution(newSolution, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLUTION_VAR__SOLUTION, newSolution, newSolution));
 	}
 
 	/**
@@ -233,10 +188,6 @@ public class SolutionVarImpl extends MinimalEObjectImpl.Container implements Sol
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SolverPackage.SOLUTION_VAR__SOLUTION:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetSolution((Solution)otherEnd, msgs);
 			case SolverPackage.SOLUTION_VAR__VAR:
 				if (var != null)
 					msgs = ((InternalEObject)var).eInverseRemove(this, SolverPackage.GENERATOR_VAR__SOLUTION, GeneratorVar.class, msgs);
@@ -253,8 +204,6 @@ public class SolutionVarImpl extends MinimalEObjectImpl.Container implements Sol
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SolverPackage.SOLUTION_VAR__SOLUTION:
-				return basicSetSolution(null, msgs);
 			case SolverPackage.SOLUTION_VAR__VAR:
 				return basicSetVar(null, msgs);
 		}
@@ -267,26 +216,10 @@ public class SolutionVarImpl extends MinimalEObjectImpl.Container implements Sol
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case SolverPackage.SOLUTION_VAR__SOLUTION:
-				return eInternalContainer().eInverseRemove(this, SolverPackage.SOLUTION__VAR, Solution.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case SolverPackage.SOLUTION_VAR__OPTIMAL_VALUE:
 				return getOptimalValue();
-			case SolverPackage.SOLUTION_VAR__SOLUTION:
-				return getSolution();
 			case SolverPackage.SOLUTION_VAR__VAR:
 				if (resolve) return getVar();
 				return basicGetVar();
@@ -304,9 +237,6 @@ public class SolutionVarImpl extends MinimalEObjectImpl.Container implements Sol
 		switch (featureID) {
 			case SolverPackage.SOLUTION_VAR__OPTIMAL_VALUE:
 				setOptimalValue((Float)newValue);
-				return;
-			case SolverPackage.SOLUTION_VAR__SOLUTION:
-				setSolution((Solution)newValue);
 				return;
 			case SolverPackage.SOLUTION_VAR__VAR:
 				setVar((GeneratorVar)newValue);
@@ -326,9 +256,6 @@ public class SolutionVarImpl extends MinimalEObjectImpl.Container implements Sol
 			case SolverPackage.SOLUTION_VAR__OPTIMAL_VALUE:
 				setOptimalValue(OPTIMAL_VALUE_EDEFAULT);
 				return;
-			case SolverPackage.SOLUTION_VAR__SOLUTION:
-				setSolution((Solution)null);
-				return;
 			case SolverPackage.SOLUTION_VAR__VAR:
 				setVar((GeneratorVar)null);
 				return;
@@ -346,8 +273,6 @@ public class SolutionVarImpl extends MinimalEObjectImpl.Container implements Sol
 		switch (featureID) {
 			case SolverPackage.SOLUTION_VAR__OPTIMAL_VALUE:
 				return optimalValue != OPTIMAL_VALUE_EDEFAULT;
-			case SolverPackage.SOLUTION_VAR__SOLUTION:
-				return getSolution() != null;
 			case SolverPackage.SOLUTION_VAR__VAR:
 				return var != null;
 		}

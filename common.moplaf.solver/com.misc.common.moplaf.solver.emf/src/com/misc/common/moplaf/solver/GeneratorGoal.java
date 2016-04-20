@@ -7,11 +7,17 @@ package com.misc.common.moplaf.solver;
  * A representation of the model object '<em><b>Generator Goal</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * A goal for the generated problem.
+ * A goal is expected to be directly contained to its Generator owner.
+ * A goal may reference a secondary goal: a subgoal.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.solver.GeneratorGoal#getGeneratorAsRoot <em>Generator As Root</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.GeneratorGoal#getGenerator <em>Generator</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorGoal#getSubGoal <em>Sub Goal</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorGoal#getName <em>Name</em>}</li>
  * </ul>
@@ -22,21 +28,21 @@ package com.misc.common.moplaf.solver;
  */
 public interface GeneratorGoal extends GeneratorElement {
 	/**
-	 * Returns the value of the '<em><b>Generator As Root</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.Generator#getGoalsRoot <em>Goals Root</em>}'.
+	 * Returns the value of the '<em><b>Generator</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.Generator#getGoals <em>Goals</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Generator As Root</em>' reference isn't clear,
+	 * If the meaning of the '<em>Generator</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Generator As Root</em>' reference.
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorGoal_GeneratorAsRoot()
-	 * @see com.misc.common.moplaf.solver.Generator#getGoalsRoot
-	 * @model opposite="GoalsRoot" transient="true" changeable="false" volatile="true" derived="true"
+	 * @return the value of the '<em>Generator</em>' reference.
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorGoal_Generator()
+	 * @see com.misc.common.moplaf.solver.Generator#getGoals
+	 * @model opposite="Goals" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	Generator getGeneratorAsRoot();
+	Generator getGenerator();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -63,11 +69,22 @@ public interface GeneratorGoal extends GeneratorElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sub Goal</em>' reference.
+	 * @see #setSubGoal(GeneratorGoal)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorGoal_SubGoal()
-	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @model
 	 * @generated
 	 */
 	GeneratorGoal getSubGoal();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.solver.GeneratorGoal#getSubGoal <em>Sub Goal</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sub Goal</em>' reference.
+	 * @see #getSubGoal()
+	 * @generated
+	 */
+	void setSubGoal(GeneratorGoal value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

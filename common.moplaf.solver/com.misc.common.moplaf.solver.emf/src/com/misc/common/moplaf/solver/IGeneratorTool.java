@@ -27,4 +27,12 @@ public interface IGeneratorTool extends EObject {
 	 */
 	Generator getGenerator();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void dispose();
+
 } // IGeneratorTool

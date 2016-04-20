@@ -10,7 +10,6 @@ import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -23,7 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl#getGeneratorAsRoot <em>Generator As Root</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl#getGenerator <em>Generator</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl#getSubGoal <em>Sub Goal</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl#getName <em>Name</em>}</li>
  * </ul>
@@ -31,6 +30,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements GeneratorGoal {
+	/**
+	 * The cached value of the '{@link #getSubGoal() <em>Sub Goal</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubGoal()
+	 * @generated
+	 * @ordered
+	 */
+	protected GeneratorGoal subGoal;
+
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -70,35 +79,24 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 		return SolverPackage.Literals.GENERATOR_GOAL;
 	}
 
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Generator getGeneratorAsRoot() {
-		Generator generatorAsRoot = basicGetGeneratorAsRoot();
-		return generatorAsRoot != null && generatorAsRoot.eIsProxy() ? (Generator)eResolveProxy((InternalEObject)generatorAsRoot) : generatorAsRoot;
+	public Generator getGenerator() {
+		Generator generator = basicGetGenerator();
+		return generator != null && generator.eIsProxy() ? (Generator)eResolveProxy((InternalEObject)generator) : generator;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public Generator basicGetGeneratorAsRoot() {
+	public Generator basicGetGenerator() {
 		if ( !this.isRoot() ){ return null; }
 		return (Generator)this.eContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public Generator getGenerator() {
-		if ( this.isRoot() ){
-			return this.getGeneratorAsRoot();
-		}
-		GeneratorGoal superGoal = (GeneratorGoal)this.eContainer();
-		return superGoal.getGenerator();
 	}
 
 	/**
@@ -124,14 +122,9 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 		return this.eContainer() instanceof Generator; 
 	}
 
-	private boolean isSubGoal(){
-		return this.eContainer() instanceof GeneratorGoal; 
-	}
-
     private void checkContained(){
 		if ( this.isRoot() ) { return; } 
-		if ( this.isSubGoal() ) { return; } 
-		throw new UnsupportedOperationException("Container of a goal must be a Generator or another goal, and not : "+this.eContainer().eClass().getName());
+		throw new UnsupportedOperationException("Container of a goal must be a Generator and not : "+this.eContainer().eClass().getName());
     }
 
 	/**
@@ -140,29 +133,39 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 	 * @generated
 	 */
 	public GeneratorGoal getSubGoal() {
-		GeneratorGoal subGoal = basicGetSubGoal();
-		return subGoal != null && subGoal.eIsProxy() ? (GeneratorGoal)eResolveProxy((InternalEObject)subGoal) : subGoal;
+		if (subGoal != null && subGoal.eIsProxy()) {
+			InternalEObject oldSubGoal = (InternalEObject)subGoal;
+			subGoal = (GeneratorGoal)eResolveProxy(oldSubGoal);
+			if (subGoal != oldSubGoal) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SolverPackage.GENERATOR_GOAL__SUB_GOAL, oldSubGoal, subGoal));
+			}
+		}
+		return subGoal;
+	}
+
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GeneratorGoal basicGetSubGoal() {
+		return subGoal;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
-	public GeneratorGoal basicGetSubGoal() {
-		// Ensure that you remove @generated or mark it @generated NOT
-		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-		for ( EObject element : this.eContents()){
-			if ( element instanceof GeneratorGoal){
-				GeneratorGoal goal= (GeneratorGoal)element;
-				return goal;
-			}
-			
-		}
-		return null;
+	public void setSubGoal(GeneratorGoal newSubGoal) {
+		GeneratorGoal oldSubGoal = subGoal;
+		subGoal = newSubGoal;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_GOAL__SUB_GOAL, oldSubGoal, subGoal));
 	}
 
-	
 	public String getCode() {
 		return this.getName();
 	}
@@ -197,9 +200,9 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SolverPackage.GENERATOR_GOAL__GENERATOR_AS_ROOT:
-				if (resolve) return getGeneratorAsRoot();
-				return basicGetGeneratorAsRoot();
+			case SolverPackage.GENERATOR_GOAL__GENERATOR:
+				if (resolve) return getGenerator();
+				return basicGetGenerator();
 			case SolverPackage.GENERATOR_GOAL__SUB_GOAL:
 				if (resolve) return getSubGoal();
 				return basicGetSubGoal();
@@ -218,6 +221,9 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case SolverPackage.GENERATOR_GOAL__SUB_GOAL:
+				setSubGoal((GeneratorGoal)newValue);
+				return;
 			case SolverPackage.GENERATOR_GOAL__NAME:
 				setName((String)newValue);
 				return;
@@ -233,6 +239,9 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case SolverPackage.GENERATOR_GOAL__SUB_GOAL:
+				setSubGoal((GeneratorGoal)null);
+				return;
 			case SolverPackage.GENERATOR_GOAL__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -248,10 +257,10 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SolverPackage.GENERATOR_GOAL__GENERATOR_AS_ROOT:
-				return basicGetGeneratorAsRoot() != null;
+			case SolverPackage.GENERATOR_GOAL__GENERATOR:
+				return basicGetGenerator() != null;
 			case SolverPackage.GENERATOR_GOAL__SUB_GOAL:
-				return basicGetSubGoal() != null;
+				return subGoal != null;
 			case SolverPackage.GENERATOR_GOAL__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}

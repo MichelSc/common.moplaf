@@ -69,7 +69,8 @@
           ecoreFeature="ecore:EReference solver.ecore#//Generator/SolutionProvider"/>
       <genFeatures createChild="false" propertyCategory="30 Solution" propertySortChoices="true"
           ecoreFeature="ecore:EReference solver.ecore#//Generator/Selected"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//Generator/GoalsRoot"/>
+      <genFeatures property="None" notify="false" children="true" createChild="false"
+          ecoreFeature="ecore:EReference solver.ecore#//Generator/Goals"/>
       <genOperations ecoreOperation="solver.ecore#//Generator/generate"/>
       <genOperations ecoreOperation="solver.ecore#//Generator/generateRootTuples"/>
       <genOperations ecoreOperation="solver.ecore#//Generator/generateTuples"/>
@@ -201,6 +202,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="solver.ecore#//IGeneratorTool">
       <genOperations ecoreOperation="solver.ecore#//IGeneratorTool/getGenerator"/>
+      <genOperations ecoreOperation="solver.ecore#//IGeneratorTool/dispose"/>
     </genClasses>
     <genClasses ecoreClass="solver.ecore#//SolutionReader" labelFeature="#//solver/SolutionProvider/Code">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolutionReader/FilePath"/>
@@ -320,11 +322,13 @@
       <genFeatures createChild="false" propertyCategory="40 Solution" ecoreFeature="ecore:EAttribute solver.ecore#//SolverLp/SolOptimalityGap"/>
     </genClasses>
     <genClasses ecoreClass="solver.ecore#//Solution" labelFeature="#//solver/Solution/Code">
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//Solution/Var"/>
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//Solution/Cons"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//Solution/Provider"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//Solution/SolutionNr"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//Solution/Code"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//Solution/SolverAsInitialSolution"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference solver.ecore#//Solution/Elements"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//Solution/Vars"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//Solution/Cons"/>
       <genOperations ecoreOperation="solver.ecore#//Solution/solutionVarFactory"/>
       <genOperations ecoreOperation="solver.ecore#//Solution/solutionConsFactory"/>
       <genOperations ecoreOperation="solver.ecore#//Solution/constructSolutionCons">
@@ -333,13 +337,17 @@
       <genOperations ecoreOperation="solver.ecore#//Solution/constructSolutionVar">
         <genParameters ecoreParameter="solver.ecore#//Solution/constructSolutionVar/var"/>
       </genOperations>
+      <genOperations ecoreOperation="solver.ecore#//Solution/dispose"/>
+    </genClasses>
+    <genClasses ecoreClass="solver.ecore#//SolutionElement">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//SolutionElement/Solution"/>
+      <genOperations ecoreOperation="solver.ecore#//SolutionElement/dispose"/>
     </genClasses>
     <genClasses image="false" ecoreClass="solver.ecore#//SolutionLp" labelFeature="#//solver/Solution/Code">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolutionLp/GoalValue"/>
     </genClasses>
     <genClasses ecoreClass="solver.ecore#//SolutionVar">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolutionVar/OptimalValue"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//SolutionVar/Solution"/>
       <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference solver.ecore#//SolutionVar/var"/>
       <genOperations ecoreOperation="solver.ecore#//SolutionVar/isOne"/>
@@ -348,7 +356,6 @@
     <genClasses image="false" ecoreClass="solver.ecore#//SolutionLpVar"/>
     <genClasses image="false" ecoreClass="solver.ecore#//SolutionCpVar"/>
     <genClasses ecoreClass="solver.ecore#//SolutionCons">
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//SolutionCons/Solution"/>
       <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference solver.ecore#//SolutionCons/cons"/>
     </genClasses>
@@ -382,7 +389,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//GeneratorCpLogicalTerm/CpCons"/>
     </genClasses>
     <genClasses ecoreClass="solver.ecore#//GeneratorGoal">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//GeneratorGoal/GeneratorAsRoot"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//GeneratorGoal/Generator"/>
       <genFeatures notify="false" createChild="false" propertyCategory="10 General"
           ecoreFeature="ecore:EReference solver.ecore#//GeneratorGoal/SubGoal"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorGoal/Name"/>

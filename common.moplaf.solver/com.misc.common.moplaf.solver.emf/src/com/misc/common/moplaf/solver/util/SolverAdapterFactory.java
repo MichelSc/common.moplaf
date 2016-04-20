@@ -168,6 +168,10 @@ public class SolverAdapterFactory extends AdapterFactoryImpl {
 				return createSolutionAdapter();
 			}
 			@Override
+			public Adapter caseSolutionElement(SolutionElement object) {
+				return createSolutionElementAdapter();
+			}
+			@Override
 			public Adapter caseSolutionLp(SolutionLp object) {
 				return createSolutionLpAdapter();
 			}
@@ -360,6 +364,20 @@ public class SolverAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSolutionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.SolutionElement <em>Solution Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.solver.SolutionElement
+	 * @generated
+	 */
+	public Adapter createSolutionElementAdapter() {
 		return null;
 	}
 

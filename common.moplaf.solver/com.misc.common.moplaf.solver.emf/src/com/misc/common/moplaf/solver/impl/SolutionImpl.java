@@ -6,8 +6,10 @@ import com.misc.common.moplaf.solver.GeneratorCons;
 import com.misc.common.moplaf.solver.GeneratorVar;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionCons;
+import com.misc.common.moplaf.solver.SolutionElement;
 import com.misc.common.moplaf.solver.SolutionProvider;
 import com.misc.common.moplaf.solver.SolutionVar;
+import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.solver.SolverPackage;
 
@@ -18,10 +20,13 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -33,35 +38,18 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionImpl#getVar <em>Var</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionImpl#getCons <em>Cons</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionImpl#getProvider <em>Provider</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionImpl#getSolutionNr <em>Solution Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionImpl#getCode <em>Code</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionImpl#getSolverAsInitialSolution <em>Solver As Initial Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionImpl#getVars <em>Vars</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionImpl#getCons <em>Cons</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class SolutionImpl extends MinimalEObjectImpl.Container implements Solution {
-	/**
-	 * The cached value of the '{@link #getVar() <em>Var</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVar()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<SolutionVar> var;
-	/**
-	 * The cached value of the '{@link #getCons() <em>Cons</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCons()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<SolutionCons> cons;
-
 	/**
 	 * The default value of the '{@link #getSolutionNr() <em>Solution Nr</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -92,6 +80,25 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	protected static final String CODE_EDEFAULT = null;
 
 	/**
+	 * The cached value of the '{@link #getSolverAsInitialSolution() <em>Solver As Initial Solution</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSolverAsInitialSolution()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Solver> solverAsInitialSolution;
+	/**
+	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getElements()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SolutionElement> elements;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -108,30 +115,6 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	@Override
 	protected EClass eStaticClass() {
 		return SolverPackage.Literals.SOLUTION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<SolutionVar> getVar() {
-		if (var == null) {
-			var = new EObjectContainmentWithInverseEList<SolutionVar>(SolutionVar.class, this, SolverPackage.SOLUTION__VAR, SolverPackage.SOLUTION_VAR__SOLUTION);
-		}
-		return var;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<SolutionCons> getCons() {
-		if (cons == null) {
-			cons = new EObjectContainmentWithInverseEList<SolutionCons>(SolutionCons.class, this, SolverPackage.SOLUTION__CONS, SolverPackage.SOLUTION_CONS__SOLUTION);
-		}
-		return cons;
 	}
 
 	/**
@@ -217,6 +200,60 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Solver> getSolverAsInitialSolution() {
+		if (solverAsInitialSolution == null) {
+			solverAsInitialSolution = new EObjectWithInverseResolvingEList<Solver>(Solver.class, this, SolverPackage.SOLUTION__SOLVER_AS_INITIAL_SOLUTION, SolverPackage.SOLVER__INITIAL_SOLUTION);
+		}
+		return solverAsInitialSolution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<SolutionElement> getElements() {
+		if (elements == null) {
+			elements = new EObjectContainmentWithInverseEList<SolutionElement>(SolutionElement.class, this, SolverPackage.SOLUTION__ELEMENTS, SolverPackage.SOLUTION_ELEMENT__SOLUTION);
+		}
+		return elements;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EList<SolutionVar> getVars() {
+		EObjectEList<SolutionVar> newList = new EObjectEList<SolutionVar>(SolutionVar.class, this, SolverPackage.SOLUTION__VARS);
+		for ( EObject object : this.eContents()){
+			if ( object instanceof SolutionVar){
+				SolutionVar var= (SolutionVar)object;
+				newList.addUnique(var);
+			}
+		}
+		return newList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EList<SolutionCons> getCons() {
+		EObjectEList<SolutionCons> newList = new EObjectEList<SolutionCons>(SolutionCons.class, this, SolverPackage.SOLUTION__CONS);
+		for ( EObject object : this.eContents()){
+			if ( object instanceof SolutionCons){
+				SolutionCons cons= (SolutionCons)object;
+				newList.addUnique(cons);
+			}
+		}
+		return newList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public SolutionVar solutionVarFactory() {
 		SolutionVar newSolutionVar = SolverFactory.eINSTANCE.createSolutionVar();
@@ -239,7 +276,7 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	 */
 	public SolutionCons constructSolutionCons(GeneratorCons cons) {
 		SolutionCons newSolutionCons = this.solutionConsFactory();
-		this.getCons().add(newSolutionCons);
+		this.getElements().add(newSolutionCons);
 		return newSolutionCons;
 	}
 
@@ -250,8 +287,19 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	public SolutionVar constructSolutionVar(GeneratorVar var) {
 		SolutionVar newSolutionVar = this.solutionVarFactory();
 		var.getSolution().add(newSolutionVar);
-		this.getVar().add(newSolutionVar);
+		this.getElements().add(newSolutionVar);
 		return newSolutionVar;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void dispose() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -263,14 +311,14 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SolverPackage.SOLUTION__VAR:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getVar()).basicAdd(otherEnd, msgs);
-			case SolverPackage.SOLUTION__CONS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCons()).basicAdd(otherEnd, msgs);
 			case SolverPackage.SOLUTION__PROVIDER:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetProvider((SolutionProvider)otherEnd, msgs);
+			case SolverPackage.SOLUTION__SOLVER_AS_INITIAL_SOLUTION:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSolverAsInitialSolution()).basicAdd(otherEnd, msgs);
+			case SolverPackage.SOLUTION__ELEMENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -283,12 +331,12 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SolverPackage.SOLUTION__VAR:
-				return ((InternalEList<?>)getVar()).basicRemove(otherEnd, msgs);
-			case SolverPackage.SOLUTION__CONS:
-				return ((InternalEList<?>)getCons()).basicRemove(otherEnd, msgs);
 			case SolverPackage.SOLUTION__PROVIDER:
 				return basicSetProvider(null, msgs);
+			case SolverPackage.SOLUTION__SOLVER_AS_INITIAL_SOLUTION:
+				return ((InternalEList<?>)getSolverAsInitialSolution()).basicRemove(otherEnd, msgs);
+			case SolverPackage.SOLUTION__ELEMENTS:
+				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -315,16 +363,20 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SolverPackage.SOLUTION__VAR:
-				return getVar();
-			case SolverPackage.SOLUTION__CONS:
-				return getCons();
 			case SolverPackage.SOLUTION__PROVIDER:
 				return getProvider();
 			case SolverPackage.SOLUTION__SOLUTION_NR:
 				return getSolutionNr();
 			case SolverPackage.SOLUTION__CODE:
 				return getCode();
+			case SolverPackage.SOLUTION__SOLVER_AS_INITIAL_SOLUTION:
+				return getSolverAsInitialSolution();
+			case SolverPackage.SOLUTION__ELEMENTS:
+				return getElements();
+			case SolverPackage.SOLUTION__VARS:
+				return getVars();
+			case SolverPackage.SOLUTION__CONS:
+				return getCons();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -338,14 +390,6 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SolverPackage.SOLUTION__VAR:
-				getVar().clear();
-				getVar().addAll((Collection<? extends SolutionVar>)newValue);
-				return;
-			case SolverPackage.SOLUTION__CONS:
-				getCons().clear();
-				getCons().addAll((Collection<? extends SolutionCons>)newValue);
-				return;
 			case SolverPackage.SOLUTION__PROVIDER:
 				setProvider((SolutionProvider)newValue);
 				return;
@@ -354,6 +398,14 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 				return;
 			case SolverPackage.SOLUTION__CODE:
 				setCode((String)newValue);
+				return;
+			case SolverPackage.SOLUTION__SOLVER_AS_INITIAL_SOLUTION:
+				getSolverAsInitialSolution().clear();
+				getSolverAsInitialSolution().addAll((Collection<? extends Solver>)newValue);
+				return;
+			case SolverPackage.SOLUTION__ELEMENTS:
+				getElements().clear();
+				getElements().addAll((Collection<? extends SolutionElement>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -367,12 +419,6 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SolverPackage.SOLUTION__VAR:
-				getVar().clear();
-				return;
-			case SolverPackage.SOLUTION__CONS:
-				getCons().clear();
-				return;
 			case SolverPackage.SOLUTION__PROVIDER:
 				setProvider((SolutionProvider)null);
 				return;
@@ -381,6 +427,12 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 				return;
 			case SolverPackage.SOLUTION__CODE:
 				setCode(CODE_EDEFAULT);
+				return;
+			case SolverPackage.SOLUTION__SOLVER_AS_INITIAL_SOLUTION:
+				getSolverAsInitialSolution().clear();
+				return;
+			case SolverPackage.SOLUTION__ELEMENTS:
+				getElements().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -394,16 +446,20 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SolverPackage.SOLUTION__VAR:
-				return var != null && !var.isEmpty();
-			case SolverPackage.SOLUTION__CONS:
-				return cons != null && !cons.isEmpty();
 			case SolverPackage.SOLUTION__PROVIDER:
 				return getProvider() != null;
 			case SolverPackage.SOLUTION__SOLUTION_NR:
 				return solutionNr != SOLUTION_NR_EDEFAULT;
 			case SolverPackage.SOLUTION__CODE:
 				return CODE_EDEFAULT == null ? getCode() != null : !CODE_EDEFAULT.equals(getCode());
+			case SolverPackage.SOLUTION__SOLVER_AS_INITIAL_SOLUTION:
+				return solverAsInitialSolution != null && !solverAsInitialSolution.isEmpty();
+			case SolverPackage.SOLUTION__ELEMENTS:
+				return elements != null && !elements.isEmpty();
+			case SolverPackage.SOLUTION__VARS:
+				return !getVars().isEmpty();
+			case SolverPackage.SOLUTION__CONS:
+				return !getCons().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -424,6 +480,9 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 				return constructSolutionCons((GeneratorCons)arguments.get(0));
 			case SolverPackage.SOLUTION___CONSTRUCT_SOLUTION_VAR__GENERATORVAR:
 				return constructSolutionVar((GeneratorVar)arguments.get(0));
+			case SolverPackage.SOLUTION___DISPOSE:
+				dispose();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

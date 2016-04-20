@@ -207,13 +207,14 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		try {
 			//this.lp.addMIPStart();
 			Solution initialSolution = this.getInitialSolution();
-			int nofVars = initialSolution.getVar().size();
+			EList<SolutionVar> vars = initialSolution.getVars();
+			int nofVars = vars.size();
 			IloNumVar[] varsArray   = new IloNumVar[nofVars];
 			double[]    valuesArray = new double[nofVars];
 			int i = 0;
-			for ( SolutionVar varSol : this.getInitialSolution().getVar()){
+			for ( SolutionVar varSol : vars){
 				float optimalValue = varSol.getOptimalValue();
-			    IloNumVar cplexvar = vars.get(varSol.getVar());
+			    IloNumVar cplexvar = this.vars.get(varSol.getVar());
 			    varsArray[i] = cplexvar;
 			    valuesArray[i] = optimalValue;
 			    i++;

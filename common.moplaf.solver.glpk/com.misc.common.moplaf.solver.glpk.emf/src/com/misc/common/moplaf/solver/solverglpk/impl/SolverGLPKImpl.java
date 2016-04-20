@@ -781,7 +781,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 				for ( int i=0; i<nofVars; i++){
 				    GLPK.doubleArray_setitem(array, i, 0.0);
 				}
-				for ( SolutionVar varSol : this.getInitialSolution().getVar()){
+				for ( SolutionVar varSol : this.getInitialSolution().getVars()){
 					double optimalValue = varSol.getOptimalValue();
 				    int varindex = vars.get(varSol.getVar()).intValue();
 				    GLPK.doubleArray_setitem(array, varindex, optimalValue);

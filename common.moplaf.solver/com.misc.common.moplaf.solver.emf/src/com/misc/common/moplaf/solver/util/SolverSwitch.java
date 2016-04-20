@@ -246,6 +246,12 @@ public class SolverSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SolverPackage.SOLUTION_ELEMENT: {
+				SolutionElement solutionElement = (SolutionElement)theEObject;
+				T result = caseSolutionElement(solutionElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case SolverPackage.SOLUTION_LP: {
 				SolutionLp solutionLp = (SolutionLp)theEObject;
 				T result = caseSolutionLp(solutionLp);
@@ -256,6 +262,7 @@ public class SolverSwitch<T> extends Switch<T> {
 			case SolverPackage.SOLUTION_VAR: {
 				SolutionVar solutionVar = (SolutionVar)theEObject;
 				T result = caseSolutionVar(solutionVar);
+				if (result == null) result = caseSolutionElement(solutionVar);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -263,6 +270,7 @@ public class SolverSwitch<T> extends Switch<T> {
 				SolutionLpVar solutionLpVar = (SolutionLpVar)theEObject;
 				T result = caseSolutionLpVar(solutionLpVar);
 				if (result == null) result = caseSolutionVar(solutionLpVar);
+				if (result == null) result = caseSolutionElement(solutionLpVar);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -270,12 +278,14 @@ public class SolverSwitch<T> extends Switch<T> {
 				SolutionCpVar solutionCpVar = (SolutionCpVar)theEObject;
 				T result = caseSolutionCpVar(solutionCpVar);
 				if (result == null) result = caseSolutionVar(solutionCpVar);
+				if (result == null) result = caseSolutionElement(solutionCpVar);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SolverPackage.SOLUTION_CONS: {
 				SolutionCons solutionCons = (SolutionCons)theEObject;
 				T result = caseSolutionCons(solutionCons);
+				if (result == null) result = caseSolutionElement(solutionCons);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -283,6 +293,7 @@ public class SolverSwitch<T> extends Switch<T> {
 				SolutionLpCons solutionLpCons = (SolutionLpCons)theEObject;
 				T result = caseSolutionLpCons(solutionLpCons);
 				if (result == null) result = caseSolutionCons(solutionLpCons);
+				if (result == null) result = caseSolutionElement(solutionLpCons);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -489,6 +500,21 @@ public class SolverSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSolution(Solution object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Solution Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Solution Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSolutionElement(SolutionElement object) {
 		return null;
 	}
 
