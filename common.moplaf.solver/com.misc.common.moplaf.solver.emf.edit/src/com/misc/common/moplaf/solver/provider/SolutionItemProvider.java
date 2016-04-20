@@ -70,7 +70,6 @@ public class SolutionItemProvider
 			addCodePropertyDescriptor(object);
 			addSolverAsInitialSolutionPropertyDescriptor(object);
 			addVarsPropertyDescriptor(object);
-			addConsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -164,28 +163,6 @@ public class SolutionItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Cons feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addConsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Solution_Cons_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Solution_Cons_feature", "_UI_Solution_type"),
-				 SolverPackage.Literals.SOLUTION__CONS,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -253,6 +230,7 @@ public class SolutionItemProvider
 		switch (notification.getFeatureID(Solution.class)) {
 			case SolverPackage.SOLUTION__SOLUTION_NR:
 			case SolverPackage.SOLUTION__CODE:
+			case SolverPackage.SOLUTION__CONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SolverPackage.SOLUTION__ELEMENTS:

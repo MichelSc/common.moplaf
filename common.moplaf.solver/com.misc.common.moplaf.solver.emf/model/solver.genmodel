@@ -69,8 +69,7 @@
           ecoreFeature="ecore:EReference solver.ecore#//Generator/SolutionProvider"/>
       <genFeatures createChild="false" propertyCategory="30 Solution" propertySortChoices="true"
           ecoreFeature="ecore:EReference solver.ecore#//Generator/Selected"/>
-      <genFeatures property="None" notify="false" children="true" createChild="false"
-          ecoreFeature="ecore:EReference solver.ecore#//Generator/Goals"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//Generator/Goals"/>
       <genOperations ecoreOperation="solver.ecore#//Generator/generate"/>
       <genOperations ecoreOperation="solver.ecore#//Generator/generateRootTuples"/>
       <genOperations ecoreOperation="solver.ecore#//Generator/generateTuples"/>
