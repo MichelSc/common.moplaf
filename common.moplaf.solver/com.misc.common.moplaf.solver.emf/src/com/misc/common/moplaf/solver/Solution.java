@@ -103,22 +103,11 @@ public interface Solution extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Code</em>' attribute.
-	 * @see #setCode(String)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolution_Code()
-	 * @model volatile="true" derived="true"
+	 * @model changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	String getCode();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.solver.Solution#getCode <em>Code</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Code</em>' attribute.
-	 * @see #getCode()
-	 * @generated
-	 */
-	void setCode(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Solver As Initial Solution</b></em>' reference list.

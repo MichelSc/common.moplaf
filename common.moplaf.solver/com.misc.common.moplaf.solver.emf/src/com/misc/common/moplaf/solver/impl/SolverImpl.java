@@ -1468,6 +1468,27 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__SOL_OPTIMAL, oldSolOptimal, solOptimal));
 	}
+	
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * Release all the references to this Solver
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public void dispose() {
+		super.dispose();
+		// next previous solvers
+		this.setPreviousSolved(null);
+		this.setNextToSolve(null);
+		// goal to solve
+		this.setGoalToSolve(null);
+		this.setInitialSolution(null);
+		// dispose solutions
+		for (Solution solution : this.getSolution()){
+			solution.dispose();
+		}
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

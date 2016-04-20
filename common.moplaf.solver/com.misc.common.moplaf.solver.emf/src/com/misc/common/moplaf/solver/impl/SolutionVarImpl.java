@@ -157,27 +157,33 @@ public class SolutionVarImpl extends SolutionElementImpl implements SolutionVar 
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLUTION_VAR__VAR, newVar, newVar));
 	}
+	
+	
+	
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public boolean isOne() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	@Override
+	public void dispose() {
+		this.setVar(null);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 */
+	public boolean isOne() {
+		return this.getOptimalValue()==0.0f;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public boolean isZero() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return this.getOptimalValue()==1.0f;
 	}
 
 	/**

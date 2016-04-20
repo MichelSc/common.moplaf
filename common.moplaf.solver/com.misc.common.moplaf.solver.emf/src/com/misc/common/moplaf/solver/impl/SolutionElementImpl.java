@@ -97,13 +97,10 @@ public class SolutionElementImpl extends MinimalEObjectImpl.Container implements
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Default does nothing
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void dispose() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**

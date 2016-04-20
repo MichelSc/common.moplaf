@@ -193,13 +193,6 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 */
-	public void setCode(String newCode) {
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EList<Solver> getSolverAsInitialSolution() {
@@ -220,6 +213,19 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 		}
 		return elements;
 	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * Release all the references to this Solver
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public void dispose() {
+		for ( SolutionElement element : this.getElements()){
+			element.dispose();
+		}
+	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -289,17 +295,6 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 		var.getSolution().add(newSolutionVar);
 		this.getElements().add(newSolutionVar);
 		return newSolutionVar;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void dispose() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -396,9 +391,6 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 			case SolverPackage.SOLUTION__SOLUTION_NR:
 				setSolutionNr((Integer)newValue);
 				return;
-			case SolverPackage.SOLUTION__CODE:
-				setCode((String)newValue);
-				return;
 			case SolverPackage.SOLUTION__SOLVER_AS_INITIAL_SOLUTION:
 				getSolverAsInitialSolution().clear();
 				getSolverAsInitialSolution().addAll((Collection<? extends Solver>)newValue);
@@ -424,9 +416,6 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 				return;
 			case SolverPackage.SOLUTION__SOLUTION_NR:
 				setSolutionNr(SOLUTION_NR_EDEFAULT);
-				return;
-			case SolverPackage.SOLUTION__CODE:
-				setCode(CODE_EDEFAULT);
 				return;
 			case SolverPackage.SOLUTION__SOLVER_AS_INITIAL_SOLUTION:
 				getSolverAsInitialSolution().clear();
