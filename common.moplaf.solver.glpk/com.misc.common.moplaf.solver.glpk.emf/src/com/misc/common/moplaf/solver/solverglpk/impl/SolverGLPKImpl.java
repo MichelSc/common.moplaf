@@ -914,7 +914,9 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 	private void loadLp(){
 		this.releaseLp(); // release the current model, if any
 		Generator generator = this.getGenerator();
-		if ( generator == null) { return; }
+		int nofVars = generator.getFootprintNofVars();
+		int nofCons = generator.getFootprintNofCons();
+		if ( generator == null || nofVars==0 || nofCons==0 ) { return; }
 		try {
 			this.vars = new HashMap<GeneratorLpVar, Number>();
 			this.cons = new HashMap<GeneratorElement, Number>();
