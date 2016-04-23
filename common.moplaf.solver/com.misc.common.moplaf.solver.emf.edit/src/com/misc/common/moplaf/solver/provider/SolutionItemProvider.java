@@ -69,7 +69,6 @@ public class SolutionItemProvider
 			addSolutionNrPropertyDescriptor(object);
 			addCodePropertyDescriptor(object);
 			addSolverAsInitialSolutionPropertyDescriptor(object);
-			addVarsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -135,28 +134,6 @@ public class SolutionItemProvider
 				 true,
 				 false,
 				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Vars feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addVarsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Solution_Vars_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Solution_Vars_feature", "_UI_Solution_type"),
-				 SolverPackage.Literals.SOLUTION__VARS,
-				 false,
-				 false,
-				 false,
 				 null,
 				 null,
 				 null));

@@ -134,7 +134,7 @@ public class GeneratorLpGoalItemProvider extends GeneratorGoalItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((GeneratorLpGoal)object).getName();
+		String label = ((GeneratorLpGoal)object).getLabel();
 		return label == null || label.length() == 0 ?
 			getString("_UI_GeneratorLpGoal_type") :
 			getString("_UI_GeneratorLpGoal_type") + " " + label;

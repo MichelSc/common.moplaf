@@ -365,7 +365,7 @@
         eType="#//SolutionProvider" eOpposite="#//SolutionProvider/Solution"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolutionNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        changeable="false" volatile="true" derived="true"/>
+        changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="SolverAsInitialSolution"
         upperBound="-1" eType="#//Solver" eOpposite="#//Solver/InitialSolution"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"
@@ -447,10 +447,15 @@
       <eParameters name="solver" eType="#//Solver"/>
       <eParameters name="previousSolver" eType="#//Solver"/>
     </eOperations>
+    <eOperations name="refreshSelectedSolution"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Generator" eType="#//Generator"
         changeable="false" volatile="true" transient="true" derived="true" eOpposite="#//Generator/Goals"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="SubGoal" eType="#//GeneratorGoal"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SelectedSolutionDisplay"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpGoal" eSuperTypes="#//GeneratorGoal #//GeneratorLpLinear">
     <eOperations name="getSolutionValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">

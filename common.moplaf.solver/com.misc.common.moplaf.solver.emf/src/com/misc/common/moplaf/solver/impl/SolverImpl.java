@@ -1816,14 +1816,9 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- end-user-doc -->
 	 */
 	public Generator getGenerator() {
-		GeneratorGoal goal = this.getGoalToSolve();
-		if ( goal != null){
-			return goal.getGenerator();
-		}
-		
 		EObject parent = this.eContainer();
-		if ( parent instanceof IGeneratorTool ) {
-			return ((IGeneratorTool)parent).getGenerator();
+		if ( parent instanceof Generator ) {
+			return (Generator)parent;
 		}
 		return null;
 	}

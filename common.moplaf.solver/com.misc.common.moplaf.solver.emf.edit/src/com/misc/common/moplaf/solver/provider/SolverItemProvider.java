@@ -5,7 +5,10 @@ package com.misc.common.moplaf.solver.provider;
 
 import com.misc.common.moplaf.emf.edit.command.RunCommand;
 import com.misc.common.moplaf.emf.edit.command.WriteCommand;
+import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.ILpWriter;
+import com.misc.common.moplaf.solver.Solution;
+import com.misc.common.moplaf.solver.SolutionProvider;
 import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverPackage;
 
@@ -15,6 +18,7 @@ import java.util.List;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -171,88 +175,192 @@ public class SolverItemProvider
 	 * This adds a property descriptor for the Goal To Solve feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	protected void addGoalToSolvePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Solver_GoalToSolve_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Solver_GoalToSolve_feature", "_UI_Solver_type"),
-				 SolverPackage.Literals.SOLVER__GOAL_TO_SOLVE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 getString("_UI__10GeneralPropertyCategory"),
-				 null));
+	    IItemPropertyDescriptor descriptor = new ItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+						 getResourceLocator(),
+						 getString("_UI_Solver_GoalToSolve_feature"),
+						 getString("_UI_PropertyDescriptor_description", "_UI_Solver_GoalToSolve_feature", "_UI_Solver_type"),
+						 SolverPackage.Literals.SOLVER__GOAL_TO_SOLVE,
+						 true,
+						 false,
+						 true,
+						 null,
+						 getString("_UI__10GeneralPropertyCategory"),
+						 null)// filter flags
+	    {
+	    	public java.util.Collection<?> getChoiceOfValues(java.lang.Object object){
+	    		Solver solver = (Solver)object;
+	    		Generator generator = solver.getGenerator();
+	    		return generator.getGoals();
+	    	}
+	    };
+		itemPropertyDescriptors.add(descriptor);
+//		itemPropertyDescriptors.add
+//		(createItemPropertyDescriptor
+//			(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+//			 getResourceLocator(),
+//			 getString("_UI_Solver_GoalToSolve_feature"),
+//			 getString("_UI_PropertyDescriptor_description", "_UI_Solver_GoalToSolve_feature", "_UI_Solver_type"),
+//			 SolverPackage.Literals.SOLVER__GOAL_TO_SOLVE,
+//			 true,
+//			 false,
+//			 true,
+//			 null,
+//			 getString("_UI__10GeneralPropertyCategory"),
+//			 null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Initial Solution feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	protected void addInitialSolutionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Solver_InitialSolution_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Solver_InitialSolution_feature", "_UI_Solver_type"),
-				 SolverPackage.Literals.SOLVER__INITIAL_SOLUTION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 getString("_UI__10GeneralPropertyCategory"),
-				 null));
+	    IItemPropertyDescriptor descriptor = new ItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+						 getResourceLocator(),
+						 getString("_UI_Solver_InitialSolution_feature"),
+						 getString("_UI_PropertyDescriptor_description", "_UI_Solver_InitialSolution_feature", "_UI_Solver_type"),
+						 SolverPackage.Literals.SOLVER__INITIAL_SOLUTION,
+						 true,
+						 false,
+						 true,
+						 null,
+						 getString("_UI__10GeneralPropertyCategory"),
+						 null)// filter flags
+	    {
+	    	public java.util.Collection<?> getChoiceOfValues(java.lang.Object object){
+	    		Solver solver = (Solver)object;
+	    		Generator generator = solver.getGenerator();
+	    		BasicEList<Solution> solutions = new BasicEList<Solution>();
+	    		for ( SolutionProvider provider : generator.getSolutionProvider()){
+	    			for (Solution solution : provider.getSolution()){
+	    				solutions.add(solution);
+	    			}
+	    		}
+	    		return solutions;
+	    	}
+	    };
+		itemPropertyDescriptors.add(descriptor);
+//		itemPropertyDescriptors.add
+//		(createItemPropertyDescriptor
+//			(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+//			 getResourceLocator(),
+//			 getString("_UI_Solver_InitialSolution_feature"),
+//			 getString("_UI_PropertyDescriptor_description", "_UI_Solver_InitialSolution_feature", "_UI_Solver_type"),
+//			 SolverPackage.Literals.SOLVER__INITIAL_SOLUTION,
+//			 true,
+//			 false,
+//			 true,
+//			 null,
+//			 getString("_UI__10GeneralPropertyCategory"),
+//			 null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Next To Solve feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	protected void addNextToSolvePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Solver_nextToSolve_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Solver_nextToSolve_feature", "_UI_Solver_type"),
-				 SolverPackage.Literals.SOLVER__NEXT_TO_SOLVE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 getString("_UI__10GeneralPropertyCategory"),
-				 null));
+	    IItemPropertyDescriptor descriptor = new ItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+						 getResourceLocator(),
+						 getString("_UI_Solver_nextToSolve_feature"),
+						 getString("_UI_PropertyDescriptor_description", "_UI_Solver_nextToSolve_feature", "_UI_Solver_type"),
+						 SolverPackage.Literals.SOLVER__NEXT_TO_SOLVE,
+						 true,
+						 false,
+						 true,
+						 null,
+						 getString("_UI__10GeneralPropertyCategory"),
+						 null)// filter flags
+	    {
+	    	public java.util.Collection<?> getChoiceOfValues(java.lang.Object object){
+	    		BasicEList<Solver> solvers = new BasicEList<Solver>();
+	    		Solver solver = (Solver)object;
+	    		Generator generator = solver.getGenerator();
+	    		if ( generator != null ) {
+		    		for ( SolutionProvider provider : generator.getSolutionProvider()){
+		    			if ( provider instanceof Solver){
+		    				Solver otherSolver = (Solver)provider;
+		    				if ( otherSolver != solver){
+		    					solvers.add(otherSolver);
+		    				}
+		    			}
+		    		}
+	    		}
+	    		return solvers;
+	    	}
+	    };
+		itemPropertyDescriptors.add(descriptor);
+//		itemPropertyDescriptors.add
+//		(createItemPropertyDescriptor
+//			(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+//			 getResourceLocator(),
+//			 getString("_UI_Solver_nextToSolve_feature"),
+//			 getString("_UI_PropertyDescriptor_description", "_UI_Solver_nextToSolve_feature", "_UI_Solver_type"),
+//			 SolverPackage.Literals.SOLVER__NEXT_TO_SOLVE,
+//			 true,
+//			 false,
+//			 true,
+//			 null,
+//			 getString("_UI__10GeneralPropertyCategory"),
+//			 null));
 	}
 
 	/**
 	 * This adds a property descriptor for the Previous Solved feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	protected void addPreviousSolvedPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Solver_previousSolved_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Solver_previousSolved_feature", "_UI_Solver_type"),
-				 SolverPackage.Literals.SOLVER__PREVIOUS_SOLVED,
-				 true,
-				 false,
-				 true,
-				 null,
-				 getString("_UI__10GeneralPropertyCategory"),
-				 null));
+	    IItemPropertyDescriptor descriptor = new ItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+						 getResourceLocator(),
+						 getString("_UI_Solver_previousSolved_feature"),
+						 getString("_UI_PropertyDescriptor_description", "_UI_Solver_previousSolved_feature", "_UI_Solver_type"),
+						 SolverPackage.Literals.SOLVER__PREVIOUS_SOLVED,
+						 true,
+						 false,
+						 true,
+						 null,
+						 getString("_UI__10GeneralPropertyCategory"),
+						 null)// filter flags
+	    {
+	    	public java.util.Collection<?> getChoiceOfValues(java.lang.Object object){
+	    		BasicEList<Solver> solvers = new BasicEList<Solver>();
+	    		Solver solver = (Solver)object;
+	    		Generator generator = solver.getGenerator();
+	    		if ( generator != null ) {
+		    		for ( SolutionProvider provider : generator.getSolutionProvider()){
+		    			if ( provider instanceof Solver){
+		    				Solver otherSolver = (Solver)provider;
+		    				if ( otherSolver != solver){
+		    					solvers.add(otherSolver);
+		    				}
+		    			}
+		    		}
+	    		}
+	    		return solvers;
+	    	}
+	    };
+		itemPropertyDescriptors.add(descriptor);
+//		itemPropertyDescriptors.add
+//		(createItemPropertyDescriptor
+//			(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+//			 getResourceLocator(),
+//			 getString("_UI_Solver_previousSolved_feature"),
+//			 getString("_UI_PropertyDescriptor_description", "_UI_Solver_previousSolved_feature", "_UI_Solver_type"),
+//			 SolverPackage.Literals.SOLVER__PREVIOUS_SOLVED,
+//			 true,
+//			 false,
+//			 true,
+//			 null,
+//			 getString("_UI__10GeneralPropertyCategory"),
+//			 null));
 	}
 
 	/**

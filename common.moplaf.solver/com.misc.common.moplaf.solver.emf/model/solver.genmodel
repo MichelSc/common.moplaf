@@ -326,7 +326,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//Solution/Code"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//Solution/SolverAsInitialSolution"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference solver.ecore#//Solution/Elements"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//Solution/Vars"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//Solution/Vars"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//Solution/Cons"/>
       <genOperations ecoreOperation="solver.ecore#//Solution/solutionVarFactory"/>
       <genOperations ecoreOperation="solver.ecore#//Solution/solutionConsFactory"/>
@@ -387,11 +387,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorCpLogicalTerm/Not"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//GeneratorCpLogicalTerm/CpCons"/>
     </genClasses>
-    <genClasses ecoreClass="solver.ecore#//GeneratorGoal">
+    <genClasses ecoreClass="solver.ecore#//GeneratorGoal" labelFeature="#//solver/GeneratorGoal/Label">
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//GeneratorGoal/Generator"/>
       <genFeatures notify="false" createChild="false" propertyCategory="10 General"
           ecoreFeature="ecore:EReference solver.ecore#//GeneratorGoal/SubGoal"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorGoal/Name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorGoal/SelectedSolutionDisplay"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorGoal/Label"/>
       <genOperations ecoreOperation="solver.ecore#//GeneratorGoal/build">
         <genParameters ecoreParameter="solver.ecore#//GeneratorGoal/build/builder"/>
       </genOperations>
@@ -399,8 +401,9 @@
         <genParameters ecoreParameter="solver.ecore#//GeneratorGoal/buildCons/solver"/>
         <genParameters ecoreParameter="solver.ecore#//GeneratorGoal/buildCons/previousSolver"/>
       </genOperations>
+      <genOperations ecoreOperation="solver.ecore#//GeneratorGoal/refreshSelectedSolution"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="solver.ecore#//GeneratorLpGoal">
+    <genClasses image="false" ecoreClass="solver.ecore#//GeneratorLpGoal" labelFeature="#//solver/GeneratorGoal/Label">
       <genFeatures createChild="false" propertyCategory="10 General" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpGoal/ObjectiveType"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="30 Solution"
           propertyDescription="" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpGoal/SelectedSolutionValue"/>

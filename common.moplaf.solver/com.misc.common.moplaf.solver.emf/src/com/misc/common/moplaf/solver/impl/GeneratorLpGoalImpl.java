@@ -159,6 +159,20 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public void refreshSelectedSolution() {
+		String code = this.getCode();
+		String suffix = "";
+		float value = this.getSelectedSolutionValue();
+		suffix = String.format(" =%1$5.1f", value);
+		String selectedSolutionDisplay = String.format("%1$s %2$s", code, suffix);
+		this.setSelectedSolutionDisplay(selectedSolutionDisplay);
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public GeneratorLpTerm constructTerm(GeneratorLpVar var, float coef) {
 		GeneratorLpTerm term = SolverFactory.eINSTANCE.createGeneratorLpTerm();
 		term.setCoeff(coef);

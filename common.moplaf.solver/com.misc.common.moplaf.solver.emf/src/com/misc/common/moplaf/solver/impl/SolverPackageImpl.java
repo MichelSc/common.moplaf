@@ -952,6 +952,24 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getGeneratorGoal_SelectedSolutionDisplay() {
+		return (EAttribute)generatorGoalEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGeneratorGoal_Label() {
+		return (EAttribute)generatorGoalEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getGeneratorGoal__Build__Solver() {
 		return generatorGoalEClass.getEOperations().get(0);
 	}
@@ -963,6 +981,15 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 */
 	public EOperation getGeneratorGoal__BuildCons__Solver_Solver() {
 		return generatorGoalEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGeneratorGoal__RefreshSelectedSolution() {
+		return generatorGoalEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -2917,8 +2944,11 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		createEReference(generatorGoalEClass, GENERATOR_GOAL__GENERATOR);
 		createEReference(generatorGoalEClass, GENERATOR_GOAL__SUB_GOAL);
 		createEAttribute(generatorGoalEClass, GENERATOR_GOAL__NAME);
+		createEAttribute(generatorGoalEClass, GENERATOR_GOAL__SELECTED_SOLUTION_DISPLAY);
+		createEAttribute(generatorGoalEClass, GENERATOR_GOAL__LABEL);
 		createEOperation(generatorGoalEClass, GENERATOR_GOAL___BUILD__SOLVER);
 		createEOperation(generatorGoalEClass, GENERATOR_GOAL___BUILD_CONS__SOLVER_SOLVER);
+		createEOperation(generatorGoalEClass, GENERATOR_GOAL___REFRESH_SELECTED_SOLUTION);
 
 		generatorLpGoalEClass = createEClass(GENERATOR_LP_GOAL);
 		createEAttribute(generatorLpGoalEClass, GENERATOR_LP_GOAL__OBJECTIVE_TYPE);
@@ -3278,7 +3308,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		initEClass(solutionEClass, Solution.class, "Solution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSolution_Provider(), this.getSolutionProvider(), this.getSolutionProvider_Solution(), "Provider", null, 1, 1, Solution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSolution_SolutionNr(), ecorePackage.getEInt(), "SolutionNr", null, 0, 1, Solution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSolution_Code(), ecorePackage.getEString(), "Code", null, 0, 1, Solution.class, !IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolution_Code(), ecorePackage.getEString(), "Code", null, 0, 1, Solution.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getSolution_SolverAsInitialSolution(), this.getSolver(), this.getSolver_InitialSolution(), "SolverAsInitialSolution", null, 0, -1, Solution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSolution_Elements(), this.getSolutionElement(), this.getSolutionElement_Solution(), "Elements", null, 0, -1, Solution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSolution_Vars(), this.getSolutionVar(), null, "Vars", null, 0, -1, Solution.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -3353,6 +3383,8 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		initEReference(getGeneratorGoal_Generator(), this.getGenerator(), this.getGenerator_Goals(), "Generator", null, 0, 1, GeneratorGoal.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getGeneratorGoal_SubGoal(), this.getGeneratorGoal(), null, "SubGoal", null, 0, 1, GeneratorGoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGeneratorGoal_Name(), ecorePackage.getEString(), "Name", null, 0, 1, GeneratorGoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGeneratorGoal_SelectedSolutionDisplay(), ecorePackage.getEString(), "SelectedSolutionDisplay", null, 0, 1, GeneratorGoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGeneratorGoal_Label(), ecorePackage.getEString(), "Label", null, 0, 1, GeneratorGoal.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getGeneratorGoal__Build__Solver(), null, "build", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getSolver(), "builder", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -3362,6 +3394,8 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		addEParameter(op, this.getSolver(), "solver", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getSolver(), "previousSolver", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
+
+		initEOperation(getGeneratorGoal__RefreshSelectedSolution(), null, "refreshSelectedSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(generatorLpGoalEClass, GeneratorLpGoal.class, "GeneratorLpGoal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGeneratorLpGoal_ObjectiveType(), this.getEnumObjectiveType(), "ObjectiveType", "Maximum", 0, 1, GeneratorLpGoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -104,7 +104,7 @@ public interface Solution extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Code</em>' attribute.
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolution_Code()
-	 * @model changeable="false" volatile="true" derived="true"
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	String getCode();

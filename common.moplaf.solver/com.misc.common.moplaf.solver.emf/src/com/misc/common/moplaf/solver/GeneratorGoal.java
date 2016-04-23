@@ -20,6 +20,8 @@ package com.misc.common.moplaf.solver;
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorGoal#getGenerator <em>Generator</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorGoal#getSubGoal <em>Sub Goal</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorGoal#getName <em>Name</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.GeneratorGoal#getSelectedSolutionDisplay <em>Selected Solution Display</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.GeneratorGoal#getLabel <em>Label</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorGoal()
@@ -59,6 +61,14 @@ public interface GeneratorGoal extends GeneratorElement {
 	 * @generated
 	 */
 	void buildCons(Solver solver, Solver previousSolver) throws Exception;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void refreshSelectedSolution();
 
 	/**
 	 * Returns the value of the '<em><b>Sub Goal</b></em>' reference.
@@ -111,5 +121,46 @@ public interface GeneratorGoal extends GeneratorElement {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Selected Solution Display</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Selected Solution Display</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Selected Solution Display</em>' attribute.
+	 * @see #setSelectedSolutionDisplay(String)
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorGoal_SelectedSolutionDisplay()
+	 * @model
+	 * @generated
+	 */
+	String getSelectedSolutionDisplay();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.solver.GeneratorGoal#getSelectedSolutionDisplay <em>Selected Solution Display</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Selected Solution Display</em>' attribute.
+	 * @see #getSelectedSolutionDisplay()
+	 * @generated
+	 */
+	void setSelectedSolutionDisplay(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Label</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Label</em>' attribute.
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorGoal_Label()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getLabel();
 
 } // GeneratorGoal

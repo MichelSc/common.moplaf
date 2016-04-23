@@ -5223,13 +5223,31 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_GOAL__NAME = GENERATOR_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Selected Solution Display</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_GOAL__SELECTED_SOLUTION_DISPLAY = GENERATOR_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_GOAL__LABEL = GENERATOR_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Generator Goal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_GOAL_FEATURE_COUNT = GENERATOR_ELEMENT_FEATURE_COUNT + 3;
+	int GENERATOR_GOAL_FEATURE_COUNT = GENERATOR_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -5259,13 +5277,22 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_GOAL___BUILD_CONS__SOLVER_SOLVER = GENERATOR_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_GOAL___REFRESH_SELECTED_SOLUTION = GENERATOR_ELEMENT_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Generator Goal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_GOAL_OPERATION_COUNT = GENERATOR_ELEMENT_OPERATION_COUNT + 2;
+	int GENERATOR_GOAL_OPERATION_COUNT = GENERATOR_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -5302,6 +5329,24 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_LP_GOAL__NAME = GENERATOR_GOAL__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Selected Solution Display</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_GOAL__SELECTED_SOLUTION_DISPLAY = GENERATOR_GOAL__SELECTED_SOLUTION_DISPLAY;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_GOAL__LABEL = GENERATOR_GOAL__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Lp Term</b></em>' containment reference list.
@@ -5365,6 +5410,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_LP_GOAL___BUILD_CONS__SOLVER_SOLVER = GENERATOR_GOAL___BUILD_CONS__SOLVER_SOLVER;
+
+	/**
+	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_GOAL___REFRESH_SELECTED_SOLUTION = GENERATOR_GOAL___REFRESH_SELECTED_SOLUTION;
 
 	/**
 	 * The operation id for the '<em>Construct Term</em>' operation.
@@ -6060,6 +6114,28 @@ public interface SolverPackage extends EPackage {
 	EAttribute getGeneratorGoal_Name();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorGoal#getSelectedSolutionDisplay <em>Selected Solution Display</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Selected Solution Display</em>'.
+	 * @see com.misc.common.moplaf.solver.GeneratorGoal#getSelectedSolutionDisplay()
+	 * @see #getGeneratorGoal()
+	 * @generated
+	 */
+	EAttribute getGeneratorGoal_SelectedSolutionDisplay();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorGoal#getLabel <em>Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Label</em>'.
+	 * @see com.misc.common.moplaf.solver.GeneratorGoal#getLabel()
+	 * @see #getGeneratorGoal()
+	 * @generated
+	 */
+	EAttribute getGeneratorGoal_Label();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorGoal#build(com.misc.common.moplaf.solver.Solver) <em>Build</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6078,6 +6154,16 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getGeneratorGoal__BuildCons__Solver_Solver();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorGoal#refreshSelectedSolution() <em>Refresh Selected Solution</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh Selected Solution</em>' operation.
+	 * @see com.misc.common.moplaf.solver.GeneratorGoal#refreshSelectedSolution()
+	 * @generated
+	 */
+	EOperation getGeneratorGoal__RefreshSelectedSolution();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorLpGoal <em>Generator Lp Goal</em>}'.
@@ -8476,6 +8562,22 @@ public interface SolverPackage extends EPackage {
 		EAttribute GENERATOR_GOAL__NAME = eINSTANCE.getGeneratorGoal_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>Selected Solution Display</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERATOR_GOAL__SELECTED_SOLUTION_DISPLAY = eINSTANCE.getGeneratorGoal_SelectedSolutionDisplay();
+
+		/**
+		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERATOR_GOAL__LABEL = eINSTANCE.getGeneratorGoal_Label();
+
+		/**
 		 * The meta object literal for the '<em><b>Build</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8490,6 +8592,14 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation GENERATOR_GOAL___BUILD_CONS__SOLVER_SOLVER = eINSTANCE.getGeneratorGoal__BuildCons__Solver_Solver();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh Selected Solution</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GENERATOR_GOAL___REFRESH_SELECTED_SOLUTION = eINSTANCE.getGeneratorGoal__RefreshSelectedSolution();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl <em>Generator Lp Goal</em>}' class.

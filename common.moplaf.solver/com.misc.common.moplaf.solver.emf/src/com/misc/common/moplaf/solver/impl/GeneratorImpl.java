@@ -750,7 +750,12 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 			}
 		TupleRefreshor refreshor = new TupleRefreshor();
 		try {
+			// refresh the tuples
 			this.visitTuples(refreshor);
+			// refresh the goals
+			for ( GeneratorGoal goal : this.getGoals()){
+				goal.refreshSelectedSolution();
+			}
 		} catch (Exception e) {
 			Plugin.INSTANCE.logError("Generator: refresh selected solution failed, "+e.getMessage());
 		}

@@ -207,7 +207,6 @@ public class SolutionProviderItemProvider
 	public ResourceLocator getResourceLocator() {
 		return SolverEditPlugin.INSTANCE;
 	}
-
 		
 
 }

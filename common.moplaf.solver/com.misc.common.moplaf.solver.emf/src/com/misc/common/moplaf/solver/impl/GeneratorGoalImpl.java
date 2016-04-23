@@ -4,6 +4,7 @@ package com.misc.common.moplaf.solver.impl;
 
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorGoal;
+import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverPackage;
 import java.lang.reflect.InvocationTargetException;
@@ -25,6 +26,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl#getGenerator <em>Generator</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl#getSubGoal <em>Sub Goal</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl#getSelectedSolutionDisplay <em>Selected Solution Display</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl#getLabel <em>Label</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,6 +62,36 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSelectedSolutionDisplay() <em>Selected Solution Display</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSelectedSolutionDisplay()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SELECTED_SOLUTION_DISPLAY_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSelectedSolutionDisplay() <em>Selected Solution Display</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSelectedSolutionDisplay()
+	 * @generated
+	 * @ordered
+	 */
+	protected String selectedSolutionDisplay = SELECTED_SOLUTION_DISPLAY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LABEL_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -113,6 +146,17 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 	 * @generated
 	 */
 	public void buildCons(Solver solver, Solver previousSolver) throws Exception {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void refreshSelectedSolution() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -197,6 +241,40 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getSelectedSolutionDisplay() {
+		return selectedSolutionDisplay;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSelectedSolutionDisplay(String newSelectedSolutionDisplay) {
+		String oldSelectedSolutionDisplay = selectedSolutionDisplay;
+		selectedSolutionDisplay = newSelectedSolutionDisplay;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_GOAL__SELECTED_SOLUTION_DISPLAY, oldSelectedSolutionDisplay, selectedSolutionDisplay));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public String getLabel() {
+		Generator generator = this.getGenerator();
+		Solution solution = generator.getSelected();
+		if ( solution != null ){
+			return this.getSelectedSolutionDisplay();
+		}
+		return this.getCode();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -208,6 +286,10 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 				return basicGetSubGoal();
 			case SolverPackage.GENERATOR_GOAL__NAME:
 				return getName();
+			case SolverPackage.GENERATOR_GOAL__SELECTED_SOLUTION_DISPLAY:
+				return getSelectedSolutionDisplay();
+			case SolverPackage.GENERATOR_GOAL__LABEL:
+				return getLabel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -227,6 +309,9 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 			case SolverPackage.GENERATOR_GOAL__NAME:
 				setName((String)newValue);
 				return;
+			case SolverPackage.GENERATOR_GOAL__SELECTED_SOLUTION_DISPLAY:
+				setSelectedSolutionDisplay((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -244,6 +329,9 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 				return;
 			case SolverPackage.GENERATOR_GOAL__NAME:
 				setName(NAME_EDEFAULT);
+				return;
+			case SolverPackage.GENERATOR_GOAL__SELECTED_SOLUTION_DISPLAY:
+				setSelectedSolutionDisplay(SELECTED_SOLUTION_DISPLAY_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -263,6 +351,10 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 				return subGoal != null;
 			case SolverPackage.GENERATOR_GOAL__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case SolverPackage.GENERATOR_GOAL__SELECTED_SOLUTION_DISPLAY:
+				return SELECTED_SOLUTION_DISPLAY_EDEFAULT == null ? selectedSolutionDisplay != null : !SELECTED_SOLUTION_DISPLAY_EDEFAULT.equals(selectedSolutionDisplay);
+			case SolverPackage.GENERATOR_GOAL__LABEL:
+				return LABEL_EDEFAULT == null ? getLabel() != null : !LABEL_EDEFAULT.equals(getLabel());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -291,6 +383,9 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case SolverPackage.GENERATOR_GOAL___REFRESH_SELECTED_SOLUTION:
+				refreshSelectedSolution();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -307,6 +402,8 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (Name: ");
 		result.append(name);
+		result.append(", SelectedSolutionDisplay: ");
+		result.append(selectedSolutionDisplay);
 		result.append(')');
 		return result.toString();
 	}
