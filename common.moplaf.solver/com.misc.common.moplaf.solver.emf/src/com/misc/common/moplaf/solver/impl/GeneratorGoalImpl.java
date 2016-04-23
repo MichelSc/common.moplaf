@@ -128,7 +128,7 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 	 * <!-- end-user-doc -->
 	 */
 	public Generator basicGetGenerator() {
-		if ( !this.isRoot() ){ return null; }
+		this.checkContained();
 		return (Generator)this.eContainer();
 	}
 
@@ -162,14 +162,15 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 		throw new UnsupportedOperationException();
 	}
 
+	
 	private boolean isRoot(){
 		return this.eContainer() instanceof Generator; 
 	}
 
     private void checkContained(){
 		if ( this.isRoot() ) { return; } 
-		throw new UnsupportedOperationException("Container of a goal must be a Generator and not : "+this.eContainer().eClass().getName());
-    }
+		throw new UnsupportedOperationException("Container of a goal must be a Generator , and not : "+this.eContainer().eClass().getName());
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
