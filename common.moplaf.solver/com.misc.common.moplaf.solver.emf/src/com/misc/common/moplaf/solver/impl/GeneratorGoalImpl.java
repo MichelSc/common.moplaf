@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * A goal is passed to a solver as goal (indeed) to be achieved: the goal for solving.
  * <p>
  * A goal may have a subGoal, which will have to be solved after this goal has been solved.
+ * 
  * <!-- end-user-doc -->
  * 
  * <p>
