@@ -18,6 +18,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Generator Goal</b></em>'.
+ * <p>
+ * A goal is passed to a solver as goal (indeed) to be achieved.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
