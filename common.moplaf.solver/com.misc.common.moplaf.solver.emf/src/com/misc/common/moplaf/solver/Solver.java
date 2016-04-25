@@ -49,10 +49,10 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.solver.Solver#isSolving <em>Solving</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#isFinalizing <em>Finalizing</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#isFinished <em>Finished</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.Solver#getGoalsToSolve <em>Goals To Solve</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getInitialSolution <em>Initial Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getNextToSolve <em>Next To Solve</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getPreviousSolved <em>Previous Solved</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.Solver#getGoals <em>Goals</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getSolver()
@@ -704,6 +704,22 @@ public interface Solver extends SolutionProvider {
 	void setPreviousSolved(Solver value);
 
 	/**
+	 * Returns the value of the '<em><b>Goals</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.solver.SolverGoal}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Goals</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Goals</em>' containment reference list.
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolver_Goals()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<SolverGoal> getGoals();
+
+	/**
 	 * Returns the value of the '<em><b>Solving</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -780,22 +796,6 @@ public interface Solver extends SolutionProvider {
 	 * @generated
 	 */
 	void setFinished(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Goals To Solve</b></em>' reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.solver.GeneratorGoal}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Goals To Solve</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Goals To Solve</em>' reference list.
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolver_GoalsToSolve()
-	 * @model
-	 * @generated
-	 */
-	EList<GeneratorGoal> getGoalsToSolve();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -880,5 +880,21 @@ public interface Solver extends SolutionProvider {
 	 * @generated
 	 */
 	void buildConsFromGoal(Solver previousSolver) throws Exception;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	SolverGoal solverGoalFactory();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	SolverGoal constructSolverGoal(GeneratorGoal goal);
 
 } // Solver

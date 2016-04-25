@@ -3,7 +3,6 @@
 package com.misc.common.moplaf.solver.provider;
 
 
-import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorGoal;
 import com.misc.common.moplaf.solver.SolverPackage;
 

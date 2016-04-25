@@ -19,6 +19,7 @@ import com.misc.common.moplaf.solver.ITupleVisitor;
 import com.misc.common.moplaf.solver.Plugin;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.Solver;
+import com.misc.common.moplaf.solver.SolverGoal;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import java.lang.reflect.InvocationTargetException;
@@ -38,8 +39,9 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -575,16 +577,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	protected boolean finished = FINISHED_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getGoalsToSolve() <em>Goals To Solve</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGoalsToSolve()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<GeneratorGoal> goalsToSolve;
-
-	/**
 	 * The cached value of the '{@link #getInitialSolution() <em>Initial Solution</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -613,6 +605,16 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * @ordered
 	 */
 	protected Solver previousSolved;
+
+	/**
+	 * The cached value of the '{@link #getGoals() <em>Goals</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGoals()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SolverGoal> goals;
 
 	protected IProgressMonitor eMonitor;
 
@@ -693,9 +695,31 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- end-user-doc -->
 	 */
 	public void buildConsFromGoal(Solver previousSolver) throws Exception {
-		for ( GeneratorGoal previousGoal : previousSolver.getGoalsToSolve()){
+		for ( SolverGoal previousGoal : previousSolver.getGoals()){
 			previousGoal.buildCons(this, previousSolver);
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SolverGoal solverGoalFactory() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SolverGoal constructSolverGoal(GeneratorGoal goal) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -736,6 +760,8 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return basicSetNextToSolve(null, msgs);
 			case SolverPackage.SOLVER__PREVIOUS_SOLVED:
 				return basicSetPreviousSolved(null, msgs);
+			case SolverPackage.SOLVER__GOALS:
+				return ((InternalEList<?>)getGoals()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1040,6 +1066,18 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<SolverGoal> getGoals() {
+		if (goals == null) {
+			goals = new EObjectContainmentEList<SolverGoal>(SolverGoal.class, this, SolverPackage.SOLVER__GOALS);
+		}
+		return goals;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean isSolving() {
 		return solving;
 	}
@@ -1096,18 +1134,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		finished = newFinished;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__FINISHED, oldFinished, finished));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<GeneratorGoal> getGoalsToSolve() {
-		if (goalsToSolve == null) {
-			goalsToSolve = new EObjectResolvingEList<GeneratorGoal>(GeneratorGoal.class, this, SolverPackage.SOLVER__GOALS_TO_SOLVE);
-		}
-		return goalsToSolve;
 	}
 
 	/**
@@ -1459,7 +1485,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		this.setPreviousSolved(null);
 		this.setNextToSolve(null);
 		// goal to solve
-		this.getGoalsToSolve().clear();
+		//this.getGoalsToSolve().clear();
 		this.setInitialSolution(null);
 		// dispose solutions
 		for (Solution solution : this.getSolution()){
@@ -1525,7 +1551,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		generator.visitTuples(varmapper);
 
 		// build the objective 
-		for ( GeneratorGoal goalToSolve : this.getGoalsToSolve()){
+		for ( SolverGoal goalToSolve : this.getGoals()){
 			goalToSolve.build(SolverImpl.this);
 		}
 		
@@ -1856,8 +1882,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return isFinalizing();
 			case SolverPackage.SOLVER__FINISHED:
 				return isFinished();
-			case SolverPackage.SOLVER__GOALS_TO_SOLVE:
-				return getGoalsToSolve();
 			case SolverPackage.SOLVER__INITIAL_SOLUTION:
 				if (resolve) return getInitialSolution();
 				return basicGetInitialSolution();
@@ -1867,6 +1891,8 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			case SolverPackage.SOLVER__PREVIOUS_SOLVED:
 				if (resolve) return getPreviousSolved();
 				return basicGetPreviousSolved();
+			case SolverPackage.SOLVER__GOALS:
+				return getGoals();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1952,10 +1978,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			case SolverPackage.SOLVER__FINISHED:
 				setFinished((Boolean)newValue);
 				return;
-			case SolverPackage.SOLVER__GOALS_TO_SOLVE:
-				getGoalsToSolve().clear();
-				getGoalsToSolve().addAll((Collection<? extends GeneratorGoal>)newValue);
-				return;
 			case SolverPackage.SOLVER__INITIAL_SOLUTION:
 				setInitialSolution((Solution)newValue);
 				return;
@@ -1964,6 +1986,10 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return;
 			case SolverPackage.SOLVER__PREVIOUS_SOLVED:
 				setPreviousSolved((Solver)newValue);
+				return;
+			case SolverPackage.SOLVER__GOALS:
+				getGoals().clear();
+				getGoals().addAll((Collection<? extends SolverGoal>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -2049,9 +2075,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			case SolverPackage.SOLVER__FINISHED:
 				setFinished(FINISHED_EDEFAULT);
 				return;
-			case SolverPackage.SOLVER__GOALS_TO_SOLVE:
-				getGoalsToSolve().clear();
-				return;
 			case SolverPackage.SOLVER__INITIAL_SOLUTION:
 				setInitialSolution((Solution)null);
 				return;
@@ -2060,6 +2083,9 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return;
 			case SolverPackage.SOLVER__PREVIOUS_SOLVED:
 				setPreviousSolved((Solver)null);
+				return;
+			case SolverPackage.SOLVER__GOALS:
+				getGoals().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -2121,14 +2147,14 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return finalizing != FINALIZING_EDEFAULT;
 			case SolverPackage.SOLVER__FINISHED:
 				return finished != FINISHED_EDEFAULT;
-			case SolverPackage.SOLVER__GOALS_TO_SOLVE:
-				return goalsToSolve != null && !goalsToSolve.isEmpty();
 			case SolverPackage.SOLVER__INITIAL_SOLUTION:
 				return initialSolution != null;
 			case SolverPackage.SOLVER__NEXT_TO_SOLVE:
 				return nextToSolve != null;
 			case SolverPackage.SOLVER__PREVIOUS_SOLVED:
 				return previousSolved != null;
+			case SolverPackage.SOLVER__GOALS:
+				return goals != null && !goals.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -2216,6 +2242,10 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case SolverPackage.SOLVER___SOLVER_GOAL_FACTORY:
+				return solverGoalFactory();
+			case SolverPackage.SOLVER___CONSTRUCT_SOLVER_GOAL__GENERATORGOAL:
+				return constructSolverGoal((GeneratorGoal)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

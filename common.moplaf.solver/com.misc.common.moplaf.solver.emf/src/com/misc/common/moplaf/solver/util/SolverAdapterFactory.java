@@ -236,6 +236,14 @@ public class SolverAdapterFactory extends AdapterFactoryImpl {
 				return createGeneratorLpLinearAdapter();
 			}
 			@Override
+			public Adapter caseSolverGoal(SolverGoal object) {
+				return createSolverGoalAdapter();
+			}
+			@Override
+			public Adapter caseSolverGoalLp(SolverGoalLp object) {
+				return createSolverGoalLpAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -350,6 +358,34 @@ public class SolverAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGeneratorLpLinearAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.SolverGoal <em>Goal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.solver.SolverGoal
+	 * @generated
+	 */
+	public Adapter createSolverGoalAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.SolverGoalLp <em>Goal Lp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.solver.SolverGoalLp
+	 * @generated
+	 */
+	public Adapter createSolverGoalLpAdapter() {
 		return null;
 	}
 

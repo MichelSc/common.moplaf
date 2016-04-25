@@ -10,6 +10,7 @@ import com.misc.common.moplaf.solver.ILpWriter;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionProvider;
 import com.misc.common.moplaf.solver.Solver;
+import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import java.util.Collection;
@@ -19,6 +20,7 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -75,7 +77,6 @@ public class SolverItemProvider
 			addSolOptimalPropertyDescriptor(object);
 			addSolValuePropertyDescriptor(object);
 			addRunInterruptedPropertyDescriptor(object);
-			addGoalsToSolvePropertyDescriptor(object);
 			addInitialSolutionPropertyDescriptor(object);
 			addNextToSolvePropertyDescriptor(object);
 			addPreviousSolvedPropertyDescriptor(object);
@@ -173,46 +174,6 @@ public class SolverItemProvider
 
 
 
-	/**
-	 * This adds a property descriptor for the Goal To Solve feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	protected void addGoalsToSolvePropertyDescriptor(Object object) {
-	    IItemPropertyDescriptor descriptor = new ItemPropertyDescriptor(
-				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-						 getResourceLocator(),
-						 getString("_UI_Solver_GoalToSolve_feature"),
-						 getString("_UI_PropertyDescriptor_description", "_UI_Solver_GoalToSolve_feature", "_UI_Solver_type"),
-						 SolverPackage.Literals.SOLVER__GOALS_TO_SOLVE,
-						 true,
-						 false,
-						 true,
-						 null,
-						 getString("_UI__10GeneralPropertyCategory"),
-						 null)// filter flags
-	    {
-	    	public java.util.Collection<?> getChoiceOfValues(java.lang.Object object){
-	    		Solver solver = (Solver)object;
-	    		Generator generator = solver.getGenerator();
-	    		return generator.getGoals();
-	    	}
-	    };
-		itemPropertyDescriptors.add(descriptor);
-//		itemPropertyDescriptors.add
-//		(createItemPropertyDescriptor
-//			(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-//			 getResourceLocator(),
-//			 getString("_UI_Solver_GoalToSolve_feature"),
-//			 getString("_UI_PropertyDescriptor_description", "_UI_Solver_GoalToSolve_feature", "_UI_Solver_type"),
-//			 SolverPackage.Literals.SOLVER__GOAL_TO_SOLVE,
-//			 true,
-//			 false,
-//			 true,
-//			 null,
-//			 getString("_UI__10GeneralPropertyCategory"),
-//			 null));
-	}
 
 	/**
 	 * This adds a property descriptor for the Initial Solution feature.
@@ -363,6 +324,36 @@ public class SolverItemProvider
 //			 null,
 //			 getString("_UI__10GeneralPropertyCategory"),
 //			 null));
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(SolverPackage.Literals.SOLVER__GOALS);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -779,6 +770,9 @@ public class SolverItemProvider
 			case SolverPackage.SOLVER__FINISHED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case SolverPackage.SOLVER__GOALS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -793,6 +787,16 @@ public class SolverItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SolverPackage.Literals.SOLVER__GOALS,
+				 SolverFactory.eINSTANCE.createSolverGoal()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SolverPackage.Literals.SOLVER__GOALS,
+				 SolverFactory.eINSTANCE.createSolverGoalLp()));
 	}
 
 	public class SolverRunCommand extends RunCommand{

@@ -84,6 +84,8 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 			case SolverPackage.GENERATOR_CP_LOGICAL_TERM: return createGeneratorCpLogicalTerm();
 			case SolverPackage.GENERATOR_LP_GOAL: return createGeneratorLpGoal();
 			case SolverPackage.GENERATOR_LP_LINEAR: return createGeneratorLpLinear();
+			case SolverPackage.SOLVER_GOAL: return createSolverGoal();
+			case SolverPackage.SOLVER_GOAL_LP: return createSolverGoalLp();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -179,6 +181,26 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 	public GeneratorLpLinear createGeneratorLpLinear() {
 		GeneratorLpLinearImpl generatorLpLinear = new GeneratorLpLinearImpl();
 		return generatorLpLinear;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SolverGoal createSolverGoal() {
+		SolverGoalImpl solverGoal = new SolverGoalImpl();
+		return solverGoal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SolverGoalLp createSolverGoalLp() {
+		SolverGoalLpImpl solverGoalLp = new SolverGoalLpImpl();
+		return solverGoalLp;
 	}
 
 	/**

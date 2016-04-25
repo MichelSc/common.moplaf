@@ -49,6 +49,24 @@ public interface SolverFactory extends EFactory {
 	GeneratorLpLinear createGeneratorLpLinear();
 
 	/**
+	 * Returns a new object of class '<em>Goal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Goal</em>'.
+	 * @generated
+	 */
+	SolverGoal createSolverGoal();
+
+	/**
+	 * Returns a new object of class '<em>Goal Lp</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Goal Lp</em>'.
+	 * @generated
+	 */
+	SolverGoalLp createSolverGoalLp();
+
+	/**
 	 * Returns a new object of class '<em>Solution</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -311,15 +311,6 @@ public interface SolverglpkPackage extends EPackage {
 	int SOLVER_GLPK__FINISHED = SolverPackage.SOLVER_LP__FINISHED;
 
 	/**
-	 * The feature id for the '<em><b>Goals To Solve</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_GLPK__GOALS_TO_SOLVE = SolverPackage.SOLVER_LP__GOALS_TO_SOLVE;
-
-	/**
 	 * The feature id for the '<em><b>Initial Solution</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -345,6 +336,15 @@ public interface SolverglpkPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_GLPK__PREVIOUS_SOLVED = SolverPackage.SOLVER_LP__PREVIOUS_SOLVED;
+
+	/**
+	 * The feature id for the '<em><b>Goals</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK__GOALS = SolverPackage.SOLVER_LP__GOALS;
 
 	/**
 	 * The feature id for the '<em><b>Solver Optimality Tolerance</b></em>' attribute.
@@ -579,6 +579,24 @@ public interface SolverglpkPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_GLPK___BUILD_CONS_FROM_GOAL__SOLVER = SolverPackage.SOLVER_LP___BUILD_CONS_FROM_GOAL__SOLVER;
+
+	/**
+	 * The operation id for the '<em>Solver Goal Factory</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK___SOLVER_GOAL_FACTORY = SolverPackage.SOLVER_LP___SOLVER_GOAL_FACTORY;
+
+	/**
+	 * The operation id for the '<em>Construct Solver Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK___CONSTRUCT_SOLVER_GOAL__GENERATORGOAL = SolverPackage.SOLVER_LP___CONSTRUCT_SOLVER_GOAL__GENERATORGOAL;
 
 	/**
 	 * The operation id for the '<em>Write Lp To File</em>' operation.

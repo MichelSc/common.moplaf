@@ -141,6 +141,52 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.SolverGoal} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SolverGoalItemProvider solverGoalItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.SolverGoal}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSolverGoalAdapter() {
+		if (solverGoalItemProvider == null) {
+			solverGoalItemProvider = new SolverGoalItemProvider(this);
+		}
+
+		return solverGoalItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.SolverGoalLp} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SolverGoalLpItemProvider solverGoalLpItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.SolverGoalLp}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSolverGoalLpAdapter() {
+		if (solverGoalLpItemProvider == null) {
+			solverGoalLpItemProvider = new SolverGoalLpItemProvider(this);
+		}
+
+		return solverGoalLpItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.Solution} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -818,6 +864,8 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 		if (generatorCpLogicalTermItemProvider != null) generatorCpLogicalTermItemProvider.dispose();
 		if (generatorLpGoalItemProvider != null) generatorLpGoalItemProvider.dispose();
 		if (generatorLpLinearItemProvider != null) generatorLpLinearItemProvider.dispose();
+		if (solverGoalItemProvider != null) solverGoalItemProvider.dispose();
+		if (solverGoalLpItemProvider != null) solverGoalLpItemProvider.dispose();
 	}
 
 }
