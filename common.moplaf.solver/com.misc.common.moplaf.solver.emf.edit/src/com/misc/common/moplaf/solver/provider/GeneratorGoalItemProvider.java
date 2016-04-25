@@ -47,7 +47,6 @@ public class GeneratorGoalItemProvider
 			super.getPropertyDescriptors(object);
 
 			addGeneratorPropertyDescriptor(object);
-			addSubGoalPropertyDescriptor(object);
 			addSelectedSolutionDisplayPropertyDescriptor(object);
 			addLabelPropertyDescriptor(object);
 		}
@@ -74,47 +73,6 @@ public class GeneratorGoalItemProvider
 				 null,
 				 null,
 				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Sub Goal feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	protected void addSubGoalPropertyDescriptor(Object object) {
-	    IItemPropertyDescriptor descriptor = new ItemPropertyDescriptor(
-				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-						 getResourceLocator(),
-						 getString("_UI_GeneratorGoal_SubGoal_feature"),
-						 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorGoal_SubGoal_feature", "_UI_GeneratorGoal_type"),
-						 SolverPackage.Literals.GENERATOR_GOAL__SUB_GOAL,
-						 true,  // settable
-						 false, // multiline
-						 true,  // sort choices
-						 null,  // static image
-						 getString("_UI__10GeneralPropertyCategory"),
-						 null)// filter flags
-	    {
-	    	public java.util.Collection<?> getChoiceOfValues(java.lang.Object object){
-	    		GeneratorGoal goal = (GeneratorGoal)object;
-	    		Generator generator = goal.getGenerator();
-	    		return generator.getGoals();
-	    	}
-	    };
-		itemPropertyDescriptors.add(descriptor);
-//		itemPropertyDescriptors.add
-//		(createItemPropertyDescriptor
-//			(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-//			 getResourceLocator(),
-//			 getString("_UI_GeneratorGoal_SubGoal_feature"),
-//			 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorGoal_SubGoal_feature", "_UI_GeneratorGoal_type"),
-//			 SolverPackage.Literals.GENERATOR_GOAL__SUB_GOAL,
-//			 true,
-//			 false,
-//			 false,
-//			 null,
-//			 getString("_UI__10GeneralPropertyCategory"),
-//			 null));
 	}
 
 	/**

@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.solver;
 
 import java.util.Date;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,7 +49,7 @@ import java.util.Date;
  *   <li>{@link com.misc.common.moplaf.solver.Solver#isSolving <em>Solving</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#isFinalizing <em>Finalizing</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#isFinished <em>Finished</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.Solver#getGoalToSolve <em>Goal To Solve</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.Solver#getGoalsToSolve <em>Goals To Solve</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getInitialSolution <em>Initial Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getNextToSolve <em>Next To Solve</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getPreviousSolved <em>Previous Solved</em>}</li>
@@ -619,32 +620,6 @@ public interface Solver extends SolutionProvider {
 	void setInitializing(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Goal To Solve</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Goal To Solve</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Goal To Solve</em>' reference.
-	 * @see #setGoalToSolve(GeneratorGoal)
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolver_GoalToSolve()
-	 * @model
-	 * @generated
-	 */
-	GeneratorGoal getGoalToSolve();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.solver.Solver#getGoalToSolve <em>Goal To Solve</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Goal To Solve</em>' reference.
-	 * @see #getGoalToSolve()
-	 * @generated
-	 */
-	void setGoalToSolve(GeneratorGoal value);
-
-	/**
 	 * Returns the value of the '<em><b>Initial Solution</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.Solution#getSolverAsInitialSolution <em>Solver As Initial Solution</em>}'.
 	 * <!-- begin-user-doc -->
@@ -805,6 +780,22 @@ public interface Solver extends SolutionProvider {
 	 * @generated
 	 */
 	void setFinished(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Goals To Solve</b></em>' reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.solver.GeneratorGoal}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Goals To Solve</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Goals To Solve</em>' reference list.
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolver_GoalsToSolve()
+	 * @model
+	 * @generated
+	 */
+	EList<GeneratorGoal> getGoalsToSolve();
 
 	/**
 	 * <!-- begin-user-doc -->

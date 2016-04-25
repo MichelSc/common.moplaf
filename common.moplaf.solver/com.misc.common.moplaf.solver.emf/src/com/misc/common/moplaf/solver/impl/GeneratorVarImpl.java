@@ -129,8 +129,8 @@ public abstract class GeneratorVarImpl extends GeneratorTupleMemberImpl implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public boolean isSolutionOne(Solution solver) {
-		SolutionVar solvar = this.getSolutionVar(solver);
+	public boolean isSolutionOne(Solution solution) {
+		SolutionVar solvar = this.getSolutionVar(solution);
 		if ( solvar==null) { return false; }
 		return solvar.getOptimalValue()>0.5f;
 	}
@@ -139,8 +139,8 @@ public abstract class GeneratorVarImpl extends GeneratorTupleMemberImpl implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public boolean isSolutionZero(Solution solver) {
-		SolutionVar solvar = this.getSolutionVar(solver);
+	public boolean isSolutionZero(Solution solution) {
+		SolutionVar solvar = this.getSolutionVar(solution);
 		if ( solvar==null) { return false; }
 		return solvar.getOptimalValue()<0.5f;
 	}
@@ -149,9 +149,9 @@ public abstract class GeneratorVarImpl extends GeneratorTupleMemberImpl implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public float getSolutionValue(Solution solver) {
-		if ( solver == null ) { return 0.0f; }
-		SolutionVar solvar = this.getSolutionVar(solver);
+	public float getSolutionValue(Solution solution) {
+		if ( solution == null ) { return 0.0f; }
+		SolutionVar solvar = this.getSolutionVar(solution);
 		if ( solvar==null) { return 0.0f; }
 		return solvar.getOptimalValue();
 	}

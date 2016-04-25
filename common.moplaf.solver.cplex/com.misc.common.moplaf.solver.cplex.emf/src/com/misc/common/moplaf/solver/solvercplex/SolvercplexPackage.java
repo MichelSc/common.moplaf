@@ -130,15 +130,6 @@ public interface SolvercplexPackage extends EPackage {
 	int SOLVER_CPLEX__SOLVER_BACKGROUND = SolverPackage.SOLVER_LP__SOLVER_BACKGROUND;
 
 	/**
-	 * The feature id for the '<em><b>Sol Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_CPLEX__SOL_VALUE = SolverPackage.SOLVER_LP__SOL_VALUE;
-
-	/**
 	 * The feature id for the '<em><b>Solver Log Level</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -229,6 +220,15 @@ public interface SolvercplexPackage extends EPackage {
 	int SOLVER_CPLEX__RUN_REQUEST_TERMINATE = SolverPackage.SOLVER_LP__RUN_REQUEST_TERMINATE;
 
 	/**
+	 * The feature id for the '<em><b>Run Time Out</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX__RUN_TIME_OUT = SolverPackage.SOLVER_LP__RUN_TIME_OUT;
+
+	/**
 	 * The feature id for the '<em><b>Sol Unfeasible</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -256,6 +256,15 @@ public interface SolvercplexPackage extends EPackage {
 	int SOLVER_CPLEX__SOL_OPTIMAL = SolverPackage.SOLVER_LP__SOL_OPTIMAL;
 
 	/**
+	 * The feature id for the '<em><b>Sol Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX__SOL_VALUE = SolverPackage.SOLVER_LP__SOL_VALUE;
+
+	/**
 	 * The feature id for the '<em><b>Run Interrupted</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -263,6 +272,15 @@ public interface SolvercplexPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_CPLEX__RUN_INTERRUPTED = SolverPackage.SOLVER_LP__RUN_INTERRUPTED;
+
+	/**
+	 * The feature id for the '<em><b>Initializing</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX__INITIALIZING = SolverPackage.SOLVER_LP__INITIALIZING;
 
 	/**
 	 * The feature id for the '<em><b>Solving</b></em>' attribute.
@@ -292,31 +310,13 @@ public interface SolvercplexPackage extends EPackage {
 	int SOLVER_CPLEX__FINISHED = SolverPackage.SOLVER_LP__FINISHED;
 
 	/**
-	 * The feature id for the '<em><b>Run Time Out</b></em>' attribute.
+	 * The feature id for the '<em><b>Goals To Solve</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_CPLEX__RUN_TIME_OUT = SolverPackage.SOLVER_LP__RUN_TIME_OUT;
-
-	/**
-	 * The feature id for the '<em><b>Initializing</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_CPLEX__INITIALIZING = SolverPackage.SOLVER_LP__INITIALIZING;
-
-	/**
-	 * The feature id for the '<em><b>Goal To Solve</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_CPLEX__GOAL_TO_SOLVE = SolverPackage.SOLVER_LP__GOAL_TO_SOLVE;
+	int SOLVER_CPLEX__GOALS_TO_SOLVE = SolverPackage.SOLVER_LP__GOALS_TO_SOLVE;
 
 	/**
 	 * The feature id for the '<em><b>Initial Solution</b></em>' reference.
@@ -326,6 +326,24 @@ public interface SolvercplexPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_CPLEX__INITIAL_SOLUTION = SolverPackage.SOLVER_LP__INITIAL_SOLUTION;
+
+	/**
+	 * The feature id for the '<em><b>Next To Solve</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX__NEXT_TO_SOLVE = SolverPackage.SOLVER_LP__NEXT_TO_SOLVE;
+
+	/**
+	 * The feature id for the '<em><b>Previous Solved</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX__PREVIOUS_SOLVED = SolverPackage.SOLVER_LP__PREVIOUS_SOLVED;
 
 	/**
 	 * The feature id for the '<em><b>Solver Optimality Tolerance</b></em>' attribute.
@@ -400,6 +418,15 @@ public interface SolvercplexPackage extends EPackage {
 	int SOLVER_CPLEX___GET_GENERATOR = SolverPackage.SOLVER_LP___GET_GENERATOR;
 
 	/**
+	 * The operation id for the '<em>Dispose</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX___DISPOSE = SolverPackage.SOLVER_LP___DISPOSE;
+
+	/**
 	 * The operation id for the '<em>Solution Factory</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -425,6 +452,87 @@ public interface SolvercplexPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_CPLEX___SOLVE = SolverPackage.SOLVER_LP___SOLVE;
+
+	/**
+	 * The operation id for the '<em>Build</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX___BUILD = SolverPackage.SOLVER_LP___BUILD;
+
+	/**
+	 * The operation id for the '<em>Build Var</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX___BUILD_VAR__GENERATORVAR = SolverPackage.SOLVER_LP___BUILD_VAR__GENERATORVAR;
+
+	/**
+	 * The operation id for the '<em>Build Lp Var</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX___BUILD_LP_VAR__GENERATORLPVAR = SolverPackage.SOLVER_LP___BUILD_LP_VAR__GENERATORLPVAR;
+
+	/**
+	 * The operation id for the '<em>Build Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX___BUILD_GOAL__GENERATORGOAL = SolverPackage.SOLVER_LP___BUILD_GOAL__GENERATORGOAL;
+
+	/**
+	 * The operation id for the '<em>Build Lp Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX___BUILD_LP_GOAL__GENERATORLPGOAL = SolverPackage.SOLVER_LP___BUILD_LP_GOAL__GENERATORLPGOAL;
+
+	/**
+	 * The operation id for the '<em>Build Cons</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX___BUILD_CONS__GENERATORCONS = SolverPackage.SOLVER_LP___BUILD_CONS__GENERATORCONS;
+
+	/**
+	 * The operation id for the '<em>Build Lp Cons</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX___BUILD_LP_CONS__GENERATORLPCONS = SolverPackage.SOLVER_LP___BUILD_LP_CONS__GENERATORLPCONS;
+
+	/**
+	 * The operation id for the '<em>Build Lp Cons</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE = SolverPackage.SOLVER_LP___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE;
+
+	/**
+	 * The operation id for the '<em>Build Cons From Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX___BUILD_CONS_FROM_GOAL__SOLVER = SolverPackage.SOLVER_LP___BUILD_CONS_FROM_GOAL__SOLVER;
 
 	/**
 	 * The operation id for the '<em>Write Lp To File</em>' operation.

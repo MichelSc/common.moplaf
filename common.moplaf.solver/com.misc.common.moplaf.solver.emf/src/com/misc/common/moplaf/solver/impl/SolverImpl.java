@@ -22,6 +22,7 @@ import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
 import java.util.Date;
 
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -37,6 +38,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -573,14 +575,14 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	protected boolean finished = FINISHED_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getGoalToSolve() <em>Goal To Solve</em>}' reference.
+	 * The cached value of the '{@link #getGoalsToSolve() <em>Goals To Solve</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGoalToSolve()
+	 * @see #getGoalsToSolve()
 	 * @generated
 	 * @ordered
 	 */
-	protected GeneratorGoal goalToSolve;
+	protected EList<GeneratorGoal> goalsToSolve;
 
 	/**
 	 * The cached value of the '{@link #getInitialSolution() <em>Initial Solution</em>}' reference.
@@ -691,8 +693,9 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- end-user-doc -->
 	 */
 	public void buildConsFromGoal(Solver previousSolver) throws Exception {
-		GeneratorGoal goal = previousSolver.getGoalToSolve();
-		goal.buildCons(this, previousSolver);
+		for ( GeneratorGoal previousGoal : previousSolver.getGoalsToSolve()){
+			previousGoal.buildCons(this, previousSolver);
+		}
 	}
 
 	/**
@@ -850,44 +853,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		initializing = newInitializing;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__INITIALIZING, oldInitializing, initializing));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GeneratorGoal getGoalToSolve() {
-		if (goalToSolve != null && goalToSolve.eIsProxy()) {
-			InternalEObject oldGoalToSolve = (InternalEObject)goalToSolve;
-			goalToSolve = (GeneratorGoal)eResolveProxy(oldGoalToSolve);
-			if (goalToSolve != oldGoalToSolve) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SolverPackage.SOLVER__GOAL_TO_SOLVE, oldGoalToSolve, goalToSolve));
-			}
-		}
-		return goalToSolve;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GeneratorGoal basicGetGoalToSolve() {
-		return goalToSolve;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setGoalToSolve(GeneratorGoal newGoalToSolve) {
-		GeneratorGoal oldGoalToSolve = goalToSolve;
-		goalToSolve = newGoalToSolve;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__GOAL_TO_SOLVE, oldGoalToSolve, goalToSolve));
 	}
 
 	/**
@@ -1131,6 +1096,18 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		finished = newFinished;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__FINISHED, oldFinished, finished));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<GeneratorGoal> getGoalsToSolve() {
+		if (goalsToSolve == null) {
+			goalsToSolve = new EObjectResolvingEList<GeneratorGoal>(GeneratorGoal.class, this, SolverPackage.SOLVER__GOALS_TO_SOLVE);
+		}
+		return goalsToSolve;
 	}
 
 	/**
@@ -1482,7 +1459,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		this.setPreviousSolved(null);
 		this.setNextToSolve(null);
 		// goal to solve
-		this.setGoalToSolve(null);
+		this.getGoalsToSolve().clear();
 		this.setInitialSolution(null);
 		// dispose solutions
 		for (Solution solution : this.getSolution()){
@@ -1548,8 +1525,8 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		generator.visitTuples(varmapper);
 
 		// build the objective 
-		if ( this.getGoalToSolve() != null) {
-			this.getGoalToSolve().build(SolverImpl.this);
+		for ( GeneratorGoal goalToSolve : this.getGoalsToSolve()){
+			goalToSolve.build(SolverImpl.this);
 		}
 		
 		// build the normal constraints
@@ -1879,9 +1856,8 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return isFinalizing();
 			case SolverPackage.SOLVER__FINISHED:
 				return isFinished();
-			case SolverPackage.SOLVER__GOAL_TO_SOLVE:
-				if (resolve) return getGoalToSolve();
-				return basicGetGoalToSolve();
+			case SolverPackage.SOLVER__GOALS_TO_SOLVE:
+				return getGoalsToSolve();
 			case SolverPackage.SOLVER__INITIAL_SOLUTION:
 				if (resolve) return getInitialSolution();
 				return basicGetInitialSolution();
@@ -1900,6 +1876,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -1975,8 +1952,9 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			case SolverPackage.SOLVER__FINISHED:
 				setFinished((Boolean)newValue);
 				return;
-			case SolverPackage.SOLVER__GOAL_TO_SOLVE:
-				setGoalToSolve((GeneratorGoal)newValue);
+			case SolverPackage.SOLVER__GOALS_TO_SOLVE:
+				getGoalsToSolve().clear();
+				getGoalsToSolve().addAll((Collection<? extends GeneratorGoal>)newValue);
 				return;
 			case SolverPackage.SOLVER__INITIAL_SOLUTION:
 				setInitialSolution((Solution)newValue);
@@ -2071,8 +2049,8 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			case SolverPackage.SOLVER__FINISHED:
 				setFinished(FINISHED_EDEFAULT);
 				return;
-			case SolverPackage.SOLVER__GOAL_TO_SOLVE:
-				setGoalToSolve((GeneratorGoal)null);
+			case SolverPackage.SOLVER__GOALS_TO_SOLVE:
+				getGoalsToSolve().clear();
 				return;
 			case SolverPackage.SOLVER__INITIAL_SOLUTION:
 				setInitialSolution((Solution)null);
@@ -2143,8 +2121,8 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return finalizing != FINALIZING_EDEFAULT;
 			case SolverPackage.SOLVER__FINISHED:
 				return finished != FINISHED_EDEFAULT;
-			case SolverPackage.SOLVER__GOAL_TO_SOLVE:
-				return goalToSolve != null;
+			case SolverPackage.SOLVER__GOALS_TO_SOLVE:
+				return goalsToSolve != null && !goalsToSolve.isEmpty();
 			case SolverPackage.SOLVER__INITIAL_SOLUTION:
 				return initialSolution != null;
 			case SolverPackage.SOLVER__NEXT_TO_SOLVE:

@@ -80,6 +80,17 @@ public class GeneratorElementImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void refreshSelectedSolution() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -113,6 +124,9 @@ public class GeneratorElementImpl extends MinimalEObjectImpl.Container implement
 		switch (operationID) {
 			case SolverPackage.GENERATOR_ELEMENT___GET_GENERATOR:
 				return getGenerator();
+			case SolverPackage.GENERATOR_ELEMENT___REFRESH_SELECTED_SOLUTION:
+				refreshSelectedSolution();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

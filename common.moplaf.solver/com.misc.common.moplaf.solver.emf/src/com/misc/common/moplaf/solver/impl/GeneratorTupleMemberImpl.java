@@ -5,13 +5,7 @@ package com.misc.common.moplaf.solver.impl;
 import com.misc.common.moplaf.solver.GeneratorTuple;
 import com.misc.common.moplaf.solver.GeneratorTupleMember;
 import com.misc.common.moplaf.solver.SolverPackage;
-
-import java.lang.reflect.InvocationTargetException;
-
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -280,21 +274,6 @@ public abstract class GeneratorTupleMemberImpl extends GeneratorElementImpl impl
 				return LABEL_EDEFAULT == null ? getLabel() != null : !LABEL_EDEFAULT.equals(getLabel());
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case SolverPackage.GENERATOR_TUPLE_MEMBER___REFRESH_SELECTED_SOLUTION:
-				refreshSelectedSolution();
-				return null;
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

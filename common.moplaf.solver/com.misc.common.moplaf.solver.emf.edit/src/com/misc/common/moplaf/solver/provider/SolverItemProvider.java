@@ -75,7 +75,7 @@ public class SolverItemProvider
 			addSolOptimalPropertyDescriptor(object);
 			addSolValuePropertyDescriptor(object);
 			addRunInterruptedPropertyDescriptor(object);
-			addGoalToSolvePropertyDescriptor(object);
+			addGoalsToSolvePropertyDescriptor(object);
 			addInitialSolutionPropertyDescriptor(object);
 			addNextToSolvePropertyDescriptor(object);
 			addPreviousSolvedPropertyDescriptor(object);
@@ -171,18 +171,20 @@ public class SolverItemProvider
 				 null));
 	}
 
+
+
 	/**
 	 * This adds a property descriptor for the Goal To Solve feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	protected void addGoalToSolvePropertyDescriptor(Object object) {
+	protected void addGoalsToSolvePropertyDescriptor(Object object) {
 	    IItemPropertyDescriptor descriptor = new ItemPropertyDescriptor(
 				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 						 getResourceLocator(),
 						 getString("_UI_Solver_GoalToSolve_feature"),
 						 getString("_UI_PropertyDescriptor_description", "_UI_Solver_GoalToSolve_feature", "_UI_Solver_type"),
-						 SolverPackage.Literals.SOLVER__GOAL_TO_SOLVE,
+						 SolverPackage.Literals.SOLVER__GOALS_TO_SOLVE,
 						 true,
 						 false,
 						 true,

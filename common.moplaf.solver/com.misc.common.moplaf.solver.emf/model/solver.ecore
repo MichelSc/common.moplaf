@@ -80,6 +80,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorElement">
     <eOperations name="getGenerator" eType="#//Generator"/>
+    <eOperations name="refreshSelectedSolution"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
@@ -90,7 +91,6 @@
     <eOperations name="visitTuples" eExceptions="#//Exception">
       <eParameters name="visitor" eType="#//ITupleVisitor"/>
     </eOperations>
-    <eOperations name="refreshSelectedSolution"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="GeneratorAsRoot" eType="#//Generator"
         changeable="false" volatile="true" transient="true" derived="true" eOpposite="#//Generator/TupleRoot"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="TupleElement" upperBound="-1"
@@ -109,7 +109,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorTupleMember" abstract="true"
       eSuperTypes="#//GeneratorElement">
-    <eOperations name="refreshSelectedSolution"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Tuple" eType="#//GeneratorTuple"
         changeable="false" volatile="true" transient="true" derived="true" eOpposite="#//GeneratorTuple/Members"/>
@@ -333,7 +332,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Solving" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Finalizing" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Finished" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="GoalToSolve" eType="#//GeneratorGoal"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="GoalsToSolve" upperBound="-1"
+        eType="#//GeneratorGoal"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="InitialSolution" eType="#//Solution"
         eOpposite="#//Solution/SolverAsInitialSolution"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nextToSolve" eType="#//Solver"
@@ -447,10 +447,8 @@
       <eParameters name="solver" eType="#//Solver"/>
       <eParameters name="previousSolver" eType="#//Solver"/>
     </eOperations>
-    <eOperations name="refreshSelectedSolution"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Generator" eType="#//Generator"
         changeable="false" volatile="true" transient="true" derived="true" eOpposite="#//Generator/Goals"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="SubGoal" eType="#//GeneratorGoal"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SelectedSolutionDisplay"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

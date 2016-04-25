@@ -107,12 +107,4 @@ public interface GeneratorTupleMember extends GeneratorElement {
 	 */
 	String getLabel();
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void refreshSelectedSolution();
-
 } // GeneratorTupleMember

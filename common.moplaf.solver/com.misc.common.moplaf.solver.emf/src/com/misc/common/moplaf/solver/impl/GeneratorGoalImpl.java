@@ -24,13 +24,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * A goal may have a subGoal, which will have to be solved after this goal has been solved.
  * 
  * <!-- end-user-doc -->
- * 
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl#getGenerator <em>Generator</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl#getSubGoal <em>Sub Goal</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl#getSelectedSolutionDisplay <em>Selected Solution Display</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl#getLabel <em>Label</em>}</li>
@@ -39,16 +37,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements GeneratorGoal {
-	/**
-	 * The cached value of the '{@link #getSubGoal() <em>Sub Goal</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSubGoal()
-	 * @generated
-	 * @ordered
-	 */
-	protected GeneratorGoal subGoal;
-
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -157,18 +145,6 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void refreshSelectedSolution() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	
 	private boolean isRoot(){
 		return this.eContainer() instanceof Generator; 
 	}
@@ -176,45 +152,6 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
     private void checkContained(){
 		if ( this.isRoot() ) { return; } 
 		throw new UnsupportedOperationException("Container of a goal must be a Generator , and not : "+this.eContainer().eClass().getName());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GeneratorGoal getSubGoal() {
-		if (subGoal != null && subGoal.eIsProxy()) {
-			InternalEObject oldSubGoal = (InternalEObject)subGoal;
-			subGoal = (GeneratorGoal)eResolveProxy(oldSubGoal);
-			if (subGoal != oldSubGoal) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SolverPackage.GENERATOR_GOAL__SUB_GOAL, oldSubGoal, subGoal));
-			}
-		}
-		return subGoal;
-	}
-
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GeneratorGoal basicGetSubGoal() {
-		return subGoal;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSubGoal(GeneratorGoal newSubGoal) {
-		GeneratorGoal oldSubGoal = subGoal;
-		subGoal = newSubGoal;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_GOAL__SUB_GOAL, oldSubGoal, subGoal));
 	}
 
 	public String getCode() {
@@ -288,9 +225,6 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 			case SolverPackage.GENERATOR_GOAL__GENERATOR:
 				if (resolve) return getGenerator();
 				return basicGetGenerator();
-			case SolverPackage.GENERATOR_GOAL__SUB_GOAL:
-				if (resolve) return getSubGoal();
-				return basicGetSubGoal();
 			case SolverPackage.GENERATOR_GOAL__NAME:
 				return getName();
 			case SolverPackage.GENERATOR_GOAL__SELECTED_SOLUTION_DISPLAY:
@@ -310,9 +244,6 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SolverPackage.GENERATOR_GOAL__SUB_GOAL:
-				setSubGoal((GeneratorGoal)newValue);
-				return;
 			case SolverPackage.GENERATOR_GOAL__NAME:
 				setName((String)newValue);
 				return;
@@ -331,9 +262,6 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SolverPackage.GENERATOR_GOAL__SUB_GOAL:
-				setSubGoal((GeneratorGoal)null);
-				return;
 			case SolverPackage.GENERATOR_GOAL__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -354,8 +282,6 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 		switch (featureID) {
 			case SolverPackage.GENERATOR_GOAL__GENERATOR:
 				return basicGetGenerator() != null;
-			case SolverPackage.GENERATOR_GOAL__SUB_GOAL:
-				return subGoal != null;
 			case SolverPackage.GENERATOR_GOAL__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case SolverPackage.GENERATOR_GOAL__SELECTED_SOLUTION_DISPLAY:
@@ -390,9 +316,6 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case SolverPackage.GENERATOR_GOAL___REFRESH_SELECTED_SOLUTION:
-				refreshSelectedSolution();
-				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

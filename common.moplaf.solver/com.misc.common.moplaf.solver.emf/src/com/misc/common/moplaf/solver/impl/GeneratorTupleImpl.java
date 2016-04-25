@@ -411,9 +411,6 @@ public abstract class GeneratorTupleImpl extends GeneratorElementImpl implements
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case SolverPackage.GENERATOR_TUPLE___REFRESH_SELECTED_SOLUTION:
-				refreshSelectedSolution();
-				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

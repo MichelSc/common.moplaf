@@ -18,7 +18,6 @@ package com.misc.common.moplaf.solver;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorGoal#getGenerator <em>Generator</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.GeneratorGoal#getSubGoal <em>Sub Goal</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorGoal#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorGoal#getSelectedSolutionDisplay <em>Selected Solution Display</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.GeneratorGoal#getLabel <em>Label</em>}</li>
@@ -61,40 +60,6 @@ public interface GeneratorGoal extends GeneratorElement {
 	 * @generated
 	 */
 	void buildCons(Solver solver, Solver previousSolver) throws Exception;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void refreshSelectedSolution();
-
-	/**
-	 * Returns the value of the '<em><b>Sub Goal</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Sub Goal</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sub Goal</em>' reference.
-	 * @see #setSubGoal(GeneratorGoal)
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getGeneratorGoal_SubGoal()
-	 * @model
-	 * @generated
-	 */
-	GeneratorGoal getSubGoal();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.solver.GeneratorGoal#getSubGoal <em>Sub Goal</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sub Goal</em>' reference.
-	 * @see #getSubGoal()
-	 * @generated
-	 */
-	void setSubGoal(GeneratorGoal value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

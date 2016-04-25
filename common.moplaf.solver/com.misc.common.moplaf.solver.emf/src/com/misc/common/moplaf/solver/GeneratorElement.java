@@ -45,4 +45,12 @@ public interface GeneratorElement extends EObject {
 	 */
 	Generator getGenerator();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void refreshSelectedSolution();
+
 } // GeneratorElement

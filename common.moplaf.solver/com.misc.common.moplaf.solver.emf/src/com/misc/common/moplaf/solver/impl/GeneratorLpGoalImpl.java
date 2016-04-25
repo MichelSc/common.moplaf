@@ -188,7 +188,14 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	public float getSolutionValue(Solution solution) {
 		SolutionLp solutionLp = (SolutionLp)solution;
 		if ( solutionLp==null) { return 0.0f; }
-		return solutionLp.getGoalValue();
+		float goalValue = 0.0f;
+		for ( GeneratorLpTerm term : this.getLpTerm()){
+			float coeff = term.getCoeff();
+			float varValue = term.getLpVar().getSolutionValue(solution);
+			goalValue += coeff*varValue;
+		}
+		
+		return goalValue;
 	}
 	
 	/**
@@ -208,7 +215,10 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	 */
 	@Override
 	public void buildCons(Solver solver, Solver previousSolver) throws Exception {
-		float rhs = previousSolver.getSolValue();
+		EList<Solution> solutions = solver.getSolution();
+		if ( solutions.size()==0 ){ return; }
+		Solution solution = solutions.get(0);
+		float rhs = this.getSolutionValue(solution);
 		GeneratorLpLinear linearExpr = this;
 		EnumLpConsType direction = EnumLpConsType.ENUM_LITERAL_LP_CONS_EQUAL;
 		switch ( this.getObjectiveType().ordinal()){
