@@ -124,7 +124,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorVar" abstract="true" eSuperTypes="#//GeneratorTupleMember">
     <eOperations name="getSolutionVar" eType="#//SolutionVar">
-      <eParameters name="solutionprovider" eType="#//Solution"/>
+      <eParameters name="solution" eType="#//Solution"/>
     </eOperations>
     <eOperations name="isSolutionOne" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="solver" eType="#//Solution"/>
@@ -156,7 +156,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorCons" abstract="true" eSuperTypes="#//GeneratorTupleMember">
     <eOperations name="getSolution" eType="#//SolutionCons">
-      <eParameters name="solver" eType="#//Solution"/>
+      <eParameters name="solution" eType="#//Solution"/>
     </eOperations>
     <eOperations name="build" eExceptions="#//Exception">
       <eParameters name="builder" eType="#//Solver"/>
@@ -303,6 +303,9 @@
     <eOperations name="constructSolverGoal" eType="#//SolverGoalPreviousSolver">
       <eParameters name="previousSolver" eType="#//Solver"/>
     </eOperations>
+    <eOperations name="makeSolutionGoals">
+      <eParameters name="solution" eType="#//Solution"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Remarks" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverMaxDuration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
@@ -382,10 +385,11 @@
     <eOperations name="constructSolutionCons" eType="#//SolutionCons">
       <eParameters name="cons" eType="#//GeneratorCons"/>
     </eOperations>
-    <eOperations name="constructSolutionGoal" eType="#//SolverGeneratorGoal">
-      <eParameters name="goal" eType="#//SolverGeneratorGoal"/>
+    <eOperations name="constructSolutionGoal" eType="#//SolutionGoal">
+      <eParameters name="goal" eType="#//GeneratorGoal"/>
     </eOperations>
     <eOperations name="dispose"/>
+    <eOperations name="makeSolutionGoals"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Provider" lowerBound="1"
         eType="#//SolutionProvider" eOpposite="#//SolutionProvider/Solution"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolutionNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -426,7 +430,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolutionLpCons" eSuperTypes="#//SolutionCons"/>
   <eClassifiers xsi:type="ecore:EClass" name="SolutionGoal" eSuperTypes="#//SolutionElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Goal" lowerBound="1" eType="#//GeneratorGoal"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Goal" lowerBound="1" eType="#//GeneratorGoal"
+        eOpposite="#//GeneratorGoal/Solution"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="#//EnumGoalType"/>
@@ -485,6 +490,9 @@
       <eParameters name="solutionGoal" eType="#//SolutionGoal"/>
       <eParameters name="builder" eType="#//Solver"/>
     </eOperations>
+    <eOperations name="getSolutionGoal" eType="#//SolutionGoal">
+      <eParameters name="solution" eType="#//Solution"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Generator" eType="#//Generator"
         changeable="false" volatile="true" transient="true" derived="true" eOpposite="#//Generator/Goals"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -492,6 +500,8 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Solution" upperBound="-1"
+        eType="#//SolutionGoal" eOpposite="#//SolutionGoal/Goal"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpGoal" eSuperTypes="#//GeneratorGoal #//GeneratorLpLinear">
     <eOperations name="getSolutionValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">

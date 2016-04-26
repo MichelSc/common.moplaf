@@ -9,6 +9,7 @@ import com.misc.common.moplaf.solver.SolverPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -120,11 +121,33 @@ public class SolutionGoalImpl extends SolutionElementImpl implements SolutionGoa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setGoal(GeneratorGoal newGoal) {
+	public NotificationChain basicSetGoal(GeneratorGoal newGoal, NotificationChain msgs) {
 		GeneratorGoal oldGoal = goal;
 		goal = newGoal;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLUTION_GOAL__GOAL, oldGoal, goal));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SolverPackage.SOLUTION_GOAL__GOAL, oldGoal, newGoal);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGoal(GeneratorGoal newGoal) {
+		if (newGoal != goal) {
+			NotificationChain msgs = null;
+			if (goal != null)
+				msgs = ((InternalEObject)goal).eInverseRemove(this, SolverPackage.GENERATOR_GOAL__SOLUTION, GeneratorGoal.class, msgs);
+			if (newGoal != null)
+				msgs = ((InternalEObject)newGoal).eInverseAdd(this, SolverPackage.GENERATOR_GOAL__SOLUTION, GeneratorGoal.class, msgs);
+			msgs = basicSetGoal(newGoal, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLUTION_GOAL__GOAL, newGoal, newGoal));
 	}
 
 	/**
@@ -157,6 +180,36 @@ public class SolutionGoalImpl extends SolutionElementImpl implements SolutionGoa
 		type = newType == null ? TYPE_EDEFAULT : newType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLUTION_GOAL__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SolverPackage.SOLUTION_GOAL__GOAL:
+				if (goal != null)
+					msgs = ((InternalEObject)goal).eInverseRemove(this, SolverPackage.GENERATOR_GOAL__SOLUTION, GeneratorGoal.class, msgs);
+				return basicSetGoal((GeneratorGoal)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SolverPackage.SOLUTION_GOAL__GOAL:
+				return basicSetGoal(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.solver.impl;
 
 import com.misc.common.moplaf.solver.GeneratorCons;
+import com.misc.common.moplaf.solver.GeneratorGoal;
 import com.misc.common.moplaf.solver.GeneratorVar;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionCons;
@@ -12,7 +13,6 @@ import com.misc.common.moplaf.solver.SolutionProvider;
 import com.misc.common.moplaf.solver.SolutionVar;
 import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverFactory;
-import com.misc.common.moplaf.solver.SolverGeneratorGoal;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import java.lang.reflect.InvocationTargetException;
@@ -233,6 +233,17 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void makeSolutionGoals() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public EList<SolutionVar> getVars() {
 		EObjectEList<SolutionVar> newList = new EObjectEList<SolutionVar>(SolutionVar.class, this, SolverPackage.SOLUTION__VARS);
@@ -263,14 +274,16 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public EList<SolutionGoal> getGoals() {
-		// TODO: implement this method to return the 'Goals' reference list
-		// Ensure that you remove @generated or mark it @generated NOT
-		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-		throw new UnsupportedOperationException();
+		EObjectEList<SolutionGoal> newList = new EObjectEList<SolutionGoal>(SolutionGoal.class, this, SolverPackage.SOLUTION__GOALS);
+		for ( EObject object : this.eContents()){
+			if ( object instanceof SolutionGoal){
+				SolutionGoal goal = (SolutionGoal)object;
+				newList.addUnique(goal);
+			}
+		}
+		return newList;
 	}
 
 	/**
@@ -295,12 +308,10 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public SolutionGoal solutionGoalFactory() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		SolutionGoal newSolutionGoal = SolverFactory.eINSTANCE.createSolutionGoal();
+		return newSolutionGoal;
 	}
 
 	/**
@@ -316,12 +327,12 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public SolverGeneratorGoal constructSolutionGoal(SolverGeneratorGoal goal) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public SolutionGoal constructSolutionGoal(GeneratorGoal goal) {
+		SolutionGoal newSolutionGoal = this.solutionGoalFactory();
+		this.getElements().add(newSolutionGoal);
+		goal.getSolution().add(newSolutionGoal);
+		return newSolutionGoal;
 	}
 
 	/**
@@ -514,9 +525,12 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 			case SolverPackage.SOLUTION___CONSTRUCT_SOLUTION_CONS__GENERATORCONS:
 				return constructSolutionCons((GeneratorCons)arguments.get(0));
 			case SolverPackage.SOLUTION___CONSTRUCT_SOLUTION_GOAL__SOLVERGENERATORGOAL:
-				return constructSolutionGoal((SolverGeneratorGoal)arguments.get(0));
+				return constructSolutionGoal((GeneratorGoal)arguments.get(0));
 			case SolverPackage.SOLUTION___DISPOSE:
 				dispose();
+				return null;
+			case SolverPackage.SOLUTION___MAKE_SOLUTION_GOALS:
+				makeSolutionGoals();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

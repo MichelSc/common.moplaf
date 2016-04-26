@@ -105,9 +105,9 @@ public abstract class GeneratorConsImpl extends GeneratorTupleMemberImpl impleme
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public SolutionCons getSolution(Solution solver) {
+	public SolutionCons getSolution(Solution solution) {
 		for(SolutionCons currentsol : this.getSolution()) {
-			if ( currentsol.getSolution()==solver) {
+			if ( currentsol.getSolution()==solution) {
 				return currentsol;
 			}
 		}

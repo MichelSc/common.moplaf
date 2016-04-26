@@ -28,6 +28,7 @@ import com.misc.common.moplaf.solver.SolverPackage;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashSet;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -624,12 +625,19 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 */
+	protected void buildLpGoalImpl(GeneratorLpGoal goal, float weight) throws Exception {
+		// to be overloaded
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public void buildLpGoal(GeneratorLpGoal goal, float weight) throws Exception {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		this.generatorGoalsToSolve.add(goal);
+		this.buildLpGoalImpl(goal,  weight);
 	}
 
 	/**
@@ -654,12 +662,22 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 */
+	public void buildLpConsImpl(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
+		// to be overloaded
+		throw new UnsupportedOperationException();
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public void buildLpCons(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		if ( element instanceof GeneratorGoal) {
+			this.generatorGoalsToConstraint.add((GeneratorGoal)element);
+		}
+		this.buildLpConsImpl(element, linear, rhs, type);
 	}
 
 	/**
@@ -696,6 +714,16 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		newGoal.setPreviousSolution(null);
 		this.getGoals().add(newGoal);
 		return newGoal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void makeSolutionGoals(Solution solution) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -1332,47 +1360,11 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		for (Solution solution : this.getSolution()){
 			solution.dispose();
 		}
+		
+		this.generatorGoalsToConstraint = null;
+		this.generatorGoalsToSolve = null;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * Start solving the problem
-	 *   Implement the branch synchronous/asynchronous
-	 * <!-- end-user-doc -->
-	 */
-	public void solve() {
-		Plugin.INSTANCE.logInfo("solve called");
-		Generator generator = this.getGenerator();
-		
-		if ( generator == null ) {
-			Plugin.INSTANCE.logError("solve, no generator set");
-		}
-		else  {
-			this.setRunRequestTerminate(false);
-			if ( this.isSolverBackground() ){
-				  Job job = new Job("LP Solver in Background") {
-					     protected IStatus run(IProgressMonitor monitor) {
-					    	    eMonitor = monitor;
-					    	    monitor.beginTask("Initialization", 100);
-					    	    Plugin.INSTANCE.logInfo("Solve, job started");
-			  					SolverImpl.this.solveRun();
-								eMonitor = null;
-					            return Status.OK_STATUS;
-					        }
-					     };  // class Job
-				  job.setPriority(Job.SHORT);
-				  job.setUser(true);
-				  job.setSystem(false);
-				  Plugin.INSTANCE.logInfo("solve, job submitted");
-				  job.schedule(); // start as soon as possible			}
-			}
-			else {
-				this.solveRun();
-			} // synchronous
-			Plugin.INSTANCE.logInfo("solve finished");
-		}
-	}
-	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1463,6 +1455,45 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	
 	/**
 	 * <!-- begin-user-doc -->
+	 * Start solving the problem
+	 *   Implement the branch synchronous/asynchronous
+	 * <!-- end-user-doc -->
+	 */
+	public void solve() {
+		Plugin.INSTANCE.logInfo("solve called");
+		Generator generator = this.getGenerator();
+		
+		if ( generator == null ) {
+			Plugin.INSTANCE.logError("solve, no generator set");
+		}
+		else  {
+			this.setRunRequestTerminate(false);
+			if ( this.isSolverBackground() ){
+				  Job job = new Job("LP Solver in Background") {
+					     protected IStatus run(IProgressMonitor monitor) {
+					    	    eMonitor = monitor;
+					    	    monitor.beginTask("Initialization", 100);
+					    	    Plugin.INSTANCE.logInfo("Solve, job started");
+			  					SolverImpl.this.solveRun();
+								eMonitor = null;
+					            return Status.OK_STATUS;
+					        }
+					     };  // class Job
+				  job.setPriority(Job.SHORT);
+				  job.setUser(true);
+				  job.setSystem(false);
+				  Plugin.INSTANCE.logInfo("solve, job submitted");
+				  job.schedule(); // start as soon as possible			}
+			}
+			else {
+				this.solveRun();
+			} // synchronous
+			Plugin.INSTANCE.logInfo("solve finished");
+		}
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
 	 * To be implemented by the concrete solver to solver the linear formulation
 	 * <!-- end-user-doc -->
 	 */
@@ -1471,8 +1502,9 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		
 	}
 	
-	
 
+	private HashSet<GeneratorGoal> generatorGoalsToSolve = new HashSet<GeneratorGoal>();
+	private HashSet<GeneratorGoal> generatorGoalsToConstraint = new HashSet<GeneratorGoal>();
 	
 	private Date eLastMonitoredFeedback;
 	private static int eMonitorRefreshRateMillis = 100;
@@ -1582,6 +1614,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		this.setFinalizing(true);
 		this.refreshStatus();
 	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2044,6 +2077,9 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return constructSolverGoal((Solution)arguments.get(0));
 			case SolverPackage.SOLVER___CONSTRUCT_SOLVER_GOAL__SOLVER:
 				return constructSolverGoal((Solver)arguments.get(0));
+			case SolverPackage.SOLVER___MAKE_SOLUTION_GOALS__SOLUTION:
+				makeSolutionGoals((Solution)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

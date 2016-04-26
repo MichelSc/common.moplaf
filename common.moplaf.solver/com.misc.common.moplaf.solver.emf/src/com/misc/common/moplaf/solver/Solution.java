@@ -232,7 +232,7 @@ public interface Solution extends EObject {
 	 * @model
 	 * @generated
 	 */
-	SolverGeneratorGoal constructSolutionGoal(SolverGeneratorGoal goal);
+	SolutionGoal constructSolutionGoal(GeneratorGoal goal);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -249,4 +249,12 @@ public interface Solution extends EObject {
 	 * @generated
 	 */
 	void dispose();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void makeSolutionGoals();
 } // Solution

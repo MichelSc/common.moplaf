@@ -154,7 +154,13 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	public float getSelectedSolutionValue() {
 		Generator generator = this.getGenerator();
 		Solution solution = generator.getSelected();
-		return this.getSolutionValue(solution);
+		SolutionGoal solutionGoal = this.getSolutionGoal(solution);
+		if ( solutionGoal instanceof SolutionLpGoal ) {
+			SolutionLpGoal lpGoal = (SolutionLpGoal) solutionGoal;
+			return lpGoal.getValue(); 
+		} 
+		
+		return 0.0f;
 	}
 
 	/**

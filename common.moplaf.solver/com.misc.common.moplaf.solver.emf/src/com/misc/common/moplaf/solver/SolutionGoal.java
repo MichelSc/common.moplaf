@@ -24,6 +24,7 @@ package com.misc.common.moplaf.solver;
 public interface SolutionGoal extends SolutionElement {
 	/**
 	 * Returns the value of the '<em><b>Goal</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.GeneratorGoal#getSolution <em>Solution</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Goal</em>' reference isn't clear,
@@ -33,7 +34,8 @@ public interface SolutionGoal extends SolutionElement {
 	 * @return the value of the '<em>Goal</em>' reference.
 	 * @see #setGoal(GeneratorGoal)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolutionGoal_Goal()
-	 * @model required="true"
+	 * @see com.misc.common.moplaf.solver.GeneratorGoal#getSolution
+	 * @model opposite="Solution" required="true"
 	 * @generated
 	 */
 	GeneratorGoal getGoal();

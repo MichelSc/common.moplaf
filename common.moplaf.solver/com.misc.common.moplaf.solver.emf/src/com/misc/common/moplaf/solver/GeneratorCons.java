@@ -61,7 +61,7 @@ public interface GeneratorCons extends GeneratorTupleMember {
 	 * @model
 	 * @generated
 	 */
-	SolutionCons getSolution(Solution solver);
+	SolutionCons getSolution(Solution solution);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -61,7 +61,7 @@ public interface GeneratorVar extends GeneratorTupleMember {
 	 * @model
 	 * @generated
 	 */
-	SolutionVar getSolutionVar(Solution solutionprovider);
+	SolutionVar getSolutionVar(Solution solution);
 
 	/**
 	 * <!-- begin-user-doc -->

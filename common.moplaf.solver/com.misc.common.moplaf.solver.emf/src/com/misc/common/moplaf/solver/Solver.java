@@ -831,4 +831,12 @@ public interface Solver extends SolutionProvider {
 	 */
 	SolverGoalPreviousSolver constructSolverGoal(Solver previousSolver);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void makeSolutionGoals(Solution solution);
+
 } // Solver
