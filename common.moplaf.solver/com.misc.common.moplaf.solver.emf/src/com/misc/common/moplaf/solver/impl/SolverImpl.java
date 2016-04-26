@@ -2006,7 +2006,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case SolverPackage.SOLVER___BUILD_LP_GOAL__GENERATORLPGOAL:
+			case SolverPackage.SOLVER___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT:
 				try {
 					buildLpGoal((GeneratorLpGoal)arguments.get(0), (Float)arguments.get(1));
 					return null;

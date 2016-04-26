@@ -33,6 +33,11 @@
     <eLiterals name="EnumLiteralCpLogicalOr" literal="Or"/>
     <eLiterals name="EnumLiteralCpLogicalAnd" value="1" literal="And"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EnumGoalType">
+    <eLiterals name="EnumLiteralGoalTypeConstrained" literal="Constrained"/>
+    <eLiterals name="EnumLiteralGoalTypeOptimized" value="1"/>
+    <eLiterals name="EnumLiteralGoalTypeFree" value="2"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Generator" abstract="true">
     <eOperations name="generate"/>
     <eOperations name="generateRootTuples"/>
@@ -424,6 +429,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Goal" lowerBound="1" eType="#//GeneratorGoal"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="#//EnumGoalType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolutionLpGoal" eSuperTypes="#//SolutionGoal">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>

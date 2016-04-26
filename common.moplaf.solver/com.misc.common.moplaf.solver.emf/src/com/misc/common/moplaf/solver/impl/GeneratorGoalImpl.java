@@ -304,7 +304,7 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case SolverPackage.GENERATOR_GOAL___BUILD__SOLVER:
+			case SolverPackage.GENERATOR_GOAL___BUILD__SOLVER_FLOAT:
 				try {
 					build((Solver)arguments.get(0), (Float)arguments.get(1));
 					return null;

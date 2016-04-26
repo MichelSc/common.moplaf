@@ -47,6 +47,7 @@ public class SolutionGoalItemProvider extends SolutionElementItemProvider {
 
 			addGoalPropertyDescriptor(object);
 			addLabelPropertyDescriptor(object);
+			addTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -96,6 +97,28 @@ public class SolutionGoalItemProvider extends SolutionElementItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SolutionGoal_Type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SolutionGoal_Type_feature", "_UI_SolutionGoal_type"),
+				 SolverPackage.Literals.SOLUTION_GOAL__TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns SolutionGoal.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -134,6 +157,7 @@ public class SolutionGoalItemProvider extends SolutionElementItemProvider {
 
 		switch (notification.getFeatureID(SolutionGoal.class)) {
 			case SolverPackage.SOLUTION_GOAL__LABEL:
+			case SolverPackage.SOLUTION_GOAL__TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -2608,7 +2608,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER___BUILD_LP_GOAL__GENERATORLPGOAL = SOLUTION_PROVIDER_OPERATION_COUNT + 4;
+	int SOLVER___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT = SOLUTION_PROVIDER_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Build Cons</em>' operation.
@@ -3191,7 +3191,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_CP___BUILD_LP_GOAL__GENERATORLPGOAL = SOLVER___BUILD_LP_GOAL__GENERATORLPGOAL;
+	int SOLVER_CP___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT = SOLVER___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT;
 
 	/**
 	 * The operation id for the '<em>Build Cons</em>' operation.
@@ -3632,7 +3632,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_LP___BUILD_LP_GOAL__GENERATORLPGOAL = SOLVER___BUILD_LP_GOAL__GENERATORLPGOAL;
+	int SOLVER_LP___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT = SOLVER___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT;
 
 	/**
 	 * The operation id for the '<em>Build Cons</em>' operation.
@@ -4616,13 +4616,22 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_GOAL__LABEL = SOLUTION_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_GOAL__TYPE = SOLUTION_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Solution Goal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_GOAL_FEATURE_COUNT = SOLUTION_ELEMENT_FEATURE_COUNT + 2;
+	int SOLUTION_GOAL_FEATURE_COUNT = SOLUTION_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Dispose</em>' operation.
@@ -4668,6 +4677,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_LP_GOAL__LABEL = SOLUTION_GOAL__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_LP_GOAL__TYPE = SOLUTION_GOAL__TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -5612,7 +5630,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_GOAL___BUILD__SOLVER = GENERATOR_ELEMENT_OPERATION_COUNT + 0;
+	int GENERATOR_GOAL___BUILD__SOLVER_FLOAT = GENERATOR_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Build Cons</em>' operation.
@@ -5738,7 +5756,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_LP_GOAL___BUILD__SOLVER = GENERATOR_GOAL___BUILD__SOLVER;
+	int GENERATOR_LP_GOAL___BUILD__SOLVER_FLOAT = GENERATOR_GOAL___BUILD__SOLVER_FLOAT;
 
 	/**
 	 * The operation id for the '<em>Build Cons</em>' operation.
@@ -5820,7 +5838,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getITupleVisitor()
 	 * @generated
 	 */
-	int ITUPLE_VISITOR = 54;
+	int ITUPLE_VISITOR = 55;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -5830,7 +5848,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 55;
+	int EXCEPTION = 56;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumLpVarType <em>Enum Lp Var Type</em>}' enum.
@@ -5893,6 +5911,16 @@ public interface SolverPackage extends EPackage {
 	int ENUM_CP_LOGICAL_TYPE = 52;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumGoalType <em>Enum Goal Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.solver.EnumGoalType
+	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumGoalType()
+	 * @generated
+	 */
+	int ENUM_GOAL_TYPE = 53;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumLpFileFormat <em>Enum Lp File Format</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5900,7 +5928,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumLpFileFormat()
 	 * @generated
 	 */
-	int ENUM_LP_FILE_FORMAT = 53;
+	int ENUM_LP_FILE_FORMAT = 54;
 
 
 	/**
@@ -6451,7 +6479,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.GeneratorGoal#build(com.misc.common.moplaf.solver.Solver, float)
 	 * @generated
 	 */
-	EOperation getGeneratorGoal__Build__Solver();
+	EOperation getGeneratorGoal__Build__Solver_float();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorGoal#buildCons(com.misc.common.moplaf.solver.SolutionGoal, com.misc.common.moplaf.solver.Solver) <em>Build Cons</em>}' operation.
@@ -7725,7 +7753,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.Solver#buildLpGoal(com.misc.common.moplaf.solver.GeneratorLpGoal, float)
 	 * @generated
 	 */
-	EOperation getSolver__BuildLpGoal__GeneratorLpGoal();
+	EOperation getSolver__BuildLpGoal__GeneratorLpGoal_float();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.Solver#buildCons(com.misc.common.moplaf.solver.GeneratorCons) <em>Build Cons</em>}' operation.
@@ -8123,6 +8151,17 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSolutionGoal_Label();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.SolutionGoal#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see com.misc.common.moplaf.solver.SolutionGoal#getType()
+	 * @see #getSolutionGoal()
+	 * @generated
+	 */
+	EAttribute getSolutionGoal_Type();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.SolutionLpGoal <em>Solution Lp Goal</em>}'.
@@ -8574,6 +8613,16 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getEnumCpLogicalType();
+
+	/**
+	 * Returns the meta object for enum '{@link com.misc.common.moplaf.solver.EnumGoalType <em>Enum Goal Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Enum Goal Type</em>'.
+	 * @see com.misc.common.moplaf.solver.EnumGoalType
+	 * @generated
+	 */
+	EEnum getEnumGoalType();
 
 	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.solver.EnumLpFileFormat <em>Enum Lp File Format</em>}'.
@@ -9032,7 +9081,7 @@ public interface SolverPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GENERATOR_GOAL___BUILD__SOLVER = eINSTANCE.getGeneratorGoal__Build__Solver();
+		EOperation GENERATOR_GOAL___BUILD__SOLVER_FLOAT = eINSTANCE.getGeneratorGoal__Build__Solver_float();
 
 		/**
 		 * The meta object literal for the '<em><b>Build Cons</b></em>' operation.
@@ -10034,7 +10083,7 @@ public interface SolverPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SOLVER___BUILD_LP_GOAL__GENERATORLPGOAL = eINSTANCE.getSolver__BuildLpGoal__GeneratorLpGoal();
+		EOperation SOLVER___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT = eINSTANCE.getSolver__BuildLpGoal__GeneratorLpGoal_float();
 
 		/**
 		 * The meta object literal for the '<em><b>Build Cons</b></em>' operation.
@@ -10357,6 +10406,14 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOLUTION_GOAL__LABEL = eINSTANCE.getSolutionGoal_Label();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOLUTION_GOAL__TYPE = eINSTANCE.getSolutionGoal_Type();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.SolutionLpGoalImpl <em>Solution Lp Goal</em>}' class.
@@ -10741,6 +10798,16 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum ENUM_CP_LOGICAL_TYPE = eINSTANCE.getEnumCpLogicalType();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.EnumGoalType <em>Enum Goal Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.solver.EnumGoalType
+		 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumGoalType()
+		 * @generated
+		 */
+		EEnum ENUM_GOAL_TYPE = eINSTANCE.getEnumGoalType();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.EnumLpFileFormat <em>Enum Lp File Format</em>}' enum.
