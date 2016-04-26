@@ -69,6 +69,9 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 			case SolverPackage.GENERATOR_CONSTRAINT_ENABLER: return createGeneratorConstraintEnabler();
 			case SolverPackage.GENERATOR_VAR_OVERFLOW: return createGeneratorVarOverflow();
 			case SolverPackage.SOLUTION_READER_PATTERN: return createSolutionReaderPattern();
+			case SolverPackage.SOLVER_GOAL: return createSolverGoal();
+			case SolverPackage.SOLVER_GENERATOR_GOAL: return createSolverGeneratorGoal();
+			case SolverPackage.SOLVER_GOAL_PREVIOUS_SOLVER: return createSolverGoalPreviousSolver();
 			case SolverPackage.SOLUTION: return createSolution();
 			case SolverPackage.SOLUTION_ELEMENT: return createSolutionElement();
 			case SolverPackage.SOLUTION_LP: return createSolutionLp();
@@ -77,6 +80,8 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 			case SolverPackage.SOLUTION_CP_VAR: return createSolutionCpVar();
 			case SolverPackage.SOLUTION_CONS: return createSolutionCons();
 			case SolverPackage.SOLUTION_LP_CONS: return createSolutionLpCons();
+			case SolverPackage.SOLUTION_GOAL: return createSolutionGoal();
+			case SolverPackage.SOLUTION_LP_GOAL: return createSolutionLpGoal();
 			case SolverPackage.GENERATOR_CP_LINEAR: return createGeneratorCpLinear();
 			case SolverPackage.GENERATOR_CP_LOGICAL: return createGeneratorCpLogical();
 			case SolverPackage.GENERATOR_CP_VAR_ATOMIC: return createGeneratorCpVarAtomic();
@@ -84,8 +89,6 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 			case SolverPackage.GENERATOR_CP_LOGICAL_TERM: return createGeneratorCpLogicalTerm();
 			case SolverPackage.GENERATOR_LP_GOAL: return createGeneratorLpGoal();
 			case SolverPackage.GENERATOR_LP_LINEAR: return createGeneratorLpLinear();
-			case SolverPackage.SOLVER_GOAL: return createSolverGoal();
-			case SolverPackage.SOLVER_GOAL_LP: return createSolverGoalLp();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -198,9 +201,19 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SolverGoalLp createSolverGoalLp() {
-		SolverGoalLpImpl solverGoalLp = new SolverGoalLpImpl();
-		return solverGoalLp;
+	public SolverGeneratorGoal createSolverGeneratorGoal() {
+		SolverGeneratorGoalImpl solverGeneratorGoal = new SolverGeneratorGoalImpl();
+		return solverGeneratorGoal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SolverGoalPreviousSolver createSolverGoalPreviousSolver() {
+		SolverGoalPreviousSolverImpl solverGoalPreviousSolver = new SolverGoalPreviousSolverImpl();
+		return solverGoalPreviousSolver;
 	}
 
 	/**
@@ -381,6 +394,26 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 	public SolutionLpCons createSolutionLpCons() {
 		SolutionLpConsImpl solutionLpCons = new SolutionLpConsImpl();
 		return solutionLpCons;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SolutionGoal createSolutionGoal() {
+		SolutionGoalImpl solutionGoal = new SolutionGoalImpl();
+		return solutionGoal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SolutionLpGoal createSolutionLpGoal() {
+		SolutionLpGoalImpl solutionLpGoal = new SolutionLpGoalImpl();
+		return solutionLpGoal;
 	}
 
 	/**

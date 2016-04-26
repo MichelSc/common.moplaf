@@ -883,21 +883,17 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
      * Build the lp goal
 	 */
 	@Override
-	public void buildLpGoal(GeneratorLpGoal goal) throws Exception {
+	public void buildLpGoal(GeneratorLpGoal goal, float weight) throws Exception {
 		// direction
-		int direction = 0;
-		if ( goal.getObjectiveType()==EnumObjectiveType.MINIMUM){
-			direction = GLPKConstants.GLP_MIN;
-		} else if ( goal.getObjectiveType()==EnumObjectiveType.MAXIMUM){
-			direction = GLPKConstants.GLP_MAX;
+		float direction = 1.0f;
+		if ( goal.getObjectiveType()==EnumObjectiveType.MAXIMUM){
+			direction = -1.0f;
 		}
-		GLPK.glp_set_obj_dir(this.lp, direction);
-		GLPK.glp_set_obj_name(this.lp, goal.getCode());
 		// terms
 		for ( GeneratorLpTerm goalTerm : goal.getLpTerm()){
 			// create the objective coefficient
 			GeneratorLpVar lpvar = goalTerm.getLpVar();
-			float coefficient = goalTerm.getCoeff();
+			float coefficient = goalTerm.getCoeff()*direction*weight;
 			if ( coefficient!=0.0f){
 			    int varindex = this.vars.get(lpvar).intValue();
 				GLPK.glp_set_obj_coef(this.lp, varindex, coefficient);
@@ -926,6 +922,8 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 			GLPK.glp_add_cols(this.lp, generator.getFootprintNofVars());
 			GLPK.glp_add_rows(this.lp, generator.getFootprintNofCons());
 			GLPK.glp_set_prob_name(this.lp, this.getCode());
+			GLPK.glp_set_obj_dir(this.lp, GLPKConstants.GLP_MIN);
+
 			this.build();
 		}
 		catch (Exception e) {
@@ -1015,7 +1013,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		if ( feasible || this.isSolverLinearRelaxation()) {
 			mipvalue = (float)GLPK.glp_mip_obj_val(lp);
 			SolutionLp newSolution = (SolutionLp) this.constructSolution();
-			newSolution.setGoalValue(mipvalue);
+			newSolution.setValue(mipvalue);
 			for ( Map.Entry<GeneratorLpVar, Number> varentry : vars.entrySet())	{
 				int varindex = varentry.getValue().intValue();
 				GeneratorLpVar lpvar = varentry.getKey();

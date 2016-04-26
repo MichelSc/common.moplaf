@@ -58,13 +58,22 @@ public interface SolverFactory extends EFactory {
 	SolverGoal createSolverGoal();
 
 	/**
-	 * Returns a new object of class '<em>Goal Lp</em>'.
+	 * Returns a new object of class '<em>Generator Goal</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Goal Lp</em>'.
+	 * @return a new object of class '<em>Generator Goal</em>'.
 	 * @generated
 	 */
-	SolverGoalLp createSolverGoalLp();
+	SolverGeneratorGoal createSolverGeneratorGoal();
+
+	/**
+	 * Returns a new object of class '<em>Goal Previous Solver</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Goal Previous Solver</em>'.
+	 * @generated
+	 */
+	SolverGoalPreviousSolver createSolverGoalPreviousSolver();
 
 	/**
 	 * Returns a new object of class '<em>Solution</em>'.
@@ -227,6 +236,24 @@ public interface SolverFactory extends EFactory {
 	 * @generated
 	 */
 	SolutionLpCons createSolutionLpCons();
+
+	/**
+	 * Returns a new object of class '<em>Solution Goal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Solution Goal</em>'.
+	 * @generated
+	 */
+	SolutionGoal createSolutionGoal();
+
+	/**
+	 * Returns a new object of class '<em>Solution Lp Goal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Solution Lp Goal</em>'.
+	 * @generated
+	 */
+	SolutionLpGoal createSolutionLpGoal();
 
 	/**
 	 * Returns a new object of class '<em>Generator Cp Linear</em>'.

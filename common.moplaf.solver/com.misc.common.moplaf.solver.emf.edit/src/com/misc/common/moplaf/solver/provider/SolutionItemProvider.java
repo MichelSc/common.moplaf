@@ -7,7 +7,6 @@ import com.misc.common.moplaf.emf.edit.command.AcceptCommand;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionProvider;
-import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import java.util.Collection;
@@ -69,6 +68,7 @@ public class SolutionItemProvider
 			addSolutionNrPropertyDescriptor(object);
 			addCodePropertyDescriptor(object);
 			addSolverAsInitialSolutionPropertyDescriptor(object);
+			addGoalsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -140,6 +140,28 @@ public class SolutionItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Goals feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGoalsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Solution_Goals_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Solution_Goals_feature", "_UI_Solution_type"),
+				 SolverPackage.Literals.SOLUTION__GOALS,
+				 false,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -151,7 +173,7 @@ public class SolutionItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SolverPackage.Literals.SOLUTION__ELEMENTS);
+			childrenFeatures.add(SolverPackage.Literals.SOLUTION__GOALS);
 		}
 		return childrenFeatures;
 	}
@@ -207,11 +229,9 @@ public class SolutionItemProvider
 		switch (notification.getFeatureID(Solution.class)) {
 			case SolverPackage.SOLUTION__SOLUTION_NR:
 			case SolverPackage.SOLUTION__CODE:
+			case SolverPackage.SOLUTION__ELEMENTS:
 			case SolverPackage.SOLUTION__CONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case SolverPackage.SOLUTION__ELEMENTS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -227,36 +247,6 @@ public class SolutionItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SolverPackage.Literals.SOLUTION__ELEMENTS,
-				 SolverFactory.eINSTANCE.createSolutionElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SolverPackage.Literals.SOLUTION__ELEMENTS,
-				 SolverFactory.eINSTANCE.createSolutionVar()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SolverPackage.Literals.SOLUTION__ELEMENTS,
-				 SolverFactory.eINSTANCE.createSolutionLpVar()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SolverPackage.Literals.SOLUTION__ELEMENTS,
-				 SolverFactory.eINSTANCE.createSolutionCpVar()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SolverPackage.Literals.SOLUTION__ELEMENTS,
-				 SolverFactory.eINSTANCE.createSolutionCons()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SolverPackage.Literals.SOLUTION__ELEMENTS,
-				 SolverFactory.eINSTANCE.createSolutionLpCons()));
 	}
 
 	/**

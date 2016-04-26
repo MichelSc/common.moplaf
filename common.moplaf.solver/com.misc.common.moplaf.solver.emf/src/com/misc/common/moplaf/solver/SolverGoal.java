@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.solver.SolverGoal#getGoalToSolve <em>Goal To Solve</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.SolverGoal#getLabel <em>Label</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getSolverGoal()
@@ -22,29 +22,26 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface SolverGoal extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Goal To Solve</b></em>' reference.
+	 * Returns the value of the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Goal To Solve</em>' reference isn't clear,
+	 * If the meaning of the '<em>Label</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Goal To Solve</em>' reference.
-	 * @see #setGoalToSolve(GeneratorGoal)
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolverGoal_GoalToSolve()
-	 * @model required="true"
+	 * @return the value of the '<em>Label</em>' attribute.
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolverGoal_Label()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	GeneratorGoal getGoalToSolve();
+	String getLabel();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.solver.SolverGoal#getGoalToSolve <em>Goal To Solve</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Goal To Solve</em>' reference.
-	 * @see #getGoalToSolve()
+	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
 	 * @generated
 	 */
-	void setGoalToSolve(GeneratorGoal value);
+	void buildGoal() throws Exception;
 
 } // SolverGoal

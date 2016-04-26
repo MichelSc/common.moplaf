@@ -5,6 +5,7 @@ package com.misc.common.moplaf.solver.impl;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorGoal;
 import com.misc.common.moplaf.solver.Solution;
+import com.misc.common.moplaf.solver.SolutionGoal;
 import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverPackage;
 import java.lang.reflect.InvocationTargetException;
@@ -129,17 +130,9 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 */
-	public void build(Solver builder) throws Exception {
-		builder.buildGoal(this);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void buildCons(Solver solver, Solver previousSolver) throws Exception {
+	public void buildCons(SolutionGoal solutionGoal, Solver builder) throws Exception {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -212,6 +205,17 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 			return this.getSelectedSolutionDisplay();
 		}
 		return this.getCode();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void build(Solver builder, float weight) throws Exception {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -302,15 +306,15 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 		switch (operationID) {
 			case SolverPackage.GENERATOR_GOAL___BUILD__SOLVER:
 				try {
-					build((Solver)arguments.get(0));
+					build((Solver)arguments.get(0), (Float)arguments.get(1));
 					return null;
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case SolverPackage.GENERATOR_GOAL___BUILD_CONS__SOLVER_SOLVER:
+			case SolverPackage.GENERATOR_GOAL___BUILD_CONS__SOLUTIONGOAL_SOLVER:
 				try {
-					buildCons((Solver)arguments.get(0), (Solver)arguments.get(1));
+					buildCons((SolutionGoal)arguments.get(0), (Solver)arguments.get(1));
 					return null;
 				}
 				catch (Throwable throwable) {

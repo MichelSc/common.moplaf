@@ -78,8 +78,6 @@ public class SolverItemProvider
 			addSolValuePropertyDescriptor(object);
 			addRunInterruptedPropertyDescriptor(object);
 			addInitialSolutionPropertyDescriptor(object);
-			addNextToSolvePropertyDescriptor(object);
-			addPreviousSolvedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -222,109 +220,7 @@ public class SolverItemProvider
 //			 null));
 	}
 
-	/**
-	 * This adds a property descriptor for the Next To Solve feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	protected void addNextToSolvePropertyDescriptor(Object object) {
-	    IItemPropertyDescriptor descriptor = new ItemPropertyDescriptor(
-				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-						 getResourceLocator(),
-						 getString("_UI_Solver_nextToSolve_feature"),
-						 getString("_UI_PropertyDescriptor_description", "_UI_Solver_nextToSolve_feature", "_UI_Solver_type"),
-						 SolverPackage.Literals.SOLVER__NEXT_TO_SOLVE,
-						 true,
-						 false,
-						 true,
-						 null,
-						 getString("_UI__10GeneralPropertyCategory"),
-						 null)// filter flags
-	    {
-	    	public java.util.Collection<?> getChoiceOfValues(java.lang.Object object){
-	    		BasicEList<Solver> solvers = new BasicEList<Solver>();
-	    		Solver solver = (Solver)object;
-	    		Generator generator = solver.getGenerator();
-	    		if ( generator != null ) {
-		    		for ( SolutionProvider provider : generator.getSolutionProvider()){
-		    			if ( provider instanceof Solver){
-		    				Solver otherSolver = (Solver)provider;
-		    				if ( otherSolver != solver){
-		    					solvers.add(otherSolver);
-		    				}
-		    			}
-		    		}
-	    		}
-	    		return solvers;
-	    	}
-	    };
-		itemPropertyDescriptors.add(descriptor);
-//		itemPropertyDescriptors.add
-//		(createItemPropertyDescriptor
-//			(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-//			 getResourceLocator(),
-//			 getString("_UI_Solver_nextToSolve_feature"),
-//			 getString("_UI_PropertyDescriptor_description", "_UI_Solver_nextToSolve_feature", "_UI_Solver_type"),
-//			 SolverPackage.Literals.SOLVER__NEXT_TO_SOLVE,
-//			 true,
-//			 false,
-//			 true,
-//			 null,
-//			 getString("_UI__10GeneralPropertyCategory"),
-//			 null));
-	}
 
-	/**
-	 * This adds a property descriptor for the Previous Solved feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	protected void addPreviousSolvedPropertyDescriptor(Object object) {
-	    IItemPropertyDescriptor descriptor = new ItemPropertyDescriptor(
-				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-						 getResourceLocator(),
-						 getString("_UI_Solver_previousSolved_feature"),
-						 getString("_UI_PropertyDescriptor_description", "_UI_Solver_previousSolved_feature", "_UI_Solver_type"),
-						 SolverPackage.Literals.SOLVER__PREVIOUS_SOLVED,
-						 true,
-						 false,
-						 true,
-						 null,
-						 getString("_UI__10GeneralPropertyCategory"),
-						 null)// filter flags
-	    {
-	    	public java.util.Collection<?> getChoiceOfValues(java.lang.Object object){
-	    		BasicEList<Solver> solvers = new BasicEList<Solver>();
-	    		Solver solver = (Solver)object;
-	    		Generator generator = solver.getGenerator();
-	    		if ( generator != null ) {
-		    		for ( SolutionProvider provider : generator.getSolutionProvider()){
-		    			if ( provider instanceof Solver){
-		    				Solver otherSolver = (Solver)provider;
-		    				if ( otherSolver != solver){
-		    					solvers.add(otherSolver);
-		    				}
-		    			}
-		    		}
-	    		}
-	    		return solvers;
-	    	}
-	    };
-		itemPropertyDescriptors.add(descriptor);
-//		itemPropertyDescriptors.add
-//		(createItemPropertyDescriptor
-//			(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-//			 getResourceLocator(),
-//			 getString("_UI_Solver_previousSolved_feature"),
-//			 getString("_UI_PropertyDescriptor_description", "_UI_Solver_previousSolved_feature", "_UI_Solver_type"),
-//			 SolverPackage.Literals.SOLVER__PREVIOUS_SOLVED,
-//			 true,
-//			 false,
-//			 true,
-//			 null,
-//			 getString("_UI__10GeneralPropertyCategory"),
-//			 null));
-	}
 
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
@@ -796,7 +692,12 @@ public class SolverItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SolverPackage.Literals.SOLVER__GOALS,
-				 SolverFactory.eINSTANCE.createSolverGoalLp()));
+				 SolverFactory.eINSTANCE.createSolverGeneratorGoal()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SolverPackage.Literals.SOLVER__GOALS,
+				 SolverFactory.eINSTANCE.createSolverGoalPreviousSolver()));
 	}
 
 	public class SolverRunCommand extends RunCommand{

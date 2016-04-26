@@ -319,24 +319,6 @@ public interface SolvercplexPackage extends EPackage {
 	int SOLVER_CPLEX__INITIAL_SOLUTION = SolverPackage.SOLVER_LP__INITIAL_SOLUTION;
 
 	/**
-	 * The feature id for the '<em><b>Next To Solve</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_CPLEX__NEXT_TO_SOLVE = SolverPackage.SOLVER_LP__NEXT_TO_SOLVE;
-
-	/**
-	 * The feature id for the '<em><b>Previous Solved</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_CPLEX__PREVIOUS_SOLVED = SolverPackage.SOLVER_LP__PREVIOUS_SOLVED;
-
-	/**
 	 * The feature id for the '<em><b>Goals</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -481,24 +463,6 @@ public interface SolvercplexPackage extends EPackage {
 	int SOLVER_CPLEX___BUILD_LP_VAR__GENERATORLPVAR = SolverPackage.SOLVER_LP___BUILD_LP_VAR__GENERATORLPVAR;
 
 	/**
-	 * The operation id for the '<em>Build Goal</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_CPLEX___BUILD_GOAL__GENERATORGOAL = SolverPackage.SOLVER_LP___BUILD_GOAL__GENERATORGOAL;
-
-	/**
-	 * The operation id for the '<em>Build Lp Goal</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_CPLEX___BUILD_LP_GOAL__GENERATORLPGOAL = SolverPackage.SOLVER_LP___BUILD_LP_GOAL__GENERATORLPGOAL;
-
-	/**
 	 * The operation id for the '<em>Build Cons</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -526,22 +490,13 @@ public interface SolvercplexPackage extends EPackage {
 	int SOLVER_CPLEX___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE = SolverPackage.SOLVER_LP___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE;
 
 	/**
-	 * The operation id for the '<em>Build Cons From Goal</em>' operation.
+	 * The operation id for the '<em>Construct Solver Goal</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_CPLEX___BUILD_CONS_FROM_GOAL__SOLVER = SolverPackage.SOLVER_LP___BUILD_CONS_FROM_GOAL__SOLVER;
-
-	/**
-	 * The operation id for the '<em>Solver Goal Factory</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_CPLEX___SOLVER_GOAL_FACTORY = SolverPackage.SOLVER_LP___SOLVER_GOAL_FACTORY;
+	int SOLVER_CPLEX___CONSTRUCT_SOLVER_GOAL__GENERATORGOAL = SolverPackage.SOLVER_LP___CONSTRUCT_SOLVER_GOAL__GENERATORGOAL;
 
 	/**
 	 * The operation id for the '<em>Construct Solver Goal</em>' operation.
@@ -550,7 +505,16 @@ public interface SolvercplexPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_CPLEX___CONSTRUCT_SOLVER_GOAL__GENERATORGOAL = SolverPackage.SOLVER_LP___CONSTRUCT_SOLVER_GOAL__GENERATORGOAL;
+	int SOLVER_CPLEX___CONSTRUCT_SOLVER_GOAL__SOLUTION = SolverPackage.SOLVER_LP___CONSTRUCT_SOLVER_GOAL__SOLUTION;
+
+	/**
+	 * The operation id for the '<em>Construct Solver Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX___CONSTRUCT_SOLVER_GOAL__SOLVER = SolverPackage.SOLVER_LP___CONSTRUCT_SOLVER_GOAL__SOLVER;
 
 	/**
 	 * The operation id for the '<em>Write Lp To File</em>' operation.

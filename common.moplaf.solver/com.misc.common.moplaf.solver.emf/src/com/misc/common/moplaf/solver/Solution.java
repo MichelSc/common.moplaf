@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.solver.Solution#getElements <em>Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solution#getVars <em>Vars</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solution#getCons <em>Cons</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.Solution#getGoals <em>Goals</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getSolution()
@@ -178,6 +179,22 @@ public interface Solution extends EObject {
 	EList<SolutionCons> getCons();
 
 	/**
+	 * Returns the value of the '<em><b>Goals</b></em>' reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.solver.SolutionGoal}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Goals</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Goals</em>' reference list.
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolution_Goals()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EList<SolutionGoal> getGoals();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
@@ -199,7 +216,23 @@ public interface Solution extends EObject {
 	 * @model
 	 * @generated
 	 */
+	SolutionGoal solutionGoalFactory();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	SolutionCons constructSolutionCons(GeneratorCons cons);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	SolverGeneratorGoal constructSolutionGoal(SolverGeneratorGoal goal);
 
 	/**
 	 * <!-- begin-user-doc -->

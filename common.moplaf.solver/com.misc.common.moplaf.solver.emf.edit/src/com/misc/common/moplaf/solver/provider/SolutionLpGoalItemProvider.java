@@ -3,9 +3,9 @@
 package com.misc.common.moplaf.solver.provider;
 
 
-import com.misc.common.moplaf.solver.SolutionLp;
-
+import com.misc.common.moplaf.solver.SolutionLpGoal;
 import com.misc.common.moplaf.solver.SolverPackage;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -18,19 +18,19 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.solver.SolutionLp} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.solver.SolutionLpGoal} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SolutionLpItemProvider extends SolutionItemProvider {
+public class SolutionLpGoalItemProvider extends SolutionGoalItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SolutionLpItemProvider(AdapterFactory adapterFactory) {
+	public SolutionLpGoalItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -61,15 +61,26 @@ public class SolutionLpItemProvider extends SolutionItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SolutionLp_Value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SolutionLp_Value_feature", "_UI_SolutionLp_type"),
-				 SolverPackage.Literals.SOLUTION_LP__VALUE,
+				 getString("_UI_SolutionLpGoal_Value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SolutionLpGoal_Value_feature", "_UI_SolutionLpGoal_type"),
+				 SolverPackage.Literals.SOLUTION_LP_GOAL__VALUE,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
+	}
+
+	/**
+	 * This returns SolutionLpGoal.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SolutionLpGoal"));
 	}
 
 	/**
@@ -80,10 +91,10 @@ public class SolutionLpItemProvider extends SolutionItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SolutionLp)object).getCode();
+		String label = ((SolutionLpGoal)object).getLabel();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SolutionLp_type") :
-			getString("_UI_SolutionLp_type") + " " + label;
+			getString("_UI_SolutionLpGoal_type") :
+			getString("_UI_SolutionLpGoal_type") + " " + label;
 	}
 	
 
@@ -98,8 +109,8 @@ public class SolutionLpItemProvider extends SolutionItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(SolutionLp.class)) {
-			case SolverPackage.SOLUTION_LP__VALUE:
+		switch (notification.getFeatureID(SolutionLpGoal.class)) {
+			case SolverPackage.SOLUTION_LP_GOAL__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

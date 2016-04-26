@@ -10,7 +10,9 @@ import com.misc.common.moplaf.solver.GeneratorLpLinear;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
 import com.misc.common.moplaf.solver.Solution;
+import com.misc.common.moplaf.solver.SolutionGoal;
 import com.misc.common.moplaf.solver.SolutionLp;
+import com.misc.common.moplaf.solver.SolutionLpGoal;
 import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.solver.SolverPackage;
@@ -198,27 +200,21 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 		return goalValue;
 	}
 	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	@Override
-	public void build(Solver builder) throws Exception {
-		builder.buildLpGoal(this);
-	}
-	
-	
 
+	
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
 	@Override
-	public void buildCons(Solver solver, Solver previousSolver) throws Exception {
-		EList<Solution> solutions = solver.getSolution();
-		if ( solutions.size()==0 ){ return; }
-		Solution solution = solutions.get(0);
-		float rhs = this.getSolutionValue(solution);
+	public void buildCons(SolutionGoal solutionGoal, Solver builder) throws Exception{
+		if ( ! (solutionGoal instanceof SolutionLpGoal)){
+			return;
+		}
+			
+		SolutionLpGoal solutionLpGoal = (SolutionLpGoal)solutionGoal;
+		float rhs = solutionLpGoal.getValue();
 		GeneratorLpLinear linearExpr = this;
 		EnumLpConsType direction = EnumLpConsType.ENUM_LITERAL_LP_CONS_EQUAL;
 		switch ( this.getObjectiveType().ordinal()){
@@ -229,8 +225,9 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 			direction = EnumLpConsType.ENUM_LITERAL_LP_CONS_SMALLER_OR_EQUAL;
 			break;
 		}
-		solver.buildLpCons(this, linearExpr, rhs,  direction);
+		builder.buildLpCons(this, linearExpr, rhs,  direction);
 	}
+
 
 	/**
 	 * <!-- begin-user-doc -->

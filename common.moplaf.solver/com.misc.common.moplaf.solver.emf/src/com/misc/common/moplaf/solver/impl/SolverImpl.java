@@ -19,7 +19,10 @@ import com.misc.common.moplaf.solver.ITupleVisitor;
 import com.misc.common.moplaf.solver.Plugin;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.Solver;
+import com.misc.common.moplaf.solver.SolverFactory;
+import com.misc.common.moplaf.solver.SolverGeneratorGoal;
 import com.misc.common.moplaf.solver.SolverGoal;
+import com.misc.common.moplaf.solver.SolverGoalPreviousSolver;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import java.lang.reflect.InvocationTargetException;
@@ -587,26 +590,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	protected Solution initialSolution;
 
 	/**
-	 * The cached value of the '{@link #getNextToSolve() <em>Next To Solve</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNextToSolve()
-	 * @generated
-	 * @ordered
-	 */
-	protected Solver nextToSolve;
-
-	/**
-	 * The cached value of the '{@link #getPreviousSolved() <em>Previous Solved</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPreviousSolved()
-	 * @generated
-	 * @ordered
-	 */
-	protected Solver previousSolved;
-
-	/**
 	 * The cached value of the '{@link #getGoals() <em>Goals</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -643,18 +626,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void buildGoal(GeneratorGoal goal) throws Exception {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void buildLpGoal(GeneratorLpGoal goal) throws Exception {
+	public void buildLpGoal(GeneratorLpGoal goal, float weight) throws Exception {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -694,32 +666,36 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void buildConsFromGoal(Solver previousSolver) throws Exception {
-		for ( SolverGoal previousGoal : previousSolver.getGoals()){
-			previousGoal.buildCons(this, previousSolver);
-		}
+	public SolverGeneratorGoal constructSolverGoal(GeneratorGoal goal) {
+		SolverGeneratorGoal newGoal = SolverFactory.eINSTANCE.createSolverGeneratorGoal();
+		newGoal.setGoalToSolve(goal);
+		this.getGoals().add(newGoal);
+		return newGoal;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public SolverGoal solverGoalFactory() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public SolverGoalPreviousSolver constructSolverGoal(Solution previousSolution) {
+		SolverGoalPreviousSolver newGoal = SolverFactory.eINSTANCE.createSolverGoalPreviousSolver();
+		Solver solver = (Solver)(previousSolution.getProvider());
+		newGoal.setPreviousSolver(solver);
+		newGoal.setPreviousSolution(previousSolution);
+		this.getGoals().add(newGoal);
+		return newGoal;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public SolverGoal constructSolverGoal(GeneratorGoal goal) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public SolverGoalPreviousSolver constructSolverGoal(Solver previousSolver) {
+		SolverGoalPreviousSolver newGoal = SolverFactory.eINSTANCE.createSolverGoalPreviousSolver();
+		newGoal.setPreviousSolver(previousSolver);
+		newGoal.setPreviousSolution(null);
+		this.getGoals().add(newGoal);
+		return newGoal;
 	}
 
 	/**
@@ -734,14 +710,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				if (initialSolution != null)
 					msgs = ((InternalEObject)initialSolution).eInverseRemove(this, SolverPackage.SOLUTION__SOLVER_AS_INITIAL_SOLUTION, Solution.class, msgs);
 				return basicSetInitialSolution((Solution)otherEnd, msgs);
-			case SolverPackage.SOLVER__NEXT_TO_SOLVE:
-				if (nextToSolve != null)
-					msgs = ((InternalEObject)nextToSolve).eInverseRemove(this, SolverPackage.SOLVER__PREVIOUS_SOLVED, Solver.class, msgs);
-				return basicSetNextToSolve((Solver)otherEnd, msgs);
-			case SolverPackage.SOLVER__PREVIOUS_SOLVED:
-				if (previousSolved != null)
-					msgs = ((InternalEObject)previousSolved).eInverseRemove(this, SolverPackage.SOLVER__NEXT_TO_SOLVE, Solver.class, msgs);
-				return basicSetPreviousSolved((Solver)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -756,10 +724,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		switch (featureID) {
 			case SolverPackage.SOLVER__INITIAL_SOLUTION:
 				return basicSetInitialSolution(null, msgs);
-			case SolverPackage.SOLVER__NEXT_TO_SOLVE:
-				return basicSetNextToSolve(null, msgs);
-			case SolverPackage.SOLVER__PREVIOUS_SOLVED:
-				return basicSetPreviousSolved(null, msgs);
 			case SolverPackage.SOLVER__GOALS:
 				return ((InternalEList<?>)getGoals()).basicRemove(otherEnd, msgs);
 		}
@@ -939,126 +903,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__INITIAL_SOLUTION, newInitialSolution, newInitialSolution));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Solver getNextToSolve() {
-		if (nextToSolve != null && nextToSolve.eIsProxy()) {
-			InternalEObject oldNextToSolve = (InternalEObject)nextToSolve;
-			nextToSolve = (Solver)eResolveProxy(oldNextToSolve);
-			if (nextToSolve != oldNextToSolve) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SolverPackage.SOLVER__NEXT_TO_SOLVE, oldNextToSolve, nextToSolve));
-			}
-		}
-		return nextToSolve;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Solver basicGetNextToSolve() {
-		return nextToSolve;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetNextToSolve(Solver newNextToSolve, NotificationChain msgs) {
-		Solver oldNextToSolve = nextToSolve;
-		nextToSolve = newNextToSolve;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__NEXT_TO_SOLVE, oldNextToSolve, newNextToSolve);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNextToSolve(Solver newNextToSolve) {
-		if (newNextToSolve != nextToSolve) {
-			NotificationChain msgs = null;
-			if (nextToSolve != null)
-				msgs = ((InternalEObject)nextToSolve).eInverseRemove(this, SolverPackage.SOLVER__PREVIOUS_SOLVED, Solver.class, msgs);
-			if (newNextToSolve != null)
-				msgs = ((InternalEObject)newNextToSolve).eInverseAdd(this, SolverPackage.SOLVER__PREVIOUS_SOLVED, Solver.class, msgs);
-			msgs = basicSetNextToSolve(newNextToSolve, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__NEXT_TO_SOLVE, newNextToSolve, newNextToSolve));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Solver getPreviousSolved() {
-		if (previousSolved != null && previousSolved.eIsProxy()) {
-			InternalEObject oldPreviousSolved = (InternalEObject)previousSolved;
-			previousSolved = (Solver)eResolveProxy(oldPreviousSolved);
-			if (previousSolved != oldPreviousSolved) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SolverPackage.SOLVER__PREVIOUS_SOLVED, oldPreviousSolved, previousSolved));
-			}
-		}
-		return previousSolved;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Solver basicGetPreviousSolved() {
-		return previousSolved;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPreviousSolved(Solver newPreviousSolved, NotificationChain msgs) {
-		Solver oldPreviousSolved = previousSolved;
-		previousSolved = newPreviousSolved;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__PREVIOUS_SOLVED, oldPreviousSolved, newPreviousSolved);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPreviousSolved(Solver newPreviousSolved) {
-		if (newPreviousSolved != previousSolved) {
-			NotificationChain msgs = null;
-			if (previousSolved != null)
-				msgs = ((InternalEObject)previousSolved).eInverseRemove(this, SolverPackage.SOLVER__NEXT_TO_SOLVE, Solver.class, msgs);
-			if (newPreviousSolved != null)
-				msgs = ((InternalEObject)newPreviousSolved).eInverseAdd(this, SolverPackage.SOLVER__NEXT_TO_SOLVE, Solver.class, msgs);
-			msgs = basicSetPreviousSolved(newPreviousSolved, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__PREVIOUS_SOLVED, newPreviousSolved, newPreviousSolved));
 	}
 
 	/**
@@ -1481,9 +1325,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	@Override
 	public void dispose() {
 		super.dispose();
-		// next previous solvers
-		this.setPreviousSolved(null);
-		this.setNextToSolve(null);
 		// goal to solve
 		//this.getGoalsToSolve().clear();
 		this.setInitialSolution(null);
@@ -1550,11 +1391,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		VarMapper varmapper = new VarMapper();
 		generator.visitTuples(varmapper);
 
-		// build the objective 
-		for ( SolverGoal goalToSolve : this.getGoals()){
-			goalToSolve.build(SolverImpl.this);
-		}
-		
 		// build the normal constraints
 		class ConsMapper implements ITupleVisitor{
 			@Override
@@ -1567,11 +1403,9 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		ConsMapper consmapper = new ConsMapper();
 		generator.visitTuples(consmapper);
 		
-		// build the constraints implied by previous solvers
-		Solver previousSolved = this.getPreviousSolved();
-		while ( previousSolved!=null){
-			this.buildConsFromGoal(previousSolved);
-			previousSolved = previousSolved.getPreviousSolved();
+		// build the constraints implied by previous solvers and the goal
+		for ( SolverGoal goal : this.getGoals()){
+			goal.buildGoal();
 		}
 	}
 
@@ -1885,12 +1719,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			case SolverPackage.SOLVER__INITIAL_SOLUTION:
 				if (resolve) return getInitialSolution();
 				return basicGetInitialSolution();
-			case SolverPackage.SOLVER__NEXT_TO_SOLVE:
-				if (resolve) return getNextToSolve();
-				return basicGetNextToSolve();
-			case SolverPackage.SOLVER__PREVIOUS_SOLVED:
-				if (resolve) return getPreviousSolved();
-				return basicGetPreviousSolved();
 			case SolverPackage.SOLVER__GOALS:
 				return getGoals();
 		}
@@ -1980,12 +1808,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return;
 			case SolverPackage.SOLVER__INITIAL_SOLUTION:
 				setInitialSolution((Solution)newValue);
-				return;
-			case SolverPackage.SOLVER__NEXT_TO_SOLVE:
-				setNextToSolve((Solver)newValue);
-				return;
-			case SolverPackage.SOLVER__PREVIOUS_SOLVED:
-				setPreviousSolved((Solver)newValue);
 				return;
 			case SolverPackage.SOLVER__GOALS:
 				getGoals().clear();
@@ -2078,12 +1900,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			case SolverPackage.SOLVER__INITIAL_SOLUTION:
 				setInitialSolution((Solution)null);
 				return;
-			case SolverPackage.SOLVER__NEXT_TO_SOLVE:
-				setNextToSolve((Solver)null);
-				return;
-			case SolverPackage.SOLVER__PREVIOUS_SOLVED:
-				setPreviousSolved((Solver)null);
-				return;
 			case SolverPackage.SOLVER__GOALS:
 				getGoals().clear();
 				return;
@@ -2149,10 +1965,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return finished != FINISHED_EDEFAULT;
 			case SolverPackage.SOLVER__INITIAL_SOLUTION:
 				return initialSolution != null;
-			case SolverPackage.SOLVER__NEXT_TO_SOLVE:
-				return nextToSolve != null;
-			case SolverPackage.SOLVER__PREVIOUS_SOLVED:
-				return previousSolved != null;
 			case SolverPackage.SOLVER__GOALS:
 				return goals != null && !goals.isEmpty();
 		}
@@ -2194,17 +2006,9 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case SolverPackage.SOLVER___BUILD_GOAL__GENERATORGOAL:
-				try {
-					buildGoal((GeneratorGoal)arguments.get(0));
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
 			case SolverPackage.SOLVER___BUILD_LP_GOAL__GENERATORLPGOAL:
 				try {
-					buildLpGoal((GeneratorLpGoal)arguments.get(0));
+					buildLpGoal((GeneratorLpGoal)arguments.get(0), (Float)arguments.get(1));
 					return null;
 				}
 				catch (Throwable throwable) {
@@ -2234,18 +2038,12 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case SolverPackage.SOLVER___BUILD_CONS_FROM_GOAL__SOLVER:
-				try {
-					buildConsFromGoal((Solver)arguments.get(0));
-					return null;
-				}
-				catch (Throwable throwable) {
-					throw new InvocationTargetException(throwable);
-				}
-			case SolverPackage.SOLVER___SOLVER_GOAL_FACTORY:
-				return solverGoalFactory();
 			case SolverPackage.SOLVER___CONSTRUCT_SOLVER_GOAL__GENERATORGOAL:
 				return constructSolverGoal((GeneratorGoal)arguments.get(0));
+			case SolverPackage.SOLVER___CONSTRUCT_SOLVER_GOAL__SOLUTION:
+				return constructSolverGoal((Solution)arguments.get(0));
+			case SolverPackage.SOLVER___CONSTRUCT_SOLVER_GOAL__SOLVER:
+				return constructSolverGoal((Solver)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

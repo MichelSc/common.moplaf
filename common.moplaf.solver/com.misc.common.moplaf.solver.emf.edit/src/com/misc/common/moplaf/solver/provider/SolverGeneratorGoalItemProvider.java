@@ -3,7 +3,7 @@
 package com.misc.common.moplaf.solver.provider;
 
 
-import com.misc.common.moplaf.solver.SolverGoalLp;
+import com.misc.common.moplaf.solver.SolverGeneratorGoal;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import java.util.Collection;
@@ -18,19 +18,19 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.solver.SolverGoalLp} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.solver.SolverGeneratorGoal} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SolverGoalLpItemProvider extends SolverGoalItemProvider {
+public class SolverGeneratorGoalItemProvider extends SolverGoalItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SolverGoalLpItemProvider(AdapterFactory adapterFactory) {
+	public SolverGeneratorGoalItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -45,9 +45,32 @@ public class SolverGoalLpItemProvider extends SolverGoalItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addGoalToSolvePropertyDescriptor(object);
 			addGoalWeightPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Goal To Solve feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGoalToSolvePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SolverGeneratorGoal_GoalToSolve_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SolverGeneratorGoal_GoalToSolve_feature", "_UI_SolverGeneratorGoal_type"),
+				 SolverPackage.Literals.SOLVER_GENERATOR_GOAL__GOAL_TO_SOLVE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -61,9 +84,9 @@ public class SolverGoalLpItemProvider extends SolverGoalItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SolverGoalLp_GoalWeight_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SolverGoalLp_GoalWeight_feature", "_UI_SolverGoalLp_type"),
-				 SolverPackage.Literals.SOLVER_GOAL_LP__GOAL_WEIGHT,
+				 getString("_UI_SolverGeneratorGoal_GoalWeight_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SolverGeneratorGoal_GoalWeight_feature", "_UI_SolverGeneratorGoal_type"),
+				 SolverPackage.Literals.SOLVER_GENERATOR_GOAL__GOAL_WEIGHT,
 				 true,
 				 false,
 				 false,
@@ -73,14 +96,14 @@ public class SolverGoalLpItemProvider extends SolverGoalItemProvider {
 	}
 
 	/**
-	 * This returns SolverGoalLp.gif.
+	 * This returns SolverGeneratorGoal.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SolverGoalLp"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SolverGeneratorGoal"));
 	}
 
 	/**
@@ -91,8 +114,10 @@ public class SolverGoalLpItemProvider extends SolverGoalItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		SolverGoalLp solverGoalLp = (SolverGoalLp)object;
-		return getString("_UI_SolverGoalLp_type") + " " + solverGoalLp.getGoalWeight();
+		String label = ((SolverGeneratorGoal)object).getLabel();
+		return label == null || label.length() == 0 ?
+			getString("_UI_SolverGeneratorGoal_type") :
+			getString("_UI_SolverGeneratorGoal_type") + " " + label;
 	}
 	
 
@@ -107,8 +132,8 @@ public class SolverGoalLpItemProvider extends SolverGoalItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(SolverGoalLp.class)) {
-			case SolverPackage.SOLVER_GOAL_LP__GOAL_WEIGHT:
+		switch (notification.getFeatureID(SolverGeneratorGoal.class)) {
+			case SolverPackage.SOLVER_GENERATOR_GOAL__GOAL_WEIGHT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

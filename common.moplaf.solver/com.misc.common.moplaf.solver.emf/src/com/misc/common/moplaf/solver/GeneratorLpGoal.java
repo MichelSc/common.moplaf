@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.solver;
 
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Generator Lp Goal</b></em>'.

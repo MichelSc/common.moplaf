@@ -7,10 +7,12 @@ import com.misc.common.moplaf.solver.GeneratorVar;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionCons;
 import com.misc.common.moplaf.solver.SolutionElement;
+import com.misc.common.moplaf.solver.SolutionGoal;
 import com.misc.common.moplaf.solver.SolutionProvider;
 import com.misc.common.moplaf.solver.SolutionVar;
 import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverFactory;
+import com.misc.common.moplaf.solver.SolverGeneratorGoal;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import java.lang.reflect.InvocationTargetException;
@@ -45,6 +47,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionImpl#getVars <em>Vars</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionImpl#getCons <em>Cons</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionImpl#getGoals <em>Goals</em>}</li>
  * </ul>
  *
  * @generated
@@ -260,6 +263,19 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<SolutionGoal> getGoals() {
+		// TODO: implement this method to return the 'Goals' reference list
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public SolutionVar solutionVarFactory() {
 		SolutionVar newSolutionVar = SolverFactory.eINSTANCE.createSolutionVar();
@@ -279,11 +295,33 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SolutionGoal solutionGoalFactory() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public SolutionCons constructSolutionCons(GeneratorCons cons) {
 		SolutionCons newSolutionCons = this.solutionConsFactory();
 		this.getElements().add(newSolutionCons);
 		return newSolutionCons;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SolverGeneratorGoal constructSolutionGoal(SolverGeneratorGoal goal) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -372,6 +410,8 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 				return getVars();
 			case SolverPackage.SOLUTION__CONS:
 				return getCons();
+			case SolverPackage.SOLUTION__GOALS:
+				return getGoals();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -449,6 +489,8 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 				return !getVars().isEmpty();
 			case SolverPackage.SOLUTION__CONS:
 				return !getCons().isEmpty();
+			case SolverPackage.SOLUTION__GOALS:
+				return !getGoals().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -465,10 +507,14 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 				return solutionVarFactory();
 			case SolverPackage.SOLUTION___SOLUTION_CONS_FACTORY:
 				return solutionConsFactory();
-			case SolverPackage.SOLUTION___CONSTRUCT_SOLUTION_CONS__GENERATORCONS:
-				return constructSolutionCons((GeneratorCons)arguments.get(0));
+			case SolverPackage.SOLUTION___SOLUTION_GOAL_FACTORY:
+				return solutionGoalFactory();
 			case SolverPackage.SOLUTION___CONSTRUCT_SOLUTION_VAR__GENERATORVAR:
 				return constructSolutionVar((GeneratorVar)arguments.get(0));
+			case SolverPackage.SOLUTION___CONSTRUCT_SOLUTION_CONS__GENERATORCONS:
+				return constructSolutionCons((GeneratorCons)arguments.get(0));
+			case SolverPackage.SOLUTION___CONSTRUCT_SOLUTION_GOAL__SOLVERGENERATORGOAL:
+				return constructSolutionGoal((SolverGeneratorGoal)arguments.get(0));
 			case SolverPackage.SOLUTION___DISPOSE:
 				dispose();
 				return null;

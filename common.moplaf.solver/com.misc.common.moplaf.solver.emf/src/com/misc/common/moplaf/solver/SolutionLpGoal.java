@@ -5,22 +5,21 @@ package com.misc.common.moplaf.solver;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Solution Lp</b></em>'.
+ * A representation of the model object '<em><b>Solution Lp Goal</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.solver.SolutionLp#getValue <em>Value</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.SolutionLpGoal#getValue <em>Value</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.solver.SolverPackage#getSolutionLp()
+ * @see com.misc.common.moplaf.solver.SolverPackage#getSolutionLpGoal()
  * @model
  * @generated
  */
-public interface SolutionLp extends Solution {
-
+public interface SolutionLpGoal extends SolutionGoal {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -31,14 +30,14 @@ public interface SolutionLp extends Solution {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(float)
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolutionLp_Value()
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolutionLpGoal_Value()
 	 * @model
 	 * @generated
 	 */
 	float getValue();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.solver.SolutionLp#getValue <em>Value</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.solver.SolutionLpGoal#getValue <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Value</em>' attribute.
@@ -46,4 +45,5 @@ public interface SolutionLp extends Solution {
 	 * @generated
 	 */
 	void setValue(float value);
-} // SolutionLp
+
+} // SolutionLpGoal

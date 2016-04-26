@@ -2,30 +2,29 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
-import com.misc.common.moplaf.solver.SolutionCons;
-import com.misc.common.moplaf.solver.SolutionLp;
-import com.misc.common.moplaf.solver.SolutionVar;
-import com.misc.common.moplaf.solver.SolverFactory;
+import com.misc.common.moplaf.solver.SolutionLpGoal;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Solution Lp</b></em>'.
+ * An implementation of the model object '<em><b>Solution Lp Goal</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionLpImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionLpGoalImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SolutionLpImpl extends SolutionImpl implements SolutionLp {
+public class SolutionLpGoalImpl extends SolutionGoalImpl implements SolutionLpGoal {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -35,6 +34,7 @@ public class SolutionLpImpl extends SolutionImpl implements SolutionLp {
 	 * @ordered
 	 */
 	protected static final float VALUE_EDEFAULT = 0.0F;
+
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -44,12 +44,13 @@ public class SolutionLpImpl extends SolutionImpl implements SolutionLp {
 	 * @ordered
 	 */
 	protected float value = VALUE_EDEFAULT;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SolutionLpImpl() {
+	protected SolutionLpGoalImpl() {
 		super();
 	}
 
@@ -60,7 +61,7 @@ public class SolutionLpImpl extends SolutionImpl implements SolutionLp {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return SolverPackage.Literals.SOLUTION_LP;
+		return SolverPackage.Literals.SOLUTION_LP_GOAL;
 	}
 
 	/**
@@ -81,7 +82,7 @@ public class SolutionLpImpl extends SolutionImpl implements SolutionLp {
 		float oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLUTION_LP__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLUTION_LP_GOAL__VALUE, oldValue, value));
 	}
 
 	/**
@@ -92,7 +93,7 @@ public class SolutionLpImpl extends SolutionImpl implements SolutionLp {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SolverPackage.SOLUTION_LP__VALUE:
+			case SolverPackage.SOLUTION_LP_GOAL__VALUE:
 				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -106,7 +107,7 @@ public class SolutionLpImpl extends SolutionImpl implements SolutionLp {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SolverPackage.SOLUTION_LP__VALUE:
+			case SolverPackage.SOLUTION_LP_GOAL__VALUE:
 				setValue((Float)newValue);
 				return;
 		}
@@ -121,7 +122,7 @@ public class SolutionLpImpl extends SolutionImpl implements SolutionLp {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SolverPackage.SOLUTION_LP__VALUE:
+			case SolverPackage.SOLUTION_LP_GOAL__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
 		}
@@ -136,7 +137,7 @@ public class SolutionLpImpl extends SolutionImpl implements SolutionLp {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SolverPackage.SOLUTION_LP__VALUE:
+			case SolverPackage.SOLUTION_LP_GOAL__VALUE:
 				return value != VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
@@ -158,17 +159,4 @@ public class SolutionLpImpl extends SolutionImpl implements SolutionLp {
 		return result.toString();
 	}
 
-	@Override
-	public SolutionVar solutionVarFactory() {
-		SolutionVar newSolutionVar = SolverFactory.eINSTANCE.createSolutionLpVar();
-		return newSolutionVar;
-	}
-
-	@Override
-	public SolutionCons solutionConsFactory() {
-		SolutionCons newSolutionCons = SolverFactory.eINSTANCE.createSolutionLpCons();
-		return newSolutionCons;
-	}
-
-
-} //SolutionLpImpl
+} //SolutionLpGoalImpl

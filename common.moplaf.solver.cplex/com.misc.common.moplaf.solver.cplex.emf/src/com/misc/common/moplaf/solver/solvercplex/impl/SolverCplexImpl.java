@@ -196,11 +196,14 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 	private IloCplex lp;
 	private Map<GeneratorLpVar, IloNumVar> vars;
 	private Map<GeneratorElement, IloRange> cons;
+	private IloLinearNumExpr objective;
+
 	 
 	private void releaseLp(){
 		this.lp = null;
 		this.vars = null;
 		this.cons = null;
+		this.objective = null;
 	}
 	
 	private void initSolution(){
@@ -279,21 +282,17 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
      * Build the lp goal
 	 */
 	@Override
-	public void buildLpGoal(GeneratorLpGoal goal) throws Exception {
-		final IloLinearNumExpr objective = this.lp.linearNumExpr();
+	public void buildLpGoal(GeneratorLpGoal goal, float weight) throws Exception {
 		for ( GeneratorLpTerm goalTerm : goal.getLpTerm()){
-			// create the objective coefficient
 			GeneratorLpVar lpvar = goalTerm.getLpVar();
-			float coefficient = goalTerm.getCoeff();
+			float coefficient = goalTerm.getCoeff()*weight;
+			if ( goal.getObjectiveType()==EnumObjectiveType.MAXIMUM){
+				coefficient = - coefficient;
+			}
 			if ( coefficient!=0.0f){
 			    IloNumVar cplexvar = vars.get(lpvar);
-				objective.addTerm(coefficient, cplexvar);
+				this.objective.addTerm(coefficient, cplexvar);
 			}
-		}
-		if ( goal.getObjectiveType()==EnumObjectiveType.MINIMUM){
-			this.lp.addMinimize(objective);
-		} else if ( goal.getObjectiveType()==EnumObjectiveType.MAXIMUM){
-			this.lp.addMaximize(objective);
 		}
 	}
 
@@ -308,7 +307,8 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 			this.lp = new IloCplex();
 			this.vars = new HashMap<GeneratorLpVar, IloNumVar>();
 			this.cons = new HashMap<GeneratorElement, IloRange>();
-			
+			this.objective = this.lp.linearNumExpr();
+			this.lp.addMinimize(objective);
 			// create the problem in Cplex
 			this.build();
 		} 
@@ -621,7 +621,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 			try {
 				goalvalue = (float) this.lp.getObjValue();
 				SolutionLp newSolution = (SolutionLp) this.constructSolution();
-				newSolution.setGoalValue(goalvalue);
+				newSolution.setValue(goalvalue);
 				mipgap    = (float) this.lp.getMIPRelativeGap();
 				for ( Map.Entry<GeneratorLpVar, IloNumVar> varentry : vars.entrySet())	{
 					IloNumVar cplexvar = varentry.getValue();

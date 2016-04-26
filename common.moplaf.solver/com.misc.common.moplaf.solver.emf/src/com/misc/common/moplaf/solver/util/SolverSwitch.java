@@ -240,6 +240,26 @@ public class SolverSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SolverPackage.SOLVER_GOAL: {
+				SolverGoal solverGoal = (SolverGoal)theEObject;
+				T result = caseSolverGoal(solverGoal);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SolverPackage.SOLVER_GENERATOR_GOAL: {
+				SolverGeneratorGoal solverGeneratorGoal = (SolverGeneratorGoal)theEObject;
+				T result = caseSolverGeneratorGoal(solverGeneratorGoal);
+				if (result == null) result = caseSolverGoal(solverGeneratorGoal);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SolverPackage.SOLVER_GOAL_PREVIOUS_SOLVER: {
+				SolverGoalPreviousSolver solverGoalPreviousSolver = (SolverGoalPreviousSolver)theEObject;
+				T result = caseSolverGoalPreviousSolver(solverGoalPreviousSolver);
+				if (result == null) result = caseSolverGoal(solverGoalPreviousSolver);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case SolverPackage.SOLUTION: {
 				Solution solution = (Solution)theEObject;
 				T result = caseSolution(solution);
@@ -294,6 +314,21 @@ public class SolverSwitch<T> extends Switch<T> {
 				T result = caseSolutionLpCons(solutionLpCons);
 				if (result == null) result = caseSolutionCons(solutionLpCons);
 				if (result == null) result = caseSolutionElement(solutionLpCons);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SolverPackage.SOLUTION_GOAL: {
+				SolutionGoal solutionGoal = (SolutionGoal)theEObject;
+				T result = caseSolutionGoal(solutionGoal);
+				if (result == null) result = caseSolutionElement(solutionGoal);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SolverPackage.SOLUTION_LP_GOAL: {
+				SolutionLpGoal solutionLpGoal = (SolutionLpGoal)theEObject;
+				T result = caseSolutionLpGoal(solutionLpGoal);
+				if (result == null) result = caseSolutionGoal(solutionLpGoal);
+				if (result == null) result = caseSolutionElement(solutionLpGoal);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -376,19 +411,6 @@ public class SolverSwitch<T> extends Switch<T> {
 			case SolverPackage.GENERATOR_LP_LINEAR: {
 				GeneratorLpLinear generatorLpLinear = (GeneratorLpLinear)theEObject;
 				T result = caseGeneratorLpLinear(generatorLpLinear);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SolverPackage.SOLVER_GOAL: {
-				SolverGoal solverGoal = (SolverGoal)theEObject;
-				T result = caseSolverGoal(solverGoal);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SolverPackage.SOLVER_GOAL_LP: {
-				SolverGoalLp solverGoalLp = (SolverGoalLp)theEObject;
-				T result = caseSolverGoalLp(solverGoalLp);
-				if (result == null) result = caseSolverGoal(solverGoalLp);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -517,17 +539,32 @@ public class SolverSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Goal Lp</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Generator Goal</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Goal Lp</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Generator Goal</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSolverGoalLp(SolverGoalLp object) {
+	public T caseSolverGeneratorGoal(SolverGeneratorGoal object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Goal Previous Solver</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Goal Previous Solver</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSolverGoalPreviousSolver(SolverGoalPreviousSolver object) {
 		return null;
 	}
 
@@ -888,6 +925,36 @@ public class SolverSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSolutionLpCons(SolutionLpCons object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Solution Goal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Solution Goal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSolutionGoal(SolutionGoal object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Solution Lp Goal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Solution Lp Goal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSolutionLpGoal(SolutionLpGoal object) {
 		return null;
 	}
 

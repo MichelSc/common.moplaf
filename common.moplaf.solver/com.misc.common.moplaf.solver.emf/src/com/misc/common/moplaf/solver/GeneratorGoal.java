@@ -51,15 +51,7 @@ public interface GeneratorGoal extends GeneratorElement {
 	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
 	 * @generated
 	 */
-	void build(Solver builder) throws Exception;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
-	 * @generated
-	 */
-	void buildCons(Solver solver, Solver previousSolver) throws Exception;
+	void buildCons(SolutionGoal solutionGoal, Solver builder) throws Exception;
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -127,5 +119,13 @@ public interface GeneratorGoal extends GeneratorElement {
 	 * @generated
 	 */
 	String getLabel();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
+	 * @generated
+	 */
+	void build(Solver builder, float weight) throws Exception;
 
 } // GeneratorGoal
