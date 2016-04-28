@@ -244,5 +244,5 @@ public class GeneratorLpConsItemProvider
 			public void execute() {
 				this.constraint.constructTerm(this.var, 1.0f);
 	   }
-	 } // class ExtractorRefreshCommand
+	 } // class ConstructTermCommand
 }

@@ -6,6 +6,7 @@ package com.misc.common.moplaf.solver.provider;
 import com.misc.common.moplaf.emf.edit.command.RunCommand;
 import com.misc.common.moplaf.emf.edit.command.WriteCommand;
 import com.misc.common.moplaf.solver.Generator;
+import com.misc.common.moplaf.solver.GeneratorGoal;
 import com.misc.common.moplaf.solver.ILpWriter;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionProvider;
@@ -14,9 +15,12 @@ import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 
+import org.eclipse.emf.common.command.AbstractCommand;
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
@@ -700,6 +704,9 @@ public class SolverItemProvider
 				 SolverFactory.eINSTANCE.createSolverGoalPreviousSolver()));
 	}
 
+	/**
+	 * Implements command R4unCommand for this Solver
+	 */
 	public class SolverRunCommand extends RunCommand{
 		private Solver solver;
 		
@@ -719,6 +726,9 @@ public class SolverItemProvider
 		}
 	} // class SolverRunCommand
 
+	/**
+	 * Implements command WriteCommande for this Solver
+	 */
 	public class SolverWriteCommand extends WriteCommand{
 		private ILpWriter writer;
 		
@@ -739,6 +749,9 @@ public class SolverItemProvider
 		}
 	} // class WriterRunCommand
 
+	/**
+	 * Create a command for this Solver
+	 */
 	@Override
 	public Command createCommand(Object object, EditingDomain domain,
 			Class<? extends Command> commandClass,
@@ -753,4 +766,72 @@ public class SolverItemProvider
 		}
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand
-}
+
+	public class ConstructSolverGeneratorGoalCommand extends AbstractCommand {
+	   	private Solver solver;
+	   	private GeneratorGoal goal;
+   
+	   	public ConstructSolverGeneratorGoalCommand(Solver aSolver, GeneratorGoal aGoal)  {
+	   		super();
+	   		this.solver = aSolver;
+	   		this.goal   = aGoal;
+	   		String tmp = "construct a solver goal";
+	   		String label = "label:"+tmp;
+	   		String description = "desc:"+tmp;
+	   		this.setDescription(description);
+	   		this.setLabel(label);
+	   	}
+	   
+	   	@Override
+	   	protected boolean prepare(){
+	   		isExecutable = true;
+	   		return isExecutable;
+	   	}
+
+		@Override
+		public boolean canUndo() { 
+			return false; 
+		}
+
+		@Override
+		public void redo() {
+			execute();		
+		}
+		
+		@Override
+		public void execute() {
+			this.solver.constructSolverGoal(this.goal);
+		}
+	} // class ConstructSolverGeneratorGoalCommand
+
+	/**
+	 * Create a command for a drag and drop on this Solver
+	 */
+	@Override
+	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+			int operation, Collection<?> collection) {
+		CompoundCommand command = new CompoundCommand();
+		Solver thisSolver = (Solver) owner;
+		List<Object> otherDroppedThings = new LinkedList<Object>();
+		for (Object element : collection){
+			if ( element instanceof GeneratorGoal){
+	  	   		GeneratorGoal droppedGoal = (GeneratorGoal) element;
+			   	ConstructSolverGeneratorGoalCommand cmd = new ConstructSolverGeneratorGoalCommand(thisSolver, droppedGoal);
+			   	command.append(cmd);
+			} else {
+				otherDroppedThings.add(element);
+			}
+		}
+		if ( otherDroppedThings.size()>0){
+				command.append(super.createDragAndDropCommand(domain, 
+					                                    owner, 
+					                                    location, 
+					                                    operations,
+				                                      	operation, 
+				                                      	otherDroppedThings));
+		}
+		return command;
+		}
+	
+	
+	}

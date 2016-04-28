@@ -2,11 +2,8 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
-import com.misc.common.moplaf.solver.EnumGoalType;
 import com.misc.common.moplaf.solver.GeneratorGoal;
 import com.misc.common.moplaf.solver.Plugin;
-import com.misc.common.moplaf.solver.Solution;
-import com.misc.common.moplaf.solver.SolutionGoal;
 import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverGeneratorGoal;
 import com.misc.common.moplaf.solver.SolverPackage;
@@ -133,6 +130,19 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 		goalToSolve = newGoalToSolve;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER_GENERATOR_GOAL__GOAL_TO_SOLVE, oldGoalToSolve, goalToSolve));
+	}
+	
+	
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public String getLabel() {
+		GeneratorGoal goal = this.getGoalToSolve();
+		String label = "Optimize "+goal==null ? "null" : goal.getName();
+		return label;
 	}
 
 	/**

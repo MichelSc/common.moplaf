@@ -131,6 +131,19 @@ public class SolverGoalPreviousSolverImpl extends SolverGoalImpl implements Solv
 	public Solver basicGetPreviousSolver() {
 		return previousSolver;
 	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public String getLabel() {
+		Solution solution = this.getPreviousSolution();
+		String label = "Refine "+solution==null ? "null" : solution.getCode();
+		return label;
+	}
+
+
 
 	/**
 	 * <!-- begin-user-doc -->
