@@ -3804,13 +3804,22 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_GOAL__LABEL = 0;
 
 	/**
+	 * The feature id for the '<em><b>Solver</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GOAL__SOLVER = 1;
+
+	/**
 	 * The number of structural features of the '<em>Goal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_GOAL_FEATURE_COUNT = 1;
+	int SOLVER_GOAL_FEATURE_COUNT = 2;
 
 	/**
 	 * The operation id for the '<em>Build Goal</em>' operation.
@@ -3848,6 +3857,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_GENERATOR_GOAL__LABEL = SOLVER_GOAL__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Solver</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GENERATOR_GOAL__SOLVER = SOLVER_GOAL__SOLVER;
 
 	/**
 	 * The feature id for the '<em><b>Goal To Solve</b></em>' reference.
@@ -3912,6 +3930,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_GOAL_PREVIOUS_SOLVER__LABEL = SOLVER_GOAL__LABEL;
+
+	/**
+	 * The feature id for the '<em><b>Solver</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GOAL_PREVIOUS_SOLVER__SOLVER = SOLVER_GOAL__SOLVER;
 
 	/**
 	 * The feature id for the '<em><b>Previous Solver</b></em>' reference.
@@ -4091,7 +4118,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION___CONSTRUCT_SOLUTION_GOAL__SOLVERGENERATORGOAL = 5;
+	int SOLUTION___CONSTRUCT_SOLUTION_GOAL__GENERATORGOAL = 5;
 
 	/**
 	 * The operation id for the '<em>Dispose</em>' operation.
@@ -4103,22 +4130,13 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION___DISPOSE = 6;
 
 	/**
-	 * The operation id for the '<em>Make Solution Goals</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION___MAKE_SOLUTION_GOALS = 7;
-
-	/**
 	 * The number of operations of the '<em>Solution</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_OPERATION_COUNT = 8;
+	int SOLUTION_OPERATION_COUNT = 7;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' container reference.
@@ -4298,7 +4316,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_LP___CONSTRUCT_SOLUTION_GOAL__SOLVERGENERATORGOAL = SOLUTION___CONSTRUCT_SOLUTION_GOAL__SOLVERGENERATORGOAL;
+	int SOLUTION_LP___CONSTRUCT_SOLUTION_GOAL__GENERATORGOAL = SOLUTION___CONSTRUCT_SOLUTION_GOAL__GENERATORGOAL;
 
 	/**
 	 * The operation id for the '<em>Dispose</em>' operation.
@@ -4308,15 +4326,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_LP___DISPOSE = SOLUTION___DISPOSE;
-
-	/**
-	 * The operation id for the '<em>Make Solution Goals</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_LP___MAKE_SOLUTION_GOALS = SOLUTION___MAKE_SOLUTION_GOALS;
 
 	/**
 	 * The number of operations of the '<em>Solution Lp</em>' class.
@@ -4688,13 +4697,22 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_GOAL___DISPOSE = SOLUTION_ELEMENT___DISPOSE;
 
 	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_GOAL___REFRESH = SOLUTION_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Solution Goal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_GOAL_OPERATION_COUNT = SOLUTION_ELEMENT_OPERATION_COUNT + 0;
+	int SOLUTION_GOAL_OPERATION_COUNT = SOLUTION_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' container reference.
@@ -4758,6 +4776,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_LP_GOAL___DISPOSE = SOLUTION_GOAL___DISPOSE;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_LP_GOAL___REFRESH = SOLUTION_GOAL___REFRESH;
 
 	/**
 	 * The number of operations of the '<em>Solution Lp Goal</em>' class.
@@ -6688,6 +6715,17 @@ public interface SolverPackage extends EPackage {
 	EAttribute getSolverGoal_Label();
 
 	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.solver.SolverGoal#getSolver <em>Solver</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Solver</em>'.
+	 * @see com.misc.common.moplaf.solver.SolverGoal#getSolver()
+	 * @see #getSolverGoal()
+	 * @generated
+	 */
+	EReference getSolverGoal_Solver();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.SolverGoal#buildGoal() <em>Build Goal</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6907,7 +6945,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.Solution#constructSolutionGoal(com.misc.common.moplaf.solver.GeneratorGoal)
 	 * @generated
 	 */
-	EOperation getSolution__ConstructSolutionGoal__SolverGeneratorGoal();
+	EOperation getSolution__ConstructSolutionGoal__GeneratorGoal();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.Solution#constructSolutionVar(com.misc.common.moplaf.solver.GeneratorVar) <em>Construct Solution Var</em>}' operation.
@@ -6928,16 +6966,6 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getSolution__Dispose();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.Solution#makeSolutionGoals() <em>Make Solution Goals</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Make Solution Goals</em>' operation.
-	 * @see com.misc.common.moplaf.solver.Solution#makeSolutionGoals()
-	 * @generated
-	 */
-	EOperation getSolution__MakeSolutionGoals();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.SolutionElement <em>Solution Element</em>}'.
@@ -8286,6 +8314,16 @@ public interface SolverPackage extends EPackage {
 	EAttribute getSolutionGoal_Type();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.SolutionGoal#refresh() <em>Refresh</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh</em>' operation.
+	 * @see com.misc.common.moplaf.solver.SolutionGoal#refresh()
+	 * @generated
+	 */
+	EOperation getSolutionGoal__Refresh();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.SolutionLpGoal <em>Solution Lp Goal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9308,6 +9346,14 @@ public interface SolverPackage extends EPackage {
 		EAttribute SOLVER_GOAL__LABEL = eINSTANCE.getSolverGoal_Label();
 
 		/**
+		 * The meta object literal for the '<em><b>Solver</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SOLVER_GOAL__SOLVER = eINSTANCE.getSolverGoal_Solver();
+
+		/**
 		 * The meta object literal for the '<em><b>Build Goal</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -9479,7 +9525,7 @@ public interface SolverPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SOLUTION___CONSTRUCT_SOLUTION_GOAL__SOLVERGENERATORGOAL = eINSTANCE.getSolution__ConstructSolutionGoal__SolverGeneratorGoal();
+		EOperation SOLUTION___CONSTRUCT_SOLUTION_GOAL__GENERATORGOAL = eINSTANCE.getSolution__ConstructSolutionGoal__GeneratorGoal();
 
 		/**
 		 * The meta object literal for the '<em><b>Construct Solution Var</b></em>' operation.
@@ -9496,14 +9542,6 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SOLUTION___DISPOSE = eINSTANCE.getSolution__Dispose();
-
-		/**
-		 * The meta object literal for the '<em><b>Make Solution Goals</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SOLUTION___MAKE_SOLUTION_GOALS = eINSTANCE.getSolution__MakeSolutionGoals();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.SolutionElementImpl <em>Solution Element</em>}' class.
@@ -10568,6 +10606,14 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOLUTION_GOAL__TYPE = eINSTANCE.getSolutionGoal_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SOLUTION_GOAL___REFRESH = eINSTANCE.getSolutionGoal__Refresh();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.SolutionLpGoalImpl <em>Solution Lp Goal</em>}' class.

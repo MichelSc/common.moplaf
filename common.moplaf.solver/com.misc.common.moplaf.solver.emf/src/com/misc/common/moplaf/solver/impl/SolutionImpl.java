@@ -233,17 +233,6 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void makeSolutionGoals() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 */
 	public EList<SolutionVar> getVars() {
 		EObjectEList<SolutionVar> newList = new EObjectEList<SolutionVar>(SolutionVar.class, this, SolverPackage.SOLUTION__VARS);
@@ -332,6 +321,7 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 		SolutionGoal newSolutionGoal = this.solutionGoalFactory();
 		this.getElements().add(newSolutionGoal);
 		goal.getSolution().add(newSolutionGoal);
+		newSolutionGoal.refresh();
 		return newSolutionGoal;
 	}
 
@@ -524,13 +514,10 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 				return constructSolutionVar((GeneratorVar)arguments.get(0));
 			case SolverPackage.SOLUTION___CONSTRUCT_SOLUTION_CONS__GENERATORCONS:
 				return constructSolutionCons((GeneratorCons)arguments.get(0));
-			case SolverPackage.SOLUTION___CONSTRUCT_SOLUTION_GOAL__SOLVERGENERATORGOAL:
+			case SolverPackage.SOLUTION___CONSTRUCT_SOLUTION_GOAL__GENERATORGOAL:
 				return constructSolutionGoal((GeneratorGoal)arguments.get(0));
 			case SolverPackage.SOLUTION___DISPOSE:
 				dispose();
-				return null;
-			case SolverPackage.SOLUTION___MAKE_SOLUTION_GOALS:
-				makeSolutionGoals();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

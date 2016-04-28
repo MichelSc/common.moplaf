@@ -2,7 +2,11 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
+import com.misc.common.moplaf.solver.EnumGoalType;
+import com.misc.common.moplaf.solver.GeneratorGoal;
+import com.misc.common.moplaf.solver.Plugin;
 import com.misc.common.moplaf.solver.Solution;
+import com.misc.common.moplaf.solver.SolutionGoal;
 import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverGoalPreviousSolver;
 import com.misc.common.moplaf.solver.SolverPackage;
@@ -57,6 +61,40 @@ public class SolverGoalPreviousSolverImpl extends SolverGoalImpl implements Solv
 	protected SolverGoalPreviousSolverImpl() {
 		super();
 	}
+	
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public void buildGoal() throws Exception {
+		Solver previousSolver = this.getPreviousSolver();
+		if ( previousSolver==null){
+			Plugin.INSTANCE.logWarning("Solver, buildGoal: no previous solver, goal ignored");
+			return;
+		}
+		Solution solution = this.getPreviousSolution();
+		if ( solution==null){
+			Plugin.INSTANCE.logWarning("Solver, buildGoal: no previous solution, arbitrary solution taken");
+			solution = previousSolver.getSolution().get(0); 
+		}
+		if ( solution== null) {
+			Plugin.INSTANCE.logWarning("Solver, buildGoal: no previous solution, goal ignored");
+			return;
+		}
+		Solver solver = this.getSolver();
+		for ( SolutionGoal solutionGoal: solution.getGoals()){
+			if ( solutionGoal.getType()==EnumGoalType.ENUM_LITERAL_GOAL_TYPE_FREE){
+				// ignore the goal
+			} else {
+				GeneratorGoal goal = solutionGoal.getGoal();
+				goal.buildCons(solutionGoal, solver);
+			}
+		}
+	}
+
+
 
 	/**
 	 * <!-- begin-user-doc -->

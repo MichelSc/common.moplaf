@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
+import com.misc.common.moplaf.solver.EnumGoalType;
 import com.misc.common.moplaf.solver.EnumLpConsType;
 import com.misc.common.moplaf.solver.EnumSolverLogLevel;
 import com.misc.common.moplaf.solver.Generator;
@@ -18,6 +19,7 @@ import com.misc.common.moplaf.solver.IGeneratorTool;
 import com.misc.common.moplaf.solver.ITupleVisitor;
 import com.misc.common.moplaf.solver.Plugin;
 import com.misc.common.moplaf.solver.Solution;
+import com.misc.common.moplaf.solver.SolutionGoal;
 import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.solver.SolverGeneratorGoal;
@@ -43,7 +45,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -674,7 +676,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- end-user-doc -->
 	 */
 	public void buildLpCons(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
-		if ( element instanceof GeneratorGoal) {
+		if ( element instanceof GeneratorLpGoal) {
 			this.generatorGoalsToConstraint.add((GeneratorGoal)element);
 		}
 		this.buildLpConsImpl(element, linear, rhs, type);
@@ -721,9 +723,17 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- end-user-doc -->
 	 */
 	public void makeSolutionGoals(Solution solution) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		Generator generator = this.getGenerator();
+		for ( GeneratorGoal goal : generator.getGoals()){
+			SolutionGoal solutionGoal = solution.constructSolutionGoal(goal);
+			EnumGoalType type = EnumGoalType.ENUM_LITERAL_GOAL_TYPE_FREE;
+			if ( this.generatorGoalsToSolve.contains(goal) ){
+				type = EnumGoalType.ENUM_LITERAL_GOAL_TYPE_OPTIMIZED;
+			} else if ( this.generatorGoalsToConstraint.contains(goal)){
+				type = EnumGoalType.ENUM_LITERAL_GOAL_TYPE_CONSTRAINED;
+			}
+			solutionGoal.setType(type);
+		}
 	}
 
 	/**
@@ -731,6 +741,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -738,6 +749,8 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				if (initialSolution != null)
 					msgs = ((InternalEObject)initialSolution).eInverseRemove(this, SolverPackage.SOLUTION__SOLVER_AS_INITIAL_SOLUTION, Solution.class, msgs);
 				return basicSetInitialSolution((Solution)otherEnd, msgs);
+			case SolverPackage.SOLVER__GOALS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getGoals()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -940,7 +953,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 */
 	public EList<SolverGoal> getGoals() {
 		if (goals == null) {
-			goals = new EObjectContainmentEList<SolverGoal>(SolverGoal.class, this, SolverPackage.SOLVER__GOALS);
+			goals = new EObjectContainmentWithInverseEList<SolverGoal>(SolverGoal.class, this, SolverPackage.SOLVER__GOALS, SolverPackage.SOLVER_GOAL__SOLVER);
 		}
 		return goals;
 	}

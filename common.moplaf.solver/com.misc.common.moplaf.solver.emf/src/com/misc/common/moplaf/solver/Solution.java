@@ -249,12 +249,4 @@ public interface Solution extends EObject {
 	 * @generated
 	 */
 	void dispose();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void makeSolutionGoals();
 } // Solution

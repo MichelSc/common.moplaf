@@ -1029,7 +1029,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 					solvervar.setOptimalValue(optimalvalue);
 				}
 			} // traverse the vars
-			newSolution.makeSolutionGoals();
+			this.makeSolutionGoals(newSolution);
 			if ( optimal) {
 				this.setSolOptimalityGap(0.0f);
 			}

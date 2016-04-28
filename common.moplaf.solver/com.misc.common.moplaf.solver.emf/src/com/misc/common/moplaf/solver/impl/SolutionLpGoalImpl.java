@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
+import com.misc.common.moplaf.solver.GeneratorLpGoal;
 import com.misc.common.moplaf.solver.SolutionLpGoal;
 import com.misc.common.moplaf.solver.SolverPackage;
 
@@ -62,6 +63,17 @@ public class SolutionLpGoalImpl extends SolutionGoalImpl implements SolutionLpGo
 	@Override
 	protected EClass eStaticClass() {
 		return SolverPackage.Literals.SOLUTION_LP_GOAL;
+	}
+	
+	
+
+	@Override
+	public void refresh() {
+		if ( this.getGoal() instanceof GeneratorLpGoal){
+			GeneratorLpGoal goal = (GeneratorLpGoal) this.getGoal();
+			float value = goal.getSolutionValue(this.getSolution());
+			this.setValue(value);
+		}
 	}
 
 	/**

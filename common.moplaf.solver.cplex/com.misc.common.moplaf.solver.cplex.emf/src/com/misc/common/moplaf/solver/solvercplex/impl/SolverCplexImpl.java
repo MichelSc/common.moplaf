@@ -633,7 +633,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 						solvervar.setOptimalValue(optimalvalue);
 					}
 				} // traverse the vars
-				newSolution.makeSolutionGoals();
+				this.makeSolutionGoals(newSolution);
 			} 
 			catch (IloException e) {
 			}

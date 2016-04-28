@@ -648,6 +648,7 @@ public interface Solver extends SolutionProvider {
 	/**
 	 * Returns the value of the '<em><b>Goals</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.solver.SolverGoal}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.SolverGoal#getSolver <em>Solver</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Goals</em>' containment reference list isn't clear,
@@ -656,7 +657,8 @@ public interface Solver extends SolutionProvider {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Goals</em>' containment reference list.
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolver_Goals()
-	 * @model containment="true"
+	 * @see com.misc.common.moplaf.solver.SolverGoal#getSolver
+	 * @model opposite="Solver" containment="true"
 	 * @generated
 	 */
 	EList<SolverGoal> getGoals();

@@ -2,12 +2,18 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
+import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverGoal;
 import com.misc.common.moplaf.solver.SolverPackage;
 import java.lang.reflect.InvocationTargetException;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,6 +24,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolverGoalImpl#getLabel <em>Label</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.SolverGoalImpl#getSolver <em>Solver</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,6 +74,47 @@ public class SolverGoalImpl extends MinimalEObjectImpl.Container implements Solv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Solver getSolver() {
+		if (eContainerFeatureID() != SolverPackage.SOLVER_GOAL__SOLVER) return null;
+		return (Solver)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSolver(Solver newSolver, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newSolver, SolverPackage.SOLVER_GOAL__SOLVER, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSolver(Solver newSolver) {
+		if (newSolver != eInternalContainer() || (eContainerFeatureID() != SolverPackage.SOLVER_GOAL__SOLVER && newSolver != null)) {
+			if (EcoreUtil.isAncestor(this, newSolver))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newSolver != null)
+				msgs = ((InternalEObject)newSolver).eInverseAdd(this, SolverPackage.SOLVER__GOALS, Solver.class, msgs);
+			msgs = basicSetSolver(newSolver, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER_GOAL__SOLVER, newSolver, newSolver));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void buildGoal() throws Exception {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -79,12 +127,88 @@ public class SolverGoalImpl extends MinimalEObjectImpl.Container implements Solv
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SolverPackage.SOLVER_GOAL__SOLVER:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetSolver((Solver)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SolverPackage.SOLVER_GOAL__SOLVER:
+				return basicSetSolver(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case SolverPackage.SOLVER_GOAL__SOLVER:
+				return eInternalContainer().eInverseRemove(this, SolverPackage.SOLVER__GOALS, Solver.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case SolverPackage.SOLVER_GOAL__LABEL:
 				return getLabel();
+			case SolverPackage.SOLVER_GOAL__SOLVER:
+				return getSolver();
 		}
 		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case SolverPackage.SOLVER_GOAL__SOLVER:
+				setSolver((Solver)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case SolverPackage.SOLVER_GOAL__SOLVER:
+				setSolver((Solver)null);
+				return;
+		}
+		super.eUnset(featureID);
 	}
 
 	/**
@@ -97,6 +221,8 @@ public class SolverGoalImpl extends MinimalEObjectImpl.Container implements Solv
 		switch (featureID) {
 			case SolverPackage.SOLVER_GOAL__LABEL:
 				return LABEL_EDEFAULT == null ? getLabel() != null : !LABEL_EDEFAULT.equals(getLabel());
+			case SolverPackage.SOLVER_GOAL__SOLVER:
+				return getSolver() != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -2,7 +2,12 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
+import com.misc.common.moplaf.solver.EnumGoalType;
 import com.misc.common.moplaf.solver.GeneratorGoal;
+import com.misc.common.moplaf.solver.Plugin;
+import com.misc.common.moplaf.solver.Solution;
+import com.misc.common.moplaf.solver.SolutionGoal;
+import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverGeneratorGoal;
 import com.misc.common.moplaf.solver.SolverPackage;
 
@@ -75,6 +80,21 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 	@Override
 	protected EClass eStaticClass() {
 		return SolverPackage.Literals.SOLVER_GENERATOR_GOAL;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public void buildGoal() throws Exception {
+		GeneratorGoal goal = this.getGoalToSolve();
+		if ( goal==null){
+			Plugin.INSTANCE.logWarning("Solver, buildGoal: no generator goal, goal ignored");
+		}
+		Solver solver = this.getSolver();
+		float weight = this.getGoalWeight();
+		goal.build(solver, weight);
 	}
 
 	/**

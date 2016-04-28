@@ -94,4 +94,12 @@ public interface SolutionGoal extends SolutionElement {
 	 */
 	void setType(EnumGoalType value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void refresh();
+
 } // SolutionGoal

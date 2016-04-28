@@ -347,7 +347,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="InitialSolution" eType="#//Solution"
         eOpposite="#//Solution/SolverAsInitialSolution"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Goals" upperBound="-1"
-        eType="#//SolverGoal" containment="true"/>
+        eType="#//SolverGoal" containment="true" eOpposite="#//SolverGoal/Solver"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolverCp" abstract="true" eSuperTypes="#//Solver">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SearchAll" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -363,6 +363,8 @@
     <eOperations name="buildGoal" eExceptions="#//Exception"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Solver" lowerBound="1"
+        eType="#//Solver" eOpposite="#//Solver/Goals"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolverGeneratorGoal" eSuperTypes="#//SolverGoal">
     <eStructuralFeatures xsi:type="ecore:EReference" name="GoalToSolve" lowerBound="1"
@@ -389,7 +391,6 @@
       <eParameters name="goal" eType="#//GeneratorGoal"/>
     </eOperations>
     <eOperations name="dispose"/>
-    <eOperations name="makeSolutionGoals"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Provider" lowerBound="1"
         eType="#//SolutionProvider" eOpposite="#//SolutionProvider/Solution"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolutionNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -430,6 +431,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolutionLpCons" eSuperTypes="#//SolutionCons"/>
   <eClassifiers xsi:type="ecore:EClass" name="SolutionGoal" eSuperTypes="#//SolutionElement">
+    <eOperations name="refresh"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Goal" lowerBound="1" eType="#//GeneratorGoal"
         eOpposite="#//GeneratorGoal/Solution"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
