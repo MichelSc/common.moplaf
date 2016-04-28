@@ -803,7 +803,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
      * Build the lp var
 	 */
 	@Override
-	public void buildLpVar(GeneratorLpVar var) throws Exception {
+	protected void buildLpVarImpl(GeneratorLpVar var) throws Exception {
 		// map
 		int varnumber = this.var_counter;
 		this.var_counter++;
@@ -832,7 +832,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
      * Build the lp cons
 	 */
 	@Override
-	public void buildLpCons(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
+	protected void buildLpConsImpl(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
 		// map the constraint
 		int consnumber = this.cons_counter;
 		this.cons_counter++;
@@ -883,7 +883,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
      * Build the lp goal
 	 */
 	@Override
-	public void buildLpGoal(GeneratorLpGoal goal, float weight) throws Exception {
+	protected void buildLpGoalImpl(GeneratorLpGoal goal, float weight) throws Exception {
 		// direction
 		float direction = 1.0f;
 		if ( goal.getObjectiveType()==EnumObjectiveType.MAXIMUM){

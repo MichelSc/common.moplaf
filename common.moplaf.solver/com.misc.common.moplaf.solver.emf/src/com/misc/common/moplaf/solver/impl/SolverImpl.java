@@ -618,7 +618,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void buildLpVar(GeneratorLpVar var) throws Exception {
+	public void buildVar(GeneratorVar var) throws Exception {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -628,18 +628,18 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	protected void buildLpGoalImpl(GeneratorLpGoal goal, float weight) throws Exception {
-		// to be overloaded
-		throw new UnsupportedOperationException();
+	public void buildLpVar(GeneratorLpVar var) throws Exception {
+		this.buildLpVarImpl(var);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void buildLpGoal(GeneratorLpGoal goal, float weight) throws Exception {
-		this.generatorGoalsToSolve.add(goal);
-		this.buildLpGoalImpl(goal,  weight);
+	protected void buildLpVarImpl(GeneratorLpVar var) throws Exception {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -665,7 +665,18 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void buildLpConsImpl(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
+	public void buildLpCons(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
+		if ( element instanceof GeneratorLpGoal) {
+			this.generatorGoalsToConstraint.add((GeneratorGoal)element);
+		}
+		this.buildLpConsImpl(element, linear, rhs, type);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	protected void buildLpConsImpl(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
 		// to be overloaded
 		throw new UnsupportedOperationException();
 	}
@@ -675,11 +686,18 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void buildLpCons(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
-		if ( element instanceof GeneratorLpGoal) {
-			this.generatorGoalsToConstraint.add((GeneratorGoal)element);
-		}
-		this.buildLpConsImpl(element, linear, rhs, type);
+	public void buildLpGoal(GeneratorLpGoal goal, float weight) throws Exception {
+		this.generatorGoalsToSolve.add(goal);
+		this.buildLpGoalImpl(goal,  weight);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	protected void buildLpGoalImpl(GeneratorLpGoal goal, float weight) throws Exception {
+		// to be overloaded
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -1412,17 +1430,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		for ( SolverGoal goal : this.getGoals()){
 			goal.buildGoal();
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void buildVar(GeneratorVar var) throws Exception {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**

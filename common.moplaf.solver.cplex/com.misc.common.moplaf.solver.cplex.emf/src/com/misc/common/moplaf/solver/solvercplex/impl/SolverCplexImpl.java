@@ -237,7 +237,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
      * Build the lp var
 	 */
 	@Override
-	public void buildLpVar(GeneratorLpVar var) throws Exception {
+	protected void buildLpVarImpl(GeneratorLpVar var) throws Exception {
 		IloNumVarType vartypetobe = IloNumVarType.Float; 
 		if ( !this.isSolverLinearRelaxation() && var.getType()==EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER){
 			vartypetobe = IloNumVarType.Int; 
@@ -254,7 +254,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
      * Build the lp cons
 	 */
 	@Override
-	public void buildLpCons(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
+	protected void buildLpConsImpl(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
 		IloLinearNumExpr expr = SolverCplexImpl.this.lp.linearNumExpr();
 	    for ( GeneratorLpTerm lpterm : linear.getLpTerm())			{
 		    GeneratorLpVar lpvar = lpterm.getLpVar();
@@ -282,7 +282,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
      * Build the lp goal
 	 */
 	@Override
-	public void buildLpGoal(GeneratorLpGoal goal, float weight) throws Exception {
+	protected void buildLpGoalImpl(GeneratorLpGoal goal, float weight) throws Exception {
 		for ( GeneratorLpTerm goalTerm : goal.getLpTerm()){
 			GeneratorLpVar lpvar = goalTerm.getLpVar();
 			float coefficient = goalTerm.getCoeff()*weight;
