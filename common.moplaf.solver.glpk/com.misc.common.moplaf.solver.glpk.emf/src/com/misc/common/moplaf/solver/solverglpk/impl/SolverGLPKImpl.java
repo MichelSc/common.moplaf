@@ -927,6 +927,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 			this.build();
 		}
 		catch (Exception e) {
+			e.printStackTrace();
 			Plugin.INSTANCE.logError("SolverGLPK: load failed, "+e.getMessage());
 			this.releaseLp();
 		}

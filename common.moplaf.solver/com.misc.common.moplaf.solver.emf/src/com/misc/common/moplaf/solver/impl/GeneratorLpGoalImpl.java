@@ -214,6 +214,15 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	 * <!-- end-user-doc -->
 	 */
 	@Override
+	public void build(Solver builder, float weight) throws Exception {
+		builder.buildLpGoal(this, weight);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
 	public void buildCons(SolutionGoal solutionGoal, Solver builder) throws Exception{
 		if ( ! (solutionGoal instanceof SolutionLpGoal)){
 			return;

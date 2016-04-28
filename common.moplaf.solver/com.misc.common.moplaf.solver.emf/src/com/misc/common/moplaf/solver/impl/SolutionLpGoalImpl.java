@@ -75,6 +75,14 @@ public class SolutionLpGoalImpl extends SolutionGoalImpl implements SolutionLpGo
 			this.setValue(value);
 		}
 	}
+	
+	
+
+	@Override
+	public String getLabel() {
+		String label = String.format("Goal %s = %f", this.getGoal().getCode(), this.getValue());
+		return label;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

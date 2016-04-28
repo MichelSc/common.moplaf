@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.solver.impl;
 
 import com.misc.common.moplaf.solver.SolutionCons;
+import com.misc.common.moplaf.solver.SolutionGoal;
 import com.misc.common.moplaf.solver.SolutionLp;
 import com.misc.common.moplaf.solver.SolutionVar;
 import com.misc.common.moplaf.solver.SolverFactory;
@@ -168,6 +169,12 @@ public class SolutionLpImpl extends SolutionImpl implements SolutionLp {
 	public SolutionCons solutionConsFactory() {
 		SolutionCons newSolutionCons = SolverFactory.eINSTANCE.createSolutionLpCons();
 		return newSolutionCons;
+	}
+
+	@Override
+	public SolutionGoal solutionGoalFactory() {
+		SolutionGoal newSolutionGoal = SolverFactory.eINSTANCE.createSolutionLpGoal();
+		return newSolutionGoal;
 	}
 
 
