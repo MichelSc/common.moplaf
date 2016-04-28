@@ -8,7 +8,6 @@ import com.misc.common.moplaf.emf.edit.command.WriteCommand;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorGoal;
 import com.misc.common.moplaf.solver.ILpWriter;
-import com.misc.common.moplaf.solver.Plugin;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionProvider;
 import com.misc.common.moplaf.solver.Solver;
@@ -16,7 +15,6 @@ import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import java.util.Collection;
-import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.emf.common.command.AbstractCommand;
@@ -813,6 +811,33 @@ public class SolverItemProvider
 		}
 	};
 		
+	public  class ConstructPreviousSolverGoal extends ConstructGoal {
+		private Solver previousSolver;
+
+		public ConstructPreviousSolverGoal(Solver solver, Solver aPreviousSolver) {
+			super(solver);
+			this.previousSolver = aPreviousSolver;
+		}
+
+		@Override
+		public void execute() {
+			this.solver.constructSolverGoal(this.previousSolver);
+		}
+	};
+	public  class ConstructPreviousSolutionGoal extends ConstructGoal {
+		private Solution previousSolution;
+
+		public ConstructPreviousSolutionGoal(Solver solver, Solution aPreviousSolution) {
+			super(solver);
+			this.previousSolution = aPreviousSolution;
+		}
+
+		@Override
+		public void execute() {
+			this.solver.constructSolverGoal(this.previousSolution);
+		}
+	};
+		
 
 	/**
 	 * Create a drag and drop command for this Solver
@@ -837,10 +862,18 @@ public class SolverItemProvider
 		  	   		GeneratorGoal droppedGoal = (GeneratorGoal) element;
 				   	ConstructGeneratorGoal cmd = new ConstructGeneratorGoal(thisSolver, droppedGoal);
 				   	compound.append(cmd);
+				} else if ( element instanceof Solver){
+		  	   		Solver droppedSolver = (Solver) element;
+		  	   		ConstructPreviousSolverGoal cmd = new ConstructPreviousSolverGoal(thisSolver, droppedSolver);
+				   	compound.append(cmd);
+				} else if ( element instanceof Solution){
+		  	   		Solution droppedSolution = (Solution) element;
+		  	   	ConstructPreviousSolutionGoal cmd = new ConstructPreviousSolutionGoal(thisSolver, droppedSolution);
+				   	compound.append(cmd);
 				} 
 			}
-			this.dropCommand = compound;
 	    	this.dragCommand = null;
+			this.dropCommand = compound;
 	    	return true;
 	    } // prepare
 	};

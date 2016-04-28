@@ -139,7 +139,8 @@ public class SolverGoalPreviousSolverImpl extends SolverGoalImpl implements Solv
 	@Override
 	public String getLabel() {
 		Solution solution = this.getPreviousSolution();
-		String label = "Refine "+solution==null ? "null" : solution.getCode();
+		Solver solver = this.getPreviousSolver();
+		String label = "Refine "+(solver==null ? "null" : (solution==null ? solver.getCode() : solution.getCode()));
 		return label;
 	}
 

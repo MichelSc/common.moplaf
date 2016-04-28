@@ -141,7 +141,7 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 	@Override
 	public String getLabel() {
 		GeneratorGoal goal = this.getGoalToSolve();
-		String label = "Optimize "+goal==null ? "null" : goal.getName();
+		String label = "Optimize "+(goal==null ? "null" : goal.getName());
 		return label;
 	}
 
