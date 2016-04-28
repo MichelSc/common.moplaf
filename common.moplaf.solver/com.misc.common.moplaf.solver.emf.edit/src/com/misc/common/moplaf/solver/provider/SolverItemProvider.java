@@ -8,6 +8,7 @@ import com.misc.common.moplaf.emf.edit.command.WriteCommand;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorGoal;
 import com.misc.common.moplaf.solver.ILpWriter;
+import com.misc.common.moplaf.solver.Plugin;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionProvider;
 import com.misc.common.moplaf.solver.Solver;
@@ -26,6 +27,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.command.DragAndDropCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -748,7 +750,35 @@ public class SolverItemProvider
 			this.writer.writeLpToFile();
 		}
 	} // class WriterRunCommand
+	
+	/**
+	 * Implements Command constructGoal
+	 */
+	public abstract class ConstructGoal extends AbstractCommand {
 
+		protected Solver solver;
+		
+		public ConstructGoal(Solver solver) {
+			super();
+			this.solver = solver;
+		}
+
+		protected boolean prepare(){
+			isExecutable = true;
+			return isExecutable;
+		}
+
+		public boolean canUndo() { 
+			return false; 
+		}
+
+		@Override
+		public void redo() {
+			execute();		
+		}
+
+	}
+	
 	/**
 	 * Create a command for this Solver
 	 */
@@ -767,71 +797,59 @@ public class SolverItemProvider
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand
 
-	public class ConstructSolverGeneratorGoalCommand extends AbstractCommand {
-	   	private Solver solver;
-	   	private GeneratorGoal goal;
-   
-	   	public ConstructSolverGeneratorGoalCommand(Solver aSolver, GeneratorGoal aGoal)  {
-	   		super();
-	   		this.solver = aSolver;
-	   		this.goal   = aGoal;
-	   		String tmp = "construct a solver goal";
-	   		String label = "label:"+tmp;
-	   		String description = "desc:"+tmp;
-	   		this.setDescription(description);
-	   		this.setLabel(label);
-	   	}
-	   
-	   	@Override
-	   	protected boolean prepare(){
-	   		isExecutable = true;
-	   		return isExecutable;
-	   	}
 
-		@Override
-		public boolean canUndo() { 
-			return false; 
+	
+	public  class ConstructGeneratorGoal extends ConstructGoal {
+		private GeneratorGoal goal;
+
+		public ConstructGeneratorGoal(Solver solver, GeneratorGoal agoal) {
+			super(solver);
+			this.goal = agoal;
 		}
 
-		@Override
-		public void redo() {
-			execute();		
-		}
-		
 		@Override
 		public void execute() {
 			this.solver.constructSolverGoal(this.goal);
 		}
-	} // class ConstructSolverGeneratorGoalCommand
+	};
+		
 
+	/**
+	 * Create a drag and drop command for this Solver
+	 */
+	public class SolverDragAndDropCommand extends DragAndDropCommand{
+		// constructor
+	   	public SolverDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+				int operation, Collection<?> collection) {
+			super(domain, owner, location, operations, operation, collection);
+		}
+	   	
+	    /**
+	     * This implementation of prepare is called again to implement {@link #validate validate}.
+	     * The method {@link #reset} will have been called before doing so.
+	     */
+	    @Override
+	    protected boolean prepare(){
+	    	CompoundCommand compound = new CompoundCommand();
+			Solver thisSolver = (Solver) this.owner;
+			for (Object element : collection){
+				if ( element instanceof GeneratorGoal){
+		  	   		GeneratorGoal droppedGoal = (GeneratorGoal) element;
+				   	ConstructGeneratorGoal cmd = new ConstructGeneratorGoal(thisSolver, droppedGoal);
+				   	compound.append(cmd);
+				} 
+			}
+			this.dropCommand = compound;
+	    	this.dragCommand = null;
+	    	return true;
+	    } // prepare
+	};
 	/**
 	 * Create a command for a drag and drop on this Solver
 	 */
 	@Override
 	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
 			int operation, Collection<?> collection) {
-		CompoundCommand command = new CompoundCommand();
-		Solver thisSolver = (Solver) owner;
-		List<Object> otherDroppedThings = new LinkedList<Object>();
-		for (Object element : collection){
-			if ( element instanceof GeneratorGoal){
-	  	   		GeneratorGoal droppedGoal = (GeneratorGoal) element;
-			   	ConstructSolverGeneratorGoalCommand cmd = new ConstructSolverGeneratorGoalCommand(thisSolver, droppedGoal);
-			   	command.append(cmd);
-			} else {
-				otherDroppedThings.add(element);
-			}
-		}
-		if ( otherDroppedThings.size()>0){
-				command.append(super.createDragAndDropCommand(domain, 
-					                                    owner, 
-					                                    location, 
-					                                    operations,
-				                                      	operation, 
-				                                      	otherDroppedThings));
-		}
-		return command;
-		}
-	
-	
+		return new SolverDragAndDropCommand(domain, owner, location, operations, operation, collection);
 	}
+}
