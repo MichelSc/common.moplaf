@@ -308,9 +308,8 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 			this.vars = new HashMap<GeneratorLpVar, IloNumVar>();
 			this.cons = new HashMap<GeneratorElement, IloRange>();
 			this.objective = this.lp.linearNumExpr();
-			this.lp.addMinimize(objective);
-			// create the problem in Cplex
 			this.build();
+			this.lp.addMinimize(objective);
 		} 
 		catch (IloException e) {
 			e.printStackTrace();

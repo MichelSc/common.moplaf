@@ -730,8 +730,12 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 */
 	public SolverGoalPreviousSolver constructSolverGoal(Solver previousSolver) {
 		SolverGoalPreviousSolver newGoal = SolverFactory.eINSTANCE.createSolverGoalPreviousSolver();
+		Solution previousSolution = null;
+		if ( previousSolver.getSolution().size()>0 ){
+			previousSolution = previousSolver.getSolution().get(0);
+		}
 		newGoal.setPreviousSolver(previousSolver);
-		newGoal.setPreviousSolution(null);
+		newGoal.setPreviousSolution(previousSolution);
 		this.getGoals().add(newGoal);
 		return newGoal;
 	}
