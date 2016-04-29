@@ -88,15 +88,15 @@ public class SolverGoalItemProvider
 	}
 
 	/**
-	 * This returns SolverGoal.gif.
+	 * This returns GeneratorGoal.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SolverGoal"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/target.png"));
 	}
+
 
 	/**
 	 * This returns the label text for the adapted class.

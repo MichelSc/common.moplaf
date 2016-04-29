@@ -38,6 +38,11 @@
       <genEnumLiterals ecoreEnumLiteral="solver.ecore#//EnumCpLogicalType/EnumLiteralCpLogicalOr"/>
       <genEnumLiterals ecoreEnumLiteral="solver.ecore#//EnumCpLogicalType/EnumLiteralCpLogicalAnd"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="solver.ecore#//EnumGoalType">
+      <genEnumLiterals ecoreEnumLiteral="solver.ecore#//EnumGoalType/EnumLiteralGoalTypeConstrained"/>
+      <genEnumLiterals ecoreEnumLiteral="solver.ecore#//EnumGoalType/EnumLiteralGoalTypeOptimized"/>
+      <genEnumLiterals ecoreEnumLiteral="solver.ecore#//EnumGoalType/EnumLiteralGoalTypeFree"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="solver.ecore#//EnumLpFileFormat">
       <genEnumLiterals ecoreEnumLiteral="solver.ecore#//EnumLpFileFormat/FileFormatMps"/>
       <genEnumLiterals ecoreEnumLiteral="solver.ecore#//EnumLpFileFormat/FileFormatLp"/>
@@ -121,7 +126,7 @@
       <genFeatures property="Readonly" createChild="false" propertyCategory="30 Solution"
           ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorVar/SelectedSolutionValue"/>
       <genOperations ecoreOperation="solver.ecore#//GeneratorVar/getSolutionVar">
-        <genParameters ecoreParameter="solver.ecore#//GeneratorVar/getSolutionVar/solutionprovider"/>
+        <genParameters ecoreParameter="solver.ecore#//GeneratorVar/getSolutionVar/solution"/>
       </genOperations>
       <genOperations ecoreOperation="solver.ecore#//GeneratorVar/isSolutionOne">
         <genParameters ecoreParameter="solver.ecore#//GeneratorVar/isSolutionOne/solver"/>
@@ -148,7 +153,7 @@
       <genFeatures property="Readonly" createChild="false" propertyCategory="20 Constraint"
           ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorCons/NofTerms"/>
       <genOperations ecoreOperation="solver.ecore#//GeneratorCons/getSolution">
-        <genParameters ecoreParameter="solver.ecore#//GeneratorCons/getSolution/solver"/>
+        <genParameters ecoreParameter="solver.ecore#//GeneratorCons/getSolution/solution"/>
       </genOperations>
       <genOperations ecoreOperation="solver.ecore#//GeneratorCons/build">
         <genParameters ecoreParameter="solver.ecore#//GeneratorCons/build/builder"/>
@@ -284,11 +289,9 @@
       <genOperations ecoreOperation="solver.ecore#//Solver/buildLpVar">
         <genParameters ecoreParameter="solver.ecore#//Solver/buildLpVar/var"/>
       </genOperations>
-      <genOperations ecoreOperation="solver.ecore#//Solver/buildGoal">
-        <genParameters ecoreParameter="solver.ecore#//Solver/buildGoal/goal"/>
-      </genOperations>
       <genOperations ecoreOperation="solver.ecore#//Solver/buildLpGoal">
         <genParameters ecoreParameter="solver.ecore#//Solver/buildLpGoal/goal"/>
+        <genParameters ecoreParameter="solver.ecore#//Solver/buildLpGoal/weight"/>
       </genOperations>
       <genOperations ecoreOperation="solver.ecore#//Solver/buildCons">
         <genParameters ecoreParameter="solver.ecore#//Solver/buildCons/cons"/>
@@ -302,12 +305,17 @@
         <genParameters ecoreParameter="solver.ecore#//Solver/buildLpCons.1/rhs"/>
         <genParameters ecoreParameter="solver.ecore#//Solver/buildLpCons.1/type"/>
       </genOperations>
-      <genOperations ecoreOperation="solver.ecore#//Solver/buildConsFromGoal">
-        <genParameters ecoreParameter="solver.ecore#//Solver/buildConsFromGoal/previousSolver"/>
-      </genOperations>
-      <genOperations ecoreOperation="solver.ecore#//Solver/solverGoalFactory"/>
       <genOperations ecoreOperation="solver.ecore#//Solver/constructSolverGoal">
         <genParameters ecoreParameter="solver.ecore#//Solver/constructSolverGoal/goal"/>
+      </genOperations>
+      <genOperations ecoreOperation="solver.ecore#//Solver/constructSolverGoal.1">
+        <genParameters ecoreParameter="solver.ecore#//Solver/constructSolverGoal.1/previousSolution"/>
+      </genOperations>
+      <genOperations ecoreOperation="solver.ecore#//Solver/constructSolverGoal.2">
+        <genParameters ecoreParameter="solver.ecore#//Solver/constructSolverGoal.2/previousSolver"/>
+      </genOperations>
+      <genOperations ecoreOperation="solver.ecore#//Solver/makeSolutionGoals">
+        <genParameters ecoreParameter="solver.ecore#//Solver/makeSolutionGoals/solution"/>
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="solver.ecore#//SolverCp" labelFeature="#//solver/SolutionProvider/Code">
@@ -320,12 +328,14 @@
     </genClasses>
     <genClasses ecoreClass="solver.ecore#//SolverGoal">
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolverGoal/Label"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//SolverGoal/Solver"/>
+      <genOperations ecoreOperation="solver.ecore#//SolverGoal/buildGoal"/>
     </genClasses>
-    <genClasses ecoreClass="solver.ecore#//SolverGeneratorGoal">
+    <genClasses image="false" ecoreClass="solver.ecore#//SolverGeneratorGoal">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//SolverGeneratorGoal/GoalToSolve"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolverGeneratorGoal/GoalWeight"/>
     </genClasses>
-    <genClasses ecoreClass="solver.ecore#//SolverGoalPreviousSolver">
+    <genClasses image="false" ecoreClass="solver.ecore#//SolverGoalPreviousSolver">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//SolverGoalPreviousSolver/PreviousSolver"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//SolverGoalPreviousSolver/PreviousSolution"/>
     </genClasses>
@@ -377,9 +387,11 @@
     <genClasses ecoreClass="solver.ecore#//SolutionGoal">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//SolutionGoal/Goal"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolutionGoal/Label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolutionGoal/Type"/>
+      <genOperations ecoreOperation="solver.ecore#//SolutionGoal/refresh"/>
     </genClasses>
-    <genClasses ecoreClass="solver.ecore#//SolutionGoalLp">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolutionGoalLp/Value"/>
+    <genClasses image="false" ecoreClass="solver.ecore#//SolutionLpGoal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolutionLpGoal/Value"/>
     </genClasses>
     <genClasses ecoreClass="solver.ecore#//GeneratorCpCons" labelFeature="#//solver/GeneratorTupleMember/SelectedSolutionDisplay">
       <genFeatures createChild="false" propertyCategory="20 Constraint" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorCpCons/Post"/>
@@ -414,12 +426,17 @@
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorGoal/Name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorGoal/SelectedSolutionDisplay"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorGoal/Label"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//GeneratorGoal/Solution"/>
       <genOperations ecoreOperation="solver.ecore#//GeneratorGoal/build">
         <genParameters ecoreParameter="solver.ecore#//GeneratorGoal/build/builder"/>
+        <genParameters ecoreParameter="solver.ecore#//GeneratorGoal/build/weight"/>
       </genOperations>
       <genOperations ecoreOperation="solver.ecore#//GeneratorGoal/buildCons">
         <genParameters ecoreParameter="solver.ecore#//GeneratorGoal/buildCons/solutionGoal"/>
         <genParameters ecoreParameter="solver.ecore#//GeneratorGoal/buildCons/builder"/>
+      </genOperations>
+      <genOperations ecoreOperation="solver.ecore#//GeneratorGoal/getSolutionGoal">
+        <genParameters ecoreParameter="solver.ecore#//GeneratorGoal/getSolutionGoal/solution"/>
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="solver.ecore#//GeneratorLpGoal" labelFeature="#//solver/GeneratorGoal/Label">

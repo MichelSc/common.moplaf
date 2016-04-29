@@ -608,6 +608,9 @@ public abstract class GeneratorImpl extends MinimalEObjectImpl.Container impleme
 		while ( !this.getGoals().isEmpty()){
 			EcoreUtil.delete(this.getGoals().get(0), true);
 		}
+		while ( !this.getSolutionProvider().isEmpty()){
+			EcoreUtil.delete(this.getSolutionProvider().get(0), true);
+		}
 		Plugin.INSTANCE.logInfo("Generator.generate: flushed");
 	
 		this.generateTuples();

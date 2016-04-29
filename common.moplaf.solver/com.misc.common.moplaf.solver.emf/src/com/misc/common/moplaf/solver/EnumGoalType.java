@@ -36,7 +36,7 @@ public enum EnumGoalType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENUM_LITERAL_GOAL_TYPE_OPTIMIZED(1, "EnumLiteralGoalTypeOptimized", "EnumLiteralGoalTypeOptimized"),
+	ENUM_LITERAL_GOAL_TYPE_OPTIMIZED(1, "EnumLiteralGoalTypeOptimized", "Optimized"),
 
 	/**
 	 * The '<em><b>Enum Literal Goal Type Free</b></em>' literal object.
@@ -46,7 +46,7 @@ public enum EnumGoalType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENUM_LITERAL_GOAL_TYPE_FREE(2, "EnumLiteralGoalTypeFree", "EnumLiteralGoalTypeFree");
+	ENUM_LITERAL_GOAL_TYPE_FREE(2, "EnumLiteralGoalTypeFree", "Free");
 
 	/**
 	 * The '<em><b>Enum Literal Goal Type Constrained</b></em>' literal value.
@@ -72,7 +72,7 @@ public enum EnumGoalType implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #ENUM_LITERAL_GOAL_TYPE_OPTIMIZED
-	 * @model name="EnumLiteralGoalTypeOptimized"
+	 * @model name="EnumLiteralGoalTypeOptimized" literal="Optimized"
 	 * @generated
 	 * @ordered
 	 */
@@ -87,7 +87,7 @@ public enum EnumGoalType implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #ENUM_LITERAL_GOAL_TYPE_FREE
-	 * @model name="EnumLiteralGoalTypeFree"
+	 * @model name="EnumLiteralGoalTypeFree" literal="Free"
 	 * @generated
 	 * @ordered
 	 */

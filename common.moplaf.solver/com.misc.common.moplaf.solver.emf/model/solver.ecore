@@ -35,8 +35,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="EnumGoalType">
     <eLiterals name="EnumLiteralGoalTypeConstrained" literal="Constrained"/>
-    <eLiterals name="EnumLiteralGoalTypeOptimized" value="1"/>
-    <eLiterals name="EnumLiteralGoalTypeFree" value="2"/>
+    <eLiterals name="EnumLiteralGoalTypeOptimized" value="1" literal="Optimized"/>
+    <eLiterals name="EnumLiteralGoalTypeFree" value="2" literal="Free"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Generator" abstract="true">
     <eOperations name="generate"/>

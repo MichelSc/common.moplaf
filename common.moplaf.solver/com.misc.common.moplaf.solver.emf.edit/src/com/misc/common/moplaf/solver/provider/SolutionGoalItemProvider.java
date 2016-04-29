@@ -119,15 +119,15 @@ public class SolutionGoalItemProvider extends SolutionElementItemProvider {
 	}
 
 	/**
-	 * This returns SolutionGoal.gif.
+	 * This returns GeneratorGoal.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SolutionGoal"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/target.png"));
 	}
+
 
 	/**
 	 * This returns the label text for the adapted class.
