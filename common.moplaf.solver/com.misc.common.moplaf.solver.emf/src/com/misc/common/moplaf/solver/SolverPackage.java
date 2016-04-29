@@ -2575,13 +2575,13 @@ public interface SolverPackage extends EPackage {
 	int SOLVER___SOLVE = SOLUTION_PROVIDER_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Build</em>' operation.
+	 * The operation id for the '<em>Build Vars</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER___BUILD = SOLUTION_PROVIDER_OPERATION_COUNT + 1;
+	int SOLVER___BUILD_VARS = SOLUTION_PROVIDER_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Build Var</em>' operation.
@@ -2602,13 +2602,13 @@ public interface SolverPackage extends EPackage {
 	int SOLVER___BUILD_LP_VAR__GENERATORLPVAR = SOLUTION_PROVIDER_OPERATION_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Build Lp Goal</em>' operation.
+	 * The operation id for the '<em>Build Cons</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT = SOLUTION_PROVIDER_OPERATION_COUNT + 4;
+	int SOLVER___BUILD_CONS = SOLUTION_PROVIDER_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Build Cons</em>' operation.
@@ -2638,13 +2638,22 @@ public interface SolverPackage extends EPackage {
 	int SOLVER___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE = SOLUTION_PROVIDER_OPERATION_COUNT + 7;
 
 	/**
-	 * The operation id for the '<em>Construct Solver Goal</em>' operation.
+	 * The operation id for the '<em>Build Goals</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER___CONSTRUCT_SOLVER_GOAL__GENERATORGOAL = SOLUTION_PROVIDER_OPERATION_COUNT + 8;
+	int SOLVER___BUILD_GOALS = SOLUTION_PROVIDER_OPERATION_COUNT + 8;
+
+	/**
+	 * The operation id for the '<em>Build Lp Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT = SOLUTION_PROVIDER_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Construct Solver Goal</em>' operation.
@@ -2653,7 +2662,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER___CONSTRUCT_SOLVER_GOAL__SOLUTION = SOLUTION_PROVIDER_OPERATION_COUNT + 9;
+	int SOLVER___CONSTRUCT_SOLVER_GOAL__GENERATORGOAL = SOLUTION_PROVIDER_OPERATION_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Construct Solver Goal</em>' operation.
@@ -2662,7 +2671,16 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER___CONSTRUCT_SOLVER_GOAL__SOLVER = SOLUTION_PROVIDER_OPERATION_COUNT + 10;
+	int SOLVER___CONSTRUCT_SOLVER_GOAL__SOLUTION = SOLUTION_PROVIDER_OPERATION_COUNT + 11;
+
+	/**
+	 * The operation id for the '<em>Construct Solver Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER___CONSTRUCT_SOLVER_GOAL__SOLVER = SOLUTION_PROVIDER_OPERATION_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Make Solution Goals</em>' operation.
@@ -2671,7 +2689,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER___MAKE_SOLUTION_GOALS__SOLUTION = SOLUTION_PROVIDER_OPERATION_COUNT + 11;
+	int SOLVER___MAKE_SOLUTION_GOALS__SOLUTION = SOLUTION_PROVIDER_OPERATION_COUNT + 13;
 
 	/**
 	 * The number of operations of the '<em>Solver</em>' class.
@@ -2680,7 +2698,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_OPERATION_COUNT = SOLUTION_PROVIDER_OPERATION_COUNT + 12;
+	int SOLVER_OPERATION_COUNT = SOLUTION_PROVIDER_OPERATION_COUNT + 14;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolverLpImpl <em>Lp</em>}' class.
@@ -3167,13 +3185,13 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_CP___SOLVE = SOLVER___SOLVE;
 
 	/**
-	 * The operation id for the '<em>Build</em>' operation.
+	 * The operation id for the '<em>Build Vars</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_CP___BUILD = SOLVER___BUILD;
+	int SOLVER_CP___BUILD_VARS = SOLVER___BUILD_VARS;
 
 	/**
 	 * The operation id for the '<em>Build Var</em>' operation.
@@ -3194,13 +3212,13 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_CP___BUILD_LP_VAR__GENERATORLPVAR = SOLVER___BUILD_LP_VAR__GENERATORLPVAR;
 
 	/**
-	 * The operation id for the '<em>Build Lp Goal</em>' operation.
+	 * The operation id for the '<em>Build Cons</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_CP___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT = SOLVER___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT;
+	int SOLVER_CP___BUILD_CONS = SOLVER___BUILD_CONS;
 
 	/**
 	 * The operation id for the '<em>Build Cons</em>' operation.
@@ -3228,6 +3246,24 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_CP___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE = SOLVER___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE;
+
+	/**
+	 * The operation id for the '<em>Build Goals</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP___BUILD_GOALS = SOLVER___BUILD_GOALS;
+
+	/**
+	 * The operation id for the '<em>Build Lp Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT = SOLVER___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT;
 
 	/**
 	 * The operation id for the '<em>Construct Solver Goal</em>' operation.
@@ -3617,13 +3653,13 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_LP___SOLVE = SOLVER___SOLVE;
 
 	/**
-	 * The operation id for the '<em>Build</em>' operation.
+	 * The operation id for the '<em>Build Vars</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_LP___BUILD = SOLVER___BUILD;
+	int SOLVER_LP___BUILD_VARS = SOLVER___BUILD_VARS;
 
 	/**
 	 * The operation id for the '<em>Build Var</em>' operation.
@@ -3644,13 +3680,13 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_LP___BUILD_LP_VAR__GENERATORLPVAR = SOLVER___BUILD_LP_VAR__GENERATORLPVAR;
 
 	/**
-	 * The operation id for the '<em>Build Lp Goal</em>' operation.
+	 * The operation id for the '<em>Build Cons</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_LP___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT = SOLVER___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT;
+	int SOLVER_LP___BUILD_CONS = SOLVER___BUILD_CONS;
 
 	/**
 	 * The operation id for the '<em>Build Cons</em>' operation.
@@ -3678,6 +3714,24 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE = SOLVER___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE;
+
+	/**
+	 * The operation id for the '<em>Build Goals</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP___BUILD_GOALS = SOLVER___BUILD_GOALS;
+
+	/**
+	 * The operation id for the '<em>Build Lp Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT = SOLVER___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT;
 
 	/**
 	 * The operation id for the '<em>Construct Solver Goal</em>' operation.
@@ -7856,14 +7910,14 @@ public interface SolverPackage extends EPackage {
 	EOperation getSolver__Solve();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.Solver#build() <em>Build</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.Solver#buildVars() <em>Build Vars</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Build</em>' operation.
-	 * @see com.misc.common.moplaf.solver.Solver#build()
+	 * @return the meta object for the '<em>Build Vars</em>' operation.
+	 * @see com.misc.common.moplaf.solver.Solver#buildVars()
 	 * @generated
 	 */
-	EOperation getSolver__Build();
+	EOperation getSolver__BuildVars();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.Solver#buildVar(com.misc.common.moplaf.solver.GeneratorVar) <em>Build Var</em>}' operation.
@@ -7884,6 +7938,16 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getSolver__BuildLpVar__GeneratorLpVar();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.Solver#buildCons() <em>Build Cons</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Build Cons</em>' operation.
+	 * @see com.misc.common.moplaf.solver.Solver#buildCons()
+	 * @generated
+	 */
+	EOperation getSolver__BuildCons();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.Solver#buildLpGoal(com.misc.common.moplaf.solver.GeneratorLpGoal, float) <em>Build Lp Goal</em>}' operation.
@@ -7924,6 +7988,16 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getSolver__BuildLpCons__GeneratorElement_GeneratorLpLinear_float_EnumLpConsType();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.Solver#buildGoals() <em>Build Goals</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Build Goals</em>' operation.
+	 * @see com.misc.common.moplaf.solver.Solver#buildGoals()
+	 * @generated
+	 */
+	EOperation getSolver__BuildGoals();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.Solver#constructSolverGoal(com.misc.common.moplaf.solver.GeneratorGoal) <em>Construct Solver Goal</em>}' operation.
@@ -10238,12 +10312,12 @@ public interface SolverPackage extends EPackage {
 		EOperation SOLVER___SOLVE = eINSTANCE.getSolver__Solve();
 
 		/**
-		 * The meta object literal for the '<em><b>Build</b></em>' operation.
+		 * The meta object literal for the '<em><b>Build Vars</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation SOLVER___BUILD = eINSTANCE.getSolver__Build();
+		EOperation SOLVER___BUILD_VARS = eINSTANCE.getSolver__BuildVars();
 
 		/**
 		 * The meta object literal for the '<em><b>Build Var</b></em>' operation.
@@ -10260,6 +10334,14 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SOLVER___BUILD_LP_VAR__GENERATORLPVAR = eINSTANCE.getSolver__BuildLpVar__GeneratorLpVar();
+
+		/**
+		 * The meta object literal for the '<em><b>Build Cons</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SOLVER___BUILD_CONS = eINSTANCE.getSolver__BuildCons();
 
 		/**
 		 * The meta object literal for the '<em><b>Build Lp Goal</b></em>' operation.
@@ -10292,6 +10374,14 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SOLVER___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE = eINSTANCE.getSolver__BuildLpCons__GeneratorElement_GeneratorLpLinear_float_EnumLpConsType();
+
+		/**
+		 * The meta object literal for the '<em><b>Build Goals</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SOLVER___BUILD_GOALS = eINSTANCE.getSolver__BuildGoals();
 
 		/**
 		 * The meta object literal for the '<em><b>Construct Solver Goal</b></em>' operation.

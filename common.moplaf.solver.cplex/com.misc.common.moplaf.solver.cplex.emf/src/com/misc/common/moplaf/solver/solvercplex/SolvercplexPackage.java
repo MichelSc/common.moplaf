@@ -436,13 +436,13 @@ public interface SolvercplexPackage extends EPackage {
 	int SOLVER_CPLEX___SOLVE = SolverPackage.SOLVER_LP___SOLVE;
 
 	/**
-	 * The operation id for the '<em>Build</em>' operation.
+	 * The operation id for the '<em>Build Vars</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_CPLEX___BUILD = SolverPackage.SOLVER_LP___BUILD;
+	int SOLVER_CPLEX___BUILD_VARS = SolverPackage.SOLVER_LP___BUILD_VARS;
 
 	/**
 	 * The operation id for the '<em>Build Var</em>' operation.
@@ -461,6 +461,15 @@ public interface SolvercplexPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_CPLEX___BUILD_LP_VAR__GENERATORLPVAR = SolverPackage.SOLVER_LP___BUILD_LP_VAR__GENERATORLPVAR;
+
+	/**
+	 * The operation id for the '<em>Build Cons</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX___BUILD_CONS = SolverPackage.SOLVER_LP___BUILD_CONS;
 
 	/**
 	 * The operation id for the '<em>Build Cons</em>' operation.
@@ -490,6 +499,24 @@ public interface SolvercplexPackage extends EPackage {
 	int SOLVER_CPLEX___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE = SolverPackage.SOLVER_LP___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE;
 
 	/**
+	 * The operation id for the '<em>Build Goals</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX___BUILD_GOALS = SolverPackage.SOLVER_LP___BUILD_GOALS;
+
+	/**
+	 * The operation id for the '<em>Build Lp Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT = SolverPackage.SOLVER_LP___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT;
+
+	/**
 	 * The operation id for the '<em>Construct Solver Goal</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -515,6 +542,15 @@ public interface SolvercplexPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_CPLEX___CONSTRUCT_SOLVER_GOAL__SOLVER = SolverPackage.SOLVER_LP___CONSTRUCT_SOLVER_GOAL__SOLVER;
+
+	/**
+	 * The operation id for the '<em>Make Solution Goals</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX___MAKE_SOLUTION_GOALS__SOLUTION = SolverPackage.SOLVER_LP___MAKE_SOLUTION_GOALS__SOLUTION;
 
 	/**
 	 * The operation id for the '<em>Write Lp To File</em>' operation.

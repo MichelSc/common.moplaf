@@ -924,7 +924,9 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 			GLPK.glp_set_prob_name(this.lp, this.getCode());
 			GLPK.glp_set_obj_dir(this.lp, GLPKConstants.GLP_MIN);
 
-			this.build();
+			this.buildVars();
+			this.buildCons();
+			this.buildGoals();
 		}
 		catch (Exception e) {
 			e.printStackTrace();

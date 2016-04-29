@@ -636,6 +636,45 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public void buildCons() throws Exception {
+		// build the normal constraints
+		Generator generator = this.getGenerator();
+		class ConsMapper implements ITupleVisitor{
+			@Override
+			public void visitTuple(GeneratorTuple tuple) throws Exception {
+				for ( GeneratorCons cons : tuple.getCons()){
+					cons.build(SolverImpl.this);
+				}
+			}
+		}; // class ConsMapper
+		ConsMapper consmapper = new ConsMapper();
+		generator.visitTuples(consmapper);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void buildVars() throws Exception {
+		Generator generator = this.getGenerator();
+		// build the vars
+		class VarMapper implements ITupleVisitor{
+			@Override
+			public void visitTuple(GeneratorTuple tuple) throws Exception {
+				for ( GeneratorVar var : tuple.getVar()){
+					var.build(SolverImpl.this);
+				}  // traverse the vars of the tuple
+			}  // method visitTuple
+		}; // VarMapper
+		VarMapper varmapper = new VarMapper();
+		generator.visitTuples(varmapper);
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	protected void buildLpVarImpl(GeneratorLpVar var) throws Exception {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -670,6 +709,17 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			this.generatorGoalsToConstraint.add((GeneratorGoal)element);
 		}
 		this.buildLpConsImpl(element, linear, rhs, type);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void buildGoals() throws Exception {
+		// build the constraints implied by previous solvers and the goal
+		for ( SolverGoal goal : this.getGoals()){
+			goal.buildGoal();
+		}
 	}
 
 	/**
@@ -1402,42 +1452,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public void build() throws Exception {
-		Generator generator = this.getGenerator();
-		// build the vars
-		class VarMapper implements ITupleVisitor{
-			@Override
-			public void visitTuple(GeneratorTuple tuple) throws Exception {
-				for ( GeneratorVar var : tuple.getVar()){
-					var.build(SolverImpl.this);
-				}  // traverse the vars of the tuple
-			}  // method visitTuple
-		}; // VarMapper
-		VarMapper varmapper = new VarMapper();
-		generator.visitTuples(varmapper);
-
-		// build the normal constraints
-		class ConsMapper implements ITupleVisitor{
-			@Override
-			public void visitTuple(GeneratorTuple tuple) throws Exception {
-				for ( GeneratorCons cons : tuple.getCons()){
-					cons.build(SolverImpl.this);
-				}
-			}
-		}; // class ConsMapper
-		ConsMapper consmapper = new ConsMapper();
-		generator.visitTuples(consmapper);
-		
-		// build the constraints implied by previous solvers and the goal
-		for ( SolverGoal goal : this.getGoals()){
-			goal.buildGoal();
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
 	 * Implement the whole flow of a solving run
 	 *   Make a copy of the run if already started, 
 	 * <!-- end-user-doc -->
@@ -2039,9 +2053,9 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			case SolverPackage.SOLVER___SOLVE:
 				solve();
 				return null;
-			case SolverPackage.SOLVER___BUILD:
+			case SolverPackage.SOLVER___BUILD_VARS:
 				try {
-					build();
+					buildVars();
 					return null;
 				}
 				catch (Throwable throwable) {
@@ -2063,9 +2077,9 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case SolverPackage.SOLVER___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT:
+			case SolverPackage.SOLVER___BUILD_CONS:
 				try {
-					buildLpGoal((GeneratorLpGoal)arguments.get(0), (Float)arguments.get(1));
+					buildCons();
 					return null;
 				}
 				catch (Throwable throwable) {
@@ -2090,6 +2104,22 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			case SolverPackage.SOLVER___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE:
 				try {
 					buildLpCons((GeneratorElement)arguments.get(0), (GeneratorLpLinear)arguments.get(1), (Float)arguments.get(2), (EnumLpConsType)arguments.get(3));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case SolverPackage.SOLVER___BUILD_GOALS:
+				try {
+					buildGoals();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case SolverPackage.SOLVER___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT:
+				try {
+					buildLpGoal((GeneratorLpGoal)arguments.get(0), (Float)arguments.get(1));
 					return null;
 				}
 				catch (Throwable throwable) {

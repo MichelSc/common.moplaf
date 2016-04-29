@@ -2080,7 +2080,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSolver__Build() {
+	public EOperation getSolver__BuildVars() {
 		return solverEClass.getEOperations().get(1);
 	}
 
@@ -2107,8 +2107,17 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSolver__BuildLpGoal__GeneratorLpGoal_float() {
+	public EOperation getSolver__BuildCons() {
 		return solverEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSolver__BuildLpGoal__GeneratorLpGoal_float() {
+		return solverEClass.getEOperations().get(9);
 	}
 
 	/**
@@ -2143,7 +2152,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSolver__ConstructSolverGoal__GeneratorGoal() {
+	public EOperation getSolver__BuildGoals() {
 		return solverEClass.getEOperations().get(8);
 	}
 
@@ -2152,16 +2161,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSolver__ConstructSolverGoal__Solution() {
-		return solverEClass.getEOperations().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSolver__ConstructSolverGoal__Solver() {
+	public EOperation getSolver__ConstructSolverGoal__GeneratorGoal() {
 		return solverEClass.getEOperations().get(10);
 	}
 
@@ -2170,8 +2170,26 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSolver__MakeSolutionGoals__Solution() {
+	public EOperation getSolver__ConstructSolverGoal__Solution() {
 		return solverEClass.getEOperations().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSolver__ConstructSolverGoal__Solver() {
+		return solverEClass.getEOperations().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSolver__MakeSolutionGoals__Solution() {
+		return solverEClass.getEOperations().get(13);
 	}
 
 	/**
@@ -3083,13 +3101,15 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		createEReference(solverEClass, SOLVER__INITIAL_SOLUTION);
 		createEReference(solverEClass, SOLVER__GOALS);
 		createEOperation(solverEClass, SOLVER___SOLVE);
-		createEOperation(solverEClass, SOLVER___BUILD);
+		createEOperation(solverEClass, SOLVER___BUILD_VARS);
 		createEOperation(solverEClass, SOLVER___BUILD_VAR__GENERATORVAR);
 		createEOperation(solverEClass, SOLVER___BUILD_LP_VAR__GENERATORLPVAR);
-		createEOperation(solverEClass, SOLVER___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT);
+		createEOperation(solverEClass, SOLVER___BUILD_CONS);
 		createEOperation(solverEClass, SOLVER___BUILD_CONS__GENERATORCONS);
 		createEOperation(solverEClass, SOLVER___BUILD_LP_CONS__GENERATORLPCONS);
 		createEOperation(solverEClass, SOLVER___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE);
+		createEOperation(solverEClass, SOLVER___BUILD_GOALS);
+		createEOperation(solverEClass, SOLVER___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT);
 		createEOperation(solverEClass, SOLVER___CONSTRUCT_SOLVER_GOAL__GENERATORGOAL);
 		createEOperation(solverEClass, SOLVER___CONSTRUCT_SOLVER_GOAL__SOLUTION);
 		createEOperation(solverEClass, SOLVER___CONSTRUCT_SOLVER_GOAL__SOLVER);
@@ -3512,7 +3532,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 
 		initEOperation(getSolver__Solve(), null, "solve", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getSolver__Build(), null, "build", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getSolver__BuildVars(), null, "buildVars", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
 		op = initEOperation(getSolver__BuildVar__GeneratorVar(), null, "buildVar", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -3523,9 +3543,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		addEParameter(op, this.getGeneratorLpVar(), "var", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
-		op = initEOperation(getSolver__BuildLpGoal__GeneratorLpGoal_float(), null, "buildLpGoal", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getGeneratorLpGoal(), "goal", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEFloat(), "weight", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getSolver__BuildCons(), null, "buildCons", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
 		op = initEOperation(getSolver__BuildCons__GeneratorCons(), null, "buildCons", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -3541,6 +3559,14 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		addEParameter(op, this.getGeneratorLpLinear(), "linear", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEFloat(), "rhs", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getEnumLpConsType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getException());
+
+		op = initEOperation(getSolver__BuildGoals(), null, "buildGoals", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getException());
+
+		op = initEOperation(getSolver__BuildLpGoal__GeneratorLpGoal_float(), null, "buildLpGoal", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getGeneratorLpGoal(), "goal", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEFloat(), "weight", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
 		op = initEOperation(getSolver__ConstructSolverGoal__GeneratorGoal(), this.getSolverGeneratorGoal(), "constructSolverGoal", 0, 1, IS_UNIQUE, IS_ORDERED);

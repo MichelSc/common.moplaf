@@ -759,7 +759,7 @@ public interface Solver extends SolutionProvider {
 	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
 	 * @generated
 	 */
-	void build() throws Exception;
+	void buildVars() throws Exception;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -776,6 +776,14 @@ public interface Solver extends SolutionProvider {
 	 * @generated
 	 */
 	void buildLpVar(GeneratorLpVar var) throws Exception;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
+	 * @generated
+	 */
+	void buildCons() throws Exception;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -808,6 +816,14 @@ public interface Solver extends SolutionProvider {
 	 * @generated
 	 */
 	void buildLpCons(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
+	 * @generated
+	 */
+	void buildGoals() throws Exception;
 
 	/**
 	 * <!-- begin-user-doc -->

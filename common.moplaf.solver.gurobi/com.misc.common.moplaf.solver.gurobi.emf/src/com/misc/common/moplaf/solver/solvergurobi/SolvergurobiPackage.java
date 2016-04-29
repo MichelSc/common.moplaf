@@ -131,15 +131,6 @@ public interface SolvergurobiPackage extends EPackage {
 	int SOLVER_GUROBI__SOLVER_BACKGROUND = SolverPackage.SOLVER_LP__SOLVER_BACKGROUND;
 
 	/**
-	 * The feature id for the '<em><b>Sol Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_GUROBI__SOL_VALUE = SolverPackage.SOLVER_LP__SOL_VALUE;
-
-	/**
 	 * The feature id for the '<em><b>Solver Log Level</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -230,6 +221,15 @@ public interface SolvergurobiPackage extends EPackage {
 	int SOLVER_GUROBI__RUN_REQUEST_TERMINATE = SolverPackage.SOLVER_LP__RUN_REQUEST_TERMINATE;
 
 	/**
+	 * The feature id for the '<em><b>Run Time Out</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GUROBI__RUN_TIME_OUT = SolverPackage.SOLVER_LP__RUN_TIME_OUT;
+
+	/**
 	 * The feature id for the '<em><b>Sol Unfeasible</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -257,6 +257,15 @@ public interface SolvergurobiPackage extends EPackage {
 	int SOLVER_GUROBI__SOL_OPTIMAL = SolverPackage.SOLVER_LP__SOL_OPTIMAL;
 
 	/**
+	 * The feature id for the '<em><b>Sol Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GUROBI__SOL_VALUE = SolverPackage.SOLVER_LP__SOL_VALUE;
+
+	/**
 	 * The feature id for the '<em><b>Run Interrupted</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -264,6 +273,15 @@ public interface SolvergurobiPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_GUROBI__RUN_INTERRUPTED = SolverPackage.SOLVER_LP__RUN_INTERRUPTED;
+
+	/**
+	 * The feature id for the '<em><b>Initializing</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GUROBI__INITIALIZING = SolverPackage.SOLVER_LP__INITIALIZING;
 
 	/**
 	 * The feature id for the '<em><b>Solving</b></em>' attribute.
@@ -293,33 +311,6 @@ public interface SolvergurobiPackage extends EPackage {
 	int SOLVER_GUROBI__FINISHED = SolverPackage.SOLVER_LP__FINISHED;
 
 	/**
-	 * The feature id for the '<em><b>Run Time Out</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_GUROBI__RUN_TIME_OUT = SolverPackage.SOLVER_LP__RUN_TIME_OUT;
-
-	/**
-	 * The feature id for the '<em><b>Initializing</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_GUROBI__INITIALIZING = SolverPackage.SOLVER_LP__INITIALIZING;
-
-	/**
-	 * The feature id for the '<em><b>Goal To Solve</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_GUROBI__GOAL_TO_SOLVE = SolverPackage.SOLVER_LP__GOAL_TO_SOLVE;
-
-	/**
 	 * The feature id for the '<em><b>Initial Solution</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -327,6 +318,15 @@ public interface SolvergurobiPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_GUROBI__INITIAL_SOLUTION = SolverPackage.SOLVER_LP__INITIAL_SOLUTION;
+
+	/**
+	 * The feature id for the '<em><b>Goals</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GUROBI__GOALS = SolverPackage.SOLVER_LP__GOALS;
 
 	/**
 	 * The feature id for the '<em><b>Solver Optimality Tolerance</b></em>' attribute.
@@ -419,6 +419,15 @@ public interface SolvergurobiPackage extends EPackage {
 	int SOLVER_GUROBI___GET_GENERATOR = SolverPackage.SOLVER_LP___GET_GENERATOR;
 
 	/**
+	 * The operation id for the '<em>Dispose</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GUROBI___DISPOSE = SolverPackage.SOLVER_LP___DISPOSE;
+
+	/**
 	 * The operation id for the '<em>Solution Factory</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -444,6 +453,123 @@ public interface SolvergurobiPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_GUROBI___SOLVE = SolverPackage.SOLVER_LP___SOLVE;
+
+	/**
+	 * The operation id for the '<em>Build Vars</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GUROBI___BUILD_VARS = SolverPackage.SOLVER_LP___BUILD_VARS;
+
+	/**
+	 * The operation id for the '<em>Build Var</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GUROBI___BUILD_VAR__GENERATORVAR = SolverPackage.SOLVER_LP___BUILD_VAR__GENERATORVAR;
+
+	/**
+	 * The operation id for the '<em>Build Lp Var</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GUROBI___BUILD_LP_VAR__GENERATORLPVAR = SolverPackage.SOLVER_LP___BUILD_LP_VAR__GENERATORLPVAR;
+
+	/**
+	 * The operation id for the '<em>Build Cons</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GUROBI___BUILD_CONS = SolverPackage.SOLVER_LP___BUILD_CONS;
+
+	/**
+	 * The operation id for the '<em>Build Cons</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GUROBI___BUILD_CONS__GENERATORCONS = SolverPackage.SOLVER_LP___BUILD_CONS__GENERATORCONS;
+
+	/**
+	 * The operation id for the '<em>Build Lp Cons</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GUROBI___BUILD_LP_CONS__GENERATORLPCONS = SolverPackage.SOLVER_LP___BUILD_LP_CONS__GENERATORLPCONS;
+
+	/**
+	 * The operation id for the '<em>Build Lp Cons</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GUROBI___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE = SolverPackage.SOLVER_LP___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE;
+
+	/**
+	 * The operation id for the '<em>Build Goals</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GUROBI___BUILD_GOALS = SolverPackage.SOLVER_LP___BUILD_GOALS;
+
+	/**
+	 * The operation id for the '<em>Build Lp Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GUROBI___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT = SolverPackage.SOLVER_LP___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT;
+
+	/**
+	 * The operation id for the '<em>Construct Solver Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GUROBI___CONSTRUCT_SOLVER_GOAL__GENERATORGOAL = SolverPackage.SOLVER_LP___CONSTRUCT_SOLVER_GOAL__GENERATORGOAL;
+
+	/**
+	 * The operation id for the '<em>Construct Solver Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GUROBI___CONSTRUCT_SOLVER_GOAL__SOLUTION = SolverPackage.SOLVER_LP___CONSTRUCT_SOLVER_GOAL__SOLUTION;
+
+	/**
+	 * The operation id for the '<em>Construct Solver Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GUROBI___CONSTRUCT_SOLVER_GOAL__SOLVER = SolverPackage.SOLVER_LP___CONSTRUCT_SOLVER_GOAL__SOLVER;
+
+	/**
+	 * The operation id for the '<em>Make Solution Goals</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GUROBI___MAKE_SOLUTION_GOALS__SOLUTION = SolverPackage.SOLVER_LP___MAKE_SOLUTION_GOALS__SOLUTION;
 
 	/**
 	 * The operation id for the '<em>Write Lp To File</em>' operation.

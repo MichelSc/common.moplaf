@@ -12,19 +12,17 @@ import gurobi.GRBModel;
 import gurobi.GRBVar;
 import gurobi.GRBCallback;
 
+import com.misc.common.moplaf.solver.EnumLpConsType;
 import com.misc.common.moplaf.solver.EnumLpFileFormat;
 import com.misc.common.moplaf.solver.EnumLpVarType;
 import com.misc.common.moplaf.solver.EnumObjectiveType;
 import com.misc.common.moplaf.solver.Generator;
-import com.misc.common.moplaf.solver.GeneratorCons;
-import com.misc.common.moplaf.solver.GeneratorLpCons;
+import com.misc.common.moplaf.solver.GeneratorElement;
 import com.misc.common.moplaf.solver.GeneratorLpGoal;
+import com.misc.common.moplaf.solver.GeneratorLpLinear;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
-import com.misc.common.moplaf.solver.GeneratorTuple;
-import com.misc.common.moplaf.solver.GeneratorVar;
 import com.misc.common.moplaf.solver.ILpWriter;
-import com.misc.common.moplaf.solver.ITupleVisitor;
 import com.misc.common.moplaf.solver.Plugin;
 import com.misc.common.moplaf.solver.SolutionLp;
 import com.misc.common.moplaf.solver.SolutionVar;
@@ -520,7 +518,7 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 	GRBEnv   env   = null; 
 	GRBModel model = null;
 	private Map<GeneratorLpVar, GRBVar> vars;
-	private Map<GeneratorLpCons, GRBConstr> cons;
+	private Map<GeneratorElement, GRBConstr> cons;
 	 
 	private void releaseLp(){
 		// Free memory
@@ -541,12 +539,86 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 		
 	}
 	
+	/**
+     * Build the lp var
+	 */
+	@Override
+	protected void buildLpVarImpl(GeneratorLpVar var) throws Exception {
+		float lb = var.getLowerBound();
+		float ub = var.getUpperBound();
+		char kind = GRB.CONTINUOUS;
+		if ( !this.isSolverLinearRelaxation()
+				&& var.getType()==EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER)	{
+			kind = GRB.INTEGER;
+		}
+		String varname = var.getCode();
+		// create the variable
+		GRBVar grbvar = this.model.addVar(lb, ub, 0.0, kind, varname);
+	    // remember the variable  
+		SolverGurobiImpl.this.vars.put(var, grbvar);
+	}
+
+	/**
+     * Build the lp cons
+	 */
+	@Override
+	protected void buildLpConsImpl(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
+		GRBLinExpr expr = new GRBLinExpr();
+		for ( GeneratorLpTerm lpterm : linear.getLpTerm())	{
+			GeneratorLpVar lpvar = lpterm.getLpVar();
+			GRBVar grbvar = vars.get(lpvar);
+			float coefficient = lpterm.getCoeff();
+		    expr.addTerm(coefficient, grbvar); 
+		} // traverse the terms
+		// create the constraint
+		String rowname = element.getCode();
+		char kind = GRB.EQUAL;
+		switch ( type ) {
+		    case ENUM_LITERAL_LP_CONS_EQUAL:
+				kind = GRB.EQUAL;
+		        break;
+		    case ENUM_LITERAL_LP_CONS_BIGGER_OR_EQUAL:
+				kind = GRB.GREATER_EQUAL;
+		        break;
+		    case ENUM_LITERAL_LP_CONS_SMALLER_OR_EQUAL:
+				kind = GRB.LESS_EQUAL;
+		        break;
+	    }  // switch on constraint type
+	    GRBConstr grbcons = model.addConstr(expr, kind, rhs, rowname);				
+	    // remember the constraint
+		this.cons.put(element, grbcons );
+	}
+
+	/**
+     * Build the lp goal
+	 */
+	@Override
+	protected void buildLpGoalImpl(GeneratorLpGoal goal, float weight) throws Exception {
+		if ( goal != null) {
+			for ( GeneratorLpTerm goalTerm : goal.getLpTerm()){
+				// create the objective coefficient
+				GeneratorLpVar lpvar = goalTerm.getLpVar();
+				float coefficient = goalTerm.getCoeff();
+				if ( coefficient!=0.0f){
+					if ( goal.getObjectiveType()==EnumObjectiveType.MAXIMUM){
+						coefficient = - coefficient;
+					}
+					GRBVar grbvar = vars.get(lpvar);
+					grbvar.set(DoubleAttr.Obj, coefficient);
+				}
+			}
+		}
+	}
+
+
+	
+	/**
+     * Load the lp
+	 */
 	private void loadLp(){
 		this.releaseLp(); // release the current model, if any
 		Generator generator = this.getGenerator();
 		try {
-			// get the linear formulation
-
 			// create the environment
 			String solverlog = this.getSolverLog();
 			this.env = new GRBEnv(solverlog);
@@ -558,98 +630,17 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 			this.model = new GRBModel(env);
 			this.model.setCallback(new SolverCallback());
 
-			// create the variables
-			final EnumLpVarType integertype = EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER;
+			//  create the linear formulation
 			this.vars = new HashMap<GeneratorLpVar, GRBVar>();
-			class VarMapper implements ITupleVisitor{
-				@Override
-				public void visitTuple(GeneratorTuple tuple) throws Exception {
-					for ( GeneratorVar var : tuple.getVar()){
-						if ( !(var  instanceof GeneratorLpVar)){
-							throw new UnsupportedOperationException("Variable type not supported by solver: "+var.eClass().getName());
-						}
-						GeneratorLpVar lpvar = (GeneratorLpVar)var;
-						float lb = lpvar.getLowerBound();
-						float ub = lpvar.getUpperBound();
-						char kind = GRB.CONTINUOUS;
-						if ( !SolverGurobiImpl.this.isSolverLinearRelaxation()	&& lpvar.getType()==integertype)	{
-							kind = GRB.INTEGER;
-						}
-						String varname = lpvar.getCode();
-						// create the variable
-						GRBVar grbvar = SolverGurobiImpl.this.model.addVar(lb, ub, 0.0, kind, varname);
-					    // remember the variable  
-						SolverGurobiImpl.this.vars.put(lpvar, grbvar);
-						//CommonPlugin.INSTANCE.log("..var "+varnumber+","+lpvar.getECode());
-					}  // traverse the tuple vars
-				}  // visit tuple
-			}; // class visitor
-			VarMapper varmapper = new VarMapper();
-			generator.visitTuples(varmapper);
+			this.cons = new HashMap<GeneratorElement, GRBConstr>();
 
-			GeneratorLpGoal goal = (GeneratorLpGoal) this.getGoalToSolve();
-			if ( goal != null) {
-				for ( GeneratorLpTerm goalTerm : goal.getLpTerm()){
-					// create the objective coefficient
-					GeneratorLpVar lpvar = goalTerm.getLpVar();
-					float coefficient = goalTerm.getCoeff();
-					if ( coefficient!=0.0f){
-						GRBVar grbvar = vars.get(lpvar);
-						grbvar.set(DoubleAttr.Obj, coefficient);
-					}
-				}
-				int direction = GRB.MAXIMIZE;
-				if ( goal.getObjectiveType()==EnumObjectiveType.MINIMUM){
-					direction = GRB.MINIMIZE;
-				} else if ( goal.getObjectiveType()==EnumObjectiveType.MAXIMUM){
-					direction = GRB.MAXIMIZE;
-				}
-				this.model.set(GRB.IntAttr.ModelSense, direction);
-		    }  // switch on objective type
-
-			this.model.update();
+			
+			this.buildVars();
+			this.model.update(); // done after the vars and before the cons
+			this.buildCons();
+			this.buildGoals();
 		
-			// map the constraints
-			this.cons = new HashMap<GeneratorLpCons, GRBConstr>();
-			class ConsMapper implements ITupleVisitor{
-				@Override
-				public void visitTuple(GeneratorTuple tuple) throws Exception {
-					for ( GeneratorCons cons : tuple.getCons()){
-						if ( !(cons instanceof GeneratorLpCons)){
-							throw new UnsupportedOperationException("Constraint type not supported by solver: "+cons.eClass().getName());
-						}
-						GeneratorLpCons lpcons = (GeneratorLpCons)cons;
-						// create the linear expression
-						GRBLinExpr expr = new GRBLinExpr();
-						for ( GeneratorLpTerm lpterm : lpcons.getLpTerm())	{
-							GeneratorLpVar lpvar = lpterm.getLpVar();
-							GRBVar grbvar = vars.get(lpvar);
-							float coefficient = lpterm.getCoeff();
-						    expr.addTerm(coefficient, grbvar); 
-						} // traverse the terms
-						// create the constraint
-						String rowname = lpcons.getCode();
-						float rhs = lpcons.getRighHandSide();
-						char kind = GRB.EQUAL;
-						switch (lpcons.getType() ) {
-						    case ENUM_LITERAL_LP_CONS_EQUAL:
-								kind = GRB.EQUAL;
-						        break;
-						    case ENUM_LITERAL_LP_CONS_BIGGER_OR_EQUAL:
-								kind = GRB.GREATER_EQUAL;
-						        break;
-						    case ENUM_LITERAL_LP_CONS_SMALLER_OR_EQUAL:
-								kind = GRB.LESS_EQUAL;
-						        break;
-					    }  // switch on constraint type
-					    GRBConstr grbcons = model.addConstr(expr, kind, rhs, rowname);				
-					    // remember the constraint
-						SolverGurobiImpl.this.cons.put(lpcons, grbcons );
-					}  // traverse the constraints
-				}  // visit tuple
-			};  // class visitor
-			ConsMapper consmapper = new ConsMapper();
-			generator.visitTuples(consmapper);
+			this.model.set(GRB.IntAttr.ModelSense, GRB.MINIMIZE);
 		}
 		catch (Exception e)
 		{
@@ -693,7 +684,7 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 			if ( feasible || this.isSolverLinearRelaxation()) {
 				SolutionLp newSolution = (SolutionLp) this.constructSolution();
 				mipvalue = (float)model.get(GRB.DoubleAttr.ObjVal);
-				newSolution.setGoalValue(mipvalue);
+				newSolution.setValue(mipvalue);
 				for ( Map.Entry<GeneratorLpVar, GRBVar> varentry : this.vars.entrySet()) {
 					GeneratorLpVar lpvar = varentry.getKey();
 					SolutionVar solvervar = newSolution.constructSolutionVar(lpvar);
@@ -701,6 +692,7 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 					float optimalvalue = (float) grbvar.get(GRB.DoubleAttr.X);
 					solvervar.setOptimalValue(optimalvalue);
 				} // traverse the vars
+				this.makeSolutionGoals(newSolution);
 				if ( optimal) {
 					this.setSolOptimalityGap(0.0f);			
 				}

@@ -271,17 +271,14 @@
         <details key="documentation" value="Method to be called by the client to solve the lp and to produce the solution&#xA;"/>
       </eAnnotations>
     </eOperations>
-    <eOperations name="build" eExceptions="#//Exception"/>
+    <eOperations name="buildVars" eExceptions="#//Exception"/>
     <eOperations name="buildVar" eExceptions="#//Exception">
       <eParameters name="var" eType="#//GeneratorVar"/>
     </eOperations>
     <eOperations name="buildLpVar" eExceptions="#//Exception">
       <eParameters name="var" eType="#//GeneratorLpVar"/>
     </eOperations>
-    <eOperations name="buildLpGoal" eExceptions="#//Exception">
-      <eParameters name="goal" eType="#//GeneratorLpGoal"/>
-      <eParameters name="weight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    </eOperations>
+    <eOperations name="buildCons" eExceptions="#//Exception"/>
     <eOperations name="buildCons" eExceptions="#//Exception">
       <eParameters name="cons" eType="#//GeneratorCons"/>
     </eOperations>
@@ -293,6 +290,11 @@
       <eParameters name="linear" eType="#//GeneratorLpLinear"/>
       <eParameters name="rhs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
       <eParameters name="type" eType="#//EnumLpConsType"/>
+    </eOperations>
+    <eOperations name="buildGoals" eExceptions="#//Exception"/>
+    <eOperations name="buildLpGoal" eExceptions="#//Exception">
+      <eParameters name="goal" eType="#//GeneratorLpGoal"/>
+      <eParameters name="weight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     </eOperations>
     <eOperations name="constructSolverGoal" eType="#//SolverGeneratorGoal">
       <eParameters name="goal" eType="#//GeneratorGoal"/>

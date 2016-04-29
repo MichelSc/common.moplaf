@@ -255,7 +255,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 	 */
 	@Override
 	protected void buildLpConsImpl(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
-		IloLinearNumExpr expr = SolverCplexImpl.this.lp.linearNumExpr();
+		IloLinearNumExpr expr = this.lp.linearNumExpr();
 	    for ( GeneratorLpTerm lpterm : linear.getLpTerm())			{
 		    GeneratorLpVar lpvar = lpterm.getLpVar();
 		    IloNumVar cplexvar = vars.get(lpvar);
@@ -308,7 +308,9 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 			this.vars = new HashMap<GeneratorLpVar, IloNumVar>();
 			this.cons = new HashMap<GeneratorElement, IloRange>();
 			this.objective = this.lp.linearNumExpr();
-			this.build();
+			this.buildVars();
+			this.buildCons();
+			this.buildGoals();
 			this.lp.addMinimize(objective);
 		} 
 		catch (IloException e) {
