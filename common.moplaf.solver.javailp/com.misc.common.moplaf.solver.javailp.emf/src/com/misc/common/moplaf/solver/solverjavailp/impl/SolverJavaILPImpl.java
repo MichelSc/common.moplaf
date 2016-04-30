@@ -6,13 +6,14 @@ package com.misc.common.moplaf.solver.solverjavailp.impl;
 import java.io.FileOutputStream;
 import java.lang.reflect.InvocationTargetException;
 
+import com.misc.common.moplaf.solver.EnumLpConsType;
 import com.misc.common.moplaf.solver.EnumLpFileFormat;
 import com.misc.common.moplaf.solver.EnumLpVarType;
 import com.misc.common.moplaf.solver.EnumObjectiveType;
 import com.misc.common.moplaf.solver.Generator;
-import com.misc.common.moplaf.solver.GeneratorCons;
-import com.misc.common.moplaf.solver.GeneratorLpCons;
+import com.misc.common.moplaf.solver.GeneratorElement;
 import com.misc.common.moplaf.solver.GeneratorLpGoal;
+import com.misc.common.moplaf.solver.GeneratorLpLinear;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
 import com.misc.common.moplaf.solver.GeneratorTuple;
@@ -27,7 +28,6 @@ import com.misc.common.moplaf.solver.impl.SolverLpImpl;
 import com.misc.common.moplaf.solver.solverjavailp.SolverJavaILP;
 import com.misc.common.moplaf.solver.solverjavailp.SolverJavaILPType;
 import com.misc.common.moplaf.solver.solverjavailp.SolverjavailpPackage;
-
 
 import net.sf.javailp.Linear;
 import net.sf.javailp.OptType;
@@ -480,6 +480,70 @@ public class SolverJavaILPImpl extends SolverLpImpl implements SolverJavaILP {
 		this.factory = null;
 	}
 	
+	
+	/**
+     * Build the lp var
+	 */
+	@Override
+	protected void buildLpVarImpl(GeneratorLpVar var) throws Exception {
+		if ( !SolverJavaILPImpl.this.isSolverLinearRelaxation() 
+		 && var.getType()==EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER)	{
+			problem.setVarType(var.getCode(), Integer.class);
+		}
+		float lowerbound = var.getLowerBound();
+		if ( lowerbound>=0 ) {
+			problem.setVarLowerBound(var.getCode(), lowerbound);
+		}
+		float upperbound = var.getUpperBound();
+		problem.setVarUpperBound(var.getCode(), upperbound);
+	}
+
+	/**
+     * Build the lp cons
+	 */
+	@Override
+	protected void buildLpConsImpl(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
+		Linear linearconstraint = new Linear();
+	    for ( GeneratorLpTerm lpterm : linear.getLpTerm())			{
+		    GeneratorLpVar lpvar = lpterm.getLpVar();
+			linearconstraint.add(lpterm.getCoeff(), lpterm.getLpVar().getCode());
+	    } // traverse the terms
+		String sense = "<=";
+		switch ( type ) {
+	    case ENUM_LITERAL_LP_CONS_EQUAL:
+	        sense = "=";
+	        break;
+	    case ENUM_LITERAL_LP_CONS_BIGGER_OR_EQUAL:
+	        sense = ">=";
+	        break;
+	    case ENUM_LITERAL_LP_CONS_SMALLER_OR_EQUAL:
+	        sense = "<=";
+	        break;
+	    }  // switch on constraint type
+		problem.add(element.getCode(), linearconstraint, sense, rhs);
+	}
+
+	/**
+     * Build the lp goal
+	 */
+	@Override
+	protected void buildLpGoalImpl(GeneratorLpGoal goal, float weight) throws Exception {
+		for ( GeneratorLpTerm goalTerm : goal.getLpTerm()){
+			GeneratorLpVar lpvar = goalTerm.getLpVar();
+			float coefficient = goalTerm.getCoeff()*weight;
+			if ( goal.getObjectiveType()==EnumObjectiveType.MAXIMUM){
+				coefficient = - coefficient;
+			}
+			if ( coefficient!=0.0f){
+				this.problem.getObjective().add(coefficient, lpvar.getCode());
+			}
+		}
+	}
+
+	
+	/**
+     * Load the lp
+	 */
 	private void loadLp(){
 		this.releaseLp(); // release the current model, if any
 
@@ -519,87 +583,13 @@ public class SolverJavaILPImpl extends SolverLpImpl implements SolverJavaILP {
 			// problem initialization
 			this.problem = new Problem();
 			
+			Linear linearobjective = new Linear();
+			this.problem.setObjective(linearobjective, OptType.MIN);
 			
-			GeneratorLpGoal goal = (GeneratorLpGoal) this.getGoalToSolve();
-			if ( goal != null) {
-				final Linear linearobjective = new Linear();
-				for ( GeneratorLpTerm goalTerm : goal.getLpTerm()){
-					// create the objective coefficient
-					GeneratorLpVar lpvar = goalTerm.getLpVar();
-					float coefficient = goalTerm.getCoeff();
-					if ( coefficient!=0.0f){
-						linearobjective.add(coefficient, lpvar.getCode());
-					}
-				}
-				if ( linearobjective.size()==0 ) return ;
-				if ( goal.getObjectiveType()==EnumObjectiveType.MINIMUM){
-					this.problem.setObjective(linearobjective, OptType.MIN);
-				} else if ( goal.getObjectiveType()==EnumObjectiveType.MAXIMUM){
-					this.problem.setObjective(linearobjective, OptType.MAX);
-				}
-			}
+			this.buildCons();
+			this.buildGoals();
+			this.buildVars();
 			
-			// constraints
-			class ConsAdder implements ITupleVisitor{
-				@Override
-				public void visitTuple(GeneratorTuple tuple) {
-					for ( GeneratorCons cons : tuple.getCons()){
-						if ( !(cons instanceof GeneratorLpCons)){
-							throw new UnsupportedOperationException("Constraint type not supported by solver: "+cons.eClass().getName());
-						}
-						GeneratorLpCons lpcons = (GeneratorLpCons)cons;
-						Linear linearconstraint = new Linear();
-						for ( GeneratorLpTerm term : lpcons.getLpTerm())
-						{
-							linearconstraint.add(term.getCoeff(), term.getLpVar().getCode());
-						}
-						String sense = "<=";
-						switch (lpcons.getType() ) {
-					    case ENUM_LITERAL_LP_CONS_EQUAL:
-					        sense = "=";
-					        break;
-					    case ENUM_LITERAL_LP_CONS_BIGGER_OR_EQUAL:
-					        sense = ">=";
-					        break;
-					    case ENUM_LITERAL_LP_CONS_SMALLER_OR_EQUAL:
-					        sense = "<=";
-					        break;
-					    }  // switch on constraint type
-	//					CommonPlugin.INSTANCE.log("..lpcons "+lpcons.getECode());
-						problem.add(lpcons.getCode(), linearconstraint, sense, lpcons.getRighHandSide());
-					}
-				}
-			};
-			ConsAdder consadder = new ConsAdder();
-			generator.visitTuples(consadder);
-			
-	//		CommonPlugin.INSTANCE.log("..constraints generated");
-		    // variables types
-			final EnumLpVarType integertype = EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER;
-			class VarAdder implements ITupleVisitor{
-				@Override
-				public void visitTuple(GeneratorTuple tuple) {
-					for ( GeneratorVar var : tuple.getVar()){
-						if ( !(var  instanceof GeneratorLpVar)){
-							throw new UnsupportedOperationException("Variable type not supported by solver: "+var.eClass().getName());
-						}
-						GeneratorLpVar lpvar = (GeneratorLpVar)var;
-	//					CommonPlugin.INSTANCE.log("..lpvars"+lpvar.getECode());
-						if ( !SolverJavaILPImpl.this.isSolverLinearRelaxation() 
-						 && lpvar.getType()==integertype)	{
-							problem.setVarType(lpvar.getCode(), Integer.class);
-						}
-						float lowerbound = lpvar.getLowerBound();
-						if ( lowerbound>=0 ) {
-							problem.setVarLowerBound(lpvar.getCode(), lowerbound);
-						}
-						float upperbound = lpvar.getUpperBound();
-						problem.setVarUpperBound(lpvar.getCode(), upperbound);
-					}
-				}
-			};
-			VarAdder varadder = new VarAdder();
-			generator.visitTuples(varadder);
 		} 
 		catch (Exception e) {
 			Plugin.INSTANCE.logError("SolverJavaILP: load failed "+e);
@@ -625,7 +615,6 @@ public class SolverJavaILPImpl extends SolverLpImpl implements SolverJavaILP {
 		try {
 			Solver solver = this.factory.get();
 			final Result result = solver.solve(this.problem);
-			//Number objective = result.getObjective();
 			
 			this.onSolvingEnd();
 			
@@ -650,7 +639,6 @@ public class SolverJavaILPImpl extends SolverLpImpl implements SolverJavaILP {
 						for ( GeneratorVar var : tuple.getVar()){
 							Number optimalvalue = result.getPrimalValue(var.getCode());
 							if ( optimalvalue == null ){
-	//							CommonPlugin.INSTANCE.log("..var "+lpvar.getECode()+" : null optimal value");
 							}
 							else {
 								SolutionVar solvervar = this.solution.constructSolutionVar(var);
@@ -665,7 +653,8 @@ public class SolverJavaILPImpl extends SolverLpImpl implements SolverJavaILP {
 				SolutionLp newSolution = (SolutionLp)this.constructSolution();
 				VarSolProvider varsolprovider = new VarSolProvider(newSolution);
 				generator.visitTuples(varsolprovider);
-				newSolution.setGoalValue(objective);
+				newSolution.setValue(objective);
+				this.makeSolutionGoals(newSolution);
 			}  // there is a result
 		
 		this.setSolFeasible(feasible);

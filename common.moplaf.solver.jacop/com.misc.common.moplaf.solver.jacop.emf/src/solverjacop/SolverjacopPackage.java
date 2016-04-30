@@ -130,15 +130,6 @@ public interface SolverjacopPackage extends EPackage {
 	int SOLVER_JACOP__SOLVER_BACKGROUND = SolverPackage.SOLVER_CP__SOLVER_BACKGROUND;
 
 	/**
-	 * The feature id for the '<em><b>Sol Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_JACOP__SOL_VALUE = SolverPackage.SOLVER_CP__SOL_VALUE;
-
-	/**
 	 * The feature id for the '<em><b>Solver Log Level</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -229,6 +220,15 @@ public interface SolverjacopPackage extends EPackage {
 	int SOLVER_JACOP__RUN_REQUEST_TERMINATE = SolverPackage.SOLVER_CP__RUN_REQUEST_TERMINATE;
 
 	/**
+	 * The feature id for the '<em><b>Run Time Out</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP__RUN_TIME_OUT = SolverPackage.SOLVER_CP__RUN_TIME_OUT;
+
+	/**
 	 * The feature id for the '<em><b>Sol Unfeasible</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -256,6 +256,15 @@ public interface SolverjacopPackage extends EPackage {
 	int SOLVER_JACOP__SOL_OPTIMAL = SolverPackage.SOLVER_CP__SOL_OPTIMAL;
 
 	/**
+	 * The feature id for the '<em><b>Sol Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP__SOL_VALUE = SolverPackage.SOLVER_CP__SOL_VALUE;
+
+	/**
 	 * The feature id for the '<em><b>Run Interrupted</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -263,6 +272,15 @@ public interface SolverjacopPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_JACOP__RUN_INTERRUPTED = SolverPackage.SOLVER_CP__RUN_INTERRUPTED;
+
+	/**
+	 * The feature id for the '<em><b>Initializing</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP__INITIALIZING = SolverPackage.SOLVER_CP__INITIALIZING;
 
 	/**
 	 * The feature id for the '<em><b>Solving</b></em>' attribute.
@@ -292,33 +310,6 @@ public interface SolverjacopPackage extends EPackage {
 	int SOLVER_JACOP__FINISHED = SolverPackage.SOLVER_CP__FINISHED;
 
 	/**
-	 * The feature id for the '<em><b>Run Time Out</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_JACOP__RUN_TIME_OUT = SolverPackage.SOLVER_CP__RUN_TIME_OUT;
-
-	/**
-	 * The feature id for the '<em><b>Initializing</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_JACOP__INITIALIZING = SolverPackage.SOLVER_CP__INITIALIZING;
-
-	/**
-	 * The feature id for the '<em><b>Goal To Solve</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_JACOP__GOAL_TO_SOLVE = SolverPackage.SOLVER_CP__GOAL_TO_SOLVE;
-
-	/**
 	 * The feature id for the '<em><b>Initial Solution</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -326,6 +317,15 @@ public interface SolverjacopPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_JACOP__INITIAL_SOLUTION = SolverPackage.SOLVER_CP__INITIAL_SOLUTION;
+
+	/**
+	 * The feature id for the '<em><b>Goals</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP__GOALS = SolverPackage.SOLVER_CP__GOALS;
 
 	/**
 	 * The feature id for the '<em><b>Search All</b></em>' attribute.
@@ -355,6 +355,15 @@ public interface SolverjacopPackage extends EPackage {
 	int SOLVER_JACOP___GET_GENERATOR = SolverPackage.SOLVER_CP___GET_GENERATOR;
 
 	/**
+	 * The operation id for the '<em>Dispose</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP___DISPOSE = SolverPackage.SOLVER_CP___DISPOSE;
+
+	/**
 	 * The operation id for the '<em>Solution Factory</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -380,6 +389,123 @@ public interface SolverjacopPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_JACOP___SOLVE = SolverPackage.SOLVER_CP___SOLVE;
+
+	/**
+	 * The operation id for the '<em>Build Vars</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP___BUILD_VARS = SolverPackage.SOLVER_CP___BUILD_VARS;
+
+	/**
+	 * The operation id for the '<em>Build Var</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP___BUILD_VAR__GENERATORVAR = SolverPackage.SOLVER_CP___BUILD_VAR__GENERATORVAR;
+
+	/**
+	 * The operation id for the '<em>Build Lp Var</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP___BUILD_LP_VAR__GENERATORLPVAR = SolverPackage.SOLVER_CP___BUILD_LP_VAR__GENERATORLPVAR;
+
+	/**
+	 * The operation id for the '<em>Build Cons</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP___BUILD_CONS = SolverPackage.SOLVER_CP___BUILD_CONS;
+
+	/**
+	 * The operation id for the '<em>Build Cons</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP___BUILD_CONS__GENERATORCONS = SolverPackage.SOLVER_CP___BUILD_CONS__GENERATORCONS;
+
+	/**
+	 * The operation id for the '<em>Build Lp Cons</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP___BUILD_LP_CONS__GENERATORLPCONS = SolverPackage.SOLVER_CP___BUILD_LP_CONS__GENERATORLPCONS;
+
+	/**
+	 * The operation id for the '<em>Build Lp Cons</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE = SolverPackage.SOLVER_CP___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE;
+
+	/**
+	 * The operation id for the '<em>Build Goals</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP___BUILD_GOALS = SolverPackage.SOLVER_CP___BUILD_GOALS;
+
+	/**
+	 * The operation id for the '<em>Build Lp Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT = SolverPackage.SOLVER_CP___BUILD_LP_GOAL__GENERATORLPGOAL_FLOAT;
+
+	/**
+	 * The operation id for the '<em>Construct Solver Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP___CONSTRUCT_SOLVER_GOAL__GENERATORGOAL = SolverPackage.SOLVER_CP___CONSTRUCT_SOLVER_GOAL__GENERATORGOAL;
+
+	/**
+	 * The operation id for the '<em>Construct Solver Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP___CONSTRUCT_SOLVER_GOAL__SOLUTION = SolverPackage.SOLVER_CP___CONSTRUCT_SOLVER_GOAL__SOLUTION;
+
+	/**
+	 * The operation id for the '<em>Construct Solver Goal</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP___CONSTRUCT_SOLVER_GOAL__SOLVER = SolverPackage.SOLVER_CP___CONSTRUCT_SOLVER_GOAL__SOLVER;
+
+	/**
+	 * The operation id for the '<em>Make Solution Goals</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP___MAKE_SOLUTION_GOALS__SOLUTION = SolverPackage.SOLVER_CP___MAKE_SOLUTION_GOALS__SOLUTION;
 
 	/**
 	 * The number of operations of the '<em>Solver Jacop</em>' class.
