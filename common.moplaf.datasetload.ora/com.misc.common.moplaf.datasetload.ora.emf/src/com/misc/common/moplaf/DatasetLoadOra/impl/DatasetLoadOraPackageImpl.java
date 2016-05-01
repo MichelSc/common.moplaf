@@ -5,8 +5,7 @@ package com.misc.common.moplaf.DatasetLoadOra.impl;
 import com.misc.common.moplaf.DatasetLoadOra.DatasetLoadJdbcOraThin;
 import com.misc.common.moplaf.DatasetLoadOra.DatasetLoadOraFactory;
 import com.misc.common.moplaf.DatasetLoadOra.DatasetLoadOraPackage;
-
-import com.misc.common.moplaf.datasetload.DatasetloadPackage;
+import com.misc.common.moplaf.dbsynch.DatasetloadPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;

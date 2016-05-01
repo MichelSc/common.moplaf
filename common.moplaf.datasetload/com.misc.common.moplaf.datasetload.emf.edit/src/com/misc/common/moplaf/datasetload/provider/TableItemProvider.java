@@ -3,8 +3,6 @@
 package com.misc.common.moplaf.datasetload.provider;
 
 
-import com.misc.common.moplaf.datasetload.DatasetloadPackage;
-import com.misc.common.moplaf.datasetload.Table;
 import java.util.Collection;
 import java.util.List;
 import org.eclipse.emf.common.command.Command;
@@ -24,8 +22,11 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import com.misc.common.moplaf.dbsynch.DatasetloadPackage;
+import com.misc.common.moplaf.dbsynch.Table;
+
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.datasetload.Table} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.dbsynch.Table} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -315,7 +316,7 @@ public class TableItemProvider
 
 		@Override
 		public void execute() {
-			this.table.load();
+			this.table.synchUp();
 		}
 	} // class DataSourceConnectCommand
 

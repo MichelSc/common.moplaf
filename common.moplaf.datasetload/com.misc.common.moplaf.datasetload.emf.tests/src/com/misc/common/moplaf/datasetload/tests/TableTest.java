@@ -2,7 +2,7 @@
  */
 package com.misc.common.moplaf.datasetload.tests;
 
-import com.misc.common.moplaf.datasetload.Table;
+import com.misc.common.moplaf.dbsynch.Table;
 
 import junit.framework.TestCase;
 
@@ -13,24 +13,24 @@ import junit.framework.TestCase;
  * <p>
  * The following features are tested:
  * <ul>
- *   <li>{@link com.misc.common.moplaf.datasetload.Table#getName() <em>Name</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datasetload.Table#getTableGroup() <em>Table Group</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datasetload.Table#getRows() <em>Rows</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datasetload.Table#getParamTableGroupAttributes() <em>Param Table Group Attributes</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datasetload.Table#getSQLStatement() <em>SQL Statement</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datasetload.Table#getColumnTableRowAttributes() <em>Column Table Row Attributes</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datasetload.Table#getKeyColumns() <em>Key Columns</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getName() <em>Name</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getTableGroup() <em>Table Group</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getRows() <em>Rows</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getParamTableGroupAttributes() <em>Param Table Group Attributes</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getSQLStatement() <em>SQL Statement</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getColumnTableRowAttributes() <em>Column Table Row Attributes</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getKeyColumns() <em>Key Columns</em>}</li>
  * </ul>
  * </p>
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link com.misc.common.moplaf.datasetload.Table#load() <em>Load</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datasetload.Table#newRow() <em>New Row</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datasetload.Table#addRow(com.misc.common.moplaf.datasetload.TableRow) <em>Add Row</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datasetload.Table#getRow(com.misc.common.moplaf.datasetload.impl.TableRowKeyImpl) <em>Get Row</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datasetload.Table#removeRow(com.misc.common.moplaf.datasetload.TableRow) <em>Remove Row</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datasetload.Table#refresh() <em>Refresh</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.Table#load() <em>Load</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.Table#newRow() <em>New Row</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.Table#addRow(com.misc.common.moplaf.dbsynch.TableRow) <em>Add Row</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getRow(com.misc.common.moplaf.datasetload.impl.TableRowKeyImpl) <em>Get Row</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.Table#removeRow(com.misc.common.moplaf.dbsynch.TableRow) <em>Remove Row</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.Table#refresh() <em>Refresh</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -76,10 +76,10 @@ public abstract class TableTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link com.misc.common.moplaf.datasetload.Table#getName() <em>Name</em>}' feature getter.
+	 * Tests the '{@link com.misc.common.moplaf.dbsynch.Table#getName() <em>Name</em>}' feature getter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datasetload.Table#getName()
+	 * @see com.misc.common.moplaf.dbsynch.Table#getName()
 	 * @generated
 	 */
 	public void testGetName() {
@@ -89,10 +89,10 @@ public abstract class TableTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link com.misc.common.moplaf.datasetload.Table#getTableGroup() <em>Table Group</em>}' feature getter.
+	 * Tests the '{@link com.misc.common.moplaf.dbsynch.Table#getTableGroup() <em>Table Group</em>}' feature getter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datasetload.Table#getTableGroup()
+	 * @see com.misc.common.moplaf.dbsynch.Table#getTableGroup()
 	 * @generated
 	 */
 	public void testGetTableGroup() {
@@ -102,10 +102,10 @@ public abstract class TableTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link com.misc.common.moplaf.datasetload.Table#getRows() <em>Rows</em>}' feature getter.
+	 * Tests the '{@link com.misc.common.moplaf.dbsynch.Table#getRows() <em>Rows</em>}' feature getter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datasetload.Table#getRows()
+	 * @see com.misc.common.moplaf.dbsynch.Table#getRows()
 	 * @generated
 	 */
 	public void testGetRows() {
@@ -115,10 +115,10 @@ public abstract class TableTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link com.misc.common.moplaf.datasetload.Table#getParamTableGroupAttributes() <em>Param Table Group Attributes</em>}' feature getter.
+	 * Tests the '{@link com.misc.common.moplaf.dbsynch.Table#getParamTableGroupAttributes() <em>Param Table Group Attributes</em>}' feature getter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datasetload.Table#getParamTableGroupAttributes()
+	 * @see com.misc.common.moplaf.dbsynch.Table#getParamTableGroupAttributes()
 	 * @generated
 	 */
 	public void testGetParamTableGroupAttributes() {
@@ -128,10 +128,10 @@ public abstract class TableTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link com.misc.common.moplaf.datasetload.Table#getSQLStatement() <em>SQL Statement</em>}' feature getter.
+	 * Tests the '{@link com.misc.common.moplaf.dbsynch.Table#getSQLStatement() <em>SQL Statement</em>}' feature getter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datasetload.Table#getSQLStatement()
+	 * @see com.misc.common.moplaf.dbsynch.Table#getSQLStatement()
 	 * @generated
 	 */
 	public void testGetSQLStatement() {
@@ -141,10 +141,10 @@ public abstract class TableTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link com.misc.common.moplaf.datasetload.Table#getColumnTableRowAttributes() <em>Column Table Row Attributes</em>}' feature getter.
+	 * Tests the '{@link com.misc.common.moplaf.dbsynch.Table#getColumnTableRowAttributes() <em>Column Table Row Attributes</em>}' feature getter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datasetload.Table#getColumnTableRowAttributes()
+	 * @see com.misc.common.moplaf.dbsynch.Table#getColumnTableRowAttributes()
 	 * @generated
 	 */
 	public void testGetColumnTableRowAttributes() {
@@ -154,10 +154,10 @@ public abstract class TableTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link com.misc.common.moplaf.datasetload.Table#getKeyColumns() <em>Key Columns</em>}' feature getter.
+	 * Tests the '{@link com.misc.common.moplaf.dbsynch.Table#getKeyColumns() <em>Key Columns</em>}' feature getter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datasetload.Table#getKeyColumns()
+	 * @see com.misc.common.moplaf.dbsynch.Table#getKeyColumns()
 	 * @generated
 	 */
 	public void testGetKeyColumns() {
@@ -167,10 +167,10 @@ public abstract class TableTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link com.misc.common.moplaf.datasetload.Table#load() <em>Load</em>}' operation.
+	 * Tests the '{@link com.misc.common.moplaf.dbsynch.Table#load() <em>Load</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datasetload.Table#load()
+	 * @see com.misc.common.moplaf.dbsynch.Table#load()
 	 * @generated
 	 */
 	public void testLoad() {
@@ -180,10 +180,10 @@ public abstract class TableTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link com.misc.common.moplaf.datasetload.Table#newRow() <em>New Row</em>}' operation.
+	 * Tests the '{@link com.misc.common.moplaf.dbsynch.Table#newRow() <em>New Row</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datasetload.Table#newRow()
+	 * @see com.misc.common.moplaf.dbsynch.Table#newRow()
 	 * @generated
 	 */
 	public void testNewRow() {
@@ -193,10 +193,10 @@ public abstract class TableTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link com.misc.common.moplaf.datasetload.Table#addRow(com.misc.common.moplaf.datasetload.TableRow) <em>Add Row</em>}' operation.
+	 * Tests the '{@link com.misc.common.moplaf.dbsynch.Table#addRow(com.misc.common.moplaf.dbsynch.TableRow) <em>Add Row</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datasetload.Table#addRow(com.misc.common.moplaf.datasetload.TableRow)
+	 * @see com.misc.common.moplaf.dbsynch.Table#addRow(com.misc.common.moplaf.dbsynch.TableRow)
 	 * @generated
 	 */
 	public void testAddRow__TableRow() {
@@ -206,10 +206,10 @@ public abstract class TableTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link com.misc.common.moplaf.datasetload.Table#getRow(com.misc.common.moplaf.datasetload.impl.TableRowKeyImpl) <em>Get Row</em>}' operation.
+	 * Tests the '{@link com.misc.common.moplaf.dbsynch.Table#getRow(com.misc.common.moplaf.datasetload.impl.TableRowKeyImpl) <em>Get Row</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datasetload.Table#getRow(com.misc.common.moplaf.datasetload.impl.TableRowKeyImpl)
+	 * @see com.misc.common.moplaf.dbsynch.Table#getRow(com.misc.common.moplaf.datasetload.impl.TableRowKeyImpl)
 	 * @generated
 	 */
 	public void testGetRow__TableRowKeyImpl() {
@@ -219,10 +219,10 @@ public abstract class TableTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link com.misc.common.moplaf.datasetload.Table#removeRow(com.misc.common.moplaf.datasetload.TableRow) <em>Remove Row</em>}' operation.
+	 * Tests the '{@link com.misc.common.moplaf.dbsynch.Table#removeRow(com.misc.common.moplaf.dbsynch.TableRow) <em>Remove Row</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datasetload.Table#removeRow(com.misc.common.moplaf.datasetload.TableRow)
+	 * @see com.misc.common.moplaf.dbsynch.Table#removeRow(com.misc.common.moplaf.dbsynch.TableRow)
 	 * @generated
 	 */
 	public void testRemoveRow__TableRow() {
@@ -232,10 +232,10 @@ public abstract class TableTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link com.misc.common.moplaf.datasetload.Table#refresh() <em>Refresh</em>}' operation.
+	 * Tests the '{@link com.misc.common.moplaf.dbsynch.Table#refresh() <em>Refresh</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datasetload.Table#refresh()
+	 * @see com.misc.common.moplaf.dbsynch.Table#refresh()
 	 * @generated
 	 */
 	public void testRefresh() {

@@ -2,7 +2,7 @@
  */
 package com.misc.common.moplaf.DatasetLoadMariaDb;
 
-import com.misc.common.moplaf.datasetload.DataSourceJdbc;
+import com.misc.common.moplaf.dbsynch.DataSourceJdbc;
 
 /**
  * <!-- begin-user-doc -->

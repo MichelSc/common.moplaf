@@ -2,7 +2,7 @@
  */
 package com.misc.common.moplaf.datasetload.tests;
 
-import com.misc.common.moplaf.datasetload.DataSource;
+import com.misc.common.moplaf.dbsynch.DataSource;
 
 import junit.framework.TestCase;
 
@@ -13,9 +13,9 @@ import junit.framework.TestCase;
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link com.misc.common.moplaf.datasetload.DataSource#connect() <em>Connect</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datasetload.DataSource#disconnect() <em>Disconnect</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datasetload.DataSource#loadTableImpl(com.misc.common.moplaf.datasetload.Table) <em>Load Table Impl</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.DataSource#connect() <em>Connect</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.DataSource#disconnect() <em>Disconnect</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.DataSource#loadTableImpl(com.misc.common.moplaf.dbsynch.Table) <em>Load Table Impl</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -61,10 +61,10 @@ public abstract class DataSourceTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link com.misc.common.moplaf.datasetload.DataSource#connect() <em>Connect</em>}' operation.
+	 * Tests the '{@link com.misc.common.moplaf.dbsynch.DataSource#connect() <em>Connect</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datasetload.DataSource#connect()
+	 * @see com.misc.common.moplaf.dbsynch.DataSource#connect()
 	 * @generated
 	 */
 	public void testConnect() {
@@ -74,10 +74,10 @@ public abstract class DataSourceTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link com.misc.common.moplaf.datasetload.DataSource#disconnect() <em>Disconnect</em>}' operation.
+	 * Tests the '{@link com.misc.common.moplaf.dbsynch.DataSource#disconnect() <em>Disconnect</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datasetload.DataSource#disconnect()
+	 * @see com.misc.common.moplaf.dbsynch.DataSource#disconnect()
 	 * @generated
 	 */
 	public void testDisconnect() {
@@ -87,10 +87,10 @@ public abstract class DataSourceTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link com.misc.common.moplaf.datasetload.DataSource#loadTableImpl(com.misc.common.moplaf.datasetload.Table) <em>Load Table Impl</em>}' operation.
+	 * Tests the '{@link com.misc.common.moplaf.dbsynch.DataSource#loadTableImpl(com.misc.common.moplaf.dbsynch.Table) <em>Load Table Impl</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datasetload.DataSource#loadTableImpl(com.misc.common.moplaf.datasetload.Table)
+	 * @see com.misc.common.moplaf.dbsynch.DataSource#loadTableImpl(com.misc.common.moplaf.dbsynch.Table)
 	 * @generated
 	 */
 	public void testLoadTableImpl__Table() {

@@ -2,7 +2,7 @@
  */
 package com.misc.common.moplaf.datasetload.tests;
 
-import com.misc.common.moplaf.datasetload.TableGroup;
+import com.misc.common.moplaf.dbsynch.TableGroup;
 
 import junit.framework.TestCase;
 
@@ -13,15 +13,15 @@ import junit.framework.TestCase;
  * <p>
  * The following features are tested:
  * <ul>
- *   <li>{@link com.misc.common.moplaf.datasetload.TableGroup#getTables() <em>Tables</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datasetload.TableGroup#getDataSource() <em>Data Source</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.TableGroup#getTables() <em>Tables</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.TableGroup#getDataSource() <em>Data Source</em>}</li>
  * </ul>
  * </p>
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link com.misc.common.moplaf.datasetload.TableGroup#load() <em>Load</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datasetload.TableGroup#refresh() <em>Refresh</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.TableGroup#load() <em>Load</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.TableGroup#refresh() <em>Refresh</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -67,10 +67,10 @@ public abstract class TableGroupTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link com.misc.common.moplaf.datasetload.TableGroup#getTables() <em>Tables</em>}' feature getter.
+	 * Tests the '{@link com.misc.common.moplaf.dbsynch.TableGroup#getTables() <em>Tables</em>}' feature getter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datasetload.TableGroup#getTables()
+	 * @see com.misc.common.moplaf.dbsynch.TableGroup#getTables()
 	 * @generated
 	 */
 	public void testGetTables() {
@@ -80,10 +80,10 @@ public abstract class TableGroupTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link com.misc.common.moplaf.datasetload.TableGroup#getDataSource() <em>Data Source</em>}' feature getter.
+	 * Tests the '{@link com.misc.common.moplaf.dbsynch.TableGroup#getDataSource() <em>Data Source</em>}' feature getter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datasetload.TableGroup#getDataSource()
+	 * @see com.misc.common.moplaf.dbsynch.TableGroup#getDataSource()
 	 * @generated
 	 */
 	public void testGetDataSource() {
@@ -93,10 +93,10 @@ public abstract class TableGroupTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link com.misc.common.moplaf.datasetload.TableGroup#load() <em>Load</em>}' operation.
+	 * Tests the '{@link com.misc.common.moplaf.dbsynch.TableGroup#load() <em>Load</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datasetload.TableGroup#load()
+	 * @see com.misc.common.moplaf.dbsynch.TableGroup#load()
 	 * @generated
 	 */
 	public void testLoad() {
@@ -106,10 +106,10 @@ public abstract class TableGroupTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link com.misc.common.moplaf.datasetload.TableGroup#refresh() <em>Refresh</em>}' operation.
+	 * Tests the '{@link com.misc.common.moplaf.dbsynch.TableGroup#refresh() <em>Refresh</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datasetload.TableGroup#refresh()
+	 * @see com.misc.common.moplaf.dbsynch.TableGroup#refresh()
 	 * @generated
 	 */
 	public void testRefresh() {

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.dbsynch.emf/src" modelPluginID="com.misc.common.moplaf.dbsynch.emf"
+    modelName="dbsynch" modelPluginClass="com.misc.common.moplaf.dbsynch.Plugin" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>dbsynch.ecore</foreignModel>
+  <genPackages prefix="DbSynch" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
+      ecorePackage="dbsynch.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="dbsynch.ecore#//EnumModification">
+      <genEnumLiterals ecoreEnumLiteral="dbsynch.ecore#//EnumModification/ENUM_MODIFICATION_NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="dbsynch.ecore#//EnumModification/ENUM_MODIFICATION_INSERT"/>
+      <genEnumLiterals ecoreEnumLiteral="dbsynch.ecore#//EnumModification/ENUM_MODIFICATION_UPDATE"/>
+      <genEnumLiterals ecoreEnumLiteral="dbsynch.ecore#//EnumModification/ENUM_MODIFICATION_DELETE"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="dbsynch.ecore#//EAttribute"/>
+    <genDataTypes ecoreDataType="dbsynch.ecore#//TableRowKey"/>
+    <genDataTypes ecoreDataType="dbsynch.ecore#//TableColumnTentative"/>
+    <genClasses ecoreClass="dbsynch.ecore#//DataSource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//DataSource/Name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//DataSource/Connected"/>
+      <genOperations ecoreOperation="dbsynch.ecore#//DataSource/connect"/>
+      <genOperations ecoreOperation="dbsynch.ecore#//DataSource/disconnect"/>
+      <genOperations ecoreOperation="dbsynch.ecore#//DataSource/synchDownTableImpl">
+        <genParameters ecoreParameter="dbsynch.ecore#//DataSource/synchDownTableImpl/table"/>
+      </genOperations>
+      <genOperations ecoreOperation="dbsynch.ecore#//DataSource/synchUpTableImpl">
+        <genParameters ecoreParameter="dbsynch.ecore#//DataSource/synchUpTableImpl/table"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="dbsynch.ecore#//TableGroup">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableGroup/Name"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference dbsynch.ecore#//TableGroup/Tables"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference dbsynch.ecore#//TableGroup/DataSource"/>
+      <genOperations ecoreOperation="dbsynch.ecore#//TableGroup/refreshMetaData"/>
+      <genOperations ecoreOperation="dbsynch.ecore#//TableGroup/synchDown"/>
+      <genOperations ecoreOperation="dbsynch.ecore#//TableGroup/synchUp"/>
+      <genOperations ecoreOperation="dbsynch.ecore#//TableGroup/refresh"/>
+    </genClasses>
+    <genClasses ecoreClass="dbsynch.ecore#//Table">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference dbsynch.ecore#//Table/TableGroup"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference dbsynch.ecore#//Table/Rows"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//Table/TableName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//Table/WhereClause"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//Table/NumberOfRows"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//Table/LastSynchDown"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//Table/LastSynchUp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dbsynch.ecore#//Table/Columns"/>
+      <genOperations ecoreOperation="dbsynch.ecore#//Table/addColumn">
+        <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn/column"/>
+        <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn/columnNumber"/>
+        <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn/keyNumber"/>
+        <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn/attribute"/>
+      </genOperations>
+      <genOperations ecoreOperation="dbsynch.ecore#//Table/refreshMetaData"/>
+      <genOperations ecoreOperation="dbsynch.ecore#//Table/synchDown"/>
+      <genOperations ecoreOperation="dbsynch.ecore#//Table/synchUp"/>
+      <genOperations ecoreOperation="dbsynch.ecore#//Table/refresh"/>
+      <genOperations ecoreOperation="dbsynch.ecore#//Table/getRow">
+        <genParameters ecoreParameter="dbsynch.ecore#//Table/getRow/key"/>
+      </genOperations>
+      <genOperations ecoreOperation="dbsynch.ecore#//Table/rowFactory"/>
+      <genOperations ecoreOperation="dbsynch.ecore#//Table/addRow">
+        <genParameters ecoreParameter="dbsynch.ecore#//Table/addRow/row"/>
+      </genOperations>
+      <genOperations ecoreOperation="dbsynch.ecore#//Table/removeRow">
+        <genParameters ecoreParameter="dbsynch.ecore#//Table/removeRow/row"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="dbsynch.ecore#//TableRow">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference dbsynch.ecore#//TableRow/Table"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableRow/Key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableRow/ModificationLastSynchUp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableRow/ModificationNextSynchDown"/>
+      <genOperations ecoreOperation="dbsynch.ecore#//TableRow/refresh"/>
+    </genClasses>
+    <genClasses ecoreClass="dbsynch.ecore#//DataSourceJdbc">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//DataSourceJdbc/DataBaseUser"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//DataSourceJdbc/DataBaseUserPwd"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//DataSourceJdbc/DefaultSchema"/>
+    </genClasses>
+    <genClasses ecoreClass="dbsynch.ecore#//TableColumn">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableColumn/ColumnName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableColumn/ColumnNumber"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableColumn/KeyNumber"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableColumn/RowAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableColumn/Volatile"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

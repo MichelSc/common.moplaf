@@ -2,7 +2,7 @@
  */
 package com.misc.common.moplaf.datasetload.tests;
 
-import com.misc.common.moplaf.datasetload.TableRow;
+import com.misc.common.moplaf.dbsynch.TableRow;
 
 import junit.framework.TestCase;
 
@@ -13,14 +13,14 @@ import junit.framework.TestCase;
  * <p>
  * The following features are tested:
  * <ul>
- *   <li>{@link com.misc.common.moplaf.datasetload.TableRow#getTable() <em>Table</em>}</li>
- *   <li>{@link com.misc.common.moplaf.datasetload.TableRow#getKey() <em>Key</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.TableRow#getTable() <em>Table</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.TableRow#getKey() <em>Key</em>}</li>
  * </ul>
  * </p>
  * <p>
  * The following operations are tested:
  * <ul>
- *   <li>{@link com.misc.common.moplaf.datasetload.TableRow#refresh() <em>Refresh</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.TableRow#refresh() <em>Refresh</em>}</li>
  * </ul>
  * </p>
  * @generated
@@ -66,10 +66,10 @@ public abstract class TableRowTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link com.misc.common.moplaf.datasetload.TableRow#getTable() <em>Table</em>}' feature getter.
+	 * Tests the '{@link com.misc.common.moplaf.dbsynch.TableRow#getTable() <em>Table</em>}' feature getter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datasetload.TableRow#getTable()
+	 * @see com.misc.common.moplaf.dbsynch.TableRow#getTable()
 	 * @generated
 	 */
 	public void testGetTable() {
@@ -79,10 +79,10 @@ public abstract class TableRowTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link com.misc.common.moplaf.datasetload.TableRow#getKey() <em>Key</em>}' feature getter.
+	 * Tests the '{@link com.misc.common.moplaf.dbsynch.TableRow#getKey() <em>Key</em>}' feature getter.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datasetload.TableRow#getKey()
+	 * @see com.misc.common.moplaf.dbsynch.TableRow#getKey()
 	 * @generated
 	 */
 	public void testGetKey() {
@@ -92,10 +92,10 @@ public abstract class TableRowTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link com.misc.common.moplaf.datasetload.TableRow#refresh() <em>Refresh</em>}' operation.
+	 * Tests the '{@link com.misc.common.moplaf.dbsynch.TableRow#refresh() <em>Refresh</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.datasetload.TableRow#refresh()
+	 * @see com.misc.common.moplaf.dbsynch.TableRow#refresh()
 	 * @generated
 	 */
 	public void testRefresh() {

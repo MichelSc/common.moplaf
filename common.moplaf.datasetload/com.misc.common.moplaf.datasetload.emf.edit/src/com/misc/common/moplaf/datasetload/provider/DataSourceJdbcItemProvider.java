@@ -3,9 +3,6 @@
 package com.misc.common.moplaf.datasetload.provider;
 
 
-import com.misc.common.moplaf.datasetload.DataSourceJdbc;
-import com.misc.common.moplaf.datasetload.DatasetloadPackage;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -17,8 +14,11 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import com.misc.common.moplaf.dbsynch.DataSourceJdbc;
+import com.misc.common.moplaf.dbsynch.DatasetloadPackage;
+
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.datasetload.DataSourceJdbc} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.dbsynch.DataSourceJdbc} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated

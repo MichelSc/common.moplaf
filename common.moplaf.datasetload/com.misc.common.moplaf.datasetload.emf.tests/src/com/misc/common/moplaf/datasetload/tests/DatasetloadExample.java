@@ -2,10 +2,6 @@
  */
 package com.misc.common.moplaf.datasetload.tests;
 
-import com.misc.common.moplaf.datasetload.DataSourceJdbc;
-import com.misc.common.moplaf.datasetload.DatasetloadFactory;
-import com.misc.common.moplaf.datasetload.DatasetloadPackage;
-
 import java.io.File;
 import java.io.IOException;
 
@@ -22,6 +18,10 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.Diagnostician;
 
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+
+import com.misc.common.moplaf.dbsynch.DataSourceJdbc;
+import com.misc.common.moplaf.dbsynch.DatasetloadFactory;
+import com.misc.common.moplaf.dbsynch.DatasetloadPackage;
 
 /**
  * <!-- begin-user-doc -->

@@ -11,10 +11,10 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.dataextractor.DataSorterFeature#getSortedFeature <em>Sorted Feature</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.dataextractor.DataextractorPackage#getDataSorterFeature()
  * @model

@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 import com.misc.common.moplaf.DatasetLoadOra.DatasetLoadJdbcOraThin;
 import com.misc.common.moplaf.DatasetLoadOra.DatasetLoadOraPackage;
-import com.misc.common.moplaf.datasetload.impl.DataSourceJdbcImpl;
+import com.misc.common.moplaf.dbsynch.impl.DataSourceJdbcImpl;
 
 import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;

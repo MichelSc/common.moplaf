@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 import com.misc.common.moplaf.DatasetLoadMariaDb.DatasetLoadJdbcMariaDb;
 import com.misc.common.moplaf.DatasetLoadMariaDb.DatasetLoadMariaDbPackage;
-import com.misc.common.moplaf.datasetload.impl.DataSourceJdbcImpl;
+import com.misc.common.moplaf.dbsynch.impl.DataSourceJdbcImpl;
 
 import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;

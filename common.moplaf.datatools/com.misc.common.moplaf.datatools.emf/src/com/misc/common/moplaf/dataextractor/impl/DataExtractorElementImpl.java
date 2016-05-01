@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.dataextractor.impl.DataExtractorElementImpl#getDataExtractor <em>Data Extractor</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dataextractor.impl.DataExtractorElementImpl#getSequence <em>Sequence</em>}</li>
@@ -38,7 +39,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.dataextractor.impl.DataExtractorElementImpl#getPrevious <em>Previous</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dataextractor.impl.DataExtractorElementImpl#getSelectors <em>Selectors</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

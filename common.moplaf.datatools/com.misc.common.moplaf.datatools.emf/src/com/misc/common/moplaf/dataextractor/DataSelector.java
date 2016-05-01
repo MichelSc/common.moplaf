@@ -11,11 +11,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.dataextractor.DataSelector#getExtractorElement <em>Extractor Element</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dataextractor.DataSelector#getDescription <em>Description</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.dataextractor.DataextractorPackage#getDataSelector()
  * @model abstract="true"

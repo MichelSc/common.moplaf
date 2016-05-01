@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.dataextractor.DataExtractor#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dataextractor.DataExtractor#getSourceObject <em>Source Object</em>}</li>
@@ -29,7 +30,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.dataextractor.DataExtractor#getNumberOfExtracted <em>Number Of Extracted</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dataextractor.DataExtractor#getURISave <em>URI Save</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.dataextractor.DataextractorPackage#getDataExtractor()
  * @model

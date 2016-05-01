@@ -11,10 +11,10 @@ import org.eclipse.emf.ecore.EReference;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.dataextractor.DataExtractorReference#getExtractorReference <em>Extractor Reference</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.dataextractor.DataextractorPackage#getDataExtractorReference()
  * @model

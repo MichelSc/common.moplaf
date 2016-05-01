@@ -26,11 +26,11 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.dataextractor.impl.DataSelectorImpl#getExtractorElement <em>Extractor Element</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dataextractor.impl.DataSelectorImpl#getDescription <em>Description</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

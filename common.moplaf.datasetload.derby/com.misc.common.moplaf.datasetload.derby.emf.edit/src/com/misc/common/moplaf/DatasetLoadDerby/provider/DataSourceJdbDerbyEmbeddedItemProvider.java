@@ -3,10 +3,9 @@
 package com.misc.common.moplaf.DatasetLoadDerby.provider;
 
 
-import com.misc.common.moplaf.DatasetLoadDerby.DataSourceJdbDerbyEmbedded;
-import com.misc.common.moplaf.DatasetLoadDerby.DatasetLoadDerbyPackage;
-
 import com.misc.common.moplaf.datasetload.provider.DataSourceJdbcItemProvider;
+import com.misc.common.moplaf.dbsynch.derby.DataSourceJdbDerbyEmbedded;
+import com.misc.common.moplaf.dbsynch.derby.DatasetLoadDerbyPackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -22,7 +21,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.DatasetLoadDerby.DataSourceJdbDerbyEmbedded} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.dbsynch.derby.DataSourceJdbDerbyEmbedded} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated

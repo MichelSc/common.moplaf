@@ -5,8 +5,7 @@ package com.misc.common.moplaf.DatasetLoadMariaDb.impl;
 import com.misc.common.moplaf.DatasetLoadMariaDb.DatasetLoadJdbcMariaDb;
 import com.misc.common.moplaf.DatasetLoadMariaDb.DatasetLoadMariaDbFactory;
 import com.misc.common.moplaf.DatasetLoadMariaDb.DatasetLoadMariaDbPackage;
-
-import com.misc.common.moplaf.datasetload.DatasetloadPackage;
+import com.misc.common.moplaf.dbsynch.DatasetloadPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;

@@ -3,9 +3,8 @@
 package com.misc.common.moplaf.DatasetLoadMariaDb.util;
 
 import com.misc.common.moplaf.DatasetLoadMariaDb.*;
-
-import com.misc.common.moplaf.datasetload.DataSource;
-import com.misc.common.moplaf.datasetload.DataSourceJdbc;
+import com.misc.common.moplaf.dbsynch.DataSource;
+import com.misc.common.moplaf.dbsynch.DataSourceJdbc;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -117,13 +116,13 @@ public class DatasetLoadMariaDbAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datasetload.DataSource <em>Data Source</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.dbsynch.DataSource <em>Data Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.datasetload.DataSource
+	 * @see com.misc.common.moplaf.dbsynch.DataSource
 	 * @generated
 	 */
 	public Adapter createDataSourceAdapter() {
@@ -131,13 +130,13 @@ public class DatasetLoadMariaDbAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.datasetload.DataSourceJdbc <em>Data Source Jdbc</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.dbsynch.DataSourceJdbc <em>Data Source Jdbc</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.datasetload.DataSourceJdbc
+	 * @see com.misc.common.moplaf.dbsynch.DataSourceJdbc
 	 * @generated
 	 */
 	public Adapter createDataSourceJdbcAdapter() {

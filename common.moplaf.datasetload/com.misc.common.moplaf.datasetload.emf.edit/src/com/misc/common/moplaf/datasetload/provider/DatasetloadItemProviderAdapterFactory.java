@@ -2,8 +2,6 @@
  */
 package com.misc.common.moplaf.datasetload.provider;
 
-import com.misc.common.moplaf.datasetload.util.DatasetloadAdapterFactory;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -22,6 +20,8 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+
+import com.misc.common.moplaf.dbsynch.util.DatasetloadAdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -72,7 +72,7 @@ public class DatasetloadItemProviderAdapterFactory extends DatasetloadAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.datasetload.DataSourceJdbc} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.dbsynch.DataSourceJdbc} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -80,7 +80,7 @@ public class DatasetloadItemProviderAdapterFactory extends DatasetloadAdapterFac
 	protected DataSourceJdbcItemProvider dataSourceJdbcItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.datasetload.DataSourceJdbc}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.dbsynch.DataSourceJdbc}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

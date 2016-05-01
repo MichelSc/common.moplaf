@@ -38,6 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.dataextractor.impl.DataExtractorImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dataextractor.impl.DataExtractorImpl#getSourceObject <em>Source Object</em>}</li>
@@ -53,7 +54,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.dataextractor.impl.DataExtractorImpl#getNumberOfExtracted <em>Number Of Extracted</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dataextractor.impl.DataExtractorImpl#getURISave <em>URI Save</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

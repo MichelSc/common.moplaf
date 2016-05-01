@@ -19,10 +19,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.dataextractor.impl.DataSorterFeatureImpl#getSortedFeature <em>Sorted Feature</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

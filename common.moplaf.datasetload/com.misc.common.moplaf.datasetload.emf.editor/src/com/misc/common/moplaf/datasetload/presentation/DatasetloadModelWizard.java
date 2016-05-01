@@ -69,10 +69,9 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
-import com.misc.common.moplaf.datasetload.DatasetloadFactory;
-import com.misc.common.moplaf.datasetload.DatasetloadPackage;
 import com.misc.common.moplaf.datasetload.provider.DatasetloadEditPlugin;
-
+import com.misc.common.moplaf.dbsynch.DatasetloadFactory;
+import com.misc.common.moplaf.dbsynch.DatasetloadPackage;
 
 import org.eclipse.core.runtime.Path;
 

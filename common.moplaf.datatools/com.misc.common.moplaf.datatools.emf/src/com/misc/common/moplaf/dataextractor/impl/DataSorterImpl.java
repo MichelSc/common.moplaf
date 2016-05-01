@@ -29,13 +29,13 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.dataextractor.impl.DataSorterImpl#getSequence <em>Sequence</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dataextractor.impl.DataSorterImpl#getSense <em>Sense</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dataextractor.impl.DataSorterImpl#getDataExtractor <em>Data Extractor</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dataextractor.impl.DataSorterImpl#getDescription <em>Description</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

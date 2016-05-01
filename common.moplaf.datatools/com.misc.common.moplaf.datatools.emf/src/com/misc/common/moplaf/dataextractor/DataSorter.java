@@ -11,13 +11,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.dataextractor.DataSorter#getSequence <em>Sequence</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dataextractor.DataSorter#getSense <em>Sense</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dataextractor.DataSorter#getDataExtractor <em>Data Extractor</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dataextractor.DataSorter#getDescription <em>Description</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.dataextractor.DataextractorPackage#getDataSorter()
  * @model abstract="true"

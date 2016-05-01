@@ -3,8 +3,6 @@
 package com.misc.common.moplaf.datasetload.provider;
 
 
-import com.misc.common.moplaf.datasetload.DatasetloadPackage;
-import com.misc.common.moplaf.datasetload.TableGroup;
 import java.util.Collection;
 import java.util.List;
 import org.eclipse.emf.common.command.Command;
@@ -24,8 +22,11 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import com.misc.common.moplaf.dbsynch.DatasetloadPackage;
+import com.misc.common.moplaf.dbsynch.TableGroup;
+
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.datasetload.TableGroup} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.dbsynch.TableGroup} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -171,7 +172,7 @@ public class TableGroupItemProvider
 
 		@Override
 		public void execute() {
-			this.tableGroup.load();
+			this.tableGroup.synchUp();
 		}
 	} // class TableGroupLoadCommand
 

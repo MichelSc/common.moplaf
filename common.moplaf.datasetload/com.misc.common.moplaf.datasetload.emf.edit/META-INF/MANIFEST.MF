@@ -10,6 +10,6 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: com.misc.common.moplaf.datasetload.provider
 Require-Bundle: org.eclipse.core.runtime,
- com.misc.common.moplaf.datasetload.emf;visibility:=reexport,
+ com.misc.common.moplaf.dbsynch.emf;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

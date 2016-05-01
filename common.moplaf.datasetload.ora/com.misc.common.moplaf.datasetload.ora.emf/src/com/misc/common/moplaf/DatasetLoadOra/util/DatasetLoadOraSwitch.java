@@ -3,9 +3,8 @@
 package com.misc.common.moplaf.DatasetLoadOra.util;
 
 import com.misc.common.moplaf.DatasetLoadOra.*;
-
-import com.misc.common.moplaf.datasetload.DataSource;
-import com.misc.common.moplaf.datasetload.DataSourceJdbc;
+import com.misc.common.moplaf.dbsynch.DataSource;
+import com.misc.common.moplaf.dbsynch.DataSourceJdbc;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;

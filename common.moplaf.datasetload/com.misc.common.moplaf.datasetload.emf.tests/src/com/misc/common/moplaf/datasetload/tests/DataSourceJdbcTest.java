@@ -2,8 +2,8 @@
  */
 package com.misc.common.moplaf.datasetload.tests;
 
-import com.misc.common.moplaf.datasetload.DataSourceJdbc;
-import com.misc.common.moplaf.datasetload.DatasetloadFactory;
+import com.misc.common.moplaf.dbsynch.DataSourceJdbc;
+import com.misc.common.moplaf.dbsynch.DatasetloadFactory;
 
 import junit.textui.TestRunner;
 

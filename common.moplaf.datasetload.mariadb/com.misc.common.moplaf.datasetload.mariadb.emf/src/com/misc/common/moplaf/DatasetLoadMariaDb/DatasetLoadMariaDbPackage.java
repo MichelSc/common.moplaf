@@ -2,11 +2,11 @@
  */
 package com.misc.common.moplaf.DatasetLoadMariaDb;
 
-import com.misc.common.moplaf.datasetload.DatasetloadPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+
+import com.misc.common.moplaf.dbsynch.DatasetloadPackage;
 
 /**
  * <!-- begin-user-doc -->

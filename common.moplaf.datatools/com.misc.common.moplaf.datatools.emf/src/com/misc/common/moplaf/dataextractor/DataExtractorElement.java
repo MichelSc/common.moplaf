@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.dataextractor.DataExtractorElement#getDataExtractor <em>Data Extractor</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dataextractor.DataExtractorElement#getSequence <em>Sequence</em>}</li>
@@ -22,7 +23,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.dataextractor.DataExtractorElement#getPrevious <em>Previous</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dataextractor.DataExtractorElement#getSelectors <em>Selectors</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.dataextractor.DataextractorPackage#getDataExtractorElement()
  * @model abstract="true"
