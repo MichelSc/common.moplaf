@@ -7,7 +7,7 @@
             category="com.misc.common.moplaf.preference.pageMain"
             class="com.misc.common.moplaf.dbsynch.preference.PreferencePage"
             id="com.misc.common.moplaf.dbsynch.preference.page"
-            name="Solver">
+            name="DbSynch">
       </page>
    </extension>
    <extension
