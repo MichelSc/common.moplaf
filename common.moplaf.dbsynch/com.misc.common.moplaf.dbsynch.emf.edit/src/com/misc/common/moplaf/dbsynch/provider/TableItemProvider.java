@@ -204,7 +204,7 @@ public class TableItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Table_SelectSqlStatement_feature", "_UI_Table_type"),
 				 DbSynchPackage.Literals.TABLE__SELECT_SQL_STATEMENT,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -226,7 +226,7 @@ public class TableItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Table_InsertSqlStatement_feature", "_UI_Table_type"),
 				 DbSynchPackage.Literals.TABLE__INSERT_SQL_STATEMENT,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -248,7 +248,7 @@ public class TableItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Table_UpdateSqlStatement_feature", "_UI_Table_type"),
 				 DbSynchPackage.Literals.TABLE__UPDATE_SQL_STATEMENT,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -270,7 +270,7 @@ public class TableItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Table_DeleteSqlStatement_feature", "_UI_Table_type"),
 				 DbSynchPackage.Literals.TABLE__DELETE_SQL_STATEMENT,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -367,7 +367,6 @@ public class TableItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Table.class)) {
-			case DbSynchPackage.TABLE__COLUMNS:
 			case DbSynchPackage.TABLE__ROWS:
 			case DbSynchPackage.TABLE__TABLE_NAME:
 			case DbSynchPackage.TABLE__WHERE_CLAUSE:
@@ -379,6 +378,7 @@ public class TableItemProvider
 			case DbSynchPackage.TABLE__UPDATE_SQL_STATEMENT:
 			case DbSynchPackage.TABLE__DELETE_SQL_STATEMENT:
 			case DbSynchPackage.TABLE__PARAM_TABLE_GROUP_ATTRIBUTES:
+			case DbSynchPackage.TABLE__COLUMNS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DbSynchPackage.TABLE__KEY_COLUMNS:

@@ -41,25 +41,57 @@ import com.misc.common.moplaf.dbsynch.TableRow;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getTableGroup <em>Table Group</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getKeyColumns <em>Key Columns</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getDataColumns <em>Data Columns</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getRows <em>Rows</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getTableName <em>Table Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getWhereClause <em>Where Clause</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getNumberOfRows <em>Number Of Rows</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getLastSynchDown <em>Last Synch Down</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getLastSynchUp <em>Last Synch Up</em>}</li>
- *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getDataColumns <em>Data Columns</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getSelectSqlStatement <em>Select Sql Statement</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getInsertSqlStatement <em>Insert Sql Statement</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getUpdateSqlStatement <em>Update Sql Statement</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getDeleteSqlStatement <em>Delete Sql Statement</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getParamTableGroupAttributes <em>Param Table Group Attributes</em>}</li>
- *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getKeyColumns <em>Key Columns</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getColumns <em>Columns</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class TableImpl extends MinimalEObjectImpl.Container implements Table {
+
+	protected HashMap<TableRowKeyImpl, TableRow> rowIndex = null;
+	
+	protected Map<TableRowKeyImpl, TableRow> getRowIndex(){
+		if ( this.rowIndex==null){
+			this.rowIndex = new HashMap<TableRowKeyImpl, TableRow>();
+			for ( TableRow row : this.getRows()){
+				this.rowIndex.put(row.getKey(), row);
+			}
+		}
+		return this.rowIndex;
+	}
+
+	/**
+	 * The cached value of the '{@link #getKeyColumns() <em>Key Columns</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyColumns()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TableColumn> keyColumns;
+
+	/**
+	 * The cached value of the '{@link #getDataColumns() <em>Data Columns</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDataColumns()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TableColumn> dataColumns;
 
 	/**
 	 * The default value of the '{@link #getTableName() <em>Table Name</em>}' attribute.
@@ -100,18 +132,6 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected String whereClause = WHERE_CLAUSE_EDEFAULT;
-
-	protected HashMap<TableRowKeyImpl, TableRow> rowIndex = null;
-	
-	protected Map<TableRowKeyImpl, TableRow> getRowIndex(){
-		if ( this.rowIndex==null){
-			this.rowIndex = new HashMap<TableRowKeyImpl, TableRow>();
-			for ( TableRow row : this.getRows()){
-				this.rowIndex.put(row.getKey(), row);
-			}
-		}
-		return this.rowIndex;
-	}
 
 	/**
 	 * The default value of the '{@link #getNumberOfRows() <em>Number Of Rows</em>}' attribute.
@@ -172,16 +192,6 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected Date lastSynchUp = LAST_SYNCH_UP_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getDataColumns() <em>Data Columns</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDataColumns()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<TableColumn> dataColumns;
 
 	/**
 	 * The default value of the '{@link #getSelectSqlStatement() <em>Select Sql Statement</em>}' attribute.
@@ -272,16 +282,6 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected EList<EAttribute> paramTableGroupAttributes;
-
-	/**
-	 * The cached value of the '{@link #getKeyColumns() <em>Key Columns</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getKeyColumns()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<TableColumn> keyColumns;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -549,12 +549,12 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public EList<TableColumn> getColumns() {
 		EObjectEList<TableColumn> newList = new EObjectEList<TableColumn>(TableColumn.class, this, DbSynchPackage.TABLE__COLUMNS);
-		for ( EObject object : this.eContents()){
-			if ( object instanceof TableColumn){
-				TableColumn var= (TableColumn)object;
-				newList.addUnique(var);
-			}
-		}
+		for ( TableColumn object : this.getKeyColumns()){
+			newList.addUnique(object);
+	}
+		for ( TableColumn object : this.getDataColumns()){
+			newList.addUnique(object);
+	}
 		return newList;
 	}
 
@@ -668,7 +668,7 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TableRow rowFactory() {
+	public TableRow constructRow() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -692,10 +692,10 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DbSynchPackage.TABLE__DATA_COLUMNS:
-				return ((InternalEList<?>)getDataColumns()).basicRemove(otherEnd, msgs);
 			case DbSynchPackage.TABLE__KEY_COLUMNS:
 				return ((InternalEList<?>)getKeyColumns()).basicRemove(otherEnd, msgs);
+			case DbSynchPackage.TABLE__DATA_COLUMNS:
+				return ((InternalEList<?>)getDataColumns()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -734,6 +734,10 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 			case DbSynchPackage.TABLE__TABLE_GROUP:
 				if (resolve) return getTableGroup();
 				return basicGetTableGroup();
+			case DbSynchPackage.TABLE__KEY_COLUMNS:
+				return getKeyColumns();
+			case DbSynchPackage.TABLE__DATA_COLUMNS:
+				return getDataColumns();
 			case DbSynchPackage.TABLE__ROWS:
 				return getRows();
 			case DbSynchPackage.TABLE__TABLE_NAME:
@@ -746,8 +750,6 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 				return getLastSynchDown();
 			case DbSynchPackage.TABLE__LAST_SYNCH_UP:
 				return getLastSynchUp();
-			case DbSynchPackage.TABLE__DATA_COLUMNS:
-				return getDataColumns();
 			case DbSynchPackage.TABLE__SELECT_SQL_STATEMENT:
 				return getSelectSqlStatement();
 			case DbSynchPackage.TABLE__INSERT_SQL_STATEMENT:
@@ -758,8 +760,6 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 				return getDeleteSqlStatement();
 			case DbSynchPackage.TABLE__PARAM_TABLE_GROUP_ATTRIBUTES:
 				return getParamTableGroupAttributes();
-			case DbSynchPackage.TABLE__KEY_COLUMNS:
-				return getKeyColumns();
 			case DbSynchPackage.TABLE__COLUMNS:
 				return getColumns();
 		}
@@ -775,6 +775,14 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case DbSynchPackage.TABLE__KEY_COLUMNS:
+				getKeyColumns().clear();
+				getKeyColumns().addAll((Collection<? extends TableColumn>)newValue);
+				return;
+			case DbSynchPackage.TABLE__DATA_COLUMNS:
+				getDataColumns().clear();
+				getDataColumns().addAll((Collection<? extends TableColumn>)newValue);
+				return;
 			case DbSynchPackage.TABLE__TABLE_NAME:
 				setTableName((String)newValue);
 				return;
@@ -789,10 +797,6 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 				return;
 			case DbSynchPackage.TABLE__LAST_SYNCH_UP:
 				setLastSynchUp((Date)newValue);
-				return;
-			case DbSynchPackage.TABLE__DATA_COLUMNS:
-				getDataColumns().clear();
-				getDataColumns().addAll((Collection<? extends TableColumn>)newValue);
 				return;
 			case DbSynchPackage.TABLE__SELECT_SQL_STATEMENT:
 				setSelectSqlStatement((String)newValue);
@@ -810,10 +814,6 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 				getParamTableGroupAttributes().clear();
 				getParamTableGroupAttributes().addAll((Collection<? extends EAttribute>)newValue);
 				return;
-			case DbSynchPackage.TABLE__KEY_COLUMNS:
-				getKeyColumns().clear();
-				getKeyColumns().addAll((Collection<? extends TableColumn>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -826,6 +826,12 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case DbSynchPackage.TABLE__KEY_COLUMNS:
+				getKeyColumns().clear();
+				return;
+			case DbSynchPackage.TABLE__DATA_COLUMNS:
+				getDataColumns().clear();
+				return;
 			case DbSynchPackage.TABLE__TABLE_NAME:
 				setTableName(TABLE_NAME_EDEFAULT);
 				return;
@@ -840,9 +846,6 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 				return;
 			case DbSynchPackage.TABLE__LAST_SYNCH_UP:
 				setLastSynchUp(LAST_SYNCH_UP_EDEFAULT);
-				return;
-			case DbSynchPackage.TABLE__DATA_COLUMNS:
-				getDataColumns().clear();
 				return;
 			case DbSynchPackage.TABLE__SELECT_SQL_STATEMENT:
 				setSelectSqlStatement(SELECT_SQL_STATEMENT_EDEFAULT);
@@ -859,9 +862,6 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 			case DbSynchPackage.TABLE__PARAM_TABLE_GROUP_ATTRIBUTES:
 				getParamTableGroupAttributes().clear();
 				return;
-			case DbSynchPackage.TABLE__KEY_COLUMNS:
-				getKeyColumns().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -876,6 +876,10 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case DbSynchPackage.TABLE__TABLE_GROUP:
 				return basicGetTableGroup() != null;
+			case DbSynchPackage.TABLE__KEY_COLUMNS:
+				return keyColumns != null && !keyColumns.isEmpty();
+			case DbSynchPackage.TABLE__DATA_COLUMNS:
+				return dataColumns != null && !dataColumns.isEmpty();
 			case DbSynchPackage.TABLE__ROWS:
 				return !getRows().isEmpty();
 			case DbSynchPackage.TABLE__TABLE_NAME:
@@ -888,8 +892,6 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 				return LAST_SYNCH_DOWN_EDEFAULT == null ? lastSynchDown != null : !LAST_SYNCH_DOWN_EDEFAULT.equals(lastSynchDown);
 			case DbSynchPackage.TABLE__LAST_SYNCH_UP:
 				return LAST_SYNCH_UP_EDEFAULT == null ? lastSynchUp != null : !LAST_SYNCH_UP_EDEFAULT.equals(lastSynchUp);
-			case DbSynchPackage.TABLE__DATA_COLUMNS:
-				return dataColumns != null && !dataColumns.isEmpty();
 			case DbSynchPackage.TABLE__SELECT_SQL_STATEMENT:
 				return SELECT_SQL_STATEMENT_EDEFAULT == null ? selectSqlStatement != null : !SELECT_SQL_STATEMENT_EDEFAULT.equals(selectSqlStatement);
 			case DbSynchPackage.TABLE__INSERT_SQL_STATEMENT:
@@ -900,8 +902,6 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 				return DELETE_SQL_STATEMENT_EDEFAULT == null ? deleteSqlStatement != null : !DELETE_SQL_STATEMENT_EDEFAULT.equals(deleteSqlStatement);
 			case DbSynchPackage.TABLE__PARAM_TABLE_GROUP_ATTRIBUTES:
 				return paramTableGroupAttributes != null && !paramTableGroupAttributes.isEmpty();
-			case DbSynchPackage.TABLE__KEY_COLUMNS:
-				return keyColumns != null && !keyColumns.isEmpty();
 			case DbSynchPackage.TABLE__COLUMNS:
 				return !getColumns().isEmpty();
 		}
@@ -933,8 +933,8 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 				return null;
 			case DbSynchPackage.TABLE___GET_ROW__TABLEROWKEYIMPL:
 				return getRow((TableRowKeyImpl)arguments.get(0));
-			case DbSynchPackage.TABLE___ROW_FACTORY:
-				return rowFactory();
+			case DbSynchPackage.TABLE___CONSTRUCT_ROW:
+				return constructRow();
 			case DbSynchPackage.TABLE___ADD_ROW__TABLEROW:
 				addRow((TableRow)arguments.get(0));
 				return null;

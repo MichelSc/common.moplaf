@@ -62,7 +62,7 @@
     <eOperations name="getRow" eType="#//TableRow">
       <eParameters name="key" eType="#//TableRowKey"/>
     </eOperations>
-    <eOperations name="rowFactory" eType="#//TableRow"/>
+    <eOperations name="constructRow" eType="#//TableRow"/>
     <eOperations name="addRow">
       <eParameters name="row" eType="#//TableRow"/>
     </eOperations>

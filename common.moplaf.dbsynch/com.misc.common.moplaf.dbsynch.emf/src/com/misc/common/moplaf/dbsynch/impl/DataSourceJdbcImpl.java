@@ -470,7 +470,14 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		    	TableRow row = table.getRow(key);
 		    	if ( row == null ){
 		    		// create, the row is now owned
-			    	row = table.rowFactory();
+			    	row = table.constructRow();
+			    	keyIndex = 0;
+			    	for ( TableColumn keyColumn : table.getKeyColumns()){
+		    			Object keyValue = key.getKey(keyIndex);
+		    			row.eSet(keyColumn.getRowAttribute(), keyValue);
+			    		keyIndex++;
+			    	} // traverse the columns
+			    	table.addRow(row);
 			    	nofcreates++;
 			    	row.setModificationLastSynchUp(EnumModification.ENUM_MODIFICATION_INSERT);
 		    	}
@@ -489,6 +496,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		    	} // traverse the columns
 		    	// the row is now up to date and owned
 		    	row.refresh();
+		    	rowIndex++;
 		     } // traverse the rows of the result set
 			CommonPlugin.INSTANCE.log("..Result set traversed, rows "+String.format("%d", rowIndex));
 			table.setNumberOfRows(rowIndex);

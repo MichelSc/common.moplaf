@@ -255,58 +255,13 @@ public interface DbSynchPackage extends EPackage {
 	int TABLE__TABLE_GROUP = 0;
 
 	/**
-	 * The feature id for the '<em><b>Rows</b></em>' reference list.
+	 * The feature id for the '<em><b>Key Columns</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__ROWS = 1;
-
-	/**
-	 * The feature id for the '<em><b>Table Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__TABLE_NAME = 2;
-
-	/**
-	 * The feature id for the '<em><b>Where Clause</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__WHERE_CLAUSE = 3;
-
-	/**
-	 * The feature id for the '<em><b>Number Of Rows</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__NUMBER_OF_ROWS = 4;
-
-	/**
-	 * The feature id for the '<em><b>Last Synch Down</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__LAST_SYNCH_DOWN = 5;
-
-	/**
-	 * The feature id for the '<em><b>Last Synch Up</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__LAST_SYNCH_UP = 6;
+	int TABLE__KEY_COLUMNS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Data Columns</b></em>' containment reference list.
@@ -315,7 +270,61 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__DATA_COLUMNS = 7;
+	int TABLE__DATA_COLUMNS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Rows</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__ROWS = 3;
+
+	/**
+	 * The feature id for the '<em><b>Table Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__TABLE_NAME = 4;
+
+	/**
+	 * The feature id for the '<em><b>Where Clause</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__WHERE_CLAUSE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Number Of Rows</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__NUMBER_OF_ROWS = 6;
+
+	/**
+	 * The feature id for the '<em><b>Last Synch Down</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__LAST_SYNCH_DOWN = 7;
+
+	/**
+	 * The feature id for the '<em><b>Last Synch Up</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__LAST_SYNCH_UP = 8;
 
 	/**
 	 * The feature id for the '<em><b>Select Sql Statement</b></em>' attribute.
@@ -324,7 +333,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__SELECT_SQL_STATEMENT = 8;
+	int TABLE__SELECT_SQL_STATEMENT = 9;
 
 	/**
 	 * The feature id for the '<em><b>Insert Sql Statement</b></em>' attribute.
@@ -333,7 +342,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__INSERT_SQL_STATEMENT = 9;
+	int TABLE__INSERT_SQL_STATEMENT = 10;
 
 	/**
 	 * The feature id for the '<em><b>Update Sql Statement</b></em>' attribute.
@@ -342,7 +351,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__UPDATE_SQL_STATEMENT = 10;
+	int TABLE__UPDATE_SQL_STATEMENT = 11;
 
 	/**
 	 * The feature id for the '<em><b>Delete Sql Statement</b></em>' attribute.
@@ -351,7 +360,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__DELETE_SQL_STATEMENT = 11;
+	int TABLE__DELETE_SQL_STATEMENT = 12;
 
 	/**
 	 * The feature id for the '<em><b>Param Table Group Attributes</b></em>' attribute list.
@@ -360,16 +369,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__PARAM_TABLE_GROUP_ATTRIBUTES = 12;
-
-	/**
-	 * The feature id for the '<em><b>Key Columns</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__KEY_COLUMNS = 13;
+	int TABLE__PARAM_TABLE_GROUP_ATTRIBUTES = 13;
 
 	/**
 	 * The feature id for the '<em><b>Columns</b></em>' reference list.
@@ -444,13 +444,13 @@ public interface DbSynchPackage extends EPackage {
 	int TABLE___GET_ROW__TABLEROWKEYIMPL = 5;
 
 	/**
-	 * The operation id for the '<em>Row Factory</em>' operation.
+	 * The operation id for the '<em>Construct Row</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___ROW_FACTORY = 6;
+	int TABLE___CONSTRUCT_ROW = 6;
 
 	/**
 	 * The operation id for the '<em>Add Row</em>' operation.
@@ -1160,14 +1160,14 @@ public interface DbSynchPackage extends EPackage {
 	EOperation getTable__GetRow__TableRowKeyImpl();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#rowFactory() <em>Row Factory</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#constructRow() <em>Construct Row</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Row Factory</em>' operation.
-	 * @see com.misc.common.moplaf.dbsynch.Table#rowFactory()
+	 * @return the meta object for the '<em>Construct Row</em>' operation.
+	 * @see com.misc.common.moplaf.dbsynch.Table#constructRow()
 	 * @generated
 	 */
-	EOperation getTable__RowFactory();
+	EOperation getTable__ConstructRow();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#removeRow(com.misc.common.moplaf.dbsynch.TableRow) <em>Remove Row</em>}' operation.
@@ -1706,12 +1706,12 @@ public interface DbSynchPackage extends EPackage {
 		EOperation TABLE___GET_ROW__TABLEROWKEYIMPL = eINSTANCE.getTable__GetRow__TableRowKeyImpl();
 
 		/**
-		 * The meta object literal for the '<em><b>Row Factory</b></em>' operation.
+		 * The meta object literal for the '<em><b>Construct Row</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation TABLE___ROW_FACTORY = eINSTANCE.getTable__RowFactory();
+		EOperation TABLE___CONSTRUCT_ROW = eINSTANCE.getTable__ConstructRow();
 
 		/**
 		 * The meta object literal for the '<em><b>Remove Row</b></em>' operation.

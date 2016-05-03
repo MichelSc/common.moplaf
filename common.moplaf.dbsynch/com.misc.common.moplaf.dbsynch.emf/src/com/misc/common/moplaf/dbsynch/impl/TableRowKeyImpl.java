@@ -14,6 +14,11 @@ public class TableRowKeyImpl {
 		this.keys = keys;
 	}
 	
+	// accessor
+	public Object getKey(int index){
+		return this.keys[index];
+	}
+	
 	// equals
 	public boolean equals(Object other){
 	  

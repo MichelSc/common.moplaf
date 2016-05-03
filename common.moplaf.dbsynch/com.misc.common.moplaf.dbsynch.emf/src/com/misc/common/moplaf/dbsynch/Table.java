@@ -18,19 +18,19 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getTableGroup <em>Table Group</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getKeyColumns <em>Key Columns</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getDataColumns <em>Data Columns</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getRows <em>Rows</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getTableName <em>Table Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getWhereClause <em>Where Clause</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getNumberOfRows <em>Number Of Rows</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getLastSynchDown <em>Last Synch Down</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getLastSynchUp <em>Last Synch Up</em>}</li>
- *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getDataColumns <em>Data Columns</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getSelectSqlStatement <em>Select Sql Statement</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getInsertSqlStatement <em>Insert Sql Statement</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getUpdateSqlStatement <em>Update Sql Statement</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getDeleteSqlStatement <em>Delete Sql Statement</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getParamTableGroupAttributes <em>Param Table Group Attributes</em>}</li>
- *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getKeyColumns <em>Key Columns</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getColumns <em>Columns</em>}</li>
  * </ul>
  *
@@ -428,7 +428,7 @@ public interface Table extends EObject {
 	 * @model
 	 * @generated
 	 */
-	TableRow rowFactory();
+	TableRow constructRow();
 
 	/**
 	 * <!-- begin-user-doc -->
