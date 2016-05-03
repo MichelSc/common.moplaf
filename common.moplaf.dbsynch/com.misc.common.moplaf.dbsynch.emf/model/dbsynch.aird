@@ -307,10 +307,6 @@
                 <styles xmi:type="notation:FontStyle" xmi:id="_Ba2YgQ-XEeaWzbSulejOwQ" fontColor="2697711" fontName="Sans" fontHeight="8"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_Ba2Ygg-XEeaWzbSulejOwQ"/>
               </children>
-              <children xmi:type="notation:Node" xmi:id="_O9jIgA-XEeaWzbSulejOwQ" type="3010" element="_O9VtIA-XEeaWzbSulejOwQ">
-                <styles xmi:type="notation:FontStyle" xmi:id="_O9jIgQ-XEeaWzbSulejOwQ" fontColor="2697711" fontName="Sans" fontHeight="8"/>
-                <layoutConstraint xmi:type="notation:Location" xmi:id="_O9jIgg-XEeaWzbSulejOwQ"/>
-              </children>
               <children xmi:type="notation:Node" xmi:id="_xXU_oA-YEeaWzbSulejOwQ" type="3010" element="_xXKAgA-YEeaWzbSulejOwQ">
                 <styles xmi:type="notation:FontStyle" xmi:id="_xXU_oQ-YEeaWzbSulejOwQ" fontColor="2697711" fontName="Sans" fontHeight="8"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_xXU_og-YEeaWzbSulejOwQ"/>
@@ -1035,14 +1031,6 @@
           <target xmi:type="ecore:EAttribute" href="dbsynch.ecore#//TableColumn/ColumnName"/>
           <semanticElements xmi:type="ecore:EAttribute" href="dbsynch.ecore#//TableColumn/ColumnName"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_GubyAA-XEeaWzbSulejOwQ" labelAlignment="LEFT">
-            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
-          </ownedStyle>
-          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
-        </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_O9VtIA-XEeaWzbSulejOwQ" name="RowAttribute : EAttribute" tooltipText="">
-          <target xmi:type="ecore:EAttribute" href="dbsynch.ecore#//TableColumn/RowAttribute"/>
-          <semanticElements xmi:type="ecore:EAttribute" href="dbsynch.ecore#//TableColumn/RowAttribute"/>
-          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_hEA-oA-XEeaWzbSulejOwQ" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>

@@ -669,8 +669,8 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTableColumn_RowAttribute() {
-		return (EAttribute)tableColumnEClass.getEStructuralFeatures().get(1);
+	public EReference getTableColumn_RowAttribute() {
+		return (EReference)tableColumnEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -679,7 +679,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * @generated
 	 */
 	public EAttribute getTableColumn_Volatile() {
-		return (EAttribute)tableColumnEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)tableColumnEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -767,8 +767,8 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 
 		tableColumnEClass = createEClass(TABLE_COLUMN);
 		createEAttribute(tableColumnEClass, TABLE_COLUMN__COLUMN_NAME);
-		createEAttribute(tableColumnEClass, TABLE_COLUMN__ROW_ATTRIBUTE);
 		createEAttribute(tableColumnEClass, TABLE_COLUMN__VOLATILE);
+		createEReference(tableColumnEClass, TABLE_COLUMN__ROW_ATTRIBUTE);
 
 		// Create enums
 		enumModificationEEnum = createEEnum(ENUM_MODIFICATION);
@@ -894,8 +894,8 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 
 		initEClass(tableColumnEClass, TableColumn.class, "TableColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTableColumn_ColumnName(), ecorePackage.getEString(), "ColumnName", null, 0, 1, TableColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTableColumn_RowAttribute(), this.getEAttribute(), "RowAttribute", null, 0, 1, TableColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTableColumn_Volatile(), ecorePackage.getEBoolean(), "Volatile", "false", 0, 1, TableColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTableColumn_RowAttribute(), ecorePackage.getEAttribute(), null, "RowAttribute", null, 0, 1, TableColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(enumModificationEEnum, EnumModification.class, "EnumModification");

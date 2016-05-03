@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -22,8 +23,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableColumnImpl#getColumnName <em>Column Name</em>}</li>
- *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableColumnImpl#getRowAttribute <em>Row Attribute</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableColumnImpl#isVolatile <em>Volatile</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableColumnImpl#getRowAttribute <em>Row Attribute</em>}</li>
  * </ul>
  *
  * @generated
@@ -50,26 +51,6 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 	protected String columnName = COLUMN_NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getRowAttribute() <em>Row Attribute</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRowAttribute()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final EAttribute ROW_ATTRIBUTE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getRowAttribute() <em>Row Attribute</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRowAttribute()
-	 * @generated
-	 * @ordered
-	 */
-	protected EAttribute rowAttribute = ROW_ATTRIBUTE_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #isVolatile() <em>Volatile</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -88,6 +69,16 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 	 * @ordered
 	 */
 	protected boolean volatile_ = VOLATILE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getRowAttribute() <em>Row Attribute</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRowAttribute()
+	 * @generated
+	 * @ordered
+	 */
+	protected EAttribute rowAttribute;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -135,6 +126,23 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 	 * @generated
 	 */
 	public EAttribute getRowAttribute() {
+		if (rowAttribute != null && rowAttribute.eIsProxy()) {
+			InternalEObject oldRowAttribute = (InternalEObject)rowAttribute;
+			rowAttribute = (EAttribute)eResolveProxy(oldRowAttribute);
+			if (rowAttribute != oldRowAttribute) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE, oldRowAttribute, rowAttribute));
+			}
+		}
+		return rowAttribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute basicGetRowAttribute() {
 		return rowAttribute;
 	}
 
@@ -181,10 +189,11 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 		switch (featureID) {
 			case DbSynchPackage.TABLE_COLUMN__COLUMN_NAME:
 				return getColumnName();
-			case DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE:
-				return getRowAttribute();
 			case DbSynchPackage.TABLE_COLUMN__VOLATILE:
 				return isVolatile();
+			case DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE:
+				if (resolve) return getRowAttribute();
+				return basicGetRowAttribute();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -200,11 +209,11 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 			case DbSynchPackage.TABLE_COLUMN__COLUMN_NAME:
 				setColumnName((String)newValue);
 				return;
-			case DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE:
-				setRowAttribute((EAttribute)newValue);
-				return;
 			case DbSynchPackage.TABLE_COLUMN__VOLATILE:
 				setVolatile((Boolean)newValue);
+				return;
+			case DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE:
+				setRowAttribute((EAttribute)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -221,11 +230,11 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 			case DbSynchPackage.TABLE_COLUMN__COLUMN_NAME:
 				setColumnName(COLUMN_NAME_EDEFAULT);
 				return;
-			case DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE:
-				setRowAttribute(ROW_ATTRIBUTE_EDEFAULT);
-				return;
 			case DbSynchPackage.TABLE_COLUMN__VOLATILE:
 				setVolatile(VOLATILE_EDEFAULT);
+				return;
+			case DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE:
+				setRowAttribute((EAttribute)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -241,10 +250,10 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 		switch (featureID) {
 			case DbSynchPackage.TABLE_COLUMN__COLUMN_NAME:
 				return COLUMN_NAME_EDEFAULT == null ? columnName != null : !COLUMN_NAME_EDEFAULT.equals(columnName);
-			case DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE:
-				return ROW_ATTRIBUTE_EDEFAULT == null ? rowAttribute != null : !ROW_ATTRIBUTE_EDEFAULT.equals(rowAttribute);
 			case DbSynchPackage.TABLE_COLUMN__VOLATILE:
 				return volatile_ != VOLATILE_EDEFAULT;
+			case DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE:
+				return rowAttribute != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -261,8 +270,6 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (ColumnName: ");
 		result.append(columnName);
-		result.append(", RowAttribute: ");
-		result.append(rowAttribute);
 		result.append(", Volatile: ");
 		result.append(volatile_);
 		result.append(')');

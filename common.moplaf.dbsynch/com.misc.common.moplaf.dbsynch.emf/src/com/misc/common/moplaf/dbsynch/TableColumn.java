@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.dbsynch.TableColumn#getColumnName <em>Column Name</em>}</li>
- *   <li>{@link com.misc.common.moplaf.dbsynch.TableColumn#getRowAttribute <em>Row Attribute</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.TableColumn#isVolatile <em>Volatile</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.TableColumn#getRowAttribute <em>Row Attribute</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTableColumn()
@@ -51,26 +51,26 @@ public interface TableColumn extends EObject {
 	void setColumnName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Row Attribute</b></em>' attribute.
+	 * Returns the value of the '<em><b>Row Attribute</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Row Attribute</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Row Attribute</em>' attribute.
+	 * @return the value of the '<em>Row Attribute</em>' reference.
 	 * @see #setRowAttribute(EAttribute)
 	 * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTableColumn_RowAttribute()
-	 * @model dataType="com.misc.common.moplaf.dbsynch.EAttribute"
+	 * @model
 	 * @generated
 	 */
 	EAttribute getRowAttribute();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.dbsynch.TableColumn#getRowAttribute <em>Row Attribute</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.dbsynch.TableColumn#getRowAttribute <em>Row Attribute</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Row Attribute</em>' attribute.
+	 * @param value the new value of the '<em>Row Attribute</em>' reference.
 	 * @see #getRowAttribute()
 	 * @generated
 	 */

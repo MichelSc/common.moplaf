@@ -61,8 +61,8 @@ public class TableColumnItemProvider
 			super.getPropertyDescriptors(object);
 
 			addColumnNamePropertyDescriptor(object);
-			addRowAttributePropertyDescriptor(object);
 			addVolatilePropertyDescriptor(object);
+			addRowAttributePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -106,7 +106,7 @@ public class TableColumnItemProvider
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
 				 null,
 				 null));
 	}
@@ -172,8 +172,8 @@ public class TableColumnItemProvider
 
 		switch (notification.getFeatureID(TableColumn.class)) {
 			case DbSynchPackage.TABLE_COLUMN__COLUMN_NAME:
-			case DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE:
 			case DbSynchPackage.TABLE_COLUMN__VOLATILE:
+			case DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

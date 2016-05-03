@@ -723,22 +723,22 @@ public interface DbSynchPackage extends EPackage {
 	int TABLE_COLUMN__COLUMN_NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Row Attribute</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_COLUMN__ROW_ATTRIBUTE = 1;
-
-	/**
 	 * The feature id for the '<em><b>Volatile</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_COLUMN__VOLATILE = 2;
+	int TABLE_COLUMN__VOLATILE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Row Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_COLUMN__ROW_ATTRIBUTE = 2;
 
 	/**
 	 * The number of structural features of the '<em>Table Column</em>' class.
@@ -1351,15 +1351,15 @@ public interface DbSynchPackage extends EPackage {
 	EAttribute getTableColumn_ColumnName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.TableColumn#getRowAttribute <em>Row Attribute</em>}'.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.dbsynch.TableColumn#getRowAttribute <em>Row Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Row Attribute</em>'.
+	 * @return the meta object for the reference '<em>Row Attribute</em>'.
 	 * @see com.misc.common.moplaf.dbsynch.TableColumn#getRowAttribute()
 	 * @see #getTableColumn()
 	 * @generated
 	 */
-	EAttribute getTableColumn_RowAttribute();
+	EReference getTableColumn_RowAttribute();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.TableColumn#isVolatile <em>Volatile</em>}'.
@@ -1864,12 +1864,12 @@ public interface DbSynchPackage extends EPackage {
 		EAttribute TABLE_COLUMN__COLUMN_NAME = eINSTANCE.getTableColumn_ColumnName();
 
 		/**
-		 * The meta object literal for the '<em><b>Row Attribute</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Row Attribute</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TABLE_COLUMN__ROW_ATTRIBUTE = eINSTANCE.getTableColumn_RowAttribute();
+		EReference TABLE_COLUMN__ROW_ATTRIBUTE = eINSTANCE.getTableColumn_RowAttribute();
 
 		/**
 		 * The meta object literal for the '<em><b>Volatile</b></em>' attribute feature.
