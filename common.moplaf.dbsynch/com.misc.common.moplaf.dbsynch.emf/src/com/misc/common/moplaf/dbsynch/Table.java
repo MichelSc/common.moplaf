@@ -291,6 +291,14 @@ public interface Table extends EObject {
 	void refreshMetaData();
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void flushVolatileMetaData();
+
+	/**
 	 * Returns the value of the '<em><b>Last Synch Down</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>

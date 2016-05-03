@@ -121,6 +121,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="TableColumn">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ColumnName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="RowAttribute" eType="#//EAttribute"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Volatile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Volatile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
   </eClassifiers>
 </ecore:EPackage>

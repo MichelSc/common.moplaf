@@ -426,6 +426,15 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getTable__FlushVolatileMetaData() {
+		return tableEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getTable_LastSynchDown() {
 		return (EAttribute)tableEClass.getEStructuralFeatures().get(5);
 	}
@@ -463,15 +472,6 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * @generated
 	 */
 	public EOperation getTable__SynchDown() {
-		return tableEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getTable__SynchUp() {
 		return tableEClass.getEOperations().get(3);
 	}
 
@@ -480,7 +480,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTable__Refresh() {
+	public EOperation getTable__SynchUp() {
 		return tableEClass.getEOperations().get(4);
 	}
 
@@ -489,16 +489,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTable__AddRow__TableRow() {
-		return tableEClass.getEOperations().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getTable__GetRow__TableRowKeyImpl() {
+	public EOperation getTable__Refresh() {
 		return tableEClass.getEOperations().get(5);
 	}
 
@@ -507,7 +498,16 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTable__RowFactory() {
+	public EOperation getTable__AddRow__TableRow() {
+		return tableEClass.getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTable__GetRow__TableRowKeyImpl() {
 		return tableEClass.getEOperations().get(6);
 	}
 
@@ -516,8 +516,17 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getTable__RowFactory() {
+		return tableEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getTable__RemoveRow__TableRow() {
-		return tableEClass.getEOperations().get(8);
+		return tableEClass.getEOperations().get(9);
 	}
 
 	/**
@@ -745,6 +754,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		createEReference(tableEClass, TABLE__COLUMNS);
 		createEOperation(tableEClass, TABLE___ADD_COLUMN__STRING_INT_INT_EATTRIBUTE);
 		createEOperation(tableEClass, TABLE___REFRESH_META_DATA);
+		createEOperation(tableEClass, TABLE___FLUSH_VOLATILE_META_DATA);
 		createEOperation(tableEClass, TABLE___SYNCH_DOWN);
 		createEOperation(tableEClass, TABLE___SYNCH_UP);
 		createEOperation(tableEClass, TABLE___REFRESH);
@@ -861,6 +871,8 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		addEParameter(op, ecorePackage.getEAttribute(), "attribute", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getTable__RefreshMetaData(), null, "refreshMetaData", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getTable__FlushVolatileMetaData(), null, "flushVolatileMetaData", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getTable__SynchDown(), null, "synchDown", 0, 1, IS_UNIQUE, IS_ORDERED);
 

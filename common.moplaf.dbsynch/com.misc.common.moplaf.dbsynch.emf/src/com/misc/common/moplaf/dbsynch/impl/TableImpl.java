@@ -6,6 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.eclipse.emf.common.CommonPlugin;
@@ -484,9 +485,44 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void refreshMetaData() {
+		Iterator<TableColumn> dataColumnIterator = this.getDataColumns().iterator();
+		while ( dataColumnIterator.hasNext() ){
+			TableColumn aTableColumn = dataColumnIterator.next();
+			if ( aTableColumn.isVolatile()){
+				this.getDataColumns().remove(aTableColumn);
+			}
+		}
+		Iterator<TableColumn> keyColumnIterator = this.getKeyColumns().iterator();
+		while ( keyColumnIterator.hasNext() ){
+			TableColumn aTableColumn = keyColumnIterator.next();
+			if ( aTableColumn.isVolatile()){
+				this.getKeyColumns().remove(aTableColumn);
+			}
+		}
+		//EList<TableColumn> columnsToRemove = new BasicEList<TableColumn>();
+		//for ( TableColumn aColumn : this.getColumns()){
+//			if ( aColumn.isVolatile() ){
+//				columnsToRemove.add(aColumn);
+//			}
+		this.refreshMetaDataImpl();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Default implementation does nothing
+	 * <!-- end-user-doc -->
+	 */
+	protected void refreshMetaDataImpl() {
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void flushVolatileMetaData() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -896,6 +932,9 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 				return null;
 			case DbSynchPackage.TABLE___REFRESH_META_DATA:
 				refreshMetaData();
+				return null;
+			case DbSynchPackage.TABLE___FLUSH_VOLATILE_META_DATA:
+				flushVolatileMetaData();
 				return null;
 			case DbSynchPackage.TABLE___SYNCH_DOWN:
 				synchDown();
