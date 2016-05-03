@@ -426,15 +426,6 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTable__FlushVolatileMetaData() {
-		return tableEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getTable_LastSynchDown() {
 		return (EAttribute)tableEClass.getEStructuralFeatures().get(5);
 	}
@@ -472,7 +463,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * @generated
 	 */
 	public EOperation getTable__SynchDown() {
-		return tableEClass.getEOperations().get(3);
+		return tableEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -481,7 +472,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * @generated
 	 */
 	public EOperation getTable__SynchUp() {
-		return tableEClass.getEOperations().get(4);
+		return tableEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -490,7 +481,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * @generated
 	 */
 	public EOperation getTable__Refresh() {
-		return tableEClass.getEOperations().get(5);
+		return tableEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -499,24 +490,6 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * @generated
 	 */
 	public EOperation getTable__AddRow__TableRow() {
-		return tableEClass.getEOperations().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getTable__GetRow__TableRowKeyImpl() {
-		return tableEClass.getEOperations().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getTable__RowFactory() {
 		return tableEClass.getEOperations().get(7);
 	}
 
@@ -525,8 +498,26 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getTable__GetRow__TableRowKeyImpl() {
+		return tableEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTable__RowFactory() {
+		return tableEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getTable__RemoveRow__TableRow() {
-		return tableEClass.getEOperations().get(9);
+		return tableEClass.getEOperations().get(8);
 	}
 
 	/**
@@ -754,7 +745,6 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		createEReference(tableEClass, TABLE__COLUMNS);
 		createEOperation(tableEClass, TABLE___ADD_COLUMN__STRING_INT_INT_EATTRIBUTE);
 		createEOperation(tableEClass, TABLE___REFRESH_META_DATA);
-		createEOperation(tableEClass, TABLE___FLUSH_VOLATILE_META_DATA);
 		createEOperation(tableEClass, TABLE___SYNCH_DOWN);
 		createEOperation(tableEClass, TABLE___SYNCH_UP);
 		createEOperation(tableEClass, TABLE___REFRESH);
@@ -872,8 +862,6 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 
 		initEOperation(getTable__RefreshMetaData(), null, "refreshMetaData", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getTable__FlushVolatileMetaData(), null, "flushVolatileMetaData", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEOperation(getTable__SynchDown(), null, "synchDown", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getTable__SynchUp(), null, "synchUp", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -907,7 +895,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		initEClass(tableColumnEClass, TableColumn.class, "TableColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTableColumn_ColumnName(), ecorePackage.getEString(), "ColumnName", null, 0, 1, TableColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTableColumn_RowAttribute(), this.getEAttribute(), "RowAttribute", null, 0, 1, TableColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTableColumn_Volatile(), ecorePackage.getEBoolean(), "Volatile", null, 0, 1, TableColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableColumn_Volatile(), ecorePackage.getEBoolean(), "Volatile", "false", 0, 1, TableColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(enumModificationEEnum, EnumModification.class, "EnumModification");

@@ -87,7 +87,7 @@ public final class Plugin extends EMFPlugin implements PrefConstants {
 	}
 
 	protected void logMessage(String message, String level){
-		String logLine = String.format("Solver: %2$s: %1$s" , 
+		String logLine = String.format("DbSynch: %2$s: %1$s" , 
 				         		         message, 
 				         		         level);
 		CommonPlugin.INSTANCE.log( logLine);

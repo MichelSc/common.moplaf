@@ -1047,7 +1047,7 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_xXKAgA-YEeaWzbSulejOwQ" name="Volatile : EBoolean = true" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_xXKAgA-YEeaWzbSulejOwQ" name="Volatile : EBoolean = false" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="dbsynch.ecore#//TableColumn/Volatile"/>
           <semanticElements xmi:type="ecore:EAttribute" href="dbsynch.ecore#//TableColumn/Volatile"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_1hQpcA-YEeaWzbSulejOwQ" labelAlignment="LEFT">

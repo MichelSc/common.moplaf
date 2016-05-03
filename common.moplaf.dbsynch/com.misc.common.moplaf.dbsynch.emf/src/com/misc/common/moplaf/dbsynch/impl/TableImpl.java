@@ -491,14 +491,14 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 		while ( dataColumnIterator.hasNext() ){
 			TableColumn aTableColumn = dataColumnIterator.next();
 			if ( aTableColumn.isVolatile()){
-				this.getDataColumns().remove(aTableColumn);
+				dataColumnIterator.remove();
 			}
 		}
 		Iterator<TableColumn> keyColumnIterator = this.getKeyColumns().iterator();
 		while ( keyColumnIterator.hasNext() ){
 			TableColumn aTableColumn = keyColumnIterator.next();
 			if ( aTableColumn.isVolatile()){
-				this.getKeyColumns().remove(aTableColumn);
+				keyColumnIterator.remove();
 			}
 		}
 		//EList<TableColumn> columnsToRemove = new BasicEList<TableColumn>();
@@ -515,17 +515,6 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 */
 	protected void refreshMetaDataImpl() {
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void flushVolatileMetaData() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -932,9 +921,6 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 				return null;
 			case DbSynchPackage.TABLE___REFRESH_META_DATA:
 				refreshMetaData();
-				return null;
-			case DbSynchPackage.TABLE___FLUSH_VOLATILE_META_DATA:
-				flushVolatileMetaData();
 				return null;
 			case DbSynchPackage.TABLE___SYNCH_DOWN:
 				synchDown();

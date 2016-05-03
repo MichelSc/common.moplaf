@@ -408,22 +408,13 @@ public interface DbSynchPackage extends EPackage {
 	int TABLE___REFRESH_META_DATA = 1;
 
 	/**
-	 * The operation id for the '<em>Flush Volatile Meta Data</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE___FLUSH_VOLATILE_META_DATA = 2;
-
-	/**
 	 * The operation id for the '<em>Synch Down</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___SYNCH_DOWN = 3;
+	int TABLE___SYNCH_DOWN = 2;
 
 	/**
 	 * The operation id for the '<em>Synch Up</em>' operation.
@@ -432,7 +423,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___SYNCH_UP = 4;
+	int TABLE___SYNCH_UP = 3;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -441,7 +432,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___REFRESH = 5;
+	int TABLE___REFRESH = 4;
 
 	/**
 	 * The operation id for the '<em>Get Row</em>' operation.
@@ -450,7 +441,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___GET_ROW__TABLEROWKEYIMPL = 6;
+	int TABLE___GET_ROW__TABLEROWKEYIMPL = 5;
 
 	/**
 	 * The operation id for the '<em>Row Factory</em>' operation.
@@ -459,7 +450,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___ROW_FACTORY = 7;
+	int TABLE___ROW_FACTORY = 6;
 
 	/**
 	 * The operation id for the '<em>Add Row</em>' operation.
@@ -468,7 +459,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___ADD_ROW__TABLEROW = 8;
+	int TABLE___ADD_ROW__TABLEROW = 7;
 
 	/**
 	 * The operation id for the '<em>Remove Row</em>' operation.
@@ -477,7 +468,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___REMOVE_ROW__TABLEROW = 9;
+	int TABLE___REMOVE_ROW__TABLEROW = 8;
 
 	/**
 	 * The number of operations of the '<em>Table</em>' class.
@@ -486,7 +477,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_OPERATION_COUNT = 10;
+	int TABLE_OPERATION_COUNT = 9;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.dbsynch.impl.TableRowImpl <em>Table Row</em>}' class.
@@ -1075,16 +1066,6 @@ public interface DbSynchPackage extends EPackage {
 	EOperation getTable__RefreshMetaData();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#flushVolatileMetaData() <em>Flush Volatile Meta Data</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Flush Volatile Meta Data</em>' operation.
-	 * @see com.misc.common.moplaf.dbsynch.Table#flushVolatileMetaData()
-	 * @generated
-	 */
-	EOperation getTable__FlushVolatileMetaData();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.Table#getLastSynchDown <em>Last Synch Down</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1651,14 +1632,6 @@ public interface DbSynchPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation TABLE___REFRESH_META_DATA = eINSTANCE.getTable__RefreshMetaData();
-
-		/**
-		 * The meta object literal for the '<em><b>Flush Volatile Meta Data</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation TABLE___FLUSH_VOLATILE_META_DATA = eINSTANCE.getTable__FlushVolatileMetaData();
 
 		/**
 		 * The meta object literal for the '<em><b>Last Synch Down</b></em>' attribute feature.

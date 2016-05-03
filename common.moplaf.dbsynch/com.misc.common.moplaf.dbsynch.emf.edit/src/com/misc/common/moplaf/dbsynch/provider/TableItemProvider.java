@@ -311,9 +311,8 @@ public class TableItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DbSynchPackage.Literals.TABLE__DATA_COLUMNS);
 			childrenFeatures.add(DbSynchPackage.Literals.TABLE__KEY_COLUMNS);
-			childrenFeatures.add(DbSynchPackage.Literals.TABLE__COLUMNS);
+			childrenFeatures.add(DbSynchPackage.Literals.TABLE__DATA_COLUMNS);
 		}
 		return childrenFeatures;
 	}
@@ -368,6 +367,7 @@ public class TableItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Table.class)) {
+			case DbSynchPackage.TABLE__COLUMNS:
 			case DbSynchPackage.TABLE__ROWS:
 			case DbSynchPackage.TABLE__TABLE_NAME:
 			case DbSynchPackage.TABLE__WHERE_CLAUSE:
@@ -381,9 +381,8 @@ public class TableItemProvider
 			case DbSynchPackage.TABLE__PARAM_TABLE_GROUP_ATTRIBUTES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case DbSynchPackage.TABLE__DATA_COLUMNS:
 			case DbSynchPackage.TABLE__KEY_COLUMNS:
-			case DbSynchPackage.TABLE__COLUMNS:
+			case DbSynchPackage.TABLE__DATA_COLUMNS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -403,17 +402,12 @@ public class TableItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DbSynchPackage.Literals.TABLE__DATA_COLUMNS,
-				 DbSynchFactory.eINSTANCE.createTableColumn()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(DbSynchPackage.Literals.TABLE__KEY_COLUMNS,
 				 DbSynchFactory.eINSTANCE.createTableColumn()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DbSynchPackage.Literals.TABLE__COLUMNS,
+				(DbSynchPackage.Literals.TABLE__DATA_COLUMNS,
 				 DbSynchFactory.eINSTANCE.createTableColumn()));
 	}
 
@@ -429,9 +423,8 @@ public class TableItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == DbSynchPackage.Literals.TABLE__DATA_COLUMNS ||
 			childFeature == DbSynchPackage.Literals.TABLE__KEY_COLUMNS ||
-			childFeature == DbSynchPackage.Literals.TABLE__COLUMNS;
+			childFeature == DbSynchPackage.Literals.TABLE__DATA_COLUMNS;
 
 		if (qualify) {
 			return getString

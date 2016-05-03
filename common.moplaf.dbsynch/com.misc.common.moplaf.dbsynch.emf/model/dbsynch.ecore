@@ -72,6 +72,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="TableGroup" lowerBound="1"
         eType="#//TableGroup" changeable="false" volatile="true" transient="true"
         derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="KeyColumns" upperBound="-1"
+        eType="#//TableColumn" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="DataColumns" upperBound="-1"
+        eType="#//TableColumn" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Rows" upperBound="-1" eType="#//TableRow"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="TableName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -79,16 +83,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="NumberOfRows" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="LastSynchDown" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="LastSynchUp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="DataColumns" upperBound="-1"
-        eType="#//TableColumn" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SelectSqlStatement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="InsertSqlStatement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="UpdateSqlStatement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DeleteSqlStatement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ParamTableGroupAttributes"
         upperBound="-1" eType="#//EAttribute"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="KeyColumns" upperBound="-1"
-        eType="#//TableColumn" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Columns" upperBound="-1"
         eType="#//TableColumn" changeable="false" volatile="true" transient="true"
         derived="true"/>
@@ -122,6 +122,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ColumnName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="RowAttribute" eType="#//EAttribute"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Volatile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        defaultValueLiteral="true"/>
+        defaultValueLiteral="false"/>
   </eClassifiers>
 </ecore:EPackage>

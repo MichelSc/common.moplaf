@@ -78,6 +78,7 @@ public interface TableColumn extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Volatile</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Volatile</em>' attribute isn't clear,
@@ -87,7 +88,7 @@ public interface TableColumn extends EObject {
 	 * @return the value of the '<em>Volatile</em>' attribute.
 	 * @see #setVolatile(boolean)
 	 * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTableColumn_Volatile()
-	 * @model
+	 * @model default="false"
 	 * @generated
 	 */
 	boolean isVolatile();

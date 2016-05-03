@@ -39,20 +39,20 @@
     </genClasses>
     <genClasses ecoreClass="dbsynch.ecore#//Table">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference dbsynch.ecore#//Table/TableGroup"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dbsynch.ecore#//Table/KeyColumns"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dbsynch.ecore#//Table/DataColumns"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference dbsynch.ecore#//Table/Columns"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference dbsynch.ecore#//Table/Rows"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//Table/TableName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//Table/WhereClause"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//Table/NumberOfRows"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//Table/LastSynchDown"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//Table/LastSynchUp"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dbsynch.ecore#//Table/DataColumns"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//Table/SelectSqlStatement"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//Table/InsertSqlStatement"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//Table/UpdateSqlStatement"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//Table/DeleteSqlStatement"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//Table/ParamTableGroupAttributes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dbsynch.ecore#//Table/KeyColumns"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dbsynch.ecore#//Table/Columns"/>
       <genOperations ecoreOperation="dbsynch.ecore#//Table/addColumn">
         <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn/column"/>
         <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn/columnNumber"/>

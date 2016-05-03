@@ -301,7 +301,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 	 */
 	@Override
 	public void connect() {
-		CommonPlugin.INSTANCE.log("DataSource.Connect");
+		Plugin.INSTANCE.logInfo("DataSource.Connect");
 
 		// disconnect
 		if ( this.db_connection!=null ){
@@ -313,12 +313,12 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 			this.db_connection = this.getConnectionImpl();
 		}
 		catch (ClassNotFoundException cnfe) {
-			CommonPlugin.INSTANCE.log("..Class not found");
+			Plugin.INSTANCE.logInfo("..Class not found");
 			return;
 			
 		} 
 		catch (SQLException e) {
-			CommonPlugin.INSTANCE.log("..SqlException, cause     " + e.getMessage());
+			Plugin.INSTANCE.logError("..SqlException, cause     " + e.getMessage());
 			SQLException e1 = e.getNextException();
 			if ( e1 !=null){
 				CommonPlugin.INSTANCE.log("..Next SqlException, cause "    + e1.getMessage());
@@ -327,7 +327,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		}
 		
 		if ( this.db_connection!=null){
-			CommonPlugin.INSTANCE.log("..Connection ok");
+			Plugin.INSTANCE.logInfo("..Connection ok");
 			// get/set the schema
 			String schema = this.getDefaultSchema();
 			if ( schema!=null && schema.length()>0 ){
@@ -335,13 +335,13 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 					this.db_connection.setSchema(schema);
 				} 
 				catch (SQLException e) {
-					CommonPlugin.INSTANCE.log("..Set Schema failed, Sql exception"    + e.getMessage());
+					Plugin.INSTANCE.logError("..Set Schema failed, Sql exception"    + e.getMessage());
 				}
 				catch (Exception e) {
-					CommonPlugin.INSTANCE.log("..Set Schema failed, Other exception "    + e.getMessage());
+					Plugin.INSTANCE.logError("..Set Schema failed, Other exception "    + e.getMessage());
 				}
 				catch (Throwable e) {
-					CommonPlugin.INSTANCE.log("..Set Schema failed, Other error"    + e.getMessage());
+					Plugin.INSTANCE.logError("..Set Schema failed, Other error"    + e.getMessage());
 				}
 			}
 			this.setConnected(true);
@@ -357,14 +357,14 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 	public void disconnect() {
 		try {
 			if ( this.db_connection!=null){
-				CommonPlugin.INSTANCE.log("DataSource.Disconnect");
+				Plugin.INSTANCE.logInfo("DataSource.Disconnect");
 				this.db_connection.close();
 				this.db_connection = null;
 				this.onDisconnectImpl();
 			}
 		}
 		catch (SQLException e) {
-			CommonPlugin.INSTANCE.log("..disconnect failed, message "+ e.getMessage());
+			Plugin.INSTANCE.logError("..disconnect failed, message "+ e.getMessage());
 			return;
 		}
 		this.setConnected(false);
@@ -387,19 +387,26 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		
 		try {
 	    	if ( this.db_connection == null ){
-	    		throw new Exception("Load table faile, no connection");
+	    		throw new Exception("Load table failed, no connection");
 	    	}
 	    	
+	    	String tableName = table.getTableName();
+	    	if ( tableName==null || table.getTableName().length()==0 ){
+	    		throw new Exception("Load table failed, no table name");
+	    	}
+
 	    	// prepare the sql
 	    	String sql = "";
 	    	for ( TableColumn column : table.getColumns()){
 	    		String prefix = sql=="" ? "select " : "     ,";
 	    		sql = sql +  prefix + column.getColumnName() + "\n";
 	    	}
-	    	if ( table.getWhereClause().length()>0 ){
+	    	sql = sql + "from "+table.getTableName() + "\n";
+	    	String whereClause = table.getWhereClause();
+	    	if ( whereClause!=null && whereClause.length()>0 ){
 	    		sql = sql
-	    				+ "where \n"
-	    				+ table.getWhereClause();
+	    			+ "where \n"
+	    			+ whereClause;
 	    	}
 			statement = this.db_connection.prepareStatement(sql);
 			table.setSelectSqlStatement(sql);
@@ -500,7 +507,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 			Plugin.INSTANCE.logError("..Retrieve result set failed, cause " + e.getMessage());
 		}
 		catch (Exception e){
-			Plugin.INSTANCE.logError("..No data retrieved, reason " + ExceptionUtils.getRootCauseMessage(e));
+			Plugin.INSTANCE.logError("..General exception, no data retrieved, cause " + ExceptionUtils.getRootCauseMessage(e));
 		}
 		
 		if ( resultSet!=null) {
