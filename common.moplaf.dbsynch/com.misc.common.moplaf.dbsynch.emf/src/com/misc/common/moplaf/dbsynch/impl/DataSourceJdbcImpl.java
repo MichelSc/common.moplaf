@@ -465,6 +465,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 
 		    	// get the row, if any
 		    	TableRow row = table.getRow(key);
+		    	boolean insert = false;
 		    	if ( row == null ){
 		    		// create, the row is now owned
 			    	row = table.constructRow();
@@ -477,20 +478,31 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 			    	table.addRow(row);
 			    	nofcreates++;
 			    	row.setModificationLastSynchUp(EnumModification.ENUM_MODIFICATION_INSERT);
+			    	insert = true;
 		    	}
 		    	else {
 		    		// update
-			    	row.setModificationLastSynchUp(EnumModification.ENUM_MODIFICATION_UPDATE);
 		    		rowsasis.remove(row);
-			    	nofupdates++;
 		    	}
 		    	
 		    	// set the data
+		    	boolean update = false;
 		    	for ( TableColumn tableColumn : table.getDataColumns()){
-	    			Object columnValue = resultSet.getObject(columnIndex);
-	    			row.eSet(tableColumn.getRowAttribute(), columnValue);
+	    			Object valueToBe = resultSet.getObject(columnIndex);
+	    			Object valueAsIs = row.eGet(tableColumn.getRowAttribute());
+		    		if ( valueAsIs==null && valueToBe!=null
+		    		  || valueAsIs!=null && !valueAsIs.equals(valueToBe)){
+	    				row.eSet(tableColumn.getRowAttribute(), valueToBe);
+	    				if ( ! insert ) {
+	    					update = true;
+	    				}
+	    			}
 		    		columnIndex++;
 		    	} // traverse the columns
+		    	if ( update){
+			    	row.setModificationLastSynchUp(EnumModification.ENUM_MODIFICATION_UPDATE);
+			    	nofupdates++;
+		    	}
 		    	// the row is now up to date and owned
 		    	row.refresh();
 		    	rowIndex++;
