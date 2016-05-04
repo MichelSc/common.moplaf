@@ -5,6 +5,7 @@ package com.misc.common.moplaf.dbsynch.dbsynchderby.util;
 import com.misc.common.moplaf.dbsynch.DataSource;
 import com.misc.common.moplaf.dbsynch.DataSourceJdbc;
 
+import com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract;
 import com.misc.common.moplaf.dbsynch.dbsynchderby.*;
 
 import org.eclipse.emf.ecore.EObject;
@@ -74,6 +75,7 @@ public class DbsynchderbySwitch<T> extends Switch<T> {
 				T result = caseDataSourceJdbcDerbyEmbedded(dataSourceJdbcDerbyEmbedded);
 				if (result == null) result = caseDataSourceJdbc(dataSourceJdbcDerbyEmbedded);
 				if (result == null) result = caseDataSource(dataSourceJdbcDerbyEmbedded);
+				if (result == null) result = caseDbSynchUnitAbstract(dataSourceJdbcDerbyEmbedded);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -93,6 +95,21 @@ public class DbsynchderbySwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDataSourceJdbcDerbyEmbedded(DataSourceJdbcDerbyEmbedded object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Unit Abstract</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Unit Abstract</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDbSynchUnitAbstract(DbSynchUnitAbstract object) {
 		return null;
 	}
 

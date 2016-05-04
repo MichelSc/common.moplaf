@@ -68,6 +68,24 @@ public interface DbsynchderbyPackage extends EPackage {
 	int DATA_SOURCE_JDBC_DERBY_EMBEDDED = 0;
 
 	/**
+	 * The feature id for the '<em><b>Tables</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_JDBC_DERBY_EMBEDDED__TABLES = DbSynchPackage.DATA_SOURCE_JDBC__TABLES;
+
+	/**
+	 * The feature id for the '<em><b>Data Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_JDBC_DERBY_EMBEDDED__DATA_SOURCE = DbSynchPackage.DATA_SOURCE_JDBC__DATA_SOURCE;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -75,6 +93,15 @@ public interface DbsynchderbyPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_SOURCE_JDBC_DERBY_EMBEDDED__NAME = DbSynchPackage.DATA_SOURCE_JDBC__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Child Units</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_JDBC_DERBY_EMBEDDED__CHILD_UNITS = DbSynchPackage.DATA_SOURCE_JDBC__CHILD_UNITS;
 
 	/**
 	 * The feature id for the '<em><b>Connected</b></em>' attribute.
@@ -129,6 +156,42 @@ public interface DbsynchderbyPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_SOURCE_JDBC_DERBY_EMBEDDED_FEATURE_COUNT = DbSynchPackage.DATA_SOURCE_JDBC_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Refresh Meta Data</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_JDBC_DERBY_EMBEDDED___REFRESH_META_DATA = DbSynchPackage.DATA_SOURCE_JDBC___REFRESH_META_DATA;
+
+	/**
+	 * The operation id for the '<em>Synch Up</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_JDBC_DERBY_EMBEDDED___SYNCH_UP = DbSynchPackage.DATA_SOURCE_JDBC___SYNCH_UP;
+
+	/**
+	 * The operation id for the '<em>Synch Down</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_JDBC_DERBY_EMBEDDED___SYNCH_DOWN = DbSynchPackage.DATA_SOURCE_JDBC___SYNCH_DOWN;
+
+	/**
+	 * The operation id for the '<em>Get Param Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_JDBC_DERBY_EMBEDDED___GET_PARAM_VALUE__EATTRIBUTE = DbSynchPackage.DATA_SOURCE_JDBC___GET_PARAM_VALUE__EATTRIBUTE;
 
 	/**
 	 * The operation id for the '<em>Connect</em>' operation.

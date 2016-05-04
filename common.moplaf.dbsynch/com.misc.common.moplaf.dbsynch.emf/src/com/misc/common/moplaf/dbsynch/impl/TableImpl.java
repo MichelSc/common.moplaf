@@ -25,11 +25,10 @@ import org.eclipse.emf.ecore.util.EObjectEList;
 
 import org.eclipse.emf.ecore.util.InternalEList;
 import com.misc.common.moplaf.dbsynch.DataSource;
-import com.misc.common.moplaf.dbsynch.DatasetloadPackage;
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
+import com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract;
 import com.misc.common.moplaf.dbsynch.Table;
 import com.misc.common.moplaf.dbsynch.TableColumn;
-import com.misc.common.moplaf.dbsynch.TableGroup;
 import com.misc.common.moplaf.dbsynch.TableRow;
 
 /**
@@ -40,7 +39,7 @@ import com.misc.common.moplaf.dbsynch.TableRow;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getTableGroup <em>Table Group</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getSynchUnit <em>Synch Unit</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getKeyColumns <em>Key Columns</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getDataColumns <em>Data Columns</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getRows <em>Rows</em>}</li>
@@ -305,6 +304,27 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DbSynchUnitAbstract getSynchUnit() {
+		DbSynchUnitAbstract synchUnit = basicGetSynchUnit();
+		return synchUnit != null && synchUnit.eIsProxy() ? (DbSynchUnitAbstract)eResolveProxy((InternalEObject)synchUnit) : synchUnit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public DbSynchUnitAbstract basicGetSynchUnit() {
+		if ( !(this.eContainer() instanceof DbSynchUnitAbstract) ){
+			throw new RuntimeException("Table: the owner must be a DbSynchUnit");
+		}
+		return (DbSynchUnitAbstract)this.eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public String getName() {
 		return "";
@@ -315,7 +335,7 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 */
 	public EList<TableRow> getRows() {
-		EList<TableRow> newList = new EObjectEList<TableRow>(TableRow.class, this, DatasetloadPackage.TABLE__ROWS);
+		EList<TableRow> newList = new EObjectEList<TableRow>(TableRow.class, this, DbSynchPackage.TABLE__ROWS);
 		for ( EObject element : this.eContents()){
 			if ( element instanceof TableRow){
 				newList.add((TableRow)element);
@@ -364,27 +384,6 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 		whereClause = newWhereClause;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DbSynchPackage.TABLE__WHERE_CLAUSE, oldWhereClause, whereClause));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TableGroup getTableGroup() {
-		TableGroup tableGroup = basicGetTableGroup();
-		return tableGroup != null && tableGroup.eIsProxy() ? (TableGroup)eResolveProxy((InternalEObject)tableGroup) : tableGroup;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public TableGroup basicGetTableGroup() {
-		if ( !(this.eContainer() instanceof TableGroup) ){
-			throw new RuntimeException("Table: the owner must be a TableGroup");
-		}
-		return (TableGroup)this.eContainer();
 	}
 
 	/**
@@ -474,17 +473,6 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void addColumn(String column, int columnNumber, int keyNumber, EAttribute attribute) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 */
 	public void refreshMetaData() {
 		Iterator<TableColumn> dataColumnIterator = this.getDataColumns().iterator();
@@ -556,6 +544,17 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 			newList.addUnique(object);
 	}
 		return newList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void addColumn(boolean isKey, String column, int columnNumber, int keyNumber, EAttribute attribute) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -717,8 +716,8 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 */
 	public void synchUp() {
-		TableGroup tableGroup = this.getTableGroup();
-		DataSource dataSource = tableGroup.getDataSource();
+		DbSynchUnitAbstract synchUnit = this.getSynchUnit();
+		DataSource dataSource = synchUnit.getDataSource();
 		dataSource.synchUpTableImpl(this);
     }
 
@@ -731,9 +730,9 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DbSynchPackage.TABLE__TABLE_GROUP:
-				if (resolve) return getTableGroup();
-				return basicGetTableGroup();
+			case DbSynchPackage.TABLE__SYNCH_UNIT:
+				if (resolve) return getSynchUnit();
+				return basicGetSynchUnit();
 			case DbSynchPackage.TABLE__KEY_COLUMNS:
 				return getKeyColumns();
 			case DbSynchPackage.TABLE__DATA_COLUMNS:
@@ -874,8 +873,8 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DbSynchPackage.TABLE__TABLE_GROUP:
-				return basicGetTableGroup() != null;
+			case DbSynchPackage.TABLE__SYNCH_UNIT:
+				return basicGetSynchUnit() != null;
 			case DbSynchPackage.TABLE__KEY_COLUMNS:
 				return keyColumns != null && !keyColumns.isEmpty();
 			case DbSynchPackage.TABLE__DATA_COLUMNS:
@@ -916,8 +915,8 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case DbSynchPackage.TABLE___ADD_COLUMN__STRING_INT_INT_EATTRIBUTE:
-				addColumn((String)arguments.get(0), (Integer)arguments.get(1), (Integer)arguments.get(2), (EAttribute)arguments.get(3));
+			case DbSynchPackage.TABLE___ADD_COLUMN__BOOLEAN_STRING_INT_INT_EATTRIBUTE:
+				addColumn((Boolean)arguments.get(0), (String)arguments.get(1), (Integer)arguments.get(2), (Integer)arguments.get(3), (EAttribute)arguments.get(4));
 				return null;
 			case DbSynchPackage.TABLE___REFRESH_META_DATA:
 				refreshMetaData();

@@ -7,8 +7,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import com.misc.common.moplaf.dbsynch.DataSource;
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
 import com.misc.common.moplaf.dbsynch.Table;
@@ -21,33 +19,12 @@ import com.misc.common.moplaf.dbsynch.Table;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.dbsynch.impl.DataSourceImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.DataSourceImpl#isConnected <em>Connected</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class DataSourceImpl extends MinimalEObjectImpl.Container implements DataSource {
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String name = NAME_EDEFAULT;
-
+public abstract class DataSourceImpl extends DbSynchUnitAbstractImpl implements DataSource {
 	/**
 	 * The default value of the '{@link #isConnected() <em>Connected</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -90,23 +67,11 @@ public abstract class DataSourceImpl extends MinimalEObjectImpl.Container implem
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public String getName() {
-		return name;
+	public DataSource basicGetDataSource() {
+		return this;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DbSynchPackage.DATA_SOURCE__NAME, oldName, name));
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -173,8 +138,6 @@ public abstract class DataSourceImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DbSynchPackage.DATA_SOURCE__NAME:
-				return getName();
 			case DbSynchPackage.DATA_SOURCE__CONNECTED:
 				return isConnected();
 		}
@@ -190,9 +153,6 @@ public abstract class DataSourceImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DbSynchPackage.DATA_SOURCE__NAME:
-				setName((String)newValue);
-				return;
 			case DbSynchPackage.DATA_SOURCE__CONNECTED:
 				setConnected((Boolean)newValue);
 				return;
@@ -208,9 +168,6 @@ public abstract class DataSourceImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DbSynchPackage.DATA_SOURCE__NAME:
-				setName(NAME_EDEFAULT);
-				return;
 			case DbSynchPackage.DATA_SOURCE__CONNECTED:
 				setConnected(CONNECTED_EDEFAULT);
 				return;
@@ -226,8 +183,6 @@ public abstract class DataSourceImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DbSynchPackage.DATA_SOURCE__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case DbSynchPackage.DATA_SOURCE__CONNECTED:
 				return connected != CONNECTED_EDEFAULT;
 		}
@@ -268,9 +223,7 @@ public abstract class DataSourceImpl extends MinimalEObjectImpl.Container implem
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (Name: ");
-		result.append(name);
-		result.append(", Connected: ");
+		result.append(" (Connected: ");
 		result.append(connected);
 		result.append(')');
 		return result.toString();

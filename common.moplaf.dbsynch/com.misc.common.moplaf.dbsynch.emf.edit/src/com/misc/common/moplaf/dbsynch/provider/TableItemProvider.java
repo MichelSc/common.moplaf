@@ -65,6 +65,7 @@ public class TableItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addSynchUnitPropertyDescriptor(object);
 			addTableNamePropertyDescriptor(object);
 			addWhereClausePropertyDescriptor(object);
 			addNumberOfRowsPropertyDescriptor(object);
@@ -77,6 +78,28 @@ public class TableItemProvider
 			addParamTableGroupAttributesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Synch Unit feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSynchUnitPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Table_SynchUnit_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Table_SynchUnit_feature", "_UI_Table_type"),
+				 DbSynchPackage.Literals.TABLE__SYNCH_UNIT,
+				 false,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**

@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getTableGroup <em>Table Group</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getSynchUnit <em>Synch Unit</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getKeyColumns <em>Key Columns</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getDataColumns <em>Data Columns</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getRows <em>Rows</em>}</li>
@@ -39,6 +39,21 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Table extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Synch Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Synch Unit</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Synch Unit</em>' reference.
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTable_SynchUnit()
+	 * @model required="true" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	DbSynchUnitAbstract getSynchUnit();
+
 	/**
 	 * Returns the value of the '<em><b>Rows</b></em>' reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.dbsynch.TableRow}.
@@ -106,21 +121,6 @@ public interface Table extends EObject {
 	 * @generated
 	 */
 	void setWhereClause(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Table Group</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Table Group</em>' container reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Table Group</em>' reference.
-	 * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTable_TableGroup()
-	 * @model required="true" transient="true" changeable="false" volatile="true" derived="true"
-	 * @generated
-	 */
-	TableGroup getTableGroup();
 
 	/**
 	 * Returns the value of the '<em><b>Select Sql Statement</b></em>' attribute.
@@ -280,7 +280,7 @@ public interface Table extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void addColumn(String column, int columnNumber, int keyNumber, EAttribute attribute);
+	void addColumn(boolean isKey, String column, int columnNumber, int keyNumber, EAttribute attribute);
 
 	/**
 	 * <!-- begin-user-doc -->

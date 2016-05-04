@@ -5,7 +5,7 @@
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="documentation" value="The method refresh() is called by the framework when changed by the framework, so when changed after a read action"/>
   </eAnnotations>
-  <eClassifiers xsi:type="ecore:EClass" name="DataSource" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="DataSource" abstract="true" eSuperTypes="#//DbSynchUnitAbstract">
     <eOperations name="connect"/>
     <eOperations name="disconnect"/>
     <eOperations name="synchDownTableImpl">
@@ -14,34 +14,21 @@
     <eOperations name="synchUpTableImpl">
       <eParameters name="table" eType="#//Table"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Connected" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TableGroup" abstract="true">
-    <eOperations name="refreshMetaData"/>
-    <eOperations name="synchDown">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Write in the tables as a function of the changes in the applicative data since the last synchDown"/>
-      </eAnnotations>
-    </eOperations>
-    <eOperations name="synchUp">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Load the tables in the group, update the rows accordingly (synchronize the application data as a function of what is read)"/>
-      </eAnnotations>
-    </eOperations>
+  <eClassifiers xsi:type="ecore:EClass" name="DbSynchUnit" abstract="true" eSuperTypes="#//DbSynchUnitAbstract">
     <eOperations name="refresh">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Make sure the derived elements are up to date"/>
       </eAnnotations>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Tables" upperBound="-1"
-        eType="#//Table" changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="DataSource" eType="#//DataSource"
-        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ParentUnit" lowerBound="1"
+        eType="#//DbSynchUnitAbstract" changeable="false" volatile="true" transient="true"
+        derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Table" abstract="true">
     <eOperations name="addColumn">
+      <eParameters name="isKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eParameters name="column" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="columnNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eParameters name="keyNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -69,8 +56,8 @@
     <eOperations name="removeRow">
       <eParameters name="row" eType="#//TableRow"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="TableGroup" lowerBound="1"
-        eType="#//TableGroup" changeable="false" volatile="true" transient="true"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SynchUnit" lowerBound="1"
+        eType="#//DbSynchUnitAbstract" changeable="false" volatile="true" transient="true"
         derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="KeyColumns" upperBound="-1"
         eType="#//TableColumn" containment="true"/>
@@ -124,4 +111,29 @@
         defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="RowAttribute" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DbSynchUnitAbstract" abstract="true">
+    <eOperations name="refreshMetaData"/>
+    <eOperations name="synchUp">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Load the tables in the group, update the rows accordingly (synchronize the application data as a function of what is read)"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="synchDown">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Load the tables in the group, update the rows accordingly (synchronize the application data as a function of what is read)"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getParamValue" eType="#//Object">
+      <eParameters name="attribute" eType="#//EAttribute"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Tables" upperBound="-1"
+        eType="#//Table" changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="DataSource" eType="#//DataSource"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ChildUnits" upperBound="-1"
+        eType="#//DbSynchUnitAbstract" changeable="false" volatile="true" transient="true"
+        derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Object" instanceClassName="java.lang.Object"/>
 </ecore:EPackage>

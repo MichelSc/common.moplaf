@@ -68,12 +68,16 @@ public class DbSynchAdapterFactory extends AdapterFactoryImpl {
 	protected DbSynchSwitch<Adapter> modelSwitch =
 		new DbSynchSwitch<Adapter>() {
 			@Override
+			public Adapter caseDbSynchUnitAbstract(DbSynchUnitAbstract object) {
+				return createDbSynchUnitAbstractAdapter();
+			}
+			@Override
 			public Adapter caseDataSource(DataSource object) {
 				return createDataSourceAdapter();
 			}
 			@Override
-			public Adapter caseTableGroup(TableGroup object) {
-				return createTableGroupAdapter();
+			public Adapter caseDbSynchUnit(DbSynchUnit object) {
+				return createDbSynchUnitAdapter();
 			}
 			@Override
 			public Adapter caseTable(Table object) {
@@ -126,16 +130,16 @@ public class DbSynchAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.dbsynch.TableGroup <em>Table Group</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.dbsynch.DbSynchUnit <em>Unit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.dbsynch.TableGroup
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchUnit
 	 * @generated
 	 */
-	public Adapter createTableGroupAdapter() {
+	public Adapter createDbSynchUnitAdapter() {
 		return null;
 	}
 
@@ -192,6 +196,20 @@ public class DbSynchAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTableColumnAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract <em>Unit Abstract</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract
+	 * @generated
+	 */
+	public Adapter createDbSynchUnitAbstractAdapter() {
 		return null;
 	}
 

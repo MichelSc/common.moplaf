@@ -6,10 +6,11 @@ import com.misc.common.moplaf.dbsynch.DataSource;
 import com.misc.common.moplaf.dbsynch.DataSourceJdbc;
 import com.misc.common.moplaf.dbsynch.DbSynchFactory;
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
+import com.misc.common.moplaf.dbsynch.DbSynchUnit;
+import com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract;
 import com.misc.common.moplaf.dbsynch.EnumModification;
 import com.misc.common.moplaf.dbsynch.Table;
 import com.misc.common.moplaf.dbsynch.TableColumn;
-import com.misc.common.moplaf.dbsynch.TableGroup;
 import com.misc.common.moplaf.dbsynch.TableRow;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -41,7 +42,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass tableGroupEClass = null;
+	private EClass dbSynchUnitEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -76,6 +77,13 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass dbSynchUnitAbstractEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum enumModificationEEnum = null;
 
 	/**
@@ -98,6 +106,13 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * @generated
 	 */
 	private EDataType tableColumnTentativeEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType objectEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -174,17 +189,8 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDataSource_Name() {
-		return (EAttribute)dataSourceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getDataSource_Connected() {
-		return (EAttribute)dataSourceEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)dataSourceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -228,8 +234,8 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getTableGroup() {
-		return tableGroupEClass;
+	public EClass getDbSynchUnit() {
+		return dbSynchUnitEClass;
 	}
 
 	/**
@@ -237,8 +243,8 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTableGroup_Name() {
-		return (EAttribute)tableGroupEClass.getEStructuralFeatures().get(0);
+	public EReference getDbSynchUnit_ParentUnit() {
+		return (EReference)dbSynchUnitEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -246,53 +252,8 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTableGroup_Tables() {
-		return (EReference)tableGroupEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTableGroup_DataSource() {
-		return (EReference)tableGroupEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getTableGroup__RefreshMetaData() {
-		return tableGroupEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getTableGroup__SynchDown() {
-		return tableGroupEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getTableGroup__SynchUp() {
-		return tableGroupEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getTableGroup__Refresh() {
-		return tableGroupEClass.getEOperations().get(3);
+	public EOperation getDbSynchUnit__Refresh() {
+		return dbSynchUnitEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -309,8 +270,26 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTable_TableGroup() {
+	public EReference getTable_SynchUnit() {
 		return (EReference)tableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTable_KeyColumns() {
+		return (EReference)tableEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTable_DataColumns() {
+		return (EReference)tableEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -338,6 +317,33 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 */
 	public EAttribute getTable_WhereClause() {
 		return (EAttribute)tableEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTable_NumberOfRows() {
+		return (EAttribute)tableEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTable_LastSynchDown() {
+		return (EAttribute)tableEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTable_LastSynchUp() {
+		return (EAttribute)tableEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -390,15 +396,6 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTable_KeyColumns() {
-		return (EReference)tableEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getTable_Columns() {
 		return (EReference)tableEClass.getEStructuralFeatures().get(14);
 	}
@@ -408,7 +405,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTable__AddColumn__String_int_int_EAttribute() {
+	public EOperation getTable__AddColumn__boolean_String_int_int_EAttribute() {
 		return tableEClass.getEOperations().get(0);
 	}
 
@@ -419,42 +416,6 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 */
 	public EOperation getTable__RefreshMetaData() {
 		return tableEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTable_LastSynchDown() {
-		return (EAttribute)tableEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTable_LastSynchUp() {
-		return (EAttribute)tableEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTable_DataColumns() {
-		return (EReference)tableEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTable_NumberOfRows() {
-		return (EAttribute)tableEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -489,15 +450,6 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTable__AddRow__TableRow() {
-		return tableEClass.getEOperations().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EOperation getTable__GetRow__TableRowKeyImpl() {
 		return tableEClass.getEOperations().get(5);
 	}
@@ -509,6 +461,15 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 */
 	public EOperation getTable__ConstructRow() {
 		return tableEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTable__AddRow__TableRow() {
+		return tableEClass.getEOperations().get(7);
 	}
 
 	/**
@@ -615,6 +576,123 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getTableColumn() {
+		return tableColumnEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTableColumn_ColumnName() {
+		return (EAttribute)tableColumnEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTableColumn_Volatile() {
+		return (EAttribute)tableColumnEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTableColumn_RowAttribute() {
+		return (EReference)tableColumnEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDbSynchUnitAbstract() {
+		return dbSynchUnitAbstractEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDbSynchUnitAbstract_Tables() {
+		return (EReference)dbSynchUnitAbstractEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDbSynchUnitAbstract_DataSource() {
+		return (EReference)dbSynchUnitAbstractEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDbSynchUnitAbstract_Name() {
+		return (EAttribute)dbSynchUnitAbstractEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDbSynchUnitAbstract_ChildUnits() {
+		return (EReference)dbSynchUnitAbstractEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getDbSynchUnitAbstract__RefreshMetaData() {
+		return dbSynchUnitAbstractEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getDbSynchUnitAbstract__SynchUp() {
+		return dbSynchUnitAbstractEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getDbSynchUnitAbstract__SynchDown() {
+		return dbSynchUnitAbstractEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getDbSynchUnitAbstract__GetParamValue__EAttribute() {
+		return dbSynchUnitAbstractEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getEnumModification() {
 		return enumModificationEEnum;
 	}
@@ -651,35 +729,8 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getTableColumn() {
-		return tableColumnEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTableColumn_ColumnName() {
-		return (EAttribute)tableColumnEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTableColumn_RowAttribute() {
-		return (EReference)tableColumnEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTableColumn_Volatile() {
-		return (EAttribute)tableColumnEClass.getEStructuralFeatures().get(1);
+	public EDataType getObject() {
+		return objectEDataType;
 	}
 
 	/**
@@ -710,25 +761,29 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		isCreated = true;
 
 		// Create classes and their features
+		dbSynchUnitAbstractEClass = createEClass(DB_SYNCH_UNIT_ABSTRACT);
+		createEAttribute(dbSynchUnitAbstractEClass, DB_SYNCH_UNIT_ABSTRACT__NAME);
+		createEReference(dbSynchUnitAbstractEClass, DB_SYNCH_UNIT_ABSTRACT__DATA_SOURCE);
+		createEReference(dbSynchUnitAbstractEClass, DB_SYNCH_UNIT_ABSTRACT__CHILD_UNITS);
+		createEReference(dbSynchUnitAbstractEClass, DB_SYNCH_UNIT_ABSTRACT__TABLES);
+		createEOperation(dbSynchUnitAbstractEClass, DB_SYNCH_UNIT_ABSTRACT___REFRESH_META_DATA);
+		createEOperation(dbSynchUnitAbstractEClass, DB_SYNCH_UNIT_ABSTRACT___SYNCH_UP);
+		createEOperation(dbSynchUnitAbstractEClass, DB_SYNCH_UNIT_ABSTRACT___SYNCH_DOWN);
+		createEOperation(dbSynchUnitAbstractEClass, DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_VALUE__EATTRIBUTE);
+
 		dataSourceEClass = createEClass(DATA_SOURCE);
-		createEAttribute(dataSourceEClass, DATA_SOURCE__NAME);
 		createEAttribute(dataSourceEClass, DATA_SOURCE__CONNECTED);
 		createEOperation(dataSourceEClass, DATA_SOURCE___CONNECT);
 		createEOperation(dataSourceEClass, DATA_SOURCE___DISCONNECT);
 		createEOperation(dataSourceEClass, DATA_SOURCE___SYNCH_DOWN_TABLE_IMPL__TABLE);
 		createEOperation(dataSourceEClass, DATA_SOURCE___SYNCH_UP_TABLE_IMPL__TABLE);
 
-		tableGroupEClass = createEClass(TABLE_GROUP);
-		createEAttribute(tableGroupEClass, TABLE_GROUP__NAME);
-		createEReference(tableGroupEClass, TABLE_GROUP__TABLES);
-		createEReference(tableGroupEClass, TABLE_GROUP__DATA_SOURCE);
-		createEOperation(tableGroupEClass, TABLE_GROUP___REFRESH_META_DATA);
-		createEOperation(tableGroupEClass, TABLE_GROUP___SYNCH_DOWN);
-		createEOperation(tableGroupEClass, TABLE_GROUP___SYNCH_UP);
-		createEOperation(tableGroupEClass, TABLE_GROUP___REFRESH);
+		dbSynchUnitEClass = createEClass(DB_SYNCH_UNIT);
+		createEReference(dbSynchUnitEClass, DB_SYNCH_UNIT__PARENT_UNIT);
+		createEOperation(dbSynchUnitEClass, DB_SYNCH_UNIT___REFRESH);
 
 		tableEClass = createEClass(TABLE);
-		createEReference(tableEClass, TABLE__TABLE_GROUP);
+		createEReference(tableEClass, TABLE__SYNCH_UNIT);
 		createEReference(tableEClass, TABLE__KEY_COLUMNS);
 		createEReference(tableEClass, TABLE__DATA_COLUMNS);
 		createEReference(tableEClass, TABLE__ROWS);
@@ -743,7 +798,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		createEAttribute(tableEClass, TABLE__DELETE_SQL_STATEMENT);
 		createEAttribute(tableEClass, TABLE__PARAM_TABLE_GROUP_ATTRIBUTES);
 		createEReference(tableEClass, TABLE__COLUMNS);
-		createEOperation(tableEClass, TABLE___ADD_COLUMN__STRING_INT_INT_EATTRIBUTE);
+		createEOperation(tableEClass, TABLE___ADD_COLUMN__BOOLEAN_STRING_INT_INT_EATTRIBUTE);
 		createEOperation(tableEClass, TABLE___REFRESH_META_DATA);
 		createEOperation(tableEClass, TABLE___SYNCH_DOWN);
 		createEOperation(tableEClass, TABLE___SYNCH_UP);
@@ -777,6 +832,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		eAttributeEDataType = createEDataType(EATTRIBUTE);
 		tableRowKeyEDataType = createEDataType(TABLE_ROW_KEY);
 		tableColumnTentativeEDataType = createEDataType(TABLE_COLUMN_TENTATIVE);
+		objectEDataType = createEDataType(OBJECT);
 	}
 
 	/**
@@ -807,38 +863,46 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		dataSourceEClass.getESuperTypes().add(this.getDbSynchUnitAbstract());
+		dbSynchUnitEClass.getESuperTypes().add(this.getDbSynchUnitAbstract());
 		dataSourceJdbcEClass.getESuperTypes().add(this.getDataSource());
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(dbSynchUnitAbstractEClass, DbSynchUnitAbstract.class, "DbSynchUnitAbstract", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDbSynchUnitAbstract_Name(), ecorePackage.getEString(), "Name", null, 0, 1, DbSynchUnitAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDbSynchUnitAbstract_DataSource(), this.getDataSource(), null, "DataSource", null, 0, 1, DbSynchUnitAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getDbSynchUnitAbstract_ChildUnits(), this.getDbSynchUnitAbstract(), null, "ChildUnits", null, 0, -1, DbSynchUnitAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getDbSynchUnitAbstract_Tables(), this.getTable(), null, "Tables", null, 0, -1, DbSynchUnitAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getDbSynchUnitAbstract__RefreshMetaData(), null, "refreshMetaData", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getDbSynchUnitAbstract__SynchUp(), null, "synchUp", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getDbSynchUnitAbstract__SynchDown(), null, "synchDown", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		EOperation op = initEOperation(getDbSynchUnitAbstract__GetParamValue__EAttribute(), this.getObject(), "getParamValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getEAttribute(), "attribute", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(dataSourceEClass, DataSource.class, "DataSource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDataSource_Name(), ecorePackage.getEString(), "Name", null, 0, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataSource_Connected(), ecorePackage.getEBoolean(), "Connected", null, 0, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getDataSource__Connect(), null, "connect", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getDataSource__Disconnect(), null, "disconnect", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		EOperation op = initEOperation(getDataSource__SynchDownTableImpl__Table(), null, "synchDownTableImpl", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getDataSource__SynchDownTableImpl__Table(), null, "synchDownTableImpl", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTable(), "table", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getDataSource__SynchUpTableImpl__Table(), null, "synchUpTableImpl", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTable(), "table", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(tableGroupEClass, TableGroup.class, "TableGroup", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTableGroup_Name(), ecorePackage.getEString(), "Name", null, 0, 1, TableGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTableGroup_Tables(), this.getTable(), null, "Tables", null, 0, -1, TableGroup.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getTableGroup_DataSource(), this.getDataSource(), null, "DataSource", null, 0, 1, TableGroup.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(dbSynchUnitEClass, DbSynchUnit.class, "DbSynchUnit", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDbSynchUnit_ParentUnit(), this.getDbSynchUnitAbstract(), null, "ParentUnit", null, 1, 1, DbSynchUnit.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getTableGroup__RefreshMetaData(), null, "refreshMetaData", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getTableGroup__SynchDown(), null, "synchDown", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getTableGroup__SynchUp(), null, "synchUp", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getTableGroup__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getDbSynchUnit__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(tableEClass, Table.class, "Table", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTable_TableGroup(), this.getTableGroup(), null, "TableGroup", null, 1, 1, Table.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getTable_SynchUnit(), this.getDbSynchUnitAbstract(), null, "SynchUnit", null, 1, 1, Table.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getTable_KeyColumns(), this.getTableColumn(), null, "KeyColumns", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTable_DataColumns(), this.getTableColumn(), null, "DataColumns", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTable_Rows(), this.getTableRow(), null, "Rows", null, 0, -1, Table.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -854,7 +918,8 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		initEAttribute(getTable_ParamTableGroupAttributes(), this.getEAttribute(), "ParamTableGroupAttributes", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTable_Columns(), this.getTableColumn(), null, "Columns", null, 0, -1, Table.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getTable__AddColumn__String_int_int_EAttribute(), null, "addColumn", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getTable__AddColumn__boolean_String_int_int_EAttribute(), null, "addColumn", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "isKey", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "column", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "columnNumber", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "keyNumber", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -908,6 +973,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		initEDataType(eAttributeEDataType, EAttribute.class, "EAttribute", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(tableRowKeyEDataType, TableRowKeyImpl.class, "TableRowKey", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(tableColumnTentativeEDataType, TableColumnImpl.class, "TableColumnTentative", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(objectEDataType, Object.class, "Object", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

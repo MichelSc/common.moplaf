@@ -21,11 +21,11 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import com.misc.common.moplaf.dbsynch.DataSourceJdbc;
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
+import com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract;
 import com.misc.common.moplaf.dbsynch.EnumModification;
 import com.misc.common.moplaf.dbsynch.Plugin;
 import com.misc.common.moplaf.dbsynch.Table;
 import com.misc.common.moplaf.dbsynch.TableColumn;
-import com.misc.common.moplaf.dbsynch.TableGroup;
 import com.misc.common.moplaf.dbsynch.TableRow;
 
 /**
@@ -379,11 +379,10 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		table.refreshMetaData();
 		Plugin.INSTANCE.logInfo("MetaData refreshed");
 		
-		TableGroup tableGroup = table.getTableGroup();
-
 		// prepare the statement
 		PreparedStatement statement = null;
 	    ResultSet resultSet = null;
+	    DbSynchUnitAbstract unit = table.getSynchUnit();
 		
 		try {
 	    	if ( this.db_connection == null ){
@@ -416,7 +415,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		    int paramIndex = 0;
 		    for ( EAttribute paramAttribute : params){
 		    	paramIndex++;
-		    	Object paramValue = tableGroup.eGet(paramAttribute);
+		    	Object paramValue = unit.getParamValue(paramAttribute);
 		    	// is there a value
 		    	if ( paramValue == null ){
 		    		throw new Exception("Prepare Statement failed, no value for param "+ paramAttribute);

@@ -66,15 +66,23 @@ public class DbSynchSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case DbSynchPackage.DATA_SOURCE: {
-				DataSource dataSource = (DataSource)theEObject;
-				T result = caseDataSource(dataSource);
+			case DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT: {
+				DbSynchUnitAbstract dbSynchUnitAbstract = (DbSynchUnitAbstract)theEObject;
+				T result = caseDbSynchUnitAbstract(dbSynchUnitAbstract);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DbSynchPackage.TABLE_GROUP: {
-				TableGroup tableGroup = (TableGroup)theEObject;
-				T result = caseTableGroup(tableGroup);
+			case DbSynchPackage.DATA_SOURCE: {
+				DataSource dataSource = (DataSource)theEObject;
+				T result = caseDataSource(dataSource);
+				if (result == null) result = caseDbSynchUnitAbstract(dataSource);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DbSynchPackage.DB_SYNCH_UNIT: {
+				DbSynchUnit dbSynchUnit = (DbSynchUnit)theEObject;
+				T result = caseDbSynchUnit(dbSynchUnit);
+				if (result == null) result = caseDbSynchUnitAbstract(dbSynchUnit);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -94,6 +102,7 @@ public class DbSynchSwitch<T> extends Switch<T> {
 				DataSourceJdbc dataSourceJdbc = (DataSourceJdbc)theEObject;
 				T result = caseDataSourceJdbc(dataSourceJdbc);
 				if (result == null) result = caseDataSource(dataSourceJdbc);
+				if (result == null) result = caseDbSynchUnitAbstract(dataSourceJdbc);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -123,17 +132,17 @@ public class DbSynchSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Table Group</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Unit</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Table Group</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Unit</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTableGroup(TableGroup object) {
+	public T caseDbSynchUnit(DbSynchUnit object) {
 		return null;
 	}
 
@@ -194,6 +203,21 @@ public class DbSynchSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTableColumn(TableColumn object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Unit Abstract</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Unit Abstract</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDbSynchUnitAbstract(DbSynchUnitAbstract object) {
 		return null;
 	}
 

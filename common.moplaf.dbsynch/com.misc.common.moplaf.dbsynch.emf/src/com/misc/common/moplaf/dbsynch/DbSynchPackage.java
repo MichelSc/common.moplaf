@@ -63,14 +63,14 @@ public interface DbSynchPackage extends EPackage {
 	DbSynchPackage eINSTANCE = com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.dbsynch.impl.DataSourceImpl <em>Data Source</em>}' class.
+	 * The meta object id for the '{@link com.misc.common.moplaf.dbsynch.impl.DbSynchUnitAbstractImpl <em>Unit Abstract</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.dbsynch.impl.DataSourceImpl
-	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getDataSource()
+	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchUnitAbstractImpl
+	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getDbSynchUnitAbstract()
 	 * @generated
 	 */
-	int DATA_SOURCE = 0;
+	int DB_SYNCH_UNIT_ABSTRACT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -79,98 +79,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SOURCE__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Connected</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_SOURCE__CONNECTED = 1;
-
-	/**
-	 * The number of structural features of the '<em>Data Source</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_SOURCE_FEATURE_COUNT = 2;
-
-	/**
-	 * The operation id for the '<em>Connect</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_SOURCE___CONNECT = 0;
-
-	/**
-	 * The operation id for the '<em>Disconnect</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_SOURCE___DISCONNECT = 1;
-
-	/**
-	 * The operation id for the '<em>Synch Down Table Impl</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_SOURCE___SYNCH_DOWN_TABLE_IMPL__TABLE = 2;
-
-	/**
-	 * The operation id for the '<em>Synch Up Table Impl</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_SOURCE___SYNCH_UP_TABLE_IMPL__TABLE = 3;
-
-	/**
-	 * The number of operations of the '<em>Data Source</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_SOURCE_OPERATION_COUNT = 4;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.dbsynch.impl.TableGroupImpl <em>Table Group</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.dbsynch.impl.TableGroupImpl
-	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getTableGroup()
-	 * @generated
-	 */
-	int TABLE_GROUP = 1;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_GROUP__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Tables</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_GROUP__TABLES = 1;
+	int DB_SYNCH_UNIT_ABSTRACT__NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Data Source</b></em>' reference.
@@ -179,16 +88,34 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_GROUP__DATA_SOURCE = 2;
+	int DB_SYNCH_UNIT_ABSTRACT__DATA_SOURCE = 1;
 
 	/**
-	 * The number of structural features of the '<em>Table Group</em>' class.
+	 * The feature id for the '<em><b>Child Units</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_GROUP_FEATURE_COUNT = 3;
+	int DB_SYNCH_UNIT_ABSTRACT__CHILD_UNITS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Tables</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT_ABSTRACT__TABLES = 3;
+
+	/**
+	 * The number of structural features of the '<em>Unit Abstract</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT_ABSTRACT_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Refresh Meta Data</em>' operation.
@@ -197,16 +124,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_GROUP___REFRESH_META_DATA = 0;
-
-	/**
-	 * The operation id for the '<em>Synch Down</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_GROUP___SYNCH_DOWN = 1;
+	int DB_SYNCH_UNIT_ABSTRACT___REFRESH_META_DATA = 0;
 
 	/**
 	 * The operation id for the '<em>Synch Up</em>' operation.
@@ -215,7 +133,279 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_GROUP___SYNCH_UP = 2;
+	int DB_SYNCH_UNIT_ABSTRACT___SYNCH_UP = 1;
+
+	/**
+	 * The operation id for the '<em>Synch Down</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT_ABSTRACT___SYNCH_DOWN = 2;
+
+	/**
+	 * The operation id for the '<em>Get Param Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_VALUE__EATTRIBUTE = 3;
+
+	/**
+	 * The number of operations of the '<em>Unit Abstract</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT_ABSTRACT_OPERATION_COUNT = 4;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.dbsynch.impl.DataSourceImpl <em>Data Source</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.dbsynch.impl.DataSourceImpl
+	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getDataSource()
+	 * @generated
+	 */
+	int DATA_SOURCE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE__NAME = DB_SYNCH_UNIT_ABSTRACT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Data Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE__DATA_SOURCE = DB_SYNCH_UNIT_ABSTRACT__DATA_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Child Units</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE__CHILD_UNITS = DB_SYNCH_UNIT_ABSTRACT__CHILD_UNITS;
+
+	/**
+	 * The feature id for the '<em><b>Tables</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE__TABLES = DB_SYNCH_UNIT_ABSTRACT__TABLES;
+
+	/**
+	 * The feature id for the '<em><b>Connected</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE__CONNECTED = DB_SYNCH_UNIT_ABSTRACT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Data Source</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_FEATURE_COUNT = DB_SYNCH_UNIT_ABSTRACT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Refresh Meta Data</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE___REFRESH_META_DATA = DB_SYNCH_UNIT_ABSTRACT___REFRESH_META_DATA;
+
+	/**
+	 * The operation id for the '<em>Synch Up</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE___SYNCH_UP = DB_SYNCH_UNIT_ABSTRACT___SYNCH_UP;
+
+	/**
+	 * The operation id for the '<em>Synch Down</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE___SYNCH_DOWN = DB_SYNCH_UNIT_ABSTRACT___SYNCH_DOWN;
+
+	/**
+	 * The operation id for the '<em>Get Param Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE___GET_PARAM_VALUE__EATTRIBUTE = DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_VALUE__EATTRIBUTE;
+
+	/**
+	 * The operation id for the '<em>Connect</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE___CONNECT = DB_SYNCH_UNIT_ABSTRACT_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Disconnect</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE___DISCONNECT = DB_SYNCH_UNIT_ABSTRACT_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Synch Down Table Impl</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE___SYNCH_DOWN_TABLE_IMPL__TABLE = DB_SYNCH_UNIT_ABSTRACT_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Synch Up Table Impl</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE___SYNCH_UP_TABLE_IMPL__TABLE = DB_SYNCH_UNIT_ABSTRACT_OPERATION_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Data Source</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_OPERATION_COUNT = DB_SYNCH_UNIT_ABSTRACT_OPERATION_COUNT + 4;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.dbsynch.impl.DbSynchUnitImpl <em>Unit</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchUnitImpl
+	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getDbSynchUnit()
+	 * @generated
+	 */
+	int DB_SYNCH_UNIT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT__NAME = DB_SYNCH_UNIT_ABSTRACT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Data Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT__DATA_SOURCE = DB_SYNCH_UNIT_ABSTRACT__DATA_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Child Units</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT__CHILD_UNITS = DB_SYNCH_UNIT_ABSTRACT__CHILD_UNITS;
+
+	/**
+	 * The feature id for the '<em><b>Tables</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT__TABLES = DB_SYNCH_UNIT_ABSTRACT__TABLES;
+
+	/**
+	 * The feature id for the '<em><b>Parent Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT__PARENT_UNIT = DB_SYNCH_UNIT_ABSTRACT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Unit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT_FEATURE_COUNT = DB_SYNCH_UNIT_ABSTRACT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Refresh Meta Data</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT___REFRESH_META_DATA = DB_SYNCH_UNIT_ABSTRACT___REFRESH_META_DATA;
+
+	/**
+	 * The operation id for the '<em>Synch Up</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT___SYNCH_UP = DB_SYNCH_UNIT_ABSTRACT___SYNCH_UP;
+
+	/**
+	 * The operation id for the '<em>Synch Down</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT___SYNCH_DOWN = DB_SYNCH_UNIT_ABSTRACT___SYNCH_DOWN;
+
+	/**
+	 * The operation id for the '<em>Get Param Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT___GET_PARAM_VALUE__EATTRIBUTE = DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_VALUE__EATTRIBUTE;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -224,16 +414,16 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_GROUP___REFRESH = 3;
+	int DB_SYNCH_UNIT___REFRESH = DB_SYNCH_UNIT_ABSTRACT_OPERATION_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Table Group</em>' class.
+	 * The number of operations of the '<em>Unit</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_GROUP_OPERATION_COUNT = 4;
+	int DB_SYNCH_UNIT_OPERATION_COUNT = DB_SYNCH_UNIT_ABSTRACT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.dbsynch.impl.TableImpl <em>Table</em>}' class.
@@ -243,16 +433,16 @@ public interface DbSynchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getTable()
 	 * @generated
 	 */
-	int TABLE = 2;
+	int TABLE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Table Group</b></em>' reference.
+	 * The feature id for the '<em><b>Synch Unit</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__TABLE_GROUP = 0;
+	int TABLE__SYNCH_UNIT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Key Columns</b></em>' containment reference list.
@@ -396,7 +586,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___ADD_COLUMN__STRING_INT_INT_EATTRIBUTE = 0;
+	int TABLE___ADD_COLUMN__BOOLEAN_STRING_INT_INT_EATTRIBUTE = 0;
 
 	/**
 	 * The operation id for the '<em>Refresh Meta Data</em>' operation.
@@ -487,7 +677,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getTableRow()
 	 * @generated
 	 */
-	int TABLE_ROW = 3;
+	int TABLE_ROW = 4;
 
 	/**
 	 * The feature id for the '<em><b>Table</b></em>' reference.
@@ -560,7 +750,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getDataSourceJdbc()
 	 * @generated
 	 */
-	int DATA_SOURCE_JDBC = 4;
+	int DATA_SOURCE_JDBC = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -570,6 +760,33 @@ public interface DbSynchPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_SOURCE_JDBC__NAME = DATA_SOURCE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Data Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_JDBC__DATA_SOURCE = DATA_SOURCE__DATA_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Child Units</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_JDBC__CHILD_UNITS = DATA_SOURCE__CHILD_UNITS;
+
+	/**
+	 * The feature id for the '<em><b>Tables</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_JDBC__TABLES = DATA_SOURCE__TABLES;
 
 	/**
 	 * The feature id for the '<em><b>Connected</b></em>' attribute.
@@ -617,6 +834,42 @@ public interface DbSynchPackage extends EPackage {
 	int DATA_SOURCE_JDBC_FEATURE_COUNT = DATA_SOURCE_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Refresh Meta Data</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_JDBC___REFRESH_META_DATA = DATA_SOURCE___REFRESH_META_DATA;
+
+	/**
+	 * The operation id for the '<em>Synch Up</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_JDBC___SYNCH_UP = DATA_SOURCE___SYNCH_UP;
+
+	/**
+	 * The operation id for the '<em>Synch Down</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_JDBC___SYNCH_DOWN = DATA_SOURCE___SYNCH_DOWN;
+
+	/**
+	 * The operation id for the '<em>Get Param Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_JDBC___GET_PARAM_VALUE__EATTRIBUTE = DATA_SOURCE___GET_PARAM_VALUE__EATTRIBUTE;
+
+	/**
 	 * The operation id for the '<em>Connect</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -662,47 +915,6 @@ public interface DbSynchPackage extends EPackage {
 	int DATA_SOURCE_JDBC_OPERATION_COUNT = DATA_SOURCE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.dbsynch.EnumModification <em>Enum Modification</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.dbsynch.EnumModification
-	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getEnumModification()
-	 * @generated
-	 */
-	int ENUM_MODIFICATION = 6;
-
-	/**
-	 * The meta object id for the '<em>EAttribute</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecore.EAttribute
-	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getEAttribute()
-	 * @generated
-	 */
-	int EATTRIBUTE = 7;
-
-	/**
-	 * The meta object id for the '<em>Table Row Key</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.dbsynch.impl.TableRowKeyImpl
-	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getTableRowKey()
-	 * @generated
-	 */
-	int TABLE_ROW_KEY = 8;
-
-
-	/**
-	 * The meta object id for the '<em>Table Column Tentative</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.dbsynch.impl.TableColumnImpl
-	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getTableColumnTentative()
-	 * @generated
-	 */
-	int TABLE_COLUMN_TENTATIVE = 9;
-
-	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.dbsynch.impl.TableColumnImpl <em>Table Column</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -710,8 +922,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getTableColumn()
 	 * @generated
 	 */
-	int TABLE_COLUMN = 5;
-
+	int TABLE_COLUMN = 6;
 
 	/**
 	 * The feature id for the '<em><b>Column Name</b></em>' attribute.
@@ -758,6 +969,56 @@ public interface DbSynchPackage extends EPackage {
 	 */
 	int TABLE_COLUMN_OPERATION_COUNT = 0;
 
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.dbsynch.EnumModification <em>Enum Modification</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.dbsynch.EnumModification
+	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getEnumModification()
+	 * @generated
+	 */
+	int ENUM_MODIFICATION = 7;
+
+	/**
+	 * The meta object id for the '<em>EAttribute</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.ecore.EAttribute
+	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getEAttribute()
+	 * @generated
+	 */
+	int EATTRIBUTE = 8;
+
+	/**
+	 * The meta object id for the '<em>Table Row Key</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.dbsynch.impl.TableRowKeyImpl
+	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getTableRowKey()
+	 * @generated
+	 */
+	int TABLE_ROW_KEY = 9;
+
+	/**
+	 * The meta object id for the '<em>Table Column Tentative</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.dbsynch.impl.TableColumnImpl
+	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getTableColumnTentative()
+	 * @generated
+	 */
+	int TABLE_COLUMN_TENTATIVE = 10;
+
+	/**
+	 * The meta object id for the '<em>Object</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.lang.Object
+	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getObject()
+	 * @generated
+	 */
+	int OBJECT = 11;
+
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.dbsynch.DataSource <em>Data Source</em>}'.
@@ -768,17 +1029,6 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDataSource();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.DataSource#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.misc.common.moplaf.dbsynch.DataSource#getName()
-	 * @see #getDataSource()
-	 * @generated
-	 */
-	EAttribute getDataSource_Name();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.DataSource#isConnected <em>Connected</em>}'.
@@ -832,87 +1082,35 @@ public interface DbSynchPackage extends EPackage {
 	EOperation getDataSource__SynchUpTableImpl__Table();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.dbsynch.TableGroup <em>Table Group</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.dbsynch.DbSynchUnit <em>Unit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Table Group</em>'.
-	 * @see com.misc.common.moplaf.dbsynch.TableGroup
+	 * @return the meta object for class '<em>Unit</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchUnit
 	 * @generated
 	 */
-	EClass getTableGroup();
+	EClass getDbSynchUnit();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.TableGroup#getName <em>Name</em>}'.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.dbsynch.DbSynchUnit#getParentUnit <em>Parent Unit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.misc.common.moplaf.dbsynch.TableGroup#getName()
-	 * @see #getTableGroup()
+	 * @return the meta object for the reference '<em>Parent Unit</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchUnit#getParentUnit()
+	 * @see #getDbSynchUnit()
 	 * @generated
 	 */
-	EAttribute getTableGroup_Name();
+	EReference getDbSynchUnit_ParentUnit();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.dbsynch.TableGroup#getTables <em>Tables</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Tables</em>'.
-	 * @see com.misc.common.moplaf.dbsynch.TableGroup#getTables()
-	 * @see #getTableGroup()
-	 * @generated
-	 */
-	EReference getTableGroup_Tables();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.dbsynch.TableGroup#getDataSource <em>Data Source</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Data Source</em>'.
-	 * @see com.misc.common.moplaf.dbsynch.TableGroup#getDataSource()
-	 * @see #getTableGroup()
-	 * @generated
-	 */
-	EReference getTableGroup_DataSource();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.TableGroup#refreshMetaData() <em>Refresh Meta Data</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Refresh Meta Data</em>' operation.
-	 * @see com.misc.common.moplaf.dbsynch.TableGroup#refreshMetaData()
-	 * @generated
-	 */
-	EOperation getTableGroup__RefreshMetaData();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.TableGroup#synchDown() <em>Synch Down</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Synch Down</em>' operation.
-	 * @see com.misc.common.moplaf.dbsynch.TableGroup#synchDown()
-	 * @generated
-	 */
-	EOperation getTableGroup__SynchDown();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.TableGroup#synchUp() <em>Synch Up</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Synch Up</em>' operation.
-	 * @see com.misc.common.moplaf.dbsynch.TableGroup#synchUp()
-	 * @generated
-	 */
-	EOperation getTableGroup__SynchUp();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.TableGroup#refresh() <em>Refresh</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.DbSynchUnit#refresh() <em>Refresh</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Refresh</em>' operation.
-	 * @see com.misc.common.moplaf.dbsynch.TableGroup#refresh()
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchUnit#refresh()
 	 * @generated
 	 */
-	EOperation getTableGroup__Refresh();
+	EOperation getDbSynchUnit__Refresh();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.dbsynch.Table <em>Table</em>}'.
@@ -925,15 +1123,37 @@ public interface DbSynchPackage extends EPackage {
 	EClass getTable();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.dbsynch.Table#getTableGroup <em>Table Group</em>}'.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.dbsynch.Table#getSynchUnit <em>Synch Unit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Table Group</em>'.
-	 * @see com.misc.common.moplaf.dbsynch.Table#getTableGroup()
+	 * @return the meta object for the reference '<em>Synch Unit</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.Table#getSynchUnit()
 	 * @see #getTable()
 	 * @generated
 	 */
-	EReference getTable_TableGroup();
+	EReference getTable_SynchUnit();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.dbsynch.Table#getKeyColumns <em>Key Columns</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Key Columns</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.Table#getKeyColumns()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EReference getTable_KeyColumns();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.dbsynch.Table#getDataColumns <em>Data Columns</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Data Columns</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.Table#getDataColumns()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EReference getTable_DataColumns();
 
 	/**
 	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.dbsynch.Table#getRows <em>Rows</em>}'.
@@ -967,6 +1187,39 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTable_WhereClause();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.Table#getNumberOfRows <em>Number Of Rows</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Number Of Rows</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.Table#getNumberOfRows()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EAttribute getTable_NumberOfRows();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.Table#getLastSynchDown <em>Last Synch Down</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Last Synch Down</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.Table#getLastSynchDown()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EAttribute getTable_LastSynchDown();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.Table#getLastSynchUp <em>Last Synch Up</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Last Synch Up</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.Table#getLastSynchUp()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EAttribute getTable_LastSynchUp();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.Table#getSelectSqlStatement <em>Select Sql Statement</em>}'.
@@ -1024,17 +1277,6 @@ public interface DbSynchPackage extends EPackage {
 	EAttribute getTable_ParamTableGroupAttributes();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.dbsynch.Table#getKeyColumns <em>Key Columns</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Key Columns</em>'.
-	 * @see com.misc.common.moplaf.dbsynch.Table#getKeyColumns()
-	 * @see #getTable()
-	 * @generated
-	 */
-	EReference getTable_KeyColumns();
-
-	/**
 	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.dbsynch.Table#getColumns <em>Columns</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1046,14 +1288,14 @@ public interface DbSynchPackage extends EPackage {
 	EReference getTable_Columns();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#addColumn(java.lang.String, int, int, org.eclipse.emf.ecore.EAttribute) <em>Add Column</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#addColumn(boolean, java.lang.String, int, int, org.eclipse.emf.ecore.EAttribute) <em>Add Column</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add Column</em>' operation.
-	 * @see com.misc.common.moplaf.dbsynch.Table#addColumn(java.lang.String, int, int, org.eclipse.emf.ecore.EAttribute)
+	 * @see com.misc.common.moplaf.dbsynch.Table#addColumn(boolean, java.lang.String, int, int, org.eclipse.emf.ecore.EAttribute)
 	 * @generated
 	 */
-	EOperation getTable__AddColumn__String_int_int_EAttribute();
+	EOperation getTable__AddColumn__boolean_String_int_int_EAttribute();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#refreshMetaData() <em>Refresh Meta Data</em>}' operation.
@@ -1064,50 +1306,6 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getTable__RefreshMetaData();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.Table#getLastSynchDown <em>Last Synch Down</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Last Synch Down</em>'.
-	 * @see com.misc.common.moplaf.dbsynch.Table#getLastSynchDown()
-	 * @see #getTable()
-	 * @generated
-	 */
-	EAttribute getTable_LastSynchDown();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.Table#getLastSynchUp <em>Last Synch Up</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Last Synch Up</em>'.
-	 * @see com.misc.common.moplaf.dbsynch.Table#getLastSynchUp()
-	 * @see #getTable()
-	 * @generated
-	 */
-	EAttribute getTable_LastSynchUp();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.dbsynch.Table#getDataColumns <em>Data Columns</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Data Columns</em>'.
-	 * @see com.misc.common.moplaf.dbsynch.Table#getDataColumns()
-	 * @see #getTable()
-	 * @generated
-	 */
-	EReference getTable_DataColumns();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.Table#getNumberOfRows <em>Number Of Rows</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Number Of Rows</em>'.
-	 * @see com.misc.common.moplaf.dbsynch.Table#getNumberOfRows()
-	 * @see #getTable()
-	 * @generated
-	 */
-	EAttribute getTable_NumberOfRows();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#synchDown() <em>Synch Down</em>}' operation.
@@ -1140,16 +1338,6 @@ public interface DbSynchPackage extends EPackage {
 	EOperation getTable__Refresh();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#addRow(com.misc.common.moplaf.dbsynch.TableRow) <em>Add Row</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Row</em>' operation.
-	 * @see com.misc.common.moplaf.dbsynch.Table#addRow(com.misc.common.moplaf.dbsynch.TableRow)
-	 * @generated
-	 */
-	EOperation getTable__AddRow__TableRow();
-
-	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#getRow(com.misc.common.moplaf.dbsynch.impl.TableRowKeyImpl) <em>Get Row</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1168,6 +1356,16 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getTable__ConstructRow();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#addRow(com.misc.common.moplaf.dbsynch.TableRow) <em>Add Row</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Row</em>' operation.
+	 * @see com.misc.common.moplaf.dbsynch.Table#addRow(com.misc.common.moplaf.dbsynch.TableRow)
+	 * @generated
+	 */
+	EOperation getTable__AddRow__TableRow();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#removeRow(com.misc.common.moplaf.dbsynch.TableRow) <em>Remove Row</em>}' operation.
@@ -1287,6 +1485,143 @@ public interface DbSynchPackage extends EPackage {
 	EAttribute getDataSourceJdbc_DefaultSchema();
 
 	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.dbsynch.TableColumn <em>Table Column</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Table Column</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.TableColumn
+	 * @generated
+	 */
+	EClass getTableColumn();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.TableColumn#getColumnName <em>Column Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Column Name</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.TableColumn#getColumnName()
+	 * @see #getTableColumn()
+	 * @generated
+	 */
+	EAttribute getTableColumn_ColumnName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.TableColumn#isVolatile <em>Volatile</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Volatile</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.TableColumn#isVolatile()
+	 * @see #getTableColumn()
+	 * @generated
+	 */
+	EAttribute getTableColumn_Volatile();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.dbsynch.TableColumn#getRowAttribute <em>Row Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Row Attribute</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.TableColumn#getRowAttribute()
+	 * @see #getTableColumn()
+	 * @generated
+	 */
+	EReference getTableColumn_RowAttribute();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract <em>Unit Abstract</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Unit Abstract</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract
+	 * @generated
+	 */
+	EClass getDbSynchUnitAbstract();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract#getTables <em>Tables</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Tables</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract#getTables()
+	 * @see #getDbSynchUnitAbstract()
+	 * @generated
+	 */
+	EReference getDbSynchUnitAbstract_Tables();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract#getDataSource <em>Data Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Data Source</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract#getDataSource()
+	 * @see #getDbSynchUnitAbstract()
+	 * @generated
+	 */
+	EReference getDbSynchUnitAbstract_DataSource();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract#getName()
+	 * @see #getDbSynchUnitAbstract()
+	 * @generated
+	 */
+	EAttribute getDbSynchUnitAbstract_Name();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract#getChildUnits <em>Child Units</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Child Units</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract#getChildUnits()
+	 * @see #getDbSynchUnitAbstract()
+	 * @generated
+	 */
+	EReference getDbSynchUnitAbstract_ChildUnits();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract#refreshMetaData() <em>Refresh Meta Data</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh Meta Data</em>' operation.
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract#refreshMetaData()
+	 * @generated
+	 */
+	EOperation getDbSynchUnitAbstract__RefreshMetaData();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract#synchUp() <em>Synch Up</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Synch Up</em>' operation.
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract#synchUp()
+	 * @generated
+	 */
+	EOperation getDbSynchUnitAbstract__SynchUp();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract#synchDown() <em>Synch Down</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Synch Down</em>' operation.
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract#synchDown()
+	 * @generated
+	 */
+	EOperation getDbSynchUnitAbstract__SynchDown();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract#getParamValue(org.eclipse.emf.ecore.EAttribute) <em>Get Param Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Param Value</em>' operation.
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract#getParamValue(org.eclipse.emf.ecore.EAttribute)
+	 * @generated
+	 */
+	EOperation getDbSynchUnitAbstract__GetParamValue__EAttribute();
+
+	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.dbsynch.EnumModification <em>Enum Modification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1330,47 +1665,15 @@ public interface DbSynchPackage extends EPackage {
 	EDataType getTableColumnTentative();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.dbsynch.TableColumn <em>Table Column</em>}'.
+	 * Returns the meta object for data type '{@link java.lang.Object <em>Object</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Table Column</em>'.
-	 * @see com.misc.common.moplaf.dbsynch.TableColumn
+	 * @return the meta object for data type '<em>Object</em>'.
+	 * @see java.lang.Object
+	 * @model instanceClass="java.lang.Object"
 	 * @generated
 	 */
-	EClass getTableColumn();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.TableColumn#getColumnName <em>Column Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Column Name</em>'.
-	 * @see com.misc.common.moplaf.dbsynch.TableColumn#getColumnName()
-	 * @see #getTableColumn()
-	 * @generated
-	 */
-	EAttribute getTableColumn_ColumnName();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.dbsynch.TableColumn#getRowAttribute <em>Row Attribute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Row Attribute</em>'.
-	 * @see com.misc.common.moplaf.dbsynch.TableColumn#getRowAttribute()
-	 * @see #getTableColumn()
-	 * @generated
-	 */
-	EReference getTableColumn_RowAttribute();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.TableColumn#isVolatile <em>Volatile</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Volatile</em>'.
-	 * @see com.misc.common.moplaf.dbsynch.TableColumn#isVolatile()
-	 * @see #getTableColumn()
-	 * @generated
-	 */
-	EAttribute getTableColumn_Volatile();
+	EDataType getObject();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1404,14 +1707,6 @@ public interface DbSynchPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DATA_SOURCE = eINSTANCE.getDataSource();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DATA_SOURCE__NAME = eINSTANCE.getDataSource_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Connected</b></em>' attribute feature.
@@ -1454,62 +1749,22 @@ public interface DbSynchPackage extends EPackage {
 		EOperation DATA_SOURCE___SYNCH_UP_TABLE_IMPL__TABLE = eINSTANCE.getDataSource__SynchUpTableImpl__Table();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.dbsynch.impl.TableGroupImpl <em>Table Group</em>}' class.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.dbsynch.impl.DbSynchUnitImpl <em>Unit</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.dbsynch.impl.TableGroupImpl
-		 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getTableGroup()
+		 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchUnitImpl
+		 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getDbSynchUnit()
 		 * @generated
 		 */
-		EClass TABLE_GROUP = eINSTANCE.getTableGroup();
+		EClass DB_SYNCH_UNIT = eINSTANCE.getDbSynchUnit();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Parent Unit</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TABLE_GROUP__NAME = eINSTANCE.getTableGroup_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Tables</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TABLE_GROUP__TABLES = eINSTANCE.getTableGroup_Tables();
-
-		/**
-		 * The meta object literal for the '<em><b>Data Source</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TABLE_GROUP__DATA_SOURCE = eINSTANCE.getTableGroup_DataSource();
-
-		/**
-		 * The meta object literal for the '<em><b>Refresh Meta Data</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation TABLE_GROUP___REFRESH_META_DATA = eINSTANCE.getTableGroup__RefreshMetaData();
-
-		/**
-		 * The meta object literal for the '<em><b>Synch Down</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation TABLE_GROUP___SYNCH_DOWN = eINSTANCE.getTableGroup__SynchDown();
-
-		/**
-		 * The meta object literal for the '<em><b>Synch Up</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation TABLE_GROUP___SYNCH_UP = eINSTANCE.getTableGroup__SynchUp();
+		EReference DB_SYNCH_UNIT__PARENT_UNIT = eINSTANCE.getDbSynchUnit_ParentUnit();
 
 		/**
 		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.
@@ -1517,7 +1772,7 @@ public interface DbSynchPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation TABLE_GROUP___REFRESH = eINSTANCE.getTableGroup__Refresh();
+		EOperation DB_SYNCH_UNIT___REFRESH = eINSTANCE.getDbSynchUnit__Refresh();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.dbsynch.impl.TableImpl <em>Table</em>}' class.
@@ -1530,12 +1785,28 @@ public interface DbSynchPackage extends EPackage {
 		EClass TABLE = eINSTANCE.getTable();
 
 		/**
-		 * The meta object literal for the '<em><b>Table Group</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Synch Unit</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TABLE__TABLE_GROUP = eINSTANCE.getTable_TableGroup();
+		EReference TABLE__SYNCH_UNIT = eINSTANCE.getTable_SynchUnit();
+
+		/**
+		 * The meta object literal for the '<em><b>Key Columns</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TABLE__KEY_COLUMNS = eINSTANCE.getTable_KeyColumns();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Columns</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TABLE__DATA_COLUMNS = eINSTANCE.getTable_DataColumns();
 
 		/**
 		 * The meta object literal for the '<em><b>Rows</b></em>' reference list feature.
@@ -1560,6 +1831,30 @@ public interface DbSynchPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TABLE__WHERE_CLAUSE = eINSTANCE.getTable_WhereClause();
+
+		/**
+		 * The meta object literal for the '<em><b>Number Of Rows</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE__NUMBER_OF_ROWS = eINSTANCE.getTable_NumberOfRows();
+
+		/**
+		 * The meta object literal for the '<em><b>Last Synch Down</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE__LAST_SYNCH_DOWN = eINSTANCE.getTable_LastSynchDown();
+
+		/**
+		 * The meta object literal for the '<em><b>Last Synch Up</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE__LAST_SYNCH_UP = eINSTANCE.getTable_LastSynchUp();
 
 		/**
 		 * The meta object literal for the '<em><b>Select Sql Statement</b></em>' attribute feature.
@@ -1602,14 +1897,6 @@ public interface DbSynchPackage extends EPackage {
 		EAttribute TABLE__PARAM_TABLE_GROUP_ATTRIBUTES = eINSTANCE.getTable_ParamTableGroupAttributes();
 
 		/**
-		 * The meta object literal for the '<em><b>Key Columns</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TABLE__KEY_COLUMNS = eINSTANCE.getTable_KeyColumns();
-
-		/**
 		 * The meta object literal for the '<em><b>Columns</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1623,7 +1910,7 @@ public interface DbSynchPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation TABLE___ADD_COLUMN__STRING_INT_INT_EATTRIBUTE = eINSTANCE.getTable__AddColumn__String_int_int_EAttribute();
+		EOperation TABLE___ADD_COLUMN__BOOLEAN_STRING_INT_INT_EATTRIBUTE = eINSTANCE.getTable__AddColumn__boolean_String_int_int_EAttribute();
 
 		/**
 		 * The meta object literal for the '<em><b>Refresh Meta Data</b></em>' operation.
@@ -1632,38 +1919,6 @@ public interface DbSynchPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation TABLE___REFRESH_META_DATA = eINSTANCE.getTable__RefreshMetaData();
-
-		/**
-		 * The meta object literal for the '<em><b>Last Synch Down</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TABLE__LAST_SYNCH_DOWN = eINSTANCE.getTable_LastSynchDown();
-
-		/**
-		 * The meta object literal for the '<em><b>Last Synch Up</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TABLE__LAST_SYNCH_UP = eINSTANCE.getTable_LastSynchUp();
-
-		/**
-		 * The meta object literal for the '<em><b>Data Columns</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TABLE__DATA_COLUMNS = eINSTANCE.getTable_DataColumns();
-
-		/**
-		 * The meta object literal for the '<em><b>Number Of Rows</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TABLE__NUMBER_OF_ROWS = eINSTANCE.getTable_NumberOfRows();
 
 		/**
 		 * The meta object literal for the '<em><b>Synch Down</b></em>' operation.
@@ -1690,14 +1945,6 @@ public interface DbSynchPackage extends EPackage {
 		EOperation TABLE___REFRESH = eINSTANCE.getTable__Refresh();
 
 		/**
-		 * The meta object literal for the '<em><b>Add Row</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation TABLE___ADD_ROW__TABLEROW = eINSTANCE.getTable__AddRow__TableRow();
-
-		/**
 		 * The meta object literal for the '<em><b>Get Row</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1712,6 +1959,14 @@ public interface DbSynchPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation TABLE___CONSTRUCT_ROW = eINSTANCE.getTable__ConstructRow();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Row</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TABLE___ADD_ROW__TABLEROW = eINSTANCE.getTable__AddRow__TableRow();
 
 		/**
 		 * The meta object literal for the '<em><b>Remove Row</b></em>' operation.
@@ -1806,6 +2061,114 @@ public interface DbSynchPackage extends EPackage {
 		EAttribute DATA_SOURCE_JDBC__DEFAULT_SCHEMA = eINSTANCE.getDataSourceJdbc_DefaultSchema();
 
 		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.dbsynch.impl.TableColumnImpl <em>Table Column</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.dbsynch.impl.TableColumnImpl
+		 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getTableColumn()
+		 * @generated
+		 */
+		EClass TABLE_COLUMN = eINSTANCE.getTableColumn();
+
+		/**
+		 * The meta object literal for the '<em><b>Column Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_COLUMN__COLUMN_NAME = eINSTANCE.getTableColumn_ColumnName();
+
+		/**
+		 * The meta object literal for the '<em><b>Volatile</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_COLUMN__VOLATILE = eINSTANCE.getTableColumn_Volatile();
+
+		/**
+		 * The meta object literal for the '<em><b>Row Attribute</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TABLE_COLUMN__ROW_ATTRIBUTE = eINSTANCE.getTableColumn_RowAttribute();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.dbsynch.impl.DbSynchUnitAbstractImpl <em>Unit Abstract</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchUnitAbstractImpl
+		 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getDbSynchUnitAbstract()
+		 * @generated
+		 */
+		EClass DB_SYNCH_UNIT_ABSTRACT = eINSTANCE.getDbSynchUnitAbstract();
+
+		/**
+		 * The meta object literal for the '<em><b>Tables</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DB_SYNCH_UNIT_ABSTRACT__TABLES = eINSTANCE.getDbSynchUnitAbstract_Tables();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DB_SYNCH_UNIT_ABSTRACT__DATA_SOURCE = eINSTANCE.getDbSynchUnitAbstract_DataSource();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DB_SYNCH_UNIT_ABSTRACT__NAME = eINSTANCE.getDbSynchUnitAbstract_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Child Units</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DB_SYNCH_UNIT_ABSTRACT__CHILD_UNITS = eINSTANCE.getDbSynchUnitAbstract_ChildUnits();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh Meta Data</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DB_SYNCH_UNIT_ABSTRACT___REFRESH_META_DATA = eINSTANCE.getDbSynchUnitAbstract__RefreshMetaData();
+
+		/**
+		 * The meta object literal for the '<em><b>Synch Up</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DB_SYNCH_UNIT_ABSTRACT___SYNCH_UP = eINSTANCE.getDbSynchUnitAbstract__SynchUp();
+
+		/**
+		 * The meta object literal for the '<em><b>Synch Down</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DB_SYNCH_UNIT_ABSTRACT___SYNCH_DOWN = eINSTANCE.getDbSynchUnitAbstract__SynchDown();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Param Value</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_VALUE__EATTRIBUTE = eINSTANCE.getDbSynchUnitAbstract__GetParamValue__EAttribute();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.dbsynch.EnumModification <em>Enum Modification</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1846,38 +2209,14 @@ public interface DbSynchPackage extends EPackage {
 		EDataType TABLE_COLUMN_TENTATIVE = eINSTANCE.getTableColumnTentative();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.dbsynch.impl.TableColumnImpl <em>Table Column</em>}' class.
+		 * The meta object literal for the '<em>Object</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.dbsynch.impl.TableColumnImpl
-		 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getTableColumn()
+		 * @see java.lang.Object
+		 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getObject()
 		 * @generated
 		 */
-		EClass TABLE_COLUMN = eINSTANCE.getTableColumn();
-
-		/**
-		 * The meta object literal for the '<em><b>Column Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TABLE_COLUMN__COLUMN_NAME = eINSTANCE.getTableColumn_ColumnName();
-
-		/**
-		 * The meta object literal for the '<em><b>Row Attribute</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TABLE_COLUMN__ROW_ATTRIBUTE = eINSTANCE.getTableColumn_RowAttribute();
-
-		/**
-		 * The meta object literal for the '<em><b>Volatile</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TABLE_COLUMN__VOLATILE = eINSTANCE.getTableColumn_Volatile();
+		EDataType OBJECT = eINSTANCE.getObject();
 
 	}
 

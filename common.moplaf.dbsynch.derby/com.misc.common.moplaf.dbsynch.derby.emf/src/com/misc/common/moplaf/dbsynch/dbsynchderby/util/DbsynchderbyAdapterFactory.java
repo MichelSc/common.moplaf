@@ -5,6 +5,7 @@ package com.misc.common.moplaf.dbsynch.dbsynchderby.util;
 import com.misc.common.moplaf.dbsynch.DataSource;
 import com.misc.common.moplaf.dbsynch.DataSourceJdbc;
 
+import com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract;
 import com.misc.common.moplaf.dbsynch.dbsynchderby.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -75,6 +76,10 @@ public class DbsynchderbyAdapterFactory extends AdapterFactoryImpl {
 				return createDataSourceJdbcDerbyEmbeddedAdapter();
 			}
 			@Override
+			public Adapter caseDbSynchUnitAbstract(DbSynchUnitAbstract object) {
+				return createDbSynchUnitAbstractAdapter();
+			}
+			@Override
 			public Adapter caseDataSource(DataSource object) {
 				return createDataSourceAdapter();
 			}
@@ -113,6 +118,20 @@ public class DbsynchderbyAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDataSourceJdbcDerbyEmbeddedAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract <em>Unit Abstract</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract
+	 * @generated
+	 */
+	public Adapter createDbSynchUnitAbstractAdapter() {
 		return null;
 	}
 

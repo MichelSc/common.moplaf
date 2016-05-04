@@ -16,8 +16,20 @@
     <genDataTypes ecoreDataType="dbsynch.ecore#//EAttribute"/>
     <genDataTypes ecoreDataType="dbsynch.ecore#//TableRowKey"/>
     <genDataTypes ecoreDataType="dbsynch.ecore#//TableColumnTentative"/>
+    <genDataTypes ecoreDataType="dbsynch.ecore#//Object"/>
+    <genClasses image="false" ecoreClass="dbsynch.ecore#//DbSynchUnitAbstract">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//DbSynchUnitAbstract/Name"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference dbsynch.ecore#//DbSynchUnitAbstract/DataSource"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference dbsynch.ecore#//DbSynchUnitAbstract/ChildUnits"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference dbsynch.ecore#//DbSynchUnitAbstract/Tables"/>
+      <genOperations ecoreOperation="dbsynch.ecore#//DbSynchUnitAbstract/refreshMetaData"/>
+      <genOperations ecoreOperation="dbsynch.ecore#//DbSynchUnitAbstract/synchUp"/>
+      <genOperations ecoreOperation="dbsynch.ecore#//DbSynchUnitAbstract/synchDown"/>
+      <genOperations ecoreOperation="dbsynch.ecore#//DbSynchUnitAbstract/getParamValue">
+        <genParameters ecoreParameter="dbsynch.ecore#//DbSynchUnitAbstract/getParamValue/attribute"/>
+      </genOperations>
+    </genClasses>
     <genClasses ecoreClass="dbsynch.ecore#//DataSource">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//DataSource/Name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//DataSource/Connected"/>
       <genOperations ecoreOperation="dbsynch.ecore#//DataSource/connect"/>
       <genOperations ecoreOperation="dbsynch.ecore#//DataSource/disconnect"/>
@@ -28,17 +40,12 @@
         <genParameters ecoreParameter="dbsynch.ecore#//DataSource/synchUpTableImpl/table"/>
       </genOperations>
     </genClasses>
-    <genClasses ecoreClass="dbsynch.ecore#//TableGroup">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableGroup/Name"/>
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference dbsynch.ecore#//TableGroup/Tables"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference dbsynch.ecore#//TableGroup/DataSource"/>
-      <genOperations ecoreOperation="dbsynch.ecore#//TableGroup/refreshMetaData"/>
-      <genOperations ecoreOperation="dbsynch.ecore#//TableGroup/synchDown"/>
-      <genOperations ecoreOperation="dbsynch.ecore#//TableGroup/synchUp"/>
-      <genOperations ecoreOperation="dbsynch.ecore#//TableGroup/refresh"/>
+    <genClasses image="false" ecoreClass="dbsynch.ecore#//DbSynchUnit">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference dbsynch.ecore#//DbSynchUnit/ParentUnit"/>
+      <genOperations ecoreOperation="dbsynch.ecore#//DbSynchUnit/refresh"/>
     </genClasses>
     <genClasses ecoreClass="dbsynch.ecore#//Table">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference dbsynch.ecore#//Table/TableGroup"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference dbsynch.ecore#//Table/SynchUnit"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dbsynch.ecore#//Table/KeyColumns"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dbsynch.ecore#//Table/DataColumns"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference dbsynch.ecore#//Table/Rows"/>
@@ -54,6 +61,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//Table/ParamTableGroupAttributes"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference dbsynch.ecore#//Table/Columns"/>
       <genOperations ecoreOperation="dbsynch.ecore#//Table/addColumn">
+        <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn/isKey"/>
         <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn/column"/>
         <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn/columnNumber"/>
         <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn/keyNumber"/>
@@ -66,7 +74,7 @@
       <genOperations ecoreOperation="dbsynch.ecore#//Table/getRow">
         <genParameters ecoreParameter="dbsynch.ecore#//Table/getRow/key"/>
       </genOperations>
-      <genOperations ecoreOperation="dbsynch.ecore#//Table/rowFactory"/>
+      <genOperations ecoreOperation="dbsynch.ecore#//Table/constructRow"/>
       <genOperations ecoreOperation="dbsynch.ecore#//Table/addRow">
         <genParameters ecoreParameter="dbsynch.ecore#//Table/addRow/row"/>
       </genOperations>
@@ -88,8 +96,8 @@
     </genClasses>
     <genClasses ecoreClass="dbsynch.ecore#//TableColumn">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableColumn/ColumnName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableColumn/RowAttribute"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableColumn/Volatile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference dbsynch.ecore#//TableColumn/RowAttribute"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
