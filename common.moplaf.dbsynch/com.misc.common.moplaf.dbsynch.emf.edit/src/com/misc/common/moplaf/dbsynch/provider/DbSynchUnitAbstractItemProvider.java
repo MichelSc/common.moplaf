@@ -6,14 +6,17 @@ package com.misc.common.moplaf.dbsynch.provider;
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
 
 import com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract;
+
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -213,4 +216,102 @@ public class DbSynchUnitAbstractItemProvider
 		return dbsynchEditPlugin.INSTANCE;
 	}
 
+	public class SynchUnitSynchUpCommand extends SynchUpCommand{
+		private DbSynchUnitAbstract synchUnit;
+		
+		// constructor
+		public SynchUnitSynchUpCommand(DbSynchUnitAbstract aUnit)	{
+			super();
+			this.synchUnit = aUnit;
+			String tmp = "SynchUp the SynchUnit ";
+			String label = "label:"+tmp;
+			String description = "desc:"+tmp;
+			this.setDescription(description);
+			this.setLabel(label);
+		}
+
+		@Override
+		public void execute() {
+			this.synchUnit.synchUp();
+		}
+	} // class TableSynchUpCommand
+
+	public class SynchUnitSynchDownCommand extends SynchDownCommand{
+		private DbSynchUnitAbstract synchUnit;
+		
+		// constructor
+		public SynchUnitSynchDownCommand(DbSynchUnitAbstract aUnit)	{
+			super();
+			this.synchUnit = aUnit;
+			String tmp = "SynchDown the SynchUnit ";
+			String label = "label:"+tmp;
+			String description = "desc:"+tmp;
+			this.setDescription(description);
+			this.setLabel(label);
+		}
+
+		@Override
+		public void execute() {
+			this.synchUnit.synchDown();
+		}
+	} // class SynchUnitSynchUpCommand
+
+	/*
+	public class SynchUnitRefreshCommand extends RefreshCommand{
+		private DbSynchUnitAbstract synchUnit;
+		
+		// constructor
+		public SynchUnitRefreshCommand(DbSynchUnitAbstract aSynchUnit)	{
+			super();
+			this.synchUnit = aSynchUnit;
+			String tmp = "Refresh the SynchUnit ";
+			String label = "label:"+tmp;
+			String description = "desc:"+tmp;
+			this.setDescription(description);
+			this.setLabel(label);
+		}
+
+		@Override
+		public void execute() {
+			this.synchUnit.refresh();
+		}
+	} // class SynchUnitRefreshCommand
+	*/
+
+	public class SynchUnitRefreshMetaDataCommand extends RefreshCommand{
+		private DbSynchUnitAbstract synchUnit;
+		
+		// constructor
+		public SynchUnitRefreshMetaDataCommand(DbSynchUnitAbstract aSynchUnit)	{
+			super();
+			this.synchUnit = aSynchUnit;
+			String tmp = "Refresh the MetaData of the SynchUnit ";
+			String label = "label:"+tmp;
+			String description = "desc:"+tmp;
+			this.setDescription(description);
+			this.setLabel(label);
+		}
+
+		@Override
+		public void execute() {
+			this.synchUnit.refreshMetaData();
+		}
+	} // class SynchUnitRefreshMetaDataCommand
+
+	@Override
+	public Command createCommand(Object object, EditingDomain domain,
+			Class<? extends Command> commandClass,
+			CommandParameter commandParameter) {
+		if ( commandClass == SynchUpCommand.class){
+			return new SynchUnitSynchUpCommand((DbSynchUnitAbstract) object);
+		} else if ( commandClass == SynchDownCommand.class){
+				return new SynchUnitSynchDownCommand((DbSynchUnitAbstract) object); 
+//		} else if ( commandClass == RefreshCommand.class){
+//			return new SynchUnitRefreshCommand((DbSynchUnitAbstract) object);
+		} else if ( commandClass == RefreshMetaDataCommand.class){
+			return new SynchUnitRefreshMetaDataCommand((DbSynchUnitAbstract) object);
+		}
+
+		return super.createCommand(object, domain, commandClass, commandParameter);
+	} //method createCommand
 }

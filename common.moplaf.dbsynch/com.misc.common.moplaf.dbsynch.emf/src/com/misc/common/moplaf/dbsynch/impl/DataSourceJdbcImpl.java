@@ -376,8 +376,6 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 	@Override
 	public void synchUpTableImpl(Table table) {
 		Plugin.INSTANCE.logInfo("Load table "+table.getTableName());
-		table.refreshMetaData();
-		Plugin.INSTANCE.logInfo("MetaData refreshed");
 		
 		// prepare the statement
 		PreparedStatement statement = null;

@@ -503,7 +503,27 @@ public class TableItemProvider
 		public void execute() {
 			this.table.refresh();
 		}
-	} // class DataSourceConnectCommand
+	} // class TableRefreshCommand
+
+	public class TableRefreshMetaDataCommand extends RefreshCommand{
+		private Table table;
+		
+		// constructor
+		public TableRefreshMetaDataCommand(Table aTable)	{
+			super();
+			this.table = aTable;
+			String tmp = "Refresh the MetaData of the table ";
+			String label = "label:"+tmp;
+			String description = "desc:"+tmp;
+			this.setDescription(description);
+			this.setLabel(label);
+		}
+
+		@Override
+		public void execute() {
+			this.table.refreshMetaData();
+		}
+	} // class TableRefreshMetaDataCommand
 
 	@Override
 	public Command createCommand(Object object, EditingDomain domain,
@@ -515,6 +535,8 @@ public class TableItemProvider
 				return new TableSynchDownCommand((Table) object); 
 		} else if ( commandClass == RefreshCommand.class){
 			return new TableRefreshCommand((Table) object);
+		} else if ( commandClass == RefreshMetaDataCommand.class){
+			return new TableRefreshMetaDataCommand((Table) object);
 		}
 
 		return super.createCommand(object, domain, commandClass, commandParameter);
