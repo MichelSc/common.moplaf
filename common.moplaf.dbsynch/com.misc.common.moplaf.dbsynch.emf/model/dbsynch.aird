@@ -170,13 +170,13 @@
                 <styles xmi:type="notation:FontStyle" xmi:id="_L77GYQ-eEeaWzbSulejOwQ" fontColor="7490599" fontName="Sans" fontHeight="8"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_L77GYg-eEeaWzbSulejOwQ"/>
               </children>
-              <children xmi:type="notation:Node" xmi:id="_gNUGgA-fEeaWzbSulejOwQ" type="3010" element="_gNEO4A-fEeaWzbSulejOwQ">
-                <styles xmi:type="notation:FontStyle" xmi:id="_gNUGgQ-fEeaWzbSulejOwQ" fontColor="2697711" fontName="Sans" fontHeight="8"/>
-                <layoutConstraint xmi:type="notation:Location" xmi:id="_gNUGgg-fEeaWzbSulejOwQ"/>
-              </children>
               <children xmi:type="notation:Node" xmi:id="__5znEA-XEeaWzbSulejOwQ" type="3010" element="__5pPAA-XEeaWzbSulejOwQ">
                 <styles xmi:type="notation:FontStyle" xmi:id="__5znEQ-XEeaWzbSulejOwQ" fontName="Sans" fontHeight="8"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="__5znEg-XEeaWzbSulejOwQ"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_ftC88BIOEeaVJ51eju6d-A" type="3010" element="_fswpEBIOEeaVJ51eju6d-A">
+                <styles xmi:type="notation:FontStyle" xmi:id="_ftC88RIOEeaVJ51eju6d-A" fontName="Segoe UI" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_ftC88hIOEeaVJ51eju6d-A"/>
               </children>
               <children xmi:type="notation:Node" xmi:id="_Kuc_8A-ZEeaWzbSulejOwQ" type="3010" element="_KuTO8A-ZEeaWzbSulejOwQ">
                 <styles xmi:type="notation:FontStyle" xmi:id="_Kuc_8Q-ZEeaWzbSulejOwQ" fontName="Sans" fontHeight="8"/>
@@ -833,14 +833,6 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_gNEO4A-fEeaWzbSulejOwQ" name="ParamTableGroupAttributes : EAttribute" tooltipText="">
-          <target xmi:type="ecore:EAttribute" href="dbsynch.ecore#//Table/ParamTableGroupAttributes"/>
-          <semanticElements xmi:type="ecore:EAttribute" href="dbsynch.ecore#//Table/ParamTableGroupAttributes"/>
-          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_mvgoMA-fEeaWzbSulejOwQ" labelAlignment="LEFT">
-            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
-          </ownedStyle>
-          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
-        </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="__5pPAA-XEeaWzbSulejOwQ" name="addColumn(isKey EBoolean, column EString, attribute EAttribute)" tooltipText="addColumn(isKey, column, attribute)">
           <target xmi:type="ecore:EOperation" href="dbsynch.ecore#//Table/addColumn"/>
           <semanticElements xmi:type="ecore:EOperation" href="dbsynch.ecore#//Table/addColumn"/>
@@ -848,6 +840,15 @@
           <semanticElements xmi:type="ecore:EParameter" href="dbsynch.ecore#//Table/addColumn/column"/>
           <semanticElements xmi:type="ecore:EParameter" href="dbsynch.ecore#//Table/addColumn/isKey"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="__5pPAQ-XEeaWzbSulejOwQ" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_fswpEBIOEeaVJ51eju6d-A" name="addParam(dbSynchAttribute EAttribute)" tooltipText="addParam(dbSynchAttribute)">
+          <target xmi:type="ecore:EOperation" href="dbsynch.ecore#//Table/addParam"/>
+          <semanticElements xmi:type="ecore:EOperation" href="dbsynch.ecore#//Table/addParam"/>
+          <semanticElements xmi:type="ecore:EParameter" href="dbsynch.ecore#//Table/addParam/dbSynchAttribute"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_fsxQIBIOEeaVJ51eju6d-A" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>

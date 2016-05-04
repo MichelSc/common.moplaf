@@ -553,22 +553,22 @@ public interface DbSynchPackage extends EPackage {
 	int TABLE__DELETE_SQL_STATEMENT = 12;
 
 	/**
-	 * The feature id for the '<em><b>Param Table Group Attributes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__PARAM_TABLE_GROUP_ATTRIBUTES = 13;
-
-	/**
 	 * The feature id for the '<em><b>Columns</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__COLUMNS = 14;
+	int TABLE__COLUMNS = 13;
+
+	/**
+	 * The feature id for the '<em><b>Param Db Synch Unit Attributes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__PARAM_DB_SYNCH_UNIT_ATTRIBUTES = 14;
 
 	/**
 	 * The number of structural features of the '<em>Table</em>' class.
@@ -589,13 +589,22 @@ public interface DbSynchPackage extends EPackage {
 	int TABLE___ADD_COLUMN__BOOLEAN_STRING_EATTRIBUTE = 0;
 
 	/**
+	 * The operation id for the '<em>Add Param</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE___ADD_PARAM__EATTRIBUTE = 1;
+
+	/**
 	 * The operation id for the '<em>Refresh Meta Data</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___REFRESH_META_DATA = 1;
+	int TABLE___REFRESH_META_DATA = 2;
 
 	/**
 	 * The operation id for the '<em>Synch Down</em>' operation.
@@ -604,7 +613,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___SYNCH_DOWN = 2;
+	int TABLE___SYNCH_DOWN = 3;
 
 	/**
 	 * The operation id for the '<em>Synch Up</em>' operation.
@@ -613,7 +622,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___SYNCH_UP = 3;
+	int TABLE___SYNCH_UP = 4;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -622,7 +631,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___REFRESH = 4;
+	int TABLE___REFRESH = 5;
 
 	/**
 	 * The operation id for the '<em>Get Row</em>' operation.
@@ -631,7 +640,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___GET_ROW__TABLEROWKEYIMPL = 5;
+	int TABLE___GET_ROW__TABLEROWKEYIMPL = 6;
 
 	/**
 	 * The operation id for the '<em>Construct Row</em>' operation.
@@ -640,7 +649,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___CONSTRUCT_ROW = 6;
+	int TABLE___CONSTRUCT_ROW = 7;
 
 	/**
 	 * The operation id for the '<em>Add Row</em>' operation.
@@ -649,7 +658,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___ADD_ROW__TABLEROW = 7;
+	int TABLE___ADD_ROW__TABLEROW = 8;
 
 	/**
 	 * The operation id for the '<em>Remove Row</em>' operation.
@@ -658,7 +667,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___REMOVE_ROW__TABLEROW = 8;
+	int TABLE___REMOVE_ROW__TABLEROW = 9;
 
 	/**
 	 * The number of operations of the '<em>Table</em>' class.
@@ -667,7 +676,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_OPERATION_COUNT = 9;
+	int TABLE_OPERATION_COUNT = 10;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.dbsynch.impl.TableRowImpl <em>Table Row</em>}' class.
@@ -1349,17 +1358,6 @@ public interface DbSynchPackage extends EPackage {
 	EAttribute getTable_DeleteSqlStatement();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link com.misc.common.moplaf.dbsynch.Table#getParamTableGroupAttributes <em>Param Table Group Attributes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Param Table Group Attributes</em>'.
-	 * @see com.misc.common.moplaf.dbsynch.Table#getParamTableGroupAttributes()
-	 * @see #getTable()
-	 * @generated
-	 */
-	EAttribute getTable_ParamTableGroupAttributes();
-
-	/**
 	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.dbsynch.Table#getColumns <em>Columns</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1371,6 +1369,17 @@ public interface DbSynchPackage extends EPackage {
 	EReference getTable_Columns();
 
 	/**
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.dbsynch.Table#getParamDbSynchUnitAttributes <em>Param Db Synch Unit Attributes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Param Db Synch Unit Attributes</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.Table#getParamDbSynchUnitAttributes()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EReference getTable_ParamDbSynchUnitAttributes();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#addColumn(boolean, java.lang.String, org.eclipse.emf.ecore.EAttribute) <em>Add Column</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1379,6 +1388,16 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getTable__AddColumn__boolean_String_EAttribute();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#addParam(org.eclipse.emf.ecore.EAttribute) <em>Add Param</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Param</em>' operation.
+	 * @see com.misc.common.moplaf.dbsynch.Table#addParam(org.eclipse.emf.ecore.EAttribute)
+	 * @generated
+	 */
+	EOperation getTable__AddParam__EAttribute();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#refreshMetaData() <em>Refresh Meta Data</em>}' operation.
@@ -1981,14 +2000,6 @@ public interface DbSynchPackage extends EPackage {
 		EAttribute TABLE__DELETE_SQL_STATEMENT = eINSTANCE.getTable_DeleteSqlStatement();
 
 		/**
-		 * The meta object literal for the '<em><b>Param Table Group Attributes</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TABLE__PARAM_TABLE_GROUP_ATTRIBUTES = eINSTANCE.getTable_ParamTableGroupAttributes();
-
-		/**
 		 * The meta object literal for the '<em><b>Columns</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1997,12 +2008,28 @@ public interface DbSynchPackage extends EPackage {
 		EReference TABLE__COLUMNS = eINSTANCE.getTable_Columns();
 
 		/**
+		 * The meta object literal for the '<em><b>Param Db Synch Unit Attributes</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TABLE__PARAM_DB_SYNCH_UNIT_ATTRIBUTES = eINSTANCE.getTable_ParamDbSynchUnitAttributes();
+
+		/**
 		 * The meta object literal for the '<em><b>Add Column</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation TABLE___ADD_COLUMN__BOOLEAN_STRING_EATTRIBUTE = eINSTANCE.getTable__AddColumn__boolean_String_EAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Param</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TABLE___ADD_PARAM__EATTRIBUTE = eINSTANCE.getTable__AddParam__EAttribute();
 
 		/**
 		 * The meta object literal for the '<em><b>Refresh Meta Data</b></em>' operation.

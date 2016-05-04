@@ -13,7 +13,6 @@ import java.util.Map;
 import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -24,6 +23,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectEList;
 
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import com.misc.common.moplaf.dbsynch.DataSource;
 import com.misc.common.moplaf.dbsynch.DbSynchFactory;
@@ -55,8 +55,8 @@ import com.misc.common.moplaf.dbsynch.TableRow;
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getInsertSqlStatement <em>Insert Sql Statement</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getUpdateSqlStatement <em>Update Sql Statement</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getDeleteSqlStatement <em>Delete Sql Statement</em>}</li>
- *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getParamTableGroupAttributes <em>Param Table Group Attributes</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getColumns <em>Columns</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getParamDbSynchUnitAttributes <em>Param Db Synch Unit Attributes</em>}</li>
  * </ul>
  *
  * @generated
@@ -276,14 +276,14 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	protected String deleteSqlStatement = DELETE_SQL_STATEMENT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getParamTableGroupAttributes() <em>Param Table Group Attributes</em>}' attribute list.
+	 * The cached value of the '{@link #getParamDbSynchUnitAttributes() <em>Param Db Synch Unit Attributes</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getParamTableGroupAttributes()
+	 * @see #getParamDbSynchUnitAttributes()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<EAttribute> paramTableGroupAttributes;
+	protected EList<EAttribute> paramDbSynchUnitAttributes;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -489,19 +489,6 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	protected void refreshMetaDataImpl() {
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	/* (non-Javadoc)
-	 * @see com.misc.common.moplaf.datasetload.impl.TableImpl#getParamTableGroupAttributes()
-	 */
-	@Override
-	public EList<EAttribute> getParamTableGroupAttributes() {
-		EList<EAttribute> columnAttributes = new BasicEList<EAttribute>();
-		return columnAttributes;
-	}
-
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -528,6 +515,18 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 			newList.addUnique(object);
 	}
 		return newList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<EAttribute> getParamDbSynchUnitAttributes() {
+		if (paramDbSynchUnitAttributes == null) {
+			paramDbSynchUnitAttributes = new EObjectResolvingEList<EAttribute>(EAttribute.class, this, DbSynchPackage.TABLE__PARAM_DB_SYNCH_UNIT_ATTRIBUTES);
+		}
+		return paramDbSynchUnitAttributes;
 	}
 
 	/**
@@ -562,6 +561,16 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 		}
 		newColumn.setColumnName(column);
 		newColumn.setRowAttribute(attribute);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void addParam(EAttribute dbSynchAttribute) {
+		if ( !this.getParamDbSynchUnitAttributes().contains(dbSynchAttribute)){
+			this.getParamDbSynchUnitAttributes().add(dbSynchAttribute);
+		}
 	}
 
 	/**
@@ -764,10 +773,10 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 				return getUpdateSqlStatement();
 			case DbSynchPackage.TABLE__DELETE_SQL_STATEMENT:
 				return getDeleteSqlStatement();
-			case DbSynchPackage.TABLE__PARAM_TABLE_GROUP_ATTRIBUTES:
-				return getParamTableGroupAttributes();
 			case DbSynchPackage.TABLE__COLUMNS:
 				return getColumns();
+			case DbSynchPackage.TABLE__PARAM_DB_SYNCH_UNIT_ATTRIBUTES:
+				return getParamDbSynchUnitAttributes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -816,9 +825,9 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 			case DbSynchPackage.TABLE__DELETE_SQL_STATEMENT:
 				setDeleteSqlStatement((String)newValue);
 				return;
-			case DbSynchPackage.TABLE__PARAM_TABLE_GROUP_ATTRIBUTES:
-				getParamTableGroupAttributes().clear();
-				getParamTableGroupAttributes().addAll((Collection<? extends EAttribute>)newValue);
+			case DbSynchPackage.TABLE__PARAM_DB_SYNCH_UNIT_ATTRIBUTES:
+				getParamDbSynchUnitAttributes().clear();
+				getParamDbSynchUnitAttributes().addAll((Collection<? extends EAttribute>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -865,8 +874,8 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 			case DbSynchPackage.TABLE__DELETE_SQL_STATEMENT:
 				setDeleteSqlStatement(DELETE_SQL_STATEMENT_EDEFAULT);
 				return;
-			case DbSynchPackage.TABLE__PARAM_TABLE_GROUP_ATTRIBUTES:
-				getParamTableGroupAttributes().clear();
+			case DbSynchPackage.TABLE__PARAM_DB_SYNCH_UNIT_ATTRIBUTES:
+				getParamDbSynchUnitAttributes().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -906,10 +915,10 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 				return UPDATE_SQL_STATEMENT_EDEFAULT == null ? updateSqlStatement != null : !UPDATE_SQL_STATEMENT_EDEFAULT.equals(updateSqlStatement);
 			case DbSynchPackage.TABLE__DELETE_SQL_STATEMENT:
 				return DELETE_SQL_STATEMENT_EDEFAULT == null ? deleteSqlStatement != null : !DELETE_SQL_STATEMENT_EDEFAULT.equals(deleteSqlStatement);
-			case DbSynchPackage.TABLE__PARAM_TABLE_GROUP_ATTRIBUTES:
-				return paramTableGroupAttributes != null && !paramTableGroupAttributes.isEmpty();
 			case DbSynchPackage.TABLE__COLUMNS:
 				return !getColumns().isEmpty();
+			case DbSynchPackage.TABLE__PARAM_DB_SYNCH_UNIT_ATTRIBUTES:
+				return paramDbSynchUnitAttributes != null && !paramDbSynchUnitAttributes.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -924,6 +933,9 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 		switch (operationID) {
 			case DbSynchPackage.TABLE___ADD_COLUMN__BOOLEAN_STRING_EATTRIBUTE:
 				addColumn((Boolean)arguments.get(0), (String)arguments.get(1), (EAttribute)arguments.get(2));
+				return null;
+			case DbSynchPackage.TABLE___ADD_PARAM__EATTRIBUTE:
+				addParam((EAttribute)arguments.get(0));
 				return null;
 			case DbSynchPackage.TABLE___REFRESH_META_DATA:
 				refreshMetaData();
@@ -979,8 +991,6 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 		result.append(updateSqlStatement);
 		result.append(", DeleteSqlStatement: ");
 		result.append(deleteSqlStatement);
-		result.append(", ParamTableGroupAttributes: ");
-		result.append(paramTableGroupAttributes);
 		result.append(')');
 		return result.toString();
 	}

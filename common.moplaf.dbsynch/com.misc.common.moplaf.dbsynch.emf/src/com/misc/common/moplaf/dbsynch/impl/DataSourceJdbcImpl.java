@@ -409,7 +409,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 			table.setSelectSqlStatement(sql);
 			
 			// set the parameters
-		    EList<EAttribute> params = table.getParamTableGroupAttributes();
+		    EList<EAttribute> params = table.getParamDbSynchUnitAttributes();
 		    int paramIndex = 0;
 		    for ( EAttribute paramAttribute : params){
 		    	paramIndex++;

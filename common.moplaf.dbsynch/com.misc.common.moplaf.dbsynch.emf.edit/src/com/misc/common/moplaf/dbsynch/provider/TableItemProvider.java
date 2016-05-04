@@ -75,7 +75,7 @@ public class TableItemProvider
 			addInsertSqlStatementPropertyDescriptor(object);
 			addUpdateSqlStatementPropertyDescriptor(object);
 			addDeleteSqlStatementPropertyDescriptor(object);
-			addParamTableGroupAttributesPropertyDescriptor(object);
+			addParamDbSynchUnitAttributesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -301,23 +301,23 @@ public class TableItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Param Table Group Attributes feature.
+	 * This adds a property descriptor for the Param Db Synch Unit Attributes feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addParamTableGroupAttributesPropertyDescriptor(Object object) {
+	protected void addParamDbSynchUnitAttributesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Table_ParamTableGroupAttributes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Table_ParamTableGroupAttributes_feature", "_UI_Table_type"),
-				 DbSynchPackage.Literals.TABLE__PARAM_TABLE_GROUP_ATTRIBUTES,
+				 getString("_UI_Table_ParamDbSynchUnitAttributes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Table_ParamDbSynchUnitAttributes_feature", "_UI_Table_type"),
+				 DbSynchPackage.Literals.TABLE__PARAM_DB_SYNCH_UNIT_ATTRIBUTES,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -400,7 +400,6 @@ public class TableItemProvider
 			case DbSynchPackage.TABLE__INSERT_SQL_STATEMENT:
 			case DbSynchPackage.TABLE__UPDATE_SQL_STATEMENT:
 			case DbSynchPackage.TABLE__DELETE_SQL_STATEMENT:
-			case DbSynchPackage.TABLE__PARAM_TABLE_GROUP_ATTRIBUTES:
 			case DbSynchPackage.TABLE__COLUMNS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

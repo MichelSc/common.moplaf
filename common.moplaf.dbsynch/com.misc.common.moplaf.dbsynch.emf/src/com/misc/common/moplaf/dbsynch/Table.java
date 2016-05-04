@@ -30,8 +30,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getInsertSqlStatement <em>Insert Sql Statement</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getUpdateSqlStatement <em>Update Sql Statement</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getDeleteSqlStatement <em>Delete Sql Statement</em>}</li>
- *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getParamTableGroupAttributes <em>Param Table Group Attributes</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getColumns <em>Columns</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getParamDbSynchUnitAttributes <em>Param Db Synch Unit Attributes</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTable()
@@ -227,22 +227,6 @@ public interface Table extends EObject {
 	void setDeleteSqlStatement(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Param Table Group Attributes</b></em>' attribute list.
-	 * The list contents are of type {@link org.eclipse.emf.ecore.EAttribute}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Param Table Group Attributes</em>' attribute list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Param Table Group Attributes</em>' attribute list.
-	 * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTable_ParamTableGroupAttributes()
-	 * @model dataType="com.misc.common.moplaf.dbsynch.EAttribute"
-	 * @generated
-	 */
-	EList<EAttribute> getParamTableGroupAttributes();
-
-	/**
 	 * Returns the value of the '<em><b>Key Columns</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.dbsynch.KeyColumn}.
 	 * <!-- begin-user-doc -->
@@ -275,12 +259,36 @@ public interface Table extends EObject {
 	EList<TableColumn> getColumns();
 
 	/**
+	 * Returns the value of the '<em><b>Param Db Synch Unit Attributes</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.EAttribute}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Param Db Synch Unit Attributes</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Param Db Synch Unit Attributes</em>' reference list.
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTable_ParamDbSynchUnitAttributes()
+	 * @model
+	 * @generated
+	 */
+	EList<EAttribute> getParamDbSynchUnitAttributes();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
 	void addColumn(boolean isKey, String column, EAttribute attribute);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addParam(EAttribute dbSynchAttribute);
 
 	/**
 	 * <!-- begin-user-doc -->

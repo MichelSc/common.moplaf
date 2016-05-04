@@ -32,6 +32,9 @@
       <eParameters name="column" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="attribute" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
     </eOperations>
+    <eOperations name="addParam">
+      <eParameters name="dbSynchAttribute" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
+    </eOperations>
     <eOperations name="refreshMetaData"/>
     <eOperations name="synchDown">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -72,11 +75,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="InsertSqlStatement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="UpdateSqlStatement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DeleteSqlStatement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ParamTableGroupAttributes"
-        upperBound="-1" eType="#//EAttribute"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Columns" upperBound="-1"
         eType="#//TableColumn" changeable="false" volatile="true" transient="true"
         derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ParamDbSynchUnitAttributes"
+        upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TableRow" abstract="true">
     <eOperations name="refresh"/>
