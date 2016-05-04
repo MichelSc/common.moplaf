@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class TableColumnImpl extends MinimalEObjectImpl.Container implements TableColumn {
+public abstract class TableColumnImpl extends MinimalEObjectImpl.Container implements TableColumn {
 	/**
 	 * The default value of the '{@link #getColumnName() <em>Column Name</em>}' attribute.
 	 * <!-- begin-user-doc -->

@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.dbsynch.impl;
 
+import com.misc.common.moplaf.dbsynch.DataColumn;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.Date;
@@ -28,6 +29,7 @@ import com.misc.common.moplaf.dbsynch.DataSource;
 import com.misc.common.moplaf.dbsynch.DbSynchFactory;
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
 import com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract;
+import com.misc.common.moplaf.dbsynch.KeyColumn;
 import com.misc.common.moplaf.dbsynch.Table;
 import com.misc.common.moplaf.dbsynch.TableColumn;
 import com.misc.common.moplaf.dbsynch.TableRow;
@@ -81,7 +83,7 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<TableColumn> keyColumns;
+	protected EList<KeyColumn> keyColumns;
 
 	/**
 	 * The cached value of the '{@link #getDataColumns() <em>Data Columns</em>}' containment reference list.
@@ -91,7 +93,7 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<TableColumn> dataColumns;
+	protected EList<DataColumn> dataColumns;
 
 	/**
 	 * The default value of the '{@link #getTableName() <em>Table Name</em>}' attribute.
@@ -506,9 +508,9 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<TableColumn> getKeyColumns() {
+	public EList<KeyColumn> getKeyColumns() {
 		if (keyColumns == null) {
-			keyColumns = new EObjectContainmentEList<TableColumn>(TableColumn.class, this, DbSynchPackage.TABLE__KEY_COLUMNS);
+			keyColumns = new EObjectContainmentEList<KeyColumn>(KeyColumn.class, this, DbSynchPackage.TABLE__KEY_COLUMNS);
 		}
 		return keyColumns;
 	}
@@ -533,29 +535,29 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 */
 	public void addColumn(boolean isKey, String column, EAttribute attribute) {
-		if ( isKey ){
-			Iterator<TableColumn> iterator = this.getKeyColumns().iterator();
-			while (iterator.hasNext()){
-				if ( iterator.next().getColumnName().equals(column)){
-					iterator.remove();
-				}
-			}
-		} else {
-			Iterator<TableColumn> iterator = this.getDataColumns().iterator();
-			while (iterator.hasNext()){
-				if ( iterator.next().getColumnName().equals(column)){
-					iterator.remove();
-				}
+		// remove the key columns with the same name
+		Iterator<KeyColumn> iterator = this.getKeyColumns().iterator();
+		while (iterator.hasNext()){
+			if ( iterator.next().getColumnName().equals(column)){
+				iterator.remove();
 			}
 		}
-		TableColumn newColumn = DbSynchFactory.eINSTANCE.createTableColumn();
+		// remove the data columns with the same name
+		Iterator<DataColumn> iterator2 = this.getDataColumns().iterator();
+		while (iterator2.hasNext()){
+			if ( iterator2.next().getColumnName().equals(column)){
+				iterator2.remove();
+			}
+		}
+		// create the column
+		TableColumn newColumn;
+		if ( isKey ){
+			newColumn = DbSynchFactory.eINSTANCE.createKeyColumn();
+		} else {
+			newColumn = DbSynchFactory.eINSTANCE.createDataColumn();
+		}
 		newColumn.setColumnName(column);
 		newColumn.setRowAttribute(attribute);
-		if ( isKey){
-			this.getKeyColumns().add(newColumn);
-		} else {
-			this.getDataColumns().add(newColumn);
-		}
 	}
 
 	/**
@@ -605,9 +607,9 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<TableColumn> getDataColumns() {
+	public EList<DataColumn> getDataColumns() {
 		if (dataColumns == null) {
-			dataColumns = new EObjectContainmentEList<TableColumn>(TableColumn.class, this, DbSynchPackage.TABLE__DATA_COLUMNS);
+			dataColumns = new EObjectContainmentEList<DataColumn>(DataColumn.class, this, DbSynchPackage.TABLE__DATA_COLUMNS);
 		}
 		return dataColumns;
 	}
@@ -777,11 +779,11 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case DbSynchPackage.TABLE__KEY_COLUMNS:
 				getKeyColumns().clear();
-				getKeyColumns().addAll((Collection<? extends TableColumn>)newValue);
+				getKeyColumns().addAll((Collection<? extends KeyColumn>)newValue);
 				return;
 			case DbSynchPackage.TABLE__DATA_COLUMNS:
 				getDataColumns().clear();
-				getDataColumns().addAll((Collection<? extends TableColumn>)newValue);
+				getDataColumns().addAll((Collection<? extends DataColumn>)newValue);
 				return;
 			case DbSynchPackage.TABLE__TABLE_NAME:
 				setTableName((String)newValue);
@@ -916,7 +918,7 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case DbSynchPackage.TABLE___ADD_COLUMN__BOOLEAN_STRING_INT_INT_EATTRIBUTE:
+			case DbSynchPackage.TABLE___ADD_COLUMN__BOOLEAN_STRING_EATTRIBUTE:
 				addColumn((Boolean)arguments.get(0), (String)arguments.get(1), (EAttribute)arguments.get(2));
 				return null;
 			case DbSynchPackage.TABLE___REFRESH_META_DATA:

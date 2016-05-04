@@ -244,7 +244,7 @@ public interface Table extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Key Columns</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.dbsynch.TableColumn}.
+	 * The list contents are of type {@link com.misc.common.moplaf.dbsynch.KeyColumn}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Key Columns</em>' containment reference list isn't clear,
@@ -256,7 +256,7 @@ public interface Table extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<TableColumn> getKeyColumns();
+	EList<KeyColumn> getKeyColumns();
 
 	/**
 	 * Returns the value of the '<em><b>Columns</b></em>' reference list.
@@ -344,7 +344,7 @@ public interface Table extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Data Columns</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.dbsynch.TableColumn}.
+	 * The list contents are of type {@link com.misc.common.moplaf.dbsynch.DataColumn}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Data Columns</em>' containment reference list isn't clear,
@@ -356,7 +356,7 @@ public interface Table extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<TableColumn> getDataColumns();
+	EList<DataColumn> getDataColumns();
 
 	/**
 	 * Returns the value of the '<em><b>Number Of Rows</b></em>' attribute.

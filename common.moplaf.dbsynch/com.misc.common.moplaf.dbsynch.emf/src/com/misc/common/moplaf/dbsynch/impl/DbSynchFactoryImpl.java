@@ -59,7 +59,8 @@ public class DbSynchFactoryImpl extends EFactoryImpl implements DbSynchFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case DbSynchPackage.DATA_SOURCE_JDBC: return createDataSourceJdbc();
-			case DbSynchPackage.TABLE_COLUMN: return createTableColumn();
+			case DbSynchPackage.KEY_COLUMN: return createKeyColumn();
+			case DbSynchPackage.DATA_COLUMN: return createDataColumn();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -126,9 +127,19 @@ public class DbSynchFactoryImpl extends EFactoryImpl implements DbSynchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TableColumn createTableColumn() {
-		TableColumnImpl tableColumn = new TableColumnImpl();
-		return tableColumn;
+	public KeyColumn createKeyColumn() {
+		KeyColumnImpl keyColumn = new KeyColumnImpl();
+		return keyColumn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataColumn createDataColumn() {
+		DataColumnImpl dataColumn = new DataColumnImpl();
+		return dataColumn;
 	}
 
 	/**

@@ -96,6 +96,14 @@ public class DbSynchAdapterFactory extends AdapterFactoryImpl {
 				return createDbSynchUnitAbstractAdapter();
 			}
 			@Override
+			public Adapter caseKeyColumn(KeyColumn object) {
+				return createKeyColumnAdapter();
+			}
+			@Override
+			public Adapter caseDataColumn(DataColumn object) {
+				return createDataColumnAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -210,6 +218,34 @@ public class DbSynchAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDbSynchUnitAbstractAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.dbsynch.KeyColumn <em>Key Column</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.dbsynch.KeyColumn
+	 * @generated
+	 */
+	public Adapter createKeyColumnAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.dbsynch.DataColumn <em>Data Column</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.dbsynch.DataColumn
+	 * @generated
+	 */
+	public Adapter createDataColumnAdapter() {
 		return null;
 	}
 

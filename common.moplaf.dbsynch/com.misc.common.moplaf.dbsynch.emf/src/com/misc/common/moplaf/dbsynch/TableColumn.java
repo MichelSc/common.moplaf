@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTableColumn()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface TableColumn extends EObject {

@@ -58,9 +58,9 @@
         eType="#//DbSynchUnitAbstract" changeable="false" volatile="true" transient="true"
         derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="KeyColumns" upperBound="-1"
-        eType="#//TableColumn" containment="true"/>
+        eType="#//KeyColumn" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="DataColumns" upperBound="-1"
-        eType="#//TableColumn" containment="true"/>
+        eType="#//DataColumn" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Rows" upperBound="-1" eType="#//TableRow"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="TableName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -103,7 +103,7 @@
     <eLiterals name="ENUM_MODIFICATION_DELETE" literal="Delete"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="TableColumnTentative" instanceClassName="com.misc.common.moplaf.dbsynch.impl.TableColumnImpl"/>
-  <eClassifiers xsi:type="ecore:EClass" name="TableColumn">
+  <eClassifiers xsi:type="ecore:EClass" name="TableColumn" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ColumnName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="RowAttribute" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
   </eClassifiers>
@@ -132,4 +132,6 @@
         derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Object" instanceClassName="java.lang.Object"/>
+  <eClassifiers xsi:type="ecore:EClass" name="KeyColumn" eSuperTypes="#//TableColumn"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DataColumn" eSuperTypes="#//TableColumn"/>
 </ecore:EPackage>
