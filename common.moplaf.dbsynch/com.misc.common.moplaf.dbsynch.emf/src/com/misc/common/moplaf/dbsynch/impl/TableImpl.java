@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.util.EObjectEList;
 
 import org.eclipse.emf.ecore.util.InternalEList;
 import com.misc.common.moplaf.dbsynch.DataSource;
+import com.misc.common.moplaf.dbsynch.DbSynchFactory;
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
 import com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract;
 import com.misc.common.moplaf.dbsynch.Table;
@@ -475,25 +476,6 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 */
 	public void refreshMetaData() {
-		Iterator<TableColumn> dataColumnIterator = this.getDataColumns().iterator();
-		while ( dataColumnIterator.hasNext() ){
-			TableColumn aTableColumn = dataColumnIterator.next();
-			if ( aTableColumn.isVolatile()){
-				dataColumnIterator.remove();
-			}
-		}
-		Iterator<TableColumn> keyColumnIterator = this.getKeyColumns().iterator();
-		while ( keyColumnIterator.hasNext() ){
-			TableColumn aTableColumn = keyColumnIterator.next();
-			if ( aTableColumn.isVolatile()){
-				keyColumnIterator.remove();
-			}
-		}
-		//EList<TableColumn> columnsToRemove = new BasicEList<TableColumn>();
-		//for ( TableColumn aColumn : this.getColumns()){
-//			if ( aColumn.isVolatile() ){
-//				columnsToRemove.add(aColumn);
-//			}
 		this.refreshMetaDataImpl();
 	}
 
@@ -549,12 +531,31 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public void addColumn(boolean isKey, String column, int columnNumber, int keyNumber, EAttribute attribute) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public void addColumn(boolean isKey, String column, EAttribute attribute) {
+		if ( isKey ){
+			Iterator<TableColumn> iterator = this.getKeyColumns().iterator();
+			while (iterator.hasNext()){
+				if ( iterator.next().getColumnName().equals(column)){
+					iterator.remove();
+				}
+			}
+		} else {
+			Iterator<TableColumn> iterator = this.getDataColumns().iterator();
+			while (iterator.hasNext()){
+				if ( iterator.next().getColumnName().equals(column)){
+					iterator.remove();
+				}
+			}
+		}
+		TableColumn newColumn = DbSynchFactory.eINSTANCE.createTableColumn();
+		newColumn.setColumnName(column);
+		newColumn.setRowAttribute(attribute);
+		if ( isKey){
+			this.getKeyColumns().add(newColumn);
+		} else {
+			this.getDataColumns().add(newColumn);
+		}
 	}
 
 	/**
@@ -916,7 +917,7 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case DbSynchPackage.TABLE___ADD_COLUMN__BOOLEAN_STRING_INT_INT_EATTRIBUTE:
-				addColumn((Boolean)arguments.get(0), (String)arguments.get(1), (Integer)arguments.get(2), (Integer)arguments.get(3), (EAttribute)arguments.get(4));
+				addColumn((Boolean)arguments.get(0), (String)arguments.get(1), (EAttribute)arguments.get(2));
 				return null;
 			case DbSynchPackage.TABLE___REFRESH_META_DATA:
 				refreshMetaData();

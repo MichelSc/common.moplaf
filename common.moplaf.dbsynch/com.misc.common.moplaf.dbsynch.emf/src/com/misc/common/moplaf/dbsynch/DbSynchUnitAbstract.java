@@ -16,10 +16,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract#getName <em>Name</em>}</li>
- *   <li>{@link com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract#getDataSource <em>Data Source</em>}</li>
- *   <li>{@link com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract#getChildUnits <em>Child Units</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract#getTables <em>Tables</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract#getDataSource <em>Data Source</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract#getName <em>Name</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract#getChildUnits <em>Child Units</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getDbSynchUnitAbstract()

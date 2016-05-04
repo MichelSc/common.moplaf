@@ -280,7 +280,7 @@ public interface Table extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void addColumn(boolean isKey, String column, int columnNumber, int keyNumber, EAttribute attribute);
+	void addColumn(boolean isKey, String column, EAttribute attribute);
 
 	/**
 	 * <!-- begin-user-doc -->

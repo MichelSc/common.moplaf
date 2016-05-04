@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.dbsynch.TableColumn#getColumnName <em>Column Name</em>}</li>
- *   <li>{@link com.misc.common.moplaf.dbsynch.TableColumn#isVolatile <em>Volatile</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.TableColumn#getRowAttribute <em>Row Attribute</em>}</li>
  * </ul>
  *
@@ -75,32 +74,5 @@ public interface TableColumn extends EObject {
 	 * @generated
 	 */
 	void setRowAttribute(EAttribute value);
-
-	/**
-	 * Returns the value of the '<em><b>Volatile</b></em>' attribute.
-	 * The default value is <code>"false"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Volatile</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Volatile</em>' attribute.
-	 * @see #setVolatile(boolean)
-	 * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTableColumn_Volatile()
-	 * @model default="false"
-	 * @generated
-	 */
-	boolean isVolatile();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.dbsynch.TableColumn#isVolatile <em>Volatile</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Volatile</em>' attribute.
-	 * @see #isVolatile()
-	 * @generated
-	 */
-	void setVolatile(boolean value);
 
 } // TableColumn

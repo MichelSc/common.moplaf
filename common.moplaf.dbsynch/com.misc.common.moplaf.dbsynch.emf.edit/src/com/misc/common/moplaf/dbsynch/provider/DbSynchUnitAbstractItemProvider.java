@@ -60,10 +60,10 @@ public class DbSynchUnitAbstractItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
-			addDataSourcePropertyDescriptor(object);
-			addChildUnitsPropertyDescriptor(object);
 			addTablesPropertyDescriptor(object);
+			addDataSourcePropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
+			addChildUnitsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}

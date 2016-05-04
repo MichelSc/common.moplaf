@@ -70,16 +70,16 @@ public interface DbSynchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getDbSynchUnitAbstract()
 	 * @generated
 	 */
-	int DB_SYNCH_UNIT_ABSTRACT = 0;
+	int DB_SYNCH_UNIT_ABSTRACT = 6;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Tables</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DB_SYNCH_UNIT_ABSTRACT__NAME = 0;
+	int DB_SYNCH_UNIT_ABSTRACT__TABLES = 0;
 
 	/**
 	 * The feature id for the '<em><b>Data Source</b></em>' reference.
@@ -91,22 +91,22 @@ public interface DbSynchPackage extends EPackage {
 	int DB_SYNCH_UNIT_ABSTRACT__DATA_SOURCE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT_ABSTRACT__NAME = 2;
+
+	/**
 	 * The feature id for the '<em><b>Child Units</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DB_SYNCH_UNIT_ABSTRACT__CHILD_UNITS = 2;
-
-	/**
-	 * The feature id for the '<em><b>Tables</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DB_SYNCH_UNIT_ABSTRACT__TABLES = 3;
+	int DB_SYNCH_UNIT_ABSTRACT__CHILD_UNITS = 3;
 
 	/**
 	 * The number of structural features of the '<em>Unit Abstract</em>' class.
@@ -170,16 +170,16 @@ public interface DbSynchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getDataSource()
 	 * @generated
 	 */
-	int DATA_SOURCE = 1;
+	int DATA_SOURCE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Tables</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SOURCE__NAME = DB_SYNCH_UNIT_ABSTRACT__NAME;
+	int DATA_SOURCE__TABLES = DB_SYNCH_UNIT_ABSTRACT__TABLES;
 
 	/**
 	 * The feature id for the '<em><b>Data Source</b></em>' reference.
@@ -191,6 +191,15 @@ public interface DbSynchPackage extends EPackage {
 	int DATA_SOURCE__DATA_SOURCE = DB_SYNCH_UNIT_ABSTRACT__DATA_SOURCE;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE__NAME = DB_SYNCH_UNIT_ABSTRACT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Child Units</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -198,15 +207,6 @@ public interface DbSynchPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_SOURCE__CHILD_UNITS = DB_SYNCH_UNIT_ABSTRACT__CHILD_UNITS;
-
-	/**
-	 * The feature id for the '<em><b>Tables</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_SOURCE__TABLES = DB_SYNCH_UNIT_ABSTRACT__TABLES;
 
 	/**
 	 * The feature id for the '<em><b>Connected</b></em>' attribute.
@@ -315,16 +315,16 @@ public interface DbSynchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getDbSynchUnit()
 	 * @generated
 	 */
-	int DB_SYNCH_UNIT = 2;
+	int DB_SYNCH_UNIT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Tables</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DB_SYNCH_UNIT__NAME = DB_SYNCH_UNIT_ABSTRACT__NAME;
+	int DB_SYNCH_UNIT__TABLES = DB_SYNCH_UNIT_ABSTRACT__TABLES;
 
 	/**
 	 * The feature id for the '<em><b>Data Source</b></em>' reference.
@@ -336,6 +336,15 @@ public interface DbSynchPackage extends EPackage {
 	int DB_SYNCH_UNIT__DATA_SOURCE = DB_SYNCH_UNIT_ABSTRACT__DATA_SOURCE;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT__NAME = DB_SYNCH_UNIT_ABSTRACT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Child Units</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -343,15 +352,6 @@ public interface DbSynchPackage extends EPackage {
 	 * @ordered
 	 */
 	int DB_SYNCH_UNIT__CHILD_UNITS = DB_SYNCH_UNIT_ABSTRACT__CHILD_UNITS;
-
-	/**
-	 * The feature id for the '<em><b>Tables</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DB_SYNCH_UNIT__TABLES = DB_SYNCH_UNIT_ABSTRACT__TABLES;
 
 	/**
 	 * The feature id for the '<em><b>Parent Unit</b></em>' reference.
@@ -433,7 +433,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getTable()
 	 * @generated
 	 */
-	int TABLE = 3;
+	int TABLE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Synch Unit</b></em>' reference.
@@ -677,7 +677,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getTableRow()
 	 * @generated
 	 */
-	int TABLE_ROW = 4;
+	int TABLE_ROW = 3;
 
 	/**
 	 * The feature id for the '<em><b>Table</b></em>' reference.
@@ -750,16 +750,16 @@ public interface DbSynchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getDataSourceJdbc()
 	 * @generated
 	 */
-	int DATA_SOURCE_JDBC = 5;
+	int DATA_SOURCE_JDBC = 4;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Tables</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SOURCE_JDBC__NAME = DATA_SOURCE__NAME;
+	int DATA_SOURCE_JDBC__TABLES = DATA_SOURCE__TABLES;
 
 	/**
 	 * The feature id for the '<em><b>Data Source</b></em>' reference.
@@ -771,6 +771,15 @@ public interface DbSynchPackage extends EPackage {
 	int DATA_SOURCE_JDBC__DATA_SOURCE = DATA_SOURCE__DATA_SOURCE;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_JDBC__NAME = DATA_SOURCE__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Child Units</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -778,15 +787,6 @@ public interface DbSynchPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_SOURCE_JDBC__CHILD_UNITS = DATA_SOURCE__CHILD_UNITS;
-
-	/**
-	 * The feature id for the '<em><b>Tables</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_SOURCE_JDBC__TABLES = DATA_SOURCE__TABLES;
 
 	/**
 	 * The feature id for the '<em><b>Connected</b></em>' attribute.
@@ -922,7 +922,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getTableColumn()
 	 * @generated
 	 */
-	int TABLE_COLUMN = 6;
+	int TABLE_COLUMN = 5;
 
 	/**
 	 * The feature id for the '<em><b>Column Name</b></em>' attribute.
@@ -934,22 +934,13 @@ public interface DbSynchPackage extends EPackage {
 	int TABLE_COLUMN__COLUMN_NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Volatile</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_COLUMN__VOLATILE = 1;
-
-	/**
 	 * The feature id for the '<em><b>Row Attribute</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_COLUMN__ROW_ATTRIBUTE = 2;
+	int TABLE_COLUMN__ROW_ATTRIBUTE = 1;
 
 	/**
 	 * The number of structural features of the '<em>Table Column</em>' class.
@@ -958,7 +949,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_COLUMN_FEATURE_COUNT = 3;
+	int TABLE_COLUMN_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Table Column</em>' class.
@@ -1288,11 +1279,11 @@ public interface DbSynchPackage extends EPackage {
 	EReference getTable_Columns();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#addColumn(boolean, java.lang.String, int, int, org.eclipse.emf.ecore.EAttribute) <em>Add Column</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#addColumn(boolean, java.lang.String, org.eclipse.emf.ecore.EAttribute) <em>Add Column</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add Column</em>' operation.
-	 * @see com.misc.common.moplaf.dbsynch.Table#addColumn(boolean, java.lang.String, int, int, org.eclipse.emf.ecore.EAttribute)
+	 * @see com.misc.common.moplaf.dbsynch.Table#addColumn(boolean, java.lang.String, org.eclipse.emf.ecore.EAttribute)
 	 * @generated
 	 */
 	EOperation getTable__AddColumn__boolean_String_int_int_EAttribute();
@@ -1504,17 +1495,6 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTableColumn_ColumnName();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.TableColumn#isVolatile <em>Volatile</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Volatile</em>'.
-	 * @see com.misc.common.moplaf.dbsynch.TableColumn#isVolatile()
-	 * @see #getTableColumn()
-	 * @generated
-	 */
-	EAttribute getTableColumn_Volatile();
 
 	/**
 	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.dbsynch.TableColumn#getRowAttribute <em>Row Attribute</em>}'.
@@ -2077,14 +2057,6 @@ public interface DbSynchPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TABLE_COLUMN__COLUMN_NAME = eINSTANCE.getTableColumn_ColumnName();
-
-		/**
-		 * The meta object literal for the '<em><b>Volatile</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TABLE_COLUMN__VOLATILE = eINSTANCE.getTableColumn_Volatile();
 
 		/**
 		 * The meta object literal for the '<em><b>Row Attribute</b></em>' reference feature.

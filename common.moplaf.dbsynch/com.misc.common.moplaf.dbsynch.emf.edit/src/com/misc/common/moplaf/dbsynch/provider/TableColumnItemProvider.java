@@ -61,7 +61,6 @@ public class TableColumnItemProvider
 			super.getPropertyDescriptors(object);
 
 			addColumnNamePropertyDescriptor(object);
-			addVolatilePropertyDescriptor(object);
 			addRowAttributePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -112,28 +111,6 @@ public class TableColumnItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Volatile feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addVolatilePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TableColumn_Volatile_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TableColumn_Volatile_feature", "_UI_TableColumn_type"),
-				 DbSynchPackage.Literals.TABLE_COLUMN__VOLATILE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns TableColumn.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -172,7 +149,6 @@ public class TableColumnItemProvider
 
 		switch (notification.getFeatureID(TableColumn.class)) {
 			case DbSynchPackage.TABLE_COLUMN__COLUMN_NAME:
-			case DbSynchPackage.TABLE_COLUMN__VOLATILE:
 			case DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

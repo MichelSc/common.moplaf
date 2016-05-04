@@ -23,7 +23,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableColumnImpl#getColumnName <em>Column Name</em>}</li>
- *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableColumnImpl#isVolatile <em>Volatile</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableColumnImpl#getRowAttribute <em>Row Attribute</em>}</li>
  * </ul>
  *
@@ -49,26 +48,6 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 	 * @ordered
 	 */
 	protected String columnName = COLUMN_NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isVolatile() <em>Volatile</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isVolatile()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean VOLATILE_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isVolatile() <em>Volatile</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isVolatile()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean volatile_ = VOLATILE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getRowAttribute() <em>Row Attribute</em>}' reference.
@@ -163,34 +142,11 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isVolatile() {
-		return volatile_;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setVolatile(boolean newVolatile) {
-		boolean oldVolatile = volatile_;
-		volatile_ = newVolatile;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DbSynchPackage.TABLE_COLUMN__VOLATILE, oldVolatile, volatile_));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DbSynchPackage.TABLE_COLUMN__COLUMN_NAME:
 				return getColumnName();
-			case DbSynchPackage.TABLE_COLUMN__VOLATILE:
-				return isVolatile();
 			case DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE:
 				if (resolve) return getRowAttribute();
 				return basicGetRowAttribute();
@@ -208,9 +164,6 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 		switch (featureID) {
 			case DbSynchPackage.TABLE_COLUMN__COLUMN_NAME:
 				setColumnName((String)newValue);
-				return;
-			case DbSynchPackage.TABLE_COLUMN__VOLATILE:
-				setVolatile((Boolean)newValue);
 				return;
 			case DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE:
 				setRowAttribute((EAttribute)newValue);
@@ -230,9 +183,6 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 			case DbSynchPackage.TABLE_COLUMN__COLUMN_NAME:
 				setColumnName(COLUMN_NAME_EDEFAULT);
 				return;
-			case DbSynchPackage.TABLE_COLUMN__VOLATILE:
-				setVolatile(VOLATILE_EDEFAULT);
-				return;
 			case DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE:
 				setRowAttribute((EAttribute)null);
 				return;
@@ -250,8 +200,6 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 		switch (featureID) {
 			case DbSynchPackage.TABLE_COLUMN__COLUMN_NAME:
 				return COLUMN_NAME_EDEFAULT == null ? columnName != null : !COLUMN_NAME_EDEFAULT.equals(columnName);
-			case DbSynchPackage.TABLE_COLUMN__VOLATILE:
-				return volatile_ != VOLATILE_EDEFAULT;
 			case DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE:
 				return rowAttribute != null;
 		}
@@ -270,8 +218,6 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (ColumnName: ");
 		result.append(columnName);
-		result.append(", Volatile: ");
-		result.append(volatile_);
 		result.append(')');
 		return result.toString();
 	}

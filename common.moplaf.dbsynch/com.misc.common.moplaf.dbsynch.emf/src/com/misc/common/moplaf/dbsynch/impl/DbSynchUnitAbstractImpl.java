@@ -28,10 +28,10 @@ import org.eclipse.emf.ecore.util.EObjectEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.dbsynch.impl.DbSynchUnitAbstractImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.misc.common.moplaf.dbsynch.impl.DbSynchUnitAbstractImpl#getDataSource <em>Data Source</em>}</li>
- *   <li>{@link com.misc.common.moplaf.dbsynch.impl.DbSynchUnitAbstractImpl#getChildUnits <em>Child Units</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.DbSynchUnitAbstractImpl#getTables <em>Tables</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.impl.DbSynchUnitAbstractImpl#getDataSource <em>Data Source</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.impl.DbSynchUnitAbstractImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.impl.DbSynchUnitAbstractImpl#getChildUnits <em>Child Units</em>}</li>
  * </ul>
  *
  * @generated
@@ -203,15 +203,15 @@ public abstract class DbSynchUnitAbstractImpl extends MinimalEObjectImpl.Contain
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT__NAME:
-				return getName();
+			case DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT__TABLES:
+				return getTables();
 			case DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT__DATA_SOURCE:
 				if (resolve) return getDataSource();
 				return basicGetDataSource();
+			case DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT__NAME:
+				return getName();
 			case DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT__CHILD_UNITS:
 				return getChildUnits();
-			case DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT__TABLES:
-				return getTables();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -254,14 +254,14 @@ public abstract class DbSynchUnitAbstractImpl extends MinimalEObjectImpl.Contain
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT__DATA_SOURCE:
-				return basicGetDataSource() != null;
-			case DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT__CHILD_UNITS:
-				return !getChildUnits().isEmpty();
 			case DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT__TABLES:
 				return !getTables().isEmpty();
+			case DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT__DATA_SOURCE:
+				return basicGetDataSource() != null;
+			case DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT__CHILD_UNITS:
+				return !getChildUnits().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

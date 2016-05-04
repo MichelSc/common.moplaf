@@ -68,10 +68,6 @@ public class DbSynchAdapterFactory extends AdapterFactoryImpl {
 	protected DbSynchSwitch<Adapter> modelSwitch =
 		new DbSynchSwitch<Adapter>() {
 			@Override
-			public Adapter caseDbSynchUnitAbstract(DbSynchUnitAbstract object) {
-				return createDbSynchUnitAbstractAdapter();
-			}
-			@Override
 			public Adapter caseDataSource(DataSource object) {
 				return createDataSourceAdapter();
 			}
@@ -94,6 +90,10 @@ public class DbSynchAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseTableColumn(TableColumn object) {
 				return createTableColumnAdapter();
+			}
+			@Override
+			public Adapter caseDbSynchUnitAbstract(DbSynchUnitAbstract object) {
+				return createDbSynchUnitAbstractAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {

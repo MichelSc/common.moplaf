@@ -66,12 +66,6 @@ public class DbSynchSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT: {
-				DbSynchUnitAbstract dbSynchUnitAbstract = (DbSynchUnitAbstract)theEObject;
-				T result = caseDbSynchUnitAbstract(dbSynchUnitAbstract);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case DbSynchPackage.DATA_SOURCE: {
 				DataSource dataSource = (DataSource)theEObject;
 				T result = caseDataSource(dataSource);
@@ -109,6 +103,12 @@ public class DbSynchSwitch<T> extends Switch<T> {
 			case DbSynchPackage.TABLE_COLUMN: {
 				TableColumn tableColumn = (TableColumn)theEObject;
 				T result = caseTableColumn(tableColumn);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT: {
+				DbSynchUnitAbstract dbSynchUnitAbstract = (DbSynchUnitAbstract)theEObject;
+				T result = caseDbSynchUnitAbstract(dbSynchUnitAbstract);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
