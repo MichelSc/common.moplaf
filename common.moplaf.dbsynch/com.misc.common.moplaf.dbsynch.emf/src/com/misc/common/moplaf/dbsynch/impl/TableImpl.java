@@ -552,9 +552,13 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 		// create the column
 		TableColumn newColumn;
 		if ( isKey ){
-			newColumn = DbSynchFactory.eINSTANCE.createKeyColumn();
+			KeyColumn tmpColumn= DbSynchFactory.eINSTANCE.createKeyColumn();
+			this.getKeyColumns().add(tmpColumn);
+			newColumn = tmpColumn;
 		} else {
-			newColumn = DbSynchFactory.eINSTANCE.createDataColumn();
+			DataColumn tmpColumn = DbSynchFactory.eINSTANCE.createDataColumn();
+			this.getDataColumns().add(tmpColumn);
+			newColumn = tmpColumn;
 		}
 		newColumn.setColumnName(column);
 		newColumn.setRowAttribute(attribute);
