@@ -718,6 +718,15 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getDbSynchUnitAbstract__GetParamAttributes() {
+		return dbSynchUnitAbstractEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getKeyColumn() {
 		return keyColumnEClass;
 	}
@@ -868,6 +877,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		createEOperation(dbSynchUnitAbstractEClass, DB_SYNCH_UNIT_ABSTRACT___SYNCH_UP);
 		createEOperation(dbSynchUnitAbstractEClass, DB_SYNCH_UNIT_ABSTRACT___SYNCH_DOWN);
 		createEOperation(dbSynchUnitAbstractEClass, DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_VALUE__EATTRIBUTE);
+		createEOperation(dbSynchUnitAbstractEClass, DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_ATTRIBUTES);
 
 		keyColumnEClass = createEClass(KEY_COLUMN);
 
@@ -1012,6 +1022,8 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 
 		op = initEOperation(getDbSynchUnitAbstract__GetParamValue__EAttribute(), this.getObject(), "getParamValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getEAttribute(), "attribute", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getDbSynchUnitAbstract__GetParamAttributes(), this.getObject(), "getParamAttributes", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(keyColumnEClass, KeyColumn.class, "KeyColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

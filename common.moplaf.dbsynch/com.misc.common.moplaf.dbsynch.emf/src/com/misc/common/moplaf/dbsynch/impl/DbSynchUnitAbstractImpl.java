@@ -10,6 +10,7 @@ import com.misc.common.moplaf.dbsynch.Table;
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -200,6 +201,22 @@ public abstract class DbSynchUnitAbstractImpl extends MinimalEObjectImpl.Contain
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public EList<Object> getParamAttributes() {
+		EList<Object> attributesToReturn = new BasicEList<Object>();
+		EList<EAttribute> allAttributes = this.eClass().getEAllAttributes();
+		for ( EAttribute aAttribute : allAttributes){
+			if ( aAttribute.getEContainingClass().getEPackage()!=DbSynchPackage.eINSTANCE ){
+				attributesToReturn.add(aAttribute);
+			}
+		}
+		return attributesToReturn;
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -287,6 +304,8 @@ public abstract class DbSynchUnitAbstractImpl extends MinimalEObjectImpl.Contain
 				return null;
 			case DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_VALUE__EATTRIBUTE:
 				return getParamValue((EAttribute)arguments.get(0));
+			case DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_ATTRIBUTES:
+				return getParamAttributes();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

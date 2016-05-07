@@ -154,13 +154,22 @@ public interface DbSynchPackage extends EPackage {
 	int DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_VALUE__EATTRIBUTE = 3;
 
 	/**
+	 * The operation id for the '<em>Get Param Attributes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_ATTRIBUTES = 4;
+
+	/**
 	 * The number of operations of the '<em>Unit Abstract</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DB_SYNCH_UNIT_ABSTRACT_OPERATION_COUNT = 4;
+	int DB_SYNCH_UNIT_ABSTRACT_OPERATION_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.dbsynch.impl.DataSourceImpl <em>Data Source</em>}' class.
@@ -261,6 +270,15 @@ public interface DbSynchPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_SOURCE___GET_PARAM_VALUE__EATTRIBUTE = DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_VALUE__EATTRIBUTE;
+
+	/**
+	 * The operation id for the '<em>Get Param Attributes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE___GET_PARAM_ATTRIBUTES = DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_ATTRIBUTES;
 
 	/**
 	 * The operation id for the '<em>Connect</em>' operation.
@@ -406,6 +424,15 @@ public interface DbSynchPackage extends EPackage {
 	 * @ordered
 	 */
 	int DB_SYNCH_UNIT___GET_PARAM_VALUE__EATTRIBUTE = DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_VALUE__EATTRIBUTE;
+
+	/**
+	 * The operation id for the '<em>Get Param Attributes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT___GET_PARAM_ATTRIBUTES = DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_ATTRIBUTES;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -886,6 +913,15 @@ public interface DbSynchPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_SOURCE_JDBC___GET_PARAM_VALUE__EATTRIBUTE = DATA_SOURCE___GET_PARAM_VALUE__EATTRIBUTE;
+
+	/**
+	 * The operation id for the '<em>Get Param Attributes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_JDBC___GET_PARAM_ATTRIBUTES = DATA_SOURCE___GET_PARAM_ATTRIBUTES;
 
 	/**
 	 * The operation id for the '<em>Connect</em>' operation.
@@ -1733,6 +1769,16 @@ public interface DbSynchPackage extends EPackage {
 	EOperation getDbSynchUnitAbstract__GetParamValue__EAttribute();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract#getParamAttributes() <em>Get Param Attributes</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Param Attributes</em>' operation.
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract#getParamAttributes()
+	 * @generated
+	 */
+	EOperation getDbSynchUnitAbstract__GetParamAttributes();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.dbsynch.KeyColumn <em>Key Column</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2306,6 +2352,14 @@ public interface DbSynchPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_VALUE__EATTRIBUTE = eINSTANCE.getDbSynchUnitAbstract__GetParamValue__EAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Param Attributes</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_ATTRIBUTES = eINSTANCE.getDbSynchUnitAbstract__GetParamAttributes();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.dbsynch.impl.KeyColumnImpl <em>Key Column</em>}' class.

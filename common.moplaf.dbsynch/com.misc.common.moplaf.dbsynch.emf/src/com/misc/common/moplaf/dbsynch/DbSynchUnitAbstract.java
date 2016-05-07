@@ -138,4 +138,12 @@ public interface DbSynchUnitAbstract extends EObject {
 	 */
 	Object getParamValue(EAttribute attribute);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" dataType="com.misc.common.moplaf.dbsynch.Object"
+	 * @generated
+	 */
+	EList<Object> getParamAttributes();
+
 } // DbSynchUnitAbstract

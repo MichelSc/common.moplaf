@@ -5,6 +5,7 @@ package com.misc.common.moplaf.dbsynch.provider;
 
 import com.misc.common.moplaf.dbsynch.DbSynchFactory;
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
+import com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract;
 import com.misc.common.moplaf.dbsynch.Table;
 
 import java.util.Collection;
@@ -15,7 +16,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -304,9 +304,43 @@ public class TableItemProvider
 	 * This adds a property descriptor for the Param Db Synch Unit Attributes feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	protected void addParamDbSynchUnitAttributesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+		(new ItemPropertyDescriptor
+			(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+					 getResourceLocator(),
+					 getString("_UI_Table_ParamDbSynchUnitAttributes_feature"),
+					 getString("_UI_PropertyDescriptor_description", "_UI_Table_ParamDbSynchUnitAttributes_feature", "_UI_Table_type"),
+					 DbSynchPackage.Literals.TABLE__PARAM_DB_SYNCH_UNIT_ATTRIBUTES,
+					 true,
+					 false,
+					 true,
+					 null,
+					 null,
+					 null){
+			@Override
+			public Collection<?> getChoiceOfValues(Object object) {
+				Table thisTable = (Table)object;
+				DbSynchUnitAbstract thisDbSynchUnit = thisTable.getSynchUnit();
+				return thisDbSynchUnit.getParamAttributes();
+				/*
+				Collection<?> collection = super.getChoiceOfValues(object);
+				return collection;
+				*/
+			}
+			@Override
+			public Collection<?> getComboBoxObjects(Object object) {
+				/*
+				Table thisTable = (Table)object;
+				DbSynchUnitAbstract thisDbSynchUnit = thisTable.getSynchUnit();
+				return thisDbSynchUnit.getParamAttributes();
+				*/
+				Collection<?> collection = super.getComboBoxObjects(object);
+				return collection;
+			}
+		});
+/*		
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -320,6 +354,7 @@ public class TableItemProvider
 				 null,
 				 null,
 				 null));
+*/				 
 	}
 
 	/**

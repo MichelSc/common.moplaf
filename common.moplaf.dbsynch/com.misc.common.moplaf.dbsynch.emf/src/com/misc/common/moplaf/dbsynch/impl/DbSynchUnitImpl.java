@@ -97,6 +97,24 @@ public abstract class DbSynchUnitImpl extends DbSynchUnitAbstractImpl implements
 		throw new UnsupportedOperationException();
 	}
 
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public EList<Object> getParamAttributes() {
+		EList<Object> attributesThisType = super.getParamAttributes();
+		DbSynchUnitAbstract parent = this.getParentUnit();
+		if ( parent==null) {
+			return attributesThisType;
+		}
+		EList<Object> attributes = parent.getParamAttributes();
+		attributes.addAll(attributesThisType);
+		return attributes;
+	}
+
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
