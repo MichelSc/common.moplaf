@@ -206,7 +206,8 @@ public abstract class DbSynchUnitAbstractImpl extends MinimalEObjectImpl.Contain
 		EList<Object> attributesToReturn = new BasicEList<Object>();
 		EList<EAttribute> allAttributes = this.eClass().getEAllAttributes();
 		for ( EAttribute aAttribute : allAttributes){
-			if ( aAttribute.getEContainingClass().getEPackage()!=DbSynchPackage.eINSTANCE ){
+			String packageName = aAttribute.getEContainingClass().getEPackage().getNsURI(); 
+			if ( !packageName.contains("common/moplaf")){
 				attributesToReturn.add(aAttribute);
 			}
 		}
