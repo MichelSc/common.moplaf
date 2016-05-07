@@ -477,7 +477,6 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 			    	} // traverse the columns
 			    	table.addRow(row);
 			    	nofcreates++;
-			    	row.setModificationLastSynchUp(EnumModification.ENUM_MODIFICATION_INSERT);
 			    	insert = true;
 		    	}
 		    	else {
@@ -493,15 +492,18 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		    		if ( valueAsIs==null && valueToBe!=null
 		    		  || valueAsIs!=null && !valueAsIs.equals(valueToBe)){
 	    				row.eSet(tableColumn.getRowAttribute(), valueToBe);
-	    				if ( ! insert ) {
-	    					update = true;
-	    				}
+	   					update = true;
 	    			}
 		    		columnIndex++;
 		    	} // traverse the columns
-		    	if ( update){
+		    	if ( insert ){
+			    	row.setModificationLastSynchUp(EnumModification.ENUM_MODIFICATION_INSERT);
+		    	}
+		    	else if ( update){
 			    	row.setModificationLastSynchUp(EnumModification.ENUM_MODIFICATION_UPDATE);
 			    	nofupdates++;
+		    	} else {
+			    	row.setModificationLastSynchUp(EnumModification.ENUM_MODIFICATION_NONE);
 		    	}
 		    	// the row is now up to date and owned
 		    	row.refresh();
