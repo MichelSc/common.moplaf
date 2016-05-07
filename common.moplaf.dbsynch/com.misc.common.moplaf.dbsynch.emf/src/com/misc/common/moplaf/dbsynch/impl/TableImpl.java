@@ -651,17 +651,6 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void synchDown() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 */
 	public void addRow(TableRow row) {
 		if ( TableImpl.this.rowIndex!=null){
@@ -736,6 +725,19 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 		DataSource dataSource = synchUnit.getDataSource();
 		dataSource.synchUpTableImpl(this);
     }
+	
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void synchDown() {
+		DbSynchUnitAbstract synchUnit = this.getSynchUnit();
+		DataSource dataSource = synchUnit.getDataSource();
+		dataSource.synchDownTableImpl(this);
+	}
+
+
 
 
 	/**

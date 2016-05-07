@@ -17,10 +17,13 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import com.misc.common.moplaf.dbsynch.DataColumn;
 import com.misc.common.moplaf.dbsynch.DataSourceJdbc;
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
 import com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract;
 import com.misc.common.moplaf.dbsynch.EnumModification;
+import com.misc.common.moplaf.dbsynch.KeyColumn;
 import com.misc.common.moplaf.dbsynch.Plugin;
 import com.misc.common.moplaf.dbsynch.Table;
 import com.misc.common.moplaf.dbsynch.TableColumn;
@@ -367,13 +370,36 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		}
 		this.setConnected(false);
 	}
+	
+	private void setSqlStatementParam(PreparedStatement statement, int paramIndex, EAttribute attribute, Object paramValue) throws Exception{
+    	// is there a value
+    	if ( paramValue == null ){
+    		throw new Exception("Prepare Statement failed, no value for param "+ attribute);
+    	}
+    	
+    	// set the parameter
+    	if ( attribute.getEType()==EcorePackage.Literals.EINT ){
+	    	statement.setInt(paramIndex, (Integer) paramValue);
+    	}
+    	else if (attribute.getEType()==EcorePackage.Literals.EFLOAT ){
+	    	statement.setFloat(paramIndex, (Float) paramValue);
+    	}
+    	else if ( attribute.getEType()==EcorePackage.Literals.EDATE ){
+	    	statement.setDate(paramIndex, new java.sql.Date(((Date)paramValue).getTime()));
+    	}
+    	else if ( attribute.getEType()==EcorePackage.Literals.ESTRING ){
+	    	statement.setString(paramIndex, (String)paramValue);
+    	}
+    	else {
+    		throw new Exception("Parameter type not implemented " + paramValue.getClass().toString());
+    	}
+	}
 
-	/* (non-Javadoc)
-	 * @see com.misc.common.moplaf.datasetload.impl.DataSourceImpl#LoadTableImpl(com.misc.common.moplaf.datasetload.Table)
+	/**
 	 */
 	@Override
 	public void synchUpTableImpl(Table table) {
-		Plugin.INSTANCE.logInfo("Load table "+table.getTableName());
+		Plugin.INSTANCE.logInfo("SynchUp table "+table.getTableName());
 		
 		// prepare the statement
 		PreparedStatement statement = null;
@@ -412,27 +438,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		    for ( EAttribute paramAttribute : params){
 		    	paramIndex++;
 		    	Object paramValue = unit.getParamValue(paramAttribute);
-		    	// is there a value
-		    	if ( paramValue == null ){
-		    		throw new Exception("Prepare Statement failed, no value for param "+ paramAttribute);
-		    	}
-		    	
-		    	// set the parameter
-		    	if ( paramAttribute.getEType()==EcorePackage.Literals.EINT ){
-			    	statement.setInt(paramIndex, (Integer) paramValue);
-		    	}
-		    	else if (paramAttribute.getEType()==EcorePackage.Literals.EFLOAT ){
-			    	statement.setFloat(paramIndex, (Float) paramValue);
-		    	}
-		    	else if ( paramAttribute.getEType()==EcorePackage.Literals.EDATE ){
-			    	statement.setDate(paramIndex, new java.sql.Date(((Date)paramValue).getTime()));
-		    	}
-		    	else if ( paramAttribute.getEType()==EcorePackage.Literals.ESTRING ){
-			    	statement.setString(paramIndex, (String)paramValue);
-		    	}
-		    	else {
-		    		throw new Exception("Parameter type not implemented " + paramValue.getClass().toString());
-		    	}
+		    	this.setSqlStatementParam(statement, paramIndex, paramAttribute, paramValue);
 		    } // traverse the parameters
 		
 			// execute the query
@@ -553,7 +559,88 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 			}
 		}
 		
-	} // method LoadTableImpl
+	} // method SynchUpTableImpl
+
+	@Override
+	public void synchDownTableImpl(Table table) {
+		Plugin.INSTANCE.logInfo("SynchDown table "+table.getTableName());
+		
+		// prepare the statement
+	    DbSynchUnitAbstract unit = table.getSynchUnit();
+		
+		try {
+	    	if ( this.db_connection == null ){
+	    		throw new Exception("SynchDown table failed, no connection");
+	    	}
+	    	
+	    	String tableName = table.getTableName();
+	    	if ( tableName==null || table.getTableName().length()==0 ){
+	    		throw new Exception("SynchDown table failed, no table name");
+	    	}
+
+	    	// prepare the insert sql
+	    	String inserSql = "";
+	    	for ( TableColumn column : table.getColumns()){
+	    		inserSql += inserSql=="" ? "insert into "+tableName + " ( " : ", ";
+	    		inserSql += column.getColumnName() + "\n";
+	    	}
+	    	inserSql += ") \n";
+	    	inserSql += "values (  \n";
+	    	for ( int i=1; i<table.getColumns().size(); i++){
+	    		inserSql += " ? ,   \n";
+	    	}
+    		inserSql += " ? )";
+    		//PreparedStatement insertStatement = this.db_connection.prepareStatement(inserSql);
+			table.setInsertSqlStatement(inserSql);
+    		
+    		// where clause
+    		String where = "";
+    		for ( KeyColumn keyColumn : table.getKeyColumns()){
+    			where += where.length()==0 ? "where " : "and ";
+    			where += keyColumn.getColumnName() + " = ? \n";
+    		}
+    			
+	    	// update
+    		String updateSql ="";
+    		for ( DataColumn dataColumn : table.getDataColumns()){
+    			updateSql += updateSql.length()==0 ? "update "+tableName + "\nset " : ", ";
+    			updateSql += dataColumn.getColumnName() + " = ? \n";
+	    	}
+    		updateSql += where;
+    		//PreparedStatement updateStatement = this.db_connection.prepareStatement(updateSql);
+			table.setUpdateSqlStatement(updateSql);
+    		
+    		// delete 
+    		String deleteSql = "delete "+ tableName + " \n "+ where;
+    		//PreparedStatement deleteStatement = this.db_connection.prepareStatement(deleteSql);
+			table.setDeleteSqlStatement(deleteSql);
+    		
+			int nofcreates = 0;
+			int nofdeletes = 0;
+			int nofupdates = 0;
+			Plugin.INSTANCE.logInfo(String.format("..SynchDown complete: %d creates, %d updates, %d deletes", nofcreates, nofupdates, nofdeletes));
+		}
+		catch (SQLException e) {
+			Plugin.INSTANCE.logError("..SynchDown failed, cause " + e.getMessage());
+		}
+		catch (Exception e){
+			Plugin.INSTANCE.logError("..General exception, no data written, cause " + ExceptionUtils.getRootCauseMessage(e));
+		}
+
+		/*
+		if ( statement!=null){
+			try {
+				statement.close();
+				statement = null;
+			} catch (SQLException e) {
+				Plugin.INSTANCE.logError("Failure to close the statement" + e.getCause());
+			}
+		}
+		*/
+		
+	}
+	
+	
 
 } //DataSourceJdbcImpl
 
