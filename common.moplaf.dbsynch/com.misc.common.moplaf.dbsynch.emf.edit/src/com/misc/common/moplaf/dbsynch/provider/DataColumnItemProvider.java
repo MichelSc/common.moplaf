@@ -49,11 +49,10 @@ public class DataColumnItemProvider extends TableColumnItemProvider {
 	 * This returns DataColumn.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DataColumn"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/data.png"));
 	}
 
 	/**
