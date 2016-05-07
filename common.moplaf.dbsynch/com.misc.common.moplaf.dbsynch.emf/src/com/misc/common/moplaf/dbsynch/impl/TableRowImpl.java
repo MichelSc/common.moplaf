@@ -27,6 +27,7 @@ import com.misc.common.moplaf.dbsynch.TableRow;
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableRowImpl#getKey <em>Key</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableRowImpl#getModificationLastSynchUp <em>Modification Last Synch Up</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableRowImpl#getModificationNextSynchDown <em>Modification Next Synch Down</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableRowImpl#isDeleted <em>Deleted</em>}</li>
  * </ul>
  *
  * @generated
@@ -81,6 +82,26 @@ public abstract class TableRowImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected EnumModification modificationNextSynchDown = MODIFICATION_NEXT_SYNCH_DOWN_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isDeleted() <em>Deleted</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDeleted()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean DELETED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isDeleted() <em>Deleted</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDeleted()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean deleted = DELETED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -185,6 +206,27 @@ public abstract class TableRowImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isDeleted() {
+		return deleted;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDeleted(boolean newDeleted) {
+		boolean oldDeleted = deleted;
+		deleted = newDeleted;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DbSynchPackage.TABLE_ROW__DELETED, oldDeleted, deleted));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public void refresh() {
 	}
@@ -206,6 +248,8 @@ public abstract class TableRowImpl extends MinimalEObjectImpl.Container implemen
 				return getModificationLastSynchUp();
 			case DbSynchPackage.TABLE_ROW__MODIFICATION_NEXT_SYNCH_DOWN:
 				return getModificationNextSynchDown();
+			case DbSynchPackage.TABLE_ROW__DELETED:
+				return isDeleted();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -224,6 +268,9 @@ public abstract class TableRowImpl extends MinimalEObjectImpl.Container implemen
 			case DbSynchPackage.TABLE_ROW__MODIFICATION_NEXT_SYNCH_DOWN:
 				setModificationNextSynchDown((EnumModification)newValue);
 				return;
+			case DbSynchPackage.TABLE_ROW__DELETED:
+				setDeleted((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -241,6 +288,9 @@ public abstract class TableRowImpl extends MinimalEObjectImpl.Container implemen
 				return;
 			case DbSynchPackage.TABLE_ROW__MODIFICATION_NEXT_SYNCH_DOWN:
 				setModificationNextSynchDown(MODIFICATION_NEXT_SYNCH_DOWN_EDEFAULT);
+				return;
+			case DbSynchPackage.TABLE_ROW__DELETED:
+				setDeleted(DELETED_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -262,6 +312,8 @@ public abstract class TableRowImpl extends MinimalEObjectImpl.Container implemen
 				return modificationLastSynchUp != MODIFICATION_LAST_SYNCH_UP_EDEFAULT;
 			case DbSynchPackage.TABLE_ROW__MODIFICATION_NEXT_SYNCH_DOWN:
 				return modificationNextSynchDown != MODIFICATION_NEXT_SYNCH_DOWN_EDEFAULT;
+			case DbSynchPackage.TABLE_ROW__DELETED:
+				return deleted != DELETED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -295,6 +347,8 @@ public abstract class TableRowImpl extends MinimalEObjectImpl.Container implemen
 		result.append(modificationLastSynchUp);
 		result.append(", ModificationNextSynchDown: ");
 		result.append(modificationNextSynchDown);
+		result.append(", Deleted: ");
+		result.append(deleted);
 		result.append(')');
 		return result.toString();
 	}

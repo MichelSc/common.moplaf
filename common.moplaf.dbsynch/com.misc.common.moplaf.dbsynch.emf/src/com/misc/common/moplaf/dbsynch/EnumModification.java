@@ -29,16 +29,14 @@ public enum EnumModification implements Enumerator {
 	ENUM_MODIFICATION_NONE(0, "ENUM_MODIFICATION_NONE", "None"),
 
 	/**
-	 * The '<em><b>ENUM MODIFICATION INSERT</b></em>' literal object.
+	 * The '<em><b>ENUM MODIFICATION CREATE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ENUM_MODIFICATION_INSERT_VALUE
+	 * @see #ENUM_MODIFICATION_CREATE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	ENUM_MODIFICATION_INSERT(0, "ENUM_MODIFICATION_INSERT", "Insert"),
-
-	/**
+	ENUM_MODIFICATION_CREATE(0, "ENUM_MODIFICATION_CREATE", "Create"), /**
 	 * The '<em><b>ENUM MODIFICATION UPDATE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -74,19 +72,19 @@ public enum EnumModification implements Enumerator {
 	public static final int ENUM_MODIFICATION_NONE_VALUE = 0;
 
 	/**
-	 * The '<em><b>ENUM MODIFICATION INSERT</b></em>' literal value.
+	 * The '<em><b>ENUM MODIFICATION CREATE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>ENUM MODIFICATION INSERT</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>ENUM MODIFICATION CREATE</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #ENUM_MODIFICATION_INSERT
-	 * @model literal="Insert"
+	 * @see #ENUM_MODIFICATION_CREATE
+	 * @model literal="Create"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENUM_MODIFICATION_INSERT_VALUE = 0;
+	public static final int ENUM_MODIFICATION_CREATE_VALUE = 0;
 
 	/**
 	 * The '<em><b>ENUM MODIFICATION UPDATE</b></em>' literal value.
@@ -127,7 +125,7 @@ public enum EnumModification implements Enumerator {
 	private static final EnumModification[] VALUES_ARRAY =
 		new EnumModification[] {
 			ENUM_MODIFICATION_NONE,
-			ENUM_MODIFICATION_INSERT,
+			ENUM_MODIFICATION_CREATE,
 			ENUM_MODIFICATION_UPDATE,
 			ENUM_MODIFICATION_DELETE,
 		};

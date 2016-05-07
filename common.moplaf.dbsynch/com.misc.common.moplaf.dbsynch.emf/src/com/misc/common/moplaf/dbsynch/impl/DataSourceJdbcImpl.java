@@ -17,8 +17,6 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-
 import com.misc.common.moplaf.dbsynch.DataSourceJdbc;
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
 import com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract;
@@ -465,7 +463,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 
 		    	// get the row, if any
 		    	TableRow row = table.getRow(key);
-		    	boolean insert = false;
+		    	boolean create = false;
 		    	if ( row == null ){
 		    		// create, the row is now owned
 			    	row = table.constructRow();
@@ -476,12 +474,15 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 			    		keyIndex++;
 			    	} // traverse the columns
 			    	table.addRow(row);
-			    	nofcreates++;
-			    	insert = true;
+			    	create = true;
 		    	}
 		    	else {
 		    		// update
 		    		rowsasis.remove(row);
+		    		if ( row.isDeleted() ){
+		    			create = true;
+		    			row.setDeleted(false);
+		    		}
 		    	}
 		    	
 		    	// set the data
@@ -496,8 +497,9 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 	    			}
 		    		columnIndex++;
 		    	} // traverse the columns
-		    	if ( insert ){
-			    	row.setModificationLastSynchUp(EnumModification.ENUM_MODIFICATION_INSERT);
+		    	if ( create ){
+			    	row.setModificationLastSynchUp(EnumModification.ENUM_MODIFICATION_CREATE);
+			    	nofcreates++;
 		    	}
 		    	else if ( update){
 			    	row.setModificationLastSynchUp(EnumModification.ENUM_MODIFICATION_UPDATE);
@@ -515,10 +517,15 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 
 			// remove the rows too many
 			for ( TableRow rowToRemove : rowsasis){
-		    	rowToRemove.setModificationLastSynchUp(EnumModification.ENUM_MODIFICATION_DELETE);
-				table.removeRow(rowToRemove); // add to index
-				EcoreUtil.remove(rowToRemove);// disowns it
-				nofdeletes++;
+				if ( !rowToRemove.isDeleted() ){
+					rowToRemove.setDeleted(true);
+			    	rowToRemove.setModificationLastSynchUp(EnumModification.ENUM_MODIFICATION_DELETE);
+					//table.removeRow(rowToRemove); // add to index
+					//EcoreUtil.remove(rowToRemove);// disowns it
+					nofdeletes++;
+				} else {
+			    	rowToRemove.setModificationLastSynchUp(EnumModification.ENUM_MODIFICATION_NONE);
+				}
 			}
 			Plugin.INSTANCE.logInfo(String.format("..Load complete: %d creates, %d updates, %d deletes", nofcreates, nofupdates, nofdeletes));
 		}

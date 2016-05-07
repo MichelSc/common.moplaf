@@ -556,6 +556,15 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTableRow_Deleted() {
+		return (EAttribute)tableRowEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getTableRow__Refresh() {
 		return tableRowEClass.getEOperations().get(0);
 	}
@@ -838,6 +847,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		createEAttribute(tableRowEClass, TABLE_ROW__KEY);
 		createEAttribute(tableRowEClass, TABLE_ROW__MODIFICATION_LAST_SYNCH_UP);
 		createEAttribute(tableRowEClass, TABLE_ROW__MODIFICATION_NEXT_SYNCH_DOWN);
+		createEAttribute(tableRowEClass, TABLE_ROW__DELETED);
 		createEOperation(tableRowEClass, TABLE_ROW___REFRESH);
 
 		dataSourceJdbcEClass = createEClass(DATA_SOURCE_JDBC);
@@ -975,6 +985,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		initEAttribute(getTableRow_Key(), this.getTableRowKey(), "Key", null, 0, 1, TableRow.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTableRow_ModificationLastSynchUp(), this.getEnumModification(), "ModificationLastSynchUp", null, 0, 1, TableRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTableRow_ModificationNextSynchDown(), this.getEnumModification(), "ModificationNextSynchDown", null, 0, 1, TableRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableRow_Deleted(), ecorePackage.getEBoolean(), "Deleted", null, 0, 1, TableRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getTableRow__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1009,7 +1020,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		// Initialize enums and add enum literals
 		initEEnum(enumModificationEEnum, EnumModification.class, "EnumModification");
 		addEEnumLiteral(enumModificationEEnum, EnumModification.ENUM_MODIFICATION_NONE);
-		addEEnumLiteral(enumModificationEEnum, EnumModification.ENUM_MODIFICATION_INSERT);
+		addEEnumLiteral(enumModificationEEnum, EnumModification.ENUM_MODIFICATION_CREATE);
 		addEEnumLiteral(enumModificationEEnum, EnumModification.ENUM_MODIFICATION_UPDATE);
 		addEEnumLiteral(enumModificationEEnum, EnumModification.ENUM_MODIFICATION_DELETE);
 

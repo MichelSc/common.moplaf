@@ -725,13 +725,22 @@ public interface DbSynchPackage extends EPackage {
 	int TABLE_ROW__MODIFICATION_NEXT_SYNCH_DOWN = 3;
 
 	/**
+	 * The feature id for the '<em><b>Deleted</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW__DELETED = 4;
+
+	/**
 	 * The number of structural features of the '<em>Table Row</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_ROW_FEATURE_COUNT = 4;
+	int TABLE_ROW_FEATURE_COUNT = 5;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -1534,6 +1543,17 @@ public interface DbSynchPackage extends EPackage {
 	EAttribute getTableRow_ModificationNextSynchDown();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.TableRow#isDeleted <em>Deleted</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Deleted</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.TableRow#isDeleted()
+	 * @see #getTableRow()
+	 * @generated
+	 */
+	EAttribute getTableRow_Deleted();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.TableRow#refresh() <em>Refresh</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2136,6 +2156,14 @@ public interface DbSynchPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TABLE_ROW__MODIFICATION_NEXT_SYNCH_DOWN = eINSTANCE.getTableRow_ModificationNextSynchDown();
+
+		/**
+		 * The meta object literal for the '<em><b>Deleted</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_ROW__DELETED = eINSTANCE.getTableRow_Deleted();
 
 		/**
 		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.

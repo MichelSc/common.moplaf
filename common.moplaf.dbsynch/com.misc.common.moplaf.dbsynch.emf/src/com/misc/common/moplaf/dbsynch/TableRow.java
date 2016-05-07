@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.dbsynch.TableRow#getKey <em>Key</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.TableRow#getModificationLastSynchUp <em>Modification Last Synch Up</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.TableRow#getModificationNextSynchDown <em>Modification Next Synch Down</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.TableRow#isDeleted <em>Deleted</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTableRow()
@@ -112,6 +113,32 @@ public interface TableRow extends EObject {
 	 * @generated
 	 */
 	void setModificationNextSynchDown(EnumModification value);
+
+	/**
+	 * Returns the value of the '<em><b>Deleted</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Deleted</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Deleted</em>' attribute.
+	 * @see #setDeleted(boolean)
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTableRow_Deleted()
+	 * @model
+	 * @generated
+	 */
+	boolean isDeleted();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.dbsynch.TableRow#isDeleted <em>Deleted</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Deleted</em>' attribute.
+	 * @see #isDeleted()
+	 * @generated
+	 */
+	void setDeleted(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->
