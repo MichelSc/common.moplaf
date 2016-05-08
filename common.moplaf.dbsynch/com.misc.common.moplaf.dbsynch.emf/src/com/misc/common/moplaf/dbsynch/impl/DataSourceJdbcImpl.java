@@ -690,7 +690,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 					nof_updts_done, nof_updts_todo,
 					nof_dlts_done, nof_dlts_todo));
 			this.db_connection.commit();
-			Plugin.INSTANCE.logInfo(String.format("..SynchDown about commited"));
+			Plugin.INSTANCE.logInfo(String.format("..SynchDown commited"));
 		}
 		catch (SQLException e) {
 			Plugin.INSTANCE.logError("..SynchDown failed, cause " + e.getMessage());
