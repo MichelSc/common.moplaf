@@ -65,41 +65,18 @@ public class TableItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSynchUnitPropertyDescriptor(object);
 			addTableNamePropertyDescriptor(object);
 			addWhereClausePropertyDescriptor(object);
-			addNumberOfRowsPropertyDescriptor(object);
-			addLastSynchDownPropertyDescriptor(object);
-			addLastSynchUpPropertyDescriptor(object);
+			addParamDbSynchUnitAttributesPropertyDescriptor(object);
 			addSelectSqlStatementPropertyDescriptor(object);
 			addInsertSqlStatementPropertyDescriptor(object);
 			addUpdateSqlStatementPropertyDescriptor(object);
 			addDeleteSqlStatementPropertyDescriptor(object);
-			addParamDbSynchUnitAttributesPropertyDescriptor(object);
+			addNumberOfRowsPropertyDescriptor(object);
+			addLastSynchDownPropertyDescriptor(object);
+			addLastSynchUpPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Synch Unit feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSynchUnitPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Table_SynchUnit_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Table_SynchUnit_feature", "_UI_Table_type"),
-				 DbSynchPackage.Literals.TABLE__SYNCH_UNIT,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -120,7 +97,7 @@ public class TableItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__12MetadataPropertyCategory"),
 				 null));
 	}
 
@@ -142,7 +119,7 @@ public class TableItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__12MetadataPropertyCategory"),
 				 null));
 	}
 
@@ -164,7 +141,7 @@ public class TableItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__16ExecutionPropertyCategory"),
 				 null));
 	}
 
@@ -186,7 +163,7 @@ public class TableItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__16ExecutionPropertyCategory"),
 				 null));
 	}
 
@@ -208,7 +185,7 @@ public class TableItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__16ExecutionPropertyCategory"),
 				 null));
 	}
 
@@ -230,7 +207,7 @@ public class TableItemProvider
 				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__14QueriesPropertyCategory"),
 				 null));
 	}
 
@@ -252,7 +229,7 @@ public class TableItemProvider
 				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__14QueriesPropertyCategory"),
 				 null));
 	}
 
@@ -274,7 +251,7 @@ public class TableItemProvider
 				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__14QueriesPropertyCategory"),
 				 null));
 	}
 
@@ -296,7 +273,7 @@ public class TableItemProvider
 				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__14QueriesPropertyCategory"),
 				 null));
 	}
 
@@ -317,7 +294,7 @@ public class TableItemProvider
 					 false,
 					 true,
 					 null,
-					 null,
+					 getString("_UI__12MetadataPropertyCategory"),
 					 null){
 			@Override
 			public Collection<?> getChoiceOfValues(Object object) {
@@ -425,17 +402,17 @@ public class TableItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Table.class)) {
-			case DbSynchPackage.TABLE__ROWS:
+			case DbSynchPackage.TABLE__COLUMNS:
 			case DbSynchPackage.TABLE__TABLE_NAME:
 			case DbSynchPackage.TABLE__WHERE_CLAUSE:
-			case DbSynchPackage.TABLE__NUMBER_OF_ROWS:
-			case DbSynchPackage.TABLE__LAST_SYNCH_DOWN:
-			case DbSynchPackage.TABLE__LAST_SYNCH_UP:
+			case DbSynchPackage.TABLE__ROWS:
 			case DbSynchPackage.TABLE__SELECT_SQL_STATEMENT:
 			case DbSynchPackage.TABLE__INSERT_SQL_STATEMENT:
 			case DbSynchPackage.TABLE__UPDATE_SQL_STATEMENT:
 			case DbSynchPackage.TABLE__DELETE_SQL_STATEMENT:
-			case DbSynchPackage.TABLE__COLUMNS:
+			case DbSynchPackage.TABLE__NUMBER_OF_ROWS:
+			case DbSynchPackage.TABLE__LAST_SYNCH_DOWN:
+			case DbSynchPackage.TABLE__LAST_SYNCH_UP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DbSynchPackage.TABLE__KEY_COLUMNS:

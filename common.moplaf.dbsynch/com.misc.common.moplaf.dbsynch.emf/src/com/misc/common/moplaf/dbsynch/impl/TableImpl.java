@@ -9,8 +9,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-
-import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -44,20 +42,20 @@ import com.misc.common.moplaf.dbsynch.TableRow;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getSynchUnit <em>Synch Unit</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getColumns <em>Columns</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getKeyColumns <em>Key Columns</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getDataColumns <em>Data Columns</em>}</li>
- *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getRows <em>Rows</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getTableName <em>Table Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getWhereClause <em>Where Clause</em>}</li>
- *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getNumberOfRows <em>Number Of Rows</em>}</li>
- *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getLastSynchDown <em>Last Synch Down</em>}</li>
- *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getLastSynchUp <em>Last Synch Up</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getParamDbSynchUnitAttributes <em>Param Db Synch Unit Attributes</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getRows <em>Rows</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getSelectSqlStatement <em>Select Sql Statement</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getInsertSqlStatement <em>Insert Sql Statement</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getUpdateSqlStatement <em>Update Sql Statement</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getDeleteSqlStatement <em>Delete Sql Statement</em>}</li>
- *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getColumns <em>Columns</em>}</li>
- *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getParamDbSynchUnitAttributes <em>Param Db Synch Unit Attributes</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getNumberOfRows <em>Number Of Rows</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getLastSynchDown <em>Last Synch Down</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getLastSynchUp <em>Last Synch Up</em>}</li>
  * </ul>
  *
  * @generated
@@ -137,64 +135,14 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	protected String whereClause = WHERE_CLAUSE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getNumberOfRows() <em>Number Of Rows</em>}' attribute.
+	 * The cached value of the '{@link #getParamDbSynchUnitAttributes() <em>Param Db Synch Unit Attributes</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNumberOfRows()
+	 * @see #getParamDbSynchUnitAttributes()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int NUMBER_OF_ROWS_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getNumberOfRows() <em>Number Of Rows</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNumberOfRows()
-	 * @generated
-	 * @ordered
-	 */
-	protected int numberOfRows = NUMBER_OF_ROWS_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getLastSynchDown() <em>Last Synch Down</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLastSynchDown()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Date LAST_SYNCH_DOWN_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getLastSynchDown() <em>Last Synch Down</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLastSynchDown()
-	 * @generated
-	 * @ordered
-	 */
-	protected Date lastSynchDown = LAST_SYNCH_DOWN_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getLastSynchUp() <em>Last Synch Up</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLastSynchUp()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Date LAST_SYNCH_UP_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getLastSynchUp() <em>Last Synch Up</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLastSynchUp()
-	 * @generated
-	 * @ordered
-	 */
-	protected Date lastSynchUp = LAST_SYNCH_UP_EDEFAULT;
+	protected EList<EAttribute> paramDbSynchUnitAttributes;
 
 	/**
 	 * The default value of the '{@link #getSelectSqlStatement() <em>Select Sql Statement</em>}' attribute.
@@ -277,14 +225,64 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	protected String deleteSqlStatement = DELETE_SQL_STATEMENT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getParamDbSynchUnitAttributes() <em>Param Db Synch Unit Attributes</em>}' reference list.
+	 * The default value of the '{@link #getNumberOfRows() <em>Number Of Rows</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getParamDbSynchUnitAttributes()
+	 * @see #getNumberOfRows()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<EAttribute> paramDbSynchUnitAttributes;
+	protected static final int NUMBER_OF_ROWS_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getNumberOfRows() <em>Number Of Rows</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNumberOfRows()
+	 * @generated
+	 * @ordered
+	 */
+	protected int numberOfRows = NUMBER_OF_ROWS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLastSynchDown() <em>Last Synch Down</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLastSynchDown()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Date LAST_SYNCH_DOWN_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getLastSynchDown() <em>Last Synch Down</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLastSynchDown()
+	 * @generated
+	 * @ordered
+	 */
+	protected Date lastSynchDown = LAST_SYNCH_DOWN_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLastSynchUp() <em>Last Synch Up</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLastSynchUp()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Date LAST_SYNCH_UP_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getLastSynchUp() <em>Last Synch Up</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLastSynchUp()
+	 * @generated
+	 * @ordered
+	 */
+	protected Date lastSynchUp = LAST_SYNCH_UP_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -752,22 +750,20 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 			case DbSynchPackage.TABLE__SYNCH_UNIT:
 				if (resolve) return getSynchUnit();
 				return basicGetSynchUnit();
+			case DbSynchPackage.TABLE__COLUMNS:
+				return getColumns();
 			case DbSynchPackage.TABLE__KEY_COLUMNS:
 				return getKeyColumns();
 			case DbSynchPackage.TABLE__DATA_COLUMNS:
 				return getDataColumns();
-			case DbSynchPackage.TABLE__ROWS:
-				return getRows();
 			case DbSynchPackage.TABLE__TABLE_NAME:
 				return getTableName();
 			case DbSynchPackage.TABLE__WHERE_CLAUSE:
 				return getWhereClause();
-			case DbSynchPackage.TABLE__NUMBER_OF_ROWS:
-				return getNumberOfRows();
-			case DbSynchPackage.TABLE__LAST_SYNCH_DOWN:
-				return getLastSynchDown();
-			case DbSynchPackage.TABLE__LAST_SYNCH_UP:
-				return getLastSynchUp();
+			case DbSynchPackage.TABLE__PARAM_DB_SYNCH_UNIT_ATTRIBUTES:
+				return getParamDbSynchUnitAttributes();
+			case DbSynchPackage.TABLE__ROWS:
+				return getRows();
 			case DbSynchPackage.TABLE__SELECT_SQL_STATEMENT:
 				return getSelectSqlStatement();
 			case DbSynchPackage.TABLE__INSERT_SQL_STATEMENT:
@@ -776,10 +772,12 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 				return getUpdateSqlStatement();
 			case DbSynchPackage.TABLE__DELETE_SQL_STATEMENT:
 				return getDeleteSqlStatement();
-			case DbSynchPackage.TABLE__COLUMNS:
-				return getColumns();
-			case DbSynchPackage.TABLE__PARAM_DB_SYNCH_UNIT_ATTRIBUTES:
-				return getParamDbSynchUnitAttributes();
+			case DbSynchPackage.TABLE__NUMBER_OF_ROWS:
+				return getNumberOfRows();
+			case DbSynchPackage.TABLE__LAST_SYNCH_DOWN:
+				return getLastSynchDown();
+			case DbSynchPackage.TABLE__LAST_SYNCH_UP:
+				return getLastSynchUp();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -807,14 +805,9 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 			case DbSynchPackage.TABLE__WHERE_CLAUSE:
 				setWhereClause((String)newValue);
 				return;
-			case DbSynchPackage.TABLE__NUMBER_OF_ROWS:
-				setNumberOfRows((Integer)newValue);
-				return;
-			case DbSynchPackage.TABLE__LAST_SYNCH_DOWN:
-				setLastSynchDown((Date)newValue);
-				return;
-			case DbSynchPackage.TABLE__LAST_SYNCH_UP:
-				setLastSynchUp((Date)newValue);
+			case DbSynchPackage.TABLE__PARAM_DB_SYNCH_UNIT_ATTRIBUTES:
+				getParamDbSynchUnitAttributes().clear();
+				getParamDbSynchUnitAttributes().addAll((Collection<? extends EAttribute>)newValue);
 				return;
 			case DbSynchPackage.TABLE__SELECT_SQL_STATEMENT:
 				setSelectSqlStatement((String)newValue);
@@ -828,9 +821,14 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 			case DbSynchPackage.TABLE__DELETE_SQL_STATEMENT:
 				setDeleteSqlStatement((String)newValue);
 				return;
-			case DbSynchPackage.TABLE__PARAM_DB_SYNCH_UNIT_ATTRIBUTES:
-				getParamDbSynchUnitAttributes().clear();
-				getParamDbSynchUnitAttributes().addAll((Collection<? extends EAttribute>)newValue);
+			case DbSynchPackage.TABLE__NUMBER_OF_ROWS:
+				setNumberOfRows((Integer)newValue);
+				return;
+			case DbSynchPackage.TABLE__LAST_SYNCH_DOWN:
+				setLastSynchDown((Date)newValue);
+				return;
+			case DbSynchPackage.TABLE__LAST_SYNCH_UP:
+				setLastSynchUp((Date)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -856,14 +854,8 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 			case DbSynchPackage.TABLE__WHERE_CLAUSE:
 				setWhereClause(WHERE_CLAUSE_EDEFAULT);
 				return;
-			case DbSynchPackage.TABLE__NUMBER_OF_ROWS:
-				setNumberOfRows(NUMBER_OF_ROWS_EDEFAULT);
-				return;
-			case DbSynchPackage.TABLE__LAST_SYNCH_DOWN:
-				setLastSynchDown(LAST_SYNCH_DOWN_EDEFAULT);
-				return;
-			case DbSynchPackage.TABLE__LAST_SYNCH_UP:
-				setLastSynchUp(LAST_SYNCH_UP_EDEFAULT);
+			case DbSynchPackage.TABLE__PARAM_DB_SYNCH_UNIT_ATTRIBUTES:
+				getParamDbSynchUnitAttributes().clear();
 				return;
 			case DbSynchPackage.TABLE__SELECT_SQL_STATEMENT:
 				setSelectSqlStatement(SELECT_SQL_STATEMENT_EDEFAULT);
@@ -877,8 +869,14 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 			case DbSynchPackage.TABLE__DELETE_SQL_STATEMENT:
 				setDeleteSqlStatement(DELETE_SQL_STATEMENT_EDEFAULT);
 				return;
-			case DbSynchPackage.TABLE__PARAM_DB_SYNCH_UNIT_ATTRIBUTES:
-				getParamDbSynchUnitAttributes().clear();
+			case DbSynchPackage.TABLE__NUMBER_OF_ROWS:
+				setNumberOfRows(NUMBER_OF_ROWS_EDEFAULT);
+				return;
+			case DbSynchPackage.TABLE__LAST_SYNCH_DOWN:
+				setLastSynchDown(LAST_SYNCH_DOWN_EDEFAULT);
+				return;
+			case DbSynchPackage.TABLE__LAST_SYNCH_UP:
+				setLastSynchUp(LAST_SYNCH_UP_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -894,22 +892,20 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case DbSynchPackage.TABLE__SYNCH_UNIT:
 				return basicGetSynchUnit() != null;
+			case DbSynchPackage.TABLE__COLUMNS:
+				return !getColumns().isEmpty();
 			case DbSynchPackage.TABLE__KEY_COLUMNS:
 				return keyColumns != null && !keyColumns.isEmpty();
 			case DbSynchPackage.TABLE__DATA_COLUMNS:
 				return dataColumns != null && !dataColumns.isEmpty();
-			case DbSynchPackage.TABLE__ROWS:
-				return !getRows().isEmpty();
 			case DbSynchPackage.TABLE__TABLE_NAME:
 				return TABLE_NAME_EDEFAULT == null ? tableName != null : !TABLE_NAME_EDEFAULT.equals(tableName);
 			case DbSynchPackage.TABLE__WHERE_CLAUSE:
 				return WHERE_CLAUSE_EDEFAULT == null ? whereClause != null : !WHERE_CLAUSE_EDEFAULT.equals(whereClause);
-			case DbSynchPackage.TABLE__NUMBER_OF_ROWS:
-				return numberOfRows != NUMBER_OF_ROWS_EDEFAULT;
-			case DbSynchPackage.TABLE__LAST_SYNCH_DOWN:
-				return LAST_SYNCH_DOWN_EDEFAULT == null ? lastSynchDown != null : !LAST_SYNCH_DOWN_EDEFAULT.equals(lastSynchDown);
-			case DbSynchPackage.TABLE__LAST_SYNCH_UP:
-				return LAST_SYNCH_UP_EDEFAULT == null ? lastSynchUp != null : !LAST_SYNCH_UP_EDEFAULT.equals(lastSynchUp);
+			case DbSynchPackage.TABLE__PARAM_DB_SYNCH_UNIT_ATTRIBUTES:
+				return paramDbSynchUnitAttributes != null && !paramDbSynchUnitAttributes.isEmpty();
+			case DbSynchPackage.TABLE__ROWS:
+				return !getRows().isEmpty();
 			case DbSynchPackage.TABLE__SELECT_SQL_STATEMENT:
 				return SELECT_SQL_STATEMENT_EDEFAULT == null ? selectSqlStatement != null : !SELECT_SQL_STATEMENT_EDEFAULT.equals(selectSqlStatement);
 			case DbSynchPackage.TABLE__INSERT_SQL_STATEMENT:
@@ -918,10 +914,12 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 				return UPDATE_SQL_STATEMENT_EDEFAULT == null ? updateSqlStatement != null : !UPDATE_SQL_STATEMENT_EDEFAULT.equals(updateSqlStatement);
 			case DbSynchPackage.TABLE__DELETE_SQL_STATEMENT:
 				return DELETE_SQL_STATEMENT_EDEFAULT == null ? deleteSqlStatement != null : !DELETE_SQL_STATEMENT_EDEFAULT.equals(deleteSqlStatement);
-			case DbSynchPackage.TABLE__COLUMNS:
-				return !getColumns().isEmpty();
-			case DbSynchPackage.TABLE__PARAM_DB_SYNCH_UNIT_ATTRIBUTES:
-				return paramDbSynchUnitAttributes != null && !paramDbSynchUnitAttributes.isEmpty();
+			case DbSynchPackage.TABLE__NUMBER_OF_ROWS:
+				return numberOfRows != NUMBER_OF_ROWS_EDEFAULT;
+			case DbSynchPackage.TABLE__LAST_SYNCH_DOWN:
+				return LAST_SYNCH_DOWN_EDEFAULT == null ? lastSynchDown != null : !LAST_SYNCH_DOWN_EDEFAULT.equals(lastSynchDown);
+			case DbSynchPackage.TABLE__LAST_SYNCH_UP:
+				return LAST_SYNCH_UP_EDEFAULT == null ? lastSynchUp != null : !LAST_SYNCH_UP_EDEFAULT.equals(lastSynchUp);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -980,12 +978,6 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 		result.append(tableName);
 		result.append(", WhereClause: ");
 		result.append(whereClause);
-		result.append(", NumberOfRows: ");
-		result.append(numberOfRows);
-		result.append(", LastSynchDown: ");
-		result.append(lastSynchDown);
-		result.append(", LastSynchUp: ");
-		result.append(lastSynchUp);
 		result.append(", SelectSqlStatement: ");
 		result.append(selectSqlStatement);
 		result.append(", InsertSqlStatement: ");
@@ -994,6 +986,12 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 		result.append(updateSqlStatement);
 		result.append(", DeleteSqlStatement: ");
 		result.append(deleteSqlStatement);
+		result.append(", NumberOfRows: ");
+		result.append(numberOfRows);
+		result.append(", LastSynchDown: ");
+		result.append(lastSynchDown);
+		result.append(", LastSynchUp: ");
+		result.append(lastSynchUp);
 		result.append(')');
 		return result.toString();
 	}

@@ -70,7 +70,7 @@ public class DataSourceJdbcItemProvider extends DataSourceItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10DatabasePropertyCategory"),
 				 null));
 	}
 
@@ -92,7 +92,7 @@ public class DataSourceJdbcItemProvider extends DataSourceItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10DatabasePropertyCategory"),
 				 null));
 	}
 
@@ -114,7 +114,7 @@ public class DataSourceJdbcItemProvider extends DataSourceItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10DatabasePropertyCategory"),
 				 null));
 	}
 

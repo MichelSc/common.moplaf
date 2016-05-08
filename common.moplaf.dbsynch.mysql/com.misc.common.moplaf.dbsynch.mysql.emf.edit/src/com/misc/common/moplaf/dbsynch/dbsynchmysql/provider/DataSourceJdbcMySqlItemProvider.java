@@ -74,7 +74,7 @@ public class DataSourceJdbcMySqlItemProvider extends DataSourceJdbcItemProvider 
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10DatabasePropertyCategory"),
 				 null));
 	}
 
@@ -96,7 +96,7 @@ public class DataSourceJdbcMySqlItemProvider extends DataSourceJdbcItemProvider 
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10DatabasePropertyCategory"),
 				 null));
 	}
 
@@ -118,7 +118,7 @@ public class DataSourceJdbcMySqlItemProvider extends DataSourceJdbcItemProvider 
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10DatabasePropertyCategory"),
 				 null));
 	}
 

@@ -71,7 +71,7 @@ public class DataSourceItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10DatabasePropertyCategory"),
 				 null));
 	}
 

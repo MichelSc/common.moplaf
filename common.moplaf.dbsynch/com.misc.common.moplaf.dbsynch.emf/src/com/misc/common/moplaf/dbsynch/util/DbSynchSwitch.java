@@ -73,6 +73,20 @@ public class DbSynchSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DbSynchPackage.DATA_SOURCE_JDBC: {
+				DataSourceJdbc dataSourceJdbc = (DataSourceJdbc)theEObject;
+				T result = caseDataSourceJdbc(dataSourceJdbc);
+				if (result == null) result = caseDataSource(dataSourceJdbc);
+				if (result == null) result = caseDbSynchUnitAbstract(dataSourceJdbc);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT: {
+				DbSynchUnitAbstract dbSynchUnitAbstract = (DbSynchUnitAbstract)theEObject;
+				T result = caseDbSynchUnitAbstract(dbSynchUnitAbstract);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case DbSynchPackage.DB_SYNCH_UNIT: {
 				DbSynchUnit dbSynchUnit = (DbSynchUnit)theEObject;
 				T result = caseDbSynchUnit(dbSynchUnit);
@@ -86,29 +100,9 @@ public class DbSynchSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DbSynchPackage.TABLE_ROW: {
-				TableRow tableRow = (TableRow)theEObject;
-				T result = caseTableRow(tableRow);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DbSynchPackage.DATA_SOURCE_JDBC: {
-				DataSourceJdbc dataSourceJdbc = (DataSourceJdbc)theEObject;
-				T result = caseDataSourceJdbc(dataSourceJdbc);
-				if (result == null) result = caseDataSource(dataSourceJdbc);
-				if (result == null) result = caseDbSynchUnitAbstract(dataSourceJdbc);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case DbSynchPackage.TABLE_COLUMN: {
 				TableColumn tableColumn = (TableColumn)theEObject;
 				T result = caseTableColumn(tableColumn);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT: {
-				DbSynchUnitAbstract dbSynchUnitAbstract = (DbSynchUnitAbstract)theEObject;
-				T result = caseDbSynchUnitAbstract(dbSynchUnitAbstract);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -123,6 +117,12 @@ public class DbSynchSwitch<T> extends Switch<T> {
 				DataColumn dataColumn = (DataColumn)theEObject;
 				T result = caseDataColumn(dataColumn);
 				if (result == null) result = caseTableColumn(dataColumn);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DbSynchPackage.TABLE_ROW: {
+				TableRow tableRow = (TableRow)theEObject;
+				T result = caseTableRow(tableRow);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

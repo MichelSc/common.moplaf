@@ -84,7 +84,7 @@ public class TableColumnItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__12MetadataPropertyCategory"),
 				 null));
 	}
 
@@ -106,7 +106,7 @@ public class TableColumnItemProvider
 				 false,
 				 false,
 				 null,
-				 null,
+				 getString("_UI__12MetadataPropertyCategory"),
 				 null));
 	}
 

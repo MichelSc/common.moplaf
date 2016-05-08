@@ -72,7 +72,7 @@ public class DataSourceJdbcDerbyEmbeddedItemProvider extends DataSourceJdbcItemP
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10DatabasePropertyCategory"),
 				 null));
 	}
 

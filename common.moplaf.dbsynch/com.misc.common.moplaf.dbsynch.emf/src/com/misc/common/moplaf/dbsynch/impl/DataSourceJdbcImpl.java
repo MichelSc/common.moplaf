@@ -10,7 +10,6 @@ import java.util.Date;
 import java.util.HashSet;
 
 import org.apache.commons.lang.exception.ExceptionUtils;
-import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;

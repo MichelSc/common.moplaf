@@ -9,7 +9,7 @@
   <genPackages prefix="Dbsynchderby" basePackage="com.misc.common.moplaf.dbsynch"
       disposableProviderFactory="true" ecorePackage="dbsynchderby.ecore#/">
     <genClasses image="false" ecoreClass="dbsynchderby.ecore#//DataSourceJdbcDerbyEmbedded">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynchderby.ecore#//DataSourceJdbcDerbyEmbedded/DatabasePath"/>
+      <genFeatures createChild="false" propertyCategory="10 Database" ecoreFeature="ecore:EAttribute dbsynchderby.ecore#//DataSourceJdbcDerbyEmbedded/DatabasePath"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

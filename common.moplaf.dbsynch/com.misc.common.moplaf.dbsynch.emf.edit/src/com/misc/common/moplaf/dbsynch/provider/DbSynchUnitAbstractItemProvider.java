@@ -63,56 +63,9 @@ public class DbSynchUnitAbstractItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTablesPropertyDescriptor(object);
-			addDataSourcePropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
-			addChildUnitsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Tables feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTablesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DbSynchUnitAbstract_Tables_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DbSynchUnitAbstract_Tables_feature", "_UI_DbSynchUnitAbstract_type"),
-				 DbSynchPackage.Literals.DB_SYNCH_UNIT_ABSTRACT__TABLES,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Data Source feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDataSourcePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DbSynchUnitAbstract_DataSource_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DbSynchUnitAbstract_DataSource_feature", "_UI_DbSynchUnitAbstract_type"),
-				 DbSynchPackage.Literals.DB_SYNCH_UNIT_ABSTRACT__DATA_SOURCE,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -133,29 +86,7 @@ public class DbSynchUnitAbstractItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Child Units feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addChildUnitsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DbSynchUnitAbstract_ChildUnits_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DbSynchUnitAbstract_ChildUnits_feature", "_UI_DbSynchUnitAbstract_type"),
-				 DbSynchPackage.Literals.DB_SYNCH_UNIT_ABSTRACT__CHILD_UNITS,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
+				 getString("_UI__10DatabasePropertyCategory"),
 				 null));
 	}
 

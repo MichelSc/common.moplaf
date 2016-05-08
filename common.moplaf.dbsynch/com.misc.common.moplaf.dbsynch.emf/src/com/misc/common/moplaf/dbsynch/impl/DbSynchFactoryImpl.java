@@ -80,8 +80,6 @@ public class DbSynchFactoryImpl extends EFactoryImpl implements DbSynchFactory {
 				return createEAttributeFromString(eDataType, initialValue);
 			case DbSynchPackage.TABLE_ROW_KEY:
 				return createTableRowKeyFromString(eDataType, initialValue);
-			case DbSynchPackage.TABLE_COLUMN_TENTATIVE:
-				return createTableColumnTentativeFromString(eDataType, initialValue);
 			case DbSynchPackage.OBJECT:
 				return createObjectFromString(eDataType, initialValue);
 			default:
@@ -103,8 +101,6 @@ public class DbSynchFactoryImpl extends EFactoryImpl implements DbSynchFactory {
 				return convertEAttributeToString(eDataType, instanceValue);
 			case DbSynchPackage.TABLE_ROW_KEY:
 				return convertTableRowKeyToString(eDataType, instanceValue);
-			case DbSynchPackage.TABLE_COLUMN_TENTATIVE:
-				return convertTableColumnTentativeToString(eDataType, instanceValue);
 			case DbSynchPackage.OBJECT:
 				return convertObjectToString(eDataType, instanceValue);
 			default:
@@ -195,24 +191,6 @@ public class DbSynchFactoryImpl extends EFactoryImpl implements DbSynchFactory {
 	 * @generated
 	 */
 	public String convertTableRowKeyToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TableColumnImpl createTableColumnTentativeFromString(EDataType eDataType, String initialValue) {
-		return (TableColumnImpl)super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertTableColumnTentativeToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

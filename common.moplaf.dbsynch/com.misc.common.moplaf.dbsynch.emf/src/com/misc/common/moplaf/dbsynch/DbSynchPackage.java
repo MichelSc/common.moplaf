@@ -70,7 +70,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getDbSynchUnitAbstract()
 	 * @generated
 	 */
-	int DB_SYNCH_UNIT_ABSTRACT = 6;
+	int DB_SYNCH_UNIT_ABSTRACT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Tables</b></em>' reference list.
@@ -333,124 +333,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getDbSynchUnit()
 	 * @generated
 	 */
-	int DB_SYNCH_UNIT = 1;
-
-	/**
-	 * The feature id for the '<em><b>Tables</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DB_SYNCH_UNIT__TABLES = DB_SYNCH_UNIT_ABSTRACT__TABLES;
-
-	/**
-	 * The feature id for the '<em><b>Data Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DB_SYNCH_UNIT__DATA_SOURCE = DB_SYNCH_UNIT_ABSTRACT__DATA_SOURCE;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DB_SYNCH_UNIT__NAME = DB_SYNCH_UNIT_ABSTRACT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Child Units</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DB_SYNCH_UNIT__CHILD_UNITS = DB_SYNCH_UNIT_ABSTRACT__CHILD_UNITS;
-
-	/**
-	 * The feature id for the '<em><b>Parent Unit</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DB_SYNCH_UNIT__PARENT_UNIT = DB_SYNCH_UNIT_ABSTRACT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Unit</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DB_SYNCH_UNIT_FEATURE_COUNT = DB_SYNCH_UNIT_ABSTRACT_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Refresh Meta Data</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DB_SYNCH_UNIT___REFRESH_META_DATA = DB_SYNCH_UNIT_ABSTRACT___REFRESH_META_DATA;
-
-	/**
-	 * The operation id for the '<em>Synch Up</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DB_SYNCH_UNIT___SYNCH_UP = DB_SYNCH_UNIT_ABSTRACT___SYNCH_UP;
-
-	/**
-	 * The operation id for the '<em>Synch Down</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DB_SYNCH_UNIT___SYNCH_DOWN = DB_SYNCH_UNIT_ABSTRACT___SYNCH_DOWN;
-
-	/**
-	 * The operation id for the '<em>Get Param Value</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DB_SYNCH_UNIT___GET_PARAM_VALUE__EATTRIBUTE = DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_VALUE__EATTRIBUTE;
-
-	/**
-	 * The operation id for the '<em>Get Param Attributes</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DB_SYNCH_UNIT___GET_PARAM_ATTRIBUTES = DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_ATTRIBUTES;
-
-	/**
-	 * The operation id for the '<em>Refresh</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DB_SYNCH_UNIT___REFRESH = DB_SYNCH_UNIT_ABSTRACT_OPERATION_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Unit</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DB_SYNCH_UNIT_OPERATION_COUNT = DB_SYNCH_UNIT_ABSTRACT_OPERATION_COUNT + 1;
+	int DB_SYNCH_UNIT = 3;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.dbsynch.impl.TableImpl <em>Table</em>}' class.
@@ -460,250 +343,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getTable()
 	 * @generated
 	 */
-	int TABLE = 2;
-
-	/**
-	 * The feature id for the '<em><b>Synch Unit</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__SYNCH_UNIT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Key Columns</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__KEY_COLUMNS = 1;
-
-	/**
-	 * The feature id for the '<em><b>Data Columns</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__DATA_COLUMNS = 2;
-
-	/**
-	 * The feature id for the '<em><b>Rows</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__ROWS = 3;
-
-	/**
-	 * The feature id for the '<em><b>Table Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__TABLE_NAME = 4;
-
-	/**
-	 * The feature id for the '<em><b>Where Clause</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__WHERE_CLAUSE = 5;
-
-	/**
-	 * The feature id for the '<em><b>Number Of Rows</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__NUMBER_OF_ROWS = 6;
-
-	/**
-	 * The feature id for the '<em><b>Last Synch Down</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__LAST_SYNCH_DOWN = 7;
-
-	/**
-	 * The feature id for the '<em><b>Last Synch Up</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__LAST_SYNCH_UP = 8;
-
-	/**
-	 * The feature id for the '<em><b>Select Sql Statement</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__SELECT_SQL_STATEMENT = 9;
-
-	/**
-	 * The feature id for the '<em><b>Insert Sql Statement</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__INSERT_SQL_STATEMENT = 10;
-
-	/**
-	 * The feature id for the '<em><b>Update Sql Statement</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__UPDATE_SQL_STATEMENT = 11;
-
-	/**
-	 * The feature id for the '<em><b>Delete Sql Statement</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__DELETE_SQL_STATEMENT = 12;
-
-	/**
-	 * The feature id for the '<em><b>Columns</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__COLUMNS = 13;
-
-	/**
-	 * The feature id for the '<em><b>Param Db Synch Unit Attributes</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__PARAM_DB_SYNCH_UNIT_ATTRIBUTES = 14;
-
-	/**
-	 * The number of structural features of the '<em>Table</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_FEATURE_COUNT = 15;
-
-	/**
-	 * The operation id for the '<em>Add Column</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE___ADD_COLUMN__BOOLEAN_STRING_EATTRIBUTE = 0;
-
-	/**
-	 * The operation id for the '<em>Add Param</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE___ADD_PARAM__EATTRIBUTE = 1;
-
-	/**
-	 * The operation id for the '<em>Refresh Meta Data</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE___REFRESH_META_DATA = 2;
-
-	/**
-	 * The operation id for the '<em>Synch Down</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE___SYNCH_DOWN = 3;
-
-	/**
-	 * The operation id for the '<em>Synch Up</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE___SYNCH_UP = 4;
-
-	/**
-	 * The operation id for the '<em>Refresh</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE___REFRESH = 5;
-
-	/**
-	 * The operation id for the '<em>Get Row</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE___GET_ROW__TABLEROWKEYIMPL = 6;
-
-	/**
-	 * The operation id for the '<em>Construct Row</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE___CONSTRUCT_ROW = 7;
-
-	/**
-	 * The operation id for the '<em>Add Row</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE___ADD_ROW__TABLEROW = 8;
-
-	/**
-	 * The operation id for the '<em>Remove Row</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE___REMOVE_ROW__TABLEROW = 9;
-
-	/**
-	 * The number of operations of the '<em>Table</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_OPERATION_COUNT = 10;
+	int TABLE = 4;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.dbsynch.impl.TableRowImpl <em>Table Row</em>}' class.
@@ -713,79 +353,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getTableRow()
 	 * @generated
 	 */
-	int TABLE_ROW = 3;
-
-	/**
-	 * The feature id for the '<em><b>Table</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_ROW__TABLE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Key</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_ROW__KEY = 1;
-
-	/**
-	 * The feature id for the '<em><b>Modification Last Synch Up</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_ROW__MODIFICATION_LAST_SYNCH_UP = 2;
-
-	/**
-	 * The feature id for the '<em><b>Modification Next Synch Down</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_ROW__MODIFICATION_NEXT_SYNCH_DOWN = 3;
-
-	/**
-	 * The feature id for the '<em><b>Deleted</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_ROW__DELETED = 4;
-
-	/**
-	 * The number of structural features of the '<em>Table Row</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_ROW_FEATURE_COUNT = 5;
-
-	/**
-	 * The operation id for the '<em>Refresh</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_ROW___REFRESH = 0;
-
-	/**
-	 * The number of operations of the '<em>Table Row</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_ROW_OPERATION_COUNT = 1;
+	int TABLE_ROW = 8;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.dbsynch.impl.DataSourceJdbcImpl <em>Data Source Jdbc</em>}' class.
@@ -795,7 +363,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getDataSourceJdbc()
 	 * @generated
 	 */
-	int DATA_SOURCE_JDBC = 4;
+	int DATA_SOURCE_JDBC = 1;
 
 	/**
 	 * The feature id for the '<em><b>Tables</b></em>' reference list.
@@ -969,6 +537,366 @@ public interface DbSynchPackage extends EPackage {
 	int DATA_SOURCE_JDBC_OPERATION_COUNT = DATA_SOURCE_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Tables</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT__TABLES = DB_SYNCH_UNIT_ABSTRACT__TABLES;
+
+	/**
+	 * The feature id for the '<em><b>Data Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT__DATA_SOURCE = DB_SYNCH_UNIT_ABSTRACT__DATA_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT__NAME = DB_SYNCH_UNIT_ABSTRACT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Child Units</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT__CHILD_UNITS = DB_SYNCH_UNIT_ABSTRACT__CHILD_UNITS;
+
+	/**
+	 * The feature id for the '<em><b>Parent Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT__PARENT_UNIT = DB_SYNCH_UNIT_ABSTRACT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Unit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT_FEATURE_COUNT = DB_SYNCH_UNIT_ABSTRACT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Refresh Meta Data</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT___REFRESH_META_DATA = DB_SYNCH_UNIT_ABSTRACT___REFRESH_META_DATA;
+
+	/**
+	 * The operation id for the '<em>Synch Up</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT___SYNCH_UP = DB_SYNCH_UNIT_ABSTRACT___SYNCH_UP;
+
+	/**
+	 * The operation id for the '<em>Synch Down</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT___SYNCH_DOWN = DB_SYNCH_UNIT_ABSTRACT___SYNCH_DOWN;
+
+	/**
+	 * The operation id for the '<em>Get Param Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT___GET_PARAM_VALUE__EATTRIBUTE = DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_VALUE__EATTRIBUTE;
+
+	/**
+	 * The operation id for the '<em>Get Param Attributes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT___GET_PARAM_ATTRIBUTES = DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_ATTRIBUTES;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT___REFRESH = DB_SYNCH_UNIT_ABSTRACT_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Unit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT_OPERATION_COUNT = DB_SYNCH_UNIT_ABSTRACT_OPERATION_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Synch Unit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__SYNCH_UNIT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Columns</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__COLUMNS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Key Columns</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__KEY_COLUMNS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Data Columns</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__DATA_COLUMNS = 3;
+
+	/**
+	 * The feature id for the '<em><b>Table Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__TABLE_NAME = 4;
+
+	/**
+	 * The feature id for the '<em><b>Where Clause</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__WHERE_CLAUSE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Param Db Synch Unit Attributes</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__PARAM_DB_SYNCH_UNIT_ATTRIBUTES = 6;
+
+	/**
+	 * The feature id for the '<em><b>Rows</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__ROWS = 7;
+
+	/**
+	 * The feature id for the '<em><b>Select Sql Statement</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__SELECT_SQL_STATEMENT = 8;
+
+	/**
+	 * The feature id for the '<em><b>Insert Sql Statement</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__INSERT_SQL_STATEMENT = 9;
+
+	/**
+	 * The feature id for the '<em><b>Update Sql Statement</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__UPDATE_SQL_STATEMENT = 10;
+
+	/**
+	 * The feature id for the '<em><b>Delete Sql Statement</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__DELETE_SQL_STATEMENT = 11;
+
+	/**
+	 * The feature id for the '<em><b>Number Of Rows</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__NUMBER_OF_ROWS = 12;
+
+	/**
+	 * The feature id for the '<em><b>Last Synch Down</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__LAST_SYNCH_DOWN = 13;
+
+	/**
+	 * The feature id for the '<em><b>Last Synch Up</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__LAST_SYNCH_UP = 14;
+
+	/**
+	 * The number of structural features of the '<em>Table</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_FEATURE_COUNT = 15;
+
+	/**
+	 * The operation id for the '<em>Add Column</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE___ADD_COLUMN__BOOLEAN_STRING_EATTRIBUTE = 0;
+
+	/**
+	 * The operation id for the '<em>Add Param</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE___ADD_PARAM__EATTRIBUTE = 1;
+
+	/**
+	 * The operation id for the '<em>Refresh Meta Data</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE___REFRESH_META_DATA = 2;
+
+	/**
+	 * The operation id for the '<em>Synch Down</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE___SYNCH_DOWN = 3;
+
+	/**
+	 * The operation id for the '<em>Synch Up</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE___SYNCH_UP = 4;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE___REFRESH = 5;
+
+	/**
+	 * The operation id for the '<em>Get Row</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE___GET_ROW__TABLEROWKEYIMPL = 6;
+
+	/**
+	 * The operation id for the '<em>Construct Row</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE___CONSTRUCT_ROW = 7;
+
+	/**
+	 * The operation id for the '<em>Add Row</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE___ADD_ROW__TABLEROW = 8;
+
+	/**
+	 * The operation id for the '<em>Remove Row</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE___REMOVE_ROW__TABLEROW = 9;
+
+	/**
+	 * The number of operations of the '<em>Table</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_OPERATION_COUNT = 10;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.dbsynch.impl.TableColumnImpl <em>Table Column</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1022,7 +950,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getKeyColumn()
 	 * @generated
 	 */
-	int KEY_COLUMN = 7;
+	int KEY_COLUMN = 6;
 
 	/**
 	 * The feature id for the '<em><b>Column Name</b></em>' attribute.
@@ -1068,7 +996,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getDataColumn()
 	 * @generated
 	 */
-	int DATA_COLUMN = 8;
+	int DATA_COLUMN = 7;
 
 	/**
 	 * The feature id for the '<em><b>Column Name</b></em>' attribute.
@@ -1107,6 +1035,78 @@ public interface DbSynchPackage extends EPackage {
 	int DATA_COLUMN_OPERATION_COUNT = TABLE_COLUMN_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Table</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW__TABLE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW__KEY = 1;
+
+	/**
+	 * The feature id for the '<em><b>Modification Last Synch Up</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW__MODIFICATION_LAST_SYNCH_UP = 2;
+
+	/**
+	 * The feature id for the '<em><b>Modification Next Synch Down</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW__MODIFICATION_NEXT_SYNCH_DOWN = 3;
+
+	/**
+	 * The feature id for the '<em><b>Deleted</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW__DELETED = 4;
+
+	/**
+	 * The number of structural features of the '<em>Table Row</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW_FEATURE_COUNT = 5;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW___REFRESH = 0;
+
+	/**
+	 * The number of operations of the '<em>Table Row</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW_OPERATION_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.dbsynch.EnumModification <em>Enum Modification</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1137,16 +1137,6 @@ public interface DbSynchPackage extends EPackage {
 	int TABLE_ROW_KEY = 11;
 
 	/**
-	 * The meta object id for the '<em>Table Column Tentative</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.dbsynch.impl.TableColumnImpl
-	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getTableColumnTentative()
-	 * @generated
-	 */
-	int TABLE_COLUMN_TENTATIVE = 12;
-
-	/**
 	 * The meta object id for the '<em>Object</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1154,7 +1144,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getObject()
 	 * @generated
 	 */
-	int OBJECT = 13;
+	int OBJECT = 12;
 
 
 	/**
@@ -1831,17 +1821,6 @@ public interface DbSynchPackage extends EPackage {
 	EDataType getTableRowKey();
 
 	/**
-	 * Returns the meta object for data type '{@link com.misc.common.moplaf.dbsynch.impl.TableColumnImpl <em>Table Column Tentative</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Table Column Tentative</em>'.
-	 * @see com.misc.common.moplaf.dbsynch.impl.TableColumnImpl
-	 * @model instanceClass="com.misc.common.moplaf.dbsynch.impl.TableColumnImpl"
-	 * @generated
-	 */
-	EDataType getTableColumnTentative();
-
-	/**
 	 * Returns the meta object for data type '{@link java.lang.Object <em>Object</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2410,16 +2389,6 @@ public interface DbSynchPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType TABLE_ROW_KEY = eINSTANCE.getTableRowKey();
-
-		/**
-		 * The meta object literal for the '<em>Table Column Tentative</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.dbsynch.impl.TableColumnImpl
-		 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getTableColumnTentative()
-		 * @generated
-		 */
-		EDataType TABLE_COLUMN_TENTATIVE = eINSTANCE.getTableColumnTentative();
 
 		/**
 		 * The meta object literal for the '<em>Object</em>' data type.

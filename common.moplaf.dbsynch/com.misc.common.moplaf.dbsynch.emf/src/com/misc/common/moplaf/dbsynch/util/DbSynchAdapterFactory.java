@@ -72,6 +72,14 @@ public class DbSynchAdapterFactory extends AdapterFactoryImpl {
 				return createDataSourceAdapter();
 			}
 			@Override
+			public Adapter caseDataSourceJdbc(DataSourceJdbc object) {
+				return createDataSourceJdbcAdapter();
+			}
+			@Override
+			public Adapter caseDbSynchUnitAbstract(DbSynchUnitAbstract object) {
+				return createDbSynchUnitAbstractAdapter();
+			}
+			@Override
 			public Adapter caseDbSynchUnit(DbSynchUnit object) {
 				return createDbSynchUnitAdapter();
 			}
@@ -80,20 +88,8 @@ public class DbSynchAdapterFactory extends AdapterFactoryImpl {
 				return createTableAdapter();
 			}
 			@Override
-			public Adapter caseTableRow(TableRow object) {
-				return createTableRowAdapter();
-			}
-			@Override
-			public Adapter caseDataSourceJdbc(DataSourceJdbc object) {
-				return createDataSourceJdbcAdapter();
-			}
-			@Override
 			public Adapter caseTableColumn(TableColumn object) {
 				return createTableColumnAdapter();
-			}
-			@Override
-			public Adapter caseDbSynchUnitAbstract(DbSynchUnitAbstract object) {
-				return createDbSynchUnitAbstractAdapter();
 			}
 			@Override
 			public Adapter caseKeyColumn(KeyColumn object) {
@@ -102,6 +98,10 @@ public class DbSynchAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseDataColumn(DataColumn object) {
 				return createDataColumnAdapter();
+			}
+			@Override
+			public Adapter caseTableRow(TableRow object) {
+				return createTableRowAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {

@@ -121,13 +121,6 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType tableColumnTentativeEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EDataType objectEDataType = null;
 
 	/**
@@ -296,15 +289,6 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * @generated
 	 */
 	public EReference getTable_KeyColumns() {
-		return (EReference)tableEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTable_DataColumns() {
 		return (EReference)tableEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -313,8 +297,17 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTable_Rows() {
+	public EReference getTable_DataColumns() {
 		return (EReference)tableEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTable_Rows() {
+		return (EReference)tableEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -341,60 +334,6 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * @generated
 	 */
 	public EAttribute getTable_NumberOfRows() {
-		return (EAttribute)tableEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTable_LastSynchDown() {
-		return (EAttribute)tableEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTable_LastSynchUp() {
-		return (EAttribute)tableEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTable_SelectSqlStatement() {
-		return (EAttribute)tableEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTable_InsertSqlStatement() {
-		return (EAttribute)tableEClass.getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTable_UpdateSqlStatement() {
-		return (EAttribute)tableEClass.getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTable_DeleteSqlStatement() {
 		return (EAttribute)tableEClass.getEStructuralFeatures().get(12);
 	}
 
@@ -403,8 +342,62 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTable_LastSynchDown() {
+		return (EAttribute)tableEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTable_LastSynchUp() {
+		return (EAttribute)tableEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTable_SelectSqlStatement() {
+		return (EAttribute)tableEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTable_InsertSqlStatement() {
+		return (EAttribute)tableEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTable_UpdateSqlStatement() {
+		return (EAttribute)tableEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTable_DeleteSqlStatement() {
+		return (EAttribute)tableEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getTable_Columns() {
-		return (EReference)tableEClass.getEStructuralFeatures().get(13);
+		return (EReference)tableEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -413,7 +406,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * @generated
 	 */
 	public EReference getTable_ParamDbSynchUnitAttributes() {
-		return (EReference)tableEClass.getEStructuralFeatures().get(14);
+		return (EReference)tableEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -772,15 +765,6 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getTableColumnTentative() {
-		return tableColumnTentativeEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EDataType getObject() {
 		return objectEDataType;
 	}
@@ -820,53 +804,10 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		createEOperation(dataSourceEClass, DATA_SOURCE___SYNCH_DOWN_TABLE_IMPL__TABLE);
 		createEOperation(dataSourceEClass, DATA_SOURCE___SYNCH_UP_TABLE_IMPL__TABLE);
 
-		dbSynchUnitEClass = createEClass(DB_SYNCH_UNIT);
-		createEReference(dbSynchUnitEClass, DB_SYNCH_UNIT__PARENT_UNIT);
-		createEOperation(dbSynchUnitEClass, DB_SYNCH_UNIT___REFRESH);
-
-		tableEClass = createEClass(TABLE);
-		createEReference(tableEClass, TABLE__SYNCH_UNIT);
-		createEReference(tableEClass, TABLE__KEY_COLUMNS);
-		createEReference(tableEClass, TABLE__DATA_COLUMNS);
-		createEReference(tableEClass, TABLE__ROWS);
-		createEAttribute(tableEClass, TABLE__TABLE_NAME);
-		createEAttribute(tableEClass, TABLE__WHERE_CLAUSE);
-		createEAttribute(tableEClass, TABLE__NUMBER_OF_ROWS);
-		createEAttribute(tableEClass, TABLE__LAST_SYNCH_DOWN);
-		createEAttribute(tableEClass, TABLE__LAST_SYNCH_UP);
-		createEAttribute(tableEClass, TABLE__SELECT_SQL_STATEMENT);
-		createEAttribute(tableEClass, TABLE__INSERT_SQL_STATEMENT);
-		createEAttribute(tableEClass, TABLE__UPDATE_SQL_STATEMENT);
-		createEAttribute(tableEClass, TABLE__DELETE_SQL_STATEMENT);
-		createEReference(tableEClass, TABLE__COLUMNS);
-		createEReference(tableEClass, TABLE__PARAM_DB_SYNCH_UNIT_ATTRIBUTES);
-		createEOperation(tableEClass, TABLE___ADD_COLUMN__BOOLEAN_STRING_EATTRIBUTE);
-		createEOperation(tableEClass, TABLE___ADD_PARAM__EATTRIBUTE);
-		createEOperation(tableEClass, TABLE___REFRESH_META_DATA);
-		createEOperation(tableEClass, TABLE___SYNCH_DOWN);
-		createEOperation(tableEClass, TABLE___SYNCH_UP);
-		createEOperation(tableEClass, TABLE___REFRESH);
-		createEOperation(tableEClass, TABLE___GET_ROW__TABLEROWKEYIMPL);
-		createEOperation(tableEClass, TABLE___CONSTRUCT_ROW);
-		createEOperation(tableEClass, TABLE___ADD_ROW__TABLEROW);
-		createEOperation(tableEClass, TABLE___REMOVE_ROW__TABLEROW);
-
-		tableRowEClass = createEClass(TABLE_ROW);
-		createEReference(tableRowEClass, TABLE_ROW__TABLE);
-		createEAttribute(tableRowEClass, TABLE_ROW__KEY);
-		createEAttribute(tableRowEClass, TABLE_ROW__MODIFICATION_LAST_SYNCH_UP);
-		createEAttribute(tableRowEClass, TABLE_ROW__MODIFICATION_NEXT_SYNCH_DOWN);
-		createEAttribute(tableRowEClass, TABLE_ROW__DELETED);
-		createEOperation(tableRowEClass, TABLE_ROW___REFRESH);
-
 		dataSourceJdbcEClass = createEClass(DATA_SOURCE_JDBC);
 		createEAttribute(dataSourceJdbcEClass, DATA_SOURCE_JDBC__DATA_BASE_USER);
 		createEAttribute(dataSourceJdbcEClass, DATA_SOURCE_JDBC__DATA_BASE_USER_PWD);
 		createEAttribute(dataSourceJdbcEClass, DATA_SOURCE_JDBC__DEFAULT_SCHEMA);
-
-		tableColumnEClass = createEClass(TABLE_COLUMN);
-		createEAttribute(tableColumnEClass, TABLE_COLUMN__COLUMN_NAME);
-		createEReference(tableColumnEClass, TABLE_COLUMN__ROW_ATTRIBUTE);
 
 		dbSynchUnitAbstractEClass = createEClass(DB_SYNCH_UNIT_ABSTRACT);
 		createEReference(dbSynchUnitAbstractEClass, DB_SYNCH_UNIT_ABSTRACT__TABLES);
@@ -879,9 +820,52 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		createEOperation(dbSynchUnitAbstractEClass, DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_VALUE__EATTRIBUTE);
 		createEOperation(dbSynchUnitAbstractEClass, DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_ATTRIBUTES);
 
+		dbSynchUnitEClass = createEClass(DB_SYNCH_UNIT);
+		createEReference(dbSynchUnitEClass, DB_SYNCH_UNIT__PARENT_UNIT);
+		createEOperation(dbSynchUnitEClass, DB_SYNCH_UNIT___REFRESH);
+
+		tableEClass = createEClass(TABLE);
+		createEReference(tableEClass, TABLE__SYNCH_UNIT);
+		createEReference(tableEClass, TABLE__COLUMNS);
+		createEReference(tableEClass, TABLE__KEY_COLUMNS);
+		createEReference(tableEClass, TABLE__DATA_COLUMNS);
+		createEAttribute(tableEClass, TABLE__TABLE_NAME);
+		createEAttribute(tableEClass, TABLE__WHERE_CLAUSE);
+		createEReference(tableEClass, TABLE__PARAM_DB_SYNCH_UNIT_ATTRIBUTES);
+		createEReference(tableEClass, TABLE__ROWS);
+		createEAttribute(tableEClass, TABLE__SELECT_SQL_STATEMENT);
+		createEAttribute(tableEClass, TABLE__INSERT_SQL_STATEMENT);
+		createEAttribute(tableEClass, TABLE__UPDATE_SQL_STATEMENT);
+		createEAttribute(tableEClass, TABLE__DELETE_SQL_STATEMENT);
+		createEAttribute(tableEClass, TABLE__NUMBER_OF_ROWS);
+		createEAttribute(tableEClass, TABLE__LAST_SYNCH_DOWN);
+		createEAttribute(tableEClass, TABLE__LAST_SYNCH_UP);
+		createEOperation(tableEClass, TABLE___ADD_COLUMN__BOOLEAN_STRING_EATTRIBUTE);
+		createEOperation(tableEClass, TABLE___ADD_PARAM__EATTRIBUTE);
+		createEOperation(tableEClass, TABLE___REFRESH_META_DATA);
+		createEOperation(tableEClass, TABLE___SYNCH_DOWN);
+		createEOperation(tableEClass, TABLE___SYNCH_UP);
+		createEOperation(tableEClass, TABLE___REFRESH);
+		createEOperation(tableEClass, TABLE___GET_ROW__TABLEROWKEYIMPL);
+		createEOperation(tableEClass, TABLE___CONSTRUCT_ROW);
+		createEOperation(tableEClass, TABLE___ADD_ROW__TABLEROW);
+		createEOperation(tableEClass, TABLE___REMOVE_ROW__TABLEROW);
+
+		tableColumnEClass = createEClass(TABLE_COLUMN);
+		createEAttribute(tableColumnEClass, TABLE_COLUMN__COLUMN_NAME);
+		createEReference(tableColumnEClass, TABLE_COLUMN__ROW_ATTRIBUTE);
+
 		keyColumnEClass = createEClass(KEY_COLUMN);
 
 		dataColumnEClass = createEClass(DATA_COLUMN);
+
+		tableRowEClass = createEClass(TABLE_ROW);
+		createEReference(tableRowEClass, TABLE_ROW__TABLE);
+		createEAttribute(tableRowEClass, TABLE_ROW__KEY);
+		createEAttribute(tableRowEClass, TABLE_ROW__MODIFICATION_LAST_SYNCH_UP);
+		createEAttribute(tableRowEClass, TABLE_ROW__MODIFICATION_NEXT_SYNCH_DOWN);
+		createEAttribute(tableRowEClass, TABLE_ROW__DELETED);
+		createEOperation(tableRowEClass, TABLE_ROW___REFRESH);
 
 		// Create enums
 		enumModificationEEnum = createEEnum(ENUM_MODIFICATION);
@@ -889,7 +873,6 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		// Create data types
 		eAttributeEDataType = createEDataType(EATTRIBUTE);
 		tableRowKeyEDataType = createEDataType(TABLE_ROW_KEY);
-		tableColumnTentativeEDataType = createEDataType(TABLE_COLUMN_TENTATIVE);
 		objectEDataType = createEDataType(OBJECT);
 	}
 
@@ -922,8 +905,8 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 
 		// Add supertypes to classes
 		dataSourceEClass.getESuperTypes().add(this.getDbSynchUnitAbstract());
-		dbSynchUnitEClass.getESuperTypes().add(this.getDbSynchUnitAbstract());
 		dataSourceJdbcEClass.getESuperTypes().add(this.getDataSource());
+		dbSynchUnitEClass.getESuperTypes().add(this.getDbSynchUnitAbstract());
 		keyColumnEClass.getESuperTypes().add(this.getTableColumn());
 		dataColumnEClass.getESuperTypes().add(this.getTableColumn());
 
@@ -941,6 +924,28 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		op = initEOperation(getDataSource__SynchUpTableImpl__Table(), null, "synchUpTableImpl", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTable(), "table", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEClass(dataSourceJdbcEClass, DataSourceJdbc.class, "DataSourceJdbc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDataSourceJdbc_DataBaseUser(), ecorePackage.getEString(), "DataBaseUser", null, 0, 1, DataSourceJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataSourceJdbc_DataBaseUserPwd(), ecorePackage.getEString(), "DataBaseUserPwd", null, 0, 1, DataSourceJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataSourceJdbc_DefaultSchema(), ecorePackage.getEString(), "DefaultSchema", null, 0, 1, DataSourceJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dbSynchUnitAbstractEClass, DbSynchUnitAbstract.class, "DbSynchUnitAbstract", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDbSynchUnitAbstract_Tables(), this.getTable(), null, "Tables", null, 0, -1, DbSynchUnitAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getDbSynchUnitAbstract_DataSource(), this.getDataSource(), null, "DataSource", null, 0, 1, DbSynchUnitAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDbSynchUnitAbstract_Name(), ecorePackage.getEString(), "Name", null, 0, 1, DbSynchUnitAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDbSynchUnitAbstract_ChildUnits(), this.getDbSynchUnitAbstract(), null, "ChildUnits", null, 0, -1, DbSynchUnitAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getDbSynchUnitAbstract__RefreshMetaData(), null, "refreshMetaData", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getDbSynchUnitAbstract__SynchUp(), null, "synchUp", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getDbSynchUnitAbstract__SynchDown(), null, "synchDown", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getDbSynchUnitAbstract__GetParamValue__EAttribute(), this.getObject(), "getParamValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getEAttribute(), "attribute", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getDbSynchUnitAbstract__GetParamAttributes(), this.getObject(), "getParamAttributes", 0, -1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(dbSynchUnitEClass, DbSynchUnit.class, "DbSynchUnit", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDbSynchUnit_ParentUnit(), this.getDbSynchUnitAbstract(), null, "ParentUnit", null, 1, 1, DbSynchUnit.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
@@ -948,20 +953,20 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 
 		initEClass(tableEClass, Table.class, "Table", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTable_SynchUnit(), this.getDbSynchUnitAbstract(), null, "SynchUnit", null, 1, 1, Table.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getTable_Columns(), this.getTableColumn(), null, "Columns", null, 0, -1, Table.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getTable_KeyColumns(), this.getKeyColumn(), null, "KeyColumns", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTable_DataColumns(), this.getDataColumn(), null, "DataColumns", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTable_Rows(), this.getTableRow(), null, "Rows", null, 0, -1, Table.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTable_TableName(), ecorePackage.getEString(), "TableName", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTable_WhereClause(), ecorePackage.getEString(), "WhereClause", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTable_NumberOfRows(), ecorePackage.getEInt(), "NumberOfRows", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTable_LastSynchDown(), ecorePackage.getEDate(), "LastSynchDown", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTable_LastSynchUp(), ecorePackage.getEDate(), "LastSynchUp", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTable_ParamDbSynchUnitAttributes(), ecorePackage.getEAttribute(), null, "ParamDbSynchUnitAttributes", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTable_Rows(), this.getTableRow(), null, "Rows", null, 0, -1, Table.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTable_SelectSqlStatement(), ecorePackage.getEString(), "SelectSqlStatement", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTable_InsertSqlStatement(), ecorePackage.getEString(), "InsertSqlStatement", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTable_UpdateSqlStatement(), ecorePackage.getEString(), "UpdateSqlStatement", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTable_DeleteSqlStatement(), ecorePackage.getEString(), "DeleteSqlStatement", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTable_Columns(), this.getTableColumn(), null, "Columns", null, 0, -1, Table.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getTable_ParamDbSynchUnitAttributes(), ecorePackage.getEAttribute(), null, "ParamDbSynchUnitAttributes", null, 0, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTable_NumberOfRows(), ecorePackage.getEInt(), "NumberOfRows", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTable_LastSynchDown(), ecorePackage.getEDate(), "LastSynchDown", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTable_LastSynchUp(), ecorePackage.getEDate(), "LastSynchUp", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getTable__AddColumn__boolean_String_EAttribute(), null, "addColumn", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "isKey", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -990,6 +995,14 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		op = initEOperation(getTable__RemoveRow__TableRow(), null, "removeRow", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTableRow(), "row", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEClass(tableColumnEClass, TableColumn.class, "TableColumn", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTableColumn_ColumnName(), ecorePackage.getEString(), "ColumnName", null, 0, 1, TableColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTableColumn_RowAttribute(), ecorePackage.getEAttribute(), null, "RowAttribute", null, 0, 1, TableColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(keyColumnEClass, KeyColumn.class, "KeyColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(dataColumnEClass, DataColumn.class, "DataColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		initEClass(tableRowEClass, TableRow.class, "TableRow", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTableRow_Table(), this.getTable(), null, "Table", null, 0, 1, TableRow.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTableRow_Key(), this.getTableRowKey(), "Key", null, 0, 1, TableRow.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -998,36 +1011,6 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		initEAttribute(getTableRow_Deleted(), ecorePackage.getEBoolean(), "Deleted", null, 0, 1, TableRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getTableRow__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(dataSourceJdbcEClass, DataSourceJdbc.class, "DataSourceJdbc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDataSourceJdbc_DataBaseUser(), ecorePackage.getEString(), "DataBaseUser", null, 0, 1, DataSourceJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDataSourceJdbc_DataBaseUserPwd(), ecorePackage.getEString(), "DataBaseUserPwd", null, 0, 1, DataSourceJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDataSourceJdbc_DefaultSchema(), ecorePackage.getEString(), "DefaultSchema", null, 0, 1, DataSourceJdbc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(tableColumnEClass, TableColumn.class, "TableColumn", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTableColumn_ColumnName(), ecorePackage.getEString(), "ColumnName", null, 0, 1, TableColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTableColumn_RowAttribute(), ecorePackage.getEAttribute(), null, "RowAttribute", null, 0, 1, TableColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(dbSynchUnitAbstractEClass, DbSynchUnitAbstract.class, "DbSynchUnitAbstract", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDbSynchUnitAbstract_Tables(), this.getTable(), null, "Tables", null, 0, -1, DbSynchUnitAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getDbSynchUnitAbstract_DataSource(), this.getDataSource(), null, "DataSource", null, 0, 1, DbSynchUnitAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDbSynchUnitAbstract_Name(), ecorePackage.getEString(), "Name", null, 0, 1, DbSynchUnitAbstract.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDbSynchUnitAbstract_ChildUnits(), this.getDbSynchUnitAbstract(), null, "ChildUnits", null, 0, -1, DbSynchUnitAbstract.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-
-		initEOperation(getDbSynchUnitAbstract__RefreshMetaData(), null, "refreshMetaData", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getDbSynchUnitAbstract__SynchUp(), null, "synchUp", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getDbSynchUnitAbstract__SynchDown(), null, "synchDown", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getDbSynchUnitAbstract__GetParamValue__EAttribute(), this.getObject(), "getParamValue", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getEAttribute(), "attribute", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getDbSynchUnitAbstract__GetParamAttributes(), this.getObject(), "getParamAttributes", 0, -1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(keyColumnEClass, KeyColumn.class, "KeyColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(dataColumnEClass, DataColumn.class, "DataColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(enumModificationEEnum, EnumModification.class, "EnumModification");
@@ -1039,7 +1022,6 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		// Initialize data types
 		initEDataType(eAttributeEDataType, EAttribute.class, "EAttribute", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(tableRowKeyEDataType, TableRowKeyImpl.class, "TableRowKey", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(tableColumnTentativeEDataType, TableColumnImpl.class, "TableColumnTentative", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(objectEDataType, Object.class, "Object", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
