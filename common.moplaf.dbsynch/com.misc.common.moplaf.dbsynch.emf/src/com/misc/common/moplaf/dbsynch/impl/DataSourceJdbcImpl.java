@@ -426,7 +426,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 	    	// prepare the sql
 	    	String sql = "";
 	    	for ( TableColumn column : table.getColumns()){
-	    		String prefix = sql=="" ? "select " : "     ,";
+	    		String prefix = sql=="" ? "select " : "     , ";
 	    		sql = sql +  prefix + column.getColumnName() + "\n";
 	    	}
 	    	sql = sql + "from "+table.getTableName() + "\n";
