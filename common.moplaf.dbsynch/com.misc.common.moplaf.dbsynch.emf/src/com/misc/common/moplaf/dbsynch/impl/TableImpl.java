@@ -62,6 +62,12 @@ import com.misc.common.moplaf.dbsynch.TableRow;
  */
 public abstract class TableImpl extends MinimalEObjectImpl.Container implements Table {
 
+	/**
+	 * The field rowIndex contains an entry for every row in the table, 
+	 * corresponding to the current key value of the row?
+	 * The index is updated each time the row key value changes.
+	 * The deleted rows are present in the index as well. 
+	 */
 	protected HashMap<TableRowKeyImpl, TableRow> rowIndex = null;
 	
 	protected Map<TableRowKeyImpl, TableRow> getRowIndex(){
@@ -671,11 +677,10 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public TableRow constructRow() {
-		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
+		// to be implemented by the concrete class
 		throw new UnsupportedOperationException();
 	}
 

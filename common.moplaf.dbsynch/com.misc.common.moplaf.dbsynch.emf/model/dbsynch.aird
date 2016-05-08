@@ -506,7 +506,7 @@
           </edges>
           <edges xmi:type="notation:Edge" xmi:id="_CTOg4BHaEea1OY9guS4XsQ" type="4001" element="_hi9c4A91EeaWzbSulejOwQ" source="_4IVGEBHMEea1OY9guS4XsQ" target="_hjH08A91EeaWzbSulejOwQ">
             <children xmi:type="notation:Node" xmi:id="_CTYR4BHaEea1OY9guS4XsQ" type="6001">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CTYR4RHaEea1OY9guS4XsQ" x="31" y="-12"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CTYR4RHaEea1OY9guS4XsQ" x="35" y="24"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_CTYR4hHaEea1OY9guS4XsQ" type="6002">
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CTYR4xHaEea1OY9guS4XsQ" y="10"/>
