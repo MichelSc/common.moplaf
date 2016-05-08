@@ -248,6 +248,10 @@
                 <styles xmi:type="notation:FontStyle" xmi:id="_w6VOgRRiEeaeYo3HK-GzWg" fontColor="2697711" fontName="Sans" fontHeight="8"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_w6VOghRiEeaeYo3HK-GzWg"/>
               </children>
+              <children xmi:type="notation:Node" xmi:id="_1OfPcBUfEeaxu6sQpokMdA" type="3010" element="_1OIqIBUfEeaxu6sQpokMdA">
+                <styles xmi:type="notation:FontStyle" xmi:id="_1OfPcRUfEeaxu6sQpokMdA" fontColor="2697711" fontName="Sans" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_1OfPchUfEeaxu6sQpokMdA"/>
+              </children>
               <children xmi:type="notation:Node" xmi:id="_hjav4A91EeaWzbSulejOwQ" type="3010" element="_hiydwA91EeaWzbSulejOwQ">
                 <styles xmi:type="notation:FontStyle" xmi:id="_hjav4Q91EeaWzbSulejOwQ" fontName="Sans" fontHeight="8"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_hjav4g91EeaWzbSulejOwQ"/>
@@ -255,10 +259,6 @@
               <children xmi:type="notation:Node" xmi:id="_hjav4w91EeaWzbSulejOwQ" type="3010" element="_hiydwg91EeaWzbSulejOwQ">
                 <styles xmi:type="notation:FontStyle" xmi:id="_hjav5A91EeaWzbSulejOwQ" fontName="Sans" fontHeight="8"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_hjav5Q91EeaWzbSulejOwQ"/>
-              </children>
-              <children xmi:type="notation:Node" xmi:id="_1OfPcBUfEeaxu6sQpokMdA" type="3010" element="_1OIqIBUfEeaxu6sQpokMdA">
-                <styles xmi:type="notation:FontStyle" xmi:id="_1OfPcRUfEeaxu6sQpokMdA" fontColor="2697711" fontName="Sans" fontHeight="8"/>
-                <layoutConstraint xmi:type="notation:Location" xmi:id="_1OfPchUfEeaxu6sQpokMdA"/>
               </children>
               <children xmi:type="notation:Node" xmi:id="_hjav5g91EeaWzbSulejOwQ" type="3010" element="_hizE0Q91EeaWzbSulejOwQ">
                 <styles xmi:type="notation:FontStyle" xmi:id="_hjav5w91EeaWzbSulejOwQ" fontName="Sans" fontHeight="8"/>
@@ -979,12 +979,18 @@
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_qWaSoBUfEeaxu6sQpokMdA" labelColor="39,76,114" labelAlignment="LEFT" description="_hilpcQ91EeaWzbSulejOwQ"/>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_w5uxkBRiEeaeYo3HK-GzWg" name="Deleted : EBoolean = false" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_w5uxkBRiEeaeYo3HK-GzWg" name="Deleted : EBoolean = true" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="dbsynch.ecore#//TableRow/Deleted"/>
           <semanticElements xmi:type="ecore:EAttribute" href="dbsynch.ecore#//TableRow/Deleted"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_1tGZ8BRiEeaeYo3HK-GzWg" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
           </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_1OIqIBUfEeaxu6sQpokMdA" name="/oldDeleted : EBoolean = false" tooltipText="">
+          <target xmi:type="ecore:EAttribute" href="dbsynch.ecore#//TableRow/oldDeleted"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="dbsynch.ecore#//TableRow/oldDeleted"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_31twYBUfEeaxu6sQpokMdA" labelColor="39,76,114" labelAlignment="LEFT" description="_hilpcQ91EeaWzbSulejOwQ"/>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_hiydwA91EeaWzbSulejOwQ" name="ModificationLastSynchUp : EnumModification = None" tooltipText="">
@@ -1001,12 +1007,6 @@
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_hizE0A91EeaWzbSulejOwQ" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
           </ownedStyle>
-          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
-        </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_1OIqIBUfEeaxu6sQpokMdA" name="/oldDeleted : EBoolean = false" tooltipText="">
-          <target xmi:type="ecore:EAttribute" href="dbsynch.ecore#//TableRow/oldDeleted"/>
-          <semanticElements xmi:type="ecore:EAttribute" href="dbsynch.ecore#//TableRow/oldDeleted"/>
-          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_31twYBUfEeaxu6sQpokMdA" labelColor="39,76,114" labelAlignment="LEFT" description="_hilpcQ91EeaWzbSulejOwQ"/>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_hizE0Q91EeaWzbSulejOwQ" name="refresh()" tooltipText="refresh()">
