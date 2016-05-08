@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.Date;
 import java.util.HashSet;
 
@@ -371,26 +372,33 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 	}
 	
 	private void setSqlStatementParam(PreparedStatement statement, int paramIndex, EAttribute attribute, Object paramValue) throws Exception{
-    	// is there a value
-    	if ( paramValue == null ){
-    		throw new Exception("Prepare Statement failed, no value for param "+ attribute);
-    	}
-    	
-    	// set the parameter
     	if ( attribute.getEType()==EcorePackage.Literals.EINT ){
-	    	statement.setInt(paramIndex, (Integer) paramValue);
+        	if ( paramValue == null ){
+        		statement.setNull(paramIndex, Types.INTEGER);
+        	} else {
+		    	statement.setInt(paramIndex, (Integer) paramValue);
+        	}
     	}
     	else if (attribute.getEType()==EcorePackage.Literals.EFLOAT ){
-	    	statement.setFloat(paramIndex, (Float) paramValue);
+        	if ( paramValue == null ){
+        		statement.setNull(paramIndex, Types.FLOAT);
+        	} else {
+		    	statement.setFloat(paramIndex, (Float) paramValue);
+        	}
     	}
     	else if ( attribute.getEType()==EcorePackage.Literals.EDATE ){
-	    	statement.setDate(paramIndex, new java.sql.Date(((Date)paramValue).getTime()));
+        	if ( paramValue == null ){
+        		statement.setNull(paramIndex, Types.DATE);
+        	} else {
+		    	statement.setDate(paramIndex, new java.sql.Date(((Date)paramValue).getTime()));
+        	}
     	}
     	else if ( attribute.getEType()==EcorePackage.Literals.ESTRING ){
-	    	statement.setString(paramIndex, (String)paramValue);
-    	}
-    	else {
-    		throw new Exception("Parameter type not implemented " + paramValue.getClass().toString());
+        	if ( paramValue == null ){
+        		statement.setNull(paramIndex, Types.CHAR);
+        	} else {
+		    	statement.setString(paramIndex, (String)paramValue);
+        	}
     	}
 	}
 

@@ -67,7 +67,7 @@ public abstract class TableRowImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean DELETED_EDEFAULT = false;
+	protected static final boolean DELETED_EDEFAULT = true;
 
 	/**
 	 * The cached value of the '{@link #isDeleted() <em>Deleted</em>}' attribute.

@@ -133,6 +133,7 @@ public interface TableRow extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Deleted</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Deleted</em>' attribute isn't clear,
@@ -142,7 +143,7 @@ public interface TableRow extends EObject {
 	 * @return the value of the '<em>Deleted</em>' attribute.
 	 * @see #setDeleted(boolean)
 	 * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTableRow_Deleted()
-	 * @model
+	 * @model default="true"
 	 * @generated
 	 */
 	boolean isDeleted();
