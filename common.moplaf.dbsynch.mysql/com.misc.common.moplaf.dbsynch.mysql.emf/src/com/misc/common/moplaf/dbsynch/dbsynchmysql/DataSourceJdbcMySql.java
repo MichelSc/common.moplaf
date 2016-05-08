@@ -26,6 +26,7 @@ public interface DataSourceJdbcMySql extends DataSourceJdbc {
 
 	/**
 	 * Returns the value of the '<em><b>Host</b></em>' attribute.
+	 * The default value is <code>"localshost"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Host</em>' attribute isn't clear,
@@ -35,7 +36,7 @@ public interface DataSourceJdbcMySql extends DataSourceJdbc {
 	 * @return the value of the '<em>Host</em>' attribute.
 	 * @see #setHost(String)
 	 * @see com.misc.common.moplaf.dbsynch.dbsynchmysql.DbsynchmysqlPackage#getDataSourceJdbcMySql_Host()
-	 * @model
+	 * @model default="localshost"
 	 * @generated
 	 */
 	String getHost();
@@ -52,6 +53,7 @@ public interface DataSourceJdbcMySql extends DataSourceJdbc {
 
 	/**
 	 * Returns the value of the '<em><b>Port</b></em>' attribute.
+	 * The default value is <code>"3306"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Port</em>' attribute isn't clear,
@@ -61,7 +63,7 @@ public interface DataSourceJdbcMySql extends DataSourceJdbc {
 	 * @return the value of the '<em>Port</em>' attribute.
 	 * @see #setPort(int)
 	 * @see com.misc.common.moplaf.dbsynch.dbsynchmysql.DbsynchmysqlPackage#getDataSourceJdbcMySql_Port()
-	 * @model
+	 * @model default="3306"
 	 * @generated
 	 */
 	int getPort();

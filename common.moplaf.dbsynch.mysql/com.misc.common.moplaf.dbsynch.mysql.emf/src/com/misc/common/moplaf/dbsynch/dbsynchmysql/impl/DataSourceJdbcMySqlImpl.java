@@ -2,10 +2,16 @@
  */
 package com.misc.common.moplaf.dbsynch.dbsynchmysql.impl;
 
+import com.misc.common.moplaf.dbsynch.Plugin;
 import com.misc.common.moplaf.dbsynch.dbsynchmysql.DataSourceJdbcMySql;
 import com.misc.common.moplaf.dbsynch.dbsynchmysql.DbsynchmysqlPackage;
 
 import com.misc.common.moplaf.dbsynch.impl.DataSourceJdbcImpl;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -34,7 +40,7 @@ public class DataSourceJdbcMySqlImpl extends DataSourceJdbcImpl implements DataS
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String HOST_EDEFAULT = null;
+	protected static final String HOST_EDEFAULT = "localshost";
 	/**
 	 * The cached value of the '{@link #getHost() <em>Host</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -52,7 +58,7 @@ public class DataSourceJdbcMySqlImpl extends DataSourceJdbcImpl implements DataS
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int PORT_EDEFAULT = 0;
+	protected static final int PORT_EDEFAULT = 3306;
 	/**
 	 * The cached value of the '{@link #getPort() <em>Port</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -261,6 +267,27 @@ public class DataSourceJdbcMySqlImpl extends DataSourceJdbcImpl implements DataS
 		return result.toString();
 	}
 
-	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	protected Connection getConnectionImpl() throws ClassNotFoundException, SQLException{
+		// load the driver
+		// see: https://downloads.mariadb.org/client-java/1.1.8/
+		String driver = "com.mysql.jdbc.Driver";
+		Class.forName(driver);
+		
+		// example of url "jdbc:mariadb://localhost:3306/project", "root", "")
+		String databaseurl = String.format("jdbc:mysql://%s:%d/%s",
+				                           this.getHost(),
+				                           this.getPort(),
+				                           this.getDataBase());
+		Plugin.INSTANCE.logInfo("Connection to be opened: " + databaseurl);
+		Connection connection = DriverManager.getConnection (databaseurl, 
+       										                 this.getDataBaseUser(), 
+											                 this.getDataBaseUserPwd());
+		return connection;
+	}	
 
 } //DataSourceJdbcMySqlImpl

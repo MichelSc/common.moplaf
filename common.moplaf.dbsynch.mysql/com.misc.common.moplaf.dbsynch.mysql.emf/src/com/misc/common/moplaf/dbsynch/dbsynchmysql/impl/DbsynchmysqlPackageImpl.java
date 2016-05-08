@@ -197,8 +197,8 @@ public class DbsynchmysqlPackageImpl extends EPackageImpl implements Dbsynchmysq
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(dataSourceJdbcMySqlEClass, DataSourceJdbcMySql.class, "DataSourceJdbcMySql", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDataSourceJdbcMySql_Host(), ecorePackage.getEString(), "Host", null, 0, 1, DataSourceJdbcMySql.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDataSourceJdbcMySql_Port(), ecorePackage.getEInt(), "Port", null, 0, 1, DataSourceJdbcMySql.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataSourceJdbcMySql_Host(), ecorePackage.getEString(), "Host", "localshost", 0, 1, DataSourceJdbcMySql.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataSourceJdbcMySql_Port(), ecorePackage.getEInt(), "Port", "3306", 0, 1, DataSourceJdbcMySql.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataSourceJdbcMySql_DataBase(), ecorePackage.getEString(), "DataBase", null, 0, 1, DataSourceJdbcMySql.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
