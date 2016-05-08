@@ -174,7 +174,8 @@ public abstract class TableRowImpl extends MinimalEObjectImpl.Container implemen
 			}
 		}
 		if ( !some_modified ) { return; }
-		if ( this.getModificationLastSynchUp() == EnumModification.ENUM_MODIFICATION_NONE){
+		
+		if ( this.getModificationNextSynchDown() == EnumModification.ENUM_MODIFICATION_NONE){
 			// so far the row is synchronous
 			// get the last key and the last deleted
 			this.lastDeleted = msg.getFeature()== DbSynchPackage.Literals.TABLE_ROW__DELETED
@@ -199,14 +200,14 @@ public abstract class TableRowImpl extends MinimalEObjectImpl.Container implemen
 			nextModification = EnumModification.ENUM_MODIFICATION_DELETE;
 		} else if ( !this.lastDeleted && !this.isDeleted()){
 			if ( this.lastKey.equals(this.getKey())){
-				// some change and not the key and not deleted
+				// some change and but not the key and not deleted, so this is an update
 				nextModification = EnumModification.ENUM_MODIFICATION_UPDATE;
 			} else {
 				// the key has changed!
 				nextModification = EnumModification.ENUM_MODIFICATION_MUTATEKEY; 
 			}
 		}
-		this.setModificationLastSynchUp(nextModification);
+		this.setModificationNextSynchDown(nextModification);
 	}
 
 
@@ -262,12 +263,9 @@ public abstract class TableRowImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public TableRowKeyImpl getOldKey() {
-		// TODO: implement this method to return the 'Old Key' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return this.lastKey;
 	}
 
 

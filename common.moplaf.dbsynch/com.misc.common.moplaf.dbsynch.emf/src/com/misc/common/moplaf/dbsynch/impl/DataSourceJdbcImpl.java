@@ -513,6 +513,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 			    	row.setModificationLastSynchUp(EnumModification.ENUM_MODIFICATION_NONE);
 		    	}
 		    	// the row is now up to date and owned
+		    	row.setModificationNextSynchDown(EnumModification.ENUM_MODIFICATION_NONE);
 		    	row.refresh();
 		    	rowIndex++;
 		     } // traverse the rows of the result set
@@ -563,9 +564,6 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 	@Override
 	public void synchDownTableImpl(Table table) {
 		Plugin.INSTANCE.logInfo("SynchDown table "+table.getTableName());
-		
-		// prepare the statement
-	    DbSynchUnitAbstract unit = table.getSynchUnit();
 		
 		try {
 	    	if ( this.db_connection == null ){
@@ -623,8 +621,8 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 			int nof_dlts_todo = 0;
 			int nof_dlts_done = 0;
 			for ( TableRow rowAsIs : table.getRows()){
-				if ( rowAsIs.getModificationNextSynchDown() == EnumModification.ENUM_MODIFICATION_CREATE
-					||rowAsIs.getModificationNextSynchDown() == EnumModification.ENUM_MODIFICATION_MUTATEKEY){
+				if (  rowAsIs.getModificationNextSynchDown() == EnumModification.ENUM_MODIFICATION_CREATE
+				   || rowAsIs.getModificationNextSynchDown() == EnumModification.ENUM_MODIFICATION_MUTATEKEY){
 					// insert
 					nof_crts_todo++;
 					// set the params
@@ -638,7 +636,8 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 					int rc = insertStatement.executeUpdate();
 					nof_crts_done += rc;
 					//Plugin.INSTANCE.logInfo(String.format("..SynchDown : %d rows inserted", rc));
-				} else if ( rowAsIs.getModificationNextSynchDown() == EnumModification.ENUM_MODIFICATION_UPDATE){
+				}
+				if ( rowAsIs.getModificationNextSynchDown() == EnumModification.ENUM_MODIFICATION_UPDATE){
 					// update
 					nof_updts_todo++;
 					// set the params
@@ -657,14 +656,15 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 					int rc = updateStatement.executeUpdate();
 					//Plugin.INSTANCE.logInfo(String.format("..SynchDown : %d rows updated", rc));
 					nof_updts_done += rc;
-				} else if ( rowAsIs.getModificationNextSynchDown() == EnumModification.ENUM_MODIFICATION_DELETE
-						 || rowAsIs.getModificationNextSynchDown() == EnumModification.ENUM_MODIFICATION_MUTATEKEY){
+				} 
+				if ( rowAsIs.getModificationNextSynchDown() == EnumModification.ENUM_MODIFICATION_DELETE
+				  || rowAsIs.getModificationNextSynchDown() == EnumModification.ENUM_MODIFICATION_MUTATEKEY){
 					// delete
 					nof_dlts_todo++;
 					// set the params
 					int paramIndex = 0;
 					for ( KeyColumn column : table.getKeyColumns()){
-						Object columnValue = rowAsIs.getOldKey().getKey(paramIndex-1);
+						Object columnValue = rowAsIs.getOldKey().getKey(paramIndex);
 						paramIndex ++;
 						this.setSqlStatementParam(deleteStatement, paramIndex, column.getRowAttribute(), columnValue);
 					}
