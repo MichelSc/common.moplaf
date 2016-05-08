@@ -30,6 +30,7 @@ import com.misc.common.moplaf.dbsynch.DbSynchFactory;
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
 import com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract;
 import com.misc.common.moplaf.dbsynch.KeyColumn;
+import com.misc.common.moplaf.dbsynch.Plugin;
 import com.misc.common.moplaf.dbsynch.Table;
 import com.misc.common.moplaf.dbsynch.TableColumn;
 import com.misc.common.moplaf.dbsynch.TableRow;
@@ -709,11 +710,11 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 */
 	public void refresh() {
-		CommonPlugin.INSTANCE.log("Refresh table "+this.getName()+" started");
+		Plugin.INSTANCE.logInfo("Refresh table "+this.getName()+" started");
 		for ( TableRow row : this.getRows()){
 			row.refresh();
 		}
-		CommonPlugin.INSTANCE.log("Refresh table "+this.getName()+" complete");
+		Plugin.INSTANCE.logInfo("Refresh table "+this.getName()+" complete");
 	}
 
 	/**

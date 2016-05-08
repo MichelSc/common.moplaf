@@ -322,7 +322,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 			Plugin.INSTANCE.logError("..SqlException, cause     " + e.getMessage());
 			SQLException e1 = e.getNextException();
 			if ( e1 !=null){
-				CommonPlugin.INSTANCE.log("..Next SqlException, cause "    + e1.getMessage());
+				Plugin.INSTANCE.logError("..Next SqlException, cause "    + e1.getMessage());
 			}
 			return;
 		}
@@ -517,7 +517,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		    	row.refresh();
 		    	rowIndex++;
 		     } // traverse the rows of the result set
-			CommonPlugin.INSTANCE.log("..Result set traversed, rows "+String.format("%d", rowIndex));
+			Plugin.INSTANCE.logInfo("..Result set traversed, rows "+String.format("%d", rowIndex));
 			table.setNumberOfRows(rowIndex);
 			table.setLastSynchUp(new Date());
 
@@ -617,13 +617,16 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
     		PreparedStatement deleteStatement = this.db_connection.prepareStatement(deleteSql);
 			table.setDeleteSqlStatement(deleteSql);
 			
-			int nofcreates = 0;
-			int nofdeletes = 0;
-			int nofupdates = 0;
+			int nof_crts_todo = 0;
+			int nof_crts_done = 0;
+			int nof_updts_todo = 0;
+			int nof_updts_done = 0;
+			int nof_dlts_todo = 0;
+			int nof_dlts_done = 0;
 			for ( TableRow rowAsIs : table.getRows()){
 				if ( rowAsIs.getModificationNextSynchDown() == EnumModification.ENUM_MODIFICATION_CREATE){
 					// insert
-					nofcreates++;
+					nof_crts_todo++;
 					// set the params
 					int paramIndex = 0;
 					for ( TableColumn column : table.getColumns()){
@@ -633,10 +636,11 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 					}
 					// execute
 					int rc = insertStatement.executeUpdate();
-					Plugin.INSTANCE.logInfo(String.format("..SynchDown : %d rows inserted", rc));
+					nof_crts_done += rc;
+					//Plugin.INSTANCE.logInfo(String.format("..SynchDown : %d rows inserted", rc));
 				} else if ( rowAsIs.getModificationNextSynchDown() == EnumModification.ENUM_MODIFICATION_UPDATE){
 					// update
-					nofupdates++;
+					nof_updts_todo++;
 					// set the params
 					int paramIndex = 0;
 					for ( DataColumn column : table.getDataColumns()){
@@ -651,10 +655,11 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 					}
 					// execute
 					int rc = updateStatement.executeUpdate();
-					Plugin.INSTANCE.logInfo(String.format("..SynchDown : %d rows updated", rc));
+					//Plugin.INSTANCE.logInfo(String.format("..SynchDown : %d rows updated", rc));
+					nof_updts_done += rc;
 				} else if ( rowAsIs.getModificationNextSynchDown() == EnumModification.ENUM_MODIFICATION_DELETE){
 					// delete
-					nofdeletes++;
+					nof_dlts_todo++;
 					// set the params
 					int paramIndex = 0;
 					for ( KeyColumn column : table.getKeyColumns()){
@@ -664,14 +669,18 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 					}
 					// execute
 					int rc = deleteStatement.executeUpdate();
-					Plugin.INSTANCE.logInfo(String.format("..SynchDown : %d rows deleted", rc));
+					//Plugin.INSTANCE.logInfo(String.format("..SynchDown : %d rows deleted", rc));
+					nof_dlts_done += rc;
 				}  // switch on the update statement
 				rowAsIs.setModificationNextSynchDown(EnumModification.ENUM_MODIFICATION_NONE);
 			} // traverse the rows
     		
-			Plugin.INSTANCE.logInfo(String.format("..SynchDown about to commit: %d creates, %d updates, %d deletes", nofcreates, nofupdates, nofdeletes));
+			Plugin.INSTANCE.logInfo(String.format("..SynchDown about to commit done/todo: %d/%d creates, %d/%d updates, %d/%d deletes", 
+					nof_crts_done, nof_crts_todo,
+					nof_updts_done, nof_updts_todo,
+					nof_dlts_done, nof_dlts_todo));
 			this.db_connection.commit();
-			Plugin.INSTANCE.logInfo(String.format("..SynchDown about commited: %d creates, %d updates, %d deletes", nofcreates, nofupdates, nofdeletes));
+			Plugin.INSTANCE.logInfo(String.format("..SynchDown about commited"));
 		}
 		catch (SQLException e) {
 			Plugin.INSTANCE.logError("..SynchDown failed, cause " + e.getMessage());
