@@ -123,11 +123,15 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Key" eType="#//TableRowKey"
         changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="oldKey" eType="#//TableRowKey"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Deleted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="oldDeleted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ModificationLastSynchUp"
         eType="#//EnumModification"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ModificationNextSynchDown"
         eType="#//EnumModification"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Deleted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="EAttribute" instanceClassName="org.eclipse.emf.ecore.EAttribute"/>
   <eClassifiers xsi:type="ecore:EDataType" name="TableRowKey" instanceClassName="com.misc.common.moplaf.dbsynch.impl.TableRowKeyImpl"/>
@@ -136,6 +140,7 @@
     <eLiterals name="ENUM_MODIFICATION_CREATE" literal="Create"/>
     <eLiterals name="ENUM_MODIFICATION_UPDATE" literal="Update"/>
     <eLiterals name="ENUM_MODIFICATION_DELETE" literal="Delete"/>
+    <eLiterals name="ENUM_MODIFICATION_MUTATEKEY" value="4" literal="MutateKey"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Object" instanceClassName="java.lang.Object"/>
 </ecore:EPackage>

@@ -54,7 +54,15 @@ public enum EnumModification implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENUM_MODIFICATION_DELETE(0, "ENUM_MODIFICATION_DELETE", "Delete");
+	ENUM_MODIFICATION_DELETE(0, "ENUM_MODIFICATION_DELETE", "Delete"), /**
+	 * The '<em><b>ENUM MODIFICATION MUTATEKEY</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ENUM_MODIFICATION_MUTATEKEY_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ENUM_MODIFICATION_MUTATEKEY(4, "ENUM_MODIFICATION_MUTATEKEY", "MutateKey");
 
 	/**
 	 * The '<em><b>ENUM MODIFICATION NONE</b></em>' literal value.
@@ -117,6 +125,21 @@ public enum EnumModification implements Enumerator {
 	public static final int ENUM_MODIFICATION_DELETE_VALUE = 0;
 
 	/**
+	 * The '<em><b>ENUM MODIFICATION MUTATEKEY</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>ENUM MODIFICATION MUTATEKEY</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #ENUM_MODIFICATION_MUTATEKEY
+	 * @model literal="MutateKey"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ENUM_MODIFICATION_MUTATEKEY_VALUE = 4;
+
+	/**
 	 * An array of all the '<em><b>Enum Modification</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -128,6 +151,7 @@ public enum EnumModification implements Enumerator {
 			ENUM_MODIFICATION_CREATE,
 			ENUM_MODIFICATION_UPDATE,
 			ENUM_MODIFICATION_DELETE,
+			ENUM_MODIFICATION_MUTATEKEY,
 		};
 
 	/**
@@ -185,6 +209,7 @@ public enum EnumModification implements Enumerator {
 	public static EnumModification get(int value) {
 		switch (value) {
 			case ENUM_MODIFICATION_NONE_VALUE: return ENUM_MODIFICATION_NONE;
+			case ENUM_MODIFICATION_MUTATEKEY_VALUE: return ENUM_MODIFICATION_MUTATEKEY;
 		}
 		return null;
 	}

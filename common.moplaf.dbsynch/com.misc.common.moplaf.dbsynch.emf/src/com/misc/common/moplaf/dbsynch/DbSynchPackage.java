@@ -1053,22 +1053,13 @@ public interface DbSynchPackage extends EPackage {
 	int TABLE_ROW__KEY = 1;
 
 	/**
-	 * The feature id for the '<em><b>Modification Last Synch Up</b></em>' attribute.
+	 * The feature id for the '<em><b>Old Key</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_ROW__MODIFICATION_LAST_SYNCH_UP = 2;
-
-	/**
-	 * The feature id for the '<em><b>Modification Next Synch Down</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_ROW__MODIFICATION_NEXT_SYNCH_DOWN = 3;
+	int TABLE_ROW__OLD_KEY = 2;
 
 	/**
 	 * The feature id for the '<em><b>Deleted</b></em>' attribute.
@@ -1077,7 +1068,34 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_ROW__DELETED = 4;
+	int TABLE_ROW__DELETED = 3;
+
+	/**
+	 * The feature id for the '<em><b>Old Deleted</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW__OLD_DELETED = 4;
+
+	/**
+	 * The feature id for the '<em><b>Modification Last Synch Up</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW__MODIFICATION_LAST_SYNCH_UP = 5;
+
+	/**
+	 * The feature id for the '<em><b>Modification Next Synch Down</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW__MODIFICATION_NEXT_SYNCH_DOWN = 6;
 
 	/**
 	 * The number of structural features of the '<em>Table Row</em>' class.
@@ -1086,7 +1104,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_ROW_FEATURE_COUNT = 5;
+	int TABLE_ROW_FEATURE_COUNT = 7;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -1547,6 +1565,17 @@ public interface DbSynchPackage extends EPackage {
 	EAttribute getTableRow_Key();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.TableRow#getOldKey <em>Old Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Old Key</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.TableRow#getOldKey()
+	 * @see #getTableRow()
+	 * @generated
+	 */
+	EAttribute getTableRow_OldKey();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.TableRow#getModificationLastSynchUp <em>Modification Last Synch Up</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1578,6 +1607,17 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTableRow_Deleted();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.TableRow#isOldDeleted <em>Old Deleted</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Old Deleted</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.TableRow#isOldDeleted()
+	 * @see #getTableRow()
+	 * @generated
+	 */
+	EAttribute getTableRow_OldDeleted();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.TableRow#refresh() <em>Refresh</em>}' operation.
@@ -2167,6 +2207,14 @@ public interface DbSynchPackage extends EPackage {
 		EAttribute TABLE_ROW__KEY = eINSTANCE.getTableRow_Key();
 
 		/**
+		 * The meta object literal for the '<em><b>Old Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_ROW__OLD_KEY = eINSTANCE.getTableRow_OldKey();
+
+		/**
 		 * The meta object literal for the '<em><b>Modification Last Synch Up</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2189,6 +2237,14 @@ public interface DbSynchPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TABLE_ROW__DELETED = eINSTANCE.getTableRow_Deleted();
+
+		/**
+		 * The meta object literal for the '<em><b>Old Deleted</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_ROW__OLD_DELETED = eINSTANCE.getTableRow_OldDeleted();
 
 		/**
 		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.

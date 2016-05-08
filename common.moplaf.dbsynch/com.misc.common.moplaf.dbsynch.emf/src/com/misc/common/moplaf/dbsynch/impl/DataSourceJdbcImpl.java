@@ -623,7 +623,8 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 			int nof_dlts_todo = 0;
 			int nof_dlts_done = 0;
 			for ( TableRow rowAsIs : table.getRows()){
-				if ( rowAsIs.getModificationNextSynchDown() == EnumModification.ENUM_MODIFICATION_CREATE){
+				if ( rowAsIs.getModificationNextSynchDown() == EnumModification.ENUM_MODIFICATION_CREATE
+					||rowAsIs.getModificationNextSynchDown() == EnumModification.ENUM_MODIFICATION_MUTATEKEY){
 					// insert
 					nof_crts_todo++;
 					// set the params
@@ -656,13 +657,14 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 					int rc = updateStatement.executeUpdate();
 					//Plugin.INSTANCE.logInfo(String.format("..SynchDown : %d rows updated", rc));
 					nof_updts_done += rc;
-				} else if ( rowAsIs.getModificationNextSynchDown() == EnumModification.ENUM_MODIFICATION_DELETE){
+				} else if ( rowAsIs.getModificationNextSynchDown() == EnumModification.ENUM_MODIFICATION_DELETE
+						 || rowAsIs.getModificationNextSynchDown() == EnumModification.ENUM_MODIFICATION_MUTATEKEY){
 					// delete
 					nof_dlts_todo++;
 					// set the params
 					int paramIndex = 0;
 					for ( KeyColumn column : table.getKeyColumns()){
-						Object columnValue = rowAsIs.eGet(column.getRowAttribute());
+						Object columnValue = rowAsIs.getOldKey().getKey(paramIndex-1);
 						paramIndex ++;
 						this.setSqlStatementParam(deleteStatement, paramIndex, column.getRowAttribute(), columnValue);
 					}

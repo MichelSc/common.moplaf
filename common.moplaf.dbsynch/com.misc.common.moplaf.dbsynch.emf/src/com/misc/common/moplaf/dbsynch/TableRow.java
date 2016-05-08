@@ -16,9 +16,11 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.dbsynch.TableRow#getTable <em>Table</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.TableRow#getKey <em>Key</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.TableRow#getOldKey <em>Old Key</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.TableRow#isDeleted <em>Deleted</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.TableRow#isOldDeleted <em>Old Deleted</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.TableRow#getModificationLastSynchUp <em>Modification Last Synch Up</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.TableRow#getModificationNextSynchDown <em>Modification Next Synch Down</em>}</li>
- *   <li>{@link com.misc.common.moplaf.dbsynch.TableRow#isDeleted <em>Deleted</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTableRow()
@@ -55,6 +57,21 @@ public interface TableRow extends EObject {
 	 * @generated
 	 */
 	TableRowKeyImpl getKey();
+
+	/**
+	 * Returns the value of the '<em><b>Old Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Old Key</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Old Key</em>' attribute.
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTableRow_OldKey()
+	 * @model dataType="com.misc.common.moplaf.dbsynch.TableRowKey" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	TableRowKeyImpl getOldKey();
 
 	/**
 	 * Returns the value of the '<em><b>Modification Last Synch Up</b></em>' attribute.
@@ -139,6 +156,21 @@ public interface TableRow extends EObject {
 	 * @generated
 	 */
 	void setDeleted(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Old Deleted</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Old Deleted</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Old Deleted</em>' attribute.
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTableRow_OldDeleted()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isOldDeleted();
 
 	/**
 	 * <!-- begin-user-doc -->

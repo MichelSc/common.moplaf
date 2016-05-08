@@ -62,11 +62,35 @@ public class TableRowItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addOldKeyPropertyDescriptor(object);
+			addDeletedPropertyDescriptor(object);
+			addOldDeletedPropertyDescriptor(object);
 			addModificationLastSynchUpPropertyDescriptor(object);
 			addModificationNextSynchDownPropertyDescriptor(object);
-			addDeletedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Old Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOldKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TableRow_oldKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TableRow_oldKey_feature", "_UI_TableRow_type"),
+				 DbSynchPackage.Literals.TABLE_ROW__OLD_KEY,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__16ExecutionPropertyCategory"),
+				 null));
 	}
 
 	/**
@@ -136,6 +160,28 @@ public class TableRowItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Old Deleted feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOldDeletedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TableRow_oldDeleted_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TableRow_oldDeleted_feature", "_UI_TableRow_type"),
+				 DbSynchPackage.Literals.TABLE_ROW__OLD_DELETED,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 getString("_UI__16ExecutionPropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This returns TableRow.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -174,9 +220,11 @@ public class TableRowItemProvider
 
 		switch (notification.getFeatureID(TableRow.class)) {
 			case DbSynchPackage.TABLE_ROW__KEY:
+			case DbSynchPackage.TABLE_ROW__OLD_KEY:
+			case DbSynchPackage.TABLE_ROW__DELETED:
+			case DbSynchPackage.TABLE_ROW__OLD_DELETED:
 			case DbSynchPackage.TABLE_ROW__MODIFICATION_LAST_SYNCH_UP:
 			case DbSynchPackage.TABLE_ROW__MODIFICATION_NEXT_SYNCH_DOWN:
-			case DbSynchPackage.TABLE_ROW__DELETED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

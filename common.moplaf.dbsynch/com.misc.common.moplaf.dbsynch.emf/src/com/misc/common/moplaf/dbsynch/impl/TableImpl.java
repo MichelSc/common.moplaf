@@ -292,7 +292,7 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	protected TableImpl() {
 		super();
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -515,6 +515,8 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	}
 		return newList;
 	}
+
+	
 
 	/**
 	 * <!-- begin-user-doc -->
