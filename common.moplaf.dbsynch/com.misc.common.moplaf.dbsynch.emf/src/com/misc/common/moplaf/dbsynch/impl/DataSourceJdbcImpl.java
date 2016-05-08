@@ -480,6 +480,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		    	if ( row == null ){
 		    		// create, the row is now owned
 			    	row = table.constructRow();
+			    	row.setDeleted(false);
 			    	keyIndex = 0;
 			    	for ( TableColumn keyColumn : table.getKeyColumns()){
 		    			Object keyValue = key.getKey(keyIndex);
