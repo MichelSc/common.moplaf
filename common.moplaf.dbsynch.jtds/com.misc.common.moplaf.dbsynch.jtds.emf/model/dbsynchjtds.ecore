@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="dbsynchjtds" nsURI="http://www.misc.com/common/moplaf/dbsynch/derby/model/0.1"
+    nsPrefix="dbsj">
+  <eClassifiers xsi:type="ecore:EClass" name="DataSourceJdbcJtds" eSuperTypes="../../com.misc.common.moplaf.dbsynch.emf/model/dbsynch.ecore#//DataSourceJdbc">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Host" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="localshost"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Port" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="3306"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DataBase" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ServerType" eType="#//EnumServerType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EnumServerType">
+    <eLiterals name="ENUM_MODIFICATION_SQLSERVER" literal="SqlServer"/>
+    <eLiterals name="ENUM_MODIFICATION_SYBASE" literal="Sybase"/>
+  </eClassifiers>
+</ecore:EPackage>
