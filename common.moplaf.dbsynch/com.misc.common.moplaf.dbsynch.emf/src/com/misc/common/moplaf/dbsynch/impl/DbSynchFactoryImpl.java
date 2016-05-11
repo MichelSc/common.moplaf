@@ -59,8 +59,7 @@ public class DbSynchFactoryImpl extends EFactoryImpl implements DbSynchFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case DbSynchPackage.DATA_SOURCE_JDBC: return createDataSourceJdbc();
-			case DbSynchPackage.KEY_COLUMN: return createKeyColumn();
-			case DbSynchPackage.DATA_COLUMN: return createDataColumn();
+			case DbSynchPackage.TABLE_COLUMN: return createTableColumn();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -76,6 +75,8 @@ public class DbSynchFactoryImpl extends EFactoryImpl implements DbSynchFactory {
 		switch (eDataType.getClassifierID()) {
 			case DbSynchPackage.ENUM_MODIFICATION:
 				return createEnumModificationFromString(eDataType, initialValue);
+			case DbSynchPackage.ENUM_COLUMN_TYPE:
+				return createEnumColumnTypeFromString(eDataType, initialValue);
 			case DbSynchPackage.EATTRIBUTE:
 				return createEAttributeFromString(eDataType, initialValue);
 			case DbSynchPackage.TABLE_ROW_KEY:
@@ -97,6 +98,8 @@ public class DbSynchFactoryImpl extends EFactoryImpl implements DbSynchFactory {
 		switch (eDataType.getClassifierID()) {
 			case DbSynchPackage.ENUM_MODIFICATION:
 				return convertEnumModificationToString(eDataType, instanceValue);
+			case DbSynchPackage.ENUM_COLUMN_TYPE:
+				return convertEnumColumnTypeToString(eDataType, instanceValue);
 			case DbSynchPackage.EATTRIBUTE:
 				return convertEAttributeToString(eDataType, instanceValue);
 			case DbSynchPackage.TABLE_ROW_KEY:
@@ -123,19 +126,9 @@ public class DbSynchFactoryImpl extends EFactoryImpl implements DbSynchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public KeyColumn createKeyColumn() {
-		KeyColumnImpl keyColumn = new KeyColumnImpl();
-		return keyColumn;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DataColumn createDataColumn() {
-		DataColumnImpl dataColumn = new DataColumnImpl();
-		return dataColumn;
+	public TableColumn createTableColumn() {
+		TableColumnImpl tableColumn = new TableColumnImpl();
+		return tableColumn;
 	}
 
 	/**
@@ -155,6 +148,26 @@ public class DbSynchFactoryImpl extends EFactoryImpl implements DbSynchFactory {
 	 * @generated
 	 */
 	public String convertEnumModificationToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EnumColumnType createEnumColumnTypeFromString(EDataType eDataType, String initialValue) {
+		EnumColumnType result = EnumColumnType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEnumColumnTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

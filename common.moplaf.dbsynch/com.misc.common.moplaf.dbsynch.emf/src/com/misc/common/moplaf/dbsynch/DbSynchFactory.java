@@ -31,22 +31,13 @@ public interface DbSynchFactory extends EFactory {
 	DataSourceJdbc createDataSourceJdbc();
 
 	/**
-	 * Returns a new object of class '<em>Key Column</em>'.
+	 * Returns a new object of class '<em>Table Column</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Key Column</em>'.
+	 * @return a new object of class '<em>Table Column</em>'.
 	 * @generated
 	 */
-	KeyColumn createKeyColumn();
-
-	/**
-	 * Returns a new object of class '<em>Data Column</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Data Column</em>'.
-	 * @generated
-	 */
-	DataColumn createDataColumn();
+	TableColumn createTableColumn();
 
 	/**
 	 * Returns the package supported by this factory.

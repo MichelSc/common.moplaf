@@ -228,7 +228,7 @@ public interface Table extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Key Columns</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.dbsynch.KeyColumn}.
+	 * The list contents are of type {@link com.misc.common.moplaf.dbsynch.TableColumn}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Key Columns</em>' containment reference list isn't clear,
@@ -240,7 +240,7 @@ public interface Table extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<KeyColumn> getKeyColumns();
+	EList<TableColumn> getKeyColumns();
 
 	/**
 	 * Returns the value of the '<em><b>Columns</b></em>' reference list.
@@ -273,14 +273,6 @@ public interface Table extends EObject {
 	 * @generated
 	 */
 	EList<EAttribute> getParamDbSynchUnitAttributes();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void addColumn(boolean isKey, String column, EAttribute attribute);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -351,8 +343,16 @@ public interface Table extends EObject {
 	void setLastSynchUp(Date value);
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addColumn(boolean Key, String column, EnumColumnType type, EAttribute attribute);
+
+	/**
 	 * Returns the value of the '<em><b>Data Columns</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.dbsynch.DataColumn}.
+	 * The list contents are of type {@link com.misc.common.moplaf.dbsynch.TableColumn}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Data Columns</em>' containment reference list isn't clear,
@@ -364,7 +364,7 @@ public interface Table extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<DataColumn> getDataColumns();
+	EList<TableColumn> getDataColumns();
 
 	/**
 	 * Returns the value of the '<em><b>Number Of Rows</b></em>' attribute.

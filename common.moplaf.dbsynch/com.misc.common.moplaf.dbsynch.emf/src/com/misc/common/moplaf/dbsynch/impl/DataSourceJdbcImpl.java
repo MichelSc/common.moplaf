@@ -18,12 +18,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import com.misc.common.moplaf.dbsynch.DataColumn;
 import com.misc.common.moplaf.dbsynch.DataSourceJdbc;
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
 import com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract;
 import com.misc.common.moplaf.dbsynch.EnumModification;
-import com.misc.common.moplaf.dbsynch.KeyColumn;
 import com.misc.common.moplaf.dbsynch.Plugin;
 import com.misc.common.moplaf.dbsynch.Table;
 import com.misc.common.moplaf.dbsynch.TableColumn;
@@ -606,14 +604,14 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
     		
     		// where clause
     		String where = "";
-    		for ( KeyColumn keyColumn : table.getKeyColumns()){
+    		for ( TableColumn keyColumn : table.getKeyColumns()){
     			where += where.length()==0 ? "where " : "and ";
     			where += keyColumn.getColumnName() + " = ? \n";
     		}
     			
 	    	// update
     		String updateSql ="";
-    		for ( DataColumn dataColumn : table.getDataColumns()){
+    		for ( TableColumn dataColumn : table.getDataColumns()){
     			updateSql += updateSql.length()==0 ? "update "+tableName + "\nset " : ", ";
     			updateSql += dataColumn.getColumnName() + " = ? \n";
 	    	}
@@ -654,12 +652,12 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 					nof_updts_todo++;
 					// set the params
 					int paramIndex = 0;
-					for ( DataColumn column : table.getDataColumns()){
+					for ( TableColumn column : table.getDataColumns()){
 						Object columnValue = rowAsIs.eGet(column.getRowAttribute());
 						paramIndex ++;
 						this.setSqlStatementParam(updateStatement, paramIndex, column.getRowAttribute(), columnValue);
 					}
-					for ( KeyColumn column : table.getKeyColumns()){
+					for ( TableColumn column : table.getKeyColumns()){
 						Object columnValue = rowAsIs.eGet(column.getRowAttribute());
 						paramIndex ++;
 						this.setSqlStatementParam(updateStatement, paramIndex, column.getRowAttribute(), columnValue);
@@ -675,7 +673,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 					nof_dlts_todo++;
 					// set the params
 					int paramIndex = 0;
-					for ( KeyColumn column : table.getKeyColumns()){
+					for ( TableColumn column : table.getKeyColumns()){
 						Object columnValue = rowAsIs.getOldKey().getKey(paramIndex);
 						paramIndex ++;
 						this.setSqlStatementParam(deleteStatement, paramIndex, column.getRowAttribute(), columnValue);

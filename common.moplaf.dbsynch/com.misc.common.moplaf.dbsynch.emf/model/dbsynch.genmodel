@@ -14,6 +14,13 @@
       <genEnumLiterals ecoreEnumLiteral="dbsynch.ecore#//EnumModification/ENUM_MODIFICATION_DELETE"/>
       <genEnumLiterals ecoreEnumLiteral="dbsynch.ecore#//EnumModification/ENUM_MODIFICATION_MUTATEKEY"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="dbsynch.ecore#//EnumColumnType">
+      <genEnumLiterals ecoreEnumLiteral="dbsynch.ecore#//EnumColumnType/ENUM_COLUMN_TYPE_INT"/>
+      <genEnumLiterals ecoreEnumLiteral="dbsynch.ecore#//EnumColumnType/ENUM_COLUMN_TYPE_CHAR"/>
+      <genEnumLiterals ecoreEnumLiteral="dbsynch.ecore#//EnumColumnType/ENUM_COLUMN_TYPE_DATE"/>
+      <genEnumLiterals ecoreEnumLiteral="dbsynch.ecore#//EnumColumnType/ENUM_COLUMN_TYPE_TIME"/>
+      <genEnumLiterals ecoreEnumLiteral="dbsynch.ecore#//EnumColumnType/ENUM_COLUMN_TYPE_DATETIME"/>
+    </genEnums>
     <genDataTypes ecoreDataType="dbsynch.ecore#//EAttribute"/>
     <genDataTypes ecoreDataType="dbsynch.ecore#//TableRowKey"/>
     <genDataTypes ecoreDataType="dbsynch.ecore#//Object"/>
@@ -96,11 +103,12 @@
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="dbsynch.ecore#//TableColumn">
+      <genFeatures property="Readonly" createChild="false" propertyCategory="12 Metadata"
+          ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableColumn/IsKey"/>
       <genFeatures createChild="false" propertyCategory="12 Metadata" ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableColumn/ColumnName"/>
       <genFeatures createChild="false" propertyCategory="12 Metadata" ecoreFeature="ecore:EReference dbsynch.ecore#//TableColumn/RowAttribute"/>
+      <genFeatures createChild="false" propertyCategory="12 Metadata" ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableColumn/ColumnType"/>
     </genClasses>
-    <genClasses ecoreClass="dbsynch.ecore#//KeyColumn"/>
-    <genClasses ecoreClass="dbsynch.ecore#//DataColumn"/>
     <genClasses ecoreClass="dbsynch.ecore#//TableRow">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference dbsynch.ecore#//TableRow/Table"/>
       <genFeatures property="None" createChild="false" propertyCategory="16 Execution"

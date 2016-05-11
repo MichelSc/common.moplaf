@@ -353,7 +353,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getTableRow()
 	 * @generated
 	 */
-	int TABLE_ROW = 8;
+	int TABLE_ROW = 6;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.dbsynch.impl.DataSourceJdbcImpl <em>Data Source Jdbc</em>}' class.
@@ -907,13 +907,22 @@ public interface DbSynchPackage extends EPackage {
 	int TABLE_COLUMN = 5;
 
 	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_COLUMN__KEY = 0;
+
+	/**
 	 * The feature id for the '<em><b>Column Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_COLUMN__COLUMN_NAME = 0;
+	int TABLE_COLUMN__COLUMN_NAME = 1;
 
 	/**
 	 * The feature id for the '<em><b>Row Attribute</b></em>' reference.
@@ -922,7 +931,16 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_COLUMN__ROW_ATTRIBUTE = 1;
+	int TABLE_COLUMN__ROW_ATTRIBUTE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Column Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_COLUMN__COLUMN_TYPE = 3;
 
 	/**
 	 * The number of structural features of the '<em>Table Column</em>' class.
@@ -931,7 +949,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_COLUMN_FEATURE_COUNT = 2;
+	int TABLE_COLUMN_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Table Column</em>' class.
@@ -941,98 +959,6 @@ public interface DbSynchPackage extends EPackage {
 	 * @ordered
 	 */
 	int TABLE_COLUMN_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.dbsynch.impl.KeyColumnImpl <em>Key Column</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.dbsynch.impl.KeyColumnImpl
-	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getKeyColumn()
-	 * @generated
-	 */
-	int KEY_COLUMN = 6;
-
-	/**
-	 * The feature id for the '<em><b>Column Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KEY_COLUMN__COLUMN_NAME = TABLE_COLUMN__COLUMN_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Row Attribute</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KEY_COLUMN__ROW_ATTRIBUTE = TABLE_COLUMN__ROW_ATTRIBUTE;
-
-	/**
-	 * The number of structural features of the '<em>Key Column</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KEY_COLUMN_FEATURE_COUNT = TABLE_COLUMN_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Key Column</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int KEY_COLUMN_OPERATION_COUNT = TABLE_COLUMN_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.dbsynch.impl.DataColumnImpl <em>Data Column</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.dbsynch.impl.DataColumnImpl
-	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getDataColumn()
-	 * @generated
-	 */
-	int DATA_COLUMN = 7;
-
-	/**
-	 * The feature id for the '<em><b>Column Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_COLUMN__COLUMN_NAME = TABLE_COLUMN__COLUMN_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Row Attribute</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_COLUMN__ROW_ATTRIBUTE = TABLE_COLUMN__ROW_ATTRIBUTE;
-
-	/**
-	 * The number of structural features of the '<em>Data Column</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_COLUMN_FEATURE_COUNT = TABLE_COLUMN_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Data Column</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_COLUMN_OPERATION_COUNT = TABLE_COLUMN_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Table</b></em>' reference.
@@ -1132,7 +1058,17 @@ public interface DbSynchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getEnumModification()
 	 * @generated
 	 */
-	int ENUM_MODIFICATION = 9;
+	int ENUM_MODIFICATION = 7;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.dbsynch.EnumColumnType <em>Enum Column Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.dbsynch.EnumColumnType
+	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getEnumColumnType()
+	 * @generated
+	 */
+	int ENUM_COLUMN_TYPE = 8;
 
 	/**
 	 * The meta object id for the '<em>EAttribute</em>' data type.
@@ -1142,7 +1078,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getEAttribute()
 	 * @generated
 	 */
-	int EATTRIBUTE = 10;
+	int EATTRIBUTE = 9;
 
 	/**
 	 * The meta object id for the '<em>Table Row Key</em>' data type.
@@ -1152,7 +1088,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getTableRowKey()
 	 * @generated
 	 */
-	int TABLE_ROW_KEY = 11;
+	int TABLE_ROW_KEY = 10;
 
 	/**
 	 * The meta object id for the '<em>Object</em>' data type.
@@ -1162,7 +1098,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getObject()
 	 * @generated
 	 */
-	int OBJECT = 12;
+	int OBJECT = 11;
 
 
 	/**
@@ -1433,11 +1369,11 @@ public interface DbSynchPackage extends EPackage {
 	EReference getTable_ParamDbSynchUnitAttributes();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#addColumn(boolean, java.lang.String, org.eclipse.emf.ecore.EAttribute) <em>Add Column</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#addColumn(boolean, java.lang.String, com.misc.common.moplaf.dbsynch.EnumColumnType, org.eclipse.emf.ecore.EAttribute) <em>Add Column</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add Column</em>' operation.
-	 * @see com.misc.common.moplaf.dbsynch.Table#addColumn(boolean, java.lang.String, org.eclipse.emf.ecore.EAttribute)
+	 * @see com.misc.common.moplaf.dbsynch.Table#addColumn(boolean, java.lang.String, com.misc.common.moplaf.dbsynch.EnumColumnType, org.eclipse.emf.ecore.EAttribute)
 	 * @generated
 	 */
 	EOperation getTable__AddColumn__boolean_String_EAttribute();
@@ -1683,6 +1619,17 @@ public interface DbSynchPackage extends EPackage {
 	EClass getTableColumn();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.TableColumn#isKey <em>Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.TableColumn#isKey()
+	 * @see #getTableColumn()
+	 * @generated
+	 */
+	EAttribute getTableColumn_Key();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.TableColumn#getColumnName <em>Column Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1703,6 +1650,17 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTableColumn_RowAttribute();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.TableColumn#getColumnType <em>Column Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Column Type</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.TableColumn#getColumnType()
+	 * @see #getTableColumn()
+	 * @generated
+	 */
+	EAttribute getTableColumn_ColumnType();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract <em>Unit Abstract</em>}'.
@@ -1809,26 +1767,6 @@ public interface DbSynchPackage extends EPackage {
 	EOperation getDbSynchUnitAbstract__GetParamAttributes();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.dbsynch.KeyColumn <em>Key Column</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Key Column</em>'.
-	 * @see com.misc.common.moplaf.dbsynch.KeyColumn
-	 * @generated
-	 */
-	EClass getKeyColumn();
-
-	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.dbsynch.DataColumn <em>Data Column</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Data Column</em>'.
-	 * @see com.misc.common.moplaf.dbsynch.DataColumn
-	 * @generated
-	 */
-	EClass getDataColumn();
-
-	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.dbsynch.EnumModification <em>Enum Modification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1837,6 +1775,16 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getEnumModification();
+
+	/**
+	 * Returns the meta object for enum '{@link com.misc.common.moplaf.dbsynch.EnumColumnType <em>Enum Column Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Enum Column Type</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.EnumColumnType
+	 * @generated
+	 */
+	EEnum getEnumColumnType();
 
 	/**
 	 * Returns the meta object for data type '{@link org.eclipse.emf.ecore.EAttribute <em>EAttribute</em>}'.
@@ -2299,6 +2247,14 @@ public interface DbSynchPackage extends EPackage {
 		EClass TABLE_COLUMN = eINSTANCE.getTableColumn();
 
 		/**
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_COLUMN__KEY = eINSTANCE.getTableColumn_Key();
+
+		/**
 		 * The meta object literal for the '<em><b>Column Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2313,6 +2269,14 @@ public interface DbSynchPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TABLE_COLUMN__ROW_ATTRIBUTE = eINSTANCE.getTableColumn_RowAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Column Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_COLUMN__COLUMN_TYPE = eINSTANCE.getTableColumn_ColumnType();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.dbsynch.impl.DbSynchUnitAbstractImpl <em>Unit Abstract</em>}' class.
@@ -2397,26 +2361,6 @@ public interface DbSynchPackage extends EPackage {
 		EOperation DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_ATTRIBUTES = eINSTANCE.getDbSynchUnitAbstract__GetParamAttributes();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.dbsynch.impl.KeyColumnImpl <em>Key Column</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.dbsynch.impl.KeyColumnImpl
-		 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getKeyColumn()
-		 * @generated
-		 */
-		EClass KEY_COLUMN = eINSTANCE.getKeyColumn();
-
-		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.dbsynch.impl.DataColumnImpl <em>Data Column</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.dbsynch.impl.DataColumnImpl
-		 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getDataColumn()
-		 * @generated
-		 */
-		EClass DATA_COLUMN = eINSTANCE.getDataColumn();
-
-		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.dbsynch.EnumModification <em>Enum Modification</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2425,6 +2369,16 @@ public interface DbSynchPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum ENUM_MODIFICATION = eINSTANCE.getEnumModification();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.dbsynch.EnumColumnType <em>Enum Column Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.dbsynch.EnumColumnType
+		 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getEnumColumnType()
+		 * @generated
+		 */
+		EEnum ENUM_COLUMN_TYPE = eINSTANCE.getEnumColumnType();
 
 		/**
 		 * The meta object literal for the '<em>EAttribute</em>' data type.

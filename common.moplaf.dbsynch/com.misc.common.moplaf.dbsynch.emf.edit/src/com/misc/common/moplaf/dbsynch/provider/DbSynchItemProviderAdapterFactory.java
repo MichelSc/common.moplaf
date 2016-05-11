@@ -95,49 +95,26 @@ public class DbSynchItemProviderAdapterFactory extends DbSynchAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.dbsynch.KeyColumn} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.dbsynch.TableColumn} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected KeyColumnItemProvider keyColumnItemProvider;
+	protected TableColumnItemProvider tableColumnItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.dbsynch.KeyColumn}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.dbsynch.TableColumn}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createKeyColumnAdapter() {
-		if (keyColumnItemProvider == null) {
-			keyColumnItemProvider = new KeyColumnItemProvider(this);
+	public Adapter createTableColumnAdapter() {
+		if (tableColumnItemProvider == null) {
+			tableColumnItemProvider = new TableColumnItemProvider(this);
 		}
 
-		return keyColumnItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.dbsynch.DataColumn} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DataColumnItemProvider dataColumnItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.dbsynch.DataColumn}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDataColumnAdapter() {
-		if (dataColumnItemProvider == null) {
-			dataColumnItemProvider = new DataColumnItemProvider(this);
-		}
-
-		return dataColumnItemProvider;
+		return tableColumnItemProvider;
 	}
 
 	/**
@@ -240,8 +217,7 @@ public class DbSynchItemProviderAdapterFactory extends DbSynchAdapterFactory imp
 	 */
 	public void dispose() {
 		if (dataSourceJdbcItemProvider != null) dataSourceJdbcItemProvider.dispose();
-		if (keyColumnItemProvider != null) keyColumnItemProvider.dispose();
-		if (dataColumnItemProvider != null) dataColumnItemProvider.dispose();
+		if (tableColumnItemProvider != null) tableColumnItemProvider.dispose();
 	}
 
 }

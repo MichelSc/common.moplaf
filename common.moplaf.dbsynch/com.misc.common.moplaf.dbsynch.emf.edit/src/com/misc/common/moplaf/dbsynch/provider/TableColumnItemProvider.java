@@ -60,10 +60,34 @@ public class TableColumnItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addKeyPropertyDescriptor(object);
 			addColumnNamePropertyDescriptor(object);
 			addRowAttributePropertyDescriptor(object);
+			addColumnTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TableColumn_Key_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TableColumn_Key_feature", "_UI_TableColumn_type"),
+				 DbSynchPackage.Literals.TABLE_COLUMN__KEY,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -111,14 +135,40 @@ public class TableColumnItemProvider
 	}
 
 	/**
-	 * This returns TableColumn.gif.
+	 * This adds a property descriptor for the Column Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	protected void addColumnTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TableColumn_ColumnType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TableColumn_ColumnType_feature", "_UI_TableColumn_type"),
+				 DbSynchPackage.Literals.TABLE_COLUMN__COLUMN_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__12MetadataPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This returns TableColumn.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TableColumn"));
+		TableColumn tableColumn = (TableColumn)object;
+		if ( tableColumn.isKey()){
+			return overlayImage(object, getResourceLocator().getImage("full/obj16/key.png"));
+		} else {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/data.png"));
+		}
 	}
 
 	/**
@@ -148,8 +198,10 @@ public class TableColumnItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TableColumn.class)) {
+			case DbSynchPackage.TABLE_COLUMN__KEY:
 			case DbSynchPackage.TABLE_COLUMN__COLUMN_NAME:
 			case DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE:
+			case DbSynchPackage.TABLE_COLUMN__COLUMN_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
