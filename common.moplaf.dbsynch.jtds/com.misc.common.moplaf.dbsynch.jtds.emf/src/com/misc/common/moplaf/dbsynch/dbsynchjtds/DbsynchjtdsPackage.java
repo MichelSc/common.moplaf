@@ -40,7 +40,7 @@ public interface DbsynchjtdsPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.misc.com/common/moplaf/dbsynch/derby/model/0.1";
+	String eNS_URI = "http://www.misc.com/common/moplaf/dbsynch/jtds/model/0.1";
 
 	/**
 	 * The package namespace name.
@@ -177,13 +177,22 @@ public interface DbsynchjtdsPackage extends EPackage {
 	int DATA_SOURCE_JDBC_JTDS__SERVER_TYPE = DbSynchPackage.DATA_SOURCE_JDBC_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>User Domain</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_JDBC_JTDS__USER_DOMAIN = DbSynchPackage.DATA_SOURCE_JDBC_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Data Source Jdbc Jtds</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SOURCE_JDBC_JTDS_FEATURE_COUNT = DbSynchPackage.DATA_SOURCE_JDBC_FEATURE_COUNT + 4;
+	int DATA_SOURCE_JDBC_JTDS_FEATURE_COUNT = DbSynchPackage.DATA_SOURCE_JDBC_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Refresh Meta Data</em>' operation.
@@ -341,6 +350,17 @@ public interface DbsynchjtdsPackage extends EPackage {
 	EAttribute getDataSourceJdbcJtds_ServerType();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.dbsynchjtds.DataSourceJdbcJtds#getUserDomain <em>User Domain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>User Domain</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.dbsynchjtds.DataSourceJdbcJtds#getUserDomain()
+	 * @see #getDataSourceJdbcJtds()
+	 * @generated
+	 */
+	EAttribute getDataSourceJdbcJtds_UserDomain();
+
+	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.dbsynch.dbsynchjtds.EnumServerType <em>Enum Server Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -414,6 +434,14 @@ public interface DbsynchjtdsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DATA_SOURCE_JDBC_JTDS__SERVER_TYPE = eINSTANCE.getDataSourceJdbcJtds_ServerType();
+
+		/**
+		 * The meta object literal for the '<em><b>User Domain</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATA_SOURCE_JDBC_JTDS__USER_DOMAIN = eINSTANCE.getDataSourceJdbcJtds_UserDomain();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.dbsynch.dbsynchjtds.EnumServerType <em>Enum Server Type</em>}' enum.

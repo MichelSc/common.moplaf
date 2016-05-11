@@ -151,6 +151,15 @@ public class DbsynchjtdsPackageImpl extends EPackageImpl implements DbsynchjtdsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDataSourceJdbcJtds_UserDomain() {
+		return (EAttribute)dataSourceJdbcJtdsEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getEnumServerType() {
 		return enumServerTypeEEnum;
 	}
@@ -188,6 +197,7 @@ public class DbsynchjtdsPackageImpl extends EPackageImpl implements DbsynchjtdsP
 		createEAttribute(dataSourceJdbcJtdsEClass, DATA_SOURCE_JDBC_JTDS__PORT);
 		createEAttribute(dataSourceJdbcJtdsEClass, DATA_SOURCE_JDBC_JTDS__DATA_BASE);
 		createEAttribute(dataSourceJdbcJtdsEClass, DATA_SOURCE_JDBC_JTDS__SERVER_TYPE);
+		createEAttribute(dataSourceJdbcJtdsEClass, DATA_SOURCE_JDBC_JTDS__USER_DOMAIN);
 
 		// Create enums
 		enumServerTypeEEnum = createEEnum(ENUM_SERVER_TYPE);
@@ -229,9 +239,10 @@ public class DbsynchjtdsPackageImpl extends EPackageImpl implements DbsynchjtdsP
 		// Initialize classes, features, and operations; add parameters
 		initEClass(dataSourceJdbcJtdsEClass, DataSourceJdbcJtds.class, "DataSourceJdbcJtds", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDataSourceJdbcJtds_Host(), ecorePackage.getEString(), "Host", "localshost", 0, 1, DataSourceJdbcJtds.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDataSourceJdbcJtds_Port(), ecorePackage.getEInt(), "Port", "3306", 0, 1, DataSourceJdbcJtds.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataSourceJdbcJtds_Port(), ecorePackage.getEInt(), "Port", "1433", 0, 1, DataSourceJdbcJtds.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataSourceJdbcJtds_DataBase(), ecorePackage.getEString(), "DataBase", null, 0, 1, DataSourceJdbcJtds.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataSourceJdbcJtds_ServerType(), this.getEnumServerType(), "ServerType", null, 0, 1, DataSourceJdbcJtds.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataSourceJdbcJtds_UserDomain(), ecorePackage.getEString(), "UserDomain", null, 0, 1, DataSourceJdbcJtds.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(enumServerTypeEEnum, EnumServerType.class, "EnumServerType");

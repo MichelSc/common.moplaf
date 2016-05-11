@@ -17,6 +17,7 @@ import com.misc.common.moplaf.dbsynch.DataSourceJdbc;
  *   <li>{@link com.misc.common.moplaf.dbsynch.dbsynchjtds.DataSourceJdbcJtds#getPort <em>Port</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.dbsynchjtds.DataSourceJdbcJtds#getDataBase <em>Data Base</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.dbsynchjtds.DataSourceJdbcJtds#getServerType <em>Server Type</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.dbsynchjtds.DataSourceJdbcJtds#getUserDomain <em>User Domain</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.dbsynch.dbsynchjtds.DbsynchjtdsPackage#getDataSourceJdbcJtds()
@@ -53,7 +54,7 @@ public interface DataSourceJdbcJtds extends DataSourceJdbc {
 
 	/**
 	 * Returns the value of the '<em><b>Port</b></em>' attribute.
-	 * The default value is <code>"3306"</code>.
+	 * The default value is <code>"1433"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Port</em>' attribute isn't clear,
@@ -63,7 +64,7 @@ public interface DataSourceJdbcJtds extends DataSourceJdbc {
 	 * @return the value of the '<em>Port</em>' attribute.
 	 * @see #setPort(int)
 	 * @see com.misc.common.moplaf.dbsynch.dbsynchjtds.DbsynchjtdsPackage#getDataSourceJdbcJtds_Port()
-	 * @model default="3306"
+	 * @model default="1433"
 	 * @generated
 	 */
 	int getPort();
@@ -132,5 +133,31 @@ public interface DataSourceJdbcJtds extends DataSourceJdbc {
 	 * @generated
 	 */
 	void setServerType(EnumServerType value);
+
+	/**
+	 * Returns the value of the '<em><b>User Domain</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>User Domain</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>User Domain</em>' attribute.
+	 * @see #setUserDomain(String)
+	 * @see com.misc.common.moplaf.dbsynch.dbsynchjtds.DbsynchjtdsPackage#getDataSourceJdbcJtds_UserDomain()
+	 * @model
+	 * @generated
+	 */
+	String getUserDomain();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.dbsynch.dbsynchjtds.DataSourceJdbcJtds#getUserDomain <em>User Domain</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>User Domain</em>' attribute.
+	 * @see #getUserDomain()
+	 * @generated
+	 */
+	void setUserDomain(String value);
 
 } // DataSourceJdbcJtds

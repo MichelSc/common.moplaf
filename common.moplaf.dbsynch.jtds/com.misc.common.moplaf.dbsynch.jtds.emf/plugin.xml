@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated dbsynchjtds -->
       <package
-            uri="http://www.misc.com/common/moplaf/dbsynch/derby/model/0.1"
+            uri="http://www.misc.com/common/moplaf/dbsynch/jtds/model/0.1"
             class="com.misc.common.moplaf.dbsynch.dbsynchjtds.DbsynchjtdsPackage"
             genModel="model/dbsynchjtds.genmodel"/>
    </extension>

@@ -502,11 +502,14 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		    	// set the data
 		    	boolean update = false;
 		    	for ( TableColumn tableColumn : table.getDataColumns()){
-	    			Object valueToBe = resultSet.getObject(columnIndex);
-	    			Object valueAsIs = row.eGet(tableColumn.getRowAttribute());
+		    		EAttribute rowAttribute = tableColumn.getRowAttribute();
+	    			Object valueToBe = rowAttribute.getEType()!=EcorePackage.Literals.EDATE 
+	    					         ? resultSet.getObject(columnIndex)
+	    					         : resultSet.getDate(columnIndex);
+	    			Object valueAsIs = row.eGet(rowAttribute);
 		    		if ( valueAsIs==null && valueToBe!=null
 		    		  || valueAsIs!=null && !valueAsIs.equals(valueToBe)){
-	    				row.eSet(tableColumn.getRowAttribute(), valueToBe);
+	    				row.eSet(rowAttribute, valueToBe);
 	   					update = true;
 	    			}
 		    		columnIndex++;

@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.misc.common.moplaf.dbsynch.dbsynchjtds.impl.DataSourceJdbcJtdsImpl#getPort <em>Port</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.dbsynchjtds.impl.DataSourceJdbcJtdsImpl#getDataBase <em>Data Base</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.dbsynchjtds.impl.DataSourceJdbcJtdsImpl#getServerType <em>Server Type</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.dbsynchjtds.impl.DataSourceJdbcJtdsImpl#getUserDomain <em>User Domain</em>}</li>
  * </ul>
  *
  * @generated
@@ -64,7 +65,7 @@ public class DataSourceJdbcJtdsImpl extends DataSourceJdbcImpl implements DataSo
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int PORT_EDEFAULT = 3306;
+	protected static final int PORT_EDEFAULT = 1433;
 
 	/**
 	 * The cached value of the '{@link #getPort() <em>Port</em>}' attribute.
@@ -115,6 +116,26 @@ public class DataSourceJdbcJtdsImpl extends DataSourceJdbcImpl implements DataSo
 	 * @ordered
 	 */
 	protected EnumServerType serverType = SERVER_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getUserDomain() <em>User Domain</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUserDomain()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String USER_DOMAIN_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getUserDomain() <em>User Domain</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUserDomain()
+	 * @generated
+	 * @ordered
+	 */
+	protected String userDomain = USER_DOMAIN_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -224,6 +245,27 @@ public class DataSourceJdbcJtdsImpl extends DataSourceJdbcImpl implements DataSo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getUserDomain() {
+		return userDomain;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUserDomain(String newUserDomain) {
+		String oldUserDomain = userDomain;
+		userDomain = newUserDomain;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DbsynchjtdsPackage.DATA_SOURCE_JDBC_JTDS__USER_DOMAIN, oldUserDomain, userDomain));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -235,6 +277,8 @@ public class DataSourceJdbcJtdsImpl extends DataSourceJdbcImpl implements DataSo
 				return getDataBase();
 			case DbsynchjtdsPackage.DATA_SOURCE_JDBC_JTDS__SERVER_TYPE:
 				return getServerType();
+			case DbsynchjtdsPackage.DATA_SOURCE_JDBC_JTDS__USER_DOMAIN:
+				return getUserDomain();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -258,6 +302,9 @@ public class DataSourceJdbcJtdsImpl extends DataSourceJdbcImpl implements DataSo
 				return;
 			case DbsynchjtdsPackage.DATA_SOURCE_JDBC_JTDS__SERVER_TYPE:
 				setServerType((EnumServerType)newValue);
+				return;
+			case DbsynchjtdsPackage.DATA_SOURCE_JDBC_JTDS__USER_DOMAIN:
+				setUserDomain((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -283,6 +330,9 @@ public class DataSourceJdbcJtdsImpl extends DataSourceJdbcImpl implements DataSo
 			case DbsynchjtdsPackage.DATA_SOURCE_JDBC_JTDS__SERVER_TYPE:
 				setServerType(SERVER_TYPE_EDEFAULT);
 				return;
+			case DbsynchjtdsPackage.DATA_SOURCE_JDBC_JTDS__USER_DOMAIN:
+				setUserDomain(USER_DOMAIN_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -303,6 +353,8 @@ public class DataSourceJdbcJtdsImpl extends DataSourceJdbcImpl implements DataSo
 				return DATA_BASE_EDEFAULT == null ? dataBase != null : !DATA_BASE_EDEFAULT.equals(dataBase);
 			case DbsynchjtdsPackage.DATA_SOURCE_JDBC_JTDS__SERVER_TYPE:
 				return serverType != SERVER_TYPE_EDEFAULT;
+			case DbsynchjtdsPackage.DATA_SOURCE_JDBC_JTDS__USER_DOMAIN:
+				return USER_DOMAIN_EDEFAULT == null ? userDomain != null : !USER_DOMAIN_EDEFAULT.equals(userDomain);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -325,6 +377,8 @@ public class DataSourceJdbcJtdsImpl extends DataSourceJdbcImpl implements DataSo
 		result.append(dataBase);
 		result.append(", ServerType: ");
 		result.append(serverType);
+		result.append(", UserDomain: ");
+		result.append(userDomain);
 		result.append(')');
 		return result.toString();
 	}
@@ -353,6 +407,10 @@ public class DataSourceJdbcJtdsImpl extends DataSourceJdbcImpl implements DataSo
 				                           this.getHost(),
 				                           this.getPort(),
 				                           this.getDataBase());
+		String domain = this.getUserDomain();
+		if ( domain != null && domain.length()>0){
+			databaseurl += ";domain="+domain;
+		}
 		Plugin.INSTANCE.logInfo("Connection to be opened: " + databaseurl);
 		Connection connection = DriverManager.getConnection (databaseurl, 
        										                 this.getDataBaseUser(), 

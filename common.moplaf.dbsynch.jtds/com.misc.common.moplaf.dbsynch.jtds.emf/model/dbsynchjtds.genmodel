@@ -12,11 +12,12 @@
       <genEnumLiterals ecoreEnumLiteral="dbsynchjtds.ecore#//EnumServerType/ENUM_MODIFICATION_SQLSERVER"/>
       <genEnumLiterals ecoreEnumLiteral="dbsynchjtds.ecore#//EnumServerType/ENUM_MODIFICATION_SYBASE"/>
     </genEnums>
-    <genClasses ecoreClass="dbsynchjtds.ecore#//DataSourceJdbcJtdsEmbedded">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynchjtds.ecore#//DataSourceJdbcJtdsEmbedded/Host"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynchjtds.ecore#//DataSourceJdbcJtdsEmbedded/Port"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynchjtds.ecore#//DataSourceJdbcJtdsEmbedded/DataBase"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute dbsynchjtds.ecore#//DataSourceJdbcJtdsEmbedded/ServerType"/>
+    <genClasses image="false" ecoreClass="dbsynchjtds.ecore#//DataSourceJdbcJtds">
+      <genFeatures createChild="false" propertyCategory="10 Database" ecoreFeature="ecore:EAttribute dbsynchjtds.ecore#//DataSourceJdbcJtds/Host"/>
+      <genFeatures createChild="false" propertyCategory="10 Database" ecoreFeature="ecore:EAttribute dbsynchjtds.ecore#//DataSourceJdbcJtds/Port"/>
+      <genFeatures createChild="false" propertyCategory="10 Database" ecoreFeature="ecore:EAttribute dbsynchjtds.ecore#//DataSourceJdbcJtds/DataBase"/>
+      <genFeatures createChild="false" propertyCategory="10 Database" ecoreFeature="ecore:EAttribute dbsynchjtds.ecore#//DataSourceJdbcJtds/ServerType"/>
+      <genFeatures createChild="false" propertyCategory="10 Database" ecoreFeature="ecore:EAttribute dbsynchjtds.ecore#//DataSourceJdbcJtds/UserDomain"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

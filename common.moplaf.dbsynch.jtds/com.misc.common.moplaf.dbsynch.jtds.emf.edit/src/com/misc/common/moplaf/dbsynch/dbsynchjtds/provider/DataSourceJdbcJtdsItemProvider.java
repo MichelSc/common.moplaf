@@ -53,6 +53,7 @@ public class DataSourceJdbcJtdsItemProvider extends DataSourceJdbcItemProvider {
 			addPortPropertyDescriptor(object);
 			addDataBasePropertyDescriptor(object);
 			addServerTypePropertyDescriptor(object);
+			addUserDomainPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -75,7 +76,7 @@ public class DataSourceJdbcJtdsItemProvider extends DataSourceJdbcItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10DatabasePropertyCategory"),
 				 null));
 	}
 
@@ -97,7 +98,7 @@ public class DataSourceJdbcJtdsItemProvider extends DataSourceJdbcItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10DatabasePropertyCategory"),
 				 null));
 	}
 
@@ -119,7 +120,7 @@ public class DataSourceJdbcJtdsItemProvider extends DataSourceJdbcItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10DatabasePropertyCategory"),
 				 null));
 	}
 
@@ -141,19 +142,30 @@ public class DataSourceJdbcJtdsItemProvider extends DataSourceJdbcItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10DatabasePropertyCategory"),
 				 null));
 	}
 
 	/**
-	 * This returns DataSourceJdbcJtds.gif.
+	 * This adds a property descriptor for the User Domain feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DataSourceJdbcJtds"));
+	protected void addUserDomainPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DataSourceJdbcJtds_UserDomain_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataSourceJdbcJtds_UserDomain_feature", "_UI_DataSourceJdbcJtds_type"),
+				 DbsynchjtdsPackage.Literals.DATA_SOURCE_JDBC_JTDS__USER_DOMAIN,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__10DatabasePropertyCategory"),
+				 null));
 	}
 
 	/**
@@ -187,6 +199,7 @@ public class DataSourceJdbcJtdsItemProvider extends DataSourceJdbcItemProvider {
 			case DbsynchjtdsPackage.DATA_SOURCE_JDBC_JTDS__PORT:
 			case DbsynchjtdsPackage.DATA_SOURCE_JDBC_JTDS__DATA_BASE:
 			case DbsynchjtdsPackage.DATA_SOURCE_JDBC_JTDS__SERVER_TYPE:
+			case DbsynchjtdsPackage.DATA_SOURCE_JDBC_JTDS__USER_DOMAIN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
