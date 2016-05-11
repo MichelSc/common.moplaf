@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import com.misc.common.moplaf.dbsynch.DataSourceJdbc;
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
 import com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract;
+import com.misc.common.moplaf.dbsynch.EnumColumnType;
 import com.misc.common.moplaf.dbsynch.EnumModification;
 import com.misc.common.moplaf.dbsynch.Plugin;
 import com.misc.common.moplaf.dbsynch.Table;
@@ -369,35 +370,81 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		this.setConnected(false);
 	}
 	
-	private void setSqlStatementParam(PreparedStatement statement, int paramIndex, EAttribute attribute, Object paramValue) throws Exception{
-    	if ( attribute.getEType()==EcorePackage.Literals.EINT ){
-        	if ( paramValue == null ){
-        		statement.setNull(paramIndex, Types.INTEGER);
-        	} else {
-		    	statement.setInt(paramIndex, (Integer) paramValue);
-        	}
+	/**
+	 * Helper that retrieves the value of a column in a ResultSet
+	 * @param resultSet
+	 * @param columnIndex
+	 * @param columnTupe
+	 * @param attribute
+	 * @return
+	 * @throws SQLException 
+	 */
+	private Object getResultSetColumn(ResultSet resultSet, int columnIndex, EnumColumnType columnType, EAttribute attribute) throws SQLException{
+		int typeToUse = columnType==null 
+				      ? Types.OTHER
+				      : columnType.getJdbcType();
+		switch ( typeToUse){
+		case Types.CHAR:
+			return resultSet.getString(columnIndex);
+		case Types.FLOAT:
+			return resultSet.getFloat(columnIndex);
+		case Types.INTEGER:
+			return resultSet.getInt(columnIndex);
+		case Types.DATE:
+			return resultSet.getDate(columnIndex);
+		case Types.TIME:
+			return resultSet.getTime(columnIndex);
+		case Types.TIMESTAMP:
+			return resultSet.getTimestamp(columnIndex);
+		default:
+	        return resultSet.getObject(columnIndex); 		         
+		}
+	}
+	
+	/**
+	 * Helper that set the parameter of a prepared Statement
+	 * @param statement
+	 * @param paramIndex
+	 * @param paramType
+	 * @param attribute
+	 * @param paramValue
+	 * @throws Exception
+	 */
+	private void setSqlStatementParam(PreparedStatement statement, int paramIndex, EnumColumnType paramType, EAttribute attribute, Object paramValue) throws Exception{
+		int typeToUse = Types.OTHER;
+		if ( paramType!=null ) { 
+			typeToUse = paramType.getJdbcType(); 
+		} else if ( attribute!=null ) {
+	    	if      ( attribute.getEType()==EcorePackage.Literals.EINT )   { typeToUse = Types.INTEGER; }
+	    	else if ( attribute.getEType()==EcorePackage.Literals.EFLOAT ) { typeToUse = Types.FLOAT; }
+	    	else if ( attribute.getEType()==EcorePackage.Literals.EDATE )  { typeToUse = Types.DATE; }
+	    	else if ( attribute.getEType()==EcorePackage.Literals.ESTRING ){ typeToUse = Types.CHAR; }
+	    	else if ( attribute.getEType()==EcorePackage.Literals.EINT )   { typeToUse = Types.INTEGER;}
+	    	else if ( attribute.getEType()==EcorePackage.Literals.EFLOAT ) { typeToUse = Types.FLOAT; }
     	}
-    	else if (attribute.getEType()==EcorePackage.Literals.EFLOAT ){
-        	if ( paramValue == null ){
-        		statement.setNull(paramIndex, Types.FLOAT);
-        	} else {
-		    	statement.setFloat(paramIndex, (Float) paramValue);
-        	}
-    	}
-    	else if ( attribute.getEType()==EcorePackage.Literals.EDATE ){
-        	if ( paramValue == null ){
-        		statement.setNull(paramIndex, Types.DATE);
-        	} else {
-		    	statement.setDate(paramIndex, new java.sql.Date(((Date)paramValue).getTime()));
-        	}
-    	}
-    	else if ( attribute.getEType()==EcorePackage.Literals.ESTRING ){
-        	if ( paramValue == null ){
-        		statement.setNull(paramIndex, Types.CHAR);
-        	} else {
+		
+		if ( paramValue==null ){
+			statement.setNull(paramIndex, typeToUse);
+		} else {
+			switch ( typeToUse){
+			case Types.CHAR:
 		    	statement.setString(paramIndex, (String)paramValue);
-        	}
-    	}
+		    	break;
+			case Types.FLOAT:
+		    	statement.setFloat(paramIndex, (Float) paramValue);
+		    	break;
+			case Types.INTEGER:
+		    	statement.setInt(paramIndex, (Integer) paramValue);
+		    	break;
+			case Types.DATE:
+		    	statement.setDate(paramIndex, new java.sql.Date(((Date)paramValue).getTime()));
+		    	break;
+			case Types.TIME:
+		    	break;
+			case Types.TIMESTAMP:
+			default:
+			}
+		}
 	}
 
 	/**
@@ -443,7 +490,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		    for ( EAttribute paramAttribute : params){
 		    	paramIndex++;
 		    	Object paramValue = unit.getParamValue(paramAttribute);
-		    	this.setSqlStatementParam(statement, paramIndex, paramAttribute, paramValue);
+		    	this.setSqlStatementParam(statement, paramIndex, null, paramAttribute, paramValue);
 		    } // traverse the parameters
 		
 			// execute the query
@@ -466,7 +513,10 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		    	int columnIndex = 1; // resultSet.getObject is 1-based
 		    	int keyIndex = 0;
 		    	for ( TableColumn keyColumn : table.getKeyColumns()){
-		    		keyObjects[keyIndex] = resultSet.getObject(columnIndex);
+		    		keyObjects[keyIndex] = this.getResultSetColumn(resultSet, 
+		    				                                       columnIndex, 
+		    				                                       keyColumn.getColumnType(), 
+		    				                                       keyColumn.getRowAttribute());
 		    		columnIndex++; 
 		    		keyIndex++;
 		    	}
@@ -501,9 +551,10 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		    	boolean update = false;
 		    	for ( TableColumn tableColumn : table.getDataColumns()){
 		    		EAttribute rowAttribute = tableColumn.getRowAttribute();
-	    			Object valueToBe = rowAttribute.getEType()!=EcorePackage.Literals.EDATE 
-	    					         ? resultSet.getObject(columnIndex)
-	    					         : resultSet.getDate(columnIndex);
+		    		Object valueToBe = this.getResultSetColumn(resultSet, 
+		    				                                   columnIndex, 
+		    				                                   tableColumn.getColumnType(), 
+		    				                                   rowAttribute);
 	    			Object valueAsIs = row.eGet(rowAttribute);
 		    		if ( valueAsIs==null && valueToBe!=null
 		    		  || valueAsIs!=null && !valueAsIs.equals(valueToBe)){
@@ -640,7 +691,10 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 					for ( TableColumn column : table.getColumns()){
 						Object columnValue = rowAsIs.eGet(column.getRowAttribute());
 						paramIndex ++;
-						this.setSqlStatementParam(insertStatement, paramIndex, column.getRowAttribute(), columnValue);
+						this.setSqlStatementParam(insertStatement, 
+								                  paramIndex, 
+								                  column.getColumnType(), 
+								                  column.getRowAttribute(), columnValue);
 					}
 					// execute
 					int rc = insertStatement.executeUpdate();
@@ -655,12 +709,19 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 					for ( TableColumn column : table.getDataColumns()){
 						Object columnValue = rowAsIs.eGet(column.getRowAttribute());
 						paramIndex ++;
-						this.setSqlStatementParam(updateStatement, paramIndex, column.getRowAttribute(), columnValue);
+						this.setSqlStatementParam(updateStatement, 
+								                  paramIndex, 
+								                  column.getColumnType(), 
+								                  column.getRowAttribute(), columnValue);
 					}
 					for ( TableColumn column : table.getKeyColumns()){
 						Object columnValue = rowAsIs.eGet(column.getRowAttribute());
 						paramIndex ++;
-						this.setSqlStatementParam(updateStatement, paramIndex, column.getRowAttribute(), columnValue);
+						this.setSqlStatementParam(updateStatement, 
+								                  paramIndex,
+								                  column.getColumnType(),
+								                  column.getRowAttribute(), 
+								                  columnValue);
 					}
 					// execute
 					int rc = updateStatement.executeUpdate();
@@ -676,7 +737,11 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 					for ( TableColumn column : table.getKeyColumns()){
 						Object columnValue = rowAsIs.getOldKey().getKey(paramIndex);
 						paramIndex ++;
-						this.setSqlStatementParam(deleteStatement, paramIndex, column.getRowAttribute(), columnValue);
+						this.setSqlStatementParam(deleteStatement, 
+								                  paramIndex, 
+								                  column.getColumnType(),
+								                  column.getRowAttribute(), 
+								                  columnValue);
 					}
 					// execute
 					int rc = deleteStatement.executeUpdate();

@@ -145,10 +145,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="EnumColumnType">
     <eLiterals name="ENUM_COLUMN_TYPE_INT" value="1" literal="Int"/>
-    <eLiterals name="ENUM_COLUMN_TYPE_CHAR" value="2" literal="Char"/>
-    <eLiterals name="ENUM_COLUMN_TYPE_DATE" value="3" literal="Date"/>
-    <eLiterals name="ENUM_COLUMN_TYPE_TIME" value="4" literal="Time"/>
-    <eLiterals name="ENUM_COLUMN_TYPE_DATETIME" value="5" literal="DateTime"/>
+    <eLiterals name="ENUM_COLUMN_TYPE_FLOAT" value="2" literal="Float"/>
+    <eLiterals name="ENUM_COLUMN_TYPE_CHAR" value="3" literal="Char"/>
+    <eLiterals name="ENUM_COLUMN_TYPE_DATE" value="4" literal="Date"/>
+    <eLiterals name="ENUM_COLUMN_TYPE_TIME" value="5" literal="Time"/>
+    <eLiterals name="ENUM_COLUMN_TYPE_DATETIME" value="6" literal="DateTime"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="EAttribute" instanceClassName="org.eclipse.emf.ecore.EAttribute"/>
   <eClassifiers xsi:type="ecore:EDataType" name="TableRowKey" instanceClassName="com.misc.common.moplaf.dbsynch.impl.TableRowKeyImpl"/>

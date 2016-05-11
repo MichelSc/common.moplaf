@@ -804,7 +804,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___ADD_COLUMN__BOOLEAN_STRING_EATTRIBUTE = 0;
+	int TABLE___ADD_COLUMN__BOOLEAN_STRING_ENUMCOLUMNTYPE_EATTRIBUTE = 0;
 
 	/**
 	 * The operation id for the '<em>Add Param</em>' operation.
@@ -1303,6 +1303,16 @@ public interface DbSynchPackage extends EPackage {
 	EAttribute getTable_LastSynchUp();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#addColumn(boolean, java.lang.String, com.misc.common.moplaf.dbsynch.EnumColumnType, org.eclipse.emf.ecore.EAttribute) <em>Add Column</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Column</em>' operation.
+	 * @see com.misc.common.moplaf.dbsynch.Table#addColumn(boolean, java.lang.String, com.misc.common.moplaf.dbsynch.EnumColumnType, org.eclipse.emf.ecore.EAttribute)
+	 * @generated
+	 */
+	EOperation getTable__AddColumn__boolean_String_EnumColumnType_EAttribute();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.Table#getSelectSqlStatement <em>Select Sql Statement</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1367,16 +1377,6 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTable_ParamDbSynchUnitAttributes();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#addColumn(boolean, java.lang.String, com.misc.common.moplaf.dbsynch.EnumColumnType, org.eclipse.emf.ecore.EAttribute) <em>Add Column</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Column</em>' operation.
-	 * @see com.misc.common.moplaf.dbsynch.Table#addColumn(boolean, java.lang.String, com.misc.common.moplaf.dbsynch.EnumColumnType, org.eclipse.emf.ecore.EAttribute)
-	 * @generated
-	 */
-	EOperation getTable__AddColumn__boolean_String_EAttribute();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#addParam(org.eclipse.emf.ecore.EAttribute) <em>Add Param</em>}' operation.
@@ -2001,6 +2001,14 @@ public interface DbSynchPackage extends EPackage {
 		EAttribute TABLE__LAST_SYNCH_UP = eINSTANCE.getTable_LastSynchUp();
 
 		/**
+		 * The meta object literal for the '<em><b>Add Column</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TABLE___ADD_COLUMN__BOOLEAN_STRING_ENUMCOLUMNTYPE_EATTRIBUTE = eINSTANCE.getTable__AddColumn__boolean_String_EnumColumnType_EAttribute();
+
+		/**
 		 * The meta object literal for the '<em><b>Select Sql Statement</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2047,14 +2055,6 @@ public interface DbSynchPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TABLE__PARAM_DB_SYNCH_UNIT_ATTRIBUTES = eINSTANCE.getTable_ParamDbSynchUnitAttributes();
-
-		/**
-		 * The meta object literal for the '<em><b>Add Column</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation TABLE___ADD_COLUMN__BOOLEAN_STRING_EATTRIBUTE = eINSTANCE.getTable__AddColumn__boolean_String_EAttribute();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Param</b></em>' operation.

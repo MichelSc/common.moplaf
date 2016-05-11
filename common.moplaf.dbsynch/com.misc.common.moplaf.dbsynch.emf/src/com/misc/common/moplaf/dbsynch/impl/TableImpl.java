@@ -936,7 +936,7 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case DbSynchPackage.TABLE___ADD_COLUMN__BOOLEAN_STRING_EATTRIBUTE:
+			case DbSynchPackage.TABLE___ADD_COLUMN__BOOLEAN_STRING_ENUMCOLUMNTYPE_EATTRIBUTE:
 				addColumn((Boolean)arguments.get(0), (String)arguments.get(1), (EnumColumnType)arguments.get(2), (EAttribute)arguments.get(3));
 				return null;
 			case DbSynchPackage.TABLE___ADD_PARAM__EATTRIBUTE:

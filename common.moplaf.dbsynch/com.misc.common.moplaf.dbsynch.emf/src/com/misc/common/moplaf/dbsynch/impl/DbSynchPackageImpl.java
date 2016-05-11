@@ -352,6 +352,15 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getTable__AddColumn__boolean_String_EnumColumnType_EAttribute() {
+		return tableEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getTable_SelectSqlStatement() {
 		return (EAttribute)tableEClass.getEStructuralFeatures().get(8);
 	}
@@ -399,15 +408,6 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 */
 	public EReference getTable_ParamDbSynchUnitAttributes() {
 		return (EReference)tableEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getTable__AddColumn__boolean_String_EAttribute() {
-		return tableEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -859,7 +859,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		createEAttribute(tableEClass, TABLE__NUMBER_OF_ROWS);
 		createEAttribute(tableEClass, TABLE__LAST_SYNCH_DOWN);
 		createEAttribute(tableEClass, TABLE__LAST_SYNCH_UP);
-		createEOperation(tableEClass, TABLE___ADD_COLUMN__BOOLEAN_STRING_EATTRIBUTE);
+		createEOperation(tableEClass, TABLE___ADD_COLUMN__BOOLEAN_STRING_ENUMCOLUMNTYPE_EATTRIBUTE);
 		createEOperation(tableEClass, TABLE___ADD_PARAM__EATTRIBUTE);
 		createEOperation(tableEClass, TABLE___REFRESH_META_DATA);
 		createEOperation(tableEClass, TABLE___SYNCH_DOWN);
@@ -986,7 +986,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		initEAttribute(getTable_LastSynchDown(), ecorePackage.getEDate(), "LastSynchDown", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTable_LastSynchUp(), ecorePackage.getEDate(), "LastSynchUp", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getTable__AddColumn__boolean_String_EAttribute(), null, "addColumn", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getTable__AddColumn__boolean_String_EnumColumnType_EAttribute(), null, "addColumn", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "Key", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "column", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getEnumColumnType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1041,6 +1041,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 
 		initEEnum(enumColumnTypeEEnum, EnumColumnType.class, "EnumColumnType");
 		addEEnumLiteral(enumColumnTypeEEnum, EnumColumnType.ENUM_COLUMN_TYPE_INT);
+		addEEnumLiteral(enumColumnTypeEEnum, EnumColumnType.ENUM_COLUMN_TYPE_FLOAT);
 		addEEnumLiteral(enumColumnTypeEEnum, EnumColumnType.ENUM_COLUMN_TYPE_CHAR);
 		addEEnumLiteral(enumColumnTypeEEnum, EnumColumnType.ENUM_COLUMN_TYPE_DATE);
 		addEEnumLiteral(enumColumnTypeEEnum, EnumColumnType.ENUM_COLUMN_TYPE_TIME);
