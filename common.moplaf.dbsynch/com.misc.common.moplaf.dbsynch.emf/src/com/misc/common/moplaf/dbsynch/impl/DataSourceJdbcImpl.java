@@ -427,6 +427,9 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 			statement.setNull(paramIndex, typeToUse);
 		} else {
 			switch ( typeToUse){
+			case Types.OTHER:
+		    	statement.setObject(paramIndex, paramValue);
+		    	break;
 			case Types.CHAR:
 		    	statement.setString(paramIndex, (String)paramValue);
 		    	break;
