@@ -925,22 +925,31 @@ public interface DbSynchPackage extends EPackage {
 	int TABLE_COLUMN__COLUMN_NAME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Row Attribute</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_COLUMN__ROW_ATTRIBUTE = 2;
-
-	/**
 	 * The feature id for the '<em><b>Column Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_COLUMN__COLUMN_TYPE = 3;
+	int TABLE_COLUMN__COLUMN_TYPE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Row Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_COLUMN__ROW_ATTRIBUTE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Table</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_COLUMN__TABLE = 4;
 
 	/**
 	 * The number of structural features of the '<em>Table Column</em>' class.
@@ -949,7 +958,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_COLUMN_FEATURE_COUNT = 4;
+	int TABLE_COLUMN_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Table Column</em>' class.
@@ -1652,6 +1661,17 @@ public interface DbSynchPackage extends EPackage {
 	EReference getTableColumn_RowAttribute();
 
 	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.dbsynch.TableColumn#getTable <em>Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Table</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.TableColumn#getTable()
+	 * @see #getTableColumn()
+	 * @generated
+	 */
+	EReference getTableColumn_Table();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.TableColumn#getColumnType <em>Column Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2269,6 +2289,14 @@ public interface DbSynchPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TABLE_COLUMN__ROW_ATTRIBUTE = eINSTANCE.getTableColumn_RowAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Table</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TABLE_COLUMN__TABLE = eINSTANCE.getTableColumn_Table();
 
 		/**
 		 * The meta object literal for the '<em><b>Column Type</b></em>' attribute feature.

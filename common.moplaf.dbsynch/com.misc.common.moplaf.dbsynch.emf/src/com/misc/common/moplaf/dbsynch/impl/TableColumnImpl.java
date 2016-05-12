@@ -4,6 +4,7 @@ package com.misc.common.moplaf.dbsynch.impl;
 
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
 import com.misc.common.moplaf.dbsynch.EnumColumnType;
+import com.misc.common.moplaf.dbsynch.Table;
 import com.misc.common.moplaf.dbsynch.TableColumn;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -25,8 +26,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableColumnImpl#isKey <em>Key</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableColumnImpl#getColumnName <em>Column Name</em>}</li>
- *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableColumnImpl#getRowAttribute <em>Row Attribute</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableColumnImpl#getColumnType <em>Column Type</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableColumnImpl#getRowAttribute <em>Row Attribute</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableColumnImpl#getTable <em>Table</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,16 +65,6 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 	protected String columnName = COLUMN_NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getRowAttribute() <em>Row Attribute</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRowAttribute()
-	 * @generated
-	 * @ordered
-	 */
-	protected EAttribute rowAttribute;
-
-	/**
 	 * The default value of the '{@link #getColumnType() <em>Column Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -100,6 +92,16 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 	 * @ordered
 	 */
 	protected boolean columnTypeESet;
+
+	/**
+	 * The cached value of the '{@link #getRowAttribute() <em>Row Attribute</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRowAttribute()
+	 * @generated
+	 * @ordered
+	 */
+	protected EAttribute rowAttribute;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -192,6 +194,27 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Table getTable() {
+		Table table = basicGetTable();
+		return table != null && table.eIsProxy() ? (Table)eResolveProxy((InternalEObject)table) : table;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Table basicGetTable() {
+		if ( this.eContainer() instanceof Table ){
+			return (Table)this.eContainer();
+		}
+		throw new RuntimeException("TableColumn: the owner must be a Table");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EnumColumnType getColumnType() {
 		return columnType;
 	}
@@ -245,11 +268,14 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 				return isKey();
 			case DbSynchPackage.TABLE_COLUMN__COLUMN_NAME:
 				return getColumnName();
+			case DbSynchPackage.TABLE_COLUMN__COLUMN_TYPE:
+				return getColumnType();
 			case DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE:
 				if (resolve) return getRowAttribute();
 				return basicGetRowAttribute();
-			case DbSynchPackage.TABLE_COLUMN__COLUMN_TYPE:
-				return getColumnType();
+			case DbSynchPackage.TABLE_COLUMN__TABLE:
+				if (resolve) return getTable();
+				return basicGetTable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -265,11 +291,11 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 			case DbSynchPackage.TABLE_COLUMN__COLUMN_NAME:
 				setColumnName((String)newValue);
 				return;
-			case DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE:
-				setRowAttribute((EAttribute)newValue);
-				return;
 			case DbSynchPackage.TABLE_COLUMN__COLUMN_TYPE:
 				setColumnType((EnumColumnType)newValue);
+				return;
+			case DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE:
+				setRowAttribute((EAttribute)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -286,11 +312,11 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 			case DbSynchPackage.TABLE_COLUMN__COLUMN_NAME:
 				setColumnName(COLUMN_NAME_EDEFAULT);
 				return;
-			case DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE:
-				setRowAttribute((EAttribute)null);
-				return;
 			case DbSynchPackage.TABLE_COLUMN__COLUMN_TYPE:
 				unsetColumnType();
+				return;
+			case DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE:
+				setRowAttribute((EAttribute)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -308,10 +334,12 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 				return isKey() != KEY_EDEFAULT;
 			case DbSynchPackage.TABLE_COLUMN__COLUMN_NAME:
 				return COLUMN_NAME_EDEFAULT == null ? columnName != null : !COLUMN_NAME_EDEFAULT.equals(columnName);
-			case DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE:
-				return rowAttribute != null;
 			case DbSynchPackage.TABLE_COLUMN__COLUMN_TYPE:
 				return isSetColumnType();
+			case DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE:
+				return rowAttribute != null;
+			case DbSynchPackage.TABLE_COLUMN__TABLE:
+				return basicGetTable() != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -4,6 +4,7 @@ package com.misc.common.moplaf.dbsynch.provider;
 
 
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
+import com.misc.common.moplaf.dbsynch.Table;
 import com.misc.common.moplaf.dbsynch.TableColumn;
 
 import java.util.Collection;
@@ -11,9 +12,12 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.ResourceLocator;
-
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -62,8 +66,8 @@ public class TableColumnItemProvider
 
 			addKeyPropertyDescriptor(object);
 			addColumnNamePropertyDescriptor(object);
-			addRowAttributePropertyDescriptor(object);
 			addColumnTypePropertyDescriptor(object);
+			addRowAttributePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -116,22 +120,57 @@ public class TableColumnItemProvider
 	 * This adds a property descriptor for the Row Attribute feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	protected void addRowAttributePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TableColumn_RowAttribute_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TableColumn_RowAttribute_feature", "_UI_TableColumn_type"),
-				 DbSynchPackage.Literals.TABLE_COLUMN__ROW_ATTRIBUTE,
-				 true,
-				 false,
-				 false,
-				 null,
-				 getString("_UI__12MetadataPropertyCategory"),
-				 null));
+		(new ItemPropertyDescriptor
+			(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+					 getResourceLocator(),
+					 getString("_UI_TableColumn_RowAttribute_feature"),
+					 getString("_UI_PropertyDescriptor_description", "_UI_TableColumn_RowAttribute_feature", "_UI_TableColumn_type"),
+					 DbSynchPackage.Literals.TABLE_COLUMN__ROW_ATTRIBUTE,
+					 true,
+					 false,
+					 false,
+					 null,
+					 getString("_UI__12MetadataPropertyCategory"),
+					 null){
+			@Override
+			public Collection<?> getChoiceOfValues(Object object) {
+				EList<Object> attributesToReturn = new BasicEList<Object>();
+				TableColumn thisTableColumn = (TableColumn)object;
+				Table thisTable = thisTableColumn.getTable();
+				EClass thisTableClass = thisTable.eClass();
+				for (  EReference containmentRef : thisTableClass.getEAllContainments()){
+					EClass referenceType = containmentRef.getEReferenceType();
+					if ( DbSynchPackage.Literals.TABLE_ROW.isSuperTypeOf(referenceType)){
+						for ( EAttribute anAttribute : containmentRef.getEReferenceType().getEAllAttributes()){
+							String packageName = anAttribute.getEContainingClass().getEPackage().getNsURI(); 
+							if ( !packageName.contains("common/moplaf")){
+								if ( !attributesToReturn.contains(anAttribute)){
+									attributesToReturn.add(anAttribute);
+								}  // the attribute is not already in the list
+							}  // the attribute is a user attribute
+						}  // traverse the attribute
+					}  // the containment ref is a row
+				} // traverse the containment refs
+				return attributesToReturn;
+			}; // getChoiceOfValues
+			}); // add
+			
+//		itemPropertyDescriptors.add
+//			(createItemPropertyDescriptor
+//				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+//				 getResourceLocator(),
+//				 getString("_UI_TableColumn_RowAttribute_feature"),
+//				 getString("_UI_PropertyDescriptor_description", "_UI_TableColumn_RowAttribute_feature", "_UI_TableColumn_type"),
+//				 DbSynchPackage.Literals.TABLE_COLUMN__ROW_ATTRIBUTE,
+//				 true,
+//				 false,
+//				 false,
+//				 null,
+//				 getString("_UI__12MetadataPropertyCategory"),
+//				 null));
 	}
 
 	/**
@@ -200,8 +239,8 @@ public class TableColumnItemProvider
 		switch (notification.getFeatureID(TableColumn.class)) {
 			case DbSynchPackage.TABLE_COLUMN__KEY:
 			case DbSynchPackage.TABLE_COLUMN__COLUMN_NAME:
-			case DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE:
 			case DbSynchPackage.TABLE_COLUMN__COLUMN_TYPE:
+			case DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

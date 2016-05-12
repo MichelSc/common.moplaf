@@ -108,8 +108,9 @@
       <genFeatures property="Readonly" createChild="false" propertyCategory="12 Metadata"
           ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableColumn/Key"/>
       <genFeatures createChild="false" propertyCategory="12 Metadata" ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableColumn/ColumnName"/>
-      <genFeatures createChild="false" propertyCategory="12 Metadata" ecoreFeature="ecore:EReference dbsynch.ecore#//TableColumn/RowAttribute"/>
       <genFeatures createChild="false" propertyCategory="12 Metadata" ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableColumn/ColumnType"/>
+      <genFeatures createChild="false" propertyCategory="12 Metadata" ecoreFeature="ecore:EReference dbsynch.ecore#//TableColumn/RowAttribute"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference dbsynch.ecore#//TableColumn/Table"/>
     </genClasses>
     <genClasses ecoreClass="dbsynch.ecore#//TableRow">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference dbsynch.ecore#//TableRow/Table"/>

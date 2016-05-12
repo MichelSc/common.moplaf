@@ -301,20 +301,6 @@ public class TableItemProvider
 				Table thisTable = (Table)object;
 				DbSynchUnitAbstract thisDbSynchUnit = thisTable.getSynchUnit();
 				return thisDbSynchUnit.getParamAttributes();
-				/*
-				Collection<?> collection = super.getChoiceOfValues(object);
-				return collection;
-				*/
-			}
-			@Override
-			public Collection<?> getComboBoxObjects(Object object) {
-				/*
-				Table thisTable = (Table)object;
-				DbSynchUnitAbstract thisDbSynchUnit = thisTable.getSynchUnit();
-				return thisDbSynchUnit.getParamAttributes();
-				*/
-				Collection<?> collection = super.getComboBoxObjects(object);
-				return collection;
 			}
 		});
 /*		

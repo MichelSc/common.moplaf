@@ -16,8 +16,9 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.dbsynch.TableColumn#isKey <em>Key</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.TableColumn#getColumnName <em>Column Name</em>}</li>
- *   <li>{@link com.misc.common.moplaf.dbsynch.TableColumn#getRowAttribute <em>Row Attribute</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.TableColumn#getColumnType <em>Column Type</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.TableColumn#getRowAttribute <em>Row Attribute</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.TableColumn#getTable <em>Table</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTableColumn()
@@ -92,6 +93,21 @@ public interface TableColumn extends EObject {
 	 * @generated
 	 */
 	void setRowAttribute(EAttribute value);
+
+	/**
+	 * Returns the value of the '<em><b>Table</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Table</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Table</em>' reference.
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTableColumn_Table()
+	 * @model required="true" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	Table getTable();
 
 	/**
 	 * Returns the value of the '<em><b>Column Type</b></em>' attribute.

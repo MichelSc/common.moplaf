@@ -236,10 +236,10 @@ public abstract class TableRowImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 */
 	public Table basicGetTable() {
-		if ( !(this.eContainer() instanceof Table) ){
-			throw new RuntimeException("TableRow: the owner must be a Table");
+		if ( (this.eContainer() instanceof Table) ){
+			return (Table)this.eContainer();
 		}
-		return (Table)this.eContainer();
+		throw new RuntimeException("TableRow: the owner must be a Table");
 	}
 
 	/**

@@ -641,7 +641,16 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * @generated
 	 */
 	public EReference getTableColumn_RowAttribute() {
-		return (EReference)tableColumnEClass.getEStructuralFeatures().get(2);
+		return (EReference)tableColumnEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTableColumn_Table() {
+		return (EReference)tableColumnEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -650,7 +659,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * @generated
 	 */
 	public EAttribute getTableColumn_ColumnType() {
-		return (EAttribute)tableColumnEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)tableColumnEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -873,8 +882,9 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		tableColumnEClass = createEClass(TABLE_COLUMN);
 		createEAttribute(tableColumnEClass, TABLE_COLUMN__KEY);
 		createEAttribute(tableColumnEClass, TABLE_COLUMN__COLUMN_NAME);
-		createEReference(tableColumnEClass, TABLE_COLUMN__ROW_ATTRIBUTE);
 		createEAttribute(tableColumnEClass, TABLE_COLUMN__COLUMN_TYPE);
+		createEReference(tableColumnEClass, TABLE_COLUMN__ROW_ATTRIBUTE);
+		createEReference(tableColumnEClass, TABLE_COLUMN__TABLE);
 
 		tableRowEClass = createEClass(TABLE_ROW);
 		createEReference(tableRowEClass, TABLE_ROW__TABLE);
@@ -1017,8 +1027,9 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		initEClass(tableColumnEClass, TableColumn.class, "TableColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTableColumn_Key(), ecorePackage.getEBoolean(), "Key", null, 0, 1, TableColumn.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTableColumn_ColumnName(), ecorePackage.getEString(), "ColumnName", "", 0, 1, TableColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTableColumn_RowAttribute(), ecorePackage.getEAttribute(), null, "RowAttribute", null, 0, 1, TableColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTableColumn_ColumnType(), this.getEnumColumnType(), "ColumnType", null, 0, 1, TableColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTableColumn_RowAttribute(), ecorePackage.getEAttribute(), null, "RowAttribute", null, 0, 1, TableColumn.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTableColumn_Table(), this.getTable(), null, "Table", null, 1, 1, TableColumn.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(tableRowEClass, TableRow.class, "TableRow", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTableRow_Table(), this.getTable(), null, "Table", null, 0, 1, TableRow.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
