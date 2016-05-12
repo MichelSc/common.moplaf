@@ -50,7 +50,7 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String COLUMN_NAME_EDEFAULT = null;
+	protected static final String COLUMN_NAME_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getColumnName() <em>Column Name</em>}' attribute.
@@ -77,10 +77,10 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getColumnType()
-	 * @generated
 	 * @ordered
 	 */
-	protected static final EnumColumnType COLUMN_TYPE_EDEFAULT = EnumColumnType.ENUM_COLUMN_TYPE_INT;
+//	protected static final EnumColumnType COLUMN_TYPE_EDEFAULT = EnumColumnType.ENUM_COLUMN_TYPE_INT;
+	protected static final EnumColumnType COLUMN_TYPE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getColumnType() <em>Column Type</em>}' attribute.
@@ -91,6 +91,15 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 	 * @ordered
 	 */
 	protected EnumColumnType columnType = COLUMN_TYPE_EDEFAULT;
+
+	/**
+	 * This is true if the Column Type attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean columnTypeESet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -195,8 +204,33 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 	public void setColumnType(EnumColumnType newColumnType) {
 		EnumColumnType oldColumnType = columnType;
 		columnType = newColumnType == null ? COLUMN_TYPE_EDEFAULT : newColumnType;
+		boolean oldColumnTypeESet = columnTypeESet;
+		columnTypeESet = true;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DbSynchPackage.TABLE_COLUMN__COLUMN_TYPE, oldColumnType, columnType));
+			eNotify(new ENotificationImpl(this, Notification.SET, DbSynchPackage.TABLE_COLUMN__COLUMN_TYPE, oldColumnType, columnType, !oldColumnTypeESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetColumnType() {
+		EnumColumnType oldColumnType = columnType;
+		boolean oldColumnTypeESet = columnTypeESet;
+		columnType = COLUMN_TYPE_EDEFAULT;
+		columnTypeESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, DbSynchPackage.TABLE_COLUMN__COLUMN_TYPE, oldColumnType, COLUMN_TYPE_EDEFAULT, oldColumnTypeESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetColumnType() {
+		return columnTypeESet;
 	}
 
 	/**
@@ -256,7 +290,7 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 				setRowAttribute((EAttribute)null);
 				return;
 			case DbSynchPackage.TABLE_COLUMN__COLUMN_TYPE:
-				setColumnType(COLUMN_TYPE_EDEFAULT);
+				unsetColumnType();
 				return;
 		}
 		super.eUnset(featureID);
@@ -277,7 +311,7 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 			case DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE:
 				return rowAttribute != null;
 			case DbSynchPackage.TABLE_COLUMN__COLUMN_TYPE:
-				return columnType != COLUMN_TYPE_EDEFAULT;
+				return isSetColumnType();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -295,7 +329,7 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 		result.append(" (ColumnName: ");
 		result.append(columnName);
 		result.append(", ColumnType: ");
-		result.append(columnType);
+		if (columnTypeESet) result.append(columnType); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

@@ -86,7 +86,7 @@ public class TableColumnItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__12MetadataPropertyCategory"),
 				 null));
 	}
 

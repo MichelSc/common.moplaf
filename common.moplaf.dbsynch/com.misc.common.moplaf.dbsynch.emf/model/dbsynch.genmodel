@@ -16,6 +16,7 @@
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="dbsynch.ecore#//EnumColumnType">
       <genEnumLiterals ecoreEnumLiteral="dbsynch.ecore#//EnumColumnType/ENUM_COLUMN_TYPE_INT"/>
+      <genEnumLiterals ecoreEnumLiteral="dbsynch.ecore#//EnumColumnType/ENUM_COLUMN_TYPE_FLOAT"/>
       <genEnumLiterals ecoreEnumLiteral="dbsynch.ecore#//EnumColumnType/ENUM_COLUMN_TYPE_CHAR"/>
       <genEnumLiterals ecoreEnumLiteral="dbsynch.ecore#//EnumColumnType/ENUM_COLUMN_TYPE_DATE"/>
       <genEnumLiterals ecoreEnumLiteral="dbsynch.ecore#//EnumColumnType/ENUM_COLUMN_TYPE_TIME"/>
@@ -80,8 +81,9 @@
       <genFeatures createChild="false" propertyCategory="16 Execution" ecoreFeature="ecore:EAttribute dbsynch.ecore#//Table/LastSynchDown"/>
       <genFeatures createChild="false" propertyCategory="16 Execution" ecoreFeature="ecore:EAttribute dbsynch.ecore#//Table/LastSynchUp"/>
       <genOperations ecoreOperation="dbsynch.ecore#//Table/addColumn">
-        <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn/isKey"/>
+        <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn/Key"/>
         <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn/column"/>
+        <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn/type"/>
         <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn/attribute"/>
       </genOperations>
       <genOperations ecoreOperation="dbsynch.ecore#//Table/addParam">
@@ -104,7 +106,7 @@
     </genClasses>
     <genClasses ecoreClass="dbsynch.ecore#//TableColumn">
       <genFeatures property="Readonly" createChild="false" propertyCategory="12 Metadata"
-          ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableColumn/IsKey"/>
+          ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableColumn/Key"/>
       <genFeatures createChild="false" propertyCategory="12 Metadata" ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableColumn/ColumnName"/>
       <genFeatures createChild="false" propertyCategory="12 Metadata" ecoreFeature="ecore:EReference dbsynch.ecore#//TableColumn/RowAttribute"/>
       <genFeatures createChild="false" propertyCategory="12 Metadata" ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableColumn/ColumnType"/>

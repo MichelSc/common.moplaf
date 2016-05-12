@@ -42,6 +42,7 @@ public interface TableColumn extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Column Name</b></em>' attribute.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Column Name</em>' attribute isn't clear,
@@ -51,7 +52,7 @@ public interface TableColumn extends EObject {
 	 * @return the value of the '<em>Column Name</em>' attribute.
 	 * @see #setColumnName(String)
 	 * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTableColumn_ColumnName()
-	 * @model
+	 * @model default=""
 	 * @generated
 	 */
 	String getColumnName();
@@ -103,9 +104,11 @@ public interface TableColumn extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Column Type</em>' attribute.
 	 * @see com.misc.common.moplaf.dbsynch.EnumColumnType
+	 * @see #isSetColumnType()
+	 * @see #unsetColumnType()
 	 * @see #setColumnType(EnumColumnType)
 	 * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTableColumn_ColumnType()
-	 * @model
+	 * @model unsettable="true"
 	 * @generated
 	 */
 	EnumColumnType getColumnType();
@@ -116,9 +119,34 @@ public interface TableColumn extends EObject {
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Column Type</em>' attribute.
 	 * @see com.misc.common.moplaf.dbsynch.EnumColumnType
+	 * @see #isSetColumnType()
+	 * @see #unsetColumnType()
 	 * @see #getColumnType()
 	 * @generated
 	 */
 	void setColumnType(EnumColumnType value);
+
+	/**
+	 * Unsets the value of the '{@link com.misc.common.moplaf.dbsynch.TableColumn#getColumnType <em>Column Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetColumnType()
+	 * @see #getColumnType()
+	 * @see #setColumnType(EnumColumnType)
+	 * @generated
+	 */
+	void unsetColumnType();
+
+	/**
+	 * Returns whether the value of the '{@link com.misc.common.moplaf.dbsynch.TableColumn#getColumnType <em>Column Type</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Column Type</em>' attribute is set.
+	 * @see #unsetColumnType()
+	 * @see #getColumnType()
+	 * @see #setColumnType(EnumColumnType)
+	 * @generated
+	 */
+	boolean isSetColumnType();
 
 } // TableColumn

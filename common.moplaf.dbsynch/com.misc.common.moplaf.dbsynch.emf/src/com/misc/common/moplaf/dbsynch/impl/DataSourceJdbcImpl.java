@@ -460,12 +460,12 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		
 		try {
 	    	if ( this.db_connection == null ){
-	    		throw new Exception("Load table failed, no connection");
+	    		throw new Exception("SynchUp table failed, no connection");
 	    	}
 	    	
 	    	String tableName = table.getTableName();
 	    	if ( tableName==null || table.getTableName().length()==0 ){
-	    		throw new Exception("Load table failed, no table name");
+	    		throw new Exception("SynchUp table failed, no table name");
 	    	}
 
 	    	// prepare the sql
@@ -495,7 +495,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		
 			// execute the query
 			resultSet = statement.executeQuery();
-			Plugin.INSTANCE.logInfo("..Query executed");
+			Plugin.INSTANCE.logInfo("..Query executed, rows fetched"+resultSet.getFetchSize());
 			
 			// objects asis
 			HashSet<TableRow> rowsasis = new HashSet<TableRow>(table.getRows());
@@ -594,7 +594,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 			    	rowToRemove.setModificationLastSynchUp(EnumModification.ENUM_MODIFICATION_NONE);
 				}
 			}
-			Plugin.INSTANCE.logInfo(String.format("..Load complete: %d creates, %d updates, %d deletes", nofcreates, nofupdates, nofdeletes));
+			Plugin.INSTANCE.logInfo(String.format("..SynchUp complete: %d creates, %d updates, %d deletes", nofcreates, nofupdates, nofdeletes));
 		}
 		catch (SQLException e) {
 			Plugin.INSTANCE.logError("..Retrieve result set failed, cause " + e.getMessage());
