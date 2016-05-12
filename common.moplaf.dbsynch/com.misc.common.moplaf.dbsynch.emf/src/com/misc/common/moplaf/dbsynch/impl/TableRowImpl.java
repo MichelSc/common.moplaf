@@ -162,11 +162,11 @@ public abstract class TableRowImpl extends MinimalEObjectImpl.Container implemen
 		if (resource == null) { return ; } // no resource means object under construction means not loading
 		
 		if (!(resource instanceof ResourceImpl) ) { return ; }
-		
 		ResourceImpl r = (ResourceImpl) resource;
 		if (r.isLoading() ){ return; }
-		
+
 		if ( msg.isTouch() ) { return ; }
+		
 		boolean some_modified = msg.getFeature() == DbSynchPackage.Literals.TABLE_ROW__DELETED;
 		for ( TableColumn column: this.getTable().getColumns()){
 			if ( column.getRowAttribute()==msg.getFeature() ){
