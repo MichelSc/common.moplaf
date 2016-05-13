@@ -11,6 +11,31 @@ import org.eclipse.emf.ecore.EObject;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Table</b></em>'.
+ * <p>
+ * A concrete {@link Table} is a class mapped on a possibly filtered database table.
+ * <p>
+ * A Table supports metadata, that will allow the framework to synchronize (up or down)
+ * the object data with the db data:
+ *   <ul>
+ *   <li> {@link #getTableName()}: the name of the table
+ *   <li> {@link #getKeyColumns()}: the columns of the table that are part of the key
+ *   <li> {@link #getDataColumns()}: the  columns of the table that are NOT part of the key
+ *   <li> {@link #getWhereClause()}: the condition that will be used to filter the rows up synched
+ *   <li> {@link #getParamDbSynchUnitAttributes()} : the attributes in the synch unit to be used as values in the where clause
+ *   </ul>
+ *   The metadata is part of the state of the Table. It must be provided
+ *   <ul>
+ *   <li> either at run time by the user,
+ *   <li> or at design time, by implementing method {@link #refreshMetaData()}.
+ *   </ul>
+ * <p>
+ * Following information about the execution of the synchronization is returned
+ *   <ul>
+ *   <li> {@link #getLastSynchDown()} : timestamp of the last synchronization down
+ *   <li> {@link #getLastSynchUp()} : timestamp of the last synchronization up
+ *   <li> {@link #getNumberOfRows()}: number of rows present.
+ *   </ul>
+
  * <!-- end-user-doc -->
  *
  * <p>

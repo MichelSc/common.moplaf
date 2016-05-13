@@ -8,7 +8,23 @@ import org.eclipse.emf.ecore.EObject;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Table Row</b></em>'.
- * <!-- end-user-doc -->
+ * <p>
+ * A concrete {@link TableRow} is an object instance mapped on a database table row.
+ * <p>
+ * The object may be logically deleted ({@link #isDeleted()}), meaning that it is
+ * physically deleted (as is or to be) in the database, but not in the application:
+ * <ul>
+ * <li> UpSynching a table with a row removed, will not remove the corresponding object
+ *  in the application but will set it as IsDeleted. 
+ * <li> DownSynching an object set as IsDeleted will delete it from the database table.
+ * </ul>
+ * <p>
+ * Following information about the execution of the synchronization is returned
+ *   <ul>
+ *   <li> {@link #getModificationLastSynchUp()} : modification on the object done by the last up synch
+ *   <li> {@link #getModificationNextSynchDown()} : modification on the table to be done by the next down synch
+ *   </ul>
+<!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:

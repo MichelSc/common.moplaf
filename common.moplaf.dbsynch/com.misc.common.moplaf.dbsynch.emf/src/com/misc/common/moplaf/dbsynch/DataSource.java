@@ -5,6 +5,17 @@ package com.misc.common.moplaf.dbsynch;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Data Source</b></em>'.
+ * <p>
+ * A DataSource is the top level DbSynchUnit in the hierarchy of the synch units.
+ * <p>
+ * Next to its functionality as synch unit, the DataSource supports the connection
+ * with the database.
+ * <p>
+ * Specialization of this class implements the up and down synchronization of a given Table: 
+ * <ul>
+ * <li>{@link #synchUpTableImpl(Table)} 
+ * <li>{@link #synchDownTableImpl(Table)}
+ * </ul>
  * <!-- end-user-doc -->
  *
  * <p>

@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.sql.Types;
 import java.util.Date;
 import java.util.HashSet;
@@ -315,7 +316,6 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		catch (ClassNotFoundException cnfe) {
 			Plugin.INSTANCE.logInfo("..Class not found");
 			return;
-			
 		} 
 		catch (SQLException e) {
 			Plugin.INSTANCE.logError("..SqlException, cause     " + e.getMessage());
@@ -332,6 +332,8 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 			String schema = this.getDefaultSchema();
 			if ( schema!=null && schema.length()>0 ){
 				try {
+					// I have never seen this working
+					// most of the time, it throws an exception, or worst, a throwable
 					this.db_connection.setSchema(schema);
 				} 
 				catch (SQLException e) {
@@ -393,7 +395,10 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		case Types.DATE:
 			return resultSet.getDate(columnIndex);
 		case Types.TIME:
-			return resultSet.getTime(columnIndex);
+			Time timeValue = resultSet.getTime(columnIndex);
+			return timeValue == null 
+			     ? null
+			     : (timeValue.getTime()/60.0f/60.0f/1000.0f);
 		case Types.TIMESTAMP:
 			return resultSet.getTimestamp(columnIndex);
 		default:
@@ -443,8 +448,12 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		    	statement.setDate(paramIndex, new java.sql.Date(((Date)paramValue).getTime()));
 		    	break;
 			case Types.TIME:
+				Float floatValue = (Float)paramValue; // in hours
+				long longValue = floatValue.longValue()*60*60*1000; // in millis
+		    	statement.setTime(paramIndex, new java.sql.Time(longValue));
 		    	break;
 			case Types.TIMESTAMP:
+		    	statement.setTimestamp(paramIndex, new java.sql.Timestamp(((Date)paramValue).getTime()));
 			default:
 			}
 		}
@@ -561,8 +570,13 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		    				                                   rowAttribute);
 	    			Object valueAsIs = row.eGet(rowAttribute);
 		    		if ( valueAsIs==null && valueToBe!=null
-		    		  || valueAsIs!=null && !valueAsIs.equals(valueToBe)){
-	    				row.eSet(rowAttribute, valueToBe);
+		    		  || valueAsIs!=null && !valueAsIs.equals(valueToBe)) {
+		    			if ( valueToBe==null ){
+		    				row.eUnset(rowAttribute);
+		    			}
+		    			else {
+		    				row.eSet(rowAttribute, valueToBe);
+		    			}
 	   					update = true;
 	    			}
 		    		columnIndex++;
@@ -604,6 +618,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 			Plugin.INSTANCE.logError("..Retrieve result set failed, cause " + e.getMessage());
 		}
 		catch (Exception e){
+			e.printStackTrace();
 			Plugin.INSTANCE.logError("..General exception, no data retrieved, cause " + ExceptionUtils.getRootCauseMessage(e));
 		}
 		

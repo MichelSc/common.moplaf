@@ -9,7 +9,18 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Unit Abstract</b></em>'.
+ * A representation of the model object '<em><b>DbSynchUnit Abstract</b></em>'.
+ * <p>
+ * A DbSynch unit is the unit of synchronization. It supports
+ * <ul> 
+ * <li><i>down synchronization</i>: database date  synchronized from the object data,
+ * <li><i>up synchronization</i>: object data synchronized from database data.
+ * </ul>
+ * <p>
+ * A DbSynch contains {@link Table}'s and child units.
+ * <p>
+ * Specializations of DbSynch provide parameter values, that are gotten via {@link #getParamValue(EAttribute)}.
+ * 
  * <!-- end-user-doc -->
  *
  * <p>

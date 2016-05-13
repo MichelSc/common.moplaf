@@ -8,6 +8,8 @@ import org.eclipse.emf.ecore.EObject;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Table Column</b></em>'.
+ * <p>
+ * A TableColumn maps a column of the database table on an attribute of a concrete TableRow.
  * <!-- end-user-doc -->
  *
  * <p>
