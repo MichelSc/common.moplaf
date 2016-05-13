@@ -82,12 +82,13 @@
       <eParameters name="key" eType="#//TableRowKey"/>
     </eOperations>
     <eOperations name="constructRow" eType="#//TableRow"/>
-    <eOperations name="addRow">
+    <eOperations name="indexRow">
       <eParameters name="row" eType="#//TableRow"/>
     </eOperations>
-    <eOperations name="removeRow">
+    <eOperations name="unindexRow">
       <eParameters name="row" eType="#//TableRow"/>
     </eOperations>
+    <eOperations name="refreshIndex"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="SynchUnit" lowerBound="1"
         eType="#//DbSynchUnitAbstract" changeable="false" volatile="true" transient="true"
         derived="true"/>
@@ -127,14 +128,16 @@
     <eOperations name="refresh"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Table" eType="#//Table"
         changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Key" eType="#//TableRowKey"
-        changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="oldKey" eType="#//TableRowKey"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CurrentKey" eType="#//TableRowKey"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Deleted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="oldDeleted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IndexKey" eType="#//TableRowKey"
+        transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LastSynchDownKey" eType="#//TableRowKey"
+        transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LastSynchDownDeleted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        transient="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ModificationLastSynchUp"
         eType="#//EnumModification"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ModificationNextSynchDown"

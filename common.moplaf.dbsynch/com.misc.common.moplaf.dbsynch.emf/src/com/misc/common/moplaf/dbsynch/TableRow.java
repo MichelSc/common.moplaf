@@ -15,10 +15,11 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.dbsynch.TableRow#getTable <em>Table</em>}</li>
- *   <li>{@link com.misc.common.moplaf.dbsynch.TableRow#getKey <em>Key</em>}</li>
- *   <li>{@link com.misc.common.moplaf.dbsynch.TableRow#getOldKey <em>Old Key</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.TableRow#getCurrentKey <em>Current Key</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.TableRow#isDeleted <em>Deleted</em>}</li>
- *   <li>{@link com.misc.common.moplaf.dbsynch.TableRow#isOldDeleted <em>Old Deleted</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.TableRow#getIndexKey <em>Index Key</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.TableRow#getLastSynchDownKey <em>Last Synch Down Key</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.TableRow#isLastSynchDownDeleted <em>Last Synch Down Deleted</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.TableRow#getModificationLastSynchUp <em>Modification Last Synch Up</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.TableRow#getModificationNextSynchDown <em>Modification Next Synch Down</em>}</li>
  * </ul>
@@ -44,34 +45,97 @@ public interface TableRow extends EObject {
 	Table getTable();
 
 	/**
-	 * Returns the value of the '<em><b>Key</b></em>' attribute.
+	 * Returns the value of the '<em><b>Current Key</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Key</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Current Key</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Key</em>' attribute.
-	 * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTableRow_Key()
+	 * @return the value of the '<em>Current Key</em>' attribute.
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTableRow_CurrentKey()
 	 * @model dataType="com.misc.common.moplaf.dbsynch.TableRowKey" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	TableRowKeyImpl getKey();
+	TableRowKeyImpl getCurrentKey();
 
 	/**
-	 * Returns the value of the '<em><b>Old Key</b></em>' attribute.
+	 * Returns the value of the '<em><b>Index Key</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Old Key</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Index Key</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Old Key</em>' attribute.
-	 * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTableRow_OldKey()
-	 * @model dataType="com.misc.common.moplaf.dbsynch.TableRowKey" transient="true" changeable="false" volatile="true" derived="true"
+	 * @return the value of the '<em>Index Key</em>' attribute.
+	 * @see #setIndexKey(TableRowKeyImpl)
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTableRow_IndexKey()
+	 * @model dataType="com.misc.common.moplaf.dbsynch.TableRowKey" transient="true"
 	 * @generated
 	 */
-	TableRowKeyImpl getOldKey();
+	TableRowKeyImpl getIndexKey();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.dbsynch.TableRow#getIndexKey <em>Index Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Index Key</em>' attribute.
+	 * @see #getIndexKey()
+	 * @generated
+	 */
+	void setIndexKey(TableRowKeyImpl value);
+
+	/**
+	 * Returns the value of the '<em><b>Last Synch Down Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Last Synch Down Key</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Last Synch Down Key</em>' attribute.
+	 * @see #setLastSynchDownKey(TableRowKeyImpl)
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTableRow_LastSynchDownKey()
+	 * @model dataType="com.misc.common.moplaf.dbsynch.TableRowKey" transient="true"
+	 * @generated
+	 */
+	TableRowKeyImpl getLastSynchDownKey();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.dbsynch.TableRow#getLastSynchDownKey <em>Last Synch Down Key</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Last Synch Down Key</em>' attribute.
+	 * @see #getLastSynchDownKey()
+	 * @generated
+	 */
+	void setLastSynchDownKey(TableRowKeyImpl value);
+
+	/**
+	 * Returns the value of the '<em><b>Last Synch Down Deleted</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Last Synch Down Deleted</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Last Synch Down Deleted</em>' attribute.
+	 * @see #setLastSynchDownDeleted(boolean)
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTableRow_LastSynchDownDeleted()
+	 * @model transient="true"
+	 * @generated
+	 */
+	boolean isLastSynchDownDeleted();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.dbsynch.TableRow#isLastSynchDownDeleted <em>Last Synch Down Deleted</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Last Synch Down Deleted</em>' attribute.
+	 * @see #isLastSynchDownDeleted()
+	 * @generated
+	 */
+	void setLastSynchDownDeleted(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Modification Last Synch Up</b></em>' attribute.
@@ -157,21 +221,6 @@ public interface TableRow extends EObject {
 	 * @generated
 	 */
 	void setDeleted(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Old Deleted</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Old Deleted</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Old Deleted</em>' attribute.
-	 * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTableRow_OldDeleted()
-	 * @model transient="true" changeable="false" volatile="true" derived="true"
-	 * @generated
-	 */
-	boolean isOldDeleted();
 
 	/**
 	 * <!-- begin-user-doc -->

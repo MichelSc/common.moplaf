@@ -870,22 +870,31 @@ public interface DbSynchPackage extends EPackage {
 	int TABLE___CONSTRUCT_ROW = 7;
 
 	/**
-	 * The operation id for the '<em>Add Row</em>' operation.
+	 * The operation id for the '<em>Index Row</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___ADD_ROW__TABLEROW = 8;
+	int TABLE___INDEX_ROW__TABLEROW = 8;
 
 	/**
-	 * The operation id for the '<em>Remove Row</em>' operation.
+	 * The operation id for the '<em>Unindex Row</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___REMOVE_ROW__TABLEROW = 9;
+	int TABLE___UNINDEX_ROW__TABLEROW = 9;
+
+	/**
+	 * The operation id for the '<em>Refresh Index</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE___REFRESH_INDEX = 10;
 
 	/**
 	 * The number of operations of the '<em>Table</em>' class.
@@ -894,7 +903,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_OPERATION_COUNT = 10;
+	int TABLE_OPERATION_COUNT = 11;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.dbsynch.impl.TableColumnImpl <em>Table Column</em>}' class.
@@ -979,22 +988,13 @@ public interface DbSynchPackage extends EPackage {
 	int TABLE_ROW__TABLE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * The feature id for the '<em><b>Current Key</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_ROW__KEY = 1;
-
-	/**
-	 * The feature id for the '<em><b>Old Key</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE_ROW__OLD_KEY = 2;
+	int TABLE_ROW__CURRENT_KEY = 1;
 
 	/**
 	 * The feature id for the '<em><b>Deleted</b></em>' attribute.
@@ -1003,16 +1003,34 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_ROW__DELETED = 3;
+	int TABLE_ROW__DELETED = 2;
 
 	/**
-	 * The feature id for the '<em><b>Old Deleted</b></em>' attribute.
+	 * The feature id for the '<em><b>Index Key</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_ROW__OLD_DELETED = 4;
+	int TABLE_ROW__INDEX_KEY = 3;
+
+	/**
+	 * The feature id for the '<em><b>Last Synch Down Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW__LAST_SYNCH_DOWN_KEY = 4;
+
+	/**
+	 * The feature id for the '<em><b>Last Synch Down Deleted</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_ROW__LAST_SYNCH_DOWN_DELETED = 5;
 
 	/**
 	 * The feature id for the '<em><b>Modification Last Synch Up</b></em>' attribute.
@@ -1021,7 +1039,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_ROW__MODIFICATION_LAST_SYNCH_UP = 5;
+	int TABLE_ROW__MODIFICATION_LAST_SYNCH_UP = 6;
 
 	/**
 	 * The feature id for the '<em><b>Modification Next Synch Down</b></em>' attribute.
@@ -1030,7 +1048,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_ROW__MODIFICATION_NEXT_SYNCH_DOWN = 6;
+	int TABLE_ROW__MODIFICATION_NEXT_SYNCH_DOWN = 7;
 
 	/**
 	 * The number of structural features of the '<em>Table Row</em>' class.
@@ -1039,7 +1057,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_ROW_FEATURE_COUNT = 7;
+	int TABLE_ROW_FEATURE_COUNT = 8;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -1458,24 +1476,34 @@ public interface DbSynchPackage extends EPackage {
 	EOperation getTable__ConstructRow();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#addRow(com.misc.common.moplaf.dbsynch.TableRow) <em>Add Row</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#indexRow(com.misc.common.moplaf.dbsynch.TableRow) <em>Index Row</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Row</em>' operation.
-	 * @see com.misc.common.moplaf.dbsynch.Table#addRow(com.misc.common.moplaf.dbsynch.TableRow)
+	 * @return the meta object for the '<em>Index Row</em>' operation.
+	 * @see com.misc.common.moplaf.dbsynch.Table#indexRow(com.misc.common.moplaf.dbsynch.TableRow)
 	 * @generated
 	 */
-	EOperation getTable__AddRow__TableRow();
+	EOperation getTable__IndexRow__TableRow();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#removeRow(com.misc.common.moplaf.dbsynch.TableRow) <em>Remove Row</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#unindexRow(com.misc.common.moplaf.dbsynch.TableRow) <em>Unindex Row</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Remove Row</em>' operation.
-	 * @see com.misc.common.moplaf.dbsynch.Table#removeRow(com.misc.common.moplaf.dbsynch.TableRow)
+	 * @return the meta object for the '<em>Unindex Row</em>' operation.
+	 * @see com.misc.common.moplaf.dbsynch.Table#unindexRow(com.misc.common.moplaf.dbsynch.TableRow)
 	 * @generated
 	 */
-	EOperation getTable__RemoveRow__TableRow();
+	EOperation getTable__UnindexRow__TableRow();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#refreshIndex() <em>Refresh Index</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh Index</em>' operation.
+	 * @see com.misc.common.moplaf.dbsynch.Table#refreshIndex()
+	 * @generated
+	 */
+	EOperation getTable__RefreshIndex();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.dbsynch.TableRow <em>Table Row</em>}'.
@@ -1499,26 +1527,48 @@ public interface DbSynchPackage extends EPackage {
 	EReference getTableRow_Table();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.TableRow#getKey <em>Key</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.TableRow#getCurrentKey <em>Current Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Key</em>'.
-	 * @see com.misc.common.moplaf.dbsynch.TableRow#getKey()
+	 * @return the meta object for the attribute '<em>Current Key</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.TableRow#getCurrentKey()
 	 * @see #getTableRow()
 	 * @generated
 	 */
-	EAttribute getTableRow_Key();
+	EAttribute getTableRow_CurrentKey();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.TableRow#getOldKey <em>Old Key</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.TableRow#getIndexKey <em>Index Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Old Key</em>'.
-	 * @see com.misc.common.moplaf.dbsynch.TableRow#getOldKey()
+	 * @return the meta object for the attribute '<em>Index Key</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.TableRow#getIndexKey()
 	 * @see #getTableRow()
 	 * @generated
 	 */
-	EAttribute getTableRow_OldKey();
+	EAttribute getTableRow_IndexKey();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.TableRow#getLastSynchDownKey <em>Last Synch Down Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Last Synch Down Key</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.TableRow#getLastSynchDownKey()
+	 * @see #getTableRow()
+	 * @generated
+	 */
+	EAttribute getTableRow_LastSynchDownKey();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.TableRow#isLastSynchDownDeleted <em>Last Synch Down Deleted</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Last Synch Down Deleted</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.TableRow#isLastSynchDownDeleted()
+	 * @see #getTableRow()
+	 * @generated
+	 */
+	EAttribute getTableRow_LastSynchDownDeleted();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.TableRow#getModificationLastSynchUp <em>Modification Last Synch Up</em>}'.
@@ -1552,17 +1602,6 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTableRow_Deleted();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.TableRow#isOldDeleted <em>Old Deleted</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Old Deleted</em>'.
-	 * @see com.misc.common.moplaf.dbsynch.TableRow#isOldDeleted()
-	 * @see #getTableRow()
-	 * @generated
-	 */
-	EAttribute getTableRow_OldDeleted();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.TableRow#refresh() <em>Refresh</em>}' operation.
@@ -2133,20 +2172,28 @@ public interface DbSynchPackage extends EPackage {
 		EOperation TABLE___CONSTRUCT_ROW = eINSTANCE.getTable__ConstructRow();
 
 		/**
-		 * The meta object literal for the '<em><b>Add Row</b></em>' operation.
+		 * The meta object literal for the '<em><b>Index Row</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation TABLE___ADD_ROW__TABLEROW = eINSTANCE.getTable__AddRow__TableRow();
+		EOperation TABLE___INDEX_ROW__TABLEROW = eINSTANCE.getTable__IndexRow__TableRow();
 
 		/**
-		 * The meta object literal for the '<em><b>Remove Row</b></em>' operation.
+		 * The meta object literal for the '<em><b>Unindex Row</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation TABLE___REMOVE_ROW__TABLEROW = eINSTANCE.getTable__RemoveRow__TableRow();
+		EOperation TABLE___UNINDEX_ROW__TABLEROW = eINSTANCE.getTable__UnindexRow__TableRow();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh Index</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TABLE___REFRESH_INDEX = eINSTANCE.getTable__RefreshIndex();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.dbsynch.impl.TableRowImpl <em>Table Row</em>}' class.
@@ -2167,20 +2214,36 @@ public interface DbSynchPackage extends EPackage {
 		EReference TABLE_ROW__TABLE = eINSTANCE.getTableRow_Table();
 
 		/**
-		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Current Key</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TABLE_ROW__KEY = eINSTANCE.getTableRow_Key();
+		EAttribute TABLE_ROW__CURRENT_KEY = eINSTANCE.getTableRow_CurrentKey();
 
 		/**
-		 * The meta object literal for the '<em><b>Old Key</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Index Key</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TABLE_ROW__OLD_KEY = eINSTANCE.getTableRow_OldKey();
+		EAttribute TABLE_ROW__INDEX_KEY = eINSTANCE.getTableRow_IndexKey();
+
+		/**
+		 * The meta object literal for the '<em><b>Last Synch Down Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_ROW__LAST_SYNCH_DOWN_KEY = eINSTANCE.getTableRow_LastSynchDownKey();
+
+		/**
+		 * The meta object literal for the '<em><b>Last Synch Down Deleted</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_ROW__LAST_SYNCH_DOWN_DELETED = eINSTANCE.getTableRow_LastSynchDownDeleted();
 
 		/**
 		 * The meta object literal for the '<em><b>Modification Last Synch Up</b></em>' attribute feature.
@@ -2205,14 +2268,6 @@ public interface DbSynchPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TABLE_ROW__DELETED = eINSTANCE.getTableRow_Deleted();
-
-		/**
-		 * The meta object literal for the '<em><b>Old Deleted</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TABLE_ROW__OLD_DELETED = eINSTANCE.getTableRow_OldDeleted();
 
 		/**
 		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.

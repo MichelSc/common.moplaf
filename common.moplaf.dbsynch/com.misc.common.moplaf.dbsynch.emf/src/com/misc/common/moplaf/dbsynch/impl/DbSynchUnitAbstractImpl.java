@@ -191,7 +191,6 @@ public abstract class DbSynchUnitAbstractImpl extends MinimalEObjectImpl.Contain
 	 */
 	public Object getParamValue(EAttribute attribute) {
 		Class<?> attributeClass = attribute.getContainerClass();
-		Object thisClass = this.getClass();
 		if ( attributeClass.isInstance(this) ){
 			return this.eGet(attribute);
 		}

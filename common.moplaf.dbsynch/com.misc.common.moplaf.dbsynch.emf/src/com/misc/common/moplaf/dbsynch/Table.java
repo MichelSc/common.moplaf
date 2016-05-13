@@ -417,14 +417,6 @@ public interface Table extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void addRow(TableRow row);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model keyDataType="com.misc.common.moplaf.dbsynch.TableRowKey"
 	 * @generated
 	 */
@@ -444,7 +436,23 @@ public interface Table extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void removeRow(TableRow row);
+	void indexRow(TableRow row);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void unindexRow(TableRow row);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void refreshIndex();
 
 	/**
 	 * <!-- begin-user-doc -->

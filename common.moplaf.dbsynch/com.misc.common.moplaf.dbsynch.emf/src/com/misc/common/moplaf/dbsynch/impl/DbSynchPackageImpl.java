@@ -478,7 +478,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTable__AddRow__TableRow() {
+	public EOperation getTable__IndexRow__TableRow() {
 		return tableEClass.getEOperations().get(8);
 	}
 
@@ -487,8 +487,17 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTable__RemoveRow__TableRow() {
+	public EOperation getTable__UnindexRow__TableRow() {
 		return tableEClass.getEOperations().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTable__RefreshIndex() {
+		return tableEClass.getEOperations().get(10);
 	}
 
 	/**
@@ -514,7 +523,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTableRow_Key() {
+	public EAttribute getTableRow_CurrentKey() {
 		return (EAttribute)tableRowEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -523,34 +532,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTableRow_OldKey() {
-		return (EAttribute)tableRowEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTableRow_ModificationLastSynchUp() {
-		return (EAttribute)tableRowEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTableRow_ModificationNextSynchDown() {
-		return (EAttribute)tableRowEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTableRow_Deleted() {
+	public EAttribute getTableRow_IndexKey() {
 		return (EAttribute)tableRowEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -559,8 +541,44 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTableRow_OldDeleted() {
+	public EAttribute getTableRow_LastSynchDownKey() {
 		return (EAttribute)tableRowEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTableRow_LastSynchDownDeleted() {
+		return (EAttribute)tableRowEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTableRow_ModificationLastSynchUp() {
+		return (EAttribute)tableRowEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTableRow_ModificationNextSynchDown() {
+		return (EAttribute)tableRowEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTableRow_Deleted() {
+		return (EAttribute)tableRowEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -876,8 +894,9 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		createEOperation(tableEClass, TABLE___REFRESH);
 		createEOperation(tableEClass, TABLE___GET_ROW__TABLEROWKEYIMPL);
 		createEOperation(tableEClass, TABLE___CONSTRUCT_ROW);
-		createEOperation(tableEClass, TABLE___ADD_ROW__TABLEROW);
-		createEOperation(tableEClass, TABLE___REMOVE_ROW__TABLEROW);
+		createEOperation(tableEClass, TABLE___INDEX_ROW__TABLEROW);
+		createEOperation(tableEClass, TABLE___UNINDEX_ROW__TABLEROW);
+		createEOperation(tableEClass, TABLE___REFRESH_INDEX);
 
 		tableColumnEClass = createEClass(TABLE_COLUMN);
 		createEAttribute(tableColumnEClass, TABLE_COLUMN__KEY);
@@ -888,10 +907,11 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 
 		tableRowEClass = createEClass(TABLE_ROW);
 		createEReference(tableRowEClass, TABLE_ROW__TABLE);
-		createEAttribute(tableRowEClass, TABLE_ROW__KEY);
-		createEAttribute(tableRowEClass, TABLE_ROW__OLD_KEY);
+		createEAttribute(tableRowEClass, TABLE_ROW__CURRENT_KEY);
 		createEAttribute(tableRowEClass, TABLE_ROW__DELETED);
-		createEAttribute(tableRowEClass, TABLE_ROW__OLD_DELETED);
+		createEAttribute(tableRowEClass, TABLE_ROW__INDEX_KEY);
+		createEAttribute(tableRowEClass, TABLE_ROW__LAST_SYNCH_DOWN_KEY);
+		createEAttribute(tableRowEClass, TABLE_ROW__LAST_SYNCH_DOWN_DELETED);
 		createEAttribute(tableRowEClass, TABLE_ROW__MODIFICATION_LAST_SYNCH_UP);
 		createEAttribute(tableRowEClass, TABLE_ROW__MODIFICATION_NEXT_SYNCH_DOWN);
 		createEOperation(tableRowEClass, TABLE_ROW___REFRESH);
@@ -1018,11 +1038,13 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 
 		initEOperation(getTable__ConstructRow(), this.getTableRow(), "constructRow", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getTable__AddRow__TableRow(), null, "addRow", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getTable__IndexRow__TableRow(), null, "indexRow", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTableRow(), "row", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getTable__RemoveRow__TableRow(), null, "removeRow", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getTable__UnindexRow__TableRow(), null, "unindexRow", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTableRow(), "row", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getTable__RefreshIndex(), null, "refreshIndex", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(tableColumnEClass, TableColumn.class, "TableColumn", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTableColumn_Key(), ecorePackage.getEBoolean(), "Key", null, 0, 1, TableColumn.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -1033,10 +1055,11 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 
 		initEClass(tableRowEClass, TableRow.class, "TableRow", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTableRow_Table(), this.getTable(), null, "Table", null, 0, 1, TableRow.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTableRow_Key(), this.getTableRowKey(), "Key", null, 0, 1, TableRow.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTableRow_OldKey(), this.getTableRowKey(), "oldKey", null, 0, 1, TableRow.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableRow_CurrentKey(), this.getTableRowKey(), "CurrentKey", null, 0, 1, TableRow.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTableRow_Deleted(), ecorePackage.getEBoolean(), "Deleted", "true", 0, 1, TableRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTableRow_OldDeleted(), ecorePackage.getEBoolean(), "oldDeleted", null, 0, 1, TableRow.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableRow_IndexKey(), this.getTableRowKey(), "IndexKey", null, 0, 1, TableRow.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableRow_LastSynchDownKey(), this.getTableRowKey(), "LastSynchDownKey", null, 0, 1, TableRow.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTableRow_LastSynchDownDeleted(), ecorePackage.getEBoolean(), "LastSynchDownDeleted", null, 0, 1, TableRow.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTableRow_ModificationLastSynchUp(), this.getEnumModification(), "ModificationLastSynchUp", null, 0, 1, TableRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTableRow_ModificationNextSynchDown(), this.getEnumModification(), "ModificationNextSynchDown", null, 0, 1, TableRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

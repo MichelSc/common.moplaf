@@ -507,6 +507,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 			int nofcreates = 0;
 			int nofdeletes = 0;
 			int nofupdates = 0;
+			table.refreshIndex();
 			// objects tobe
 			int nofKeys = table.getKeyColumns().size();
 			int rowIndex = 0;
@@ -538,7 +539,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		    			row.eSet(keyColumn.getRowAttribute(), keyValue);
 			    		keyIndex++;
 			    	} // traverse the columns
-			    	table.addRow(row);
+			    	table.indexRow(row);
 			    	create = true;
 		    	}
 		    	else {
@@ -738,7 +739,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 					// set the params
 					int paramIndex = 0;
 					for ( TableColumn column : table.getKeyColumns()){
-						Object columnValue = rowAsIs.getOldKey().getKey(paramIndex);
+						Object columnValue = rowAsIs.getLastSynchDownKey().getKey(paramIndex);
 						paramIndex ++;
 						this.setSqlStatementParam(deleteStatement, 
 								                  paramIndex, 

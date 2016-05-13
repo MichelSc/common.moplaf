@@ -10,10 +10,12 @@ import java.util.Iterator;
 import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -63,22 +65,11 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * The field rowIndex contains an entry for every row in the table, 
-	 * corresponding to the current key value of the row?
-	 * The index is updated each time the row key value changes.
+	 * corresponding to the index key value of the row.
 	 * The deleted rows are present in the index as well. 
 	 */
-	protected HashMap<TableRowKeyImpl, TableRow> rowIndex = null;
+	private HashMap<TableRowKeyImpl, TableRow> rowIndex = null;
 	
-	protected Map<TableRowKeyImpl, TableRow> getRowIndex(){
-		if ( this.rowIndex==null){
-			this.rowIndex = new HashMap<TableRowKeyImpl, TableRow>();
-			for ( TableRow row : this.getRows()){
-				this.rowIndex.put(row.getKey(), row);
-			}
-		}
-		return this.rowIndex;
-	}
-
 	/**
 	 * The cached value of the '{@link #getKeyColumns() <em>Key Columns</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -292,11 +283,41 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	protected TableImpl() {
 		super();
+
+		this.eAdapters().add(new AdapterImpl(){
+			@Override
+			public void notifyChanged(Notification msg) {
+				super.notifyChanged(msg);
+				TableImpl.this.notifyChanged(msg);
+			}
+		});
+
 	}
+	
+	/**
+	 * When some contained row is removed, unindex it.
+	 * 
+	 * @param msg
+	 */
+	private void notifyChanged(Notification msg){
+		if ( !(msg.getFeature() instanceof EReference) ) { return; }
+		EReference reference = (EReference)msg.getFeature();
+		if ( !reference.isContainment()) { return; }
+		if ( ! DbSynchPackage.Literals.TABLE_ROW.isSuperTypeOf(reference.getEReferenceType())) { return; }
+		if ( msg.getEventType()==Notification.REMOVE){
+			TableRow rowRemoved = (TableRow)msg.getOldValue();
+			this.unindexRow(rowRemoved);
+		} else if ( msg.getEventType()==Notification.REMOVE_MANY){
+			Collection<TableRow> rowsRemoved = (Collection<TableRow>)msg.getOldValue(); // not seen working
+			for ( TableRow rowRemoved : rowsRemoved){
+				this.unindexRow(rowRemoved);
+			}
+		}
+	}
+
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -656,9 +677,11 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void addRow(TableRow row) {
+	public void indexRow(TableRow row) {
 		if ( TableImpl.this.rowIndex!=null){
-			TableImpl.this.getRowIndex().put(row.getKey(), row);
+			TableRowKeyImpl key = row.getCurrentKey();
+			TableImpl.this.rowIndex.put(key, row);
+			row.setIndexKey(key);
 		}
 	}
 
@@ -667,7 +690,7 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 */
 	public TableRow getRow(TableRowKeyImpl key) {
-		TableRow row = this.getRowIndex().get(key);
+		TableRow row = this.rowIndex.get(key);
 		return row;
 	}
 
@@ -685,9 +708,23 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void removeRow(TableRow row) {
+	public void unindexRow(TableRow row) {
 		if ( TableImpl.this.rowIndex!=null){
-			TableImpl.this.getRowIndex().remove(row.getKey());
+			TableImpl.this.rowIndex.remove(row.getIndexKey());
+			row.setIndexKey(null);;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void refreshIndex() {
+		// brute force refresh
+		// we will do beter when we will know how the refresh is needed
+		this.rowIndex = new HashMap<TableRowKeyImpl, TableRow>();
+		for ( TableRow row : this.getRows()){
+			this.indexRow(row);
 		}
 	}
 
@@ -958,11 +995,14 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 				return getRow((TableRowKeyImpl)arguments.get(0));
 			case DbSynchPackage.TABLE___CONSTRUCT_ROW:
 				return constructRow();
-			case DbSynchPackage.TABLE___ADD_ROW__TABLEROW:
-				addRow((TableRow)arguments.get(0));
+			case DbSynchPackage.TABLE___INDEX_ROW__TABLEROW:
+				indexRow((TableRow)arguments.get(0));
 				return null;
-			case DbSynchPackage.TABLE___REMOVE_ROW__TABLEROW:
-				removeRow((TableRow)arguments.get(0));
+			case DbSynchPackage.TABLE___UNINDEX_ROW__TABLEROW:
+				unindexRow((TableRow)arguments.get(0));
+				return null;
+			case DbSynchPackage.TABLE___REFRESH_INDEX:
+				refreshIndex();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
