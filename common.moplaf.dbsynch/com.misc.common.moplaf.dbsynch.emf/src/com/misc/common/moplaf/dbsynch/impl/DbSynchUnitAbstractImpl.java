@@ -4,6 +4,7 @@ package com.misc.common.moplaf.dbsynch.impl;
 
 import com.misc.common.moplaf.dbsynch.DataSource;
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
+import com.misc.common.moplaf.dbsynch.DbSynchUnit;
 import com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract;
 
 import com.misc.common.moplaf.dbsynch.Table;
@@ -150,12 +151,14 @@ public abstract class DbSynchUnitAbstractImpl extends MinimalEObjectImpl.Contain
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void refreshMetaData() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		for ( DbSynchUnitAbstract childUnit : this.getChildUnits()){
+			childUnit.refreshMetaData();
+		}
+		for ( Table childTable : this.getTables()){
+			childTable.refreshMetaData();
+		}
 	}
 
 	/**
