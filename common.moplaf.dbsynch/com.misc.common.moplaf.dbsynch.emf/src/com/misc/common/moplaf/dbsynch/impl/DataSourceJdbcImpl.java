@@ -448,8 +448,8 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		    	statement.setDate(paramIndex, new java.sql.Date(((Date)paramValue).getTime()));
 		    	break;
 			case Types.TIME:
-				Float floatValue = (Float)paramValue; // in hours
-				long longValue = floatValue.longValue()*60*60*1000; // in millis
+				Float floatValue = (Float)paramValue*60.0f*60.0f*1000.0f; // in millis
+				long longValue = floatValue.longValue();
 		    	statement.setTime(paramIndex, new java.sql.Time(longValue));
 		    	break;
 			case Types.TIMESTAMP:
