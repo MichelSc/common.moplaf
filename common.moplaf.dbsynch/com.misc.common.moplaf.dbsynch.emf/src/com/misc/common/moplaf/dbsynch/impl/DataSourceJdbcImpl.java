@@ -568,17 +568,17 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		    				                                   columnIndex, 
 		    				                                   tableColumn.getColumnType(), 
 		    				                                   rowAttribute);
-	    			Object valueAsIs = row.eGet(rowAttribute);
-		    		if ( valueAsIs==null && valueToBe!=null
-		    		  || valueAsIs!=null && !valueAsIs.equals(valueToBe)) {
-		    			if ( valueToBe==null ){
+		    		if ( valueToBe == null ){
+		    			if ( row.eIsSet(rowAttribute)){
+		    				update = true;
 		    				row.eUnset(rowAttribute);
 		    			}
-		    			else {
+		    		} else {
+		    			if ( !row.eIsSet(rowAttribute) || !row.eGet(rowAttribute).equals(valueToBe)){
+		    				update = true;
 		    				row.eSet(rowAttribute, valueToBe);
 		    			}
-	   					update = true;
-	    			}
+		    		}
 		    		columnIndex++;
 		    	} // traverse the columns
 		    	if ( create ){
