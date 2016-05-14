@@ -330,6 +330,8 @@ public enum EnumColumnType implements Enumerator {
 			return Types.CHAR;
 		case EnumColumnType.ENUM_COLUMN_TYPE_INT_VALUE:
 			return Types.INTEGER;
+		case EnumColumnType.ENUM_COLUMN_TYPE_FLOAT_VALUE:
+			return Types.FLOAT;
 		}
 		return Types.OTHER;
 	}
