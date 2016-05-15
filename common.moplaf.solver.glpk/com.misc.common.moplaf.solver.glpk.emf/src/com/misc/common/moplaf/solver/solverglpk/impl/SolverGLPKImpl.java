@@ -743,8 +743,8 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 	 */
     // private declarations
 	private glp_prob lp;
-	private Map<GeneratorLpVar, Number> vars;
-	private Map<GeneratorElement, Number> cons;
+	private Map<GeneratorLpVar, Integer> vars;
+	private Map<GeneratorElement, Integer> cons;
 	private String actualfilepath = null;
 	private int var_counter = 0;
 	private int cons_counter = 0;
@@ -914,13 +914,13 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		int nofCons = generator.getFootprintNofCons();
 		if ( generator == null || nofVars==0 || nofCons==0 ) { return; }
 		try {
-			this.vars = new HashMap<GeneratorLpVar, Number>();
-			this.cons = new HashMap<GeneratorElement, Number>();
+			this.vars = new HashMap<GeneratorLpVar, Integer>();
+			this.cons = new HashMap<GeneratorElement, Integer>();
 
 			// create the problem in GLPK and initialize
 			this.lp = GLPK.glp_create_prob();
-			GLPK.glp_add_cols(this.lp, generator.getFootprintNofVars());
-			GLPK.glp_add_rows(this.lp, generator.getFootprintNofCons());
+			GLPK.glp_add_cols(this.lp, nofVars);
+			GLPK.glp_add_rows(this.lp, nofCons);
 			GLPK.glp_set_prob_name(this.lp, this.getCode());
 			GLPK.glp_set_obj_dir(this.lp, GLPKConstants.GLP_MIN);
 
@@ -1017,7 +1017,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 			mipvalue = (float)GLPK.glp_mip_obj_val(lp);
 			SolutionLp newSolution = (SolutionLp) this.constructSolution();
 			newSolution.setValue(mipvalue);
-			for ( Map.Entry<GeneratorLpVar, Number> varentry : vars.entrySet())	{
+			for ( Map.Entry<GeneratorLpVar, Integer> varentry : vars.entrySet())	{
 				int varindex = varentry.getValue().intValue();
 				GeneratorLpVar lpvar = varentry.getKey();
 				float optimalvalue = 0f;
