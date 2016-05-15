@@ -10,7 +10,12 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Generator</b></em>'.
  * 
  * <p>
- * A Generator is a problem formulation (linear, constraints, ...), containing variables ({@link GeneratorVar}) and constraints ({@link GeneratorCons}).
+ * A Generator is a problem formulation (linear, constraints, ...), containing 
+ * <ul>
+ *   <li>variables: {@link GeneratorVar}
+ *   <li>constraints:  {@link GeneratorCons}
+ *   <li>goals: {@link GeneratorGoals} 
+ *   <ul>
  * <p>
  * {@link SolutionProvider}s (typically, solvers) will produce {@link Solution}s for this problem formulation.
  * <p>
