@@ -1,0 +1,6 @@
+login: mysql -u root -p
+(pwd is root for installation on miscpc01 20160515)
+
+In mysql, the concept of databaseis the same as the concept of schema.
+the connection setChema does not do anything.
+Specifying the database in the connection string works very well. 
