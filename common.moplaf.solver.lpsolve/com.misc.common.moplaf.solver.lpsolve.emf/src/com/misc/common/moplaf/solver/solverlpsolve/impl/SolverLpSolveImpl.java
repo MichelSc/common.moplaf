@@ -22,6 +22,7 @@ import com.misc.common.moplaf.solver.impl.SolverLpImpl;
 import com.misc.common.moplaf.solver.solverlpsolve.SolverLpSolve;
 import com.misc.common.moplaf.solver.solverlpsolve.SolverlpsolvePackage;
 
+import lpsolve.AbortListener;
 import lpsolve.LpSolve;
 import lpsolve.LpSolveException;
 import lpsolve.MsgListener;
@@ -209,7 +210,7 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 		
 		String filePathToUse = this.getFilePath();
 		if ( filePathToUse==null){
-			Plugin.INSTANCE.logWarning("SolverLpSolvze: no file path, write aborted");
+			Plugin.INSTANCE.logWarning("SolverLpSolve: no file path, write aborted");
 			return;
 		}
 		EnumLpFileFormat fileFormat = this.getFileFormat();
@@ -448,8 +449,8 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 		}
 		this.vars = null;
 		this.cons = null;
-		this.var_counter  = 0;  // zero based
-		this.cons_counter = 0;  // zero based
+		this.var_counter  = 0;  
+		this.cons_counter = 0;  
 	}
 	
 	/**
@@ -624,13 +625,31 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 			this.writeLpToFile();
 		}
 		
-		CallBackListener listener = new CallBackListener();
-		Object userHandle = this;
-		int mask = 0; 
 		boolean solved = false;
 		int rc = 0;
 		try {
-			this.lp.putMsgfunc(listener, userHandle, mask);
+			// pass the listeners
+			int mask = 0;
+			this.lp.putMsgfunc(new CallBackMsgListener(), this, mask);
+			this.lp.putAbortfunc(new CallBackAbortListener(), this);
+			// set the params
+			// param presolve
+			int presolveLevel = 0; // or of all the presolve kinds, here no presolve
+			int presolveMaxIters = 0; 
+			this.lp.setPresolve(presolveLevel, presolveMaxIters);
+			// stop criterion
+			this.lp.setMipGap(false, this.getSolverOptimalityTolerance()); // relative (absolute = false)
+			this.lp.setTimeout((long) this.getSolverMaxDuration()); // values in seconds expected
+			// debug level
+			int messagelevel = LpSolve.IMPORTANT;
+			switch ( this.getSolverLogLevel()) {
+		    case ENUM_NONE:   messagelevel = LpSolve.NEUTRAL; break;
+		    case ENUM_MIN:    messagelevel = LpSolve.SEVERE;  break;
+		    case ENUM_NORMAL: messagelevel = LpSolve.NORMAL;  break;
+		    case ENUM_FULL:   messagelevel = LpSolve.FULL;    break;
+		    }  
+		    this.lp.setVerbose(messagelevel);
+			// solve
 			rc = this.lp.solve();
 			solved = true;
 			Plugin.INSTANCE.logInfo("SolverLpSolve: solve returned "+getSolveRcDescription(rc));
@@ -641,14 +660,14 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 		catch (Exception e)		{
 			Plugin.INSTANCE.logError("SolverLpSolve: solve failed "+e);
 		}
-		//Number objective = result.getObjective();
 		
 		this.onSolvingEnd();
 		
 		boolean feasible   = false;
 		boolean unfeasible = false;
 		boolean optimal    = false;
-		float mipvalue     = 0.0f;
+		float   mipvalue   = 0.0f;
+		float   mipgap     = 0.0f;
 		if ( solved ){
 			switch ( rc ) {
 			case SOLVE_RC_SUBOPTIMAL:
@@ -661,8 +680,12 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 			}
 			if ( feasible || this.isSolverLinearRelaxation()) {
 				try {
+					// get the solution values
 					double[] lpSolveVars= this.lp.getPtrVariables();
 					mipvalue = (float) this.lp.getObjective();
+					mipgap = (float) this.lp.getMipGap(false); // relative
+					if ( optimal) { mipgap = 0.0f; }
+					// construct a solution
 					SolutionLp newSolution = (SolutionLp) this.constructSolution();
 					newSolution.setValue(mipvalue);
 					for ( Map.Entry<GeneratorLpVar, Integer> varentry : vars.entrySet())	{
@@ -675,9 +698,6 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 						}
 					} // traverse the vars
 					this.makeSolutionGoals(newSolution);
-					if ( optimal) {
-						this.setSolOptimalityGap(0.0f);
-					}
 				} 
 				catch (LpSolveException e) {
 					Plugin.INSTANCE.logError("SolverLpSolve: error in retrieving the solution "+e);
@@ -685,10 +705,11 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 			}
 			
 		}
-		this.setSolFeasible(feasible);
-		this.setSolUnfeasible(unfeasible);
-		this.setSolOptimal(optimal);
-		this.setSolValue(mipvalue);
+		this.setSolFeasible     (feasible);
+		this.setSolUnfeasible   (unfeasible);
+		this.setSolOptimal      (optimal);
+		this.setSolValue        (mipvalue);
+		this.setSolOptimalityGap(mipgap);
 		
 		// release the lp
 		this.releaseLp();
@@ -699,14 +720,51 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 	
 	/**
 	 * <!-- begin-user-doc -->
-	 * Implement the call back from GLPK
+	 * Implement the call back from LpSolve
 	 * <!-- end-user-doc -->
 	 */
-	private class CallBackListener implements MsgListener{
+	private class CallBackMsgListener implements MsgListener{
 		@Override
 		public void msgfunc(LpSolve arg0, Object arg1, int arg2) throws LpSolveException {
-			// TODO Auto-generated method stub
+			SolverLpSolveImpl solver = SolverLpSolveImpl.this;
+			// gap
+			float mipgap   = (float) solver.lp.getMipGap(false); // relative
+			float mipvalue = (float) solver.lp.getObjective();
+	        
+	        // Progress
+			String progress = "solving";
 			
+			// depth
+			long nofIterations  = solver.lp.getTotalIter();
+			long nofNodesTotal  = solver.lp.getTotalNodes();
+	        String depth = String.format("iters %1$d, nodes %2$d, total: %3$d", nofIterations, nofNodesTotal); 
+			
+			// value
+			boolean feasible = solver.lp.getSolutioncount()>0;
+			
+			solver.onSolverFeedback(depth, progress, mipgap, mipvalue, feasible);
+			solver.setSolOptimalityGap(mipgap);
+			
+		}
+	}; // class listener
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * Implement the call back from LpSolve
+	 * <!-- end-user-doc -->
+	 */
+	private class CallBackAbortListener implements AbortListener{
+
+		@Override
+		public boolean abortfunc(LpSolve arg0, Object arg1) throws LpSolveException {
+			boolean doAbort = false; 
+			if ( SolverLpSolveImpl.this.isRunRequestTerminate() ) {
+				// terminate
+				Plugin.INSTANCE.logWarning("SolverLpSolve: Request for terminate");
+				doAbort = true;
+				SolverLpSolveImpl.this.setRunInterrupted(true);
+			}
+			return doAbort;
 		}
 	}; // class listener
 	

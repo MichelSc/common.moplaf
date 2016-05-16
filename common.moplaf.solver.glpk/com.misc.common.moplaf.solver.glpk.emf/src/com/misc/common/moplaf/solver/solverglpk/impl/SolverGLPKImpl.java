@@ -944,22 +944,15 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 				Plugin.INSTANCE.logInfo("SolverGLPK: smcp returned "+rc);
 			}
 			else {
+				// set the params
 				glp_iocp parm = new glp_iocp();
 				int messagelevel = GLPKConstants.GLP_MSG_ERR;
 				switch ( this.getSolverLogLevel()) {
-			    case ENUM_NONE:
-					messagelevel = GLPKConstants.GLP_MSG_OFF;
-			        break;
-			    case ENUM_MIN:
-					messagelevel = GLPKConstants.GLP_MSG_ERR;
-			        break;
-			    case ENUM_NORMAL:
-					messagelevel = GLPKConstants.GLP_MSG_ON;
-			        break;
-			    case ENUM_FULL:
-					messagelevel = GLPKConstants.GLP_MSG_ALL;
-			        break;
-			    }  // switch on constraint type
+			    case ENUM_NONE:   messagelevel = GLPKConstants.GLP_MSG_OFF; break;
+			    case ENUM_MIN:    messagelevel = GLPKConstants.GLP_MSG_ERR; break;
+			    case ENUM_NORMAL: messagelevel = GLPKConstants.GLP_MSG_ON;  break;
+			    case ENUM_FULL:   messagelevel = GLPKConstants.GLP_MSG_ALL; break;
+			    }  
 				GLPK.glp_init_iocp(parm);
 				parm.setPresolve(GLPKConstants.GLP_ON);
 				parm.setMip_gap(this.getSolverOptimalityTolerance());
@@ -971,6 +964,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 				if ( this.isEnableGeneratingMixedCoverCuts()){parm.setCov_cuts(GLPKConstants.GLP_ON);}
 				if ( this.isEnableMixedIntegerRoundingCuts()){parm.setMir_cuts(GLPKConstants.GLP_ON);}
 				//parm.setTol_int(0.001);
+				// run the program
 				rc = GLPK.glp_intopt(lp, parm);
 				String rcstring = format_intopt_rc(rc);
 				Plugin.INSTANCE.logInfo("SolverGLPK: intopt returned "+rcstring);
@@ -989,12 +983,18 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		boolean unfeasible = false;
 		boolean optimal    = false;
 		float   mipvalue = 0.0f;
+		float   mipgap   = 0.0f;
+
 		int mipstatus = GLPK.glp_mip_status(lp);
 		if      ( mipstatus == GLPKConstants.GLP_OPT)    { optimal = true; feasible = true; }
 		else if ( mipstatus == GLPKConstants.GLP_FEAS)   { feasible = true; }
 		else if ( mipstatus == GLPKConstants.GLP_NOFEAS) { unfeasible = true; }
 		if ( feasible || this.isSolverLinearRelaxation()) {
+			// get the solution values
 			mipvalue = (float)GLPK.glp_mip_obj_val(lp);
+			mipgap   = this.getSolOptimalityGap(); // set by the call back, best I have
+			if ( optimal) { mipgap = 0.0f; }
+			// construct a solution
 			SolutionLp newSolution = (SolutionLp) this.constructSolution();
 			newSolution.setValue(mipvalue);
 			for ( Map.Entry<GeneratorLpVar, Integer> varentry : vars.entrySet())	{
@@ -1013,14 +1013,12 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 				}
 			} // traverse the vars
 			this.makeSolutionGoals(newSolution);
-			if ( optimal) {
-				this.setSolOptimalityGap(0.0f);
-			}
 		}
 		this.setSolFeasible(feasible);
 		this.setSolUnfeasible(unfeasible);
 		this.setSolOptimal(optimal);
 		this.setSolValue(mipvalue);
+		this.setSolOptimalityGap(mipgap);
 		
 		// release the lp
 		this.releaseLp();
