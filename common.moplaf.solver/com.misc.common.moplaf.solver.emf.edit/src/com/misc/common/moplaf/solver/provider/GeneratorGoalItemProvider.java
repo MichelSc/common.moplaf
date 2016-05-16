@@ -45,34 +45,9 @@ public class GeneratorGoalItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addGeneratorPropertyDescriptor(object);
 			addSelectedSolutionDisplayPropertyDescriptor(object);
-			addLabelPropertyDescriptor(object);
-			addSolutionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Generator feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addGeneratorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GeneratorGoal_Generator_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorGoal_Generator_feature", "_UI_GeneratorGoal_type"),
-				 SolverPackage.Literals.GENERATOR_GOAL__GENERATOR,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -89,55 +64,11 @@ public class GeneratorGoalItemProvider
 				 getString("_UI_GeneratorGoal_SelectedSolutionDisplay_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorGoal_SelectedSolutionDisplay_feature", "_UI_GeneratorGoal_type"),
 				 SolverPackage.Literals.GENERATOR_GOAL__SELECTED_SOLUTION_DISPLAY,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Label feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addLabelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GeneratorGoal_Label_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorGoal_Label_feature", "_UI_GeneratorGoal_type"),
-				 SolverPackage.Literals.GENERATOR_GOAL__LABEL,
 				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Solution feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSolutionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_GeneratorGoal_Solution_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorGoal_Solution_feature", "_UI_GeneratorGoal_type"),
-				 SolverPackage.Literals.GENERATOR_GOAL__SOLUTION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
+				 getString("_UI__30SolutionPropertyCategory"),
 				 null));
 	}
 
