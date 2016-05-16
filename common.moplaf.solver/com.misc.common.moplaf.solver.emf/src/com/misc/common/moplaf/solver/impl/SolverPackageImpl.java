@@ -3767,10 +3767,11 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 
 		initEEnum(enumLpFileFormatEEnum, EnumLpFileFormat.class, "EnumLpFileFormat");
 		addEEnumLiteral(enumLpFileFormatEEnum, EnumLpFileFormat.FILE_FORMAT_MPS);
-		addEEnumLiteral(enumLpFileFormatEEnum, EnumLpFileFormat.FILE_FORMAT_LP);
+		addEEnumLiteral(enumLpFileFormatEEnum, EnumLpFileFormat.FILE_FORMAT_CPLEX);
 		addEEnumLiteral(enumLpFileFormatEEnum, EnumLpFileFormat.FILE_FORMAT_GAMS);
 		addEEnumLiteral(enumLpFileFormatEEnum, EnumLpFileFormat.FILE_FORMAT_GLPK);
 		addEEnumLiteral(enumLpFileFormatEEnum, EnumLpFileFormat.FILE_FORMAT_SAV);
+		addEEnumLiteral(enumLpFileFormatEEnum, EnumLpFileFormat.FILE_FORMAT_LP_SOLVE);
 
 		// Initialize data types
 		initEDataType(iTupleVisitorEDataType, ITupleVisitor.class, "ITupleVisitor", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

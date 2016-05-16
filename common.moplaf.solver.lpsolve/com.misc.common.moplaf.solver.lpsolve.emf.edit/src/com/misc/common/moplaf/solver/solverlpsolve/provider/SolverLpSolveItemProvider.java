@@ -132,8 +132,10 @@ public class SolverLpSolveItemProvider extends SolverLpItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		SolverLpSolve solverLpSolve = (SolverLpSolve)object;
-		return getString("_UI_SolverLpSolve_type") + " " + solverLpSolve.getCurrentSolutionNr();
+		String label = ((SolverLpSolve)object).getCode();
+		return label == null || label.length() == 0 ?
+			getString("_UI_SolverLpSolve_type") :
+			getString("_UI_SolverLpSolve_type") + " " + label;
 	}
 	
 

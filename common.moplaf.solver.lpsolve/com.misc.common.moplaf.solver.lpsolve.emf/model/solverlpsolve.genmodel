@@ -8,6 +8,6 @@
   <foreignModel>solverlpsolve.ecore</foreignModel>
   <genPackages prefix="Solverlpsolve" basePackage="com.misc.common.moplaf.solver"
       disposableProviderFactory="true" ecorePackage="solverlpsolve.ecore#/">
-    <genClasses image="false" ecoreClass="solverlpsolve.ecore#//SolverLpSolve"/>
+    <genClasses image="false" ecoreClass="solverlpsolve.ecore#//SolverLpSolve" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/SolutionProvider/Code"/>
   </genPackages>
 </genmodel:GenModel>

@@ -347,47 +347,20 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 	 * <!-- end-user-doc -->
 	 */
 	private void writeLpToFilePrivate() {
-		String filepath = this.getFilePath();
-		if ( filepath==null){
+		String filePathToUse = this.getFilePath();
+		if ( filePathToUse==null){
 			Plugin.INSTANCE.logWarning("SolverCplex: no file path, write aborted");
 			return;
 		}
 		
-		// get the extension as is
-		int lastdot = filepath.lastIndexOf('.');
-		int lastslash = filepath.lastIndexOf('/');
-		String extension = "";
-		if ( lastdot>=0 && lastdot>lastslash ){
-			extension = filepath.substring(lastdot+1);
+		EnumLpFileFormat fileFormat = this.getFileFormat();
+		if ( fileFormat!=null ){
+			filePathToUse = fileFormat.extendFilePath(filePathToUse, this.isFileCompressed());
 		}
-		
-		// augment file path with extension, if no extension present
-		if ( extension.length()==0){
-			switch (this.getFileFormat() ) {
-		    case FILE_FORMAT_MPS:
-				filepath = filepath+".mps";
-		        break;
-		    case FILE_FORMAT_GAMS:
-		    	break;
-		    case FILE_FORMAT_LP:
-				filepath = filepath+".lp";
-		        break;
-		    case FILE_FORMAT_SAV:
-		    default:
-				filepath = filepath+".sav";
-		        break;
-		    }  // switch on format type
-		}
-		
-		// augment the file path with ".gz", if compressed and the extension is not already this
-		if ( this.isFileCompressed() ){
-			if ( !extension.equals(".gz")){
-				filepath = filepath+".gz";
-			}
-		}
+
 		try {
-			Plugin.INSTANCE.logInfo("SolverCplex: write to file "+filepath);
-			this.lp.exportModel(filepath);
+			Plugin.INSTANCE.logInfo("SolverCplex: write to file "+filePathToUse);
+			this.lp.exportModel(filePathToUse);
 		} catch (IloException e) {
 			Plugin.INSTANCE.logError("SolverCplex: write failed, "+e.getMessage());
 		}

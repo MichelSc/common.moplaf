@@ -29,16 +29,14 @@ public enum EnumLpFileFormat implements Enumerator {
 	FILE_FORMAT_MPS(0, "FileFormatMps", "mps"),
 
 	/**
-	 * The '<em><b>File Format Lp</b></em>' literal object.
+	 * The '<em><b>File Format Cplex</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #FILE_FORMAT_LP_VALUE
+	 * @see #FILE_FORMAT_CPLEX_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	FILE_FORMAT_LP(1, "FileFormatLp", "lp"),
-
-	/**
+	FILE_FORMAT_CPLEX(1, "FileFormatCplex", "cplex"), /**
 	 * The '<em><b>File Format Gams</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,7 +60,15 @@ public enum EnumLpFileFormat implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FILE_FORMAT_SAV(3, "FileFormatSav", "sav");
+	FILE_FORMAT_SAV(3, "FileFormatSav", "sav"), /**
+	 * The '<em><b>File Format Lp Solve</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #FILE_FORMAT_LP_SOLVE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	FILE_FORMAT_LP_SOLVE(5, "FileFormatLpSolve", "lpsolve");
 
 	/**
 	 * The '<em><b>File Format Mps</b></em>' literal value.
@@ -80,19 +86,19 @@ public enum EnumLpFileFormat implements Enumerator {
 	public static final int FILE_FORMAT_MPS_VALUE = 0;
 
 	/**
-	 * The '<em><b>File Format Lp</b></em>' literal value.
+	 * The '<em><b>File Format Cplex</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>File Format Lp</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>File Format Cplex</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #FILE_FORMAT_LP
-	 * @model name="FileFormatLp" literal="lp"
+	 * @see #FILE_FORMAT_CPLEX
+	 * @model name="FileFormatCplex" literal="cplex"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int FILE_FORMAT_LP_VALUE = 1;
+	public static final int FILE_FORMAT_CPLEX_VALUE = 1;
 
 	/**
 	 * The '<em><b>File Format Gams</b></em>' literal value.
@@ -140,6 +146,21 @@ public enum EnumLpFileFormat implements Enumerator {
 	public static final int FILE_FORMAT_SAV_VALUE = 3;
 
 	/**
+	 * The '<em><b>File Format Lp Solve</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>File Format Lp Solve</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #FILE_FORMAT_LP_SOLVE
+	 * @model name="FileFormatLpSolve" literal="lpsolve"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int FILE_FORMAT_LP_SOLVE_VALUE = 5;
+
+	/**
 	 * An array of all the '<em><b>Enum Lp File Format</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -148,10 +169,11 @@ public enum EnumLpFileFormat implements Enumerator {
 	private static final EnumLpFileFormat[] VALUES_ARRAY =
 		new EnumLpFileFormat[] {
 			FILE_FORMAT_MPS,
-			FILE_FORMAT_LP,
+			FILE_FORMAT_CPLEX,
 			FILE_FORMAT_GAMS,
 			FILE_FORMAT_GLPK,
 			FILE_FORMAT_SAV,
+			FILE_FORMAT_LP_SOLVE,
 		};
 
 	/**
@@ -209,10 +231,11 @@ public enum EnumLpFileFormat implements Enumerator {
 	public static EnumLpFileFormat get(int value) {
 		switch (value) {
 			case FILE_FORMAT_MPS_VALUE: return FILE_FORMAT_MPS;
-			case FILE_FORMAT_LP_VALUE: return FILE_FORMAT_LP;
+			case FILE_FORMAT_CPLEX_VALUE: return FILE_FORMAT_CPLEX;
 			case FILE_FORMAT_GAMS_VALUE: return FILE_FORMAT_GAMS;
 			case FILE_FORMAT_GLPK_VALUE: return FILE_FORMAT_GLPK;
 			case FILE_FORMAT_SAV_VALUE: return FILE_FORMAT_SAV;
+			case FILE_FORMAT_LP_SOLVE_VALUE: return FILE_FORMAT_LP_SOLVE;
 		}
 		return null;
 	}
@@ -288,4 +311,41 @@ public enum EnumLpFileFormat implements Enumerator {
 		return literal;
 	}
 	
+	public String getFileExtension(){
+		switch ( this.value){
+		case FILE_FORMAT_CPLEX_VALUE: return "lp";
+		case FILE_FORMAT_GLPK_VALUE: return "prob";
+		case FILE_FORMAT_MPS_VALUE: return "mps";
+		}
+		return null;
+	}
+	
+	public String extendFilePath(String filePath, boolean compressed){
+
+		// retrieve the extension
+		int lastdot = filePath.lastIndexOf('.');
+		int lastslash = filePath.lastIndexOf('/');
+		String extension = "";
+		if ( lastdot>=0 && lastdot>lastslash ){
+			extension = filePath.substring(lastdot+1);
+		}
+		
+		// augment file path with extension, if no extension present
+		String fileToReturn = filePath;
+		if ( extension.length()==0){
+			String thisExtension = this.getFileExtension();
+			if ( thisExtension!=null){
+				fileToReturn = filePath+"."+thisExtension;
+		    } 
+		}
+		
+		// augment the file path with ".gz", if compressed and the extension is not already this
+		if ( compressed ){
+			if ( !extension.equals(".gz")){
+				fileToReturn = fileToReturn+".gz";
+			}
+		}
+		return fileToReturn;
+	}
+
 } //EnumLpFileFormat

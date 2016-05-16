@@ -425,53 +425,33 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 			owningmodel = true;
 		}
 		
-		String filepath = this.getFilePath();
-		if ( filepath==null){
+		String filePathToUse = this.getFilePath();
+		if ( filePathToUse==null){
 			Plugin.INSTANCE.logWarning("SolverGLPK: no file path, write aborted");
 			return;
 		}
-		int lastdot = filepath.lastIndexOf('.');
-		int lastslash = filepath.lastIndexOf('/');
-		String extension = "";
-		if ( lastdot>=0 && lastdot>lastslash ){
-			extension = filepath.substring(lastdot+1);
+
+		EnumLpFileFormat fileFormat = this.getFileFormat();
+		if ( fileFormat!=null ){
+			filePathToUse = fileFormat.extendFilePath(filePathToUse, this.isFileCompressed());
 		}
-		if ( this.isFileCompressed() ){
-			if ( !extension.equals(".gz")){
-				filepath = filepath+".gz";
-			}
-		}
-		else if ( extension.length()==0){
-			switch (this.getFileFormat() ) {
-		    case FILE_FORMAT_MPS:
-				filepath = filepath+".mps";
-		        break;
-		    case FILE_FORMAT_GAMS:
-		    	break;
-		    case FILE_FORMAT_LP:
-				filepath = filepath+".lp";
-		        break;
-		    case FILE_FORMAT_GLPK:
-		    default:
-				filepath = filepath+".prob";
-		        break;
-		    }  // switch on constraint type
-		}
-		
-		this.actualfilepath = filepath;
+
+		this.actualfilepath = filePathToUse;
 		switch (this.getFileFormat() ) {
-		    case FILE_FORMAT_MPS:
-				GLPK.glp_write_mps(lp, GLPKConstants.GLP_MPS_FILE,  null, filepath); 
-		        break;
-		    case FILE_FORMAT_GAMS:
-				throw new UnsupportedOperationException();
-		    case FILE_FORMAT_LP:
-				GLPK.glp_write_lp(lp, null, filepath); 
-		        break;
-		    case FILE_FORMAT_GLPK:
-		    default:
-				GLPK.glp_write_prob(lp, 0, filepath); 
-		        break;
+	    case FILE_FORMAT_GAMS:
+	    case FILE_FORMAT_LP_SOLVE:
+	    case FILE_FORMAT_SAV:
+			throw new UnsupportedOperationException();
+	    case FILE_FORMAT_MPS:
+			GLPK.glp_write_mps(lp, GLPKConstants.GLP_MPS_FILE,  null, filePathToUse); 
+	        break;
+	    case FILE_FORMAT_CPLEX:
+			GLPK.glp_write_lp(lp, null, filePathToUse); 
+	        break;
+	    case FILE_FORMAT_GLPK:
+	    default:
+			GLPK.glp_write_prob(lp, 0, filePathToUse); 
+	        break;
 	    }  // switch on constraint type
 		
 		if( owningmodel ){

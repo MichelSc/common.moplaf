@@ -207,51 +207,28 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 			owningmodel = true;
 		}
 		
-		String filepath = this.getFilePath();
-		if ( filepath==null){
+		String filePathToUse = this.getFilePath();
+		if ( filePathToUse==null){
 			Plugin.INSTANCE.logWarning("SolverLpSolvze: no file path, write aborted");
 			return;
 		}
-		int lastdot = filepath.lastIndexOf('.');
-		int lastslash = filepath.lastIndexOf('/');
-		String extension = "";
-		if ( lastdot>=0 && lastdot>lastslash ){
-			extension = filepath.substring(lastdot+1);
+		EnumLpFileFormat fileFormat = this.getFileFormat();
+		if ( fileFormat!=null ){
+			filePathToUse = fileFormat.extendFilePath(filePathToUse, false);
 		}
-		if ( this.isFileCompressed() ){
-			if ( !extension.equals(".gz")){
-				filepath = filepath+".gz";
-			}
-		}
-		else if ( extension.length()==0){
-			switch (this.getFileFormat() ) {
-		    case FILE_FORMAT_MPS:
-				filepath = filepath+".mps";
-		        break;
-		    case FILE_FORMAT_GAMS:
-		    	break;
-		    case FILE_FORMAT_LP:
-				filepath = filepath+".lp";
-		        break;
-		    case FILE_FORMAT_GLPK:
-		    default:
-				filepath = filepath+".prob";
-		        break;
-		    }  // switch on constraint type
-		}
-		
-		this.actualfilepath = filepath;
-		
+
 		try {
 			switch (this.getFileFormat() ) {
 			    case FILE_FORMAT_MPS:
-					this.lp.writeMps(filepath);;
+					this.lp.writeMps(filePathToUse);
 			        break;
-			    case FILE_FORMAT_LP:
-					this.lp.writeLp(filepath);
+			    case FILE_FORMAT_LP_SOLVE:
+					this.lp.writeLp(filePathToUse);
 					break;
 			    case FILE_FORMAT_GAMS:
 			    case FILE_FORMAT_GLPK:
+			    case FILE_FORMAT_SAV:
+			    case FILE_FORMAT_CPLEX:
 			    default:
 					Plugin.INSTANCE.logError("SolverLpSolve: file type not supported, nothing written");
 				    break;
@@ -455,7 +432,6 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 	private LpSolve lp;
 	private Map<GeneratorLpVar,   Integer> vars; // 1-based
 	private Map<GeneratorElement, Integer> cons; // 1-based
-	private String actualfilepath = null;
 	private int var_counter = 0;
 	private int cons_counter = 0;
 	 
@@ -651,14 +627,13 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 		CallBackListener listener = new CallBackListener();
 		Object userHandle = this;
 		int mask = 0; 
+		boolean solved = false;
+		int rc = 0;
 		try {
 			this.lp.putMsgfunc(listener, userHandle, mask);
-			int rc = 1;
-			this.lp.solve();
-			if ( this.isSolverLinearRelaxation() ) {
-			}
-			else {
-			} // if mip
+			rc = this.lp.solve();
+			solved = true;
+			Plugin.INSTANCE.logInfo("SolverLpSolve: solve returned "+getSolveRcDescription(rc));
 		}
 		catch (LpSolveException e1){
 			Plugin.INSTANCE.logError("SolverLpSolve: solve failed, lpsolve exception "+e1);
@@ -670,33 +645,45 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 		
 		this.onSolvingEnd();
 		
-		// do something with the solution
 		boolean feasible   = false;
 		boolean unfeasible = false;
 		boolean optimal    = false;
-		float   mipvalue = 0.0f;
-		if ( feasible || this.isSolverLinearRelaxation()) {
-			mipvalue = 0.0f;
-			SolutionLp newSolution = (SolutionLp) this.constructSolution();
-			newSolution.setValue(mipvalue);
-			for ( Map.Entry<GeneratorLpVar, Integer> varentry : vars.entrySet())	{
-				int varindex = varentry.getValue().intValue();
-				GeneratorLpVar lpvar = varentry.getKey();
-				float optimalvalue = 0.0f;
-				if ( this.isSolverLinearRelaxation() )	{
-					optimalvalue = 0.0f;
-				}
-				else {
-				}
-				if ( Math.abs(optimalvalue)>0.00001){
-					SolutionVar solvervar = newSolution.constructSolutionVar(lpvar);
-					solvervar.setOptimalValue(optimalvalue);
-				}
-			} // traverse the vars
-			this.makeSolutionGoals(newSolution);
-			if ( optimal) {
-				this.setSolOptimalityGap(0.0f);
+		float mipvalue     = 0.0f;
+		if ( solved ){
+			switch ( rc ) {
+			case SOLVE_RC_SUBOPTIMAL:
+				feasible = true;
+			case SOLVE_RC_OPTIMAL:
+				feasible = true;
+				optimal = true;
+			case SOLVE_RC_INFEASIBLE:
+				unfeasible = true;
 			}
+			if ( feasible || this.isSolverLinearRelaxation()) {
+				try {
+					double[] lpSolveVars= this.lp.getPtrVariables();
+					mipvalue = (float) this.lp.getObjective();
+					SolutionLp newSolution = (SolutionLp) this.constructSolution();
+					newSolution.setValue(mipvalue);
+					for ( Map.Entry<GeneratorLpVar, Integer> varentry : vars.entrySet())	{
+						int varindex = varentry.getValue().intValue();
+						GeneratorLpVar lpvar = varentry.getKey();
+						double optimalvalue = lpSolveVars[varindex-1];
+						if ( Math.abs(optimalvalue)>0.00001){
+							SolutionVar solvervar = newSolution.constructSolutionVar(lpvar);
+							solvervar.setOptimalValue((float) optimalvalue);
+						}
+					} // traverse the vars
+					this.makeSolutionGoals(newSolution);
+					if ( optimal) {
+						this.setSolOptimalityGap(0.0f);
+					}
+				} 
+				catch (LpSolveException e) {
+					Plugin.INSTANCE.logError("SolverLpSolve: error in retrieving the solution "+e);
+				}
+			}
+			
 		}
 		this.setSolFeasible(feasible);
 		this.setSolUnfeasible(unfeasible);
@@ -722,7 +709,52 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 			
 		}
 	}; // class listener
-
 	
+	private static final int SOLVE_RC_NOMEMORY    = -2;
+	private static final int SOLVE_RC_OPTIMAL     = 0;
+	private static final int SOLVE_RC_SUBOPTIMAL  = 1;
+	private static final int SOLVE_RC_INFEASIBLE  = 2;
+	private static final int SOLVE_RC_UNBOUNDED   = 3;
+	private static final int SOLVE_RC_DEGENERATE  = 4;
+	private static final int SOLVE_RC_NUMFAILURE  = 5;
+	private static final int SOLVE_RC_USERABORT   = 6;
+	private static final int SOLVE_RC_TIMEOUT     = 7;
+	private static final int SOLVE_RC_PRESOLVED   = 9;
+	private static final int SOLVE_RC_NUMFAILURE2 = 25;
+	
+	static private String getSolveRcDescription(int rc){
+		switch (rc){
+		case SOLVE_RC_NOMEMORY:
+			return "Out of memory";
+		case SOLVE_RC_OPTIMAL:
+			return "An optimal solution was obtained";
+		case SOLVE_RC_SUBOPTIMAL:
+//			A timeout occured (set via set_timeout or with the -timeout option in lp_solve)
+//		    set_break_at_first was called so that the first found integer solution is found (-f option in lp_solve)
+//		    set_break_at_value was called so that when integer solution is found that is better than the specified value that it stops (-o option in lp_solve)
+//		    set_mip_gap was called (-g/-ga/-gr options in lp_solve) to specify a MIP gap
+//		    An abort function is installed (put_abortfunc) and this function returned TRUE
+//		    At some point not enough memory could not be allocated 		SOVE_RC_ 
+			return "The model is sub-optimal. Only happens if there are integer variables and there is already an integer solution found. The solution is not guaranteed the most optimal one.";
+		case SOLVE_RC_INFEASIBLE:
+			return "The model is infeasible";
+		case SOLVE_RC_UNBOUNDED:
+			return "The model is unbounded";
+		case SOLVE_RC_DEGENERATE:
+			return "The model is degenerative";
+		case SOLVE_RC_NUMFAILURE:
+			return "Numerical failure encountered";
+		case SOLVE_RC_USERABORT:
+			return "The abort routine returned TRUE. See put_abortfunc";
+		case SOLVE_RC_TIMEOUT:
+			return "A timeout occurred. A timeout was set via set_timeout";
+		case SOLVE_RC_PRESOLVED:
+			return "The model could be solved by presolve. This can only happen if presolve is active via set_presolve";
+		case SOLVE_RC_NUMFAILURE2:
+			return "Accuracy error encountered";
+		}
+		return "Code unknown";
+	}
+		
 	
 } //SolverLpSolveImpl

@@ -447,10 +447,11 @@
   <eClassifiers xsi:type="ecore:EDataType" name="Exception" instanceClassName="java.lang.Exception"/>
   <eClassifiers xsi:type="ecore:EEnum" name="EnumLpFileFormat">
     <eLiterals name="FileFormatMps" literal="mps"/>
-    <eLiterals name="FileFormatLp" value="1" literal="lp"/>
+    <eLiterals name="FileFormatCplex" value="1" literal="cplex"/>
     <eLiterals name="FileFormatGams" value="2" literal="gams"/>
     <eLiterals name="FileFormatGLPK" value="4" literal="GLPK"/>
     <eLiterals name="FileFormatSav" value="3" literal="sav"/>
+    <eLiterals name="FileFormatLpSolve" value="5" literal="lpsolve"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorCpCons" abstract="true" eSuperTypes="#//GeneratorCons">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Post" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
