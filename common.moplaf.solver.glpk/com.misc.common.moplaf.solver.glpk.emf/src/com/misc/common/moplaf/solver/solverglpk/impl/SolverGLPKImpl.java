@@ -742,8 +742,8 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		}
 		this.vars = null;
 		this.cons = null;
-		this.var_counter  = 1;
-		this.cons_counter = 1;
+		this.var_counter  = 0;
+		this.cons_counter = 0;
 	}
 	
 	/**
@@ -763,7 +763,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 				}
 				for ( SolutionVar varSol : this.getInitialSolution().getVars()){
 					double optimalValue = varSol.getOptimalValue();
-				    int varindex = vars.get(varSol.getVar()).intValue();
+				    int varindex = vars.get(varSol.getVar());
 				    GLPK.doubleArray_setitem(array, varindex, optimalValue);
 				}
 				int rc = GLPK.glp_ios_heur_sol(tree, array); 
@@ -849,7 +849,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 	    for ( GeneratorLpTerm lpterm : linear.getLpTerm())			{
 	    	termindex++;
 		    GeneratorLpVar lpvar = lpterm.getLpVar();
-		    int lpvarindex = this.vars.get(lpvar).intValue();
+		    int lpvarindex = this.vars.get(lpvar);
 		    float coefficient = lpterm.getCoeff();
 		    GLPK.intArray_setitem   (ind, termindex, lpvarindex);
 		    GLPK.doubleArray_setitem(val, termindex, coefficient);
@@ -875,7 +875,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 			GeneratorLpVar lpvar = goalTerm.getLpVar();
 			float coefficient = goalTerm.getCoeff()*direction*weight;
 			if ( coefficient!=0.0f){
-			    int varindex = this.vars.get(lpvar).intValue();
+			    int varindex = this.vars.get(lpvar);
 				GLPK.glp_set_obj_coef(this.lp, varindex, coefficient);
 			}
 		}
@@ -998,7 +998,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 			SolutionLp newSolution = (SolutionLp) this.constructSolution();
 			newSolution.setValue(mipvalue);
 			for ( Map.Entry<GeneratorLpVar, Integer> varentry : vars.entrySet())	{
-				int varindex = varentry.getValue().intValue();
+				int varindex = varentry.getValue();
 				GeneratorLpVar lpvar = varentry.getKey();
 				float optimalvalue = 0f;
 				if ( this.isSolverLinearRelaxation() )	{
