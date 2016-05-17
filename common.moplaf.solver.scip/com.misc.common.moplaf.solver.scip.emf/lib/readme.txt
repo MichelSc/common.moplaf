@@ -21,3 +21,7 @@ the solution process via SCIPsolve().
 Make sure to also call SCIPreleaseVar() if you do not need the variable pointer anymore. For 
 an explanation of creating and releasing objects, please see the doxygen documentation.
 
+this might help if difficult to link under linux
+https://stackoverflow.com/questions/34866243/jni-error-of-scip
+http://stackoverflow.com/questions/25492560/scip-installation-produce-broken-link
+
