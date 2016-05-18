@@ -25,10 +25,12 @@ import com.misc.common.moplaf.solver.solverscip.SolverscipPackage;
 import de.zib.jscip.nativ.NativeScipException;
 import de.zib.jscip.nativ.jni.JniScip;
 import de.zib.jscip.nativ.jni.JniScipConsLinear;
+import de.zib.jscip.nativ.jni.JniScipRetcode;
 import de.zib.jscip.nativ.jni.JniScipStatus;
 import de.zib.jscip.nativ.jni.JniScipVar;
 import de.zib.jscip.nativ.jni.JniScipVartype;
 
+import java.io.FileOutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
@@ -197,17 +199,6 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 		fileCompressed = newFileCompressed;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverscipPackage.SOLVER_SCIP__FILE_COMPRESSED, oldFileCompressed, fileCompressed));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void writeLpToFile() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -400,7 +391,47 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 	private JniScipConsLinear envScipConsLinear = null; //new JniScipConsLinear();
 	private long consScip = 0;
 	private long consScipVar = 0; 
-	private long consScipConsLinear = 0; 
+	private long consScipConsLinear = 0;
+	
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void writeLpToFile() {
+		boolean owningmodel = false;
+		if ( this.envScip==null){
+			this.loadLp();
+			owningmodel = true;
+		}
+		
+//		String filePathToUse = this.getFilePath();
+//		if ( filePathToUse==null){
+//			Plugin.INSTANCE.logWarning("SolverScip: no file path, write aborted");
+//			return;
+//		}
+		EnumLpFileFormat fileFormat = this.getFileFormat();
+		String extensionToUse = null;
+		if ( fileFormat!=null ){
+			extensionToUse = fileFormat.getFileExtension();
+//			filePathToUse = fileFormat.extendFilePath(filePathToUse, false);
+		}
+
+		try {
+//			FileOutputStream fileStream = new FileOutputStream(filePathToUse);
+			Object file = null;
+			this.envScip.printOrigProblem(this.consScip, 0, extensionToUse, false);
+		}
+		catch ( Exception e ){
+			Plugin.INSTANCE.logError("SolverScip: writeLpToFile failed "+e);
+		}
+		
+		if( owningmodel ){
+			this.releaseLp();
+		}
+	}
+
+	
 
 	 
 	/**
@@ -416,6 +447,7 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 			} catch (NativeScipException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				Plugin.INSTANCE.logError("SolverScip: releaseLp failed, native scip exception "+e.getMessage());
 			}
 
 		}
@@ -444,6 +476,7 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 		String varname = var.getCode();
 		// make the var
         long varNumber = this.envScip.createVarBasic(this.consScip, varname, lb, ub, 0.0, vartype);
+        this.envScip.addVar(this.consScip, varNumber);
 		this.vars.put((GeneratorLpVar)var, varNumber);
 	}
 
@@ -487,7 +520,7 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 				                                                       lb, 
 				                                                       ub);
 		this.cons.put(element, consnumber);
-		this.envScip.addCons(this.consScip, consnumber); // is this necessary?
+		this.envScip.addCons(this.consScip, consnumber); 
 	}
 
 	/**
@@ -535,12 +568,14 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 			this.consScip = this.envScip.create();
 			this.envScip.printVersion(this.consScip, 0);
 			// set message handler of SCIP quiet (as a result SCIP does not produce any output to stdout and stderr)
-			long messageHandler = 0;
-			this.envScip.setMessagehdlr(this.consScip, messageHandler);
-			this.envScip.setMessagehdlrQuiet(this.consScip, true);
+//			long messageHandler = 0;
+//			this.envScip.setMessagehdlr(this.consScip, messageHandler);
+			this.envScip.setMessagehdlrQuiet(this.consScip, false);
 
 			/* write all SCIP output to log file */
-			this.envScip.setMessagehdlrLogfile(this.consScip, "scip.log");
+//			this.envScip.setMessagehdlrLogfile(this.consScip, "scip.log");
+			this.envScip.setMessagehdlrLogfile(this.consScip, "C:/Temp/scip.log");
+			
 
 			/* include default plugins od f SCIP */
 			this.envScip.includeDefaultPlugins(this.consScip);
@@ -554,11 +589,17 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 			
 			// should happen somewhere
 			// env.releaseCons(scip, consLinear);
+			Plugin.INSTANCE.logInfo("SolverScip: lp built ");
 
 		}
 		catch (Exception e) {
 			e.printStackTrace();
-			Plugin.INSTANCE.logError("SolverScip: load failed, "+e.getMessage());
+			Plugin.INSTANCE.logError("SolverScip: load failed, exception "+e.getMessage());
+			this.releaseLp();
+		}
+		catch (Throwable t) {
+			t.printStackTrace();
+			Plugin.INSTANCE.logError("SolverScip: load failed, throwable "+t.getMessage());
 			this.releaseLp();
 		}
 	} // method lp load
@@ -592,11 +633,12 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 			this.getSolverOptimalityTolerance();
 			this.getSolverMaxDuration();
 			// do the solving
-			this.envScip.presolve(this.consScip); // necessary?
+			//this.envScip.presolve(this.consScip); // necessary?
+			Plugin.INSTANCE.logInfo("SolverScip: presolved ");
 			this.envScip.solve(this.consScip);
 			solveStatus   = this.envScip.getStatus(this.consScip);
 			//double solValue = this.envScip.getPrimalbound(this.consScip);
-			Plugin.INSTANCE.logInfo("SolverScip: intopt returned "+solveStatus);
+			Plugin.INSTANCE.logInfo("SolverScip: intopt returned "+getSolveStatusDescription(solveStatus));
 		}
 		catch (Exception e)		{
 			Plugin.INSTANCE.logError("SolverScip: solve failed "+e);
@@ -665,4 +707,87 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 		this.releaseLp();
 		
 	} // method SolveLp
+
+	
+	static private String getSolveRcDescription(int rc){
+		switch (rc){
+	    case JniScipRetcode.SCIP_OKAY:    
+	    	return "normal termination";
+		case JniScipRetcode.SCIP_ERROR:
+			return "unspecified error";
+		case JniScipRetcode.SCIP_NOMEMORY:
+			return "insufficient memory error";
+		case JniScipRetcode.SCIP_READERROR:
+			return "read error";
+		case JniScipRetcode.SCIP_WRITEERROR:
+			return "write error";
+		case JniScipRetcode.SCIP_NOFILE:
+			return "file not found error";
+		case JniScipRetcode.SCIP_FILECREATEERROR:
+			return "cannot create file";
+		case JniScipRetcode.SCIP_LPERROR:
+			return "error in LP solver";
+		case JniScipRetcode.SCIP_NOPROBLEM:
+			return "no problem exists";
+		case JniScipRetcode.SCIP_INVALIDCALL:
+			return "method cannot be called at this time in solution process";
+		case JniScipRetcode.SCIP_INVALIDDATA:
+			return "error in input data";
+		case JniScipRetcode.SCIP_INVALIDRESULT:
+			return "method returned an invalid result code";
+		case JniScipRetcode.SCIP_PLUGINNOTFOUND:
+			return "a required plugin was not found";
+		case JniScipRetcode.SCIP_PARAMETERUNKNOWN:
+			return "the parameter with the given name was not found";
+		case JniScipRetcode.SCIP_PARAMETERWRONGTYPE:
+			return "the parameter is not of the expected type";
+		case JniScipRetcode.SCIP_PARAMETERWRONGVAL:
+			return "the value is invalid for the given parameter";
+		case JniScipRetcode.SCIP_KEYALREADYEXISTING:
+			return "the given key is already existing in table";
+		case JniScipRetcode.SCIP_MAXDEPTHLEVEL:
+			return "maximal branching depth level exceeded";
+		case JniScipRetcode.SCIP_BRANCHERROR:
+			return "no branching could be created";
+		default:
+			return "unknown return code "+rc;
+		}
+	}
+
+	static private String getSolveStatusDescription(int rc){
+		switch (rc){
+		case JniScipStatus.SCIP_STATUS_UNKNOWN: 	
+			return "the solving status is not yet known";
+		case JniScipStatus.SCIP_STATUS_USERINTERRUPT: 	
+			return "the user interrupted the solving process (by pressing CTRL-C)";
+		case JniScipStatus.SCIP_STATUS_NODELIMIT: 	
+			return "the solving process was interrupted because the node limit was reached";
+		case JniScipStatus.SCIP_STATUS_TOTALNODELIMIT: 	
+			return "the solving process was interrupted because the total node limit was reached (incl. restarts)";
+		case JniScipStatus.SCIP_STATUS_STALLNODELIMIT: 	
+			return "the solving process was interrupted because the stalling node limit was reached (no inprovement w.r.t. primal bound)";
+		case JniScipStatus.SCIP_STATUS_TIMELIMIT: 	
+			return "the solving process was interrupted because the time limit was reached";
+		case JniScipStatus.SCIP_STATUS_MEMLIMIT: 	
+			return "the solving process was interrupted because the memory limit was reached";
+		case JniScipStatus.SCIP_STATUS_GAPLIMIT: 	
+			return "the solving process was interrupted because the gap limit was reached";
+		case JniScipStatus.SCIP_STATUS_SOLLIMIT: 	
+			return "the solving process was interrupted because the solution limit was reached";
+		case JniScipStatus.SCIP_STATUS_BESTSOLLIMIT: 	
+			return "the solving process was interrupted because the solution improvement limit was reached";
+		case JniScipStatus.SCIP_STATUS_RESTARTLIMIT: 	
+			return "the solving process was interrupted because the restart limit was reached";
+		case JniScipStatus.SCIP_STATUS_OPTIMAL: 	
+			return "the problem was solved to optimality, an optimal solution is available";
+		case JniScipStatus.SCIP_STATUS_INFEASIBLE: 	
+			return "the problem was proven to be infeasible";
+		case JniScipStatus.SCIP_STATUS_UNBOUNDED: 	
+			return "the problem was proven to be unbounded";
+		case JniScipStatus.SCIP_STATUS_INFORUNBD: 	
+			return "the problem was proven to be either infeasible or unbounded";
+		default:
+			return "unknown status code "+rc;
+		}
+	}
 } //SolverScipImpl

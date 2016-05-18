@@ -6,7 +6,7 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .,
  lib/lpsolve55j.jar
 Bundle-Vendor: %providerName
-Bundle-NativeCode: lib/x86_64-linux/liblpsolve55j.so;osname = Linux;processor = x86-64
+Bundle-NativeCode: lib/x86_64-linux/liblpsolve55j.so;osname=Linux;processor=x86-64
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: com.misc.common.moplaf.solver.solverlpsolve,
