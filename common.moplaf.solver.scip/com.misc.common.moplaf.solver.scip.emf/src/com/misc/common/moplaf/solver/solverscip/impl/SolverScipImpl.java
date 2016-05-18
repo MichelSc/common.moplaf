@@ -27,10 +27,8 @@ import de.zib.jscip.nativ.jni.JniScip;
 import de.zib.jscip.nativ.jni.JniScipConsLinear;
 import de.zib.jscip.nativ.jni.JniScipRetcode;
 import de.zib.jscip.nativ.jni.JniScipStatus;
-import de.zib.jscip.nativ.jni.JniScipVar;
 import de.zib.jscip.nativ.jni.JniScipVartype;
 
-import java.io.FileOutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
@@ -387,11 +385,9 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 
 	// scip
 	private JniScip           envScip = null;
-	private JniScipVar        envScipVar = null; //new JniScipVar();
+//	private JniScipVar        envScipVar = null; //new JniScipVar();
 	private JniScipConsLinear envScipConsLinear = null; //new JniScipConsLinear();
 	private long consScip = 0;
-	private long consScipVar = 0; 
-	private long consScipConsLinear = 0;
 	
 	
 	/**
@@ -430,9 +426,6 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 			this.releaseLp();
 		}
 	}
-
-	
-
 	 
 	/**
 	 * <!-- begin-user-doc -->
@@ -445,18 +438,15 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 			try {
 				this.envScip.free(this.consScip);
 			} catch (NativeScipException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 				Plugin.INSTANCE.logError("SolverScip: releaseLp failed, native scip exception "+e.getMessage());
 			}
 
 		}
 		this.envScip = null;
-		this.envScipVar = null;
+//		this.envScipVar = null;
 		this.envScipConsLinear = null;
 		this.consScip = 0;
-		this.consScipVar = 0; 
-		this.consScipConsLinear = 0; 
 		this.vars = null;
 		this.cons = null;
 	}
@@ -562,7 +552,7 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 		
 		try {
 			this.envScip = new JniScip();
-			this.envScipVar = new JniScipVar();
+//			this.envScipVar = new JniScipVar();
 			this.envScipConsLinear = new JniScipConsLinear();
 			
 			this.consScip = this.envScip.create();
@@ -573,9 +563,9 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 			this.envScip.setMessagehdlrQuiet(this.consScip, false);
 
 			/* write all SCIP output to log file */
-//			this.envScip.setMessagehdlrLogfile(this.consScip, "scip.log");
-			this.envScip.setMessagehdlrLogfile(this.consScip, "C:/Temp/scip.log");
-			
+			if ( this.getFilePath()!=null){
+				this.envScip.setMessagehdlrLogfile(this.consScip, this.getFilePath());
+			}
 
 			/* include default plugins od f SCIP */
 			this.envScip.includeDefaultPlugins(this.consScip);
@@ -588,7 +578,10 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 			this.buildGoals();
 			
 			// should happen somewhere
-			// env.releaseCons(scip, consLinear);
+			for ( long consNumber : this.cons.values()){
+				// decreases usage counter of constraint, if the usage pointer reaches zero the constraint gets freed
+				this.envScip.releaseCons(this.consScip, consNumber); // why is this necessary?
+			}
 			Plugin.INSTANCE.logInfo("SolverScip: lp built ");
 
 		}
