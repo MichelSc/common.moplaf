@@ -402,22 +402,22 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 			owningmodel = true;
 		}
 		
-//		String filePathToUse = this.getFilePath();
-//		if ( filePathToUse==null){
-//			Plugin.INSTANCE.logWarning("SolverScip: no file path, write aborted");
-//			return;
-//		}
+		String filePathToUse = this.getFilePath();
+		if ( filePathToUse==null){
+			Plugin.INSTANCE.logWarning("SolverScip: no file path, write aborted");
+			return;
+		}
 		EnumLpFileFormat fileFormat = this.getFileFormat();
 		String extensionToUse = null;
 		if ( fileFormat!=null ){
 			extensionToUse = fileFormat.getFileExtension();
-//			filePathToUse = fileFormat.extendFilePath(filePathToUse, false);
+			filePathToUse = fileFormat.extendFilePath(filePathToUse, false);
 		}
 
 		try {
-//			FileOutputStream fileStream = new FileOutputStream(filePathToUse);
-			File newFile = new File("C:/Temp/testmichel");
-			this.envScip.printOrigProblem(this.consScip, 0, extensionToUse, false);
+			String temp = extensionToUse==null ? "null" : extensionToUse;
+			Plugin.INSTANCE.logError("SolverScip: writeLpToFile entensionUsed "+ temp);
+			this.envScip.writeOrigProblem(this.consScip, filePathToUse, extensionToUse, false);
 		}
 		catch ( Exception e ){
 			Plugin.INSTANCE.logError("SolverScip: writeLpToFile failed "+e);
@@ -564,9 +564,7 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 			this.envScip.setMessagehdlrQuiet(this.consScip, false);
 
 			/* write all SCIP output to log file */
-			if ( this.getFilePath()!=null){
-				this.envScip.setMessagehdlrLogfile(this.consScip, this.getFilePath());
-			}
+//			this.envScip.setMessagehdlrLogfile(this.consScip, null);
 
 			/* include default plugins od f SCIP */
 			this.envScip.includeDefaultPlugins(this.consScip);
