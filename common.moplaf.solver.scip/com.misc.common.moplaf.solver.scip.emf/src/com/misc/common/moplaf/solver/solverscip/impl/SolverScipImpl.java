@@ -29,6 +29,7 @@ import de.zib.jscip.nativ.jni.JniScipRetcode;
 import de.zib.jscip.nativ.jni.JniScipStatus;
 import de.zib.jscip.nativ.jni.JniScipVartype;
 
+import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
@@ -415,7 +416,7 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 
 		try {
 //			FileOutputStream fileStream = new FileOutputStream(filePathToUse);
-			Object file = null;
+			File newFile = new File("C:/Temp/testmichel");
 			this.envScip.printOrigProblem(this.consScip, 0, extensionToUse, false);
 		}
 		catch ( Exception e ){
@@ -537,7 +538,7 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Load the lp from the generator into the GLPK structure
+	 * Load the lp from the generator into the Scip structure
 	 * <!-- end-user-doc -->
 	 */
 	private void loadLp(){
@@ -638,40 +639,45 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 		}
 		this.onSolvingEnd();
 		
-		// do something with the solution
+		// do something with the solution, if any
 		boolean feasible   = false;
 		boolean unfeasible = false;
 		boolean optimal    = false;
 		double  mipvalue = 0.0;
-		float   mipgap   = 0.0f;
-		switch( solveStatus){
-		case JniScipStatus.SCIP_STATUS_OPTIMAL:
-			feasible = true;
-			optimal = true;
-		case JniScipStatus.SCIP_STATUS_INFEASIBLE:
-			unfeasible = true;
-		case JniScipStatus.SCIP_STATUS_UNKNOWN:
-		case JniScipStatus.SCIP_STATUS_USERINTERRUPT:
-		case JniScipStatus.SCIP_STATUS_NODELIMIT:
-		case JniScipStatus.SCIP_STATUS_TOTALNODELIMIT:
-		case JniScipStatus.SCIP_STATUS_STALLNODELIMIT:
-		case JniScipStatus.SCIP_STATUS_TIMELIMIT:
-		case JniScipStatus.SCIP_STATUS_MEMLIMIT:
-		case JniScipStatus.SCIP_STATUS_GAPLIMIT:
-		case JniScipStatus.SCIP_STATUS_SOLLIMIT:
-		case JniScipStatus.SCIP_STATUS_BESTSOLLIMIT:
-		case JniScipStatus.SCIP_STATUS_RESTARTLIMIT:
-		case JniScipStatus.SCIP_STATUS_UNBOUNDED:
-		case JniScipStatus.SCIP_STATUS_INFORUNBD:
-		}
+		double  mipgap   = 0.0f;
 
-		if ( feasible || this.isSolverLinearRelaxation()) {
-			try  {
+		try  {
+			switch( solveStatus){
+			case JniScipStatus.SCIP_STATUS_OPTIMAL:
+				feasible = true;
+				optimal = true;
+				break;
+			case JniScipStatus.SCIP_STATUS_INFEASIBLE:
+				unfeasible = true;
+				break;
+			case JniScipStatus.SCIP_STATUS_USERINTERRUPT:
+			case JniScipStatus.SCIP_STATUS_NODELIMIT:
+			case JniScipStatus.SCIP_STATUS_TOTALNODELIMIT:
+			case JniScipStatus.SCIP_STATUS_STALLNODELIMIT:
+			case JniScipStatus.SCIP_STATUS_TIMELIMIT:
+			case JniScipStatus.SCIP_STATUS_MEMLIMIT:
+			case JniScipStatus.SCIP_STATUS_GAPLIMIT:
+			case JniScipStatus.SCIP_STATUS_SOLLIMIT:
+			case JniScipStatus.SCIP_STATUS_BESTSOLLIMIT:
+			case JniScipStatus.SCIP_STATUS_RESTARTLIMIT:
+				feasible = this.envScip.getNSols(this.consScip)>0;
+				break;
+			case JniScipStatus.SCIP_STATUS_UNKNOWN:
+			case JniScipStatus.SCIP_STATUS_UNBOUNDED:
+			case JniScipStatus.SCIP_STATUS_INFORUNBD:
+			}
+
+			if ( feasible || this.isSolverLinearRelaxation()) {
 				// get the solution values
 				long solveSolution = this.envScip.getBestSol(this.consScip);
 				mipvalue = this.envScip.getSolOrigObj(this.consScip, solveSolution);
-				mipgap   = this.getSolOptimalityGap(); // set by the call back, best I have
-				if ( optimal) { mipgap = 0.0f; }
+				mipgap   = this.envScip.getGap(	this.consScip);	
+				if ( optimal) { mipgap = 0.0; }
 				// construct a solution
 				SolutionLp newSolution = (SolutionLp) this.constructSolution();
 				newSolution.setValue((float)mipvalue);
@@ -686,15 +692,15 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 				} // traverse the vars
 				this.makeSolutionGoals(newSolution);
 			}
-			catch (Exception e)		{
-				Plugin.INSTANCE.logError("SolverScip: get/makeSolution failed "+e);
-			}
+		}
+		catch (Exception e)		{
+			Plugin.INSTANCE.logError("SolverScip: get/makeSolution failed "+e);
 		}
 		this.setSolFeasible(feasible);
 		this.setSolUnfeasible(unfeasible);
 		this.setSolOptimal(optimal);
 		this.setSolValue((float)mipvalue);
-		this.setSolOptimalityGap(mipgap);
+		this.setSolOptimalityGap((float)mipgap);
 		
 		// release the lp
 		this.releaseLp();
