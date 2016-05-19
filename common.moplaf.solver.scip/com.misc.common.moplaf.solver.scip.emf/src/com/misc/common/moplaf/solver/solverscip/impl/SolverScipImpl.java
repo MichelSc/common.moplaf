@@ -580,14 +580,14 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 //			display/verblevel = 4
 			int messagelevel = SCIP_VERBLEVEL_HIGH;
 			switch ( this.getSolverLogLevel()) {
-		    case ENUM_NONE:   messagelevel = SCIP_VERBLEVEL_NONE; break;
+		    case ENUM_NONE:   messagelevel = SCIP_VERBLEVEL_NONE;    break;
 		    case ENUM_MIN:    messagelevel = SCIP_VERBLEVEL_MINIMAL; break;
 		    case ENUM_NORMAL: messagelevel = SCIP_VERBLEVEL_NORMAL;  break;
-		    case ENUM_FULL:   messagelevel = SCIP_VERBLEVEL_FULL; break;
+		    case ENUM_FULL:   messagelevel = SCIP_VERBLEVEL_FULL;    break;
 		    }  
 			this.envScip.setIntParam(this.consScip, "display/verblevel", messagelevel);
 
-			/* include default plugins od f SCIP */
+			/* include default plugins of SCIP */
 			this.envScip.includeDefaultPlugins(this.consScip);
 
 			// create the problem
@@ -603,7 +603,6 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 				this.envScip.releaseCons(this.consScip, consNumber); // why is this necessary?
 			}
 			Plugin.INSTANCE.logInfo("SolverScip: lp built ");
-
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -652,7 +651,7 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 			Plugin.INSTANCE.logInfo("SolverScip: presolved ");
 
 			this.envScip.solve(this.consScip);
-			solveStatus   = this.envScip.getStatus(this.consScip);
+			solveStatus = this.envScip.getStatus(this.consScip);
 			Plugin.INSTANCE.logInfo("SolverScip: intopt returned "+getSolveStatusDescription(solveStatus));
 		}
 		catch (Exception e)		{
@@ -662,7 +661,7 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 		
 		// do something with the solution, if any
 		boolean feasible   = false;
-		boolean unfeasible = false;
+		boolean infeasible = false;
 		boolean optimal    = false;
 		double  mipvalue = 0.0;
 		double  mipgap   = 0.0;
@@ -674,7 +673,7 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 				optimal = true;
 				break;
 			case JniScipStatus.SCIP_STATUS_INFEASIBLE:
-				unfeasible = true;
+				infeasible = true;
 				break;
 			case JniScipStatus.SCIP_STATUS_USERINTERRUPT:
 			case JniScipStatus.SCIP_STATUS_NODELIMIT:
@@ -697,8 +696,9 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 				// get the solution values
 				long solveSolution = this.envScip.getBestSol(this.consScip);
 				mipvalue = this.envScip.getSolOrigObj(this.consScip, solveSolution);
-				mipgap   = this.envScip.getGap(	this.consScip);	
-				if ( optimal) { mipgap = 0.0; }
+				if ( !optimal) { 
+					mipgap = this.envScip.getGap(this.consScip);	
+				}
 				// construct a solution
 				SolutionLp newSolution = (SolutionLp) this.constructSolution();
 				newSolution.setValue((float)mipvalue);
@@ -718,7 +718,7 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 			Plugin.INSTANCE.logError("SolverScip: get/makeSolution failed "+e);
 		}
 		this.setSolFeasible(feasible);
-		this.setSolUnfeasible(unfeasible);
+		this.setSolUnfeasible(infeasible);
 		this.setSolOptimal(optimal);
 		this.setSolValue((float)mipvalue);
 		this.setSolOptimalityGap((float)mipgap);
