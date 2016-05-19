@@ -93,7 +93,8 @@ public final class Plugin extends EMFPlugin {
 		public void start(BundleContext context) throws Exception {
 			super.start(context);
 			CommonPlugin.INSTANCE.log("com.misc.common.moplaf.solver.solverscip.Plugin.onStartUp: called");
-			System.loadLibrary("lib/x86_64-win/libjscip-0.1.mingw.x86_64.msvc.opt.spx.dll");
+			//System.loadLibrary("lib/x86_64-win/libjscip-0.1.mingw.x86_64.msvc.opt.spx.dll");
+			// libjscip.so
 		}
 
 	}
