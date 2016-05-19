@@ -430,7 +430,7 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 	 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Release GLPK structure
+	 * Release Scip structure
 	 * <!-- end-user-doc -->
 	 */
 	private void releaseLp(){
@@ -535,6 +535,13 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 			}
 		}
 	}
+	
+	private static  int SCIP_VERBLEVEL_NONE    = 0;          /**< only error and warning messages are displayed */
+	private static  int SCIP_VERBLEVEL_DIALOG  = 1;          /**< only interactive dialogs, errors, and warnings are displayed */
+	private static  int SCIP_VERBLEVEL_MINIMAL = 2;          /**< only important messages are displayed */
+	private static  int SCIP_VERBLEVEL_NORMAL  = 3;          /**< standard messages are displayed */
+	private static  int SCIP_VERBLEVEL_HIGH    = 4;          /**< a lot of information is displayed */
+	private static  int SCIP_VERBLEVEL_FULL    = 5;          /**< all messages are displayed */
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -557,19 +564,33 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 			this.envScipConsLinear = new JniScipConsLinear();
 			
 			this.consScip = this.envScip.create();
+			
 			this.envScip.printVersion(this.consScip, 0);
+			
 			// set message handler of SCIP quiet (as a result SCIP does not produce any output to stdout and stderr)
+			this.envScip.setMessagehdlrQuiet(this.consScip, false);
 //			long messageHandler = 0;
 //			this.envScip.setMessagehdlr(this.consScip, messageHandler);
-			this.envScip.setMessagehdlrQuiet(this.consScip, false);
-
 			/* write all SCIP output to log file */
 //			this.envScip.setMessagehdlrLogfile(this.consScip, null);
+
+			// set logging level
+//			# verbosity level of output
+//			# [type: int, range: [0,5], default: 4]
+//			display/verblevel = 4
+			int messagelevel = SCIP_VERBLEVEL_HIGH;
+			switch ( this.getSolverLogLevel()) {
+		    case ENUM_NONE:   messagelevel = SCIP_VERBLEVEL_NONE; break;
+		    case ENUM_MIN:    messagelevel = SCIP_VERBLEVEL_MINIMAL; break;
+		    case ENUM_NORMAL: messagelevel = SCIP_VERBLEVEL_NORMAL;  break;
+		    case ENUM_FULL:   messagelevel = SCIP_VERBLEVEL_FULL; break;
+		    }  
+			this.envScip.setIntParam(this.consScip, "display/verblevel", messagelevel);
 
 			/* include default plugins od f SCIP */
 			this.envScip.includeDefaultPlugins(this.consScip);
 
-			/* create empty problem with name "knapsack" */
+			// create the problem
 			this.envScip.createProbBasic(this.consScip, generator.getCode());
 
 			this.buildVars();
@@ -613,23 +634,25 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 			this.writeLpToFile();
 		}
 		
-		int solveStatus = 1;
+		int solveStatus = JniScipStatus.SCIP_STATUS_UNKNOWN;
 		try  {
-			// set the params
-			switch ( this.getSolverLogLevel()) {
-		    case ENUM_NONE:   ; break;
-		    case ENUM_MIN:    ; break;
-		    case ENUM_NORMAL: ;  break;
-		    case ENUM_FULL:   ; break;
-		    }  
-			this.getSolverOptimalityTolerance();
-			this.getSolverMaxDuration();
+			// set the optimality tolerance
+//			# solving stops, if the relative gap = |primal - dual|/MIN(|dual|,|primal|) is below the given value
+//			# [type: real, range: [0,1.79769313486232e+308], default: 0]
+//			limits/gap = 0			
+			this.envScip.setRealParam(this.consScip, "limits/gap", this.getSolverOptimalityTolerance());
+			// time limit
+//			# maximal time in seconds to run
+//			# [type: real, range: [0,1e+20], default: 1e+20]
+//			limits/time = 1e+20
+			this.envScip.setRealParam(this.consScip, "limits/time", this.getSolverMaxDuration());
+
 			// do the solving
-			//this.envScip.presolve(this.consScip); // necessary?
+			this.envScip.presolve(this.consScip); // necessary?
 			Plugin.INSTANCE.logInfo("SolverScip: presolved ");
+
 			this.envScip.solve(this.consScip);
 			solveStatus   = this.envScip.getStatus(this.consScip);
-			//double solValue = this.envScip.getPrimalbound(this.consScip);
 			Plugin.INSTANCE.logInfo("SolverScip: intopt returned "+getSolveStatusDescription(solveStatus));
 		}
 		catch (Exception e)		{
@@ -642,7 +665,7 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 		boolean unfeasible = false;
 		boolean optimal    = false;
 		double  mipvalue = 0.0;
-		double  mipgap   = 0.0f;
+		double  mipgap   = 0.0;
 
 		try  {
 			switch( solveStatus){
@@ -705,7 +728,11 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 		
 	} // method SolveLp
 
-	
+	/**
+	 * Return the description of a given scip return code
+	 * @param rc
+	 * @return
+	 */
 	static private String getSolveRcDescription(int rc){
 		switch (rc){
 	    case JniScipRetcode.SCIP_OKAY:    
@@ -751,6 +778,11 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 		}
 	}
 
+	/**
+	 * Returs the description of a given status code
+	 * @param rc
+	 * @return
+	 */
 	static private String getSolveStatusDescription(int rc){
 		switch (rc){
 		case JniScipStatus.SCIP_STATUS_UNKNOWN: 	
