@@ -591,7 +591,11 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 			this.envScip.includeDefaultPlugins(this.consScip);
 
 			// create the problem
-			this.envScip.createProbBasic(this.consScip, generator.getCode());
+			String problemName = generator.getCode();
+			if ( problemName==null || problemName.length()==0 ){
+				problemName = "problem";
+			}
+			this.envScip.createProbBasic(this.consScip, problemName);
 
 			this.buildVars();
 			this.buildCons();
