@@ -444,7 +444,6 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 	private void releaseLp(){
 		// Free memory
 		if ( this.lp!=null){
-			//GLPK.glp_delete_prob(this.lp);
 			this.lp = null;
 		}
 		this.vars = null;
@@ -552,7 +551,7 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 		    
 		// make the constraint
 		this.lp.addConstraintex(nofterms, coeffs, varnumbers, kind, rhs);
-		this.lp.setColName(consnumber, rowname);
+		this.lp.setRowName(consnumber, rowname);
 	}
 
 	/**
@@ -595,10 +594,13 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 
 			// create the problem in GLPK and initialize
 			this.lp = LpSolve.makeLp(0, nofVars);
+			this.lp.setAddRowmode(true); // true = add row mode, adding constraint will peform better
+			//this.lp.resizeLp(nofCons, nofVars);
 
 			this.buildVars();
 			this.buildCons();
 			this.buildGoals();
+			this.lp.setAddRowmode(false); 
 		}
 		catch (Exception e) {
 			e.printStackTrace();
