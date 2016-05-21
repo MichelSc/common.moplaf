@@ -785,8 +785,8 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 	@Override
 	protected void buildLpVarImpl(GeneratorLpVar var) throws Exception {
 		// map
-		int varnumber = this.var_counter;
 		this.var_counter++;
+		int varnumber = this.var_counter;
 		this.vars.put((GeneratorLpVar)var, varnumber);
 		
 		// make the var
@@ -814,8 +814,8 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 	@Override
 	protected void buildLpConsImpl(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
 		// map the constraint
-		int consnumber = this.cons_counter;
 		this.cons_counter++;
+		int consnumber = this.cons_counter;
 		this.cons.put(element, consnumber);
 		
 		// make the constraint
