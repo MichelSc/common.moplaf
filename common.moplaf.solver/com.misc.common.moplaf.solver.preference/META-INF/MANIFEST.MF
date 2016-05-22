@@ -7,7 +7,8 @@ Bundle-Activator: com.misc.common.moplaf.solver.preference.Activator
 Bundle-Vendor: MISC
 Require-Bundle: org.eclipse.ui;visibility:=reexport,
  org.eclipse.core.runtime;visibility:=reexport,
- org.eclipse.jface
+ org.eclipse.jface,
+ com.misc.common.moplaf.preference;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: com.misc.common.moplaf.solver.preference;
