@@ -97,7 +97,7 @@ public final class Plugin extends EMFPlugin {
 				//System.loadLibrary("lib/x86_64-win/libjscip-0.1.mingw.x86_64.msvc.opt.spx.dll"); // this works on windows
 //				System.loadLibrary("libjscip-0.1.linux.x86_64.gnu.opt.spx.so");  // this works on linux
 				//System.loadLibrary("jscip-0.1.linux.x86_64.gnu.opt.spx");  // this works 
-				System.loadLibrary("jscip");  // this works , on linux, it will load libjscip.so, no windows, jscip.dll
+				System.loadLibrary("jscip");  // this works , on linux, it will load libjscip.so, on windows, jscip.dll
 				
 			} 
 			catch(UnsatisfiedLinkError e ){

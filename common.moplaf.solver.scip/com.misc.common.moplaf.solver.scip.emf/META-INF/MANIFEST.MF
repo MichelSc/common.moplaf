@@ -7,7 +7,7 @@ Bundle-ClassPath: .,
  lib/scip.jar
 Bundle-Activator: com.misc.common.moplaf.solver.solverscip.Plugin$Implementation
 Bundle-NativeCode: lib/x86_64-linux-gnu/libjscip.so;osname=Linux;processor=x86-64,
- lib/x86_64-win/libjscip-0.1.mingw.x86_64.msvc.opt.spx.dll;osname=win32;processor=x86-64
+ lib/x86_64-win/jscip.dll;osname=win32;processor=x86-64
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
