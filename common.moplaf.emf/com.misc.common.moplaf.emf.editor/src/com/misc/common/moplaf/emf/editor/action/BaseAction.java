@@ -19,9 +19,9 @@ import java.util.List;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IWorkbenchPart;
-
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.edit.command.CommandActionDelegate;
@@ -59,6 +59,16 @@ public abstract class BaseAction extends Action
   protected EditingDomain editingDomain;
 
   /**
+   * This records the workbench part.
+   */
+  private IWorkbenchPart workbenchPart;
+
+  /**
+   * This records the selection
+   */
+  private ISelection selection;
+
+  /**
    * This records the command.
    */
   protected Command command;
@@ -71,6 +81,8 @@ public abstract class BaseAction extends Action
   public BaseAction(IWorkbenchPart workbenchPart, ISelection selection)
   {
     super();
+    this.workbenchPart = workbenchPart;
+    this.selection = selection;
 
     // try to get editing domain from workbench part
     if (workbenchPart instanceof IEditingDomainProvider)
@@ -78,7 +90,8 @@ public abstract class BaseAction extends Action
       editingDomain = ((IEditingDomainProvider)workbenchPart).getEditingDomain();
     }
     
-    this.configureAction(selection);
+    this.makeCommand();
+    this.configureAction();
   }
 
   /**
@@ -87,12 +100,10 @@ public abstract class BaseAction extends Action
   protected abstract Command createActionCommand(EditingDomain editingDomain, Collection<?> collection);
 
   /**
-   * This extracts the objects from selection, invokes createActionCommand
-   * to create the command, and then configures the action based on the
-   * result.
+   * This invokes createActionCommand to create the command
+   * and then configures the action based on the result.
    */
-  private void configureAction(ISelection selection)
-  {
+  private void makeCommand(){
 	this.command = null;
 	// make the command and setEnabled the action
     // only handle structured selections
@@ -136,7 +147,12 @@ public abstract class BaseAction extends Action
         disable();
       }
     }
-    
+  }
+  
+  /**
+   * This configures the action based on the command, if any.
+   */
+  private void configureAction(){
     // set the text fields of the action
     if (!(command instanceof CommandActionDelegate))
     {
@@ -213,6 +229,16 @@ public abstract class BaseAction extends Action
     {
       // use up the command
       editingDomain.getCommandStack().execute(command);
+    }
+    
+    // re-set the selection
+    //    this is done to trigger a "SelectionChanged" event
+    //    so that the action are recreated
+    //    actions enablements need te be recalculated
+    //    as they may be different after running this action 
+    if ( this.workbenchPart instanceof ISelectionProvider){
+    	ISelectionProvider provider = (ISelectionProvider)this.workbenchPart;
+    	provider.setSelection(selection);
     }
   }
 

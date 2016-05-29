@@ -714,7 +714,6 @@ public class SolverItemProvider
 			this.solver = asolver;
 		}
 		
-		
 		@Override
 		protected boolean prepare(){
 			boolean isExecutable = true;
