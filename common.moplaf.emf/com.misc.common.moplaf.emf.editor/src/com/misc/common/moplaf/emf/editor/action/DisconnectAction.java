@@ -16,7 +16,7 @@ import java.util.Collection;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IWorkbenchPart;
 
-import com.misc.common.moplaf.emf.edit.command.RunCommand;
+import com.misc.common.moplaf.emf.edit.command.DisconnectCommand;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.UnexecutableCommand;
@@ -25,15 +25,20 @@ import org.eclipse.emf.edit.ui.action.StaticSelectionCommandAction;
 
 
 /**
- * A run action  is implemented by creating a {@link RunCommand}.
+ * A accept action  is implemented by creating a {@link AcceptCommand}.
  */
-public class RunAction extends BaseAction
+public class DisconnectAction extends BaseAction
 {
+  /**
+   * This constructs an instance of an action that uses the given editing domain to create a accept command
+   * for the <code>selection</code> object.
+   * @since 2.4.0
+   */
+  public DisconnectAction(IWorkbenchPart part, ISelection selection)
+  {
+    super(part, selection);
+  }
 
-	public RunAction(IWorkbenchPart workbenchPart, ISelection selection){
-	    super(workbenchPart, selection);
-	}
-  
   /**
    * This creates the command for {@link StaticSelectionCommandAction#createActionCommand}.
    */
@@ -43,7 +48,7 @@ public class RunAction extends BaseAction
     if (collection.size() == 1)
     {
       Object owner = collection.iterator().next();
-      return RunCommand.create(editingDomain, owner);
+      return DisconnectCommand.create(editingDomain, owner);
     }
     return UnexecutableCommand.INSTANCE;
   }

@@ -41,7 +41,7 @@ public interface DataSource extends DbSynchUnitAbstract {
 	 * @return the value of the '<em>Connected</em>' attribute.
 	 * @see #setConnected(boolean)
 	 * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getDataSource_Connected()
-	 * @model
+	 * @model transient="true"
 	 * @generated
 	 */
 	boolean isConnected();

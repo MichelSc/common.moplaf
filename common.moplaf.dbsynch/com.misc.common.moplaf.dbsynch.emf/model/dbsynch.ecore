@@ -14,7 +14,8 @@
     <eOperations name="synchUpTableImpl">
       <eParameters name="table" eType="#//Table"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Connected" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Connected" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        transient="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataSourceJdbc" eSuperTypes="#//DataSource">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DataBaseUser" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

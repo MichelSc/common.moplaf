@@ -6,6 +6,9 @@ package com.misc.common.moplaf.dbsynch.provider;
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
 
 import com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract;
+import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
+import com.misc.common.moplaf.emf.edit.command.SynchDownCommand;
+import com.misc.common.moplaf.emf.edit.command.SynchUpCommand;
 
 import java.util.Collection;
 import java.util.List;
@@ -150,15 +153,22 @@ public class DbSynchUnitAbstractItemProvider
 	public class SynchUnitSynchUpCommand extends SynchUpCommand{
 		private DbSynchUnitAbstract synchUnit;
 		
-		// constructor
 		public SynchUnitSynchUpCommand(DbSynchUnitAbstract aUnit)	{
 			super();
 			this.synchUnit = aUnit;
-			String tmp = "SynchUp the SynchUnit ";
-			String label = "label:"+tmp;
-			String description = "desc:"+tmp;
-			this.setDescription(description);
-			this.setLabel(label);
+		}
+
+		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			if ( this.synchUnit.getDataSource()==null){
+				isExecutable = false;
+				this.setDescription("no data source");
+			} else if ( !this.synchUnit.getDataSource().isConnected() ){
+				isExecutable = false;
+				this.setDescription("data source not connected");
+			}
+			return isExecutable;
 		}
 
 		@Override
@@ -174,11 +184,19 @@ public class DbSynchUnitAbstractItemProvider
 		public SynchUnitSynchDownCommand(DbSynchUnitAbstract aUnit)	{
 			super();
 			this.synchUnit = aUnit;
-			String tmp = "SynchDown the SynchUnit ";
-			String label = "label:"+tmp;
-			String description = "desc:"+tmp;
-			this.setDescription(description);
-			this.setLabel(label);
+		}
+
+		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			if ( this.synchUnit.getDataSource()==null){
+				isExecutable = false;
+				this.setDescription("no data source");
+			} else if ( !this.synchUnit.getDataSource().isConnected() ){
+				isExecutable = false;
+				this.setDescription("data source not connected");
+			}
+			return isExecutable;
 		}
 
 		@Override
@@ -187,7 +205,6 @@ public class DbSynchUnitAbstractItemProvider
 		}
 	} // class SynchUnitSynchUpCommand
 
-	/*
 	public class SynchUnitRefreshCommand extends RefreshCommand{
 		private DbSynchUnitAbstract synchUnit;
 		
@@ -195,32 +212,21 @@ public class DbSynchUnitAbstractItemProvider
 		public SynchUnitRefreshCommand(DbSynchUnitAbstract aSynchUnit)	{
 			super();
 			this.synchUnit = aSynchUnit;
-			String tmp = "Refresh the SynchUnit ";
-			String label = "label:"+tmp;
-			String description = "desc:"+tmp;
-			this.setDescription(description);
-			this.setLabel(label);
 		}
 
 		@Override
 		public void execute() {
-			this.synchUnit.refresh();
+			//this.synchUnit.refresh();
 		}
 	} // class SynchUnitRefreshCommand
-	*/
 
-	public class SynchUnitRefreshMetaDataCommand extends RefreshCommand{
+	public class SynchUnitRefreshMetaDataCommand extends RefreshMetaDataCommand{
 		private DbSynchUnitAbstract synchUnit;
 		
 		// constructor
 		public SynchUnitRefreshMetaDataCommand(DbSynchUnitAbstract aSynchUnit)	{
 			super();
 			this.synchUnit = aSynchUnit;
-			String tmp = "Refresh the MetaData of the SynchUnit ";
-			String label = "label:"+tmp;
-			String description = "desc:"+tmp;
-			this.setDescription(description);
-			this.setLabel(label);
 		}
 
 		@Override

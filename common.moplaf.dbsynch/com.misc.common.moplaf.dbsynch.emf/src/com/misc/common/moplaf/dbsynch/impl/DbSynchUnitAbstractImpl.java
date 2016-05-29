@@ -4,7 +4,6 @@ package com.misc.common.moplaf.dbsynch.impl;
 
 import com.misc.common.moplaf.dbsynch.DataSource;
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
-import com.misc.common.moplaf.dbsynch.DbSynchUnit;
 import com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract;
 
 import com.misc.common.moplaf.dbsynch.Table;

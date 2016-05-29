@@ -1,29 +1,13 @@
-package com.misc.common.moplaf.dbsynch.provider;
+package com.misc.common.moplaf.emf.edit.command;
 
-import org.eclipse.emf.common.command.AbstractCommand;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
-public class ConnectCommand extends AbstractCommand {
+public class ConnectCommand extends BaseCommand {
 
-	protected boolean prepare(){
-		isExecutable = true;
-		return isExecutable;
-	}
-
-	public boolean canUndo() { 
-		return false; 
-	}
-
-	@Override
-	public void redo() {
-		execute();		
-	}
-
-	@Override
-	public void execute() {
-		// to be implemented by the specializations
+	public ConnectCommand(){
+		super("Connect", "Connect the object");
 	}
 
 	public static Command create(EditingDomain domain, Object value)	  {

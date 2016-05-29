@@ -7,6 +7,9 @@ import com.misc.common.moplaf.dbsynch.DbSynchFactory;
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
 import com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract;
 import com.misc.common.moplaf.dbsynch.Table;
+import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
+import com.misc.common.moplaf.emf.edit.command.SynchDownCommand;
+import com.misc.common.moplaf.emf.edit.command.SynchUpCommand;
 
 import java.util.Collection;
 import java.util.List;
@@ -465,18 +468,29 @@ public class TableItemProvider
 		return dbsynchEditPlugin.INSTANCE;
 	}
 
+
 	public class TableSynchUpCommand extends SynchUpCommand{
 		private Table table;
 		
-		// constructor
 		public TableSynchUpCommand(Table aTable)	{
 			super();
 			this.table = aTable;
-			String tmp = "SynchUp the table ";
-			String label = "label:"+tmp;
-			String description = "desc:"+tmp;
-			this.setDescription(description);
-			this.setLabel(label);
+		}
+		
+		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			if ( this.table.getSynchUnit()==null){
+				isExecutable = false;
+				this.setDescription("no synch unit");
+			} else if ( this.table.getSynchUnit().getDataSource()==null ){
+				isExecutable = false;
+				this.setDescription("no data source");
+			} else if ( !this.table.getSynchUnit().getDataSource().isConnected() ){
+				isExecutable = false;
+				this.setDescription("data source not connected");
+			}
+			return isExecutable;
 		}
 
 		@Override
@@ -488,15 +502,25 @@ public class TableItemProvider
 	public class TableSynchDownCommand extends SynchDownCommand{
 		private Table table;
 		
-		// constructor
 		public TableSynchDownCommand(Table aTable)	{
 			super();
 			this.table = aTable;
-			String tmp = "SynchDown the table ";
-			String label = "label:"+tmp;
-			String description = "desc:"+tmp;
-			this.setDescription(description);
-			this.setLabel(label);
+		}
+		
+		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			if ( this.table.getSynchUnit()==null){
+				isExecutable = false;
+				this.setDescription("no synch unit");
+			} else if ( this.table.getSynchUnit().getDataSource()==null ){
+				isExecutable = false;
+				this.setDescription("no data source");
+			} else if ( !this.table.getSynchUnit().getDataSource().isConnected() ){
+				isExecutable = false;
+				this.setDescription("data source not connected");
+			}
+			return isExecutable;
 		}
 
 		@Override
@@ -508,15 +532,9 @@ public class TableItemProvider
 	public class TableRefreshCommand extends RefreshCommand{
 		private Table table;
 		
-		// constructor
 		public TableRefreshCommand(Table aTable)	{
 			super();
 			this.table = aTable;
-			String tmp = "Refresh the table ";
-			String label = "label:"+tmp;
-			String description = "desc:"+tmp;
-			this.setDescription(description);
-			this.setLabel(label);
 		}
 
 		@Override
@@ -525,18 +543,12 @@ public class TableItemProvider
 		}
 	} // class TableRefreshCommand
 
-	public class TableRefreshMetaDataCommand extends RefreshCommand{
+	public class TableRefreshMetaDataCommand extends RefreshMetaDataCommand{
 		private Table table;
 		
-		// constructor
 		public TableRefreshMetaDataCommand(Table aTable)	{
 			super();
 			this.table = aTable;
-			String tmp = "Refresh the MetaData of the table ";
-			String label = "label:"+tmp;
-			String description = "desc:"+tmp;
-			this.setDescription(description);
-			this.setLabel(label);
 		}
 
 		@Override

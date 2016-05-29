@@ -1,29 +1,15 @@
 package com.misc.common.moplaf.dbsynch.provider;
 
-import org.eclipse.emf.common.command.AbstractCommand;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
 
-public class RefreshMetaDataCommand extends AbstractCommand {
+import com.misc.common.moplaf.emf.edit.command.BaseCommand;
 
-	protected boolean prepare(){
-		isExecutable = true;
-		return isExecutable;
-	}
+public class RefreshMetaDataCommand extends BaseCommand {
 
-	public boolean canUndo() { 
-		return false; 
-	}
-
-	@Override
-	public void redo() {
-		execute();		
-	}
-
-	@Override
-	public void execute() {
-		// to be implemented by the specializations
+	public RefreshMetaDataCommand (){
+		super("Refresh Metadata", "Refresh the metadata");
 	}
 
 	public static Command create(EditingDomain domain, Object value)	  {

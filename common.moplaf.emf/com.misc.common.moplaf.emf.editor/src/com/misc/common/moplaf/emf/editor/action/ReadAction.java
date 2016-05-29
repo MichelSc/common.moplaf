@@ -21,13 +21,12 @@ import com.misc.common.moplaf.emf.edit.command.ReadCommand;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.edit.ui.action.StaticSelectionCommandAction;
 
 
 /**
  * A read action  is implemented by creating a {@link ReadCommand}.
  */
-public class ReadAction extends StaticSelectionCommandAction
+public class ReadAction extends BaseAction
 {
   /**
    * This constructs an instance of an action that uses the given editing domain to create a run command
@@ -36,8 +35,7 @@ public class ReadAction extends StaticSelectionCommandAction
    */
   public ReadAction(IWorkbenchPart part, ISelection selection)
   {
-    super(part);
-    configureAction(selection);
+    super(part, selection);
   }
 
   /**

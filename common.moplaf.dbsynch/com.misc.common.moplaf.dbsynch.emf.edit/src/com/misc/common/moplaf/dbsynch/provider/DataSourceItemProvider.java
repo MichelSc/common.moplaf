@@ -5,6 +5,8 @@ package com.misc.common.moplaf.dbsynch.provider;
 
 import com.misc.common.moplaf.dbsynch.DataSource;
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
+import com.misc.common.moplaf.emf.edit.command.ConnectCommand;
+import com.misc.common.moplaf.emf.edit.command.DisconnectCommand;
 
 import java.util.Collection;
 import java.util.List;
@@ -138,11 +140,16 @@ public class DataSourceItemProvider
 		public DataSourceConnectCommand(DataSource aDataSource)	{
 			super();
 			this.dataSource = aDataSource;
-			String tmp = "Connect to the data source";
-			String label = "label:"+tmp;
-			String description = "desc:"+tmp;
-			this.setDescription(description);
-			this.setLabel(label);
+		}
+
+		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			if ( this.dataSource.isConnected()){
+				isExecutable = false;
+				this.setDescription("connected");
+			}
+			return isExecutable;
 		}
 
 		@Override
@@ -154,15 +161,19 @@ public class DataSourceItemProvider
 	public class DataSourceDisconnectCommand extends DisconnectCommand{
 		private DataSource dataSource;
 		
-		// constructor
 		public DataSourceDisconnectCommand(DataSource aDataSource)	{
 			super();
 			this.dataSource = aDataSource;
-			String tmp = "Disconnect the data source";
-			String label = "label:"+tmp;
-			String description = "desc:"+tmp;
-			this.setDescription(description);
-			this.setLabel(label);
+		}
+
+		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			if ( !this.dataSource.isConnected()){
+				isExecutable = false;
+				this.setDescription("not connected");
+			}
+			return isExecutable;
 		}
 
 		@Override
