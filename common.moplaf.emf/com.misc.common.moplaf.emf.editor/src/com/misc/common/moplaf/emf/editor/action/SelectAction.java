@@ -25,9 +25,9 @@ import org.eclipse.emf.edit.ui.action.StaticSelectionCommandAction;
 
 
 /**
- * A semect action  is implemented by creating a {@link SelectCommand}.
+ * A select action  is implemented by creating a {@link SelectCommand}.
  */
-public class SelectAction extends StaticSelectionCommandAction
+public class SelectAction extends BaseAction
 {
   /**
    * This constructs an instance of an action that uses the given editing domain to create a select command
@@ -36,8 +36,7 @@ public class SelectAction extends StaticSelectionCommandAction
    */
   public SelectAction(IWorkbenchPart part, ISelection selection)
   {
-    super(part);
-    configureAction(selection);
+    super(part, selection);
   }
 
   /**

@@ -395,11 +395,6 @@ public class GeneratorItemProvider
 		public GeneratorRunCommand(Generator agenerator)	{
 			super();
 			this.generator = agenerator;
-			String tmp = "Run the Generator";
-			String label = "label:"+tmp;
-			String description = "desc:"+tmp;
-			this.setDescription(description);
-			this.setLabel(label);
 		}
 
 		@Override

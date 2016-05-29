@@ -17,7 +17,6 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IWorkbenchPart;
 
 import com.misc.common.moplaf.emf.edit.command.ReadCommand;
-import com.misc.common.moplaf.emf.edit.command.RunCommand;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.UnexecutableCommand;
@@ -26,7 +25,7 @@ import org.eclipse.emf.edit.ui.action.StaticSelectionCommandAction;
 
 
 /**
- * A run action  is implemented by creating a {@link RunCommand}.
+ * A read action  is implemented by creating a {@link ReadCommand}.
  */
 public class ReadAction extends StaticSelectionCommandAction
 {

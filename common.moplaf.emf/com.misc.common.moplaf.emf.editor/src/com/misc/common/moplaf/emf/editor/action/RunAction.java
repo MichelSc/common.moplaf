@@ -27,19 +27,14 @@ import org.eclipse.emf.edit.ui.action.StaticSelectionCommandAction;
 /**
  * A run action  is implemented by creating a {@link RunCommand}.
  */
-public class RunAction extends StaticSelectionCommandAction
+//public class RunAction extends StaticSelectionCommandAction
+public class RunAction extends BaseAction
 {
-  /**
-   * This constructs an instance of an action that uses the given editing domain to create a run command
-   * for the <code>selection</code> object.
-   * @since 2.4.0
-   */
-  public RunAction(IWorkbenchPart part, ISelection selection)
-  {
-    super(part);
-    configureAction(selection);
-  }
 
+	public RunAction(IWorkbenchPart workbenchPart, ISelection selection){
+	    super(workbenchPart, selection);
+	}
+  
   /**
    * This creates the command for {@link StaticSelectionCommandAction#createActionCommand}.
    */

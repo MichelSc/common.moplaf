@@ -266,11 +266,6 @@ public class SolutionItemProvider
 		// constructor
 		public SolutionAcceptCommand(Solution asolution)	{
 			this.solution = asolution;
-			String tmp = "Accept the Solution";
-			String label = "label:"+tmp;
-			String description = "desc:"+tmp;
-			this.setDescription(description);
-			this.setLabel(label);
 		}
 
 		/* (non-Javadoc)

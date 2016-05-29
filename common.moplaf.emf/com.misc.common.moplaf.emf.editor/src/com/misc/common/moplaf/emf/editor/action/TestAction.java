@@ -16,7 +16,6 @@ import java.util.Collection;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IWorkbenchPart;
 
-import com.misc.common.moplaf.emf.edit.command.RunCommand;
 import com.misc.common.moplaf.emf.edit.command.TestCommand;
 
 import org.eclipse.emf.common.command.Command;
@@ -28,7 +27,7 @@ import org.eclipse.emf.edit.ui.action.StaticSelectionCommandAction;
 /**
  * A test action  is implemented by creating a {@link TestCommand}.
  */
-public class TestAction extends StaticSelectionCommandAction
+public class TestAction extends BaseAction
 {
   /**
    * This constructs an instance of an action that uses the given editing domain to create a test command
@@ -37,8 +36,7 @@ public class TestAction extends StaticSelectionCommandAction
    */
   public TestAction(IWorkbenchPart part, ISelection selection)
   {
-    super(part);
-    configureAction(selection);
+    super(part, selection);
   }
 
   /**

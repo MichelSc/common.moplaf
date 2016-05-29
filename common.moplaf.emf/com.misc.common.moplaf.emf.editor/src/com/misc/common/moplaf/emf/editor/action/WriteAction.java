@@ -27,7 +27,7 @@ import org.eclipse.emf.edit.ui.action.StaticSelectionCommandAction;
 /**
  * A write action  is implemented by creating a {@link WriteCommand}.
  */
-public class WriteAction extends StaticSelectionCommandAction
+public class WriteAction extends BaseAction
 {
   /**
    * This constructs an instance of an action that uses the given editing domain to create a write command
@@ -36,8 +36,7 @@ public class WriteAction extends StaticSelectionCommandAction
    */
   public WriteAction(IWorkbenchPart part, ISelection selection)
   {
-    super(part);
-    configureAction(selection);
+    super(part, selection);
   }
 
   /**

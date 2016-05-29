@@ -17,7 +17,6 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IWorkbenchPart;
 
 import com.misc.common.moplaf.emf.edit.command.AcceptCommand;
-import com.misc.common.moplaf.emf.edit.command.RunCommand;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.UnexecutableCommand;
@@ -26,19 +25,18 @@ import org.eclipse.emf.edit.ui.action.StaticSelectionCommandAction;
 
 
 /**
- * A run action  is implemented by creating a {@link RunCommand}.
+ * A accept action  is implemented by creating a {@link AcceptCommand}.
  */
-public class AcceptAction extends StaticSelectionCommandAction
+public class AcceptAction extends BaseAction
 {
   /**
-   * This constructs an instance of an action that uses the given editing domain to create a run command
+   * This constructs an instance of an action that uses the given editing domain to create a accept command
    * for the <code>selection</code> object.
    * @since 2.4.0
    */
   public AcceptAction(IWorkbenchPart part, ISelection selection)
   {
-    super(part);
-    configureAction(selection);
+    super(part, selection);
   }
 
   /**

@@ -712,11 +712,17 @@ public class SolverItemProvider
 		// constructor
 		public SolverRunCommand(Solver asolver)	{
 			this.solver = asolver;
-			String tmp = "Run the Solver";
-			String label = "label:"+tmp;
-			String description = "desc:"+tmp;
-			this.setDescription(description);
-			this.setLabel(label);
+		}
+		
+		
+		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			if ( this.solver.isInitializing()){
+				isExecutable = false;
+				this.setDescription("initializing");
+			}
+			return isExecutable;
 		}
 
 		@Override
@@ -735,11 +741,6 @@ public class SolverItemProvider
 		public SolverWriteCommand(ILpWriter awriter)	{
 			super();
 			this.writer = awriter;
-			String tmp = "Write the Solver";
-			String label = "label:"+tmp;
-			String description = "desc:"+tmp;
-			this.setDescription(description);
-			this.setLabel(label);
 		}
 
 		@Override

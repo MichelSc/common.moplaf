@@ -228,11 +228,6 @@ public class SpreadsheetItemProvider
 		public SpreadsheetWriteCommand(Spreadsheet aSpreadsheet)	{
 			super();
 			this.spreadsheet = aSpreadsheet;
-			String tmp = "Write the spreasheet";
-			String label = "label:"+tmp;
-			String description = "desc:"+tmp;
-			this.setDescription(description);
-			this.setLabel(label);
 		}
 
 		@Override
@@ -248,11 +243,6 @@ public class SpreadsheetItemProvider
 		public SpreadsheetReadCommand(Spreadsheet aSpreadsheet)	{
 			super();
 			this.spreadsheet = aSpreadsheet;
-			String tmp = "Read the spreasheet";
-			String label = "label:"+tmp;
-			String description = "desc:"+tmp;
-			this.setDescription(description);
-			this.setLabel(label);
 		}
 
 		@Override
