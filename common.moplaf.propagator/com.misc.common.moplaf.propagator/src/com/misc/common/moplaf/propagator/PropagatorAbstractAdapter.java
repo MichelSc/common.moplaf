@@ -24,9 +24,9 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  * {@link PropagatorDependencyAdapter}. These standards Listeners can be added with the convenience methods
  * {@link #addFeatureListener(Object)} and {@link #addNavigationFeatureListener(Object, Object)} respectively.
  * <p>
- * Registering the {@link PropagatorDependencyAdapter}s is done by the method {@link Listener#addPropagatorFunctionAdapters}, called
+ * Registering the {@link PropagatorDependencyAdapter}s is done by the method {@link InboundBinding#addPropagatorFunctionAdapters}, called
  * when this adapter is added to the notifier. Unregistering the {@link PropagatorDependencyAdapter}s is done by the method
- * {@link Listener#disposePropagatorFunctionAdapters()}, called when the adapter is removed from the Notifier.
+ * {@link InboundBinding#disposePropagatorFunctionAdapters()}, called when the adapter is removed from the Notifier.
  * <p>
  * Unregistering the propagatorFunctionAdapters is done by the method {@link #disposePropagatorFunctionAdapters}.
  * 
@@ -34,11 +34,39 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  *
  */
 public class PropagatorAbstractAdapter extends AbstractAdapter {
-	// -------------------------------------
-	// listeners implementation
-	// -------------------------------------
-	class Listener{
-		public Listener(){
+	
+	/**
+	* The base class of all outbound bindings.
+	* <p>
+	* An outbound binding informs the framework if some feature of the target of this PropagatorFunctionAdapter
+	*  is set by this PropagatorFunctionAdapter, and consequently, to inform the framework if the feature
+	*  is derived. 
+	* <p>
+	* When the feature is derived, the framework will then be able to retrieve the inbound binding of this 
+	* PropagatorFunctionAdapter, and to enforce them to be update before refreshing the feature.
+	*/
+	class OutboundBinding{
+		public OutboundBinding(){
+		}
+		boolean isOutboundBindingFeature(EStructuralFeature feature){
+			return false;
+		}
+		protected void addPropagatorFunctionAdapters(){};
+		protected void disposePropagatorFunctionAdapters(){};
+	}
+
+	/**
+	* The base class of all inbound bindings.
+	* <p>
+	* An inbound binding listens to changes in this PropagatorFunctionAdapter. If some change 
+	* occurred that must trigger a refresh (i.e. binds the changed feature to the propagator, i.e.
+	* an inbound binding feature has changed), touch is called.
+	* <p>
+	* The very function of an inbound binding is thus to call touch() appropriately as a function 
+	* of changes in this PropagatorFunctionAdapter. 
+	*/
+	class InboundBinding{
+		public InboundBinding(){
 		}
 		protected void touch(){
 			PropagatorAbstractAdapter.this.touch(null);
@@ -48,7 +76,7 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		protected void notifyChanged(Notification msg) {};
 	}
 	
-	class FeatureListener extends Listener{
+	class FeatureListener extends InboundBinding{
 		protected Object feature;
 		public FeatureListener(Object feature){
 			this.feature = feature;
@@ -118,16 +146,17 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		}
 	}
 	
-	protected LinkedList<Listener> listeners;
+	protected LinkedList<InboundBinding> inboundBindings;
+	protected LinkedList<OutboundBinding> outboundBindings;
 	
 	protected void addListeners(){
 	}
 	
-	protected void addListener(Listener listener){
-		if ( this.listeners==null){
-			this.listeners = new LinkedList<Listener>();
+	protected void addListener(InboundBinding listener){
+		if ( this.inboundBindings==null){
+			this.inboundBindings = new LinkedList<InboundBinding>();
 		}
-		this.listeners.add(listener);
+		this.inboundBindings.add(listener);
 	}
 	
 	protected void addFeatureListener(Object feature){
@@ -173,8 +202,8 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		//this.logMessage("Activated");
 		
 		
-		if ( this.listeners!=null){
-			for (Listener listener : this.listeners){
+		if ( this.inboundBindings!=null){
+			for (InboundBinding listener : this.inboundBindings){
 				listener.addPropagatorFunctionAdapters();
 			}
 		}
@@ -183,8 +212,8 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	public void disposePropagatorFunctionAdapters(){
 		//this.logMessage("Deactivated");
 
-		if ( this.listeners!=null){
-			for (Listener listener : this.listeners){
+		if ( this.inboundBindings!=null){
+			for (InboundBinding listener : this.inboundBindings){
 				listener.disposePropagatorFunctionAdapters();
 			}
 		}
@@ -211,8 +240,8 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	@Override
 	public void notifyChanged(Notification msg) {
 		super.notifyChanged(msg);
-		if ( this.listeners!=null){
-			for (Listener listener : this.listeners){
+		if ( this.inboundBindings!=null){
+			for (InboundBinding listener : this.inboundBindings){
 				listener.notifyChanged(msg);
 			}
 		}
