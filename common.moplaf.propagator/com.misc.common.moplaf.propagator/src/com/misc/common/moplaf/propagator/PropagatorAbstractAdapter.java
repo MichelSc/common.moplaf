@@ -18,8 +18,8 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  * Delegate listening to a collection of listeners (target object of this propagator) or to  {@link 
  * PropagatorDependencyAdapter}s (other emf objects naviguable from the target object of this propagator).
  * <p>
- * Two standard Listeners are provided. A {@link FeatureListener}, listening to changes of some feature of this
- * propagator's Notifier and a {@link NavigationFeatureListener}, listening to changes of some reference held by this
+ * Two standard Listeners are provided. A {@link InboundBindingFeature}, listening to changes of some feature of this
+ * propagator's Notifier and a {@link InboundBindingNavigationFeature}, listening to changes of some reference held by this
  * propagator's Notifier, and allowing to listen to changes in the referred object by receiving a 
  * {@link PropagatorDependencyAdapter}. These standards Listeners can be added with the convenience methods
  * {@link #addFeatureListener(Object)} and {@link #addNavigationFeatureListener(Object, Object)} respectively.
@@ -74,11 +74,12 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		protected void addPropagatorFunctionAdapters(){};
 		protected void disposePropagatorFunctionAdapters(){};
 		protected void notifyChanged(Notification msg) {};
+		protected void collectAntecedents(PropagatorFunctionAdapters antecedents){}
 	}
 	
-	class FeatureListener extends InboundBinding{
+	class InboundBindingFeature extends InboundBinding{
 		protected Object feature;
-		public FeatureListener(Object feature){
+		public InboundBindingFeature(Object feature){
 			this.feature = feature;
 		}
 		@Override
@@ -87,13 +88,17 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 			if ( msg.getFeature()!= feature)  { return ; }
 			this.touch();
 		}
+		@Override
+		protected void collectAntecedents(PropagatorFunctionAdapters antecedents){
+			
+		}
 	}
 	
-	class NavigationFeatureListener extends FeatureListener{
+	class InboundBindingNavigationFeature extends InboundBindingFeature{
 		
 		protected Object adapterFunctionType;
 		
-		public NavigationFeatureListener(Object feature, Object adapterfunctiontype) {
+		public InboundBindingNavigationFeature(Object feature, Object adapterfunctiontype) {
 			super(feature);
 			this.adapterFunctionType = adapterfunctiontype;
 		}
@@ -144,6 +149,25 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 				PropagatorAbstractAdapter.this.removeDependency(referredobject, this.adapterFunctionType, false);
 			}
 		}
+		@Override
+		protected void collectAntecedents(PropagatorFunctionAdapters antecedents){
+			// this object
+			super.collectAntecedents(antecedents);
+			// navigated to objects
+			EObject object = (EObject) PropagatorAbstractAdapter.this.getTarget();
+			Object featurevalue = object.eGet((EStructuralFeature) this.feature);
+			if ( featurevalue instanceof Collection<?>){
+				Collection<EObject> referredobjects = (Collection<EObject>)featurevalue;
+				for (EObject referredobject : referredobjects){
+					PropagatorDependencyAdapter dependency = (PropagatorDependencyAdapter) Util.getAdapter(referredobject, this.adapterFunctionType);
+					dependency.collectAntecedents(antecedents);
+				}
+			} else if ( featurevalue instanceof EObject){
+				EObject referredobject = (EObject)featurevalue;
+				PropagatorDependencyAdapter dependency = (PropagatorDependencyAdapter) Util.getAdapter(referredobject, this.adapterFunctionType);
+				dependency.collectAntecedents(antecedents);
+			}
+		}
 	}
 	
 	protected LinkedList<InboundBinding> inboundBindings;
@@ -160,11 +184,11 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	}
 	
 	protected void addFeatureListener(Object feature){
-		this.addListener(new FeatureListener(feature));
+		this.addListener(new InboundBindingFeature(feature));
 	}
 	
 	protected void addNavigationFeatureListener(Object feature, Object adapterdependencytype){
-		this.addListener(new NavigationFeatureListener(feature, adapterdependencytype));
+		this.addListener(new InboundBindingNavigationFeature(feature, adapterdependencytype));
 	}
 	
 	protected void logMessage(String message, String level){
@@ -354,5 +378,11 @@ public PropagatorDependencyAdapter removeDependency(Notifier targetdependency,
 		return ;
 	}
 
+	protected void collectAntecedents(PropagatorFunctionAdapters antecedents){
+		for ( InboundBinding inboundBinding : this.inboundBindings){
+			inboundBinding.collectAntecedents(antecedents);
+		}
+		
+	}
 
 }

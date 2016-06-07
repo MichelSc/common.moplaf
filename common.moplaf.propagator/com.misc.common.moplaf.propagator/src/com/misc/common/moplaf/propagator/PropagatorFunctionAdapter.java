@@ -157,6 +157,18 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	}
 	
 	/**
+	 * Gets all PropagatorFunctionAdapters that must be calculated before this.
+	 * Traverse all the features this propagator depends on. For every feature,
+	 * queries the propagators responsible for setting it (if any) and collect them.
+	 * @return the propagators this propagator depends directly on.
+	 */
+	protected PropagatorFunctionAdapters getAllAntecedents() {
+		PropagatorFunctionAdapters antecedents = new PropagatorFunctionAdaptersImpl();
+		this.collectAntecedents(antecedents);
+		return antecedents;
+	}
+	
+	/**
 	 * Calculate the data the PropagatorFunctionAdapter is monitoring. 
 	 * To be overridden.
 	 */
