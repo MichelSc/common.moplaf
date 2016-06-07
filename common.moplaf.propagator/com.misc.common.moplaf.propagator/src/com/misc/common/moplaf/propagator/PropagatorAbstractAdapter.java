@@ -35,6 +35,8 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  */
 public class PropagatorAbstractAdapter extends AbstractAdapter {
 	
+	private LinkedList<OutboundBinding> outboundBindings;
+
 	/**
 	* The base class of all outbound bindings.
 	* <p>
@@ -55,6 +57,31 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		protected void disposePropagatorFunctionAdapters(){};
 	}
 
+	class OutboundBindingFeature extends OutboundBinding{
+		protected Object feature;
+		public OutboundBindingFeature(Object feature){
+			this.feature = feature;
+		}
+		@Override
+		boolean isOutboundBindingFeature(EStructuralFeature feature){
+			return this.feature==feature;
+		}
+	}
+	
+	protected void addOutboundBindings(){
+	}
+	
+	protected void addOutboundBinding(OutboundBinding binding){
+		if ( this.outboundBindings==null){
+			this.outboundBindings = new LinkedList<OutboundBinding>();
+		}
+		this.outboundBindings.add(binding);
+	}
+	
+	protected void addOutboundBindingFeature(Object feature){
+		this.addOutboundBinding(new OutboundBindingFeature(feature));
+	}
+	
 	/**
 	* The base class of all inbound bindings.
 	* <p>
@@ -90,7 +117,7 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		}
 		@Override
 		protected void collectAntecedents(PropagatorFunctionAdapters antecedents){
-			
+		// to do
 		}
 	}
 	
@@ -171,7 +198,6 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	}
 	
 	protected LinkedList<InboundBinding> inboundBindings;
-	protected LinkedList<OutboundBinding> outboundBindings;
 	
 	protected void addInboundBindings(){
 	}
@@ -250,6 +276,7 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	public PropagatorAbstractAdapter() {
 		super();
 		this.addInboundBindings();
+		this.addOutboundBindings();
 	}
 
 	@Override
