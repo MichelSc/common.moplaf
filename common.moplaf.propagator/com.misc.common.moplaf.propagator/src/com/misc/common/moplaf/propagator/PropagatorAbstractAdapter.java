@@ -35,6 +35,10 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  */
 public class PropagatorAbstractAdapter extends AbstractAdapter {
 	
+	// -------------------------------------
+	// outbound bindings
+	// -------------------------------------
+
 	private LinkedList<OutboundBinding> outboundBindings;
 
 	/**
@@ -50,21 +54,24 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	class OutboundBinding{
 		public OutboundBinding(){
 		}
-		boolean isOutboundBindingFeature(EStructuralFeature feature){
+		public boolean isOutboundBinding(Object element){
 			return false;
 		}
 		protected void addPropagatorFunctionAdapters(){};
 		protected void disposePropagatorFunctionAdapters(){};
 	}
 
+	/**
+	* A binding for a single feature
+	*/
 	class OutboundBindingFeature extends OutboundBinding{
 		protected Object feature;
 		public OutboundBindingFeature(Object feature){
 			this.feature = feature;
 		}
 		@Override
-		boolean isOutboundBindingFeature(EStructuralFeature feature){
-			return this.feature==feature;
+		public boolean isOutboundBinding(Object element){
+			return element == this.feature;
 		}
 	}
 	
@@ -82,6 +89,20 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		this.addOutboundBinding(new OutboundBindingFeature(feature));
 	}
 	
+
+	/*
+	 * Informs the framework that the element is bound by this propagator  
+	 */
+	public boolean isOutboundBinding(Object element){
+		return false;
+	}
+	
+	// -------------------------------------
+	// inbound bindings
+	// -------------------------------------
+
+	private LinkedList<InboundBinding> inboundBindings;
+
 	/**
 	* The base class of all inbound bindings.
 	* <p>
@@ -117,7 +138,16 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		}
 		@Override
 		protected void collectAntecedents(PropagatorFunctionAdapters antecedents){
-		// to do
+			PropagatorAbstractAdapter adapter = PropagatorAbstractAdapter.this;
+			Notifier notifier = adapter.getTarget();
+			for (Adapter otherAdapter : notifier.eAdapters()) {
+				if (adapter instanceof PropagatorAbstractAdapter) {
+					PropagatorAbstractAdapter propagator = (PropagatorAbstractAdapter) otherAdapter;
+					if ( propagator.isOutboundBinding(this.feature)){
+						antecedents.add(propagator);
+					}
+				}
+			}
 		}
 	}
 	
@@ -197,7 +227,6 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		}
 	}
 	
-	protected LinkedList<InboundBinding> inboundBindings;
 	
 	protected void addInboundBindings(){
 	}
@@ -217,6 +246,17 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		this.addInboundBinding(new InboundBindingNavigationFeature(feature, adapterdependencytype));
 	}
 	
+	/**
+	 * Ultimately, the inbound bindings call touch as a function of the notifications it receives
+	 */
+	public void touch(Object toucher){
+		this.logInfo("Touched");
+	} 
+
+	// -------------------------------------
+	// logging helpers
+	// -------------------------------------
+
 	protected void logMessage(String message, String level){
 		String logLine = String.format("Propagator, %4$s: %3$s, object: %1$s, function: %2$s, object %5$s" , 
 		                 Util.LastTokenDotSeparated(this.target.getClass().getName()),
@@ -298,13 +338,6 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		}
 	}
 
-	/**
-	 * This PropagatorAdapter call touch as a function of the notifications it receives
-	 */
-	public void touch(Object toucher){
-		this.logInfo("Touched");
-	} 
-	
 	// -------------------------------------
 	// dependency management
 	// -------------------------------------
