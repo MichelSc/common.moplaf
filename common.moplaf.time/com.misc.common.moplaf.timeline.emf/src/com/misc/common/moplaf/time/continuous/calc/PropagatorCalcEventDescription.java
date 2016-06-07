@@ -22,10 +22,10 @@ public class PropagatorCalcEventDescription extends PropagatorFunctionAdapter {
 		event.refreshDescription();
 	}
 
-	protected void addListeners() {
-		super.addListeners();
-		this.addFeatureListener(ContinuousPackage.Literals.DISTRIBUTION_EVENT__AMOUNT_BEFORE);
-		this.addFeatureListener(ContinuousPackage.Literals.DISTRIBUTION_EVENT__AMOUNT_AFTER);
-		this.addFeatureListener(ContinuousPackage.Literals.DISTRIBUTION_EVENT__MOMENT);
+	protected void addInboundBindings() {
+		super.addInboundBindings();
+		this.addInboundBindingFeature(ContinuousPackage.Literals.DISTRIBUTION_EVENT__AMOUNT_BEFORE);
+		this.addInboundBindingFeature(ContinuousPackage.Literals.DISTRIBUTION_EVENT__AMOUNT_AFTER);
+		this.addInboundBindingFeature(ContinuousPackage.Literals.DISTRIBUTION_EVENT__MOMENT);
 	}
 };

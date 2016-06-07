@@ -6,8 +6,8 @@ public class PropagatorCalcStartEventAmountAfter extends
 		PropagatorCalcEventAmountAfter{
 
 	@Override
-	protected void addListeners() {
-		super.addListeners();
-		this.addFeatureListener(ContinuousPackage.Literals.START_EVENT__AMOUNT_AT_START);
+	protected void addInboundBindings() {
+		super.addInboundBindings();
+		this.addInboundBindingFeature(ContinuousPackage.Literals.START_EVENT__AMOUNT_AT_START);
 	}
 }

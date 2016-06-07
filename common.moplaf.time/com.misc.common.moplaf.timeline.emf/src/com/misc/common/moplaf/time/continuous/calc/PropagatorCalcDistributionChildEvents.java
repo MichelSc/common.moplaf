@@ -23,16 +23,16 @@ public class PropagatorCalcDistributionChildEvents extends PropagatorFunctionAda
 	}
 	
 	@Override
-	protected void addListeners() {
-		super.addListeners();
-		this.addNavigationFeatureListener(ContinuousPackage.Literals.DISTRIBUTION__CHILD_DISTRIBUTION, DependencyDistributionChildDistribution.class);
+	protected void addInboundBindings() {
+		super.addInboundBindings();
+		this.addInboundBindingNavigationFeature(ContinuousPackage.Literals.DISTRIBUTION__CHILD_DISTRIBUTION, DependencyDistributionChildDistribution.class);
 	}
 
 	static public class DependencyDistributionChildDistribution extends PropagatorDependencyAdapter{
 		@Override
-		protected void addListeners() {
-			super.addListeners();
-			this.addFeatureListener(ContinuousPackage.Literals.DISTRIBUTION__PROVIDED_EVENTS);
+		protected void addInboundBindings() {
+			super.addInboundBindings();
+			this.addInboundBindingFeature(ContinuousPackage.Literals.DISTRIBUTION__PROVIDED_EVENTS);
 		}
 	}; 
 };

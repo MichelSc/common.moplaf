@@ -27,15 +27,15 @@ public class PropagatorCalcChildEventMoment extends PropagatorCalcEventMoment {
 	}
 
 	@Override
-	protected void addListeners() {
-		super.addListeners();
-		this.addNavigationFeatureListener(ContinuousPackage.Literals.CHILD_EVENT__ORIGINAL, DependencyDistributionEventMoment.class);
+	protected void addInboundBindings() {
+		super.addInboundBindings();
+		this.addInboundBindingNavigationFeature(ContinuousPackage.Literals.CHILD_EVENT__ORIGINAL, DependencyDistributionEventMoment.class);
 	}
 
 	static public class DependencyDistributionEventMoment extends PropagatorDependencyAdapter{
-		protected void addListeners() {
-			super.addListeners();
-			this.addFeatureListener(ContinuousPackage.Literals.DISTRIBUTION_EVENT__MOMENT);
+		protected void addInboundBindings() {
+			super.addInboundBindings();
+			this.addInboundBindingFeature(ContinuousPackage.Literals.DISTRIBUTION_EVENT__MOMENT);
 		} 
 	}; 
 	

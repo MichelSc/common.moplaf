@@ -6,16 +6,16 @@ import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 public class PropagatorCalcEndEventMoment extends PropagatorCalcEventMoment {
 
 	@Override
-	protected void addListeners() {
-		super.addListeners();
-		this.addNavigationFeatureListener(ContinuousPackage.Literals.END_EVENT__DISTRIBUTION_AS_END, DependencyDistributionEnd.class);
+	protected void addInboundBindings() {
+		super.addInboundBindings();
+		this.addInboundBindingNavigationFeature(ContinuousPackage.Literals.END_EVENT__DISTRIBUTION_AS_END, DependencyDistributionEnd.class);
 	}
 
 	static public class DependencyDistributionEnd extends PropagatorDependencyAdapter{
 		@Override
-		protected void addListeners() {
-			super.addListeners();
-			this.addFeatureListener(ContinuousPackage.Literals.DISTRIBUTION__HORIZON_END);
+		protected void addInboundBindings() {
+			super.addInboundBindings();
+			this.addInboundBindingFeature(ContinuousPackage.Literals.DISTRIBUTION__HORIZON_END);
 		}
 	};
 }

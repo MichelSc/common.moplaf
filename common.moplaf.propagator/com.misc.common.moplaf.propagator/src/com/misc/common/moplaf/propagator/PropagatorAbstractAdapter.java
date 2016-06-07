@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  * propagator's Notifier and a {@link InboundBindingNavigationFeature}, listening to changes of some reference held by this
  * propagator's Notifier, and allowing to listen to changes in the referred object by receiving a 
  * {@link PropagatorDependencyAdapter}. These standards Listeners can be added with the convenience methods
- * {@link #addFeatureListener(Object)} and {@link #addNavigationFeatureListener(Object, Object)} respectively.
+ * {@link #addInboundBindingFeature(Object)} and {@link #addInboundBindingNavigationFeature(Object, Object)} respectively.
  * <p>
  * Registering the {@link PropagatorDependencyAdapter}s is done by the method {@link InboundBinding#addPropagatorFunctionAdapters}, called
  * when this adapter is added to the notifier. Unregistering the {@link PropagatorDependencyAdapter}s is done by the method
@@ -173,22 +173,22 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	protected LinkedList<InboundBinding> inboundBindings;
 	protected LinkedList<OutboundBinding> outboundBindings;
 	
-	protected void addListeners(){
+	protected void addInboundBindings(){
 	}
 	
-	protected void addListener(InboundBinding listener){
+	protected void addInboundBinding(InboundBinding binding){
 		if ( this.inboundBindings==null){
 			this.inboundBindings = new LinkedList<InboundBinding>();
 		}
-		this.inboundBindings.add(listener);
+		this.inboundBindings.add(binding);
 	}
 	
-	protected void addFeatureListener(Object feature){
-		this.addListener(new InboundBindingFeature(feature));
+	protected void addInboundBindingFeature(Object feature){
+		this.addInboundBinding(new InboundBindingFeature(feature));
 	}
 	
-	protected void addNavigationFeatureListener(Object feature, Object adapterdependencytype){
-		this.addListener(new InboundBindingNavigationFeature(feature, adapterdependencytype));
+	protected void addInboundBindingNavigationFeature(Object feature, Object adapterdependencytype){
+		this.addInboundBinding(new InboundBindingNavigationFeature(feature, adapterdependencytype));
 	}
 	
 	protected void logMessage(String message, String level){
@@ -249,7 +249,7 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	// -------------------------------------
 	public PropagatorAbstractAdapter() {
 		super();
-		this.addListeners();
+		this.addInboundBindings();
 	}
 
 	@Override

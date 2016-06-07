@@ -6,9 +6,9 @@ public class PropagatorCalcAmountAbsoluteAmountAfter extends
 		PropagatorCalcEventAmountAfter {
 
 	@Override
-	protected void addListeners() {
-		super.addListeners();
-		this.addFeatureListener(ContinuousPackage.Literals.AMOUNT_ABSOLUTE__AMOUNT_ABSOLUTE);
+	protected void addInboundBindings() {
+		super.addInboundBindings();
+		this.addInboundBindingFeature(ContinuousPackage.Literals.AMOUNT_ABSOLUTE__AMOUNT_ABSOLUTE);
 	}
 	
 }

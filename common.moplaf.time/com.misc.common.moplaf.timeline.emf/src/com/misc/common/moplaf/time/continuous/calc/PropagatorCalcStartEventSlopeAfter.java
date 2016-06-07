@@ -6,8 +6,8 @@ public class PropagatorCalcStartEventSlopeAfter extends
 		PropagatorCalcEventSlopeAfter{
 
 	@Override
-	protected void addListeners() {
-		super.addListeners();
-		this.addFeatureListener(ContinuousPackage.Literals.START_EVENT__SLOPE_AT_START);
+	protected void addInboundBindings() {
+		super.addInboundBindings();
+		this.addInboundBindingFeature(ContinuousPackage.Literals.START_EVENT__SLOPE_AT_START);
 	}
 }

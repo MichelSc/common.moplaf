@@ -24,9 +24,9 @@ public class PropagatorCalcEventsProviderRefreshEvents extends PropagatorFunctio
 	}
 
 	@Override
-	protected void addListeners() {
-		super.addListeners();
-		this.addFeatureListener(ContinuousPackage.Literals.EVENTS_PROVIDER_ABSTRACT__DISTRIBUTION);
+	protected void addInboundBindings() {
+		super.addInboundBindings();
+		this.addInboundBindingFeature(ContinuousPackage.Literals.EVENTS_PROVIDER_ABSTRACT__DISTRIBUTION);
 	}
 
 };

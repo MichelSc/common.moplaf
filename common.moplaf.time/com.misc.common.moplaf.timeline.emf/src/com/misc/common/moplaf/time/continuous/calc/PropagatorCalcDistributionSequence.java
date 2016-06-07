@@ -34,16 +34,16 @@ public class PropagatorCalcDistributionSequence extends PropagatorFunctionAdapte
 	}
 
 	@Override
-	protected void addListeners() {
-		super.addListeners();
-		this.addNavigationFeatureListener(ContinuousPackage.Literals.DISTRIBUTION__PROVIDED_EVENTS, DependencyDistributionEvent.class);
+	protected void addInboundBindings() {
+		super.addInboundBindings();
+		this.addInboundBindingNavigationFeature(ContinuousPackage.Literals.DISTRIBUTION__PROVIDED_EVENTS, DependencyDistributionEvent.class);
 	}
 
 	static public class DependencyDistributionEvent extends PropagatorDependencyAdapter{
 		@Override
-		protected void addListeners() {
-			super.addListeners();
-			this.addFeatureListener(ContinuousPackage.Literals.DISTRIBUTION_EVENT__MOMENT);
+		protected void addInboundBindings() {
+			super.addInboundBindings();
+			this.addInboundBindingFeature(ContinuousPackage.Literals.DISTRIBUTION_EVENT__MOMENT);
 		}
 	}; 
 };

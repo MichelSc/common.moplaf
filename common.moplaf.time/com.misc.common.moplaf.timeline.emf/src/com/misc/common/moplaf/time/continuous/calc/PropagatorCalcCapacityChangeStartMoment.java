@@ -6,16 +6,16 @@ import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 public class PropagatorCalcCapacityChangeStartMoment extends PropagatorCalcEventMoment {
 
 	@Override
-	protected void addListeners() {
-		super.addListeners();
-		this.addNavigationFeatureListener(ContinuousPackage.Literals.CAPACITY_CHANGE_START__PROVIDER, DependencyCapacityChangeStart.class);
+	protected void addInboundBindings() {
+		super.addInboundBindings();
+		this.addInboundBindingNavigationFeature(ContinuousPackage.Literals.CAPACITY_CHANGE_START__PROVIDER, DependencyCapacityChangeStart.class);
 	}
 
 	static public class DependencyCapacityChangeStart extends PropagatorDependencyAdapter{
 		@Override
-		protected void addListeners() {
-			super.addListeners();
-			this.addFeatureListener(ContinuousPackage.Literals.CAPACITY_CHANGE__START);
+		protected void addInboundBindings() {
+			super.addInboundBindings();
+			this.addInboundBindingFeature(ContinuousPackage.Literals.CAPACITY_CHANGE__START);
 		}
 	};
 }

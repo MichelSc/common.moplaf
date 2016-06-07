@@ -30,17 +30,17 @@ public class PropagatorCalcChildEventSlopeAfter extends PropagatorCalcEventSlope
 	}
 
 	@Override
-	protected void addListeners() {
-		super.addListeners();
-		this.addNavigationFeatureListener(ContinuousPackage.Literals.CHILD_EVENT__ORIGINAL, DependencyDistributionEventSlopes.class);
+	protected void addInboundBindings() {
+		super.addInboundBindings();
+		this.addInboundBindingNavigationFeature(ContinuousPackage.Literals.CHILD_EVENT__ORIGINAL, DependencyDistributionEventSlopes.class);
 	}
 
 
 	static public class DependencyDistributionEventSlopes extends PropagatorDependencyAdapter{
-		protected void addListeners() {
-			super.addListeners();
-			this.addFeatureListener(ContinuousPackage.Literals.DISTRIBUTION_EVENT__SLOPE_AFTER);
-			this.addFeatureListener(ContinuousPackage.Literals.DISTRIBUTION_EVENT__SLOPE_BEFORE);
+		protected void addInboundBindings() {
+			super.addInboundBindings();
+			this.addInboundBindingFeature(ContinuousPackage.Literals.DISTRIBUTION_EVENT__SLOPE_AFTER);
+			this.addInboundBindingFeature(ContinuousPackage.Literals.DISTRIBUTION_EVENT__SLOPE_BEFORE);
 		} 
 	}; 
 	
