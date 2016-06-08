@@ -38,6 +38,17 @@ public abstract class PropagatorDependencyAdapter extends PropagatorAbstractAdap
 		return functionAdapters;
 	}
 	
+	@Override
+	protected void collectDependingPropagatorFunctionAdapters(PropagatorFunctionAdapters adapters) {
+		if ( this.functionAdapters!=null){
+			for (PropagatorAbstractAdapter abstractAdapter : functionAdapters){
+				abstractAdapter.collectDependingPropagatorFunctionAdapters(adapters);
+			}
+		}
+	}
+
+
+
 	/**
 	 * This method may be overridden to return true. When the method returns true,
 	 * - when the dependency is 'TrackToucher' - the Notifier(s) touching - the toucher(s) - 

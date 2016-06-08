@@ -85,8 +85,6 @@ import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
  */
 public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapter {
 	
-	// nested classes
-	
 	// set of PropagatorFunctionAdapters 
 	static class PropagatorFunctionAdaptersSet extends HashSet<PropagatorFunctionAdapter>{
 		private static final long serialVersionUID = 1L;
@@ -168,6 +166,14 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 		return antecedents;
 	}
 	
+
+	/**
+	 */
+	@Override
+	protected void collectDependingPropagatorFunctionAdapters(PropagatorFunctionAdapters adapters) {
+		adapters.add(this);
+	}
+
 	/**
 	 * Calculate the data the PropagatorFunctionAdapter is monitoring. 
 	 * To be overridden.

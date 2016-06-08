@@ -89,11 +89,16 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		this.addOutboundBinding(new OutboundBindingFeature(feature));
 	}
 	
-
-	/*
-	 * Informs the framework that the element is bound by this propagator  
+	/**
+	 * Informs the framework that the element is bound
+	 * trough some outbound binding of this PropagatorAbstractAdapter  
 	 */
 	public boolean isOutboundBinding(Object element){
+		for ( OutboundBinding binding : this.outboundBindings){
+			if ( binding.isOutboundBinding(element)){
+				return true;
+			}
+		}
 		return false;
 	}
 	
@@ -142,9 +147,9 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 			Notifier notifier = adapter.getTarget();
 			for (Adapter otherAdapter : notifier.eAdapters()) {
 				if (adapter instanceof PropagatorAbstractAdapter) {
-					PropagatorAbstractAdapter propagator = (PropagatorAbstractAdapter) otherAdapter;
-					if ( propagator.isOutboundBinding(this.feature)){
-						antecedents.add(propagator);
+					PropagatorAbstractAdapter otherpropagator = (PropagatorAbstractAdapter) otherAdapter;
+					if ( otherpropagator.isOutboundBinding(this.feature)){
+						otherpropagator.collectDependingPropagatorFunctionAdapters(antecedents);
 					}
 				}
 			}
@@ -247,11 +252,38 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	}
 	
 	/**
+	 * Forward the notification to the inbound bindings, that detect if the bound derived element
+	 * is changed. If it is changed, touch this Adapter. 
+	 * @see com.misc.common.moplaf.propagator.AbstractAdapter#notifyChanged(org.eclipse.emf.common.notify.Notification)
+	 */
+	@Override
+	public void notifyChanged(Notification msg) {
+		super.notifyChanged(msg);
+		if ( this.inboundBindings!=null){
+			for (InboundBinding listener : this.inboundBindings){
+				listener.notifyChanged(msg);
+			}
+		}
+	}
+
+
+	/**
 	 * Ultimately, the inbound bindings call touch as a function of the notifications it receives
 	 */
 	public void touch(Object toucher){
 		this.logInfo("Touched");
-	} 
+	}
+	
+	/*
+	 * Collect the antecedents of the inbound bindings of this adapter
+	 * <p>
+	 * Used by the framework to derive the antecedents of a given PropagatorFunctionAdapter
+	 */
+	protected void collectAntecedents(PropagatorFunctionAdapters antecedents){
+		for ( InboundBinding inboundBinding : this.inboundBindings){
+			inboundBinding.collectAntecedents(antecedents);
+		}
+	}
 
 	// -------------------------------------
 	// logging helpers
@@ -293,8 +325,8 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		
 		
 		if ( this.inboundBindings!=null){
-			for (InboundBinding listener : this.inboundBindings){
-				listener.addPropagatorFunctionAdapters();
+			for (InboundBinding binding : this.inboundBindings){
+				binding.addPropagatorFunctionAdapters();
 			}
 		}
 	}
@@ -303,8 +335,8 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		//this.logMessage("Deactivated");
 
 		if ( this.inboundBindings!=null){
-			for (InboundBinding listener : this.inboundBindings){
-				listener.disposePropagatorFunctionAdapters();
+			for (InboundBinding binding : this.inboundBindings){
+				binding.disposePropagatorFunctionAdapters();
 			}
 		}
 	}
@@ -323,19 +355,6 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	public boolean isAdapterForType(Object type) {
 		if ( !(type instanceof Class)  ) { return false;}
 		return ((Class)type).isAssignableFrom(this.getClass()); // this class is a specialization of the parameter
-	}
-
-	/* (non-Javadoc)
-	 * @see com.misc.common.moplaf.propagator.AbstractAdapter#notifyChanged(org.eclipse.emf.common.notify.Notification)
-	 */
-	@Override
-	public void notifyChanged(Notification msg) {
-		super.notifyChanged(msg);
-		if ( this.inboundBindings!=null){
-			for (InboundBinding listener : this.inboundBindings){
-				listener.notifyChanged(msg);
-			}
-		}
 	}
 
 	// -------------------------------------
@@ -382,7 +401,7 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		return dependency;
 	}
 
-public PropagatorDependencyAdapter removeDependency(Notifier targetdependency, 
+	public PropagatorDependencyAdapter removeDependency(Notifier targetdependency, 
 												    Object adapterfunctiontype,
 												    boolean touchBeforeRemove){
 
@@ -437,11 +456,16 @@ public PropagatorDependencyAdapter removeDependency(Notifier targetdependency,
 		}
 		return ;
 	}
-
-	protected void collectAntecedents(PropagatorFunctionAdapters antecedents){
-		for ( InboundBinding inboundBinding : this.inboundBindings){
-			inboundBinding.collectAntecedents(antecedents);
-		}
+	
+	/*
+	 * Retrieve all the PropagatorFunctionAdapters depending on this PropagatorAbstractAdapter.
+	 * <p>
+	 * Used to collect the PropagatorFunctionAdapters bound through an inboung binding to this 
+	 * Adapter
+	 * <p>
+	 * Default implementation does nothing.
+	 */
+	protected void collectDependingPropagatorFunctionAdapters(PropagatorFunctionAdapters adapters){
 		
 	}
 
