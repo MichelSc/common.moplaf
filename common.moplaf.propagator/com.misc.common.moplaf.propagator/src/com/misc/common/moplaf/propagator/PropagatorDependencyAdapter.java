@@ -3,6 +3,7 @@ package com.misc.common.moplaf.propagator;
 import java.util.LinkedList;
 import java.util.List;
 
+
 /**
  * Listen to changes as mandated by some PropagatorFunctionAdapter(s).
  * <p>
