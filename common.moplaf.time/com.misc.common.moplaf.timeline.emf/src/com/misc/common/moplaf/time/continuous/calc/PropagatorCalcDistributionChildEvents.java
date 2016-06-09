@@ -23,15 +23,15 @@ public class PropagatorCalcDistributionChildEvents extends PropagatorFunctionAda
 	}
 	
 	@Override
-	protected void addInboundBindings() {
-		super.addInboundBindings();
+	protected void addBindings() {
+		super.addBindings();
 		this.addInboundBindingNavigationFeature(ContinuousPackage.Literals.DISTRIBUTION__CHILD_DISTRIBUTION, DependencyDistributionChildDistribution.class);
 	}
 
 	static public class DependencyDistributionChildDistribution extends PropagatorDependencyAdapter{
 		@Override
-		protected void addInboundBindings() {
-			super.addInboundBindings();
+		protected void addBindings() {
+			super.addBindings();
 			this.addInboundBindingFeature(ContinuousPackage.Literals.DISTRIBUTION__PROVIDED_EVENTS);
 		}
 	}; 

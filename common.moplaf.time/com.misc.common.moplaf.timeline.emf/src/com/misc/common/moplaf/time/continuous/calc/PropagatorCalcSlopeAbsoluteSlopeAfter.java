@@ -6,8 +6,8 @@ public class PropagatorCalcSlopeAbsoluteSlopeAfter extends
 		PropagatorCalcEventSlopeAfter {
 
 	@Override
-	protected void addInboundBindings() {
-		super.addInboundBindings();
+	protected void addBindings() {
+		super.addBindings();
 		this.addInboundBindingFeature(ContinuousPackage.Literals.SLOPE_ABSOLUTE__SLOPE_ABSOLUTE);
 	}
 }

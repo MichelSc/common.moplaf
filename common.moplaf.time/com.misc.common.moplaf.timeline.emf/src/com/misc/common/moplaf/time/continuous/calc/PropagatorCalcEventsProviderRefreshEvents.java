@@ -24,8 +24,8 @@ public class PropagatorCalcEventsProviderRefreshEvents extends PropagatorFunctio
 	}
 
 	@Override
-	protected void addInboundBindings() {
-		super.addInboundBindings();
+	protected void addBindings() {
+		super.addBindings();
 		this.addInboundBindingFeature(ContinuousPackage.Literals.EVENTS_PROVIDER_ABSTRACT__DISTRIBUTION);
 	}
 

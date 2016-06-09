@@ -34,8 +34,8 @@ public class PropagatorCalcDistributionProvidedEvents extends PropagatorFunction
 	}
 
 	@Override
-	protected void addInboundBindings() {
-		super.addInboundBindings();
+	protected void addBindings() {
+		super.addBindings();
 		this.addInboundBindingFeature(ContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS);
 		this.addInboundBindingFeature(ContinuousPackage.Literals.DISTRIBUTION__CHILD_EVENTS);
 	}

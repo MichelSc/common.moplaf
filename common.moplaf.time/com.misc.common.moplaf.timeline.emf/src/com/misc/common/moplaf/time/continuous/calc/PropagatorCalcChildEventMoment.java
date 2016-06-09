@@ -27,14 +27,14 @@ public class PropagatorCalcChildEventMoment extends PropagatorCalcEventMoment {
 	}
 
 	@Override
-	protected void addInboundBindings() {
-		super.addInboundBindings();
+	protected void addBindings() {
+		super.addBindings();
 		this.addInboundBindingNavigationFeature(ContinuousPackage.Literals.CHILD_EVENT__ORIGINAL, DependencyDistributionEventMoment.class);
 	}
 
 	static public class DependencyDistributionEventMoment extends PropagatorDependencyAdapter{
-		protected void addInboundBindings() {
-			super.addInboundBindings();
+		protected void addBindings() {
+			super.addBindings();
 			this.addInboundBindingFeature(ContinuousPackage.Literals.DISTRIBUTION_EVENT__MOMENT);
 		} 
 	}; 

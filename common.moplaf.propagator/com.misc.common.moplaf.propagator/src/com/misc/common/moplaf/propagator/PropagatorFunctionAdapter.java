@@ -2,6 +2,7 @@ package com.misc.common.moplaf.propagator;
 
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.Notifier;
@@ -151,7 +152,17 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	 * @return the sibling propagators this propagator depends directly on.
 	 */
 	protected PropagatorFunctionAdapters getAntecedents() {
-		return new PropagatorFunctionAdaptersImpl();
+		PropagatorFunctionAdapters antecedents = this.getAllAntecedents();
+		// remove the non sibblings
+		Iterator<PropagatorFunctionAdapter> iterator = antecedents.iterator();
+		while ( iterator.hasNext() ){
+			PropagatorFunctionAdapter antecedent = iterator.next();
+			boolean sibbling = antecedent.getParent()==this.getParent();
+			if ( !sibbling){
+				iterator.remove();
+			}
+		}
+		return antecedents;
 	}
 	
 	/**
@@ -168,6 +179,8 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	
 
 	/**
+	 * The only PropagatorFunctionAdapter depending on a PropagatorFuctionAdapter is itself.
+	 * So collect it self. 
 	 */
 	@Override
 	protected void collectDependingPropagatorFunctionAdapters(PropagatorFunctionAdapters adapters) {

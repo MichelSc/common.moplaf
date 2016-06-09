@@ -30,16 +30,16 @@ public class PropagatorCalcChildEventAmountAfter extends PropagatorCalcEventAmou
 	}
 
 	@Override
-	protected void addInboundBindings() {
-		super.addInboundBindings();
+	protected void addBindings() {
+		super.addBindings();
 		this.addInboundBindingNavigationFeature(ContinuousPackage.Literals.CHILD_EVENT__ORIGINAL, DependencyDistributionEventAmounts.class);
 	}
 
 	
 	static public class DependencyDistributionEventAmounts extends PropagatorDependencyAdapter{
 		@Override
-		protected void addInboundBindings() {
-			super.addInboundBindings();
+		protected void addBindings() {
+			super.addBindings();
 			this.addInboundBindingFeature(ContinuousPackage.Literals.DISTRIBUTION_EVENT__AMOUNT_AFTER);
 			this.addInboundBindingFeature(ContinuousPackage.Literals.DISTRIBUTION_EVENT__AMOUNT_BEFORE);
 		}

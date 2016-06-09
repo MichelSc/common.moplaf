@@ -37,7 +37,12 @@ public abstract class PropagatorDependencyAdapter extends PropagatorAbstractAdap
 		}
 		return functionAdapters;
 	}
-	
+
+	/**
+	 * Collect all the PropagatorFunctionAdapters depending on this PropagatorDependencyAdapter.
+	 * So collect all the PropagatorFunctionAdapters having this PropagatorDependencyAdapter as
+	 * dependency, either directly or transitively.
+	 */
 	@Override
 	protected void collectDependingPropagatorFunctionAdapters(PropagatorFunctionAdapters adapters) {
 		if ( this.functionAdapters!=null){

@@ -44,12 +44,13 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	/**
 	* The base class of all outbound bindings.
 	* <p>
-	* An outbound binding informs the framework if some feature of the target of this PropagatorFunctionAdapter
-	*  is set by this PropagatorFunctionAdapter, and consequently, to inform the framework if the feature
-	*  is derived. 
+	* An outbound binding informs the framework if some feature of the target of this PropagatorAbstractAdapter
+	*  is set by the PropagatorFunctionAdapter(s) depending on this PropagatorAbstractAdapter, and consequently, 
+	*  to inform the framework that something (a feature) is derived. 
 	* <p>
-	* When the feature is derived, the framework will then be able to retrieve the inbound binding of this 
-	* PropagatorFunctionAdapter, and to enforce them to be update before refreshing the feature.
+	* When something (a feature )is derived, the framework will then be able to retrieve the inbound bindings 
+	* of the depending PropagatorFunctionAdapter, and to enforce them to be update before refreshing the feature.
+	* This is the very goal of the whole framework.
 	*/
 	class OutboundBinding{
 		public OutboundBinding(){
@@ -73,9 +74,6 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		public boolean isOutboundBinding(Object element){
 			return element == this.feature;
 		}
-	}
-	
-	protected void addOutboundBindings(){
 	}
 	
 	protected void addOutboundBinding(OutboundBinding binding){
@@ -233,7 +231,7 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	}
 	
 	
-	protected void addInboundBindings(){
+	protected void addBindings(){
 	}
 	
 	protected void addInboundBinding(InboundBinding binding){
@@ -289,32 +287,25 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	// logging helpers
 	// -------------------------------------
 
-	protected void logMessage(String message, String level){
-		String logLine = String.format("Propagator, %4$s: %3$s, object: %1$s, function: %2$s, object %5$s" , 
+	protected String makeLogLine(String message){
+		String logLine = String.format("Propagator: %3$s, object: %1$s, function: %2$s, object %4$s" , 
 		                 Util.LastTokenDotSeparated(this.target.getClass().getName()),
          		         Util.LastTokenDotSeparated(this.getClass().getName()),
          		         message, 
-         		         level, 
          		         this.target);
-		CommonPlugin.INSTANCE.log( logLine);
+		return logLine;
 	}
 	
 	protected void logInfo(String message){
-		if ( Plugin.INSTANCE.getLogOnInfo() ){
-			this.logMessage(message, "info");
-		}
+		Plugin.INSTANCE.logInfo(this.makeLogLine(message));
 	}
 	
 	protected void logWarning(String message){
-		if ( Plugin.INSTANCE.getLogOnWarning() ){
-			this.logMessage(message, "warning");
-		}
+		Plugin.INSTANCE.logWarning(this.makeLogLine(message));
 	}
 	
 	protected void logError(String message){
-		if ( Plugin.INSTANCE.getLogOnError() ){
-			this.logMessage(message, "error");
-		}
+		Plugin.INSTANCE.logError(this.makeLogLine(message));
 	}
 	
 	// -------------------------------------
@@ -347,8 +338,7 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	// -------------------------------------
 	public PropagatorAbstractAdapter() {
 		super();
-		this.addInboundBindings();
-		this.addOutboundBindings();
+		this.addBindings();
 	}
 
 	@Override
@@ -457,16 +447,15 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		return ;
 	}
 	
-	/*
+	/**
 	 * Retrieve all the PropagatorFunctionAdapters depending on this PropagatorAbstractAdapter.
 	 * <p>
-	 * Used to collect the PropagatorFunctionAdapters bound through an inboung binding to this 
+	 * Used to collect the PropagatorFunctionAdapters bound through an inbound binding to this 
 	 * Adapter
 	 * <p>
 	 * Default implementation does nothing.
 	 */
 	protected void collectDependingPropagatorFunctionAdapters(PropagatorFunctionAdapters adapters){
-		
 	}
 
 }

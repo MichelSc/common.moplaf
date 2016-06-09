@@ -34,15 +34,15 @@ public class PropagatorCalcDistributionSequence extends PropagatorFunctionAdapte
 	}
 
 	@Override
-	protected void addInboundBindings() {
-		super.addInboundBindings();
+	protected void addBindings() {
+		super.addBindings();
 		this.addInboundBindingNavigationFeature(ContinuousPackage.Literals.DISTRIBUTION__PROVIDED_EVENTS, DependencyDistributionEvent.class);
 	}
 
 	static public class DependencyDistributionEvent extends PropagatorDependencyAdapter{
 		@Override
-		protected void addInboundBindings() {
-			super.addInboundBindings();
+		protected void addBindings() {
+			super.addBindings();
 			this.addInboundBindingFeature(ContinuousPackage.Literals.DISTRIBUTION_EVENT__MOMENT);
 		}
 	}; 

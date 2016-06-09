@@ -44,8 +44,8 @@ public class PropagatorCalcEventAmountBefore extends PropagatorFunctionAdapter {
 	}
 
 	@Override
-	protected void addInboundBindings() {
-		super.addInboundBindings();
+	protected void addBindings() {
+		super.addBindings();
 		this.addInboundBindingFeature(ContinuousPackage.Literals.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE);
 		this.addInboundBindingFeature(ContinuousPackage.Literals.DISTRIBUTION_EVENT__SLOPE_BEFORE);
 		this.addInboundBindingNavigationFeature(ContinuousPackage.Literals.DISTRIBUTION_EVENT__PREVIOUS, DependencyEventBeforeAmountAfter.class);
@@ -53,8 +53,8 @@ public class PropagatorCalcEventAmountBefore extends PropagatorFunctionAdapter {
 
 	static public class DependencyEventBeforeAmountAfter extends PropagatorDependencyAdapter{
 		@Override
-		protected void addInboundBindings() {
-			super.addInboundBindings();
+		protected void addBindings() {
+			super.addBindings();
 			this.addInboundBindingFeature(ContinuousPackage.Literals.DISTRIBUTION_EVENT__AMOUNT_AFTER);
 		}
 	}; 

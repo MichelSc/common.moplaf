@@ -6,8 +6,8 @@ public class PropagatorCalcAmountAbsoluteAmountAfter extends
 		PropagatorCalcEventAmountAfter {
 
 	@Override
-	protected void addInboundBindings() {
-		super.addInboundBindings();
+	protected void addBindings() {
+		super.addBindings();
 		this.addInboundBindingFeature(ContinuousPackage.Literals.AMOUNT_ABSOLUTE__AMOUNT_ABSOLUTE);
 	}
 	

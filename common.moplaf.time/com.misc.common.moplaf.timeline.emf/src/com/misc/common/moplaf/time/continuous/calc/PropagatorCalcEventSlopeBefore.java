@@ -37,16 +37,16 @@ public class PropagatorCalcEventSlopeBefore extends PropagatorFunctionAdapter {
 	}
 
 	@Override
-	protected void addInboundBindings() {
-		super.addInboundBindings();
+	protected void addBindings() {
+		super.addBindings();
 		this.addInboundBindingFeature(ContinuousPackage.Literals.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE);
 		this.addInboundBindingNavigationFeature(ContinuousPackage.Literals.DISTRIBUTION_EVENT__PREVIOUS, DependencyEventBeforeSlopeAfter.class);
 	}
 
 	static public class DependencyEventBeforeSlopeAfter extends PropagatorDependencyAdapter{
 		@Override
-		protected void addInboundBindings() {
-			super.addInboundBindings();
+		protected void addBindings() {
+			super.addBindings();
 			this.addInboundBindingFeature(ContinuousPackage.Literals.DISTRIBUTION_EVENT__SLOPE_AFTER);
 		}
 	}; 
