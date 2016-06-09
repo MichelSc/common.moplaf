@@ -231,6 +231,8 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	}
 	
 	public void touch(Object toucher){
+		super.touch(toucher);
+		
 		if ( this.isTouched ){
 			// already touched
 			if ( this.touchers==null ) { return; };
@@ -329,7 +331,7 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	{
 		if ( this.isTouched ){
 			EObject touchedObject = (EObject)this.getTarget();
-			this.logInfo("Calculate");
+			Plugin.INSTANCE.logCalc(this);
 			if ( this.touchers==null) {
 				this.calculate();
 			} else {

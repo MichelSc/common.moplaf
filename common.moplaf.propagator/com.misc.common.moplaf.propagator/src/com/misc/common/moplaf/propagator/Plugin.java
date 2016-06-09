@@ -164,30 +164,53 @@ public final class Plugin extends EMFPlugin implements PrefConstants{
 		return "Unknown";
 	}
 	
-	public void logMessage(LogLevel level, String message, PropagatorFunctionAdapter adapter){
+	public void logMessage(LogLevel level, String message, PropagatorAbstractAdapter adapter){
 		if ( this.doLog(level)){
 			String levelAsString = this.getLevelAsString(level);
-			Notifier target = adapter.getTarget();
-			String fullMessage = String.format("Propagator: %5$s: %3$s, object: %1$s, function: %2$s, object %4$s" , 
-	                Util.LastTokenDotSeparated(target.getClass().getName()),
-			        Util.LastTokenDotSeparated(adapter.getClass().getName()),
-			        message, 
-			        target,
-			        levelAsString);
+			Notifier target = adapter == null ? null : adapter.getTarget();
+			String fullMessage = "";
+			if ( message !=null && target !=null){
+				fullMessage = String.format("Propagator: %1$s: %2$s, object: %3$s, function: %4$s, object %5$s" , 
+				        levelAsString,
+						message, 
+		                Util.LastTokenDotSeparated(target.getClass().getName()),
+				        Util.LastTokenDotSeparated(adapter.getClass().getName()),
+				        target);
+			}
+			else if ( message ==null && target !=null){
+				fullMessage = String.format("Propagator: %1$s: object: %2$s, function: %3$s, object %4$s" , 
+				        levelAsString,
+		                Util.LastTokenDotSeparated(target.getClass().getName()),
+				        Util.LastTokenDotSeparated(adapter.getClass().getName()),
+				        target);
+			}
+			else if ( message !=null && target ==null){
+				fullMessage = String.format("Propagator: %1$s: %2$s" , 
+				        levelAsString,
+						message);
+			}
 
 			CommonPlugin.INSTANCE.log( fullMessage);
 		}
 	}
 	
-	public void logInfo(String message, PropagatorFunctionAdapter adapter){
+	public void logTouch(PropagatorAbstractAdapter adapter){
+		this.logMessage(LogLevel.LOG_LEVEL_TOUCH, null, adapter);
+	}
+
+	public void logCalc(PropagatorAbstractAdapter adapter){
+		this.logMessage(LogLevel.LOG_LEVEL_CALC, null, adapter);
+	}
+	
+	public void logInfo(String message, PropagatorAbstractAdapter adapter){
 		this.logMessage(LogLevel.LOG_LEVEL_INFO, message, adapter);
 	}
 	
-	public void logWarning(String message){
+	public void logWarning(String message, PropagatorAbstractAdapter adapter){
 		this.logMessage(LogLevel.LOG_LEVEL_WARNING, message, adapter);
 	}
 	
-	public void logError(String message){
+	public void logError(String message, PropagatorAbstractAdapter adapter){
 		this.logMessage(LogLevel.LOG_LEVEL_ERROR, message, adapter);
 	}
 	

@@ -269,7 +269,7 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	 * Ultimately, the inbound bindings call touch as a function of the notifications it receives
 	 */
 	public void touch(Object toucher){
-		this.logInfo("Touched");
+		Plugin.INSTANCE.logTouch(this);
 	}
 	
 	/*
@@ -287,25 +287,16 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	// logging helpers
 	// -------------------------------------
 
-	protected String makeLogLine(String message){
-		String logLine = String.format("Propagator: %3$s, object: %1$s, function: %2$s, object %4$s" , 
-		                 Util.LastTokenDotSeparated(this.target.getClass().getName()),
-         		         Util.LastTokenDotSeparated(this.getClass().getName()),
-         		         message, 
-         		         this.target);
-		return logLine;
-	}
-	
 	protected void logInfo(String message){
-		Plugin.INSTANCE.logInfo(this.makeLogLine(message));
+		Plugin.INSTANCE.logInfo(message, this);
 	}
 	
 	protected void logWarning(String message){
-		Plugin.INSTANCE.logWarning(this.makeLogLine(message));
+		Plugin.INSTANCE.logWarning(message, this);
 	}
 	
 	protected void logError(String message){
-		Plugin.INSTANCE.logError(this.makeLogLine(message));
+		Plugin.INSTANCE.logError(message, this);
 	}
 	
 	// -------------------------------------
