@@ -107,20 +107,30 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	private boolean isTouched = false;
 	private PropagatorFunctionAdapter touchedParent = null;
 	private TouchersSet touchers = null;
-	
-	protected PropagatorFunctionAdaptersSet touchedFunctionAdapters = new PropagatorFunctionAdaptersSet();
-
+	private PropagatorFunctionAdaptersSet touchedFunctionAdapters = new PropagatorFunctionAdaptersSet();
 	private PropagatorFunctionAdapter currentParent = null;
+	private boolean isEnabled = false;
 	
 	public boolean isTouched() { 
-		if ( this.isTouched ) { return true; }
-		return false;
+		return  this.isTouched;
 	}
 	
 	protected boolean isTouchOnOwned() { return true; }
 	
 	protected boolean isTouchOnDispose() { return false; }
 	
+	public void enable(){
+		this.isEnabled = true;
+		this.currentParent = this.getParent();
+		this.addDependencyAdapters();
+	}
+	
+	public void disable(){
+		this.removeDependencyAdapters();
+		this.isEnabled = false;
+	}
+
+	/*
 	protected boolean isActive(){
 		// is the resource loading?
 		Notifier target = this.getTarget();
@@ -143,6 +153,7 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 		// so we are active
 		return true;
 	}
+		*/
 
 	/** 
 	 * Returns the set of touched function adapters which are children of this adpater
@@ -168,13 +179,6 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	 */
 	protected PropagatorFunctionAdapter getParent(){
 		return null;
-	}
-	
-	public void refreshParent(){
-		if ( this.currentParent==null){
-			PropagatorFunctionAdapter parentAsIs = this.getParent();
-			this.currentParent = parentAsIs;
-		}
 	}
 	
 	/**
@@ -262,7 +266,7 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	}
 	
 	public void touch(Object toucher){
-		if ( !this.isActive() ){
+		if ( !this.isEnabled ){
 			return ;
 		}
 		
@@ -275,13 +279,12 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 			this.touchers.add(toucher);
 			return;
 			}
-		
-		// ok, we touch
+
+		// ok we touch
 		super.touch(toucher);
 		Plugin.INSTANCE.logTouch(this);
 
 		// touch parent, if any
-		this.refreshParent();
 		PropagatorFunctionAdapter parent = this.currentParent;
 		if ( parent != null ) {
 			this.touchedParent = parent;

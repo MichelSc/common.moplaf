@@ -34,11 +34,11 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
  * <li>when the adapter is added: {@link #onAdapterAdded(Notifier)}
  *   <ul> 
  *   <li>call the Notifiers's addPropagatorFunctionAdapter {@link ObjectWithPropagatorFunctionAdapter#addPropagatorFunctionAdapter}
- *   <li>call the propagator's addPropagatorFunctionAdapters {@link PropagatorFunctionAdapter#addPropagatorFunctionAdapters()}
+ *   <li>call the propagator's addPropagatorFunctionAdapters {@link PropagatorFunctionAdapter#addDependencyAdapters()}
  *   </ul>
  * <li>when the adapter is removed: {@link #onAdapterRemoved(Notifier)}
  *   <ul> 
- *   <li>call the propagator's disposePropagatorFunctionAdapters {@link PropagatorFunctionAdapter#disposePropagatorFunctionAdapters()}
+ *   <li>call the propagator's disposePropagatorFunctionAdapters {@link PropagatorFunctionAdapter#removeDependencyAdapters()}
  *   <li>remove the untouched propagators
  *   </ul>
  * <li>when the Notifier is added to its container: {@link #onNotifierContained(Notifier)}
@@ -120,8 +120,8 @@ public class PropagatorFunctionAdapterManager extends AdapterImpl
         Notifier oldValue = (Notifier)notification.getOldValue();
         if (oldValue.eAdapters().contains(this))
         {
-          removeAdapter(oldValue);
           this.onNotifierNotContained(oldValue);
+          removeAdapter(oldValue);
           Notifier newValue = (Notifier)notification.getNewValue();
           addAdapter(newValue);
           this.onNotifierContained(newValue);
@@ -402,7 +402,7 @@ public class PropagatorFunctionAdapterManager extends AdapterImpl
 
   /**
    * Handles the management of PropagatorFunctionAdapters (adds) when a Notifier enters the scope of the propagation
-   * Either if notifier is added or this PropagatorFunctionAdapterManger is added to the notifier
+   * Either if notifier is added or this PropagatorFunctionAdapterManager is added to the notifier
    */
   void onAdapterAdded(Notifier notifier){
 	//CommonPlugin.INSTANCE.log("PropagatorFunctionAdapterManager.onAdapterAdded, notifier "+notifier);
@@ -415,7 +415,7 @@ public class PropagatorFunctionAdapterManager extends AdapterImpl
 			for (Adapter adapter : objectWithPropagator.eAdapters()) {
 				if (adapter instanceof PropagatorFunctionAdapter) {
 					PropagatorFunctionAdapter propagator = (PropagatorFunctionAdapter) adapter;
-					propagator.addPropagatorFunctionAdapters();
+					propagator.enable();
 				}
 			}
 		}
@@ -427,14 +427,14 @@ public class PropagatorFunctionAdapterManager extends AdapterImpl
    * Either if notifier is removed or this PropagatorFunctionAdapterManger is removed from the notifier
    */
   void onAdapterRemoved(Notifier notifier){
-	//CommonPlugin.INSTANCE.log("PropagatorFunctionAdapterManager.onAdapterRemoved, notifier "+notifier);
+	// CommonPlugin.INSTANCE.log("PropagatorFunctionAdapterManager.onAdapterRemoved, notifier "+notifier);
 	// control gets here when ownership is taken
 	if ( notifier instanceof ObjectWithPropagatorFunctionAdapter) {
 		LinkedList<Adapter> adaptersToRemove = new LinkedList<Adapter>();
 		for ( Adapter adapter : notifier.eAdapters()){
 			if (adapter instanceof PropagatorFunctionAdapter) {
 				PropagatorFunctionAdapter propagator = (PropagatorFunctionAdapter)adapter;
-				propagator.disposePropagatorFunctionAdapters();
+				propagator.disable();
 				if ( !propagator.isTouched() ){
 					// if touched, removal is delayed at the end of the refresh
 					adaptersToRemove.add(adapter);
@@ -447,9 +447,10 @@ public class PropagatorFunctionAdapterManager extends AdapterImpl
   
   /**
    * Touches the PropagatorFunctionAdapters requiring it when the Notifier is contained 
+   * Note: the owner is already set, the propagators are already created, the adapter is already added
    */
   void onNotifierContained(Notifier notifier){
-	//CommonPlugin.INSTANCE.log("PropagatorFunctionAdapterManager.onNotifierContained, notifier "+notifier);
+	// CommonPlugin.INSTANCE.log("PropagatorFunctionAdapterManager.onNotifierContained, notifier "+notifier);
 	for (Adapter adapter : notifier.eAdapters()) {
 		if (adapter instanceof PropagatorFunctionAdapter) {
 			PropagatorFunctionAdapter propagator = (PropagatorFunctionAdapter) adapter;
@@ -462,9 +463,10 @@ public class PropagatorFunctionAdapterManager extends AdapterImpl
   
   /**
    * Touches the PropagatorFunctionAdapters requiring it when the Notifier is disposed 
+   * Note: the owner is already lost, the propagators are not yet removed, the adapter is not yet removed
    */
   void onNotifierNotContained(Notifier notifier){
-	//CommonPlugin.INSTANCE.log("PropagatorFunctionAdapterManager.onNotifierNotContained, notifier "+notifier);
+	// CommonPlugin.INSTANCE.log("PropagatorFunctionAdapterManager.onNotifierNotContained, notifier "+notifier);
 	for (Adapter adapter : notifier.eAdapters()) {
 		if (adapter instanceof PropagatorFunctionAdapter) {
 			PropagatorFunctionAdapter propagator = (PropagatorFunctionAdapter) adapter;

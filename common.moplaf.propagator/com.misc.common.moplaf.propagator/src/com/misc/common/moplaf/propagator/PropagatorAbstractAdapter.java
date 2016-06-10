@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  * <p>
  * Registering the {@link PropagatorDependencyAdapter}s is done by the method {@link InboundBinding#addPropagatorFunctionAdapters}, called
  * when this adapter is added to the notifier. Unregistering the {@link PropagatorDependencyAdapter}s is done by the method
- * {@link InboundBinding#disposePropagatorFunctionAdapters()}, called when the adapter is removed from the Notifier.
+ * {@link InboundBinding#removeDependencyAdapters()}, called when the adapter is removed from the Notifier.
  * <p>
  * Unregistering the propagatorFunctionAdapters is done by the method {@link #disposePropagatorFunctionAdapters}.
  * 
@@ -66,8 +66,6 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		public boolean isOutboundBinding(Object element){
 			return false;
 		}
-		protected void addPropagatorFunctionAdapters(){};
-		protected void disposePropagatorFunctionAdapters(){};
 	}
 
 	/**
@@ -132,8 +130,8 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		protected void touch(){
 			PropagatorAbstractAdapter.this.touch(null);
 		};
-		protected void addPropagatorFunctionAdapters(){};
-		protected void disposePropagatorFunctionAdapters(){};
+		protected void addDependencyAdapters(){};
+		protected void removeDependencyAdapters(){};
 		protected void notifyChanged(Notification msg) {};
 		protected void collectAntecedents(PropagatorFunctionAdapters antecedents){}
 	}
@@ -192,7 +190,7 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		}
 		
 		@Override
-		protected void addPropagatorFunctionAdapters(){
+		protected void addDependencyAdapters(){
 			EObject object = (EObject) PropagatorAbstractAdapter.this.getTarget();
 			Object featurevalue = object.eGet((EStructuralFeature) this.feature, false ); // no resolve
 			if ( featurevalue instanceof Collection<?>){
@@ -206,7 +204,7 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 			}
 		}
 		@Override
-		protected void disposePropagatorFunctionAdapters(){
+		protected void removeDependencyAdapters(){
 			EObject object = (EObject) PropagatorAbstractAdapter.this.getTarget();
 			Object featurevalue = object.eGet((EStructuralFeature) this.feature);
 			if ( featurevalue instanceof Collection<?>){
@@ -313,23 +311,23 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	// -------------------------------------
 	// activate, deactivate
 	// -------------------------------------
-	public void addPropagatorFunctionAdapters(){
+	public void addDependencyAdapters(){
 		//this.logMessage("Activated");
 		
 		
 		if ( this.inboundBindings!=null){
 			for (InboundBinding binding : this.inboundBindings){
-				binding.addPropagatorFunctionAdapters();
+				binding.addDependencyAdapters();
 			}
 		}
 	}
 	
-	public void disposePropagatorFunctionAdapters(){
+	public void removeDependencyAdapters(){
 		//this.logMessage("Deactivated");
 
 		if ( this.inboundBindings!=null){
 			for (InboundBinding binding : this.inboundBindings){
-				binding.disposePropagatorFunctionAdapters();
+				binding.removeDependencyAdapters();
 			}
 		}
 	}
@@ -387,7 +385,7 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 
 		// activate the dependency
 		if ( !((EObject)dependency.getTarget()).eIsProxy() ) {
-			dependency.addPropagatorFunctionAdapters();
+			dependency.addDependencyAdapters();
 		}
 		
 		return dependency;
@@ -410,7 +408,7 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		}
 		dependency.getDependentFunctionAdapters().remove(this);
 		if ( dependency.getDependentFunctionAdapters().size()==0){
-			dependency.disposePropagatorFunctionAdapters();
+			dependency.removeDependencyAdapters();
 			targetdependency.eAdapters().remove(dependency);
 		}
 	}
