@@ -41,11 +41,19 @@ import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
  *   <li>refreshing all children
  *   <li>refreshing this Propagator: method  {@link #calculate()}
  *   </ul>
- * <li>listens to change notifications 
+ * <li>listens to changes
  *   <ul>
- *   <li>of this PropagatorFunctionAdapter's notifier by overriding see {@link #notifyChanged(Notification)}
- *   <li>of other Notifiers, by delegating to some extension of {@link PropagatorDependencyAdapter} 
- * </ul>
+ *   <li>of this PropagatorFunctionAdapter's notifier by accepting inbound bindings see {@link PropagatorAbstractAdapter}
+ *   <li>of other navigated to Notifiers, by delegating to some extension of {@link PropagatorDependencyAdapter}, which will
+ *   accept inbound bindings for the features in the navigated to object. 
+ *   </ul>
+ * <li>retrieve the direct antecedents of this PropagatorFunctionAdapter: the collection of PropagatorFunctionAdapters that need
+ * to be proven up to date in order to update this adapter; this collection is calculated by traversing all the inbound bindings
+ * of this PropagatorFunctionAdapter and by looking up other PropagatorFunctionAdapters (out) bound to the (in) bound features.
+ *   <ul>
+ *   <li>see {@link #getAllAntecedents()}: return all the direct antecedents
+ *   <li>see {@link #getAntecedents()}: return the direct antecedents that are sibblings of this PropagatorFunctionAdapters
+ *   </ul>
  * <li>declares  
  *   <ul>
  *   <li>a Parent {@link PropagatorFunctionAdapter}: accessor {@link #getParent()} 
@@ -112,6 +120,29 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	protected boolean isTouchOnOwned() { return true; }
 	
 	protected boolean isTouchOnDispose() { return false; }
+	
+	protected boolean isActive(){
+		// is the resource loading?
+		Notifier target = this.getTarget();
+		if (!(target instanceof EObject)) { return false; }
+		
+		EObject targetObject  = (EObject) target; 
+		Resource resource = targetObject.eResource();
+
+		if ( resource instanceof ResourceImpl) {
+			ResourceImpl r = (ResourceImpl) resource;
+			if (r.isLoading() ){ return false; }
+		}
+
+		if ( targetObject.eContainer()==null && resource == null ){
+			// no resource means object under construction means not loading
+			return false;
+		}
+		
+		// this is  normal object in a normal resource, which is not loading
+		// so we are active
+		return true;
+	}
 
 	/** 
 	 * Returns the set of touched function adapters which are children of this adpater
@@ -231,7 +262,9 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 	}
 	
 	public void touch(Object toucher){
-		super.touch(toucher);
+		if ( !this.isActive() ){
+			return ;
+		}
 		
 		if ( this.isTouched ){
 			// already touched
@@ -243,42 +276,20 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 			return;
 			}
 		
-		// is the resource loading?
-		Notifier target = this.getTarget();
-		if (!(target instanceof EObject)) { return; }
-		
-		Resource resource = ((EObject) target).eResource();
-		/*
-		if (resource == null) { return ; } // no resource means object under construction means not loading
-		
-		if (!(resource instanceof ResourceImpl) ) { return ; }
-		
-		ResourceImpl r = (ResourceImpl) resource;
-					if (r.isLoading() ){
-			return;
-		}*/
-		if ( resource instanceof ResourceImpl) {
-			ResourceImpl r = (ResourceImpl) resource;
-			if (r.isLoading() ){ return; }
-		}
+		// ok, we touch
+		super.touch(toucher);
+		Plugin.INSTANCE.logTouch(this);
 
-		// if no parent, the touch is not done
-		//   we want to keep track of the touched elements
+		// touch parent, if any
 		this.refreshParent();
 		PropagatorFunctionAdapter parent = this.currentParent;
-		if ( parent == null ) { return; } 
-
-		// ok, we touch
-		//this.logMessage("Touched");
-		// touch super
-		super.touch(toucher);
-
-		// touch parent
-		this.touchedParent = parent;
-		parent.touch();
+		if ( parent != null ) {
+			this.touchedParent = parent;
+			parent.touch();
+			parent.getTouchedAdapters().add(this);
+		}
 		
 		// touch this
-		parent.getTouchedAdapters().add(this);
 		this.isTouched = true;
 		
 		// toucher tracking

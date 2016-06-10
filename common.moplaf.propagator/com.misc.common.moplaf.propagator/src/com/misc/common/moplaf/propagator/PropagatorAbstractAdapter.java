@@ -12,17 +12,25 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 /**
- * The base class of the propagators used by theframework. Listens to notifications 
- * and triggers changes by calling touch().
+ * The base class of the propagators used by the framework. Implements the binding with the data elements. There are
+ * two kinds of bindings: inbound and outbound binding. An inbound binding binds the PropagatorFunctionAdapter to some input data element
+ * while an outbond binding binds the PropagatorFunctionAdapter to some output data element. 
  * <p>
- * Delegate listening to a collection of listeners (target object of this propagator) or to  {@link 
- * PropagatorDependencyAdapter}s (other emf objects naviguable from the target object of this propagator).
+ * Inbound bindings listen to changes in the target object of this adapter by implementing the method {@link InboundBinding#notifyChanged(Notification)}
+ * and call {@link InboundBinding#touch} when some change in the bound feature occurred.
  * <p>
- * Two standard Listeners are provided. A {@link InboundBindingFeature}, listening to changes of some feature of this
- * propagator's Notifier and a {@link InboundBindingNavigationFeature}, listening to changes of some reference held by this
- * propagator's Notifier, and allowing to listen to changes in the referred object by receiving a 
- * {@link PropagatorDependencyAdapter}. These standards Listeners can be added with the convenience methods
+ * Outbound bindings implement the method {@link OutboundBinding#isOutboundBinding(Object)}, allowing the framework
+ * to query if if some feature of this adapter in set (bound) by the PropagatorFunctionAdapter.
+ * <p>
+ * Two standard inbound bindings are provided. A {@link InboundBindingFeature}, binding to some feature of this
+ * propagator's Notifier and a {@link InboundBindingNavigationFeature}, binding to some navigation feature , and 
+ * propagate the binding to the referred object by receiving a 
+ * {@link PropagatorDependencyAdapter}. These standards Inbound binding can be added with the convenience methods
  * {@link #addInboundBindingFeature(Object)} and {@link #addInboundBindingNavigationFeature(Object, Object)} respectively.
+ * <p>
+ * One standard outbound binding is provided. An {@link OutboundBindingFeature}, binding to some feature of this
+ * propagator's Notifier. This standards Outbound binding can be added with the convenience methods
+ * {@link #addOutboundBindingFeature(Object)}.
  * <p>
  * Registering the {@link PropagatorDependencyAdapter}s is done by the method {@link InboundBinding#addPropagatorFunctionAdapters}, called
  * when this adapter is added to the notifier. Unregistering the {@link PropagatorDependencyAdapter}s is done by the method
@@ -271,7 +279,6 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	 * Ultimately, the inbound bindings call touch as a function of the notifications it receives
 	 */
 	public void touch(Object toucher){
-		Plugin.INSTANCE.logTouch(this);
 	}
 	
 	/*

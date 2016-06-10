@@ -168,24 +168,25 @@ public final class Plugin extends EMFPlugin implements PrefConstants{
 		if ( this.doLog(level)){
 			String levelAsString = this.getLevelAsString(level);
 			Notifier target = adapter == null ? null : adapter.getTarget();
+			int objectId = target == null ? 0 : (target.hashCode() % 1000 +1);
 			String fullMessage = "";
 			if ( message !=null && target !=null){
-				fullMessage = String.format("Propagator: %1$s: %2$s, object: %3$s, function: %4$s, object %5$s" , 
+				fullMessage = String.format("Propagator: %1$s, %2$s, object: %3$s(%5$d), function: %4$s" , 
 				        levelAsString,
 						message, 
 		                Util.LastTokenDotSeparated(target.getClass().getName()),
 				        Util.LastTokenDotSeparated(adapter.getClass().getName()),
-				        target);
+				        objectId);
 			}
 			else if ( message ==null && target !=null){
-				fullMessage = String.format("Propagator: %1$s: object: %2$s, function: %3$s, object %4$s" , 
+				fullMessage = String.format("Propagator: %1$s, object: %2$s(%4$d), function: %3$s" , 
 				        levelAsString,
 		                Util.LastTokenDotSeparated(target.getClass().getName()),
 				        Util.LastTokenDotSeparated(adapter.getClass().getName()),
-				        target);
+				        objectId);
 			}
 			else if ( message !=null && target ==null){
-				fullMessage = String.format("Propagator: %1$s: %2$s" , 
+				fullMessage = String.format("Propagator: %1$s, %2$s" , 
 				        levelAsString,
 						message);
 			}
