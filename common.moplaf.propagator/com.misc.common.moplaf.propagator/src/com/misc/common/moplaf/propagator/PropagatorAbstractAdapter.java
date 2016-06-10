@@ -92,9 +92,11 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	 * trough some outbound binding of this PropagatorAbstractAdapter  
 	 */
 	public boolean isOutboundBinding(Object element){
-		for ( OutboundBinding binding : this.outboundBindings){
-			if ( binding.isOutboundBinding(element)){
-				return true;
+		if ( this.outboundBindings!=null ){
+			for ( OutboundBinding binding : this.outboundBindings){
+				if ( binding.isOutboundBinding(element)){
+					return true;
+				}
 			}
 		}
 		return false;
@@ -144,7 +146,7 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 			PropagatorAbstractAdapter adapter = PropagatorAbstractAdapter.this;
 			Notifier notifier = adapter.getTarget();
 			for (Adapter otherAdapter : notifier.eAdapters()) {
-				if (adapter instanceof PropagatorAbstractAdapter) {
+				if (otherAdapter instanceof PropagatorAbstractAdapter) {
 					PropagatorAbstractAdapter otherpropagator = (PropagatorAbstractAdapter) otherAdapter;
 					if ( otherpropagator.isOutboundBinding(this.feature)){
 						otherpropagator.collectDependingPropagatorFunctionAdapters(antecedents);
@@ -278,8 +280,10 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 	 * Used by the framework to derive the antecedents of a given PropagatorFunctionAdapter
 	 */
 	protected void collectAntecedents(PropagatorFunctionAdapters antecedents){
-		for ( InboundBinding inboundBinding : this.inboundBindings){
-			inboundBinding.collectAntecedents(antecedents);
+		if ( this.inboundBindings!=null){
+			for ( InboundBinding inboundBinding : this.inboundBindings){
+				inboundBinding.collectAntecedents(antecedents);
+			}
 		}
 	}
 
