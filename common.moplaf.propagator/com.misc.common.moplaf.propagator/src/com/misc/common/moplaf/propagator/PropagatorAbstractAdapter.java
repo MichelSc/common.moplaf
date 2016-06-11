@@ -226,12 +226,20 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 				Collection<EObject> referredobjects = (Collection<EObject>)featurevalue;
 				for (EObject referredobject : referredobjects){
 					PropagatorDependencyAdapter dependency = (PropagatorDependencyAdapter) Util.getAdapter(referredobject, this.adapterFunctionType);
-					dependency.collectAntecedents(antecedents);
+					if ( dependency == null ) {
+						Plugin.INSTANCE.logError("No dependency", PropagatorAbstractAdapter.this);
+					} else {
+						dependency.collectAntecedents(antecedents);
+					}
 				}
 			} else if ( featurevalue instanceof EObject){
 				EObject referredobject = (EObject)featurevalue;
 				PropagatorDependencyAdapter dependency = (PropagatorDependencyAdapter) Util.getAdapter(referredobject, this.adapterFunctionType);
-				dependency.collectAntecedents(antecedents);
+				if ( dependency == null ) {
+					Plugin.INSTANCE.logError("No dependency", PropagatorAbstractAdapter.this);
+				} else {
+					dependency.collectAntecedents(antecedents);
+				}
 			}
 		}
 	}
@@ -423,7 +431,6 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		assert newvalue!=oldvalue;
 		if ( oldvalue instanceof Notifier){
 			this.removeDependency((Notifier)oldvalue, adapterfunctiontype, touch);
-			return;
 		} else if ( oldvalue instanceof Collection<?> ){
 			for ( Object element : (Collection<Object>)oldvalue){
 				if ( element instanceof Notifier) {
@@ -434,7 +441,6 @@ public class PropagatorAbstractAdapter extends AbstractAdapter {
 		}
 		if ( newvalue instanceof Notifier){
 			this.addDependency((Notifier)newvalue, adapterfunctiontype, touch);
-			return;
 		} else if ( newvalue instanceof Collection<?> ){
 			for ( Object element : (Collection<Object>)newvalue){
 				if ( element instanceof Notifier) {
