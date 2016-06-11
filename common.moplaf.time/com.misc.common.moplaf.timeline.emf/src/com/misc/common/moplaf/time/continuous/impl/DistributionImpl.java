@@ -262,9 +262,9 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 		if (newStart != start) {
 			NotificationChain msgs = null;
 			if (start != null)
-				msgs = ((InternalEObject)start).eInverseRemove(this, ContinuousPackage.START_EVENT__DISTRIBUTION_AS_START, StartEvent.class, msgs);
+				msgs = ((InternalEObject)start).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ContinuousPackage.DISTRIBUTION__START, null, msgs);
 			if (newStart != null)
-				msgs = ((InternalEObject)newStart).eInverseAdd(this, ContinuousPackage.START_EVENT__DISTRIBUTION_AS_START, StartEvent.class, msgs);
+				msgs = ((InternalEObject)newStart).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ContinuousPackage.DISTRIBUTION__START, null, msgs);
 			msgs = basicSetStart(newStart, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -305,9 +305,9 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 		if (newEnd != end) {
 			NotificationChain msgs = null;
 			if (end != null)
-				msgs = ((InternalEObject)end).eInverseRemove(this, ContinuousPackage.END_EVENT__DISTRIBUTION_AS_END, EndEvent.class, msgs);
+				msgs = ((InternalEObject)end).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ContinuousPackage.DISTRIBUTION__END, null, msgs);
 			if (newEnd != null)
-				msgs = ((InternalEObject)newEnd).eInverseAdd(this, ContinuousPackage.END_EVENT__DISTRIBUTION_AS_END, EndEvent.class, msgs);
+				msgs = ((InternalEObject)newEnd).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ContinuousPackage.DISTRIBUTION__END, null, msgs);
 			msgs = basicSetEnd(newEnd, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -1195,14 +1195,6 @@ public class DistributionImpl extends MinimalEObjectImpl.Container implements Di
 		switch (featureID) {
 			case ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSequenceEvents()).basicAdd(otherEnd, msgs);
-			case ContinuousPackage.DISTRIBUTION__START:
-				if (start != null)
-					msgs = ((InternalEObject)start).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ContinuousPackage.DISTRIBUTION__START, null, msgs);
-				return basicSetStart((StartEvent)otherEnd, msgs);
-			case ContinuousPackage.DISTRIBUTION__END:
-				if (end != null)
-					msgs = ((InternalEObject)end).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ContinuousPackage.DISTRIBUTION__END, null, msgs);
-				return basicSetEnd((EndEvent)otherEnd, msgs);
 			case ContinuousPackage.DISTRIBUTION__EVENTS_PROVIDERS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getEventsProviders()).basicAdd(otherEnd, msgs);
 			case ContinuousPackage.DISTRIBUTION__PARENT_DISTRIBUTION:

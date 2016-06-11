@@ -41,6 +41,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#getSlopeAfter <em>Slope After</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#getDistributionAsSequence <em>Distribution As Sequence</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#getDistribution <em>Distribution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#getDistributionAsProvidedEvent <em>Distribution As Provided Event</em>}</li>
  * </ul>
  *
@@ -587,6 +588,28 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Distribution getDistribution() {
+		Distribution distribution = basicGetDistribution();
+		return distribution != null && distribution.eIsProxy() ? (Distribution)eResolveProxy((InternalEObject)distribution) : distribution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Distribution basicGetDistribution() {
+		// TODO: implement this method to return the 'Distribution' reference
+		// -> do not perform proxy resolution
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Distribution getDistributionAsProvidedEvent() {
 		if (distributionAsProvidedEvent != null && distributionAsProvidedEvent.eIsProxy()) {
 			InternalEObject oldDistributionAsProvidedEvent = (InternalEObject)distributionAsProvidedEvent;
@@ -847,6 +870,9 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
 				if (resolve) return getDistributionAsSequence();
 				return basicGetDistributionAsSequence();
+			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION:
+				if (resolve) return getDistribution();
+				return basicGetDistribution();
 			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT:
 				if (resolve) return getDistributionAsProvidedEvent();
 				return basicGetDistributionAsProvidedEvent();
@@ -972,6 +998,8 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
 				return distributionAsSequence != null;
+			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION:
+				return basicGetDistribution() != null;
 			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT:
 				return distributionAsProvidedEvent != null;
 		}

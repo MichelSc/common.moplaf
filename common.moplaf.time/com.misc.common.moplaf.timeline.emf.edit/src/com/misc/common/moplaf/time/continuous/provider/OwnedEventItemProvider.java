@@ -3,29 +3,31 @@
 package com.misc.common.moplaf.time.continuous.provider;
 
 
-import com.misc.common.moplaf.time.continuous.EndEvent;
+import com.misc.common.moplaf.time.continuous.OwnedEvent;
+
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.time.continuous.EndEvent} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.time.continuous.OwnedEvent} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class EndEventItemProvider
-	extends OwnedEventItemProvider {
+public class OwnedEventItemProvider extends DistributionEventItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EndEventItemProvider(AdapterFactory adapterFactory) {
+	public OwnedEventItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -45,17 +47,6 @@ public class EndEventItemProvider
 	}
 
 	/**
-	 * This returns EndEvent.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/EndEvent"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -63,12 +54,13 @@ public class EndEventItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Date labelValue = ((EndEvent)object).getMoment();
+		Date labelValue = ((OwnedEvent)object).getMoment();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_EndEvent_type") :
-			getString("_UI_EndEvent_type") + " " + label;
+			getString("_UI_OwnedEvent_type") :
+			getString("_UI_OwnedEvent_type") + " " + label;
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

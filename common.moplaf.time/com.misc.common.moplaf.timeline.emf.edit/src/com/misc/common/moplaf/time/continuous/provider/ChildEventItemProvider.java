@@ -20,7 +20,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
  * @generated
  */
 public class ChildEventItemProvider
-	extends DistributionEventItemProvider {
+	extends OwnedEventItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

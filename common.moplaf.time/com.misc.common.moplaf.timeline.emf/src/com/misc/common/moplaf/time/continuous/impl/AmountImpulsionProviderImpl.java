@@ -8,6 +8,7 @@ import com.misc.common.moplaf.time.continuous.ContinuousFactory;
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.DistributionEvent;
+import com.misc.common.moplaf.time.continuous.ProvidedEvent;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -86,7 +87,7 @@ public class AmountImpulsionProviderImpl extends EventProviderImpl implements Am
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public DistributionEvent basicGetProvidedEvent() {
+	public ProvidedEvent basicGetProvidedEvent() {
 		return this.getEvent();
 	}
 

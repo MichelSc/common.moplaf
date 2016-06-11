@@ -22,6 +22,8 @@ import com.misc.common.moplaf.time.continuous.EndEvent;
 import com.misc.common.moplaf.time.continuous.EventProvider;
 import com.misc.common.moplaf.time.continuous.EventsProvider;
 import com.misc.common.moplaf.time.continuous.EventsProviderAbstract;
+import com.misc.common.moplaf.time.continuous.OwnedEvent;
+import com.misc.common.moplaf.time.continuous.ProvidedEvent;
 import com.misc.common.moplaf.time.continuous.SlopeAbsolute;
 import com.misc.common.moplaf.time.continuous.SlopeAbsoluteAtomic;
 import com.misc.common.moplaf.time.continuous.SlopeAbsoluteProvider;
@@ -127,6 +129,20 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * @generated
 	 */
 	private EClass amountAbsoluteProviderEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass ownedEventEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass providedEventEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -762,8 +778,17 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDistributionEvent_DistributionAsProvidedEvent() {
+	public EReference getDistributionEvent_Distribution() {
 		return (EReference)distributionEventEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDistributionEvent_DistributionAsProvidedEvent() {
+		return (EReference)distributionEventEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -1131,6 +1156,33 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getOwnedEvent() {
+		return ownedEventEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getProvidedEvent() {
+		return providedEventEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProvidedEvent_EventProvider() {
+		return (EReference)providedEventEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getDistributionVisitor() {
 		return distributionVisitorEDataType;
 	}
@@ -1419,26 +1471,8 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getStartEvent_DistributionAsStart() {
-		return (EReference)startEventEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getEndEvent() {
 		return endEventEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEndEvent_DistributionAsEnd() {
-		return (EReference)endEventEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1564,6 +1598,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		createEAttribute(distributionEventEClass, DISTRIBUTION_EVENT__SLOPE_AFTER);
 		createEAttribute(distributionEventEClass, DISTRIBUTION_EVENT__DESCRIPTION);
 		createEReference(distributionEventEClass, DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE);
+		createEReference(distributionEventEClass, DISTRIBUTION_EVENT__DISTRIBUTION);
 		createEReference(distributionEventEClass, DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT);
 		createEOperation(distributionEventEClass, DISTRIBUTION_EVENT___GET_AMOUNT_BEFORE__DATE);
 		createEOperation(distributionEventEClass, DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE);
@@ -1582,10 +1617,8 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		startEventEClass = createEClass(START_EVENT);
 		createEAttribute(startEventEClass, START_EVENT__AMOUNT_AT_START);
 		createEAttribute(startEventEClass, START_EVENT__SLOPE_AT_START);
-		createEReference(startEventEClass, START_EVENT__DISTRIBUTION_AS_START);
 
 		endEventEClass = createEClass(END_EVENT);
-		createEReference(endEventEClass, END_EVENT__DISTRIBUTION_AS_END);
 
 		amountImpulsionEClass = createEClass(AMOUNT_IMPULSION);
 		createEAttribute(amountImpulsionEClass, AMOUNT_IMPULSION__AMOUNT_IMPULSION);
@@ -1668,6 +1701,11 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		createEReference(amountAbsoluteProviderEClass, AMOUNT_ABSOLUTE_PROVIDER__EVENT);
 		createEAttribute(amountAbsoluteProviderEClass, AMOUNT_ABSOLUTE_PROVIDER__AMOUNT_ABSOLUTE);
 
+		ownedEventEClass = createEClass(OWNED_EVENT);
+
+		providedEventEClass = createEClass(PROVIDED_EVENT);
+		createEReference(providedEventEClass, PROVIDED_EVENT__EVENT_PROVIDER);
+
 		// Create enums
 		timeUnitEEnum = createEEnum(TIME_UNIT);
 
@@ -1708,13 +1746,13 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		// Add supertypes to classes
 		distributionEClass.getESuperTypes().add(thePropagatorPackage.getObjectWithPropagatorFunctionAdapter());
 		distributionEventEClass.getESuperTypes().add(thePropagatorPackage.getObjectWithPropagatorFunctionAdapter());
-		childEventEClass.getESuperTypes().add(this.getDistributionEvent());
-		startEventEClass.getESuperTypes().add(this.getDistributionEvent());
-		endEventEClass.getESuperTypes().add(this.getDistributionEvent());
-		amountImpulsionEClass.getESuperTypes().add(this.getDistributionEvent());
-		slopeImpulsionEClass.getESuperTypes().add(this.getDistributionEvent());
-		amountAbsoluteEClass.getESuperTypes().add(this.getDistributionEvent());
-		slopeAbsoluteEClass.getESuperTypes().add(this.getDistributionEvent());
+		childEventEClass.getESuperTypes().add(this.getOwnedEvent());
+		startEventEClass.getESuperTypes().add(this.getOwnedEvent());
+		endEventEClass.getESuperTypes().add(this.getOwnedEvent());
+		amountImpulsionEClass.getESuperTypes().add(this.getProvidedEvent());
+		slopeImpulsionEClass.getESuperTypes().add(this.getProvidedEvent());
+		amountAbsoluteEClass.getESuperTypes().add(this.getProvidedEvent());
+		slopeAbsoluteEClass.getESuperTypes().add(this.getProvidedEvent());
 		capacityChangeStartEClass.getESuperTypes().add(this.getAmountImpulsion());
 		capacityChangeEndEClass.getESuperTypes().add(this.getAmountImpulsion());
 		stockChangeStartEClass.getESuperTypes().add(this.getSlopeImpulsion());
@@ -1732,6 +1770,8 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		slopeAbsoluteProviderEClass.getESuperTypes().add(this.getEventProvider());
 		amountImpulsionProviderEClass.getESuperTypes().add(this.getEventProvider());
 		amountAbsoluteProviderEClass.getESuperTypes().add(this.getEventProvider());
+		ownedEventEClass.getESuperTypes().add(this.getDistributionEvent());
+		providedEventEClass.getESuperTypes().add(this.getDistributionEvent());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(distributionEClass, Distribution.class, "Distribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1740,8 +1780,8 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		initEAttribute(getDistribution_HorizonEnd(), ecorePackage.getEDate(), "HorizonEnd", "2099-12-31", 0, 1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDistribution_ChildEvents(), this.getChildEvent(), null, "ChildEvents", null, 0, -1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDistribution_SequenceEvents(), this.getDistributionEvent(), this.getDistributionEvent_DistributionAsSequence(), "SequenceEvents", null, 0, -1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDistribution_Start(), this.getStartEvent(), this.getStartEvent_DistributionAsStart(), "Start", null, 1, 1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDistribution_End(), this.getEndEvent(), this.getEndEvent_DistributionAsEnd(), "End", null, 1, 1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDistribution_Start(), this.getStartEvent(), null, "Start", null, 1, 1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDistribution_End(), this.getEndEvent(), null, "End", null, 1, 1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDistribution_EventsProviders(), this.getEventsProviderAbstract(), this.getEventsProviderAbstract_Distribution(), "EventsProviders", null, 0, -1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDistribution_ParentDistribution(), this.getDistribution(), this.getDistribution_ChildDistribution(), "ParentDistribution", null, 0, 1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDistribution_ChildDistribution(), this.getDistribution(), this.getDistribution_ParentDistribution(), "ChildDistribution", null, 0, -1, Distribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1850,6 +1890,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		initEAttribute(getDistributionEvent_SlopeAfter(), ecorePackage.getEFloat(), "SlopeAfter", null, 0, 1, DistributionEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDistributionEvent_Description(), ecorePackage.getEString(), "Description", null, 0, 1, DistributionEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDistributionEvent_DistributionAsSequence(), this.getDistribution(), this.getDistribution_SequenceEvents(), "DistributionAsSequence", null, 0, 1, DistributionEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDistributionEvent_Distribution(), this.getDistribution(), null, "Distribution", null, 0, 1, DistributionEvent.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getDistributionEvent_DistributionAsProvidedEvent(), this.getDistribution(), this.getDistribution_ProvidedEvents(), "DistributionAsProvidedEvent", null, 0, 1, DistributionEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getDistributionEvent__GetAmountBefore__Date(), ecorePackage.getEFloat(), "getAmountBefore", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1882,10 +1923,8 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		initEClass(startEventEClass, StartEvent.class, "StartEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStartEvent_AmountAtStart(), ecorePackage.getEFloat(), "AmountAtStart", null, 0, 1, StartEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStartEvent_SlopeAtStart(), ecorePackage.getEFloat(), "SlopeAtStart", null, 0, 1, StartEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStartEvent_DistributionAsStart(), this.getDistribution(), this.getDistribution_Start(), "DistributionAsStart", null, 1, 1, StartEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(endEventEClass, EndEvent.class, "EndEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEndEvent_DistributionAsEnd(), this.getDistribution(), this.getDistribution_End(), "DistributionAsEnd", null, 1, 1, EndEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(amountImpulsionEClass, AmountImpulsion.class, "AmountImpulsion", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAmountImpulsion_AmountImpulsion(), ecorePackage.getEFloat(), "AmountImpulsion", null, 0, 1, AmountImpulsion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1937,7 +1976,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		initEOperation(getEventsProviderAbstract__RefreshEvents(), null, "refreshEvents", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(eventsProviderEClass, EventsProvider.class, "EventsProvider", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEventsProvider_ProvidedEvents(), this.getDistributionEvent(), null, "ProvidedEvents", null, 0, -1, EventsProvider.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getEventsProvider_ProvidedEvents(), this.getProvidedEvent(), null, "ProvidedEvents", null, 0, -1, EventsProvider.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(stockChangeEClass, StockChange.class, "StockChange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStockChange_Start(), ecorePackage.getEDate(), "Start", null, 0, 1, StockChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1954,7 +1993,7 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		initEReference(getCapacityChange_EndEvent(), this.getCapacityChangeEnd(), this.getCapacityChangeEnd_Provider(), "EndEvent", null, 0, 1, CapacityChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eventProviderEClass, EventProvider.class, "EventProvider", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEventProvider_ProvidedEvent(), this.getDistributionEvent(), null, "ProvidedEvent", null, 0, 1, EventProvider.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getEventProvider_ProvidedEvent(), this.getProvidedEvent(), null, "ProvidedEvent", null, 0, 1, EventProvider.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEventProvider_Moment(), ecorePackage.getEDate(), "Moment", null, 0, 1, EventProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(slopeImpulsionProviderEClass, SlopeImpulsionProvider.class, "SlopeImpulsionProvider", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1973,6 +2012,11 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		initEReference(getAmountAbsoluteProvider_Event(), this.getAmountAbsoluteAtomic(), this.getAmountAbsoluteAtomic_Provider(), "Event", null, 0, 1, AmountAbsoluteProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAmountAbsoluteProvider_AmountAbsolute(), ecorePackage.getEFloat(), "AmountAbsolute", "0.0", 0, 1, AmountAbsoluteProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(ownedEventEClass, OwnedEvent.class, "OwnedEvent", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(providedEventEClass, ProvidedEvent.class, "ProvidedEvent", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getProvidedEvent_EventProvider(), this.getEventsProviderAbstract(), null, "EventProvider", null, 1, 1, ProvidedEvent.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(timeUnitEEnum, TimeUnit.class, "TimeUnit");
 		addEEnumLiteral(timeUnitEEnum, TimeUnit.HOUR);
@@ -1988,10 +2032,10 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		createResource(eNS_URI);
 
 		// Create annotations
-		// http://www.obeo.fr/dsl/dnc/archetype
-		createArchetypeAnnotations();
 		// http:///org/eclipse/emf/ecore/util/ExtendedMetaData
 		createExtendedMetaDataAnnotations();
+		// http://www.obeo.fr/dsl/dnc/archetype
+		createArchetypeAnnotations();
 	}
 
 	/**
@@ -2007,6 +2051,12 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		   source, 
 		   new String[] {
 			 "archetype", "Thing"
+		   });	
+		addAnnotation
+		  (ownedEventEClass, 
+		   source, 
+		   new String[] {
+			 "archetype", "Description"
 		   });
 	}
 
@@ -2019,6 +2069,12 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 	protected void createExtendedMetaDataAnnotations() {
 		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";	
 		addAnnotation
+		  (getDistribution_Start(), 
+		   source, 
+		   new String[] {
+			 "name", "End"
+		   });	
+		addAnnotation
 		  (stockChangeEndEClass, 
 		   source, 
 		   new String[] {
@@ -2029,6 +2085,12 @@ public class ContinuousPackageImpl extends EPackageImpl implements ContinuousPac
 		   source, 
 		   new String[] {
 			 "name", "StockChange"
+		   });	
+		addAnnotation
+		  (ownedEventEClass, 
+		   source, 
+		   new String[] {
+			 "name", "End"
 		   });
 	}
 

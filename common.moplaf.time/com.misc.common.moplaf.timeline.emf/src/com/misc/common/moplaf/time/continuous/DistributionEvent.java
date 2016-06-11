@@ -24,6 +24,7 @@ import java.util.Date;
  *   <li>{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getSlopeAfter <em>Slope After</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getDistributionAsSequence <em>Distribution As Sequence</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getDistribution <em>Distribution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getDistributionAsProvidedEvent <em>Distribution As Provided Event</em>}</li>
  * </ul>
  *
@@ -298,6 +299,21 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctionAdapter {
 	 * @generated
 	 */
 	void setDistributionAsSequence(Distribution value);
+
+	/**
+	 * Returns the value of the '<em><b>Distribution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Distribution</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Distribution</em>' reference.
+	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistributionEvent_Distribution()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	Distribution getDistribution();
 
 	/**
 	 * Returns the value of the '<em><b>Distribution As Provided Event</b></em>' reference.

@@ -19,7 +19,7 @@ package com.misc.common.moplaf.time.continuous;
  * @model abstract="true"
  * @generated
  */
-public interface SlopeAbsolute extends DistributionEvent {
+public interface SlopeAbsolute extends ProvidedEvent {
 	/**
 	 * Returns the value of the '<em><b>Slope Absolute</b></em>' attribute.
 	 * <!-- begin-user-doc -->

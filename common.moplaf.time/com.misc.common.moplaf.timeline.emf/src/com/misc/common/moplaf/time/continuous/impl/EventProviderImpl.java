@@ -3,9 +3,9 @@
 package com.misc.common.moplaf.time.continuous.impl;
 
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
-import com.misc.common.moplaf.time.continuous.DistributionEvent;
 import com.misc.common.moplaf.time.continuous.EventProvider;
 
+import com.misc.common.moplaf.time.continuous.ProvidedEvent;
 import java.util.Date;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -72,9 +72,9 @@ public abstract class EventProviderImpl extends EventsProviderAbstractImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DistributionEvent getProvidedEvent() {
-		DistributionEvent providedEvent = basicGetProvidedEvent();
-		return providedEvent != null && providedEvent.eIsProxy() ? (DistributionEvent)eResolveProxy((InternalEObject)providedEvent) : providedEvent;
+	public ProvidedEvent getProvidedEvent() {
+		ProvidedEvent providedEvent = basicGetProvidedEvent();
+		return providedEvent != null && providedEvent.eIsProxy() ? (ProvidedEvent)eResolveProxy((InternalEObject)providedEvent) : providedEvent;
 	}
 
 	/**
@@ -82,7 +82,7 @@ public abstract class EventProviderImpl extends EventsProviderAbstractImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DistributionEvent basicGetProvidedEvent() {
+	public ProvidedEvent basicGetProvidedEvent() {
 		// TODO: implement this method to return the 'Provided Event' reference
 		// -> do not perform proxy resolution
 		// Ensure that you remove @generated or mark it @generated NOT

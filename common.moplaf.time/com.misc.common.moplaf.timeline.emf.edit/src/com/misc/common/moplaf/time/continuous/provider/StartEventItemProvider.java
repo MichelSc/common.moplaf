@@ -22,7 +22,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class StartEventItemProvider
-	extends DistributionEventItemProvider {
+	extends OwnedEventItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

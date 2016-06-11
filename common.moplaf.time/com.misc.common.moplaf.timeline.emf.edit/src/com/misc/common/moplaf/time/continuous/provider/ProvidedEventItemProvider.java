@@ -4,32 +4,32 @@ package com.misc.common.moplaf.time.continuous.provider;
 
 
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
-import com.misc.common.moplaf.time.continuous.SlopeImpulsion;
+import com.misc.common.moplaf.time.continuous.ProvidedEvent;
+
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.time.continuous.SlopeImpulsion} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.time.continuous.ProvidedEvent} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SlopeImpulsionItemProvider
-	extends ProvidedEventItemProvider {
+public class ProvidedEventItemProvider extends DistributionEventItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SlopeImpulsionItemProvider(AdapterFactory adapterFactory) {
+	public ProvidedEventItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -44,42 +44,31 @@ public class SlopeImpulsionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSlopeImpulsionPropertyDescriptor(object);
+			addEventProviderPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Slope Impulsion feature.
+	 * This adds a property descriptor for the Event Provider feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSlopeImpulsionPropertyDescriptor(Object object) {
+	protected void addEventProviderPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SlopeImpulsion_SlopeImpulsion_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SlopeImpulsion_SlopeImpulsion_feature", "_UI_SlopeImpulsion_type"),
-				 ContinuousPackage.Literals.SLOPE_IMPULSION__SLOPE_IMPULSION,
-				 true,
+				 getString("_UI_ProvidedEvent_EventProvider_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProvidedEvent_EventProvider_feature", "_UI_ProvidedEvent_type"),
+				 ContinuousPackage.Literals.PROVIDED_EVENT__EVENT_PROVIDER,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 getString("_UI__3inputPropertyCategory"),
+				 false,
+				 null,
+				 null,
 				 null));
-	}
-
-	/**
-	 * This returns SlopeImpulsion.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SlopeImpulsion"));
 	}
 
 	/**
@@ -90,12 +79,13 @@ public class SlopeImpulsionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Date labelValue = ((SlopeImpulsion)object).getMoment();
+		Date labelValue = ((ProvidedEvent)object).getMoment();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SlopeImpulsion_type") :
-			getString("_UI_SlopeImpulsion_type") + " " + label;
+			getString("_UI_ProvidedEvent_type") :
+			getString("_UI_ProvidedEvent_type") + " " + label;
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -107,12 +97,6 @@ public class SlopeImpulsionItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(SlopeImpulsion.class)) {
-			case ContinuousPackage.SLOPE_IMPULSION__SLOPE_IMPULSION:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

@@ -19,7 +19,7 @@ package com.misc.common.moplaf.time.continuous;
  * @model
  * @generated
  */
-public interface ChildEvent extends DistributionEvent {
+public interface ChildEvent extends OwnedEvent {
 	/**
 	 * Returns the value of the '<em><b>Original</b></em>' reference.
 	 * <!-- begin-user-doc -->

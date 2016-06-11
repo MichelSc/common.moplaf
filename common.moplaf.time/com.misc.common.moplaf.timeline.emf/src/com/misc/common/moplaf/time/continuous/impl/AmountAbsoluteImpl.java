@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public abstract class AmountAbsoluteImpl extends DistributionEventImpl implements AmountAbsolute {
+public abstract class AmountAbsoluteImpl extends ProvidedEventImpl implements AmountAbsolute {
 	/**
 	 * The default value of the '{@link #getAmountAbsolute() <em>Amount Absolute</em>}' attribute.
 	 * <!-- begin-user-doc -->

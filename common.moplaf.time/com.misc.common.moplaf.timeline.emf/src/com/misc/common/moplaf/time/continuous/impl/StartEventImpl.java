@@ -6,18 +6,14 @@ import java.util.Date;
 
 import com.misc.common.moplaf.propagator.Util;
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
-import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.StartEvent;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStartEventAmountAfter;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStartEventMoment;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStartEventSlopeAfter;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,12 +25,11 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.StartEventImpl#getAmountAtStart <em>Amount At Start</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.continuous.impl.StartEventImpl#getSlopeAtStart <em>Slope At Start</em>}</li>
- *   <li>{@link com.misc.common.moplaf.time.continuous.impl.StartEventImpl#getDistributionAsStart <em>Distribution As Start</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class StartEventImpl extends DistributionEventImpl implements StartEvent {
+public class StartEventImpl extends OwnedEventImpl implements StartEvent {
 	/**
 	 * The default value of the '{@link #getAmountAtStart() <em>Amount At Start</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -153,91 +148,6 @@ public class StartEventImpl extends DistributionEventImpl implements StartEvent 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Distribution getDistributionAsStart() {
-		if (eContainerFeatureID() != ContinuousPackage.START_EVENT__DISTRIBUTION_AS_START) return null;
-		return (Distribution)eInternalContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDistributionAsStart(Distribution newDistributionAsStart, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newDistributionAsStart, ContinuousPackage.START_EVENT__DISTRIBUTION_AS_START, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDistributionAsStart(Distribution newDistributionAsStart) {
-		if (newDistributionAsStart != eInternalContainer() || (eContainerFeatureID() != ContinuousPackage.START_EVENT__DISTRIBUTION_AS_START && newDistributionAsStart != null)) {
-			if (EcoreUtil.isAncestor(this, newDistributionAsStart))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newDistributionAsStart != null)
-				msgs = ((InternalEObject)newDistributionAsStart).eInverseAdd(this, ContinuousPackage.DISTRIBUTION__START, Distribution.class, msgs);
-			msgs = basicSetDistributionAsStart(newDistributionAsStart, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.START_EVENT__DISTRIBUTION_AS_START, newDistributionAsStart, newDistributionAsStart));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ContinuousPackage.START_EVENT__DISTRIBUTION_AS_START:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetDistributionAsStart((Distribution)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ContinuousPackage.START_EVENT__DISTRIBUTION_AS_START:
-				return basicSetDistributionAsStart(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case ContinuousPackage.START_EVENT__DISTRIBUTION_AS_START:
-				return eInternalContainer().eInverseRemove(this, ContinuousPackage.DISTRIBUTION__START, Distribution.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -245,8 +155,6 @@ public class StartEventImpl extends DistributionEventImpl implements StartEvent 
 				return getAmountAtStart();
 			case ContinuousPackage.START_EVENT__SLOPE_AT_START:
 				return getSlopeAtStart();
-			case ContinuousPackage.START_EVENT__DISTRIBUTION_AS_START:
-				return getDistributionAsStart();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -264,9 +172,6 @@ public class StartEventImpl extends DistributionEventImpl implements StartEvent 
 				return;
 			case ContinuousPackage.START_EVENT__SLOPE_AT_START:
 				setSlopeAtStart((Float)newValue);
-				return;
-			case ContinuousPackage.START_EVENT__DISTRIBUTION_AS_START:
-				setDistributionAsStart((Distribution)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -286,9 +191,6 @@ public class StartEventImpl extends DistributionEventImpl implements StartEvent 
 			case ContinuousPackage.START_EVENT__SLOPE_AT_START:
 				setSlopeAtStart(SLOPE_AT_START_EDEFAULT);
 				return;
-			case ContinuousPackage.START_EVENT__DISTRIBUTION_AS_START:
-				setDistributionAsStart((Distribution)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -305,8 +207,6 @@ public class StartEventImpl extends DistributionEventImpl implements StartEvent 
 				return amountAtStart != AMOUNT_AT_START_EDEFAULT;
 			case ContinuousPackage.START_EVENT__SLOPE_AT_START:
 				return slopeAtStart != SLOPE_AT_START_EDEFAULT;
-			case ContinuousPackage.START_EVENT__DISTRIBUTION_AS_START:
-				return getDistributionAsStart() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -370,7 +270,7 @@ public class StartEventImpl extends DistributionEventImpl implements StartEvent 
 	 */
 	@Override
 	public void refreshMoment() {
-		Date moment = this.getDistributionAsStart().getHorizonStart();
+		Date moment = this.getDistribution().getHorizonStart();
 		this.setMoment(moment);;
 	}
 

@@ -36,7 +36,7 @@ public interface EventProvider extends EventsProviderAbstract {
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	DistributionEvent getProvidedEvent();
+	ProvidedEvent getProvidedEvent();
 
 	/**
 	 * Returns the value of the '<em><b>Moment</b></em>' attribute.

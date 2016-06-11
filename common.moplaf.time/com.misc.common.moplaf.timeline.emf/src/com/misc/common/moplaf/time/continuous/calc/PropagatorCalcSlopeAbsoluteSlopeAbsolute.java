@@ -11,7 +11,7 @@ public class PropagatorCalcSlopeAbsoluteSlopeAbsolute extends PropagatorFunction
 	@Override
 	protected PropagatorFunctionAdapter getParent() {
 		SlopeAbsolute event = (SlopeAbsolute)this.target;
-		Distribution distribution = event.getDistributionAsSequence();
+		Distribution distribution = event.getDistribution();
 		PropagatorFunctionAdapter parent = Util.getPropagatorFunctionAdapter(distribution, PropagatorLayerDistributionSlopes.class);
 		return parent;
 	}

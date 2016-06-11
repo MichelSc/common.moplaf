@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class ChildEventImpl extends DistributionEventImpl implements ChildEvent {
+public class ChildEventImpl extends OwnedEventImpl implements ChildEvent {
 	/**
 	 * The cached value of the '{@link #getOriginal() <em>Original</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -168,6 +168,8 @@ public class ChildEventImpl extends DistributionEventImpl implements ChildEvent 
 		}
 		return super.eIsSet(featureID);
 	}
+	
+
 
 	/* (non-Javadoc)
 	 * @see com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#refreshAmountAfter()

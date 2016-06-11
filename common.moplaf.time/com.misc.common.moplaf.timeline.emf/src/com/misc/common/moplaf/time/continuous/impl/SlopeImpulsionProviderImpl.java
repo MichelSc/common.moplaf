@@ -6,6 +6,7 @@ import com.misc.common.moplaf.time.continuous.ContinuousFactory;
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.DistributionEvent;
+import com.misc.common.moplaf.time.continuous.ProvidedEvent;
 import com.misc.common.moplaf.time.continuous.SlopeImpulsionAtomic;
 import com.misc.common.moplaf.time.continuous.SlopeImpulsionProvider;
 
@@ -85,7 +86,7 @@ public class SlopeImpulsionProviderImpl extends EventProviderImpl implements Slo
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public DistributionEvent basicGetProvidedEvent() {
+	public ProvidedEvent basicGetProvidedEvent() {
 		return this.getEvent();
 	}
 

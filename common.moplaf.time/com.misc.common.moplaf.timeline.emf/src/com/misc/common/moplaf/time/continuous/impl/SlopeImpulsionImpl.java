@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public abstract class SlopeImpulsionImpl extends DistributionEventImpl implements SlopeImpulsion {
+public abstract class SlopeImpulsionImpl extends ProvidedEventImpl implements SlopeImpulsion {
 	/**
 	 * The default value of the '{@link #getSlopeImpulsion() <em>Slope Impulsion</em>}' attribute.
 	 * <!-- begin-user-doc -->

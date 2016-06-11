@@ -3,8 +3,8 @@
 package com.misc.common.moplaf.time.continuous.impl;
 
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
-import com.misc.common.moplaf.time.continuous.DistributionEvent;
 import com.misc.common.moplaf.time.continuous.EventsProvider;
+import com.misc.common.moplaf.time.continuous.ProvidedEvent;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -47,7 +47,7 @@ public abstract class EventsProviderImpl extends EventsProviderAbstractImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<DistributionEvent> getProvidedEvents() {
+	public EList<ProvidedEvent> getProvidedEvents() {
 		// TODO: implement this method to return the 'Provided Events' reference list
 		// Ensure that you remove @generated or mark it @generated NOT
 		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting

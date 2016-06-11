@@ -19,7 +19,7 @@ package com.misc.common.moplaf.time.continuous;
  * @model abstract="true"
  * @generated
  */
-public interface AmountImpulsion extends DistributionEvent {
+public interface AmountImpulsion extends ProvidedEvent {
 	/**
 	 * Returns the value of the '<em><b>Amount Impulsion</b></em>' attribute.
 	 * <!-- begin-user-doc -->

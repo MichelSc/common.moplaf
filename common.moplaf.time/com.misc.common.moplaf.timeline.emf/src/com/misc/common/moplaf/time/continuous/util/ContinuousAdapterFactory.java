@@ -170,6 +170,14 @@ public class ContinuousAdapterFactory extends AdapterFactoryImpl {
 				return createAmountAbsoluteProviderAdapter();
 			}
 			@Override
+			public Adapter caseOwnedEvent(OwnedEvent object) {
+				return createOwnedEventAdapter();
+			}
+			@Override
+			public Adapter caseProvidedEvent(ProvidedEvent object) {
+				return createProvidedEventAdapter();
+			}
+			@Override
 			public Adapter caseObjectWithPropagatorFunctionAdapter(ObjectWithPropagatorFunctionAdapter object) {
 				return createObjectWithPropagatorFunctionAdapterAdapter();
 			}
@@ -344,6 +352,34 @@ public class ContinuousAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAmountAbsoluteProviderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.OwnedEvent <em>Owned Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.time.continuous.OwnedEvent
+	 * @generated
+	 */
+	public Adapter createOwnedEventAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.ProvidedEvent <em>Provided Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.time.continuous.ProvidedEvent
+	 * @generated
+	 */
+	public Adapter createProvidedEventAdapter() {
 		return null;
 	}
 

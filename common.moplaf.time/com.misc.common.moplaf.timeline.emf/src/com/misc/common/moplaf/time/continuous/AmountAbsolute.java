@@ -19,7 +19,7 @@ package com.misc.common.moplaf.time.continuous;
  * @model abstract="true"
  * @generated
  */
-public interface AmountAbsolute extends DistributionEvent {
+public interface AmountAbsolute extends ProvidedEvent {
 	/**
 	 * Returns the value of the '<em><b>Amount Absolute</b></em>' attribute.
 	 * <!-- begin-user-doc -->

@@ -33,17 +33,19 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
  * <ul> 
  * <li>when the adapter is added: {@link #onAdapterAdded(Notifier)}
  *   <ul> 
- *   <li>call the Notifiers's addPropagatorFunctionAdapter {@link ObjectWithPropagatorFunctionAdapter#addPropagatorFunctionAdapter}
- *   <li>call the propagator's addPropagatorFunctionAdapters {@link PropagatorFunctionAdapter#addDependencyAdapters()}
+ *   <li> create the Notifier's PropagatorFunctionAdapters: call to {@link ObjectWithPropagatorFunctionAdapter#addPropagatorFunctionAdapter}
+ *   <li> enable the propagator: call to {@link PropagatorFunctionAdapter#enable()}
+ *   <li> the latter will create the dependencies: call {@link PropagatorFunctionAdapter#addDependencyAdapters()}
  *   </ul>
- * <li>when the adapter is removed: {@link #onAdapterRemoved(Notifier)}
+ * <li> when the adapter is removed: {@link #onAdapterRemoved(Notifier)}
  *   <ul> 
- *   <li>call the propagator's disposePropagatorFunctionAdapters {@link PropagatorFunctionAdapter#removeDependencyAdapters()}
- *   <li>remove the untouched propagators
+ *   <li> disable the propagator: call {@link PropagatorFunctionAdapter#enable()}
+ *   <li> the latter will remove the dependencies: call to {@link PropagatorFunctionAdapter#removeDependencyAdapters()}
+ *   <li> remove the untouched propagators
  *   </ul>
- * <li>when the Notifier is added to its container: {@link #onNotifierContained(Notifier)}
+ * <li> when the Notifier is added to its container: method {@link #onNotifierContained(Notifier)}
  *   <ul> 
- *   <li>touch the propagators that are touch on owned   {@link PropagatorFunctionAdapter#isTouchOnOwned()}
+ *   <li>touch the propagators that are touch on owned: method {@link PropagatorFunctionAdapter#isTouchOnOwned()}
  *   </ul>
  * <li>when the Notifier is removed from its container: {@link #onNotifierNotContained(Notifier)}
  *   <ul> 

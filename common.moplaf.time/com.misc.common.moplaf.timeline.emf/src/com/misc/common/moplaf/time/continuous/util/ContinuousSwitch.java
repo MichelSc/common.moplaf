@@ -82,6 +82,7 @@ public class ContinuousSwitch<T> extends Switch<T> {
 			case ContinuousPackage.CHILD_EVENT: {
 				ChildEvent childEvent = (ChildEvent)theEObject;
 				T result = caseChildEvent(childEvent);
+				if (result == null) result = caseOwnedEvent(childEvent);
 				if (result == null) result = caseDistributionEvent(childEvent);
 				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(childEvent);
 				if (result == null) result = defaultCase(theEObject);
@@ -90,6 +91,7 @@ public class ContinuousSwitch<T> extends Switch<T> {
 			case ContinuousPackage.START_EVENT: {
 				StartEvent startEvent = (StartEvent)theEObject;
 				T result = caseStartEvent(startEvent);
+				if (result == null) result = caseOwnedEvent(startEvent);
 				if (result == null) result = caseDistributionEvent(startEvent);
 				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(startEvent);
 				if (result == null) result = defaultCase(theEObject);
@@ -98,6 +100,7 @@ public class ContinuousSwitch<T> extends Switch<T> {
 			case ContinuousPackage.END_EVENT: {
 				EndEvent endEvent = (EndEvent)theEObject;
 				T result = caseEndEvent(endEvent);
+				if (result == null) result = caseOwnedEvent(endEvent);
 				if (result == null) result = caseDistributionEvent(endEvent);
 				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(endEvent);
 				if (result == null) result = defaultCase(theEObject);
@@ -106,6 +109,7 @@ public class ContinuousSwitch<T> extends Switch<T> {
 			case ContinuousPackage.AMOUNT_IMPULSION: {
 				AmountImpulsion amountImpulsion = (AmountImpulsion)theEObject;
 				T result = caseAmountImpulsion(amountImpulsion);
+				if (result == null) result = caseProvidedEvent(amountImpulsion);
 				if (result == null) result = caseDistributionEvent(amountImpulsion);
 				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(amountImpulsion);
 				if (result == null) result = defaultCase(theEObject);
@@ -114,6 +118,7 @@ public class ContinuousSwitch<T> extends Switch<T> {
 			case ContinuousPackage.SLOPE_IMPULSION: {
 				SlopeImpulsion slopeImpulsion = (SlopeImpulsion)theEObject;
 				T result = caseSlopeImpulsion(slopeImpulsion);
+				if (result == null) result = caseProvidedEvent(slopeImpulsion);
 				if (result == null) result = caseDistributionEvent(slopeImpulsion);
 				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(slopeImpulsion);
 				if (result == null) result = defaultCase(theEObject);
@@ -122,6 +127,7 @@ public class ContinuousSwitch<T> extends Switch<T> {
 			case ContinuousPackage.AMOUNT_ABSOLUTE: {
 				AmountAbsolute amountAbsolute = (AmountAbsolute)theEObject;
 				T result = caseAmountAbsolute(amountAbsolute);
+				if (result == null) result = caseProvidedEvent(amountAbsolute);
 				if (result == null) result = caseDistributionEvent(amountAbsolute);
 				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(amountAbsolute);
 				if (result == null) result = defaultCase(theEObject);
@@ -130,6 +136,7 @@ public class ContinuousSwitch<T> extends Switch<T> {
 			case ContinuousPackage.SLOPE_ABSOLUTE: {
 				SlopeAbsolute slopeAbsolute = (SlopeAbsolute)theEObject;
 				T result = caseSlopeAbsolute(slopeAbsolute);
+				if (result == null) result = caseProvidedEvent(slopeAbsolute);
 				if (result == null) result = caseDistributionEvent(slopeAbsolute);
 				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(slopeAbsolute);
 				if (result == null) result = defaultCase(theEObject);
@@ -139,6 +146,7 @@ public class ContinuousSwitch<T> extends Switch<T> {
 				CapacityChangeStart capacityChangeStart = (CapacityChangeStart)theEObject;
 				T result = caseCapacityChangeStart(capacityChangeStart);
 				if (result == null) result = caseAmountImpulsion(capacityChangeStart);
+				if (result == null) result = caseProvidedEvent(capacityChangeStart);
 				if (result == null) result = caseDistributionEvent(capacityChangeStart);
 				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(capacityChangeStart);
 				if (result == null) result = defaultCase(theEObject);
@@ -148,6 +156,7 @@ public class ContinuousSwitch<T> extends Switch<T> {
 				CapacityChangeEnd capacityChangeEnd = (CapacityChangeEnd)theEObject;
 				T result = caseCapacityChangeEnd(capacityChangeEnd);
 				if (result == null) result = caseAmountImpulsion(capacityChangeEnd);
+				if (result == null) result = caseProvidedEvent(capacityChangeEnd);
 				if (result == null) result = caseDistributionEvent(capacityChangeEnd);
 				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(capacityChangeEnd);
 				if (result == null) result = defaultCase(theEObject);
@@ -157,6 +166,7 @@ public class ContinuousSwitch<T> extends Switch<T> {
 				StockChangeStart stockChangeStart = (StockChangeStart)theEObject;
 				T result = caseStockChangeStart(stockChangeStart);
 				if (result == null) result = caseSlopeImpulsion(stockChangeStart);
+				if (result == null) result = caseProvidedEvent(stockChangeStart);
 				if (result == null) result = caseDistributionEvent(stockChangeStart);
 				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(stockChangeStart);
 				if (result == null) result = defaultCase(theEObject);
@@ -166,6 +176,7 @@ public class ContinuousSwitch<T> extends Switch<T> {
 				StockChangeEnd stockChangeEnd = (StockChangeEnd)theEObject;
 				T result = caseStockChangeEnd(stockChangeEnd);
 				if (result == null) result = caseSlopeImpulsion(stockChangeEnd);
+				if (result == null) result = caseProvidedEvent(stockChangeEnd);
 				if (result == null) result = caseDistributionEvent(stockChangeEnd);
 				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(stockChangeEnd);
 				if (result == null) result = defaultCase(theEObject);
@@ -175,6 +186,7 @@ public class ContinuousSwitch<T> extends Switch<T> {
 				AmountImpulsionAtomic amountImpulsionAtomic = (AmountImpulsionAtomic)theEObject;
 				T result = caseAmountImpulsionAtomic(amountImpulsionAtomic);
 				if (result == null) result = caseAmountImpulsion(amountImpulsionAtomic);
+				if (result == null) result = caseProvidedEvent(amountImpulsionAtomic);
 				if (result == null) result = caseDistributionEvent(amountImpulsionAtomic);
 				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(amountImpulsionAtomic);
 				if (result == null) result = defaultCase(theEObject);
@@ -184,6 +196,7 @@ public class ContinuousSwitch<T> extends Switch<T> {
 				SlopeImpulsionAtomic slopeImpulsionAtomic = (SlopeImpulsionAtomic)theEObject;
 				T result = caseSlopeImpulsionAtomic(slopeImpulsionAtomic);
 				if (result == null) result = caseSlopeImpulsion(slopeImpulsionAtomic);
+				if (result == null) result = caseProvidedEvent(slopeImpulsionAtomic);
 				if (result == null) result = caseDistributionEvent(slopeImpulsionAtomic);
 				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(slopeImpulsionAtomic);
 				if (result == null) result = defaultCase(theEObject);
@@ -193,6 +206,7 @@ public class ContinuousSwitch<T> extends Switch<T> {
 				AmountAbsoluteAtomic amountAbsoluteAtomic = (AmountAbsoluteAtomic)theEObject;
 				T result = caseAmountAbsoluteAtomic(amountAbsoluteAtomic);
 				if (result == null) result = caseAmountAbsolute(amountAbsoluteAtomic);
+				if (result == null) result = caseProvidedEvent(amountAbsoluteAtomic);
 				if (result == null) result = caseDistributionEvent(amountAbsoluteAtomic);
 				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(amountAbsoluteAtomic);
 				if (result == null) result = defaultCase(theEObject);
@@ -202,6 +216,7 @@ public class ContinuousSwitch<T> extends Switch<T> {
 				SlopeAbsoluteAtomic slopeAbsoluteAtomic = (SlopeAbsoluteAtomic)theEObject;
 				T result = caseSlopeAbsoluteAtomic(slopeAbsoluteAtomic);
 				if (result == null) result = caseSlopeAbsolute(slopeAbsoluteAtomic);
+				if (result == null) result = caseProvidedEvent(slopeAbsoluteAtomic);
 				if (result == null) result = caseDistributionEvent(slopeAbsoluteAtomic);
 				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(slopeAbsoluteAtomic);
 				if (result == null) result = defaultCase(theEObject);
@@ -281,6 +296,22 @@ public class ContinuousSwitch<T> extends Switch<T> {
 				if (result == null) result = caseEventProvider(amountAbsoluteProvider);
 				if (result == null) result = caseEventsProviderAbstract(amountAbsoluteProvider);
 				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(amountAbsoluteProvider);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ContinuousPackage.OWNED_EVENT: {
+				OwnedEvent ownedEvent = (OwnedEvent)theEObject;
+				T result = caseOwnedEvent(ownedEvent);
+				if (result == null) result = caseDistributionEvent(ownedEvent);
+				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(ownedEvent);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ContinuousPackage.PROVIDED_EVENT: {
+				ProvidedEvent providedEvent = (ProvidedEvent)theEObject;
+				T result = caseProvidedEvent(providedEvent);
+				if (result == null) result = caseDistributionEvent(providedEvent);
+				if (result == null) result = caseObjectWithPropagatorFunctionAdapter(providedEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -450,6 +481,36 @@ public class ContinuousSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAmountAbsoluteProvider(AmountAbsoluteProvider object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Owned Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Owned Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOwnedEvent(OwnedEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Provided Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Provided Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProvidedEvent(ProvidedEvent object) {
 		return null;
 	}
 

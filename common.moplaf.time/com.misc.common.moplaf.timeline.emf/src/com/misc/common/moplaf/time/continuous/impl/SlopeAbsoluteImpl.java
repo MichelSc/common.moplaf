@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public abstract class SlopeAbsoluteImpl extends DistributionEventImpl implements SlopeAbsolute {
+public abstract class SlopeAbsoluteImpl extends ProvidedEventImpl implements SlopeAbsolute {
 	/**
 	 * The default value of the '{@link #getSlopeAbsolute() <em>Slope Absolute</em>}' attribute.
 	 * <!-- begin-user-doc -->

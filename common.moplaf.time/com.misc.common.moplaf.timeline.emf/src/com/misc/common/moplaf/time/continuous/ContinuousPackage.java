@@ -531,13 +531,22 @@ public interface ContinuousPackage extends EPackage {
 	int DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_FEATURE_COUNT + 9;
 
 	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISTRIBUTION_EVENT__DISTRIBUTION = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_FEATURE_COUNT + 10;
+
+	/**
 	 * The feature id for the '<em><b>Distribution As Provided Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_FEATURE_COUNT + 10;
+	int DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_FEATURE_COUNT + 11;
 
 	/**
 	 * The number of structural features of the '<em>Distribution Event</em>' class.
@@ -546,7 +555,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_EVENT_FEATURE_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_FEATURE_COUNT + 11;
+	int DISTRIBUTION_EVENT_FEATURE_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_FEATURE_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
@@ -657,6 +666,241 @@ public interface ContinuousPackage extends EPackage {
 	int DISTRIBUTION_EVENT_OPERATION_COUNT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_ADAPTER_OPERATION_COUNT + 10;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.OwnedEventImpl <em>Owned Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.impl.OwnedEventImpl
+	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getOwnedEvent()
+	 * @generated
+	 */
+	int OWNED_EVENT = 26;
+
+	/**
+	 * The feature id for the '<em><b>Moment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNED_EVENT__MOMENT = DISTRIBUTION_EVENT__MOMENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Nr</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNED_EVENT__EVENT_NR = DISTRIBUTION_EVENT__EVENT_NR;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNED_EVENT__NEXT = DISTRIBUTION_EVENT__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Previous</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNED_EVENT__PREVIOUS = DISTRIBUTION_EVENT__PREVIOUS;
+
+	/**
+	 * The feature id for the '<em><b>Amount Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNED_EVENT__AMOUNT_BEFORE = DISTRIBUTION_EVENT__AMOUNT_BEFORE;
+
+	/**
+	 * The feature id for the '<em><b>Amount After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNED_EVENT__AMOUNT_AFTER = DISTRIBUTION_EVENT__AMOUNT_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Slope Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNED_EVENT__SLOPE_BEFORE = DISTRIBUTION_EVENT__SLOPE_BEFORE;
+
+	/**
+	 * The feature id for the '<em><b>Slope After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNED_EVENT__SLOPE_AFTER = DISTRIBUTION_EVENT__SLOPE_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNED_EVENT__DESCRIPTION = DISTRIBUTION_EVENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNED_EVENT__DISTRIBUTION_AS_SEQUENCE = DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE;
+
+	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNED_EVENT__DISTRIBUTION = DISTRIBUTION_EVENT__DISTRIBUTION;
+
+	/**
+	 * The feature id for the '<em><b>Distribution As Provided Event</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNED_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT = DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
+
+	/**
+	 * The number of structural features of the '<em>Owned Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNED_EVENT_FEATURE_COUNT = DISTRIBUTION_EVENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNED_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER = DISTRIBUTION_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+
+	/**
+	 * The operation id for the '<em>Get Amount Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNED_EVENT___GET_AMOUNT_BEFORE__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_BEFORE__DATE;
+
+	/**
+	 * The operation id for the '<em>Get Amount After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNED_EVENT___GET_AMOUNT_AFTER__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE;
+
+	/**
+	 * The operation id for the '<em>Is Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNED_EVENT___IS_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
+	 * The operation id for the '<em>Is Strict Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNED_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
+	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNED_EVENT___REFRESH_SLOPE_BEFORE = DISTRIBUTION_EVENT___REFRESH_SLOPE_BEFORE;
+
+	/**
+	 * The operation id for the '<em>Refresh Amount Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNED_EVENT___REFRESH_AMOUNT_BEFORE = DISTRIBUTION_EVENT___REFRESH_AMOUNT_BEFORE;
+
+	/**
+	 * The operation id for the '<em>Refresh Amount After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNED_EVENT___REFRESH_AMOUNT_AFTER = DISTRIBUTION_EVENT___REFRESH_AMOUNT_AFTER;
+
+	/**
+	 * The operation id for the '<em>Refresh Slope After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNED_EVENT___REFRESH_SLOPE_AFTER = DISTRIBUTION_EVENT___REFRESH_SLOPE_AFTER;
+
+	/**
+	 * The operation id for the '<em>Refresh Moment</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNED_EVENT___REFRESH_MOMENT = DISTRIBUTION_EVENT___REFRESH_MOMENT;
+
+	/**
+	 * The operation id for the '<em>Refresh Description</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNED_EVENT___REFRESH_DESCRIPTION = DISTRIBUTION_EVENT___REFRESH_DESCRIPTION;
+
+	/**
+	 * The number of operations of the '<em>Owned Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNED_EVENT_OPERATION_COUNT = DISTRIBUTION_EVENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.AmountImpulsionImpl <em>Amount Impulsion</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -713,7 +957,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHILD_EVENT__MOMENT = DISTRIBUTION_EVENT__MOMENT;
+	int CHILD_EVENT__MOMENT = OWNED_EVENT__MOMENT;
 
 	/**
 	 * The feature id for the '<em><b>Event Nr</b></em>' attribute.
@@ -722,7 +966,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHILD_EVENT__EVENT_NR = DISTRIBUTION_EVENT__EVENT_NR;
+	int CHILD_EVENT__EVENT_NR = OWNED_EVENT__EVENT_NR;
 
 	/**
 	 * The feature id for the '<em><b>Next</b></em>' reference.
@@ -731,7 +975,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHILD_EVENT__NEXT = DISTRIBUTION_EVENT__NEXT;
+	int CHILD_EVENT__NEXT = OWNED_EVENT__NEXT;
 
 	/**
 	 * The feature id for the '<em><b>Previous</b></em>' reference.
@@ -740,7 +984,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHILD_EVENT__PREVIOUS = DISTRIBUTION_EVENT__PREVIOUS;
+	int CHILD_EVENT__PREVIOUS = OWNED_EVENT__PREVIOUS;
 
 	/**
 	 * The feature id for the '<em><b>Amount Before</b></em>' attribute.
@@ -749,7 +993,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHILD_EVENT__AMOUNT_BEFORE = DISTRIBUTION_EVENT__AMOUNT_BEFORE;
+	int CHILD_EVENT__AMOUNT_BEFORE = OWNED_EVENT__AMOUNT_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Amount After</b></em>' attribute.
@@ -758,7 +1002,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHILD_EVENT__AMOUNT_AFTER = DISTRIBUTION_EVENT__AMOUNT_AFTER;
+	int CHILD_EVENT__AMOUNT_AFTER = OWNED_EVENT__AMOUNT_AFTER;
 
 	/**
 	 * The feature id for the '<em><b>Slope Before</b></em>' attribute.
@@ -767,7 +1011,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHILD_EVENT__SLOPE_BEFORE = DISTRIBUTION_EVENT__SLOPE_BEFORE;
+	int CHILD_EVENT__SLOPE_BEFORE = OWNED_EVENT__SLOPE_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Slope After</b></em>' attribute.
@@ -776,7 +1020,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHILD_EVENT__SLOPE_AFTER = DISTRIBUTION_EVENT__SLOPE_AFTER;
+	int CHILD_EVENT__SLOPE_AFTER = OWNED_EVENT__SLOPE_AFTER;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -785,7 +1029,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHILD_EVENT__DESCRIPTION = DISTRIBUTION_EVENT__DESCRIPTION;
+	int CHILD_EVENT__DESCRIPTION = OWNED_EVENT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
@@ -794,7 +1038,16 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHILD_EVENT__DISTRIBUTION_AS_SEQUENCE = DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE;
+	int CHILD_EVENT__DISTRIBUTION_AS_SEQUENCE = OWNED_EVENT__DISTRIBUTION_AS_SEQUENCE;
+
+	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHILD_EVENT__DISTRIBUTION = OWNED_EVENT__DISTRIBUTION;
 
 	/**
 	 * The feature id for the '<em><b>Distribution As Provided Event</b></em>' reference.
@@ -803,7 +1056,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHILD_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT = DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
+	int CHILD_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT = OWNED_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
 
 	/**
 	 * The feature id for the '<em><b>Original</b></em>' reference.
@@ -812,7 +1065,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHILD_EVENT__ORIGINAL = DISTRIBUTION_EVENT_FEATURE_COUNT + 0;
+	int CHILD_EVENT__ORIGINAL = OWNED_EVENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Child Event</em>' class.
@@ -821,7 +1074,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHILD_EVENT_FEATURE_COUNT = DISTRIBUTION_EVENT_FEATURE_COUNT + 1;
+	int CHILD_EVENT_FEATURE_COUNT = OWNED_EVENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
@@ -830,7 +1083,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHILD_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER = DISTRIBUTION_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+	int CHILD_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER = OWNED_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
 
 	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
@@ -839,7 +1092,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHILD_EVENT___GET_AMOUNT_BEFORE__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_BEFORE__DATE;
+	int CHILD_EVENT___GET_AMOUNT_BEFORE__DATE = OWNED_EVENT___GET_AMOUNT_BEFORE__DATE;
 
 	/**
 	 * The operation id for the '<em>Get Amount After</em>' operation.
@@ -848,7 +1101,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHILD_EVENT___GET_AMOUNT_AFTER__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE;
+	int CHILD_EVENT___GET_AMOUNT_AFTER__DATE = OWNED_EVENT___GET_AMOUNT_AFTER__DATE;
 
 	/**
 	 * The operation id for the '<em>Is Before</em>' operation.
@@ -857,7 +1110,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHILD_EVENT___IS_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_BEFORE__DISTRIBUTIONEVENT;
+	int CHILD_EVENT___IS_BEFORE__DISTRIBUTIONEVENT = OWNED_EVENT___IS_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Is Strict Before</em>' operation.
@@ -866,7 +1119,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHILD_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
+	int CHILD_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = OWNED_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
@@ -875,7 +1128,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHILD_EVENT___REFRESH_SLOPE_BEFORE = DISTRIBUTION_EVENT___REFRESH_SLOPE_BEFORE;
+	int CHILD_EVENT___REFRESH_SLOPE_BEFORE = OWNED_EVENT___REFRESH_SLOPE_BEFORE;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount Before</em>' operation.
@@ -884,7 +1137,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHILD_EVENT___REFRESH_AMOUNT_BEFORE = DISTRIBUTION_EVENT___REFRESH_AMOUNT_BEFORE;
+	int CHILD_EVENT___REFRESH_AMOUNT_BEFORE = OWNED_EVENT___REFRESH_AMOUNT_BEFORE;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount After</em>' operation.
@@ -893,7 +1146,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHILD_EVENT___REFRESH_AMOUNT_AFTER = DISTRIBUTION_EVENT___REFRESH_AMOUNT_AFTER;
+	int CHILD_EVENT___REFRESH_AMOUNT_AFTER = OWNED_EVENT___REFRESH_AMOUNT_AFTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope After</em>' operation.
@@ -902,7 +1155,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHILD_EVENT___REFRESH_SLOPE_AFTER = DISTRIBUTION_EVENT___REFRESH_SLOPE_AFTER;
+	int CHILD_EVENT___REFRESH_SLOPE_AFTER = OWNED_EVENT___REFRESH_SLOPE_AFTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Moment</em>' operation.
@@ -911,7 +1164,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHILD_EVENT___REFRESH_MOMENT = DISTRIBUTION_EVENT___REFRESH_MOMENT;
+	int CHILD_EVENT___REFRESH_MOMENT = OWNED_EVENT___REFRESH_MOMENT;
 
 	/**
 	 * The operation id for the '<em>Refresh Description</em>' operation.
@@ -920,7 +1173,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHILD_EVENT___REFRESH_DESCRIPTION = DISTRIBUTION_EVENT___REFRESH_DESCRIPTION;
+	int CHILD_EVENT___REFRESH_DESCRIPTION = OWNED_EVENT___REFRESH_DESCRIPTION;
 
 	/**
 	 * The number of operations of the '<em>Child Event</em>' class.
@@ -929,7 +1182,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CHILD_EVENT_OPERATION_COUNT = DISTRIBUTION_EVENT_OPERATION_COUNT + 0;
+	int CHILD_EVENT_OPERATION_COUNT = OWNED_EVENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.StartEventImpl <em>Start Event</em>}' class.
@@ -948,7 +1201,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_EVENT__MOMENT = DISTRIBUTION_EVENT__MOMENT;
+	int START_EVENT__MOMENT = OWNED_EVENT__MOMENT;
 
 	/**
 	 * The feature id for the '<em><b>Event Nr</b></em>' attribute.
@@ -957,7 +1210,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_EVENT__EVENT_NR = DISTRIBUTION_EVENT__EVENT_NR;
+	int START_EVENT__EVENT_NR = OWNED_EVENT__EVENT_NR;
 
 	/**
 	 * The feature id for the '<em><b>Next</b></em>' reference.
@@ -966,7 +1219,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_EVENT__NEXT = DISTRIBUTION_EVENT__NEXT;
+	int START_EVENT__NEXT = OWNED_EVENT__NEXT;
 
 	/**
 	 * The feature id for the '<em><b>Previous</b></em>' reference.
@@ -975,7 +1228,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_EVENT__PREVIOUS = DISTRIBUTION_EVENT__PREVIOUS;
+	int START_EVENT__PREVIOUS = OWNED_EVENT__PREVIOUS;
 
 	/**
 	 * The feature id for the '<em><b>Amount Before</b></em>' attribute.
@@ -984,7 +1237,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_EVENT__AMOUNT_BEFORE = DISTRIBUTION_EVENT__AMOUNT_BEFORE;
+	int START_EVENT__AMOUNT_BEFORE = OWNED_EVENT__AMOUNT_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Amount After</b></em>' attribute.
@@ -993,7 +1246,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_EVENT__AMOUNT_AFTER = DISTRIBUTION_EVENT__AMOUNT_AFTER;
+	int START_EVENT__AMOUNT_AFTER = OWNED_EVENT__AMOUNT_AFTER;
 
 	/**
 	 * The feature id for the '<em><b>Slope Before</b></em>' attribute.
@@ -1002,7 +1255,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_EVENT__SLOPE_BEFORE = DISTRIBUTION_EVENT__SLOPE_BEFORE;
+	int START_EVENT__SLOPE_BEFORE = OWNED_EVENT__SLOPE_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Slope After</b></em>' attribute.
@@ -1011,7 +1264,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_EVENT__SLOPE_AFTER = DISTRIBUTION_EVENT__SLOPE_AFTER;
+	int START_EVENT__SLOPE_AFTER = OWNED_EVENT__SLOPE_AFTER;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1020,7 +1273,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_EVENT__DESCRIPTION = DISTRIBUTION_EVENT__DESCRIPTION;
+	int START_EVENT__DESCRIPTION = OWNED_EVENT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
@@ -1029,7 +1282,16 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_EVENT__DISTRIBUTION_AS_SEQUENCE = DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE;
+	int START_EVENT__DISTRIBUTION_AS_SEQUENCE = OWNED_EVENT__DISTRIBUTION_AS_SEQUENCE;
+
+	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START_EVENT__DISTRIBUTION = OWNED_EVENT__DISTRIBUTION;
 
 	/**
 	 * The feature id for the '<em><b>Distribution As Provided Event</b></em>' reference.
@@ -1038,7 +1300,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT = DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
+	int START_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT = OWNED_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
 
 	/**
 	 * The feature id for the '<em><b>Amount At Start</b></em>' attribute.
@@ -1047,7 +1309,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_EVENT__AMOUNT_AT_START = DISTRIBUTION_EVENT_FEATURE_COUNT + 0;
+	int START_EVENT__AMOUNT_AT_START = OWNED_EVENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Slope At Start</b></em>' attribute.
@@ -1056,16 +1318,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_EVENT__SLOPE_AT_START = DISTRIBUTION_EVENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Distribution As Start</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int START_EVENT__DISTRIBUTION_AS_START = DISTRIBUTION_EVENT_FEATURE_COUNT + 2;
+	int START_EVENT__SLOPE_AT_START = OWNED_EVENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Start Event</em>' class.
@@ -1074,7 +1327,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_EVENT_FEATURE_COUNT = DISTRIBUTION_EVENT_FEATURE_COUNT + 3;
+	int START_EVENT_FEATURE_COUNT = OWNED_EVENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
@@ -1083,7 +1336,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER = DISTRIBUTION_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+	int START_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER = OWNED_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
 
 	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
@@ -1092,7 +1345,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_EVENT___GET_AMOUNT_BEFORE__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_BEFORE__DATE;
+	int START_EVENT___GET_AMOUNT_BEFORE__DATE = OWNED_EVENT___GET_AMOUNT_BEFORE__DATE;
 
 	/**
 	 * The operation id for the '<em>Get Amount After</em>' operation.
@@ -1101,7 +1354,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_EVENT___GET_AMOUNT_AFTER__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE;
+	int START_EVENT___GET_AMOUNT_AFTER__DATE = OWNED_EVENT___GET_AMOUNT_AFTER__DATE;
 
 	/**
 	 * The operation id for the '<em>Is Before</em>' operation.
@@ -1110,7 +1363,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_EVENT___IS_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_BEFORE__DISTRIBUTIONEVENT;
+	int START_EVENT___IS_BEFORE__DISTRIBUTIONEVENT = OWNED_EVENT___IS_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Is Strict Before</em>' operation.
@@ -1119,7 +1372,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
+	int START_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = OWNED_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
@@ -1128,7 +1381,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_EVENT___REFRESH_SLOPE_BEFORE = DISTRIBUTION_EVENT___REFRESH_SLOPE_BEFORE;
+	int START_EVENT___REFRESH_SLOPE_BEFORE = OWNED_EVENT___REFRESH_SLOPE_BEFORE;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount Before</em>' operation.
@@ -1137,7 +1390,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_EVENT___REFRESH_AMOUNT_BEFORE = DISTRIBUTION_EVENT___REFRESH_AMOUNT_BEFORE;
+	int START_EVENT___REFRESH_AMOUNT_BEFORE = OWNED_EVENT___REFRESH_AMOUNT_BEFORE;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount After</em>' operation.
@@ -1146,7 +1399,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_EVENT___REFRESH_AMOUNT_AFTER = DISTRIBUTION_EVENT___REFRESH_AMOUNT_AFTER;
+	int START_EVENT___REFRESH_AMOUNT_AFTER = OWNED_EVENT___REFRESH_AMOUNT_AFTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope After</em>' operation.
@@ -1155,7 +1408,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_EVENT___REFRESH_SLOPE_AFTER = DISTRIBUTION_EVENT___REFRESH_SLOPE_AFTER;
+	int START_EVENT___REFRESH_SLOPE_AFTER = OWNED_EVENT___REFRESH_SLOPE_AFTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Moment</em>' operation.
@@ -1164,7 +1417,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_EVENT___REFRESH_MOMENT = DISTRIBUTION_EVENT___REFRESH_MOMENT;
+	int START_EVENT___REFRESH_MOMENT = OWNED_EVENT___REFRESH_MOMENT;
 
 	/**
 	 * The operation id for the '<em>Refresh Description</em>' operation.
@@ -1173,7 +1426,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_EVENT___REFRESH_DESCRIPTION = DISTRIBUTION_EVENT___REFRESH_DESCRIPTION;
+	int START_EVENT___REFRESH_DESCRIPTION = OWNED_EVENT___REFRESH_DESCRIPTION;
 
 	/**
 	 * The number of operations of the '<em>Start Event</em>' class.
@@ -1182,7 +1435,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_EVENT_OPERATION_COUNT = DISTRIBUTION_EVENT_OPERATION_COUNT + 0;
+	int START_EVENT_OPERATION_COUNT = OWNED_EVENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.EndEventImpl <em>End Event</em>}' class.
@@ -1201,7 +1454,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT__MOMENT = DISTRIBUTION_EVENT__MOMENT;
+	int END_EVENT__MOMENT = OWNED_EVENT__MOMENT;
 
 	/**
 	 * The feature id for the '<em><b>Event Nr</b></em>' attribute.
@@ -1210,7 +1463,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT__EVENT_NR = DISTRIBUTION_EVENT__EVENT_NR;
+	int END_EVENT__EVENT_NR = OWNED_EVENT__EVENT_NR;
 
 	/**
 	 * The feature id for the '<em><b>Next</b></em>' reference.
@@ -1219,7 +1472,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT__NEXT = DISTRIBUTION_EVENT__NEXT;
+	int END_EVENT__NEXT = OWNED_EVENT__NEXT;
 
 	/**
 	 * The feature id for the '<em><b>Previous</b></em>' reference.
@@ -1228,7 +1481,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT__PREVIOUS = DISTRIBUTION_EVENT__PREVIOUS;
+	int END_EVENT__PREVIOUS = OWNED_EVENT__PREVIOUS;
 
 	/**
 	 * The feature id for the '<em><b>Amount Before</b></em>' attribute.
@@ -1237,7 +1490,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT__AMOUNT_BEFORE = DISTRIBUTION_EVENT__AMOUNT_BEFORE;
+	int END_EVENT__AMOUNT_BEFORE = OWNED_EVENT__AMOUNT_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Amount After</b></em>' attribute.
@@ -1246,7 +1499,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT__AMOUNT_AFTER = DISTRIBUTION_EVENT__AMOUNT_AFTER;
+	int END_EVENT__AMOUNT_AFTER = OWNED_EVENT__AMOUNT_AFTER;
 
 	/**
 	 * The feature id for the '<em><b>Slope Before</b></em>' attribute.
@@ -1255,7 +1508,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT__SLOPE_BEFORE = DISTRIBUTION_EVENT__SLOPE_BEFORE;
+	int END_EVENT__SLOPE_BEFORE = OWNED_EVENT__SLOPE_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Slope After</b></em>' attribute.
@@ -1264,7 +1517,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT__SLOPE_AFTER = DISTRIBUTION_EVENT__SLOPE_AFTER;
+	int END_EVENT__SLOPE_AFTER = OWNED_EVENT__SLOPE_AFTER;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1273,7 +1526,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT__DESCRIPTION = DISTRIBUTION_EVENT__DESCRIPTION;
+	int END_EVENT__DESCRIPTION = OWNED_EVENT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
@@ -1282,7 +1535,16 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT__DISTRIBUTION_AS_SEQUENCE = DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE;
+	int END_EVENT__DISTRIBUTION_AS_SEQUENCE = OWNED_EVENT__DISTRIBUTION_AS_SEQUENCE;
+
+	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_EVENT__DISTRIBUTION = OWNED_EVENT__DISTRIBUTION;
 
 	/**
 	 * The feature id for the '<em><b>Distribution As Provided Event</b></em>' reference.
@@ -1291,16 +1553,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT = DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
-
-	/**
-	 * The feature id for the '<em><b>Distribution As End</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int END_EVENT__DISTRIBUTION_AS_END = DISTRIBUTION_EVENT_FEATURE_COUNT + 0;
+	int END_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT = OWNED_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
 
 	/**
 	 * The number of structural features of the '<em>End Event</em>' class.
@@ -1309,7 +1562,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT_FEATURE_COUNT = DISTRIBUTION_EVENT_FEATURE_COUNT + 1;
+	int END_EVENT_FEATURE_COUNT = OWNED_EVENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
@@ -1318,7 +1571,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER = DISTRIBUTION_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+	int END_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER = OWNED_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
 
 	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
@@ -1327,7 +1580,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT___GET_AMOUNT_BEFORE__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_BEFORE__DATE;
+	int END_EVENT___GET_AMOUNT_BEFORE__DATE = OWNED_EVENT___GET_AMOUNT_BEFORE__DATE;
 
 	/**
 	 * The operation id for the '<em>Get Amount After</em>' operation.
@@ -1336,7 +1589,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT___GET_AMOUNT_AFTER__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE;
+	int END_EVENT___GET_AMOUNT_AFTER__DATE = OWNED_EVENT___GET_AMOUNT_AFTER__DATE;
 
 	/**
 	 * The operation id for the '<em>Is Before</em>' operation.
@@ -1345,7 +1598,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT___IS_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_BEFORE__DISTRIBUTIONEVENT;
+	int END_EVENT___IS_BEFORE__DISTRIBUTIONEVENT = OWNED_EVENT___IS_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Is Strict Before</em>' operation.
@@ -1354,7 +1607,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
+	int END_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = OWNED_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
@@ -1363,7 +1616,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT___REFRESH_SLOPE_BEFORE = DISTRIBUTION_EVENT___REFRESH_SLOPE_BEFORE;
+	int END_EVENT___REFRESH_SLOPE_BEFORE = OWNED_EVENT___REFRESH_SLOPE_BEFORE;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount Before</em>' operation.
@@ -1372,7 +1625,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT___REFRESH_AMOUNT_BEFORE = DISTRIBUTION_EVENT___REFRESH_AMOUNT_BEFORE;
+	int END_EVENT___REFRESH_AMOUNT_BEFORE = OWNED_EVENT___REFRESH_AMOUNT_BEFORE;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount After</em>' operation.
@@ -1381,7 +1634,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT___REFRESH_AMOUNT_AFTER = DISTRIBUTION_EVENT___REFRESH_AMOUNT_AFTER;
+	int END_EVENT___REFRESH_AMOUNT_AFTER = OWNED_EVENT___REFRESH_AMOUNT_AFTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope After</em>' operation.
@@ -1390,7 +1643,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT___REFRESH_SLOPE_AFTER = DISTRIBUTION_EVENT___REFRESH_SLOPE_AFTER;
+	int END_EVENT___REFRESH_SLOPE_AFTER = OWNED_EVENT___REFRESH_SLOPE_AFTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Moment</em>' operation.
@@ -1399,7 +1652,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT___REFRESH_MOMENT = DISTRIBUTION_EVENT___REFRESH_MOMENT;
+	int END_EVENT___REFRESH_MOMENT = OWNED_EVENT___REFRESH_MOMENT;
 
 	/**
 	 * The operation id for the '<em>Refresh Description</em>' operation.
@@ -1408,7 +1661,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT___REFRESH_DESCRIPTION = DISTRIBUTION_EVENT___REFRESH_DESCRIPTION;
+	int END_EVENT___REFRESH_DESCRIPTION = OWNED_EVENT___REFRESH_DESCRIPTION;
 
 	/**
 	 * The number of operations of the '<em>End Event</em>' class.
@@ -1417,7 +1670,17 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int END_EVENT_OPERATION_COUNT = DISTRIBUTION_EVENT_OPERATION_COUNT + 0;
+	int END_EVENT_OPERATION_COUNT = OWNED_EVENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.ProvidedEventImpl <em>Provided Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.impl.ProvidedEventImpl
+	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getProvidedEvent()
+	 * @generated
+	 */
+	int PROVIDED_EVENT = 27;
 
 	/**
 	 * The feature id for the '<em><b>Moment</b></em>' attribute.
@@ -1426,7 +1689,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION__MOMENT = DISTRIBUTION_EVENT__MOMENT;
+	int PROVIDED_EVENT__MOMENT = DISTRIBUTION_EVENT__MOMENT;
 
 	/**
 	 * The feature id for the '<em><b>Event Nr</b></em>' attribute.
@@ -1435,7 +1698,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION__EVENT_NR = DISTRIBUTION_EVENT__EVENT_NR;
+	int PROVIDED_EVENT__EVENT_NR = DISTRIBUTION_EVENT__EVENT_NR;
 
 	/**
 	 * The feature id for the '<em><b>Next</b></em>' reference.
@@ -1444,7 +1707,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION__NEXT = DISTRIBUTION_EVENT__NEXT;
+	int PROVIDED_EVENT__NEXT = DISTRIBUTION_EVENT__NEXT;
 
 	/**
 	 * The feature id for the '<em><b>Previous</b></em>' reference.
@@ -1453,7 +1716,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION__PREVIOUS = DISTRIBUTION_EVENT__PREVIOUS;
+	int PROVIDED_EVENT__PREVIOUS = DISTRIBUTION_EVENT__PREVIOUS;
 
 	/**
 	 * The feature id for the '<em><b>Amount Before</b></em>' attribute.
@@ -1462,7 +1725,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION__AMOUNT_BEFORE = DISTRIBUTION_EVENT__AMOUNT_BEFORE;
+	int PROVIDED_EVENT__AMOUNT_BEFORE = DISTRIBUTION_EVENT__AMOUNT_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Amount After</b></em>' attribute.
@@ -1471,7 +1734,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION__AMOUNT_AFTER = DISTRIBUTION_EVENT__AMOUNT_AFTER;
+	int PROVIDED_EVENT__AMOUNT_AFTER = DISTRIBUTION_EVENT__AMOUNT_AFTER;
 
 	/**
 	 * The feature id for the '<em><b>Slope Before</b></em>' attribute.
@@ -1480,7 +1743,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION__SLOPE_BEFORE = DISTRIBUTION_EVENT__SLOPE_BEFORE;
+	int PROVIDED_EVENT__SLOPE_BEFORE = DISTRIBUTION_EVENT__SLOPE_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Slope After</b></em>' attribute.
@@ -1489,7 +1752,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION__SLOPE_AFTER = DISTRIBUTION_EVENT__SLOPE_AFTER;
+	int PROVIDED_EVENT__SLOPE_AFTER = DISTRIBUTION_EVENT__SLOPE_AFTER;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1498,7 +1761,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION__DESCRIPTION = DISTRIBUTION_EVENT__DESCRIPTION;
+	int PROVIDED_EVENT__DESCRIPTION = DISTRIBUTION_EVENT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
@@ -1507,7 +1770,16 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION__DISTRIBUTION_AS_SEQUENCE = DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE;
+	int PROVIDED_EVENT__DISTRIBUTION_AS_SEQUENCE = DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE;
+
+	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_EVENT__DISTRIBUTION = DISTRIBUTION_EVENT__DISTRIBUTION;
 
 	/**
 	 * The feature id for the '<em><b>Distribution As Provided Event</b></em>' reference.
@@ -1516,7 +1788,250 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION__DISTRIBUTION_AS_PROVIDED_EVENT = DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
+	int PROVIDED_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT = DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_EVENT__EVENT_PROVIDER = DISTRIBUTION_EVENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Provided Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_EVENT_FEATURE_COUNT = DISTRIBUTION_EVENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER = DISTRIBUTION_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+
+	/**
+	 * The operation id for the '<em>Get Amount Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_EVENT___GET_AMOUNT_BEFORE__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_BEFORE__DATE;
+
+	/**
+	 * The operation id for the '<em>Get Amount After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_EVENT___GET_AMOUNT_AFTER__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE;
+
+	/**
+	 * The operation id for the '<em>Is Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_EVENT___IS_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
+	 * The operation id for the '<em>Is Strict Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
+
+	/**
+	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_EVENT___REFRESH_SLOPE_BEFORE = DISTRIBUTION_EVENT___REFRESH_SLOPE_BEFORE;
+
+	/**
+	 * The operation id for the '<em>Refresh Amount Before</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_EVENT___REFRESH_AMOUNT_BEFORE = DISTRIBUTION_EVENT___REFRESH_AMOUNT_BEFORE;
+
+	/**
+	 * The operation id for the '<em>Refresh Amount After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_EVENT___REFRESH_AMOUNT_AFTER = DISTRIBUTION_EVENT___REFRESH_AMOUNT_AFTER;
+
+	/**
+	 * The operation id for the '<em>Refresh Slope After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_EVENT___REFRESH_SLOPE_AFTER = DISTRIBUTION_EVENT___REFRESH_SLOPE_AFTER;
+
+	/**
+	 * The operation id for the '<em>Refresh Moment</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_EVENT___REFRESH_MOMENT = DISTRIBUTION_EVENT___REFRESH_MOMENT;
+
+	/**
+	 * The operation id for the '<em>Refresh Description</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_EVENT___REFRESH_DESCRIPTION = DISTRIBUTION_EVENT___REFRESH_DESCRIPTION;
+
+	/**
+	 * The number of operations of the '<em>Provided Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_EVENT_OPERATION_COUNT = DISTRIBUTION_EVENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Moment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION__MOMENT = PROVIDED_EVENT__MOMENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Nr</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION__EVENT_NR = PROVIDED_EVENT__EVENT_NR;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION__NEXT = PROVIDED_EVENT__NEXT;
+
+	/**
+	 * The feature id for the '<em><b>Previous</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION__PREVIOUS = PROVIDED_EVENT__PREVIOUS;
+
+	/**
+	 * The feature id for the '<em><b>Amount Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION__AMOUNT_BEFORE = PROVIDED_EVENT__AMOUNT_BEFORE;
+
+	/**
+	 * The feature id for the '<em><b>Amount After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION__AMOUNT_AFTER = PROVIDED_EVENT__AMOUNT_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Slope Before</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION__SLOPE_BEFORE = PROVIDED_EVENT__SLOPE_BEFORE;
+
+	/**
+	 * The feature id for the '<em><b>Slope After</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION__SLOPE_AFTER = PROVIDED_EVENT__SLOPE_AFTER;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION__DESCRIPTION = PROVIDED_EVENT__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION__DISTRIBUTION_AS_SEQUENCE = PROVIDED_EVENT__DISTRIBUTION_AS_SEQUENCE;
+
+	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION__DISTRIBUTION = PROVIDED_EVENT__DISTRIBUTION;
+
+	/**
+	 * The feature id for the '<em><b>Distribution As Provided Event</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION__DISTRIBUTION_AS_PROVIDED_EVENT = PROVIDED_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION__EVENT_PROVIDER = PROVIDED_EVENT__EVENT_PROVIDER;
 
 	/**
 	 * The feature id for the '<em><b>Amount Impulsion</b></em>' attribute.
@@ -1525,7 +2040,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION__AMOUNT_IMPULSION = DISTRIBUTION_EVENT_FEATURE_COUNT + 0;
+	int AMOUNT_IMPULSION__AMOUNT_IMPULSION = PROVIDED_EVENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Amount Impulsion</em>' class.
@@ -1534,7 +2049,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION_FEATURE_COUNT = DISTRIBUTION_EVENT_FEATURE_COUNT + 1;
+	int AMOUNT_IMPULSION_FEATURE_COUNT = PROVIDED_EVENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
@@ -1543,7 +2058,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION___ADD_PROPAGATOR_FUNCTION_ADAPTER = DISTRIBUTION_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+	int AMOUNT_IMPULSION___ADD_PROPAGATOR_FUNCTION_ADAPTER = PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
 
 	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
@@ -1552,7 +2067,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION___GET_AMOUNT_BEFORE__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_BEFORE__DATE;
+	int AMOUNT_IMPULSION___GET_AMOUNT_BEFORE__DATE = PROVIDED_EVENT___GET_AMOUNT_BEFORE__DATE;
 
 	/**
 	 * The operation id for the '<em>Get Amount After</em>' operation.
@@ -1561,7 +2076,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION___GET_AMOUNT_AFTER__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE;
+	int AMOUNT_IMPULSION___GET_AMOUNT_AFTER__DATE = PROVIDED_EVENT___GET_AMOUNT_AFTER__DATE;
 
 	/**
 	 * The operation id for the '<em>Is Before</em>' operation.
@@ -1570,7 +2085,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION___IS_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_BEFORE__DISTRIBUTIONEVENT;
+	int AMOUNT_IMPULSION___IS_BEFORE__DISTRIBUTIONEVENT = PROVIDED_EVENT___IS_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Is Strict Before</em>' operation.
@@ -1579,7 +2094,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
+	int AMOUNT_IMPULSION___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = PROVIDED_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
@@ -1588,7 +2103,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION___REFRESH_SLOPE_BEFORE = DISTRIBUTION_EVENT___REFRESH_SLOPE_BEFORE;
+	int AMOUNT_IMPULSION___REFRESH_SLOPE_BEFORE = PROVIDED_EVENT___REFRESH_SLOPE_BEFORE;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount Before</em>' operation.
@@ -1597,7 +2112,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION___REFRESH_AMOUNT_BEFORE = DISTRIBUTION_EVENT___REFRESH_AMOUNT_BEFORE;
+	int AMOUNT_IMPULSION___REFRESH_AMOUNT_BEFORE = PROVIDED_EVENT___REFRESH_AMOUNT_BEFORE;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount After</em>' operation.
@@ -1606,7 +2121,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION___REFRESH_AMOUNT_AFTER = DISTRIBUTION_EVENT___REFRESH_AMOUNT_AFTER;
+	int AMOUNT_IMPULSION___REFRESH_AMOUNT_AFTER = PROVIDED_EVENT___REFRESH_AMOUNT_AFTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope After</em>' operation.
@@ -1615,7 +2130,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION___REFRESH_SLOPE_AFTER = DISTRIBUTION_EVENT___REFRESH_SLOPE_AFTER;
+	int AMOUNT_IMPULSION___REFRESH_SLOPE_AFTER = PROVIDED_EVENT___REFRESH_SLOPE_AFTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Moment</em>' operation.
@@ -1624,7 +2139,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION___REFRESH_MOMENT = DISTRIBUTION_EVENT___REFRESH_MOMENT;
+	int AMOUNT_IMPULSION___REFRESH_MOMENT = PROVIDED_EVENT___REFRESH_MOMENT;
 
 	/**
 	 * The operation id for the '<em>Refresh Description</em>' operation.
@@ -1633,7 +2148,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION___REFRESH_DESCRIPTION = DISTRIBUTION_EVENT___REFRESH_DESCRIPTION;
+	int AMOUNT_IMPULSION___REFRESH_DESCRIPTION = PROVIDED_EVENT___REFRESH_DESCRIPTION;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount Impulsion</em>' operation.
@@ -1642,7 +2157,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION___REFRESH_AMOUNT_IMPULSION = DISTRIBUTION_EVENT_OPERATION_COUNT + 0;
+	int AMOUNT_IMPULSION___REFRESH_AMOUNT_IMPULSION = PROVIDED_EVENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Amount Impulsion</em>' class.
@@ -1651,7 +2166,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION_OPERATION_COUNT = DISTRIBUTION_EVENT_OPERATION_COUNT + 1;
+	int AMOUNT_IMPULSION_OPERATION_COUNT = PROVIDED_EVENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Moment</b></em>' attribute.
@@ -1660,7 +2175,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION__MOMENT = DISTRIBUTION_EVENT__MOMENT;
+	int SLOPE_IMPULSION__MOMENT = PROVIDED_EVENT__MOMENT;
 
 	/**
 	 * The feature id for the '<em><b>Event Nr</b></em>' attribute.
@@ -1669,7 +2184,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION__EVENT_NR = DISTRIBUTION_EVENT__EVENT_NR;
+	int SLOPE_IMPULSION__EVENT_NR = PROVIDED_EVENT__EVENT_NR;
 
 	/**
 	 * The feature id for the '<em><b>Next</b></em>' reference.
@@ -1678,7 +2193,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION__NEXT = DISTRIBUTION_EVENT__NEXT;
+	int SLOPE_IMPULSION__NEXT = PROVIDED_EVENT__NEXT;
 
 	/**
 	 * The feature id for the '<em><b>Previous</b></em>' reference.
@@ -1687,7 +2202,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION__PREVIOUS = DISTRIBUTION_EVENT__PREVIOUS;
+	int SLOPE_IMPULSION__PREVIOUS = PROVIDED_EVENT__PREVIOUS;
 
 	/**
 	 * The feature id for the '<em><b>Amount Before</b></em>' attribute.
@@ -1696,7 +2211,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION__AMOUNT_BEFORE = DISTRIBUTION_EVENT__AMOUNT_BEFORE;
+	int SLOPE_IMPULSION__AMOUNT_BEFORE = PROVIDED_EVENT__AMOUNT_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Amount After</b></em>' attribute.
@@ -1705,7 +2220,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION__AMOUNT_AFTER = DISTRIBUTION_EVENT__AMOUNT_AFTER;
+	int SLOPE_IMPULSION__AMOUNT_AFTER = PROVIDED_EVENT__AMOUNT_AFTER;
 
 	/**
 	 * The feature id for the '<em><b>Slope Before</b></em>' attribute.
@@ -1714,7 +2229,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION__SLOPE_BEFORE = DISTRIBUTION_EVENT__SLOPE_BEFORE;
+	int SLOPE_IMPULSION__SLOPE_BEFORE = PROVIDED_EVENT__SLOPE_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Slope After</b></em>' attribute.
@@ -1723,7 +2238,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION__SLOPE_AFTER = DISTRIBUTION_EVENT__SLOPE_AFTER;
+	int SLOPE_IMPULSION__SLOPE_AFTER = PROVIDED_EVENT__SLOPE_AFTER;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1732,7 +2247,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION__DESCRIPTION = DISTRIBUTION_EVENT__DESCRIPTION;
+	int SLOPE_IMPULSION__DESCRIPTION = PROVIDED_EVENT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
@@ -1741,7 +2256,16 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION__DISTRIBUTION_AS_SEQUENCE = DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE;
+	int SLOPE_IMPULSION__DISTRIBUTION_AS_SEQUENCE = PROVIDED_EVENT__DISTRIBUTION_AS_SEQUENCE;
+
+	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_IMPULSION__DISTRIBUTION = PROVIDED_EVENT__DISTRIBUTION;
 
 	/**
 	 * The feature id for the '<em><b>Distribution As Provided Event</b></em>' reference.
@@ -1750,7 +2274,16 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION__DISTRIBUTION_AS_PROVIDED_EVENT = DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
+	int SLOPE_IMPULSION__DISTRIBUTION_AS_PROVIDED_EVENT = PROVIDED_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_IMPULSION__EVENT_PROVIDER = PROVIDED_EVENT__EVENT_PROVIDER;
 
 	/**
 	 * The feature id for the '<em><b>Slope Impulsion</b></em>' attribute.
@@ -1759,7 +2292,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION__SLOPE_IMPULSION = DISTRIBUTION_EVENT_FEATURE_COUNT + 0;
+	int SLOPE_IMPULSION__SLOPE_IMPULSION = PROVIDED_EVENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Slope Impulsion</em>' class.
@@ -1768,7 +2301,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_FEATURE_COUNT = DISTRIBUTION_EVENT_FEATURE_COUNT + 1;
+	int SLOPE_IMPULSION_FEATURE_COUNT = PROVIDED_EVENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
@@ -1777,7 +2310,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION___ADD_PROPAGATOR_FUNCTION_ADAPTER = DISTRIBUTION_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+	int SLOPE_IMPULSION___ADD_PROPAGATOR_FUNCTION_ADAPTER = PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
 
 	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
@@ -1786,7 +2319,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION___GET_AMOUNT_BEFORE__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_BEFORE__DATE;
+	int SLOPE_IMPULSION___GET_AMOUNT_BEFORE__DATE = PROVIDED_EVENT___GET_AMOUNT_BEFORE__DATE;
 
 	/**
 	 * The operation id for the '<em>Get Amount After</em>' operation.
@@ -1795,7 +2328,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION___GET_AMOUNT_AFTER__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE;
+	int SLOPE_IMPULSION___GET_AMOUNT_AFTER__DATE = PROVIDED_EVENT___GET_AMOUNT_AFTER__DATE;
 
 	/**
 	 * The operation id for the '<em>Is Before</em>' operation.
@@ -1804,7 +2337,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION___IS_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_BEFORE__DISTRIBUTIONEVENT;
+	int SLOPE_IMPULSION___IS_BEFORE__DISTRIBUTIONEVENT = PROVIDED_EVENT___IS_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Is Strict Before</em>' operation.
@@ -1813,7 +2346,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
+	int SLOPE_IMPULSION___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = PROVIDED_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
@@ -1822,7 +2355,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION___REFRESH_SLOPE_BEFORE = DISTRIBUTION_EVENT___REFRESH_SLOPE_BEFORE;
+	int SLOPE_IMPULSION___REFRESH_SLOPE_BEFORE = PROVIDED_EVENT___REFRESH_SLOPE_BEFORE;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount Before</em>' operation.
@@ -1831,7 +2364,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION___REFRESH_AMOUNT_BEFORE = DISTRIBUTION_EVENT___REFRESH_AMOUNT_BEFORE;
+	int SLOPE_IMPULSION___REFRESH_AMOUNT_BEFORE = PROVIDED_EVENT___REFRESH_AMOUNT_BEFORE;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount After</em>' operation.
@@ -1840,7 +2373,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION___REFRESH_AMOUNT_AFTER = DISTRIBUTION_EVENT___REFRESH_AMOUNT_AFTER;
+	int SLOPE_IMPULSION___REFRESH_AMOUNT_AFTER = PROVIDED_EVENT___REFRESH_AMOUNT_AFTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope After</em>' operation.
@@ -1849,7 +2382,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION___REFRESH_SLOPE_AFTER = DISTRIBUTION_EVENT___REFRESH_SLOPE_AFTER;
+	int SLOPE_IMPULSION___REFRESH_SLOPE_AFTER = PROVIDED_EVENT___REFRESH_SLOPE_AFTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Moment</em>' operation.
@@ -1858,7 +2391,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION___REFRESH_MOMENT = DISTRIBUTION_EVENT___REFRESH_MOMENT;
+	int SLOPE_IMPULSION___REFRESH_MOMENT = PROVIDED_EVENT___REFRESH_MOMENT;
 
 	/**
 	 * The operation id for the '<em>Refresh Description</em>' operation.
@@ -1867,7 +2400,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION___REFRESH_DESCRIPTION = DISTRIBUTION_EVENT___REFRESH_DESCRIPTION;
+	int SLOPE_IMPULSION___REFRESH_DESCRIPTION = PROVIDED_EVENT___REFRESH_DESCRIPTION;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope Impulsion</em>' operation.
@@ -1876,7 +2409,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION___REFRESH_SLOPE_IMPULSION = DISTRIBUTION_EVENT_OPERATION_COUNT + 0;
+	int SLOPE_IMPULSION___REFRESH_SLOPE_IMPULSION = PROVIDED_EVENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Slope Impulsion</em>' class.
@@ -1885,7 +2418,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_OPERATION_COUNT = DISTRIBUTION_EVENT_OPERATION_COUNT + 1;
+	int SLOPE_IMPULSION_OPERATION_COUNT = PROVIDED_EVENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Moment</b></em>' attribute.
@@ -1894,7 +2427,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE__MOMENT = DISTRIBUTION_EVENT__MOMENT;
+	int AMOUNT_ABSOLUTE__MOMENT = PROVIDED_EVENT__MOMENT;
 
 	/**
 	 * The feature id for the '<em><b>Event Nr</b></em>' attribute.
@@ -1903,7 +2436,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE__EVENT_NR = DISTRIBUTION_EVENT__EVENT_NR;
+	int AMOUNT_ABSOLUTE__EVENT_NR = PROVIDED_EVENT__EVENT_NR;
 
 	/**
 	 * The feature id for the '<em><b>Next</b></em>' reference.
@@ -1912,7 +2445,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE__NEXT = DISTRIBUTION_EVENT__NEXT;
+	int AMOUNT_ABSOLUTE__NEXT = PROVIDED_EVENT__NEXT;
 
 	/**
 	 * The feature id for the '<em><b>Previous</b></em>' reference.
@@ -1921,7 +2454,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE__PREVIOUS = DISTRIBUTION_EVENT__PREVIOUS;
+	int AMOUNT_ABSOLUTE__PREVIOUS = PROVIDED_EVENT__PREVIOUS;
 
 	/**
 	 * The feature id for the '<em><b>Amount Before</b></em>' attribute.
@@ -1930,7 +2463,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE__AMOUNT_BEFORE = DISTRIBUTION_EVENT__AMOUNT_BEFORE;
+	int AMOUNT_ABSOLUTE__AMOUNT_BEFORE = PROVIDED_EVENT__AMOUNT_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Amount After</b></em>' attribute.
@@ -1939,7 +2472,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE__AMOUNT_AFTER = DISTRIBUTION_EVENT__AMOUNT_AFTER;
+	int AMOUNT_ABSOLUTE__AMOUNT_AFTER = PROVIDED_EVENT__AMOUNT_AFTER;
 
 	/**
 	 * The feature id for the '<em><b>Slope Before</b></em>' attribute.
@@ -1948,7 +2481,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE__SLOPE_BEFORE = DISTRIBUTION_EVENT__SLOPE_BEFORE;
+	int AMOUNT_ABSOLUTE__SLOPE_BEFORE = PROVIDED_EVENT__SLOPE_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Slope After</b></em>' attribute.
@@ -1957,7 +2490,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE__SLOPE_AFTER = DISTRIBUTION_EVENT__SLOPE_AFTER;
+	int AMOUNT_ABSOLUTE__SLOPE_AFTER = PROVIDED_EVENT__SLOPE_AFTER;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1966,7 +2499,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE__DESCRIPTION = DISTRIBUTION_EVENT__DESCRIPTION;
+	int AMOUNT_ABSOLUTE__DESCRIPTION = PROVIDED_EVENT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
@@ -1975,7 +2508,16 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE__DISTRIBUTION_AS_SEQUENCE = DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE;
+	int AMOUNT_ABSOLUTE__DISTRIBUTION_AS_SEQUENCE = PROVIDED_EVENT__DISTRIBUTION_AS_SEQUENCE;
+
+	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE__DISTRIBUTION = PROVIDED_EVENT__DISTRIBUTION;
 
 	/**
 	 * The feature id for the '<em><b>Distribution As Provided Event</b></em>' reference.
@@ -1984,7 +2526,16 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE__DISTRIBUTION_AS_PROVIDED_EVENT = DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
+	int AMOUNT_ABSOLUTE__DISTRIBUTION_AS_PROVIDED_EVENT = PROVIDED_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE__EVENT_PROVIDER = PROVIDED_EVENT__EVENT_PROVIDER;
 
 	/**
 	 * The feature id for the '<em><b>Amount Absolute</b></em>' attribute.
@@ -1993,7 +2544,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE__AMOUNT_ABSOLUTE = DISTRIBUTION_EVENT_FEATURE_COUNT + 0;
+	int AMOUNT_ABSOLUTE__AMOUNT_ABSOLUTE = PROVIDED_EVENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Amount Absolute</em>' class.
@@ -2002,7 +2553,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE_FEATURE_COUNT = DISTRIBUTION_EVENT_FEATURE_COUNT + 1;
+	int AMOUNT_ABSOLUTE_FEATURE_COUNT = PROVIDED_EVENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
@@ -2011,7 +2562,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE___ADD_PROPAGATOR_FUNCTION_ADAPTER = DISTRIBUTION_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+	int AMOUNT_ABSOLUTE___ADD_PROPAGATOR_FUNCTION_ADAPTER = PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
 
 	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
@@ -2020,7 +2571,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE___GET_AMOUNT_BEFORE__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_BEFORE__DATE;
+	int AMOUNT_ABSOLUTE___GET_AMOUNT_BEFORE__DATE = PROVIDED_EVENT___GET_AMOUNT_BEFORE__DATE;
 
 	/**
 	 * The operation id for the '<em>Get Amount After</em>' operation.
@@ -2029,7 +2580,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE___GET_AMOUNT_AFTER__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE;
+	int AMOUNT_ABSOLUTE___GET_AMOUNT_AFTER__DATE = PROVIDED_EVENT___GET_AMOUNT_AFTER__DATE;
 
 	/**
 	 * The operation id for the '<em>Is Before</em>' operation.
@@ -2038,7 +2589,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE___IS_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_BEFORE__DISTRIBUTIONEVENT;
+	int AMOUNT_ABSOLUTE___IS_BEFORE__DISTRIBUTIONEVENT = PROVIDED_EVENT___IS_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Is Strict Before</em>' operation.
@@ -2047,7 +2598,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
+	int AMOUNT_ABSOLUTE___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = PROVIDED_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
@@ -2056,7 +2607,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE___REFRESH_SLOPE_BEFORE = DISTRIBUTION_EVENT___REFRESH_SLOPE_BEFORE;
+	int AMOUNT_ABSOLUTE___REFRESH_SLOPE_BEFORE = PROVIDED_EVENT___REFRESH_SLOPE_BEFORE;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount Before</em>' operation.
@@ -2065,7 +2616,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE___REFRESH_AMOUNT_BEFORE = DISTRIBUTION_EVENT___REFRESH_AMOUNT_BEFORE;
+	int AMOUNT_ABSOLUTE___REFRESH_AMOUNT_BEFORE = PROVIDED_EVENT___REFRESH_AMOUNT_BEFORE;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount After</em>' operation.
@@ -2074,7 +2625,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE___REFRESH_AMOUNT_AFTER = DISTRIBUTION_EVENT___REFRESH_AMOUNT_AFTER;
+	int AMOUNT_ABSOLUTE___REFRESH_AMOUNT_AFTER = PROVIDED_EVENT___REFRESH_AMOUNT_AFTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope After</em>' operation.
@@ -2083,7 +2634,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE___REFRESH_SLOPE_AFTER = DISTRIBUTION_EVENT___REFRESH_SLOPE_AFTER;
+	int AMOUNT_ABSOLUTE___REFRESH_SLOPE_AFTER = PROVIDED_EVENT___REFRESH_SLOPE_AFTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Moment</em>' operation.
@@ -2092,7 +2643,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE___REFRESH_MOMENT = DISTRIBUTION_EVENT___REFRESH_MOMENT;
+	int AMOUNT_ABSOLUTE___REFRESH_MOMENT = PROVIDED_EVENT___REFRESH_MOMENT;
 
 	/**
 	 * The operation id for the '<em>Refresh Description</em>' operation.
@@ -2101,7 +2652,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE___REFRESH_DESCRIPTION = DISTRIBUTION_EVENT___REFRESH_DESCRIPTION;
+	int AMOUNT_ABSOLUTE___REFRESH_DESCRIPTION = PROVIDED_EVENT___REFRESH_DESCRIPTION;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount Absolute</em>' operation.
@@ -2110,7 +2661,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE___REFRESH_AMOUNT_ABSOLUTE = DISTRIBUTION_EVENT_OPERATION_COUNT + 0;
+	int AMOUNT_ABSOLUTE___REFRESH_AMOUNT_ABSOLUTE = PROVIDED_EVENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Amount Absolute</em>' class.
@@ -2119,7 +2670,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE_OPERATION_COUNT = DISTRIBUTION_EVENT_OPERATION_COUNT + 1;
+	int AMOUNT_ABSOLUTE_OPERATION_COUNT = PROVIDED_EVENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Moment</b></em>' attribute.
@@ -2128,7 +2679,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE__MOMENT = DISTRIBUTION_EVENT__MOMENT;
+	int SLOPE_ABSOLUTE__MOMENT = PROVIDED_EVENT__MOMENT;
 
 	/**
 	 * The feature id for the '<em><b>Event Nr</b></em>' attribute.
@@ -2137,7 +2688,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE__EVENT_NR = DISTRIBUTION_EVENT__EVENT_NR;
+	int SLOPE_ABSOLUTE__EVENT_NR = PROVIDED_EVENT__EVENT_NR;
 
 	/**
 	 * The feature id for the '<em><b>Next</b></em>' reference.
@@ -2146,7 +2697,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE__NEXT = DISTRIBUTION_EVENT__NEXT;
+	int SLOPE_ABSOLUTE__NEXT = PROVIDED_EVENT__NEXT;
 
 	/**
 	 * The feature id for the '<em><b>Previous</b></em>' reference.
@@ -2155,7 +2706,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE__PREVIOUS = DISTRIBUTION_EVENT__PREVIOUS;
+	int SLOPE_ABSOLUTE__PREVIOUS = PROVIDED_EVENT__PREVIOUS;
 
 	/**
 	 * The feature id for the '<em><b>Amount Before</b></em>' attribute.
@@ -2164,7 +2715,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE__AMOUNT_BEFORE = DISTRIBUTION_EVENT__AMOUNT_BEFORE;
+	int SLOPE_ABSOLUTE__AMOUNT_BEFORE = PROVIDED_EVENT__AMOUNT_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Amount After</b></em>' attribute.
@@ -2173,7 +2724,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE__AMOUNT_AFTER = DISTRIBUTION_EVENT__AMOUNT_AFTER;
+	int SLOPE_ABSOLUTE__AMOUNT_AFTER = PROVIDED_EVENT__AMOUNT_AFTER;
 
 	/**
 	 * The feature id for the '<em><b>Slope Before</b></em>' attribute.
@@ -2182,7 +2733,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE__SLOPE_BEFORE = DISTRIBUTION_EVENT__SLOPE_BEFORE;
+	int SLOPE_ABSOLUTE__SLOPE_BEFORE = PROVIDED_EVENT__SLOPE_BEFORE;
 
 	/**
 	 * The feature id for the '<em><b>Slope After</b></em>' attribute.
@@ -2191,7 +2742,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE__SLOPE_AFTER = DISTRIBUTION_EVENT__SLOPE_AFTER;
+	int SLOPE_ABSOLUTE__SLOPE_AFTER = PROVIDED_EVENT__SLOPE_AFTER;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -2200,7 +2751,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE__DESCRIPTION = DISTRIBUTION_EVENT__DESCRIPTION;
+	int SLOPE_ABSOLUTE__DESCRIPTION = PROVIDED_EVENT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Distribution As Sequence</b></em>' reference.
@@ -2209,7 +2760,16 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE__DISTRIBUTION_AS_SEQUENCE = DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE;
+	int SLOPE_ABSOLUTE__DISTRIBUTION_AS_SEQUENCE = PROVIDED_EVENT__DISTRIBUTION_AS_SEQUENCE;
+
+	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE__DISTRIBUTION = PROVIDED_EVENT__DISTRIBUTION;
 
 	/**
 	 * The feature id for the '<em><b>Distribution As Provided Event</b></em>' reference.
@@ -2218,7 +2778,16 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE__DISTRIBUTION_AS_PROVIDED_EVENT = DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
+	int SLOPE_ABSOLUTE__DISTRIBUTION_AS_PROVIDED_EVENT = PROVIDED_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE__EVENT_PROVIDER = PROVIDED_EVENT__EVENT_PROVIDER;
 
 	/**
 	 * The feature id for the '<em><b>Slope Absolute</b></em>' attribute.
@@ -2227,7 +2796,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE__SLOPE_ABSOLUTE = DISTRIBUTION_EVENT_FEATURE_COUNT + 0;
+	int SLOPE_ABSOLUTE__SLOPE_ABSOLUTE = PROVIDED_EVENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Slope Absolute</em>' class.
@@ -2236,7 +2805,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE_FEATURE_COUNT = DISTRIBUTION_EVENT_FEATURE_COUNT + 1;
+	int SLOPE_ABSOLUTE_FEATURE_COUNT = PROVIDED_EVENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function Adapter</em>' operation.
@@ -2245,7 +2814,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE___ADD_PROPAGATOR_FUNCTION_ADAPTER = DISTRIBUTION_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
+	int SLOPE_ABSOLUTE___ADD_PROPAGATOR_FUNCTION_ADAPTER = PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER;
 
 	/**
 	 * The operation id for the '<em>Get Amount Before</em>' operation.
@@ -2254,7 +2823,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE___GET_AMOUNT_BEFORE__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_BEFORE__DATE;
+	int SLOPE_ABSOLUTE___GET_AMOUNT_BEFORE__DATE = PROVIDED_EVENT___GET_AMOUNT_BEFORE__DATE;
 
 	/**
 	 * The operation id for the '<em>Get Amount After</em>' operation.
@@ -2263,7 +2832,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE___GET_AMOUNT_AFTER__DATE = DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE;
+	int SLOPE_ABSOLUTE___GET_AMOUNT_AFTER__DATE = PROVIDED_EVENT___GET_AMOUNT_AFTER__DATE;
 
 	/**
 	 * The operation id for the '<em>Is Before</em>' operation.
@@ -2272,7 +2841,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE___IS_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_BEFORE__DISTRIBUTIONEVENT;
+	int SLOPE_ABSOLUTE___IS_BEFORE__DISTRIBUTIONEVENT = PROVIDED_EVENT___IS_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Is Strict Before</em>' operation.
@@ -2281,7 +2850,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = DISTRIBUTION_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
+	int SLOPE_ABSOLUTE___IS_STRICT_BEFORE__DISTRIBUTIONEVENT = PROVIDED_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope Before</em>' operation.
@@ -2290,7 +2859,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE___REFRESH_SLOPE_BEFORE = DISTRIBUTION_EVENT___REFRESH_SLOPE_BEFORE;
+	int SLOPE_ABSOLUTE___REFRESH_SLOPE_BEFORE = PROVIDED_EVENT___REFRESH_SLOPE_BEFORE;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount Before</em>' operation.
@@ -2299,7 +2868,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE___REFRESH_AMOUNT_BEFORE = DISTRIBUTION_EVENT___REFRESH_AMOUNT_BEFORE;
+	int SLOPE_ABSOLUTE___REFRESH_AMOUNT_BEFORE = PROVIDED_EVENT___REFRESH_AMOUNT_BEFORE;
 
 	/**
 	 * The operation id for the '<em>Refresh Amount After</em>' operation.
@@ -2308,7 +2877,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE___REFRESH_AMOUNT_AFTER = DISTRIBUTION_EVENT___REFRESH_AMOUNT_AFTER;
+	int SLOPE_ABSOLUTE___REFRESH_AMOUNT_AFTER = PROVIDED_EVENT___REFRESH_AMOUNT_AFTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope After</em>' operation.
@@ -2317,7 +2886,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE___REFRESH_SLOPE_AFTER = DISTRIBUTION_EVENT___REFRESH_SLOPE_AFTER;
+	int SLOPE_ABSOLUTE___REFRESH_SLOPE_AFTER = PROVIDED_EVENT___REFRESH_SLOPE_AFTER;
 
 	/**
 	 * The operation id for the '<em>Refresh Moment</em>' operation.
@@ -2326,7 +2895,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE___REFRESH_MOMENT = DISTRIBUTION_EVENT___REFRESH_MOMENT;
+	int SLOPE_ABSOLUTE___REFRESH_MOMENT = PROVIDED_EVENT___REFRESH_MOMENT;
 
 	/**
 	 * The operation id for the '<em>Refresh Description</em>' operation.
@@ -2335,7 +2904,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE___REFRESH_DESCRIPTION = DISTRIBUTION_EVENT___REFRESH_DESCRIPTION;
+	int SLOPE_ABSOLUTE___REFRESH_DESCRIPTION = PROVIDED_EVENT___REFRESH_DESCRIPTION;
 
 	/**
 	 * The operation id for the '<em>Refresh Slope Absolute</em>' operation.
@@ -2344,7 +2913,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE___REFRESH_SLOPE_ABSOLUTE = DISTRIBUTION_EVENT_OPERATION_COUNT + 0;
+	int SLOPE_ABSOLUTE___REFRESH_SLOPE_ABSOLUTE = PROVIDED_EVENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Slope Absolute</em>' class.
@@ -2353,7 +2922,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE_OPERATION_COUNT = DISTRIBUTION_EVENT_OPERATION_COUNT + 1;
+	int SLOPE_ABSOLUTE_OPERATION_COUNT = PROVIDED_EVENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.impl.CapacityChangeImpl <em>Capacity Change</em>}' class.
@@ -2546,6 +3115,15 @@ public interface ContinuousPackage extends EPackage {
 	int CAPACITY_CHANGE_START__DISTRIBUTION_AS_SEQUENCE = AMOUNT_IMPULSION__DISTRIBUTION_AS_SEQUENCE;
 
 	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE_START__DISTRIBUTION = AMOUNT_IMPULSION__DISTRIBUTION;
+
+	/**
 	 * The feature id for the '<em><b>Distribution As Provided Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2553,6 +3131,15 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int CAPACITY_CHANGE_START__DISTRIBUTION_AS_PROVIDED_EVENT = AMOUNT_IMPULSION__DISTRIBUTION_AS_PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE_START__EVENT_PROVIDER = AMOUNT_IMPULSION__EVENT_PROVIDER;
 
 	/**
 	 * The feature id for the '<em><b>Amount Impulsion</b></em>' attribute.
@@ -2799,6 +3386,15 @@ public interface ContinuousPackage extends EPackage {
 	int CAPACITY_CHANGE_END__DISTRIBUTION_AS_SEQUENCE = AMOUNT_IMPULSION__DISTRIBUTION_AS_SEQUENCE;
 
 	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE_END__DISTRIBUTION = AMOUNT_IMPULSION__DISTRIBUTION;
+
+	/**
 	 * The feature id for the '<em><b>Distribution As Provided Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2806,6 +3402,15 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int CAPACITY_CHANGE_END__DISTRIBUTION_AS_PROVIDED_EVENT = AMOUNT_IMPULSION__DISTRIBUTION_AS_PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY_CHANGE_END__EVENT_PROVIDER = AMOUNT_IMPULSION__EVENT_PROVIDER;
 
 	/**
 	 * The feature id for the '<em><b>Amount Impulsion</b></em>' attribute.
@@ -3042,6 +3647,15 @@ public interface ContinuousPackage extends EPackage {
 	int STOCK_CHANGE_START__DISTRIBUTION_AS_SEQUENCE = SLOPE_IMPULSION__DISTRIBUTION_AS_SEQUENCE;
 
 	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE_START__DISTRIBUTION = SLOPE_IMPULSION__DISTRIBUTION;
+
+	/**
 	 * The feature id for the '<em><b>Distribution As Provided Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3049,6 +3663,15 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int STOCK_CHANGE_START__DISTRIBUTION_AS_PROVIDED_EVENT = SLOPE_IMPULSION__DISTRIBUTION_AS_PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE_START__EVENT_PROVIDER = SLOPE_IMPULSION__EVENT_PROVIDER;
 
 	/**
 	 * The feature id for the '<em><b>Slope Impulsion</b></em>' attribute.
@@ -3285,6 +3908,15 @@ public interface ContinuousPackage extends EPackage {
 	int STOCK_CHANGE_END__DISTRIBUTION_AS_SEQUENCE = SLOPE_IMPULSION__DISTRIBUTION_AS_SEQUENCE;
 
 	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE_END__DISTRIBUTION = SLOPE_IMPULSION__DISTRIBUTION;
+
+	/**
 	 * The feature id for the '<em><b>Distribution As Provided Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3292,6 +3924,15 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int STOCK_CHANGE_END__DISTRIBUTION_AS_PROVIDED_EVENT = SLOPE_IMPULSION__DISTRIBUTION_AS_PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOCK_CHANGE_END__EVENT_PROVIDER = SLOPE_IMPULSION__EVENT_PROVIDER;
 
 	/**
 	 * The feature id for the '<em><b>Slope Impulsion</b></em>' attribute.
@@ -3538,6 +4179,15 @@ public interface ContinuousPackage extends EPackage {
 	int AMOUNT_IMPULSION_ATOMIC__DISTRIBUTION_AS_SEQUENCE = AMOUNT_IMPULSION__DISTRIBUTION_AS_SEQUENCE;
 
 	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION_ATOMIC__DISTRIBUTION = AMOUNT_IMPULSION__DISTRIBUTION;
+
+	/**
 	 * The feature id for the '<em><b>Distribution As Provided Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3545,6 +4195,15 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int AMOUNT_IMPULSION_ATOMIC__DISTRIBUTION_AS_PROVIDED_EVENT = AMOUNT_IMPULSION__DISTRIBUTION_AS_PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_IMPULSION_ATOMIC__EVENT_PROVIDER = AMOUNT_IMPULSION__EVENT_PROVIDER;
 
 	/**
 	 * The feature id for the '<em><b>Amount Impulsion</b></em>' attribute.
@@ -3791,6 +4450,15 @@ public interface ContinuousPackage extends EPackage {
 	int SLOPE_IMPULSION_ATOMIC__DISTRIBUTION_AS_SEQUENCE = SLOPE_IMPULSION__DISTRIBUTION_AS_SEQUENCE;
 
 	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_IMPULSION_ATOMIC__DISTRIBUTION = SLOPE_IMPULSION__DISTRIBUTION;
+
+	/**
 	 * The feature id for the '<em><b>Distribution As Provided Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3798,6 +4466,15 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int SLOPE_IMPULSION_ATOMIC__DISTRIBUTION_AS_PROVIDED_EVENT = SLOPE_IMPULSION__DISTRIBUTION_AS_PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_IMPULSION_ATOMIC__EVENT_PROVIDER = SLOPE_IMPULSION__EVENT_PROVIDER;
 
 	/**
 	 * The feature id for the '<em><b>Slope Impulsion</b></em>' attribute.
@@ -4044,6 +4721,15 @@ public interface ContinuousPackage extends EPackage {
 	int AMOUNT_ABSOLUTE_ATOMIC__DISTRIBUTION_AS_SEQUENCE = AMOUNT_ABSOLUTE__DISTRIBUTION_AS_SEQUENCE;
 
 	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC__DISTRIBUTION = AMOUNT_ABSOLUTE__DISTRIBUTION;
+
+	/**
 	 * The feature id for the '<em><b>Distribution As Provided Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4051,6 +4737,15 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int AMOUNT_ABSOLUTE_ATOMIC__DISTRIBUTION_AS_PROVIDED_EVENT = AMOUNT_ABSOLUTE__DISTRIBUTION_AS_PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AMOUNT_ABSOLUTE_ATOMIC__EVENT_PROVIDER = AMOUNT_ABSOLUTE__EVENT_PROVIDER;
 
 	/**
 	 * The feature id for the '<em><b>Amount Absolute</b></em>' attribute.
@@ -4297,6 +4992,15 @@ public interface ContinuousPackage extends EPackage {
 	int SLOPE_ABSOLUTE_ATOMIC__DISTRIBUTION_AS_SEQUENCE = SLOPE_ABSOLUTE__DISTRIBUTION_AS_SEQUENCE;
 
 	/**
+	 * The feature id for the '<em><b>Distribution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC__DISTRIBUTION = SLOPE_ABSOLUTE__DISTRIBUTION;
+
+	/**
 	 * The feature id for the '<em><b>Distribution As Provided Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4304,6 +5008,15 @@ public interface ContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int SLOPE_ABSOLUTE_ATOMIC__DISTRIBUTION_AS_PROVIDED_EVENT = SLOPE_ABSOLUTE__DISTRIBUTION_AS_PROVIDED_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Event Provider</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOPE_ABSOLUTE_ATOMIC__EVENT_PROVIDER = SLOPE_ABSOLUTE__EVENT_PROVIDER;
 
 	/**
 	 * The feature id for the '<em><b>Slope Absolute</b></em>' attribute.
@@ -5161,7 +5874,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getDistributionVisitor()
 	 * @generated
 	 */
-	int DISTRIBUTION_VISITOR = 27;
+	int DISTRIBUTION_VISITOR = 29;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.TimeUnit <em>Time Unit</em>}' enum.
@@ -5171,7 +5884,7 @@ public interface ContinuousPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getTimeUnit()
 	 * @generated
 	 */
-	int TIME_UNIT = 26;
+	int TIME_UNIT = 28;
 
 
 	/**
@@ -5686,6 +6399,17 @@ public interface ContinuousPackage extends EPackage {
 	EReference getDistributionEvent_DistributionAsSequence();
 
 	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getDistribution <em>Distribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Distribution</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.DistributionEvent#getDistribution()
+	 * @see #getDistributionEvent()
+	 * @generated
+	 */
+	EReference getDistributionEvent_Distribution();
+
+	/**
 	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getDistributionAsProvidedEvent <em>Distribution As Provided Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6114,6 +6838,37 @@ public interface ContinuousPackage extends EPackage {
 	EAttribute getAmountAbsoluteProvider_AmountAbsolute();
 
 	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.OwnedEvent <em>Owned Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Owned Event</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.OwnedEvent
+	 * @generated
+	 */
+	EClass getOwnedEvent();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.ProvidedEvent <em>Provided Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Provided Event</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.ProvidedEvent
+	 * @generated
+	 */
+	EClass getProvidedEvent();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.ProvidedEvent#getEventProvider <em>Event Provider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Event Provider</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.ProvidedEvent#getEventProvider()
+	 * @see #getProvidedEvent()
+	 * @generated
+	 */
+	EReference getProvidedEvent_EventProvider();
+
+	/**
 	 * Returns the meta object for data type '{@link com.misc.common.moplaf.time.continuous.DistributionVisitor <em>Distribution Visitor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6453,17 +7208,6 @@ public interface ContinuousPackage extends EPackage {
 	EAttribute getStartEvent_SlopeAtStart();
 
 	/**
-	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.time.continuous.StartEvent#getDistributionAsStart <em>Distribution As Start</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Distribution As Start</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.StartEvent#getDistributionAsStart()
-	 * @see #getStartEvent()
-	 * @generated
-	 */
-	EReference getStartEvent_DistributionAsStart();
-
-	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.EndEvent <em>End Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6472,17 +7216,6 @@ public interface ContinuousPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getEndEvent();
-
-	/**
-	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.time.continuous.EndEvent#getDistributionAsEnd <em>Distribution As End</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Distribution As End</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.EndEvent#getDistributionAsEnd()
-	 * @see #getEndEvent()
-	 * @generated
-	 */
-	EReference getEndEvent_DistributionAsEnd();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.CapacityChangeStart <em>Capacity Change Start</em>}'.
@@ -6956,6 +7689,14 @@ public interface ContinuousPackage extends EPackage {
 		EReference DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE = eINSTANCE.getDistributionEvent_DistributionAsSequence();
 
 		/**
+		 * The meta object literal for the '<em><b>Distribution</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DISTRIBUTION_EVENT__DISTRIBUTION = eINSTANCE.getDistributionEvent_Distribution();
+
+		/**
 		 * The meta object literal for the '<em><b>Distribution As Provided Event</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7302,6 +8043,34 @@ public interface ContinuousPackage extends EPackage {
 		EAttribute AMOUNT_ABSOLUTE_PROVIDER__AMOUNT_ABSOLUTE = eINSTANCE.getAmountAbsoluteProvider_AmountAbsolute();
 
 		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.OwnedEventImpl <em>Owned Event</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.time.continuous.impl.OwnedEventImpl
+		 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getOwnedEvent()
+		 * @generated
+		 */
+		EClass OWNED_EVENT = eINSTANCE.getOwnedEvent();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.ProvidedEventImpl <em>Provided Event</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.time.continuous.impl.ProvidedEventImpl
+		 * @see com.misc.common.moplaf.time.continuous.impl.ContinuousPackageImpl#getProvidedEvent()
+		 * @generated
+		 */
+		EClass PROVIDED_EVENT = eINSTANCE.getProvidedEvent();
+
+		/**
+		 * The meta object literal for the '<em><b>Event Provider</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROVIDED_EVENT__EVENT_PROVIDER = eINSTANCE.getProvidedEvent_EventProvider();
+
+		/**
 		 * The meta object literal for the '<em>Distribution Visitor</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7584,14 +8353,6 @@ public interface ContinuousPackage extends EPackage {
 		EAttribute START_EVENT__SLOPE_AT_START = eINSTANCE.getStartEvent_SlopeAtStart();
 
 		/**
-		 * The meta object literal for the '<em><b>Distribution As Start</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference START_EVENT__DISTRIBUTION_AS_START = eINSTANCE.getStartEvent_DistributionAsStart();
-
-		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.EndEventImpl <em>End Event</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7600,14 +8361,6 @@ public interface ContinuousPackage extends EPackage {
 		 * @generated
 		 */
 		EClass END_EVENT = eINSTANCE.getEndEvent();
-
-		/**
-		 * The meta object literal for the '<em><b>Distribution As End</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference END_EVENT__DISTRIBUTION_AS_END = eINSTANCE.getEndEvent_DistributionAsEnd();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.impl.CapacityChangeStartImpl <em>Capacity Change Start</em>}' class.

@@ -77,7 +77,7 @@ public class DistributionEventItemProvider
 			addSlopeAfterPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addDistributionAsSequencePropertyDescriptor(object);
-			addDistributionAsProvidedEventPropertyDescriptor(object);
+			addDistributionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -303,19 +303,19 @@ public class DistributionEventItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Distribution As Provided Event feature.
+	 * This adds a property descriptor for the Distribution feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDistributionAsProvidedEventPropertyDescriptor(Object object) {
+	protected void addDistributionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DistributionEvent_DistributionAsProvidedEvent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DistributionEvent_DistributionAsProvidedEvent_feature", "_UI_DistributionEvent_type"),
-				 ContinuousPackage.Literals.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT,
+				 getString("_UI_DistributionEvent_Distribution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DistributionEvent_Distribution_feature", "_UI_DistributionEvent_type"),
+				 ContinuousPackage.Literals.DISTRIBUTION_EVENT__DISTRIBUTION,
 				 true,
 				 false,
 				 true,

@@ -13,7 +13,7 @@ public class PropagatorCalcEventSlopeBefore extends PropagatorFunctionAdapter {
 	@Override
 	protected PropagatorFunctionAdapter getParent() {
 		DistributionEvent event = (DistributionEvent)this.target;
-		Distribution distribution = event.getDistributionAsSequence();
+		Distribution distribution = event.getDistribution();
 		PropagatorFunctionAdapter parent = Util.getPropagatorFunctionAdapter(distribution, PropagatorLayerDistributionSlopes.class);
 		return parent;
 	}

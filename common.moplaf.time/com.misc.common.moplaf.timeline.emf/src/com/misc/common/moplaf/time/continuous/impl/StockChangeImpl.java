@@ -6,6 +6,7 @@ import com.misc.common.moplaf.time.continuous.ContinuousFactory;
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.DistributionEvent;
+import com.misc.common.moplaf.time.continuous.ProvidedEvent;
 import com.misc.common.moplaf.time.continuous.StockChange;
 import com.misc.common.moplaf.time.continuous.StockChangeEnd;
 import com.misc.common.moplaf.time.continuous.StockChangeStart;
@@ -147,7 +148,7 @@ public class StockChangeImpl extends EventsProviderImpl implements StockChange {
 	}
 
 	@Override
-	public EList<DistributionEvent> getProvidedEvents() {
+	public EList<ProvidedEvent> getProvidedEvents() {
 		EObjectEList list = new EObjectEList(DistributionEvent.class, 
 							                this, 
 							                ContinuousPackage.EVENTS_PROVIDER__PROVIDED_EVENTS);

@@ -8,7 +8,7 @@ public class PropagatorCalcEndEventMoment extends PropagatorCalcEventMoment {
 	@Override
 	protected void addBindings() {
 		super.addBindings();
-		this.addInboundBindingNavigationFeature(ContinuousPackage.Literals.END_EVENT__DISTRIBUTION_AS_END, DependencyDistributionEnd.class);
+		this.addInboundBindingNavigationFeature(ContinuousPackage.Literals.DISTRIBUTION_EVENT__DISTRIBUTION, DependencyDistributionEnd.class);
 	}
 
 	static public class DependencyDistributionEnd extends PropagatorDependencyAdapter{

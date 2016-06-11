@@ -70,7 +70,6 @@ import org.eclipse.emf.common.util.EList;
 public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	/**
 	 * Returns the value of the '<em><b>Start</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.continuous.StartEvent#getDistributionAsStart <em>Distribution As Start</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Start</em>' reference isn't clear,
@@ -80,8 +79,8 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	 * @return the value of the '<em>Start</em>' containment reference.
 	 * @see #setStart(StartEvent)
 	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistribution_Start()
-	 * @see com.misc.common.moplaf.time.continuous.StartEvent#getDistributionAsStart
-	 * @model opposite="DistributionAsStart" containment="true" required="true"
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="name='End'"
 	 * @generated
 	 */
 	StartEvent getStart();
@@ -98,7 +97,6 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 
 	/**
 	 * Returns the value of the '<em><b>End</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.continuous.EndEvent#getDistributionAsEnd <em>Distribution As End</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>End</em>' reference isn't clear,
@@ -108,8 +106,7 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	 * @return the value of the '<em>End</em>' containment reference.
 	 * @see #setEnd(EndEvent)
 	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistribution_End()
-	 * @see com.misc.common.moplaf.time.continuous.EndEvent#getDistributionAsEnd
-	 * @model opposite="DistributionAsEnd" containment="true" required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	EndEvent getEnd();

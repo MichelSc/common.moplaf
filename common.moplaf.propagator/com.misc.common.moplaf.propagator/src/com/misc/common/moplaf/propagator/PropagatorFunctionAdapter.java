@@ -7,8 +7,6 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 
 
 
@@ -85,7 +83,8 @@ import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
  *     <li>method {@link PropagatorAbstractAdapter#addPropagatorFunctionAdapters}</li>
  *     <li>method {@link PropagatorFunctionAdapter#refreshParent} </li>
  *   </ul>
- *   <li>The Parent of the a PropagatorFunctionAdapter is supposed to be available at the first touch, and is
+ *   <li>The Parent of the a PropagatorFunctionAdapter is supposed to be available when the propagator is enabled
+ *   (typically when the propagator is owned), and is
  *   supposed never change. Touches are lost with ownership.</li>
  * </ul>
  *   
@@ -123,6 +122,9 @@ public abstract class PropagatorFunctionAdapter extends PropagatorAbstractAdapte
 		this.isEnabled = true;
 		this.currentParent = this.getParent();
 		this.addDependencyAdapters();
+		if ( this.currentParent == null ){
+			Plugin.INSTANCE.logError("No parent", this);
+		}
 	}
 	
 	public void disable(){

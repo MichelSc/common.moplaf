@@ -8,7 +8,7 @@ public class PropagatorCalcStartEventMoment extends PropagatorCalcEventMoment {
 	@Override
 	protected void addBindings() {
 		super.addBindings();
-		this.addInboundBindingNavigationFeature(ContinuousPackage.Literals.START_EVENT__DISTRIBUTION_AS_START, DependencyDistributionStart.class);
+		this.addInboundBindingNavigationFeature(ContinuousPackage.Literals.DISTRIBUTION_EVENT__DISTRIBUTION, DependencyDistributionStart.class);
 	}
 
 	static public class DependencyDistributionStart extends PropagatorDependencyAdapter{

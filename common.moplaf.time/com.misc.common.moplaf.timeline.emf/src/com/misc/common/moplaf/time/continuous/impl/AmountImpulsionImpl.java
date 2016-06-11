@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public abstract class AmountImpulsionImpl extends DistributionEventImpl implements AmountImpulsion {
+public abstract class AmountImpulsionImpl extends ProvidedEventImpl implements AmountImpulsion {
 	/**
 	 * The default value of the '{@link #getAmountImpulsion() <em>Amount Impulsion</em>}' attribute.
 	 * <!-- begin-user-doc -->

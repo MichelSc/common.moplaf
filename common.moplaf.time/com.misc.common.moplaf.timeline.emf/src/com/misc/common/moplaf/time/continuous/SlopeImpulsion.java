@@ -19,7 +19,7 @@ package com.misc.common.moplaf.time.continuous;
  * @model abstract="true"
  * @generated
  */
-public interface SlopeImpulsion extends DistributionEvent {
+public interface SlopeImpulsion extends ProvidedEvent {
 	/**
 	 * Returns the value of the '<em><b>Slope Impulsion</b></em>' attribute.
 	 * <!-- begin-user-doc -->

@@ -20,11 +20,11 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  * and call {@link InboundBinding#touch} when some change in the bound feature occurred.
  * <p>
  * Outbound bindings implement the method {@link OutboundBinding#isOutboundBinding(Object)}, allowing the framework
- * to query if if some feature of this adapter in set (bound) by the PropagatorFunctionAdapter.
+ * to query if if some feature of this adapter is set (bound) by the PropagatorFunctionAdapter.
  * <p>
  * Two standard inbound bindings are provided. A {@link InboundBindingFeature}, binding to some feature of this
  * propagator's Notifier and a {@link InboundBindingNavigationFeature}, binding to some navigation feature , and 
- * propagate the binding to the referred object by receiving a 
+ * propagating the binding to the referred object by receiving a 
  * {@link PropagatorDependencyAdapter}. These standards Inbound binding can be added with the convenience methods
  * {@link #addInboundBindingFeature(Object)} and {@link #addInboundBindingNavigationFeature(Object, Object)} respectively.
  * <p>
@@ -32,11 +32,9 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  * propagator's Notifier. This standards Outbound binding can be added with the convenience methods
  * {@link #addOutboundBindingFeature(Object)}.
  * <p>
- * Registering the {@link PropagatorDependencyAdapter}s is done by the method {@link InboundBinding#addPropagatorFunctionAdapters}, called
+ * Registering the {@link PropagatorDependencyAdapter}s is done by the method {@link InboundBinding#addDependencyAdapters}, called
  * when this adapter is added to the notifier. Unregistering the {@link PropagatorDependencyAdapter}s is done by the method
  * {@link InboundBinding#removeDependencyAdapters()}, called when the adapter is removed from the Notifier.
- * <p>
- * Unregistering the propagatorFunctionAdapters is done by the method {@link #disposePropagatorFunctionAdapters}.
  * 
  * @author michel
  *
