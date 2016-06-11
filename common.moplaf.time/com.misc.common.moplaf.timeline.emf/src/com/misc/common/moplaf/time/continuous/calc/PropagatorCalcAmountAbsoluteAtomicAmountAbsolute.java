@@ -19,5 +19,4 @@ public class PropagatorCalcAmountAbsoluteAtomicAmountAbsolute extends Propagator
 			this.addInboundBindingFeature(ContinuousPackage.Literals.AMOUNT_ABSOLUTE_PROVIDER__AMOUNT_ABSOLUTE);
 		}
 	}; 
-	
 };

@@ -1,7 +1,6 @@
 package com.misc.common.moplaf.time.continuous.calc;
 
 import com.misc.common.moplaf.propagator.PropagatorFunctionAdapter;
-import com.misc.common.moplaf.propagator.PropagatorFunctionAdapters;
 import com.misc.common.moplaf.propagator.Util;
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
@@ -25,17 +24,10 @@ public class PropagatorCalcEventSlopeAfter extends PropagatorFunctionAdapter {
 	}
 
 	@Override
-	protected PropagatorFunctionAdapters getAntecedents() {
-		DistributionEvent event = (DistributionEvent)this.target;
-		PropagatorFunctionAdapters antecedents = super.getAntecedents();
-		PropagatorFunctionAdapter calcEventSlopeBefore = Util.getPropagatorFunctionAdapter(event, PropagatorCalcEventSlopeBefore.class);
-		antecedents.add(calcEventSlopeBefore);
-		return antecedents;
-	}
-
-	@Override
 	protected void addBindings() {
 		super.addBindings();
+		this.addOutboundBindingFeature(ContinuousPackage.Literals.DISTRIBUTION_EVENT__SLOPE_AFTER);
+		
 		this.addInboundBindingFeature(ContinuousPackage.Literals.DISTRIBUTION_EVENT__SLOPE_BEFORE);
 		this.addInboundBindingFeature(ContinuousPackage.Literals.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE);
 	}
