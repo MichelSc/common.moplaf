@@ -19,5 +19,4 @@ public class PropagatorCalcCapacityChangeStartAmountImpulsion extends Propagator
 			this.addInboundBindingFeature(ContinuousPackage.Literals.CAPACITY_CHANGE__AMOUNT);
 		}
 	}; 
-	
 };

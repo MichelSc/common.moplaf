@@ -9,5 +9,5 @@ public class PropagatorCalcStartEventAmountAfter extends
 	protected void addBindings() {
 		super.addBindings();
 		this.addInboundBindingFeature(ContinuousPackage.Literals.START_EVENT__AMOUNT_AT_START);
-	}
-}
+	};
+};

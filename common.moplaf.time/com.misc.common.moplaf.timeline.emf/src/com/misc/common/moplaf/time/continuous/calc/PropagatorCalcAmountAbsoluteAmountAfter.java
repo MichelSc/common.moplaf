@@ -9,6 +9,5 @@ public class PropagatorCalcAmountAbsoluteAmountAfter extends
 	protected void addBindings() {
 		super.addBindings();
 		this.addInboundBindingFeature(ContinuousPackage.Literals.AMOUNT_ABSOLUTE__AMOUNT_ABSOLUTE);
-	}
-	
-}
+	};
+};

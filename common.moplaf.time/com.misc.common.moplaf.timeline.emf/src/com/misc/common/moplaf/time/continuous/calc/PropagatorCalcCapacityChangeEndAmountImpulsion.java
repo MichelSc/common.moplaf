@@ -20,5 +20,4 @@ public class PropagatorCalcCapacityChangeEndAmountImpulsion extends PropagatorCa
 			this.addInboundBindingFeature(ContinuousPackage.Literals.CAPACITY_CHANGE__AMOUNT);
 		}
 	}; 
-	
 };
