@@ -6,7 +6,6 @@ package com.misc.common.moplaf.time.continuous.provider;
 import com.misc.common.moplaf.time.continuous.OwnedEvent;
 
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -54,8 +53,7 @@ public class OwnedEventItemProvider extends DistributionEventItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Date labelValue = ((OwnedEvent)object).getMoment();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((OwnedEvent)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_OwnedEvent_type") :
 			getString("_UI_OwnedEvent_type") + " " + label;

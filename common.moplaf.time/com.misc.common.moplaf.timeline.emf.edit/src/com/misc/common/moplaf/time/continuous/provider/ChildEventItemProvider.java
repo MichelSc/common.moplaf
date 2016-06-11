@@ -6,7 +6,6 @@ package com.misc.common.moplaf.time.continuous.provider;
 import com.misc.common.moplaf.time.continuous.ChildEvent;
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -88,8 +87,7 @@ public class ChildEventItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Date labelValue = ((ChildEvent)object).getMoment();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((ChildEvent)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ChildEvent_type") :
 			getString("_UI_ChildEvent_type") + " " + label;

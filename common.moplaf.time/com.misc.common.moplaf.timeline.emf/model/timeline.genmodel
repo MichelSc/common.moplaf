@@ -166,53 +166,68 @@
         <genOperations ecoreOperation="timeline.ecore#//continuous/DistributionEvent/refreshMoment"/>
         <genOperations ecoreOperation="timeline.ecore#//continuous/DistributionEvent/refreshDescription"/>
       </genClasses>
-      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/ChildEvent">
+      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/ChildEvent"
+          labelFeature="#//time/continuous/DistributionEvent/Description">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference timeline.ecore#//continuous/ChildEvent/Original"/>
       </genClasses>
-      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/StartEvent">
+      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/StartEvent"
+          labelFeature="#//time/continuous/DistributionEvent/Description">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timeline.ecore#//continuous/StartEvent/AmountAtStart"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timeline.ecore#//continuous/StartEvent/SlopeAtStart"/>
       </genClasses>
-      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/EndEvent"/>
-      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/AmountImpulsion">
+      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/EndEvent"
+          labelFeature="#//time/continuous/DistributionEvent/Description"/>
+      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/AmountImpulsion"
+          labelFeature="#//time/continuous/DistributionEvent/Description">
         <genFeatures createChild="false" propertyCategory="3 input" ecoreFeature="ecore:EAttribute timeline.ecore#//continuous/AmountImpulsion/AmountImpulsion"/>
         <genOperations ecoreOperation="timeline.ecore#//continuous/AmountImpulsion/refreshAmountImpulsion"/>
       </genClasses>
-      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/SlopeImpulsion">
+      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/SlopeImpulsion"
+          labelFeature="#//time/continuous/DistributionEvent/Description">
         <genFeatures createChild="false" propertyCategory="3 input" ecoreFeature="ecore:EAttribute timeline.ecore#//continuous/SlopeImpulsion/SlopeImpulsion"/>
         <genOperations ecoreOperation="timeline.ecore#//continuous/SlopeImpulsion/refreshSlopeImpulsion"/>
       </genClasses>
-      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/AmountAbsolute">
+      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/AmountAbsolute"
+          labelFeature="#//time/continuous/DistributionEvent/Description">
         <genFeatures createChild="false" propertyCategory="3 input" ecoreFeature="ecore:EAttribute timeline.ecore#//continuous/AmountAbsolute/AmountAbsolute"/>
         <genOperations ecoreOperation="timeline.ecore#//continuous/AmountAbsolute/refreshAmountAbsolute"/>
       </genClasses>
-      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/SlopeAbsolute">
+      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/SlopeAbsolute"
+          labelFeature="#//time/continuous/DistributionEvent/Description">
         <genFeatures createChild="false" propertyCategory="3 input" ecoreFeature="ecore:EAttribute timeline.ecore#//continuous/SlopeAbsolute/SlopeAbsolute"/>
         <genOperations ecoreOperation="timeline.ecore#//continuous/SlopeAbsolute/refreshSlopeAbsolute"/>
       </genClasses>
-      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/CapacityChangeStart">
+      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/CapacityChangeStart"
+          labelFeature="#//time/continuous/DistributionEvent/Description">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference timeline.ecore#//continuous/CapacityChangeStart/Provider"/>
       </genClasses>
-      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/CapacityChangeEnd">
+      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/CapacityChangeEnd"
+          labelFeature="#//time/continuous/DistributionEvent/Description">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference timeline.ecore#//continuous/CapacityChangeEnd/Provider"/>
       </genClasses>
-      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/StockChangeStart">
+      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/StockChangeStart"
+          labelFeature="#//time/continuous/DistributionEvent/Description">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference timeline.ecore#//continuous/StockChangeStart/Provider"/>
       </genClasses>
-      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/StockChangeEnd">
+      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/StockChangeEnd"
+          labelFeature="#//time/continuous/DistributionEvent/Description">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference timeline.ecore#//continuous/StockChangeEnd/Provider"/>
       </genClasses>
-      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/AmountImpulsionAtomic">
+      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/AmountImpulsionAtomic"
+          labelFeature="#//time/continuous/DistributionEvent/Description">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference timeline.ecore#//continuous/AmountImpulsionAtomic/Provider"/>
       </genClasses>
-      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/SlopeImpulsionAtomic">
+      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/SlopeImpulsionAtomic"
+          labelFeature="#//time/continuous/DistributionEvent/Description">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference timeline.ecore#//continuous/SlopeImpulsionAtomic/Provider"/>
       </genClasses>
-      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/AmountAbsoluteAtomic">
+      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/AmountAbsoluteAtomic"
+          labelFeature="#//time/continuous/DistributionEvent/Description">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference timeline.ecore#//continuous/AmountAbsoluteAtomic/Provider"/>
       </genClasses>
-      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/SlopeAbsoluteAtomic">
+      <genClasses provider="Stateful" ecoreClass="timeline.ecore#//continuous/SlopeAbsoluteAtomic"
+          labelFeature="#//time/continuous/DistributionEvent/Description">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference timeline.ecore#//continuous/SlopeAbsoluteAtomic/Provider"/>
       </genClasses>
       <genClasses provider="Stateful" image="false" ecoreClass="timeline.ecore#//continuous/EventsProviderAbstract">
@@ -258,8 +273,10 @@
         <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference timeline.ecore#//continuous/AmountAbsoluteProvider/Event"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timeline.ecore#//continuous/AmountAbsoluteProvider/AmountAbsolute"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="timeline.ecore#//continuous/OwnedEvent"/>
-      <genClasses image="false" ecoreClass="timeline.ecore#//continuous/ProvidedEvent">
+      <genClasses image="false" ecoreClass="timeline.ecore#//continuous/OwnedEvent"
+          labelFeature="#//time/continuous/DistributionEvent/Description"/>
+      <genClasses image="false" ecoreClass="timeline.ecore#//continuous/ProvidedEvent"
+          labelFeature="#//time/continuous/DistributionEvent/Description">
         <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference timeline.ecore#//continuous/ProvidedEvent/EventProvider"/>
       </genClasses>
     </nestedGenPackages>
