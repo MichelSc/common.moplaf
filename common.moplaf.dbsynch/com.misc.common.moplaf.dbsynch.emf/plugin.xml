@@ -7,14 +7,6 @@
 <plugin>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated datasetload -->
-      <package
-            uri="http://com.misc.common.moplaf.datasetload"
-            class="com.misc.common.moplaf.dbsynch.DatasetloadPackage"
-            genModel="model/dbsynch.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated dbsynch -->
       <package
             uri="//www.misc.com/common/moplaf/dbsynch/model/0.1"

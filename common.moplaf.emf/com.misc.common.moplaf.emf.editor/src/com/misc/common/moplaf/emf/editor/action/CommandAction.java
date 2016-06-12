@@ -35,7 +35,9 @@ import org.eclipse.emf.edit.domain.IEditingDomainProvider;
  * behaviour to a {@link Command}, only when it is guaranteed that the
  * selection will not change during the life of the action.  In other words,
  * the action itself would be created based on the selection, and destroyed
- * when the selection changed.  All possible aspects of the action are
+ * when the selection changed.  
+ * 
+ * <p> All possible aspects of the action are
  * delegated to the command, namely the enablement state and, if it
  * implements {@link CommandActionDelegate}, the text, the toolbar icon, and
  * the tool tip text; however, this need only be done once, at the time the
@@ -87,7 +89,6 @@ public abstract class CommandAction extends BaseAction
 
   /**
    * This invokes createActionCommand to create the command
-   * and then configures the action based on the result.
    */
   private void makeCommand(){
 	this.command = null;

@@ -51,7 +51,7 @@ public class AbstractAction3 extends WorkbenchWindowActionDelegate {
 	@Override
 	public void selectionChanged(IAction action, ISelection newSelection) {
 		// change the selection
-		ISelection oldSelection = this.getSelection();
+		//ISelection oldSelection = this.getSelection();
 		super.selectionChanged(action, newSelection);
 		
 		// get the command object
