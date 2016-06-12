@@ -25,31 +25,34 @@ import org.eclipse.emf.edit.ui.action.StaticSelectionCommandAction;
 
 
 /**
- * A accept action  is implemented by creating a {@link AcceptCommand}.
+ * A accept action  is implemented by creating a {@link SynchUpCommand}.
  */
-public class SynchUpAction extends BaseAction
+public class SynchUpAction extends CommandAction
 {
-  /**
-   * This constructs an instance of an action that uses the given editing domain to create a accept command
-   * for the <code>selection</code> object.
-   * @since 2.4.0
-   */
-  public SynchUpAction(IWorkbenchPart part, ISelection selection)
-  {
-    super(part, selection);
-  }
+	public final static String ID = "com.misc.common.moplaf.emf.editor.action.SynchUp";
 
-  /**
-   * This creates the command for {@link StaticSelectionCommandAction#createActionCommand}.
-   */
-  @Override
-  protected Command createActionCommand(EditingDomain editingDomain, Collection<?> collection)
-  {
-    if (collection.size() == 1)
-    {
-      Object owner = collection.iterator().next();
-      return SynchUpCommand.create(editingDomain, owner);
-    }
-    return UnexecutableCommand.INSTANCE;
-  }
+	/**
+	 * This constructs an instance of an action that uses the given editing domain to create a synchup command
+	 * for the <code>selection</code> object.
+	 * @since 2.4.0
+	 */
+	public SynchUpAction(IWorkbenchPart part, ISelection selection)
+	{
+		super(part, selection);
+		this.setId(ID);
+	}
+
+	/**
+	 * This creates the command for {@link StaticSelectionCommandAction#createActionCommand}.
+	 */
+	@Override
+	protected Command createActionCommand(EditingDomain editingDomain, Collection<?> collection)
+	{
+		if (collection.size() == 1)
+		{
+			Object owner = collection.iterator().next();
+			return SynchUpCommand.create(editingDomain, owner);
+		}
+		return UnexecutableCommand.INSTANCE;
+	}
 }

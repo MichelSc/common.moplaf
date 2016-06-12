@@ -3,20 +3,12 @@
 package com.misc.common.moplaf.dbsynch.provider;
 
 
-import com.misc.common.moplaf.dbsynch.DbSynchPackage;
-
-import com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract;
-import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
-import com.misc.common.moplaf.emf.edit.command.SynchDownCommand;
-import com.misc.common.moplaf.emf.edit.command.SynchUpCommand;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -30,6 +22,13 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import com.misc.common.moplaf.dbsynch.DbSynchPackage;
+import com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract;
+import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
+import com.misc.common.moplaf.emf.edit.command.RefreshMetaDataCommand;
+import com.misc.common.moplaf.emf.edit.command.SynchDownCommand;
+import com.misc.common.moplaf.emf.edit.command.SynchUpCommand;
 
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract} object.

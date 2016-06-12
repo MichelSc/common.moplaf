@@ -26,29 +26,32 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 /**
  * A read action  is implemented by creating a {@link ReadCommand}.
  */
-public class ReadAction extends BaseAction
+public class ReadAction extends CommandAction
 {
-  /**
-   * This constructs an instance of an action that uses the given editing domain to create a run command
-   * for the <code>selection</code> object.
-   * @since 2.4.0
-   */
-  public ReadAction(IWorkbenchPart part, ISelection selection)
-  {
-    super(part, selection);
-  }
+	public final static String ID = "com.misc.common.moplaf.emf.editor.action.Read";
 
-  /**
-   * This creates the command for {@link StaticSelectionCommandAction#createActionCommand}.
-   */
-  @Override
-  protected Command createActionCommand(EditingDomain editingDomain, Collection<?> collection)
-  {
-    if (collection.size() == 1)
-    {
-      Object owner = collection.iterator().next();
-      return ReadCommand.create(editingDomain, owner);
-    }
-    return UnexecutableCommand.INSTANCE;
-  }
+	/**
+	 * This constructs an instance of an action that uses the given editing domain to create a read command
+	 * for the <code>selection</code> object.
+	 * @since 2.4.0
+	 */
+	public ReadAction(IWorkbenchPart part, ISelection selection)
+	{
+		super(part, selection);
+		this.setId(ID);
+	}
+
+	/**
+	 * This creates the command for {@link StaticSelectionCommandAction#createActionCommand}.
+	 */
+	@Override
+	protected Command createActionCommand(EditingDomain editingDomain, Collection<?> collection)
+	{
+		if (collection.size() == 1)
+		{
+			Object owner = collection.iterator().next();
+			return ReadCommand.create(editingDomain, owner);
+		}
+		return UnexecutableCommand.INSTANCE;
+	}
 }

@@ -27,11 +27,14 @@ import org.eclipse.emf.edit.ui.action.StaticSelectionCommandAction;
 /**
  * A run action  is implemented by creating a {@link RunCommand}.
  */
-public class RunAction extends BaseAction
+public class RunAction extends CommandAction
 {
+	  public final static String ID = "com.misc.common.moplaf.emf.editor.action.Run";
+
 
 	public RunAction(IWorkbenchPart workbenchPart, ISelection selection){
 	    super(workbenchPart, selection);
+		this.setId(ID);
 	}
   
   /**

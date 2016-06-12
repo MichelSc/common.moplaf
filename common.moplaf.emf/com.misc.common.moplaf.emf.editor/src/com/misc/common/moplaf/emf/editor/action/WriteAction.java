@@ -27,29 +27,32 @@ import org.eclipse.emf.edit.ui.action.StaticSelectionCommandAction;
 /**
  * A write action  is implemented by creating a {@link WriteCommand}.
  */
-public class WriteAction extends BaseAction
+public class WriteAction extends CommandAction
 {
-  /**
-   * This constructs an instance of an action that uses the given editing domain to create a write command
-   * for the <code>selection</code> object.
-   * @since 2.4.0
-   */
-  public WriteAction(IWorkbenchPart part, ISelection selection)
-  {
-    super(part, selection);
-  }
+	public final static String ID = "com.misc.common.moplaf.emf.editor.action.Write";
+	
+	/**
+	 * This constructs an instance of an action that uses the given editing domain to create a write command
+	 * for the <code>selection</code> object.
+	 * @since 2.4.0
+	 */
+	public WriteAction(IWorkbenchPart part, ISelection selection)
+	{
+		super(part, selection);
+		this.setId(ID);
+	}
 
-  /**
-   * This creates the command for {@link StaticSelectionCommandAction#createActionCommand}.
-   */
-  @Override
-  protected Command createActionCommand(EditingDomain editingDomain, Collection<?> collection)
-  {
-    if (collection.size() == 1)
-    {
-      Object owner = collection.iterator().next();
-      return WriteCommand.create(editingDomain, owner);
-    }
-    return UnexecutableCommand.INSTANCE;
-  }
+	/**
+	 * This creates the command for {@link StaticSelectionCommandAction#createActionCommand}.
+	 */
+	@Override
+	protected Command createActionCommand(EditingDomain editingDomain, Collection<?> collection)
+	{
+		if (collection.size() == 1)
+		{
+			Object owner = collection.iterator().next();
+			return WriteCommand.create(editingDomain, owner);
+		}
+		return UnexecutableCommand.INSTANCE;
+	}
 }

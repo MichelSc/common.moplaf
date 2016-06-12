@@ -1,4 +1,4 @@
-package com.misc.common.moplaf.dbsynch.provider;
+package com.misc.common.moplaf.emf.edit.command;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.edit.command.CommandParameter;

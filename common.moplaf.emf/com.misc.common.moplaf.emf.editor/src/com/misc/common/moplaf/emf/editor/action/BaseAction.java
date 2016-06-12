@@ -12,22 +12,13 @@ package com.misc.common.moplaf.emf.editor.action;
  */
 
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.ISelectionProvider;
-import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.command.UnexecutableCommand;
 import org.eclipse.emf.edit.command.CommandActionDelegate;
-import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
-import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 
 
@@ -52,26 +43,14 @@ import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
 public abstract class BaseAction extends Action
 {
   /**
-   * This records the editing domain of the current editor or viewer.  For global
-   * popups, we try to determine the editing domain from the selected
-   * objects themselves.
-   */
-  protected EditingDomain editingDomain;
-
-  /**
    * This records the workbench part.
    */
-  private IWorkbenchPart workbenchPart;
+  protected IWorkbenchPart workbenchPart;
 
   /**
    * This records the selection
    */
-  private ISelection selection;
-
-  /**
-   * This records the command.
-   */
-  protected Command command;
+  protected ISelection selection;
 
   /**
    * This constructs an instance for a command to be executed via
@@ -84,114 +63,19 @@ public abstract class BaseAction extends Action
     this.workbenchPart = workbenchPart;
     this.selection = selection;
 
-    // try to get editing domain from workbench part
-    if (workbenchPart instanceof IEditingDomainProvider)
-    {
-      editingDomain = ((IEditingDomainProvider)workbenchPart).getEditingDomain();
-    }
-    
-    this.makeCommand();
     this.configureAction();
   }
 
-  /**
-   * This should be implemented to create a command that performs the action.
-   */
-  protected abstract Command createActionCommand(EditingDomain editingDomain, Collection<?> collection);
-
-  /**
-   * This invokes createActionCommand to create the command
-   * and then configures the action based on the result.
-   */
-  private void makeCommand(){
-	this.command = null;
-	// make the command and setEnabled the action
-    // only handle structured selections
-    if (!(selection instanceof IStructuredSelection))
-    {
-      disable();
-    }
-    else
-    {
-      // convert the selection to a collection of the selected objects
-      IStructuredSelection sselection = (IStructuredSelection) selection;
-      List<?> list = sselection.toList();
-      Collection<Object> collection = new ArrayList<Object>(list);
-      
-      // if the editing domain wasn't given by the workbench part, try to get
-      // it from the selection
-      if (editingDomain == null)
-      {
-        for (Object o : collection)
-        {
-          editingDomain = AdapterFactoryEditingDomain.getEditingDomainFor(o);
-          if (editingDomain != null)
-          {
-            break;
-          }
-        }
-      }
-
-      // if we found an editing domain, create command
-      if (editingDomain != null)
-      {
-        command = createActionCommand(editingDomain, collection);
-        setEnabled(command.canExecute());
-      }
-
-      // give up if we couldn't create the command; otherwise, use a
-      // CommandActionDelegate to set the action's text, tool-tip, icon,
-      // etc. or just use the default icon
-      if (command == null || command == UnexecutableCommand.INSTANCE)
-      {
-        disable();
-      }
-    }
-  }
   
   /**
-   * This configures the action based on the command, if any.
+   * This configures the action.
+   * Should be overriden by the concrete class
    */
-  private void configureAction(){
-    // set the text fields of the action
-    if (!(command instanceof CommandActionDelegate))
-    {
-      if (getDefaultImageDescriptor() != null)
-      {
+  protected void configureAction(){
         setImageDescriptor(getDefaultImageDescriptor());
-      }
-    }
-    else
-    {
-      CommandActionDelegate commandActionDelegate =
-        (CommandActionDelegate) command;
-
-      ImageDescriptor imageDescriptor =
-        objectToImageDescriptor(commandActionDelegate.getImage());
-      if (imageDescriptor != null)
-      {
-        setImageDescriptor(imageDescriptor);
-      }
-      else if (getDefaultImageDescriptor() != null)
-      {
-        setImageDescriptor(getDefaultImageDescriptor());
-      }
-
-      if (commandActionDelegate.getText() != null)
-      {
-        setText(commandActionDelegate.getText());
-      }
-      
-      if (commandActionDelegate.getDescription() != null)
-      {
-        setDescription(commandActionDelegate.getDescription());
-      }
-
-      if (commandActionDelegate.getToolTipText() != null)
-      {
-        setToolTipText(commandActionDelegate.getToolTipText());
-      }
-    }
+        setText       ("Action text - to be overriden");
+        setDescription("Action description - to be overriden");
+        setToolTipText("Action tooltip - to be overriden");
   }
 
   /**
@@ -202,6 +86,7 @@ public abstract class BaseAction extends Action
   {
     return null;
   }
+
 
   /**
    * This gets invoked when the selection is inappropriate or the command
@@ -218,29 +103,6 @@ public abstract class BaseAction extends Action
     }
   }
 
-  /**
-   * This executes the command.
-   */
-  @Override
-  public void run()
-  {
-    // this guard is for extra security, but should not be necessary
-    if (editingDomain != null && command != null)
-    {
-      // use up the command
-      editingDomain.getCommandStack().execute(command);
-    }
-    
-    // re-set the selection
-    //    this is done to trigger a "SelectionChanged" event
-    //    so that the action are recreated
-    //    actions enablements need te be recalculated
-    //    as they may be different after running this action 
-    if ( this.workbenchPart instanceof ISelectionProvider){
-    	ISelectionProvider provider = (ISelectionProvider)this.workbenchPart;
-    	provider.setSelection(selection);
-    }
-  }
 
   /**
    * If necessary, this converts any image representation into an image

@@ -25,31 +25,34 @@ import org.eclipse.emf.edit.ui.action.StaticSelectionCommandAction;
 
 
 /**
- * A accept action  is implemented by creating a {@link AcceptCommand}.
+ * A accept action  is implemented by creating a {@link RefreshCommand}.
  */
-public class RefreshAction extends BaseAction
+public class RefreshAction extends CommandAction
 {
-  /**
-   * This constructs an instance of an action that uses the given editing domain to create a accept command
-   * for the <code>selection</code> object.
-   * @since 2.4.0
-   */
-  public RefreshAction(IWorkbenchPart part, ISelection selection)
-  {
-    super(part, selection);
-  }
+	public final static String ID = "com.misc.common.moplaf.emf.editor.action.Refresh";
 
-  /**
-   * This creates the command for {@link StaticSelectionCommandAction#createActionCommand}.
-   */
-  @Override
-  protected Command createActionCommand(EditingDomain editingDomain, Collection<?> collection)
-  {
-    if (collection.size() == 1)
-    {
-      Object owner = collection.iterator().next();
-      return RefreshCommand.create(editingDomain, owner);
-    }
-    return UnexecutableCommand.INSTANCE;
-  }
+	/**
+	 * This constructs an instance of an action that uses the given editing domain to create a refresh command
+	 * for the <code>selection</code> object.
+	 * @since 2.4.0
+	 */
+	public RefreshAction(IWorkbenchPart part, ISelection selection)
+	{
+		super(part, selection);
+		this.setId(ID);
+	}
+
+	/**
+	 * This creates the command for {@link StaticSelectionCommandAction#createActionCommand}.
+	 */
+	@Override
+	protected Command createActionCommand(EditingDomain editingDomain, Collection<?> collection)
+	{
+		if (collection.size() == 1)
+		{
+			Object owner = collection.iterator().next();
+			return RefreshCommand.create(editingDomain, owner);
+		}
+		return UnexecutableCommand.INSTANCE;
+	}
 }
