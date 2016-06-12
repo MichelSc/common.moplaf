@@ -1077,6 +1077,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		addEEnumLiteral(enumColumnTypeEEnum, EnumColumnType.ENUM_COLUMN_TYPE_INT);
 		addEEnumLiteral(enumColumnTypeEEnum, EnumColumnType.ENUM_COLUMN_TYPE_BIGINT);
 		addEEnumLiteral(enumColumnTypeEEnum, EnumColumnType.ENUM_COLUMN_TYPE_FLOAT);
+		addEEnumLiteral(enumColumnTypeEEnum, EnumColumnType.ENUM_COLUMN_TYPE_DOUBLE);
 		addEEnumLiteral(enumColumnTypeEEnum, EnumColumnType.ENUM_COLUMN_TYPE_BIGFLOAT);
 		addEEnumLiteral(enumColumnTypeEEnum, EnumColumnType.ENUM_COLUMN_TYPE_CHAR);
 		addEEnumLiteral(enumColumnTypeEEnum, EnumColumnType.ENUM_COLUMN_TYPE_DATE);

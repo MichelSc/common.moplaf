@@ -46,6 +46,14 @@ public enum EnumColumnType implements Enumerator {
 	 * @ordered
 	 */
 	ENUM_COLUMN_TYPE_FLOAT(3, "ENUM_COLUMN_TYPE_FLOAT", "Float"), /**
+	 * The '<em><b>ENUM COLUMN TYPE DOUBLE</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ENUM_COLUMN_TYPE_DOUBLE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ENUM_COLUMN_TYPE_DOUBLE(4, "ENUM_COLUMN_TYPE_DOUBLE", "Double"), /**
 	 * The '<em><b>ENUM COLUMN TYPE BIGFLOAT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -53,7 +61,7 @@ public enum EnumColumnType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENUM_COLUMN_TYPE_BIGFLOAT(4, "ENUM_COLUMN_TYPE_BIGFLOAT", "BigFloat"), /**
+	ENUM_COLUMN_TYPE_BIGFLOAT(6, "ENUM_COLUMN_TYPE_BIGFLOAT", "BigFloat"), /**
 	 * The '<em><b>ENUM COLUMN TYPE CHAR</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -61,7 +69,7 @@ public enum EnumColumnType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENUM_COLUMN_TYPE_CHAR(5, "ENUM_COLUMN_TYPE_CHAR", "Char"),
+	ENUM_COLUMN_TYPE_CHAR(7, "ENUM_COLUMN_TYPE_CHAR", "Char"),
 
 	/**
 	 * The '<em><b>ENUM COLUMN TYPE DATE</b></em>' literal object.
@@ -71,7 +79,7 @@ public enum EnumColumnType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENUM_COLUMN_TYPE_DATE(6, "ENUM_COLUMN_TYPE_DATE", "Date"),
+	ENUM_COLUMN_TYPE_DATE(8, "ENUM_COLUMN_TYPE_DATE", "Date"),
 
 	/**
 	 * The '<em><b>ENUM COLUMN TYPE TIME</b></em>' literal object.
@@ -81,7 +89,7 @@ public enum EnumColumnType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENUM_COLUMN_TYPE_TIME(7, "ENUM_COLUMN_TYPE_TIME", "Time"),
+	ENUM_COLUMN_TYPE_TIME(9, "ENUM_COLUMN_TYPE_TIME", "Time"),
 
 	/**
 	 * The '<em><b>ENUM COLUMN TYPE DATETIME</b></em>' literal object.
@@ -91,7 +99,7 @@ public enum EnumColumnType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENUM_COLUMN_TYPE_DATETIME(8, "ENUM_COLUMN_TYPE_DATETIME", "DateTime");
+	ENUM_COLUMN_TYPE_DATETIME(10, "ENUM_COLUMN_TYPE_DATETIME", "DateTime");
 
 	/**
 	 * The '<em><b>ENUM COLUMN TYPE INT</b></em>' literal value.
@@ -139,6 +147,21 @@ public enum EnumColumnType implements Enumerator {
 	public static final int ENUM_COLUMN_TYPE_FLOAT_VALUE = 3;
 
 	/**
+	 * The '<em><b>ENUM COLUMN TYPE DOUBLE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>ENUM COLUMN TYPE DOUBLE</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #ENUM_COLUMN_TYPE_DOUBLE
+	 * @model literal="Double"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ENUM_COLUMN_TYPE_DOUBLE_VALUE = 4;
+
+	/**
 	 * The '<em><b>ENUM COLUMN TYPE BIGFLOAT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -151,7 +174,7 @@ public enum EnumColumnType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENUM_COLUMN_TYPE_BIGFLOAT_VALUE = 4;
+	public static final int ENUM_COLUMN_TYPE_BIGFLOAT_VALUE = 6;
 
 	/**
 	 * The '<em><b>ENUM COLUMN TYPE CHAR</b></em>' literal value.
@@ -166,7 +189,7 @@ public enum EnumColumnType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENUM_COLUMN_TYPE_CHAR_VALUE = 5;
+	public static final int ENUM_COLUMN_TYPE_CHAR_VALUE = 7;
 
 	/**
 	 * The '<em><b>ENUM COLUMN TYPE DATE</b></em>' literal value.
@@ -181,7 +204,7 @@ public enum EnumColumnType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENUM_COLUMN_TYPE_DATE_VALUE = 6;
+	public static final int ENUM_COLUMN_TYPE_DATE_VALUE = 8;
 
 	/**
 	 * The '<em><b>ENUM COLUMN TYPE TIME</b></em>' literal value.
@@ -196,7 +219,7 @@ public enum EnumColumnType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENUM_COLUMN_TYPE_TIME_VALUE = 7;
+	public static final int ENUM_COLUMN_TYPE_TIME_VALUE = 9;
 
 	/**
 	 * The '<em><b>ENUM COLUMN TYPE DATETIME</b></em>' literal value.
@@ -211,7 +234,7 @@ public enum EnumColumnType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENUM_COLUMN_TYPE_DATETIME_VALUE = 8;
+	public static final int ENUM_COLUMN_TYPE_DATETIME_VALUE = 10;
 
 	/**
 	 * An array of all the '<em><b>Enum Column Type</b></em>' enumerators.
@@ -224,6 +247,7 @@ public enum EnumColumnType implements Enumerator {
 			ENUM_COLUMN_TYPE_INT,
 			ENUM_COLUMN_TYPE_BIGINT,
 			ENUM_COLUMN_TYPE_FLOAT,
+			ENUM_COLUMN_TYPE_DOUBLE,
 			ENUM_COLUMN_TYPE_BIGFLOAT,
 			ENUM_COLUMN_TYPE_CHAR,
 			ENUM_COLUMN_TYPE_DATE,
@@ -288,6 +312,7 @@ public enum EnumColumnType implements Enumerator {
 			case ENUM_COLUMN_TYPE_INT_VALUE: return ENUM_COLUMN_TYPE_INT;
 			case ENUM_COLUMN_TYPE_BIGINT_VALUE: return ENUM_COLUMN_TYPE_BIGINT;
 			case ENUM_COLUMN_TYPE_FLOAT_VALUE: return ENUM_COLUMN_TYPE_FLOAT;
+			case ENUM_COLUMN_TYPE_DOUBLE_VALUE: return ENUM_COLUMN_TYPE_DOUBLE;
 			case ENUM_COLUMN_TYPE_BIGFLOAT_VALUE: return ENUM_COLUMN_TYPE_BIGFLOAT;
 			case ENUM_COLUMN_TYPE_CHAR_VALUE: return ENUM_COLUMN_TYPE_CHAR;
 			case ENUM_COLUMN_TYPE_DATE_VALUE: return ENUM_COLUMN_TYPE_DATE;
@@ -376,6 +401,8 @@ public enum EnumColumnType implements Enumerator {
 			return Types.BIGINT;
 		case EnumColumnType.ENUM_COLUMN_TYPE_FLOAT_VALUE:
 			return Types.FLOAT;
+		case EnumColumnType.ENUM_COLUMN_TYPE_DOUBLE_VALUE:
+			return Types.DOUBLE;
 		case EnumColumnType.ENUM_COLUMN_TYPE_BIGFLOAT_VALUE:
 			return Types.NUMERIC;
 		case EnumColumnType.ENUM_COLUMN_TYPE_CHAR_VALUE:

@@ -393,6 +393,8 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 			return resultSet.getLong(columnIndex);
 		case Types.FLOAT:
 			return resultSet.getFloat(columnIndex);
+		case Types.DOUBLE:
+			return resultSet.getDouble(columnIndex);
 		case Types.NUMERIC:
 			return resultSet.getBigDecimal(columnIndex);
 		case Types.CHAR:
@@ -406,6 +408,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 			     : (timeValue.getTime()/60.0f/60.0f/1000.0f);
 		case Types.TIMESTAMP:
 			return resultSet.getTimestamp(columnIndex);
+		case Types.OTHER:
 		default:
 	        return resultSet.getObject(columnIndex); 		         
 		}
@@ -426,35 +429,35 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 			typeToUse = paramType.getJdbcType(); 
 		} else if ( attribute!=null ) {
 	    	if      ( attribute.getEType()==EcorePackage.Literals.EINT )         { typeToUse = Types.INTEGER; }
+	    	else if ( attribute.getEType()==EcorePackage.Literals.ELONG )        { typeToUse = Types.BIGINT; }
 	    	else if ( attribute.getEType()==EcorePackage.Literals.EFLOAT )       { typeToUse = Types.FLOAT; }
+	    	else if ( attribute.getEType()==EcorePackage.Literals.EDOUBLE)       { typeToUse = Types.DOUBLE; }
+	    	else if ( attribute.getEType()==EcorePackage.Literals.EBIG_DECIMAL ) { typeToUse = Types.NUMERIC; }
 	    	else if ( attribute.getEType()==EcorePackage.Literals.EDATE )        { typeToUse = Types.DATE; }
 	    	else if ( attribute.getEType()==EcorePackage.Literals.ESTRING )      { typeToUse = Types.CHAR; }
-	    	else if ( attribute.getEType()==EcorePackage.Literals.EFLOAT )       { typeToUse = Types.FLOAT; }
-	    	else if ( attribute.getEType()==EcorePackage.Literals.ELONG )        { typeToUse = Types.BIGINT; }
-	    	else if ( attribute.getEType()==EcorePackage.Literals.EBIG_DECIMAL ) { typeToUse = Types.NUMERIC; }
     	}
 		
 		if ( paramValue==null ){
 			statement.setNull(paramIndex, typeToUse);
 		} else {
 			switch ( typeToUse ){
-			case Types.OTHER:
-		    	statement.setObject(paramIndex, paramValue);
-		    	break;
-			case Types.CHAR:
-		    	statement.setString(paramIndex, (String)paramValue);
-		    	break;
-			case Types.FLOAT:
-		    	statement.setFloat(paramIndex, (Float) paramValue);
-		    	break;
-			case Types.NUMERIC:
-		    	statement.setBigDecimal(paramIndex, (BigDecimal) paramValue);
-		    	break;
 			case Types.INTEGER:
 		    	statement.setInt(paramIndex, (Integer) paramValue);
 		    	break;
 			case Types.BIGINT:
-		    	statement.setLong(paramIndex, (long) paramValue);
+		    	statement.setLong(paramIndex, (Long) paramValue);
+		    	break;
+			case Types.FLOAT:
+		    	statement.setFloat(paramIndex, (Float) paramValue);
+		    	break;
+			case Types.DOUBLE:
+		    	statement.setDouble(paramIndex, (Double) paramValue);
+		    	break;
+			case Types.NUMERIC:
+		    	statement.setBigDecimal(paramIndex, (BigDecimal) paramValue);
+		    	break;
+			case Types.CHAR:
+		    	statement.setString(paramIndex, (String)paramValue);
 		    	break;
 			case Types.DATE:
 		    	statement.setDate(paramIndex, new java.sql.Date(((Date)paramValue).getTime()));
@@ -466,7 +469,11 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		    	break;
 			case Types.TIMESTAMP:
 		    	statement.setTimestamp(paramIndex, new java.sql.Timestamp(((Date)paramValue).getTime()));
+			case Types.OTHER:
+		    	statement.setObject(paramIndex, paramValue);
+		    	break;
 			default:
+				Plugin.INSTANCE.logError("SetSqlStatementParam: unknown parameter type");
 			}
 		}
 	}

@@ -344,6 +344,10 @@
                 <styles xmi:type="notation:FontStyle" xmi:id="_5z6swTCaEeaEKND4L3xUVw" fontName="Oxygen-Sans" fontHeight="8"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_5z6swjCaEeaEKND4L3xUVw"/>
               </children>
+              <children xmi:type="notation:Node" xmi:id="_aVBG0DCjEeaEKND4L3xUVw" type="3010" element="_aUzrcDCjEeaEKND4L3xUVw">
+                <styles xmi:type="notation:FontStyle" xmi:id="_aVBG0TCjEeaEKND4L3xUVw" fontName="Oxygen-Sans" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_aVBG0jCjEeaEKND4L3xUVw"/>
+              </children>
               <children xmi:type="notation:Node" xmi:id="_T_Y7IDCbEeaEKND4L3xUVw" type="3010" element="_T_GnQDCbEeaEKND4L3xUVw">
                 <styles xmi:type="notation:FontStyle" xmi:id="_T_Y7ITCbEeaEKND4L3xUVw" fontName="Oxygen-Sans" fontHeight="8"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_T_Y7IjCbEeaEKND4L3xUVw"/>
@@ -1341,6 +1345,14 @@
           <target xmi:type="ecore:EEnumLiteral" href="dbsynch.ecore#//EnumColumnType/ENUM_COLUMN_TYPE_FLOAT"/>
           <semanticElements xmi:type="ecore:EEnumLiteral" href="dbsynch.ecore#//EnumColumnType/ENUM_COLUMN_TYPE_FLOAT"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_5zf2AjCaEeaEKND4L3xUVw" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_aUzrcDCjEeaEKND4L3xUVw" name="ENUM_COLUMN_TYPE_DOUBLE" tooltipText="">
+          <target xmi:type="ecore:EEnumLiteral" href="dbsynch.ecore#//EnumColumnType/ENUM_COLUMN_TYPE_DOUBLE"/>
+          <semanticElements xmi:type="ecore:EEnumLiteral" href="dbsynch.ecore#//EnumColumnType/ENUM_COLUMN_TYPE_DOUBLE"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_aUzrcTCjEeaEKND4L3xUVw" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>

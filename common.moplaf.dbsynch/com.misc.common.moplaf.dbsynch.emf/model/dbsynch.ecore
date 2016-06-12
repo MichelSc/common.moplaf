@@ -155,11 +155,12 @@
     <eLiterals name="ENUM_COLUMN_TYPE_INT" value="1" literal="Int"/>
     <eLiterals name="ENUM_COLUMN_TYPE_BIGINT" value="2" literal="BigInt"/>
     <eLiterals name="ENUM_COLUMN_TYPE_FLOAT" value="3" literal="Float"/>
-    <eLiterals name="ENUM_COLUMN_TYPE_BIGFLOAT" value="4" literal="BigFloat"/>
-    <eLiterals name="ENUM_COLUMN_TYPE_CHAR" value="5" literal="Char"/>
-    <eLiterals name="ENUM_COLUMN_TYPE_DATE" value="6" literal="Date"/>
-    <eLiterals name="ENUM_COLUMN_TYPE_TIME" value="7" literal="Time"/>
-    <eLiterals name="ENUM_COLUMN_TYPE_DATETIME" value="8" literal="DateTime"/>
+    <eLiterals name="ENUM_COLUMN_TYPE_DOUBLE" value="4" literal="Double"/>
+    <eLiterals name="ENUM_COLUMN_TYPE_BIGFLOAT" value="6" literal="BigFloat"/>
+    <eLiterals name="ENUM_COLUMN_TYPE_CHAR" value="7" literal="Char"/>
+    <eLiterals name="ENUM_COLUMN_TYPE_DATE" value="8" literal="Date"/>
+    <eLiterals name="ENUM_COLUMN_TYPE_TIME" value="9" literal="Time"/>
+    <eLiterals name="ENUM_COLUMN_TYPE_DATETIME" value="10" literal="DateTime"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="EAttribute" instanceClassName="org.eclipse.emf.ecore.EAttribute"/>
   <eClassifiers xsi:type="ecore:EDataType" name="TableRowKey" instanceClassName="com.misc.common.moplaf.dbsynch.impl.TableRowKeyImpl"/>
