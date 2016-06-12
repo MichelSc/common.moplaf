@@ -8,7 +8,7 @@
   <foreignModel>dbsynchora.ecore</foreignModel>
   <genPackages prefix="Dbsynchora" basePackage="com.misc.common.moplaf.dbsynch" disposableProviderFactory="true"
       ecorePackage="dbsynchora.ecore#/">
-    <genClasses ecoreClass="dbsynchora.ecore#//DataSourceJdbcOraThin">
+    <genClasses image="false" ecoreClass="dbsynchora.ecore#//DataSourceJdbcOraThin">
       <genFeatures createChild="false" propertyCategory="10 Database" ecoreFeature="ecore:EAttribute dbsynchora.ecore#//DataSourceJdbcOraThin/Host"/>
       <genFeatures createChild="false" propertyCategory="10 Database" ecoreFeature="ecore:EAttribute dbsynchora.ecore#//DataSourceJdbcOraThin/Port"/>
       <genFeatures createChild="false" propertyCategory="10 Database" ecoreFeature="ecore:EAttribute dbsynchora.ecore#//DataSourceJdbcOraThin/DataBase"/>

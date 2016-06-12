@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.dbsynch.impl;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -386,12 +387,16 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 				      ? Types.OTHER
 				      : columnType.getJdbcType();
 		switch ( typeToUse){
-		case Types.CHAR:
-			return resultSet.getString(columnIndex);
-		case Types.FLOAT:
-			return resultSet.getFloat(columnIndex);
 		case Types.INTEGER:
 			return resultSet.getInt(columnIndex);
+		case Types.BIGINT:
+			return resultSet.getLong(columnIndex);
+		case Types.FLOAT:
+			return resultSet.getFloat(columnIndex);
+		case Types.NUMERIC:
+			return resultSet.getBigDecimal(columnIndex);
+		case Types.CHAR:
+			return resultSet.getString(columnIndex);
 		case Types.DATE:
 			return resultSet.getDate(columnIndex);
 		case Types.TIME:
@@ -420,18 +425,19 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		if ( paramType!=null ) { 
 			typeToUse = paramType.getJdbcType(); 
 		} else if ( attribute!=null ) {
-	    	if      ( attribute.getEType()==EcorePackage.Literals.EINT )   { typeToUse = Types.INTEGER; }
-	    	else if ( attribute.getEType()==EcorePackage.Literals.EFLOAT ) { typeToUse = Types.FLOAT; }
-	    	else if ( attribute.getEType()==EcorePackage.Literals.EDATE )  { typeToUse = Types.DATE; }
-	    	else if ( attribute.getEType()==EcorePackage.Literals.ESTRING ){ typeToUse = Types.CHAR; }
-	    	else if ( attribute.getEType()==EcorePackage.Literals.EINT )   { typeToUse = Types.INTEGER;}
-	    	else if ( attribute.getEType()==EcorePackage.Literals.EFLOAT ) { typeToUse = Types.FLOAT; }
+	    	if      ( attribute.getEType()==EcorePackage.Literals.EINT )         { typeToUse = Types.INTEGER; }
+	    	else if ( attribute.getEType()==EcorePackage.Literals.EFLOAT )       { typeToUse = Types.FLOAT; }
+	    	else if ( attribute.getEType()==EcorePackage.Literals.EDATE )        { typeToUse = Types.DATE; }
+	    	else if ( attribute.getEType()==EcorePackage.Literals.ESTRING )      { typeToUse = Types.CHAR; }
+	    	else if ( attribute.getEType()==EcorePackage.Literals.EFLOAT )       { typeToUse = Types.FLOAT; }
+	    	else if ( attribute.getEType()==EcorePackage.Literals.ELONG )        { typeToUse = Types.BIGINT; }
+	    	else if ( attribute.getEType()==EcorePackage.Literals.EBIG_DECIMAL ) { typeToUse = Types.NUMERIC; }
     	}
 		
 		if ( paramValue==null ){
 			statement.setNull(paramIndex, typeToUse);
 		} else {
-			switch ( typeToUse){
+			switch ( typeToUse ){
 			case Types.OTHER:
 		    	statement.setObject(paramIndex, paramValue);
 		    	break;
@@ -441,8 +447,14 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 			case Types.FLOAT:
 		    	statement.setFloat(paramIndex, (Float) paramValue);
 		    	break;
+			case Types.NUMERIC:
+		    	statement.setBigDecimal(paramIndex, (BigDecimal) paramValue);
+		    	break;
 			case Types.INTEGER:
 		    	statement.setInt(paramIndex, (Integer) paramValue);
+		    	break;
+			case Types.BIGINT:
+		    	statement.setLong(paramIndex, (long) paramValue);
 		    	break;
 			case Types.DATE:
 		    	statement.setDate(paramIndex, new java.sql.Date(((Date)paramValue).getTime()));
