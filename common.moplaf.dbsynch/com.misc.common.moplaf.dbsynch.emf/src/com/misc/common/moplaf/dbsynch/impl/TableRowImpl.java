@@ -214,6 +214,7 @@ public abstract class TableRowImpl extends MinimalEObjectImpl.Container implemen
 		if ( this.getModificationNextSynchDown() == EnumModification.ENUM_MODIFICATION_NONE){
 			// so far the row is synchronous
 			// get the last key and the last deleted
+			//    for the modified feature, in the old value of the notification
 			boolean lastDeleted = msg.getFeature()== DbSynchPackage.Literals.TABLE_ROW__DELETED
 					         ? msg.getOldBooleanValue()
 					         : this.isDeleted();
