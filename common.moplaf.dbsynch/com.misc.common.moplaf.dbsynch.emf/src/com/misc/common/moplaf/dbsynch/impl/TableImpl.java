@@ -689,6 +689,9 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 */
 	public TableRow getRow(TableRowKeyImpl key) {
+		if ( this.rowIndex==null){
+			this.refreshIndex();
+		}
 		TableRow row = this.rowIndex.get(key);
 		return row;
 	}
