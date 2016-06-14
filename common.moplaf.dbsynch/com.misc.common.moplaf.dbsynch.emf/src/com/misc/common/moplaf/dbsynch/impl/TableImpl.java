@@ -56,6 +56,7 @@ import com.misc.common.moplaf.dbsynch.TableRow;
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getNumberOfRows <em>Number Of Rows</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getLastSynchDown <em>Last Synch Down</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getLastSynchUp <em>Last Synch Up</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableImpl#getParent <em>Parent</em>}</li>
  * </ul>
  *
  * @generated
@@ -278,6 +279,16 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected Date lastSynchUp = LAST_SYNCH_UP_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParent()
+	 * @generated
+	 * @ordered
+	 */
+	protected Table parent;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -644,6 +655,44 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Table getParent() {
+		if (parent != null && parent.eIsProxy()) {
+			InternalEObject oldParent = (InternalEObject)parent;
+			parent = (Table)eResolveProxy(oldParent);
+			if (parent != oldParent) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DbSynchPackage.TABLE__PARENT, oldParent, parent));
+			}
+		}
+		return parent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Table basicGetParent() {
+		return parent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParent(Table newParent) {
+		Table oldParent = parent;
+		parent = newParent;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DbSynchPackage.TABLE__PARENT, oldParent, parent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<TableColumn> getDataColumns() {
 		if (dataColumns == null) {
 			dataColumns = new EObjectContainmentEList<TableColumn>(TableColumn.class, this, DbSynchPackage.TABLE__DATA_COLUMNS);
@@ -821,6 +870,9 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 				return getLastSynchDown();
 			case DbSynchPackage.TABLE__LAST_SYNCH_UP:
 				return getLastSynchUp();
+			case DbSynchPackage.TABLE__PARENT:
+				if (resolve) return getParent();
+				return basicGetParent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -873,6 +925,9 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 			case DbSynchPackage.TABLE__LAST_SYNCH_UP:
 				setLastSynchUp((Date)newValue);
 				return;
+			case DbSynchPackage.TABLE__PARENT:
+				setParent((Table)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -921,6 +976,9 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 			case DbSynchPackage.TABLE__LAST_SYNCH_UP:
 				setLastSynchUp(LAST_SYNCH_UP_EDEFAULT);
 				return;
+			case DbSynchPackage.TABLE__PARENT:
+				setParent((Table)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -963,6 +1021,8 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 				return LAST_SYNCH_DOWN_EDEFAULT == null ? lastSynchDown != null : !LAST_SYNCH_DOWN_EDEFAULT.equals(lastSynchDown);
 			case DbSynchPackage.TABLE__LAST_SYNCH_UP:
 				return LAST_SYNCH_UP_EDEFAULT == null ? lastSynchUp != null : !LAST_SYNCH_UP_EDEFAULT.equals(lastSynchUp);
+			case DbSynchPackage.TABLE__PARENT:
+				return parent != null;
 		}
 		return super.eIsSet(featureID);
 	}

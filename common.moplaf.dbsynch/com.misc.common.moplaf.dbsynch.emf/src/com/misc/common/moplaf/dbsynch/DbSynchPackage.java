@@ -789,13 +789,22 @@ public interface DbSynchPackage extends EPackage {
 	int TABLE__LAST_SYNCH_UP = 14;
 
 	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__PARENT = 15;
+
+	/**
 	 * The number of structural features of the '<em>Table</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_FEATURE_COUNT = 15;
+	int TABLE_FEATURE_COUNT = 16;
 
 	/**
 	 * The operation id for the '<em>Add Column</em>' operation.
@@ -961,13 +970,22 @@ public interface DbSynchPackage extends EPackage {
 	int TABLE_COLUMN__TABLE = 4;
 
 	/**
+	 * The feature id for the '<em><b>Parent Table Column</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_COLUMN__PARENT_TABLE_COLUMN = 5;
+
+	/**
 	 * The number of structural features of the '<em>Table Column</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_COLUMN_FEATURE_COUNT = 5;
+	int TABLE_COLUMN_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Table Column</em>' class.
@@ -1328,6 +1346,17 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTable_LastSynchUp();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.dbsynch.Table#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Parent</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.Table#getParent()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EReference getTable_Parent();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#addColumn(boolean, java.lang.String, com.misc.common.moplaf.dbsynch.EnumColumnType, org.eclipse.emf.ecore.EAttribute) <em>Add Column</em>}' operation.
@@ -1711,6 +1740,17 @@ public interface DbSynchPackage extends EPackage {
 	EReference getTableColumn_Table();
 
 	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.dbsynch.TableColumn#getParentTableColumn <em>Parent Table Column</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Parent Table Column</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.TableColumn#getParentTableColumn()
+	 * @see #getTableColumn()
+	 * @generated
+	 */
+	EReference getTableColumn_ParentTableColumn();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.TableColumn#getColumnType <em>Column Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2060,6 +2100,14 @@ public interface DbSynchPackage extends EPackage {
 		EAttribute TABLE__LAST_SYNCH_UP = eINSTANCE.getTable_LastSynchUp();
 
 		/**
+		 * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TABLE__PARENT = eINSTANCE.getTable_Parent();
+
+		/**
 		 * The meta object literal for the '<em><b>Add Column</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2352,6 +2400,14 @@ public interface DbSynchPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TABLE_COLUMN__TABLE = eINSTANCE.getTableColumn_Table();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent Table Column</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TABLE_COLUMN__PARENT_TABLE_COLUMN = eINSTANCE.getTableColumn_ParentTableColumn();
 
 		/**
 		 * The meta object literal for the '<em><b>Column Type</b></em>' attribute feature.

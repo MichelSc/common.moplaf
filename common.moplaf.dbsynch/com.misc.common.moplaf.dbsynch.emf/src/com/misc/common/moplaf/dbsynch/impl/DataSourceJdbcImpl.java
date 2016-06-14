@@ -477,6 +477,70 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 			}
 		}
 	}
+	
+	private String makeSynchUpSql(Table table){
+    	String tableName = table.getTableName();
+    	if ( tableName==null || table.getTableName().length()==0 ){
+    		Plugin.INSTANCE.logError("No table name");
+    		return "";
+    	}
+
+    	String sql = "";
+    	
+    	// select clause
+    	boolean firstColumn = true;
+    	int table_nr = 1;
+    	for ( TableColumn column : table.getColumns()){
+    		sql += String.format("%s T%d.%s \n", 
+    				             firstColumn ? "select " : "     , ",
+    				             table_nr,
+    				             column.getColumnName());
+    		firstColumn = false;
+    	}
+    	
+    	// from clause
+    	boolean firstTable = true;
+    	Table currentTable = table;
+    	while ( currentTable!=null){
+	    	sql += String.format("%s %s as T%d \n", 
+	    			             firstTable ? "from " : "    ,",
+	    			             currentTable.getTableName(),
+             					 table_nr);
+	    	currentTable = currentTable.getParent();
+    		table_nr++;
+    		firstTable = false;
+    	}
+    	
+    	// where clause
+    	boolean firstCondition = true;
+    	String whereClause = table.getWhereClause();
+    	if ( whereClause!=null && whereClause.length()>0 ){
+    		sql += String.format("%s %s \n", firstCondition?"where":"  and", whereClause);
+    		firstCondition = false;
+    	}
+    	currentTable = table;
+    	table_nr = 1;
+    	Table parentTable = table.getParent();
+    	while ( parentTable!=null){
+    		for ( TableColumn currentColumn : currentTable.getColumns()){
+    			TableColumn parentColumn = currentColumn.getParentTableColumn();
+    			if ( parentColumn!=null){
+    	    		sql += String.format("%s T%d.%s=T%d.%s \n", 
+    	    						firstCondition?"where":"  and", 
+    	    						table_nr, 
+    	    						currentColumn.getColumnName(), 
+    	    						table_nr+1, 
+    	    						parentColumn.getColumnName());
+    			}
+    		}  // traverse the parent columns
+    		table_nr++;
+    		currentTable = parentTable;
+	    	parentTable = currentTable.getParent();
+    	} // traverse the parent tables
+    	
+    	return sql;
+		
+	}
 
 	/**
 	 */
@@ -494,26 +558,14 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 	    		throw new Exception("SynchUp table failed, no connection");
 	    	}
 	    	
-	    	String tableName = table.getTableName();
-	    	if ( tableName==null || table.getTableName().length()==0 ){
-	    		throw new Exception("SynchUp table failed, no table name");
-	    	}
-
-	    	// prepare the sql
-	    	String sql = "";
-	    	for ( TableColumn column : table.getColumns()){
-	    		String prefix = sql=="" ? "select " : "     , ";
-	    		sql = sql +  prefix + column.getColumnName() + "\n";
-	    	}
-	    	sql = sql + "from "+table.getTableName() + "\n";
-	    	String whereClause = table.getWhereClause();
-	    	if ( whereClause!=null && whereClause.length()>0 ){
-	    		sql = sql
-	    			+ "where \n"
-	    			+ whereClause;
-	    	}
-			statement = this.db_connection.prepareStatement(sql);
+	    	String sql = this.makeSynchUpSql(table);
+	    	if ( sql == null ){
+	    		throw new Exception("SynchUp table failed, no sql made");
+	    	}	    	
+	    	
+	    	// create the statement
 			table.setSelectSqlStatement(sql);
+			statement = this.db_connection.prepareStatement(sql);
 			
 			// set the parameters
 		    EList<EAttribute> params = table.getParamDbSynchUnitAttributes();

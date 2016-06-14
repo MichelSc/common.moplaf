@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableColumnImpl#getColumnType <em>Column Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableColumnImpl#getRowAttribute <em>Row Attribute</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableColumnImpl#getTable <em>Table</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.impl.TableColumnImpl#getParentTableColumn <em>Parent Table Column</em>}</li>
  * </ul>
  *
  * @generated
@@ -102,6 +103,16 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 	 * @ordered
 	 */
 	protected EAttribute rowAttribute;
+
+	/**
+	 * The cached value of the '{@link #getParentTableColumn() <em>Parent Table Column</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParentTableColumn()
+	 * @generated
+	 * @ordered
+	 */
+	protected TableColumn parentTableColumn;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -215,6 +226,44 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public TableColumn getParentTableColumn() {
+		if (parentTableColumn != null && parentTableColumn.eIsProxy()) {
+			InternalEObject oldParentTableColumn = (InternalEObject)parentTableColumn;
+			parentTableColumn = (TableColumn)eResolveProxy(oldParentTableColumn);
+			if (parentTableColumn != oldParentTableColumn) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DbSynchPackage.TABLE_COLUMN__PARENT_TABLE_COLUMN, oldParentTableColumn, parentTableColumn));
+			}
+		}
+		return parentTableColumn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TableColumn basicGetParentTableColumn() {
+		return parentTableColumn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParentTableColumn(TableColumn newParentTableColumn) {
+		TableColumn oldParentTableColumn = parentTableColumn;
+		parentTableColumn = newParentTableColumn;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DbSynchPackage.TABLE_COLUMN__PARENT_TABLE_COLUMN, oldParentTableColumn, parentTableColumn));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EnumColumnType getColumnType() {
 		return columnType;
 	}
@@ -276,6 +325,9 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 			case DbSynchPackage.TABLE_COLUMN__TABLE:
 				if (resolve) return getTable();
 				return basicGetTable();
+			case DbSynchPackage.TABLE_COLUMN__PARENT_TABLE_COLUMN:
+				if (resolve) return getParentTableColumn();
+				return basicGetParentTableColumn();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -297,6 +349,9 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 			case DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE:
 				setRowAttribute((EAttribute)newValue);
 				return;
+			case DbSynchPackage.TABLE_COLUMN__PARENT_TABLE_COLUMN:
+				setParentTableColumn((TableColumn)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -317,6 +372,9 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 				return;
 			case DbSynchPackage.TABLE_COLUMN__ROW_ATTRIBUTE:
 				setRowAttribute((EAttribute)null);
+				return;
+			case DbSynchPackage.TABLE_COLUMN__PARENT_TABLE_COLUMN:
+				setParentTableColumn((TableColumn)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -340,6 +398,8 @@ public class TableColumnImpl extends MinimalEObjectImpl.Container implements Tab
 				return rowAttribute != null;
 			case DbSynchPackage.TABLE_COLUMN__TABLE:
 				return basicGetTable() != null;
+			case DbSynchPackage.TABLE_COLUMN__PARENT_TABLE_COLUMN:
+				return parentTableColumn != null;
 		}
 		return super.eIsSet(featureID);
 	}

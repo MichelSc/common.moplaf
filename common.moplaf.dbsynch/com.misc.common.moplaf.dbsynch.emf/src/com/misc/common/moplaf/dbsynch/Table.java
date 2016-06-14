@@ -57,6 +57,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getNumberOfRows <em>Number Of Rows</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getLastSynchDown <em>Last Synch Down</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getLastSynchUp <em>Last Synch Up</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.Table#getParent <em>Parent</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTable()
@@ -366,6 +367,32 @@ public interface Table extends EObject {
 	 * @generated
 	 */
 	void setLastSynchUp(Date value);
+
+	/**
+	 * Returns the value of the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parent</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parent</em>' reference.
+	 * @see #setParent(Table)
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTable_Parent()
+	 * @model
+	 * @generated
+	 */
+	Table getParent();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.dbsynch.Table#getParent <em>Parent</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parent</em>' reference.
+	 * @see #getParent()
+	 * @generated
+	 */
+	void setParent(Table value);
 
 	/**
 	 * <!-- begin-user-doc -->
