@@ -13,5 +13,6 @@ Require-Bundle: org.eclipse.core.runtime,
  com.misc.common.moplaf.datatools.emf;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,
  org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.emf.ecore.edit;visibility:=reexport
+ org.eclipse.emf.ecore.edit;visibility:=reexport,
+ com.misc.common.moplaf.emf.edit;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
