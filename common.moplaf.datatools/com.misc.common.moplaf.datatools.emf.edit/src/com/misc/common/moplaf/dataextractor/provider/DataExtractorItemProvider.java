@@ -6,17 +6,21 @@ package com.misc.common.moplaf.dataextractor.provider;
 import com.misc.common.moplaf.dataextractor.DataExtractor;
 import com.misc.common.moplaf.dataextractor.DataextractorFactory;
 import com.misc.common.moplaf.dataextractor.DataextractorPackage;
+import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
+import com.misc.common.moplaf.emf.edit.command.SaveCommand;
 
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.command.DragAndDropCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -348,41 +352,11 @@ public class DataExtractorItemProvider
 		return DataextractorEditPlugin.INSTANCE;
 	}
 
-
-	/* (non-Javadoc)
-	 * @see org.eclipse.emf.edit.provider.ItemProviderAdapter#createDragAndDropCommand(org.eclipse.emf.edit.domain.EditingDomain, java.lang.Object, float, int, int, java.util.Collection)
+	/**
+	 * 
+	 * @author MiSc
+	 *
 	 */
-	@Override
-	protected Command createDragAndDropCommand(EditingDomain domain,
-												Object owner, 
-												float location, 
-												int operations, 
-												int operation,
-												Collection<?> collection) {
-		DataExtractor thisextractor= (DataExtractor) owner;
-		EObject sourceObject = null;
-		Command command = null;
-		for (Object element : collection){
-			if ( element instanceof EObject){
-				sourceObject = (EObject) element;
-			}
-		}
-		if ( sourceObject ==null){
-			command = super.createDragAndDropCommand(domain, 
-					                                    owner, 
-					                                    location, 
-					                                    operations,
-				                                      	operation, 
-				                                      	collection);
-		} else {
-			command = SetCommand.create(domain, 
-					                    thisextractor, 
-					                    DataextractorPackage.Literals.DATA_EXTRACTOR__SOURCE_OBJECT, 
-					                    sourceObject);
-		}
-		return command;
-	} // method createDragAndDropCommand
-	
 	public class ExtractorRefreshCommand extends RefreshCommand{
 		private DataExtractor extractor;
 		
@@ -390,11 +364,6 @@ public class DataExtractorItemProvider
 		public ExtractorRefreshCommand(DataExtractor anExtractor)	{
 			super();
 			this.extractor = anExtractor;
-			String tmp = "Refresh the extractor";
-			String label = "label:"+tmp;
-			String description = "desc:"+tmp;
-			this.setDescription(description);
-			this.setLabel(label);
 		}
 
 		@Override
@@ -410,11 +379,6 @@ public class DataExtractorItemProvider
 		public ExtractorSaveCommand(DataExtractor anExtractor)	{
 			super();
 			this.extractor = anExtractor;
-			String tmp = "Save the extraction";
-			String label = "label:"+tmp;
-			String description = "desc:"+tmp;
-			this.setDescription(description);
-			this.setLabel(label);
 		}
 
 		@Override
@@ -422,6 +386,40 @@ public class DataExtractorItemProvider
 			this.extractor.save();
 		}
 	} // class ExtractorSaveCommand
+
+	/**
+	 * Create a drag and drop command for this Solver
+	 */
+	public class ExtractorDragAndDropCommand extends DragAndDropCommand{
+		// constructor
+	   	public ExtractorDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+				int operation, Collection<?> collection) {
+			super(domain, owner, location, operations, operation, collection);
+		}
+	   	
+	    /**
+	     * This implementation of prepare is called again to implement {@link #validate validate}.
+	     * The method {@link #reset} will have been called before doing so.
+	     */
+	    @Override
+	    protected boolean prepare(){
+	    	CompoundCommand compound = new CompoundCommand();
+			DataExtractor thisDataExtractor = (DataExtractor) this.owner;
+			for (Object element : collection){
+				if ( element instanceof EObject){
+		  	   		EObject droppedObject = (EObject) element;
+				   	SetCommand cmd = new SetCommand(this.domain, 
+				   			                        thisDataExtractor, 
+				   			                        DataextractorPackage.Literals.DATA_EXTRACTOR__SOURCE_OBJECT,
+				   			                        droppedObject);
+				   	compound.append(cmd);
+				} 
+			}
+	    	this.dragCommand = null;
+			this.dropCommand = compound;
+	    	return true;
+	    } // prepare
+	};
 
 	/*
 	public class SelectionSortCommand extends SortCommand{
@@ -445,6 +443,9 @@ public class DataExtractorItemProvider
 	} //
 	*/
 
+	/**
+	 * 
+	 */
 	@Override
 	public Command createCommand(Object object, EditingDomain domain,
 			Class<? extends Command> commandClass,
@@ -458,4 +459,13 @@ public class DataExtractorItemProvider
 
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand
+	
+	/**
+	 * Create a command for a drag and drop on this Solver
+	 */
+	@Override
+	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+			int operation, Collection<?> collection) {
+		return new ExtractorDragAndDropCommand(domain, owner, location, operations, operation, collection);
+	}
 }
