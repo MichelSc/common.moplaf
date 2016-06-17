@@ -400,7 +400,31 @@ public interface Table extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void addColumn(boolean Key, String column, EnumColumnType type, EAttribute attribute);
+	TableColumn getColumn(String name);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	TableColumn addColumn(boolean Key, String column, EnumColumnType type, EAttribute attribute);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	TableColumn addColumn(boolean Key, String column, EnumColumnType type, EAttribute attribute, TableColumn parentColumn);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	TableColumn addColumn(boolean Key, String column, EnumColumnType type, EAttribute attribute, String parentColumn);
 
 	/**
 	 * Returns the value of the '<em><b>Data Columns</b></em>' containment reference list.

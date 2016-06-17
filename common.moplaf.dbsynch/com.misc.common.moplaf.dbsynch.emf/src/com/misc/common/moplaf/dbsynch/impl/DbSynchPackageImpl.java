@@ -361,8 +361,35 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTable__AddColumn__boolean_String_EnumColumnType_EAttribute() {
+	public EOperation getTable__GetColumn__String() {
 		return tableEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTable__AddColumn__boolean_String_EnumColumnType_EAttribute() {
+		return tableEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTable__AddColumn__boolean_String_EnumColumnType_EAttribute_TableColumn() {
+		return tableEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTable__AddColumn__boolean_String_EnumColumnType_EAttribute_String() {
+		return tableEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -425,33 +452,6 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * @generated
 	 */
 	public EOperation getTable__AddParam__EAttribute() {
-		return tableEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getTable__RefreshMetaData() {
-		return tableEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getTable__SynchDown() {
-		return tableEClass.getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getTable__SynchUp() {
 		return tableEClass.getEOperations().get(4);
 	}
 
@@ -460,7 +460,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTable__Refresh() {
+	public EOperation getTable__RefreshMetaData() {
 		return tableEClass.getEOperations().get(5);
 	}
 
@@ -469,7 +469,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTable__GetRow__TableRowKeyImpl() {
+	public EOperation getTable__SynchDown() {
 		return tableEClass.getEOperations().get(6);
 	}
 
@@ -478,7 +478,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTable__ConstructRow() {
+	public EOperation getTable__SynchUp() {
 		return tableEClass.getEOperations().get(7);
 	}
 
@@ -487,7 +487,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTable__IndexRow__TableRow() {
+	public EOperation getTable__Refresh() {
 		return tableEClass.getEOperations().get(8);
 	}
 
@@ -496,7 +496,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTable__UnindexRow__TableRow() {
+	public EOperation getTable__GetRow__TableRowKeyImpl() {
 		return tableEClass.getEOperations().get(9);
 	}
 
@@ -505,8 +505,35 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTable__RefreshIndex() {
+	public EOperation getTable__ConstructRow() {
 		return tableEClass.getEOperations().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTable__IndexRow__TableRow() {
+		return tableEClass.getEOperations().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTable__UnindexRow__TableRow() {
+		return tableEClass.getEOperations().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTable__RefreshIndex() {
+		return tableEClass.getEOperations().get(13);
 	}
 
 	/**
@@ -905,7 +932,10 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		createEAttribute(tableEClass, TABLE__LAST_SYNCH_DOWN);
 		createEAttribute(tableEClass, TABLE__LAST_SYNCH_UP);
 		createEReference(tableEClass, TABLE__PARENT);
+		createEOperation(tableEClass, TABLE___GET_COLUMN__STRING);
 		createEOperation(tableEClass, TABLE___ADD_COLUMN__BOOLEAN_STRING_ENUMCOLUMNTYPE_EATTRIBUTE);
+		createEOperation(tableEClass, TABLE___ADD_COLUMN__BOOLEAN_STRING_ENUMCOLUMNTYPE_EATTRIBUTE_TABLECOLUMN);
+		createEOperation(tableEClass, TABLE___ADD_COLUMN__BOOLEAN_STRING_ENUMCOLUMNTYPE_EATTRIBUTE_STRING);
 		createEOperation(tableEClass, TABLE___ADD_PARAM__EATTRIBUTE);
 		createEOperation(tableEClass, TABLE___REFRESH_META_DATA);
 		createEOperation(tableEClass, TABLE___SYNCH_DOWN);
@@ -1037,11 +1067,28 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		initEAttribute(getTable_LastSynchUp(), ecorePackage.getEDate(), "LastSynchUp", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTable_Parent(), this.getTable(), null, "Parent", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getTable__AddColumn__boolean_String_EnumColumnType_EAttribute(), null, "addColumn", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getTable__GetColumn__String(), this.getTableColumn(), "getColumn", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getTable__AddColumn__boolean_String_EnumColumnType_EAttribute(), this.getTableColumn(), "addColumn", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "Key", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "column", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getEnumColumnType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEAttribute(), "attribute", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getTable__AddColumn__boolean_String_EnumColumnType_EAttribute_TableColumn(), this.getTableColumn(), "addColumn", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "Key", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "column", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getEnumColumnType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEAttribute(), "attribute", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getTableColumn(), "parentColumn", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getTable__AddColumn__boolean_String_EnumColumnType_EAttribute_String(), this.getTableColumn(), "addColumn", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "Key", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "column", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getEnumColumnType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEAttribute(), "attribute", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "parentColumn", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getTable__AddParam__EAttribute(), null, "addParam", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEAttribute(), "dbSynchAttribute", 0, 1, IS_UNIQUE, IS_ORDERED);

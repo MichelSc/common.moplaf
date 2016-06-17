@@ -570,7 +570,25 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void addColumn(boolean isKey, String column, EnumColumnType type, EAttribute attribute) {
+	public TableColumn addColumn(boolean isKey, String column, EnumColumnType type, EAttribute attribute) {
+		TableColumn parentColumn = null; 
+		return this.addColumn(isKey, column, type, attribute, parentColumn);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public TableColumn addColumn(boolean Key, String column, EnumColumnType type, EAttribute attribute, String parentColumnName) {
+		TableColumn parentColumn = this.getColumn(parentColumnName); 
+		return this.addColumn(Key, column, type, attribute, parentColumn);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public TableColumn addColumn(boolean Key, String column, EnumColumnType type, EAttribute attribute, TableColumn parentColumn) {
 		// remove the key columns with the same name
 		Iterator<TableColumn> iterator = this.getKeyColumns().iterator();
 		while (iterator.hasNext()){
@@ -587,7 +605,7 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 		}
 		// create the column
 		TableColumn newColumn = DbSynchFactory.eINSTANCE.createTableColumn();
-		if ( isKey ){
+		if ( Key ){
 			this.getKeyColumns().add(newColumn);
 		} else {
 			this.getDataColumns().add(newColumn);
@@ -595,6 +613,9 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 		newColumn.setColumnName(column);
 		newColumn.setColumnType(type);
 		newColumn.setRowAttribute(attribute);
+		newColumn.setParentTableColumn(parentColumn);
+		
+		return newColumn;
 	}
 
 	/**
@@ -686,6 +707,20 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 		parent = newParent;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DbSynchPackage.TABLE__PARENT, oldParent, parent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public TableColumn getColumn(String name) {
+		Iterator<TableColumn> iterator = this.getKeyColumns().iterator();
+		while (iterator.hasNext()){
+			if ( iterator.next().getColumnName().equals(name)){
+				return iterator.next();
+			}
+		}
+		return null;
 	}
 
 	/**
@@ -1035,9 +1070,14 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case DbSynchPackage.TABLE___GET_COLUMN__STRING:
+				return getColumn((String)arguments.get(0));
 			case DbSynchPackage.TABLE___ADD_COLUMN__BOOLEAN_STRING_ENUMCOLUMNTYPE_EATTRIBUTE:
-				addColumn((Boolean)arguments.get(0), (String)arguments.get(1), (EnumColumnType)arguments.get(2), (EAttribute)arguments.get(3));
-				return null;
+				return addColumn((Boolean)arguments.get(0), (String)arguments.get(1), (EnumColumnType)arguments.get(2), (EAttribute)arguments.get(3));
+			case DbSynchPackage.TABLE___ADD_COLUMN__BOOLEAN_STRING_ENUMCOLUMNTYPE_EATTRIBUTE_TABLECOLUMN:
+				return addColumn((Boolean)arguments.get(0), (String)arguments.get(1), (EnumColumnType)arguments.get(2), (EAttribute)arguments.get(3), (TableColumn)arguments.get(4));
+			case DbSynchPackage.TABLE___ADD_COLUMN__BOOLEAN_STRING_ENUMCOLUMNTYPE_EATTRIBUTE_STRING:
+				return addColumn((Boolean)arguments.get(0), (String)arguments.get(1), (EnumColumnType)arguments.get(2), (EAttribute)arguments.get(3), (String)arguments.get(4));
 			case DbSynchPackage.TABLE___ADD_PARAM__EATTRIBUTE:
 				addParam((EAttribute)arguments.get(0));
 				return null;
