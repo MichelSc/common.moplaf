@@ -716,8 +716,9 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	public TableColumn getColumn(String name) {
 		Iterator<TableColumn> iterator = this.getKeyColumns().iterator();
 		while (iterator.hasNext()){
-			if ( iterator.next().getColumnName().equals(name)){
-				return iterator.next();
+			TableColumn column = iterator.next();
+			if ( column.getColumnName().equals(name)){
+				return column;
 			}
 		}
 		return null;

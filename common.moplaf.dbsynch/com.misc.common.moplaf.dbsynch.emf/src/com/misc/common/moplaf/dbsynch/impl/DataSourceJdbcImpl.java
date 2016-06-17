@@ -502,7 +502,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
     	boolean firstTable = true;
     	Table currentTable = table;
     	while ( currentTable!=null){
-	    	sql += String.format("%s %s as T%d \n", 
+	    	sql += String.format("%s %s T%d \n", 
 	    			             firstTable ? "from " : "    ,",
 	    			             currentTable.getTableName(),
              					 table_nr);
@@ -516,7 +516,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
     	currentTable = table;
     	table_nr = 1;
     	while ( currentTable!=null){
-        	Table parentTable = table.getParent();
+        	Table parentTable = currentTable.getParent();
         	// some condition
         	String whereClause = currentTable.getWhereClause();
         	if ( whereClause!=null && whereClause.length()>0 ){
@@ -581,7 +581,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 			    	Object paramValue = unit.getParamValue(paramAttribute);
 			    	this.setSqlStatementParam(statement, paramIndex, null, paramAttribute, paramValue);
 			    } // traverse the parameters
-	    		currentTable = table.getParent();
+	    		currentTable = currentTable.getParent();
 	    	} 
 		
 			// execute the query
