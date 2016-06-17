@@ -513,29 +513,33 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
     	
     	// where clause
     	boolean firstCondition = true;
-    	String whereClause = table.getWhereClause();
-    	if ( whereClause!=null && whereClause.length()>0 ){
-    		sql += String.format("%s %s \n", firstCondition?"where":"  and", whereClause);
-    		firstCondition = false;
-    	}
     	currentTable = table;
     	table_nr = 1;
-    	Table parentTable = table.getParent();
-    	while ( parentTable!=null){
-    		for ( TableColumn currentColumn : currentTable.getColumns()){
-    			TableColumn parentColumn = currentColumn.getParentTableColumn();
-    			if ( parentColumn!=null){
-    	    		sql += String.format("%s T%d.%s=T%d.%s \n", 
-    	    						firstCondition?"where":"  and", 
-    	    						table_nr, 
-    	    						currentColumn.getColumnName(), 
-    	    						table_nr+1, 
-    	    						parentColumn.getColumnName());
-    			}
-    		}  // traverse the parent columns
+    	while ( currentTable!=null){
+        	Table parentTable = table.getParent();
+        	// some condition
+        	String whereClause = currentTable.getWhereClause();
+        	if ( whereClause!=null && whereClause.length()>0 ){
+        		sql += String.format("%s %s \n", firstCondition ? "where" : "  and", whereClause);
+        		firstCondition = false;
+        	}
+        	if ( parentTable != null ){
+        		// join conditions
+        		for ( TableColumn currentColumn : currentTable.getColumns()){
+        			TableColumn parentColumn = currentColumn.getParentTableColumn();
+        			if ( parentColumn!=null){
+        	    		sql += String.format("%s T%d.%s=T%d.%s \n", 
+        	    						firstCondition ? "where" : "  and", 
+        	    						table_nr, 
+        	    						currentColumn.getColumnName(), 
+        	    						table_nr+1, 
+        	    						parentColumn.getColumnName());
+        	    		firstCondition = false;
+        			}
+        		}  // traverse the parent columns
+        	}
     		table_nr++;
     		currentTable = parentTable;
-	    	parentTable = currentTable.getParent();
     	} // traverse the parent tables
     	
     	return sql;
@@ -568,13 +572,17 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 			statement = this.db_connection.prepareStatement(sql);
 			
 			// set the parameters
-		    EList<EAttribute> params = table.getParamDbSynchUnitAttributes();
-		    int paramIndex = 0;
-		    for ( EAttribute paramAttribute : params){
-		    	paramIndex++;
-		    	Object paramValue = unit.getParamValue(paramAttribute);
-		    	this.setSqlStatementParam(statement, paramIndex, null, paramAttribute, paramValue);
-		    } // traverse the parameters
+	    	Table currentTable = table;
+	    	while ( currentTable!=null){
+			    EList<EAttribute> params = currentTable.getParamDbSynchUnitAttributes();
+			    int paramIndex = 0;
+			    for ( EAttribute paramAttribute : params){
+			    	paramIndex++;
+			    	Object paramValue = unit.getParamValue(paramAttribute);
+			    	this.setSqlStatementParam(statement, paramIndex, null, paramAttribute, paramValue);
+			    } // traverse the parameters
+	    		currentTable = table.getParent();
+	    	} 
 		
 			// execute the query
 			resultSet = statement.executeQuery();
