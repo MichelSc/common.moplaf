@@ -789,13 +789,31 @@ public interface DbSynchPackage extends EPackage {
 	int TABLE__LAST_SYNCH_UP = 14;
 
 	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__PARENT = 15;
+
+	/**
 	 * The number of structural features of the '<em>Table</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_FEATURE_COUNT = 15;
+	int TABLE_FEATURE_COUNT = 16;
+
+	/**
+	 * The operation id for the '<em>Get Column</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE___GET_COLUMN__STRING = 0;
 
 	/**
 	 * The operation id for the '<em>Add Column</em>' operation.
@@ -804,7 +822,25 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___ADD_COLUMN__BOOLEAN_STRING_ENUMCOLUMNTYPE_EATTRIBUTE = 0;
+	int TABLE___ADD_COLUMN__BOOLEAN_STRING_ENUMCOLUMNTYPE_EATTRIBUTE = 1;
+
+	/**
+	 * The operation id for the '<em>Add Column</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE___ADD_COLUMN__BOOLEAN_STRING_ENUMCOLUMNTYPE_EATTRIBUTE_TABLECOLUMN = 2;
+
+	/**
+	 * The operation id for the '<em>Add Column</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE___ADD_COLUMN__BOOLEAN_STRING_ENUMCOLUMNTYPE_EATTRIBUTE_STRING = 3;
 
 	/**
 	 * The operation id for the '<em>Add Param</em>' operation.
@@ -813,7 +849,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___ADD_PARAM__EATTRIBUTE = 1;
+	int TABLE___ADD_PARAM__EATTRIBUTE = 4;
 
 	/**
 	 * The operation id for the '<em>Refresh Meta Data</em>' operation.
@@ -822,7 +858,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___REFRESH_META_DATA = 2;
+	int TABLE___REFRESH_META_DATA = 5;
 
 	/**
 	 * The operation id for the '<em>Synch Down</em>' operation.
@@ -831,7 +867,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___SYNCH_DOWN = 3;
+	int TABLE___SYNCH_DOWN = 6;
 
 	/**
 	 * The operation id for the '<em>Synch Up</em>' operation.
@@ -840,7 +876,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___SYNCH_UP = 4;
+	int TABLE___SYNCH_UP = 7;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -849,7 +885,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___REFRESH = 5;
+	int TABLE___REFRESH = 8;
 
 	/**
 	 * The operation id for the '<em>Get Row</em>' operation.
@@ -858,7 +894,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___GET_ROW__TABLEROWKEYIMPL = 6;
+	int TABLE___GET_ROW__TABLEROWKEYIMPL = 9;
 
 	/**
 	 * The operation id for the '<em>Construct Row</em>' operation.
@@ -867,7 +903,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___CONSTRUCT_ROW = 7;
+	int TABLE___CONSTRUCT_ROW = 10;
 
 	/**
 	 * The operation id for the '<em>Index Row</em>' operation.
@@ -876,7 +912,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___INDEX_ROW__TABLEROW = 8;
+	int TABLE___INDEX_ROW__TABLEROW = 11;
 
 	/**
 	 * The operation id for the '<em>Unindex Row</em>' operation.
@@ -885,7 +921,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___UNINDEX_ROW__TABLEROW = 9;
+	int TABLE___UNINDEX_ROW__TABLEROW = 12;
 
 	/**
 	 * The operation id for the '<em>Refresh Index</em>' operation.
@@ -894,7 +930,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___REFRESH_INDEX = 10;
+	int TABLE___REFRESH_INDEX = 13;
 
 	/**
 	 * The number of operations of the '<em>Table</em>' class.
@@ -903,7 +939,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_OPERATION_COUNT = 11;
+	int TABLE_OPERATION_COUNT = 14;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.dbsynch.impl.TableColumnImpl <em>Table Column</em>}' class.
@@ -961,13 +997,22 @@ public interface DbSynchPackage extends EPackage {
 	int TABLE_COLUMN__TABLE = 4;
 
 	/**
+	 * The feature id for the '<em><b>Parent Table Column</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_COLUMN__PARENT_TABLE_COLUMN = 5;
+
+	/**
 	 * The number of structural features of the '<em>Table Column</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_COLUMN_FEATURE_COUNT = 5;
+	int TABLE_COLUMN_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Table Column</em>' class.
@@ -1330,6 +1375,27 @@ public interface DbSynchPackage extends EPackage {
 	EAttribute getTable_LastSynchUp();
 
 	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.dbsynch.Table#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Parent</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.Table#getParent()
+	 * @see #getTable()
+	 * @generated
+	 */
+	EReference getTable_Parent();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#getColumn(java.lang.String) <em>Get Column</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Column</em>' operation.
+	 * @see com.misc.common.moplaf.dbsynch.Table#getColumn(java.lang.String)
+	 * @generated
+	 */
+	EOperation getTable__GetColumn__String();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#addColumn(boolean, java.lang.String, com.misc.common.moplaf.dbsynch.EnumColumnType, org.eclipse.emf.ecore.EAttribute) <em>Add Column</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1338,6 +1404,26 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getTable__AddColumn__boolean_String_EnumColumnType_EAttribute();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#addColumn(boolean, java.lang.String, com.misc.common.moplaf.dbsynch.EnumColumnType, org.eclipse.emf.ecore.EAttribute, com.misc.common.moplaf.dbsynch.TableColumn) <em>Add Column</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Column</em>' operation.
+	 * @see com.misc.common.moplaf.dbsynch.Table#addColumn(boolean, java.lang.String, com.misc.common.moplaf.dbsynch.EnumColumnType, org.eclipse.emf.ecore.EAttribute, com.misc.common.moplaf.dbsynch.TableColumn)
+	 * @generated
+	 */
+	EOperation getTable__AddColumn__boolean_String_EnumColumnType_EAttribute_TableColumn();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#addColumn(boolean, java.lang.String, com.misc.common.moplaf.dbsynch.EnumColumnType, org.eclipse.emf.ecore.EAttribute, java.lang.String) <em>Add Column</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Column</em>' operation.
+	 * @see com.misc.common.moplaf.dbsynch.Table#addColumn(boolean, java.lang.String, com.misc.common.moplaf.dbsynch.EnumColumnType, org.eclipse.emf.ecore.EAttribute, java.lang.String)
+	 * @generated
+	 */
+	EOperation getTable__AddColumn__boolean_String_EnumColumnType_EAttribute_String();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.Table#getSelectSqlStatement <em>Select Sql Statement</em>}'.
@@ -1711,6 +1797,17 @@ public interface DbSynchPackage extends EPackage {
 	EReference getTableColumn_Table();
 
 	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.dbsynch.TableColumn#getParentTableColumn <em>Parent Table Column</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Parent Table Column</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.TableColumn#getParentTableColumn()
+	 * @see #getTableColumn()
+	 * @generated
+	 */
+	EReference getTableColumn_ParentTableColumn();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.TableColumn#getColumnType <em>Column Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2060,12 +2157,44 @@ public interface DbSynchPackage extends EPackage {
 		EAttribute TABLE__LAST_SYNCH_UP = eINSTANCE.getTable_LastSynchUp();
 
 		/**
+		 * The meta object literal for the '<em><b>Parent</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TABLE__PARENT = eINSTANCE.getTable_Parent();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Column</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TABLE___GET_COLUMN__STRING = eINSTANCE.getTable__GetColumn__String();
+
+		/**
 		 * The meta object literal for the '<em><b>Add Column</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation TABLE___ADD_COLUMN__BOOLEAN_STRING_ENUMCOLUMNTYPE_EATTRIBUTE = eINSTANCE.getTable__AddColumn__boolean_String_EnumColumnType_EAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Column</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TABLE___ADD_COLUMN__BOOLEAN_STRING_ENUMCOLUMNTYPE_EATTRIBUTE_TABLECOLUMN = eINSTANCE.getTable__AddColumn__boolean_String_EnumColumnType_EAttribute_TableColumn();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Column</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TABLE___ADD_COLUMN__BOOLEAN_STRING_ENUMCOLUMNTYPE_EATTRIBUTE_STRING = eINSTANCE.getTable__AddColumn__boolean_String_EnumColumnType_EAttribute_String();
 
 		/**
 		 * The meta object literal for the '<em><b>Select Sql Statement</b></em>' attribute feature.
@@ -2352,6 +2481,14 @@ public interface DbSynchPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TABLE_COLUMN__TABLE = eINSTANCE.getTableColumn_Table();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent Table Column</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TABLE_COLUMN__PARENT_TABLE_COLUMN = eINSTANCE.getTableColumn_ParentTableColumn();
 
 		/**
 		 * The meta object literal for the '<em><b>Column Type</b></em>' attribute feature.

@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.dbsynch.TableColumn#getColumnType <em>Column Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.TableColumn#getRowAttribute <em>Row Attribute</em>}</li>
  *   <li>{@link com.misc.common.moplaf.dbsynch.TableColumn#getTable <em>Table</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.TableColumn#getParentTableColumn <em>Parent Table Column</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTableColumn()
@@ -110,6 +111,32 @@ public interface TableColumn extends EObject {
 	 * @generated
 	 */
 	Table getTable();
+
+	/**
+	 * Returns the value of the '<em><b>Parent Table Column</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parent Table Column</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parent Table Column</em>' reference.
+	 * @see #setParentTableColumn(TableColumn)
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTableColumn_ParentTableColumn()
+	 * @model
+	 * @generated
+	 */
+	TableColumn getParentTableColumn();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.dbsynch.TableColumn#getParentTableColumn <em>Parent Table Column</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parent Table Column</em>' reference.
+	 * @see #getParentTableColumn()
+	 * @generated
+	 */
+	void setParentTableColumn(TableColumn value);
 
 	/**
 	 * Returns the value of the '<em><b>Column Type</b></em>' attribute.

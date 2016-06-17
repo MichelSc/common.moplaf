@@ -68,6 +68,7 @@ public class TableColumnItemProvider
 			addColumnNamePropertyDescriptor(object);
 			addColumnTypePropertyDescriptor(object);
 			addRowAttributePropertyDescriptor(object);
+			addParentTableColumnPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -171,6 +172,28 @@ public class TableColumnItemProvider
 //				 null,
 //				 getString("_UI__12MetadataPropertyCategory"),
 //				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Parent Table Column feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addParentTableColumnPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TableColumn_ParentTableColumn_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TableColumn_ParentTableColumn_feature", "_UI_TableColumn_type"),
+				 DbSynchPackage.Literals.TABLE_COLUMN__PARENT_TABLE_COLUMN,
+				 true,
+				 false,
+				 true,
+				 null,
+				 getString("_UI__12MetadataPropertyCategory"),
+				 null));
 	}
 
 	/**

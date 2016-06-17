@@ -139,7 +139,7 @@ public abstract class DataExtractorElementImpl extends MinimalEObjectImpl.Contai
 	 */
 	public int getSequence() {
 		DataExtractor dataExtractor = this.getDataExtractor();
-		int sequence = dataExtractor == null ? dataExtractor.getExtractors().indexOf(this) : 0;
+		int sequence = dataExtractor == null ? 0 : dataExtractor.getExtractors().indexOf(this);
 		return sequence;
 	}
 
