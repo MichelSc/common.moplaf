@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
 /**
  * <p>
  * Manage the refresh of derived data elements by listening to changes, 
- * remembering when out of date, and declaring data elements this data element depends on.
+ * remembering when out of date, and declaring or retrieving data elements this data element depends on.
  * <p>
  * A PropagatorFunctionAdapter: 
  * <ul>
@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  *   </ul>
  * <li>maintains its touched state 
  *   <ul>
- *   <li>whether this propagator is up to date or not (up to date = untouched, needs refresh = touched): accessor {@link #isTouched()}
+ *   <li>whether this propagator is up to date or not (up to date = untouched, not proven up to date = needs refresh = touched): accessor {@link #isTouched()}
  *   <li>a collection of touched children of this propagator: field {@link #touchedFunctionAdapters} 
  *   <li>a collection of Notifier's responsible for the touching: field {@link #touchers} 
  *   </ul>

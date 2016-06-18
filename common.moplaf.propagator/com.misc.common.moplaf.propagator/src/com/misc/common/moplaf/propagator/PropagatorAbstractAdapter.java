@@ -13,14 +13,15 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 /**
  * The base class of the propagators used by the framework. Implements the binding with the data elements. There are
- * two kinds of bindings: inbound and outbound binding. An inbound binding binds the PropagatorFunctionAdapter to some input data element
- * while an outbond binding binds the PropagatorFunctionAdapter to some output data element. 
+ * two kinds of bindings: inbound and outbound binding. An inbound binding binds the PropagatorFunctionAdapter to some
+ *  input data element (input of the derivation)
+ * while an outbond binding binds the PropagatorFunctionAdapter to some output data element (output of the derivation). 
  * <p>
  * Inbound bindings listen to changes in the target object of this adapter by implementing the method {@link InboundBinding#notifyChanged(Notification)}
  * and call {@link InboundBinding#touch} when some change in the bound feature occurred.
  * <p>
  * Outbound bindings implement the method {@link OutboundBinding#isOutboundBinding(Object)}, allowing the framework
- * to query if if some feature of this adapter is set (bound) by the PropagatorFunctionAdapter.
+ * to query if some feature of this adapter is set (bound) by the PropagatorFunctionAdapter.
  * <p>
  * Two standard inbound bindings are provided. A {@link InboundBindingFeature}, binding to some feature of this
  * propagator's Notifier and a {@link InboundBindingNavigationFeature}, binding to some navigation feature , and 
