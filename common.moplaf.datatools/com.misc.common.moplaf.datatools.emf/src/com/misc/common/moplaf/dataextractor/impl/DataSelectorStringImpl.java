@@ -156,8 +156,9 @@ public class DataSelectorStringImpl extends DataSelectorFeatureImpl implements D
 	 */
 	@Override
 	public boolean isSelected(EObject object) {
-		if ( this.getValues()==null) { return true; }
-		if ( this.getValues().size()==0 ) { return true; }
+		if ( this.getValues()==null)      { return false; }
+		if ( this.getValues().size()==0 ) { return false; }
+		if ( this.getFeature()==null )    { return false; }
 		String value = (String) object.eGet(this.getFeature());
 		return this.getValues().contains(value);
 	}
