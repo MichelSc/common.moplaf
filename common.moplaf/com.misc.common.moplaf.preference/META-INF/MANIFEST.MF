@@ -5,7 +5,7 @@ Bundle-SymbolicName: com.misc.common.moplaf.preference;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.misc.common.moplaf.preference.Activator
 Bundle-Vendor: MISC
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.ui;bundle-version="3.108.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
