@@ -4,6 +4,7 @@ package com.misc.common.moplaf.common;
 
 import java.util.Date;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -26,6 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.common.Job#isRunning <em>Running</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.Job#isStopped <em>Stopped</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.Job#isFinished <em>Finished</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.common.Job#getArgs <em>Args</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.common.CommonPackage#getJob()
@@ -299,6 +301,22 @@ public interface Job extends EObject {
 	void setFinished(boolean value);
 
 	/**
+	 * Returns the value of the '<em><b>Args</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Args</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Args</em>' attribute list.
+	 * @see com.misc.common.moplaf.common.CommonPackage#getJob_Args()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getArgs();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
@@ -321,5 +339,29 @@ public interface Job extends EObject {
 	 * @generated
 	 */
 	void stop();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	String getArgAsString(int index);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	int getArgAsInt(int index);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	float getArgAsFloat(int index);
 
 } // Job

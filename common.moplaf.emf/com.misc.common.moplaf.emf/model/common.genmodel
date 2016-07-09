@@ -25,9 +25,19 @@
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Job/Running"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Job/Stopped"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Job/Finished"/>
+      <genFeatures createChild="false" propertyCategory="10 Job" ecoreFeature="ecore:EAttribute common.ecore#//Job/Args"/>
       <genOperations ecoreOperation="common.ecore#//Job/runImpl"/>
       <genOperations ecoreOperation="common.ecore#//Job/start"/>
       <genOperations ecoreOperation="common.ecore#//Job/stop"/>
+      <genOperations ecoreOperation="common.ecore#//Job/getArgAsString">
+        <genParameters ecoreParameter="common.ecore#//Job/getArgAsString/index"/>
+      </genOperations>
+      <genOperations ecoreOperation="common.ecore#//Job/getArgAsInt">
+        <genParameters ecoreParameter="common.ecore#//Job/getArgAsInt/index"/>
+      </genOperations>
+      <genOperations ecoreOperation="common.ecore#//Job/getArgAsFloat">
+        <genParameters ecoreParameter="common.ecore#//Job/getArgAsFloat/index"/>
+      </genOperations>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

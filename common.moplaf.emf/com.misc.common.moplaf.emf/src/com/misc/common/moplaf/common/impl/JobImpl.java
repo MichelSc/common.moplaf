@@ -7,6 +7,7 @@ import com.misc.common.moplaf.common.Job;
 
 import java.lang.reflect.InvocationTargetException;
 
+import java.util.Collection;
 import java.util.Date;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -17,6 +18,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,6 +39,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link com.misc.common.moplaf.common.impl.JobImpl#isRunning <em>Running</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.impl.JobImpl#isStopped <em>Stopped</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.impl.JobImpl#isFinished <em>Finished</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.common.impl.JobImpl#getArgs <em>Args</em>}</li>
  * </ul>
  *
  * @generated
@@ -241,6 +244,16 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 	 * @ordered
 	 */
 	protected boolean finished = FINISHED_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getArgs() <em>Args</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getArgs()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> args;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -478,6 +491,18 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<String> getArgs() {
+		if (args == null) {
+			args = new EDataTypeUniqueEList<String>(String.class, this, CommonPackage.JOB__ARGS);
+		}
+		return args;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void runImpl() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -518,6 +543,35 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public String getArgAsString(int index) {
+		String arg = this.getArgs().get(index);
+		return arg;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public int getArgAsInt(int index) {
+		String arg = this.getArgAsString(index);
+		int value = Integer.valueOf(arg);
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public float getArgAsFloat(int index) {
+		String arg = this.getArgAsString(index);
+		float value = Float.valueOf(arg);
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -545,6 +599,8 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 				return isStopped();
 			case CommonPackage.JOB__FINISHED:
 				return isFinished();
+			case CommonPackage.JOB__ARGS:
+				return getArgs();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -554,6 +610,7 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -583,6 +640,10 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 				return;
 			case CommonPackage.JOB__FINISHED:
 				setFinished((Boolean)newValue);
+				return;
+			case CommonPackage.JOB__ARGS:
+				getArgs().clear();
+				getArgs().addAll((Collection<? extends String>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -623,6 +684,9 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 			case CommonPackage.JOB__FINISHED:
 				setFinished(FINISHED_EDEFAULT);
 				return;
+			case CommonPackage.JOB__ARGS:
+				getArgs().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -657,6 +721,8 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 				return stopped != STOPPED_EDEFAULT;
 			case CommonPackage.JOB__FINISHED:
 				return finished != FINISHED_EDEFAULT;
+			case CommonPackage.JOB__ARGS:
+				return args != null && !args.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -678,6 +744,12 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 			case CommonPackage.JOB___STOP:
 				stop();
 				return null;
+			case CommonPackage.JOB___GET_ARG_AS_STRING__INT:
+				return getArgAsString((Integer)arguments.get(0));
+			case CommonPackage.JOB___GET_ARG_AS_INT__INT:
+				return getArgAsInt((Integer)arguments.get(0));
+			case CommonPackage.JOB___GET_ARG_AS_FLOAT__INT:
+				return getArgAsFloat((Integer)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -710,6 +782,8 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 		result.append(stopped);
 		result.append(", Finished: ");
 		result.append(finished);
+		result.append(", Args: ");
+		result.append(args);
 		result.append(')');
 		return result.toString();
 	}

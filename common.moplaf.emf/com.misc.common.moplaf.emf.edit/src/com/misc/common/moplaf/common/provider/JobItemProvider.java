@@ -71,6 +71,7 @@ public class JobItemProvider
 			addStartTimePropertyDescriptor(object);
 			addEndTimePropertyDescriptor(object);
 			addDurationPropertyDescriptor(object);
+			addArgsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -230,14 +231,35 @@ public class JobItemProvider
 	}
 
 	/**
-	 * This returns Job.gif.
+	 * This adds a property descriptor for the Args feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	protected void addArgsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Job_Args_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Job_Args_feature", "_UI_Job_type"),
+				 CommonPackage.Literals.JOB__ARGS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__10JobPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This returns Job.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Job"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/job.png"));
 	}
 
 	/**
@@ -278,6 +300,7 @@ public class JobItemProvider
 			case CommonPackage.JOB__RUNNING:
 			case CommonPackage.JOB__STOPPED:
 			case CommonPackage.JOB__FINISHED:
+			case CommonPackage.JOB__ARGS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

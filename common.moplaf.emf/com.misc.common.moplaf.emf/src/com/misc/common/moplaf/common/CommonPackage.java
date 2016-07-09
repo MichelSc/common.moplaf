@@ -166,13 +166,22 @@ public interface CommonPackage extends EPackage {
 	int JOB__FINISHED = 10;
 
 	/**
+	 * The feature id for the '<em><b>Args</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB__ARGS = 11;
+
+	/**
 	 * The number of structural features of the '<em>Job</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_FEATURE_COUNT = 11;
+	int JOB_FEATURE_COUNT = 12;
 
 	/**
 	 * The operation id for the '<em>Run Impl</em>' operation.
@@ -202,13 +211,40 @@ public interface CommonPackage extends EPackage {
 	int JOB___STOP = 2;
 
 	/**
+	 * The operation id for the '<em>Get Arg As String</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB___GET_ARG_AS_STRING__INT = 3;
+
+	/**
+	 * The operation id for the '<em>Get Arg As Int</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB___GET_ARG_AS_INT__INT = 4;
+
+	/**
+	 * The operation id for the '<em>Get Arg As Float</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB___GET_ARG_AS_FLOAT__INT = 5;
+
+	/**
 	 * The number of operations of the '<em>Job</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_OPERATION_COUNT = 3;
+	int JOB_OPERATION_COUNT = 6;
 
 
 	/**
@@ -343,6 +379,17 @@ public interface CommonPackage extends EPackage {
 	EAttribute getJob_Finished();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link com.misc.common.moplaf.common.Job#getArgs <em>Args</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Args</em>'.
+	 * @see com.misc.common.moplaf.common.Job#getArgs()
+	 * @see #getJob()
+	 * @generated
+	 */
+	EAttribute getJob_Args();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.common.Job#runImpl() <em>Run Impl</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -371,6 +418,36 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getJob__Stop();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.common.Job#getArgAsString(int) <em>Get Arg As String</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Arg As String</em>' operation.
+	 * @see com.misc.common.moplaf.common.Job#getArgAsString(int)
+	 * @generated
+	 */
+	EOperation getJob__GetArgAsString__int();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.common.Job#getArgAsInt(int) <em>Get Arg As Int</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Arg As Int</em>' operation.
+	 * @see com.misc.common.moplaf.common.Job#getArgAsInt(int)
+	 * @generated
+	 */
+	EOperation getJob__GetArgAsInt__int();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.common.Job#getArgAsFloat(int) <em>Get Arg As Float</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Arg As Float</em>' operation.
+	 * @see com.misc.common.moplaf.common.Job#getArgAsFloat(int)
+	 * @generated
+	 */
+	EOperation getJob__GetArgAsFloat__int();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -494,6 +571,14 @@ public interface CommonPackage extends EPackage {
 		EAttribute JOB__FINISHED = eINSTANCE.getJob_Finished();
 
 		/**
+		 * The meta object literal for the '<em><b>Args</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB__ARGS = eINSTANCE.getJob_Args();
+
+		/**
 		 * The meta object literal for the '<em><b>Run Impl</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -516,6 +601,30 @@ public interface CommonPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation JOB___STOP = eINSTANCE.getJob__Stop();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Arg As String</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JOB___GET_ARG_AS_STRING__INT = eINSTANCE.getJob__GetArgAsString__int();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Arg As Int</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JOB___GET_ARG_AS_INT__INT = eINSTANCE.getJob__GetArgAsInt__int();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Arg As Float</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JOB___GET_ARG_AS_FLOAT__INT = eINSTANCE.getJob__GetArgAsFloat__int();
 
 	}
 
