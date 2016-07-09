@@ -7,13 +7,25 @@
   <foreignModel>common.ecore</foreignModel>
   <genPackages prefix="Common" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
       ecorePackage="common.ecore#/">
-    <genClasses ecoreClass="common.ecore#//Job">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Job/Name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Job/Status"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Job/StartTime"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Job/EndTime"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Job/Duration"/>
-      <genOperations ecoreOperation="common.ecore#//Job/run"/>
+    <genClasses ecoreClass="common.ecore#//Job" labelFeature="#//common/Job/Description">
+      <genFeatures createChild="false" propertyCategory="10 Job" ecoreFeature="ecore:EAttribute common.ecore#//Job/Name"/>
+      <genFeatures createChild="false" propertyCategory="10 Job" propertyDescription=""
+          ecoreFeature="ecore:EAttribute common.ecore#//Job/Background"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="20 Status"
+          propertyDescription="" ecoreFeature="ecore:EAttribute common.ecore#//Job/Status"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job"
+          ecoreFeature="ecore:EAttribute common.ecore#//Job/Description"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="20 Status"
+          ecoreFeature="ecore:EAttribute common.ecore#//Job/StartTime"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="20 Status"
+          ecoreFeature="ecore:EAttribute common.ecore#//Job/EndTime"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="20 Status"
+          ecoreFeature="ecore:EAttribute common.ecore#//Job/Duration"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Job/Created"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Job/Running"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Job/Stopped"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Job/Finished"/>
+      <genOperations ecoreOperation="common.ecore#//Job/runImpl"/>
       <genOperations ecoreOperation="common.ecore#//Job/start"/>
       <genOperations ecoreOperation="common.ecore#//Job/stop"/>
     </genClasses>

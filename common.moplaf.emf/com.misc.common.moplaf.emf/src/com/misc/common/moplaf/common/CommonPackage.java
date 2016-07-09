@@ -76,13 +76,31 @@ public interface CommonPackage extends EPackage {
 	int JOB__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Background</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB__BACKGROUND = 1;
+
+	/**
 	 * The feature id for the '<em><b>Status</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__STATUS = 1;
+	int JOB__STATUS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB__DESCRIPTION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Start Time</b></em>' attribute.
@@ -91,7 +109,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__START_TIME = 2;
+	int JOB__START_TIME = 4;
 
 	/**
 	 * The feature id for the '<em><b>End Time</b></em>' attribute.
@@ -100,7 +118,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__END_TIME = 3;
+	int JOB__END_TIME = 5;
 
 	/**
 	 * The feature id for the '<em><b>Duration</b></em>' attribute.
@@ -109,7 +127,43 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__DURATION = 4;
+	int JOB__DURATION = 6;
+
+	/**
+	 * The feature id for the '<em><b>Created</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB__CREATED = 7;
+
+	/**
+	 * The feature id for the '<em><b>Running</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB__RUNNING = 8;
+
+	/**
+	 * The feature id for the '<em><b>Stopped</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB__STOPPED = 9;
+
+	/**
+	 * The feature id for the '<em><b>Finished</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB__FINISHED = 10;
 
 	/**
 	 * The number of structural features of the '<em>Job</em>' class.
@@ -118,16 +172,16 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_FEATURE_COUNT = 5;
+	int JOB_FEATURE_COUNT = 11;
 
 	/**
-	 * The operation id for the '<em>Run</em>' operation.
+	 * The operation id for the '<em>Run Impl</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB___RUN = 0;
+	int JOB___RUN_IMPL = 0;
 
 	/**
 	 * The operation id for the '<em>Start</em>' operation.
@@ -179,6 +233,17 @@ public interface CommonPackage extends EPackage {
 	EAttribute getJob_Name();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.common.Job#isBackground <em>Background</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Background</em>'.
+	 * @see com.misc.common.moplaf.common.Job#isBackground()
+	 * @see #getJob()
+	 * @generated
+	 */
+	EAttribute getJob_Background();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.common.Job#getStatus <em>Status</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -188,6 +253,17 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getJob_Status();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.common.Job#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.misc.common.moplaf.common.Job#getDescription()
+	 * @see #getJob()
+	 * @generated
+	 */
+	EAttribute getJob_Description();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.common.Job#getStartTime <em>Start Time</em>}'.
@@ -223,14 +299,58 @@ public interface CommonPackage extends EPackage {
 	EAttribute getJob_Duration();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.common.Job#run() <em>Run</em>}' operation.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.common.Job#isCreated <em>Created</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Run</em>' operation.
-	 * @see com.misc.common.moplaf.common.Job#run()
+	 * @return the meta object for the attribute '<em>Created</em>'.
+	 * @see com.misc.common.moplaf.common.Job#isCreated()
+	 * @see #getJob()
 	 * @generated
 	 */
-	EOperation getJob__Run();
+	EAttribute getJob_Created();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.common.Job#isRunning <em>Running</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Running</em>'.
+	 * @see com.misc.common.moplaf.common.Job#isRunning()
+	 * @see #getJob()
+	 * @generated
+	 */
+	EAttribute getJob_Running();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.common.Job#isStopped <em>Stopped</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Stopped</em>'.
+	 * @see com.misc.common.moplaf.common.Job#isStopped()
+	 * @see #getJob()
+	 * @generated
+	 */
+	EAttribute getJob_Stopped();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.common.Job#isFinished <em>Finished</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Finished</em>'.
+	 * @see com.misc.common.moplaf.common.Job#isFinished()
+	 * @see #getJob()
+	 * @generated
+	 */
+	EAttribute getJob_Finished();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.common.Job#runImpl() <em>Run Impl</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Run Impl</em>' operation.
+	 * @see com.misc.common.moplaf.common.Job#runImpl()
+	 * @generated
+	 */
+	EOperation getJob__RunImpl();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.common.Job#start() <em>Start</em>}' operation.
@@ -294,12 +414,28 @@ public interface CommonPackage extends EPackage {
 		EAttribute JOB__NAME = eINSTANCE.getJob_Name();
 
 		/**
+		 * The meta object literal for the '<em><b>Background</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB__BACKGROUND = eINSTANCE.getJob_Background();
+
+		/**
 		 * The meta object literal for the '<em><b>Status</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute JOB__STATUS = eINSTANCE.getJob_Status();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB__DESCRIPTION = eINSTANCE.getJob_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Start Time</b></em>' attribute feature.
@@ -326,12 +462,44 @@ public interface CommonPackage extends EPackage {
 		EAttribute JOB__DURATION = eINSTANCE.getJob_Duration();
 
 		/**
-		 * The meta object literal for the '<em><b>Run</b></em>' operation.
+		 * The meta object literal for the '<em><b>Created</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation JOB___RUN = eINSTANCE.getJob__Run();
+		EAttribute JOB__CREATED = eINSTANCE.getJob_Created();
+
+		/**
+		 * The meta object literal for the '<em><b>Running</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB__RUNNING = eINSTANCE.getJob_Running();
+
+		/**
+		 * The meta object literal for the '<em><b>Stopped</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB__STOPPED = eINSTANCE.getJob_Stopped();
+
+		/**
+		 * The meta object literal for the '<em><b>Finished</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB__FINISHED = eINSTANCE.getJob_Finished();
+
+		/**
+		 * The meta object literal for the '<em><b>Run Impl</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JOB___RUN_IMPL = eINSTANCE.getJob__RunImpl();
 
 		/**
 		 * The meta object literal for the '<em><b>Start</b></em>' operation.

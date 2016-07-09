@@ -5,15 +5,19 @@ package com.misc.common.moplaf.common.provider;
 
 import com.misc.common.moplaf.common.CommonPackage;
 import com.misc.common.moplaf.common.Job;
+import com.misc.common.moplaf.emf.edit.command.StartCommand;
+import com.misc.common.moplaf.emf.edit.command.StopCommand;
 
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -61,7 +65,9 @@ public class JobItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addBackgroundPropertyDescriptor(object);
 			addStatusPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 			addStartTimePropertyDescriptor(object);
 			addEndTimePropertyDescriptor(object);
 			addDurationPropertyDescriptor(object);
@@ -87,7 +93,29 @@ public class JobItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10JobPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Background feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBackgroundPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Job_Background_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Job_Background_feature", "_UI_Job_type"),
+				 CommonPackage.Literals.JOB__BACKGROUND,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 getString("_UI__10JobPropertyCategory"),
 				 null));
 	}
 
@@ -105,11 +133,33 @@ public class JobItemProvider
 				 getString("_UI_Job_Status_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Job_Status_feature", "_UI_Job_type"),
 				 CommonPackage.Literals.JOB__STATUS,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20StatusPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Job_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Job_Description_feature", "_UI_Job_type"),
+				 CommonPackage.Literals.JOB__DESCRIPTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__10JobPropertyCategory"),
 				 null));
 	}
 
@@ -127,11 +177,11 @@ public class JobItemProvider
 				 getString("_UI_Job_StartTime_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Job_StartTime_feature", "_UI_Job_type"),
 				 CommonPackage.Literals.JOB__START_TIME,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20StatusPropertyCategory"),
 				 null));
 	}
 
@@ -149,11 +199,11 @@ public class JobItemProvider
 				 getString("_UI_Job_EndTime_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Job_EndTime_feature", "_UI_Job_type"),
 				 CommonPackage.Literals.JOB__END_TIME,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20StatusPropertyCategory"),
 				 null));
 	}
 
@@ -171,11 +221,11 @@ public class JobItemProvider
 				 getString("_UI_Job_Duration_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Job_Duration_feature", "_UI_Job_type"),
 				 CommonPackage.Literals.JOB__DURATION,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20StatusPropertyCategory"),
 				 null));
 	}
 
@@ -198,7 +248,7 @@ public class JobItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Job)object).getName();
+		String label = ((Job)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Job_type") :
 			getString("_UI_Job_type") + " " + label;
@@ -218,10 +268,16 @@ public class JobItemProvider
 
 		switch (notification.getFeatureID(Job.class)) {
 			case CommonPackage.JOB__NAME:
+			case CommonPackage.JOB__BACKGROUND:
 			case CommonPackage.JOB__STATUS:
+			case CommonPackage.JOB__DESCRIPTION:
 			case CommonPackage.JOB__START_TIME:
 			case CommonPackage.JOB__END_TIME:
 			case CommonPackage.JOB__DURATION:
+			case CommonPackage.JOB__CREATED:
+			case CommonPackage.JOB__RUNNING:
+			case CommonPackage.JOB__STOPPED:
+			case CommonPackage.JOB__FINISHED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -250,5 +306,53 @@ public class JobItemProvider
 	public ResourceLocator getResourceLocator() {
 		return CommonEditPlugin.INSTANCE;
 	}
+	
+	/*
+	 * JobStartCommand
+	 */
+	public class JobStartCommand extends StartCommand{
+		private Job job;
+		
+		// constructor
+		public JobStartCommand(Job aJob)	{
+			this.job = aJob;
+		}
+
+		@Override
+		public void execute() {
+			this.job.start();
+		}
+	} // class JobStartCommand
+	
+	/*
+	 * JobStopCommand
+	 */
+	public class JobStopCommand extends StopCommand{
+		private Job job;
+		
+		// constructor
+		public JobStopCommand(Job aJob)	{
+			this.job = aJob;
+		}
+
+		@Override
+		public void execute() {
+			this.job.stop();
+		}
+	} // class JobStartCommand
+	
+	@Override
+	public Command createCommand(Object object, EditingDomain domain,
+			Class<? extends Command> commandClass,
+			CommandParameter commandParameter) {
+		if ( commandClass == StartCommand.class){
+			return new JobStartCommand((Job) object); 
+		}
+		else if ( commandClass == StopCommand.class){
+			return new JobStopCommand((Job) object); 
+		}
+		return super.createCommand(object, domain, commandClass, commandParameter);
+	} //method createCommand
+
 
 }

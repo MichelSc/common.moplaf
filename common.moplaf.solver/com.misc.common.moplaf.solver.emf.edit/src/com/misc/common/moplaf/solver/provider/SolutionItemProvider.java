@@ -260,20 +260,15 @@ public class SolutionItemProvider
 		return SolverEditPlugin.INSTANCE;
 	}
 
+	/*
+	 * SolutionAcceptCommand
+	 */
 	public class SolutionAcceptCommand extends AcceptCommand{
 		private Solution solution;
 		
 		// constructor
 		public SolutionAcceptCommand(Solution asolution)	{
 			this.solution = asolution;
-		}
-
-		/* (non-Javadoc)
-		 * @see org.eclipse.emf.common.command.AbstractCommand#canExecute()
-		 */
-		@Override
-		public boolean canExecute() {
-			return super.canExecute();
 		}
 
 		@Override
