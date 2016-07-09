@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.emf/src" modelPluginID="com.misc.common.moplaf.emf"
+    modelName="Common" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>common.ecore</foreignModel>
+  <genPackages prefix="Common" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
+      ecorePackage="common.ecore#/">
+    <genClasses ecoreClass="common.ecore#//Job">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Job/Name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Job/Status"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Job/StartTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Job/EndTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Job/Duration"/>
+      <genOperations ecoreOperation="common.ecore#//Job/run"/>
+      <genOperations ecoreOperation="common.ecore#//Job/start"/>
+      <genOperations ecoreOperation="common.ecore#//Job/stop"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
