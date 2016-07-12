@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.solver.provider;
 
+import com.misc.common.moplaf.common.provider.CommonEditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -38,6 +39,7 @@ public final class SolverEditPlugin extends EMFPlugin {
 	public SolverEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     CommonEditPlugin.INSTANCE,
 		   });
 	}
 

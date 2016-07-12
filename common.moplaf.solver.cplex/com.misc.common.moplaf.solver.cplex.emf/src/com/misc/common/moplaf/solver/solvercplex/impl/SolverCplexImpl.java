@@ -546,7 +546,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 	}
 
 	@Override
-	protected void solveSolver() {
+	protected void solveImpl() {
 
 		// load the lp
 		this.loadLp();

@@ -13,5 +13,6 @@ Export-Package: com.misc.common.moplaf.solver.solverneos,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  com.misc.common.moplaf.solver.emf;visibility:=reexport,
+ com.misc.common.moplaf.emf;visibility:=reexport,
  org.apache.xmlrpc;bundle-version="3.0.0"
 Bundle-ActivationPolicy: lazy

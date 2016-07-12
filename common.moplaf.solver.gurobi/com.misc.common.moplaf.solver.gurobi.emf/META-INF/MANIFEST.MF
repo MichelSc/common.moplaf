@@ -13,5 +13,6 @@ Export-Package: com.misc.common.moplaf.solver.solvergurobi,
  com.misc.common.moplaf.solver.solvergurobi.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- com.misc.common.moplaf.solver.emf;visibility:=reexport
+ com.misc.common.moplaf.solver.emf;visibility:=reexport,
+ com.misc.common.moplaf.emf;visibility:=reexport
 Bundle-ActivationPolicy: lazy

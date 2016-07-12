@@ -121,15 +121,6 @@ public interface SolverlpsolvePackage extends EPackage {
 	int SOLVER_LP_SOLVE__SOLVER_MAX_DURATION = SolverPackage.SOLVER_LP__SOLVER_MAX_DURATION;
 
 	/**
-	 * The feature id for the '<em><b>Solver Background</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_LP_SOLVE__SOLVER_BACKGROUND = SolverPackage.SOLVER_LP__SOLVER_BACKGROUND;
-
-	/**
 	 * The feature id for the '<em><b>Solver Log Level</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -615,8 +615,7 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 	 * <!-- end-user-doc -->
 	 */
 	@Override
-	protected void solveSolver() {
-		//super.solveSolver();
+	protected void solveImpl() {
 
 		this.loadLp();
 		if ( this.lp==null ) { return; }

@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.solver;
 
+import com.misc.common.moplaf.common.Run;
 import org.eclipse.emf.common.util.EList;
 
 
@@ -30,7 +31,7 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface SolutionProvider extends IGeneratorTool {
+public interface SolutionProvider extends Run, IGeneratorTool {
 
 	/**
 	 * Returns the value of the '<em><b>Solution</b></em>' containment reference list.

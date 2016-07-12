@@ -2,8 +2,8 @@
  */
 package com.misc.common.moplaf.solver;
 
+import com.misc.common.moplaf.common.Run;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,7 +69,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface Generator extends EObject {
+public interface Generator extends Run {
 	/**
 	 * Returns the value of the '<em><b>Tuple Root</b></em>' reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.solver.GeneratorTuple}.

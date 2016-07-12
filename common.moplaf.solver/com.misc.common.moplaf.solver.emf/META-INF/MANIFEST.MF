@@ -13,5 +13,6 @@ Export-Package: com.misc.common.moplaf.solver,
  com.misc.common.moplaf.solver.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
+ com.misc.common.moplaf.emf;visibility:=reexport,
  com.misc.common.moplaf.solver.preference;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy

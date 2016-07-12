@@ -1,7 +1,9 @@
 package com.misc.common.moplaf.solver.impl;
 
 
+import com.misc.common.moplaf.common.impl.RunImpl;
 import com.misc.common.moplaf.solver.Generator;
+import com.misc.common.moplaf.solver.IGeneratorTool;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionProvider;
 import com.misc.common.moplaf.solver.SolverFactory;
@@ -14,7 +16,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -33,7 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public abstract class SolutionProviderImpl extends MinimalEObjectImpl.Container implements SolutionProvider {
+public abstract class SolutionProviderImpl extends RunImpl implements SolutionProvider {
 	/**
 	 * The cached value of the '{@link #getSolution() <em>Solution</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -308,6 +309,23 @@ public abstract class SolutionProviderImpl extends MinimalEObjectImpl.Container 
 				return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == IGeneratorTool.class) {
+			switch (baseOperationID) {
+				case SolverPackage.IGENERATOR_TOOL___GET_GENERATOR: return SolverPackage.SOLUTION_PROVIDER___GET_GENERATOR;
+				case SolverPackage.IGENERATOR_TOOL___DISPOSE: return SolverPackage.SOLUTION_PROVIDER___DISPOSE;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
 	}
 
 	/**

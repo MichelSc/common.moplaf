@@ -32,10 +32,6 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -161,26 +157,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * @ordered
 	 */
 	protected float solverMaxDuration = SOLVER_MAX_DURATION_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isSolverBackground() <em>Solver Background</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSolverBackground()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean SOLVER_BACKGROUND_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isSolverBackground() <em>Solver Background</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSolverBackground()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean solverBackground = SOLVER_BACKGROUND_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getSolverLogLevel() <em>Solver Log Level</em>}' attribute.
@@ -601,8 +577,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * @ordered
 	 */
 	protected EList<SolverGoal> goals;
-
-	protected IProgressMonitor eMonitor;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1140,27 +1114,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isSolverBackground() {
-		return solverBackground;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSolverBackground(boolean newSolverBackground) {
-		boolean oldSolverBackground = solverBackground;
-		solverBackground = newSolverBackground;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__SOLVER_BACKGROUND, oldSolverBackground, solverBackground));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EnumSolverLogLevel getSolverLogLevel() {
 		return solverLogLevel;
 	}
@@ -1450,6 +1403,36 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		this.generatorGoalsToSolve = null;
 	}
 
+	
+	/*
+	 * (non-Javadoc)
+	 * @see com.misc.common.moplaf.common.impl.RunImpl#runImpl()
+	 */
+	@Override
+	protected boolean runImpl() {
+		this.solve();
+		return true;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * Start solving the problem
+	 *   Implement the branch synchronous/asynchronous
+	 * <!-- end-user-doc -->
+	 */
+	public void solve() {
+		Plugin.INSTANCE.logInfo("solve called");
+		Generator generator = this.getGenerator();
+		
+		if ( generator == null ) {
+			Plugin.INSTANCE.logError("solve, no generator set");
+		} else {
+			Plugin.INSTANCE.logInfo("solve Started");
+			this.solveRun();
+			Plugin.INSTANCE.logInfo("solve finished");
+		}
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * Implement the whole flow of a solving run
@@ -1485,7 +1468,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		} 
 		else {
 			this.onStarted();
-			this.solveSolver();
+			this.solveImpl();
 			this.onFinalizationEnd();
 		}
 	}
@@ -1493,51 +1476,11 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	
 	/**
 	 * <!-- begin-user-doc -->
-	 * Start solving the problem
-	 *   Implement the branch synchronous/asynchronous
-	 * <!-- end-user-doc -->
-	 */
-	public void solve() {
-		Plugin.INSTANCE.logInfo("solve called");
-		Generator generator = this.getGenerator();
-		
-		if ( generator == null ) {
-			Plugin.INSTANCE.logError("solve, no generator set");
-		}
-		else  {
-			this.setRunRequestTerminate(false);
-			if ( this.isSolverBackground() ){
-				  Job job = new Job("LP Solver in Background") {
-					     protected IStatus run(IProgressMonitor monitor) {
-					    	    eMonitor = monitor;
-					    	    monitor.beginTask("Initialization", 100);
-					    	    Plugin.INSTANCE.logInfo("Solve, job started");
-			  					SolverImpl.this.solveRun();
-								eMonitor = null;
-					            return Status.OK_STATUS;
-					        }
-					     };  // class Job
-				  job.setPriority(Job.SHORT);
-				  job.setUser(true);
-				  job.setSystem(false);
-				  Plugin.INSTANCE.logInfo("solve, job submitted");
-				  job.schedule(); // start as soon as possible			}
-			}
-			else {
-				this.solveRun();
-			} // synchronous
-			Plugin.INSTANCE.logInfo("solve finished");
-		}
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
 	 * To be implemented by the concrete solver to solver the linear formulation
 	 * <!-- end-user-doc -->
 	 */
-	protected void solveSolver(){
+	protected void solveImpl(){
 		throw new UnsupportedOperationException();
-		
 	}
 	
 
@@ -1598,10 +1541,10 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	protected void onStarted() {
-		if ( eMonitor!= null ){ 
-			eMonitor.setTaskName("initializing");
-			eMonitor.worked(0);
-		}
+//		if ( eMonitor!= null ){ 
+//			eMonitor.setTaskName("initializing");
+//			eMonitor.worked(0);
+//		}
 		Plugin.INSTANCE.logInfo("STARTED");
 		Date currenttime = new Date();
 		this.setRunStarted(currenttime);
@@ -1618,10 +1561,10 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		if ( !this.isInitializing() ){
 			this.onStarted();
 		}
-		if ( eMonitor!= null ){ 
-			eMonitor.setTaskName("solving");
-			eMonitor.worked(0);
-		}
+//		if ( eMonitor!= null ){ 
+//			eMonitor.setTaskName("solving");
+//			eMonitor.worked(0);
+//		}
 		Plugin.INSTANCE.logInfo("INITIALIZED");
 		Date currenttime = new Date();
 		this.setRunInitializationEnded(currenttime);
@@ -1640,10 +1583,10 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		if ( !this.isSolving()){
 			this.onInitializationEnd();
 		}
-		if ( eMonitor!= null )		{ 
-			eMonitor.setTaskName("finalizing");
-			eMonitor.worked(100);
-		}
+//		if ( eMonitor!= null )		{ 
+//			eMonitor.setTaskName("finalizing");
+//			eMonitor.worked(100);
+//		}
 		Plugin.INSTANCE.logInfo("SOLVED");
 		Date currenttime = new Date();
 		this.setRunSolvingEnded(currenttime);
@@ -1663,10 +1606,10 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		if ( !this.isFinalizing()){
 			this.onSolvingEnd();
 		}
-		if ( eMonitor!= null )	{ 
-			eMonitor.setTaskName("finished");
-			eMonitor.worked(100);
-		}
+//		if ( eMonitor!= null )	{ 
+//			eMonitor.setTaskName("finished");
+//			eMonitor.worked(100);
+//		}
 		Plugin.INSTANCE.logInfo("FINISHED");
 		Date currenttime = new Date();
 		this.setRunFinalizationEnded(currenttime);
@@ -1684,25 +1627,19 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	protected void onSolverFeedback(String TreeFootprint, String Progress, float OptimalityGap, float BestValue, boolean Feasible) {
 		String valueasstring = Feasible ? String.format("%1$8.2f", BestValue) : "unfeasible";
         String feedback = String.format("phase %1$s, gap %3$4.2f, value %4$s (%2$s)", Progress, TreeFootprint, OptimalityGap, valueasstring); 
-		if ( eMonitor!= null )	{
-			// task
-			Date currenttime = new Date();
-			if ( this.eLastMonitoredFeedback == null 
-			 || currenttime.getTime()-eLastMonitoredFeedback.getTime()>eMonitorRefreshRateMillis) {
-				eLastMonitoredFeedback = currenttime;
-				long duration = (currenttime.getTime()-this.getRunInitializationEnded().getTime())/1000;
-		        String task = String.format("%1$05d: %2$s", duration, feedback); // duration five digits zero padded 
-				eMonitor.setTaskName(task);
-				// work
-				int work = (int)(100*(1.0f-OptimalityGap));
-				eMonitor.worked(work);
-				if ( eMonitor.isCanceled())				{
-					this.setRunRequestTerminate(true);
-				}
-			}
+		Date currenttime = new Date();
+		boolean goOn = true;
+		if ( this.eLastMonitoredFeedback == null 
+		 || currenttime.getTime()-eLastMonitoredFeedback.getTime()>eMonitorRefreshRateMillis) {
+			eLastMonitoredFeedback = currenttime;
+			long duration = (currenttime.getTime()-this.getRunInitializationEnded().getTime())/1000;
+	        String task = String.format("%1$05d: %2$s", duration, feedback); // duration five digits zero padded 
+			// work
+			int work = (int)(100*(1.0f-OptimalityGap));
+			goOn = this.onProgress(task, work);
 		}
-		else {
-			//CommonPlugin.INSTANCE.log("ESolver.ESolve: "+feedback);
+		if ( !goOn ){
+			this.setRunRequestTerminate(true);
 		}
 	}
 
@@ -1745,8 +1682,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return getStatus();
 			case SolverPackage.SOLVER__SOLVER_MAX_DURATION:
 				return getSolverMaxDuration();
-			case SolverPackage.SOLVER__SOLVER_BACKGROUND:
-				return isSolverBackground();
 			case SolverPackage.SOLVER__SOLVER_LOG_LEVEL:
 				return getSolverLogLevel();
 			case SolverPackage.SOLVER__SOLVER_DUMP:
@@ -1813,9 +1748,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return;
 			case SolverPackage.SOLVER__SOLVER_MAX_DURATION:
 				setSolverMaxDuration((Float)newValue);
-				return;
-			case SolverPackage.SOLVER__SOLVER_BACKGROUND:
-				setSolverBackground((Boolean)newValue);
 				return;
 			case SolverPackage.SOLVER__SOLVER_LOG_LEVEL:
 				setSolverLogLevel((EnumSolverLogLevel)newValue);
@@ -1905,9 +1837,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			case SolverPackage.SOLVER__SOLVER_MAX_DURATION:
 				setSolverMaxDuration(SOLVER_MAX_DURATION_EDEFAULT);
 				return;
-			case SolverPackage.SOLVER__SOLVER_BACKGROUND:
-				setSolverBackground(SOLVER_BACKGROUND_EDEFAULT);
-				return;
 			case SolverPackage.SOLVER__SOLVER_LOG_LEVEL:
 				setSolverLogLevel(SOLVER_LOG_LEVEL_EDEFAULT);
 				return;
@@ -1992,8 +1921,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return STATUS_EDEFAULT == null ? status != null : !STATUS_EDEFAULT.equals(status);
 			case SolverPackage.SOLVER__SOLVER_MAX_DURATION:
 				return solverMaxDuration != SOLVER_MAX_DURATION_EDEFAULT;
-			case SolverPackage.SOLVER__SOLVER_BACKGROUND:
-				return solverBackground != SOLVER_BACKGROUND_EDEFAULT;
 			case SolverPackage.SOLVER__SOLVER_LOG_LEVEL:
 				return solverLogLevel != SOLVER_LOG_LEVEL_EDEFAULT;
 			case SolverPackage.SOLVER__SOLVER_DUMP:
@@ -2154,8 +2081,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		result.append(status);
 		result.append(", SolverMaxDuration: ");
 		result.append(solverMaxDuration);
-		result.append(", SolverBackground: ");
-		result.append(solverBackground);
 		result.append(", SolverLogLevel: ");
 		result.append(solverLogLevel);
 		result.append(", SolverDump: ");

@@ -64,7 +64,6 @@ public class SolverItemProvider
 			addRemarksPropertyDescriptor(object);
 			addStatusPropertyDescriptor(object);
 			addSolverMaxDurationPropertyDescriptor(object);
-			addSolverBackgroundPropertyDescriptor(object);
 			addSolverLogLevelPropertyDescriptor(object);
 			addSolverDumpPropertyDescriptor(object);
 			addRunStartedPropertyDescriptor(object);
@@ -305,28 +304,6 @@ public class SolverItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 getString("_UI__20SolverPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Solver Background feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSolverBackgroundPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Solver_SolverBackground_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Solver_SolverBackground_feature", "_UI_Solver_type"),
-				 SolverPackage.Literals.SOLVER__SOLVER_BACKGROUND,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 getString("_UI__20SolverPropertyCategory"),
 				 null));
 	}
@@ -646,7 +623,6 @@ public class SolverItemProvider
 			case SolverPackage.SOLVER__REMARKS:
 			case SolverPackage.SOLVER__STATUS:
 			case SolverPackage.SOLVER__SOLVER_MAX_DURATION:
-			case SolverPackage.SOLVER__SOLVER_BACKGROUND:
 			case SolverPackage.SOLVER__SOLVER_LOG_LEVEL:
 			case SolverPackage.SOLVER__SOLVER_DUMP:
 			case SolverPackage.SOLVER__RUN_STARTED:

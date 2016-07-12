@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
+import com.misc.common.moplaf.common.impl.RunImpl;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorCons;
 import com.misc.common.moplaf.solver.GeneratorFeatureMode;
@@ -25,7 +26,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.emf.ecore.util.EObjectEList;
@@ -59,7 +59,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public abstract class GeneratorImpl extends MinimalEObjectImpl.Container implements Generator {
+public abstract class GeneratorImpl extends RunImpl implements Generator {
 	/**
 	 * The cached value of the '{@link #getGeneratorFeatureModes() <em>Generator Feature Modes</em>}' reference list.
 	 * <!-- begin-user-doc -->

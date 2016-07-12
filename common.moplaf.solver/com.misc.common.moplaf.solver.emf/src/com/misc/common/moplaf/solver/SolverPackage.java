@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.solver;
 
+import com.misc.common.moplaf.common.CommonPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -70,13 +71,31 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR = 0;
 
 	/**
+	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__CANCELED = CommonPackage.RUN__CANCELED;
+
+	/**
+	 * The feature id for the '<em><b>Parent Run</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__PARENT_RUN = CommonPackage.RUN__PARENT_RUN;
+
+	/**
 	 * The feature id for the '<em><b>Tuple Root</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__TUPLE_ROOT = 0;
+	int GENERATOR__TUPLE_ROOT = CommonPackage.RUN_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Generator Feature Modes</b></em>' reference list.
@@ -85,7 +104,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__GENERATOR_FEATURE_MODES = 1;
+	int GENERATOR__GENERATOR_FEATURE_MODES = CommonPackage.RUN_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Remarks</b></em>' attribute.
@@ -94,7 +113,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__REMARKS = 2;
+	int GENERATOR__REMARKS = CommonPackage.RUN_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Footprint Nof Vars</b></em>' attribute.
@@ -103,7 +122,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__FOOTPRINT_NOF_VARS = 3;
+	int GENERATOR__FOOTPRINT_NOF_VARS = CommonPackage.RUN_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Footprint Nof Cons</b></em>' attribute.
@@ -112,7 +131,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__FOOTPRINT_NOF_CONS = 4;
+	int GENERATOR__FOOTPRINT_NOF_CONS = CommonPackage.RUN_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Footprint Nof Terms</b></em>' attribute.
@@ -121,7 +140,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__FOOTPRINT_NOF_TERMS = 5;
+	int GENERATOR__FOOTPRINT_NOF_TERMS = CommonPackage.RUN_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Count Cons</b></em>' attribute.
@@ -130,7 +149,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__COUNT_CONS = 6;
+	int GENERATOR__COUNT_CONS = CommonPackage.RUN_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Count Vars</b></em>' attribute.
@@ -139,7 +158,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__COUNT_VARS = 7;
+	int GENERATOR__COUNT_VARS = CommonPackage.RUN_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>ELp Var Count</b></em>' containment reference.
@@ -148,7 +167,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__ELP_VAR_COUNT = 8;
+	int GENERATOR__ELP_VAR_COUNT = CommonPackage.RUN_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>ELp Cons Count</b></em>' containment reference.
@@ -157,7 +176,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__ELP_CONS_COUNT = 9;
+	int GENERATOR__ELP_CONS_COUNT = CommonPackage.RUN_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -166,7 +185,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__CODE = 10;
+	int GENERATOR__CODE = CommonPackage.RUN_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Solution Provider</b></em>' reference list.
@@ -175,7 +194,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__SOLUTION_PROVIDER = 11;
+	int GENERATOR__SOLUTION_PROVIDER = CommonPackage.RUN_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Selected</b></em>' reference.
@@ -184,7 +203,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__SELECTED = 12;
+	int GENERATOR__SELECTED = CommonPackage.RUN_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Goals</b></em>' reference list.
@@ -193,7 +212,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__GOALS = 13;
+	int GENERATOR__GOALS = CommonPackage.RUN_FEATURE_COUNT + 13;
 
 	/**
 	 * The number of structural features of the '<em>Generator</em>' class.
@@ -202,7 +221,52 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_FEATURE_COUNT = 14;
+	int GENERATOR_FEATURE_COUNT = CommonPackage.RUN_FEATURE_COUNT + 14;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR___RUN = CommonPackage.RUN___RUN;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR___RUN__RUN = CommonPackage.RUN___RUN__RUN;
+
+	/**
+	 * The operation id for the '<em>Run Background</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR___RUN_BACKGROUND = CommonPackage.RUN___RUN_BACKGROUND;
+
+	/**
+	 * The operation id for the '<em>Cancel</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR___CANCEL = CommonPackage.RUN___CANCEL;
+
+	/**
+	 * The operation id for the '<em>On Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR___ON_PROGRESS__STRING_FLOAT = CommonPackage.RUN___ON_PROGRESS__STRING_FLOAT;
 
 	/**
 	 * The operation id for the '<em>Generate</em>' operation.
@@ -211,7 +275,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___GENERATE = 0;
+	int GENERATOR___GENERATE = CommonPackage.RUN_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Generate Root Tuples</em>' operation.
@@ -220,7 +284,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___GENERATE_ROOT_TUPLES = 1;
+	int GENERATOR___GENERATE_ROOT_TUPLES = CommonPackage.RUN_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Generate Tuples</em>' operation.
@@ -229,7 +293,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___GENERATE_TUPLES = 2;
+	int GENERATOR___GENERATE_TUPLES = CommonPackage.RUN_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Generate Vars</em>' operation.
@@ -238,7 +302,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___GENERATE_VARS = 3;
+	int GENERATOR___GENERATE_VARS = CommonPackage.RUN_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Generate Cons</em>' operation.
@@ -247,7 +311,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___GENERATE_CONS = 4;
+	int GENERATOR___GENERATE_CONS = CommonPackage.RUN_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Generate Goals</em>' operation.
@@ -256,7 +320,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___GENERATE_GOALS = 5;
+	int GENERATOR___GENERATE_GOALS = CommonPackage.RUN_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Accept Solution</em>' operation.
@@ -265,7 +329,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___ACCEPT_SOLUTION__SOLUTION = 6;
+	int GENERATOR___ACCEPT_SOLUTION__SOLUTION = CommonPackage.RUN_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Select Feature Mode</em>' operation.
@@ -274,7 +338,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___SELECT_FEATURE_MODE__GENERATORFEATUREMODE_GENERATORTUPLE = 7;
+	int GENERATOR___SELECT_FEATURE_MODE__GENERATORFEATUREMODE_GENERATORTUPLE = CommonPackage.RUN_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Visit Tuples</em>' operation.
@@ -283,7 +347,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___VISIT_TUPLES__ITUPLEVISITOR = 8;
+	int GENERATOR___VISIT_TUPLES__ITUPLEVISITOR = CommonPackage.RUN_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
@@ -292,7 +356,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___REFRESH_SELECTED_SOLUTION = 9;
+	int GENERATOR___REFRESH_SELECTED_SOLUTION = CommonPackage.RUN_OPERATION_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>Generator</em>' class.
@@ -301,7 +365,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_OPERATION_COUNT = 10;
+	int GENERATOR_OPERATION_COUNT = CommonPackage.RUN_OPERATION_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorTupleImpl <em>Generator Tuple</em>}' class.
@@ -1797,13 +1861,31 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_PROVIDER = 20;
 
 	/**
+	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER__CANCELED = CommonPackage.RUN__CANCELED;
+
+	/**
+	 * The feature id for the '<em><b>Parent Run</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER__PARENT_RUN = CommonPackage.RUN__PARENT_RUN;
+
+	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER__SOLUTION = IGENERATOR_TOOL_FEATURE_COUNT + 0;
+	int SOLUTION_PROVIDER__SOLUTION = CommonPackage.RUN_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Current Solution Nr</b></em>' attribute.
@@ -1812,7 +1894,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER__CURRENT_SOLUTION_NR = IGENERATOR_TOOL_FEATURE_COUNT + 1;
+	int SOLUTION_PROVIDER__CURRENT_SOLUTION_NR = CommonPackage.RUN_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -1821,7 +1903,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER__CODE = IGENERATOR_TOOL_FEATURE_COUNT + 2;
+	int SOLUTION_PROVIDER__CODE = CommonPackage.RUN_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Solution Provider</em>' class.
@@ -1830,7 +1912,52 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER_FEATURE_COUNT = IGENERATOR_TOOL_FEATURE_COUNT + 3;
+	int SOLUTION_PROVIDER_FEATURE_COUNT = CommonPackage.RUN_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER___RUN = CommonPackage.RUN___RUN;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER___RUN__RUN = CommonPackage.RUN___RUN__RUN;
+
+	/**
+	 * The operation id for the '<em>Run Background</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER___RUN_BACKGROUND = CommonPackage.RUN___RUN_BACKGROUND;
+
+	/**
+	 * The operation id for the '<em>Cancel</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER___CANCEL = CommonPackage.RUN___CANCEL;
+
+	/**
+	 * The operation id for the '<em>On Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER___ON_PROGRESS__STRING_FLOAT = CommonPackage.RUN___ON_PROGRESS__STRING_FLOAT;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -1839,7 +1966,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER___GET_GENERATOR = IGENERATOR_TOOL___GET_GENERATOR;
+	int SOLUTION_PROVIDER___GET_GENERATOR = CommonPackage.RUN_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Dispose</em>' operation.
@@ -1848,7 +1975,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER___DISPOSE = IGENERATOR_TOOL___DISPOSE;
+	int SOLUTION_PROVIDER___DISPOSE = CommonPackage.RUN_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Solution Factory</em>' operation.
@@ -1857,7 +1984,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER___SOLUTION_FACTORY = IGENERATOR_TOOL_OPERATION_COUNT + 0;
+	int SOLUTION_PROVIDER___SOLUTION_FACTORY = CommonPackage.RUN_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Construct Solution</em>' operation.
@@ -1866,7 +1993,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER___CONSTRUCT_SOLUTION = IGENERATOR_TOOL_OPERATION_COUNT + 1;
+	int SOLUTION_PROVIDER___CONSTRUCT_SOLUTION = CommonPackage.RUN_OPERATION_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Solution Provider</em>' class.
@@ -1875,7 +2002,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER_OPERATION_COUNT = IGENERATOR_TOOL_OPERATION_COUNT + 2;
+	int SOLUTION_PROVIDER_OPERATION_COUNT = CommonPackage.RUN_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionReaderImpl <em>Solution Reader</em>}' class.
@@ -1886,6 +2013,24 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	int SOLUTION_READER = 17;
+
+	/**
+	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER__CANCELED = SOLUTION_PROVIDER__CANCELED;
+
+	/**
+	 * The feature id for the '<em><b>Parent Run</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER__PARENT_RUN = SOLUTION_PROVIDER__PARENT_RUN;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
@@ -1931,6 +2076,51 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_READER_FEATURE_COUNT = SOLUTION_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER___RUN = SOLUTION_PROVIDER___RUN;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER___RUN__RUN = SOLUTION_PROVIDER___RUN__RUN;
+
+	/**
+	 * The operation id for the '<em>Run Background</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER___RUN_BACKGROUND = SOLUTION_PROVIDER___RUN_BACKGROUND;
+
+	/**
+	 * The operation id for the '<em>Cancel</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER___CANCEL = SOLUTION_PROVIDER___CANCEL;
+
+	/**
+	 * The operation id for the '<em>On Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER___ON_PROGRESS__STRING_FLOAT = SOLUTION_PROVIDER___ON_PROGRESS__STRING_FLOAT;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -2004,6 +2194,24 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	int SOLUTION_READER_PATTERN = 18;
+
+	/**
+	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER_PATTERN__CANCELED = SOLUTION_READER__CANCELED;
+
+	/**
+	 * The feature id for the '<em><b>Parent Run</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER_PATTERN__PARENT_RUN = SOLUTION_READER__PARENT_RUN;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
@@ -2094,6 +2302,51 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_READER_PATTERN_FEATURE_COUNT = SOLUTION_READER_FEATURE_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER_PATTERN___RUN = SOLUTION_READER___RUN;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER_PATTERN___RUN__RUN = SOLUTION_READER___RUN__RUN;
+
+	/**
+	 * The operation id for the '<em>Run Background</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER_PATTERN___RUN_BACKGROUND = SOLUTION_READER___RUN_BACKGROUND;
+
+	/**
+	 * The operation id for the '<em>Cancel</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER_PATTERN___CANCEL = SOLUTION_READER___CANCEL;
+
+	/**
+	 * The operation id for the '<em>On Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER_PATTERN___ON_PROGRESS__STRING_FLOAT = SOLUTION_READER___ON_PROGRESS__STRING_FLOAT;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -2260,6 +2513,24 @@ public interface SolverPackage extends EPackage {
 	int ILP_WRITER_OPERATION_COUNT = IGENERATOR_TOOL_OPERATION_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER__CANCELED = SOLUTION_PROVIDER__CANCELED;
+
+	/**
+	 * The feature id for the '<em><b>Parent Run</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER__PARENT_RUN = SOLUTION_PROVIDER__PARENT_RUN;
+
+	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2314,22 +2585,13 @@ public interface SolverPackage extends EPackage {
 	int SOLVER__SOLVER_MAX_DURATION = SOLUTION_PROVIDER_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Solver Background</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER__SOLVER_BACKGROUND = SOLUTION_PROVIDER_FEATURE_COUNT + 3;
-
-	/**
 	 * The feature id for the '<em><b>Solver Log Level</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__SOLVER_LOG_LEVEL = SOLUTION_PROVIDER_FEATURE_COUNT + 4;
+	int SOLVER__SOLVER_LOG_LEVEL = SOLUTION_PROVIDER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Solver Dump</b></em>' attribute.
@@ -2338,7 +2600,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__SOLVER_DUMP = SOLUTION_PROVIDER_FEATURE_COUNT + 5;
+	int SOLVER__SOLVER_DUMP = SOLUTION_PROVIDER_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Run Started</b></em>' attribute.
@@ -2347,7 +2609,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__RUN_STARTED = SOLUTION_PROVIDER_FEATURE_COUNT + 6;
+	int SOLVER__RUN_STARTED = SOLUTION_PROVIDER_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Run Initialization Ended</b></em>' attribute.
@@ -2356,7 +2618,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__RUN_INITIALIZATION_ENDED = SOLUTION_PROVIDER_FEATURE_COUNT + 7;
+	int SOLVER__RUN_INITIALIZATION_ENDED = SOLUTION_PROVIDER_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Run Solving Ended</b></em>' attribute.
@@ -2365,7 +2627,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__RUN_SOLVING_ENDED = SOLUTION_PROVIDER_FEATURE_COUNT + 8;
+	int SOLVER__RUN_SOLVING_ENDED = SOLUTION_PROVIDER_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Run Finalization Ended</b></em>' attribute.
@@ -2374,7 +2636,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__RUN_FINALIZATION_ENDED = SOLUTION_PROVIDER_FEATURE_COUNT + 9;
+	int SOLVER__RUN_FINALIZATION_ENDED = SOLUTION_PROVIDER_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Run Duration Initialization</b></em>' attribute.
@@ -2383,7 +2645,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__RUN_DURATION_INITIALIZATION = SOLUTION_PROVIDER_FEATURE_COUNT + 10;
+	int SOLVER__RUN_DURATION_INITIALIZATION = SOLUTION_PROVIDER_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Run Duration Finalization</b></em>' attribute.
@@ -2392,7 +2654,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__RUN_DURATION_FINALIZATION = SOLUTION_PROVIDER_FEATURE_COUNT + 11;
+	int SOLVER__RUN_DURATION_FINALIZATION = SOLUTION_PROVIDER_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Run Duration Solving</b></em>' attribute.
@@ -2401,7 +2663,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__RUN_DURATION_SOLVING = SOLUTION_PROVIDER_FEATURE_COUNT + 12;
+	int SOLVER__RUN_DURATION_SOLVING = SOLUTION_PROVIDER_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Run Request Terminate</b></em>' attribute.
@@ -2410,7 +2672,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__RUN_REQUEST_TERMINATE = SOLUTION_PROVIDER_FEATURE_COUNT + 13;
+	int SOLVER__RUN_REQUEST_TERMINATE = SOLUTION_PROVIDER_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Run Time Out</b></em>' attribute.
@@ -2419,7 +2681,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__RUN_TIME_OUT = SOLUTION_PROVIDER_FEATURE_COUNT + 14;
+	int SOLVER__RUN_TIME_OUT = SOLUTION_PROVIDER_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Sol Unfeasible</b></em>' attribute.
@@ -2428,7 +2690,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__SOL_UNFEASIBLE = SOLUTION_PROVIDER_FEATURE_COUNT + 15;
+	int SOLVER__SOL_UNFEASIBLE = SOLUTION_PROVIDER_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Sol Feasible</b></em>' attribute.
@@ -2437,7 +2699,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__SOL_FEASIBLE = SOLUTION_PROVIDER_FEATURE_COUNT + 16;
+	int SOLVER__SOL_FEASIBLE = SOLUTION_PROVIDER_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Sol Optimal</b></em>' attribute.
@@ -2446,7 +2708,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__SOL_OPTIMAL = SOLUTION_PROVIDER_FEATURE_COUNT + 17;
+	int SOLVER__SOL_OPTIMAL = SOLUTION_PROVIDER_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Sol Value</b></em>' attribute.
@@ -2455,7 +2717,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__SOL_VALUE = SOLUTION_PROVIDER_FEATURE_COUNT + 18;
+	int SOLVER__SOL_VALUE = SOLUTION_PROVIDER_FEATURE_COUNT + 17;
 
 	/**
 	 * The feature id for the '<em><b>Run Interrupted</b></em>' attribute.
@@ -2464,7 +2726,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__RUN_INTERRUPTED = SOLUTION_PROVIDER_FEATURE_COUNT + 19;
+	int SOLVER__RUN_INTERRUPTED = SOLUTION_PROVIDER_FEATURE_COUNT + 18;
 
 	/**
 	 * The feature id for the '<em><b>Initializing</b></em>' attribute.
@@ -2473,7 +2735,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__INITIALIZING = SOLUTION_PROVIDER_FEATURE_COUNT + 20;
+	int SOLVER__INITIALIZING = SOLUTION_PROVIDER_FEATURE_COUNT + 19;
 
 	/**
 	 * The feature id for the '<em><b>Solving</b></em>' attribute.
@@ -2482,7 +2744,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__SOLVING = SOLUTION_PROVIDER_FEATURE_COUNT + 21;
+	int SOLVER__SOLVING = SOLUTION_PROVIDER_FEATURE_COUNT + 20;
 
 	/**
 	 * The feature id for the '<em><b>Finalizing</b></em>' attribute.
@@ -2491,7 +2753,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__FINALIZING = SOLUTION_PROVIDER_FEATURE_COUNT + 22;
+	int SOLVER__FINALIZING = SOLUTION_PROVIDER_FEATURE_COUNT + 21;
 
 	/**
 	 * The feature id for the '<em><b>Finished</b></em>' attribute.
@@ -2500,7 +2762,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__FINISHED = SOLUTION_PROVIDER_FEATURE_COUNT + 23;
+	int SOLVER__FINISHED = SOLUTION_PROVIDER_FEATURE_COUNT + 22;
 
 	/**
 	 * The feature id for the '<em><b>Initial Solution</b></em>' reference.
@@ -2509,7 +2771,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__INITIAL_SOLUTION = SOLUTION_PROVIDER_FEATURE_COUNT + 24;
+	int SOLVER__INITIAL_SOLUTION = SOLUTION_PROVIDER_FEATURE_COUNT + 23;
 
 	/**
 	 * The feature id for the '<em><b>Goals</b></em>' containment reference list.
@@ -2518,7 +2780,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__GOALS = SOLUTION_PROVIDER_FEATURE_COUNT + 25;
+	int SOLVER__GOALS = SOLUTION_PROVIDER_FEATURE_COUNT + 24;
 
 	/**
 	 * The number of structural features of the '<em>Solver</em>' class.
@@ -2527,7 +2789,52 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_FEATURE_COUNT = SOLUTION_PROVIDER_FEATURE_COUNT + 26;
+	int SOLVER_FEATURE_COUNT = SOLUTION_PROVIDER_FEATURE_COUNT + 25;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER___RUN = SOLUTION_PROVIDER___RUN;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER___RUN__RUN = SOLUTION_PROVIDER___RUN__RUN;
+
+	/**
+	 * The operation id for the '<em>Run Background</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER___RUN_BACKGROUND = SOLUTION_PROVIDER___RUN_BACKGROUND;
+
+	/**
+	 * The operation id for the '<em>Cancel</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER___CANCEL = SOLUTION_PROVIDER___CANCEL;
+
+	/**
+	 * The operation id for the '<em>On Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER___ON_PROGRESS__STRING_FLOAT = SOLUTION_PROVIDER___ON_PROGRESS__STRING_FLOAT;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -2841,6 +3148,24 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_CP = 22;
 
 	/**
+	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP__CANCELED = SOLVER__CANCELED;
+
+	/**
+	 * The feature id for the '<em><b>Parent Run</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP__PARENT_RUN = SOLVER__PARENT_RUN;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionImpl <em>Solution</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2913,15 +3238,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_CP__SOLVER_MAX_DURATION = SOLVER__SOLVER_MAX_DURATION;
-
-	/**
-	 * The feature id for the '<em><b>Solver Background</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_CP__SOLVER_BACKGROUND = SOLVER__SOLVER_BACKGROUND;
 
 	/**
 	 * The feature id for the '<em><b>Solver Log Level</b></em>' attribute.
@@ -3140,6 +3456,51 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_CP_FEATURE_COUNT = SOLVER_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP___RUN = SOLVER___RUN;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP___RUN__RUN = SOLVER___RUN__RUN;
+
+	/**
+	 * The operation id for the '<em>Run Background</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP___RUN_BACKGROUND = SOLVER___RUN_BACKGROUND;
+
+	/**
+	 * The operation id for the '<em>Cancel</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP___CANCEL = SOLVER___CANCEL;
+
+	/**
+	 * The operation id for the '<em>On Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP___ON_PROGRESS__STRING_FLOAT = SOLVER___ON_PROGRESS__STRING_FLOAT;
+
+	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3311,6 +3672,24 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_CP_OPERATION_COUNT = SOLVER_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP__CANCELED = SOLVER__CANCELED;
+
+	/**
+	 * The feature id for the '<em><b>Parent Run</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP__PARENT_RUN = SOLVER__PARENT_RUN;
+
+	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3363,15 +3742,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP__SOLVER_MAX_DURATION = SOLVER__SOLVER_MAX_DURATION;
-
-	/**
-	 * The feature id for the '<em><b>Solver Background</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_LP__SOLVER_BACKGROUND = SOLVER__SOLVER_BACKGROUND;
 
 	/**
 	 * The feature id for the '<em><b>Solver Log Level</b></em>' attribute.
@@ -3606,6 +3976,51 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP_FEATURE_COUNT = SOLVER_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP___RUN = SOLVER___RUN;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP___RUN__RUN = SOLVER___RUN__RUN;
+
+	/**
+	 * The operation id for the '<em>Run Background</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP___RUN_BACKGROUND = SOLVER___RUN_BACKGROUND;
+
+	/**
+	 * The operation id for the '<em>Cancel</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP___CANCEL = SOLVER___CANCEL;
+
+	/**
+	 * The operation id for the '<em>On Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP___ON_PROGRESS__STRING_FLOAT = SOLVER___ON_PROGRESS__STRING_FLOAT;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -7647,17 +8062,6 @@ public interface SolverPackage extends EPackage {
 	EAttribute getSolver_SolverMaxDuration();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.Solver#isSolverBackground <em>Solver Background</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Solver Background</em>'.
-	 * @see com.misc.common.moplaf.solver.Solver#isSolverBackground()
-	 * @see #getSolver()
-	 * @generated
-	 */
-	EAttribute getSolver_SolverBackground();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.Solver#getSolverLogLevel <em>Solver Log Level</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10118,14 +10522,6 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOLVER__SOLVER_MAX_DURATION = eINSTANCE.getSolver_SolverMaxDuration();
-
-		/**
-		 * The meta object literal for the '<em><b>Solver Background</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SOLVER__SOLVER_BACKGROUND = eINSTANCE.getSolver_SolverBackground();
 
 		/**
 		 * The meta object literal for the '<em><b>Solver Log Level</b></em>' attribute feature.

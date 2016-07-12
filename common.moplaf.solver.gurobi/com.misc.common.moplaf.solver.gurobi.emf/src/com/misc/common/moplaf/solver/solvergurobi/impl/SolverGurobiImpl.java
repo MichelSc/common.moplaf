@@ -650,7 +650,7 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 	} // method lp load
 		
 	@Override
-	public void solveSolver() {
+	public void solveImpl() {
 	
 		// load the lp
 		this.loadLp();

@@ -28,7 +28,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getRemarks <em>Remarks</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getStatus <em>Status</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getSolverMaxDuration <em>Solver Max Duration</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.Solver#isSolverBackground <em>Solver Background</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getSolverLogLevel <em>Solver Log Level</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#isSolverDump <em>Solver Dump</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getRunStarted <em>Run Started</em>}</li>
@@ -139,32 +138,6 @@ public interface Solver extends SolutionProvider {
 	 * @generated
 	 */
 	void setSolverMaxDuration(float value);
-
-	/**
-	 * Returns the value of the '<em><b>Solver Background</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Solver Background</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Solver Background</em>' attribute.
-	 * @see #setSolverBackground(boolean)
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolver_SolverBackground()
-	 * @model
-	 * @generated
-	 */
-	boolean isSolverBackground();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.solver.Solver#isSolverBackground <em>Solver Background</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Solver Background</em>' attribute.
-	 * @see #isSolverBackground()
-	 * @generated
-	 */
-	void setSolverBackground(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Solver Log Level</b></em>' attribute.

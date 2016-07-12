@@ -921,7 +921,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 	 * <!-- end-user-doc -->
 	 */
 	@Override
-	protected void solveSolver() {
+	protected void solveImpl() {
 		//super.solveSolver();
 
 		this.loadLp();

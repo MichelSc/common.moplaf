@@ -246,7 +246,7 @@ public class SolverJacopImpl extends SolverCpImpl implements SolverJacop {
 	} // method lp load
 	
 	@Override
-	public void solveSolver() {
+	public void solveImpl() {
 
 		// load the model
 		this.loadCp();

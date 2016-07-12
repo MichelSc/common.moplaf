@@ -147,7 +147,7 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 	/*
 	 * 
 	 */
-	protected IProgressMonitor eMonitor = null;
+	private IProgressMonitor eMonitor = null;
 
 	/*
 	 * 

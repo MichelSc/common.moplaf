@@ -597,7 +597,7 @@ public class SolverJavaILPImpl extends SolverLpImpl implements SolverJavaILP {
 	} // method lp load
 	
 	@Override
-	public void solveSolver() {
+	public void solveImpl() {
 		
 		Generator generator = this.getGenerator();
 

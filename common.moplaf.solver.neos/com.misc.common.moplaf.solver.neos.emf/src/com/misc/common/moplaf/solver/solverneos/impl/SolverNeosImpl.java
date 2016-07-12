@@ -1015,7 +1015,7 @@ public class SolverNeosImpl extends SolverLpImpl implements SolverNeos {
 	 * @see com.misc.common.moplaf.solver.impl.SolverImpl#solveLp()
 	 */
 	@Override
-	public void solveSolver() {
+	public void solveImpl() {
 		this.submitJob();
 		
 		this.onInitializationEnd();

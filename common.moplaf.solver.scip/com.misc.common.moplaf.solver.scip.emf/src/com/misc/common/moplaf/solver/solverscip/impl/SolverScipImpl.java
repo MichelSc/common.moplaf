@@ -28,8 +28,6 @@ import de.zib.jscip.nativ.jni.JniScipConsLinear;
 import de.zib.jscip.nativ.jni.JniScipRetcode;
 import de.zib.jscip.nativ.jni.JniScipStatus;
 import de.zib.jscip.nativ.jni.JniScipVartype;
-
-import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
@@ -626,7 +624,7 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 	 * <!-- end-user-doc -->
 	 */
 	@Override
-	protected void solveSolver() {
+	protected void solveImpl() {
 
 		this.loadLp();
 		if ( this.envScip==null ) { return; }
