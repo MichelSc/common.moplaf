@@ -221,7 +221,7 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 			}
 			this.eMonitor.setTaskName(task);
 		} else if ( this.basicGetParentRun()!=null){
-			goOn = this.getParentRun().onProgress(task, work);
+			goOn = this.getParentRun().onProgress(task, work) && goOn;
 		}
 		if ( this.isCanceled() ){
 			goOn = false;
