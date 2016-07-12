@@ -17,7 +17,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
@@ -44,7 +43,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  *
  * @generated
  */
-public class JobImpl extends MinimalEObjectImpl.Container implements Job {
+public class JobImpl extends RunImpl implements Job {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -497,15 +496,13 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 		}
 		return args;
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
+	
+	/*
+	 * Return true if finisehd, false if stopped or canceled
+	 * 
 	 */
-	public void runImpl() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
+	protected boolean jobRunImpl(){
+		// to be implemented by the job implementation
 		throw new UnsupportedOperationException();
 	}
 
@@ -513,31 +510,24 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void start() {
+	@Override
+	protected boolean runImpl() {
 		this.setCreated(false);
 		this.setStopped(false);
 		this.setRunning(true);
 		this.setStartTime(new Date());
 
-		this.runImpl();
+		boolean finished = this.jobRunImpl();
 		
-		this.setFinished(true);
+		this.setFinished(finished);
+		this.setStopped(! finished);
 		this.setRunning(false);
 		this.setEndTime(new Date());
 		long ticks = this.getEndTime().getTime()-this.getStartTime().getTime();
 		float hours = (float)ticks/1000.0f/60.0f/60.0f;
 		this.setDuration(hours);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void stop() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		
+		return finished;
 	}
 
 	/**
@@ -735,15 +725,6 @@ public class JobImpl extends MinimalEObjectImpl.Container implements Job {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case CommonPackage.JOB___RUN_IMPL:
-				runImpl();
-				return null;
-			case CommonPackage.JOB___START:
-				start();
-				return null;
-			case CommonPackage.JOB___STOP:
-				stop();
-				return null;
 			case CommonPackage.JOB___GET_ARG_AS_STRING__INT:
 				return getArgAsString((Integer)arguments.get(0));
 			case CommonPackage.JOB___GET_ARG_AS_INT__INT:

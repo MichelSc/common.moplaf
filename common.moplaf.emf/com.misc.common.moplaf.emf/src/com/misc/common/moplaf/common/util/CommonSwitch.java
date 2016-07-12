@@ -69,6 +69,13 @@ public class CommonSwitch<T> extends Switch<T> {
 			case CommonPackage.JOB: {
 				Job job = (Job)theEObject;
 				T result = caseJob(job);
+				if (result == null) result = caseRun(job);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CommonPackage.RUN: {
+				Run run = (Run)theEObject;
+				T result = caseRun(run);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -88,6 +95,21 @@ public class CommonSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseJob(Job object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Run</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Run</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRun(Run object) {
 		return null;
 	}
 

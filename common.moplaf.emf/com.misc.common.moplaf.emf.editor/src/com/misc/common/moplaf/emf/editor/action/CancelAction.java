@@ -16,7 +16,7 @@ import java.util.Collection;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IWorkbenchPart;
 
-import com.misc.common.moplaf.emf.edit.command.StopCommand;
+import com.misc.common.moplaf.emf.edit.command.CancelCommand;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.UnexecutableCommand;
@@ -24,18 +24,18 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 
 
 /**
- * A stop action  is implemented by creating a {@link StopCommand}.
+ * A cancel action  is implemented by creating a {@link CancelCommand}.
  */
-public class StopAction extends CommandAction
+public class CancelAction extends CommandAction
 {
-	public final static String ID = "com.misc.common.moplaf.emf.editor.action.Stop";
+	public final static String ID = "com.misc.common.moplaf.emf.editor.action.Cancel";
 
 	/**
-	 * This constructs an instance of an action that uses the given editing domain to create a stop command
+	 * This constructs an instance of an action that uses the given editing domain to create a cancel command
 	 * for the <code>selection</code> object.
 	 * @since 2.4.0
 	 */
-	public StopAction(IWorkbenchPart part, ISelection selection)
+	public CancelAction(IWorkbenchPart part, ISelection selection)
 	{
 		super(part, selection);
 		this.setId(ID);
@@ -50,7 +50,7 @@ public class StopAction extends CommandAction
 		if (collection.size() == 1)
 		{
 			Object owner = collection.iterator().next();
-			return StopCommand.create(editingDomain, owner);
+			return CancelCommand.create(editingDomain, owner);
 		}
 		return UnexecutableCommand.INSTANCE;
 	}

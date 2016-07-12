@@ -95,6 +95,29 @@ public class CommonItemProviderAdapterFactory extends CommonAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.common.Run} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RunItemProvider runItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.common.Run}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRunAdapter() {
+		if (runItemProvider == null) {
+			runItemProvider = new RunItemProvider(this);
+		}
+
+		return runItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -194,6 +217,7 @@ public class CommonItemProviderAdapterFactory extends CommonAdapterFactory imple
 	 */
 	public void dispose() {
 		if (jobItemProvider != null) jobItemProvider.dispose();
+		if (runItemProvider != null) runItemProvider.dispose();
 	}
 
 }

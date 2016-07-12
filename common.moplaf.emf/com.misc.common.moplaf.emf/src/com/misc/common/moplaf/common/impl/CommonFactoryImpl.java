@@ -57,6 +57,7 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case CommonPackage.JOB: return createJob();
+			case CommonPackage.RUN: return createRun();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -70,6 +71,16 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 	public Job createJob() {
 		JobImpl job = new JobImpl();
 		return job;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Run createRun() {
+		RunImpl run = new RunImpl();
+		return run;
 	}
 
 	/**
