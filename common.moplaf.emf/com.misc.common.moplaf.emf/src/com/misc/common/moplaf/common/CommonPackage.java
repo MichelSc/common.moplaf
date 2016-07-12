@@ -186,22 +186,13 @@ public interface CommonPackage extends EPackage {
 	int JOB__NAME = RUN_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Background</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB__BACKGROUND = RUN_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Status</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__STATUS = RUN_FEATURE_COUNT + 2;
+	int JOB__STATUS = RUN_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -210,7 +201,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__DESCRIPTION = RUN_FEATURE_COUNT + 3;
+	int JOB__DESCRIPTION = RUN_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Start Time</b></em>' attribute.
@@ -219,7 +210,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__START_TIME = RUN_FEATURE_COUNT + 4;
+	int JOB__START_TIME = RUN_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>End Time</b></em>' attribute.
@@ -228,7 +219,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__END_TIME = RUN_FEATURE_COUNT + 5;
+	int JOB__END_TIME = RUN_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Duration</b></em>' attribute.
@@ -237,7 +228,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__DURATION = RUN_FEATURE_COUNT + 6;
+	int JOB__DURATION = RUN_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Created</b></em>' attribute.
@@ -246,7 +237,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__CREATED = RUN_FEATURE_COUNT + 7;
+	int JOB__CREATED = RUN_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Running</b></em>' attribute.
@@ -255,7 +246,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__RUNNING = RUN_FEATURE_COUNT + 8;
+	int JOB__RUNNING = RUN_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Stopped</b></em>' attribute.
@@ -264,7 +255,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__STOPPED = RUN_FEATURE_COUNT + 9;
+	int JOB__STOPPED = RUN_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Finished</b></em>' attribute.
@@ -273,7 +264,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__FINISHED = RUN_FEATURE_COUNT + 10;
+	int JOB__FINISHED = RUN_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Args</b></em>' attribute list.
@@ -282,7 +273,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__ARGS = RUN_FEATURE_COUNT + 11;
+	int JOB__ARGS = RUN_FEATURE_COUNT + 10;
 
 	/**
 	 * The number of structural features of the '<em>Job</em>' class.
@@ -291,7 +282,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_FEATURE_COUNT = RUN_FEATURE_COUNT + 12;
+	int JOB_FEATURE_COUNT = RUN_FEATURE_COUNT + 11;
 
 	/**
 	 * The operation id for the '<em>Run</em>' operation.
@@ -395,17 +386,6 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getJob_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.common.Job#isBackground <em>Background</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Background</em>'.
-	 * @see com.misc.common.moplaf.common.Job#isBackground()
-	 * @see #getJob()
-	 * @generated
-	 */
-	EAttribute getJob_Background();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.common.Job#getStatus <em>Status</em>}'.
@@ -669,14 +649,6 @@ public interface CommonPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute JOB__NAME = eINSTANCE.getJob_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Background</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JOB__BACKGROUND = eINSTANCE.getJob_Background();
 
 		/**
 		 * The meta object literal for the '<em><b>Status</b></em>' attribute feature.

@@ -23,10 +23,6 @@
                 <styles xmi:type="notation:FontStyle" xmi:id="_dBIIoUWoEeai4o6Ufvs2NA" fontName="Oxygen-Sans" fontHeight="8"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_dBIIokWoEeai4o6Ufvs2NA"/>
               </children>
-              <children xmi:type="notation:Node" xmi:id="_JCK08EWqEeai4o6Ufvs2NA" type="3010" element="_JB_10EWqEeai4o6Ufvs2NA">
-                <styles xmi:type="notation:FontStyle" xmi:id="_JCK08UWqEeai4o6Ufvs2NA" fontColor="2697711" fontName="Oxygen-Sans" fontHeight="8"/>
-                <layoutConstraint xmi:type="notation:Location" xmi:id="_JCK08kWqEeai4o6Ufvs2NA"/>
-              </children>
               <children xmi:type="notation:Node" xmi:id="_dBIvsEWoEeai4o6Ufvs2NA" type="3010" element="_dA10wEWoEeai4o6Ufvs2NA">
                 <styles xmi:type="notation:FontStyle" xmi:id="_dBIvsUWoEeai4o6Ufvs2NA" fontName="Oxygen-Sans" fontHeight="8"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_dBIvskWoEeai4o6Ufvs2NA"/>
@@ -167,14 +163,6 @@
           <target xmi:type="ecore:EAttribute" href="common.ecore#//Job/Name"/>
           <semanticElements xmi:type="ecore:EAttribute" href="common.ecore#//Job/Name"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_dA0moEWoEeai4o6Ufvs2NA" labelAlignment="LEFT">
-            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
-          </ownedStyle>
-          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
-        </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_JB_10EWqEeai4o6Ufvs2NA" name="Background : EBoolean = false" tooltipText="">
-          <target xmi:type="ecore:EAttribute" href="common.ecore#//Job/Background"/>
-          <semanticElements xmi:type="ecore:EAttribute" href="common.ecore#//Job/Background"/>
-          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_MXGJYEWqEeai4o6Ufvs2NA" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>

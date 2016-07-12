@@ -28,7 +28,6 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.common.impl.JobImpl#getName <em>Name</em>}</li>
- *   <li>{@link com.misc.common.moplaf.common.impl.JobImpl#isBackground <em>Background</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.impl.JobImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.impl.JobImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.impl.JobImpl#getStartTime <em>Start Time</em>}</li>
@@ -63,26 +62,6 @@ public class JobImpl extends RunImpl implements Job {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isBackground() <em>Background</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isBackground()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean BACKGROUND_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isBackground() <em>Background</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isBackground()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean background = BACKGROUND_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getStatus() <em>Status</em>}' attribute.
@@ -292,27 +271,6 @@ public class JobImpl extends RunImpl implements Job {
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CommonPackage.JOB__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isBackground() {
-		return background;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBackground(boolean newBackground) {
-		boolean oldBackground = background;
-		background = newBackground;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CommonPackage.JOB__BACKGROUND, oldBackground, background));
 	}
 
 	/**
@@ -569,8 +527,6 @@ public class JobImpl extends RunImpl implements Job {
 		switch (featureID) {
 			case CommonPackage.JOB__NAME:
 				return getName();
-			case CommonPackage.JOB__BACKGROUND:
-				return isBackground();
 			case CommonPackage.JOB__STATUS:
 				return getStatus();
 			case CommonPackage.JOB__DESCRIPTION:
@@ -606,9 +562,6 @@ public class JobImpl extends RunImpl implements Job {
 		switch (featureID) {
 			case CommonPackage.JOB__NAME:
 				setName((String)newValue);
-				return;
-			case CommonPackage.JOB__BACKGROUND:
-				setBackground((Boolean)newValue);
 				return;
 			case CommonPackage.JOB__START_TIME:
 				setStartTime((Date)newValue);
@@ -650,9 +603,6 @@ public class JobImpl extends RunImpl implements Job {
 			case CommonPackage.JOB__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case CommonPackage.JOB__BACKGROUND:
-				setBackground(BACKGROUND_EDEFAULT);
-				return;
 			case CommonPackage.JOB__START_TIME:
 				setStartTime(START_TIME_EDEFAULT);
 				return;
@@ -691,8 +641,6 @@ public class JobImpl extends RunImpl implements Job {
 		switch (featureID) {
 			case CommonPackage.JOB__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case CommonPackage.JOB__BACKGROUND:
-				return background != BACKGROUND_EDEFAULT;
 			case CommonPackage.JOB__STATUS:
 				return STATUS_EDEFAULT == null ? getStatus() != null : !STATUS_EDEFAULT.equals(getStatus());
 			case CommonPackage.JOB__DESCRIPTION:
@@ -747,8 +695,6 @@ public class JobImpl extends RunImpl implements Job {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (Name: ");
 		result.append(name);
-		result.append(", Background: ");
-		result.append(background);
 		result.append(", StartTime: ");
 		result.append(startTime);
 		result.append(", EndTime: ");

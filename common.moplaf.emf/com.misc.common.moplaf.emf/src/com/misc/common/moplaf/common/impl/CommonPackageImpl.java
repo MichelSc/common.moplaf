@@ -120,7 +120,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Background() {
+	public EAttribute getJob_Status() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -129,7 +129,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Status() {
+	public EAttribute getJob_Description() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -138,7 +138,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Description() {
+	public EAttribute getJob_StartTime() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -147,7 +147,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_StartTime() {
+	public EAttribute getJob_EndTime() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -156,7 +156,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_EndTime() {
+	public EAttribute getJob_Duration() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -165,7 +165,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Duration() {
+	public EAttribute getJob_Created() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -174,7 +174,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Created() {
+	public EAttribute getJob_Running() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -183,7 +183,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Running() {
+	public EAttribute getJob_Stopped() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -192,7 +192,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Stopped() {
+	public EAttribute getJob_Finished() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -201,17 +201,8 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Finished() {
-		return (EAttribute)jobEClass.getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getJob_Args() {
-		return (EAttribute)jobEClass.getEStructuralFeatures().get(11);
+		return (EAttribute)jobEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -343,7 +334,6 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		// Create classes and their features
 		jobEClass = createEClass(JOB);
 		createEAttribute(jobEClass, JOB__NAME);
-		createEAttribute(jobEClass, JOB__BACKGROUND);
 		createEAttribute(jobEClass, JOB__STATUS);
 		createEAttribute(jobEClass, JOB__DESCRIPTION);
 		createEAttribute(jobEClass, JOB__START_TIME);
@@ -401,7 +391,6 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(jobEClass, Job.class, "Job", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJob_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJob_Background(), ecorePackage.getEBoolean(), "Background", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_Status(), ecorePackage.getEString(), "Status", null, 0, 1, Job.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_Description(), ecorePackage.getEString(), "Description", null, 0, 1, Job.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_StartTime(), ecorePackage.getEDate(), "StartTime", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

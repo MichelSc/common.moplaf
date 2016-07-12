@@ -16,7 +16,6 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.common.Job#getName <em>Name</em>}</li>
- *   <li>{@link com.misc.common.moplaf.common.Job#isBackground <em>Background</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.Job#getStatus <em>Status</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.Job#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.Job#getStartTime <em>Start Time</em>}</li>
@@ -59,32 +58,6 @@ public interface Job extends Run {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Background</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Background</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Background</em>' attribute.
-	 * @see #setBackground(boolean)
-	 * @see com.misc.common.moplaf.common.CommonPackage#getJob_Background()
-	 * @model
-	 * @generated
-	 */
-	boolean isBackground();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.common.Job#isBackground <em>Background</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Background</em>' attribute.
-	 * @see #isBackground()
-	 * @generated
-	 */
-	void setBackground(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' attribute.

@@ -5,17 +5,10 @@ package com.misc.common.moplaf.common.provider;
 
 import com.misc.common.moplaf.common.CommonPackage;
 import com.misc.common.moplaf.common.Job;
-import com.misc.common.moplaf.emf.edit.command.StartCommand;
-import com.misc.common.moplaf.emf.edit.command.StopCommand;
-
 import java.util.Collection;
 import java.util.List;
-
-import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.edit.command.CommandParameter;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -51,7 +44,6 @@ public class JobItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addBackgroundPropertyDescriptor(object);
 			addStatusPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addStartTimePropertyDescriptor(object);
@@ -80,28 +72,6 @@ public class JobItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10JobPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Background feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addBackgroundPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Job_Background_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Job_Background_feature", "_UI_Job_type"),
-				 CommonPackage.Literals.JOB__BACKGROUND,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 getString("_UI__10JobPropertyCategory"),
 				 null));
 	}
@@ -276,7 +246,6 @@ public class JobItemProvider
 
 		switch (notification.getFeatureID(Job.class)) {
 			case CommonPackage.JOB__NAME:
-			case CommonPackage.JOB__BACKGROUND:
 			case CommonPackage.JOB__STATUS:
 			case CommonPackage.JOB__DESCRIPTION:
 			case CommonPackage.JOB__START_TIME:
