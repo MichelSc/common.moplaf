@@ -40,5 +40,10 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="canceled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ParentRun" eType="#//Run"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="runFeedback" eType="#//CommandFeedback"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cancelFeedback" eType="#//CommandFeedback"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="CommandFeedback" instanceClassName="com.misc.common.moplaf.common.CommandFeedback"/>
 </ecore:EPackage>

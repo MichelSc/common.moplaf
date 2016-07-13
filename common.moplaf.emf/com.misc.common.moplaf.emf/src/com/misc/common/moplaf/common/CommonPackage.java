@@ -4,6 +4,7 @@ package com.misc.common.moplaf.common;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -86,13 +87,31 @@ public interface CommonPackage extends EPackage {
 	int RUN__PARENT_RUN = 1;
 
 	/**
+	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUN__RUN_FEEDBACK = 2;
+
+	/**
+	 * The feature id for the '<em><b>Cancel Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUN__CANCEL_FEEDBACK = 3;
+
+	/**
 	 * The number of structural features of the '<em>Run</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RUN_FEATURE_COUNT = 2;
+	int RUN_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Run</em>' operation.
@@ -175,6 +194,24 @@ public interface CommonPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB__PARENT_RUN = RUN__PARENT_RUN;
+
+	/**
+	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB__RUN_FEEDBACK = RUN__RUN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Cancel Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB__CANCEL_FEEDBACK = RUN__CANCEL_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -364,6 +401,17 @@ public interface CommonPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB_OPERATION_COUNT = RUN_OPERATION_COUNT + 3;
+
+
+	/**
+	 * The meta object id for the '<em>Command Feedback</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.common.CommandFeedback
+	 * @see com.misc.common.moplaf.common.impl.CommonPackageImpl#getCommandFeedback()
+	 * @generated
+	 */
+	int COMMAND_FEEDBACK = 2;
 
 
 	/**
@@ -560,6 +608,28 @@ public interface CommonPackage extends EPackage {
 	EReference getRun_ParentRun();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.common.Run#getRunFeedback <em>Run Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Run Feedback</em>'.
+	 * @see com.misc.common.moplaf.common.Run#getRunFeedback()
+	 * @see #getRun()
+	 * @generated
+	 */
+	EAttribute getRun_RunFeedback();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.common.Run#getCancelFeedback <em>Cancel Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cancel Feedback</em>'.
+	 * @see com.misc.common.moplaf.common.Run#getCancelFeedback()
+	 * @see #getRun()
+	 * @generated
+	 */
+	EAttribute getRun_CancelFeedback();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.common.Run#run() <em>Run</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -608,6 +678,17 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getRun__OnProgress__String_float();
+
+	/**
+	 * Returns the meta object for data type '{@link com.misc.common.moplaf.common.CommandFeedback <em>Command Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Command Feedback</em>'.
+	 * @see com.misc.common.moplaf.common.CommandFeedback
+	 * @model instanceClass="com.misc.common.moplaf.common.CommandFeedback"
+	 * @generated
+	 */
+	EDataType getCommandFeedback();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -781,6 +862,22 @@ public interface CommonPackage extends EPackage {
 		EReference RUN__PARENT_RUN = eINSTANCE.getRun_ParentRun();
 
 		/**
+		 * The meta object literal for the '<em><b>Run Feedback</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RUN__RUN_FEEDBACK = eINSTANCE.getRun_RunFeedback();
+
+		/**
+		 * The meta object literal for the '<em><b>Cancel Feedback</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RUN__CANCEL_FEEDBACK = eINSTANCE.getRun_CancelFeedback();
+
+		/**
 		 * The meta object literal for the '<em><b>Run</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -819,6 +916,16 @@ public interface CommonPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation RUN___ON_PROGRESS__STRING_FLOAT = eINSTANCE.getRun__OnProgress__String_float();
+
+		/**
+		 * The meta object literal for the '<em>Command Feedback</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.common.CommandFeedback
+		 * @see com.misc.common.moplaf.common.impl.CommonPackageImpl#getCommandFeedback()
+		 * @generated
+		 */
+		EDataType COMMAND_FEEDBACK = eINSTANCE.getCommandFeedback();
 
 	}
 

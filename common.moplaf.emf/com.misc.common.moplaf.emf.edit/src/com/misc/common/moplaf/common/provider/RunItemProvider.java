@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.common.provider;
 
 
+import com.misc.common.moplaf.common.CommandFeedback;
 import com.misc.common.moplaf.common.CommonPackage;
 import com.misc.common.moplaf.common.Run;
 import com.misc.common.moplaf.emf.edit.command.CancelCommand;
@@ -67,6 +68,8 @@ public class RunItemProvider
 
 			addCanceledPropertyDescriptor(object);
 			addParentRunPropertyDescriptor(object);
+			addRunFeedbackPropertyDescriptor(object);
+			addCancelFeedbackPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -85,11 +88,11 @@ public class RunItemProvider
 				 getString("_UI_Run_canceled_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Run_canceled_feature", "_UI_Run_type"),
 				 CommonPackage.Literals.RUN__CANCELED,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20StatusPropertyCategory"),
 				 null));
 	}
 
@@ -107,10 +110,54 @@ public class RunItemProvider
 				 getString("_UI_Run_ParentRun_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Run_ParentRun_feature", "_UI_Run_type"),
 				 CommonPackage.Literals.RUN__PARENT_RUN,
-				 true,
+				 false,
 				 false,
 				 true,
 				 null,
+				 getString("_UI__10JobPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Run Feedback feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRunFeedbackPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Run_runFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Run_runFeedback_feature", "_UI_Run_type"),
+				 CommonPackage.Literals.RUN__RUN_FEEDBACK,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Cancel Feedback feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCancelFeedbackPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Run_cancelFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Run_cancelFeedback_feature", "_UI_Run_type"),
+				 CommonPackage.Literals.RUN__CANCEL_FEEDBACK,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -152,6 +199,8 @@ public class RunItemProvider
 
 		switch (notification.getFeatureID(Run.class)) {
 			case CommonPackage.RUN__CANCELED:
+			case CommonPackage.RUN__RUN_FEEDBACK:
+			case CommonPackage.RUN__CANCEL_FEEDBACK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -193,6 +242,17 @@ public class RunItemProvider
 		}
 
 		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			CommandFeedback feedback = this.run.getRunFeedback();
+			if ( !feedback.isMayExecute() ) {
+				isExecutable = false;
+				this.setDescription(feedback.getFeedback());
+			}
+			return isExecutable;
+		}
+
+		@Override
 		public void execute() {
 			this.run.run();
 		}
@@ -210,13 +270,24 @@ public class RunItemProvider
 		}
 
 		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			CommandFeedback feedback = this.run.getRunFeedback();
+			if ( !feedback.isMayExecute() ) {
+				isExecutable = false;
+				this.setDescription(feedback.getFeedback());
+			}
+			return isExecutable;
+		}
+
+		@Override
 		public void execute() {
 			this.run.runBackground();
 		}
 	} // class RunRunBackgroundCommand
 	
 	/*
-	 * RunRunCommand
+	 * RunCancelCommand
 	 */
 	public class RunCancelCommand extends CancelCommand{
 		private Run run;
@@ -224,6 +295,17 @@ public class RunItemProvider
 		// constructor
 		public RunCancelCommand(Run aRun)	{
 			this.run = aRun;
+		}
+
+		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			CommandFeedback feedback = this.run.getCancelFeedback();
+			if ( !feedback.isMayExecute() ) {
+				isExecutable = false;
+				this.setDescription(feedback.getFeedback());
+			}
+			return isExecutable;
 		}
 
 		@Override

@@ -15,6 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.common.Run#isCanceled <em>Canceled</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.Run#getParentRun <em>Parent Run</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.common.Run#getRunFeedback <em>Run Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.common.Run#getCancelFeedback <em>Cancel Feedback</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.common.CommonPackage#getRun()
@@ -73,6 +75,36 @@ public interface Run extends EObject {
 	 * @generated
 	 */
 	void setParentRun(Run value);
+
+	/**
+	 * Returns the value of the '<em><b>Run Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Run Feedback</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Run Feedback</em>' attribute.
+	 * @see com.misc.common.moplaf.common.CommonPackage#getRun_RunFeedback()
+	 * @model dataType="com.misc.common.moplaf.common.CommandFeedback" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	CommandFeedback getRunFeedback();
+
+	/**
+	 * Returns the value of the '<em><b>Cancel Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Cancel Feedback</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Cancel Feedback</em>' attribute.
+	 * @see com.misc.common.moplaf.common.CommonPackage#getRun_CancelFeedback()
+	 * @model dataType="com.misc.common.moplaf.common.CommandFeedback" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	CommandFeedback getCancelFeedback();
 
 	/**
 	 * <!-- begin-user-doc -->

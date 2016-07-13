@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.common.impl;
 
+import com.misc.common.moplaf.common.CommandFeedback;
 import com.misc.common.moplaf.common.CommonPackage;
 import com.misc.common.moplaf.common.Run;
 
@@ -31,6 +32,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.common.impl.RunImpl#isCanceled <em>Canceled</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.impl.RunImpl#getParentRun <em>Parent Run</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.common.impl.RunImpl#getRunFeedback <em>Run Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.common.impl.RunImpl#getCancelFeedback <em>Cancel Feedback</em>}</li>
  * </ul>
  *
  * @generated
@@ -65,6 +68,26 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 	 * @ordered
 	 */
 	protected Run parentRun;
+
+	/**
+	 * The default value of the '{@link #getRunFeedback() <em>Run Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRunFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final CommandFeedback RUN_FEEDBACK_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getCancelFeedback() <em>Cancel Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCancelFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final CommandFeedback CANCEL_FEEDBACK_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -142,6 +165,22 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 		parentRun = newParentRun;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CommonPackage.RUN__PARENT_RUN, oldParentRun, parentRun));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public CommandFeedback getRunFeedback() {
+		return CommandFeedback.NOFEEDBACK;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public CommandFeedback getCancelFeedback() {
+		return CommandFeedback.NOFEEDBACK;
 	}
 
 	/*
@@ -242,6 +281,10 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 			case CommonPackage.RUN__PARENT_RUN:
 				if (resolve) return getParentRun();
 				return basicGetParentRun();
+			case CommonPackage.RUN__RUN_FEEDBACK:
+				return getRunFeedback();
+			case CommonPackage.RUN__CANCEL_FEEDBACK:
+				return getCancelFeedback();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -294,6 +337,10 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 				return canceled != CANCELED_EDEFAULT;
 			case CommonPackage.RUN__PARENT_RUN:
 				return parentRun != null;
+			case CommonPackage.RUN__RUN_FEEDBACK:
+				return RUN_FEEDBACK_EDEFAULT == null ? getRunFeedback() != null : !RUN_FEEDBACK_EDEFAULT.equals(getRunFeedback());
+			case CommonPackage.RUN__CANCEL_FEEDBACK:
+				return CANCEL_FEEDBACK_EDEFAULT == null ? getCancelFeedback() != null : !CANCEL_FEEDBACK_EDEFAULT.equals(getCancelFeedback());
 		}
 		return super.eIsSet(featureID);
 	}

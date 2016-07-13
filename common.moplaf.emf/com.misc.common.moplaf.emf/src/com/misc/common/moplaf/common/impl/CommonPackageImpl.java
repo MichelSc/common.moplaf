@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.common.impl;
 
+import com.misc.common.moplaf.common.CommandFeedback;
 import com.misc.common.moplaf.common.CommonFactory;
 import com.misc.common.moplaf.common.CommonPackage;
 import com.misc.common.moplaf.common.Job;
@@ -9,6 +10,7 @@ import com.misc.common.moplaf.common.Job;
 import com.misc.common.moplaf.common.Run;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -35,6 +37,13 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * @generated
 	 */
 	private EClass runEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType commandFeedbackEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -264,6 +273,24 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getRun_RunFeedback() {
+		return (EAttribute)runEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRun_CancelFeedback() {
+		return (EAttribute)runEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getRun__Run() {
 		return runEClass.getEOperations().get(0);
 	}
@@ -302,6 +329,15 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 */
 	public EOperation getRun__OnProgress__String_float() {
 		return runEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getCommandFeedback() {
+		return commandFeedbackEDataType;
 	}
 
 	/**
@@ -351,11 +387,16 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		runEClass = createEClass(RUN);
 		createEAttribute(runEClass, RUN__CANCELED);
 		createEReference(runEClass, RUN__PARENT_RUN);
+		createEAttribute(runEClass, RUN__RUN_FEEDBACK);
+		createEAttribute(runEClass, RUN__CANCEL_FEEDBACK);
 		createEOperation(runEClass, RUN___RUN);
 		createEOperation(runEClass, RUN___RUN__RUN);
 		createEOperation(runEClass, RUN___RUN_BACKGROUND);
 		createEOperation(runEClass, RUN___CANCEL);
 		createEOperation(runEClass, RUN___ON_PROGRESS__STRING_FLOAT);
+
+		// Create data types
+		commandFeedbackEDataType = createEDataType(COMMAND_FEEDBACK);
 	}
 
 	/**
@@ -414,6 +455,8 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		initEClass(runEClass, Run.class, "Run", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRun_Canceled(), ecorePackage.getEBoolean(), "canceled", null, 0, 1, Run.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRun_ParentRun(), this.getRun(), null, "ParentRun", null, 0, 1, Run.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRun_RunFeedback(), this.getCommandFeedback(), "runFeedback", null, 0, 1, Run.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRun_CancelFeedback(), this.getCommandFeedback(), "cancelFeedback", null, 0, 1, Run.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getRun__Run(), ecorePackage.getEBoolean(), "run", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -427,6 +470,9 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		op = initEOperation(getRun__OnProgress__String_float(), ecorePackage.getEBoolean(), "onProgress", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "task", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEFloat(), "work", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		// Initialize data types
+		initEDataType(commandFeedbackEDataType, CommandFeedback.class, "CommandFeedback", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
