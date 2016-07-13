@@ -9,8 +9,6 @@
       ecorePackage="common.ecore#/">
     <genClasses ecoreClass="common.ecore#//Job" labelFeature="#//common/Job/Description">
       <genFeatures createChild="false" propertyCategory="10 Job" ecoreFeature="ecore:EAttribute common.ecore#//Job/Name"/>
-      <genFeatures createChild="false" propertyCategory="10 Job" propertyDescription=""
-          ecoreFeature="ecore:EAttribute common.ecore#//Job/Background"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="20 Status"
           propertyDescription="" ecoreFeature="ecore:EAttribute common.ecore#//Job/Status"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job"
@@ -26,9 +24,6 @@
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Job/Stopped"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Job/Finished"/>
       <genFeatures createChild="false" propertyCategory="10 Job" ecoreFeature="ecore:EAttribute common.ecore#//Job/Args"/>
-      <genOperations ecoreOperation="common.ecore#//Job/runImpl"/>
-      <genOperations ecoreOperation="common.ecore#//Job/start"/>
-      <genOperations ecoreOperation="common.ecore#//Job/stop"/>
       <genOperations ecoreOperation="common.ecore#//Job/getArgAsString">
         <genParameters ecoreParameter="common.ecore#//Job/getArgAsString/index"/>
       </genOperations>
@@ -37,6 +32,22 @@
       </genOperations>
       <genOperations ecoreOperation="common.ecore#//Job/getArgAsFloat">
         <genParameters ecoreParameter="common.ecore#//Job/getArgAsFloat/index"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="common.ecore#//Run">
+      <genFeatures property="Readonly" createChild="false" propertyCategory="20 Status"
+          ecoreFeature="ecore:EAttribute common.ecore#//Run/canceled"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="10 Job"
+          propertySortChoices="true" ecoreFeature="ecore:EReference common.ecore#//Run/ParentRun"/>
+      <genOperations ecoreOperation="common.ecore#//Run/run"/>
+      <genOperations ecoreOperation="common.ecore#//Run/run.1">
+        <genParameters ecoreParameter="common.ecore#//Run/run.1/parentRun"/>
+      </genOperations>
+      <genOperations ecoreOperation="common.ecore#//Run/runBackground"/>
+      <genOperations ecoreOperation="common.ecore#//Run/cancel"/>
+      <genOperations ecoreOperation="common.ecore#//Run/onProgress">
+        <genParameters ecoreParameter="common.ecore#//Run/onProgress/task"/>
+        <genParameters ecoreParameter="common.ecore#//Run/onProgress/work"/>
       </genOperations>
     </genClasses>
   </genPackages>
