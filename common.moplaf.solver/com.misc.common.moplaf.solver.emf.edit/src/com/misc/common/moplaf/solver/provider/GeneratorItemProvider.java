@@ -376,31 +376,4 @@ public class GeneratorItemProvider
 		return SolverEditPlugin.INSTANCE;
 	}
 
-	
-	public class GeneratorRunCommand extends RunCommand{
-		private Generator generator;
-		
-		// constructor
-		public GeneratorRunCommand(Generator agenerator)	{
-			super();
-			this.generator = agenerator;
-		}
-
-		@Override
-		public void execute() {
-			this.generator.generate();
-		}
-	} // class GeneratorRunCommand
-
-	@Override
-	public Command createCommand(Object object, EditingDomain domain,
-			Class<? extends Command> commandClass,
-			CommandParameter commandParameter) {
-		if ( commandClass == RunCommand.class){
-			return new GeneratorRunCommand((Generator) object); 
-		}
-		return super.createCommand(object, domain, commandClass, commandParameter);
-	}
-	
-
 }

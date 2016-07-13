@@ -593,7 +593,19 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 		}
 		return newList;
 	}
+	
+	
 
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.misc.common.moplaf.common.impl.RunImpl#runImpl()
+	 */
+	@Override
+	protected boolean runImpl() {
+		this.generate();
+		return true;
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
