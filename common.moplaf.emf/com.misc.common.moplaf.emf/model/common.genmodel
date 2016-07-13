@@ -7,6 +7,7 @@
   <foreignModel>common.ecore</foreignModel>
   <genPackages prefix="Common" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
       ecorePackage="common.ecore#/">
+    <genDataTypes ecoreDataType="common.ecore#//CommandFeedback"/>
     <genClasses ecoreClass="common.ecore#//Job" labelFeature="#//common/Job/Description">
       <genFeatures createChild="false" propertyCategory="10 Job" ecoreFeature="ecore:EAttribute common.ecore#//Job/Name"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="20 Status"
@@ -39,6 +40,10 @@
           ecoreFeature="ecore:EAttribute common.ecore#//Run/canceled"/>
       <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="10 Job"
           propertySortChoices="true" ecoreFeature="ecore:EReference common.ecore#//Run/ParentRun"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 General"
+          ecoreFeature="ecore:EAttribute common.ecore#//Run/runFeedback"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 General"
+          ecoreFeature="ecore:EAttribute common.ecore#//Run/cancelFeedback"/>
       <genOperations ecoreOperation="common.ecore#//Run/run"/>
       <genOperations ecoreOperation="common.ecore#//Run/run.1">
         <genParameters ecoreParameter="common.ecore#//Run/run.1/parentRun"/>

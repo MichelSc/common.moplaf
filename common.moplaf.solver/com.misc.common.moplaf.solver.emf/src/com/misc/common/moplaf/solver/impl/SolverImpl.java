@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
+import com.misc.common.moplaf.common.CommandFeedback;
 import com.misc.common.moplaf.solver.EnumGoalType;
 import com.misc.common.moplaf.solver.EnumLpConsType;
 import com.misc.common.moplaf.solver.EnumSolverLogLevel;
@@ -1403,7 +1404,19 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		this.generatorGoalsToSolve = null;
 	}
 
-	
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.misc.common.moplaf.common.impl.RunImpl#getRunFeedback()
+	 */
+	@Override
+	public CommandFeedback getRunFeedback() {
+		if ( this.isInitializing()){
+			return new CommandFeedback(false, "initializing");
+		}
+		return CommandFeedback.NOFEEDBACK;
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * @see com.misc.common.moplaf.common.impl.RunImpl#runImpl()

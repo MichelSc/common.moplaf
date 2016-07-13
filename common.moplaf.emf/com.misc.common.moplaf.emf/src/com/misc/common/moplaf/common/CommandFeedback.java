@@ -19,4 +19,11 @@ public class CommandFeedback {
 	public String getFeedback() {
 		return feedback;
 	}
+
+	@Override
+	public String toString() {
+		if ( this.mayExecute) { return ""; }
+		return "May not execute, feedback=" + feedback + "";
+	}
+	
 }

@@ -180,6 +180,9 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 	 * <!-- end-user-doc -->
 	 */
 	public CommandFeedback getCancelFeedback() {
+		if ( this.isCanceled()){
+			return new CommandFeedback(false, "canceled");
+		}
 		return CommandFeedback.NOFEEDBACK;
 	}
 
@@ -239,6 +242,8 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 		  //Plugin.INSTANCE.logInfo("solve, job submitted");
 		  job.schedule(); // start as soon as possible			}
 	}
+	
+	
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -680,33 +680,6 @@ public class SolverItemProvider
 	}
 
 	/**
-	 * Implements command R4unCommand for this Solver
-	 */
-	public class SolverRunCommand extends RunCommand{
-		private Solver solver;
-		
-		// constructor
-		public SolverRunCommand(Solver asolver)	{
-			this.solver = asolver;
-		}
-		
-		@Override
-		protected boolean prepare(){
-			boolean isExecutable = true;
-			if ( this.solver.isInitializing()){
-				isExecutable = false;
-				this.setDescription("initializing");
-			}
-			return isExecutable;
-		}
-
-		@Override
-		public void execute() {
-			this.solver.solve();
-		}
-	} // class SolverRunCommand
-
-	/**
 	 * Implements command WriteCommande for this Solver
 	 */
 	public class SolverWriteCommand extends WriteCommand{
@@ -723,6 +696,24 @@ public class SolverItemProvider
 			this.writer.writeLpToFile();
 		}
 	} // class WriterRunCommand
+	
+	
+	/**
+	 * Create a command for this Solver
+	 */
+	@Override
+	public Command createCommand(Object object, EditingDomain domain,
+			Class<? extends Command> commandClass,
+			CommandParameter commandParameter) {
+		if ( commandClass == WriteCommand.class){
+			if ( object instanceof ILpWriter ){
+			return new SolverWriteCommand((ILpWriter) object);
+			}
+		}
+		return super.createCommand(object, domain, commandClass, commandParameter);
+	} //method createCommand
+
+
 	
 	/**
 	 * Implements Command constructGoal
@@ -751,27 +742,7 @@ public class SolverItemProvider
 		}
 
 	}
-	
-	/**
-	 * Create a command for this Solver
-	 */
-	@Override
-	public Command createCommand(Object object, EditingDomain domain,
-			Class<? extends Command> commandClass,
-			CommandParameter commandParameter) {
-		if ( commandClass == RunCommand.class){
-			return new SolverRunCommand((Solver) object); 
-		}
-		if ( commandClass == WriteCommand.class){
-			if ( object instanceof ILpWriter ){
-			return new SolverWriteCommand((ILpWriter) object);
-			}
-		}
-		return super.createCommand(object, domain, commandClass, commandParameter);
-	} //method createCommand
 
-
-	
 	public  class ConstructGeneratorGoal extends ConstructGoal {
 		private GeneratorGoal goal;
 

@@ -136,7 +136,7 @@ public class RunItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10GeneralPropertyCategory"),
 				 null));
 	}
 
@@ -158,7 +158,7 @@ public class RunItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10GeneralPropertyCategory"),
 				 null));
 	}
 
