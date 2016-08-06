@@ -22,9 +22,9 @@ import com.misc.common.moplaf.solver.preference.PrefConstants;
  * @generated
  */
 public final class Plugin extends EMFPlugin implements PrefConstants {
-	private boolean logOnInfo    = false;
-	private boolean logOnWarning = false;
-	private boolean logOnError   = false;
+	private boolean logOnInfo    = true;
+	private boolean logOnWarning = true;
+	private boolean logOnError   = true;
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
