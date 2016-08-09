@@ -12,6 +12,8 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 
 public class Util {
 	/**
@@ -148,5 +150,21 @@ public class Util {
 		}
 	    return Util.getAdapter(target, type);
 	}	
+	
+	public static void propagate(ResourceSet resource_set){
+		for (Resource resource : resource_set.getResources()) {
+			Util.propagate(resource);
+		} 
+	}
+
+	public static void propagate(Resource resource){
+		 for ( EObject object : resource.getContents()){
+			 if ( object instanceof ObjectWithPropagatorFunctionAdapterScope ){
+				 ObjectWithPropagatorFunctionAdapterScope scope = (ObjectWithPropagatorFunctionAdapterScope)object;
+				 Plugin.INSTANCE.logInfo("refresh object "+ scope.toString(), null);
+				 scope.refresh();
+			 }  
+		 }  // traverse the EObjects
+	}
 
 };
