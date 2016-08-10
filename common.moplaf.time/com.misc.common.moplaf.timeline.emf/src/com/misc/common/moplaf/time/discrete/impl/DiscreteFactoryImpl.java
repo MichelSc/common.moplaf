@@ -61,6 +61,8 @@ public class DiscreteFactoryImpl extends EFactoryImpl implements DiscreteFactory
 			case DiscretePackage.TIME_BUCKET: return createTimeBucket();
 			case DiscretePackage.TIME_LINE_MERGE: return createTimeLineMerge();
 			case DiscretePackage.MERGE_ELEMENT: return createMergeElement();
+			case DiscretePackage.OBJECT_WITH_TIME_LINE: return createObjectWithTimeLine();
+			case DiscretePackage.OBJECT_TIME_BUCKET: return createObjectTimeBucket();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -138,6 +140,26 @@ public class DiscreteFactoryImpl extends EFactoryImpl implements DiscreteFactory
 	public MergeElement createMergeElement() {
 		MergeElementImpl mergeElement = new MergeElementImpl();
 		return mergeElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ObjectWithTimeLine createObjectWithTimeLine() {
+		ObjectWithTimeLineImpl objectWithTimeLine = new ObjectWithTimeLineImpl();
+		return objectWithTimeLine;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ObjectTimeBucket createObjectTimeBucket() {
+		ObjectTimeBucketImpl objectTimeBucket = new ObjectTimeBucketImpl();
+		return objectTimeBucket;
 	}
 
 	/**

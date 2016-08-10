@@ -42,6 +42,7 @@
     <eOperations name="generate"/>
     <eOperations name="generateRootTuples"/>
     <eOperations name="generateTuples"/>
+    <eOperations name="generateTupleXReferences"/>
     <eOperations name="generateVars"/>
     <eOperations name="generateCons"/>
     <eOperations name="generateGoals"/>
@@ -96,6 +97,7 @@
     <eOperations name="visitTuples" eExceptions="#//Exception">
       <eParameters name="visitor" eType="#//ITupleVisitor"/>
     </eOperations>
+    <eOperations name="generateXReferences"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="GeneratorAsRoot" eType="#//Generator"
         changeable="false" volatile="true" transient="true" derived="true" eOpposite="#//Generator/TupleRoot"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="TupleElement" upperBound="-1"

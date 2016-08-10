@@ -166,6 +166,52 @@ public class DiscreteItemProviderAdapterFactory extends DiscreteAdapterFactory i
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ObjectWithTimeLineItemProvider objectWithTimeLineItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createObjectWithTimeLineAdapter() {
+		if (objectWithTimeLineItemProvider == null) {
+			objectWithTimeLineItemProvider = new ObjectWithTimeLineItemProvider(this);
+		}
+
+		return objectWithTimeLineItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.discrete.ObjectTimeBucket} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ObjectTimeBucketItemProvider objectTimeBucketItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.time.discrete.ObjectTimeBucket}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createObjectTimeBucketAdapter() {
+		if (objectTimeBucketItemProvider == null) {
+			objectTimeBucketItemProvider = new ObjectTimeBucketItemProvider(this);
+		}
+
+		return objectTimeBucketItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -278,6 +324,8 @@ public class DiscreteItemProviderAdapterFactory extends DiscreteAdapterFactory i
 		if (timeBucketItemProvider != null) timeBucketItemProvider.dispose();
 		if (timeLineMergeItemProvider != null) timeLineMergeItemProvider.dispose();
 		if (mergeElementItemProvider != null) mergeElementItemProvider.dispose();
+		if (objectWithTimeLineItemProvider != null) objectWithTimeLineItemProvider.dispose();
+		if (objectTimeBucketItemProvider != null) objectTimeBucketItemProvider.dispose();
 	}
 
 }

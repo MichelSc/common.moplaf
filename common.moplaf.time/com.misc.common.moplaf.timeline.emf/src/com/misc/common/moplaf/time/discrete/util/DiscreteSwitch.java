@@ -90,6 +90,18 @@ public class DiscreteSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DiscretePackage.OBJECT_WITH_TIME_LINE: {
+				ObjectWithTimeLine objectWithTimeLine = (ObjectWithTimeLine)theEObject;
+				T result = caseObjectWithTimeLine(objectWithTimeLine);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DiscretePackage.OBJECT_TIME_BUCKET: {
+				ObjectTimeBucket objectTimeBucket = (ObjectTimeBucket)theEObject;
+				T result = caseObjectTimeBucket(objectTimeBucket);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -151,6 +163,36 @@ public class DiscreteSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMergeElement(MergeElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Object With Time Line</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Object With Time Line</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseObjectWithTimeLine(ObjectWithTimeLine object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Object Time Bucket</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Object Time Bucket</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseObjectTimeBucket(ObjectTimeBucket object) {
 		return null;
 	}
 

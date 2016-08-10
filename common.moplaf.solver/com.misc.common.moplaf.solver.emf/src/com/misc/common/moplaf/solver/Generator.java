@@ -416,6 +416,14 @@ public interface Generator extends Run {
 	 * @model
 	 * @generated
 	 */
+	void generateTupleXReferences();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	void generateVars();
 
 	/**

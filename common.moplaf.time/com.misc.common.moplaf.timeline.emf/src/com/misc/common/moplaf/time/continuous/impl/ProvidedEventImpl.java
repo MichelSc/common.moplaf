@@ -4,7 +4,6 @@ package com.misc.common.moplaf.time.continuous.impl;
 
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
-import com.misc.common.moplaf.time.continuous.EventProvider;
 import com.misc.common.moplaf.time.continuous.EventsProviderAbstract;
 import com.misc.common.moplaf.time.continuous.ProvidedEvent;
 

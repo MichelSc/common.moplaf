@@ -845,12 +845,10 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 			newbucket.setDescription(description);
 		}
 	}
-	public class HourBucketRounder extends BucketRounder{
-		public BucketType getType(){
-			return BucketType.TL_HOUR;
-		}
-		protected void roundBucketProtected(TimeBucket newbucket, Date sometime) {
-			//Calendar sometimeascalendar = new GregorianC
+	public abstract class HourBucketRounderAbstract extends BucketRounder{
+		protected abstract int getNofParts();
+
+		protected Calendar getHourStart(Date sometime) {
 			Calendar sometimeascalendar = constructCalendar(sometime);
 			int year   = sometimeascalendar.get(Calendar.YEAR);
 			int month  = sometimeascalendar.get(Calendar.MONTH);
@@ -864,17 +862,90 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 			beginofhourascalendar.set(Calendar.DAY_OF_MONTH, day);
 			beginofhourascalendar.set(Calendar.HOUR_OF_DAY, hour);
 			beginofhourascalendar.set(Calendar.DST_OFFSET, offset);
-			
-			Calendar endofhourascalendar = (Calendar)beginofhourascalendar.clone();
+			return beginofhourascalendar;
+		}
+		
+		protected Calendar getHourEnd(Calendar hourStart){
+			Calendar endofhourascalendar = (Calendar)hourStart.clone();
 			endofhourascalendar.add(Calendar.HOUR_OF_DAY, 1);
 			
-			Date startofbucket = beginofhourascalendar.getTime();
-			Date endofbucket   = endofhourascalendar.getTime();
-			Format formatter = new SimpleDateFormat("HH dd/MM/yyyy", constructLocale());
-			String description = "Hour:["+formatter.format(startofbucket)+"]";
+			return endofhourascalendar;
+		}
+
+		protected long roundBucketProtectedHour(TimeBucket newbucket, Date sometime) {
+			Calendar beginofhourascalendar = this.getHourStart(sometime);
+			Calendar endofhourascalendar = this.getHourEnd(beginofhourascalendar);
 			
-			newbucket.setBucketStart(startofbucket);
-			newbucket.setBucketEnd(endofbucket);
+			Date hourStart = beginofhourascalendar.getTime();
+			Date hourEnd   = endofhourascalendar.getTime();
+			
+			long secondsFromStart = Util.getSeconds(hourStart, sometime);
+			long secondsInHalfHour = Util.getSeconds(hourStart, hourEnd)/this.getNofParts();
+			long part = Math.floorDiv(secondsFromStart, secondsInHalfHour);
+			long bucketStart = hourStart.getTime()+part*secondsInHalfHour;
+			long bucketEnd   = bucketStart+secondsInHalfHour;
+			
+			Date startOfBucket = new Date(bucketStart);
+			Date endOfBucket   = new Date(bucketEnd);
+			   			
+			newbucket.setBucketStart(startOfBucket);
+			newbucket.setBucketEnd(endOfBucket);
+			
+			return part;
+		}
+}
+	public class HourBucketRounder extends HourBucketRounderAbstract{
+		
+		@Override
+		protected int getNofParts() {
+			return 1;
+		}
+
+		@Override
+		public BucketType getType(){
+			return BucketType.TL_HOUR;
+		}
+		
+		@Override
+		protected void roundBucketProtected(TimeBucket newbucket, Date sometime) {
+			this.roundBucketProtectedHour(newbucket, sometime);
+			String description = String.format("%1$tF %1$tH", newbucket.getBucketStart());
+			newbucket.setDescription(description);
+		}
+	}
+	
+	public class HalfHourBucketRounder extends HourBucketRounderAbstract{
+		@Override
+		protected int getNofParts() {
+			return 2;
+		}
+
+		public BucketType getType(){
+			return BucketType.TL_HALF_HOUR;
+		}
+		
+		@Override
+		protected void roundBucketProtected(TimeBucket newbucket, Date sometime) {
+			long part = this.roundBucketProtectedHour(newbucket, sometime);
+			String description = String.format("%1$tF %1$tH %2$l", newbucket.getBucketStart(), part);
+			newbucket.setDescription(description);
+		}
+	}
+	
+	public class QuarterHourBucketRounder extends HourBucketRounderAbstract{
+		@Override
+		protected int getNofParts() {
+			return 4;
+		}
+
+		public BucketType getType(){
+			return BucketType.TL_QUARTER_HOUR;
+		}
+		
+		@Override
+		protected void roundBucketProtected(TimeBucket newbucket, Date sometime) {
+			long part = this.roundBucketProtectedHour(newbucket, sometime);
+			String description = String.format("%1$tF %1$tH %2$l", newbucket.getBucketStart(), part);
 			newbucket.setDescription(description);
 		}
 	}
@@ -885,11 +956,13 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		BucketRounder newbucketrounder = null;
 		if ( oldbucketrounder==null || oldbucketrounder.getType()!=this.getBucketType()){
 			switch( this.getBucketType()){
-				case TL_MONTH: newbucketrounder = new MonthBucketRounder(); break;
-				case TL_WEEK : newbucketrounder = new WeekBucketRounder();  break;
-				case TL_DAY  : newbucketrounder = new DayBucketRounder();   break;
-				case TL_HOUR : newbucketrounder = new HourBucketRounder();  break;
-				default      : newbucketrounder = null;
+				case TL_MONTH     : newbucketrounder = new MonthBucketRounder(); break;
+				case TL_WEEK      : newbucketrounder = new WeekBucketRounder();  break;
+				case TL_DAY       : newbucketrounder = new DayBucketRounder();   break;
+				case TL_HOUR      : newbucketrounder = new HourBucketRounder();  break;
+				case TL_HALF_HOUR : newbucketrounder = new HalfHourBucketRounder(); break;
+				case TL_QUARTER_HOUR : newbucketrounder = new QuarterHourBucketRounder(); break;
+				default           : newbucketrounder = null;
 			}
 			if ( oldbucketrounder!=null){
 				// the buckets are invalidated

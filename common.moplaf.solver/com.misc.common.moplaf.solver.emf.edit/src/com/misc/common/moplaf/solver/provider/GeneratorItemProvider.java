@@ -4,7 +4,6 @@ package com.misc.common.moplaf.solver.provider;
 
 
 import com.misc.common.moplaf.common.provider.RunItemProvider;
-import com.misc.common.moplaf.emf.edit.command.RunCommand;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionProvider;
@@ -13,14 +12,10 @@ import com.misc.common.moplaf.solver.SolverPackage;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
-
-import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.command.CommandParameter;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;

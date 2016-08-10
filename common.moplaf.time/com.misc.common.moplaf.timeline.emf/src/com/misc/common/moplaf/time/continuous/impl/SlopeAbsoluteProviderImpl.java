@@ -5,7 +5,6 @@ package com.misc.common.moplaf.time.continuous.impl;
 import com.misc.common.moplaf.time.continuous.ContinuousFactory;
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
-import com.misc.common.moplaf.time.continuous.DistributionEvent;
 import com.misc.common.moplaf.time.continuous.ProvidedEvent;
 import com.misc.common.moplaf.time.continuous.SlopeAbsoluteAtomic;
 import com.misc.common.moplaf.time.continuous.SlopeAbsoluteProvider;

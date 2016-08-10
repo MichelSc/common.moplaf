@@ -58,6 +58,24 @@ public interface DiscreteFactory extends EFactory {
 	MergeElement createMergeElement();
 
 	/**
+	 * Returns a new object of class '<em>Object With Time Line</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Object With Time Line</em>'.
+	 * @generated
+	 */
+	ObjectWithTimeLine createObjectWithTimeLine();
+
+	/**
+	 * Returns a new object of class '<em>Object Time Bucket</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Object Time Bucket</em>'.
+	 * @generated
+	 */
+	ObjectTimeBucket createObjectTimeBucket();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -7,7 +7,6 @@ import com.misc.common.moplaf.time.continuous.AmountImpulsionProvider;
 import com.misc.common.moplaf.time.continuous.ContinuousFactory;
 import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
-import com.misc.common.moplaf.time.continuous.DistributionEvent;
 import com.misc.common.moplaf.time.continuous.ProvidedEvent;
 
 import org.eclipse.emf.common.notify.Notification;

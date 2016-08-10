@@ -627,6 +627,8 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 	
 		this.generateTuples();
 		Plugin.INSTANCE.logInfo("Generator.generate: tuples generated");
+		this.generateTupleXReferences();
+		Plugin.INSTANCE.logInfo("Generator.generate: tuple cross references generated");
 		this.generateVars();
 		Plugin.INSTANCE.logInfo("Generator.generate: vars generated");
 		this.generateCons();
@@ -660,6 +662,25 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 			});
 		} catch (Exception e) {
 			Plugin.INSTANCE.logError("Generator: generating tuples failed, "+e.getMessage());
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void generateTupleXReferences() {
+		class TupleXReferenceGenerator implements ITupleVisitor{
+			@Override
+			public void visitTuple(GeneratorTuple tuple) {
+				tuple.generateXReferences();
+			}
+		}
+		TupleXReferenceGenerator tuple_x_ref_generator = new TupleXReferenceGenerator();
+		try {
+			this.visitTuples(tuple_x_ref_generator);
+		} catch (Exception e) {
+			Plugin.INSTANCE.logError("Generator: generating tuple cross references failed, "+e.getMessage());
 		}
 	}
 
@@ -1018,6 +1039,9 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 				return null;
 			case SolverPackage.GENERATOR___GENERATE_TUPLES:
 				generateTuples();
+				return null;
+			case SolverPackage.GENERATOR___GENERATE_TUPLE_XREFERENCES:
+				generateTupleXReferences();
 				return null;
 			case SolverPackage.GENERATOR___GENERATE_VARS:
 				generateVars();

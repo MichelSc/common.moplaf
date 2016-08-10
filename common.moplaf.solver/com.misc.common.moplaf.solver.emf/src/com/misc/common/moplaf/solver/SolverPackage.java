@@ -89,6 +89,24 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR__PARENT_RUN = CommonPackage.RUN__PARENT_RUN;
 
 	/**
+	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__RUN_FEEDBACK = CommonPackage.RUN__RUN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Cancel Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__CANCEL_FEEDBACK = CommonPackage.RUN__CANCEL_FEEDBACK;
+
+	/**
 	 * The feature id for the '<em><b>Tuple Root</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -296,13 +314,22 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR___GENERATE_TUPLES = CommonPackage.RUN_OPERATION_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Generate Tuple XReferences</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR___GENERATE_TUPLE_XREFERENCES = CommonPackage.RUN_OPERATION_COUNT + 3;
+
+	/**
 	 * The operation id for the '<em>Generate Vars</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___GENERATE_VARS = CommonPackage.RUN_OPERATION_COUNT + 3;
+	int GENERATOR___GENERATE_VARS = CommonPackage.RUN_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Generate Cons</em>' operation.
@@ -311,7 +338,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___GENERATE_CONS = CommonPackage.RUN_OPERATION_COUNT + 4;
+	int GENERATOR___GENERATE_CONS = CommonPackage.RUN_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Generate Goals</em>' operation.
@@ -320,7 +347,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___GENERATE_GOALS = CommonPackage.RUN_OPERATION_COUNT + 5;
+	int GENERATOR___GENERATE_GOALS = CommonPackage.RUN_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Accept Solution</em>' operation.
@@ -329,7 +356,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___ACCEPT_SOLUTION__SOLUTION = CommonPackage.RUN_OPERATION_COUNT + 6;
+	int GENERATOR___ACCEPT_SOLUTION__SOLUTION = CommonPackage.RUN_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Select Feature Mode</em>' operation.
@@ -338,7 +365,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___SELECT_FEATURE_MODE__GENERATORFEATUREMODE_GENERATORTUPLE = CommonPackage.RUN_OPERATION_COUNT + 7;
+	int GENERATOR___SELECT_FEATURE_MODE__GENERATORFEATUREMODE_GENERATORTUPLE = CommonPackage.RUN_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Visit Tuples</em>' operation.
@@ -347,7 +374,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___VISIT_TUPLES__ITUPLEVISITOR = CommonPackage.RUN_OPERATION_COUNT + 8;
+	int GENERATOR___VISIT_TUPLES__ITUPLEVISITOR = CommonPackage.RUN_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
@@ -356,7 +383,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___REFRESH_SELECTED_SOLUTION = CommonPackage.RUN_OPERATION_COUNT + 9;
+	int GENERATOR___REFRESH_SELECTED_SOLUTION = CommonPackage.RUN_OPERATION_COUNT + 10;
 
 	/**
 	 * The number of operations of the '<em>Generator</em>' class.
@@ -365,7 +392,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_OPERATION_COUNT = CommonPackage.RUN_OPERATION_COUNT + 10;
+	int GENERATOR_OPERATION_COUNT = CommonPackage.RUN_OPERATION_COUNT + 11;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorTupleImpl <em>Generator Tuple</em>}' class.
@@ -568,13 +595,22 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_TUPLE___VISIT_TUPLES__ITUPLEVISITOR = GENERATOR_ELEMENT_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Generate XReferences</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_TUPLE___GENERATE_XREFERENCES = GENERATOR_ELEMENT_OPERATION_COUNT + 4;
+
+	/**
 	 * The number of operations of the '<em>Generator Tuple</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_TUPLE_OPERATION_COUNT = GENERATOR_ELEMENT_OPERATION_COUNT + 4;
+	int GENERATOR_TUPLE_OPERATION_COUNT = GENERATOR_ELEMENT_OPERATION_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorTupleMemberImpl <em>Generator Tuple Member</em>}' class.
@@ -1879,6 +1915,24 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_PROVIDER__PARENT_RUN = CommonPackage.RUN__PARENT_RUN;
 
 	/**
+	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER__RUN_FEEDBACK = CommonPackage.RUN__RUN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Cancel Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER__CANCEL_FEEDBACK = CommonPackage.RUN__CANCEL_FEEDBACK;
+
+	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2031,6 +2085,24 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_READER__PARENT_RUN = SOLUTION_PROVIDER__PARENT_RUN;
+
+	/**
+	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER__RUN_FEEDBACK = SOLUTION_PROVIDER__RUN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Cancel Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER__CANCEL_FEEDBACK = SOLUTION_PROVIDER__CANCEL_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
@@ -2212,6 +2284,24 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_READER_PATTERN__PARENT_RUN = SOLUTION_READER__PARENT_RUN;
+
+	/**
+	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER_PATTERN__RUN_FEEDBACK = SOLUTION_READER__RUN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Cancel Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER_PATTERN__CANCEL_FEEDBACK = SOLUTION_READER__CANCEL_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
@@ -2529,6 +2619,24 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER__PARENT_RUN = SOLUTION_PROVIDER__PARENT_RUN;
+
+	/**
+	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER__RUN_FEEDBACK = SOLUTION_PROVIDER__RUN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Cancel Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER__CANCEL_FEEDBACK = SOLUTION_PROVIDER__CANCEL_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
@@ -3166,6 +3274,24 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_CP__PARENT_RUN = SOLVER__PARENT_RUN;
 
 	/**
+	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP__RUN_FEEDBACK = SOLVER__RUN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Cancel Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP__CANCEL_FEEDBACK = SOLVER__CANCEL_FEEDBACK;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionImpl <em>Solution</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3688,6 +3814,24 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP__PARENT_RUN = SOLVER__PARENT_RUN;
+
+	/**
+	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP__RUN_FEEDBACK = SOLVER__RUN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Cancel Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP__CANCEL_FEEDBACK = SOLVER__CANCEL_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
@@ -6692,6 +6836,16 @@ public interface SolverPackage extends EPackage {
 	EOperation getGenerator__GenerateTuples();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.Generator#generateTupleXReferences() <em>Generate Tuple XReferences</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate Tuple XReferences</em>' operation.
+	 * @see com.misc.common.moplaf.solver.Generator#generateTupleXReferences()
+	 * @generated
+	 */
+	EOperation getGenerator__GenerateTupleXReferences();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.Generator#generateVars() <em>Generate Vars</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6898,6 +7052,16 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getGeneratorTuple__VisitTuples__ITupleVisitor();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorTuple#generateXReferences() <em>Generate XReferences</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Generate XReferences</em>' operation.
+	 * @see com.misc.common.moplaf.solver.GeneratorTuple#generateXReferences()
+	 * @generated
+	 */
+	EOperation getGeneratorTuple__GenerateXReferences();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorTupleMember <em>Generator Tuple Member</em>}'.
@@ -9442,6 +9606,14 @@ public interface SolverPackage extends EPackage {
 		EOperation GENERATOR___GENERATE_TUPLES = eINSTANCE.getGenerator__GenerateTuples();
 
 		/**
+		 * The meta object literal for the '<em><b>Generate Tuple XReferences</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GENERATOR___GENERATE_TUPLE_XREFERENCES = eINSTANCE.getGenerator__GenerateTupleXReferences();
+
+		/**
 		 * The meta object literal for the '<em><b>Generate Vars</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -9594,6 +9766,14 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation GENERATOR_TUPLE___VISIT_TUPLES__ITUPLEVISITOR = eINSTANCE.getGeneratorTuple__VisitTuples__ITupleVisitor();
+
+		/**
+		 * The meta object literal for the '<em><b>Generate XReferences</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GENERATOR_TUPLE___GENERATE_XREFERENCES = eINSTANCE.getGeneratorTuple__GenerateXReferences();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorTupleMemberImpl <em>Generator Tuple Member</em>}' class.

@@ -368,6 +368,8 @@
       <eLiterals name="TLWeek" value="2" literal="Week"/>
       <eLiterals name="TLDay" value="1" literal="Day"/>
       <eLiterals name="TLHour" value="3" literal="Hour"/>
+      <eLiterals name="TLHalfHour" value="4" literal="HalfHour"/>
+      <eLiterals name="TLQuarterHour" value="5" literal="QuarterOfHour"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="BucketIterator" instanceClassName="com.misc.common.moplaf.time.discrete.BucketIterator"/>
     <eClassifiers xsi:type="ecore:EClass" name="TimeLine">
@@ -443,6 +445,29 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="ElementStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="ElementEnd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="Seconds" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ObjectWithTimeLine">
+      <eOperations name="init">
+        <eParameters name="start" eType="#//discrete/TimeBucket"/>
+        <eParameters name="secondBucket" eType="#//discrete/TimeBucket"/>
+      </eOperations>
+      <eOperations name="getBucket" eType="#//discrete/ObjectTimeBucket">
+        <eParameters name="bucket" eType="#//discrete/TimeBucket"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="timeline" lowerBound="1"
+          eType="#//discrete/TimeLine"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Buckets" upperBound="-1"
+          eType="#//discrete/ObjectTimeBucket" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="LastBucket" eType="#//discrete/ObjectTimeBucket"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="FirstBucket" eType="#//discrete/ObjectTimeBucket"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ObjectTimeBucket">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Bucket" lowerBound="1"
+          eType="#//discrete/TimeBucket"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Next" eType="#//discrete/ObjectTimeBucket"
+          eOpposite="#//discrete/ObjectTimeBucket/Previous"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Previous" eType="#//discrete/ObjectTimeBucket"
+          eOpposite="#//discrete/ObjectTimeBucket/Next"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>
