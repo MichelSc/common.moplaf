@@ -172,7 +172,7 @@ public class TimeLineMergeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DiscretePackage.Literals.TIME_LINE_MERGE__ELEMENT);
+			childrenFeatures.add(DiscretePackage.Literals.TIME_LINE_MERGE__ELEMENTS);
 		}
 		return childrenFeatures;
 	}
@@ -224,7 +224,7 @@ public class TimeLineMergeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TimeLineMerge.class)) {
-			case DiscretePackage.TIME_LINE_MERGE__ELEMENT:
+			case DiscretePackage.TIME_LINE_MERGE__ELEMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -244,7 +244,7 @@ public class TimeLineMergeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiscretePackage.Literals.TIME_LINE_MERGE__ELEMENT,
+				(DiscretePackage.Literals.TIME_LINE_MERGE__ELEMENTS,
 				 DiscreteFactory.eINSTANCE.createMergeElement()));
 	}
 

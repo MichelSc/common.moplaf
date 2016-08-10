@@ -78,6 +78,7 @@ public class TimeBucketItemProvider
 			addPreviousPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addSecondsPropertyDescriptor(object);
+			addBucketNrPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -215,6 +216,30 @@ public class TimeBucketItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Bucket Nr feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBucketNrPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TimeBucket_BucketNr_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TimeBucket_BucketNr_feature", "_UI_TimeBucket_type"),
+				 DiscretePackage.Literals.TIME_BUCKET__BUCKET_NR,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+
+
+	/**
 	 * This returns TimeBucket.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -255,6 +280,7 @@ public class TimeBucketItemProvider
 			case DiscretePackage.TIME_BUCKET__BUCKET_END:
 			case DiscretePackage.TIME_BUCKET__DESCRIPTION:
 			case DiscretePackage.TIME_BUCKET__SECONDS:
+			case DiscretePackage.TIME_BUCKET__BUCKET_NR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

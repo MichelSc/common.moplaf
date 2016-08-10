@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeBucketImpl#getPrevious <em>Previous</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeBucketImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeBucketImpl#getSeconds <em>Seconds</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeBucketImpl#getBucketNr <em>Bucket Nr</em>}</li>
  * </ul>
  *
  * @generated
@@ -135,6 +136,26 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 	 * @ordered
 	 */
 	protected int seconds = SECONDS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getBucketNr() <em>Bucket Nr</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBucketNr()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int BUCKET_NR_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getBucketNr() <em>Bucket Nr</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBucketNr()
+	 * @generated
+	 * @ordered
+	 */
+	protected int bucketNr = BUCKET_NR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -362,6 +383,27 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getBucketNr() {
+		return bucketNr;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBucketNr(int newBucketNr) {
+		int oldBucketNr = bucketNr;
+		bucketNr = newBucketNr;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.TIME_BUCKET__BUCKET_NR, oldBucketNr, bucketNr));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public boolean contains(Date sometime) {
 		boolean contains = this.getBucketStart().compareTo(sometime)<=0 && sometime.compareTo(this.getBucketEnd())<0;
@@ -446,6 +488,8 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 				return getDescription();
 			case DiscretePackage.TIME_BUCKET__SECONDS:
 				return getSeconds();
+			case DiscretePackage.TIME_BUCKET__BUCKET_NR:
+				return getBucketNr();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -475,6 +519,9 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 				return;
 			case DiscretePackage.TIME_BUCKET__SECONDS:
 				setSeconds((Integer)newValue);
+				return;
+			case DiscretePackage.TIME_BUCKET__BUCKET_NR:
+				setBucketNr((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -506,6 +553,9 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 			case DiscretePackage.TIME_BUCKET__SECONDS:
 				setSeconds(SECONDS_EDEFAULT);
 				return;
+			case DiscretePackage.TIME_BUCKET__BUCKET_NR:
+				setBucketNr(BUCKET_NR_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -530,6 +580,8 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case DiscretePackage.TIME_BUCKET__SECONDS:
 				return seconds != SECONDS_EDEFAULT;
+			case DiscretePackage.TIME_BUCKET__BUCKET_NR:
+				return bucketNr != BUCKET_NR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -570,6 +622,8 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 		result.append(description);
 		result.append(", Seconds: ");
 		result.append(seconds);
+		result.append(", BucketNr: ");
+		result.append(bucketNr);
 		result.append(')');
 		return result.toString();
 	}

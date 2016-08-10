@@ -298,7 +298,7 @@ public class TimeLineItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DiscretePackage.Literals.TIME_LINE__BUCKET);
+			childrenFeatures.add(DiscretePackage.Literals.TIME_LINE__BUCKETS);
 		}
 		return childrenFeatures;
 	}
@@ -362,7 +362,7 @@ public class TimeLineItemProvider
 			case DiscretePackage.TIME_LINE__HORIZON_END:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case DiscretePackage.TIME_LINE__BUCKET:
+			case DiscretePackage.TIME_LINE__BUCKETS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -382,7 +382,7 @@ public class TimeLineItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiscretePackage.Literals.TIME_LINE__BUCKET,
+				(DiscretePackage.Literals.TIME_LINE__BUCKETS,
 				 DiscreteFactory.eINSTANCE.createTimeBucket()));
 	}
 
@@ -430,6 +430,6 @@ public class TimeLineItemProvider
 	@Override
 	public Collection<?> getIntervalEvents(Object element) {
 		TimeLine timeLine = (TimeLine)element;
-		return timeLine.getBucket();
+		return timeLine.getBuckets();
 	}
 }

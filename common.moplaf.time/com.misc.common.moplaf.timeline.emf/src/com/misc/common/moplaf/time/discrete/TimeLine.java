@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeLine#getLocaleCountry <em>Locale Country</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeLine#getHorizonStart <em>Horizon Start</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeLine#getHorizonEnd <em>Horizon End</em>}</li>
- *   <li>{@link com.misc.common.moplaf.time.discrete.TimeLine#getBucket <em>Bucket</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.discrete.TimeLine#getBuckets <em>Buckets</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeLine#getFirstBucket <em>First Bucket</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeLine#getLastBucket <em>Last Bucket</em>}</li>
  * </ul>
@@ -223,20 +223,20 @@ public interface TimeLine extends EObject {
 	void setHorizonEnd(Date value);
 
 	/**
-	 * Returns the value of the '<em><b>Bucket</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Buckets</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.time.discrete.TimeBucket}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Bucket</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Buckets</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Bucket</em>' containment reference list.
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeLine_Bucket()
+	 * @return the value of the '<em>Buckets</em>' containment reference list.
+	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeLine_Buckets()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<TimeBucket> getBucket();
+	EList<TimeBucket> getBuckets();
 
 	/**
 	 * Returns the value of the '<em><b>First Bucket</b></em>' reference.

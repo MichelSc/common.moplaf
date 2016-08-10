@@ -45,7 +45,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeLineImpl#getLocaleCountry <em>Locale Country</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeLineImpl#getHorizonStart <em>Horizon Start</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeLineImpl#getHorizonEnd <em>Horizon End</em>}</li>
- *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeLineImpl#getBucket <em>Bucket</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeLineImpl#getBuckets <em>Buckets</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeLineImpl#getFirstBucket <em>First Bucket</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeLineImpl#getLastBucket <em>Last Bucket</em>}</li>
  * </ul>
@@ -194,14 +194,14 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 	protected Date horizonEnd = HORIZON_END_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getBucket() <em>Bucket</em>}' containment reference list.
+	 * The cached value of the '{@link #getBuckets() <em>Buckets</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBucket()
+	 * @see #getBuckets()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<TimeBucket> bucket;
+	protected EList<TimeBucket> buckets;
 
 	/**
 	 * The cached value of the '{@link #getFirstBucket() <em>First Bucket</em>}' reference.
@@ -394,11 +394,11 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<TimeBucket> getBucket() {
-		if (bucket == null) {
-			bucket = new EObjectContainmentEList<TimeBucket>(TimeBucket.class, this, DiscretePackage.TIME_LINE__BUCKET);
+	public EList<TimeBucket> getBuckets() {
+		if (buckets == null) {
+			buckets = new EObjectContainmentEList<TimeBucket>(TimeBucket.class, this, DiscretePackage.TIME_LINE__BUCKETS);
 		}
-		return bucket;
+		return buckets;
 	}
 
 	/**
@@ -530,8 +530,8 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DiscretePackage.TIME_LINE__BUCKET:
-				return ((InternalEList<?>)getBucket()).basicRemove(otherEnd, msgs);
+			case DiscretePackage.TIME_LINE__BUCKETS:
+				return ((InternalEList<?>)getBuckets()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -558,8 +558,8 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 				return getHorizonStart();
 			case DiscretePackage.TIME_LINE__HORIZON_END:
 				return getHorizonEnd();
-			case DiscretePackage.TIME_LINE__BUCKET:
-				return getBucket();
+			case DiscretePackage.TIME_LINE__BUCKETS:
+				return getBuckets();
 			case DiscretePackage.TIME_LINE__FIRST_BUCKET:
 				if (resolve) return getFirstBucket();
 				return basicGetFirstBucket();
@@ -600,9 +600,9 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 			case DiscretePackage.TIME_LINE__HORIZON_END:
 				setHorizonEnd((Date)newValue);
 				return;
-			case DiscretePackage.TIME_LINE__BUCKET:
-				getBucket().clear();
-				getBucket().addAll((Collection<? extends TimeBucket>)newValue);
+			case DiscretePackage.TIME_LINE__BUCKETS:
+				getBuckets().clear();
+				getBuckets().addAll((Collection<? extends TimeBucket>)newValue);
 				return;
 			case DiscretePackage.TIME_LINE__FIRST_BUCKET:
 				setFirstBucket((TimeBucket)newValue);
@@ -643,8 +643,8 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 			case DiscretePackage.TIME_LINE__HORIZON_END:
 				setHorizonEnd(HORIZON_END_EDEFAULT);
 				return;
-			case DiscretePackage.TIME_LINE__BUCKET:
-				getBucket().clear();
+			case DiscretePackage.TIME_LINE__BUCKETS:
+				getBuckets().clear();
 				return;
 			case DiscretePackage.TIME_LINE__FIRST_BUCKET:
 				setFirstBucket((TimeBucket)null);
@@ -678,8 +678,8 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 				return HORIZON_START_EDEFAULT == null ? horizonStart != null : !HORIZON_START_EDEFAULT.equals(horizonStart);
 			case DiscretePackage.TIME_LINE__HORIZON_END:
 				return HORIZON_END_EDEFAULT == null ? horizonEnd != null : !HORIZON_END_EDEFAULT.equals(horizonEnd);
-			case DiscretePackage.TIME_LINE__BUCKET:
-				return bucket != null && !bucket.isEmpty();
+			case DiscretePackage.TIME_LINE__BUCKETS:
+				return buckets != null && !buckets.isEmpty();
 			case DiscretePackage.TIME_LINE__FIRST_BUCKET:
 				return firstBucket != null;
 			case DiscretePackage.TIME_LINE__LAST_BUCKET:
@@ -966,8 +966,8 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 			}
 			if ( oldbucketrounder!=null){
 				// the buckets are invalidated
-				while ( !this.getBucket().isEmpty()){
-					EcoreUtil.delete(this.getBucket().get(0));
+				while ( !this.getBuckets().isEmpty()){
+					EcoreUtil.delete(this.getBuckets().get(0));
 				}
 			}
 		}
@@ -986,6 +986,8 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		this.refreshBucketRounder();
 		
 		int maxiterations = 30000;
+		
+		// remove the too much at the head
 		while (this.getFirstBucket()!=null 
 			&& this.getFirstBucket().getBucketEnd().compareTo(this.getHorizonStart())<=0
 			&& --maxiterations>0){
@@ -995,6 +997,8 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 			EcoreUtil.delete(oldfirst);
 			this.setFirstBucket(newfirst);
 		}
+		
+		// remove the too much at the tail
 		while (this.getLastBucket()!=null 
 			&& this.getLastBucket().getBucketStart().compareTo(this.getHorizonEnd())>=0
 			&& --maxiterations>0){
@@ -1004,19 +1008,22 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 			EcoreUtil.delete(oldlast);
 			this.setLastBucket(newlast);
 		}
+		
 		if (   this.getHorizonStart().compareTo(this.getHorizonEnd())>0
 			&& --maxiterations>0){
 			// empty period
 			return;
 		}
+		
 		if ( this.getFirstBucket()==null)	{
 			// the time scale is presently empty
 			// create an initial bucket
 			TimeBucket initialbucket = this.constructBucket(getHorizonStart());
 			this.setFirstBucket(initialbucket);
 			this.setLastBucket(initialbucket);
-			this.getBucket().add(initialbucket);
+			this.getBuckets().add(initialbucket);
 		}
+		
 		while  ( this.getFirstBucket().getBucketStart().compareTo(this.getHorizonStart())>0
 			&& --maxiterations>0){
 			// add a new first previous to the old first
@@ -1025,7 +1032,7 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 			TimeBucket newfirst = this.constructBucket(sometimeinnewbucket); 
 			newfirst.setNext(oldfirst);
 			this.setFirstBucket(newfirst);
-			this.getBucket().add(0, newfirst); // adds as first
+			this.getBuckets().add(0, newfirst); // adds as first
 		}
 		while  ( this.getLastBucket().getBucketEnd().compareTo(this.getHorizonEnd())<0){
 			// add a new last next to the old last
@@ -1034,7 +1041,17 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 			TimeBucket newlast = this.constructBucket(sometimeinnewbucket);
 			newlast.setPrevious(oldlast);
 			this.setLastBucket(newlast);
-			this.getBucket().add(newlast);  // adds as last
+			this.getBuckets().add(newlast);  // adds as last
+		}
+		
+		// refresh bucketNr
+		TimeBucket currentBucket = this.getFirstBucket();
+		int bucketNr = 0;
+		while ( currentBucket != null) {
+			currentBucket.setBucketNr(bucketNr);
+			// loop control
+			bucketNr++;
+			currentBucket = currentBucket.getNext();
 		}
 	}
 	

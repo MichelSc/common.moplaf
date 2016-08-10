@@ -399,7 +399,7 @@
           defaultValueLiteral="BE"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="HorizonStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="HorizonEnd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="Bucket" upperBound="-1"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Buckets" upperBound="-1"
           eType="#//discrete/TimeBucket" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="FirstBucket" eType="#//discrete/TimeBucket"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="LastBucket" eType="#//discrete/TimeBucket"/>
@@ -415,6 +415,7 @@
         <eParameters name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
         <eParameters name="to" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
       </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="BucketNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="BucketStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="BucketEnd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Next" eType="#//discrete/TimeBucket"
@@ -426,7 +427,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TimeLineMerge">
       <eOperations name="refresh"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="Element" upperBound="-1"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"
           eType="#//discrete/MergeElement" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="TimeLineTo" eType="#//discrete/TimeLine"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="FirstElement" eType="#//discrete/MergeElement"/>
@@ -448,13 +449,18 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ObjectWithTimeLine">
       <eOperations name="init">
+        <eParameters name="timeLine" eType="#//discrete/TimeLine"/>
+      </eOperations>
+      <eOperations name="init">
+        <eParameters name="timeLine" eType="#//discrete/TimeLine"/>
         <eParameters name="start" eType="#//discrete/TimeBucket"/>
-        <eParameters name="secondBucket" eType="#//discrete/TimeBucket"/>
+        <eParameters name="end" eType="#//discrete/TimeBucket"/>
       </eOperations>
       <eOperations name="getBucket" eType="#//discrete/ObjectTimeBucket">
         <eParameters name="bucket" eType="#//discrete/TimeBucket"/>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="timeline" lowerBound="1"
+      <eOperations name="constructObjectTimeBucket" eType="#//discrete/ObjectTimeBucket"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="TimeLine" lowerBound="1"
           eType="#//discrete/TimeLine"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Buckets" upperBound="-1"
           eType="#//discrete/ObjectTimeBucket" containment="true"/>

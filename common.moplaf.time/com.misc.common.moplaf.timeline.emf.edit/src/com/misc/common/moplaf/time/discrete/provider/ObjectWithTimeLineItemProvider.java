@@ -64,7 +64,7 @@ public class ObjectWithTimeLineItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTimelinePropertyDescriptor(object);
+			addTimeLinePropertyDescriptor(object);
 			addLastBucketPropertyDescriptor(object);
 			addFirstBucketPropertyDescriptor(object);
 		}
@@ -72,19 +72,19 @@ public class ObjectWithTimeLineItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Timeline feature.
+	 * This adds a property descriptor for the Time Line feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTimelinePropertyDescriptor(Object object) {
+	protected void addTimeLinePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ObjectWithTimeLine_timeline_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectWithTimeLine_timeline_feature", "_UI_ObjectWithTimeLine_type"),
-				 DiscretePackage.Literals.OBJECT_WITH_TIME_LINE__TIMELINE,
+				 getString("_UI_ObjectWithTimeLine_TimeLine_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectWithTimeLine_TimeLine_feature", "_UI_ObjectWithTimeLine_type"),
+				 DiscretePackage.Literals.OBJECT_WITH_TIME_LINE__TIME_LINE,
 				 true,
 				 false,
 				 true,

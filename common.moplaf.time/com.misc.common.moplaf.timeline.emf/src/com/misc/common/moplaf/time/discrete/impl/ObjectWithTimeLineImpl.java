@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.time.discrete.impl.ObjectWithTimeLineImpl#getTimeline <em>Timeline</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.discrete.impl.ObjectWithTimeLineImpl#getTimeLine <em>Time Line</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.ObjectWithTimeLineImpl#getBuckets <em>Buckets</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.ObjectWithTimeLineImpl#getLastBucket <em>Last Bucket</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.ObjectWithTimeLineImpl#getFirstBucket <em>First Bucket</em>}</li>
@@ -44,14 +44,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container implements ObjectWithTimeLine {
 	/**
-	 * The cached value of the '{@link #getTimeline() <em>Timeline</em>}' reference.
+	 * The cached value of the '{@link #getTimeLine() <em>Time Line</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTimeline()
+	 * @see #getTimeLine()
 	 * @generated
 	 * @ordered
 	 */
-	protected TimeLine timeline;
+	protected TimeLine timeLine;
 
 	/**
 	 * The cached value of the '{@link #getBuckets() <em>Buckets</em>}' containment reference list.
@@ -107,16 +107,16 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TimeLine getTimeline() {
-		if (timeline != null && timeline.eIsProxy()) {
-			InternalEObject oldTimeline = (InternalEObject)timeline;
-			timeline = (TimeLine)eResolveProxy(oldTimeline);
-			if (timeline != oldTimeline) {
+	public TimeLine getTimeLine() {
+		if (timeLine != null && timeLine.eIsProxy()) {
+			InternalEObject oldTimeLine = (InternalEObject)timeLine;
+			timeLine = (TimeLine)eResolveProxy(oldTimeLine);
+			if (timeLine != oldTimeLine) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DiscretePackage.OBJECT_WITH_TIME_LINE__TIMELINE, oldTimeline, timeline));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DiscretePackage.OBJECT_WITH_TIME_LINE__TIME_LINE, oldTimeLine, timeLine));
 			}
 		}
-		return timeline;
+		return timeLine;
 	}
 
 	/**
@@ -124,8 +124,8 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TimeLine basicGetTimeline() {
-		return timeline;
+	public TimeLine basicGetTimeLine() {
+		return timeLine;
 	}
 
 	/**
@@ -133,11 +133,11 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTimeline(TimeLine newTimeline) {
-		TimeLine oldTimeline = timeline;
-		timeline = newTimeline;
+	public void setTimeLine(TimeLine newTimeLine) {
+		TimeLine oldTimeLine = timeLine;
+		timeLine = newTimeLine;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.OBJECT_WITH_TIME_LINE__TIMELINE, oldTimeline, timeline));
+			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.OBJECT_WITH_TIME_LINE__TIME_LINE, oldTimeLine, timeLine));
 	}
 
 	/**
@@ -231,12 +231,78 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public void init(TimeBucket start, TimeBucket secondBucket) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public void init(TimeLine timeLine) {
+		this.init(timeLine, timeLine.getFirstBucket(), timeLine.getLastBucket());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void init(TimeLine timeLine, TimeBucket start, TimeBucket end) {
+		TimeBucket currentBucket = timeLine.getFirstBucket();
+		ObjectTimeBucket previousBucket = null;
+		while ( currentBucket != null ){
+			if ( start.isBefore(currentBucket) || currentBucket.isBefore(end) ){
+				ObjectTimeBucket new_object_time_bucket = this.constructObjectTimeBucket();
+				new_object_time_bucket.setBucket(currentBucket);
+				if ( previousBucket == null){
+					this.setFirstBucket(new_object_time_bucket);
+				} else {
+					previousBucket.setNext(new_object_time_bucket);
+				}
+			}
+			currentBucket = currentBucket.getNext();
+		}  // traverse the time line buckets
+		this.setLastBucket(previousBucket);
+		
+		this.currentObjectBucket = this.getFirstBucket();
+	}
+
+	private ObjectTimeBucket currentObjectBucket = null; // cache for performances 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public ObjectTimeBucket getBucket(TimeBucket bucket) {
+		// try to achieve constant time perfs if the target bucket is close 
+		//    to the first bucket 
+		//    or to the last bucket
+		//    or to the previous target bucket
+		ObjectTimeBucket current = this.currentObjectBucket;
+		int dist_to_curr  = bucket.getBucketNr()-current.getBucket().getBucketNr();
+
+		// compare current and first
+		int dist_to_first = bucket.getBucketNr()-this.getFirstBucket().getBucket().getBucketNr();
+		if ( dist_to_first<0 ) { return null; }
+		if ( dist_to_first<Math.abs(dist_to_curr)){
+			current = this.getFirstBucket();
+			dist_to_curr = dist_to_first;
+		}
+
+		// compare current and last
+		int dist_to_last  = bucket.getBucketNr()-this.getLastBucket().getBucket().getBucketNr();
+		if ( dist_to_last>0 ) { return null; }
+		if ( dist_to_last>-Math.abs(dist_to_curr)){
+			current = this.getLastBucket();
+			dist_to_curr = dist_to_last;
+		}
+		
+		// walk from current to the target
+		while ( Math.abs(dist_to_curr)>0){
+			if ( dist_to_curr>0){
+				current = current.getNext();
+				dist_to_curr--;
+			} else {
+				current = current.getPrevious();
+				dist_to_curr++;
+			}
+		}
+
+		this.currentObjectBucket = current;
+				
+		return current;
 	}
 
 	/**
@@ -244,7 +310,7 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ObjectTimeBucket getBucket(TimeBucket bucket) {
+	public ObjectTimeBucket constructObjectTimeBucket() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -272,9 +338,9 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DiscretePackage.OBJECT_WITH_TIME_LINE__TIMELINE:
-				if (resolve) return getTimeline();
-				return basicGetTimeline();
+			case DiscretePackage.OBJECT_WITH_TIME_LINE__TIME_LINE:
+				if (resolve) return getTimeLine();
+				return basicGetTimeLine();
 			case DiscretePackage.OBJECT_WITH_TIME_LINE__BUCKETS:
 				return getBuckets();
 			case DiscretePackage.OBJECT_WITH_TIME_LINE__LAST_BUCKET:
@@ -296,8 +362,8 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DiscretePackage.OBJECT_WITH_TIME_LINE__TIMELINE:
-				setTimeline((TimeLine)newValue);
+			case DiscretePackage.OBJECT_WITH_TIME_LINE__TIME_LINE:
+				setTimeLine((TimeLine)newValue);
 				return;
 			case DiscretePackage.OBJECT_WITH_TIME_LINE__BUCKETS:
 				getBuckets().clear();
@@ -321,8 +387,8 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DiscretePackage.OBJECT_WITH_TIME_LINE__TIMELINE:
-				setTimeline((TimeLine)null);
+			case DiscretePackage.OBJECT_WITH_TIME_LINE__TIME_LINE:
+				setTimeLine((TimeLine)null);
 				return;
 			case DiscretePackage.OBJECT_WITH_TIME_LINE__BUCKETS:
 				getBuckets().clear();
@@ -345,8 +411,8 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DiscretePackage.OBJECT_WITH_TIME_LINE__TIMELINE:
-				return timeline != null;
+			case DiscretePackage.OBJECT_WITH_TIME_LINE__TIME_LINE:
+				return timeLine != null;
 			case DiscretePackage.OBJECT_WITH_TIME_LINE__BUCKETS:
 				return buckets != null && !buckets.isEmpty();
 			case DiscretePackage.OBJECT_WITH_TIME_LINE__LAST_BUCKET:
@@ -365,11 +431,16 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case DiscretePackage.OBJECT_WITH_TIME_LINE___INIT__TIMEBUCKET_TIMEBUCKET:
-				init((TimeBucket)arguments.get(0), (TimeBucket)arguments.get(1));
+			case DiscretePackage.OBJECT_WITH_TIME_LINE___INIT__TIMELINE:
+				init((TimeLine)arguments.get(0));
+				return null;
+			case DiscretePackage.OBJECT_WITH_TIME_LINE___INIT__TIMELINE_TIMEBUCKET_TIMEBUCKET:
+				init((TimeLine)arguments.get(0), (TimeBucket)arguments.get(1), (TimeBucket)arguments.get(2));
 				return null;
 			case DiscretePackage.OBJECT_WITH_TIME_LINE___GET_BUCKET__TIMEBUCKET:
 				return getBucket((TimeBucket)arguments.get(0));
+			case DiscretePackage.OBJECT_WITH_TIME_LINE___CONSTRUCT_OBJECT_TIME_BUCKET:
+				return constructObjectTimeBucket();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeLineMergeImpl#getElement <em>Element</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeLineMergeImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeLineMergeImpl#getTimeLineTo <em>Time Line To</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeLineMergeImpl#getFirstElement <em>First Element</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeLineMergeImpl#getLastElement <em>Last Element</em>}</li>
@@ -43,14 +43,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class TimeLineMergeImpl extends MinimalEObjectImpl.Container implements TimeLineMerge {
 	/**
-	 * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference list.
+	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getElement()
+	 * @see #getElements()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<MergeElement> element;
+	protected EList<MergeElement> elements;
 
 	/**
 	 * The cached value of the '{@link #getTimeLineTo() <em>Time Line To</em>}' reference.
@@ -116,11 +116,11 @@ public class TimeLineMergeImpl extends MinimalEObjectImpl.Container implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<MergeElement> getElement() {
-		if (element == null) {
-			element = new EObjectContainmentEList<MergeElement>(MergeElement.class, this, DiscretePackage.TIME_LINE_MERGE__ELEMENT);
+	public EList<MergeElement> getElements() {
+		if (elements == null) {
+			elements = new EObjectContainmentEList<MergeElement>(MergeElement.class, this, DiscretePackage.TIME_LINE_MERGE__ELEMENTS);
 		}
-		return element;
+		return elements;
 	}
 
 	/**
@@ -281,8 +281,8 @@ public class TimeLineMergeImpl extends MinimalEObjectImpl.Container implements T
 	 */
 	public void refresh() {
 		// clear the structure
-		while ( !this.getElement().isEmpty()){
-			EcoreUtil.delete(this.getElement().get(0));
+		while ( !this.getElements().isEmpty()){
+			EcoreUtil.delete(this.getElements().get(0));
 		}
 		// get the time scales
 		TimeLine from = this.getTimeLineFrom();
@@ -341,7 +341,7 @@ public class TimeLineMergeImpl extends MinimalEObjectImpl.Container implements T
 				this.setFirstElement(currentelement);
 			}
 			
-			this.getElement().add(currentelement);
+			this.getElements().add(currentelement);
 			// loop control
 			finished = currentend==farinfuture; 
 			currentstart = currentend;
@@ -360,8 +360,8 @@ public class TimeLineMergeImpl extends MinimalEObjectImpl.Container implements T
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DiscretePackage.TIME_LINE_MERGE__ELEMENT:
-				return ((InternalEList<?>)getElement()).basicRemove(otherEnd, msgs);
+			case DiscretePackage.TIME_LINE_MERGE__ELEMENTS:
+				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -374,8 +374,8 @@ public class TimeLineMergeImpl extends MinimalEObjectImpl.Container implements T
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DiscretePackage.TIME_LINE_MERGE__ELEMENT:
-				return getElement();
+			case DiscretePackage.TIME_LINE_MERGE__ELEMENTS:
+				return getElements();
 			case DiscretePackage.TIME_LINE_MERGE__TIME_LINE_TO:
 				if (resolve) return getTimeLineTo();
 				return basicGetTimeLineTo();
@@ -401,9 +401,9 @@ public class TimeLineMergeImpl extends MinimalEObjectImpl.Container implements T
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DiscretePackage.TIME_LINE_MERGE__ELEMENT:
-				getElement().clear();
-				getElement().addAll((Collection<? extends MergeElement>)newValue);
+			case DiscretePackage.TIME_LINE_MERGE__ELEMENTS:
+				getElements().clear();
+				getElements().addAll((Collection<? extends MergeElement>)newValue);
 				return;
 			case DiscretePackage.TIME_LINE_MERGE__TIME_LINE_TO:
 				setTimeLineTo((TimeLine)newValue);
@@ -429,8 +429,8 @@ public class TimeLineMergeImpl extends MinimalEObjectImpl.Container implements T
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DiscretePackage.TIME_LINE_MERGE__ELEMENT:
-				getElement().clear();
+			case DiscretePackage.TIME_LINE_MERGE__ELEMENTS:
+				getElements().clear();
 				return;
 			case DiscretePackage.TIME_LINE_MERGE__TIME_LINE_TO:
 				setTimeLineTo((TimeLine)null);
@@ -456,8 +456,8 @@ public class TimeLineMergeImpl extends MinimalEObjectImpl.Container implements T
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DiscretePackage.TIME_LINE_MERGE__ELEMENT:
-				return element != null && !element.isEmpty();
+			case DiscretePackage.TIME_LINE_MERGE__ELEMENTS:
+				return elements != null && !elements.isEmpty();
 			case DiscretePackage.TIME_LINE_MERGE__TIME_LINE_TO:
 				return timeLineTo != null;
 			case DiscretePackage.TIME_LINE_MERGE__FIRST_ELEMENT:

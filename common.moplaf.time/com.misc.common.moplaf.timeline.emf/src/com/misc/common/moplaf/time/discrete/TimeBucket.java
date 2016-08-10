@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeBucket#getPrevious <em>Previous</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeBucket#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeBucket#getSeconds <em>Seconds</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.discrete.TimeBucket#getBucketNr <em>Bucket Nr</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeBucket()
@@ -187,6 +188,32 @@ public interface TimeBucket extends EObject {
 	 * @generated
 	 */
 	void setSeconds(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Bucket Nr</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Bucket Nr</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Bucket Nr</em>' attribute.
+	 * @see #setBucketNr(int)
+	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeBucket_BucketNr()
+	 * @model
+	 * @generated
+	 */
+	int getBucketNr();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.time.discrete.TimeBucket#getBucketNr <em>Bucket Nr</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Bucket Nr</em>' attribute.
+	 * @see #getBucketNr()
+	 * @generated
+	 */
+	void setBucketNr(int value);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.time.discrete.TimeLineMerge#getElement <em>Element</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.discrete.TimeLineMerge#getElements <em>Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeLineMerge#getTimeLineTo <em>Time Line To</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeLineMerge#getFirstElement <em>First Element</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeLineMerge#getLastElement <em>Last Element</em>}</li>
@@ -28,20 +28,20 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface TimeLineMerge extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Element</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.time.discrete.MergeElement}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Element</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Element</em>' containment reference list.
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeLineMerge_Element()
+	 * @return the value of the '<em>Elements</em>' containment reference list.
+	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeLineMerge_Elements()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<MergeElement> getElement();
+	EList<MergeElement> getElements();
 
 	/**
 	 * Returns the value of the '<em><b>Time Line To</b></em>' reference.

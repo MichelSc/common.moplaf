@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getTimeline <em>Timeline</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getTimeLine <em>Time Line</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getBuckets <em>Buckets</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getLastBucket <em>Last Bucket</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getFirstBucket <em>First Bucket</em>}</li>
@@ -27,30 +27,30 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ObjectWithTimeLine extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Timeline</b></em>' reference.
+	 * Returns the value of the '<em><b>Time Line</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Timeline</em>' reference isn't clear,
+	 * If the meaning of the '<em>Time Line</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Timeline</em>' reference.
-	 * @see #setTimeline(TimeLine)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getObjectWithTimeLine_Timeline()
+	 * @return the value of the '<em>Time Line</em>' reference.
+	 * @see #setTimeLine(TimeLine)
+	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getObjectWithTimeLine_TimeLine()
 	 * @model required="true"
 	 * @generated
 	 */
-	TimeLine getTimeline();
+	TimeLine getTimeLine();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getTimeline <em>Timeline</em>}' reference.
+	 * Sets the value of the '{@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getTimeLine <em>Time Line</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Timeline</em>' reference.
-	 * @see #getTimeline()
+	 * @param value the new value of the '<em>Time Line</em>' reference.
+	 * @see #getTimeLine()
 	 * @generated
 	 */
-	void setTimeline(TimeLine value);
+	void setTimeLine(TimeLine value);
 
 	/**
 	 * Returns the value of the '<em><b>Buckets</b></em>' containment reference list.
@@ -126,7 +126,15 @@ public interface ObjectWithTimeLine extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void init(TimeBucket start, TimeBucket secondBucket);
+	void init(TimeLine timeLine);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void init(TimeLine timeLine, TimeBucket start, TimeBucket end);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -135,5 +143,13 @@ public interface ObjectWithTimeLine extends EObject {
 	 * @generated
 	 */
 	ObjectTimeBucket getBucket(TimeBucket bucket);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	ObjectTimeBucket constructObjectTimeBucket();
 
 } // ObjectWithTimeLine
