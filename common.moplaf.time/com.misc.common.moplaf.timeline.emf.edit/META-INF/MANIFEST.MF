@@ -8,8 +8,7 @@ Bundle-Activator: com.misc.common.moplaf.time.continuous.provider.TimelineEditPl
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: com.misc.common.moplaf.time,
- com.misc.common.moplaf.time.continuous.provider,
+Export-Package: com.misc.common.moplaf.time.continuous.provider,
  com.misc.common.moplaf.time.discrete.provider
 Require-Bundle: org.eclipse.core.runtime,
  com.misc.common.moplaf.timeline.emf;visibility:=reexport,

@@ -3,7 +3,8 @@
 package com.misc.common.moplaf.time.discrete.provider;
 
 
-import com.misc.common.moplaf.time.RefreshCommand;
+
+import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
 import com.misc.common.moplaf.time.continuous.provider.TimelineEditPlugin;
 import com.misc.common.moplaf.time.discrete.DiscreteFactory;
 import com.misc.common.moplaf.time.discrete.DiscretePackage;
@@ -404,11 +405,6 @@ public class TimeLineItemProvider
 		public TimeLineRefreshCommand(TimeLine atimeline)	{
 			super();
 			this.timeline= atimeline;
-			String tmp = "Refresh the TimeLine";
-			String label = "label:"+tmp;
-			String description = "desc:"+tmp;
-			this.setDescription(description);
-			this.setLabel(label);
 		}
 
 		@Override

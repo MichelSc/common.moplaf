@@ -877,13 +877,12 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 			Calendar endofhourascalendar = this.getHourEnd(beginofhourascalendar);
 			
 			Date hourStart = beginofhourascalendar.getTime();
-			Date hourEnd   = endofhourascalendar.getTime();
 			
 			long secondsFromStart = Util.getSeconds(hourStart, sometime);
-			long secondsInHalfHour = Util.getSeconds(hourStart, hourEnd)/this.getNofParts();
-			long part = Math.floorDiv(secondsFromStart, secondsInHalfHour);
-			long bucketStart = hourStart.getTime()+part*secondsInHalfHour;
-			long bucketEnd   = bucketStart+secondsInHalfHour;
+			long secondsInPart = 3600/this.getNofParts();
+			long part = Math.floorDiv(secondsFromStart, secondsInPart);
+			long bucketStart = hourStart.getTime()+part*secondsInPart*1000;
+			long bucketEnd   = bucketStart+secondsInPart*1000;
 			
 			Date startOfBucket = new Date(bucketStart);
 			Date endOfBucket   = new Date(bucketEnd);
@@ -927,7 +926,7 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		@Override
 		protected void roundBucketProtected(TimeBucket newbucket, Date sometime) {
 			long part = this.roundBucketProtectedHour(newbucket, sometime);
-			String description = String.format("%1$tF %1$tH %2$l", newbucket.getBucketStart(), part);
+			String description = String.format("%1$tF %1$tH %2$d/%3$d", newbucket.getBucketStart(), part, this.getNofParts());
 			newbucket.setDescription(description);
 		}
 	}
@@ -945,7 +944,7 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		@Override
 		protected void roundBucketProtected(TimeBucket newbucket, Date sometime) {
 			long part = this.roundBucketProtectedHour(newbucket, sometime);
-			String description = String.format("%1$tF %1$tH %2$l", newbucket.getBucketStart(), part);
+			String description = String.format("%1$tF %1$tH %2$d/%3$d", newbucket.getBucketStart(), part, this.getNofParts());
 			newbucket.setDescription(description);
 		}
 	}
