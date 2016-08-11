@@ -874,8 +874,6 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 
 		protected long roundBucketProtectedHour(TimeBucket newbucket, Date sometime) {
 			Calendar beginofhourascalendar = this.getHourStart(sometime);
-			Calendar endofhourascalendar = this.getHourEnd(beginofhourascalendar);
-			
 			Date hourStart = beginofhourascalendar.getTime();
 			
 			long secondsFromStart = Util.getSeconds(hourStart, sometime);
@@ -955,13 +953,13 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		BucketRounder newbucketrounder = null;
 		if ( oldbucketrounder==null || oldbucketrounder.getType()!=this.getBucketType()){
 			switch( this.getBucketType()){
-				case TL_MONTH     : newbucketrounder = new MonthBucketRounder(); break;
-				case TL_WEEK      : newbucketrounder = new WeekBucketRounder();  break;
-				case TL_DAY       : newbucketrounder = new DayBucketRounder();   break;
-				case TL_HOUR      : newbucketrounder = new HourBucketRounder();  break;
-				case TL_HALF_HOUR : newbucketrounder = new HalfHourBucketRounder(); break;
+				case TL_MONTH        : newbucketrounder = new MonthBucketRounder();       break;
+				case TL_WEEK         : newbucketrounder = new WeekBucketRounder();        break;
+				case TL_DAY          : newbucketrounder = new DayBucketRounder();         break;
+				case TL_HOUR         : newbucketrounder = new HourBucketRounder();        break;
+				case TL_HALF_HOUR    : newbucketrounder = new HalfHourBucketRounder();    break;
 				case TL_QUARTER_HOUR : newbucketrounder = new QuarterHourBucketRounder(); break;
-				default           : newbucketrounder = null;
+				default              : newbucketrounder = null;
 			}
 			if ( oldbucketrounder!=null){
 				// the buckets are invalidated
