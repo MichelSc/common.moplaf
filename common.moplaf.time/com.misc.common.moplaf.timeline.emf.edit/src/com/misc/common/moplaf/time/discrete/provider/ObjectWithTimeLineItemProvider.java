@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.time.discrete.provider;
 
 
+import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
 import com.misc.common.moplaf.time.continuous.provider.TimelineEditPlugin;
 
 import com.misc.common.moplaf.time.discrete.DiscreteFactory;
@@ -12,13 +13,15 @@ import com.misc.common.moplaf.time.discrete.ObjectWithTimeLine;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -67,6 +70,8 @@ public class ObjectWithTimeLineItemProvider
 			addTimeLinePropertyDescriptor(object);
 			addLastBucketPropertyDescriptor(object);
 			addFirstBucketPropertyDescriptor(object);
+			addStartBucketPropertyDescriptor(object);
+			addEndBucketPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -129,6 +134,50 @@ public class ObjectWithTimeLineItemProvider
 				 getString("_UI_ObjectWithTimeLine_FirstBucket_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectWithTimeLine_FirstBucket_feature", "_UI_ObjectWithTimeLine_type"),
 				 DiscretePackage.Literals.OBJECT_WITH_TIME_LINE__FIRST_BUCKET,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Start Bucket feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStartBucketPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ObjectWithTimeLine_StartBucket_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectWithTimeLine_StartBucket_feature", "_UI_ObjectWithTimeLine_type"),
+				 DiscretePackage.Literals.OBJECT_WITH_TIME_LINE__START_BUCKET,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the End Bucket feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEndBucketPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ObjectWithTimeLine_EndBucket_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectWithTimeLine_EndBucket_feature", "_UI_ObjectWithTimeLine_type"),
+				 DiscretePackage.Literals.OBJECT_WITH_TIME_LINE__END_BUCKET,
 				 true,
 				 false,
 				 true,
@@ -236,5 +285,36 @@ public class ObjectWithTimeLineItemProvider
 	public ResourceLocator getResourceLocator() {
 		return TimelineEditPlugin.INSTANCE;
 	}
+
+	/**
+	 * Command class Refresh
+	 */
+	public class ObjectWithTimeLineRefreshCommand extends RefreshCommand {
+		private ObjectWithTimeLine objetWithTimeLine;
+		
+		// constructor
+		public ObjectWithTimeLineRefreshCommand(ObjectWithTimeLine object)	{
+			super();
+			this.objetWithTimeLine= object;
+		}
+
+		@Override
+		public void execute() {
+			this.objetWithTimeLine.refresh();
+		}
+	} // class RefreshCommand
+
+	/**
+	 * Specified by EditingDomainProvider.createCommande
+	 */
+	@Override
+	public Command createCommand(Object object, EditingDomain domain,
+			Class<? extends Command> commandClass,
+			CommandParameter commandParameter) {
+		if ( commandClass == RefreshCommand.class){
+			return new ObjectWithTimeLineRefreshCommand((ObjectWithTimeLine) object); 
+		}
+		return super.createCommand(object, domain, commandClass, commandParameter);
+	} //method createCommand
 
 }

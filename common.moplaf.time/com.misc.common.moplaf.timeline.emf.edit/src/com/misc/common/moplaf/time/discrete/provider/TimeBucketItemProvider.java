@@ -72,13 +72,13 @@ public class TimeBucketItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addBucketNrPropertyDescriptor(object);
 			addBucketStartPropertyDescriptor(object);
 			addBucketEndPropertyDescriptor(object);
 			addNextPropertyDescriptor(object);
 			addPreviousPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addSecondsPropertyDescriptor(object);
-			addBucketNrPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -276,11 +276,11 @@ public class TimeBucketItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TimeBucket.class)) {
+			case DiscretePackage.TIME_BUCKET__BUCKET_NR:
 			case DiscretePackage.TIME_BUCKET__BUCKET_START:
 			case DiscretePackage.TIME_BUCKET__BUCKET_END:
 			case DiscretePackage.TIME_BUCKET__DESCRIPTION:
 			case DiscretePackage.TIME_BUCKET__SECONDS:
-			case DiscretePackage.TIME_BUCKET__BUCKET_NR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

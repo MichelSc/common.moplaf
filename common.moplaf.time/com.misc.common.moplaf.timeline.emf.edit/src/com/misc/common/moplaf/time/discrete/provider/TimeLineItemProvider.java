@@ -398,6 +398,9 @@ public class TimeLineItemProvider
 		return TimelineEditPlugin.INSTANCE;
 	}
 
+	/**
+	 * Command class Refresh
+	 */
 	public class TimeLineRefreshCommand extends RefreshCommand {
 		private TimeLine timeline;
 		
@@ -411,8 +414,11 @@ public class TimeLineItemProvider
 		public void execute() {
 			this.timeline.refreshHorizon();
 		}
-	} // class WriterRunCommand
+	} // class RefreshCommand
 
+	/**
+	 * Specified by EditingDomainProvider.createCommande
+	 */
 	@Override
 	public Command createCommand(Object object, EditingDomain domain,
 			Class<? extends Command> commandClass,
@@ -423,6 +429,9 @@ public class TimeLineItemProvider
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand
 
+	/**
+	 * Specified by IItemIntervalEventsProvider.getIntervalEvents
+	 */
 	@Override
 	public Collection<?> getIntervalEvents(Object element) {
 		TimeLine timeLine = (TimeLine)element;

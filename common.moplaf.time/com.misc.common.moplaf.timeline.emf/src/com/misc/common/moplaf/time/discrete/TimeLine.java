@@ -225,6 +225,7 @@ public interface TimeLine extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Buckets</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.time.discrete.TimeBucket}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.discrete.TimeBucket#getTimeLine <em>Time Line</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Buckets</em>' containment reference list isn't clear,
@@ -233,7 +234,8 @@ public interface TimeLine extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Buckets</em>' containment reference list.
 	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeLine_Buckets()
-	 * @model containment="true"
+	 * @see com.misc.common.moplaf.time.discrete.TimeBucket#getTimeLine
+	 * @model opposite="TimeLine" containment="true"
 	 * @generated
 	 */
 	EList<TimeBucket> getBuckets();

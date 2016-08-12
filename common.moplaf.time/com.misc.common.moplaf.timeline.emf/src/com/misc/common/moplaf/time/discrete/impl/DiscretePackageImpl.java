@@ -319,15 +319,6 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * @generated
 	 */
 	public EAttribute getTimeBucket_BucketStart() {
-		return (EAttribute)timeBucketEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTimeBucket_BucketEnd() {
 		return (EAttribute)timeBucketEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -336,8 +327,8 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTimeBucket_Next() {
-		return (EReference)timeBucketEClass.getEStructuralFeatures().get(2);
+	public EAttribute getTimeBucket_BucketEnd() {
+		return (EAttribute)timeBucketEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -345,7 +336,7 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTimeBucket_Previous() {
+	public EReference getTimeBucket_Next() {
 		return (EReference)timeBucketEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -354,8 +345,8 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTimeBucket_Description() {
-		return (EAttribute)timeBucketEClass.getEStructuralFeatures().get(4);
+	public EReference getTimeBucket_Previous() {
+		return (EReference)timeBucketEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -363,7 +354,7 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTimeBucket_Seconds() {
+	public EAttribute getTimeBucket_Description() {
 		return (EAttribute)timeBucketEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -372,8 +363,26 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTimeBucket_BucketNr() {
+	public EAttribute getTimeBucket_Seconds() {
 		return (EAttribute)timeBucketEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTimeBucket_TimeLine() {
+		return (EReference)timeBucketEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTimeBucket_BucketNr() {
+		return (EAttribute)timeBucketEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -399,8 +408,35 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTimeBucket__GetSecondsIntersection__Date_Date() {
+	public EOperation getTimeBucket__IsBeforeStrictly__TimeBucket() {
 		return timeBucketEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTimeBucket__IsAfter__TimeBucket() {
+		return timeBucketEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTimeBucket__IsAfterStrictly__TimeBucket() {
+		return timeBucketEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTimeBucket__GetSecondsIntersection__Date_Date() {
+		return timeBucketEClass.getEOperations().get(5);
 	}
 
 	/**
@@ -606,8 +642,8 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getObjectWithTimeLine__Init__TimeLine() {
-		return objectWithTimeLineEClass.getEOperations().get(0);
+	public EReference getObjectWithTimeLine_StartBucket() {
+		return (EReference)objectWithTimeLineEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -615,8 +651,8 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getObjectWithTimeLine__Init__TimeLine_TimeBucket_TimeBucket() {
-		return objectWithTimeLineEClass.getEOperations().get(1);
+	public EReference getObjectWithTimeLine_EndBucket() {
+		return (EReference)objectWithTimeLineEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -625,7 +661,7 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * @generated
 	 */
 	public EOperation getObjectWithTimeLine__GetBucket__TimeBucket() {
-		return objectWithTimeLineEClass.getEOperations().get(2);
+		return objectWithTimeLineEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -634,7 +670,16 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * @generated
 	 */
 	public EOperation getObjectWithTimeLine__ConstructObjectTimeBucket() {
-		return objectWithTimeLineEClass.getEOperations().get(3);
+		return objectWithTimeLineEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getObjectWithTimeLine__Refresh() {
+		return objectWithTimeLineEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -671,6 +716,24 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 */
 	public EReference getObjectTimeBucket_Previous() {
 		return (EReference)objectTimeBucketEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getObjectTimeBucket_ObjectWithTimeLine() {
+		return (EReference)objectTimeBucketEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getObjectTimeBucket__Dispose() {
+		return objectTimeBucketEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -737,15 +800,19 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 		createEOperation(timeLineEClass, TIME_LINE___CREATE_BUCKET);
 
 		timeBucketEClass = createEClass(TIME_BUCKET);
+		createEAttribute(timeBucketEClass, TIME_BUCKET__BUCKET_NR);
 		createEAttribute(timeBucketEClass, TIME_BUCKET__BUCKET_START);
 		createEAttribute(timeBucketEClass, TIME_BUCKET__BUCKET_END);
 		createEReference(timeBucketEClass, TIME_BUCKET__NEXT);
 		createEReference(timeBucketEClass, TIME_BUCKET__PREVIOUS);
 		createEAttribute(timeBucketEClass, TIME_BUCKET__DESCRIPTION);
 		createEAttribute(timeBucketEClass, TIME_BUCKET__SECONDS);
-		createEAttribute(timeBucketEClass, TIME_BUCKET__BUCKET_NR);
+		createEReference(timeBucketEClass, TIME_BUCKET__TIME_LINE);
 		createEOperation(timeBucketEClass, TIME_BUCKET___CONTAINS__DATE);
 		createEOperation(timeBucketEClass, TIME_BUCKET___IS_BEFORE__TIMEBUCKET);
+		createEOperation(timeBucketEClass, TIME_BUCKET___IS_BEFORE_STRICTLY__TIMEBUCKET);
+		createEOperation(timeBucketEClass, TIME_BUCKET___IS_AFTER__TIMEBUCKET);
+		createEOperation(timeBucketEClass, TIME_BUCKET___IS_AFTER_STRICTLY__TIMEBUCKET);
 		createEOperation(timeBucketEClass, TIME_BUCKET___GET_SECONDS_INTERSECTION__DATE_DATE);
 
 		timeLineMergeEClass = createEClass(TIME_LINE_MERGE);
@@ -772,15 +839,18 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 		createEReference(objectWithTimeLineEClass, OBJECT_WITH_TIME_LINE__BUCKETS);
 		createEReference(objectWithTimeLineEClass, OBJECT_WITH_TIME_LINE__LAST_BUCKET);
 		createEReference(objectWithTimeLineEClass, OBJECT_WITH_TIME_LINE__FIRST_BUCKET);
-		createEOperation(objectWithTimeLineEClass, OBJECT_WITH_TIME_LINE___INIT__TIMELINE);
-		createEOperation(objectWithTimeLineEClass, OBJECT_WITH_TIME_LINE___INIT__TIMELINE_TIMEBUCKET_TIMEBUCKET);
+		createEReference(objectWithTimeLineEClass, OBJECT_WITH_TIME_LINE__START_BUCKET);
+		createEReference(objectWithTimeLineEClass, OBJECT_WITH_TIME_LINE__END_BUCKET);
 		createEOperation(objectWithTimeLineEClass, OBJECT_WITH_TIME_LINE___GET_BUCKET__TIMEBUCKET);
 		createEOperation(objectWithTimeLineEClass, OBJECT_WITH_TIME_LINE___CONSTRUCT_OBJECT_TIME_BUCKET);
+		createEOperation(objectWithTimeLineEClass, OBJECT_WITH_TIME_LINE___REFRESH);
 
 		objectTimeBucketEClass = createEClass(OBJECT_TIME_BUCKET);
 		createEReference(objectTimeBucketEClass, OBJECT_TIME_BUCKET__BUCKET);
 		createEReference(objectTimeBucketEClass, OBJECT_TIME_BUCKET__NEXT);
 		createEReference(objectTimeBucketEClass, OBJECT_TIME_BUCKET__PREVIOUS);
+		createEReference(objectTimeBucketEClass, OBJECT_TIME_BUCKET__OBJECT_WITH_TIME_LINE);
+		createEOperation(objectTimeBucketEClass, OBJECT_TIME_BUCKET___DISPOSE);
 
 		// Create enums
 		bucketTypeEEnum = createEEnum(BUCKET_TYPE);
@@ -827,7 +897,7 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 		initEAttribute(getTimeLine_LocaleCountry(), ecorePackage.getEString(), "LocaleCountry", "BE", 0, 1, TimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTimeLine_HorizonStart(), ecorePackage.getEDate(), "HorizonStart", null, 0, 1, TimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTimeLine_HorizonEnd(), ecorePackage.getEDate(), "HorizonEnd", null, 0, 1, TimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTimeLine_Buckets(), this.getTimeBucket(), null, "Buckets", null, 0, -1, TimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTimeLine_Buckets(), this.getTimeBucket(), this.getTimeBucket_TimeLine(), "Buckets", null, 0, -1, TimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTimeLine_FirstBucket(), this.getTimeBucket(), null, "FirstBucket", null, 0, 1, TimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTimeLine_LastBucket(), this.getTimeBucket(), null, "LastBucket", null, 0, 1, TimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -850,18 +920,28 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 		initEOperation(getTimeLine__CreateBucket(), this.getTimeBucket(), "createBucket", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(timeBucketEClass, TimeBucket.class, "TimeBucket", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTimeBucket_BucketNr(), ecorePackage.getEInt(), "BucketNr", null, 0, 1, TimeBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTimeBucket_BucketStart(), ecorePackage.getEDate(), "BucketStart", null, 0, 1, TimeBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTimeBucket_BucketEnd(), ecorePackage.getEDate(), "BucketEnd", null, 0, 1, TimeBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTimeBucket_Next(), this.getTimeBucket(), this.getTimeBucket_Previous(), "Next", null, 0, 1, TimeBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTimeBucket_Previous(), this.getTimeBucket(), this.getTimeBucket_Next(), "Previous", null, 0, 1, TimeBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTimeBucket_Description(), ecorePackage.getEString(), "Description", null, 0, 1, TimeBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTimeBucket_Seconds(), ecorePackage.getEInt(), "Seconds", null, 0, 1, TimeBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTimeBucket_BucketNr(), ecorePackage.getEInt(), "BucketNr", null, 0, 1, TimeBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTimeBucket_TimeLine(), this.getTimeLine(), this.getTimeLine_Buckets(), "TimeLine", null, 1, 1, TimeBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getTimeBucket__Contains__Date(), ecorePackage.getEBoolean(), "contains", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "sometime", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getTimeBucket__IsBefore__TimeBucket(), ecorePackage.getEBoolean(), "isBefore", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getTimeBucket(), "other", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getTimeBucket__IsBeforeStrictly__TimeBucket(), ecorePackage.getEBoolean(), "isBeforeStrictly", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getTimeBucket(), "other", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getTimeBucket__IsAfter__TimeBucket(), ecorePackage.getEBoolean(), "isAfter", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getTimeBucket(), "other", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getTimeBucket__IsAfterStrictly__TimeBucket(), ecorePackage.getEBoolean(), "isAfterStrictly", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTimeBucket(), "other", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getTimeBucket__GetSecondsIntersection__Date_Date(), ecorePackage.getEInt(), "getSecondsIntersection", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -889,28 +969,27 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 		initEAttribute(getMergeElement_Seconds(), ecorePackage.getEInt(), "Seconds", null, 0, 1, MergeElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(objectWithTimeLineEClass, ObjectWithTimeLine.class, "ObjectWithTimeLine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getObjectWithTimeLine_TimeLine(), this.getTimeLine(), null, "TimeLine", null, 1, 1, ObjectWithTimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getObjectWithTimeLine_Buckets(), this.getObjectTimeBucket(), null, "Buckets", null, 0, -1, ObjectWithTimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getObjectWithTimeLine_TimeLine(), this.getTimeLine(), null, "TimeLine", null, 1, 1, ObjectWithTimeLine.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getObjectWithTimeLine_Buckets(), this.getObjectTimeBucket(), this.getObjectTimeBucket_ObjectWithTimeLine(), "Buckets", null, 0, -1, ObjectWithTimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObjectWithTimeLine_LastBucket(), this.getObjectTimeBucket(), null, "LastBucket", null, 0, 1, ObjectWithTimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObjectWithTimeLine_FirstBucket(), this.getObjectTimeBucket(), null, "FirstBucket", null, 0, 1, ObjectWithTimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getObjectWithTimeLine__Init__TimeLine(), null, "init", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getTimeLine(), "timeLine", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getObjectWithTimeLine__Init__TimeLine_TimeBucket_TimeBucket(), null, "init", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getTimeLine(), "timeLine", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getTimeBucket(), "start", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getTimeBucket(), "end", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEReference(getObjectWithTimeLine_StartBucket(), this.getTimeBucket(), null, "StartBucket", null, 0, 1, ObjectWithTimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getObjectWithTimeLine_EndBucket(), this.getTimeBucket(), null, "EndBucket", null, 0, 1, ObjectWithTimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getObjectWithTimeLine__GetBucket__TimeBucket(), this.getObjectTimeBucket(), "getBucket", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTimeBucket(), "bucket", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getObjectWithTimeLine__ConstructObjectTimeBucket(), this.getObjectTimeBucket(), "constructObjectTimeBucket", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getObjectWithTimeLine__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(objectTimeBucketEClass, ObjectTimeBucket.class, "ObjectTimeBucket", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getObjectTimeBucket_Bucket(), this.getTimeBucket(), null, "Bucket", null, 1, 1, ObjectTimeBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObjectTimeBucket_Next(), this.getObjectTimeBucket(), this.getObjectTimeBucket_Previous(), "Next", null, 0, 1, ObjectTimeBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObjectTimeBucket_Previous(), this.getObjectTimeBucket(), this.getObjectTimeBucket_Next(), "Previous", null, 0, 1, ObjectTimeBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getObjectTimeBucket_ObjectWithTimeLine(), this.getObjectWithTimeLine(), this.getObjectWithTimeLine_Buckets(), "ObjectWithTimeLine", null, 1, 1, ObjectTimeBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getObjectTimeBucket__Dispose(), null, "dispose", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(bucketTypeEEnum, BucketType.class, "BucketType");

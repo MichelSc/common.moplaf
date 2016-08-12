@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.time.discrete.ObjectTimeBucket#getBucket <em>Bucket</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.ObjectTimeBucket#getNext <em>Next</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.ObjectTimeBucket#getPrevious <em>Previous</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.discrete.ObjectTimeBucket#getObjectWithTimeLine <em>Object With Time Line</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getObjectTimeBucket()
@@ -104,5 +105,41 @@ public interface ObjectTimeBucket extends EObject {
 	 * @generated
 	 */
 	void setPrevious(ObjectTimeBucket value);
+
+	/**
+	 * Returns the value of the '<em><b>Object With Time Line</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getBuckets <em>Buckets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Object With Time Line</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Object With Time Line</em>' container reference.
+	 * @see #setObjectWithTimeLine(ObjectWithTimeLine)
+	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getObjectTimeBucket_ObjectWithTimeLine()
+	 * @see com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getBuckets
+	 * @model opposite="Buckets" required="true" transient="false"
+	 * @generated
+	 */
+	ObjectWithTimeLine getObjectWithTimeLine();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.time.discrete.ObjectTimeBucket#getObjectWithTimeLine <em>Object With Time Line</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Object With Time Line</em>' container reference.
+	 * @see #getObjectWithTimeLine()
+	 * @generated
+	 */
+	void setObjectWithTimeLine(ObjectWithTimeLine value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void dispose();
 
 } // ObjectTimeBucket

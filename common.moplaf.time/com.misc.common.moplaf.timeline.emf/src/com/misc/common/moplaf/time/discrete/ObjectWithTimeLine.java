@@ -19,6 +19,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getBuckets <em>Buckets</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getLastBucket <em>Last Bucket</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getFirstBucket <em>First Bucket</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getStartBucket <em>Start Bucket</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getEndBucket <em>End Bucket</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getObjectWithTimeLine()
@@ -35,26 +37,16 @@ public interface ObjectWithTimeLine extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Time Line</em>' reference.
-	 * @see #setTimeLine(TimeLine)
 	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getObjectWithTimeLine_TimeLine()
-	 * @model required="true"
+	 * @model required="true" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	TimeLine getTimeLine();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getTimeLine <em>Time Line</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Time Line</em>' reference.
-	 * @see #getTimeLine()
-	 * @generated
-	 */
-	void setTimeLine(TimeLine value);
-
-	/**
 	 * Returns the value of the '<em><b>Buckets</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.time.discrete.ObjectTimeBucket}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.discrete.ObjectTimeBucket#getObjectWithTimeLine <em>Object With Time Line</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Buckets</em>' containment reference list isn't clear,
@@ -63,7 +55,8 @@ public interface ObjectWithTimeLine extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Buckets</em>' containment reference list.
 	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getObjectWithTimeLine_Buckets()
-	 * @model containment="true"
+	 * @see com.misc.common.moplaf.time.discrete.ObjectTimeBucket#getObjectWithTimeLine
+	 * @model opposite="ObjectWithTimeLine" containment="true"
 	 * @generated
 	 */
 	EList<ObjectTimeBucket> getBuckets();
@@ -121,20 +114,56 @@ public interface ObjectWithTimeLine extends EObject {
 	void setFirstBucket(ObjectTimeBucket value);
 
 	/**
+	 * Returns the value of the '<em><b>Start Bucket</b></em>' reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Start Bucket</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Start Bucket</em>' reference.
+	 * @see #setStartBucket(TimeBucket)
+	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getObjectWithTimeLine_StartBucket()
 	 * @model
 	 * @generated
 	 */
-	void init(TimeLine timeLine);
+	TimeBucket getStartBucket();
 
 	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getStartBucket <em>Start Bucket</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Start Bucket</em>' reference.
+	 * @see #getStartBucket()
+	 * @generated
+	 */
+	void setStartBucket(TimeBucket value);
+
+	/**
+	 * Returns the value of the '<em><b>End Bucket</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>End Bucket</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>End Bucket</em>' reference.
+	 * @see #setEndBucket(TimeBucket)
+	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getObjectWithTimeLine_EndBucket()
 	 * @model
 	 * @generated
 	 */
-	void init(TimeLine timeLine, TimeBucket start, TimeBucket end);
+	TimeBucket getEndBucket();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getEndBucket <em>End Bucket</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>End Bucket</em>' reference.
+	 * @see #getEndBucket()
+	 * @generated
+	 */
+	void setEndBucket(TimeBucket value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -151,5 +180,13 @@ public interface ObjectWithTimeLine extends EObject {
 	 * @generated
 	 */
 	ObjectTimeBucket constructObjectTimeBucket();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void refresh();
 
 } // ObjectWithTimeLine

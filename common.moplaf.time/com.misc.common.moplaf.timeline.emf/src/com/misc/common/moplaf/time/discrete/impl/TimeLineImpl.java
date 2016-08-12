@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -396,7 +396,7 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 	 */
 	public EList<TimeBucket> getBuckets() {
 		if (buckets == null) {
-			buckets = new EObjectContainmentEList<TimeBucket>(TimeBucket.class, this, DiscretePackage.TIME_LINE__BUCKETS);
+			buckets = new EObjectContainmentWithInverseEList<TimeBucket>(TimeBucket.class, this, DiscretePackage.TIME_LINE__BUCKETS, DiscretePackage.TIME_BUCKET__TIME_LINE);
 		}
 		return buckets;
 	}
@@ -520,6 +520,21 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 	 */
 	public TimeBucket createBucket() {
 		return DiscreteFactory.eINSTANCE.createTimeBucket();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case DiscretePackage.TIME_LINE__BUCKETS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getBuckets()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -991,8 +1006,9 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 			// remove first
 			TimeBucket oldfirst = this.getFirstBucket();
 			TimeBucket newfirst = oldfirst.getNext();
-			EcoreUtil.delete(oldfirst);
+			oldfirst.setNext(null);
 			this.setFirstBucket(newfirst);
+			EcoreUtil.delete(oldfirst);
 		}
 		
 		// remove the too much at the tail
@@ -1002,8 +1018,9 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 			// remove last
 			TimeBucket oldlast = this.getLastBucket();
 			TimeBucket newlast = oldlast.getPrevious();
-			EcoreUtil.delete(oldlast);
+			oldlast.setPrevious(null);
 			this.setLastBucket(newlast);
+			EcoreUtil.delete(oldlast);
 		}
 		
 		if (   this.getHorizonStart().compareTo(this.getHorizonEnd())>0

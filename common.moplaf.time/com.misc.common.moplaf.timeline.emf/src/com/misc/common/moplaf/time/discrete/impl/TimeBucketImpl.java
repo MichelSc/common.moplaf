@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,18 +26,39 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeBucketImpl#getBucketNr <em>Bucket Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeBucketImpl#getBucketStart <em>Bucket Start</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeBucketImpl#getBucketEnd <em>Bucket End</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeBucketImpl#getNext <em>Next</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeBucketImpl#getPrevious <em>Previous</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeBucketImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeBucketImpl#getSeconds <em>Seconds</em>}</li>
- *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeBucketImpl#getBucketNr <em>Bucket Nr</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeBucketImpl#getTimeLine <em>Time Line</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class TimeBucketImpl extends MinimalEObjectImpl.Container implements TimeBucket {
+	/**
+	 * The default value of the '{@link #getBucketNr() <em>Bucket Nr</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBucketNr()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int BUCKET_NR_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getBucketNr() <em>Bucket Nr</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBucketNr()
+	 * @generated
+	 * @ordered
+	 */
+	protected int bucketNr = BUCKET_NR_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getBucketStart() <em>Bucket Start</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -136,26 +158,6 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 	 * @ordered
 	 */
 	protected int seconds = SECONDS_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getBucketNr() <em>Bucket Nr</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBucketNr()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int BUCKET_NR_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getBucketNr() <em>Bucket Nr</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBucketNr()
-	 * @generated
-	 * @ordered
-	 */
-	protected int bucketNr = BUCKET_NR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -385,6 +387,47 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public TimeLine getTimeLine() {
+		if (eContainerFeatureID() != DiscretePackage.TIME_BUCKET__TIME_LINE) return null;
+		return (TimeLine)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTimeLine(TimeLine newTimeLine, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newTimeLine, DiscretePackage.TIME_BUCKET__TIME_LINE, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTimeLine(TimeLine newTimeLine) {
+		if (newTimeLine != eInternalContainer() || (eContainerFeatureID() != DiscretePackage.TIME_BUCKET__TIME_LINE && newTimeLine != null)) {
+			if (EcoreUtil.isAncestor(this, newTimeLine))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newTimeLine != null)
+				msgs = ((InternalEObject)newTimeLine).eInverseAdd(this, DiscretePackage.TIME_LINE__BUCKETS, TimeLine.class, msgs);
+			msgs = basicSetTimeLine(newTimeLine, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.TIME_BUCKET__TIME_LINE, newTimeLine, newTimeLine));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public int getBucketNr() {
 		return bucketNr;
 	}
@@ -415,8 +458,35 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 	 * <!-- end-user-doc -->
 	 */
 	public boolean isBefore(TimeBucket other) {
-		boolean isbefore = this.getBucketEnd().compareTo(other.getBucketStart())<=0;
+		boolean isbefore = this.getBucketNr()<=other.getBucketNr();
 		return isbefore;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public boolean isBeforeStrictly(TimeBucket other) {
+		boolean isbefore = this.getBucketNr()<other.getBucketNr();
+		return isbefore;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public boolean isAfter(TimeBucket other) {
+		boolean isafter= this.getBucketNr()>=other.getBucketNr();
+		return isafter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public boolean isAfterStrictly(TimeBucket other) {
+		boolean isafter= this.getBucketNr()>other.getBucketNr();
+		return isafter;
 	}
 
 	/**
@@ -446,6 +516,10 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 				if (previous != null)
 					msgs = ((InternalEObject)previous).eInverseRemove(this, DiscretePackage.TIME_BUCKET__NEXT, TimeBucket.class, msgs);
 				return basicSetPrevious((TimeBucket)otherEnd, msgs);
+			case DiscretePackage.TIME_BUCKET__TIME_LINE:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetTimeLine((TimeLine)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -462,6 +536,8 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 				return basicSetNext(null, msgs);
 			case DiscretePackage.TIME_BUCKET__PREVIOUS:
 				return basicSetPrevious(null, msgs);
+			case DiscretePackage.TIME_BUCKET__TIME_LINE:
+				return basicSetTimeLine(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -472,8 +548,24 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case DiscretePackage.TIME_BUCKET__TIME_LINE:
+				return eInternalContainer().eInverseRemove(this, DiscretePackage.TIME_LINE__BUCKETS, TimeLine.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case DiscretePackage.TIME_BUCKET__BUCKET_NR:
+				return getBucketNr();
 			case DiscretePackage.TIME_BUCKET__BUCKET_START:
 				return getBucketStart();
 			case DiscretePackage.TIME_BUCKET__BUCKET_END:
@@ -488,8 +580,8 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 				return getDescription();
 			case DiscretePackage.TIME_BUCKET__SECONDS:
 				return getSeconds();
-			case DiscretePackage.TIME_BUCKET__BUCKET_NR:
-				return getBucketNr();
+			case DiscretePackage.TIME_BUCKET__TIME_LINE:
+				return getTimeLine();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -502,6 +594,9 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case DiscretePackage.TIME_BUCKET__BUCKET_NR:
+				setBucketNr((Integer)newValue);
+				return;
 			case DiscretePackage.TIME_BUCKET__BUCKET_START:
 				setBucketStart((Date)newValue);
 				return;
@@ -520,8 +615,8 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 			case DiscretePackage.TIME_BUCKET__SECONDS:
 				setSeconds((Integer)newValue);
 				return;
-			case DiscretePackage.TIME_BUCKET__BUCKET_NR:
-				setBucketNr((Integer)newValue);
+			case DiscretePackage.TIME_BUCKET__TIME_LINE:
+				setTimeLine((TimeLine)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -535,6 +630,9 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case DiscretePackage.TIME_BUCKET__BUCKET_NR:
+				setBucketNr(BUCKET_NR_EDEFAULT);
+				return;
 			case DiscretePackage.TIME_BUCKET__BUCKET_START:
 				setBucketStart(BUCKET_START_EDEFAULT);
 				return;
@@ -553,8 +651,8 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 			case DiscretePackage.TIME_BUCKET__SECONDS:
 				setSeconds(SECONDS_EDEFAULT);
 				return;
-			case DiscretePackage.TIME_BUCKET__BUCKET_NR:
-				setBucketNr(BUCKET_NR_EDEFAULT);
+			case DiscretePackage.TIME_BUCKET__TIME_LINE:
+				setTimeLine((TimeLine)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -568,6 +666,8 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case DiscretePackage.TIME_BUCKET__BUCKET_NR:
+				return bucketNr != BUCKET_NR_EDEFAULT;
 			case DiscretePackage.TIME_BUCKET__BUCKET_START:
 				return BUCKET_START_EDEFAULT == null ? bucketStart != null : !BUCKET_START_EDEFAULT.equals(bucketStart);
 			case DiscretePackage.TIME_BUCKET__BUCKET_END:
@@ -580,8 +680,8 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case DiscretePackage.TIME_BUCKET__SECONDS:
 				return seconds != SECONDS_EDEFAULT;
-			case DiscretePackage.TIME_BUCKET__BUCKET_NR:
-				return bucketNr != BUCKET_NR_EDEFAULT;
+			case DiscretePackage.TIME_BUCKET__TIME_LINE:
+				return getTimeLine() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -598,6 +698,12 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 				return contains((Date)arguments.get(0));
 			case DiscretePackage.TIME_BUCKET___IS_BEFORE__TIMEBUCKET:
 				return isBefore((TimeBucket)arguments.get(0));
+			case DiscretePackage.TIME_BUCKET___IS_BEFORE_STRICTLY__TIMEBUCKET:
+				return isBeforeStrictly((TimeBucket)arguments.get(0));
+			case DiscretePackage.TIME_BUCKET___IS_AFTER__TIMEBUCKET:
+				return isAfter((TimeBucket)arguments.get(0));
+			case DiscretePackage.TIME_BUCKET___IS_AFTER_STRICTLY__TIMEBUCKET:
+				return isAfterStrictly((TimeBucket)arguments.get(0));
 			case DiscretePackage.TIME_BUCKET___GET_SECONDS_INTERSECTION__DATE_DATE:
 				return getSecondsIntersection((Date)arguments.get(0), (Date)arguments.get(1));
 		}
@@ -614,7 +720,9 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (BucketStart: ");
+		result.append(" (BucketNr: ");
+		result.append(bucketNr);
+		result.append(", BucketStart: ");
 		result.append(bucketStart);
 		result.append(", BucketEnd: ");
 		result.append(bucketEnd);
@@ -622,8 +730,6 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 		result.append(description);
 		result.append(", Seconds: ");
 		result.append(seconds);
-		result.append(", BucketNr: ");
-		result.append(bucketNr);
 		result.append(')');
 		return result.toString();
 	}

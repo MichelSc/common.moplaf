@@ -15,13 +15,14 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.time.discrete.TimeBucket#getBucketNr <em>Bucket Nr</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeBucket#getBucketStart <em>Bucket Start</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeBucket#getBucketEnd <em>Bucket End</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeBucket#getNext <em>Next</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeBucket#getPrevious <em>Previous</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeBucket#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeBucket#getSeconds <em>Seconds</em>}</li>
- *   <li>{@link com.misc.common.moplaf.time.discrete.TimeBucket#getBucketNr <em>Bucket Nr</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.discrete.TimeBucket#getTimeLine <em>Time Line</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeBucket()
@@ -190,6 +191,34 @@ public interface TimeBucket extends EObject {
 	void setSeconds(int value);
 
 	/**
+	 * Returns the value of the '<em><b>Time Line</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.discrete.TimeLine#getBuckets <em>Buckets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Time Line</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Time Line</em>' container reference.
+	 * @see #setTimeLine(TimeLine)
+	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeBucket_TimeLine()
+	 * @see com.misc.common.moplaf.time.discrete.TimeLine#getBuckets
+	 * @model opposite="Buckets" required="true" transient="false"
+	 * @generated
+	 */
+	TimeLine getTimeLine();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.time.discrete.TimeBucket#getTimeLine <em>Time Line</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Time Line</em>' container reference.
+	 * @see #getTimeLine()
+	 * @generated
+	 */
+	void setTimeLine(TimeLine value);
+
+	/**
 	 * Returns the value of the '<em><b>Bucket Nr</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -230,6 +259,30 @@ public interface TimeBucket extends EObject {
 	 * @generated
 	 */
 	boolean isBefore(TimeBucket other);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean isBeforeStrictly(TimeBucket other);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean isAfter(TimeBucket other);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean isAfterStrictly(TimeBucket other);
 
 	/**
 	 * <!-- begin-user-doc -->

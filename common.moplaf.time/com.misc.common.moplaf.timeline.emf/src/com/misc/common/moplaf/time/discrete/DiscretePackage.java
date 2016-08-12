@@ -233,13 +233,22 @@ public interface DiscretePackage extends EPackage {
 	int TIME_BUCKET = 1;
 
 	/**
+	 * The feature id for the '<em><b>Bucket Nr</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_BUCKET__BUCKET_NR = 0;
+
+	/**
 	 * The feature id for the '<em><b>Bucket Start</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_BUCKET__BUCKET_START = 0;
+	int TIME_BUCKET__BUCKET_START = 1;
 
 	/**
 	 * The feature id for the '<em><b>Bucket End</b></em>' attribute.
@@ -248,7 +257,7 @@ public interface DiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_BUCKET__BUCKET_END = 1;
+	int TIME_BUCKET__BUCKET_END = 2;
 
 	/**
 	 * The feature id for the '<em><b>Next</b></em>' reference.
@@ -257,7 +266,7 @@ public interface DiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_BUCKET__NEXT = 2;
+	int TIME_BUCKET__NEXT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Previous</b></em>' reference.
@@ -266,7 +275,7 @@ public interface DiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_BUCKET__PREVIOUS = 3;
+	int TIME_BUCKET__PREVIOUS = 4;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -275,7 +284,7 @@ public interface DiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_BUCKET__DESCRIPTION = 4;
+	int TIME_BUCKET__DESCRIPTION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Seconds</b></em>' attribute.
@@ -284,16 +293,16 @@ public interface DiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_BUCKET__SECONDS = 5;
+	int TIME_BUCKET__SECONDS = 6;
 
 	/**
-	 * The feature id for the '<em><b>Bucket Nr</b></em>' attribute.
+	 * The feature id for the '<em><b>Time Line</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_BUCKET__BUCKET_NR = 6;
+	int TIME_BUCKET__TIME_LINE = 7;
 
 	/**
 	 * The number of structural features of the '<em>Time Bucket</em>' class.
@@ -302,7 +311,7 @@ public interface DiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_BUCKET_FEATURE_COUNT = 7;
+	int TIME_BUCKET_FEATURE_COUNT = 8;
 
 	/**
 	 * The operation id for the '<em>Contains</em>' operation.
@@ -323,13 +332,40 @@ public interface DiscretePackage extends EPackage {
 	int TIME_BUCKET___IS_BEFORE__TIMEBUCKET = 1;
 
 	/**
+	 * The operation id for the '<em>Is Before Strictly</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_BUCKET___IS_BEFORE_STRICTLY__TIMEBUCKET = 2;
+
+	/**
+	 * The operation id for the '<em>Is After</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_BUCKET___IS_AFTER__TIMEBUCKET = 3;
+
+	/**
+	 * The operation id for the '<em>Is After Strictly</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_BUCKET___IS_AFTER_STRICTLY__TIMEBUCKET = 4;
+
+	/**
 	 * The operation id for the '<em>Get Seconds Intersection</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_BUCKET___GET_SECONDS_INTERSECTION__DATE_DATE = 2;
+	int TIME_BUCKET___GET_SECONDS_INTERSECTION__DATE_DATE = 5;
 
 	/**
 	 * The number of operations of the '<em>Time Bucket</em>' class.
@@ -338,7 +374,7 @@ public interface DiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_BUCKET_OPERATION_COUNT = 3;
+	int TIME_BUCKET_OPERATION_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.discrete.impl.TimeLineMergeImpl <em>Time Line Merge</em>}' class.
@@ -578,31 +614,31 @@ public interface DiscretePackage extends EPackage {
 	int OBJECT_WITH_TIME_LINE__FIRST_BUCKET = 3;
 
 	/**
+	 * The feature id for the '<em><b>Start Bucket</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_WITH_TIME_LINE__START_BUCKET = 4;
+
+	/**
+	 * The feature id for the '<em><b>End Bucket</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_WITH_TIME_LINE__END_BUCKET = 5;
+
+	/**
 	 * The number of structural features of the '<em>Object With Time Line</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_WITH_TIME_LINE_FEATURE_COUNT = 4;
-
-	/**
-	 * The operation id for the '<em>Init</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT_WITH_TIME_LINE___INIT__TIMELINE = 0;
-
-	/**
-	 * The operation id for the '<em>Init</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT_WITH_TIME_LINE___INIT__TIMELINE_TIMEBUCKET_TIMEBUCKET = 1;
+	int OBJECT_WITH_TIME_LINE_FEATURE_COUNT = 6;
 
 	/**
 	 * The operation id for the '<em>Get Bucket</em>' operation.
@@ -611,7 +647,7 @@ public interface DiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_WITH_TIME_LINE___GET_BUCKET__TIMEBUCKET = 2;
+	int OBJECT_WITH_TIME_LINE___GET_BUCKET__TIMEBUCKET = 0;
 
 	/**
 	 * The operation id for the '<em>Construct Object Time Bucket</em>' operation.
@@ -620,7 +656,16 @@ public interface DiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_WITH_TIME_LINE___CONSTRUCT_OBJECT_TIME_BUCKET = 3;
+	int OBJECT_WITH_TIME_LINE___CONSTRUCT_OBJECT_TIME_BUCKET = 1;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_WITH_TIME_LINE___REFRESH = 2;
 
 	/**
 	 * The number of operations of the '<em>Object With Time Line</em>' class.
@@ -629,7 +674,7 @@ public interface DiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_WITH_TIME_LINE_OPERATION_COUNT = 4;
+	int OBJECT_WITH_TIME_LINE_OPERATION_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.discrete.impl.ObjectTimeBucketImpl <em>Object Time Bucket</em>}' class.
@@ -669,13 +714,31 @@ public interface DiscretePackage extends EPackage {
 	int OBJECT_TIME_BUCKET__PREVIOUS = 2;
 
 	/**
+	 * The feature id for the '<em><b>Object With Time Line</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_TIME_BUCKET__OBJECT_WITH_TIME_LINE = 3;
+
+	/**
 	 * The number of structural features of the '<em>Object Time Bucket</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_TIME_BUCKET_FEATURE_COUNT = 3;
+	int OBJECT_TIME_BUCKET_FEATURE_COUNT = 4;
+
+	/**
+	 * The operation id for the '<em>Dispose</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_TIME_BUCKET___DISPOSE = 0;
 
 	/**
 	 * The number of operations of the '<em>Object Time Bucket</em>' class.
@@ -684,7 +747,7 @@ public interface DiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_TIME_BUCKET_OPERATION_COUNT = 0;
+	int OBJECT_TIME_BUCKET_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.discrete.BucketType <em>Bucket Type</em>}' enum.
@@ -954,6 +1017,17 @@ public interface DiscretePackage extends EPackage {
 	EAttribute getTimeBucket_Seconds();
 
 	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.time.discrete.TimeBucket#getTimeLine <em>Time Line</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Time Line</em>'.
+	 * @see com.misc.common.moplaf.time.discrete.TimeBucket#getTimeLine()
+	 * @see #getTimeBucket()
+	 * @generated
+	 */
+	EReference getTimeBucket_TimeLine();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.time.discrete.TimeBucket#getBucketNr <em>Bucket Nr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -983,6 +1057,36 @@ public interface DiscretePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getTimeBucket__IsBefore__TimeBucket();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.discrete.TimeBucket#isBeforeStrictly(com.misc.common.moplaf.time.discrete.TimeBucket) <em>Is Before Strictly</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Before Strictly</em>' operation.
+	 * @see com.misc.common.moplaf.time.discrete.TimeBucket#isBeforeStrictly(com.misc.common.moplaf.time.discrete.TimeBucket)
+	 * @generated
+	 */
+	EOperation getTimeBucket__IsBeforeStrictly__TimeBucket();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.discrete.TimeBucket#isAfter(com.misc.common.moplaf.time.discrete.TimeBucket) <em>Is After</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is After</em>' operation.
+	 * @see com.misc.common.moplaf.time.discrete.TimeBucket#isAfter(com.misc.common.moplaf.time.discrete.TimeBucket)
+	 * @generated
+	 */
+	EOperation getTimeBucket__IsAfter__TimeBucket();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.discrete.TimeBucket#isAfterStrictly(com.misc.common.moplaf.time.discrete.TimeBucket) <em>Is After Strictly</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is After Strictly</em>' operation.
+	 * @see com.misc.common.moplaf.time.discrete.TimeBucket#isAfterStrictly(com.misc.common.moplaf.time.discrete.TimeBucket)
+	 * @generated
+	 */
+	EOperation getTimeBucket__IsAfterStrictly__TimeBucket();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.discrete.TimeBucket#getSecondsIntersection(java.util.Date, java.util.Date) <em>Get Seconds Intersection</em>}' operation.
@@ -1233,24 +1337,26 @@ public interface DiscretePackage extends EPackage {
 	EReference getObjectWithTimeLine_FirstBucket();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#init(com.misc.common.moplaf.time.discrete.TimeLine) <em>Init</em>}' operation.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getStartBucket <em>Start Bucket</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Init</em>' operation.
-	 * @see com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#init(com.misc.common.moplaf.time.discrete.TimeLine)
+	 * @return the meta object for the reference '<em>Start Bucket</em>'.
+	 * @see com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getStartBucket()
+	 * @see #getObjectWithTimeLine()
 	 * @generated
 	 */
-	EOperation getObjectWithTimeLine__Init__TimeLine();
+	EReference getObjectWithTimeLine_StartBucket();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#init(com.misc.common.moplaf.time.discrete.TimeLine, com.misc.common.moplaf.time.discrete.TimeBucket, com.misc.common.moplaf.time.discrete.TimeBucket) <em>Init</em>}' operation.
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getEndBucket <em>End Bucket</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Init</em>' operation.
-	 * @see com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#init(com.misc.common.moplaf.time.discrete.TimeLine, com.misc.common.moplaf.time.discrete.TimeBucket, com.misc.common.moplaf.time.discrete.TimeBucket)
+	 * @return the meta object for the reference '<em>End Bucket</em>'.
+	 * @see com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getEndBucket()
+	 * @see #getObjectWithTimeLine()
 	 * @generated
 	 */
-	EOperation getObjectWithTimeLine__Init__TimeLine_TimeBucket_TimeBucket();
+	EReference getObjectWithTimeLine_EndBucket();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getBucket(com.misc.common.moplaf.time.discrete.TimeBucket) <em>Get Bucket</em>}' operation.
@@ -1271,6 +1377,16 @@ public interface DiscretePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getObjectWithTimeLine__ConstructObjectTimeBucket();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#refresh() <em>Refresh</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh</em>' operation.
+	 * @see com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#refresh()
+	 * @generated
+	 */
+	EOperation getObjectWithTimeLine__Refresh();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.discrete.ObjectTimeBucket <em>Object Time Bucket</em>}'.
@@ -1314,6 +1430,27 @@ public interface DiscretePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getObjectTimeBucket_Previous();
+
+	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.time.discrete.ObjectTimeBucket#getObjectWithTimeLine <em>Object With Time Line</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Object With Time Line</em>'.
+	 * @see com.misc.common.moplaf.time.discrete.ObjectTimeBucket#getObjectWithTimeLine()
+	 * @see #getObjectTimeBucket()
+	 * @generated
+	 */
+	EReference getObjectTimeBucket_ObjectWithTimeLine();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.discrete.ObjectTimeBucket#dispose() <em>Dispose</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Dispose</em>' operation.
+	 * @see com.misc.common.moplaf.time.discrete.ObjectTimeBucket#dispose()
+	 * @generated
+	 */
+	EOperation getObjectTimeBucket__Dispose();
 
 	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.time.discrete.BucketType <em>Bucket Type</em>}'.
@@ -1548,6 +1685,14 @@ public interface DiscretePackage extends EPackage {
 		EAttribute TIME_BUCKET__SECONDS = eINSTANCE.getTimeBucket_Seconds();
 
 		/**
+		 * The meta object literal for the '<em><b>Time Line</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TIME_BUCKET__TIME_LINE = eINSTANCE.getTimeBucket_TimeLine();
+
+		/**
 		 * The meta object literal for the '<em><b>Bucket Nr</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1570,6 +1715,30 @@ public interface DiscretePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation TIME_BUCKET___IS_BEFORE__TIMEBUCKET = eINSTANCE.getTimeBucket__IsBefore__TimeBucket();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Before Strictly</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TIME_BUCKET___IS_BEFORE_STRICTLY__TIMEBUCKET = eINSTANCE.getTimeBucket__IsBeforeStrictly__TimeBucket();
+
+		/**
+		 * The meta object literal for the '<em><b>Is After</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TIME_BUCKET___IS_AFTER__TIMEBUCKET = eINSTANCE.getTimeBucket__IsAfter__TimeBucket();
+
+		/**
+		 * The meta object literal for the '<em><b>Is After Strictly</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TIME_BUCKET___IS_AFTER_STRICTLY__TIMEBUCKET = eINSTANCE.getTimeBucket__IsAfterStrictly__TimeBucket();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Seconds Intersection</b></em>' operation.
@@ -1762,20 +1931,20 @@ public interface DiscretePackage extends EPackage {
 		EReference OBJECT_WITH_TIME_LINE__FIRST_BUCKET = eINSTANCE.getObjectWithTimeLine_FirstBucket();
 
 		/**
-		 * The meta object literal for the '<em><b>Init</b></em>' operation.
+		 * The meta object literal for the '<em><b>Start Bucket</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation OBJECT_WITH_TIME_LINE___INIT__TIMELINE = eINSTANCE.getObjectWithTimeLine__Init__TimeLine();
+		EReference OBJECT_WITH_TIME_LINE__START_BUCKET = eINSTANCE.getObjectWithTimeLine_StartBucket();
 
 		/**
-		 * The meta object literal for the '<em><b>Init</b></em>' operation.
+		 * The meta object literal for the '<em><b>End Bucket</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation OBJECT_WITH_TIME_LINE___INIT__TIMELINE_TIMEBUCKET_TIMEBUCKET = eINSTANCE.getObjectWithTimeLine__Init__TimeLine_TimeBucket_TimeBucket();
+		EReference OBJECT_WITH_TIME_LINE__END_BUCKET = eINSTANCE.getObjectWithTimeLine_EndBucket();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Bucket</b></em>' operation.
@@ -1792,6 +1961,14 @@ public interface DiscretePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation OBJECT_WITH_TIME_LINE___CONSTRUCT_OBJECT_TIME_BUCKET = eINSTANCE.getObjectWithTimeLine__ConstructObjectTimeBucket();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation OBJECT_WITH_TIME_LINE___REFRESH = eINSTANCE.getObjectWithTimeLine__Refresh();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.discrete.impl.ObjectTimeBucketImpl <em>Object Time Bucket</em>}' class.
@@ -1826,6 +2003,22 @@ public interface DiscretePackage extends EPackage {
 		 * @generated
 		 */
 		EReference OBJECT_TIME_BUCKET__PREVIOUS = eINSTANCE.getObjectTimeBucket_Previous();
+
+		/**
+		 * The meta object literal for the '<em><b>Object With Time Line</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_TIME_BUCKET__OBJECT_WITH_TIME_LINE = eINSTANCE.getObjectTimeBucket_ObjectWithTimeLine();
+
+		/**
+		 * The meta object literal for the '<em><b>Dispose</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation OBJECT_TIME_BUCKET___DISPOSE = eINSTANCE.getObjectTimeBucket__Dispose();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.discrete.BucketType <em>Bucket Type</em>}' enum.
