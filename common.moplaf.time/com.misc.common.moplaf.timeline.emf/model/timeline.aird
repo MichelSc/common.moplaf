@@ -5818,19 +5818,13 @@
               <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             </endLabelStyleDescription>
           </computedStyleDescriptions>
-          <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_sofc4GB0EeancPklGaPDdA" arcWidth="8" arcHeight="8" borderSizeComputationExpression="1" tooltipExpression="service:renderTooltip" roundedCorner="true" widthComputationExpression="12" heightComputationExpression="10" backgroundStyle="Liquid">
-            <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
-            <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
-            <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <foregroundColor xmi:type="description:UserFixedColor" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@userColorsPalettes[name='Ecore%20Palette']/@entries[name='EClass']"/>
-          </computedStyleDescriptions>
-          <computedStyleDescriptions xmi:type="style:EdgeStyleDescription" xmi:id="_sotfUGB0EeancPklGaPDdA" sourceArrow="InputArrow" targetArrow="FillDiamond" routingStyle="manhattan">
-            <strokeColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
-            <beginLabelStyleDescription xmi:type="style:BeginLabelStyleDescription" xmi:id="_sotfUWB0EeancPklGaPDdA" showIcon="false" labelExpression="service:renderEOpposite">
+          <computedStyleDescriptions xmi:type="style:EdgeStyleDescription" xmi:id="_z6RxgGkREea0teqk10AvTw" sourceArrow="InputArrow" targetArrow="FillDiamond" routingStyle="manhattan">
+            <strokeColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <beginLabelStyleDescription xmi:type="style:BeginLabelStyleDescription" xmi:id="_z6RxgWkREea0teqk10AvTw" showIcon="false" labelExpression="service:renderEOpposite">
               <labelFormat>bold</labelFormat>
               <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </beginLabelStyleDescription>
-            <endLabelStyleDescription xmi:type="style:EndLabelStyleDescription" xmi:id="_sotfUmB0EeancPklGaPDdA" showIcon="false" labelExpression="service:render">
+            <endLabelStyleDescription xmi:type="style:EndLabelStyleDescription" xmi:id="_z6RxgmkREea0teqk10AvTw" showIcon="false" labelExpression="service:render">
               <labelFormat>bold</labelFormat>
               <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </endLabelStyleDescription>
@@ -6177,13 +6171,15 @@
           </edges>
         </data>
       </ownedAnnotationEntries>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_2jiN4GBtEeancPklGaPDdA" name="ObjectTimeBucket" tooltipText="&#xA;ERROR : The opposite of the opposite may not be a reference different from this one" outgoingEdges="_2jsl8GBtEeancPklGaPDdA _2jvpRGBtEeancPklGaPDdA _4VIqMGB0EeancPklGaPDdA" incomingEdges="_2jt0GmBtEeancPklGaPDdA _2jubImBtEeancPklGaPDdA _2jvpRGBtEeancPklGaPDdA" width="12" height="10">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_2jiN4GBtEeancPklGaPDdA" name="ObjectTimeBucket" tooltipText="" outgoingEdges="_2jsl8GBtEeancPklGaPDdA _2jvpRGBtEeancPklGaPDdA _4VIqMGB0EeancPklGaPDdA" incomingEdges="_2jt0GmBtEeancPklGaPDdA _2jubImBtEeancPklGaPDdA _2jvpRGBtEeancPklGaPDdA" width="12" height="10">
         <target xmi:type="ecore:EClass" href="timeline.ecore#//discrete/ObjectTimeBucket"/>
         <semanticElements xmi:type="ecore:EClass" href="timeline.ecore#//discrete/ObjectTimeBucket"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_4U-SIGB0EeancPklGaPDdA" labelColor="239,41,41" description="_sofc4GB0EeancPklGaPDdA" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" backgroundStyle="Liquid" foregroundColor="255,252,216"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_z59ocGkREea0teqk10AvTw" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
+        </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
         <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_2jnGYGBtEeancPklGaPDdA" name="dispose()" tooltipText="dispose()">
           <target xmi:type="ecore:EOperation" href="timeline.ecore#//discrete/ObjectTimeBucket/dispose"/>
@@ -6230,13 +6226,15 @@
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
         </ownedElements>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_2jkDEGBtEeancPklGaPDdA" name="TimeBucket" tooltipText="&#xA;ERROR : The opposite of the opposite may not be a reference different from this one" outgoingEdges="_2jvpQGBtEeancPklGaPDdA _sos4QGB0EeancPklGaPDdA" incomingEdges="_2jsl8GBtEeancPklGaPDdA _2jubJmBtEeancPklGaPDdA _2jubKmBtEeancPklGaPDdA _2jvCM2BtEeancPklGaPDdA _2jvCN2BtEeancPklGaPDdA _2jvpQGBtEeancPklGaPDdA" width="12" height="10">
+      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_2jkDEGBtEeancPklGaPDdA" name="TimeBucket" tooltipText="" outgoingEdges="_2jvpQGBtEeancPklGaPDdA _sos4QGB0EeancPklGaPDdA" incomingEdges="_2jsl8GBtEeancPklGaPDdA _2jubJmBtEeancPklGaPDdA _2jubKmBtEeancPklGaPDdA _2jvCM2BtEeancPklGaPDdA _2jvCN2BtEeancPklGaPDdA _2jvpQGBtEeancPklGaPDdA" width="12" height="10">
         <target xmi:type="ecore:EClass" href="timeline.ecore#//discrete/TimeBucket"/>
         <semanticElements xmi:type="ecore:EClass" href="timeline.ecore#//discrete/TimeBucket"/>
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_sogrAGB0EeancPklGaPDdA" labelColor="239,41,41" description="_sofc4GB0EeancPklGaPDdA" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" backgroundStyle="Liquid" foregroundColor="255,252,216"/>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_z5-PgGkREea0teqk10AvTw" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
+        </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
         <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_2joUgWBtEeancPklGaPDdA" name="BucketNr : EInt" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="timeline.ecore#//discrete/TimeBucket/BucketNr"/>
@@ -6592,11 +6590,11 @@
         <target xmi:type="ecore:EReference" href="timeline.ecore#//discrete/TimeBucket/TimeLine"/>
         <semanticElements xmi:type="ecore:EReference" href="timeline.ecore#//discrete/TimeLine/Buckets"/>
         <semanticElements xmi:type="ecore:EReference" href="timeline.ecore#//discrete/TimeBucket/TimeLine"/>
-        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_sotfU2B0EeancPklGaPDdA" description="_sotfUGB0EeancPklGaPDdA" sourceArrow="InputArrow" targetArrow="FillDiamond" routingStyle="manhattan" strokeColor="239,41,41">
-          <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_sotfVGB0EeancPklGaPDdA" showIcon="false">
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_z6S_oGkREea0teqk10AvTw" description="_z6RxgGkREea0teqk10AvTw" sourceArrow="InputArrow" targetArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
+          <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_z6S_oWkREea0teqk10AvTw" showIcon="false">
             <labelFormat>bold</labelFormat>
           </beginLabelStyle>
-          <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_sotfVWB0EeancPklGaPDdA" showIcon="false">
+          <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_z6S_omkREea0teqk10AvTw" showIcon="false">
             <labelFormat>bold</labelFormat>
           </endLabelStyle>
         </ownedStyle>
@@ -6606,12 +6604,12 @@
         <target xmi:type="ecore:EReference" href="timeline.ecore#//discrete/ObjectTimeBucket/ObjectWithTimeLine"/>
         <semanticElements xmi:type="ecore:EReference" href="timeline.ecore#//discrete/ObjectWithTimeLine/Buckets"/>
         <semanticElements xmi:type="ecore:EReference" href="timeline.ecore#//discrete/ObjectTimeBucket/ObjectWithTimeLine"/>
-        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_4VIqMWB0EeancPklGaPDdA" description="_sotfUGB0EeancPklGaPDdA" sourceArrow="InputArrow" targetArrow="FillDiamond" strokeColor="239,41,41">
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_z6SYkGkREea0teqk10AvTw" description="_z6RxgGkREea0teqk10AvTw" sourceArrow="InputArrow" targetArrow="FillDiamond" strokeColor="0,0,0">
           <customFeatures>routingStyle</customFeatures>
-          <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_4VIqMmB0EeancPklGaPDdA" showIcon="false">
+          <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_z6SYkWkREea0teqk10AvTw" showIcon="false">
             <labelFormat>bold</labelFormat>
           </beginLabelStyle>
-          <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_4VIqM2B0EeancPklGaPDdA" showIcon="false">
+          <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_z6SYkmkREea0teqk10AvTw" showIcon="false">
             <labelFormat>bold</labelFormat>
           </endLabelStyle>
         </ownedStyle>

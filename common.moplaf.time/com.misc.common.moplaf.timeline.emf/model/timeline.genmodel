@@ -287,6 +287,8 @@
         <genEnumLiterals ecoreEnumLiteral="timeline.ecore#//discrete/BucketType/TLWeek"/>
         <genEnumLiterals ecoreEnumLiteral="timeline.ecore#//discrete/BucketType/TLDay"/>
         <genEnumLiterals ecoreEnumLiteral="timeline.ecore#//discrete/BucketType/TLHour"/>
+        <genEnumLiterals ecoreEnumLiteral="timeline.ecore#//discrete/BucketType/TLHalfHour"/>
+        <genEnumLiterals ecoreEnumLiteral="timeline.ecore#//discrete/BucketType/TLQuarterHour"/>
       </genEnums>
       <genDataTypes ecoreDataType="timeline.ecore#//discrete/BucketIterator"/>
       <genClasses ecoreClass="timeline.ecore#//discrete/TimeLine" labelFeature="#//time/discrete/TimeLine/Description">
@@ -297,7 +299,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timeline.ecore#//discrete/TimeLine/LocaleCountry"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timeline.ecore#//discrete/TimeLine/HorizonStart"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timeline.ecore#//discrete/TimeLine/HorizonEnd"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference timeline.ecore#//discrete/TimeLine/Bucket"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference timeline.ecore#//discrete/TimeLine/Buckets"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference timeline.ecore#//discrete/TimeLine/FirstBucket"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -320,6 +322,7 @@
         <genOperations ecoreOperation="timeline.ecore#//discrete/TimeLine/createBucket"/>
       </genClasses>
       <genClasses ecoreClass="timeline.ecore#//discrete/TimeBucket" labelFeature="#//time/discrete/TimeBucket/Description">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timeline.ecore#//discrete/TimeBucket/BucketNr"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timeline.ecore#//discrete/TimeBucket/BucketStart"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timeline.ecore#//discrete/TimeBucket/BucketEnd"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -328,11 +331,21 @@
             ecoreFeature="ecore:EReference timeline.ecore#//discrete/TimeBucket/Previous"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timeline.ecore#//discrete/TimeBucket/Description"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timeline.ecore#//discrete/TimeBucket/Seconds"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference timeline.ecore#//discrete/TimeBucket/TimeLine"/>
         <genOperations ecoreOperation="timeline.ecore#//discrete/TimeBucket/contains">
           <genParameters ecoreParameter="timeline.ecore#//discrete/TimeBucket/contains/sometime"/>
         </genOperations>
         <genOperations ecoreOperation="timeline.ecore#//discrete/TimeBucket/isBefore">
           <genParameters ecoreParameter="timeline.ecore#//discrete/TimeBucket/isBefore/other"/>
+        </genOperations>
+        <genOperations ecoreOperation="timeline.ecore#//discrete/TimeBucket/isBeforeStrictly">
+          <genParameters ecoreParameter="timeline.ecore#//discrete/TimeBucket/isBeforeStrictly/other"/>
+        </genOperations>
+        <genOperations ecoreOperation="timeline.ecore#//discrete/TimeBucket/isAfter">
+          <genParameters ecoreParameter="timeline.ecore#//discrete/TimeBucket/isAfter/other"/>
+        </genOperations>
+        <genOperations ecoreOperation="timeline.ecore#//discrete/TimeBucket/isAfterStrictly">
+          <genParameters ecoreParameter="timeline.ecore#//discrete/TimeBucket/isAfterStrictly/other"/>
         </genOperations>
         <genOperations ecoreOperation="timeline.ecore#//discrete/TimeBucket/getSecondsIntersection">
           <genParameters ecoreParameter="timeline.ecore#//discrete/TimeBucket/getSecondsIntersection/from"/>
@@ -340,7 +353,7 @@
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="timeline.ecore#//discrete/TimeLineMerge">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference timeline.ecore#//discrete/TimeLineMerge/Element"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference timeline.ecore#//discrete/TimeLineMerge/Elements"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference timeline.ecore#//discrete/TimeLineMerge/TimeLineTo"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -365,6 +378,33 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timeline.ecore#//discrete/MergeElement/ElementStart"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timeline.ecore#//discrete/MergeElement/ElementEnd"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timeline.ecore#//discrete/MergeElement/Seconds"/>
+      </genClasses>
+      <genClasses ecoreClass="timeline.ecore#//discrete/ObjectWithTimeLine">
+        <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference timeline.ecore#//discrete/ObjectWithTimeLine/TimeLine"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference timeline.ecore#//discrete/ObjectWithTimeLine/Buckets"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference timeline.ecore#//discrete/ObjectWithTimeLine/LastBucket"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference timeline.ecore#//discrete/ObjectWithTimeLine/FirstBucket"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference timeline.ecore#//discrete/ObjectWithTimeLine/StartBucket"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference timeline.ecore#//discrete/ObjectWithTimeLine/EndBucket"/>
+        <genOperations ecoreOperation="timeline.ecore#//discrete/ObjectWithTimeLine/getBucket">
+          <genParameters ecoreParameter="timeline.ecore#//discrete/ObjectWithTimeLine/getBucket/bucket"/>
+        </genOperations>
+        <genOperations ecoreOperation="timeline.ecore#//discrete/ObjectWithTimeLine/constructObjectTimeBucket"/>
+        <genOperations ecoreOperation="timeline.ecore#//discrete/ObjectWithTimeLine/refresh"/>
+      </genClasses>
+      <genClasses ecoreClass="timeline.ecore#//discrete/ObjectTimeBucket">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference timeline.ecore#//discrete/ObjectTimeBucket/Bucket"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference timeline.ecore#//discrete/ObjectTimeBucket/Next"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference timeline.ecore#//discrete/ObjectTimeBucket/Previous"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference timeline.ecore#//discrete/ObjectTimeBucket/ObjectWithTimeLine"/>
+        <genOperations ecoreOperation="timeline.ecore#//discrete/ObjectTimeBucket/dispose"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

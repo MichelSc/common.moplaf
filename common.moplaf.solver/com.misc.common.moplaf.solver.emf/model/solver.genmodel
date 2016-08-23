@@ -80,6 +80,7 @@
       <genOperations ecoreOperation="solver.ecore#//Generator/generate"/>
       <genOperations ecoreOperation="solver.ecore#//Generator/generateRootTuples"/>
       <genOperations ecoreOperation="solver.ecore#//Generator/generateTuples"/>
+      <genOperations ecoreOperation="solver.ecore#//Generator/generateTupleXReferences"/>
       <genOperations ecoreOperation="solver.ecore#//Generator/generateVars"/>
       <genOperations ecoreOperation="solver.ecore#//Generator/generateCons"/>
       <genOperations ecoreOperation="solver.ecore#//Generator/generateGoals"/>
@@ -115,6 +116,7 @@
       <genOperations ecoreOperation="solver.ecore#//GeneratorTuple/visitTuples">
         <genParameters ecoreParameter="solver.ecore#//GeneratorTuple/visitTuples/visitor"/>
       </genOperations>
+      <genOperations ecoreOperation="solver.ecore#//GeneratorTuple/generateXReferences"/>
     </genClasses>
     <genClasses image="false" ecoreClass="solver.ecore#//GeneratorTupleMember">
       <genFeatures createChild="false" propertyCategory="10 General" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorTupleMember/Name"/>
@@ -246,7 +248,6 @@
           ecoreFeature="ecore:EAttribute solver.ecore#//Solver/Status"/>
       <genFeatures createChild="false" propertyCategory="20 Solver" propertyDescription=""
           ecoreFeature="ecore:EAttribute solver.ecore#//Solver/SolverMaxDuration"/>
-      <genFeatures createChild="false" propertyCategory="20 Solver" ecoreFeature="ecore:EAttribute solver.ecore#//Solver/SolverBackground"/>
       <genFeatures createChild="false" propertyCategory="20 Solver" ecoreFeature="ecore:EAttribute solver.ecore#//Solver/SolverLogLevel"/>
       <genFeatures createChild="false" propertyCategory="20 Solver" ecoreFeature="ecore:EAttribute solver.ecore#//Solver/SolverDump"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="30 Run"

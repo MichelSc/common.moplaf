@@ -85,11 +85,28 @@
       <genFeatures createChild="false" propertyCategory="16 Execution" ecoreFeature="ecore:EAttribute dbsynch.ecore#//Table/LastSynchUp"/>
       <genFeatures notify="false" createChild="false" propertyCategory="12 Metadata"
           propertySortChoices="true" ecoreFeature="ecore:EReference dbsynch.ecore#//Table/Parent"/>
+      <genOperations ecoreOperation="dbsynch.ecore#//Table/getColumn">
+        <genParameters ecoreParameter="dbsynch.ecore#//Table/getColumn/name"/>
+      </genOperations>
       <genOperations ecoreOperation="dbsynch.ecore#//Table/addColumn">
         <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn/Key"/>
         <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn/column"/>
         <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn/type"/>
         <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn/attribute"/>
+      </genOperations>
+      <genOperations ecoreOperation="dbsynch.ecore#//Table/addColumn.1">
+        <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn.1/Key"/>
+        <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn.1/column"/>
+        <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn.1/type"/>
+        <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn.1/attribute"/>
+        <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn.1/parentColumn"/>
+      </genOperations>
+      <genOperations ecoreOperation="dbsynch.ecore#//Table/addColumn.2">
+        <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn.2/Key"/>
+        <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn.2/column"/>
+        <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn.2/type"/>
+        <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn.2/attribute"/>
+        <genParameters ecoreParameter="dbsynch.ecore#//Table/addColumn.2/parentColumn"/>
       </genOperations>
       <genOperations ecoreOperation="dbsynch.ecore#//Table/addParam">
         <genParameters ecoreParameter="dbsynch.ecore#//Table/addParam/dbSynchAttribute"/>
