@@ -44,19 +44,17 @@ public interface ObjectWithTimeLine extends EObject {
 	TimeLine getTimeLine();
 
 	/**
-	 * Returns the value of the '<em><b>Buckets</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Buckets</b></em>' reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.time.discrete.ObjectTimeBucket}.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.discrete.ObjectTimeBucket#getObjectWithTimeLine <em>Object With Time Line</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Buckets</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Buckets</em>' containment reference list.
+	 * @return the value of the '<em>Buckets</em>' reference list.
 	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getObjectWithTimeLine_Buckets()
-	 * @see com.misc.common.moplaf.time.discrete.ObjectTimeBucket#getObjectWithTimeLine
-	 * @model opposite="ObjectWithTimeLine" containment="true"
+	 * @model
 	 * @generated
 	 */
 	EList<ObjectTimeBucket> getBuckets();

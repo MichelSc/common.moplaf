@@ -723,15 +723,6 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getObjectTimeBucket_ObjectWithTimeLine() {
-		return (EReference)objectTimeBucketEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EOperation getObjectTimeBucket__Dispose() {
 		return objectTimeBucketEClass.getEOperations().get(0);
 	}
@@ -849,7 +840,6 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 		createEReference(objectTimeBucketEClass, OBJECT_TIME_BUCKET__BUCKET);
 		createEReference(objectTimeBucketEClass, OBJECT_TIME_BUCKET__NEXT);
 		createEReference(objectTimeBucketEClass, OBJECT_TIME_BUCKET__PREVIOUS);
-		createEReference(objectTimeBucketEClass, OBJECT_TIME_BUCKET__OBJECT_WITH_TIME_LINE);
 		createEOperation(objectTimeBucketEClass, OBJECT_TIME_BUCKET___DISPOSE);
 
 		// Create enums
@@ -970,7 +960,7 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 
 		initEClass(objectWithTimeLineEClass, ObjectWithTimeLine.class, "ObjectWithTimeLine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getObjectWithTimeLine_TimeLine(), this.getTimeLine(), null, "TimeLine", null, 1, 1, ObjectWithTimeLine.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getObjectWithTimeLine_Buckets(), this.getObjectTimeBucket(), this.getObjectTimeBucket_ObjectWithTimeLine(), "Buckets", null, 0, -1, ObjectWithTimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getObjectWithTimeLine_Buckets(), this.getObjectTimeBucket(), null, "Buckets", null, 0, -1, ObjectWithTimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObjectWithTimeLine_LastBucket(), this.getObjectTimeBucket(), null, "LastBucket", null, 0, 1, ObjectWithTimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObjectWithTimeLine_FirstBucket(), this.getObjectTimeBucket(), null, "FirstBucket", null, 0, 1, ObjectWithTimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObjectWithTimeLine_StartBucket(), this.getTimeBucket(), null, "StartBucket", null, 0, 1, ObjectWithTimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -987,7 +977,6 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 		initEReference(getObjectTimeBucket_Bucket(), this.getTimeBucket(), null, "Bucket", null, 1, 1, ObjectTimeBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObjectTimeBucket_Next(), this.getObjectTimeBucket(), this.getObjectTimeBucket_Previous(), "Next", null, 0, 1, ObjectTimeBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObjectTimeBucket_Previous(), this.getObjectTimeBucket(), this.getObjectTimeBucket_Next(), "Previous", null, 0, 1, ObjectTimeBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getObjectTimeBucket_ObjectWithTimeLine(), this.getObjectWithTimeLine(), this.getObjectWithTimeLine_Buckets(), "ObjectWithTimeLine", null, 1, 1, ObjectTimeBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getObjectTimeBucket__Dispose(), null, "dispose", 0, 1, IS_UNIQUE, IS_ORDERED);
 

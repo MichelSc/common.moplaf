@@ -90,9 +90,9 @@ public class ObjectWithTimeLineItemProvider
 				 getString("_UI_ObjectWithTimeLine_TimeLine_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectWithTimeLine_TimeLine_feature", "_UI_ObjectWithTimeLine_type"),
 				 DiscretePackage.Literals.OBJECT_WITH_TIME_LINE__TIME_LINE,
-				 true,
 				 false,
-				 true,
+				 false,
+				 false,
 				 null,
 				 null,
 				 null));

@@ -4,7 +4,6 @@ package com.misc.common.moplaf.time.discrete.impl;
 
 import com.misc.common.moplaf.time.discrete.DiscretePackage;
 import com.misc.common.moplaf.time.discrete.ObjectTimeBucket;
-import com.misc.common.moplaf.time.discrete.ObjectWithTimeLine;
 import com.misc.common.moplaf.time.discrete.TimeBucket;
 
 import java.lang.reflect.InvocationTargetException;
@@ -17,7 +16,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +28,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.ObjectTimeBucketImpl#getBucket <em>Bucket</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.ObjectTimeBucketImpl#getNext <em>Next</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.ObjectTimeBucketImpl#getPrevious <em>Previous</em>}</li>
- *   <li>{@link com.misc.common.moplaf.time.discrete.impl.ObjectTimeBucketImpl#getObjectWithTimeLine <em>Object With Time Line</em>}</li>
  * </ul>
  *
  * @generated
@@ -246,47 +243,6 @@ public class ObjectTimeBucketImpl extends MinimalEObjectImpl.Container implement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ObjectWithTimeLine getObjectWithTimeLine() {
-		if (eContainerFeatureID() != DiscretePackage.OBJECT_TIME_BUCKET__OBJECT_WITH_TIME_LINE) return null;
-		return (ObjectWithTimeLine)eInternalContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetObjectWithTimeLine(ObjectWithTimeLine newObjectWithTimeLine, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newObjectWithTimeLine, DiscretePackage.OBJECT_TIME_BUCKET__OBJECT_WITH_TIME_LINE, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setObjectWithTimeLine(ObjectWithTimeLine newObjectWithTimeLine) {
-		if (newObjectWithTimeLine != eInternalContainer() || (eContainerFeatureID() != DiscretePackage.OBJECT_TIME_BUCKET__OBJECT_WITH_TIME_LINE && newObjectWithTimeLine != null)) {
-			if (EcoreUtil.isAncestor(this, newObjectWithTimeLine))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newObjectWithTimeLine != null)
-				msgs = ((InternalEObject)newObjectWithTimeLine).eInverseAdd(this, DiscretePackage.OBJECT_WITH_TIME_LINE__BUCKETS, ObjectWithTimeLine.class, msgs);
-			msgs = basicSetObjectWithTimeLine(newObjectWithTimeLine, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.OBJECT_TIME_BUCKET__OBJECT_WITH_TIME_LINE, newObjectWithTimeLine, newObjectWithTimeLine));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 */
 	public void dispose() {
 		// default does nothing
@@ -308,10 +264,6 @@ public class ObjectTimeBucketImpl extends MinimalEObjectImpl.Container implement
 				if (previous != null)
 					msgs = ((InternalEObject)previous).eInverseRemove(this, DiscretePackage.OBJECT_TIME_BUCKET__NEXT, ObjectTimeBucket.class, msgs);
 				return basicSetPrevious((ObjectTimeBucket)otherEnd, msgs);
-			case DiscretePackage.OBJECT_TIME_BUCKET__OBJECT_WITH_TIME_LINE:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetObjectWithTimeLine((ObjectWithTimeLine)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -328,24 +280,8 @@ public class ObjectTimeBucketImpl extends MinimalEObjectImpl.Container implement
 				return basicSetNext(null, msgs);
 			case DiscretePackage.OBJECT_TIME_BUCKET__PREVIOUS:
 				return basicSetPrevious(null, msgs);
-			case DiscretePackage.OBJECT_TIME_BUCKET__OBJECT_WITH_TIME_LINE:
-				return basicSetObjectWithTimeLine(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case DiscretePackage.OBJECT_TIME_BUCKET__OBJECT_WITH_TIME_LINE:
-				return eInternalContainer().eInverseRemove(this, DiscretePackage.OBJECT_WITH_TIME_LINE__BUCKETS, ObjectWithTimeLine.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -365,8 +301,6 @@ public class ObjectTimeBucketImpl extends MinimalEObjectImpl.Container implement
 			case DiscretePackage.OBJECT_TIME_BUCKET__PREVIOUS:
 				if (resolve) return getPrevious();
 				return basicGetPrevious();
-			case DiscretePackage.OBJECT_TIME_BUCKET__OBJECT_WITH_TIME_LINE:
-				return getObjectWithTimeLine();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -387,9 +321,6 @@ public class ObjectTimeBucketImpl extends MinimalEObjectImpl.Container implement
 				return;
 			case DiscretePackage.OBJECT_TIME_BUCKET__PREVIOUS:
 				setPrevious((ObjectTimeBucket)newValue);
-				return;
-			case DiscretePackage.OBJECT_TIME_BUCKET__OBJECT_WITH_TIME_LINE:
-				setObjectWithTimeLine((ObjectWithTimeLine)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -412,9 +343,6 @@ public class ObjectTimeBucketImpl extends MinimalEObjectImpl.Container implement
 			case DiscretePackage.OBJECT_TIME_BUCKET__PREVIOUS:
 				setPrevious((ObjectTimeBucket)null);
 				return;
-			case DiscretePackage.OBJECT_TIME_BUCKET__OBJECT_WITH_TIME_LINE:
-				setObjectWithTimeLine((ObjectWithTimeLine)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -433,8 +361,6 @@ public class ObjectTimeBucketImpl extends MinimalEObjectImpl.Container implement
 				return next != null;
 			case DiscretePackage.OBJECT_TIME_BUCKET__PREVIOUS:
 				return previous != null;
-			case DiscretePackage.OBJECT_TIME_BUCKET__OBJECT_WITH_TIME_LINE:
-				return getObjectWithTimeLine() != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -2,7 +2,6 @@
  */
 package com.misc.common.moplaf.time.discrete.impl;
 
-import com.misc.common.moplaf.time.discrete.DiscreteFactory;
 import com.misc.common.moplaf.time.discrete.DiscretePackage;
 import com.misc.common.moplaf.time.discrete.ObjectTimeBucket;
 import com.misc.common.moplaf.time.discrete.ObjectWithTimeLine;
@@ -13,8 +12,6 @@ import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -22,8 +19,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,7 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container implements ObjectWithTimeLine {
 	/**
-	 * The cached value of the '{@link #getBuckets() <em>Buckets</em>}' containment reference list.
+	 * The cached value of the '{@link #getBuckets() <em>Buckets</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getBuckets()
@@ -144,7 +140,7 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 	 */
 	public EList<ObjectTimeBucket> getBuckets() {
 		if (buckets == null) {
-			buckets = new EObjectContainmentWithInverseEList<ObjectTimeBucket>(ObjectTimeBucket.class, this, DiscretePackage.OBJECT_WITH_TIME_LINE__BUCKETS, DiscretePackage.OBJECT_TIME_BUCKET__OBJECT_WITH_TIME_LINE);
+			buckets = new EObjectResolvingEList<ObjectTimeBucket>(ObjectTimeBucket.class, this, DiscretePackage.OBJECT_WITH_TIME_LINE__BUCKETS);
 		}
 		return buckets;
 	}
@@ -348,10 +344,15 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * To be implemented by the concrete class.
+	 * Must create and own the bucket.
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	public ObjectTimeBucket constructObjectTimeBucket() {
-		return DiscreteFactory.eINSTANCE.createObjectTimeBucket();
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -430,35 +431,6 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 		}
 		
 		this.currentObjectBucket = this.getFirstBucket();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case DiscretePackage.OBJECT_WITH_TIME_LINE__BUCKETS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getBuckets()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case DiscretePackage.OBJECT_WITH_TIME_LINE__BUCKETS:
-				return ((InternalEList<?>)getBuckets()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

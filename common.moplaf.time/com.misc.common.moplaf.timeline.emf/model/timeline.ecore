@@ -468,7 +468,7 @@
           eType="#//discrete/TimeLine" changeable="false" volatile="true" transient="true"
           derived="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Buckets" upperBound="-1"
-          eType="#//discrete/ObjectTimeBucket" containment="true" eOpposite="#//discrete/ObjectTimeBucket/ObjectWithTimeLine"/>
+          eType="#//discrete/ObjectTimeBucket"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="LastBucket" eType="#//discrete/ObjectTimeBucket"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="FirstBucket" eType="#//discrete/ObjectTimeBucket"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="StartBucket" eType="#//discrete/TimeBucket"/>
@@ -482,8 +482,6 @@
           eOpposite="#//discrete/ObjectTimeBucket/Previous"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Previous" eType="#//discrete/ObjectTimeBucket"
           eOpposite="#//discrete/ObjectTimeBucket/Next"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="ObjectWithTimeLine" lowerBound="1"
-          eType="#//discrete/ObjectWithTimeLine" eOpposite="#//discrete/ObjectWithTimeLine/Buckets"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>
