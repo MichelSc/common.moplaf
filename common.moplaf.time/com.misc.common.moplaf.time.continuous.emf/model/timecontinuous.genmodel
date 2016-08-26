@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.time.continuous.emf/src"
+    modelPluginID="com.misc.common.moplaf.time.continuous.emf" modelName="Timecontinuous"
+    editPluginClass="com.misc.common.moplaf.time.continuous.provider.TimeContinuousEditPlugin"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../com.misc.common.moplaf.propagator/model/propagator.genmodel#//propagator"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>timecontinuous.ecore</foreignModel>
+  <genPackages prefix="Continuous" basePackage="com.misc.common.moplaf.time" resource="XML"
+      disposableProviderFactory="true" ecorePackage="timecontinuous.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="timecontinuous.ecore#//TimeUnit">
+      <genEnumLiterals ecoreEnumLiteral="timecontinuous.ecore#//TimeUnit/Hour"/>
+      <genEnumLiterals ecoreEnumLiteral="timecontinuous.ecore#//TimeUnit/Second"/>
+      <genEnumLiterals ecoreEnumLiteral="timecontinuous.ecore#//TimeUnit/Minute"/>
+      <genEnumLiterals ecoreEnumLiteral="timecontinuous.ecore#//TimeUnit/Milli"/>
+      <genEnumLiterals ecoreEnumLiteral="timecontinuous.ecore#//TimeUnit/Day"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="timecontinuous.ecore#//DistributionVisitor"/>
+    <genClasses ecoreClass="timecontinuous.ecore#//Distribution">
+      <genFeatures createChild="false" propertyCategory="1 time" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//Distribution/TimeUnit"/>
+      <genFeatures createChild="false" propertyCategory="1 time" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//Distribution/HorizonStart"/>
+      <genFeatures createChild="false" propertyCategory="1 time" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//Distribution/HorizonEnd"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//Distribution/ChildEvents"/>
+      <genFeatures children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference timecontinuous.ecore#//Distribution/SequenceEvents"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//Distribution/Start"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//Distribution/End"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference timecontinuous.ecore#//Distribution/EventsProviders"/>
+      <genFeatures createChild="false" propertyCategory="2 distribution" propertySortChoices="true"
+          ecoreFeature="ecore:EReference timecontinuous.ecore#//Distribution/ParentDistribution"/>
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timecontinuous.ecore#//Distribution/ChildDistribution"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timecontinuous.ecore#//Distribution/ProvidedEvents"/>
+      <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/getDuration">
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getDuration/from"/>
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getDuration/to"/>
+      </genOperations>
+      <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/getMoment">
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getMoment/from"/>
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getMoment/duration"/>
+      </genOperations>
+      <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/getEventBefore">
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getEventBefore/time"/>
+      </genOperations>
+      <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/getEventStrictBefore">
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getEventStrictBefore/time"/>
+      </genOperations>
+      <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/getEventAfter">
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getEventAfter/time"/>
+      </genOperations>
+      <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/getEventStrictAfter">
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getEventStrictAfter/time"/>
+      </genOperations>
+      <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/getAmountBefore">
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getAmountBefore/time"/>
+      </genOperations>
+      <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/getAmountAfter">
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getAmountAfter/time"/>
+      </genOperations>
+      <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/getAmount">
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getAmount/time"/>
+      </genOperations>
+      <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/getSlopeBefore">
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getSlopeBefore/time"/>
+      </genOperations>
+      <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/getSlopeAfter">
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getSlopeAfter/time"/>
+      </genOperations>
+      <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/getMinAmount">
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getMinAmount/from"/>
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getMinAmount/to"/>
+      </genOperations>
+      <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/getMaxAmount">
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getMaxAmount/from"/>
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getMaxAmount/to"/>
+      </genOperations>
+      <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/getAverageAmount">
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getAverageAmount/from"/>
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getAverageAmount/to"/>
+      </genOperations>
+      <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/getCumulatedAmount">
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getCumulatedAmount/from"/>
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getCumulatedAmount/to"/>
+      </genOperations>
+      <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/getEarliestBelow">
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getEarliestBelow/after"/>
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getEarliestBelow/duration"/>
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getEarliestBelow/amount"/>
+      </genOperations>
+      <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/getLatestBelow">
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getLatestBelow/before"/>
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getLatestBelow/duration"/>
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getLatestBelow/amount"/>
+      </genOperations>
+      <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/getEarliestAbove">
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getEarliestAbove/after"/>
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getEarliestAbove/duration"/>
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getEarliestAbove/amount"/>
+      </genOperations>
+      <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/getLatestAbove">
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getLatestAbove/before"/>
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getLatestAbove/duration"/>
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getLatestAbove/amount"/>
+      </genOperations>
+      <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/getEarliestOutputPossible">
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getEarliestOutputPossible/above"/>
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getEarliestOutputPossible/after"/>
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getEarliestOutputPossible/duration"/>
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/getEarliestOutputPossible/amount"/>
+      </genOperations>
+      <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/refreshInit"/>
+      <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/refreshSequence"/>
+      <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/refreshChildEvent"/>
+      <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/refresh"/>
+      <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/refreshProvidedEvents"/>
+      <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/accept">
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/accept/from"/>
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/accept/to"/>
+        <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/accept/visitor"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="timecontinuous.ecore#//DistributionEvent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//DistributionEvent/Moment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//DistributionEvent/EventNr"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timecontinuous.ecore#//DistributionEvent/Next"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timecontinuous.ecore#//DistributionEvent/Previous"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//DistributionEvent/AmountBefore"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//DistributionEvent/AmountAfter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//DistributionEvent/SlopeBefore"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//DistributionEvent/SlopeAfter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//DistributionEvent/Description"/>
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timecontinuous.ecore#//DistributionEvent/DistributionAsSequence"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//DistributionEvent/Distribution"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timecontinuous.ecore#//DistributionEvent/DistributionAsProvidedEvent"/>
+      <genOperations ecoreOperation="timecontinuous.ecore#//DistributionEvent/getAmountBefore">
+        <genParameters ecoreParameter="timecontinuous.ecore#//DistributionEvent/getAmountBefore/moment"/>
+      </genOperations>
+      <genOperations ecoreOperation="timecontinuous.ecore#//DistributionEvent/getAmountAfter">
+        <genParameters ecoreParameter="timecontinuous.ecore#//DistributionEvent/getAmountAfter/moment"/>
+      </genOperations>
+      <genOperations ecoreOperation="timecontinuous.ecore#//DistributionEvent/isBefore">
+        <genParameters ecoreParameter="timecontinuous.ecore#//DistributionEvent/isBefore/other"/>
+      </genOperations>
+      <genOperations ecoreOperation="timecontinuous.ecore#//DistributionEvent/isStrictBefore">
+        <genParameters ecoreParameter="timecontinuous.ecore#//DistributionEvent/isStrictBefore/other"/>
+      </genOperations>
+      <genOperations ecoreOperation="timecontinuous.ecore#//DistributionEvent/refreshSlopeBefore"/>
+      <genOperations ecoreOperation="timecontinuous.ecore#//DistributionEvent/refreshAmountBefore"/>
+      <genOperations ecoreOperation="timecontinuous.ecore#//DistributionEvent/refreshAmountAfter"/>
+      <genOperations ecoreOperation="timecontinuous.ecore#//DistributionEvent/refreshSlopeAfter"/>
+      <genOperations ecoreOperation="timecontinuous.ecore#//DistributionEvent/refreshMoment"/>
+      <genOperations ecoreOperation="timecontinuous.ecore#//DistributionEvent/refreshDescription"/>
+    </genClasses>
+    <genClasses ecoreClass="timecontinuous.ecore#//ChildEvent">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timecontinuous.ecore#//ChildEvent/Original"/>
+    </genClasses>
+    <genClasses ecoreClass="timecontinuous.ecore#//StartEvent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//StartEvent/AmountAtStart"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//StartEvent/SlopeAtStart"/>
+    </genClasses>
+    <genClasses ecoreClass="timecontinuous.ecore#//EndEvent"/>
+    <genClasses image="false" ecoreClass="timecontinuous.ecore#//AmountImpulsion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//AmountImpulsion/AmountImpulsion"/>
+      <genOperations ecoreOperation="timecontinuous.ecore#//AmountImpulsion/refreshAmountImpulsion"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="timecontinuous.ecore#//SlopeImpulsion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//SlopeImpulsion/SlopeImpulsion"/>
+      <genOperations ecoreOperation="timecontinuous.ecore#//SlopeImpulsion/refreshSlopeImpulsion"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="timecontinuous.ecore#//AmountAbsolute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//AmountAbsolute/AmountAbsolute"/>
+      <genOperations ecoreOperation="timecontinuous.ecore#//AmountAbsolute/refreshAmountAbsolute"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="timecontinuous.ecore#//SlopeAbsolute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//SlopeAbsolute/SlopeAbsolute"/>
+      <genOperations ecoreOperation="timecontinuous.ecore#//SlopeAbsolute/refreshSlopeAbsolute"/>
+    </genClasses>
+    <genClasses ecoreClass="timecontinuous.ecore#//CapacityChangeStart">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//CapacityChangeStart/Provider"/>
+    </genClasses>
+    <genClasses ecoreClass="timecontinuous.ecore#//CapacityChangeEnd">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//CapacityChangeEnd/Provider"/>
+    </genClasses>
+    <genClasses ecoreClass="timecontinuous.ecore#//StockChangeStart">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//StockChangeStart/Provider"/>
+    </genClasses>
+    <genClasses ecoreClass="timecontinuous.ecore#//StockChangeEnd">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//StockChangeEnd/Provider"/>
+    </genClasses>
+    <genClasses ecoreClass="timecontinuous.ecore#//AmountImpulsionAtomic">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//AmountImpulsionAtomic/Provider"/>
+    </genClasses>
+    <genClasses ecoreClass="timecontinuous.ecore#//SlopeImpulsionAtomic">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//SlopeImpulsionAtomic/Provider"/>
+    </genClasses>
+    <genClasses ecoreClass="timecontinuous.ecore#//AmountAbsoluteAtomic">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//AmountAbsoluteAtomic/Provider"/>
+    </genClasses>
+    <genClasses ecoreClass="timecontinuous.ecore#//SlopeAbsoluteAtomic">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//SlopeAbsoluteAtomic/Provider"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="timecontinuous.ecore#//EventsProviderAbstract">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//EventsProviderAbstract/Distribution"/>
+      <genOperations ecoreOperation="timecontinuous.ecore#//EventsProviderAbstract/refreshEvents"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="timecontinuous.ecore#//EventsProvider">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//EventsProvider/ProvidedEvents"/>
+    </genClasses>
+    <genClasses ecoreClass="timecontinuous.ecore#//StockChange">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//StockChange/Start"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//StockChange/End"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//StockChange/Slope"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference timecontinuous.ecore#//StockChange/StartEvent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference timecontinuous.ecore#//StockChange/EndEvent"/>
+    </genClasses>
+    <genClasses ecoreClass="timecontinuous.ecore#//CapacityChange">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//CapacityChange/Start"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//CapacityChange/End"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//CapacityChange/Amount"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference timecontinuous.ecore#//CapacityChange/StartEvent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference timecontinuous.ecore#//CapacityChange/EndEvent"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="timecontinuous.ecore#//EventProvider">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//EventProvider/ProvidedEvent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//EventProvider/Moment"/>
+    </genClasses>
+    <genClasses ecoreClass="timecontinuous.ecore#//SlopeImpulsionProvider">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference timecontinuous.ecore#//SlopeImpulsionProvider/Event"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//SlopeImpulsionProvider/SlopeImpulsion"/>
+    </genClasses>
+    <genClasses ecoreClass="timecontinuous.ecore#//SlopeAbsoluteProvider">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference timecontinuous.ecore#//SlopeAbsoluteProvider/Event"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//SlopeAbsoluteProvider/SlopeAbsolute"/>
+    </genClasses>
+    <genClasses ecoreClass="timecontinuous.ecore#//AmountImpulsionProvider">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference timecontinuous.ecore#//AmountImpulsionProvider/Event"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//AmountImpulsionProvider/AmountImpulsion"/>
+    </genClasses>
+    <genClasses ecoreClass="timecontinuous.ecore#//AmountAbsoluteProvider">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference timecontinuous.ecore#//AmountAbsoluteProvider/Event"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//AmountAbsoluteProvider/AmountAbsolute"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="timecontinuous.ecore#//OwnedEvent"/>
+    <genClasses image="false" ecoreClass="timecontinuous.ecore#//ProvidedEvent">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//ProvidedEvent/EventProvider"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

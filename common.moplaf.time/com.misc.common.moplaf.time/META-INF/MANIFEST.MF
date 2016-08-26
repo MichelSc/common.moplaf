@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Time
+Bundle-SymbolicName: com.misc.common.moplaf.time
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.misc.common.moplaf.time.Activator
+Bundle-Vendor: MISC
+Require-Bundle: org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Export-Package: com.misc.common.moplaf.time
