@@ -584,7 +584,7 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getObjectWithTimeLine_TimeLine() {
+	public EReference getObjectWithTimeLine_Buckets() {
 		return (EReference)objectWithTimeLineEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -593,7 +593,7 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getObjectWithTimeLine_Buckets() {
+	public EReference getObjectWithTimeLine_LastBucket() {
 		return (EReference)objectWithTimeLineEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -602,7 +602,7 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getObjectWithTimeLine_LastBucket() {
+	public EReference getObjectWithTimeLine_FirstBucket() {
 		return (EReference)objectWithTimeLineEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -611,7 +611,7 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getObjectWithTimeLine_FirstBucket() {
+	public EReference getObjectWithTimeLine_StartBucket() {
 		return (EReference)objectWithTimeLineEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -620,17 +620,8 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getObjectWithTimeLine_StartBucket() {
-		return (EReference)objectWithTimeLineEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getObjectWithTimeLine_EndBucket() {
-		return (EReference)objectWithTimeLineEClass.getEStructuralFeatures().get(5);
+		return (EReference)objectWithTimeLineEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -803,7 +794,6 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 		createEAttribute(mergeElementEClass, MERGE_ELEMENT__SECONDS);
 
 		objectWithTimeLineEClass = createEClass(OBJECT_WITH_TIME_LINE);
-		createEReference(objectWithTimeLineEClass, OBJECT_WITH_TIME_LINE__TIME_LINE);
 		createEReference(objectWithTimeLineEClass, OBJECT_WITH_TIME_LINE__BUCKETS);
 		createEReference(objectWithTimeLineEClass, OBJECT_WITH_TIME_LINE__LAST_BUCKET);
 		createEReference(objectWithTimeLineEClass, OBJECT_WITH_TIME_LINE__FIRST_BUCKET);
@@ -930,8 +920,7 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 		initEAttribute(getMergeElement_Seconds(), ecorePackage.getEInt(), "Seconds", null, 0, 1, MergeElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(objectWithTimeLineEClass, ObjectWithTimeLine.class, "ObjectWithTimeLine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getObjectWithTimeLine_TimeLine(), this.getTimeLine(), null, "TimeLine", null, 1, 1, ObjectWithTimeLine.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getObjectWithTimeLine_Buckets(), this.getObjectTimeBucket(), null, "Buckets", null, 0, -1, ObjectWithTimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getObjectWithTimeLine_Buckets(), this.getObjectTimeBucket(), null, "Buckets", null, 0, -1, ObjectWithTimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObjectWithTimeLine_LastBucket(), this.getObjectTimeBucket(), null, "LastBucket", null, 0, 1, ObjectWithTimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObjectWithTimeLine_FirstBucket(), this.getObjectTimeBucket(), null, "FirstBucket", null, 0, 1, ObjectWithTimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObjectWithTimeLine_StartBucket(), this.getTimeBucket(), null, "StartBucket", null, 0, 1, ObjectWithTimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

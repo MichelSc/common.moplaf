@@ -89,7 +89,8 @@
     </genClasses>
     <genClasses ecoreClass="timediscrete.ecore#//ObjectWithTimeLine">
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference timediscrete.ecore#//ObjectWithTimeLine/TimeLine"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//ObjectWithTimeLine/Buckets"/>
+      <genFeatures children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference timediscrete.ecore#//ObjectWithTimeLine/Buckets"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//ObjectWithTimeLine/LastBucket"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//ObjectWithTimeLine/FirstBucket"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//ObjectWithTimeLine/StartBucket"/>

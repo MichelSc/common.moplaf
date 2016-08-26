@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getTimeLine <em>Time Line</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getBuckets <em>Buckets</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getLastBucket <em>Last Bucket</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getFirstBucket <em>First Bucket</em>}</li>
@@ -29,22 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ObjectWithTimeLine extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Time Line</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Time Line</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Time Line</em>' reference.
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getObjectWithTimeLine_TimeLine()
-	 * @model required="true" transient="true" changeable="false" volatile="true" derived="true"
-	 * @generated
-	 */
-	TimeLine getTimeLine();
-
-	/**
-	 * Returns the value of the '<em><b>Buckets</b></em>' reference list.
+	 * Returns the value of the '<em><b>Buckets</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.time.discrete.ObjectTimeBucket}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -52,9 +36,9 @@ public interface ObjectWithTimeLine extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Buckets</em>' reference list.
+	 * @return the value of the '<em>Buckets</em>' containment reference list.
 	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getObjectWithTimeLine_Buckets()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<ObjectTimeBucket> getBuckets();

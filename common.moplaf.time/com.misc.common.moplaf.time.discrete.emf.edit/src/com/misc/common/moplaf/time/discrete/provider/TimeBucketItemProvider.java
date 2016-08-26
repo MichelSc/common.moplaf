@@ -257,8 +257,10 @@ public class TimeBucketItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		TimeBucket timeBucket = (TimeBucket)object;
-		return getString("_UI_TimeBucket_type") + " " + timeBucket.getBucketNr();
+		String label = ((TimeBucket)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_TimeBucket_type") :
+			getString("_UI_TimeBucket_type") + " " + label;
 	}
 
 	/**
