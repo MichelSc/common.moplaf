@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.time.discrete.emf/src"
+    modelPluginID="com.misc.common.moplaf.time.discrete.emf" modelName="Timediscrete"
+    editPluginClass="com.misc.common.moplaf.time.discrete.provider.TimeDiscreteEditPlugin"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>timediscrete.ecore</foreignModel>
+  <genPackages prefix="Discrete" basePackage="com.misc.common.moplaf.time" disposableProviderFactory="true"
+      ecorePackage="timediscrete.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="timediscrete.ecore#//BucketType">
+      <genEnumLiterals ecoreEnumLiteral="timediscrete.ecore#//BucketType/TLMonth"/>
+      <genEnumLiterals ecoreEnumLiteral="timediscrete.ecore#//BucketType/TLWeek"/>
+      <genEnumLiterals ecoreEnumLiteral="timediscrete.ecore#//BucketType/TLDay"/>
+      <genEnumLiterals ecoreEnumLiteral="timediscrete.ecore#//BucketType/TLHour"/>
+      <genEnumLiterals ecoreEnumLiteral="timediscrete.ecore#//BucketType/TLHalfHour"/>
+      <genEnumLiterals ecoreEnumLiteral="timediscrete.ecore#//BucketType/TLQuarterHour"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="timediscrete.ecore#//BucketIterator"/>
+    <genClasses ecoreClass="timediscrete.ecore#//TimeBucket" labelFeature="#//discrete/TimeBucket/Description">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//TimeBucket/BucketNr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//TimeBucket/BucketStart"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//TimeBucket/BucketEnd"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//TimeBucket/Next"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//TimeBucket/Previous"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//TimeBucket/Description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//TimeBucket/Seconds"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference timediscrete.ecore#//TimeBucket/TimeLine"/>
+      <genOperations ecoreOperation="timediscrete.ecore#//TimeBucket/contains">
+        <genParameters ecoreParameter="timediscrete.ecore#//TimeBucket/contains/sometime"/>
+      </genOperations>
+      <genOperations ecoreOperation="timediscrete.ecore#//TimeBucket/isBefore">
+        <genParameters ecoreParameter="timediscrete.ecore#//TimeBucket/isBefore/other"/>
+      </genOperations>
+      <genOperations ecoreOperation="timediscrete.ecore#//TimeBucket/isBeforeStrictly">
+        <genParameters ecoreParameter="timediscrete.ecore#//TimeBucket/isBeforeStrictly/other"/>
+      </genOperations>
+      <genOperations ecoreOperation="timediscrete.ecore#//TimeBucket/isAfter">
+        <genParameters ecoreParameter="timediscrete.ecore#//TimeBucket/isAfter/other"/>
+      </genOperations>
+      <genOperations ecoreOperation="timediscrete.ecore#//TimeBucket/isAfterStrictly">
+        <genParameters ecoreParameter="timediscrete.ecore#//TimeBucket/isAfterStrictly/other"/>
+      </genOperations>
+      <genOperations ecoreOperation="timediscrete.ecore#//TimeBucket/getSecondsIntersection">
+        <genParameters ecoreParameter="timediscrete.ecore#//TimeBucket/getSecondsIntersection/from"/>
+        <genParameters ecoreParameter="timediscrete.ecore#//TimeBucket/getSecondsIntersection/to"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="timediscrete.ecore#//TimeLine" labelFeature="#//discrete/TimeLine/Description">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//TimeLine/BucketType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//TimeLine/Description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//TimeLine/TimeZoneID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//TimeLine/LocaleLanguage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//TimeLine/LocaleCountry"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//TimeLine/HorizonStart"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//TimeLine/HorizonEnd"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference timediscrete.ecore#//TimeLine/Buckets"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//TimeLine/FirstBucket"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//TimeLine/LastBucket"/>
+      <genOperations ecoreOperation="timediscrete.ecore#//TimeLine/refreshHorizon"/>
+      <genOperations ecoreOperation="timediscrete.ecore#//TimeLine/iterator">
+        <genParameters ecoreParameter="timediscrete.ecore#//TimeLine/iterator/from"/>
+        <genParameters ecoreParameter="timediscrete.ecore#//TimeLine/iterator/to"/>
+        <genParameters ecoreParameter="timediscrete.ecore#//TimeLine/iterator/naked"/>
+      </genOperations>
+      <genOperations ecoreOperation="timediscrete.ecore#//TimeLine/getBucket">
+        <genParameters ecoreParameter="timediscrete.ecore#//TimeLine/getBucket/sometime"/>
+      </genOperations>
+      <genOperations ecoreOperation="timediscrete.ecore#//TimeLine/createBucket"/>
+    </genClasses>
+    <genClasses ecoreClass="timediscrete.ecore#//TimeLineMerge">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference timediscrete.ecore#//TimeLineMerge/Elements"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//TimeLineMerge/TimeLineTo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//TimeLineMerge/FirstElement"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//TimeLineMerge/LastElement"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//TimeLineMerge/TimeLineFrom"/>
+      <genOperations ecoreOperation="timediscrete.ecore#//TimeLineMerge/refresh"/>
+    </genClasses>
+    <genClasses ecoreClass="timediscrete.ecore#//MergeElement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//MergeElement/BucketFrom"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//MergeElement/BucketTo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//MergeElement/Previous"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//MergeElement/Next"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//MergeElement/PartFromInTo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//MergeElement/PartToInFrom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//MergeElement/ElementStart"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//MergeElement/ElementEnd"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//MergeElement/Seconds"/>
+    </genClasses>
+    <genClasses ecoreClass="timediscrete.ecore#//ObjectWithTimeLine">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference timediscrete.ecore#//ObjectWithTimeLine/TimeLine"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//ObjectWithTimeLine/Buckets"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//ObjectWithTimeLine/LastBucket"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//ObjectWithTimeLine/FirstBucket"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//ObjectWithTimeLine/StartBucket"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//ObjectWithTimeLine/EndBucket"/>
+      <genOperations ecoreOperation="timediscrete.ecore#//ObjectWithTimeLine/getBucket">
+        <genParameters ecoreParameter="timediscrete.ecore#//ObjectWithTimeLine/getBucket/bucket"/>
+      </genOperations>
+      <genOperations ecoreOperation="timediscrete.ecore#//ObjectWithTimeLine/constructObjectTimeBucket"/>
+      <genOperations ecoreOperation="timediscrete.ecore#//ObjectWithTimeLine/refresh"/>
+    </genClasses>
+    <genClasses ecoreClass="timediscrete.ecore#//ObjectTimeBucket">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//ObjectTimeBucket/Bucket"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//ObjectTimeBucket/Next"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//ObjectTimeBucket/Previous"/>
+      <genOperations ecoreOperation="timediscrete.ecore#//ObjectTimeBucket/dispose"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="discrete" nsURI="http://www.misc.com/common/moplaf/time/discrete/model/0.1"
+    nsPrefix="timdisc">
+  <eClassifiers xsi:type="ecore:EDataType" name="BucketIterator" instanceClassName="com.misc.common.moplaf.time.discrete.BucketIterator"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="BucketType">
+    <eLiterals name="TLMonth" literal="Month"/>
+    <eLiterals name="TLWeek" value="2" literal="Week"/>
+    <eLiterals name="TLDay" value="1" literal="Day"/>
+    <eLiterals name="TLHour" value="3" literal="Hour"/>
+    <eLiterals name="TLHalfHour" value="4" literal="HalfHour"/>
+    <eLiterals name="TLQuarterHour" value="5" literal="QuarterOfHour"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TimeBucket">
+    <eOperations name="contains" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="sometime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    </eOperations>
+    <eOperations name="isBefore" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="other" eType="#//TimeBucket"/>
+    </eOperations>
+    <eOperations name="isBeforeStrictly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="other" eType="#//TimeBucket"/>
+    </eOperations>
+    <eOperations name="isAfter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="other" eType="#//TimeBucket"/>
+    </eOperations>
+    <eOperations name="isAfterStrictly" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="other" eType="#//TimeBucket"/>
+    </eOperations>
+    <eOperations name="getSecondsIntersection" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eParameters name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      <eParameters name="to" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BucketNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BucketStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BucketEnd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Next" eType="#//TimeBucket"
+        eOpposite="#//TimeBucket/Previous"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Previous" eType="#//TimeBucket"
+        eOpposite="#//TimeBucket/Next"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Seconds" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TimeLine" lowerBound="1"
+        eType="#//TimeLine" eOpposite="#//TimeLine/Buckets"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TimeLine">
+    <eOperations name="refreshHorizon"/>
+    <eOperations name="iterator" eType="#//BucketIterator">
+      <eParameters name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      <eParameters name="to" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      <eParameters name="naked" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="getBucket" eType="#//TimeBucket">
+      <eParameters name="sometime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    </eOperations>
+    <eOperations name="createBucket" eType="#//TimeBucket"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BucketType" eType="#//BucketType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TimeZoneID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="Europe/Brussels"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LocaleLanguage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="fr"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LocaleCountry" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="BE"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HorizonStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HorizonEnd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Buckets" upperBound="-1"
+        eType="#//TimeBucket" containment="true" eOpposite="#//TimeBucket/TimeLine"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FirstBucket" eType="#//TimeBucket"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="LastBucket" eType="#//TimeBucket"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TimeLineMerge">
+    <eOperations name="refresh"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"
+        eType="#//MergeElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TimeLineTo" eType="#//TimeLine"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FirstElement" eType="#//MergeElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="LastElement" eType="#//MergeElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TimeLineFrom" eType="#//TimeLine"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MergeElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="BucketFrom" eType="#//TimeBucket"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="BucketTo" eType="#//TimeBucket"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Previous" eType="#//MergeElement"
+        eOpposite="#//MergeElement/Next"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Next" eType="#//MergeElement"
+        eOpposite="#//MergeElement/Previous"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PartFromInTo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PartToInFrom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ElementStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ElementEnd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Seconds" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectWithTimeLine">
+    <eOperations name="getBucket" eType="#//ObjectTimeBucket">
+      <eParameters name="bucket" eType="#//TimeBucket"/>
+    </eOperations>
+    <eOperations name="constructObjectTimeBucket" eType="#//ObjectTimeBucket"/>
+    <eOperations name="refresh"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TimeLine" lowerBound="1"
+        eType="#//TimeLine" changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Buckets" upperBound="-1"
+        eType="#//ObjectTimeBucket"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="LastBucket" eType="#//ObjectTimeBucket"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FirstBucket" eType="#//ObjectTimeBucket"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="StartBucket" eType="#//TimeBucket"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EndBucket" eType="#//TimeBucket"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectTimeBucket">
+    <eOperations name="dispose"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Bucket" lowerBound="1"
+        eType="#//TimeBucket"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Next" eType="#//ObjectTimeBucket"
+        eOpposite="#//ObjectTimeBucket/Previous"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Previous" eType="#//ObjectTimeBucket"
+        eOpposite="#//ObjectTimeBucket/Next"/>
+  </eClassifiers>
+</ecore:EPackage>
