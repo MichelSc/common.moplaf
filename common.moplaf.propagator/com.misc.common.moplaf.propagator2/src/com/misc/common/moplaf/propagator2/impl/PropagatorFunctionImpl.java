@@ -247,7 +247,7 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 
 			@Override
 			public boolean test(PropagatorFunction arg0) {
-				return PropagatorFunctionImpl.this.getParent()==arg0;
+				return PropagatorFunctionImpl.this.getParent()==arg0.getParent();
 			}
 			
 		}
