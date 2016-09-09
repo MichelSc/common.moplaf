@@ -1,6 +1,7 @@
 package com.misc.common.moplaf.propagator2;
 
 import java.util.LinkedList;
+import java.util.function.Predicate;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
@@ -194,12 +195,16 @@ import com.misc.common.moplaf.propagator2.util.Util;
 	
 	class PropagatorFunctionCollector implements PropagatorFunctionVisitor{
 		private EList<PropagatorFunction> collection;
-		public PropagatorFunctionCollector(EList<PropagatorFunction> collection){
+		private Predicate<PropagatorFunction> doCollect;
+		public PropagatorFunctionCollector(EList<PropagatorFunction> collection, Predicate<PropagatorFunction> doCollect){
 			this.collection = collection;
+			this.doCollect = doCollect;
 		}
 		@Override
 		public void visitPropagatorFunction(PropagatorFunction propagatorFunction) {
-			this.collection.add(propagatorFunction);
+			if ( this.doCollect==null || this.doCollect.test(propagatorFunction)){
+				this.collection.add(propagatorFunction);
+			}
 		}
 	}
 	
@@ -211,8 +216,8 @@ import com.misc.common.moplaf.propagator2.util.Util;
 	 * <p>
 	 * Default implementation does nothing.
 	 */
-	public void collectPropagatorFunctions(EList<PropagatorFunction> propagatorFunctions){
-		this.accept(new PropagatorFunctionCollector(propagatorFunctions));
+	public void collectPropagatorFunctions(EList<PropagatorFunction> propagatorFunctions, Predicate<PropagatorFunction> doCollect){
+		this.accept(new PropagatorFunctionCollector(propagatorFunctions, doCollect));
 	}
 	
 	/*
@@ -220,8 +225,8 @@ import com.misc.common.moplaf.propagator2.util.Util;
 	 * <p>
 	 * Used by the framework to derive the antecedents of a given PropagatorFunctionAdapter
 	 */
-	public void collectAntecedents(EList<PropagatorFunction> antecedents){
-			this.bindings.collectAntecedents(this, antecedents);
+	public void collectAntecedents(EList<PropagatorFunction> antecedents, Predicate<PropagatorFunction> doCollect){
+			this.bindings.collectAntecedents(this, antecedents, doCollect);
 	}
 
 }

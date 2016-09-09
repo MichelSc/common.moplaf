@@ -16,6 +16,7 @@ import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.function.Predicate;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
@@ -41,6 +42,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.propagator2.impl.PropagatorFunctionImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link com.misc.common.moplaf.propagator2.impl.PropagatorFunctionImpl#getAntecedents <em>Antecedents</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.propagator2.impl.PropagatorFunctionImpl#getAntecedentsSibling <em>Antecedents Sibling</em>}</li>
  *   <li>{@link com.misc.common.moplaf.propagator2.impl.PropagatorFunctionImpl#isTouched <em>Touched</em>}</li>
  *   <li>{@link com.misc.common.moplaf.propagator2.impl.PropagatorFunctionImpl#getTouchedChildren <em>Touched Children</em>}</li>
  *   <li>{@link com.misc.common.moplaf.propagator2.impl.PropagatorFunctionImpl#getTouchers <em>Touchers</em>}</li>
@@ -195,6 +197,29 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	private void getAntecedents_prvt(EList<PropagatorFunction> antecedents, Predicate<PropagatorFunction> doCollect) {
+		// explicit antecedents
+		EList<PropagatorFunction> explicitAntecedents = this.doGetExplicitAntecedents();
+		antecedents.addAll(explicitAntecedents);
+		
+		// bound sibling antecedents
+		Bindings bindings = this.doGetBindings();
+		if ( bindings!=null){
+			ObjectWithPropagatorFunctions object = this.getObjectWithPropagatorFunctions();
+			PropagatorFunctionBindings adapter = (PropagatorFunctionBindings) Util.getAdapter(object, this.getBindings());
+			if ( adapter!=null) {
+				// the adapter may not be present
+				// in that case, there are no antecedents
+				adapter.collectAntecedents(antecedents, doCollect);
+			}
+		}
+
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public EList<PropagatorFunction> getAntecedents() {
 		// Ensure that you remove @generated or mark it @generated NOT
 		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
@@ -207,25 +232,42 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 			}
 		};
 		
-		// explicit antecedents
-		EList<PropagatorFunction> explicitAntecedents = this.doGetExplicitAntecedents();
-		antecedents.addAll(explicitAntecedents);
-		
-		// bound sibling antecedents
-		Bindings bindings = this.doGetBindings();
-		if ( bindings!=null){
-			ObjectWithPropagatorFunctions object = this.basicGetObjectWithPropagatorFunctions();
-			PropagatorFunctionBindings adapter = (PropagatorFunctionBindings) Util.getAdapter(object, this.getBindings());
-			if ( adapter!=null) {
-				// the adapter may not be present
-				// in that case, there are no antecedents
-				adapter.collectAntecedents(antecedents);
-			}
-		}
+		this.getAntecedents_prvt(antecedents, null);
 		
 		return antecedents;
 
 	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EList<PropagatorFunction> getAntecedentsSibling() {
+		class IsSiblingPredicate implements Predicate<PropagatorFunction>{
+
+			@Override
+			public boolean test(PropagatorFunction arg0) {
+				return PropagatorFunctionImpl.this.getParent()==arg0;
+			}
+			
+		}
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		EList<PropagatorFunction> antecedents = new EObjectEList<PropagatorFunction>(PropagatorFunction.class, this, PropagatorPackage.PROPAGATOR_FUNCTION__ANTECEDENTS_SIBLING){
+
+			@Override
+			protected boolean isNotificationRequired() {
+				return false;
+			}
+		};
+		
+		this.getAntecedents_prvt(antecedents, new IsSiblingPredicate());
+		
+		return antecedents;
+	}
+
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -436,7 +478,7 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	    // attention
 	    //   I want to refresh the antecedents of this
 	    //   this itself should not be refreshed
-		EList<PropagatorFunction>  antecedents = this.getAntecedents();
+		EList<PropagatorFunction>  antecedents = this.getAntecedentsSibling();
 		if ( antecedents!=null){
 			for (PropagatorFunction antecedent : antecedents){
 				if ( !depthFirstSearch(antecedent) ) {
@@ -650,6 +692,8 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 				return basicGetParent();
 			case PropagatorPackage.PROPAGATOR_FUNCTION__ANTECEDENTS:
 				return getAntecedents();
+			case PropagatorPackage.PROPAGATOR_FUNCTION__ANTECEDENTS_SIBLING:
+				return getAntecedentsSibling();
 			case PropagatorPackage.PROPAGATOR_FUNCTION__TOUCHED:
 				return isTouched();
 			case PropagatorPackage.PROPAGATOR_FUNCTION__TOUCHED_CHILDREN:
@@ -736,6 +780,8 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 				return basicGetParent() != null;
 			case PropagatorPackage.PROPAGATOR_FUNCTION__ANTECEDENTS:
 				return !getAntecedents().isEmpty();
+			case PropagatorPackage.PROPAGATOR_FUNCTION__ANTECEDENTS_SIBLING:
+				return !getAntecedentsSibling().isEmpty();
 			case PropagatorPackage.PROPAGATOR_FUNCTION__TOUCHED:
 				return touched != TOUCHED_EDEFAULT;
 			case PropagatorPackage.PROPAGATOR_FUNCTION__TOUCHED_CHILDREN:
@@ -848,7 +894,7 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	private static boolean depthFirstSearch(DepthFirstSearchContext context, PropagatorFunction propagatorFunction) {
 		// the node is reached
 		context.reachedFunctionAdapters.add(propagatorFunction);
-		EList<PropagatorFunction>  antecedents = propagatorFunction.getAntecedents();
+		EList<PropagatorFunction>  antecedents = propagatorFunction.getAntecedentsSibling();
 
 		//this.logMessage("Visited, not refreshed");
 

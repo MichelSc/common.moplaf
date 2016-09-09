@@ -2,6 +2,7 @@ package com.misc.common.moplaf.propagator2;
 
 import java.util.Collection;
 import java.util.LinkedList;
+import java.util.function.Predicate;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
@@ -63,9 +64,9 @@ public class Bindings {
 			inboundBinding.disposeDependencies(adapter);
 		}
 	}
-	public void collectAntecedents(PropagatorFunctionBindings adapter, EList<PropagatorFunction> antecedents){
+	public void collectAntecedents(PropagatorFunctionBindings adapter, EList<PropagatorFunction> antecedents, Predicate<PropagatorFunction> doCollect){
 		for ( InboundBinding inboundBinding : this.inboundBindings){
-			inboundBinding.collectAntecedents(adapter, antecedents);
+			inboundBinding.collectAntecedents(adapter, antecedents, doCollect);
 		}
 	}
 	
@@ -125,7 +126,7 @@ public class Bindings {
 		 */
 		void initDependencies(PropagatorFunctionBindings adapter){}
 		void disposeDependencies(PropagatorFunctionBindings adapter){}
-		public void collectAntecedents(PropagatorFunctionBindings adapter, EList<PropagatorFunction> antecedents){}
+		public void collectAntecedents(PropagatorFunctionBindings adapter, EList<PropagatorFunction> antecedents, Predicate<PropagatorFunction> doCollect){}
 
 	}
 
@@ -249,13 +250,13 @@ public class Bindings {
 			}
 		}
 		@Override
-		public void collectAntecedents(PropagatorFunctionBindings adapter, EList<PropagatorFunction> antecedents) {
+		public void collectAntecedents(PropagatorFunctionBindings adapter, EList<PropagatorFunction> antecedents, Predicate<PropagatorFunction> doCollect) {
 			Notifier notifier = adapter.getTarget();
 			for (Adapter otherAdapter : notifier.eAdapters()) {
 				if (otherAdapter instanceof PropagatorFunctionBindings) {
 					PropagatorFunctionBindings otherpropagator = (PropagatorFunctionBindings) otherAdapter;
 					if ( otherpropagator.isOutboundBinding(this.eFeature)){
-						otherpropagator.collectPropagatorFunctions(antecedents);
+						otherpropagator.collectPropagatorFunctions(antecedents, doCollect);
 					}
 				}
 			}
@@ -362,9 +363,9 @@ public class Bindings {
 			}
 		}
 		@Override
-		public void collectAntecedents(PropagatorFunctionBindings adapter, EList<PropagatorFunction> antecedents) {
+		public void collectAntecedents(PropagatorFunctionBindings adapter, EList<PropagatorFunction> antecedents, Predicate<PropagatorFunction> doCollect) {
 			// this object
-			super.collectAntecedents(adapter, antecedents);
+			super.collectAntecedents(adapter, antecedents, doCollect);
 			// navigated to objects
 			EObject object = (EObject) adapter.getTarget();
 			Object featurevalue = object.eGet((EStructuralFeature) this.eFeature);
@@ -375,7 +376,7 @@ public class Bindings {
 					if ( dependency == null ) {
 						Plugin.INSTANCE.logError("No dependency", adapter);
 					} else {
-						dependency.collectAntecedents(antecedents);
+						dependency.collectAntecedents(antecedents, doCollect);
 					}
 				}
 			} else if ( featurevalue instanceof EObject){
@@ -384,7 +385,7 @@ public class Bindings {
 				if ( dependency == null ) {
 					Plugin.INSTANCE.logError("No dependency", adapter);
 				} else {
-					dependency.collectAntecedents(antecedents);
+					dependency.collectAntecedents(antecedents, doCollect);
 				}
 			}
 		}

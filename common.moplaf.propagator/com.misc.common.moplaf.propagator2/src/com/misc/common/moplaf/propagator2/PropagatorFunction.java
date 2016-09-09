@@ -91,6 +91,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.propagator2.PropagatorFunction#getParent <em>Parent</em>}</li>
  *   <li>{@link com.misc.common.moplaf.propagator2.PropagatorFunction#getAntecedents <em>Antecedents</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.propagator2.PropagatorFunction#getAntecedentsSibling <em>Antecedents Sibling</em>}</li>
  *   <li>{@link com.misc.common.moplaf.propagator2.PropagatorFunction#isTouched <em>Touched</em>}</li>
  *   <li>{@link com.misc.common.moplaf.propagator2.PropagatorFunction#getTouchedChildren <em>Touched Children</em>}</li>
  *   <li>{@link com.misc.common.moplaf.propagator2.PropagatorFunction#getTouchers <em>Touchers</em>}</li>
@@ -296,6 +297,22 @@ public interface PropagatorFunction extends EObject {
 	 * @generated
 	 */
 	String getDescription();
+
+	/**
+	 * Returns the value of the '<em><b>Antecedents Sibling</b></em>' reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.propagator2.PropagatorFunction}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Antecedents Sibling</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Antecedents Sibling</em>' reference list.
+	 * @see com.misc.common.moplaf.propagator2.PropagatorPackage#getPropagatorFunction_AntecedentsSibling()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EList<PropagatorFunction> getAntecedentsSibling();
 
 	/**
 	 * <!-- begin-user-doc -->

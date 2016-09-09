@@ -188,13 +188,22 @@ public interface PropagatorPackage extends EPackage {
 	int PROPAGATOR_FUNCTION__ANTECEDENTS = 1;
 
 	/**
+	 * The feature id for the '<em><b>Antecedents Sibling</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION__ANTECEDENTS_SIBLING = 2;
+
+	/**
 	 * The feature id for the '<em><b>Touched</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION__TOUCHED = 2;
+	int PROPAGATOR_FUNCTION__TOUCHED = 3;
 
 	/**
 	 * The feature id for the '<em><b>Touched Children</b></em>' reference list.
@@ -203,7 +212,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION__TOUCHED_CHILDREN = 3;
+	int PROPAGATOR_FUNCTION__TOUCHED_CHILDREN = 4;
 
 	/**
 	 * The feature id for the '<em><b>Touchers</b></em>' reference list.
@@ -212,7 +221,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION__TOUCHERS = 4;
+	int PROPAGATOR_FUNCTION__TOUCHERS = 5;
 
 	/**
 	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
@@ -221,7 +230,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION__ENABLED = 5;
+	int PROPAGATOR_FUNCTION__ENABLED = 6;
 
 	/**
 	 * The feature id for the '<em><b>Object With Propagator Functions</b></em>' reference.
@@ -230,7 +239,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION__OBJECT_WITH_PROPAGATOR_FUNCTIONS = 6;
+	int PROPAGATOR_FUNCTION__OBJECT_WITH_PROPAGATOR_FUNCTIONS = 7;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -239,7 +248,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION__TYPE = 7;
+	int PROPAGATOR_FUNCTION__TYPE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Object</b></em>' attribute.
@@ -248,7 +257,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION__OBJECT = 8;
+	int PROPAGATOR_FUNCTION__OBJECT = 9;
 
 	/**
 	 * The feature id for the '<em><b>Instance</b></em>' attribute.
@@ -257,7 +266,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION__INSTANCE = 9;
+	int PROPAGATOR_FUNCTION__INSTANCE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -266,7 +275,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION__DESCRIPTION = 10;
+	int PROPAGATOR_FUNCTION__DESCRIPTION = 11;
 
 	/**
 	 * The number of structural features of the '<em>Function</em>' class.
@@ -275,7 +284,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_FEATURE_COUNT = 11;
+	int PROPAGATOR_FUNCTION_FEATURE_COUNT = 12;
 
 	/**
 	 * The operation id for the '<em>Enable</em>' operation.
@@ -607,6 +616,17 @@ public interface PropagatorPackage extends EPackage {
 	EAttribute getPropagatorFunction_Description();
 
 	/**
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#getAntecedentsSibling <em>Antecedents Sibling</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Antecedents Sibling</em>'.
+	 * @see com.misc.common.moplaf.propagator2.PropagatorFunction#getAntecedentsSibling()
+	 * @see #getPropagatorFunction()
+	 * @generated
+	 */
+	EReference getPropagatorFunction_AntecedentsSibling();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#touch(org.eclipse.emf.ecore.EObject) <em>Touch</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -917,6 +937,14 @@ public interface PropagatorPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PROPAGATOR_FUNCTION__DESCRIPTION = eINSTANCE.getPropagatorFunction_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Antecedents Sibling</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPAGATOR_FUNCTION__ANTECEDENTS_SIBLING = eINSTANCE.getPropagatorFunction_AntecedentsSibling();
 
 		/**
 		 * The meta object literal for the '<em><b>Touch</b></em>' operation.

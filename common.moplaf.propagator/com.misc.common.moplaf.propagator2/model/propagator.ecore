@@ -36,6 +36,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Antecedents" upperBound="-1"
         eType="#//PropagatorFunction" changeable="false" volatile="true" transient="true"
         derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="AntecedentsSibling" upperBound="-1"
+        eType="#//PropagatorFunction" changeable="false" volatile="true" transient="true"
+        derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Touched" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="TouchedChildren" upperBound="-1"
         eType="#//PropagatorFunction"/>

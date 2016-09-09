@@ -209,7 +209,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * @generated
 	 */
 	public EAttribute getPropagatorFunction_Touched() {
-		return (EAttribute)propagatorFunctionEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)propagatorFunctionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -218,15 +218,6 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * @generated
 	 */
 	public EReference getPropagatorFunction_TouchedChildren() {
-		return (EReference)propagatorFunctionEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPropagatorFunction_Touchers() {
 		return (EReference)propagatorFunctionEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -235,8 +226,17 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPropagatorFunction_Touchers() {
+		return (EReference)propagatorFunctionEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getPropagatorFunction_Enabled() {
-		return (EAttribute)propagatorFunctionEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)propagatorFunctionEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -245,7 +245,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * @generated
 	 */
 	public EReference getPropagatorFunction_ObjectWithPropagatorFunctions() {
-		return (EReference)propagatorFunctionEClass.getEStructuralFeatures().get(6);
+		return (EReference)propagatorFunctionEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -254,15 +254,6 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * @generated
 	 */
 	public EAttribute getPropagatorFunction_Type() {
-		return (EAttribute)propagatorFunctionEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPropagatorFunction_Object() {
 		return (EAttribute)propagatorFunctionEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -271,7 +262,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPropagatorFunction_Instance() {
+	public EAttribute getPropagatorFunction_Object() {
 		return (EAttribute)propagatorFunctionEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -280,8 +271,26 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPropagatorFunction_Description() {
+	public EAttribute getPropagatorFunction_Instance() {
 		return (EAttribute)propagatorFunctionEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPropagatorFunction_Description() {
+		return (EAttribute)propagatorFunctionEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPropagatorFunction_AntecedentsSibling() {
+		return (EReference)propagatorFunctionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -441,6 +450,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 		propagatorFunctionEClass = createEClass(PROPAGATOR_FUNCTION);
 		createEReference(propagatorFunctionEClass, PROPAGATOR_FUNCTION__PARENT);
 		createEReference(propagatorFunctionEClass, PROPAGATOR_FUNCTION__ANTECEDENTS);
+		createEReference(propagatorFunctionEClass, PROPAGATOR_FUNCTION__ANTECEDENTS_SIBLING);
 		createEAttribute(propagatorFunctionEClass, PROPAGATOR_FUNCTION__TOUCHED);
 		createEReference(propagatorFunctionEClass, PROPAGATOR_FUNCTION__TOUCHED_CHILDREN);
 		createEReference(propagatorFunctionEClass, PROPAGATOR_FUNCTION__TOUCHERS);
@@ -513,6 +523,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 		initEClass(propagatorFunctionEClass, PropagatorFunction.class, "PropagatorFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPropagatorFunction_Parent(), this.getPropagatorFunction(), null, "Parent", null, 0, 1, PropagatorFunction.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getPropagatorFunction_Antecedents(), this.getPropagatorFunction(), null, "Antecedents", null, 0, -1, PropagatorFunction.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getPropagatorFunction_AntecedentsSibling(), this.getPropagatorFunction(), null, "AntecedentsSibling", null, 0, -1, PropagatorFunction.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPropagatorFunction_Touched(), ecorePackage.getEBoolean(), "Touched", null, 0, 1, PropagatorFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPropagatorFunction_TouchedChildren(), this.getPropagatorFunction(), null, "TouchedChildren", null, 0, -1, PropagatorFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPropagatorFunction_Touchers(), ecorePackage.getEObject(), null, "Touchers", null, 0, -1, PropagatorFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
