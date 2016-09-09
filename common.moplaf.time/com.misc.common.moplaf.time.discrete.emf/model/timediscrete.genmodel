@@ -88,7 +88,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//MergeElement/Seconds"/>
     </genClasses>
     <genClasses ecoreClass="timediscrete.ecore#//ObjectWithTimeLine">
-      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference timediscrete.ecore#//ObjectWithTimeLine/TimeLine"/>
       <genFeatures children="true" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference timediscrete.ecore#//ObjectWithTimeLine/Buckets"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//ObjectWithTimeLine/LastBucket"/>
