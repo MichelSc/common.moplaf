@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="propagator2" nsURI="http://www.misc.com/common/moplaf/propagator2/model/0.1"
+    nsPrefix="prg">
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectWithPropagatorFunctions">
+    <eOperations name="onOwned"/>
+    <eOperations name="onNotOwned"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="PropagatorFunctions" upperBound="-1"
+        eType="#//PropagatorFunction" changeable="false" volatile="true" transient="true"
+        derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectWithPropagatorFunctionScope" abstract="true"
+      interface="true">
+    <eOperations name="refresh"/>
+    <eOperations name="newOperation2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorFunction">
+    <eOperations name="enable"/>
+    <eOperations name="disable"/>
+    <eOperations name="touch">
+      <eParameters name="toucher" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eOperations>
+    <eOperations name="refreshAntecedents" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="refreshThis" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="refreshChildrenAndThis" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="refresh" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="doGetParent" eType="#//PropagatorFunction"/>
+    <eOperations name="doGetExplicitAntecedents" upperBound="-1" eType="#//PropagatorFunction"/>
+    <eOperations name="doGetBindings" eType="#//Bindings"/>
+    <eOperations name="doRefresh"/>
+    <eOperations name="doRefresh">
+      <eParameters name="toucher" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Parent" eType="#//PropagatorFunction"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Antecedents" upperBound="-1"
+        eType="#//PropagatorFunction" changeable="false" volatile="true" transient="true"
+        derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Touched" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TouchedChildren" upperBound="-1"
+        eType="#//PropagatorFunction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Touchers" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ObjectWithPropagatorFunctions"
+        lowerBound="1" eType="#//ObjectWithPropagatorFunctions" changeable="false"
+        volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Object" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Instance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Bindings" instanceClassName="com.misc.common.moplaf.propagator2.Bindings"/>
+</ecore:EPackage>

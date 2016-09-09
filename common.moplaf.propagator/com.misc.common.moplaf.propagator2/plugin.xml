@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated propagator -->
+      <package
+            uri="http://www.misc.com/common/moplaf/propagator2/model/0.1"
+            class="com.misc.common.moplaf.propagator2.PropagatorPackage"
+            genModel="model/propagator.genmodel"/>
+   </extension>
+
+</plugin>
