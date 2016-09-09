@@ -23,12 +23,4 @@ public interface ObjectWithPropagatorFunctionScope extends EObject {
 	 */
 	void refresh();
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void newOperation2();
-
 } // ObjectWithPropagatorFunctionScope

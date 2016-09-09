@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul> 
  * <li> use method {@link #onOwned()} 
  *   <ul> 
- *   <li> to create the PropagatorFunction
+ *   <li> to create the PropagatorFunctions
  *   <li> to touch the created PropagatorFunction that need to be calculated at creation time
  *   <li> to do any procedural initialisations 
  *   </ul>

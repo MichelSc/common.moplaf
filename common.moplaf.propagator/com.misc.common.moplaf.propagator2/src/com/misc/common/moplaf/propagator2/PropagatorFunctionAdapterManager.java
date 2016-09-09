@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import com.misc.common.moplaf.propagator2.util.Util;
 
 
+
 /**
  * An adapter that maintains itself as an adapter for all contained objects 
  * as they come and go.
@@ -414,14 +415,18 @@ public class PropagatorFunctionAdapterManager extends AdapterImpl
   void onAdapterAdded(Notifier notifier){
 	//CommonPlugin.INSTANCE.log("PropagatorFunctionAdapterManager.onAdapterAdded, notifier "+notifier);
 	// control gets here when ownership is given
-	if ( notifier instanceof ObjectWithPropagatorFunctions) {
-		ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
-		if ( !objectWithPropagatorFunctions.eIsProxy()){
-			for ( PropagatorFunction propagatorFunction: objectWithPropagatorFunctions.getPropagatorFunctions()){
-				propagatorFunction.enable();
-			}
-		}
-	}
+//	if ( notifier instanceof ObjectWithPropagatorFunctions) {
+//		ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
+//		if ( !objectWithPropagatorFunctions.eIsProxy()){
+//			for ( PropagatorFunction propagatorFunction: objectWithPropagatorFunctions.getPropagatorFunctions()){
+//				propagatorFunction.enable();
+//			}
+//		}
+//	}
+	  if ( notifier instanceof PropagatorFunction ){
+		  PropagatorFunction propagatorFunction = (PropagatorFunction) notifier;
+		  propagatorFunction.enable();
+	  }
   }
 
   /**
@@ -431,12 +436,16 @@ public class PropagatorFunctionAdapterManager extends AdapterImpl
   void onAdapterRemoved(Notifier notifier){
 	// CommonPlugin.INSTANCE.log("PropagatorFunctionAdapterManager.onAdapterRemoved, notifier "+notifier);
 	// control gets here when ownership is taken
-	if ( notifier instanceof ObjectWithPropagatorFunctions) {
-		ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
-		for ( PropagatorFunction propagatorFunction: objectWithPropagatorFunctions.getPropagatorFunctions()){
-			propagatorFunction.disable();
-		}
-	}
+//	if ( notifier instanceof ObjectWithPropagatorFunctions) {
+//		ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
+//		for ( PropagatorFunction propagatorFunction: objectWithPropagatorFunctions.getPropagatorFunctions()){
+//			propagatorFunction.disable();
+//		}
+//	}
+	  if ( notifier instanceof PropagatorFunction ){
+		  PropagatorFunction propagatorFunction = (PropagatorFunction) notifier;
+		  propagatorFunction.disable();
+	  }
   }
   
   /**
@@ -444,13 +453,13 @@ public class PropagatorFunctionAdapterManager extends AdapterImpl
    * Note: the owner is already set, the propagators are already created, the adapter is already added
    */
   void onNotifierContained(Notifier notifier){
-//	  if ( Util.notifierIsEObjectActive(notifier)){
+	  if ( Util.notifierIsEObjectActive(notifier)){
 		// CommonPlugin.INSTANCE.log("PropagatorFunctionAdapterManager.onNotifierContained, notifier "+notifier);
 		if ( notifier instanceof ObjectWithPropagatorFunctions) {
 			ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
 			objectWithPropagatorFunctions.onOwned();
 		}
-//	  }
+	  }
   }
   
   /**

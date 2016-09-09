@@ -172,15 +172,6 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getObjectWithPropagatorFunctionScope__NewOperation2() {
-		return objectWithPropagatorFunctionScopeEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getPropagatorFunction() {
 		return propagatorFunctionEClass;
 	}
@@ -445,7 +436,6 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 
 		objectWithPropagatorFunctionScopeEClass = createEClass(OBJECT_WITH_PROPAGATOR_FUNCTION_SCOPE);
 		createEOperation(objectWithPropagatorFunctionScopeEClass, OBJECT_WITH_PROPAGATOR_FUNCTION_SCOPE___REFRESH);
-		createEOperation(objectWithPropagatorFunctionScopeEClass, OBJECT_WITH_PROPAGATOR_FUNCTION_SCOPE___NEW_OPERATION2);
 
 		propagatorFunctionEClass = createEClass(PROPAGATOR_FUNCTION);
 		createEReference(propagatorFunctionEClass, PROPAGATOR_FUNCTION__PARENT);
@@ -517,8 +507,6 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 		initEClass(objectWithPropagatorFunctionScopeEClass, ObjectWithPropagatorFunctionScope.class, "ObjectWithPropagatorFunctionScope", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEOperation(getObjectWithPropagatorFunctionScope__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getObjectWithPropagatorFunctionScope__NewOperation2(), null, "newOperation2", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(propagatorFunctionEClass, PropagatorFunction.class, "PropagatorFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPropagatorFunction_Parent(), this.getPropagatorFunction(), null, "Parent", null, 0, 1, PropagatorFunction.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);

@@ -22,13 +22,15 @@ import com.misc.common.moplaf.propagator2.util.Util;
  * provided by {@link PropagatorFunction#doGetBindings()}.
  * <p>
  * A Bindings provides a collection of {@link InboundBinding}s and  collection of
- * {@link OutboundBinding}
+ * {@link OutboundBinding}.
  * <p>
  * An inbound Bindings decides when a modication is binding by implementing the method
- * {@link InboundBinding#notifyChanged(PropagatorFunctionBindings, Notification)}.
+ * {@link InboundBinding#notifyChanged(PropagatorFunctionBindings, Notification)}, that must call {@link PropagatorFunctionBindings#touch(EObject)}
+ * when there is inbound binding.
  * <p> 
  * An outbound Bindings decides when an adapter is setting an element by implementing
- * the method {@link OutboundBinding#isOutboundBinding(PropagatorFunctionBindings, Object)}.
+ * the method {@link OutboundBinding#isOutboundBinding(PropagatorFunctionBindings, Object)}, 
+ * that must return true when there is outbound binding.
  * 
  * @author michel
  *

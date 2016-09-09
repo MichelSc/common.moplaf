@@ -12,7 +12,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="ObjectWithPropagatorFunctionScope" abstract="true"
       interface="true">
     <eOperations name="refresh"/>
-    <eOperations name="newOperation2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PropagatorFunction">
     <eOperations name="enable"/>

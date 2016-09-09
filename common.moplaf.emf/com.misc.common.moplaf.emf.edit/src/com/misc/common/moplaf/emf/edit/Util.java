@@ -1,9 +1,6 @@
 package com.misc.common.moplaf.emf.edit;
 
-import java.util.Collection;
 
-import org.eclipse.jface.action.IAction;
-import org.eclipse.jface.action.IContributionManager;
 import org.eclipse.swt.graphics.RGB;
 
 public class Util {
