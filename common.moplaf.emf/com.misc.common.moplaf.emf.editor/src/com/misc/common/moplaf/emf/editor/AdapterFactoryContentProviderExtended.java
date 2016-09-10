@@ -43,7 +43,7 @@ import org.eclipse.emf.common.ui.celleditor.ExtendedDialogCellEditor;
  * for a selection of fields
  * <ul>
  *   <li>to edit date or time with a calendar dialog</li>
- *   <li>to edit a color with a color selector</li>
+ *   <li>to select a color with a color selector</li>
  *   <li>to select a file path with qn object selecter</li>
  * </ul>
  * 
