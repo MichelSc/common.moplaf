@@ -252,11 +252,11 @@ public class PropagatorFunctionItemProvider
 	 * This returns PropagatorFunction.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PropagatorFunction"));
+//		return overlayImage(object, getResourceLocator().getImage("full/obj16/PropagatorFunction"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/refreshing.png"));
 	}
 
 	/**
