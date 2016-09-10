@@ -39,8 +39,13 @@ import org.eclipse.emf.common.ui.celleditor.ExtendedDialogCellEditor;
 
 /**
  * <!-- begin-user-doc -->
- * This AdapterFactoryContentProvider provides specialized PropertySource and PropertyDescriptior, allowing
- * to edit date or time with a calendar dialog, to edit a color with a color selector
+ * This AdapterFactoryContentProvider provides a specialized PropertySource and PropertyDescriptior, allowing
+ * for a selection of fields
+ * <ul>
+ *   <li>to edit date or time with a calendar dialog</li>
+ *   <li>to edit a color with a color selector</li>
+ *   <li>to select a file path with qn object selecter</li>
+ * </ul>
  * 
  * Usage, in an emf editor project
  * <ul>

@@ -133,7 +133,7 @@
               <styles xmi:type="notation:FilteringStyle" xmi:id="_XnpGIkkDEeaZMa8q_NYnZQ"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_XnmC0UkDEeaZMa8q_NYnZQ" fontName="Segoe UI" fontHeight="8"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XnmC0kkDEeaZMa8q_NYnZQ" x="612" y="360" width="288" height="108"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XnmC0kkDEeaZMa8q_NYnZQ" x="540" y="336" width="360" height="132"/>
           </children>
           <styles xmi:type="notation:DiagramStyle" xmi:id="_bQuiAkWoEeai4o6Ufvs2NA"/>
           <edges xmi:type="notation:Edge" xmi:id="_sJ0h8EdcEea7WsgHBwpAvg" type="4001" element="_sJwQgEdcEea7WsgHBwpAvg" source="_hrhGIEdTEea7WsgHBwpAvg" target="_hrhGIEdTEea7WsgHBwpAvg">
