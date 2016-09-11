@@ -6,7 +6,7 @@
          <meta.schema plugin="com.misc.common.moplaf.solver.emf" id="solver_factory" name="Solver Factory for MOPLAF"/>
       </appInfo>
       <documentation>
-         [Enter description of this extension point.]
+         This extension is used to register Solver factories
       </documentation>
    </annotation>
 
@@ -48,6 +48,11 @@
    </element>
 
    <element name="factory">
+      <annotation>
+         <documentation>
+            This element is used to register a Solver Factory
+         </documentation>
+      </annotation>
       <complexType>
          <attribute name="id" type="string">
             <annotation>
@@ -76,21 +81,18 @@
       </complexType>
    </element>
 
-   <annotation>
-      <appInfo>
-         <meta.section type="since"/>
-      </appInfo>
-      <documentation>
-         [Enter the first release in which this extension point appears.]
-      </documentation>
-   </annotation>
 
    <annotation>
       <appInfo>
          <meta.section type="examples"/>
       </appInfo>
       <documentation>
-         [Enter extension point usage example here.]
+         Following is how a factory can  be registred 
+&lt;extension point=&quot;com.misc.common.moplaf.solver.emf.solver_factory&quot;&gt;
+  &lt;factory
+    class=&quot;com.misc.common.moplaf.solver.solverglpk.util.SolverFactory&quot;&gt;
+  &lt;/factory&gt;
+&lt;/extension&gt;
       </documentation>
    </annotation>
 
@@ -99,7 +101,8 @@
          <meta.section type="apiinfo"/>
       </appInfo>
       <documentation>
-         [Enter API information here.]
+         A Solver factory implements the interface com.misc.common.moplaf.solver.util.SolverFactory.
+A Solver implements the interface com.misc.common.moplaf.solver.Solver
       </documentation>
    </annotation>
 
@@ -108,7 +111,7 @@
          <meta.section type="implementation"/>
       </appInfo>
       <documentation>
-         [Enter information about supplied implementation of this extension point.]
+         No supplied implementation by this PlugIn
       </documentation>
    </annotation>
 
