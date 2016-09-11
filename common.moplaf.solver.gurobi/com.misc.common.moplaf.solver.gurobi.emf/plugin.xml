@@ -13,5 +13,11 @@
             class="com.misc.common.moplaf.solver.solvergurobi.SolvergurobiPackage"
             genModel="model/solvergurobi.genmodel"/>
    </extension>
+   <extension
+         point="com.misc.common.moplaf.solver.emf.solver_factory">
+      <factory
+            class="com.misc.common.moplaf.solver.solvergurobi.util.SolverFactory">
+      </factory>
+   </extension>
 
 </plugin>

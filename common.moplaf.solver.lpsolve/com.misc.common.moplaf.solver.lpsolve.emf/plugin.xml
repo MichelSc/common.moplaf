@@ -14,5 +14,11 @@
             class="com.misc.common.moplaf.solver.solverlpsolve.SolverlpsolvePackage"
             genModel="model/solverlpsolve.genmodel"/>
    </extension>
+   <extension
+         point="com.misc.common.moplaf.solver.emf.solver_factory">
+      <factory
+            class="com.misc.common.moplaf.solver.solverlpsolve.util.SolverFactory">
+      </factory>
+   </extension>
 
 </plugin>
