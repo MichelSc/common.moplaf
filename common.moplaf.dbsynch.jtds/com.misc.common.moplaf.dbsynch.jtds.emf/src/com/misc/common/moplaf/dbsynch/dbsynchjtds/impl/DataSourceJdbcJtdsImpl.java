@@ -411,8 +411,12 @@ public class DataSourceJdbcJtdsImpl extends DataSourceJdbcImpl implements DataSo
 		if ( domain != null && domain.length()>0){
 			databaseurl += ";domain="+domain;
 		}
+//		databaseurl += ";user="+this.getDataBaseUser();
+//		databaseurl += ";password="+this.getDataBaseUserPwd();
+//		databaseurl += ";instance=SQLEXPRESS";
+		;
 		Plugin.INSTANCE.logInfo("Connection to be opened: " + databaseurl);
-		Connection connection = DriverManager.getConnection (databaseurl, 
+		Connection connection = DriverManager.getConnection (databaseurl,
        										                 this.getDataBaseUser(), 
 											                 this.getDataBaseUserPwd());
 		return connection;

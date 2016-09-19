@@ -6,4 +6,8 @@ jdbc:jtds:<server_type>://<server>[:<port>][/<database>][;<property>=<value>[;..
  
  Class.forName("net.sourceforge.jtds.jdbc.Driver")
  
+ in case of Connection refused
+   - go in SQLServer configuration manager
+     - check that tcpip is enabled
+     - check that the port is right
  
