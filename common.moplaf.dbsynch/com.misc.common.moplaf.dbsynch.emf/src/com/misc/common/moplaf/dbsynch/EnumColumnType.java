@@ -20,6 +20,14 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum EnumColumnType implements Enumerator {
 	/**
+	 * The '<em><b>ENUM COLUMN TYPE BOOLEAN</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ENUM_COLUMN_TYPE_BOOLEAN_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ENUM_COLUMN_TYPE_BOOLEAN(1, "ENUM_COLUMN_TYPE_BOOLEAN", "Boolean"), /**
 	 * The '<em><b>ENUM COLUMN TYPE INT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -27,7 +35,7 @@ public enum EnumColumnType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENUM_COLUMN_TYPE_INT(1, "ENUM_COLUMN_TYPE_INT", "Int"),
+	ENUM_COLUMN_TYPE_INT(2, "ENUM_COLUMN_TYPE_INT", "Int"),
 
 	/**
 	 * The '<em><b>ENUM COLUMN TYPE BIGINT</b></em>' literal object.
@@ -37,7 +45,7 @@ public enum EnumColumnType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENUM_COLUMN_TYPE_BIGINT(2, "ENUM_COLUMN_TYPE_BIGINT", "BigInt"), /**
+	ENUM_COLUMN_TYPE_BIGINT(3, "ENUM_COLUMN_TYPE_BIGINT", "BigInt"), /**
 	 * The '<em><b>ENUM COLUMN TYPE FLOAT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -45,7 +53,7 @@ public enum EnumColumnType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENUM_COLUMN_TYPE_FLOAT(3, "ENUM_COLUMN_TYPE_FLOAT", "Float"), /**
+	ENUM_COLUMN_TYPE_FLOAT(4, "ENUM_COLUMN_TYPE_FLOAT", "Float"), /**
 	 * The '<em><b>ENUM COLUMN TYPE DOUBLE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -53,7 +61,7 @@ public enum EnumColumnType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENUM_COLUMN_TYPE_DOUBLE(4, "ENUM_COLUMN_TYPE_DOUBLE", "Double"), /**
+	ENUM_COLUMN_TYPE_DOUBLE(5, "ENUM_COLUMN_TYPE_DOUBLE", "Double"), /**
 	 * The '<em><b>ENUM COLUMN TYPE BIGFLOAT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -102,6 +110,21 @@ public enum EnumColumnType implements Enumerator {
 	ENUM_COLUMN_TYPE_DATETIME(10, "ENUM_COLUMN_TYPE_DATETIME", "DateTime");
 
 	/**
+	 * The '<em><b>ENUM COLUMN TYPE BOOLEAN</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>ENUM COLUMN TYPE BOOLEAN</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #ENUM_COLUMN_TYPE_BOOLEAN
+	 * @model literal="Boolean"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ENUM_COLUMN_TYPE_BOOLEAN_VALUE = 1;
+
+	/**
 	 * The '<em><b>ENUM COLUMN TYPE INT</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -114,7 +137,7 @@ public enum EnumColumnType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENUM_COLUMN_TYPE_INT_VALUE = 1;
+	public static final int ENUM_COLUMN_TYPE_INT_VALUE = 2;
 
 	/**
 	 * The '<em><b>ENUM COLUMN TYPE BIGINT</b></em>' literal value.
@@ -129,7 +152,7 @@ public enum EnumColumnType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENUM_COLUMN_TYPE_BIGINT_VALUE = 2;
+	public static final int ENUM_COLUMN_TYPE_BIGINT_VALUE = 3;
 
 	/**
 	 * The '<em><b>ENUM COLUMN TYPE FLOAT</b></em>' literal value.
@@ -144,7 +167,7 @@ public enum EnumColumnType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENUM_COLUMN_TYPE_FLOAT_VALUE = 3;
+	public static final int ENUM_COLUMN_TYPE_FLOAT_VALUE = 4;
 
 	/**
 	 * The '<em><b>ENUM COLUMN TYPE DOUBLE</b></em>' literal value.
@@ -159,7 +182,7 @@ public enum EnumColumnType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ENUM_COLUMN_TYPE_DOUBLE_VALUE = 4;
+	public static final int ENUM_COLUMN_TYPE_DOUBLE_VALUE = 5;
 
 	/**
 	 * The '<em><b>ENUM COLUMN TYPE BIGFLOAT</b></em>' literal value.
@@ -244,6 +267,7 @@ public enum EnumColumnType implements Enumerator {
 	 */
 	private static final EnumColumnType[] VALUES_ARRAY =
 		new EnumColumnType[] {
+			ENUM_COLUMN_TYPE_BOOLEAN,
 			ENUM_COLUMN_TYPE_INT,
 			ENUM_COLUMN_TYPE_BIGINT,
 			ENUM_COLUMN_TYPE_FLOAT,
@@ -309,6 +333,7 @@ public enum EnumColumnType implements Enumerator {
 	 */
 	public static EnumColumnType get(int value) {
 		switch (value) {
+			case ENUM_COLUMN_TYPE_BOOLEAN_VALUE: return ENUM_COLUMN_TYPE_BOOLEAN;
 			case ENUM_COLUMN_TYPE_INT_VALUE: return ENUM_COLUMN_TYPE_INT;
 			case ENUM_COLUMN_TYPE_BIGINT_VALUE: return ENUM_COLUMN_TYPE_BIGINT;
 			case ENUM_COLUMN_TYPE_FLOAT_VALUE: return ENUM_COLUMN_TYPE_FLOAT;
@@ -395,6 +420,8 @@ public enum EnumColumnType implements Enumerator {
 	
 	public int getJdbcType(){
 		switch ( this.getValue()){
+		case EnumColumnType.ENUM_COLUMN_TYPE_BOOLEAN_VALUE:
+			return Types.BOOLEAN;
 		case EnumColumnType.ENUM_COLUMN_TYPE_INT_VALUE:
 			return Types.INTEGER;
 		case EnumColumnType.ENUM_COLUMN_TYPE_BIGINT_VALUE:

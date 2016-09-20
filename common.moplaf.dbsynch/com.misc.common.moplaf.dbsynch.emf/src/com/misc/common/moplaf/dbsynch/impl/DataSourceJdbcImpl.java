@@ -387,6 +387,8 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 				      ? Types.OTHER
 				      : columnType.getJdbcType();
 		switch ( typeToUse){
+		case Types.BOOLEAN:
+			return resultSet.getBoolean(columnIndex);
 		case Types.INTEGER:
 			return resultSet.getInt(columnIndex);
 		case Types.BIGINT:
@@ -428,7 +430,8 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		if ( paramType!=null ) { 
 			typeToUse = paramType.getJdbcType(); 
 		} else if ( attribute!=null ) {
-	    	if      ( attribute.getEType()==EcorePackage.Literals.EINT )         { typeToUse = Types.INTEGER; }
+	    	if      ( attribute.getEType()==EcorePackage.Literals.EBOOLEAN)      { typeToUse = Types.BOOLEAN; }
+	    	else if ( attribute.getEType()==EcorePackage.Literals.EINT )         { typeToUse = Types.INTEGER; }
 	    	else if ( attribute.getEType()==EcorePackage.Literals.ELONG )        { typeToUse = Types.BIGINT; }
 	    	else if ( attribute.getEType()==EcorePackage.Literals.EFLOAT )       { typeToUse = Types.FLOAT; }
 	    	else if ( attribute.getEType()==EcorePackage.Literals.EDOUBLE)       { typeToUse = Types.DOUBLE; }
@@ -441,6 +444,9 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 			statement.setNull(paramIndex, typeToUse);
 		} else {
 			switch ( typeToUse ){
+			case Types.BOOLEAN:
+		    	statement.setBoolean(paramIndex, (Boolean) paramValue);
+		    	break;
 			case Types.INTEGER:
 		    	statement.setInt(paramIndex, (Integer) paramValue);
 		    	break;
@@ -579,6 +585,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 			    for ( EAttribute paramAttribute : params){
 			    	paramIndex++;
 			    	Object paramValue = unit.getParamValue(paramAttribute);
+					Plugin.INSTANCE.logInfo("..parameter "+paramIndex+":"+paramValue);
 			    	this.setSqlStatementParam(statement, paramIndex, null, paramAttribute, paramValue);
 			    } // traverse the parameters
 	    		currentTable = currentTable.getParent();
@@ -653,7 +660,10 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		    				row.eUnset(rowAttribute);
 		    			}
 		    		} else {
-		    			if ( !row.eIsSet(rowAttribute) || !row.eGet(rowAttribute).equals(valueToBe)){
+		    			// value tobe is set
+		    			if ( rowAttribute.isUnsettable() && !row.eIsSet(rowAttribute) 
+		    			  || !row.eGet(rowAttribute).equals(valueToBe)) {
+		    				// value tobe is either not set or is set to some other value 
 		    				update = true;
 		    				row.eSet(rowAttribute, valueToBe);
 		    			}

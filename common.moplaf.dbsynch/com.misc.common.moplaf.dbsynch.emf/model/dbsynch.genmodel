@@ -15,6 +15,7 @@
       <genEnumLiterals ecoreEnumLiteral="dbsynch.ecore#//EnumModification/ENUM_MODIFICATION_MUTATEKEY"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="dbsynch.ecore#//EnumColumnType">
+      <genEnumLiterals ecoreEnumLiteral="dbsynch.ecore#//EnumColumnType/ENUM_COLUMN_TYPE_BOOLEAN"/>
       <genEnumLiterals ecoreEnumLiteral="dbsynch.ecore#//EnumColumnType/ENUM_COLUMN_TYPE_INT"/>
       <genEnumLiterals ecoreEnumLiteral="dbsynch.ecore#//EnumColumnType/ENUM_COLUMN_TYPE_BIGINT"/>
       <genEnumLiterals ecoreEnumLiteral="dbsynch.ecore#//EnumColumnType/ENUM_COLUMN_TYPE_FLOAT"/>
@@ -142,11 +143,16 @@
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableRow/CurrentKey"/>
       <genFeatures createChild="false" propertyCategory="16 Execution" propertyDescription=""
           ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableRow/Deleted"/>
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableRow/IndexKey"/>
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableRow/LastSynchDownKey"/>
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableRow/LastSynchDownDeleted"/>
-      <genFeatures createChild="false" propertyCategory="16 Execution" ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableRow/ModificationLastSynchUp"/>
-      <genFeatures createChild="false" propertyCategory="16 Execution" ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableRow/ModificationNextSynchDown"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="16 Execution"
+          ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableRow/IndexKey"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="16 Execution"
+          ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableRow/LastSynchDownKey"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="16 Execution"
+          ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableRow/LastSynchDownDeleted"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="16 Execution"
+          ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableRow/ModificationLastSynchUp"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="16 Execution"
+          ecoreFeature="ecore:EAttribute dbsynch.ecore#//TableRow/ModificationNextSynchDown"/>
       <genOperations ecoreOperation="dbsynch.ecore#//TableRow/refresh"/>
     </genClasses>
   </genPackages>

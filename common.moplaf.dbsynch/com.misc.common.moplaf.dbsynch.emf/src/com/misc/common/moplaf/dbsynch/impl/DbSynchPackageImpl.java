@@ -1143,6 +1143,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		addEEnumLiteral(enumModificationEEnum, EnumModification.ENUM_MODIFICATION_MUTATEKEY);
 
 		initEEnum(enumColumnTypeEEnum, EnumColumnType.class, "EnumColumnType");
+		addEEnumLiteral(enumColumnTypeEEnum, EnumColumnType.ENUM_COLUMN_TYPE_BOOLEAN);
 		addEEnumLiteral(enumColumnTypeEEnum, EnumColumnType.ENUM_COLUMN_TYPE_INT);
 		addEEnumLiteral(enumColumnTypeEEnum, EnumColumnType.ENUM_COLUMN_TYPE_BIGINT);
 		addEEnumLiteral(enumColumnTypeEEnum, EnumColumnType.ENUM_COLUMN_TYPE_FLOAT);

@@ -63,6 +63,9 @@ public class TableRowItemProvider
 			super.getPropertyDescriptors(object);
 
 			addDeletedPropertyDescriptor(object);
+			addIndexKeyPropertyDescriptor(object);
+			addLastSynchDownKeyPropertyDescriptor(object);
+			addLastSynchDownDeletedPropertyDescriptor(object);
 			addModificationLastSynchUpPropertyDescriptor(object);
 			addModificationNextSynchDownPropertyDescriptor(object);
 		}
@@ -83,7 +86,7 @@ public class TableRowItemProvider
 				 getString("_UI_TableRow_ModificationLastSynchUp_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TableRow_ModificationLastSynchUp_feature", "_UI_TableRow_type"),
 				 DbSynchPackage.Literals.TABLE_ROW__MODIFICATION_LAST_SYNCH_UP,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -105,7 +108,7 @@ public class TableRowItemProvider
 				 getString("_UI_TableRow_ModificationNextSynchDown_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TableRow_ModificationNextSynchDown_feature", "_UI_TableRow_type"),
 				 DbSynchPackage.Literals.TABLE_ROW__MODIFICATION_NEXT_SYNCH_DOWN,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -128,6 +131,72 @@ public class TableRowItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_TableRow_Deleted_feature", "_UI_TableRow_type"),
 				 DbSynchPackage.Literals.TABLE_ROW__DELETED,
 				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 getString("_UI__16ExecutionPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Index Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIndexKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TableRow_IndexKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TableRow_IndexKey_feature", "_UI_TableRow_type"),
+				 DbSynchPackage.Literals.TABLE_ROW__INDEX_KEY,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__16ExecutionPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Last Synch Down Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLastSynchDownKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TableRow_LastSynchDownKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TableRow_LastSynchDownKey_feature", "_UI_TableRow_type"),
+				 DbSynchPackage.Literals.TABLE_ROW__LAST_SYNCH_DOWN_KEY,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__16ExecutionPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Last Synch Down Deleted feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLastSynchDownDeletedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TableRow_LastSynchDownDeleted_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TableRow_LastSynchDownDeleted_feature", "_UI_TableRow_type"),
+				 DbSynchPackage.Literals.TABLE_ROW__LAST_SYNCH_DOWN_DELETED,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,

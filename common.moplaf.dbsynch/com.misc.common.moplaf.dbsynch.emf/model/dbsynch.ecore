@@ -171,10 +171,11 @@
     <eLiterals name="ENUM_MODIFICATION_MUTATEKEY" value="4" literal="MutateKey"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="EnumColumnType">
-    <eLiterals name="ENUM_COLUMN_TYPE_INT" value="1" literal="Int"/>
-    <eLiterals name="ENUM_COLUMN_TYPE_BIGINT" value="2" literal="BigInt"/>
-    <eLiterals name="ENUM_COLUMN_TYPE_FLOAT" value="3" literal="Float"/>
-    <eLiterals name="ENUM_COLUMN_TYPE_DOUBLE" value="4" literal="Double"/>
+    <eLiterals name="ENUM_COLUMN_TYPE_BOOLEAN" value="1" literal="Boolean"/>
+    <eLiterals name="ENUM_COLUMN_TYPE_INT" value="2" literal="Int"/>
+    <eLiterals name="ENUM_COLUMN_TYPE_BIGINT" value="3" literal="BigInt"/>
+    <eLiterals name="ENUM_COLUMN_TYPE_FLOAT" value="4" literal="Float"/>
+    <eLiterals name="ENUM_COLUMN_TYPE_DOUBLE" value="5" literal="Double"/>
     <eLiterals name="ENUM_COLUMN_TYPE_BIGFLOAT" value="6" literal="BigFloat"/>
     <eLiterals name="ENUM_COLUMN_TYPE_CHAR" value="7" literal="Char"/>
     <eLiterals name="ENUM_COLUMN_TYPE_DATE" value="8" literal="Date"/>
