@@ -661,7 +661,8 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		    			}
 		    		} else {
 		    			// value tobe is set
-		    			if ( rowAttribute.isUnsettable() && !row.eIsSet(rowAttribute) 
+		    			if ( rowAttribute.isUnsettable() && !row.eIsSet(rowAttribute)
+		    			  || row.eGet(rowAttribute)==null
 		    			  || !row.eGet(rowAttribute).equals(valueToBe)) {
 		    				// value tobe is either not set or is set to some other value 
 		    				update = true;
