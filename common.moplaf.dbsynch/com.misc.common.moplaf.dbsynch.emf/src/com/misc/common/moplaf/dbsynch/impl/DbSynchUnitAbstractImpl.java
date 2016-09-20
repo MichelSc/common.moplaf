@@ -15,7 +15,9 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -219,6 +221,18 @@ public abstract class DbSynchUnitAbstractImpl extends MinimalEObjectImpl.Contain
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public void addTable(EReference reference, EClass class_) {
+		Table tableAsIs = (Table)this.eGet(reference);
+		if ( tableAsIs!=null && tableAsIs.eClass()==class_){ return; }
+		EFactory factory = class_.getEPackage().getEFactoryInstance();
+		Table tableToBe = (Table)factory.create(class_);
+		this.eSet(reference, tableToBe);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -308,6 +322,9 @@ public abstract class DbSynchUnitAbstractImpl extends MinimalEObjectImpl.Contain
 				return getParamValue((EAttribute)arguments.get(0));
 			case DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_ATTRIBUTES:
 				return getParamAttributes();
+			case DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT___ADD_TABLE__EREFERENCE_ECLASS:
+				addTable((EReference)arguments.get(0), (EClass)arguments.get(1));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

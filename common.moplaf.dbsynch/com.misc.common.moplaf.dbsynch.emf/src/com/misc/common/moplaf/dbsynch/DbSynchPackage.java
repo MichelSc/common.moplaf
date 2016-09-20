@@ -163,13 +163,22 @@ public interface DbSynchPackage extends EPackage {
 	int DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_ATTRIBUTES = 4;
 
 	/**
+	 * The operation id for the '<em>Add Table</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT_ABSTRACT___ADD_TABLE__EREFERENCE_ECLASS = 5;
+
+	/**
 	 * The number of operations of the '<em>Unit Abstract</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DB_SYNCH_UNIT_ABSTRACT_OPERATION_COUNT = 5;
+	int DB_SYNCH_UNIT_ABSTRACT_OPERATION_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.dbsynch.impl.DataSourceImpl <em>Data Source</em>}' class.
@@ -279,6 +288,15 @@ public interface DbSynchPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_SOURCE___GET_PARAM_ATTRIBUTES = DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_ATTRIBUTES;
+
+	/**
+	 * The operation id for the '<em>Add Table</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE___ADD_TABLE__EREFERENCE_ECLASS = DB_SYNCH_UNIT_ABSTRACT___ADD_TABLE__EREFERENCE_ECLASS;
 
 	/**
 	 * The operation id for the '<em>Connect</em>' operation.
@@ -492,6 +510,15 @@ public interface DbSynchPackage extends EPackage {
 	int DATA_SOURCE_JDBC___GET_PARAM_ATTRIBUTES = DATA_SOURCE___GET_PARAM_ATTRIBUTES;
 
 	/**
+	 * The operation id for the '<em>Add Table</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_JDBC___ADD_TABLE__EREFERENCE_ECLASS = DATA_SOURCE___ADD_TABLE__EREFERENCE_ECLASS;
+
+	/**
 	 * The operation id for the '<em>Connect</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -634,6 +661,15 @@ public interface DbSynchPackage extends EPackage {
 	 * @ordered
 	 */
 	int DB_SYNCH_UNIT___GET_PARAM_ATTRIBUTES = DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_ATTRIBUTES;
+
+	/**
+	 * The operation id for the '<em>Add Table</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_SYNCH_UNIT___ADD_TABLE__EREFERENCE_ECLASS = DB_SYNCH_UNIT_ABSTRACT___ADD_TABLE__EREFERENCE_ECLASS;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -1923,6 +1959,16 @@ public interface DbSynchPackage extends EPackage {
 	EOperation getDbSynchUnitAbstract__GetParamAttributes();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract#addTable(org.eclipse.emf.ecore.EReference, org.eclipse.emf.ecore.EClass) <em>Add Table</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Table</em>' operation.
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract#addTable(org.eclipse.emf.ecore.EReference, org.eclipse.emf.ecore.EClass)
+	 * @generated
+	 */
+	EOperation getDbSynchUnitAbstract__AddTable__EReference_EClass();
+
+	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.dbsynch.EnumModification <em>Enum Modification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2579,6 +2625,14 @@ public interface DbSynchPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_ATTRIBUTES = eINSTANCE.getDbSynchUnitAbstract__GetParamAttributes();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Table</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DB_SYNCH_UNIT_ABSTRACT___ADD_TABLE__EREFERENCE_ECLASS = eINSTANCE.getDbSynchUnitAbstract__AddTable__EReference_EClass();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.dbsynch.EnumModification <em>Enum Modification</em>}' enum.

@@ -38,6 +38,10 @@
       <eParameters name="attribute" eType="#//EAttribute"/>
     </eOperations>
     <eOperations name="getParamAttributes" upperBound="-1" eType="#//Object"/>
+    <eOperations name="addTable">
+      <eParameters name="reference" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      <eParameters name="class" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Tables" upperBound="-1"
         eType="#//Table" changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="DataSource" eType="#//DataSource"

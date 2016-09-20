@@ -240,6 +240,15 @@ public interface DbsynchjtdsPackage extends EPackage {
 	int DATA_SOURCE_JDBC_JTDS___GET_PARAM_ATTRIBUTES = DbSynchPackage.DATA_SOURCE_JDBC___GET_PARAM_ATTRIBUTES;
 
 	/**
+	 * The operation id for the '<em>Add Table</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_JDBC_JTDS___ADD_TABLE__EREFERENCE_ECLASS = DbSynchPackage.DATA_SOURCE_JDBC___ADD_TABLE__EREFERENCE_ECLASS;
+
+	/**
 	 * The operation id for the '<em>Connect</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

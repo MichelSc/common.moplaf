@@ -211,8 +211,10 @@ public abstract class TableRowImpl extends MinimalEObjectImpl.Container implemen
 		}
 		if ( !some_modified ) { return; }
 		
-		if ( this.getModificationNextSynchDown() == EnumModification.ENUM_MODIFICATION_NONE){
+		if ( this.getModificationNextSynchDown() == EnumModification.ENUM_MODIFICATION_NONE
+			|| this.getLastSynchDownKey()==null	){
 			// so far the row is synchronous
+			// or the last synch down key is lost, for instance after a restart
 			// get the last key and the last deleted
 			//    for the modified feature, in the old value of the notification
 			boolean lastDeleted = msg.getFeature()== DbSynchPackage.Literals.TABLE_ROW__DELETED

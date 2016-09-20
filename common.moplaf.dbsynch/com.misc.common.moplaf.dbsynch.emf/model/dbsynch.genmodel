@@ -58,6 +58,10 @@
         <genParameters ecoreParameter="dbsynch.ecore#//DbSynchUnitAbstract/getParamValue/attribute"/>
       </genOperations>
       <genOperations ecoreOperation="dbsynch.ecore#//DbSynchUnitAbstract/getParamAttributes"/>
+      <genOperations ecoreOperation="dbsynch.ecore#//DbSynchUnitAbstract/addTable">
+        <genParameters ecoreParameter="dbsynch.ecore#//DbSynchUnitAbstract/addTable/reference"/>
+        <genParameters ecoreParameter="dbsynch.ecore#//DbSynchUnitAbstract/addTable/class"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="dbsynch.ecore#//DbSynchUnit">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference dbsynch.ecore#//DbSynchUnit/ParentUnit"/>

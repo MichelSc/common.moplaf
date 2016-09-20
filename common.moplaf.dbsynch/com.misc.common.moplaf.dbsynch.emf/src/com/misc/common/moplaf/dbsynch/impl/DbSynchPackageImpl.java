@@ -820,6 +820,15 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getDbSynchUnitAbstract__AddTable__EReference_EClass() {
+		return dbSynchUnitAbstractEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getEnumModification() {
 		return enumModificationEEnum;
 	}
@@ -910,6 +919,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		createEOperation(dbSynchUnitAbstractEClass, DB_SYNCH_UNIT_ABSTRACT___SYNCH_DOWN);
 		createEOperation(dbSynchUnitAbstractEClass, DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_VALUE__EATTRIBUTE);
 		createEOperation(dbSynchUnitAbstractEClass, DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_ATTRIBUTES);
+		createEOperation(dbSynchUnitAbstractEClass, DB_SYNCH_UNIT_ABSTRACT___ADD_TABLE__EREFERENCE_ECLASS);
 
 		dbSynchUnitEClass = createEClass(DB_SYNCH_UNIT);
 		createEReference(dbSynchUnitEClass, DB_SYNCH_UNIT__PARENT_UNIT);
@@ -1043,6 +1053,10 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		addEParameter(op, this.getEAttribute(), "attribute", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getDbSynchUnitAbstract__GetParamAttributes(), this.getObject(), "getParamAttributes", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getDbSynchUnitAbstract__AddTable__EReference_EClass(), null, "addTable", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEReference(), "reference", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEClass(), "class_", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(dbSynchUnitEClass, DbSynchUnit.class, "DbSynchUnit", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDbSynchUnit_ParentUnit(), this.getDbSynchUnitAbstract(), null, "ParentUnit", null, 1, 1, DbSynchUnit.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
