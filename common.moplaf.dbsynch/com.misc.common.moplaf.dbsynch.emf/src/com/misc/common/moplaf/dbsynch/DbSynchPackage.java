@@ -930,7 +930,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE___GET_ROW__TABLEROWKEYIMPL = 9;
+	int TABLE___GET_ROW__TABLEROWKEY = 9;
 
 	/**
 	 * The operation id for the '<em>Construct Row</em>' operation.
@@ -1192,7 +1192,7 @@ public interface DbSynchPackage extends EPackage {
 	 * The meta object id for the '<em>Table Row Key</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.dbsynch.impl.TableRowKeyImpl
+	 * @see com.misc.common.moplaf.dbsynch.TableRowKey
 	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getTableRowKey()
 	 * @generated
 	 */
@@ -1578,14 +1578,14 @@ public interface DbSynchPackage extends EPackage {
 	EOperation getTable__Refresh();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#getRow(com.misc.common.moplaf.dbsynch.impl.TableRowKeyImpl) <em>Get Row</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#getRow(com.misc.common.moplaf.dbsynch.TableRowKey) <em>Get Row</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Row</em>' operation.
-	 * @see com.misc.common.moplaf.dbsynch.Table#getRow(com.misc.common.moplaf.dbsynch.impl.TableRowKeyImpl)
+	 * @see com.misc.common.moplaf.dbsynch.Table#getRow(com.misc.common.moplaf.dbsynch.TableRowKey)
 	 * @generated
 	 */
-	EOperation getTable__GetRow__TableRowKeyImpl();
+	EOperation getTable__GetRow__TableRowKey();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.Table#constructRow() <em>Construct Row</em>}' operation.
@@ -2000,12 +2000,12 @@ public interface DbSynchPackage extends EPackage {
 	EDataType getEAttribute();
 
 	/**
-	 * Returns the meta object for data type '{@link com.misc.common.moplaf.dbsynch.impl.TableRowKeyImpl <em>Table Row Key</em>}'.
+	 * Returns the meta object for data type '{@link com.misc.common.moplaf.dbsynch.TableRowKey <em>Table Row Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>Table Row Key</em>'.
-	 * @see com.misc.common.moplaf.dbsynch.impl.TableRowKeyImpl
-	 * @model instanceClass="com.misc.common.moplaf.dbsynch.impl.TableRowKeyImpl"
+	 * @see com.misc.common.moplaf.dbsynch.TableRowKey
+	 * @model instanceClass="com.misc.common.moplaf.dbsynch.TableRowKey"
 	 * @generated
 	 */
 	EDataType getTableRowKey();
@@ -2336,7 +2336,7 @@ public interface DbSynchPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation TABLE___GET_ROW__TABLEROWKEYIMPL = eINSTANCE.getTable__GetRow__TableRowKeyImpl();
+		EOperation TABLE___GET_ROW__TABLEROWKEY = eINSTANCE.getTable__GetRow__TableRowKey();
 
 		/**
 		 * The meta object literal for the '<em><b>Construct Row</b></em>' operation.
@@ -2668,7 +2668,7 @@ public interface DbSynchPackage extends EPackage {
 		 * The meta object literal for the '<em>Table Row Key</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.dbsynch.impl.TableRowKeyImpl
+		 * @see com.misc.common.moplaf.dbsynch.TableRowKey
 		 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getTableRowKey()
 		 * @generated
 		 */

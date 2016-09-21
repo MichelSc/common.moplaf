@@ -13,6 +13,7 @@ import com.misc.common.moplaf.dbsynch.EnumModification;
 import com.misc.common.moplaf.dbsynch.Table;
 import com.misc.common.moplaf.dbsynch.TableColumn;
 import com.misc.common.moplaf.dbsynch.TableRow;
+import com.misc.common.moplaf.dbsynch.TableRowKey;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -496,7 +497,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTable__GetRow__TableRowKeyImpl() {
+	public EOperation getTable__GetRow__TableRowKey() {
 		return tableEClass.getEOperations().get(9);
 	}
 
@@ -951,7 +952,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		createEOperation(tableEClass, TABLE___SYNCH_DOWN);
 		createEOperation(tableEClass, TABLE___SYNCH_UP);
 		createEOperation(tableEClass, TABLE___REFRESH);
-		createEOperation(tableEClass, TABLE___GET_ROW__TABLEROWKEYIMPL);
+		createEOperation(tableEClass, TABLE___GET_ROW__TABLEROWKEY);
 		createEOperation(tableEClass, TABLE___CONSTRUCT_ROW);
 		createEOperation(tableEClass, TABLE___INDEX_ROW__TABLEROW);
 		createEOperation(tableEClass, TABLE___UNINDEX_ROW__TABLEROW);
@@ -1115,7 +1116,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 
 		initEOperation(getTable__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getTable__GetRow__TableRowKeyImpl(), this.getTableRow(), "getRow", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getTable__GetRow__TableRowKey(), this.getTableRow(), "getRow", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTableRowKey(), "key", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getTable__ConstructRow(), this.getTableRow(), "constructRow", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1170,7 +1171,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 
 		// Initialize data types
 		initEDataType(eAttributeEDataType, EAttribute.class, "EAttribute", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(tableRowKeyEDataType, TableRowKeyImpl.class, "TableRowKey", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(tableRowKeyEDataType, TableRowKey.class, "TableRowKey", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(objectEDataType, Object.class, "Object", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource

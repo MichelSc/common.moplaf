@@ -18,6 +18,7 @@ import com.misc.common.moplaf.dbsynch.EnumModification;
 import com.misc.common.moplaf.dbsynch.Table;
 import com.misc.common.moplaf.dbsynch.TableColumn;
 import com.misc.common.moplaf.dbsynch.TableRow;
+import com.misc.common.moplaf.dbsynch.TableRowKey;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,7 +49,7 @@ public abstract class TableRowImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected static final TableRowKeyImpl CURRENT_KEY_EDEFAULT = null;
+	protected static final TableRowKey CURRENT_KEY_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #isDeleted() <em>Deleted</em>}' attribute.
@@ -78,7 +79,7 @@ public abstract class TableRowImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected static final TableRowKeyImpl INDEX_KEY_EDEFAULT = null;
+	protected static final TableRowKey INDEX_KEY_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getIndexKey() <em>Index Key</em>}' attribute.
@@ -88,7 +89,7 @@ public abstract class TableRowImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected TableRowKeyImpl indexKey = INDEX_KEY_EDEFAULT;
+	protected TableRowKey indexKey = INDEX_KEY_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getLastSynchDownKey() <em>Last Synch Down Key</em>}' attribute.
@@ -98,7 +99,7 @@ public abstract class TableRowImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected static final TableRowKeyImpl LAST_SYNCH_DOWN_KEY_EDEFAULT = null;
+	protected static final TableRowKey LAST_SYNCH_DOWN_KEY_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getLastSynchDownKey() <em>Last Synch Down Key</em>}' attribute.
@@ -108,7 +109,7 @@ public abstract class TableRowImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected TableRowKeyImpl lastSynchDownKey = LAST_SYNCH_DOWN_KEY_EDEFAULT;
+	protected TableRowKey lastSynchDownKey = LAST_SYNCH_DOWN_KEY_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isLastSynchDownDeleted() <em>Last Synch Down Deleted</em>}' attribute.
@@ -229,7 +230,7 @@ public abstract class TableRowImpl extends MinimalEObjectImpl.Container implemen
 				keys[keyindex] = attributeValue;
 				keyindex++;
 			}
-			TableRowKeyImpl lastKey = new TableRowKeyImpl(keys);
+			TableRowKey lastKey = new TableRowKey(keys);
 			this.setLastSynchDownKey(lastKey);
 			this.setLastSynchDownDeleted(lastDeleted);
 		}
@@ -288,7 +289,7 @@ public abstract class TableRowImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TableRowKeyImpl getIndexKey() {
+	public TableRowKey getIndexKey() {
 		return indexKey;
 	}
 
@@ -298,8 +299,8 @@ public abstract class TableRowImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIndexKey(TableRowKeyImpl newIndexKey) {
-		TableRowKeyImpl oldIndexKey = indexKey;
+	public void setIndexKey(TableRowKey newIndexKey) {
+		TableRowKey oldIndexKey = indexKey;
 		indexKey = newIndexKey;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DbSynchPackage.TABLE_ROW__INDEX_KEY, oldIndexKey, indexKey));
@@ -311,7 +312,7 @@ public abstract class TableRowImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TableRowKeyImpl getLastSynchDownKey() {
+	public TableRowKey getLastSynchDownKey() {
 		return lastSynchDownKey;
 	}
 
@@ -321,8 +322,8 @@ public abstract class TableRowImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLastSynchDownKey(TableRowKeyImpl newLastSynchDownKey) {
-		TableRowKeyImpl oldLastSynchDownKey = lastSynchDownKey;
+	public void setLastSynchDownKey(TableRowKey newLastSynchDownKey) {
+		TableRowKey oldLastSynchDownKey = lastSynchDownKey;
 		lastSynchDownKey = newLastSynchDownKey;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DbSynchPackage.TABLE_ROW__LAST_SYNCH_DOWN_KEY, oldLastSynchDownKey, lastSynchDownKey));
@@ -356,7 +357,7 @@ public abstract class TableRowImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public TableRowKeyImpl getCurrentKey() {
+	public TableRowKey getCurrentKey() {
 		Table table = this.getTable();
 		Object[] key = new Object[table.getKeyColumns().size()];
 		int keyindex = 0;
@@ -365,7 +366,7 @@ public abstract class TableRowImpl extends MinimalEObjectImpl.Container implemen
 			key[keyindex] = attributeValue;
 			keyindex++;
 		}
-		TableRowKeyImpl  thekey = new TableRowKeyImpl(key);
+		TableRowKey  thekey = new TableRowKey(key);
 		  
 		return thekey;
 	}
@@ -481,10 +482,10 @@ public abstract class TableRowImpl extends MinimalEObjectImpl.Container implemen
 				setDeleted((Boolean)newValue);
 				return;
 			case DbSynchPackage.TABLE_ROW__INDEX_KEY:
-				setIndexKey((TableRowKeyImpl)newValue);
+				setIndexKey((TableRowKey)newValue);
 				return;
 			case DbSynchPackage.TABLE_ROW__LAST_SYNCH_DOWN_KEY:
-				setLastSynchDownKey((TableRowKeyImpl)newValue);
+				setLastSynchDownKey((TableRowKey)newValue);
 				return;
 			case DbSynchPackage.TABLE_ROW__LAST_SYNCH_DOWN_DELETED:
 				setLastSynchDownDeleted((Boolean)newValue);

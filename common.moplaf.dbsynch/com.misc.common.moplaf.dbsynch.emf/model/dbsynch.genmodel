@@ -30,7 +30,8 @@
     <genDataTypes ecoreDataType="dbsynch.ecore#//TableRowKey"/>
     <genDataTypes ecoreDataType="dbsynch.ecore#//Object"/>
     <genClasses ecoreClass="dbsynch.ecore#//DataSource">
-      <genFeatures createChild="false" propertyCategory="10 Database" ecoreFeature="ecore:EAttribute dbsynch.ecore#//DataSource/Connected"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Database"
+          ecoreFeature="ecore:EAttribute dbsynch.ecore#//DataSource/Connected"/>
       <genOperations ecoreOperation="dbsynch.ecore#//DataSource/connect"/>
       <genOperations ecoreOperation="dbsynch.ecore#//DataSource/disconnect"/>
       <genOperations ecoreOperation="dbsynch.ecore#//DataSource/synchDownTableImpl">

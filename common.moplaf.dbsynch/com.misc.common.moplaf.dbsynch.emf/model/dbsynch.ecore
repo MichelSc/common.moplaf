@@ -187,6 +187,6 @@
     <eLiterals name="ENUM_COLUMN_TYPE_DATETIME" value="10" literal="DateTime"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="EAttribute" instanceClassName="org.eclipse.emf.ecore.EAttribute"/>
-  <eClassifiers xsi:type="ecore:EDataType" name="TableRowKey" instanceClassName="com.misc.common.moplaf.dbsynch.impl.TableRowKeyImpl"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="TableRowKey" instanceClassName="com.misc.common.moplaf.dbsynch.TableRowKey"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Object" instanceClassName="java.lang.Object"/>
 </ecore:EPackage>

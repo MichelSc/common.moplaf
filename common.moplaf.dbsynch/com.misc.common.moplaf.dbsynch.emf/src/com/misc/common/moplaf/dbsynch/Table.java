@@ -2,7 +2,6 @@
  */
 package com.misc.common.moplaf.dbsynch;
 
-import com.misc.common.moplaf.dbsynch.impl.TableRowKeyImpl;
 import java.util.Date;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
@@ -496,7 +495,7 @@ public interface Table extends EObject {
 	 * @model keyDataType="com.misc.common.moplaf.dbsynch.TableRowKey"
 	 * @generated
 	 */
-	TableRow getRow(TableRowKeyImpl key);
+	TableRow getRow(TableRowKey key);
 
 	/**
 	 * <!-- begin-user-doc -->

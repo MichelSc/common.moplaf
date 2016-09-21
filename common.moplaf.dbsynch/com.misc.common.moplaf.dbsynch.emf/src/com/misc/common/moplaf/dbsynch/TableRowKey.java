@@ -1,16 +1,16 @@
-package com.misc.common.moplaf.dbsynch.impl;
+package com.misc.common.moplaf.dbsynch;
 
 
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
-public class TableRowKeyImpl {
+public class TableRowKey {
 	// fields
 	private Object[] keys;
 	
 	// constructor
-	public TableRowKeyImpl(Object[] keys){
+	public TableRowKey(Object[] keys){
 		this.keys = keys;
 	}
 	
@@ -28,7 +28,7 @@ public class TableRowKeyImpl {
 			return false;
 		}
 	   
-	    TableRowKeyImpl otherKey = (TableRowKeyImpl) other;
+	    TableRowKey otherKey = (TableRowKey) other;
 	   
 	    EqualsBuilder equalsBuilder = new EqualsBuilder();
 	    for ( int i = 0; i<keys.length; i++ ){

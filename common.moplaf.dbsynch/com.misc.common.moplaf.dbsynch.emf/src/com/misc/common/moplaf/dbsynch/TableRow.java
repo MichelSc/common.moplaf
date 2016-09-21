@@ -2,7 +2,6 @@
  */
 package com.misc.common.moplaf.dbsynch;
 
-import com.misc.common.moplaf.dbsynch.impl.TableRowKeyImpl;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -73,7 +72,7 @@ public interface TableRow extends EObject {
 	 * @model dataType="com.misc.common.moplaf.dbsynch.TableRowKey" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	TableRowKeyImpl getCurrentKey();
+	TableRowKey getCurrentKey();
 
 	/**
 	 * Returns the value of the '<em><b>Index Key</b></em>' attribute.
@@ -84,12 +83,12 @@ public interface TableRow extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Index Key</em>' attribute.
-	 * @see #setIndexKey(TableRowKeyImpl)
+	 * @see #setIndexKey(TableRowKey)
 	 * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTableRow_IndexKey()
 	 * @model dataType="com.misc.common.moplaf.dbsynch.TableRowKey" transient="true"
 	 * @generated
 	 */
-	TableRowKeyImpl getIndexKey();
+	TableRowKey getIndexKey();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.dbsynch.TableRow#getIndexKey <em>Index Key</em>}' attribute.
@@ -99,7 +98,7 @@ public interface TableRow extends EObject {
 	 * @see #getIndexKey()
 	 * @generated
 	 */
-	void setIndexKey(TableRowKeyImpl value);
+	void setIndexKey(TableRowKey value);
 
 	/**
 	 * Returns the value of the '<em><b>Last Synch Down Key</b></em>' attribute.
@@ -110,12 +109,12 @@ public interface TableRow extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Last Synch Down Key</em>' attribute.
-	 * @see #setLastSynchDownKey(TableRowKeyImpl)
+	 * @see #setLastSynchDownKey(TableRowKey)
 	 * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getTableRow_LastSynchDownKey()
 	 * @model dataType="com.misc.common.moplaf.dbsynch.TableRowKey" transient="true"
 	 * @generated
 	 */
-	TableRowKeyImpl getLastSynchDownKey();
+	TableRowKey getLastSynchDownKey();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.dbsynch.TableRow#getLastSynchDownKey <em>Last Synch Down Key</em>}' attribute.
@@ -125,7 +124,7 @@ public interface TableRow extends EObject {
 	 * @see #getLastSynchDownKey()
 	 * @generated
 	 */
-	void setLastSynchDownKey(TableRowKeyImpl value);
+	void setLastSynchDownKey(TableRowKey value);
 
 	/**
 	 * Returns the value of the '<em><b>Last Synch Down Deleted</b></em>' attribute.

@@ -5,8 +5,7 @@ package com.misc.common.moplaf.dbsynch.provider;
 
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
 import com.misc.common.moplaf.dbsynch.TableRow;
-
-import com.misc.common.moplaf.dbsynch.impl.TableRowKeyImpl;
+import com.misc.common.moplaf.dbsynch.TableRowKey;
 
 import java.util.Collection;
 import java.util.List;
@@ -222,7 +221,7 @@ public class TableRowItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		TableRowKeyImpl labelValue = ((TableRow)object).getCurrentKey();
+		TableRowKey labelValue = ((TableRow)object).getCurrentKey();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_TableRow_type") :

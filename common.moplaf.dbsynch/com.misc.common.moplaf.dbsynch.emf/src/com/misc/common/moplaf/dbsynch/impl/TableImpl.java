@@ -32,6 +32,7 @@ import com.misc.common.moplaf.dbsynch.Plugin;
 import com.misc.common.moplaf.dbsynch.Table;
 import com.misc.common.moplaf.dbsynch.TableColumn;
 import com.misc.common.moplaf.dbsynch.TableRow;
+import com.misc.common.moplaf.dbsynch.TableRowKey;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,7 +69,7 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 * corresponding to the index key value of the row.
 	 * The deleted rows are present in the index as well. 
 	 */
-	private HashMap<TableRowKeyImpl, TableRow> rowIndex = null;
+	private HashMap<TableRowKey, TableRow> rowIndex = null;
 	
 	/**
 	 * The cached value of the '{@link #getKeyColumns() <em>Key Columns</em>}' containment reference list.
@@ -763,7 +764,7 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	public void indexRow(TableRow row) {
 		if ( TableImpl.this.rowIndex!=null){
-			TableRowKeyImpl key = row.getCurrentKey();
+			TableRowKey key = row.getCurrentKey();
 			TableImpl.this.rowIndex.put(key, row);
 			row.setIndexKey(key);
 		}
@@ -773,7 +774,7 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public TableRow getRow(TableRowKeyImpl key) {
+	public TableRow getRow(TableRowKey key) {
 		if ( this.rowIndex==null){
 			this.refreshIndex();
 		}
@@ -809,7 +810,7 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	public void refreshIndex() {
 		// brute force refresh
 		// we will do beter when we will know how the refresh is needed
-		this.rowIndex = new HashMap<TableRowKeyImpl, TableRow>();
+		this.rowIndex = new HashMap<TableRowKey, TableRow>();
 		for ( TableRow row : this.getRows()){
 			this.indexRow(row);
 		}
@@ -1094,8 +1095,8 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 			case DbSynchPackage.TABLE___REFRESH:
 				refresh();
 				return null;
-			case DbSynchPackage.TABLE___GET_ROW__TABLEROWKEYIMPL:
-				return getRow((TableRowKeyImpl)arguments.get(0));
+			case DbSynchPackage.TABLE___GET_ROW__TABLEROWKEY:
+				return getRow((TableRowKey)arguments.get(0));
 			case DbSynchPackage.TABLE___CONSTRUCT_ROW:
 				return constructRow();
 			case DbSynchPackage.TABLE___INDEX_ROW__TABLEROW:

@@ -194,8 +194,8 @@ public class DbSynchFactoryImpl extends EFactoryImpl implements DbSynchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TableRowKeyImpl createTableRowKeyFromString(EDataType eDataType, String initialValue) {
-		return (TableRowKeyImpl)super.createFromString(eDataType, initialValue);
+	public TableRowKey createTableRowKeyFromString(EDataType eDataType, String initialValue) {
+		return (TableRowKey)super.createFromString(eDataType, initialValue);
 	}
 
 	/**

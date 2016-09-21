@@ -29,6 +29,7 @@ import com.misc.common.moplaf.dbsynch.Plugin;
 import com.misc.common.moplaf.dbsynch.Table;
 import com.misc.common.moplaf.dbsynch.TableColumn;
 import com.misc.common.moplaf.dbsynch.TableRow;
+import com.misc.common.moplaf.dbsynch.TableRowKey;
 
 /**
  * <!-- begin-user-doc -->
@@ -619,7 +620,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		    		columnIndex++; 
 		    		keyIndex++;
 		    	}
-		    	TableRowKeyImpl key = new TableRowKeyImpl(keyObjects);
+		    	TableRowKey key = new TableRowKey(keyObjects);
 
 		    	// get the row, if any
 		    	TableRow row = table.getRow(key);
