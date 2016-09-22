@@ -233,13 +233,22 @@ public interface DiscretePackage extends EPackage {
 	int TIME_LINE__BUCKET_TYPE = 0;
 
 	/**
+	 * The feature id for the '<em><b>Bucket Type Refreshed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE__BUCKET_TYPE_REFRESHED = 1;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_LINE__DESCRIPTION = 1;
+	int TIME_LINE__DESCRIPTION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Time Zone ID</b></em>' attribute.
@@ -248,7 +257,7 @@ public interface DiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_LINE__TIME_ZONE_ID = 2;
+	int TIME_LINE__TIME_ZONE_ID = 3;
 
 	/**
 	 * The feature id for the '<em><b>Locale Language</b></em>' attribute.
@@ -257,7 +266,7 @@ public interface DiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_LINE__LOCALE_LANGUAGE = 3;
+	int TIME_LINE__LOCALE_LANGUAGE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Locale Country</b></em>' attribute.
@@ -266,7 +275,7 @@ public interface DiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_LINE__LOCALE_COUNTRY = 4;
+	int TIME_LINE__LOCALE_COUNTRY = 5;
 
 	/**
 	 * The feature id for the '<em><b>Horizon Start</b></em>' attribute.
@@ -275,7 +284,7 @@ public interface DiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_LINE__HORIZON_START = 5;
+	int TIME_LINE__HORIZON_START = 6;
 
 	/**
 	 * The feature id for the '<em><b>Horizon End</b></em>' attribute.
@@ -284,7 +293,7 @@ public interface DiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_LINE__HORIZON_END = 6;
+	int TIME_LINE__HORIZON_END = 7;
 
 	/**
 	 * The feature id for the '<em><b>Buckets</b></em>' containment reference list.
@@ -293,7 +302,7 @@ public interface DiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_LINE__BUCKETS = 7;
+	int TIME_LINE__BUCKETS = 8;
 
 	/**
 	 * The feature id for the '<em><b>First Bucket</b></em>' reference.
@@ -302,7 +311,7 @@ public interface DiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_LINE__FIRST_BUCKET = 8;
+	int TIME_LINE__FIRST_BUCKET = 9;
 
 	/**
 	 * The feature id for the '<em><b>Last Bucket</b></em>' reference.
@@ -311,7 +320,7 @@ public interface DiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_LINE__LAST_BUCKET = 9;
+	int TIME_LINE__LAST_BUCKET = 10;
 
 	/**
 	 * The number of structural features of the '<em>Time Line</em>' class.
@@ -320,7 +329,7 @@ public interface DiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_LINE_FEATURE_COUNT = 10;
+	int TIME_LINE_FEATURE_COUNT = 11;
 
 	/**
 	 * The operation id for the '<em>Refresh Horizon</em>' operation.
@@ -921,6 +930,17 @@ public interface DiscretePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTimeLine_BucketType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.time.discrete.TimeLine#getBucketTypeRefreshed <em>Bucket Type Refreshed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Bucket Type Refreshed</em>'.
+	 * @see com.misc.common.moplaf.time.discrete.TimeLine#getBucketTypeRefreshed()
+	 * @see #getTimeLine()
+	 * @generated
+	 */
+	EAttribute getTimeLine_BucketTypeRefreshed();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.time.discrete.TimeLine#getDescription <em>Description</em>}'.
@@ -1576,6 +1596,14 @@ public interface DiscretePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TIME_LINE__BUCKET_TYPE = eINSTANCE.getTimeLine_BucketType();
+
+		/**
+		 * The meta object literal for the '<em><b>Bucket Type Refreshed</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TIME_LINE__BUCKET_TYPE_REFRESHED = eINSTANCE.getTimeLine_BucketTypeRefreshed();
 
 		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.

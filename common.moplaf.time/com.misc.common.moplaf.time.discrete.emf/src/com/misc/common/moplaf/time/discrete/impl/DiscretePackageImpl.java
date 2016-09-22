@@ -170,7 +170,7 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTimeLine_Description() {
+	public EAttribute getTimeLine_BucketTypeRefreshed() {
 		return (EAttribute)timeLineEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -179,7 +179,7 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTimeLine_TimeZoneID() {
+	public EAttribute getTimeLine_Description() {
 		return (EAttribute)timeLineEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -188,7 +188,7 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTimeLine_LocaleLanguage() {
+	public EAttribute getTimeLine_TimeZoneID() {
 		return (EAttribute)timeLineEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -197,7 +197,7 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTimeLine_LocaleCountry() {
+	public EAttribute getTimeLine_LocaleLanguage() {
 		return (EAttribute)timeLineEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -206,7 +206,7 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTimeLine_HorizonStart() {
+	public EAttribute getTimeLine_LocaleCountry() {
 		return (EAttribute)timeLineEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -215,7 +215,7 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTimeLine_HorizonEnd() {
+	public EAttribute getTimeLine_HorizonStart() {
 		return (EAttribute)timeLineEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -224,8 +224,8 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTimeLine_Buckets() {
-		return (EReference)timeLineEClass.getEStructuralFeatures().get(7);
+	public EAttribute getTimeLine_HorizonEnd() {
+		return (EAttribute)timeLineEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -233,7 +233,7 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTimeLine_FirstBucket() {
+	public EReference getTimeLine_Buckets() {
 		return (EReference)timeLineEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -242,8 +242,17 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTimeLine_LastBucket() {
+	public EReference getTimeLine_FirstBucket() {
 		return (EReference)timeLineEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTimeLine_LastBucket() {
+		return (EReference)timeLineEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -760,6 +769,7 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 
 		timeLineEClass = createEClass(TIME_LINE);
 		createEAttribute(timeLineEClass, TIME_LINE__BUCKET_TYPE);
+		createEAttribute(timeLineEClass, TIME_LINE__BUCKET_TYPE_REFRESHED);
 		createEAttribute(timeLineEClass, TIME_LINE__DESCRIPTION);
 		createEAttribute(timeLineEClass, TIME_LINE__TIME_ZONE_ID);
 		createEAttribute(timeLineEClass, TIME_LINE__LOCALE_LANGUAGE);
@@ -876,7 +886,8 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 		addEParameter(op, ecorePackage.getEDate(), "to", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(timeLineEClass, TimeLine.class, "TimeLine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTimeLine_BucketType(), this.getBucketType(), "BucketType", null, 0, 1, TimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTimeLine_BucketType(), this.getBucketType(), "BucketType", "Hour", 0, 1, TimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTimeLine_BucketTypeRefreshed(), this.getBucketType(), "BucketTypeRefreshed", "Hour", 0, 1, TimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTimeLine_Description(), ecorePackage.getEString(), "Description", null, 0, 1, TimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTimeLine_TimeZoneID(), ecorePackage.getEString(), "TimeZoneID", "Europe/Brussels", 0, 1, TimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTimeLine_LocaleLanguage(), ecorePackage.getEString(), "LocaleLanguage", "fr", 0, 1, TimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

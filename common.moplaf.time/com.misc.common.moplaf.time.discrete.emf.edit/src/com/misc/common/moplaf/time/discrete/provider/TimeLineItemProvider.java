@@ -76,6 +76,7 @@ public class TimeLineItemProvider
 			super.getPropertyDescriptors(object);
 
 			addBucketTypePropertyDescriptor(object);
+			addBucketTypeRefreshedPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addTimeZoneIDPropertyDescriptor(object);
 			addLocaleLanguagePropertyDescriptor(object);
@@ -103,6 +104,28 @@ public class TimeLineItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_TimeLine_BucketType_feature", "_UI_TimeLine_type"),
 				 DiscretePackage.Literals.TIME_LINE__BUCKET_TYPE,
 				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Bucket Type Refreshed feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBucketTypeRefreshedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TimeLine_BucketTypeRefreshed_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TimeLine_BucketTypeRefreshed_feature", "_UI_TimeLine_type"),
+				 DiscretePackage.Literals.TIME_LINE__BUCKET_TYPE_REFRESHED,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -354,6 +377,7 @@ public class TimeLineItemProvider
 
 		switch (notification.getFeatureID(TimeLine.class)) {
 			case DiscretePackage.TIME_LINE__BUCKET_TYPE:
+			case DiscretePackage.TIME_LINE__BUCKET_TYPE_REFRESHED:
 			case DiscretePackage.TIME_LINE__DESCRIPTION:
 			case DiscretePackage.TIME_LINE__TIME_ZONE_ID:
 			case DiscretePackage.TIME_LINE__LOCALE_LANGUAGE:

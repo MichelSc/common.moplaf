@@ -54,7 +54,10 @@
       <eParameters name="sometime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     </eOperations>
     <eOperations name="createBucket" eType="#//TimeBucket"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BucketType" eType="#//BucketType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BucketType" eType="#//BucketType"
+        defaultValueLiteral="Hour"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BucketTypeRefreshed" eType="#//BucketType"
+        changeable="false" defaultValueLiteral="Hour"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="TimeZoneID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="Europe/Brussels"/>

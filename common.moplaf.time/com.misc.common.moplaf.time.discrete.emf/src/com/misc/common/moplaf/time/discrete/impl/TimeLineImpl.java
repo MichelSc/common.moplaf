@@ -40,6 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeLineImpl#getBucketType <em>Bucket Type</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeLineImpl#getBucketTypeRefreshed <em>Bucket Type Refreshed</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeLineImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeLineImpl#getTimeZoneID <em>Time Zone ID</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeLineImpl#getLocaleLanguage <em>Locale Language</em>}</li>
@@ -62,7 +63,7 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 	 * @generated
 	 * @ordered
 	 */
-	protected static final BucketType BUCKET_TYPE_EDEFAULT = BucketType.TL_MONTH;
+	protected static final BucketType BUCKET_TYPE_EDEFAULT = BucketType.TL_HOUR;
 
 	/**
 	 * The cached value of the '{@link #getBucketType() <em>Bucket Type</em>}' attribute.
@@ -73,6 +74,26 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 	 * @ordered
 	 */
 	protected BucketType bucketType = BUCKET_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getBucketTypeRefreshed() <em>Bucket Type Refreshed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBucketTypeRefreshed()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final BucketType BUCKET_TYPE_REFRESHED_EDEFAULT = BucketType.TL_HOUR;
+
+	/**
+	 * The cached value of the '{@link #getBucketTypeRefreshed() <em>Bucket Type Refreshed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBucketTypeRefreshed()
+	 * @generated
+	 * @ordered
+	 */
+	protected BucketType bucketTypeRefreshed = BUCKET_TYPE_REFRESHED_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -262,6 +283,15 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		bucketType = newBucketType == null ? BUCKET_TYPE_EDEFAULT : newBucketType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.TIME_LINE__BUCKET_TYPE, oldBucketType, bucketType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BucketType getBucketTypeRefreshed() {
+		return bucketTypeRefreshed;
 	}
 
 	/**
@@ -551,6 +581,8 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		switch (featureID) {
 			case DiscretePackage.TIME_LINE__BUCKET_TYPE:
 				return getBucketType();
+			case DiscretePackage.TIME_LINE__BUCKET_TYPE_REFRESHED:
+				return getBucketTypeRefreshed();
 			case DiscretePackage.TIME_LINE__DESCRIPTION:
 				return getDescription();
 			case DiscretePackage.TIME_LINE__TIME_ZONE_ID:
@@ -671,6 +703,8 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		switch (featureID) {
 			case DiscretePackage.TIME_LINE__BUCKET_TYPE:
 				return bucketType != BUCKET_TYPE_EDEFAULT;
+			case DiscretePackage.TIME_LINE__BUCKET_TYPE_REFRESHED:
+				return bucketTypeRefreshed != BUCKET_TYPE_REFRESHED_EDEFAULT;
 			case DiscretePackage.TIME_LINE__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case DiscretePackage.TIME_LINE__TIME_ZONE_ID:
@@ -726,6 +760,8 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (BucketType: ");
 		result.append(bucketType);
+		result.append(", BucketTypeRefreshed: ");
+		result.append(bucketTypeRefreshed);
 		result.append(", Description: ");
 		result.append(description);
 		result.append(", TimeZoneID: ");
@@ -953,23 +989,17 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 	protected BucketRounder bucketRounder = null;
 	private void refreshBucketRounder(){
 		BucketRounder oldbucketrounder = this.bucketRounder;
+		if ( oldbucketrounder!=null && oldbucketrounder.getType()==this.getBucketType()) { return; }
+
 		BucketRounder newbucketrounder = null;
-		if ( oldbucketrounder==null || oldbucketrounder.getType()!=this.getBucketType()){
-			switch( this.getBucketType()){
-				case TL_MONTH        : newbucketrounder = new MonthBucketRounder();       break;
-				case TL_WEEK         : newbucketrounder = new WeekBucketRounder();        break;
-				case TL_DAY          : newbucketrounder = new DayBucketRounder();         break;
-				case TL_HOUR         : newbucketrounder = new HourBucketRounder();        break;
-				case TL_HALF_HOUR    : newbucketrounder = new HalfHourBucketRounder();    break;
-				case TL_QUARTER_HOUR : newbucketrounder = new QuarterHourBucketRounder(); break;
-				default              : newbucketrounder = null;
-			}
-			if ( oldbucketrounder!=null){
-				// the buckets are invalidated
-				while ( !this.getBuckets().isEmpty()){
-					EcoreUtil.delete(this.getBuckets().get(0));
-				}
-			}
+		switch( this.getBucketType()){
+			case TL_MONTH        : newbucketrounder = new MonthBucketRounder();       break;
+			case TL_WEEK         : newbucketrounder = new WeekBucketRounder();        break;
+			case TL_DAY          : newbucketrounder = new DayBucketRounder();         break;
+			case TL_HOUR         : newbucketrounder = new HourBucketRounder();        break;
+			case TL_HALF_HOUR    : newbucketrounder = new HalfHourBucketRounder();    break;
+			case TL_QUARTER_HOUR : newbucketrounder = new QuarterHourBucketRounder(); break;
+			default              : newbucketrounder = null;
 		}
 		this.bucketRounder = newbucketrounder;
 	}
@@ -983,8 +1013,24 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		if (this.getHorizonStart()==null ) { return; }
 		if (this.getHorizonEnd()==null ) { return; }
 		
+		// refresh the bucket rounder
 		this.refreshBucketRounder();
 		
+		// flush the buckets if wrong type
+		if ( !this.getBucketTypeRefreshed().equals(this.getBucketType())){
+			Iterator<TimeBucket> iterator = this.getBuckets().iterator();
+			while ( iterator.hasNext()){
+				TimeBucket bucket = iterator.next();
+				bucket.setNext(null);
+				bucket.setPrevious(null);
+				iterator.remove();
+			}
+			this.setFirstBucket(null);
+			this.setLastBucket(null);
+			this.bucketTypeRefreshed = this.getBucketType();
+		}
+
+		// refresh the buckets
 		int maxiterations = 30000;
 		
 		// remove the too much at the head

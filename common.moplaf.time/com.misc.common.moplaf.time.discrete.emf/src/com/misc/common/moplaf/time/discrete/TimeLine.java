@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeLine#getBucketType <em>Bucket Type</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.discrete.TimeLine#getBucketTypeRefreshed <em>Bucket Type Refreshed</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeLine#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeLine#getTimeZoneID <em>Time Zone ID</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeLine#getLocaleLanguage <em>Locale Language</em>}</li>
@@ -36,6 +37,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface TimeLine extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Bucket Type</b></em>' attribute.
+	 * The default value is <code>"Hour"</code>.
 	 * The literals are from the enumeration {@link com.misc.common.moplaf.time.discrete.BucketType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -47,7 +49,7 @@ public interface TimeLine extends EObject {
 	 * @see com.misc.common.moplaf.time.discrete.BucketType
 	 * @see #setBucketType(BucketType)
 	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeLine_BucketType()
-	 * @model
+	 * @model default="Hour"
 	 * @generated
 	 */
 	BucketType getBucketType();
@@ -62,6 +64,24 @@ public interface TimeLine extends EObject {
 	 * @generated
 	 */
 	void setBucketType(BucketType value);
+
+	/**
+	 * Returns the value of the '<em><b>Bucket Type Refreshed</b></em>' attribute.
+	 * The default value is <code>"Hour"</code>.
+	 * The literals are from the enumeration {@link com.misc.common.moplaf.time.discrete.BucketType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Bucket Type Refreshed</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Bucket Type Refreshed</em>' attribute.
+	 * @see com.misc.common.moplaf.time.discrete.BucketType
+	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeLine_BucketTypeRefreshed()
+	 * @model default="Hour" changeable="false"
+	 * @generated
+	 */
+	BucketType getBucketTypeRefreshed();
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.
