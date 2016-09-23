@@ -824,8 +824,8 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 			
 			Date startofbucket = beginofmonthascalendar.getTime();
 			Date endofbucket   = endofmonthascalendar.getTime();
-			Format formatter = new SimpleDateFormat("MM/yyyy", constructLocale());
-			String description = "Month:["+formatter.format(startofbucket)+"]";
+			Format formatter = new SimpleDateFormat("yyyy-MM", constructLocale());
+			String description = "Month["+formatter.format(startofbucket)+"]";
 			
 			newbucket.setBucketStart(startofbucket);
 			newbucket.setBucketEnd(endofbucket);
@@ -865,8 +865,9 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 			
 			Date startofbucket = beginofweekascalendar.getTime();
 			Date endofbucket   = endofweekascalendar.getTime();
-			Format formatter = new SimpleDateFormat("ww/yyyy", constructLocale());
-			String description = "Week:["+formatter.format(yearoftheweekascalendar.getTime())+"]";
+			Format formatter = new SimpleDateFormat("yyyy-ww", constructLocale());
+			String description = "Week["+formatter.format(yearoftheweekascalendar.getTime())+"]";
+//			String description = String.format("Day[%1$tF", startofbucket);
 			
 			newbucket.setBucketStart(startofbucket);
 			newbucket.setBucketEnd(endofbucket);
@@ -900,8 +901,9 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 			
 			Date startofbucket = beginofdayascalendar.getTime();
 			Date endofbucket   = endofdayascalendar.getTime();
-			Format formatter = new SimpleDateFormat("dd/MM/yyyy", constructLocale());
-			String description = "Day:["+formatter.format(startofbucket)+"]";
+//			Format formatter = new SimpleDateFormat("dd/MM/yyyy", constructLocale());
+	//		String description = "Day:["+formatter.format(startofbucket)+"]";
+			String description = String.format("Day[%1$tF]", startofbucket);
 			
 			newbucket.setBucketStart(startofbucket);
 			newbucket.setBucketEnd(endofbucket);
@@ -942,7 +944,7 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 			
 			Date startofbucket = beginBucketAsCalendar.getTime();
 			Date endofbucket   = endBucketAsCalendar.getTime();
-			String description = String.format("%1$tF %2$d>%3$d", newbucket.getBucketStart(), bucketstart, bucketend);
+			String description = String.format("Hours[%1$tF %2$02d>%3$02d]", startofbucket, bucketstart, bucketend);
 			
 			newbucket.setBucketStart(startofbucket);
 			newbucket.setBucketEnd(endofbucket);
@@ -1119,7 +1121,7 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		@Override
 		protected void roundBucketProtected(TimeBucket newbucket, Date sometime) {
 			this.roundBucketProtectedHour(newbucket, sometime);
-			String description = String.format("%1$tF %1$tH", newbucket.getBucketStart());
+			String description = String.format("Hour[%1$tF %1$tH]", newbucket.getBucketStart());
 			newbucket.setDescription(description);
 		}
 	}
@@ -1144,7 +1146,7 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		@Override
 		protected void roundBucketProtected(TimeBucket newbucket, Date sometime) {
 			long part = this.roundBucketProtectedHour(newbucket, sometime);
-			String description = String.format("%1$tF %1$tH %2$d/%3$d", newbucket.getBucketStart(), part, this.getNofParts());
+			String description = String.format("Hour[%1$tF %1$tH %2$d/%3$d]", newbucket.getBucketStart(), part, this.getNofParts());
 			newbucket.setDescription(description);
 		}
 	}
@@ -1168,7 +1170,7 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		@Override
 		protected void roundBucketProtected(TimeBucket newbucket, Date sometime) {
 			long part = this.roundBucketProtectedHour(newbucket, sometime);
-			String description = String.format("%1$tF %1$tH %2$d/%3$d", newbucket.getBucketStart(), part, this.getNofParts());
+			String description = String.format("Hour[%1$tF %1$tH %2$d/%3$d]", newbucket.getBucketStart(), part, this.getNofParts());
 			newbucket.setDescription(description);
 		}
 	}
