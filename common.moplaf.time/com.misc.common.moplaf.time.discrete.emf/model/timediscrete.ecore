@@ -4,12 +4,17 @@
     nsPrefix="timdisc">
   <eClassifiers xsi:type="ecore:EDataType" name="BucketIterator" instanceClassName="com.misc.common.moplaf.time.discrete.BucketIterator"/>
   <eClassifiers xsi:type="ecore:EEnum" name="BucketType">
-    <eLiterals name="TLMonth" literal="Month"/>
+    <eLiterals name="TLMonth" value="1" literal="Month"/>
     <eLiterals name="TLWeek" value="2" literal="Week"/>
-    <eLiterals name="TLDay" value="1" literal="Day"/>
-    <eLiterals name="TLHour" value="3" literal="Hour"/>
-    <eLiterals name="TLHalfHour" value="4" literal="HalfHour"/>
-    <eLiterals name="TLQuarterHour" value="5" literal="QuarterOfHour"/>
+    <eLiterals name="TLDay" value="3" literal="Day"/>
+    <eLiterals name="TLHalfDay" value="4" literal="HalfDay"/>
+    <eLiterals name="TLEightHours" value="5" literal="EightHours"/>
+    <eLiterals name="TLSixHours" value="6" literal="SixHours"/>
+    <eLiterals name="TLFourHours" value="7" literal="FourHours"/>
+    <eLiterals name="TLTwoHours" value="8" literal="TwoHours"/>
+    <eLiterals name="TLHour" value="9" literal="Hour"/>
+    <eLiterals name="TLHalfHour" value="10" literal="HalfHour"/>
+    <eLiterals name="TLQuarterHour" value="11" literal="QuarterOfHour"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TimeBucket">
     <eOperations name="contains" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">

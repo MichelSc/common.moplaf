@@ -956,6 +956,11 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 		addEEnumLiteral(bucketTypeEEnum, BucketType.TL_MONTH);
 		addEEnumLiteral(bucketTypeEEnum, BucketType.TL_WEEK);
 		addEEnumLiteral(bucketTypeEEnum, BucketType.TL_DAY);
+		addEEnumLiteral(bucketTypeEEnum, BucketType.TL_HALF_DAY);
+		addEEnumLiteral(bucketTypeEEnum, BucketType.TL_EIGHT_HOURS);
+		addEEnumLiteral(bucketTypeEEnum, BucketType.TL_SIX_HOURS);
+		addEEnumLiteral(bucketTypeEEnum, BucketType.TL_FOUR_HOURS);
+		addEEnumLiteral(bucketTypeEEnum, BucketType.TL_TWO_HOURS);
 		addEEnumLiteral(bucketTypeEEnum, BucketType.TL_HOUR);
 		addEEnumLiteral(bucketTypeEEnum, BucketType.TL_HALF_HOUR);
 		addEEnumLiteral(bucketTypeEEnum, BucketType.TL_QUARTER_HOUR);

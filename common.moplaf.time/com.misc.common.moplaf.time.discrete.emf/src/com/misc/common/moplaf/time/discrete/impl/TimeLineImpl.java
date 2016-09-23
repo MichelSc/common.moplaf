@@ -778,6 +778,13 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		return result.toString();
 	}
 
+	/**
+	 * A BucketRounder implements the logic deriving the start and end time of the bucket containing a given time
+	 * <p>
+	 * A specialization must implement the method {@link #roundBucketProtected(TimeBucket, Date)}
+	 * @author michel
+	 *
+	 */
 	public class BucketRounder {
 		public BucketType getType(){
 			return null;
@@ -794,6 +801,11 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		
 	}
 	
+	/**
+	 * A MonthBucketRounder provides month buckets
+	 * @author michel
+	 *
+	 */
 	public class MonthBucketRounder extends BucketRounder {
 		public BucketType getType(){
 			return BucketType.TL_MONTH;
@@ -822,6 +834,11 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		
 	}
 
+	/**
+	 * A WeekBucketRounder provides week buckets
+	 * @author michel
+	 *
+	 */
 	public class WeekBucketRounder extends BucketRounder {
 		public BucketType getType(){
 			return BucketType.TL_WEEK;
@@ -856,6 +873,13 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 			newbucket.setDescription(description);
 		}
 	}
+
+	/**
+	 * A DayBucketRounder provides day buckets
+	 * 
+	 * @author michel
+	 *
+	 */
 	public class DayBucketRounder extends BucketRounder {
 		public BucketType getType(){
 			return BucketType.TL_DAY;
@@ -884,6 +908,149 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 			newbucket.setDescription(description);
 		}
 	}
+	
+	public class DayBucketRounderAbstract extends BucketRounder {
+		
+		protected int getNofHours(){
+			return 24;
+		}
+		
+		@Override
+		protected void roundBucketProtected(TimeBucket newbucket, Date sometime) {
+			Calendar sometimeascalendar = constructCalendar(sometime);
+			int year  = sometimeascalendar.get(Calendar.YEAR);
+			int month = sometimeascalendar.get(Calendar.MONTH);
+			int day   = sometimeascalendar.get(Calendar.DAY_OF_MONTH); 
+			int hour   = sometimeascalendar.get(Calendar.HOUR_OF_DAY); 
+			
+			int bucketLength = this.getNofHours();
+			int bucketNr = Math.floorDiv(hour, bucketLength);
+			int bucketstart = bucketNr*bucketLength;
+			int bucketend   = bucketstart+bucketLength;
+			
+			Calendar beginBucketAsCalendar = constructCalendar();
+			beginBucketAsCalendar.set(Calendar.YEAR, year);
+			beginBucketAsCalendar.set(Calendar.MONTH, month);
+			beginBucketAsCalendar.set(Calendar.DAY_OF_MONTH, day);
+			beginBucketAsCalendar.set(Calendar.HOUR_OF_DAY, bucketstart);
+			
+			Calendar endBucketAsCalendar = constructCalendar();
+			endBucketAsCalendar.set(Calendar.YEAR, year);
+			endBucketAsCalendar.set(Calendar.MONTH, month);
+			endBucketAsCalendar.set(Calendar.DAY_OF_MONTH, day);
+			endBucketAsCalendar.set(Calendar.HOUR_OF_DAY, bucketend);
+			
+			Date startofbucket = beginBucketAsCalendar.getTime();
+			Date endofbucket   = endBucketAsCalendar.getTime();
+			String description = String.format("%1$tF %2$d>%3$d", newbucket.getBucketStart(), bucketstart, bucketend);
+			
+			newbucket.setBucketStart(startofbucket);
+			newbucket.setBucketEnd(endofbucket);
+			newbucket.setDescription(description);
+		}
+	}
+	
+	/**
+	 * A HalfDayBucketRounder provides 12 hours buckets
+	 * 
+	 * @author michel
+	 *
+	 */
+	public class HalfDayBucketRounder extends DayBucketRounderAbstract {
+
+		@Override
+		protected int getNofHours() {
+			return 12;
+		}
+
+		@Override
+		public BucketType getType() {
+			return BucketType.TL_HALF_DAY;
+		}
+	}
+
+	/**
+	 * A EightHoursBucketRounder provides 8 hours buckets
+	 * 
+	 * @author michel
+	 *
+	 */
+	public class EightHoursBucketRounder extends DayBucketRounderAbstract {
+
+		@Override
+		protected int getNofHours() {
+			return 8;
+		}
+
+		@Override
+		public BucketType getType() {
+			return BucketType.TL_EIGHT_HOURS;
+		}
+	}
+
+	/**
+	 * A SixHoursBucketRounder provides 6 hours buckets
+	 * 
+	 * @author michel
+	 *
+	 */
+	public class SixHoursBucketRounder extends DayBucketRounderAbstract {
+
+		@Override
+		protected int getNofHours() {
+			return 6;
+		}
+
+		@Override
+		public BucketType getType() {
+			return BucketType.TL_SIX_HOURS;
+		}
+	}
+
+	/**
+	 * A FourHoursBucketRounder provides 4 hours buckets
+	 * 
+	 * @author michel
+	 *
+	 */
+	public class FourHoursBucketRounder extends DayBucketRounderAbstract {
+
+		@Override
+		protected int getNofHours() {
+			return 4;
+		}
+
+		@Override
+		public BucketType getType() {
+			return BucketType.TL_FOUR_HOURS;
+		}
+	}
+
+	/**
+	 * A TwoHoursBucketRounder provides 2 hours buckets
+	 * 
+	 * @author michel
+	 *
+	 */
+	public class TwoHoursBucketRounder extends DayBucketRounderAbstract {
+
+		@Override
+		protected int getNofHours() {
+			return 2;
+		}
+
+		@Override
+		public BucketType getType() {
+			return BucketType.TL_TWO_HOURS;
+		}
+	}
+
+	/**
+	 * A HourBucketRounderAbstract provides common logic for buckets that are part of an hour
+	 * 
+	 * @author michel
+	 *
+	 */	
 	public abstract class HourBucketRounderAbstract extends BucketRounder{
 		protected abstract int getNofParts();
 
@@ -929,7 +1096,14 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 			
 			return part;
 		}
-}
+	}
+
+	/**
+	 * A HourBucketRounder provides hour buckets
+	 * 
+	 * @author michel
+	 *
+	 */
 	public class HourBucketRounder extends HourBucketRounderAbstract{
 		
 		@Override
@@ -950,12 +1124,19 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		}
 	}
 	
+	/**
+	 * A HalfHourBucketRounder provides half hour buckets
+	 * 
+	 * @author michel
+	 *
+	 */
 	public class HalfHourBucketRounder extends HourBucketRounderAbstract{
 		@Override
 		protected int getNofParts() {
 			return 2;
 		}
 
+		@Override
 		public BucketType getType(){
 			return BucketType.TL_HALF_HOUR;
 		}
@@ -968,6 +1149,12 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		}
 	}
 	
+	/**
+	 * A QuarterHourBucketRounder provides quarter of an hour buckets
+	 * 
+	 * @author michel
+	 *
+	 */
 	public class QuarterHourBucketRounder extends HourBucketRounderAbstract{
 		@Override
 		protected int getNofParts() {
@@ -986,6 +1173,9 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		}
 	}
 	
+	/**
+	 * Select the BucketRounder to use as a function of the bucket type
+	 */
 	protected BucketRounder bucketRounder = null;
 	private void refreshBucketRounder(){
 		BucketRounder oldbucketrounder = this.bucketRounder;
@@ -996,6 +1186,11 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 			case TL_MONTH        : newbucketrounder = new MonthBucketRounder();       break;
 			case TL_WEEK         : newbucketrounder = new WeekBucketRounder();        break;
 			case TL_DAY          : newbucketrounder = new DayBucketRounder();         break;
+			case TL_HALF_DAY     : newbucketrounder = new HalfDayBucketRounder();     break;
+			case TL_EIGHT_HOURS  : newbucketrounder = new EightHoursBucketRounder();  break;
+			case TL_SIX_HOURS    : newbucketrounder = new SixHoursBucketRounder();    break;
+			case TL_FOUR_HOURS   : newbucketrounder = new FourHoursBucketRounder();   break;
+			case TL_TWO_HOURS    : newbucketrounder = new TwoHoursBucketRounder();    break;
 			case TL_HOUR         : newbucketrounder = new HourBucketRounder();        break;
 			case TL_HALF_HOUR    : newbucketrounder = new HalfHourBucketRounder();    break;
 			case TL_QUARTER_HOUR : newbucketrounder = new QuarterHourBucketRounder(); break;

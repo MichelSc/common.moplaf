@@ -26,7 +26,7 @@ public enum BucketType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TL_MONTH(0, "TLMonth", "Month"),
+	TL_MONTH(1, "TLMonth", "Month"),
 
 	/**
 	 * The '<em><b>TL Week</b></em>' literal object.
@@ -46,9 +46,49 @@ public enum BucketType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TL_DAY(1, "TLDay", "Day"),
+	TL_DAY(3, "TLDay", "Day"),
 
 	/**
+	 * The '<em><b>TL Half Day</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #TL_HALF_DAY_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	TL_HALF_DAY(4, "TLHalfDay", "HalfDay"), /**
+	 * The '<em><b>TL Eight Hours</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #TL_EIGHT_HOURS_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	TL_EIGHT_HOURS(5, "TLEightHours", "EightHours"), /**
+	 * The '<em><b>TL Six Hours</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #TL_SIX_HOURS_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	TL_SIX_HOURS(6, "TLSixHours", "SixHours"), /**
+	 * The '<em><b>TL Four Hours</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #TL_FOUR_HOURS_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	TL_FOUR_HOURS(7, "TLFourHours", "FourHours"), /**
+	 * The '<em><b>TL Two Hours</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #TL_TWO_HOURS_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	TL_TWO_HOURS(8, "TLTwoHours", "TwoHours"), /**
 	 * The '<em><b>TL Hour</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,7 +96,7 @@ public enum BucketType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TL_HOUR(3, "TLHour", "Hour"),
+	TL_HOUR(9, "TLHour", "Hour"),
 
 	/**
 	 * The '<em><b>TL Half Hour</b></em>' literal object.
@@ -66,7 +106,7 @@ public enum BucketType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TL_HALF_HOUR(4, "TLHalfHour", "HalfHour"),
+	TL_HALF_HOUR(10, "TLHalfHour", "HalfHour"),
 
 	/**
 	 * The '<em><b>TL Quarter Hour</b></em>' literal object.
@@ -76,7 +116,7 @@ public enum BucketType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TL_QUARTER_HOUR(5, "TLQuarterHour", "QuarterOfHour");
+	TL_QUARTER_HOUR(11, "TLQuarterHour", "QuarterOfHour");
 
 	/**
 	 * The '<em><b>TL Month</b></em>' literal value.
@@ -91,7 +131,7 @@ public enum BucketType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TL_MONTH_VALUE = 0;
+	public static final int TL_MONTH_VALUE = 1;
 
 	/**
 	 * The '<em><b>TL Week</b></em>' literal value.
@@ -121,7 +161,82 @@ public enum BucketType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TL_DAY_VALUE = 1;
+	public static final int TL_DAY_VALUE = 3;
+
+	/**
+	 * The '<em><b>TL Half Day</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>TL Half Day</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #TL_HALF_DAY
+	 * @model name="TLHalfDay" literal="HalfDay"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TL_HALF_DAY_VALUE = 4;
+
+	/**
+	 * The '<em><b>TL Eight Hours</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>TL Eight Hours</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #TL_EIGHT_HOURS
+	 * @model name="TLEightHours" literal="EightHours"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TL_EIGHT_HOURS_VALUE = 5;
+
+	/**
+	 * The '<em><b>TL Six Hours</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>TL Six Hours</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #TL_SIX_HOURS
+	 * @model name="TLSixHours" literal="SixHours"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TL_SIX_HOURS_VALUE = 6;
+
+	/**
+	 * The '<em><b>TL Four Hours</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>TL Four Hours</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #TL_FOUR_HOURS
+	 * @model name="TLFourHours" literal="FourHours"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TL_FOUR_HOURS_VALUE = 7;
+
+	/**
+	 * The '<em><b>TL Two Hours</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>TL Two Hours</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #TL_TWO_HOURS
+	 * @model name="TLTwoHours" literal="TwoHours"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int TL_TWO_HOURS_VALUE = 8;
 
 	/**
 	 * The '<em><b>TL Hour</b></em>' literal value.
@@ -136,7 +251,7 @@ public enum BucketType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TL_HOUR_VALUE = 3;
+	public static final int TL_HOUR_VALUE = 9;
 
 	/**
 	 * The '<em><b>TL Half Hour</b></em>' literal value.
@@ -151,7 +266,7 @@ public enum BucketType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TL_HALF_HOUR_VALUE = 4;
+	public static final int TL_HALF_HOUR_VALUE = 10;
 
 	/**
 	 * The '<em><b>TL Quarter Hour</b></em>' literal value.
@@ -166,7 +281,7 @@ public enum BucketType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TL_QUARTER_HOUR_VALUE = 5;
+	public static final int TL_QUARTER_HOUR_VALUE = 11;
 
 	/**
 	 * An array of all the '<em><b>Bucket Type</b></em>' enumerators.
@@ -179,6 +294,11 @@ public enum BucketType implements Enumerator {
 			TL_MONTH,
 			TL_WEEK,
 			TL_DAY,
+			TL_HALF_DAY,
+			TL_EIGHT_HOURS,
+			TL_SIX_HOURS,
+			TL_FOUR_HOURS,
+			TL_TWO_HOURS,
 			TL_HOUR,
 			TL_HALF_HOUR,
 			TL_QUARTER_HOUR,
@@ -241,6 +361,11 @@ public enum BucketType implements Enumerator {
 			case TL_MONTH_VALUE: return TL_MONTH;
 			case TL_WEEK_VALUE: return TL_WEEK;
 			case TL_DAY_VALUE: return TL_DAY;
+			case TL_HALF_DAY_VALUE: return TL_HALF_DAY;
+			case TL_EIGHT_HOURS_VALUE: return TL_EIGHT_HOURS;
+			case TL_SIX_HOURS_VALUE: return TL_SIX_HOURS;
+			case TL_FOUR_HOURS_VALUE: return TL_FOUR_HOURS;
+			case TL_TWO_HOURS_VALUE: return TL_TWO_HOURS;
 			case TL_HOUR_VALUE: return TL_HOUR;
 			case TL_HALF_HOUR_VALUE: return TL_HALF_HOUR;
 			case TL_QUARTER_HOUR_VALUE: return TL_QUARTER_HOUR;
