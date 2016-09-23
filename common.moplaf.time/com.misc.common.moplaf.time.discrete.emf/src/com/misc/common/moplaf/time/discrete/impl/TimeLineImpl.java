@@ -299,6 +299,18 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void setBucketTypeRefreshed(BucketType newBucketTypeRefreshed) {
+		BucketType oldBucketTypeRefreshed = bucketTypeRefreshed;
+		bucketTypeRefreshed = newBucketTypeRefreshed == null ? BUCKET_TYPE_REFRESHED_EDEFAULT : newBucketTypeRefreshed;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.TIME_LINE__BUCKET_TYPE_REFRESHED, oldBucketTypeRefreshed, bucketTypeRefreshed));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getDescription() {
 		return description;
 	}
@@ -619,6 +631,9 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 			case DiscretePackage.TIME_LINE__BUCKET_TYPE:
 				setBucketType((BucketType)newValue);
 				return;
+			case DiscretePackage.TIME_LINE__BUCKET_TYPE_REFRESHED:
+				setBucketTypeRefreshed((BucketType)newValue);
+				return;
 			case DiscretePackage.TIME_LINE__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
@@ -661,6 +676,9 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		switch (featureID) {
 			case DiscretePackage.TIME_LINE__BUCKET_TYPE:
 				setBucketType(BUCKET_TYPE_EDEFAULT);
+				return;
+			case DiscretePackage.TIME_LINE__BUCKET_TYPE_REFRESHED:
+				setBucketTypeRefreshed(BUCKET_TYPE_REFRESHED_EDEFAULT);
 				return;
 			case DiscretePackage.TIME_LINE__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);

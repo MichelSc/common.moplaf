@@ -77,11 +77,23 @@ public interface TimeLine extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Bucket Type Refreshed</em>' attribute.
 	 * @see com.misc.common.moplaf.time.discrete.BucketType
+	 * @see #setBucketTypeRefreshed(BucketType)
 	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeLine_BucketTypeRefreshed()
-	 * @model default="Hour" changeable="false"
+	 * @model default="Hour"
 	 * @generated
 	 */
 	BucketType getBucketTypeRefreshed();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.time.discrete.TimeLine#getBucketTypeRefreshed <em>Bucket Type Refreshed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Bucket Type Refreshed</em>' attribute.
+	 * @see com.misc.common.moplaf.time.discrete.BucketType
+	 * @see #getBucketTypeRefreshed()
+	 * @generated
+	 */
+	void setBucketTypeRefreshed(BucketType value);
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.
