@@ -278,7 +278,7 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTimeLine__GetBucket__Date() {
+	public EOperation getTimeLine__GetBucketFloor__Date() {
 		return timeLineEClass.getEOperations().get(2);
 	}
 
@@ -287,8 +287,17 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTimeLine__CreateBucket() {
+	public EOperation getTimeLine__GetBucketCeil__Date() {
 		return timeLineEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTimeLine__CreateBucket() {
+		return timeLineEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -781,7 +790,8 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 		createEReference(timeLineEClass, TIME_LINE__LAST_BUCKET);
 		createEOperation(timeLineEClass, TIME_LINE___REFRESH_HORIZON);
 		createEOperation(timeLineEClass, TIME_LINE___ITERATOR__DATE_DATE_BOOLEAN);
-		createEOperation(timeLineEClass, TIME_LINE___GET_BUCKET__DATE);
+		createEOperation(timeLineEClass, TIME_LINE___GET_BUCKET_FLOOR__DATE);
+		createEOperation(timeLineEClass, TIME_LINE___GET_BUCKET_CEIL__DATE);
 		createEOperation(timeLineEClass, TIME_LINE___CREATE_BUCKET);
 
 		timeLineMergeEClass = createEClass(TIME_LINE_MERGE);
@@ -905,7 +915,10 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 		addEParameter(op, ecorePackage.getEDate(), "to", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "naked", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getTimeLine__GetBucket__Date(), this.getTimeBucket(), "getBucket", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getTimeLine__GetBucketFloor__Date(), this.getTimeBucket(), "getBucketFloor", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDate(), "sometime", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getTimeLine__GetBucketCeil__Date(), this.getTimeBucket(), "getBucketCeil", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "sometime", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getTimeLine__CreateBucket(), this.getTimeBucket(), "createBucket", 0, 1, IS_UNIQUE, IS_ORDERED);

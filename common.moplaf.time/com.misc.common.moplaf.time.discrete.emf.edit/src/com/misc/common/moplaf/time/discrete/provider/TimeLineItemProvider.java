@@ -125,7 +125,7 @@ public class TimeLineItemProvider
 				 getString("_UI_TimeLine_BucketTypeRefreshed_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TimeLine_BucketTypeRefreshed_feature", "_UI_TimeLine_type"),
 				 DiscretePackage.Literals.TIME_LINE__BUCKET_TYPE_REFRESHED,
-				 false,
+				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,

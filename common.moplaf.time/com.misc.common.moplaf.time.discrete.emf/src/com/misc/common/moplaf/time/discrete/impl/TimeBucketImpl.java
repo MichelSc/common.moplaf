@@ -452,7 +452,7 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 	 * <!-- end-user-doc -->
 	 */
 	public boolean contains(Date sometime) {
-		boolean contains = this.getBucketStart().compareTo(sometime)<=0 && sometime.compareTo(this.getBucketEnd())<0;
+		boolean contains = this.getBucketStart().compareTo(sometime)<=0 && sometime.compareTo(this.getBucketEnd())<=0;
 		return contains;
 	}
 

@@ -55,7 +55,10 @@
       <eParameters name="to" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
       <eParameters name="naked" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
-    <eOperations name="getBucket" eType="#//TimeBucket">
+    <eOperations name="getBucketFloor" eType="#//TimeBucket">
+      <eParameters name="sometime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    </eOperations>
+    <eOperations name="getBucketCeil" eType="#//TimeBucket">
       <eParameters name="sometime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     </eOperations>
     <eOperations name="createBucket" eType="#//TimeBucket"/>

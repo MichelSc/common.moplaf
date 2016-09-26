@@ -346,7 +346,15 @@ public interface TimeLine extends EObject {
 	 * @model
 	 * @generated
 	 */
-	TimeBucket getBucket(Date sometime);
+	TimeBucket getBucketFloor(Date sometime);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	TimeBucket getBucketCeil(Date sometime);
 
 	/**
 	 * <!-- begin-user-doc -->

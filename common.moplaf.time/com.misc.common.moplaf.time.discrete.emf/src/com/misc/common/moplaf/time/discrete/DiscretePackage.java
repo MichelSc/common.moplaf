@@ -350,13 +350,22 @@ public interface DiscretePackage extends EPackage {
 	int TIME_LINE___ITERATOR__DATE_DATE_BOOLEAN = 1;
 
 	/**
-	 * The operation id for the '<em>Get Bucket</em>' operation.
+	 * The operation id for the '<em>Get Bucket Floor</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_LINE___GET_BUCKET__DATE = 2;
+	int TIME_LINE___GET_BUCKET_FLOOR__DATE = 2;
+
+	/**
+	 * The operation id for the '<em>Get Bucket Ceil</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE___GET_BUCKET_CEIL__DATE = 3;
 
 	/**
 	 * The operation id for the '<em>Create Bucket</em>' operation.
@@ -365,7 +374,7 @@ public interface DiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_LINE___CREATE_BUCKET = 3;
+	int TIME_LINE___CREATE_BUCKET = 4;
 
 	/**
 	 * The number of operations of the '<em>Time Line</em>' class.
@@ -374,7 +383,7 @@ public interface DiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_LINE_OPERATION_COUNT = 4;
+	int TIME_LINE_OPERATION_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.discrete.impl.TimeLineMergeImpl <em>Time Line Merge</em>}' class.
@@ -1062,14 +1071,24 @@ public interface DiscretePackage extends EPackage {
 	EOperation getTimeLine__Iterator__Date_Date_boolean();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.discrete.TimeLine#getBucket(java.util.Date) <em>Get Bucket</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.discrete.TimeLine#getBucketFloor(java.util.Date) <em>Get Bucket Floor</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Bucket</em>' operation.
-	 * @see com.misc.common.moplaf.time.discrete.TimeLine#getBucket(java.util.Date)
+	 * @return the meta object for the '<em>Get Bucket Floor</em>' operation.
+	 * @see com.misc.common.moplaf.time.discrete.TimeLine#getBucketFloor(java.util.Date)
 	 * @generated
 	 */
-	EOperation getTimeLine__GetBucket__Date();
+	EOperation getTimeLine__GetBucketFloor__Date();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.discrete.TimeLine#getBucketCeil(java.util.Date) <em>Get Bucket Ceil</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Bucket Ceil</em>' operation.
+	 * @see com.misc.common.moplaf.time.discrete.TimeLine#getBucketCeil(java.util.Date)
+	 * @generated
+	 */
+	EOperation getTimeLine__GetBucketCeil__Date();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.discrete.TimeLine#createBucket() <em>Create Bucket</em>}' operation.
@@ -1694,12 +1713,20 @@ public interface DiscretePackage extends EPackage {
 		EOperation TIME_LINE___ITERATOR__DATE_DATE_BOOLEAN = eINSTANCE.getTimeLine__Iterator__Date_Date_boolean();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Bucket</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Bucket Floor</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation TIME_LINE___GET_BUCKET__DATE = eINSTANCE.getTimeLine__GetBucket__Date();
+		EOperation TIME_LINE___GET_BUCKET_FLOOR__DATE = eINSTANCE.getTimeLine__GetBucketFloor__Date();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Bucket Ceil</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TIME_LINE___GET_BUCKET_CEIL__DATE = eINSTANCE.getTimeLine__GetBucketCeil__Date();
 
 		/**
 		 * The meta object literal for the '<em><b>Create Bucket</b></em>' operation.

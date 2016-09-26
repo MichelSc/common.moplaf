@@ -209,9 +209,13 @@
                 <styles xmi:type="notation:FontStyle" xmi:id="_qXqXgWudEeaBCZ_-0MO6fw" fontName="Oxygen-Sans" fontHeight="8"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_qXqXgmudEeaBCZ_-0MO6fw"/>
               </children>
-              <children xmi:type="notation:Node" xmi:id="_qXqXg2udEeaBCZ_-0MO6fw" type="3010" element="_qWbBYWudEeaBCZ_-0MO6fw">
-                <styles xmi:type="notation:FontStyle" xmi:id="_qXqXhGudEeaBCZ_-0MO6fw" fontName="Oxygen-Sans" fontHeight="8"/>
-                <layoutConstraint xmi:type="notation:Location" xmi:id="_qXqXhWudEeaBCZ_-0MO6fw"/>
+              <children xmi:type="notation:Node" xmi:id="_HGqa8IP6EeaSpoJT8AWglQ" type="3010" element="_HGc_kIP6EeaSpoJT8AWglQ">
+                <styles xmi:type="notation:FontStyle" xmi:id="_HGqa8YP6EeaSpoJT8AWglQ" fontName="Segoe UI" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_HGqa8oP6EeaSpoJT8AWglQ"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_HGrCAIP6EeaSpoJT8AWglQ" type="3010" element="_HGdmoYP6EeaSpoJT8AWglQ">
+                <styles xmi:type="notation:FontStyle" xmi:id="_HGrCAYP6EeaSpoJT8AWglQ" fontName="Segoe UI" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_HGrCAoP6EeaSpoJT8AWglQ"/>
               </children>
               <children xmi:type="notation:Node" xmi:id="_qXq-kGudEeaBCZ_-0MO6fw" type="3010" element="_qWerwGudEeaBCZ_-0MO6fw">
                 <styles xmi:type="notation:FontStyle" xmi:id="_qXq-kWudEeaBCZ_-0MO6fw" fontName="Oxygen-Sans" fontHeight="8"/>
@@ -777,11 +781,20 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_qWbBYWudEeaBCZ_-0MO6fw" name="getBucket(sometime EDate) : TimeBucket" tooltipText="getBucket(sometime) : TimeBucket">
-          <target xmi:type="ecore:EOperation" href="timediscrete.ecore#//TimeLine/getBucket"/>
-          <semanticElements xmi:type="ecore:EOperation" href="timediscrete.ecore#//TimeLine/getBucket"/>
-          <semanticElements xmi:type="ecore:EParameter" href="timediscrete.ecore#//TimeLine/getBucket/sometime"/>
-          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_qWcPgGudEeaBCZ_-0MO6fw" labelAlignment="LEFT">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_HGc_kIP6EeaSpoJT8AWglQ" name="getBucketFloor(sometime EDate) : TimeBucket" tooltipText="getBucketFloor(sometime) : TimeBucket">
+          <target xmi:type="ecore:EOperation" href="timediscrete.ecore#//TimeLine/getBucketFloor"/>
+          <semanticElements xmi:type="ecore:EOperation" href="timediscrete.ecore#//TimeLine/getBucketFloor"/>
+          <semanticElements xmi:type="ecore:EParameter" href="timediscrete.ecore#//TimeLine/getBucketFloor/sometime"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_HGdmoIP6EeaSpoJT8AWglQ" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_HGdmoYP6EeaSpoJT8AWglQ" name="getBucketCeil(sometime EDate) : TimeBucket" tooltipText="getBucketCeil(sometime) : TimeBucket">
+          <target xmi:type="ecore:EOperation" href="timediscrete.ecore#//TimeLine/getBucketCeil"/>
+          <semanticElements xmi:type="ecore:EOperation" href="timediscrete.ecore#//TimeLine/getBucketCeil"/>
+          <semanticElements xmi:type="ecore:EParameter" href="timediscrete.ecore#//TimeLine/getBucketCeil/sometime"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_HGdmooP6EeaSpoJT8AWglQ" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
