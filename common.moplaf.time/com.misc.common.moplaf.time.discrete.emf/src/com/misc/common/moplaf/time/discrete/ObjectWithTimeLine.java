@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ObjectWithTimeLine extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Buckets</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Buckets</b></em>' reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.time.discrete.ObjectTimeBucket}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -36,9 +36,9 @@ public interface ObjectWithTimeLine extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Buckets</em>' containment reference list.
+	 * @return the value of the '<em>Buckets</em>' reference list.
 	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getObjectWithTimeLine_Buckets()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	EList<ObjectTimeBucket> getBuckets();

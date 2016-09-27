@@ -587,7 +587,7 @@ public interface DiscretePackage extends EPackage {
 	int OBJECT_WITH_TIME_LINE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Buckets</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Buckets</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1295,10 +1295,10 @@ public interface DiscretePackage extends EPackage {
 	EClass getObjectWithTimeLine();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getBuckets <em>Buckets</em>}'.
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getBuckets <em>Buckets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Buckets</em>'.
+	 * @return the meta object for the reference list '<em>Buckets</em>'.
 	 * @see com.misc.common.moplaf.time.discrete.ObjectWithTimeLine#getBuckets()
 	 * @see #getObjectWithTimeLine()
 	 * @generated
@@ -1887,7 +1887,7 @@ public interface DiscretePackage extends EPackage {
 		EClass OBJECT_WITH_TIME_LINE = eINSTANCE.getObjectWithTimeLine();
 
 		/**
-		 * The meta object literal for the '<em><b>Buckets</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Buckets</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

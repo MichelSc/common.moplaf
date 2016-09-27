@@ -12,6 +12,11 @@
       <genEnumLiterals ecoreEnumLiteral="timediscrete.ecore#//BucketType/TLMonth"/>
       <genEnumLiterals ecoreEnumLiteral="timediscrete.ecore#//BucketType/TLWeek"/>
       <genEnumLiterals ecoreEnumLiteral="timediscrete.ecore#//BucketType/TLDay"/>
+      <genEnumLiterals ecoreEnumLiteral="timediscrete.ecore#//BucketType/TLHalfDay"/>
+      <genEnumLiterals ecoreEnumLiteral="timediscrete.ecore#//BucketType/TLEightHours"/>
+      <genEnumLiterals ecoreEnumLiteral="timediscrete.ecore#//BucketType/TLSixHours"/>
+      <genEnumLiterals ecoreEnumLiteral="timediscrete.ecore#//BucketType/TLFourHours"/>
+      <genEnumLiterals ecoreEnumLiteral="timediscrete.ecore#//BucketType/TLTwoHours"/>
       <genEnumLiterals ecoreEnumLiteral="timediscrete.ecore#//BucketType/TLHour"/>
       <genEnumLiterals ecoreEnumLiteral="timediscrete.ecore#//BucketType/TLHalfHour"/>
       <genEnumLiterals ecoreEnumLiteral="timediscrete.ecore#//BucketType/TLQuarterHour"/>
@@ -48,6 +53,7 @@
     </genClasses>
     <genClasses ecoreClass="timediscrete.ecore#//TimeLine" labelFeature="#//discrete/TimeLine/Description">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//TimeLine/BucketType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//TimeLine/BucketTypeRefreshed"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//TimeLine/Description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//TimeLine/TimeZoneID"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//TimeLine/LocaleLanguage"/>
@@ -63,8 +69,11 @@
         <genParameters ecoreParameter="timediscrete.ecore#//TimeLine/iterator/to"/>
         <genParameters ecoreParameter="timediscrete.ecore#//TimeLine/iterator/naked"/>
       </genOperations>
-      <genOperations ecoreOperation="timediscrete.ecore#//TimeLine/getBucket">
-        <genParameters ecoreParameter="timediscrete.ecore#//TimeLine/getBucket/sometime"/>
+      <genOperations ecoreOperation="timediscrete.ecore#//TimeLine/getBucketFloor">
+        <genParameters ecoreParameter="timediscrete.ecore#//TimeLine/getBucketFloor/sometime"/>
+      </genOperations>
+      <genOperations ecoreOperation="timediscrete.ecore#//TimeLine/getBucketCeil">
+        <genParameters ecoreParameter="timediscrete.ecore#//TimeLine/getBucketCeil/sometime"/>
       </genOperations>
       <genOperations ecoreOperation="timediscrete.ecore#//TimeLine/createBucket"/>
     </genClasses>
@@ -88,8 +97,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//MergeElement/Seconds"/>
     </genClasses>
     <genClasses ecoreClass="timediscrete.ecore#//ObjectWithTimeLine">
-      <genFeatures children="true" createChild="false" propertySortChoices="true"
-          ecoreFeature="ecore:EReference timediscrete.ecore#//ObjectWithTimeLine/Buckets"/>
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//ObjectWithTimeLine/Buckets"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//ObjectWithTimeLine/LastBucket"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//ObjectWithTimeLine/FirstBucket"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//ObjectWithTimeLine/StartBucket"/>

@@ -109,7 +109,7 @@
     <eOperations name="constructObjectTimeBucket" eType="#//ObjectTimeBucket"/>
     <eOperations name="refresh"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Buckets" upperBound="-1"
-        eType="#//ObjectTimeBucket" containment="true"/>
+        eType="#//ObjectTimeBucket"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="LastBucket" eType="#//ObjectTimeBucket"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="FirstBucket" eType="#//ObjectTimeBucket"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="StartBucket" eType="#//TimeBucket"/>

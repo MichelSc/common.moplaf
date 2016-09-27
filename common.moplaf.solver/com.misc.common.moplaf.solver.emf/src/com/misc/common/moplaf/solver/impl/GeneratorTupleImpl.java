@@ -281,8 +281,9 @@ public abstract class GeneratorTupleImpl extends GeneratorElementImpl implements
 	 * <!-- end-user-doc -->
 	 */
 	public void visitTuples(ITupleVisitor visitor) throws Exception {
-		
+		// first this tuples
 		visitor.visitTuple(this);
+		// second its children (might have been created in the visit of this tuple
 		for ( GeneratorTuple elementtuple : this.getTupleElement()){
 			elementtuple.visitTuples(visitor);
 		}
