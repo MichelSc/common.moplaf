@@ -299,8 +299,26 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRun_ReturnFeedback() {
+	public EAttribute getRun_ReturnSuccess() {
 		return (EAttribute)runEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRun_ReturnFeedback() {
+		return (EAttribute)runEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRun_ReturnInformation() {
+		return (EAttribute)runEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -415,7 +433,9 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		createEReference(runEClass, RUN__PARENT_RUN);
 		createEAttribute(runEClass, RUN__RUN_FEEDBACK);
 		createEAttribute(runEClass, RUN__CANCEL_FEEDBACK);
+		createEAttribute(runEClass, RUN__RETURN_SUCCESS);
 		createEAttribute(runEClass, RUN__RETURN_FEEDBACK);
+		createEAttribute(runEClass, RUN__RETURN_INFORMATION);
 		createEOperation(runEClass, RUN___RUN);
 		createEOperation(runEClass, RUN___RUN__RUN);
 		createEOperation(runEClass, RUN___RUN_BACKGROUND);
@@ -485,7 +505,9 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		initEReference(getRun_ParentRun(), this.getRun(), null, "ParentRun", null, 0, 1, Run.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRun_RunFeedback(), this.getCommandFeedback(), "RunFeedback", null, 0, 1, Run.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRun_CancelFeedback(), this.getCommandFeedback(), "CancelFeedback", null, 0, 1, Run.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRun_ReturnFeedback(), this.getReturnFeedback(), "ReturnFeedback", null, 0, 1, Run.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRun_ReturnSuccess(), ecorePackage.getEBoolean(), "ReturnSuccess", null, 0, 1, Run.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRun_ReturnFeedback(), ecorePackage.getEString(), "ReturnFeedback", null, 0, 1, Run.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRun_ReturnInformation(), ecorePackage.getEString(), "ReturnInformation", null, 0, 1, Run.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getRun__Run(), this.getReturnFeedback(), "run", 0, 1, IS_UNIQUE, IS_ORDERED);
 

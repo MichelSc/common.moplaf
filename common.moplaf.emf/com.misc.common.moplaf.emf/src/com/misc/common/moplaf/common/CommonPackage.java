@@ -105,13 +105,31 @@ public interface CommonPackage extends EPackage {
 	int RUN__CANCEL_FEEDBACK = 3;
 
 	/**
+	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUN__RETURN_SUCCESS = 4;
+
+	/**
 	 * The feature id for the '<em><b>Return Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RUN__RETURN_FEEDBACK = 4;
+	int RUN__RETURN_FEEDBACK = 5;
+
+	/**
+	 * The feature id for the '<em><b>Return Information</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUN__RETURN_INFORMATION = 6;
 
 	/**
 	 * The number of structural features of the '<em>Run</em>' class.
@@ -120,7 +138,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN_FEATURE_COUNT = 5;
+	int RUN_FEATURE_COUNT = 7;
 
 	/**
 	 * The operation id for the '<em>Run</em>' operation.
@@ -223,6 +241,15 @@ public interface CommonPackage extends EPackage {
 	int JOB__CANCEL_FEEDBACK = RUN__CANCEL_FEEDBACK;
 
 	/**
+	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB__RETURN_SUCCESS = RUN__RETURN_SUCCESS;
+
+	/**
 	 * The feature id for the '<em><b>Return Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -230,6 +257,15 @@ public interface CommonPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB__RETURN_FEEDBACK = RUN__RETURN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Return Information</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB__RETURN_INFORMATION = RUN__RETURN_INFORMATION;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -659,6 +695,17 @@ public interface CommonPackage extends EPackage {
 	EAttribute getRun_CancelFeedback();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.common.Run#isReturnSuccess <em>Return Success</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Return Success</em>'.
+	 * @see com.misc.common.moplaf.common.Run#isReturnSuccess()
+	 * @see #getRun()
+	 * @generated
+	 */
+	EAttribute getRun_ReturnSuccess();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.common.Run#getReturnFeedback <em>Return Feedback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -668,6 +715,17 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getRun_ReturnFeedback();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.common.Run#getReturnInformation <em>Return Information</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Return Information</em>'.
+	 * @see com.misc.common.moplaf.common.Run#getReturnInformation()
+	 * @see #getRun()
+	 * @generated
+	 */
+	EAttribute getRun_ReturnInformation();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.common.Run#run() <em>Run</em>}' operation.
@@ -929,12 +987,28 @@ public interface CommonPackage extends EPackage {
 		EAttribute RUN__CANCEL_FEEDBACK = eINSTANCE.getRun_CancelFeedback();
 
 		/**
+		 * The meta object literal for the '<em><b>Return Success</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RUN__RETURN_SUCCESS = eINSTANCE.getRun_ReturnSuccess();
+
+		/**
 		 * The meta object literal for the '<em><b>Return Feedback</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute RUN__RETURN_FEEDBACK = eINSTANCE.getRun_ReturnFeedback();
+
+		/**
+		 * The meta object literal for the '<em><b>Return Information</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RUN__RETURN_INFORMATION = eINSTANCE.getRun_ReturnInformation();
 
 		/**
 		 * The meta object literal for the '<em><b>Run</b></em>' operation.

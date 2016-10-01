@@ -11,15 +11,15 @@
     <genDataTypes ecoreDataType="common.ecore#//ReturnFeedback"/>
     <genClasses ecoreClass="common.ecore#//Job" labelFeature="#//common/Job/Description">
       <genFeatures createChild="false" propertyCategory="10 Job" ecoreFeature="ecore:EAttribute common.ecore#//Job/Name"/>
-      <genFeatures property="Readonly" createChild="false" propertyCategory="20 Status"
+      <genFeatures property="Readonly" createChild="false" propertyCategory="11 Job Status"
           propertyDescription="" ecoreFeature="ecore:EAttribute common.ecore#//Job/Status"/>
-      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job"
+      <genFeatures property="Readonly" createChild="false" propertyCategory="11 Job Status"
           ecoreFeature="ecore:EAttribute common.ecore#//Job/Description"/>
-      <genFeatures property="Readonly" createChild="false" propertyCategory="20 Status"
+      <genFeatures property="Readonly" createChild="false" propertyCategory="11 Job Status"
           ecoreFeature="ecore:EAttribute common.ecore#//Job/StartTime"/>
-      <genFeatures property="Readonly" createChild="false" propertyCategory="20 Status"
+      <genFeatures property="Readonly" createChild="false" propertyCategory="11 Job Status"
           ecoreFeature="ecore:EAttribute common.ecore#//Job/EndTime"/>
-      <genFeatures property="Readonly" createChild="false" propertyCategory="20 Status"
+      <genFeatures property="Readonly" createChild="false" propertyCategory="11 Job Status"
           ecoreFeature="ecore:EAttribute common.ecore#//Job/Duration"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Job/Created"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Job/Running"/>
@@ -37,15 +37,19 @@
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="common.ecore#//Run">
-      <genFeatures createChild="false" propertyCategory="10 Job" ecoreFeature="ecore:EAttribute common.ecore#//Run/Canceled"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="10 Job"
+      <genFeatures createChild="false" propertyCategory="10 Job Control" ecoreFeature="ecore:EAttribute common.ecore#//Run/Canceled"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="10 Job Control"
           propertySortChoices="true" ecoreFeature="ecore:EReference common.ecore#//Run/ParentRun"/>
-      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job"
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job Control"
           ecoreFeature="ecore:EAttribute common.ecore#//Run/RunFeedback"/>
-      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job"
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job Control"
           ecoreFeature="ecore:EAttribute common.ecore#//Run/CancelFeedback"/>
-      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job"
+      <genFeatures property="Readonly" createChild="false" propertyCategory="12 Job Return"
+          ecoreFeature="ecore:EAttribute common.ecore#//Run/ReturnSuccess"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="12 Job Return"
           ecoreFeature="ecore:EAttribute common.ecore#//Run/ReturnFeedback"/>
+      <genFeatures createChild="false" propertyCategory="12 Job Return" propertyMultiLine="true"
+          ecoreFeature="ecore:EAttribute common.ecore#//Run/ReturnInformation"/>
       <genOperations ecoreOperation="common.ecore#//Run/run"/>
       <genOperations ecoreOperation="common.ecore#//Run/run.1">
         <genParameters ecoreParameter="common.ecore#//Run/run.1/parentRun"/>

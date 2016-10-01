@@ -94,7 +94,7 @@ public class JobItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__20StatusPropertyCategory"),
+				 getString("_UI__11JobStatusPropertyCategory"),
 				 null));
 	}
 
@@ -116,7 +116,7 @@ public class JobItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10JobPropertyCategory"),
+				 getString("_UI__11JobStatusPropertyCategory"),
 				 null));
 	}
 
@@ -138,7 +138,7 @@ public class JobItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__20StatusPropertyCategory"),
+				 getString("_UI__11JobStatusPropertyCategory"),
 				 null));
 	}
 
@@ -160,7 +160,7 @@ public class JobItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__20StatusPropertyCategory"),
+				 getString("_UI__11JobStatusPropertyCategory"),
 				 null));
 	}
 
@@ -182,7 +182,7 @@ public class JobItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 getString("_UI__20StatusPropertyCategory"),
+				 getString("_UI__11JobStatusPropertyCategory"),
 				 null));
 	}
 

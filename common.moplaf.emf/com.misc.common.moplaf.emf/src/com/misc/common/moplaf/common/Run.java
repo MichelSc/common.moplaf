@@ -17,7 +17,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.common.Run#getParentRun <em>Parent Run</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.Run#getRunFeedback <em>Run Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.Run#getCancelFeedback <em>Cancel Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.common.Run#isReturnSuccess <em>Return Success</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.Run#getReturnFeedback <em>Return Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.common.Run#getReturnInformation <em>Return Information</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.common.CommonPackage#getRun()
@@ -108,6 +110,32 @@ public interface Run extends EObject {
 	CommandFeedback getCancelFeedback();
 
 	/**
+	 * Returns the value of the '<em><b>Return Success</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Return Success</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Return Success</em>' attribute.
+	 * @see #setReturnSuccess(boolean)
+	 * @see com.misc.common.moplaf.common.CommonPackage#getRun_ReturnSuccess()
+	 * @model
+	 * @generated
+	 */
+	boolean isReturnSuccess();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.common.Run#isReturnSuccess <em>Return Success</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Return Success</em>' attribute.
+	 * @see #isReturnSuccess()
+	 * @generated
+	 */
+	void setReturnSuccess(boolean value);
+
+	/**
 	 * Returns the value of the '<em><b>Return Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -116,12 +144,12 @@ public interface Run extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Return Feedback</em>' attribute.
-	 * @see #setReturnFeedback(ReturnFeedback)
+	 * @see #setReturnFeedback(String)
 	 * @see com.misc.common.moplaf.common.CommonPackage#getRun_ReturnFeedback()
-	 * @model dataType="com.misc.common.moplaf.common.ReturnFeedback" transient="true"
+	 * @model
 	 * @generated
 	 */
-	ReturnFeedback getReturnFeedback();
+	String getReturnFeedback();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.common.Run#getReturnFeedback <em>Return Feedback</em>}' attribute.
@@ -131,7 +159,33 @@ public interface Run extends EObject {
 	 * @see #getReturnFeedback()
 	 * @generated
 	 */
-	void setReturnFeedback(ReturnFeedback value);
+	void setReturnFeedback(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Return Information</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Return Information</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Return Information</em>' attribute.
+	 * @see #setReturnInformation(String)
+	 * @see com.misc.common.moplaf.common.CommonPackage#getRun_ReturnInformation()
+	 * @model
+	 * @generated
+	 */
+	String getReturnInformation();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.common.Run#getReturnInformation <em>Return Information</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Return Information</em>' attribute.
+	 * @see #getReturnInformation()
+	 * @generated
+	 */
+	void setReturnInformation(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

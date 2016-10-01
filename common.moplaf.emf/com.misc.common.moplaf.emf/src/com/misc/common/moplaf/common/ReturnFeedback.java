@@ -25,8 +25,8 @@ public class ReturnFeedback {
 	public ReturnFeedback(String context, Exception exception) {
 		super();
 		this.success     = false;
-		this.feedback    = context + ":" + exception.toString();
-		this.information = exception.getMessage();
+		this.feedback    = context + ": " + exception.getClass().getSimpleName();
+		this.information = exception.toString();
 	}
 	
 	public boolean isSuccess() {

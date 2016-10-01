@@ -70,7 +70,9 @@ public class RunItemProvider
 			addParentRunPropertyDescriptor(object);
 			addRunFeedbackPropertyDescriptor(object);
 			addCancelFeedbackPropertyDescriptor(object);
+			addReturnSuccessPropertyDescriptor(object);
 			addReturnFeedbackPropertyDescriptor(object);
+			addReturnInformationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -93,7 +95,7 @@ public class RunItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 getString("_UI__10JobPropertyCategory"),
+				 getString("_UI__10JobControlPropertyCategory"),
 				 null));
 	}
 
@@ -115,7 +117,7 @@ public class RunItemProvider
 				 false,
 				 true,
 				 null,
-				 getString("_UI__10JobPropertyCategory"),
+				 getString("_UI__10JobControlPropertyCategory"),
 				 null));
 	}
 
@@ -137,7 +139,7 @@ public class RunItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10JobPropertyCategory"),
+				 getString("_UI__10JobControlPropertyCategory"),
 				 null));
 	}
 
@@ -159,7 +161,29 @@ public class RunItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10JobPropertyCategory"),
+				 getString("_UI__10JobControlPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Return Success feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReturnSuccessPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Run_ReturnSuccess_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Run_ReturnSuccess_feature", "_UI_Run_type"),
+				 CommonPackage.Literals.RUN__RETURN_SUCCESS,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 getString("_UI__12JobReturnPropertyCategory"),
 				 null));
 	}
 
@@ -181,7 +205,29 @@ public class RunItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10JobPropertyCategory"),
+				 getString("_UI__12JobReturnPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Return Information feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReturnInformationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Run_ReturnInformation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Run_ReturnInformation_feature", "_UI_Run_type"),
+				 CommonPackage.Literals.RUN__RETURN_INFORMATION,
+				 true,
+				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__12JobReturnPropertyCategory"),
 				 null));
 	}
 
@@ -224,7 +270,9 @@ public class RunItemProvider
 			case CommonPackage.RUN__CANCELED:
 			case CommonPackage.RUN__RUN_FEEDBACK:
 			case CommonPackage.RUN__CANCEL_FEEDBACK:
+			case CommonPackage.RUN__RETURN_SUCCESS:
 			case CommonPackage.RUN__RETURN_FEEDBACK:
+			case CommonPackage.RUN__RETURN_INFORMATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
