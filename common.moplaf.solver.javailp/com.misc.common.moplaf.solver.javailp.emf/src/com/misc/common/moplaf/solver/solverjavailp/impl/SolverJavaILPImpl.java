@@ -6,6 +6,7 @@ package com.misc.common.moplaf.solver.solverjavailp.impl;
 import java.io.FileOutputStream;
 import java.lang.reflect.InvocationTargetException;
 
+import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.solver.EnumLpConsType;
 import com.misc.common.moplaf.solver.EnumLpFileFormat;
 import com.misc.common.moplaf.solver.EnumLpVarType;
@@ -597,13 +598,15 @@ public class SolverJavaILPImpl extends SolverLpImpl implements SolverJavaILP {
 	} // method lp load
 	
 	@Override
-	public void solveImpl() {
+	public ReturnFeedback solveImpl() {
 		
 		Generator generator = this.getGenerator();
 
 		// load the lp
 		this.loadLp();
-		if ( this.problem==null ) { return; }
+		if ( this.problem==null ) { 
+		return new ReturnFeedback(false, "SolverJavaILP.solve: no lp"); 
+	}
 
 		this.onInitializationEnd();
 		
@@ -665,10 +668,13 @@ public class SolverJavaILPImpl extends SolverLpImpl implements SolverJavaILP {
 		catch (Exception e) {
 			e.printStackTrace();
 			Plugin.INSTANCE.logError("SolverJavaILP: load failed "+e);
+			return new ReturnFeedback("SolverJavaILP.solve", e);
 		}
 		
 		// release the lp
 		this.releaseLp();
+		
+		return ReturnFeedback.SUCCESS;
 		
 	} // method SolveLp
 	

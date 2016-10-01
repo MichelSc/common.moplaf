@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.solver.solverneos.impl;
 
+import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.ILpWriter;
 import com.misc.common.moplaf.solver.Plugin;
@@ -1015,7 +1016,7 @@ public class SolverNeosImpl extends SolverLpImpl implements SolverNeos {
 	 * @see com.misc.common.moplaf.solver.impl.SolverImpl#solveLp()
 	 */
 	@Override
-	public void solveImpl() {
+	public ReturnFeedback solveImpl() {
 		this.submitJob();
 		
 		this.onInitializationEnd();
@@ -1057,7 +1058,7 @@ public class SolverNeosImpl extends SolverLpImpl implements SolverNeos {
 			this.onSolverFeedback("", this.getJobStatus(), 0.0f, 0.0f, false);
 		} // while not finished
 		
-		return;
+		return ReturnFeedback.SUCCESS;
 	}  // method solveLp
 
 	/**

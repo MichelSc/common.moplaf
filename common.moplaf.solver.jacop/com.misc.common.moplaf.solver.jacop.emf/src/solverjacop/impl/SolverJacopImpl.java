@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorCons;
 import com.misc.common.moplaf.solver.GeneratorCpCons;
@@ -246,11 +247,13 @@ public class SolverJacopImpl extends SolverCpImpl implements SolverJacop {
 	} // method lp load
 	
 	@Override
-	public void solveImpl() {
+	public ReturnFeedback solveImpl() {
 
 		// load the model
 		this.loadCp();
-		if ( this.store==null ) { return; }
+		if ( this.store==null ) { 
+			return new ReturnFeedback(false, "SolverJacop.solve: no cp"); 
+		}
 		
 		// post the constraints
 		for (Entry<GeneratorCpCons, Constraint> mapEntry : this.cons.entrySet()){
@@ -327,6 +330,8 @@ public class SolverJacopImpl extends SolverCpImpl implements SolverJacop {
 		
 		// release the lp
 		this.releaseCp();
+		
+		return ReturnFeedback.SUCCESS;
 		
 	} // method SolveSolver
 	

@@ -12,6 +12,7 @@ import gurobi.GRBModel;
 import gurobi.GRBVar;
 import gurobi.GRBCallback;
 
+import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.solver.EnumLpConsType;
 import com.misc.common.moplaf.solver.EnumLpFileFormat;
 import com.misc.common.moplaf.solver.EnumLpVarType;
@@ -650,11 +651,13 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 	} // method lp load
 		
 	@Override
-	public void solveImpl() {
+	public ReturnFeedback solveImpl() {
 	
 		// load the lp
 		this.loadLp();
-		if ( this.model==null ) { return; }
+		if ( this.model==null ) { 
+			return new ReturnFeedback(false, "SolverGurobi.solve: no lp");
+		}
 	
 		this.onInitializationEnd();
 		
@@ -667,6 +670,7 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 		}
 		catch (Exception e)	{
 			Plugin.INSTANCE.logError("SolverGurobi: solve failed, "+e.getMessage());
+			return new ReturnFeedback("SolverGurobi.solve", e);
 		}
 		
 	    this.onSolvingEnd();
@@ -703,10 +707,13 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 			this.setSolValue(mipvalue);
 		} catch (GRBException e) {
 			Plugin.INSTANCE.logError("SolverGurobi: solution build failed, "+e.getMessage());
+			return new ReturnFeedback("SolverGurobi.solve", e);
 		}
 		
 		// release the lp
 		this.releaseLp();
+		
+		return ReturnFeedback.SUCCESS;
 		
 	} // method SolveLp
 	

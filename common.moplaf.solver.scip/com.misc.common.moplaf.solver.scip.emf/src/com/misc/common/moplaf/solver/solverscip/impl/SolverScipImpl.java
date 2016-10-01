@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.solver.solverscip.impl;
 
+import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.solver.EnumLpConsType;
 import com.misc.common.moplaf.solver.EnumLpFileFormat;
 import com.misc.common.moplaf.solver.EnumLpVarType;
@@ -624,10 +625,12 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 	 * <!-- end-user-doc -->
 	 */
 	@Override
-	protected void solveImpl() {
+	protected ReturnFeedback solveImpl() {
 
 		this.loadLp();
-		if ( this.envScip==null ) { return; }
+		if ( this.envScip==null ) { 
+			return new ReturnFeedback(false, "SolverScip.solve: no lp"); 
+		}
 
 		this.onInitializationEnd();
 		
@@ -658,6 +661,7 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 		}
 		catch (Exception e)		{
 			Plugin.INSTANCE.logError("SolverScip: solve failed "+e);
+			return new ReturnFeedback("SolverJavaScip.solve", e);
 		}
 		this.onSolvingEnd();
 		
@@ -718,6 +722,7 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 		}
 		catch (Exception e)		{
 			Plugin.INSTANCE.logError("SolverScip: get/makeSolution failed "+e);
+			return new ReturnFeedback("SolverJavaScip.solve", e);
 		}
 		this.setSolFeasible(feasible);
 		this.setSolUnfeasible(infeasible);
@@ -727,6 +732,8 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 		
 		// release the lp
 		this.releaseLp();
+		
+		return ReturnFeedback.SUCCESS;
 		
 	} // method SolveLp
 
