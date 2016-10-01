@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
+import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.common.impl.RunImpl;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorCons;
@@ -602,16 +603,20 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 	 * @see com.misc.common.moplaf.common.impl.RunImpl#runImpl()
 	 */
 	@Override
-	protected boolean runImpl() {
-		this.generate();
-		return true;
+	protected ReturnFeedback runImpl() {
+		try {
+			this.generate();
+			return ReturnFeedback.SUCCESS;
+		} catch (Exception e){
+			return new ReturnFeedback("Generator.run", e);
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void generate() {
+	public ReturnFeedback generate() {
 		Plugin.INSTANCE.logInfo("Generator.generate: called");
 		//this.getTupleRoot().clear();
 		while ( !this.getTupleRoot().isEmpty()){
@@ -625,16 +630,22 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 		}
 		Plugin.INSTANCE.logInfo("Generator.generate: flushed");
 	
-		this.generateTuples();
-		Plugin.INSTANCE.logInfo("Generator.generate: tuples generated");
-		this.generateTupleXReferences();
-		Plugin.INSTANCE.logInfo("Generator.generate: tuple cross references generated");
-		this.generateVars();
-		Plugin.INSTANCE.logInfo("Generator.generate: vars generated");
-		this.generateCons();
-		Plugin.INSTANCE.logInfo("Generator.generate: con generated");
-		this.generateGoals();
-		Plugin.INSTANCE.logInfo("Generator.generate: goals generated");
+		try {
+			this.generateTuples();
+			Plugin.INSTANCE.logInfo("Generator.generate: tuples generated");
+			this.generateTupleXReferences();
+			Plugin.INSTANCE.logInfo("Generator.generate: tuple cross references generated");
+			this.generateVars();
+			Plugin.INSTANCE.logInfo("Generator.generate: vars generated");
+			this.generateCons();
+			Plugin.INSTANCE.logInfo("Generator.generate: con generated");
+			this.generateGoals();
+			Plugin.INSTANCE.logInfo("Generator.generate: goals generated");
+		} catch (Exception e) {
+			Plugin.INSTANCE.logError("Generator.generate: error "+ e.toString());
+			return new ReturnFeedback("Generator.generate", e);
+		}
+		return ReturnFeedback.SUCCESS;
 	}
 
 	/**
@@ -651,25 +662,21 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 	 * <!-- end-user-doc -->
 	 * @throws Exception 
 	 */
-	public void generateTuples()  {
+	public void generateTuples() throws Exception  {
 		this.generateRootTuples();
-		try {
-			this.visitTuples(new ITupleVisitor(){
-				@Override
-				public void visitTuple(GeneratorTuple tuple) {
-					tuple.generateTuples();
-				}
+		this.visitTuples(new ITupleVisitor(){
+			@Override
+			public void visitTuple(GeneratorTuple tuple) {
+				tuple.generateTuples();
+			}
 			});
-		} catch (Exception e) {
-			Plugin.INSTANCE.logError("Generator: generating tuples failed, "+e.getMessage());
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void generateTupleXReferences() {
+	public void generateTupleXReferences() throws Exception {
 		class TupleXReferenceGenerator implements ITupleVisitor{
 			@Override
 			public void visitTuple(GeneratorTuple tuple) {
@@ -677,18 +684,14 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 			}
 		}
 		TupleXReferenceGenerator tuple_x_ref_generator = new TupleXReferenceGenerator();
-		try {
 			this.visitTuples(tuple_x_ref_generator);
-		} catch (Exception e) {
-			Plugin.INSTANCE.logError("Generator: generating tuple cross references failed, "+e.getMessage());
-		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void generateVars() {
+	public void generateVars() throws Exception {
 		class VarGenerator implements ITupleVisitor{
 			private int varcounter;
 			@Override
@@ -698,11 +701,7 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 			}
 		}
 		VarGenerator vargenerator = new VarGenerator();
-		try {
-			this.visitTuples(vargenerator);
-		} catch (Exception e) {
-			Plugin.INSTANCE.logError("Generator: generating vars failed, "+e.getMessage());
-		}
+		this.visitTuples(vargenerator);
 		this.setFootprintNofVars(vargenerator.varcounter);
 	}
 
@@ -710,7 +709,7 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void generateCons() {
+	public void generateCons() throws Exception  {
 		class ConsGenerator implements ITupleVisitor{
 			private int conscounter=0;
 			private int termscounter=0;
@@ -724,11 +723,7 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 			}
 		}
 		ConsGenerator consgenerator = new ConsGenerator();
-		try {
-			this.visitTuples(consgenerator);
-		} catch (Exception e) {
-			Plugin.INSTANCE.logError("Generator: generating cons failed, "+e.getMessage());
-		}
+		this.visitTuples(consgenerator);
 		this.setFootprintNofCons(consgenerator.conscounter);
 		this.setFootprintNofTerms(consgenerator.termscounter);
 	}
@@ -1032,26 +1027,55 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case SolverPackage.GENERATOR___GENERATE:
-				generate();
-				return null;
+				return generate();
 			case SolverPackage.GENERATOR___GENERATE_ROOT_TUPLES:
-				generateRootTuples();
-				return null;
+				try {
+					generateRootTuples();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case SolverPackage.GENERATOR___GENERATE_TUPLES:
-				generateTuples();
-				return null;
+				try {
+					generateTuples();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case SolverPackage.GENERATOR___GENERATE_TUPLE_XREFERENCES:
-				generateTupleXReferences();
-				return null;
+				try {
+					generateTupleXReferences();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case SolverPackage.GENERATOR___GENERATE_VARS:
-				generateVars();
-				return null;
+				try {
+					generateVars();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case SolverPackage.GENERATOR___GENERATE_CONS:
-				generateCons();
-				return null;
+				try {
+					generateCons();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case SolverPackage.GENERATOR___GENERATE_GOALS:
-				generateGoals();
-				return null;
+				try {
+					generateGoals();
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case SolverPackage.GENERATOR___ACCEPT_SOLUTION__SOLUTION:
 				acceptSolution((Solution)arguments.get(0));
 				return null;

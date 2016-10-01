@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.solver.impl;
 
 import com.misc.common.moplaf.common.CommandFeedback;
+import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.solver.EnumGoalType;
 import com.misc.common.moplaf.solver.EnumLpConsType;
 import com.misc.common.moplaf.solver.EnumSolverLogLevel;
@@ -101,8 +102,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public abstract class SolverImpl extends SolutionProviderImpl implements Solver {
 	/**
 	 * The default value of the '{@link #getRemarks() <em>Remarks</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getRemarks()
 	 * @generated
 	 * @ordered
@@ -111,8 +111,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The cached value of the '{@link #getRemarks() <em>Remarks</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getRemarks()
 	 * @generated
 	 * @ordered
@@ -121,8 +120,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The default value of the '{@link #getStatus() <em>Status</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getStatus()
 	 * @generated
 	 * @ordered
@@ -131,8 +129,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The cached value of the '{@link #getStatus() <em>Status</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getStatus()
 	 * @generated
 	 * @ordered
@@ -141,8 +138,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The default value of the '{@link #getSolverMaxDuration() <em>Solver Max Duration</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSolverMaxDuration()
 	 * @generated
 	 * @ordered
@@ -151,8 +147,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The cached value of the '{@link #getSolverMaxDuration() <em>Solver Max Duration</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSolverMaxDuration()
 	 * @generated
 	 * @ordered
@@ -161,8 +156,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The default value of the '{@link #getSolverLogLevel() <em>Solver Log Level</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSolverLogLevel()
 	 * @generated
 	 * @ordered
@@ -171,8 +165,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The cached value of the '{@link #getSolverLogLevel() <em>Solver Log Level</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSolverLogLevel()
 	 * @generated
 	 * @ordered
@@ -181,8 +174,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The default value of the '{@link #isSolverDump() <em>Solver Dump</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isSolverDump()
 	 * @generated
 	 * @ordered
@@ -191,8 +183,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The cached value of the '{@link #isSolverDump() <em>Solver Dump</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isSolverDump()
 	 * @generated
 	 * @ordered
@@ -201,8 +192,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The default value of the '{@link #getRunStarted() <em>Run Started</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getRunStarted()
 	 * @generated
 	 * @ordered
@@ -211,8 +201,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The cached value of the '{@link #getRunStarted() <em>Run Started</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getRunStarted()
 	 * @generated
 	 * @ordered
@@ -221,8 +210,8 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The default value of the '{@link #getRunInitializationEnded() <em>Run Initialization Ended</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getRunInitializationEnded()
 	 * @generated
 	 * @ordered
@@ -231,8 +220,8 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The cached value of the '{@link #getRunInitializationEnded() <em>Run Initialization Ended</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getRunInitializationEnded()
 	 * @generated
 	 * @ordered
@@ -241,8 +230,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The default value of the '{@link #getRunSolvingEnded() <em>Run Solving Ended</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getRunSolvingEnded()
 	 * @generated
 	 * @ordered
@@ -251,8 +239,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The cached value of the '{@link #getRunSolvingEnded() <em>Run Solving Ended</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getRunSolvingEnded()
 	 * @generated
 	 * @ordered
@@ -261,8 +248,8 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The default value of the '{@link #getRunFinalizationEnded() <em>Run Finalization Ended</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getRunFinalizationEnded()
 	 * @generated
 	 * @ordered
@@ -271,8 +258,8 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The cached value of the '{@link #getRunFinalizationEnded() <em>Run Finalization Ended</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getRunFinalizationEnded()
 	 * @generated
 	 * @ordered
@@ -281,8 +268,8 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The default value of the '{@link #getRunDurationInitialization() <em>Run Duration Initialization</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getRunDurationInitialization()
 	 * @generated
 	 * @ordered
@@ -291,8 +278,8 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The cached value of the '{@link #getRunDurationInitialization() <em>Run Duration Initialization</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getRunDurationInitialization()
 	 * @generated
 	 * @ordered
@@ -301,8 +288,8 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The default value of the '{@link #getRunDurationFinalization() <em>Run Duration Finalization</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getRunDurationFinalization()
 	 * @generated
 	 * @ordered
@@ -311,8 +298,8 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The cached value of the '{@link #getRunDurationFinalization() <em>Run Duration Finalization</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getRunDurationFinalization()
 	 * @generated
 	 * @ordered
@@ -321,8 +308,8 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The default value of the '{@link #getRunDurationSolving() <em>Run Duration Solving</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #getRunDurationSolving()
 	 * @generated
 	 * @ordered
@@ -331,8 +318,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The cached value of the '{@link #getRunDurationSolving() <em>Run Duration Solving</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getRunDurationSolving()
 	 * @generated
 	 * @ordered
@@ -341,8 +327,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The default value of the '{@link #isRunRequestTerminate() <em>Run Request Terminate</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isRunRequestTerminate()
 	 * @generated
 	 * @ordered
@@ -351,8 +336,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The cached value of the '{@link #isRunRequestTerminate() <em>Run Request Terminate</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isRunRequestTerminate()
 	 * @generated
 	 * @ordered
@@ -361,8 +345,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The default value of the '{@link #isRunTimeOut() <em>Run Time Out</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isRunTimeOut()
 	 * @generated
 	 * @ordered
@@ -371,8 +354,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The cached value of the '{@link #isRunTimeOut() <em>Run Time Out</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isRunTimeOut()
 	 * @generated
 	 * @ordered
@@ -380,9 +362,10 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	protected boolean runTimeOut = RUN_TIME_OUT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isSolUnfeasible() <em>Sol Unfeasible</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #isSolUnfeasible() <em>Sol
+	 * Unfeasible</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #isSolUnfeasible()
 	 * @generated
 	 * @ordered
@@ -390,9 +373,10 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	protected static final boolean SOL_UNFEASIBLE_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isSolUnfeasible() <em>Sol Unfeasible</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #isSolUnfeasible() <em>Sol
+	 * Unfeasible</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #isSolUnfeasible()
 	 * @generated
 	 * @ordered
@@ -401,8 +385,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The default value of the '{@link #isSolFeasible() <em>Sol Feasible</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isSolFeasible()
 	 * @generated
 	 * @ordered
@@ -411,8 +394,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The cached value of the '{@link #isSolFeasible() <em>Sol Feasible</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isSolFeasible()
 	 * @generated
 	 * @ordered
@@ -421,8 +403,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The default value of the '{@link #isSolOptimal() <em>Sol Optimal</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isSolOptimal()
 	 * @generated
 	 * @ordered
@@ -431,8 +412,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The cached value of the '{@link #isSolOptimal() <em>Sol Optimal</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isSolOptimal()
 	 * @generated
 	 * @ordered
@@ -441,8 +421,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The default value of the '{@link #getSolValue() <em>Sol Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSolValue()
 	 * @generated
 	 * @ordered
@@ -451,8 +430,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The cached value of the '{@link #getSolValue() <em>Sol Value</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSolValue()
 	 * @generated
 	 * @ordered
@@ -460,9 +438,10 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	protected float solValue = SOL_VALUE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isRunInterrupted() <em>Run Interrupted</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The default value of the '{@link #isRunInterrupted() <em>Run
+	 * Interrupted</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #isRunInterrupted()
 	 * @generated
 	 * @ordered
@@ -470,9 +449,10 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	protected static final boolean RUN_INTERRUPTED_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isRunInterrupted() <em>Run Interrupted</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The cached value of the '{@link #isRunInterrupted() <em>Run
+	 * Interrupted</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @see #isRunInterrupted()
 	 * @generated
 	 * @ordered
@@ -481,8 +461,8 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The default value of the '{@link #isInitializing() <em>Initializing</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @see #isInitializing()
 	 * @generated
 	 * @ordered
@@ -491,8 +471,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The cached value of the '{@link #isInitializing() <em>Initializing</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isInitializing()
 	 * @generated
 	 * @ordered
@@ -501,8 +480,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The default value of the '{@link #isSolving() <em>Solving</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isSolving()
 	 * @generated
 	 * @ordered
@@ -511,8 +489,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The cached value of the '{@link #isSolving() <em>Solving</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isSolving()
 	 * @generated
 	 * @ordered
@@ -521,8 +498,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The default value of the '{@link #isFinalizing() <em>Finalizing</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isFinalizing()
 	 * @generated
 	 * @ordered
@@ -531,8 +507,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The cached value of the '{@link #isFinalizing() <em>Finalizing</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isFinalizing()
 	 * @generated
 	 * @ordered
@@ -541,8 +516,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The default value of the '{@link #isFinished() <em>Finished</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isFinished()
 	 * @generated
 	 * @ordered
@@ -551,8 +525,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The cached value of the '{@link #isFinished() <em>Finished</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #isFinished()
 	 * @generated
 	 * @ordered
@@ -561,8 +534,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The cached value of the '{@link #getInitialSolution() <em>Initial Solution</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getInitialSolution()
 	 * @generated
 	 * @ordered
@@ -571,8 +543,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * The cached value of the '{@link #getGoals() <em>Goals</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getGoals()
 	 * @generated
 	 * @ordered
@@ -580,8 +551,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	protected EList<SolverGoal> goals;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected SolverImpl() {
@@ -589,8 +559,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void buildVar(GeneratorVar var) throws Exception {
@@ -600,55 +569,52 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public void buildLpVar(GeneratorLpVar var) throws Exception {
 		this.buildLpVarImpl(var);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public void buildCons() throws Exception {
 		// build the normal constraints
 		Generator generator = this.getGenerator();
-		class ConsMapper implements ITupleVisitor{
+		class ConsMapper implements ITupleVisitor {
 			@Override
 			public void visitTuple(GeneratorTuple tuple) throws Exception {
-				for ( GeneratorCons cons : tuple.getCons()){
+				for (GeneratorCons cons : tuple.getCons()) {
 					cons.build(SolverImpl.this);
 				}
 			}
-		}; // class ConsMapper
+		}
+		; // class ConsMapper
 		ConsMapper consmapper = new ConsMapper();
 		generator.visitTuples(consmapper);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public void buildVars() throws Exception {
 		Generator generator = this.getGenerator();
 		// build the vars
-		class VarMapper implements ITupleVisitor{
+		class VarMapper implements ITupleVisitor {
 			@Override
 			public void visitTuple(GeneratorTuple tuple) throws Exception {
-				for ( GeneratorVar var : tuple.getVar()){
+				for (GeneratorVar var : tuple.getVar()) {
 					var.build(SolverImpl.this);
-				}  // traverse the vars of the tuple
-			}  // method visitTuple
-		}; // VarMapper
+				} // traverse the vars of the tuple
+			} // method visitTuple
+		}
+		; // VarMapper
 		VarMapper varmapper = new VarMapper();
 		generator.visitTuples(varmapper);
 	}
 
-
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	protected void buildLpVarImpl(GeneratorLpVar var) throws Exception {
 		// TODO: implement this method
@@ -657,8 +623,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void buildCons(GeneratorCons cons) throws Exception {
@@ -668,57 +633,52 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public void buildLpCons(GeneratorLpCons cons) throws Exception {
 		this.buildLpCons(cons, cons, cons.getRighHandSide(), cons.getType());
 	}
-	
+
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	public void buildLpCons(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
-		if ( element instanceof GeneratorLpGoal) {
-			this.generatorGoalsToConstraint.add((GeneratorGoal)element);
+	public void buildLpCons(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type)
+			throws Exception {
+		if (element instanceof GeneratorLpGoal) {
+			this.generatorGoalsToConstraint.add((GeneratorGoal) element);
 		}
 		this.buildLpConsImpl(element, linear, rhs, type);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public void buildGoals() throws Exception {
 		// build the constraints implied by previous solvers and the goal
-		for ( SolverGoal goal : this.getGoals()){
+		for (SolverGoal goal : this.getGoals()) {
 			goal.buildGoal();
 		}
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	protected void buildLpConsImpl(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
+	protected void buildLpConsImpl(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type)
+			throws Exception {
 		// to be overloaded
 		throw new UnsupportedOperationException();
 	}
 
-
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public void buildLpGoal(GeneratorLpGoal goal, float weight) throws Exception {
 		this.generatorGoalsToSolve.add(goal);
-		this.buildLpGoalImpl(goal,  weight);
+		this.buildLpGoalImpl(goal, weight);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	protected void buildLpGoalImpl(GeneratorLpGoal goal, float weight) throws Exception {
 		// to be overloaded
@@ -726,8 +686,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public SolverGeneratorGoal constructSolverGoal(GeneratorGoal goal) {
 		SolverGeneratorGoal newGoal = SolverFactory.eINSTANCE.createSolverGeneratorGoal();
@@ -737,12 +696,11 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public SolverGoalPreviousSolver constructSolverGoal(Solution previousSolution) {
 		SolverGoalPreviousSolver newGoal = SolverFactory.eINSTANCE.createSolverGoalPreviousSolver();
-		Solver solver = (Solver)(previousSolution.getProvider());
+		Solver solver = (Solver) (previousSolution.getProvider());
 		newGoal.setPreviousSolver(solver);
 		newGoal.setPreviousSolution(previousSolution);
 		this.getGoals().add(newGoal);
@@ -750,13 +708,12 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public SolverGoalPreviousSolver constructSolverGoal(Solver previousSolver) {
 		SolverGoalPreviousSolver newGoal = SolverFactory.eINSTANCE.createSolverGoalPreviousSolver();
 		Solution previousSolution = null;
-		if ( previousSolver.getSolution().size()>0 ){
+		if (previousSolver.getSolution().size() > 0) {
 			previousSolution = previousSolver.getSolution().get(0);
 		}
 		newGoal.setPreviousSolver(previousSolver);
@@ -766,17 +723,16 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public void makeSolutionGoals(Solution solution) {
 		Generator generator = this.getGenerator();
-		for ( GeneratorGoal goal : generator.getGoals()){
+		for (GeneratorGoal goal : generator.getGoals()) {
 			SolutionGoal solutionGoal = solution.constructSolutionGoal(goal);
 			EnumGoalType type = EnumGoalType.ENUM_LITERAL_GOAL_TYPE_FREE;
-			if ( this.generatorGoalsToSolve.contains(goal) ){
+			if (this.generatorGoalsToSolve.contains(goal)) {
 				type = EnumGoalType.ENUM_LITERAL_GOAL_TYPE_OPTIMIZED;
-			} else if ( this.generatorGoalsToConstraint.contains(goal)){
+			} else if (this.generatorGoalsToConstraint.contains(goal)) {
 				type = EnumGoalType.ENUM_LITERAL_GOAL_TYPE_CONSTRAINED;
 			}
 			solutionGoal.setType(type);
@@ -784,8 +740,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -803,8 +758,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -819,8 +773,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -829,8 +782,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getRemarks() {
@@ -838,8 +790,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setRemarks(String newRemarks) {
@@ -850,8 +801,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public float getSolValue() {
@@ -859,8 +809,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setSolValue(float newSolValue) {
@@ -871,8 +820,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isRunInterrupted() {
@@ -880,8 +828,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setRunInterrupted(boolean newRunInterrupted) {
@@ -892,8 +839,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isRunTimeOut() {
@@ -901,8 +847,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setRunTimeOut(boolean newRunTimeOut) {
@@ -913,8 +858,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isInitializing() {
@@ -922,8 +866,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setInitializing(boolean newInitializing) {
@@ -934,8 +877,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Solution getInitialSolution() {
@@ -951,8 +893,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Solution basicGetInitialSolution() {
@@ -960,8 +901,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public NotificationChain basicSetInitialSolution(Solution newInitialSolution, NotificationChain msgs) {
@@ -975,8 +915,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setInitialSolution(Solution newInitialSolution) {
@@ -994,8 +933,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EList<SolverGoal> getGoals() {
@@ -1006,8 +944,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isSolving() {
@@ -1015,8 +952,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setSolving(boolean newSolving) {
@@ -1027,8 +963,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isFinalizing() {
@@ -1036,8 +971,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setFinalizing(boolean newFinalizing) {
@@ -1048,8 +982,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isFinished() {
@@ -1057,8 +990,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setFinished(boolean newFinished) {
@@ -1069,8 +1001,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public String getStatus() {
@@ -1078,8 +1009,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setStatus(String newStatus) {
@@ -1090,8 +1020,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public float getSolverMaxDuration() {
@@ -1099,8 +1028,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setSolverMaxDuration(float newSolverMaxDuration) {
@@ -1111,8 +1039,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public EnumSolverLogLevel getSolverLogLevel() {
@@ -1120,8 +1047,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setSolverLogLevel(EnumSolverLogLevel newSolverLogLevel) {
@@ -1132,8 +1058,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isSolverDump() {
@@ -1141,8 +1066,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setSolverDump(boolean newSolverDump) {
@@ -1153,8 +1077,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Date getRunStarted() {
@@ -1162,8 +1085,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setRunStarted(Date newRunStarted) {
@@ -1174,8 +1096,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Date getRunInitializationEnded() {
@@ -1183,8 +1104,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setRunInitializationEnded(Date newRunInitializationEnded) {
@@ -1195,8 +1115,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Date getRunSolvingEnded() {
@@ -1204,8 +1123,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setRunSolvingEnded(Date newRunSolvingEnded) {
@@ -1216,8 +1134,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Date getRunFinalizationEnded() {
@@ -1225,8 +1142,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setRunFinalizationEnded(Date newRunFinalizationEnded) {
@@ -1237,8 +1153,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public float getRunDurationInitialization() {
@@ -1246,8 +1161,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setRunDurationInitialization(float newRunDurationInitialization) {
@@ -1258,8 +1172,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public float getRunDurationFinalization() {
@@ -1267,8 +1180,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setRunDurationFinalization(float newRunDurationFinalization) {
@@ -1279,8 +1191,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public float getRunDurationSolving() {
@@ -1288,8 +1199,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setRunDurationSolving(float newRunDurationSolving) {
@@ -1300,8 +1210,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isRunRequestTerminate() {
@@ -1309,8 +1218,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setRunRequestTerminate(boolean newRunRequestTerminate) {
@@ -1321,8 +1229,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isSolUnfeasible() {
@@ -1330,8 +1237,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setSolUnfeasible(boolean newSolUnfeasible) {
@@ -1342,8 +1248,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isSolFeasible() {
@@ -1351,8 +1256,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setSolFeasible(boolean newSolFeasible) {
@@ -1363,8 +1267,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isSolOptimal() {
@@ -1372,8 +1275,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setSolOptimal(boolean newSolOptimal) {
@@ -1382,36 +1284,34 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER__SOL_OPTIMAL, oldSolOptimal, solOptimal));
 	}
-	
-	
+
 	/**
-	 * <!-- begin-user-doc -->
-	 * Release all the references to this Solver
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> Release all the references to this Solver <!--
+	 * end-user-doc -->
 	 */
 	@Override
 	public void dispose() {
 		super.dispose();
 		// goal to solve
-		//this.getGoalsToSolve().clear();
+		// this.getGoalsToSolve().clear();
 		this.setInitialSolution(null);
 		// dispose solutions
-		for (Solution solution : this.getSolution()){
+		for (Solution solution : this.getSolution()) {
 			solution.dispose();
 		}
-		
+
 		this.generatorGoalsToConstraint = null;
 		this.generatorGoalsToSolve = null;
 	}
 
-
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see com.misc.common.moplaf.common.impl.RunImpl#getRunFeedback()
 	 */
 	@Override
 	public CommandFeedback getRunFeedback() {
-		if ( this.isInitializing()){
+		if (this.isInitializing()) {
 			return new CommandFeedback(false, "initializing");
 		}
 		return CommandFeedback.NOFEEDBACK;
@@ -1419,40 +1319,30 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see com.misc.common.moplaf.common.impl.RunImpl#runImpl()
 	 */
 	@Override
-	protected boolean runImpl() {
-		this.solve();
-		return true;
+	protected ReturnFeedback runImpl() {
+		return this.solve();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
+	 * Implement the whole flow of a solving run
+	 *   Make a copy of the run if already started, 
 	 * Start solving the problem
-	 *   Implement the branch synchronous/asynchronous
 	 * <!-- end-user-doc -->
 	 */
-	public void solve() {
+	public ReturnFeedback solve() {
 		Plugin.INSTANCE.logInfo("solve called");
 		Generator generator = this.getGenerator();
 		
 		if ( generator == null ) {
 			Plugin.INSTANCE.logError("solve, no generator set");
-		} else {
-			Plugin.INSTANCE.logInfo("solve Started");
-			this.solveRun();
-			Plugin.INSTANCE.logInfo("solve finished");
-		}
-	}
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * Implement the whole flow of a solving run
-	 *   Make a copy of the run if already started, 
-	 * <!-- end-user-doc -->
-	 */
-	private void solveRun(){
+			return new ReturnFeedback(false, "Solver.solve: no generator", "");
+		} 
+			
 		if ( this.isInitializing() ){
 			// solver already started
 			// create a copy and reset its status
@@ -1478,64 +1368,59 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				EList containedObjects = (EList) thisContainer.eGet(containingFeature);
 				containedObjects.add(newSolver);
 			}
+			return ReturnFeedback.SUCCESS;
 		} 
 		else {
+			Plugin.INSTANCE.logInfo("solve Started");
 			this.onStarted();
-			this.solveImpl();
+			ReturnFeedback feedback = this.solveImpl();
 			this.onFinalizationEnd();
+			Plugin.INSTANCE.logInfo("solve finished");
+			return feedback;
 		}
 	}
-	
-	
+
 	/**
-	 * <!-- begin-user-doc -->
-	 * To be implemented by the concrete solver to solver the linear formulation
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> To be implemented by the concrete solver to
+	 * solver the linear formulation <!-- end-user-doc -->
 	 */
-	protected void solveImpl(){
+	protected ReturnFeedback solveImpl() {
 		throw new UnsupportedOperationException();
 	}
-	
 
 	private HashSet<GeneratorGoal> generatorGoalsToSolve = new HashSet<GeneratorGoal>();
 	private HashSet<GeneratorGoal> generatorGoalsToConstraint = new HashSet<GeneratorGoal>();
-	
+
 	private Date eLastMonitoredFeedback;
 	private static int eMonitorRefreshRateMillis = 100;
-	
-	private void refreshStatus(){
+
+	private void refreshStatus() {
 		String status = "";
-		if ( this.isFinished()){
-			if ( this.isSolOptimal()){
+		if (this.isFinished()) {
+			if (this.isSolOptimal()) {
 				status = "Finished(optimal)";
-			}
-			else if ( this.isSolFeasible()){
+			} else if (this.isSolFeasible()) {
 				status = "Finished(feasible)";
-			}
-			else if ( this.isSolUnfeasible()){
+			} else if (this.isSolUnfeasible()) {
 				status = "Finished(unfeasible)";
-			}
-			else {
+			} else {
 				status = "Finished(undecided)";
 			}
-		}
-		else if ( this.isFinalizing()){
+		} else if (this.isFinalizing()) {
 			status = "Finalizing";
-		}
-		else if ( this.isSolving()){
+		} else if (this.isSolving()) {
 			status = "Solving";
-		}
-		else if ( this.isInitializing()){
+		} else if (this.isInitializing()) {
 			status = "Initializing";
 		}
 		this.setStatus(status);
 	}
-	
-	protected void resetStatus(){
+
+	protected void resetStatus() {
 		this.setInitializing(false);
-		this.setSolving     (false); 
-		this.setFinalizing  (false); 
-		this.setFinished    (false);
+		this.setSolving(false);
+		this.setFinalizing(false);
+		this.setFinished(false);
 		this.setRunDurationInitialization(0.0f);
 		this.setRunDurationSolving(0.0f);
 		this.setRunDurationFinalization(0.0f);
@@ -1545,7 +1430,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		this.setRunFinalizationEnded(null);
 		this.setRunInterrupted(false);
 		this.setRunTimeOut(false);
-		this.eLastMonitoredFeedback=null;
+		this.eLastMonitoredFeedback = null;
 		this.setSolFeasible(false);
 		this.setSolUnfeasible(false);
 		this.setSolOptimal(false);
@@ -1554,10 +1439,10 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	protected void onStarted() {
-//		if ( eMonitor!= null ){ 
-//			eMonitor.setTaskName("initializing");
-//			eMonitor.worked(0);
-//		}
+		// if ( eMonitor!= null ){
+		// eMonitor.setTaskName("initializing");
+		// eMonitor.worked(0);
+		// }
 		Plugin.INSTANCE.logInfo("STARTED");
 		Date currenttime = new Date();
 		this.setRunStarted(currenttime);
@@ -1566,124 +1451,120 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * Called when initialization is finished
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> Called when initialization is finished <!--
+	 * end-user-doc -->
 	 */
 	protected void onInitializationEnd() {
-		if ( !this.isInitializing() ){
+		if (!this.isInitializing()) {
 			this.onStarted();
 		}
-//		if ( eMonitor!= null ){ 
-//			eMonitor.setTaskName("solving");
-//			eMonitor.worked(0);
-//		}
+		// if ( eMonitor!= null ){
+		// eMonitor.setTaskName("solving");
+		// eMonitor.worked(0);
+		// }
 		Plugin.INSTANCE.logInfo("INITIALIZED");
 		Date currenttime = new Date();
 		this.setRunInitializationEnded(currenttime);
-		float duration = (currenttime.getTime()-this.getRunStarted().getTime())/1000.0f;
+		float duration = (currenttime.getTime() - this.getRunStarted().getTime()) / 1000.0f;
 		this.setRunDurationInitialization(duration);
 		this.setSolving(true);
 		this.refreshStatus();
 	}
 
-
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	protected void onSolvingEnd() {
-		if ( !this.isSolving()){
+		if (!this.isSolving()) {
 			this.onInitializationEnd();
 		}
-//		if ( eMonitor!= null )		{ 
-//			eMonitor.setTaskName("finalizing");
-//			eMonitor.worked(100);
-//		}
+		// if ( eMonitor!= null ) {
+		// eMonitor.setTaskName("finalizing");
+		// eMonitor.worked(100);
+		// }
 		Plugin.INSTANCE.logInfo("SOLVED");
 		Date currenttime = new Date();
 		this.setRunSolvingEnded(currenttime);
-		float duration = (currenttime.getTime()-this.getRunInitializationEnded().getTime())/1000.0f;
+		float duration = (currenttime.getTime() - this.getRunInitializationEnded().getTime()) / 1000.0f;
 		this.setRunDurationSolving(duration);
 		this.setFinalizing(true);
 		this.refreshStatus();
 	}
 
-
 	/**
-	 * <!-- begin-user-doc -->
-	 * Called when finalization is finished
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> Called when finalization is finished <!--
+	 * end-user-doc -->
 	 */
 	protected void onFinalizationEnd() {
-		if ( !this.isFinalizing()){
+		if (!this.isFinalizing()) {
 			this.onSolvingEnd();
 		}
-//		if ( eMonitor!= null )	{ 
-//			eMonitor.setTaskName("finished");
-//			eMonitor.worked(100);
-//		}
+		// if ( eMonitor!= null ) {
+		// eMonitor.setTaskName("finished");
+		// eMonitor.worked(100);
+		// }
 		Plugin.INSTANCE.logInfo("FINISHED");
 		Date currenttime = new Date();
 		this.setRunFinalizationEnded(currenttime);
-		float duration = (currenttime.getTime()-this.getRunSolvingEnded().getTime())/1000.0f;
+		float duration = (currenttime.getTime() - this.getRunSolvingEnded().getTime()) / 1000.0f;
 		this.setRunDurationFinalization(duration);
 		this.setFinished(true);
 		this.refreshStatus();
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * Called when the solver return some feedback
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> Called when the solver return some feedback <!--
+	 * end-user-doc -->
 	 */
-	protected void onSolverFeedback(String TreeFootprint, String Progress, float OptimalityGap, float BestValue, boolean Feasible) {
+	protected void onSolverFeedback(String TreeFootprint, String Progress, float OptimalityGap, float BestValue,
+			boolean Feasible) {
 		String valueasstring = Feasible ? String.format("%1$8.2f", BestValue) : "unfeasible";
-        String feedback = String.format("phase %1$s, gap %3$4.2f, value %4$s (%2$s)", Progress, TreeFootprint, OptimalityGap, valueasstring); 
+		String feedback = String.format("phase %1$s, gap %3$4.2f, value %4$s (%2$s)", Progress, TreeFootprint,
+				OptimalityGap, valueasstring);
 		Date currenttime = new Date();
 		boolean goOn = true;
-		if ( this.eLastMonitoredFeedback == null 
-		 || currenttime.getTime()-eLastMonitoredFeedback.getTime()>eMonitorRefreshRateMillis) {
+		if (this.eLastMonitoredFeedback == null
+				|| currenttime.getTime() - eLastMonitoredFeedback.getTime() > eMonitorRefreshRateMillis) {
 			eLastMonitoredFeedback = currenttime;
-			long duration = (currenttime.getTime()-this.getRunInitializationEnded().getTime())/1000;
-	        String task = String.format("%1$05d: %2$s", duration, feedback); // duration five digits zero padded 
+			long duration = (currenttime.getTime() - this.getRunInitializationEnded().getTime()) / 1000;
+			String task = String.format("%1$05d: %2$s", duration, feedback); // duration
+																				// five
+																				// digits
+																				// zero
+																				// padded
 			// work
-			int work = (int)(100*(1.0f-OptimalityGap));
+			int work = (int) (100 * (1.0f - OptimalityGap));
 			goOn = this.onProgress(task, work);
 		}
-		if ( !goOn ){
+		if (!goOn) {
 			this.setRunRequestTerminate(true);
 		}
 	}
 
-	
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public IGeneratorTool getParentGeneratorTool() {
 		EObject parent = this.eContainer();
-		if ( parent instanceof IGeneratorTool ) {
-			return (IGeneratorTool)parent;
+		if (parent instanceof IGeneratorTool) {
+			return (IGeneratorTool) parent;
 		}
 		return null;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public Generator getGenerator() {
 		EObject parent = this.eContainer();
-		if ( parent instanceof Generator ) {
-			return (Generator)parent;
+		if (parent instanceof Generator) {
+			return (Generator) parent;
 		}
 		return null;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -1745,8 +1626,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -1834,8 +1714,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -1921,8 +1800,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -1983,16 +1861,14 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case SolverPackage.SOLVER___SOLVE:
-				solve();
-				return null;
+				return solve();
 			case SolverPackage.SOLVER___BUILD_VARS:
 				try {
 					buildVars();
@@ -2079,8 +1955,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -2138,6 +2013,4 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		return result.toString();
 	}
 
-	
-
-} //SolverImpl
+} // SolverImpl

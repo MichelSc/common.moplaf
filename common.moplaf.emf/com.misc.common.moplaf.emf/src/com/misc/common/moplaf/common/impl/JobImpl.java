@@ -4,6 +4,7 @@ package com.misc.common.moplaf.common.impl;
 
 import com.misc.common.moplaf.common.CommonPackage;
 import com.misc.common.moplaf.common.Job;
+import com.misc.common.moplaf.common.ReturnFeedback;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -459,7 +460,7 @@ public class JobImpl extends RunImpl implements Job {
 	 * Return true if finisehd, false if stopped or canceled
 	 * 
 	 */
-	protected boolean jobRunImpl(){
+	protected ReturnFeedback jobRunImpl(){
 		// to be implemented by the job implementation
 		throw new UnsupportedOperationException();
 	}
@@ -469,23 +470,23 @@ public class JobImpl extends RunImpl implements Job {
 	 * <!-- end-user-doc -->
 	 */
 	@Override
-	protected boolean runImpl() {
+	protected ReturnFeedback runImpl() {
 		this.setCreated(false);
 		this.setStopped(false);
 		this.setRunning(true);
 		this.setStartTime(new Date());
 
-		boolean finished = this.jobRunImpl();
+		ReturnFeedback feedback = this.jobRunImpl();
 		
-		this.setFinished(finished);
-		this.setStopped(! finished);
+		this.setFinished(feedback.isSuccess());
+		this.setStopped(feedback.isFailure());
 		this.setRunning(false);
 		this.setEndTime(new Date());
 		long ticks = this.getEndTime().getTime()-this.getStartTime().getTime();
 		float hours = (float)ticks/1000.0f/60.0f/60.0f;
 		this.setDuration(hours);
 		
-		return finished;
+		return feedback;
 	}
 
 	/**

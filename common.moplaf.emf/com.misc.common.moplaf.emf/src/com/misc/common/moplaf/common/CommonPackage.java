@@ -105,13 +105,22 @@ public interface CommonPackage extends EPackage {
 	int RUN__CANCEL_FEEDBACK = 3;
 
 	/**
+	 * The feature id for the '<em><b>Return Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUN__RETURN_FEEDBACK = 4;
+
+	/**
 	 * The number of structural features of the '<em>Run</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RUN_FEATURE_COUNT = 4;
+	int RUN_FEATURE_COUNT = 5;
 
 	/**
 	 * The operation id for the '<em>Run</em>' operation.
@@ -212,6 +221,15 @@ public interface CommonPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB__CANCEL_FEEDBACK = RUN__CANCEL_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Return Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB__RETURN_FEEDBACK = RUN__RETURN_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -412,6 +430,17 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 */
 	int COMMAND_FEEDBACK = 2;
+
+
+	/**
+	 * The meta object id for the '<em>Return Feedback</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.common.ReturnFeedback
+	 * @see com.misc.common.moplaf.common.impl.CommonPackageImpl#getReturnFeedback()
+	 * @generated
+	 */
+	int RETURN_FEEDBACK = 3;
 
 
 	/**
@@ -630,6 +659,17 @@ public interface CommonPackage extends EPackage {
 	EAttribute getRun_CancelFeedback();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.common.Run#getReturnFeedback <em>Return Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Return Feedback</em>'.
+	 * @see com.misc.common.moplaf.common.Run#getReturnFeedback()
+	 * @see #getRun()
+	 * @generated
+	 */
+	EAttribute getRun_ReturnFeedback();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.common.Run#run() <em>Run</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -689,6 +729,17 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getCommandFeedback();
+
+	/**
+	 * Returns the meta object for data type '{@link com.misc.common.moplaf.common.ReturnFeedback <em>Return Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Return Feedback</em>'.
+	 * @see com.misc.common.moplaf.common.ReturnFeedback
+	 * @model instanceClass="com.misc.common.moplaf.common.ReturnFeedback"
+	 * @generated
+	 */
+	EDataType getReturnFeedback();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -878,6 +929,14 @@ public interface CommonPackage extends EPackage {
 		EAttribute RUN__CANCEL_FEEDBACK = eINSTANCE.getRun_CancelFeedback();
 
 		/**
+		 * The meta object literal for the '<em><b>Return Feedback</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RUN__RETURN_FEEDBACK = eINSTANCE.getRun_ReturnFeedback();
+
+		/**
 		 * The meta object literal for the '<em><b>Run</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -926,6 +985,16 @@ public interface CommonPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType COMMAND_FEEDBACK = eINSTANCE.getCommandFeedback();
+
+		/**
+		 * The meta object literal for the '<em>Return Feedback</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.common.ReturnFeedback
+		 * @see com.misc.common.moplaf.common.impl.CommonPackageImpl#getReturnFeedback()
+		 * @generated
+		 */
+		EDataType RETURN_FEEDBACK = eINSTANCE.getReturnFeedback();
 
 	}
 

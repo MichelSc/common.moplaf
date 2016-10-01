@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.common.Run#getParentRun <em>Parent Run</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.Run#getRunFeedback <em>Run Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.Run#getCancelFeedback <em>Cancel Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.common.Run#getReturnFeedback <em>Return Feedback</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.common.CommonPackage#getRun()
@@ -107,20 +108,46 @@ public interface Run extends EObject {
 	CommandFeedback getCancelFeedback();
 
 	/**
+	 * Returns the value of the '<em><b>Return Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Return Feedback</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @return the value of the '<em>Return Feedback</em>' attribute.
+	 * @see #setReturnFeedback(ReturnFeedback)
+	 * @see com.misc.common.moplaf.common.CommonPackage#getRun_ReturnFeedback()
+	 * @model dataType="com.misc.common.moplaf.common.ReturnFeedback" transient="true"
 	 * @generated
 	 */
-	boolean run();
+	ReturnFeedback getReturnFeedback();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.common.Run#getReturnFeedback <em>Return Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Return Feedback</em>' attribute.
+	 * @see #getReturnFeedback()
+	 * @generated
+	 */
+	void setReturnFeedback(ReturnFeedback value);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model dataType="com.misc.common.moplaf.common.ReturnFeedback"
 	 * @generated
 	 */
-	boolean run(Run parentRun);
+	ReturnFeedback run();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="com.misc.common.moplaf.common.ReturnFeedback"
+	 * @generated
+	 */
+	ReturnFeedback run(Run parentRun);
 
 	/**
 	 * <!-- begin-user-doc -->

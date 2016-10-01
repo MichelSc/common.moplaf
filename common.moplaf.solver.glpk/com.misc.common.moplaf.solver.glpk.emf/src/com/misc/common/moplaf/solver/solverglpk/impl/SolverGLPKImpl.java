@@ -25,6 +25,7 @@ import org.gnu.glpk.glp_prob;
 import org.gnu.glpk.glp_smcp;
 import org.gnu.glpk.glp_tree;
 
+import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.solver.EnumLpConsType;
 import com.misc.common.moplaf.solver.EnumLpFileFormat;
 import com.misc.common.moplaf.solver.EnumLpVarType;
@@ -921,11 +922,13 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 	 * <!-- end-user-doc -->
 	 */
 	@Override
-	protected void solveImpl() {
+	protected ReturnFeedback solveImpl() {
 		//super.solveSolver();
 
 		this.loadLp();
-		if ( this.lp==null ) { return; }
+		if ( this.lp==null ) { 
+			new ReturnFeedback(false, "SolverGLPK.solve: no lp");
+		}
 
 		this.onInitializationEnd();
 		
@@ -972,6 +975,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		}
 		catch (Exception e)		{
 			Plugin.INSTANCE.logError("SolverGLPK: solve failed "+e);
+			new ReturnFeedback("SolverGLPK.solve", e);
 		}
 		GlpkCallback.removeListener(listener);
 		//Number objective = result.getObjective();
@@ -1022,6 +1026,8 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		
 		// release the lp
 		this.releaseLp();
+		
+		return ReturnFeedback.SUCCESS;
 		
 	} // method SolveLp
 

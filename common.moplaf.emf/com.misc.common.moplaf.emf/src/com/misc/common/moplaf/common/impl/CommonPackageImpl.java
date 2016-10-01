@@ -7,6 +7,7 @@ import com.misc.common.moplaf.common.CommonFactory;
 import com.misc.common.moplaf.common.CommonPackage;
 import com.misc.common.moplaf.common.Job;
 
+import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.common.Run;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -44,6 +45,13 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * @generated
 	 */
 	private EDataType commandFeedbackEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType returnFeedbackEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -291,6 +299,15 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getRun_ReturnFeedback() {
+		return (EAttribute)runEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getRun__Run() {
 		return runEClass.getEOperations().get(0);
 	}
@@ -345,6 +362,15 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getReturnFeedback() {
+		return returnFeedbackEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CommonFactory getCommonFactory() {
 		return (CommonFactory)getEFactoryInstance();
 	}
@@ -389,6 +415,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		createEReference(runEClass, RUN__PARENT_RUN);
 		createEAttribute(runEClass, RUN__RUN_FEEDBACK);
 		createEAttribute(runEClass, RUN__CANCEL_FEEDBACK);
+		createEAttribute(runEClass, RUN__RETURN_FEEDBACK);
 		createEOperation(runEClass, RUN___RUN);
 		createEOperation(runEClass, RUN___RUN__RUN);
 		createEOperation(runEClass, RUN___RUN_BACKGROUND);
@@ -397,6 +424,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 
 		// Create data types
 		commandFeedbackEDataType = createEDataType(COMMAND_FEEDBACK);
+		returnFeedbackEDataType = createEDataType(RETURN_FEEDBACK);
 	}
 
 	/**
@@ -453,14 +481,15 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		addEParameter(op, ecorePackage.getEInt(), "index", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(runEClass, Run.class, "Run", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRun_Canceled(), ecorePackage.getEBoolean(), "canceled", null, 0, 1, Run.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRun_Canceled(), ecorePackage.getEBoolean(), "Canceled", null, 0, 1, Run.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRun_ParentRun(), this.getRun(), null, "ParentRun", null, 0, 1, Run.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRun_RunFeedback(), this.getCommandFeedback(), "runFeedback", null, 0, 1, Run.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRun_CancelFeedback(), this.getCommandFeedback(), "cancelFeedback", null, 0, 1, Run.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRun_RunFeedback(), this.getCommandFeedback(), "RunFeedback", null, 0, 1, Run.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRun_CancelFeedback(), this.getCommandFeedback(), "CancelFeedback", null, 0, 1, Run.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRun_ReturnFeedback(), this.getReturnFeedback(), "ReturnFeedback", null, 0, 1, Run.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getRun__Run(), ecorePackage.getEBoolean(), "run", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getRun__Run(), this.getReturnFeedback(), "run", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getRun__Run__Run(), ecorePackage.getEBoolean(), "run", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getRun__Run__Run(), this.getReturnFeedback(), "run", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getRun(), "parentRun", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getRun__RunBackground(), null, "runBackground", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -473,6 +502,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 
 		// Initialize data types
 		initEDataType(commandFeedbackEDataType, CommandFeedback.class, "CommandFeedback", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(returnFeedbackEDataType, ReturnFeedback.class, "ReturnFeedback", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

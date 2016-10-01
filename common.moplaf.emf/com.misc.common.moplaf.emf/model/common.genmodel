@@ -8,6 +8,7 @@
   <genPackages prefix="Common" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
       ecorePackage="common.ecore#/">
     <genDataTypes ecoreDataType="common.ecore#//CommandFeedback"/>
+    <genDataTypes ecoreDataType="common.ecore#//ReturnFeedback"/>
     <genClasses ecoreClass="common.ecore#//Job" labelFeature="#//common/Job/Description">
       <genFeatures createChild="false" propertyCategory="10 Job" ecoreFeature="ecore:EAttribute common.ecore#//Job/Name"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="20 Status"
@@ -36,14 +37,15 @@
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="common.ecore#//Run">
-      <genFeatures property="Readonly" createChild="false" propertyCategory="20 Status"
-          ecoreFeature="ecore:EAttribute common.ecore#//Run/canceled"/>
+      <genFeatures createChild="false" propertyCategory="10 Job" ecoreFeature="ecore:EAttribute common.ecore#//Run/Canceled"/>
       <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="10 Job"
           propertySortChoices="true" ecoreFeature="ecore:EReference common.ecore#//Run/ParentRun"/>
-      <genFeatures property="Readonly" createChild="false" propertyCategory="10 General"
-          ecoreFeature="ecore:EAttribute common.ecore#//Run/runFeedback"/>
-      <genFeatures property="Readonly" createChild="false" propertyCategory="10 General"
-          ecoreFeature="ecore:EAttribute common.ecore#//Run/cancelFeedback"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job"
+          ecoreFeature="ecore:EAttribute common.ecore#//Run/RunFeedback"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job"
+          ecoreFeature="ecore:EAttribute common.ecore#//Run/CancelFeedback"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job"
+          ecoreFeature="ecore:EAttribute common.ecore#//Run/ReturnFeedback"/>
       <genOperations ecoreOperation="common.ecore#//Run/run"/>
       <genOperations ecoreOperation="common.ecore#//Run/run.1">
         <genParameters ecoreParameter="common.ecore#//Run/run.1/parentRun"/>

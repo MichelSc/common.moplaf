@@ -74,6 +74,8 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 		switch (eDataType.getClassifierID()) {
 			case CommonPackage.COMMAND_FEEDBACK:
 				return createCommandFeedbackFromString(eDataType, initialValue);
+			case CommonPackage.RETURN_FEEDBACK:
+				return createReturnFeedbackFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -89,6 +91,8 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 		switch (eDataType.getClassifierID()) {
 			case CommonPackage.COMMAND_FEEDBACK:
 				return convertCommandFeedbackToString(eDataType, instanceValue);
+			case CommonPackage.RETURN_FEEDBACK:
+				return convertReturnFeedbackToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -129,6 +133,24 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 	 * @generated
 	 */
 	public String convertCommandFeedbackToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ReturnFeedback createReturnFeedbackFromString(EDataType eDataType, String initialValue) {
+		return (ReturnFeedback)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertReturnFeedbackToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

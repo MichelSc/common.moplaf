@@ -39,13 +39,13 @@
     <eLiterals name="EnumLiteralGoalTypeFree" value="2" literal="Free"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Generator" abstract="true" eSuperTypes="../../com.misc.common.moplaf.emf/model/common.ecore#//Run">
-    <eOperations name="generate"/>
-    <eOperations name="generateRootTuples"/>
-    <eOperations name="generateTuples"/>
-    <eOperations name="generateTupleXReferences"/>
-    <eOperations name="generateVars"/>
-    <eOperations name="generateCons"/>
-    <eOperations name="generateGoals"/>
+    <eOperations name="generate" eType="ecore:EDataType ../../com.misc.common.moplaf.emf/model/common.ecore#//ReturnFeedback"/>
+    <eOperations name="generateRootTuples" eExceptions="#//Exception"/>
+    <eOperations name="generateTuples" eExceptions="#//Exception"/>
+    <eOperations name="generateTupleXReferences" eExceptions="#//Exception"/>
+    <eOperations name="generateVars" eExceptions="#//Exception"/>
+    <eOperations name="generateCons" eExceptions="#//Exception"/>
+    <eOperations name="generateGoals" eExceptions="#//Exception"/>
     <eOperations name="acceptSolution">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="To be implemented by the specialisation for eploiting the solver solution and making a &#xA;domain specific solution&#xA;"/>
@@ -268,7 +268,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Solver" abstract="true" eSuperTypes="#//SolutionProvider">
-    <eOperations name="solve">
+    <eOperations name="solve" eType="ecore:EDataType ../../com.misc.common.moplaf.emf/model/common.ecore#//ReturnFeedback">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Method to be called by the client to solve the lp and to produce the solution&#xA;"/>
       </eAnnotations>

@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.solver.solvercplex.impl;
 
+import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.solver.EnumLpConsType;
 import com.misc.common.moplaf.solver.EnumLpFileFormat;
 
@@ -299,7 +300,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 	/**
 	*   Load the lp
     */
-	private void loadLp(){
+	private void loadLp() {
 		this.releaseLp(); // release the current model, if any
 		Generator generator = this.getGenerator();
 		if ( generator == null) { return; }
@@ -546,11 +547,13 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 	}
 
 	@Override
-	protected void solveImpl() {
+	protected ReturnFeedback solveImpl() {
 
 		// load the lp
 		this.loadLp();
-		if ( this.lp==null ) { return; }
+		if ( this.lp==null ) { 
+			return new ReturnFeedback(false, "SolverCplex.solve: no lp"); 
+			}
 		
 		if ( this.getInitialSolution()!=null ){
 			this.initSolution();
@@ -579,6 +582,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		}
 		catch (Exception e)		{
 			Plugin.INSTANCE.logError("SolverCplex: solve failed "+e);
+			return new ReturnFeedback("SolverCplex.solve", e);
 		}
 		
 		this.onSolvingEnd();
@@ -623,6 +627,8 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		
 		// release the lp
 		this.releaseLp();
+		
+		return ReturnFeedback.SUCCESS;
 		
 	} // method SolveLp
 

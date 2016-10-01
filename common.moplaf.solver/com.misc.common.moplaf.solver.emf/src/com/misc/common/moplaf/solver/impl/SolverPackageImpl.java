@@ -3345,21 +3345,27 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		initEReference(getGenerator_Selected(), this.getSolution(), null, "Selected", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGenerator_Goals(), this.getGeneratorGoal(), this.getGeneratorGoal_Generator(), "Goals", null, 0, -1, Generator.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getGenerator__Generate(), null, "generate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getGenerator__Generate(), theCommonPackage.getReturnFeedback(), "generate", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getGenerator__GenerateRootTuples(), null, "generateRootTuples", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getGenerator__GenerateRootTuples(), null, "generateRootTuples", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getException());
 
-		initEOperation(getGenerator__GenerateTuples(), null, "generateTuples", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getGenerator__GenerateTuples(), null, "generateTuples", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getException());
 
-		initEOperation(getGenerator__GenerateTupleXReferences(), null, "generateTupleXReferences", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getGenerator__GenerateTupleXReferences(), null, "generateTupleXReferences", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getException());
 
-		initEOperation(getGenerator__GenerateVars(), null, "generateVars", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getGenerator__GenerateVars(), null, "generateVars", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getException());
 
-		initEOperation(getGenerator__GenerateCons(), null, "generateCons", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getGenerator__GenerateCons(), null, "generateCons", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getException());
 
-		initEOperation(getGenerator__GenerateGoals(), null, "generateGoals", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getGenerator__GenerateGoals(), null, "generateGoals", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getException());
 
-		EOperation op = initEOperation(getGenerator__AcceptSolution__Solution(), null, "acceptSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getGenerator__AcceptSolution__Solution(), null, "acceptSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getSolution(), "solutionprovider", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getGenerator__SelectFeatureMode__GeneratorFeatureMode_GeneratorTuple(), this.getGeneratorFeatureMode(), "selectFeatureMode", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -3552,7 +3558,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		initEReference(getSolver_InitialSolution(), this.getSolution(), this.getSolution_SolverAsInitialSolution(), "InitialSolution", null, 0, 1, Solver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSolver_Goals(), this.getSolverGoal(), this.getSolverGoal_Solver(), "Goals", null, 0, -1, Solver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getSolver__Solve(), null, "solve", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getSolver__Solve(), theCommonPackage.getReturnFeedback(), "solve", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getSolver__BuildVars(), null, "buildVars", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());

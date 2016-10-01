@@ -4,6 +4,7 @@ package com.misc.common.moplaf.common.impl;
 
 import com.misc.common.moplaf.common.CommandFeedback;
 import com.misc.common.moplaf.common.CommonPackage;
+import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.common.Run;
 
 import java.lang.reflect.InvocationTargetException;
@@ -34,6 +35,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link com.misc.common.moplaf.common.impl.RunImpl#getParentRun <em>Parent Run</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.impl.RunImpl#getRunFeedback <em>Run Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.impl.RunImpl#getCancelFeedback <em>Cancel Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.common.impl.RunImpl#getReturnFeedback <em>Return Feedback</em>}</li>
  * </ul>
  *
  * @generated
@@ -88,6 +90,26 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 	 * @ordered
 	 */
 	protected static final CommandFeedback CANCEL_FEEDBACK_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getReturnFeedback() <em>Return Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReturnFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ReturnFeedback RETURN_FEEDBACK_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getReturnFeedback() <em>Return Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReturnFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected ReturnFeedback returnFeedback = RETURN_FEEDBACK_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -186,6 +208,27 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 		return CommandFeedback.NOFEEDBACK;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ReturnFeedback getReturnFeedback() {
+		return returnFeedback;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReturnFeedback(ReturnFeedback newReturnFeedback) {
+		ReturnFeedback oldReturnFeedback = returnFeedback;
+		returnFeedback = newReturnFeedback;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CommonPackage.RUN__RETURN_FEEDBACK, oldReturnFeedback, returnFeedback));
+	}
+
 	/*
 	 * 
 	 */
@@ -194,7 +237,7 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 	/*
 	 * 
 	 */
-	protected boolean runImpl() {
+	protected ReturnFeedback runImpl() {
 		// to be implemented by the run implementation
 		throw new UnsupportedOperationException();
 	}
@@ -204,9 +247,17 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public boolean run() {
-		boolean finished = this.runImpl();
-		return finished;
+	public ReturnFeedback run(Run parentRun) {
+		ReturnFeedback feedback = null;
+		try {
+			this.setReturnFeedback(null);
+			this.setParentRun(parentRun);
+			feedback = this.runImpl();
+		} catch (Exception e){
+			feedback = new ReturnFeedback("RunImpl.run ", e);
+		}
+		this.setReturnFeedback(feedback);
+		return feedback;
 	}
 
 	/**
@@ -214,11 +265,8 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public boolean run(Run parentRun) {
-		this.setParentRun(parentRun);
-		boolean finished = this.runImpl();
-		this.setParentRun(null);
-		return finished;
+	public ReturnFeedback run() {
+		return this.run(null);
 	}
 
 	/**
@@ -231,7 +279,7 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 			    	    eMonitor = monitor;
 			    	    monitor.beginTask("Initialization", 100);
 			    	    //Plugin.INSTANCE.logInfo("Solve, job started");
-	  					RunImpl.this.runImpl();
+	  					RunImpl.this.run(null);
 						eMonitor = null;
 			            return Status.OK_STATUS;
 			        }
@@ -290,6 +338,8 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 				return getRunFeedback();
 			case CommonPackage.RUN__CANCEL_FEEDBACK:
 				return getCancelFeedback();
+			case CommonPackage.RUN__RETURN_FEEDBACK:
+				return getReturnFeedback();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -308,6 +358,9 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 			case CommonPackage.RUN__PARENT_RUN:
 				setParentRun((Run)newValue);
 				return;
+			case CommonPackage.RUN__RETURN_FEEDBACK:
+				setReturnFeedback((ReturnFeedback)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -325,6 +378,9 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 				return;
 			case CommonPackage.RUN__PARENT_RUN:
 				setParentRun((Run)null);
+				return;
+			case CommonPackage.RUN__RETURN_FEEDBACK:
+				setReturnFeedback(RETURN_FEEDBACK_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -346,6 +402,8 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 				return RUN_FEEDBACK_EDEFAULT == null ? getRunFeedback() != null : !RUN_FEEDBACK_EDEFAULT.equals(getRunFeedback());
 			case CommonPackage.RUN__CANCEL_FEEDBACK:
 				return CANCEL_FEEDBACK_EDEFAULT == null ? getCancelFeedback() != null : !CANCEL_FEEDBACK_EDEFAULT.equals(getCancelFeedback());
+			case CommonPackage.RUN__RETURN_FEEDBACK:
+				return RETURN_FEEDBACK_EDEFAULT == null ? returnFeedback != null : !RETURN_FEEDBACK_EDEFAULT.equals(returnFeedback);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -384,8 +442,10 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (canceled: ");
+		result.append(" (Canceled: ");
 		result.append(canceled);
+		result.append(", ReturnFeedback: ");
+		result.append(returnFeedback);
 		result.append(')');
 		return result.toString();
 	}

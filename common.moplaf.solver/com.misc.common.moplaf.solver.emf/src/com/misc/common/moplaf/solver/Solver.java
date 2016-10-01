@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.solver;
 
+import com.misc.common.moplaf.common.ReturnFeedback;
 import java.util.Date;
 import org.eclipse.emf.common.util.EList;
 
@@ -721,10 +722,10 @@ public interface Solver extends SolutionProvider {
 	 * Method to be called by the client to solve the lp and to produce the solution
 	 * 
 	 * <!-- end-model-doc -->
-	 * @model
+	 * @model dataType="com.misc.common.moplaf.common.ReturnFeedback"
 	 * @generated
 	 */
-	void solve();
+	ReturnFeedback solve();
 
 	/**
 	 * <!-- begin-user-doc -->

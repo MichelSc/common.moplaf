@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.solver;
 
+import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.common.Run;
 import org.eclipse.emf.common.util.EList;
 
@@ -389,58 +390,58 @@ public interface Generator extends Run {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model dataType="com.misc.common.moplaf.common.ReturnFeedback"
 	 * @generated
 	 */
-	void generate();
+	ReturnFeedback generate();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
 	 * @generated
 	 */
-	void generateRootTuples();
+	void generateRootTuples() throws Exception;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
 	 * @generated
 	 */
-	void generateTuples();
+	void generateTuples() throws Exception;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
 	 * @generated
 	 */
-	void generateTupleXReferences();
+	void generateTupleXReferences() throws Exception;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
 	 * @generated
 	 */
-	void generateVars();
+	void generateVars() throws Exception;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
 	 * @generated
 	 */
-	void generateCons();
+	void generateCons() throws Exception;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
 	 * @generated
 	 */
-	void generateGoals();
+	void generateGoals() throws Exception;
 
 	/**
 	 * <!-- begin-user-doc -->

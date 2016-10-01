@@ -293,12 +293,9 @@ public abstract class GeneratorTupleImpl extends GeneratorElementImpl implements
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void generateXReferences() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		// default implementation does nothing
 	}
 
 	/**
