@@ -275,6 +275,8 @@ public class GeneratorItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(SolverPackage.Literals.GENERATOR__TUPLE_ROOT);
+			childrenFeatures.add(SolverPackage.Literals.GENERATOR__GOALS);
 			childrenFeatures.add(SolverPackage.Literals.GENERATOR__ELP_VAR_COUNT);
 			childrenFeatures.add(SolverPackage.Literals.GENERATOR__ELP_CONS_COUNT);
 		}

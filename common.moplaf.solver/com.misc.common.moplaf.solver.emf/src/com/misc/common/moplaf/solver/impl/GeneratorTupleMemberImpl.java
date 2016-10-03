@@ -134,7 +134,8 @@ public abstract class GeneratorTupleMemberImpl extends GeneratorElementImpl impl
 	 */
 	public GeneratorTuple basicGetTuple() {
 		if ( !(this.eContainer() instanceof GeneratorTuple) ){
-			throw new UnsupportedOperationException("Container of a tuple element (var or cons) must be a tuple and not : "+this.eContainer().eClass().getName());
+			String container = this.eContainer==null ? "null" : this.eContainer().eClass().getName();
+			throw new UnsupportedOperationException("Container of a tuple element (var or cons) must be a tuple and not : "+container);
 		}
 		GeneratorTuple tupletobe = (GeneratorTuple)this.eContainer();
 		return tupletobe;

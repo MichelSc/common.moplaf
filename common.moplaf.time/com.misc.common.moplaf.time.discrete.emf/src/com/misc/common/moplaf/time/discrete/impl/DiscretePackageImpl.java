@@ -368,8 +368,26 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTimeBucket_Minutes() {
+		return (EAttribute)timeBucketEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTimeBucket_Hours() {
+		return (EAttribute)timeBucketEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getTimeBucket_TimeLine() {
-		return (EReference)timeBucketEClass.getEStructuralFeatures().get(7);
+		return (EReference)timeBucketEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -768,6 +786,8 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 		createEReference(timeBucketEClass, TIME_BUCKET__PREVIOUS);
 		createEAttribute(timeBucketEClass, TIME_BUCKET__DESCRIPTION);
 		createEAttribute(timeBucketEClass, TIME_BUCKET__SECONDS);
+		createEAttribute(timeBucketEClass, TIME_BUCKET__MINUTES);
+		createEAttribute(timeBucketEClass, TIME_BUCKET__HOURS);
 		createEReference(timeBucketEClass, TIME_BUCKET__TIME_LINE);
 		createEOperation(timeBucketEClass, TIME_BUCKET___CONTAINS__DATE);
 		createEOperation(timeBucketEClass, TIME_BUCKET___IS_BEFORE__TIMEBUCKET);
@@ -874,6 +894,8 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 		initEReference(getTimeBucket_Previous(), this.getTimeBucket(), this.getTimeBucket_Next(), "Previous", null, 0, 1, TimeBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTimeBucket_Description(), ecorePackage.getEString(), "Description", null, 0, 1, TimeBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTimeBucket_Seconds(), ecorePackage.getEInt(), "Seconds", null, 0, 1, TimeBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTimeBucket_Minutes(), ecorePackage.getEFloat(), "Minutes", null, 0, 1, TimeBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTimeBucket_Hours(), ecorePackage.getEFloat(), "Hours", null, 0, 1, TimeBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getTimeBucket_TimeLine(), this.getTimeLine(), this.getTimeLine_Buckets(), "TimeLine", null, 1, 1, TimeBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getTimeBucket__Contains__Date(), ecorePackage.getEBoolean(), "contains", 0, 1, IS_UNIQUE, IS_ORDERED);

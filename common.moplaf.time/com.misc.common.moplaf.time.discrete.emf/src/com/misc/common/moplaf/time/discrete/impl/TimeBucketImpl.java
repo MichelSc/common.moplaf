@@ -36,6 +36,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeBucketImpl#getPrevious <em>Previous</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeBucketImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeBucketImpl#getSeconds <em>Seconds</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeBucketImpl#getMinutes <em>Minutes</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeBucketImpl#getHours <em>Hours</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.impl.TimeBucketImpl#getTimeLine <em>Time Line</em>}</li>
  * </ul>
  *
@@ -161,6 +163,26 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 	 * @ordered
 	 */
 	protected int seconds = SECONDS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMinutes() <em>Minutes</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMinutes()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float MINUTES_EDEFAULT = 0.0F;
+
+	/**
+	 * The default value of the '{@link #getHours() <em>Hours</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHours()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float HOURS_EDEFAULT = 0.0F;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -388,6 +410,22 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public float getMinutes() {
+		return this.getSeconds()/60.0f;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public float getHours() {
+		return this.getSeconds()/60.0f/60.0f;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public TimeLine getTimeLine() {
@@ -583,6 +621,10 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 				return getDescription();
 			case DiscretePackage.TIME_BUCKET__SECONDS:
 				return getSeconds();
+			case DiscretePackage.TIME_BUCKET__MINUTES:
+				return getMinutes();
+			case DiscretePackage.TIME_BUCKET__HOURS:
+				return getHours();
 			case DiscretePackage.TIME_BUCKET__TIME_LINE:
 				return getTimeLine();
 		}
@@ -683,6 +725,10 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case DiscretePackage.TIME_BUCKET__SECONDS:
 				return seconds != SECONDS_EDEFAULT;
+			case DiscretePackage.TIME_BUCKET__MINUTES:
+				return getMinutes() != MINUTES_EDEFAULT;
+			case DiscretePackage.TIME_BUCKET__HOURS:
+				return getHours() != HOURS_EDEFAULT;
 			case DiscretePackage.TIME_BUCKET__TIME_LINE:
 				return getTimeLine() != null;
 		}

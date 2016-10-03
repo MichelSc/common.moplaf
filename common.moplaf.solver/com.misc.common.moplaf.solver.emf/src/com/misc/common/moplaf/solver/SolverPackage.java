@@ -107,6 +107,15 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR__CANCEL_FEEDBACK = CommonPackage.RUN__CANCEL_FEEDBACK;
 
 	/**
+	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__RETURN_SUCCESS = CommonPackage.RUN__RETURN_SUCCESS;
+
+	/**
 	 * The feature id for the '<em><b>Return Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -114,6 +123,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR__RETURN_FEEDBACK = CommonPackage.RUN__RETURN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Return Information</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__RETURN_INFORMATION = CommonPackage.RUN__RETURN_INFORMATION;
 
 	/**
 	 * The feature id for the '<em><b>Tuple Root</b></em>' reference list.
@@ -1942,6 +1960,15 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_PROVIDER__CANCEL_FEEDBACK = CommonPackage.RUN__CANCEL_FEEDBACK;
 
 	/**
+	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER__RETURN_SUCCESS = CommonPackage.RUN__RETURN_SUCCESS;
+
+	/**
 	 * The feature id for the '<em><b>Return Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1949,6 +1976,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_PROVIDER__RETURN_FEEDBACK = CommonPackage.RUN__RETURN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Return Information</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER__RETURN_INFORMATION = CommonPackage.RUN__RETURN_INFORMATION;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
@@ -2123,6 +2159,15 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_READER__CANCEL_FEEDBACK = SOLUTION_PROVIDER__CANCEL_FEEDBACK;
 
 	/**
+	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER__RETURN_SUCCESS = SOLUTION_PROVIDER__RETURN_SUCCESS;
+
+	/**
 	 * The feature id for the '<em><b>Return Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2130,6 +2175,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_READER__RETURN_FEEDBACK = SOLUTION_PROVIDER__RETURN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Return Information</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER__RETURN_INFORMATION = SOLUTION_PROVIDER__RETURN_INFORMATION;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
@@ -2331,6 +2385,15 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_READER_PATTERN__CANCEL_FEEDBACK = SOLUTION_READER__CANCEL_FEEDBACK;
 
 	/**
+	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER_PATTERN__RETURN_SUCCESS = SOLUTION_READER__RETURN_SUCCESS;
+
+	/**
 	 * The feature id for the '<em><b>Return Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2338,6 +2401,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_READER_PATTERN__RETURN_FEEDBACK = SOLUTION_READER__RETURN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Return Information</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER_PATTERN__RETURN_INFORMATION = SOLUTION_READER__RETURN_INFORMATION;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
@@ -2675,6 +2747,15 @@ public interface SolverPackage extends EPackage {
 	int SOLVER__CANCEL_FEEDBACK = SOLUTION_PROVIDER__CANCEL_FEEDBACK;
 
 	/**
+	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER__RETURN_SUCCESS = SOLUTION_PROVIDER__RETURN_SUCCESS;
+
+	/**
 	 * The feature id for the '<em><b>Return Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2682,6 +2763,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER__RETURN_FEEDBACK = SOLUTION_PROVIDER__RETURN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Return Information</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER__RETURN_INFORMATION = SOLUTION_PROVIDER__RETURN_INFORMATION;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
@@ -3337,6 +3427,15 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_CP__CANCEL_FEEDBACK = SOLVER__CANCEL_FEEDBACK;
 
 	/**
+	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP__RETURN_SUCCESS = SOLVER__RETURN_SUCCESS;
+
+	/**
 	 * The feature id for the '<em><b>Return Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3344,6 +3443,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_CP__RETURN_FEEDBACK = SOLVER__RETURN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Return Information</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP__RETURN_INFORMATION = SOLVER__RETURN_INFORMATION;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionImpl <em>Solution</em>}' class.
@@ -3888,6 +3996,15 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_LP__CANCEL_FEEDBACK = SOLVER__CANCEL_FEEDBACK;
 
 	/**
+	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP__RETURN_SUCCESS = SOLVER__RETURN_SUCCESS;
+
+	/**
 	 * The feature id for the '<em><b>Return Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3895,6 +4012,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP__RETURN_FEEDBACK = SOLVER__RETURN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Return Information</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP__RETURN_INFORMATION = SOLVER__RETURN_INFORMATION;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.

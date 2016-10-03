@@ -63,8 +63,14 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="TupleRoot" upperBound="-1"
         eType="#//GeneratorTuple" changeable="false" volatile="true" transient="true"
         derived="true" eOpposite="#//GeneratorTuple/GeneratorAsRoot"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Goals" upperBound="-1"
+        eType="#//GeneratorGoal" changeable="false" volatile="true" transient="true"
+        derived="true" eOpposite="#//GeneratorGoal/Generator"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="GeneratorFeatureModes"
         upperBound="-1" eType="#//GeneratorFeatureMode" eOpposite="#//GeneratorFeatureMode/Generator"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SolutionProvider" upperBound="-1"
+        eType="#//SolutionProvider" changeable="false" volatile="true" transient="true"
+        derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Remarks" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="FootprintNofVars" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="FootprintNofCons" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -76,13 +82,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ELpConsCount" eType="#//GeneratorLpConsCount"
         containment="true" eOpposite="#//GeneratorLpConsCount/Generator"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="SolutionProvider" upperBound="-1"
-        eType="#//SolutionProvider" changeable="false" volatile="true" transient="true"
-        derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Selected" eType="#//Solution"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Goals" upperBound="-1"
-        eType="#//GeneratorGoal" changeable="false" volatile="true" transient="true"
-        derived="true" eOpposite="#//GeneratorGoal/Generator"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorElement">
     <eOperations name="getGenerator" eType="#//Generator"/>

@@ -133,13 +133,31 @@ public interface DiscretePackage extends EPackage {
 	int TIME_BUCKET__SECONDS = 6;
 
 	/**
+	 * The feature id for the '<em><b>Minutes</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_BUCKET__MINUTES = 7;
+
+	/**
+	 * The feature id for the '<em><b>Hours</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_BUCKET__HOURS = 8;
+
+	/**
 	 * The feature id for the '<em><b>Time Line</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_BUCKET__TIME_LINE = 7;
+	int TIME_BUCKET__TIME_LINE = 9;
 
 	/**
 	 * The number of structural features of the '<em>Time Bucket</em>' class.
@@ -148,7 +166,7 @@ public interface DiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_BUCKET_FEATURE_COUNT = 8;
+	int TIME_BUCKET_FEATURE_COUNT = 10;
 
 	/**
 	 * The operation id for the '<em>Contains</em>' operation.
@@ -849,6 +867,28 @@ public interface DiscretePackage extends EPackage {
 	EAttribute getTimeBucket_Seconds();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.time.discrete.TimeBucket#getMinutes <em>Minutes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Minutes</em>'.
+	 * @see com.misc.common.moplaf.time.discrete.TimeBucket#getMinutes()
+	 * @see #getTimeBucket()
+	 * @generated
+	 */
+	EAttribute getTimeBucket_Minutes();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.time.discrete.TimeBucket#getHours <em>Hours</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Hours</em>'.
+	 * @see com.misc.common.moplaf.time.discrete.TimeBucket#getHours()
+	 * @see #getTimeBucket()
+	 * @generated
+	 */
+	EAttribute getTimeBucket_Hours();
+
+	/**
 	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.time.discrete.TimeBucket#getTimeLine <em>Time Line</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1541,6 +1581,22 @@ public interface DiscretePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TIME_BUCKET__SECONDS = eINSTANCE.getTimeBucket_Seconds();
+
+		/**
+		 * The meta object literal for the '<em><b>Minutes</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TIME_BUCKET__MINUTES = eINSTANCE.getTimeBucket_Minutes();
+
+		/**
+		 * The meta object literal for the '<em><b>Hours</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TIME_BUCKET__HOURS = eINSTANCE.getTimeBucket_Hours();
 
 		/**
 		 * The meta object literal for the '<em><b>Time Line</b></em>' container reference feature.

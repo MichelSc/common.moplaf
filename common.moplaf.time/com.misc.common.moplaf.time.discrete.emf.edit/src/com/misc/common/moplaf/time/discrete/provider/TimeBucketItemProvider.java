@@ -78,6 +78,8 @@ public class TimeBucketItemProvider
 			addPreviousPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addSecondsPropertyDescriptor(object);
+			addMinutesPropertyDescriptor(object);
+			addHoursPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -215,6 +217,54 @@ public class TimeBucketItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Minutes feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMinutesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TimeBucket_Minutes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TimeBucket_Minutes_feature", "_UI_TimeBucket_type"),
+				 DiscretePackage.Literals.TIME_BUCKET__MINUTES,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+
+
+	/**
+	 * This adds a property descriptor for the Hours feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addHoursPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TimeBucket_Hours_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TimeBucket_Hours_feature", "_UI_TimeBucket_type"),
+				 DiscretePackage.Literals.TIME_BUCKET__HOURS,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+
+
+	/**
 	 * This adds a property descriptor for the Bucket Nr feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -280,6 +330,8 @@ public class TimeBucketItemProvider
 			case DiscretePackage.TIME_BUCKET__BUCKET_END:
 			case DiscretePackage.TIME_BUCKET__DESCRIPTION:
 			case DiscretePackage.TIME_BUCKET__SECONDS:
+			case DiscretePackage.TIME_BUCKET__MINUTES:
+			case DiscretePackage.TIME_BUCKET__HOURS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

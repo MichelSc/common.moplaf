@@ -22,6 +22,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeBucket#getPrevious <em>Previous</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeBucket#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeBucket#getSeconds <em>Seconds</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.discrete.TimeBucket#getMinutes <em>Minutes</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.time.discrete.TimeBucket#getHours <em>Hours</em>}</li>
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeBucket#getTimeLine <em>Time Line</em>}</li>
  * </ul>
  *
@@ -215,6 +217,36 @@ public interface TimeBucket extends EObject {
 	 * @generated
 	 */
 	void setSeconds(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Minutes</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Minutes</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Minutes</em>' attribute.
+	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeBucket_Minutes()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	float getMinutes();
+
+	/**
+	 * Returns the value of the '<em><b>Hours</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Hours</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Hours</em>' attribute.
+	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeBucket_Hours()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	float getHours();
 
 	/**
 	 * Returns the value of the '<em><b>Time Line</b></em>' container reference.
