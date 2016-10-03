@@ -201,7 +201,8 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 
     private void checkContained(){
 		if ( this.isRoot() ) { return; } 
-		throw new UnsupportedOperationException("Container of a goal must be a Generator , and not : "+this.eContainer().eClass().getName());
+		String container = this.eContainer()==null ? "null" : this.eContainer().eClass().getName();
+		throw new UnsupportedOperationException("Container of a goal must be a Generator , and not : "+ container);
 	}
 
 	public String getCode() {
