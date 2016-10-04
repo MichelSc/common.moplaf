@@ -30,6 +30,8 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timediscrete.ecore#//TimeBucket/Previous"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//TimeBucket/Description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//TimeBucket/Seconds"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//TimeBucket/Minutes"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//TimeBucket/Hours"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference timediscrete.ecore#//TimeBucket/TimeLine"/>
       <genOperations ecoreOperation="timediscrete.ecore#//TimeBucket/contains">
         <genParameters ecoreParameter="timediscrete.ecore#//TimeBucket/contains/sometime"/>

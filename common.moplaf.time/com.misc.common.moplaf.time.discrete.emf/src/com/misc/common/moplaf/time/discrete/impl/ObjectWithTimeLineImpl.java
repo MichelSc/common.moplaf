@@ -8,10 +8,11 @@ import com.misc.common.moplaf.time.discrete.ObjectTimeBucket;
 import com.misc.common.moplaf.time.discrete.ObjectWithTimeLine;
 import com.misc.common.moplaf.time.discrete.TimeBucket;
 import com.misc.common.moplaf.time.discrete.TimeLine;
+import com.misc.common.moplaf.time.discrete.util.Util;
 
 import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 
@@ -287,44 +288,6 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.OBJECT_WITH_TIME_LINE__END_BUCKET, oldEndBucket, endBucket));
 	}
 	
-	public static ObjectTimeBucket getBucket(ObjectWithTimeLine theTimeLine, TimeBucket bucket, ObjectTimeBucket hint){
-		// try to achieve constant time perfs if the target bucket is close 
-		//    to the first bucket 
-		//    or to the last bucket
-		//    or to the previous target bucket
-		ObjectTimeBucket current = hint == null ? theTimeLine.getFirstBucket() : hint;
-				
-		int dist_to_curr  = bucket.getBucketNr()-current.getBucket().getBucketNr();
-
-		// compare current and first
-		int dist_to_first = bucket.getBucketNr()-theTimeLine.getFirstBucket().getBucket().getBucketNr();
-		if ( dist_to_first<0 ) { return null; }
-		if ( dist_to_first<Math.abs(dist_to_curr)){
-			current = theTimeLine.getFirstBucket();
-			dist_to_curr = dist_to_first;
-		}
-
-		// compare current and last
-		int dist_to_last  = bucket.getBucketNr()-theTimeLine.getLastBucket().getBucket().getBucketNr();
-		if ( dist_to_last>0 ) { return null; }
-		if ( dist_to_last>-Math.abs(dist_to_curr)){
-			current = theTimeLine.getLastBucket();
-			dist_to_curr = dist_to_last;
-		}
-		
-		// walk from current to the target
-		while ( Math.abs(dist_to_curr)>0){
-			if ( dist_to_curr>0){
-				current = current.getNext();
-				dist_to_curr--;
-			} else {
-				current = current.getPrevious();
-				dist_to_curr++;
-			}
-		}
-
-		return current;
-	}
 	
 	ObjectTimeBucket currentObjectBucket = null;
 
@@ -333,7 +296,7 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 */
 	public ObjectTimeBucket getBucket(TimeBucket bucket) {
-		this.currentObjectBucket =  ObjectWithTimeLineImpl.getBucket(this, bucket, this.currentObjectBucket);
+		this.currentObjectBucket =  Util.getBucket(this, bucket, this.currentObjectBucket);
 				
 		return currentObjectBucket;
 	}
@@ -349,86 +312,12 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 		return newObjectBucket;
 	}
 	
-	public static void refresh(ObjectWithTimeLine theTimeLine){
-		if (theTimeLine.getStartBucket()==null ) { return; }
-		if (theTimeLine.getEndBucket()==null ) { return; }
-		
-		int maxiterations = 30000;
-		
-		// remove the too much at the head
-		while (theTimeLine.getFirstBucket()!=null 
-			&& theTimeLine.getFirstBucket().getBucket().isBeforeStrictly(theTimeLine.getStartBucket())
-			&& --maxiterations>0 ) {
-			// remove first
-			ObjectTimeBucket oldfirst = theTimeLine.getFirstBucket();
-			ObjectTimeBucket newfirst = oldfirst.getNext();
-			oldfirst.dispose();
-			oldfirst.setNext(null);
-			theTimeLine.setFirstBucket(newfirst);
-			oldfirst.setBucket(null);
-			theTimeLine.getBuckets().remove(oldfirst);
-		}
-		
-		// remove the too much at the tail
-		while (theTimeLine.getLastBucket()!=null 
-			&& theTimeLine.getLastBucket().getBucket().isAfterStrictly(theTimeLine.getEndBucket())
-			&& --maxiterations>0){
-			// remove last
-			ObjectTimeBucket oldlast = theTimeLine.getLastBucket();
-			ObjectTimeBucket newlast = oldlast.getPrevious();
-			oldlast.dispose();
-			oldlast.setPrevious(null);
-			theTimeLine.setLastBucket(newlast);
-			oldlast.setBucket(null);
-			theTimeLine.getBuckets().remove(oldlast);
-		}
-		
-		if (   theTimeLine.getStartBucket().isAfterStrictly( theTimeLine.getEndBucket() )) {
-			// empty period
-			return;
-		}
-		
-		if ( theTimeLine.getFirstBucket()==null)	{
-			// the time line is presently empty
-			// create an initial bucket
-			ObjectTimeBucket initialbucket = theTimeLine.constructObjectTimeBucket();
-			initialbucket.setBucket(theTimeLine.getStartBucket());
-			theTimeLine.setFirstBucket(initialbucket);
-			theTimeLine.setLastBucket(initialbucket);
-			theTimeLine.getBuckets().add(initialbucket);
-		}
-		
-		while  ( theTimeLine.getFirstBucket().getBucket().isAfterStrictly(theTimeLine.getStartBucket() )
-			&& --maxiterations>0){
-			// add a new first previous to the old first
-			ObjectTimeBucket oldfirst = theTimeLine.getFirstBucket();
-			ObjectTimeBucket newfirst = theTimeLine.constructObjectTimeBucket();
-			newfirst.setNext(oldfirst);
-			theTimeLine.setFirstBucket(newfirst);
-			newfirst.setBucket(oldfirst.getBucket().getPrevious());
-			theTimeLine.getBuckets().add(0, newfirst); // adds as first
-		}
-		
-		while  ( theTimeLine.getLastBucket().getBucket().isBeforeStrictly(theTimeLine.getEndBucket() )
-				&& --maxiterations>0){
-			// add a new last next to the old last
-			ObjectTimeBucket oldlast = theTimeLine.getLastBucket();
-			ObjectTimeBucket newlast = theTimeLine.constructObjectTimeBucket();
-			newlast.setPrevious(oldlast);
-			theTimeLine.setLastBucket(newlast);
-			newlast.setBucket(oldlast.getBucket().getNext());
-			theTimeLine.getBuckets().add(newlast);  // adds as last
-		}
-		
-	}
-
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
 	public void refresh() {
-		ObjectWithTimeLineImpl.refresh(this);
+		Util.refresh(this);
 		this.currentObjectBucket = this.getFirstBucket();
 	}
 
