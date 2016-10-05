@@ -7,6 +7,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.dbsynch.DataSource;
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
 import com.misc.common.moplaf.dbsynch.Table;
@@ -98,7 +100,8 @@ public abstract class DataSourceImpl extends DbSynchUnitAbstractImpl implements 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void disconnect() {
+	public ReturnFeedback disconnect() {
+		return new ReturnFeedback(false, "DataSource.disconnect: not implemented");
 	}
 
 	/**
@@ -106,7 +109,7 @@ public abstract class DataSourceImpl extends DbSynchUnitAbstractImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void synchDownTableImpl(Table table) {
+	public ReturnFeedback synchDownTableImpl(Table table) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -117,7 +120,7 @@ public abstract class DataSourceImpl extends DbSynchUnitAbstractImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void synchUpTableImpl(Table table) {
+	public ReturnFeedback synchUpTableImpl(Table table) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -127,7 +130,8 @@ public abstract class DataSourceImpl extends DbSynchUnitAbstractImpl implements 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void connect() {
+	public ReturnFeedback connect() {
+		return new ReturnFeedback(false, "DataSource.connect: not implemented");
 	}
 
 	/**
@@ -198,17 +202,13 @@ public abstract class DataSourceImpl extends DbSynchUnitAbstractImpl implements 
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case DbSynchPackage.DATA_SOURCE___CONNECT:
-				connect();
-				return null;
+				return connect();
 			case DbSynchPackage.DATA_SOURCE___DISCONNECT:
-				disconnect();
-				return null;
+				return disconnect();
 			case DbSynchPackage.DATA_SOURCE___SYNCH_DOWN_TABLE_IMPL__TABLE:
-				synchDownTableImpl((Table)arguments.get(0));
-				return null;
+				return synchDownTableImpl((Table)arguments.get(0));
 			case DbSynchPackage.DATA_SOURCE___SYNCH_UP_TABLE_IMPL__TABLE:
-				synchUpTableImpl((Table)arguments.get(0));
-				return null;
+				return synchUpTableImpl((Table)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

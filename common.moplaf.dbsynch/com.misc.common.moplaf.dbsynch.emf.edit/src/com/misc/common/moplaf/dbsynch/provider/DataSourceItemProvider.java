@@ -69,7 +69,7 @@ public class DataSourceItemProvider
 				 getString("_UI_DataSource_Connected_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DataSource_Connected_feature", "_UI_DataSource_type"),
 				 DbSynchPackage.Literals.DATA_SOURCE__CONNECTED,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,

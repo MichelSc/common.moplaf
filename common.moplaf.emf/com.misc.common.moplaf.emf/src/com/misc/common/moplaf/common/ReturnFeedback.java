@@ -22,7 +22,7 @@ public class ReturnFeedback {
 		this.information = information;
 	}
 	
-	public ReturnFeedback(String context, Exception exception) {
+	public ReturnFeedback(String context, Throwable exception) {
 		super();
 		this.success     = false;
 		this.feedback    = context + ": " + exception.getClass().getSimpleName();

@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.dbsynch.impl;
 
+import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.dbsynch.DataSource;
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
 import com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract;
@@ -166,26 +167,34 @@ public abstract class DbSynchUnitAbstractImpl extends MinimalEObjectImpl.Contain
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void synchUp() {
+	public ReturnFeedback synchUp() {
 		for ( Table table : this.getTables()){
-			table.synchUp();
+			ReturnFeedback feedback = table.synchUp();
+			if ( feedback.isFailure()) { return feedback; }
+			
 		}
 		for ( DbSynchUnitAbstract synchUnit : this.getChildUnits()){
-			synchUnit.synchUp();
+			ReturnFeedback feedback = synchUnit.synchUp();
+			if ( feedback.isFailure()) { return feedback; }
 		}
+		return ReturnFeedback.SUCCESS;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void synchDown() {
+	public ReturnFeedback synchDown() {
 		for ( Table table : this.getTables()){
-			table.synchDown();
+			ReturnFeedback feedback = table.synchDown();
+			if ( feedback.isFailure()) { return feedback; }
+			
 		}
 		for ( DbSynchUnitAbstract synchUnit : this.getChildUnits()){
-			synchUnit.synchDown();
+			ReturnFeedback feedback = synchUnit.synchDown();
+			if ( feedback.isFailure()) { return feedback; }
 		}
+		return ReturnFeedback.SUCCESS;
 	}
 
 
@@ -313,11 +322,9 @@ public abstract class DbSynchUnitAbstractImpl extends MinimalEObjectImpl.Contain
 				refreshMetaData();
 				return null;
 			case DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT___SYNCH_UP:
-				synchUp();
-				return null;
+				return synchUp();
 			case DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT___SYNCH_DOWN:
-				synchDown();
-				return null;
+				return synchDown();
 			case DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_VALUE__EATTRIBUTE:
 				return getParamValue((EAttribute)arguments.get(0));
 			case DbSynchPackage.DB_SYNCH_UNIT_ABSTRACT___GET_PARAM_ATTRIBUTES:

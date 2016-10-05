@@ -14,5 +14,6 @@ Export-Package: com.misc.common.moplaf.dbsynch,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.apache.commons.lang;bundle-version="2.6.0",
- com.misc.common.moplaf.dbsynch.preference;bundle-version="1.0.0"
+ com.misc.common.moplaf.dbsynch.preference;bundle-version="1.0.0",
+ com.misc.common.moplaf.emf;bundle-version="1.0.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy

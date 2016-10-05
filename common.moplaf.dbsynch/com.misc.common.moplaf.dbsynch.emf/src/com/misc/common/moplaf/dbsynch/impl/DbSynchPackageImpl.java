@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.dbsynch.impl;
 
+import com.misc.common.moplaf.common.CommonPackage;
 import com.misc.common.moplaf.dbsynch.DataSource;
 import com.misc.common.moplaf.dbsynch.DataSourceJdbc;
 import com.misc.common.moplaf.dbsynch.DbSynchFactory;
@@ -161,6 +162,9 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		DbSynchPackageImpl theDbSynchPackage = (DbSynchPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof DbSynchPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new DbSynchPackageImpl());
 
 		isInited = true;
+
+		// Initialize simple dependencies
+		CommonPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theDbSynchPackage.createPackageContents();
@@ -1010,6 +1014,9 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		CommonPackage theCommonPackage = (CommonPackage)EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -1023,14 +1030,14 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		initEClass(dataSourceEClass, DataSource.class, "DataSource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDataSource_Connected(), ecorePackage.getEBoolean(), "Connected", null, 0, 1, DataSource.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getDataSource__Connect(), null, "connect", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getDataSource__Connect(), theCommonPackage.getReturnFeedback(), "connect", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getDataSource__Disconnect(), null, "disconnect", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getDataSource__Disconnect(), theCommonPackage.getReturnFeedback(), "disconnect", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		EOperation op = initEOperation(getDataSource__SynchDownTableImpl__Table(), null, "synchDownTableImpl", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getDataSource__SynchDownTableImpl__Table(), theCommonPackage.getReturnFeedback(), "synchDownTableImpl", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTable(), "table", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getDataSource__SynchUpTableImpl__Table(), null, "synchUpTableImpl", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getDataSource__SynchUpTableImpl__Table(), theCommonPackage.getReturnFeedback(), "synchUpTableImpl", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTable(), "table", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(dataSourceJdbcEClass, DataSourceJdbc.class, "DataSourceJdbc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1046,9 +1053,9 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 
 		initEOperation(getDbSynchUnitAbstract__RefreshMetaData(), null, "refreshMetaData", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getDbSynchUnitAbstract__SynchUp(), null, "synchUp", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getDbSynchUnitAbstract__SynchUp(), theCommonPackage.getReturnFeedback(), "synchUp", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getDbSynchUnitAbstract__SynchDown(), null, "synchDown", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getDbSynchUnitAbstract__SynchDown(), theCommonPackage.getReturnFeedback(), "synchDown", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getDbSynchUnitAbstract__GetParamValue__EAttribute(), this.getObject(), "getParamValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getEAttribute(), "attribute", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1110,9 +1117,9 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 
 		initEOperation(getTable__RefreshMetaData(), null, "refreshMetaData", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getTable__SynchDown(), null, "synchDown", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getTable__SynchDown(), theCommonPackage.getReturnFeedback(), "synchDown", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getTable__SynchUp(), null, "synchUp", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getTable__SynchUp(), theCommonPackage.getReturnFeedback(), "synchUp", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getTable__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
 

@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.dbsynch.DataSourceJdbc;
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
 import com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract;
@@ -303,7 +304,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 	 * @see com.misc.common.moplaf.datasetload.impl.DataSourceImpl#Connect()
 	 */
 	@Override
-	public void connect() {
+	public ReturnFeedback connect() {
 		Plugin.INSTANCE.logInfo("DataSource.Connect");
 
 		// disconnect
@@ -317,18 +318,21 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		}
 		catch (ClassNotFoundException cnfe) {
 			Plugin.INSTANCE.logInfo("..Class not found");
-			return;
+			return new ReturnFeedback("DataSourceJdbc.connect", cnfe);
 		} 
 		catch (SQLException e) {
 			Plugin.INSTANCE.logError("..SqlException, cause     " + e.getMessage());
 			SQLException e1 = e.getNextException();
 			if ( e1 !=null){
 				Plugin.INSTANCE.logError("..Next SqlException, cause "    + e1.getMessage());
+				return new ReturnFeedback("DataSourceJdbc.connect", e1);
 			}
-			return;
+			return new ReturnFeedback("DataSourceJdbc.connect", e);
 		}
 		
-		if ( this.db_connection!=null){
+		if ( this.db_connection==null){
+			return new ReturnFeedback(false, "DatasourceJdbc.connect: No connection");
+		} else {
 			Plugin.INSTANCE.logInfo("..Connection ok");
 			// get/set the schema
 			String schema = this.getDefaultSchema();
@@ -340,15 +344,19 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 				} 
 				catch (SQLException e) {
 					Plugin.INSTANCE.logError("..Set Schema failed, Sql exception"    + e.getMessage());
+					return new ReturnFeedback("DataSourceJdbc.connect(setSchema)", e);
 				}
 				catch (Exception e) {
 					Plugin.INSTANCE.logError("..Set Schema failed, Other exception "    + e.getMessage());
+					return new ReturnFeedback("DataSourceJdbc.connect(setSchema)", e);
 				}
 				catch (Throwable e) {
 					Plugin.INSTANCE.logError("..Set Schema failed, Other error"    + e.getMessage());
+					return new ReturnFeedback("DataSourceJdbc.connect(setSchema)", e);
 				}
 			}
 			this.setConnected(true);
+			return ReturnFeedback.SUCCESS;
 		}
 	}
 	
@@ -358,20 +366,21 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 	 * @see com.misc.common.moplaf.datasetload.impl.DataSourceImpl#Disconnect()
 	 */
 	@Override
-	public void disconnect() {
+	public ReturnFeedback disconnect() {
 		try {
-			if ( this.db_connection!=null){
+			if ( this.db_connection==null){
 				Plugin.INSTANCE.logInfo("DataSource.Disconnect");
 				this.db_connection.close();
 				this.db_connection = null;
 				this.onDisconnectImpl();
 			}
+			this.setConnected(false);
+			return ReturnFeedback.SUCCESS;
 		}
 		catch (SQLException e) {
 			Plugin.INSTANCE.logError("..disconnect failed, message "+ e.getMessage());
-			return;
+			return new ReturnFeedback("DataSourceJdbc.disconnect", e);
 		}
-		this.setConnected(false);
 	}
 	
 	/**
@@ -556,7 +565,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 	/**
 	 */
 	@Override
-	public void synchUpTableImpl(Table table) {
+	public ReturnFeedback synchUpTableImpl(Table table) {
 		Plugin.INSTANCE.logInfo("SynchUp table "+table.getTableName());
 		
 		// prepare the statement
@@ -707,10 +716,12 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		}
 		catch (SQLException e) {
 			Plugin.INSTANCE.logError("..Retrieve result set failed, cause " + e.getMessage());
+			return new ReturnFeedback("DataJourceJdbc.synchUpTable", e);
 		}
 		catch (Exception e){
 			e.printStackTrace();
 			Plugin.INSTANCE.logError("..General exception, no data retrieved, cause " + ExceptionUtils.getRootCauseMessage(e));
+			return new ReturnFeedback("DataJourceJdbc.synchUpTable", e);
 		}
 		
 		if ( resultSet!=null) {
@@ -719,6 +730,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 				resultSet = null;
 			} catch (SQLException e) {
 				Plugin.INSTANCE.logError("Failure to close the resultSet" + e.getMessage());
+				return new ReturnFeedback("DataJourceJdbc.synchUpTable", e);
 			}
 		}
 		if ( statement!=null){
@@ -727,13 +739,15 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 				statement = null;
 			} catch (SQLException e) {
 				Plugin.INSTANCE.logError("Failure to close the statement" + e.getCause());
+				return new ReturnFeedback("DataJourceJdbc.synchUpTable", e);
 			}
 		}
+		return ReturnFeedback.SUCCESS;
 		
 	} // method SynchUpTableImpl
 
 	@Override
-	public void synchDownTableImpl(Table table) {
+	public ReturnFeedback synchDownTableImpl(Table table) {
 		Plugin.INSTANCE.logInfo("SynchDown table "+table.getTableName());
 		
 		try {
@@ -870,25 +884,15 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		}
 		catch (SQLException e) {
 			Plugin.INSTANCE.logError("..SynchDown failed, cause " + e.getMessage());
+			return new ReturnFeedback("DataJourceJdbc.synchDownTable", e);
 		}
 		catch (Exception e){
 			Plugin.INSTANCE.logError("..General exception, no data written, cause " + ExceptionUtils.getRootCauseMessage(e));
+			return new ReturnFeedback("DataJourceJdbc.synchDownTable", e);
 		}
 
-		/*
-		if ( statement!=null){
-			try {
-				statement.close();
-				statement = null;
-			} catch (SQLException e) {
-				Plugin.INSTANCE.logError("Failure to close the statement" + e.getCause());
-			}
-		}
-		*/
-		
+		return ReturnFeedback.SUCCESS;
 	}
-	
-	
 
 } //DataSourceJdbcImpl
 

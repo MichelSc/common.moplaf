@@ -2,6 +2,8 @@
  */
 package com.misc.common.moplaf.dbsynch;
 
+import com.misc.common.moplaf.common.ReturnFeedback;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Data Source</b></em>'.
@@ -59,33 +61,33 @@ public interface DataSource extends DbSynchUnitAbstract {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model dataType="com.misc.common.moplaf.common.ReturnFeedback"
 	 * @generated
 	 */
-	void connect();
+	ReturnFeedback connect();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model dataType="com.misc.common.moplaf.common.ReturnFeedback"
 	 * @generated
 	 */
-	void disconnect();
+	ReturnFeedback disconnect();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model dataType="com.misc.common.moplaf.common.ReturnFeedback"
 	 * @generated
 	 */
-	void synchDownTableImpl(Table table);
+	ReturnFeedback synchDownTableImpl(Table table);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model dataType="com.misc.common.moplaf.common.ReturnFeedback"
 	 * @generated
 	 */
-	void synchUpTableImpl(Table table);
+	ReturnFeedback synchUpTableImpl(Table table);
 
 } // DataSource

@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.dbsynch.provider;
 
+import com.misc.common.moplaf.common.provider.CommonEditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -38,6 +39,7 @@ public final class dbsynchEditPlugin extends EMFPlugin {
 	public dbsynchEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     CommonEditPlugin.INSTANCE,
 		   });
 	}
 

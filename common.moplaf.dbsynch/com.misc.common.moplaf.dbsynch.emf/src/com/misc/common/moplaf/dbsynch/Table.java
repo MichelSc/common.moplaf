@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.dbsynch;
 
+import com.misc.common.moplaf.common.ReturnFeedback;
 import java.util.Date;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
@@ -473,10 +474,10 @@ public interface Table extends EObject {
 	 * <!-- begin-model-doc -->
 	 * Write in the tables as a function of the changes in the applicative data since the last synchDown
 	 * <!-- end-model-doc -->
-	 * @model
+	 * @model dataType="com.misc.common.moplaf.common.ReturnFeedback"
 	 * @generated
 	 */
-	void synchDown();
+	ReturnFeedback synchDown();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -484,10 +485,10 @@ public interface Table extends EObject {
 	 * <!-- begin-model-doc -->
 	 * Load the tables in the group, update the rows accordingly (synchronize the application data as a function of what is read)
 	 * <!-- end-model-doc -->
-	 * @model
+	 * @model dataType="com.misc.common.moplaf.common.ReturnFeedback"
 	 * @generated
 	 */
-	void synchUp();
+	ReturnFeedback synchUp();
 
 	/**
 	 * <!-- begin-user-doc -->

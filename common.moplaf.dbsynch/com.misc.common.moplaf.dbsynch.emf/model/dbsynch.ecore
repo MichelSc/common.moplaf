@@ -6,12 +6,12 @@
     <details key="documentation" value="The method refresh() is called by the framework when changed by the framework, so when changed after a read action"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="DataSource" abstract="true" eSuperTypes="#//DbSynchUnitAbstract">
-    <eOperations name="connect"/>
-    <eOperations name="disconnect"/>
-    <eOperations name="synchDownTableImpl">
+    <eOperations name="connect" eType="ecore:EDataType ../../com.misc.common.moplaf.emf/model/common.ecore#//ReturnFeedback"/>
+    <eOperations name="disconnect" eType="ecore:EDataType ../../com.misc.common.moplaf.emf/model/common.ecore#//ReturnFeedback"/>
+    <eOperations name="synchDownTableImpl" eType="ecore:EDataType ../../com.misc.common.moplaf.emf/model/common.ecore#//ReturnFeedback">
       <eParameters name="table" eType="#//Table"/>
     </eOperations>
-    <eOperations name="synchUpTableImpl">
+    <eOperations name="synchUpTableImpl" eType="ecore:EDataType ../../com.misc.common.moplaf.emf/model/common.ecore#//ReturnFeedback">
       <eParameters name="table" eType="#//Table"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Connected" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
@@ -24,12 +24,12 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DbSynchUnitAbstract" abstract="true">
     <eOperations name="refreshMetaData"/>
-    <eOperations name="synchUp">
+    <eOperations name="synchUp" eType="ecore:EDataType ../../com.misc.common.moplaf.emf/model/common.ecore#//ReturnFeedback">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Load the tables in the group, update the rows accordingly (synchronize the application data as a function of what is read)"/>
       </eAnnotations>
     </eOperations>
-    <eOperations name="synchDown">
+    <eOperations name="synchDown" eType="ecore:EDataType ../../com.misc.common.moplaf.emf/model/common.ecore#//ReturnFeedback">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Load the tables in the group, update the rows accordingly (synchronize the application data as a function of what is read)"/>
       </eAnnotations>
@@ -89,12 +89,12 @@
       <eParameters name="dbSynchAttribute" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
     </eOperations>
     <eOperations name="refreshMetaData"/>
-    <eOperations name="synchDown">
+    <eOperations name="synchDown" eType="ecore:EDataType ../../com.misc.common.moplaf.emf/model/common.ecore#//ReturnFeedback">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Write in the tables as a function of the changes in the applicative data since the last synchDown"/>
       </eAnnotations>
     </eOperations>
-    <eOperations name="synchUp">
+    <eOperations name="synchUp" eType="ecore:EDataType ../../com.misc.common.moplaf.emf/model/common.ecore#//ReturnFeedback">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Load the tables in the group, update the rows accordingly (synchronize the application data as a function of what is read)"/>
       </eAnnotations>

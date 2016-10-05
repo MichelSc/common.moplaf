@@ -23,6 +23,8 @@ import org.eclipse.emf.ecore.util.EObjectEList;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.dbsynch.DataSource;
 import com.misc.common.moplaf.dbsynch.DbSynchFactory;
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
@@ -848,10 +850,10 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void synchUp() {
+	public ReturnFeedback synchUp() {
 		DbSynchUnitAbstract synchUnit = this.getSynchUnit();
 		DataSource dataSource = synchUnit.getDataSource();
-		dataSource.synchUpTableImpl(this);
+		return dataSource.synchUpTableImpl(this);
     }
 	
 	
@@ -859,10 +861,10 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void synchDown() {
+	public ReturnFeedback synchDown() {
 		DbSynchUnitAbstract synchUnit = this.getSynchUnit();
 		DataSource dataSource = synchUnit.getDataSource();
-		dataSource.synchDownTableImpl(this);
+		return dataSource.synchDownTableImpl(this);
 	}
 
 
@@ -1087,11 +1089,9 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 				refreshMetaData();
 				return null;
 			case DbSynchPackage.TABLE___SYNCH_DOWN:
-				synchDown();
-				return null;
+				return synchDown();
 			case DbSynchPackage.TABLE___SYNCH_UP:
-				synchUp();
-				return null;
+				return synchUp();
 			case DbSynchPackage.TABLE___REFRESH:
 				refresh();
 				return null;
