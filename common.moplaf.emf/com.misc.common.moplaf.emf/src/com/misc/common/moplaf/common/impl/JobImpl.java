@@ -7,7 +7,7 @@ import com.misc.common.moplaf.common.Job;
 import com.misc.common.moplaf.common.ReturnFeedback;
 
 import java.lang.reflect.InvocationTargetException;
-
+import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 
@@ -493,7 +493,7 @@ public class JobImpl extends RunImpl implements Job {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public String getArgAsString(int index) {
+	public String getArgAsString(int index)  throws Exception{
 		String arg = this.getArgs().get(index);
 		return arg;
 	}
@@ -502,7 +502,7 @@ public class JobImpl extends RunImpl implements Job {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public int getArgAsInt(int index) {
+	public int getArgAsInt(int index)  throws Exception{
 		String arg = this.getArgAsString(index);
 		int value = Integer.valueOf(arg);
 		return value;
@@ -512,10 +512,29 @@ public class JobImpl extends RunImpl implements Job {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public float getArgAsFloat(int index) {
+	public float getArgAsFloat(int index)  throws Exception{
 		String arg = this.getArgAsString(index);
 		float value = Float.valueOf(arg);
 		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Date getArgAsDate(int index)  throws Exception{
+		return this.getArgAsDate(index, "yyyy-MM-dd");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public Date getArgAsDate(int index, String simpleDateFormat)  throws Exception{
+		SimpleDateFormat formatter = new SimpleDateFormat(simpleDateFormat);
+		String argAsString = this.getArgAsString(index);
+		Date date = formatter.parse(argAsString);
+		return date;
 	}
 
 	/**
@@ -675,11 +694,40 @@ public class JobImpl extends RunImpl implements Job {
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case CommonPackage.JOB___GET_ARG_AS_STRING__INT:
-				return getArgAsString((Integer)arguments.get(0));
+				try {
+					return getArgAsString((Integer)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case CommonPackage.JOB___GET_ARG_AS_INT__INT:
-				return getArgAsInt((Integer)arguments.get(0));
+				try {
+					return getArgAsInt((Integer)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 			case CommonPackage.JOB___GET_ARG_AS_FLOAT__INT:
-				return getArgAsFloat((Integer)arguments.get(0));
+				try {
+					return getArgAsFloat((Integer)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case CommonPackage.JOB___GET_ARG_AS_DATE__INT:
+				try {
+					return getArgAsDate((Integer)arguments.get(0));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case CommonPackage.JOB___GET_ARG_AS_DATE__INT_STRING:
+				try {
+					return getArgAsDate((Integer)arguments.get(0), (String)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}

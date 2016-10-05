@@ -291,25 +291,41 @@ public interface Job extends Run {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="com.misc.common.moplaf.common.Exception"
 	 * @generated
 	 */
-	String getArgAsString(int index);
+	String getArgAsString(int index) throws Exception;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="com.misc.common.moplaf.common.Exception"
 	 * @generated
 	 */
-	int getArgAsInt(int index);
+	int getArgAsInt(int index) throws Exception;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model exceptions="com.misc.common.moplaf.common.Exception"
 	 * @generated
 	 */
-	float getArgAsFloat(int index);
+	float getArgAsFloat(int index) throws Exception;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="com.misc.common.moplaf.common.Exception"
+	 * @generated
+	 */
+	Date getArgAsDate(int index) throws Exception;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="com.misc.common.moplaf.common.Exception"
+	 * @generated
+	 */
+	Date getArgAsDate(int index, String simpleDateFormat) throws Exception;
 
 } // Job

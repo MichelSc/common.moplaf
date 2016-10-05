@@ -448,13 +448,31 @@ public interface CommonPackage extends EPackage {
 	int JOB___GET_ARG_AS_FLOAT__INT = RUN_OPERATION_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Get Arg As Date</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB___GET_ARG_AS_DATE__INT = RUN_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get Arg As Date</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB___GET_ARG_AS_DATE__INT_STRING = RUN_OPERATION_COUNT + 4;
+
+	/**
 	 * The number of operations of the '<em>Job</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_OPERATION_COUNT = RUN_OPERATION_COUNT + 3;
+	int JOB_OPERATION_COUNT = RUN_OPERATION_COUNT + 5;
 
 
 	/**
@@ -477,6 +495,17 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 */
 	int RETURN_FEEDBACK = 3;
+
+
+	/**
+	 * The meta object id for the '<em>Exception</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.lang.Exception
+	 * @see com.misc.common.moplaf.common.impl.CommonPackageImpl#getException()
+	 * @generated
+	 */
+	int EXCEPTION = 4;
 
 
 	/**
@@ -641,6 +670,26 @@ public interface CommonPackage extends EPackage {
 	EOperation getJob__GetArgAsFloat__int();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.common.Job#getArgAsDate(int) <em>Get Arg As Date</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Arg As Date</em>' operation.
+	 * @see com.misc.common.moplaf.common.Job#getArgAsDate(int)
+	 * @generated
+	 */
+	EOperation getJob__GetArgAsDate__int();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.common.Job#getArgAsDate(int, java.lang.String) <em>Get Arg As Date</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Arg As Date</em>' operation.
+	 * @see com.misc.common.moplaf.common.Job#getArgAsDate(int, java.lang.String)
+	 * @generated
+	 */
+	EOperation getJob__GetArgAsDate__int_String();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.common.Run <em>Run</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -800,6 +849,17 @@ public interface CommonPackage extends EPackage {
 	EDataType getReturnFeedback();
 
 	/**
+	 * Returns the meta object for data type '{@link java.lang.Exception <em>Exception</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Exception</em>'.
+	 * @see java.lang.Exception
+	 * @model instanceClass="java.lang.Exception"
+	 * @generated
+	 */
+	EDataType getException();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -945,6 +1005,22 @@ public interface CommonPackage extends EPackage {
 		EOperation JOB___GET_ARG_AS_FLOAT__INT = eINSTANCE.getJob__GetArgAsFloat__int();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Arg As Date</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JOB___GET_ARG_AS_DATE__INT = eINSTANCE.getJob__GetArgAsDate__int();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Arg As Date</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JOB___GET_ARG_AS_DATE__INT_STRING = eINSTANCE.getJob__GetArgAsDate__int_String();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.common.impl.RunImpl <em>Run</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1069,6 +1145,16 @@ public interface CommonPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType RETURN_FEEDBACK = eINSTANCE.getReturnFeedback();
+
+		/**
+		 * The meta object literal for the '<em>Exception</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.lang.Exception
+		 * @see com.misc.common.moplaf.common.impl.CommonPackageImpl#getException()
+		 * @generated
+		 */
+		EDataType EXCEPTION = eINSTANCE.getException();
 
 	}
 
