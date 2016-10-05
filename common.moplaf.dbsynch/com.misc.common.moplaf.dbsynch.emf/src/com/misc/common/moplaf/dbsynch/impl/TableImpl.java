@@ -521,7 +521,15 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Default implementation does nothing
+	 * Default implementation does nothing.
+	 * <p>
+	 * The implementation may overload it in order
+	 * <ul>
+	 *   <li> to set the name of the table: {@link #setTableName(String)} </li>
+	 *   <li> to set the where clause: {@link #setWhereClause(String)} </li>
+	 *   <li> to add parameters: {@link #addParam(EAttribute)} </li>
+	 *   <li> to add columns: {@link #addColumn(boolean, String, EnumColumnType, EAttribute, String) }</li>
+	 * </ul>
 	 * <!-- end-user-doc -->
 	 */
 	protected void refreshMetaDataImpl() {

@@ -485,6 +485,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		    	break;
 			case Types.TIMESTAMP:
 		    	statement.setTimestamp(paramIndex, new java.sql.Timestamp(((Date)paramValue).getTime()));
+		    	break;
 			case Types.OTHER:
 		    	statement.setObject(paramIndex, paramValue);
 		    	break;
@@ -698,7 +699,6 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		     } // traverse the rows of the result set
 			Plugin.INSTANCE.logInfo("..Result set traversed, rows "+String.format("%d", rowIndex));
 			table.setNumberOfRows(rowIndex);
-			table.setLastSynchUp(new Date());
 
 			// remove the rows too many
 			for ( TableRow rowToRemove : rowsasis){
@@ -742,6 +742,8 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 				return new ReturnFeedback("DataJourceJdbc.synchUpTable", e);
 			}
 		}
+		
+		table.setLastSynchUp(new Date());
 		return ReturnFeedback.SUCCESS;
 		
 	} // method SynchUpTableImpl
@@ -891,6 +893,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 			return new ReturnFeedback("DataJourceJdbc.synchDownTable", e);
 		}
 
+		table.setLastSynchDown(new Date());
 		return ReturnFeedback.SUCCESS;
 	}
 

@@ -6,7 +6,6 @@ import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.dbsynch.DataSource;
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
 import com.misc.common.moplaf.dbsynch.DbSynchUnitAbstract;
-
 import com.misc.common.moplaf.dbsynch.Table;
 import java.lang.reflect.InvocationTargetException;
 
@@ -155,13 +154,32 @@ public abstract class DbSynchUnitAbstractImpl extends MinimalEObjectImpl.Contain
 	 * <!-- end-user-doc -->
 	 */
 	public void refreshMetaData() {
+		// refresh this synchUnit
+		this.refreshMetaDataImpl();
+		// refresh its children
 		for ( DbSynchUnitAbstract childUnit : this.getChildUnits()){
 			childUnit.refreshMetaData();
 		}
+		// refresh its tables
 		for ( Table childTable : this.getTables()){
 			childTable.refreshMetaData();
 		}
 	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * Default implementation does nothing.
+	 * <p>
+	 * The implementation may overload it in order
+	 * <ul>
+	 *   <li> to add tables: {@link #addTable(EReference, EClass)}</li>
+	 * </ul>
+	 * <!-- end-user-doc -->
+	 */
+	protected void refreshMetaDataImpl() {
+	}
+
+
 
 	/**
 	 * <!-- begin-user-doc -->
