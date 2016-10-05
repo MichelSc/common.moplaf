@@ -523,7 +523,7 @@ public abstract class TableImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- begin-user-doc -->
 	 * Default implementation does nothing.
 	 * <p>
-	 * The implementation may overload it in order
+	 * The specialization may overload it in order
 	 * <ul>
 	 *   <li> to set the name of the table: {@link #setTableName(String)} </li>
 	 *   <li> to set the where clause: {@link #setWhereClause(String)} </li>

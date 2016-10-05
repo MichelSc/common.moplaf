@@ -18,6 +18,12 @@ import org.eclipse.emf.ecore.EObject;
  * <li> DownSynching an object set as IsDeleted will delete it from the database table.
  * </ul>
  * <p>
+ * A TableRow instance is not physically deleted by dbSynch. Instead, its field isDeleted 
+ * is raised. A newly created TableRow instance is set by default as isDeleted. The applicative
+ * logic must reset the field as soon as the instance is sufficiently ready to be written
+ * in the database. 
+ * <p>
+ * 
  * Following information about the execution of the synchronization is returned
  *   <ul>
  *   <li> {@link #getModificationLastSynchUp()} : modification on the object done by the last up synch

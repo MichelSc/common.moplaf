@@ -7,7 +7,11 @@ package com.misc.common.moplaf.dbsynch;
  * A representation of the model object '<em><b>DbSynchUnit</b></em>'.
  * <p>
  * A DbSynchUnit is a non-root unit in the hiearchy of the synch units. Typically it
- * represents a group of tables that must be queried together, with the same parameter values.
+ * represents 
+ * <ul>
+ * <li>a group of tables that must be queried together, with the same parameter values.</li>
+ * <li>a group of tables that must be written together, in the same transaction.</li>
+ * </ul>
  * <!-- end-user-doc -->
  *
  * <p>

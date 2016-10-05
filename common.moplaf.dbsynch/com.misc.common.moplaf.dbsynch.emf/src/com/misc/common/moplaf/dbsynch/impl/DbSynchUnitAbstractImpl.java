@@ -170,7 +170,7 @@ public abstract class DbSynchUnitAbstractImpl extends MinimalEObjectImpl.Contain
 	 * <!-- begin-user-doc -->
 	 * Default implementation does nothing.
 	 * <p>
-	 * The implementation may overload it in order
+	 * The specialization may overload it in order
 	 * <ul>
 	 *   <li> to add tables: {@link #addTable(EReference, EClass)}</li>
 	 * </ul>
