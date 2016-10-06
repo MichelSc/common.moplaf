@@ -9,6 +9,7 @@
       ecorePackage="common.ecore#/">
     <genDataTypes ecoreDataType="common.ecore#//CommandFeedback"/>
     <genDataTypes ecoreDataType="common.ecore#//ReturnFeedback"/>
+    <genDataTypes ecoreDataType="common.ecore#//Exception"/>
     <genClasses ecoreClass="common.ecore#//Job" labelFeature="#//common/Job/Description">
       <genFeatures createChild="false" propertyCategory="10 Job" ecoreFeature="ecore:EAttribute common.ecore#//Job/Name"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="11 Job Status"
@@ -34,6 +35,13 @@
       </genOperations>
       <genOperations ecoreOperation="common.ecore#//Job/getArgAsFloat">
         <genParameters ecoreParameter="common.ecore#//Job/getArgAsFloat/index"/>
+      </genOperations>
+      <genOperations ecoreOperation="common.ecore#//Job/getArgAsDate">
+        <genParameters ecoreParameter="common.ecore#//Job/getArgAsDate/index"/>
+      </genOperations>
+      <genOperations ecoreOperation="common.ecore#//Job/getArgAsDate.1">
+        <genParameters ecoreParameter="common.ecore#//Job/getArgAsDate.1/index"/>
+        <genParameters ecoreParameter="common.ecore#//Job/getArgAsDate.1/simpleDateFormat"/>
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="common.ecore#//Run">

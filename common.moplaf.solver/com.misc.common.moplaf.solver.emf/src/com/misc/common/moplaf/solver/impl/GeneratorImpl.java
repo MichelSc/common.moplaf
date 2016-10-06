@@ -605,9 +605,13 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 	@Override
 	protected ReturnFeedback runImpl() {
 		try {
-			this.generate();
-			return ReturnFeedback.SUCCESS;
+			ReturnFeedback generateFeedback = this.generate();
+			if ( generateFeedback.isFailure() ){
+				Plugin.INSTANCE.logError("Generator.run: failed, reason "+generateFeedback.getFeedback());
+			}
+			return generateFeedback;
 		} catch (Exception e){
+			Plugin.INSTANCE.logError("Generator.run: failed, exception "+e.getMessage());
 			return new ReturnFeedback("Generator.run", e);
 		}
 	}
