@@ -43,7 +43,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getTupleRoot <em>Tuple Root</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getGoals <em>Goals</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getGeneratorFeatureModes <em>Generator Feature Modes</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getSolutionProvider <em>Solution Provider</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getRemarks <em>Remarks</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getFootprintNofVars <em>Footprint Nof Vars</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getFootprintNofCons <em>Footprint Nof Cons</em>}</li>
@@ -53,9 +55,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getELpVarCount <em>ELp Var Count</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getELpConsCount <em>ELp Cons Count</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getCode <em>Code</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getSolutionProvider <em>Solution Provider</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getSelected <em>Selected</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getGoals <em>Goals</em>}</li>
  * </ul>
  *
  * @generated
@@ -860,8 +860,12 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 		switch (featureID) {
 			case SolverPackage.GENERATOR__TUPLE_ROOT:
 				return getTupleRoot();
+			case SolverPackage.GENERATOR__GOALS:
+				return getGoals();
 			case SolverPackage.GENERATOR__GENERATOR_FEATURE_MODES:
 				return getGeneratorFeatureModes();
+			case SolverPackage.GENERATOR__SOLUTION_PROVIDER:
+				return getSolutionProvider();
 			case SolverPackage.GENERATOR__REMARKS:
 				return getRemarks();
 			case SolverPackage.GENERATOR__FOOTPRINT_NOF_VARS:
@@ -880,13 +884,9 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 				return getELpConsCount();
 			case SolverPackage.GENERATOR__CODE:
 				return getCode();
-			case SolverPackage.GENERATOR__SOLUTION_PROVIDER:
-				return getSolutionProvider();
 			case SolverPackage.GENERATOR__SELECTED:
 				if (resolve) return getSelected();
 				return basicGetSelected();
-			case SolverPackage.GENERATOR__GOALS:
-				return getGoals();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -993,8 +993,12 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 		switch (featureID) {
 			case SolverPackage.GENERATOR__TUPLE_ROOT:
 				return !getTupleRoot().isEmpty();
+			case SolverPackage.GENERATOR__GOALS:
+				return !getGoals().isEmpty();
 			case SolverPackage.GENERATOR__GENERATOR_FEATURE_MODES:
 				return generatorFeatureModes != null && !generatorFeatureModes.isEmpty();
+			case SolverPackage.GENERATOR__SOLUTION_PROVIDER:
+				return !getSolutionProvider().isEmpty();
 			case SolverPackage.GENERATOR__REMARKS:
 				return REMARKS_EDEFAULT == null ? remarks != null : !REMARKS_EDEFAULT.equals(remarks);
 			case SolverPackage.GENERATOR__FOOTPRINT_NOF_VARS:
@@ -1013,12 +1017,8 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 				return eLpConsCount != null;
 			case SolverPackage.GENERATOR__CODE:
 				return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
-			case SolverPackage.GENERATOR__SOLUTION_PROVIDER:
-				return !getSolutionProvider().isEmpty();
 			case SolverPackage.GENERATOR__SELECTED:
 				return selected != null;
-			case SolverPackage.GENERATOR__GOALS:
-				return !getGoals().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

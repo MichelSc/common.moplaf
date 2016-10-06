@@ -564,24 +564,6 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * @generated
 	 */
 	public EAttribute getGenerator_Remarks() {
-		return (EAttribute)generatorEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getGenerator_FootprintNofVars() {
-		return (EAttribute)generatorEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getGenerator_FootprintNofCons() {
 		return (EAttribute)generatorEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -590,7 +572,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGenerator_FootprintNofTerms() {
+	public EAttribute getGenerator_FootprintNofVars() {
 		return (EAttribute)generatorEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -599,7 +581,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGenerator_CountCons() {
+	public EAttribute getGenerator_FootprintNofCons() {
 		return (EAttribute)generatorEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -608,7 +590,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGenerator_CountVars() {
+	public EAttribute getGenerator_FootprintNofTerms() {
 		return (EAttribute)generatorEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -617,8 +599,26 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getGenerator_CountCons() {
+		return (EAttribute)generatorEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGenerator_CountVars() {
+		return (EAttribute)generatorEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getGenerator_ELpVarCount() {
-		return (EReference)generatorEClass.getEStructuralFeatures().get(8);
+		return (EReference)generatorEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -627,24 +627,6 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * @generated
 	 */
 	public EReference getGenerator_ELpConsCount() {
-		return (EReference)generatorEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getGenerator_Code() {
-		return (EAttribute)generatorEClass.getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getGenerator_SolutionProvider() {
 		return (EReference)generatorEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -653,8 +635,26 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getGenerator_Code() {
+		return (EAttribute)generatorEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGenerator_SolutionProvider() {
+		return (EReference)generatorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getGenerator_Selected() {
-		return (EReference)generatorEClass.getEStructuralFeatures().get(12);
+		return (EReference)generatorEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -663,7 +663,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * @generated
 	 */
 	public EReference getGenerator_Goals() {
-		return (EReference)generatorEClass.getEStructuralFeatures().get(13);
+		return (EReference)generatorEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -771,7 +771,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * @generated
 	 */
 	public EReference getGenerator_GeneratorFeatureModes() {
-		return (EReference)generatorEClass.getEStructuralFeatures().get(1);
+		return (EReference)generatorEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2946,7 +2946,9 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		// Create classes and their features
 		generatorEClass = createEClass(GENERATOR);
 		createEReference(generatorEClass, GENERATOR__TUPLE_ROOT);
+		createEReference(generatorEClass, GENERATOR__GOALS);
 		createEReference(generatorEClass, GENERATOR__GENERATOR_FEATURE_MODES);
+		createEReference(generatorEClass, GENERATOR__SOLUTION_PROVIDER);
 		createEAttribute(generatorEClass, GENERATOR__REMARKS);
 		createEAttribute(generatorEClass, GENERATOR__FOOTPRINT_NOF_VARS);
 		createEAttribute(generatorEClass, GENERATOR__FOOTPRINT_NOF_CONS);
@@ -2956,9 +2958,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		createEReference(generatorEClass, GENERATOR__ELP_VAR_COUNT);
 		createEReference(generatorEClass, GENERATOR__ELP_CONS_COUNT);
 		createEAttribute(generatorEClass, GENERATOR__CODE);
-		createEReference(generatorEClass, GENERATOR__SOLUTION_PROVIDER);
 		createEReference(generatorEClass, GENERATOR__SELECTED);
-		createEReference(generatorEClass, GENERATOR__GOALS);
 		createEOperation(generatorEClass, GENERATOR___GENERATE);
 		createEOperation(generatorEClass, GENERATOR___GENERATE_ROOT_TUPLES);
 		createEOperation(generatorEClass, GENERATOR___GENERATE_TUPLES);
@@ -3331,7 +3331,9 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(generatorEClass, Generator.class, "Generator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGenerator_TupleRoot(), this.getGeneratorTuple(), this.getGeneratorTuple_GeneratorAsRoot(), "TupleRoot", null, 0, -1, Generator.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getGenerator_Goals(), this.getGeneratorGoal(), this.getGeneratorGoal_Generator(), "Goals", null, 0, -1, Generator.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getGenerator_GeneratorFeatureModes(), this.getGeneratorFeatureMode(), this.getGeneratorFeatureMode_Generator(), "GeneratorFeatureModes", null, 0, -1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGenerator_SolutionProvider(), this.getSolutionProvider(), null, "SolutionProvider", null, 0, -1, Generator.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenerator_Remarks(), ecorePackage.getEString(), "Remarks", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenerator_FootprintNofVars(), ecorePackage.getEInt(), "FootprintNofVars", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenerator_FootprintNofCons(), ecorePackage.getEInt(), "FootprintNofCons", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3341,9 +3343,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		initEReference(getGenerator_ELpVarCount(), this.getGeneratorLpVarCount(), this.getGeneratorLpVarCount_Generator(), "ELpVarCount", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGenerator_ELpConsCount(), this.getGeneratorLpConsCount(), this.getGeneratorLpConsCount_Generator(), "ELpConsCount", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenerator_Code(), ecorePackage.getEString(), "Code", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGenerator_SolutionProvider(), this.getSolutionProvider(), null, "SolutionProvider", null, 0, -1, Generator.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getGenerator_Selected(), this.getSolution(), null, "Selected", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGenerator_Goals(), this.getGeneratorGoal(), this.getGeneratorGoal_Generator(), "Goals", null, 0, -1, Generator.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getGenerator__Generate(), theCommonPackage.getReturnFeedback(), "generate", 0, 1, IS_UNIQUE, IS_ORDERED);
 

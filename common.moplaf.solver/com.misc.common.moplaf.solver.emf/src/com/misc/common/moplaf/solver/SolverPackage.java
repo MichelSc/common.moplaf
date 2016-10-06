@@ -143,94 +143,22 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR__TUPLE_ROOT = CommonPackage.RUN_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Goals</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__GOALS = CommonPackage.RUN_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Generator Feature Modes</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__GENERATOR_FEATURE_MODES = CommonPackage.RUN_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Remarks</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR__REMARKS = CommonPackage.RUN_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Footprint Nof Vars</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR__FOOTPRINT_NOF_VARS = CommonPackage.RUN_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Footprint Nof Cons</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR__FOOTPRINT_NOF_CONS = CommonPackage.RUN_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Footprint Nof Terms</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR__FOOTPRINT_NOF_TERMS = CommonPackage.RUN_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Count Cons</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR__COUNT_CONS = CommonPackage.RUN_FEATURE_COUNT + 6;
-
-	/**
-	 * The feature id for the '<em><b>Count Vars</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR__COUNT_VARS = CommonPackage.RUN_FEATURE_COUNT + 7;
-
-	/**
-	 * The feature id for the '<em><b>ELp Var Count</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR__ELP_VAR_COUNT = CommonPackage.RUN_FEATURE_COUNT + 8;
-
-	/**
-	 * The feature id for the '<em><b>ELp Cons Count</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR__ELP_CONS_COUNT = CommonPackage.RUN_FEATURE_COUNT + 9;
-
-	/**
-	 * The feature id for the '<em><b>Code</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR__CODE = CommonPackage.RUN_FEATURE_COUNT + 10;
+	int GENERATOR__GENERATOR_FEATURE_MODES = CommonPackage.RUN_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Solution Provider</b></em>' reference list.
@@ -239,7 +167,88 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__SOLUTION_PROVIDER = CommonPackage.RUN_FEATURE_COUNT + 11;
+	int GENERATOR__SOLUTION_PROVIDER = CommonPackage.RUN_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Remarks</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__REMARKS = CommonPackage.RUN_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Footprint Nof Vars</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__FOOTPRINT_NOF_VARS = CommonPackage.RUN_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Footprint Nof Cons</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__FOOTPRINT_NOF_CONS = CommonPackage.RUN_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Footprint Nof Terms</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__FOOTPRINT_NOF_TERMS = CommonPackage.RUN_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Count Cons</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__COUNT_CONS = CommonPackage.RUN_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Count Vars</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__COUNT_VARS = CommonPackage.RUN_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>ELp Var Count</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__ELP_VAR_COUNT = CommonPackage.RUN_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>ELp Cons Count</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__ELP_CONS_COUNT = CommonPackage.RUN_FEATURE_COUNT + 11;
+
+	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__CODE = CommonPackage.RUN_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Selected</b></em>' reference.
@@ -248,16 +257,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__SELECTED = CommonPackage.RUN_FEATURE_COUNT + 12;
-
-	/**
-	 * The feature id for the '<em><b>Goals</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR__GOALS = CommonPackage.RUN_FEATURE_COUNT + 13;
+	int GENERATOR__SELECTED = CommonPackage.RUN_FEATURE_COUNT + 13;
 
 	/**
 	 * The number of structural features of the '<em>Generator</em>' class.

@@ -51,7 +51,9 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getTupleRoot <em>Tuple Root</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.Generator#getGoals <em>Goals</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getGeneratorFeatureModes <em>Generator Feature Modes</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.Generator#getSolutionProvider <em>Solution Provider</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getRemarks <em>Remarks</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getFootprintNofVars <em>Footprint Nof Vars</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getFootprintNofCons <em>Footprint Nof Cons</em>}</li>
@@ -61,9 +63,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getELpVarCount <em>ELp Var Count</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getELpConsCount <em>ELp Cons Count</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getCode <em>Code</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.Generator#getSolutionProvider <em>Solution Provider</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getSelected <em>Selected</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.Generator#getGoals <em>Goals</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getGenerator()
