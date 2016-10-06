@@ -647,6 +647,7 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 			Plugin.INSTANCE.logInfo("Generator.generate: goals generated");
 		} catch (Exception e) {
 			Plugin.INSTANCE.logError("Generator.generate: error "+ e.toString());
+			e.printStackTrace();
 			return new ReturnFeedback("Generator.generate", e);
 		}
 		return ReturnFeedback.SUCCESS;
