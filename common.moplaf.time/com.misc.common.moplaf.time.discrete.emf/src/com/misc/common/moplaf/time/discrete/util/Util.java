@@ -114,7 +114,7 @@ public class Util {
 			return currentBucket;
 		} else {
 			Date currentTime = startbucket.getBucket().getBucketStart();
-			long targetTimeAslong = currentTime.getTime()-(long)(secondsOffset*1000);
+			long targetTimeAslong = currentTime.getTime()+(long)(secondsOffset*1000);
 			Date targetTime = new Date(targetTimeAslong);
 			ObjectTimeBucket currentBucket = startbucket;
 			while ( currentBucket != null && !currentBucket.getBucket().contains(targetTime)){
