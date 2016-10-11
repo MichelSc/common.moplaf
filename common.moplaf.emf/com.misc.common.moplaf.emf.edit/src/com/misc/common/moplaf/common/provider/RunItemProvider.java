@@ -386,6 +386,9 @@ public class RunItemProvider
 		}
 	} // class RunCancelCommand
 	
+	/**
+	 * 
+	 */
 	@Override
 	public Command createCommand(Object object, EditingDomain domain,
 			Class<? extends Command> commandClass,
