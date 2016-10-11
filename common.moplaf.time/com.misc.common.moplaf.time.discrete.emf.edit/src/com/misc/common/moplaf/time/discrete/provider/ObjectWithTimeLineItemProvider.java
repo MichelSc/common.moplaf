@@ -185,11 +185,10 @@ public class ObjectWithTimeLineItemProvider
 	 * This returns ObjectWithTimeLine.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ObjectWithTimeLine"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/timeline.png"));
 	}
 
 	/**

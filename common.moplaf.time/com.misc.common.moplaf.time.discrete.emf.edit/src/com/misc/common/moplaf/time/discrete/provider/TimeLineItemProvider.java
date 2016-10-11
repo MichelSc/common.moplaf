@@ -343,11 +343,10 @@ public class TimeLineItemProvider
 	 * This returns TimeLine.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TimeLine"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/timeline.png"));
 	}
 
 	/**
