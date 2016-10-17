@@ -3,8 +3,6 @@
 package com.misc.common.moplaf.dbsynch.impl;
 
 import com.misc.common.moplaf.dbsynch.*;
-
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -77,8 +75,6 @@ public class DbSynchFactoryImpl extends EFactoryImpl implements DbSynchFactory {
 				return createEnumModificationFromString(eDataType, initialValue);
 			case DbSynchPackage.ENUM_COLUMN_TYPE:
 				return createEnumColumnTypeFromString(eDataType, initialValue);
-			case DbSynchPackage.EATTRIBUTE:
-				return createEAttributeFromString(eDataType, initialValue);
 			case DbSynchPackage.TABLE_ROW_KEY:
 				return createTableRowKeyFromString(eDataType, initialValue);
 			case DbSynchPackage.OBJECT:
@@ -100,8 +96,6 @@ public class DbSynchFactoryImpl extends EFactoryImpl implements DbSynchFactory {
 				return convertEnumModificationToString(eDataType, instanceValue);
 			case DbSynchPackage.ENUM_COLUMN_TYPE:
 				return convertEnumColumnTypeToString(eDataType, instanceValue);
-			case DbSynchPackage.EATTRIBUTE:
-				return convertEAttributeToString(eDataType, instanceValue);
 			case DbSynchPackage.TABLE_ROW_KEY:
 				return convertTableRowKeyToString(eDataType, instanceValue);
 			case DbSynchPackage.OBJECT:
@@ -169,24 +163,6 @@ public class DbSynchFactoryImpl extends EFactoryImpl implements DbSynchFactory {
 	 */
 	public String convertEnumColumnTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute createEAttributeFromString(EDataType eDataType, String initialValue) {
-		return (EAttribute)super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertEAttributeToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

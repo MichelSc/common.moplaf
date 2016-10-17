@@ -35,7 +35,7 @@
       </eAnnotations>
     </eOperations>
     <eOperations name="getParamValue" eType="#//Object">
-      <eParameters name="attribute" eType="#//EAttribute"/>
+      <eParameters name="attribute" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EAttribute"/>
     </eOperations>
     <eOperations name="getParamAttributes" upperBound="-1" eType="#//Object"/>
     <eOperations name="addTable">
@@ -186,7 +186,6 @@
     <eLiterals name="ENUM_COLUMN_TYPE_TIME" value="9" literal="Time"/>
     <eLiterals name="ENUM_COLUMN_TYPE_DATETIME" value="10" literal="DateTime"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="EAttribute" instanceClassName="org.eclipse.emf.ecore.EAttribute"/>
   <eClassifiers xsi:type="ecore:EDataType" name="TableRowKey" instanceClassName="com.misc.common.moplaf.dbsynch.TableRowKey"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Object" instanceClassName="java.lang.Object"/>
 </ecore:EPackage>

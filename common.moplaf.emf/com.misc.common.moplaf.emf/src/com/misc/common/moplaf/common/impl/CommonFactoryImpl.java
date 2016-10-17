@@ -3,7 +3,6 @@
 package com.misc.common.moplaf.common.impl;
 
 import com.misc.common.moplaf.common.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -59,6 +58,7 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 		switch (eClass.getClassifierID()) {
 			case CommonPackage.JOB: return createJob();
 			case CommonPackage.RUN: return createRun();
+			case CommonPackage.JOB_PARAMETER: return createJobParameter();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -72,6 +72,8 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case CommonPackage.JOB_PARAMETER_TYPE:
+				return createJobParameterTypeFromString(eDataType, initialValue);
 			case CommonPackage.COMMAND_FEEDBACK:
 				return createCommandFeedbackFromString(eDataType, initialValue);
 			case CommonPackage.RETURN_FEEDBACK:
@@ -91,6 +93,8 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case CommonPackage.JOB_PARAMETER_TYPE:
+				return convertJobParameterTypeToString(eDataType, instanceValue);
 			case CommonPackage.COMMAND_FEEDBACK:
 				return convertCommandFeedbackToString(eDataType, instanceValue);
 			case CommonPackage.RETURN_FEEDBACK:
@@ -120,6 +124,36 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 	public Run createRun() {
 		RunImpl run = new RunImpl();
 		return run;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JobParameter createJobParameter() {
+		JobParameterImpl jobParameter = new JobParameterImpl();
+		return jobParameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JobParameterType createJobParameterTypeFromString(EDataType eDataType, String initialValue) {
+		JobParameterType result = JobParameterType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertJobParameterTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

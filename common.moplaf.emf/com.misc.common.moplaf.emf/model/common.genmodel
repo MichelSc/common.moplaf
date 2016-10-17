@@ -3,10 +3,17 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.emf/src" modelPluginID="com.misc.common.moplaf.emf"
     modelName="Common" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
-    operationReflection="true" importOrganizing="true">
+    usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore" operationReflection="true"
+    importOrganizing="true">
   <foreignModel>common.ecore</foreignModel>
   <genPackages prefix="Common" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
       ecorePackage="common.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="common.ecore#//JobParameterType">
+      <genEnumLiterals ecoreEnumLiteral="common.ecore#//JobParameterType/JOB_PARAMETER_TYPE_INT"/>
+      <genEnumLiterals ecoreEnumLiteral="common.ecore#//JobParameterType/JOB_PARAMETER_TYPE_STRING"/>
+      <genEnumLiterals ecoreEnumLiteral="common.ecore#//JobParameterType/JOB_PARAMETER_TYPE_FLOAT"/>
+      <genEnumLiterals ecoreEnumLiteral="common.ecore#//JobParameterType/JOB_PARAMETER_TYPE_DATE"/>
+    </genEnums>
     <genDataTypes ecoreDataType="common.ecore#//CommandFeedback"/>
     <genDataTypes ecoreDataType="common.ecore#//ReturnFeedback"/>
     <genDataTypes ecoreDataType="common.ecore#//Exception"/>
@@ -16,6 +23,8 @@
           propertyDescription="" ecoreFeature="ecore:EAttribute common.ecore#//Job/Status"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="11 Job Status"
           ecoreFeature="ecore:EAttribute common.ecore#//Job/Description"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="11 Job Status"
+          ecoreFeature="ecore:EAttribute common.ecore#//Job/HelpText"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="11 Job Status"
           ecoreFeature="ecore:EAttribute common.ecore#//Job/StartTime"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="11 Job Status"
@@ -27,6 +36,14 @@
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Job/Stopped"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Job/Finished"/>
       <genFeatures createChild="false" propertyCategory="10 Job" ecoreFeature="ecore:EAttribute common.ecore#//Job/Args"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference common.ecore#//Job/Parameters"/>
+      <genOperations ecoreOperation="common.ecore#//Job/addParameter">
+        <genParameters ecoreParameter="common.ecore#//Job/addParameter/name"/>
+        <genParameters ecoreParameter="common.ecore#//Job/addParameter/type"/>
+        <genParameters ecoreParameter="common.ecore#//Job/addParameter/attribute"/>
+        <genParameters ecoreParameter="common.ecore#//Job/addParameter/description"/>
+      </genOperations>
+      <genOperations ecoreOperation="common.ecore#//Job/refreshParameters"/>
       <genOperations ecoreOperation="common.ecore#//Job/getArgAsString">
         <genParameters ecoreParameter="common.ecore#//Job/getArgAsString/index"/>
       </genOperations>
@@ -43,6 +60,7 @@
         <genParameters ecoreParameter="common.ecore#//Job/getArgAsDate.1/index"/>
         <genParameters ecoreParameter="common.ecore#//Job/getArgAsDate.1/simpleDateFormat"/>
       </genOperations>
+      <genOperations ecoreOperation="common.ecore#//Job/setArgs"/>
     </genClasses>
     <genClasses ecoreClass="common.ecore#//Run">
       <genFeatures createChild="false" propertyCategory="10 Job Control" ecoreFeature="ecore:EAttribute common.ecore#//Run/Canceled"/>
@@ -68,6 +86,12 @@
         <genParameters ecoreParameter="common.ecore#//Run/onProgress/task"/>
         <genParameters ecoreParameter="common.ecore#//Run/onProgress/work"/>
       </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="common.ecore#//JobParameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//JobParameter/Name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//JobParameter/Type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference common.ecore#//JobParameter/JobAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//JobParameter/Description"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

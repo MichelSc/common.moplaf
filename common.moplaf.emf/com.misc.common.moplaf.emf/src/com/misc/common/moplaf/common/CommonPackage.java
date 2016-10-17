@@ -5,6 +5,7 @@ package com.misc.common.moplaf.common;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -295,13 +296,22 @@ public interface CommonPackage extends EPackage {
 	int JOB__DESCRIPTION = RUN_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Help Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB__HELP_TEXT = RUN_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Start Time</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__START_TIME = RUN_FEATURE_COUNT + 3;
+	int JOB__START_TIME = RUN_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>End Time</b></em>' attribute.
@@ -310,7 +320,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__END_TIME = RUN_FEATURE_COUNT + 4;
+	int JOB__END_TIME = RUN_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Duration</b></em>' attribute.
@@ -319,7 +329,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__DURATION = RUN_FEATURE_COUNT + 5;
+	int JOB__DURATION = RUN_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Created</b></em>' attribute.
@@ -328,7 +338,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__CREATED = RUN_FEATURE_COUNT + 6;
+	int JOB__CREATED = RUN_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Running</b></em>' attribute.
@@ -337,7 +347,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__RUNNING = RUN_FEATURE_COUNT + 7;
+	int JOB__RUNNING = RUN_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Stopped</b></em>' attribute.
@@ -346,7 +356,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__STOPPED = RUN_FEATURE_COUNT + 8;
+	int JOB__STOPPED = RUN_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Finished</b></em>' attribute.
@@ -355,7 +365,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__FINISHED = RUN_FEATURE_COUNT + 9;
+	int JOB__FINISHED = RUN_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Args</b></em>' attribute list.
@@ -364,7 +374,16 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__ARGS = RUN_FEATURE_COUNT + 10;
+	int JOB__ARGS = RUN_FEATURE_COUNT + 11;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB__PARAMETERS = RUN_FEATURE_COUNT + 12;
 
 	/**
 	 * The number of structural features of the '<em>Job</em>' class.
@@ -373,7 +392,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_FEATURE_COUNT = RUN_FEATURE_COUNT + 11;
+	int JOB_FEATURE_COUNT = RUN_FEATURE_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Run</em>' operation.
@@ -421,13 +440,31 @@ public interface CommonPackage extends EPackage {
 	int JOB___ON_PROGRESS__STRING_FLOAT = RUN___ON_PROGRESS__STRING_FLOAT;
 
 	/**
+	 * The operation id for the '<em>Add Parameter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB___ADD_PARAMETER__STRING_JOBPARAMETERTYPE_EATTRIBUTE_STRING = RUN_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Refresh Parameters</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB___REFRESH_PARAMETERS = RUN_OPERATION_COUNT + 1;
+
+	/**
 	 * The operation id for the '<em>Get Arg As String</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB___GET_ARG_AS_STRING__INT = RUN_OPERATION_COUNT + 0;
+	int JOB___GET_ARG_AS_STRING__INT = RUN_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Arg As Int</em>' operation.
@@ -436,7 +473,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB___GET_ARG_AS_INT__INT = RUN_OPERATION_COUNT + 1;
+	int JOB___GET_ARG_AS_INT__INT = RUN_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Arg As Float</em>' operation.
@@ -445,7 +482,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB___GET_ARG_AS_FLOAT__INT = RUN_OPERATION_COUNT + 2;
+	int JOB___GET_ARG_AS_FLOAT__INT = RUN_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Get Arg As Date</em>' operation.
@@ -454,7 +491,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB___GET_ARG_AS_DATE__INT = RUN_OPERATION_COUNT + 3;
+	int JOB___GET_ARG_AS_DATE__INT = RUN_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get Arg As Date</em>' operation.
@@ -463,7 +500,16 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB___GET_ARG_AS_DATE__INT_STRING = RUN_OPERATION_COUNT + 4;
+	int JOB___GET_ARG_AS_DATE__INT_STRING = RUN_OPERATION_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Set Args</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB___SET_ARGS = RUN_OPERATION_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>Job</em>' class.
@@ -472,8 +518,82 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_OPERATION_COUNT = RUN_OPERATION_COUNT + 5;
+	int JOB_OPERATION_COUNT = RUN_OPERATION_COUNT + 8;
 
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.common.impl.JobParameterImpl <em>Job Parameter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.common.impl.JobParameterImpl
+	 * @see com.misc.common.moplaf.common.impl.CommonPackageImpl#getJobParameter()
+	 * @generated
+	 */
+	int JOB_PARAMETER = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_PARAMETER__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_PARAMETER__TYPE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Job Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_PARAMETER__JOB_ATTRIBUTE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_PARAMETER__DESCRIPTION = 3;
+
+	/**
+	 * The number of structural features of the '<em>Job Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_PARAMETER_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Job Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_PARAMETER_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.common.JobParameterType <em>Job Parameter Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.common.JobParameterType
+	 * @see com.misc.common.moplaf.common.impl.CommonPackageImpl#getJobParameterType()
+	 * @generated
+	 */
+	int JOB_PARAMETER_TYPE = 3;
 
 	/**
 	 * The meta object id for the '<em>Command Feedback</em>' data type.
@@ -483,7 +603,7 @@ public interface CommonPackage extends EPackage {
 	 * @see com.misc.common.moplaf.common.impl.CommonPackageImpl#getCommandFeedback()
 	 * @generated
 	 */
-	int COMMAND_FEEDBACK = 2;
+	int COMMAND_FEEDBACK = 4;
 
 
 	/**
@@ -494,7 +614,7 @@ public interface CommonPackage extends EPackage {
 	 * @see com.misc.common.moplaf.common.impl.CommonPackageImpl#getReturnFeedback()
 	 * @generated
 	 */
-	int RETURN_FEEDBACK = 3;
+	int RETURN_FEEDBACK = 5;
 
 
 	/**
@@ -505,7 +625,7 @@ public interface CommonPackage extends EPackage {
 	 * @see com.misc.common.moplaf.common.impl.CommonPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 4;
+	int EXCEPTION = 6;
 
 
 	/**
@@ -550,6 +670,17 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getJob_Description();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.common.Job#getHelpText <em>Help Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Help Text</em>'.
+	 * @see com.misc.common.moplaf.common.Job#getHelpText()
+	 * @see #getJob()
+	 * @generated
+	 */
+	EAttribute getJob_HelpText();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.common.Job#getStartTime <em>Start Time</em>}'.
@@ -640,6 +771,37 @@ public interface CommonPackage extends EPackage {
 	EAttribute getJob_Args();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.common.Job#getParameters <em>Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
+	 * @see com.misc.common.moplaf.common.Job#getParameters()
+	 * @see #getJob()
+	 * @generated
+	 */
+	EReference getJob_Parameters();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.common.Job#addParameter(java.lang.String, com.misc.common.moplaf.common.JobParameterType, org.eclipse.emf.ecore.EAttribute, java.lang.String) <em>Add Parameter</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Parameter</em>' operation.
+	 * @see com.misc.common.moplaf.common.Job#addParameter(java.lang.String, com.misc.common.moplaf.common.JobParameterType, org.eclipse.emf.ecore.EAttribute, java.lang.String)
+	 * @generated
+	 */
+	EOperation getJob__AddParameter__String_JobParameterType_EAttribute_String();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.common.Job#refreshParameters() <em>Refresh Parameters</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh Parameters</em>' operation.
+	 * @see com.misc.common.moplaf.common.Job#refreshParameters()
+	 * @generated
+	 */
+	EOperation getJob__RefreshParameters();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.common.Job#getArgAsString(int) <em>Get Arg As String</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -688,6 +850,16 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getJob__GetArgAsDate__int_String();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.common.Job#setArgs() <em>Set Args</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Args</em>' operation.
+	 * @see com.misc.common.moplaf.common.Job#setArgs()
+	 * @generated
+	 */
+	EOperation getJob__SetArgs();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.common.Run <em>Run</em>}'.
@@ -827,6 +999,70 @@ public interface CommonPackage extends EPackage {
 	EOperation getRun__OnProgress__String_float();
 
 	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.common.JobParameter <em>Job Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Job Parameter</em>'.
+	 * @see com.misc.common.moplaf.common.JobParameter
+	 * @generated
+	 */
+	EClass getJobParameter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.common.JobParameter#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.common.JobParameter#getName()
+	 * @see #getJobParameter()
+	 * @generated
+	 */
+	EAttribute getJobParameter_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.common.JobParameter#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see com.misc.common.moplaf.common.JobParameter#getType()
+	 * @see #getJobParameter()
+	 * @generated
+	 */
+	EAttribute getJobParameter_Type();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.common.JobParameter#getJobAttribute <em>Job Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Job Attribute</em>'.
+	 * @see com.misc.common.moplaf.common.JobParameter#getJobAttribute()
+	 * @see #getJobParameter()
+	 * @generated
+	 */
+	EReference getJobParameter_JobAttribute();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.common.JobParameter#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.misc.common.moplaf.common.JobParameter#getDescription()
+	 * @see #getJobParameter()
+	 * @generated
+	 */
+	EAttribute getJobParameter_Description();
+
+	/**
+	 * Returns the meta object for enum '{@link com.misc.common.moplaf.common.JobParameterType <em>Job Parameter Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Job Parameter Type</em>'.
+	 * @see com.misc.common.moplaf.common.JobParameterType
+	 * @generated
+	 */
+	EEnum getJobParameterType();
+
+	/**
 	 * Returns the meta object for data type '{@link com.misc.common.moplaf.common.CommandFeedback <em>Command Feedback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -917,6 +1153,14 @@ public interface CommonPackage extends EPackage {
 		EAttribute JOB__DESCRIPTION = eINSTANCE.getJob_Description();
 
 		/**
+		 * The meta object literal for the '<em><b>Help Text</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB__HELP_TEXT = eINSTANCE.getJob_HelpText();
+
+		/**
 		 * The meta object literal for the '<em><b>Start Time</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -981,6 +1225,30 @@ public interface CommonPackage extends EPackage {
 		EAttribute JOB__ARGS = eINSTANCE.getJob_Args();
 
 		/**
+		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JOB__PARAMETERS = eINSTANCE.getJob_Parameters();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Parameter</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JOB___ADD_PARAMETER__STRING_JOBPARAMETERTYPE_EATTRIBUTE_STRING = eINSTANCE.getJob__AddParameter__String_JobParameterType_EAttribute_String();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh Parameters</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JOB___REFRESH_PARAMETERS = eINSTANCE.getJob__RefreshParameters();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Arg As String</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1019,6 +1287,14 @@ public interface CommonPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation JOB___GET_ARG_AS_DATE__INT_STRING = eINSTANCE.getJob__GetArgAsDate__int_String();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Args</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JOB___SET_ARGS = eINSTANCE.getJob__SetArgs();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.common.impl.RunImpl <em>Run</em>}' class.
@@ -1125,6 +1401,58 @@ public interface CommonPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation RUN___ON_PROGRESS__STRING_FLOAT = eINSTANCE.getRun__OnProgress__String_float();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.common.impl.JobParameterImpl <em>Job Parameter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.common.impl.JobParameterImpl
+		 * @see com.misc.common.moplaf.common.impl.CommonPackageImpl#getJobParameter()
+		 * @generated
+		 */
+		EClass JOB_PARAMETER = eINSTANCE.getJobParameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_PARAMETER__NAME = eINSTANCE.getJobParameter_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_PARAMETER__TYPE = eINSTANCE.getJobParameter_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Job Attribute</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JOB_PARAMETER__JOB_ATTRIBUTE = eINSTANCE.getJobParameter_JobAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_PARAMETER__DESCRIPTION = eINSTANCE.getJobParameter_Description();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.common.JobParameterType <em>Job Parameter Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.common.JobParameterType
+		 * @see com.misc.common.moplaf.common.impl.CommonPackageImpl#getJobParameterType()
+		 * @generated
+		 */
+		EEnum JOB_PARAMETER_TYPE = eINSTANCE.getJobParameterType();
 
 		/**
 		 * The meta object literal for the '<em>Command Feedback</em>' data type.

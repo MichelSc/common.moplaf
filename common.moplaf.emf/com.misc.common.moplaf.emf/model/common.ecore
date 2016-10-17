@@ -3,6 +3,13 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="common" nsURI="http://www.misc.com/common/moplaf/common/model/0.1"
     nsPrefix="cmn">
   <eClassifiers xsi:type="ecore:EClass" name="Job" eSuperTypes="#//Run">
+    <eOperations name="addParameter">
+      <eParameters name="name" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+      <eParameters name="type" eType="#//JobParameterType"/>
+      <eParameters name="attribute" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
+      <eParameters name="description" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    </eOperations>
+    <eOperations name="refreshParameters"/>
     <eOperations name="getArgAsString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         eExceptions="#//Exception">
       <eParameters name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -24,10 +31,13 @@
       <eParameters name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eParameters name="simpleDateFormat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
+    <eOperations name="setArgs" eExceptions="#//Exception"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HelpText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="StartTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="EndTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
@@ -38,6 +48,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Stopped" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Finished" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Args" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Parameters" upperBound="-1"
+        eType="#//JobParameter" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Run">
     <eOperations name="run" eType="#//ReturnFeedback"/>
@@ -63,4 +75,17 @@
   <eClassifiers xsi:type="ecore:EDataType" name="CommandFeedback" instanceClassName="com.misc.common.moplaf.common.CommandFeedback"/>
   <eClassifiers xsi:type="ecore:EDataType" name="ReturnFeedback" instanceClassName="com.misc.common.moplaf.common.ReturnFeedback"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Exception" instanceClassName="java.lang.Exception"/>
+  <eClassifiers xsi:type="ecore:EClass" name="JobParameter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="#//JobParameterType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="JobAttribute" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EAttribute"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="JobParameterType">
+    <eLiterals name="JOB_PARAMETER_TYPE_INT" literal="Int"/>
+    <eLiterals name="JOB_PARAMETER_TYPE_STRING" value="1" literal="String"/>
+    <eLiterals name="JOB_PARAMETER_TYPE_FLOAT" value="2" literal="Float"/>
+    <eLiterals name="JOB_PARAMETER_TYPE_DATE" value="3" literal="Date"/>
+    <eLiterals name="JOB_PARAMETER_TYPE_ENUM" value="4" literal="Enum"/>
+  </eClassifiers>
 </ecore:EPackage>

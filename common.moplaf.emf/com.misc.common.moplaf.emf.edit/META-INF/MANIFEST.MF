@@ -12,6 +12,8 @@ Require-Bundle: org.eclipse.ui,
  com.misc.common.moplaf.emf;visibility:=reexport,
  org.eclipse.emf.common;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.emf.ecore.edit;visibility:=reexport,
  org.eclipse.emf.edit.ui;bundle-version="2.11.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy

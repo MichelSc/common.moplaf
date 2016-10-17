@@ -76,6 +76,10 @@ public class CommonAdapterFactory extends AdapterFactoryImpl {
 				return createRunAdapter();
 			}
 			@Override
+			public Adapter caseJobParameter(JobParameter object) {
+				return createJobParameterAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -120,6 +124,20 @@ public class CommonAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRunAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.common.JobParameter <em>Job Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.common.JobParameter
+	 * @generated
+	 */
+	public Adapter createJobParameterAdapter() {
 		return null;
 	}
 

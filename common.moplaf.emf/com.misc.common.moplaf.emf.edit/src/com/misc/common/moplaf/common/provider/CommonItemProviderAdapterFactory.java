@@ -118,6 +118,29 @@ public class CommonItemProviderAdapterFactory extends CommonAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.common.JobParameter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected JobParameterItemProvider jobParameterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.common.JobParameter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createJobParameterAdapter() {
+		if (jobParameterItemProvider == null) {
+			jobParameterItemProvider = new JobParameterItemProvider(this);
+		}
+
+		return jobParameterItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -218,6 +241,7 @@ public class CommonItemProviderAdapterFactory extends CommonAdapterFactory imple
 	public void dispose() {
 		if (jobItemProvider != null) jobItemProvider.dispose();
 		if (runItemProvider != null) runItemProvider.dispose();
+		if (jobParameterItemProvider != null) jobParameterItemProvider.dispose();
 	}
 
 }

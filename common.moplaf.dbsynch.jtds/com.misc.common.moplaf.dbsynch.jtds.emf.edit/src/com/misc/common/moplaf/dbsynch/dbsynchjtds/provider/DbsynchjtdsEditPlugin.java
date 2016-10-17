@@ -2,11 +2,13 @@
  */
 package com.misc.common.moplaf.dbsynch.dbsynchjtds.provider;
 
+import com.misc.common.moplaf.common.provider.CommonEditPlugin;
 import com.misc.common.moplaf.dbsynch.provider.dbsynchEditPlugin;
 
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 
 /**
  * This is the central singleton for the Dbsynchjtds edit plugin.
@@ -41,6 +43,8 @@ public final class DbsynchjtdsEditPlugin extends EMFPlugin {
 		super
 		  (new ResourceLocator [] {
 		     dbsynchEditPlugin.INSTANCE,
+		     CommonEditPlugin.INSTANCE,
+		     EcoreEditPlugin.INSTANCE,
 		   });
 	}
 

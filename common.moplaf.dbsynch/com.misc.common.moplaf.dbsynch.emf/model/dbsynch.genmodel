@@ -3,7 +3,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.dbsynch.emf/src" modelPluginID="com.misc.common.moplaf.dbsynch.emf"
     modelName="dbsynch" modelPluginClass="com.misc.common.moplaf.dbsynch.Plugin" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
-    usedGenPackages="../../com.misc.common.moplaf.emf/model/common.genmodel#//common"
+    usedGenPackages="../../com.misc.common.moplaf.emf/model/common.genmodel#//common ../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"
     operationReflection="true" importOrganizing="true">
   <foreignModel>dbsynch.ecore</foreignModel>
   <genPackages prefix="DbSynch" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"

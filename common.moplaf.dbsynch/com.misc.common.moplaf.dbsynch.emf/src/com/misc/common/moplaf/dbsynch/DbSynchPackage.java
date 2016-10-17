@@ -1179,16 +1179,6 @@ public interface DbSynchPackage extends EPackage {
 	int ENUM_COLUMN_TYPE = 8;
 
 	/**
-	 * The meta object id for the '<em>EAttribute</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecore.EAttribute
-	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getEAttribute()
-	 * @generated
-	 */
-	int EATTRIBUTE = 9;
-
-	/**
 	 * The meta object id for the '<em>Table Row Key</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1196,7 +1186,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getTableRowKey()
 	 * @generated
 	 */
-	int TABLE_ROW_KEY = 10;
+	int TABLE_ROW_KEY = 9;
 
 	/**
 	 * The meta object id for the '<em>Object</em>' data type.
@@ -1206,7 +1196,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getObject()
 	 * @generated
 	 */
-	int OBJECT = 11;
+	int OBJECT = 10;
 
 
 	/**
@@ -1989,17 +1979,6 @@ public interface DbSynchPackage extends EPackage {
 	EEnum getEnumColumnType();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.emf.ecore.EAttribute <em>EAttribute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>EAttribute</em>'.
-	 * @see org.eclipse.emf.ecore.EAttribute
-	 * @model instanceClass="org.eclipse.emf.ecore.EAttribute"
-	 * @generated
-	 */
-	EDataType getEAttribute();
-
-	/**
 	 * Returns the meta object for data type '{@link com.misc.common.moplaf.dbsynch.TableRowKey <em>Table Row Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2653,16 +2632,6 @@ public interface DbSynchPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum ENUM_COLUMN_TYPE = eINSTANCE.getEnumColumnType();
-
-		/**
-		 * The meta object literal for the '<em>EAttribute</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecore.EAttribute
-		 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getEAttribute()
-		 * @generated
-		 */
-		EDataType EATTRIBUTE = eINSTANCE.getEAttribute();
 
 		/**
 		 * The meta object literal for the '<em>Table Row Key</em>' data type.

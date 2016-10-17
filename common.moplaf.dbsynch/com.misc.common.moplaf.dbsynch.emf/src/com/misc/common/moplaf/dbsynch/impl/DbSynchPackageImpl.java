@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -95,13 +96,6 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * @generated
 	 */
 	private EEnum enumColumnTypeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType eAttributeEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -852,15 +846,6 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getEAttribute() {
-		return eAttributeEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EDataType getTableRowKey() {
 		return tableRowKeyEDataType;
 	}
@@ -986,7 +971,6 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		enumColumnTypeEEnum = createEEnum(ENUM_COLUMN_TYPE);
 
 		// Create data types
-		eAttributeEDataType = createEDataType(EATTRIBUTE);
 		tableRowKeyEDataType = createEDataType(TABLE_ROW_KEY);
 		objectEDataType = createEDataType(OBJECT);
 	}
@@ -1016,6 +1000,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 
 		// Obtain other dependent packages
 		CommonPackage theCommonPackage = (CommonPackage)EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI);
+		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -1058,7 +1043,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		initEOperation(getDbSynchUnitAbstract__SynchDown(), theCommonPackage.getReturnFeedback(), "synchDown", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getDbSynchUnitAbstract__GetParamValue__EAttribute(), this.getObject(), "getParamValue", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getEAttribute(), "attribute", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEAttribute(), "attribute", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getDbSynchUnitAbstract__GetParamAttributes(), this.getObject(), "getParamAttributes", 0, -1, IS_UNIQUE, IS_ORDERED);
 
@@ -1177,7 +1162,6 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		addEEnumLiteral(enumColumnTypeEEnum, EnumColumnType.ENUM_COLUMN_TYPE_DATETIME);
 
 		// Initialize data types
-		initEDataType(eAttributeEDataType, EAttribute.class, "EAttribute", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(tableRowKeyEDataType, TableRowKey.class, "TableRowKey", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(objectEDataType, Object.class, "Object", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 

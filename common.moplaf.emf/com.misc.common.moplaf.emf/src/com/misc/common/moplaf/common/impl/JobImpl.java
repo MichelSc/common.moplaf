@@ -2,10 +2,12 @@
  */
 package com.misc.common.moplaf.common.impl;
 
+import com.misc.common.moplaf.common.CommonFactory;
 import com.misc.common.moplaf.common.CommonPackage;
 import com.misc.common.moplaf.common.Job;
+import com.misc.common.moplaf.common.JobParameter;
+import com.misc.common.moplaf.common.JobParameterType;
 import com.misc.common.moplaf.common.ReturnFeedback;
-
 import java.lang.reflect.InvocationTargetException;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
@@ -13,12 +15,18 @@ import java.util.Date;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EEnumLiteral;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,6 +39,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  *   <li>{@link com.misc.common.moplaf.common.impl.JobImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.impl.JobImpl#getStatus <em>Status</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.impl.JobImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.common.impl.JobImpl#getHelpText <em>Help Text</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.impl.JobImpl#getStartTime <em>Start Time</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.impl.JobImpl#getEndTime <em>End Time</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.impl.JobImpl#getDuration <em>Duration</em>}</li>
@@ -39,6 +48,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  *   <li>{@link com.misc.common.moplaf.common.impl.JobImpl#isStopped <em>Stopped</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.impl.JobImpl#isFinished <em>Finished</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.impl.JobImpl#getArgs <em>Args</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.common.impl.JobImpl#getParameters <em>Parameters</em>}</li>
  * </ul>
  *
  * @generated
@@ -83,6 +93,16 @@ public class JobImpl extends RunImpl implements Job {
 	 * @ordered
 	 */
 	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getHelpText() <em>Help Text</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHelpText()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String HELP_TEXT_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getStartTime() <em>Start Time</em>}' attribute.
@@ -235,6 +255,16 @@ public class JobImpl extends RunImpl implements Job {
 	protected EList<String> args;
 
 	/**
+	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameters()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<JobParameter> parameters;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -295,6 +325,27 @@ public class JobImpl extends RunImpl implements Job {
 	public String getDescription() {
 		String description = String.format("Job %s (%s)", this.getName(), this.getStatus());
 		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public String getHelpText() {
+		String text = "Job "+this.getName()+"\n";
+		text += "\n";
+		text += "  Description "+this.getDescription()+"\n";
+		text += "  Parameters \n";
+		int paramNr = 0;
+		for ( JobParameter param : this.getParameters()){
+			paramNr++;
+			text += String.format("  %d- %s:%s: %s \n", 
+					              paramNr,
+					              param.getName(),
+					              param.getType().getLiteral(),
+					              param.getDescription());
+		}
+		return text;
 	}
 
 	/**
@@ -456,6 +507,50 @@ public class JobImpl extends RunImpl implements Job {
 		return args;
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<JobParameter> getParameters() {
+		if (parameters == null) {
+			parameters = new EObjectContainmentEList<JobParameter>(JobParameter.class, this, CommonPackage.JOB__PARAMETERS);
+		}
+		return parameters;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void addParameter(String name, JobParameterType type, EAttribute attribute, String description) {
+		JobParameter newParam = CommonFactory.eINSTANCE.createJobParameter();
+		newParam.setName(name);
+		newParam.setType(type);
+		newParam.setJobAttribute(attribute);
+		newParam.setDescription(description);
+		this.getParameters().add(newParam); // owning
+				
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * To be overloaded by the implementation, default does nothing
+	 * <!-- end-user-doc -->
+	 */
+	protected void refreshParametersImpl() {
+		
+	}
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void refreshParameters() {
+		this.getParameters().clear();
+		this.refreshParametersImpl();
+	}
+
 	/*
 	 * Return true if finisehd, false if stopped or canceled
 	 * 
@@ -540,6 +635,55 @@ public class JobImpl extends RunImpl implements Job {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public void setArgs()  throws Exception{
+		int paramIndex = 0;
+		for ( JobParameter param : this.getParameters()){
+			switch ( param.getType()){
+			case JOB_PARAMETER_TYPE_INT:
+				int paramValueAsInt = this.getArgAsInt(paramIndex);
+				this.eSet(param.getJobAttribute(), paramValueAsInt);
+				break;
+			case JOB_PARAMETER_TYPE_FLOAT:
+				float paramValueAsFloat = this.getArgAsFloat(paramIndex);
+				this.eSet(param.getJobAttribute(), paramValueAsFloat);
+				break;
+			case JOB_PARAMETER_TYPE_STRING:
+				String paramValueAsString = this.getArgAsString(paramIndex);
+				this.eSet(param.getJobAttribute(), paramValueAsString);
+				break;
+			case JOB_PARAMETER_TYPE_ENUM:
+				String paramValueAsLiteral = this.getArgAsString(paramIndex);
+				EEnum enumType = (EEnum) param.getJobAttribute().getEAttributeType();
+				EEnumLiteral literal = enumType.getEEnumLiteralByLiteral(paramValueAsLiteral);
+				this.eSet(param.getJobAttribute(), literal.getInstance());
+				break;
+			case JOB_PARAMETER_TYPE_DATE:
+				Date paramValueAsDate= this.getArgAsDate(paramIndex);
+				this.eSet(param.getJobAttribute(), paramValueAsDate);
+				break;
+			}
+			paramIndex++;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CommonPackage.JOB__PARAMETERS:
+				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -551,6 +695,8 @@ public class JobImpl extends RunImpl implements Job {
 				return getStatus();
 			case CommonPackage.JOB__DESCRIPTION:
 				return getDescription();
+			case CommonPackage.JOB__HELP_TEXT:
+				return getHelpText();
 			case CommonPackage.JOB__START_TIME:
 				return getStartTime();
 			case CommonPackage.JOB__END_TIME:
@@ -567,6 +713,8 @@ public class JobImpl extends RunImpl implements Job {
 				return isFinished();
 			case CommonPackage.JOB__ARGS:
 				return getArgs();
+			case CommonPackage.JOB__PARAMETERS:
+				return getParameters();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -608,6 +756,10 @@ public class JobImpl extends RunImpl implements Job {
 				getArgs().clear();
 				getArgs().addAll((Collection<? extends String>)newValue);
 				return;
+			case CommonPackage.JOB__PARAMETERS:
+				getParameters().clear();
+				getParameters().addAll((Collection<? extends JobParameter>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -647,6 +799,9 @@ public class JobImpl extends RunImpl implements Job {
 			case CommonPackage.JOB__ARGS:
 				getArgs().clear();
 				return;
+			case CommonPackage.JOB__PARAMETERS:
+				getParameters().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -665,6 +820,8 @@ public class JobImpl extends RunImpl implements Job {
 				return STATUS_EDEFAULT == null ? getStatus() != null : !STATUS_EDEFAULT.equals(getStatus());
 			case CommonPackage.JOB__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
+			case CommonPackage.JOB__HELP_TEXT:
+				return HELP_TEXT_EDEFAULT == null ? getHelpText() != null : !HELP_TEXT_EDEFAULT.equals(getHelpText());
 			case CommonPackage.JOB__START_TIME:
 				return START_TIME_EDEFAULT == null ? startTime != null : !START_TIME_EDEFAULT.equals(startTime);
 			case CommonPackage.JOB__END_TIME:
@@ -681,6 +838,8 @@ public class JobImpl extends RunImpl implements Job {
 				return finished != FINISHED_EDEFAULT;
 			case CommonPackage.JOB__ARGS:
 				return args != null && !args.isEmpty();
+			case CommonPackage.JOB__PARAMETERS:
+				return parameters != null && !parameters.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -693,6 +852,12 @@ public class JobImpl extends RunImpl implements Job {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case CommonPackage.JOB___ADD_PARAMETER__STRING_JOBPARAMETERTYPE_EATTRIBUTE_STRING:
+				addParameter((String)arguments.get(0), (JobParameterType)arguments.get(1), (EAttribute)arguments.get(2), (String)arguments.get(3));
+				return null;
+			case CommonPackage.JOB___REFRESH_PARAMETERS:
+				refreshParameters();
+				return null;
 			case CommonPackage.JOB___GET_ARG_AS_STRING__INT:
 				try {
 					return getArgAsString((Integer)arguments.get(0));
@@ -724,6 +889,14 @@ public class JobImpl extends RunImpl implements Job {
 			case CommonPackage.JOB___GET_ARG_AS_DATE__INT_STRING:
 				try {
 					return getArgAsDate((Integer)arguments.get(0), (String)arguments.get(1));
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
+			case CommonPackage.JOB___SET_ARGS:
+				try {
+					setArgs();
+					return null;
 				}
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);

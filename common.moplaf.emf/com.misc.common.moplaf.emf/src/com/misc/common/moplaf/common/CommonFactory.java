@@ -40,6 +40,15 @@ public interface CommonFactory extends EFactory {
 	Run createRun();
 
 	/**
+	 * Returns a new object of class '<em>Job Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Job Parameter</em>'.
+	 * @generated
+	 */
+	JobParameter createJobParameter();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

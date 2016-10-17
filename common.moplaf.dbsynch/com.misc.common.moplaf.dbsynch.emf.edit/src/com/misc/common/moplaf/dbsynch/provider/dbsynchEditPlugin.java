@@ -6,6 +6,7 @@ import com.misc.common.moplaf.common.provider.CommonEditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 
 /**
  * This is the central singleton for the dbsynch edit plugin.
@@ -40,6 +41,7 @@ public final class dbsynchEditPlugin extends EMFPlugin {
 		super
 		  (new ResourceLocator [] {
 		     CommonEditPlugin.INSTANCE,
+		     EcoreEditPlugin.INSTANCE,
 		   });
 	}
 

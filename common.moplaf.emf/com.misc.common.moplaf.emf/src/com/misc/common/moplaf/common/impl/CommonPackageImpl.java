@@ -7,15 +7,19 @@ import com.misc.common.moplaf.common.CommonFactory;
 import com.misc.common.moplaf.common.CommonPackage;
 import com.misc.common.moplaf.common.Job;
 
+import com.misc.common.moplaf.common.JobParameter;
+import com.misc.common.moplaf.common.JobParameterType;
 import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.common.Run;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -38,6 +42,20 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * @generated
 	 */
 	private EClass runEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass jobParameterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum jobParameterTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -106,6 +124,9 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 
 		isInited = true;
 
+		// Initialize simple dependencies
+		EcorePackage.eINSTANCE.eClass();
+
 		// Create package meta-data objects
 		theCommonPackage.createPackageContents();
 
@@ -162,7 +183,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_StartTime() {
+	public EAttribute getJob_HelpText() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -171,7 +192,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_EndTime() {
+	public EAttribute getJob_StartTime() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -180,7 +201,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Duration() {
+	public EAttribute getJob_EndTime() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -189,7 +210,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Created() {
+	public EAttribute getJob_Duration() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -198,7 +219,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Running() {
+	public EAttribute getJob_Created() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -207,7 +228,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Stopped() {
+	public EAttribute getJob_Running() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -216,7 +237,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Finished() {
+	public EAttribute getJob_Stopped() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -225,7 +246,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Args() {
+	public EAttribute getJob_Finished() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -234,7 +255,25 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getJob__GetArgAsString__int() {
+	public EAttribute getJob_Args() {
+		return (EAttribute)jobEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJob_Parameters() {
+		return (EReference)jobEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getJob__AddParameter__String_JobParameterType_EAttribute_String() {
 		return jobEClass.getEOperations().get(0);
 	}
 
@@ -243,7 +282,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getJob__GetArgAsInt__int() {
+	public EOperation getJob__RefreshParameters() {
 		return jobEClass.getEOperations().get(1);
 	}
 
@@ -252,7 +291,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getJob__GetArgAsFloat__int() {
+	public EOperation getJob__GetArgAsString__int() {
 		return jobEClass.getEOperations().get(2);
 	}
 
@@ -261,7 +300,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getJob__GetArgAsDate__int() {
+	public EOperation getJob__GetArgAsInt__int() {
 		return jobEClass.getEOperations().get(3);
 	}
 
@@ -270,8 +309,35 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getJob__GetArgAsDate__int_String() {
+	public EOperation getJob__GetArgAsFloat__int() {
 		return jobEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getJob__GetArgAsDate__int() {
+		return jobEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getJob__GetArgAsDate__int_String() {
+		return jobEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getJob__SetArgs() {
+		return jobEClass.getEOperations().get(7);
 	}
 
 	/**
@@ -396,6 +462,60 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getJobParameter() {
+		return jobParameterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJobParameter_Name() {
+		return (EAttribute)jobParameterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJobParameter_Type() {
+		return (EAttribute)jobParameterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJobParameter_JobAttribute() {
+		return (EReference)jobParameterEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJobParameter_Description() {
+		return (EAttribute)jobParameterEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getJobParameterType() {
+		return jobParameterTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getCommandFeedback() {
 		return commandFeedbackEDataType;
 	}
@@ -450,6 +570,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		createEAttribute(jobEClass, JOB__NAME);
 		createEAttribute(jobEClass, JOB__STATUS);
 		createEAttribute(jobEClass, JOB__DESCRIPTION);
+		createEAttribute(jobEClass, JOB__HELP_TEXT);
 		createEAttribute(jobEClass, JOB__START_TIME);
 		createEAttribute(jobEClass, JOB__END_TIME);
 		createEAttribute(jobEClass, JOB__DURATION);
@@ -458,11 +579,15 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		createEAttribute(jobEClass, JOB__STOPPED);
 		createEAttribute(jobEClass, JOB__FINISHED);
 		createEAttribute(jobEClass, JOB__ARGS);
+		createEReference(jobEClass, JOB__PARAMETERS);
+		createEOperation(jobEClass, JOB___ADD_PARAMETER__STRING_JOBPARAMETERTYPE_EATTRIBUTE_STRING);
+		createEOperation(jobEClass, JOB___REFRESH_PARAMETERS);
 		createEOperation(jobEClass, JOB___GET_ARG_AS_STRING__INT);
 		createEOperation(jobEClass, JOB___GET_ARG_AS_INT__INT);
 		createEOperation(jobEClass, JOB___GET_ARG_AS_FLOAT__INT);
 		createEOperation(jobEClass, JOB___GET_ARG_AS_DATE__INT);
 		createEOperation(jobEClass, JOB___GET_ARG_AS_DATE__INT_STRING);
+		createEOperation(jobEClass, JOB___SET_ARGS);
 
 		runEClass = createEClass(RUN);
 		createEAttribute(runEClass, RUN__CANCELED);
@@ -477,6 +602,15 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		createEOperation(runEClass, RUN___RUN_BACKGROUND);
 		createEOperation(runEClass, RUN___CANCEL);
 		createEOperation(runEClass, RUN___ON_PROGRESS__STRING_FLOAT);
+
+		jobParameterEClass = createEClass(JOB_PARAMETER);
+		createEAttribute(jobParameterEClass, JOB_PARAMETER__NAME);
+		createEAttribute(jobParameterEClass, JOB_PARAMETER__TYPE);
+		createEReference(jobParameterEClass, JOB_PARAMETER__JOB_ATTRIBUTE);
+		createEAttribute(jobParameterEClass, JOB_PARAMETER__DESCRIPTION);
+
+		// Create enums
+		jobParameterTypeEEnum = createEEnum(JOB_PARAMETER_TYPE);
 
 		// Create data types
 		commandFeedbackEDataType = createEDataType(COMMAND_FEEDBACK);
@@ -507,6 +641,9 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -519,6 +656,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		initEAttribute(getJob_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_Status(), ecorePackage.getEString(), "Status", null, 0, 1, Job.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_Description(), ecorePackage.getEString(), "Description", null, 0, 1, Job.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJob_HelpText(), ecorePackage.getEString(), "HelpText", null, 0, 1, Job.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_StartTime(), ecorePackage.getEDate(), "StartTime", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_EndTime(), ecorePackage.getEDate(), "EndTime", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_Duration(), ecorePackage.getEFloat(), "Duration", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -527,8 +665,17 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		initEAttribute(getJob_Stopped(), ecorePackage.getEBoolean(), "Stopped", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_Finished(), ecorePackage.getEBoolean(), "Finished", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_Args(), ecorePackage.getEString(), "Args", null, 0, -1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJob_Parameters(), this.getJobParameter(), null, "Parameters", null, 0, -1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getJob__GetArgAsString__int(), ecorePackage.getEString(), "getArgAsString", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getJob__AddParameter__String_JobParameterType_EAttribute_String(), null, "addParameter", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getJobParameterType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEAttribute(), "attribute", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEString(), "description", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getJob__RefreshParameters(), null, "refreshParameters", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getJob__GetArgAsString__int(), ecorePackage.getEString(), "getArgAsString", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "index", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
@@ -547,6 +694,9 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		op = initEOperation(getJob__GetArgAsDate__int_String(), ecorePackage.getEDate(), "getArgAsDate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "index", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "simpleDateFormat", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getException());
+
+		op = initEOperation(getJob__SetArgs(), null, "setArgs", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
 		initEClass(runEClass, Run.class, "Run", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -570,6 +720,20 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		op = initEOperation(getRun__OnProgress__String_float(), ecorePackage.getEBoolean(), "onProgress", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "task", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEFloat(), "work", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(jobParameterEClass, JobParameter.class, "JobParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getJobParameter_Name(), ecorePackage.getEString(), "Name", null, 0, 1, JobParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobParameter_Type(), this.getJobParameterType(), "Type", null, 0, 1, JobParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJobParameter_JobAttribute(), theEcorePackage.getEAttribute(), null, "JobAttribute", null, 0, 1, JobParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobParameter_Description(), ecorePackage.getEString(), "Description", null, 0, 1, JobParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(jobParameterTypeEEnum, JobParameterType.class, "JobParameterType");
+		addEEnumLiteral(jobParameterTypeEEnum, JobParameterType.JOB_PARAMETER_TYPE_INT);
+		addEEnumLiteral(jobParameterTypeEEnum, JobParameterType.JOB_PARAMETER_TYPE_STRING);
+		addEEnumLiteral(jobParameterTypeEEnum, JobParameterType.JOB_PARAMETER_TYPE_FLOAT);
+		addEEnumLiteral(jobParameterTypeEEnum, JobParameterType.JOB_PARAMETER_TYPE_DATE);
+		addEEnumLiteral(jobParameterTypeEEnum, JobParameterType.JOB_PARAMETER_TYPE_ENUM);
 
 		// Initialize data types
 		initEDataType(commandFeedbackEDataType, CommandFeedback.class, "CommandFeedback", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
