@@ -323,7 +323,7 @@ public class JobImpl extends RunImpl implements Job {
 	 * <!-- end-user-doc -->
 	 */
 	public String getDescription() {
-		String description = String.format("Job %s (%s)", this.getName(), this.getStatus());
+		String description = String.format("%s (%s)", this.getName(), this.getStatus());
 		return description;
 	}
 
@@ -332,14 +332,13 @@ public class JobImpl extends RunImpl implements Job {
 	 * <!-- end-user-doc -->
 	 */
 	public String getHelpText() {
-		String text = "Job "+this.getName()+"\n";
+		String text = "Job "+this.getDescription()+"\n";
 		text += "\n";
-		text += "  Description "+this.getDescription()+"\n";
 		text += "  Parameters \n";
 		int paramNr = 0;
 		for ( JobParameter param : this.getParameters()){
 			paramNr++;
-			text += String.format("  %d- %s:%s: %s \n", 
+			text += String.format("  %d- %s:%s : %s \n", 
 					              paramNr,
 					              param.getName(),
 					              param.getType().getLiteral(),
