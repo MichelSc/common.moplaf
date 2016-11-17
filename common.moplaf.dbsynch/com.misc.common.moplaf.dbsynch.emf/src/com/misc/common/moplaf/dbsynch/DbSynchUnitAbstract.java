@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EReference;
  * <p>
  * A DbSynch unit is the unit of synchronization. It supports
  * <ul> 
- * <li><i>down synchronization</i>: database date  synchronized from the object data,
+ * <li><i>down synchronization</i>: database data synchronized from the object data,
  * <li><i>up synchronization</i>: object data synchronized from database data.
  * </ul>
  * <p>
