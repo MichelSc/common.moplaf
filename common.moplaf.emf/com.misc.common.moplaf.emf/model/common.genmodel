@@ -13,6 +13,7 @@
       <genEnumLiterals ecoreEnumLiteral="common.ecore#//JobParameterType/JOB_PARAMETER_TYPE_STRING"/>
       <genEnumLiterals ecoreEnumLiteral="common.ecore#//JobParameterType/JOB_PARAMETER_TYPE_FLOAT"/>
       <genEnumLiterals ecoreEnumLiteral="common.ecore#//JobParameterType/JOB_PARAMETER_TYPE_DATE"/>
+      <genEnumLiterals ecoreEnumLiteral="common.ecore#//JobParameterType/JOB_PARAMETER_TYPE_ENUM"/>
     </genEnums>
     <genDataTypes ecoreDataType="common.ecore#//CommandFeedback"/>
     <genDataTypes ecoreDataType="common.ecore#//ReturnFeedback"/>

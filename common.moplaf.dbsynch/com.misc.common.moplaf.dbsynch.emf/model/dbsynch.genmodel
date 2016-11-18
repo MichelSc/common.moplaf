@@ -27,7 +27,6 @@
       <genEnumLiterals ecoreEnumLiteral="dbsynch.ecore#//EnumColumnType/ENUM_COLUMN_TYPE_TIME"/>
       <genEnumLiterals ecoreEnumLiteral="dbsynch.ecore#//EnumColumnType/ENUM_COLUMN_TYPE_DATETIME"/>
     </genEnums>
-    <genDataTypes ecoreDataType="dbsynch.ecore#//EAttribute"/>
     <genDataTypes ecoreDataType="dbsynch.ecore#//TableRowKey"/>
     <genDataTypes ecoreDataType="dbsynch.ecore#//Object"/>
     <genClasses ecoreClass="dbsynch.ecore#//DataSource">
