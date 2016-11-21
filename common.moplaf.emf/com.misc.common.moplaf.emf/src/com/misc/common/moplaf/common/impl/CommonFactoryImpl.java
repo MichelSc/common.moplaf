@@ -74,12 +74,16 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 		switch (eDataType.getClassifierID()) {
 			case CommonPackage.JOB_PARAMETER_TYPE:
 				return createJobParameterTypeFromString(eDataType, initialValue);
-			case CommonPackage.COMMAND_FEEDBACK:
-				return createCommandFeedbackFromString(eDataType, initialValue);
+			case CommonPackage.ENABLED_FEEDBACK:
+				return createEnabledFeedbackFromString(eDataType, initialValue);
 			case CommonPackage.RETURN_FEEDBACK:
 				return createReturnFeedbackFromString(eDataType, initialValue);
 			case CommonPackage.EXCEPTION:
 				return createExceptionFromString(eDataType, initialValue);
+			case CommonPackage.PROGRESS_FEEDBACK:
+				return createProgressFeedbackFromString(eDataType, initialValue);
+			case CommonPackage.RUN_CONTEXT:
+				return createRunContextFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -95,12 +99,16 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 		switch (eDataType.getClassifierID()) {
 			case CommonPackage.JOB_PARAMETER_TYPE:
 				return convertJobParameterTypeToString(eDataType, instanceValue);
-			case CommonPackage.COMMAND_FEEDBACK:
-				return convertCommandFeedbackToString(eDataType, instanceValue);
+			case CommonPackage.ENABLED_FEEDBACK:
+				return convertEnabledFeedbackToString(eDataType, instanceValue);
 			case CommonPackage.RETURN_FEEDBACK:
 				return convertReturnFeedbackToString(eDataType, instanceValue);
 			case CommonPackage.EXCEPTION:
 				return convertExceptionToString(eDataType, instanceValue);
+			case CommonPackage.PROGRESS_FEEDBACK:
+				return convertProgressFeedbackToString(eDataType, instanceValue);
+			case CommonPackage.RUN_CONTEXT:
+				return convertRunContextToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -136,6 +144,7 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 		return jobParameter;
 	}
 
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -161,8 +170,8 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CommandFeedback createCommandFeedbackFromString(EDataType eDataType, String initialValue) {
-		return (CommandFeedback)super.createFromString(eDataType, initialValue);
+	public EnabledFeedback createEnabledFeedbackFromString(EDataType eDataType, String initialValue) {
+		return (EnabledFeedback)super.createFromString(eDataType, initialValue);
 	}
 
 	/**
@@ -170,7 +179,7 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertCommandFeedbackToString(EDataType eDataType, Object instanceValue) {
+	public String convertEnabledFeedbackToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 
@@ -207,6 +216,42 @@ public class CommonFactoryImpl extends EFactoryImpl implements CommonFactory {
 	 * @generated
 	 */
 	public String convertExceptionToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProgressFeedback createProgressFeedbackFromString(EDataType eDataType, String initialValue) {
+		return (ProgressFeedback)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertProgressFeedbackToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RunContext createRunContextFromString(EDataType eDataType, String initialValue) {
+		return (RunContext)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertRunContextToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.common.Run#isCanceled <em>Canceled</em>}</li>
- *   <li>{@link com.misc.common.moplaf.common.Run#getParentRun <em>Parent Run</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.Run#getRunFeedback <em>Run Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.Run#getCancelFeedback <em>Cancel Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.Run#isReturnSuccess <em>Return Success</em>}</li>
@@ -54,32 +53,6 @@ public interface Run extends EObject {
 	void setCanceled(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Parent Run</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Parent Run</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parent Run</em>' reference.
-	 * @see #setParentRun(Run)
-	 * @see com.misc.common.moplaf.common.CommonPackage#getRun_ParentRun()
-	 * @model
-	 * @generated
-	 */
-	Run getParentRun();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.common.Run#getParentRun <em>Parent Run</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parent Run</em>' reference.
-	 * @see #getParentRun()
-	 * @generated
-	 */
-	void setParentRun(Run value);
-
-	/**
 	 * Returns the value of the '<em><b>Run Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -89,10 +62,10 @@ public interface Run extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Run Feedback</em>' attribute.
 	 * @see com.misc.common.moplaf.common.CommonPackage#getRun_RunFeedback()
-	 * @model dataType="com.misc.common.moplaf.common.CommandFeedback" transient="true" changeable="false" volatile="true" derived="true"
+	 * @model dataType="com.misc.common.moplaf.common.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	CommandFeedback getRunFeedback();
+	EnabledFeedback getRunFeedback();
 
 	/**
 	 * Returns the value of the '<em><b>Cancel Feedback</b></em>' attribute.
@@ -104,10 +77,10 @@ public interface Run extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Cancel Feedback</em>' attribute.
 	 * @see com.misc.common.moplaf.common.CommonPackage#getRun_CancelFeedback()
-	 * @model dataType="com.misc.common.moplaf.common.CommandFeedback" transient="true" changeable="false" volatile="true" derived="true"
+	 * @model dataType="com.misc.common.moplaf.common.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	CommandFeedback getCancelFeedback();
+	EnabledFeedback getCancelFeedback();
 
 	/**
 	 * Returns the value of the '<em><b>Return Success</b></em>' attribute.
@@ -198,18 +171,10 @@ public interface Run extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="com.misc.common.moplaf.common.ReturnFeedback"
+	 * @model dataType="com.misc.common.moplaf.common.ReturnFeedback" runContextDataType="com.misc.common.moplaf.common.RunContext"
 	 * @generated
 	 */
-	ReturnFeedback run(Run parentRun);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void runBackground();
+	ReturnFeedback run(RunContext runContext);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -225,6 +190,22 @@ public interface Run extends EObject {
 	 * @model
 	 * @generated
 	 */
-	boolean onProgress(String task, float work);
+	boolean setProgress(String task, float work);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model progressDataType="com.misc.common.moplaf.common.ProgressFeedback"
+	 * @generated
+	 */
+	boolean setProgress(ProgressFeedback progress);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" dataType="com.misc.common.moplaf.common.ReturnFeedback"
+	 * @generated
+	 */
+	ReturnFeedback getReturn();
 
 } // Run

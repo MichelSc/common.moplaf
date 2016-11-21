@@ -2,15 +2,17 @@
  */
 package com.misc.common.moplaf.common.impl;
 
-import com.misc.common.moplaf.common.CommandFeedback;
+import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.common.CommonFactory;
 import com.misc.common.moplaf.common.CommonPackage;
 import com.misc.common.moplaf.common.Job;
 
 import com.misc.common.moplaf.common.JobParameter;
 import com.misc.common.moplaf.common.JobParameterType;
+import com.misc.common.moplaf.common.ProgressFeedback;
 import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.common.Run;
+import com.misc.common.moplaf.common.RunContext;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -62,7 +64,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EDataType commandFeedbackEDataType = null;
+	private EDataType enabledFeedbackEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -77,6 +79,20 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * @generated
 	 */
 	private EDataType exceptionEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType progressFeedbackEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType runContextEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -363,17 +379,8 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRun_ParentRun() {
-		return (EReference)runEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getRun_RunFeedback() {
-		return (EAttribute)runEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)runEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -382,7 +389,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * @generated
 	 */
 	public EAttribute getRun_CancelFeedback() {
-		return (EAttribute)runEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)runEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -391,7 +398,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * @generated
 	 */
 	public EAttribute getRun_ReturnSuccess() {
-		return (EAttribute)runEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)runEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -400,7 +407,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * @generated
 	 */
 	public EAttribute getRun_ReturnFeedback() {
-		return (EAttribute)runEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)runEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -409,7 +416,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * @generated
 	 */
 	public EAttribute getRun_ReturnInformation() {
-		return (EAttribute)runEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)runEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -426,7 +433,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRun__Run__Run() {
+	public EOperation getRun__Run__RunContext() {
 		return runEClass.getEOperations().get(1);
 	}
 
@@ -435,7 +442,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRun__RunBackground() {
+	public EOperation getRun__Cancel() {
 		return runEClass.getEOperations().get(2);
 	}
 
@@ -444,7 +451,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRun__Cancel() {
+	public EOperation getRun__SetProgress__String_float() {
 		return runEClass.getEOperations().get(3);
 	}
 
@@ -453,8 +460,17 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRun__OnProgress__String_float() {
+	public EOperation getRun__SetProgress__ProgressFeedback() {
 		return runEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRun__GetReturn() {
+		return runEClass.getEOperations().get(5);
 	}
 
 	/**
@@ -507,6 +523,15 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getRunContext() {
+		return runContextEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getJobParameterType() {
 		return jobParameterTypeEEnum;
 	}
@@ -516,8 +541,8 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getCommandFeedback() {
-		return commandFeedbackEDataType;
+	public EDataType getEnabledFeedback() {
+		return enabledFeedbackEDataType;
 	}
 
 	/**
@@ -536,6 +561,15 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 */
 	public EDataType getException() {
 		return exceptionEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getProgressFeedback() {
+		return progressFeedbackEDataType;
 	}
 
 	/**
@@ -591,17 +625,17 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 
 		runEClass = createEClass(RUN);
 		createEAttribute(runEClass, RUN__CANCELED);
-		createEReference(runEClass, RUN__PARENT_RUN);
 		createEAttribute(runEClass, RUN__RUN_FEEDBACK);
 		createEAttribute(runEClass, RUN__CANCEL_FEEDBACK);
 		createEAttribute(runEClass, RUN__RETURN_SUCCESS);
 		createEAttribute(runEClass, RUN__RETURN_FEEDBACK);
 		createEAttribute(runEClass, RUN__RETURN_INFORMATION);
 		createEOperation(runEClass, RUN___RUN);
-		createEOperation(runEClass, RUN___RUN__RUN);
-		createEOperation(runEClass, RUN___RUN_BACKGROUND);
+		createEOperation(runEClass, RUN___RUN__RUNCONTEXT);
 		createEOperation(runEClass, RUN___CANCEL);
-		createEOperation(runEClass, RUN___ON_PROGRESS__STRING_FLOAT);
+		createEOperation(runEClass, RUN___SET_PROGRESS__STRING_FLOAT);
+		createEOperation(runEClass, RUN___SET_PROGRESS__PROGRESSFEEDBACK);
+		createEOperation(runEClass, RUN___GET_RETURN);
 
 		jobParameterEClass = createEClass(JOB_PARAMETER);
 		createEAttribute(jobParameterEClass, JOB_PARAMETER__NAME);
@@ -613,9 +647,11 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		jobParameterTypeEEnum = createEEnum(JOB_PARAMETER_TYPE);
 
 		// Create data types
-		commandFeedbackEDataType = createEDataType(COMMAND_FEEDBACK);
+		enabledFeedbackEDataType = createEDataType(ENABLED_FEEDBACK);
 		returnFeedbackEDataType = createEDataType(RETURN_FEEDBACK);
 		exceptionEDataType = createEDataType(EXCEPTION);
+		progressFeedbackEDataType = createEDataType(PROGRESS_FEEDBACK);
+		runContextEDataType = createEDataType(RUN_CONTEXT);
 	}
 
 	/**
@@ -701,25 +737,27 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 
 		initEClass(runEClass, Run.class, "Run", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRun_Canceled(), ecorePackage.getEBoolean(), "Canceled", null, 0, 1, Run.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRun_ParentRun(), this.getRun(), null, "ParentRun", null, 0, 1, Run.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRun_RunFeedback(), this.getCommandFeedback(), "RunFeedback", null, 0, 1, Run.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRun_CancelFeedback(), this.getCommandFeedback(), "CancelFeedback", null, 0, 1, Run.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRun_RunFeedback(), this.getEnabledFeedback(), "RunFeedback", null, 0, 1, Run.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRun_CancelFeedback(), this.getEnabledFeedback(), "CancelFeedback", null, 0, 1, Run.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRun_ReturnSuccess(), ecorePackage.getEBoolean(), "ReturnSuccess", null, 0, 1, Run.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRun_ReturnFeedback(), ecorePackage.getEString(), "ReturnFeedback", null, 0, 1, Run.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRun_ReturnInformation(), ecorePackage.getEString(), "ReturnInformation", null, 0, 1, Run.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getRun__Run(), this.getReturnFeedback(), "run", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getRun__Run__Run(), this.getReturnFeedback(), "run", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getRun(), "parentRun", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getRun__RunBackground(), null, "runBackground", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getRun__Run__RunContext(), this.getReturnFeedback(), "run", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getRunContext(), "runContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getRun__Cancel(), null, "cancel", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getRun__OnProgress__String_float(), ecorePackage.getEBoolean(), "onProgress", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getRun__SetProgress__String_float(), ecorePackage.getEBoolean(), "setProgress", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "task", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEFloat(), "work", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getRun__SetProgress__ProgressFeedback(), ecorePackage.getEBoolean(), "setProgress", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getProgressFeedback(), "progress", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getRun__GetReturn(), this.getReturnFeedback(), "getReturn", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(jobParameterEClass, JobParameter.class, "JobParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJobParameter_Name(), ecorePackage.getEString(), "Name", null, 0, 1, JobParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -736,9 +774,11 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		addEEnumLiteral(jobParameterTypeEEnum, JobParameterType.JOB_PARAMETER_TYPE_ENUM);
 
 		// Initialize data types
-		initEDataType(commandFeedbackEDataType, CommandFeedback.class, "CommandFeedback", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(enabledFeedbackEDataType, EnabledFeedback.class, "EnabledFeedback", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(returnFeedbackEDataType, ReturnFeedback.class, "ReturnFeedback", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(exceptionEDataType, Exception.class, "Exception", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(progressFeedbackEDataType, ProgressFeedback.class, "ProgressFeedback", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(runContextEDataType, RunContext.class, "RunContext", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

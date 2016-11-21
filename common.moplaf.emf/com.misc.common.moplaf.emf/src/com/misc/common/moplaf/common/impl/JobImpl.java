@@ -8,6 +8,8 @@ import com.misc.common.moplaf.common.Job;
 import com.misc.common.moplaf.common.JobParameter;
 import com.misc.common.moplaf.common.JobParameterType;
 import com.misc.common.moplaf.common.ReturnFeedback;
+import com.misc.common.moplaf.common.RunContext;
+
 import java.lang.reflect.InvocationTargetException;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
@@ -554,7 +556,7 @@ public class JobImpl extends RunImpl implements Job {
 	 * Return true if finisehd, false if stopped or canceled
 	 * 
 	 */
-	protected ReturnFeedback jobRunImpl(){
+	protected ReturnFeedback jobRunImpl(RunContext runContext){
 		// to be implemented by the job implementation
 		throw new UnsupportedOperationException();
 	}
@@ -564,13 +566,13 @@ public class JobImpl extends RunImpl implements Job {
 	 * <!-- end-user-doc -->
 	 */
 	@Override
-	protected ReturnFeedback runImpl() {
+	protected ReturnFeedback runImpl(RunContext runContext) {
 		this.setCreated(false);
 		this.setStopped(false);
 		this.setRunning(true);
 		this.setStartTime(new Date());
 
-		ReturnFeedback feedback = this.jobRunImpl();
+		ReturnFeedback feedback = this.jobRunImpl(runContext);
 		
 		this.setFinished(feedback.isSuccess());
 		this.setStopped(feedback.isFailure());

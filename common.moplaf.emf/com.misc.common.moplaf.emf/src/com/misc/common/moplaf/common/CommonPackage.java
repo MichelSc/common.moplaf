@@ -79,22 +79,13 @@ public interface CommonPackage extends EPackage {
 	int RUN__CANCELED = 0;
 
 	/**
-	 * The feature id for the '<em><b>Parent Run</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RUN__PARENT_RUN = 1;
-
-	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RUN__RUN_FEEDBACK = 2;
+	int RUN__RUN_FEEDBACK = 1;
 
 	/**
 	 * The feature id for the '<em><b>Cancel Feedback</b></em>' attribute.
@@ -103,7 +94,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN__CANCEL_FEEDBACK = 3;
+	int RUN__CANCEL_FEEDBACK = 2;
 
 	/**
 	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
@@ -112,7 +103,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN__RETURN_SUCCESS = 4;
+	int RUN__RETURN_SUCCESS = 3;
 
 	/**
 	 * The feature id for the '<em><b>Return Feedback</b></em>' attribute.
@@ -121,7 +112,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN__RETURN_FEEDBACK = 5;
+	int RUN__RETURN_FEEDBACK = 4;
 
 	/**
 	 * The feature id for the '<em><b>Return Information</b></em>' attribute.
@@ -130,7 +121,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN__RETURN_INFORMATION = 6;
+	int RUN__RETURN_INFORMATION = 5;
 
 	/**
 	 * The number of structural features of the '<em>Run</em>' class.
@@ -139,7 +130,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN_FEATURE_COUNT = 7;
+	int RUN_FEATURE_COUNT = 6;
 
 	/**
 	 * The operation id for the '<em>Run</em>' operation.
@@ -157,16 +148,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___RUN__RUN = 1;
-
-	/**
-	 * The operation id for the '<em>Run Background</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RUN___RUN_BACKGROUND = 2;
+	int RUN___RUN__RUNCONTEXT = 1;
 
 	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
@@ -175,16 +157,34 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___CANCEL = 3;
+	int RUN___CANCEL = 2;
 
 	/**
-	 * The operation id for the '<em>On Progress</em>' operation.
+	 * The operation id for the '<em>Set Progress</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___ON_PROGRESS__STRING_FLOAT = 4;
+	int RUN___SET_PROGRESS__STRING_FLOAT = 3;
+
+	/**
+	 * The operation id for the '<em>Set Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUN___SET_PROGRESS__PROGRESSFEEDBACK = 4;
+
+	/**
+	 * The operation id for the '<em>Get Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUN___GET_RETURN = 5;
 
 	/**
 	 * The number of operations of the '<em>Run</em>' class.
@@ -193,7 +193,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN_OPERATION_COUNT = 5;
+	int RUN_OPERATION_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.common.impl.JobImpl <em>Job</em>}' class.
@@ -213,15 +213,6 @@ public interface CommonPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB__CANCELED = RUN__CANCELED;
-
-	/**
-	 * The feature id for the '<em><b>Parent Run</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB__PARENT_RUN = RUN__PARENT_RUN;
 
 	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
@@ -410,16 +401,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB___RUN__RUN = RUN___RUN__RUN;
-
-	/**
-	 * The operation id for the '<em>Run Background</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB___RUN_BACKGROUND = RUN___RUN_BACKGROUND;
+	int JOB___RUN__RUNCONTEXT = RUN___RUN__RUNCONTEXT;
 
 	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
@@ -431,13 +413,31 @@ public interface CommonPackage extends EPackage {
 	int JOB___CANCEL = RUN___CANCEL;
 
 	/**
-	 * The operation id for the '<em>On Progress</em>' operation.
+	 * The operation id for the '<em>Set Progress</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB___ON_PROGRESS__STRING_FLOAT = RUN___ON_PROGRESS__STRING_FLOAT;
+	int JOB___SET_PROGRESS__STRING_FLOAT = RUN___SET_PROGRESS__STRING_FLOAT;
+
+	/**
+	 * The operation id for the '<em>Set Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB___SET_PROGRESS__PROGRESSFEEDBACK = RUN___SET_PROGRESS__PROGRESSFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Get Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB___GET_RETURN = RUN___GET_RETURN;
 
 	/**
 	 * The operation id for the '<em>Add Parameter</em>' operation.
@@ -586,6 +586,16 @@ public interface CommonPackage extends EPackage {
 	int JOB_PARAMETER_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '<em>Run Context</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.common.RunContext
+	 * @see com.misc.common.moplaf.common.impl.CommonPackageImpl#getRunContext()
+	 * @generated
+	 */
+	int RUN_CONTEXT = 8;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.common.JobParameterType <em>Job Parameter Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -596,15 +606,14 @@ public interface CommonPackage extends EPackage {
 	int JOB_PARAMETER_TYPE = 3;
 
 	/**
-	 * The meta object id for the '<em>Command Feedback</em>' data type.
+	 * The meta object id for the '<em>Enabled Feedback</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.common.CommandFeedback
-	 * @see com.misc.common.moplaf.common.impl.CommonPackageImpl#getCommandFeedback()
+	 * @see com.misc.common.moplaf.common.EnabledFeedback
+	 * @see com.misc.common.moplaf.common.impl.CommonPackageImpl#getEnabledFeedback()
 	 * @generated
 	 */
-	int COMMAND_FEEDBACK = 4;
-
+	int ENABLED_FEEDBACK = 4;
 
 	/**
 	 * The meta object id for the '<em>Return Feedback</em>' data type.
@@ -626,6 +635,17 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 */
 	int EXCEPTION = 6;
+
+
+	/**
+	 * The meta object id for the '<em>Progress Feedback</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.common.ProgressFeedback
+	 * @see com.misc.common.moplaf.common.impl.CommonPackageImpl#getProgressFeedback()
+	 * @generated
+	 */
+	int PROGRESS_FEEDBACK = 7;
 
 
 	/**
@@ -883,17 +903,6 @@ public interface CommonPackage extends EPackage {
 	EAttribute getRun_Canceled();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.common.Run#getParentRun <em>Parent Run</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Parent Run</em>'.
-	 * @see com.misc.common.moplaf.common.Run#getParentRun()
-	 * @see #getRun()
-	 * @generated
-	 */
-	EReference getRun_ParentRun();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.common.Run#getRunFeedback <em>Run Feedback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -959,24 +968,14 @@ public interface CommonPackage extends EPackage {
 	EOperation getRun__Run();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.common.Run#run(com.misc.common.moplaf.common.Run) <em>Run</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.common.Run#run(com.misc.common.moplaf.common.RunContext) <em>Run</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Run</em>' operation.
-	 * @see com.misc.common.moplaf.common.Run#run(com.misc.common.moplaf.common.Run)
+	 * @see com.misc.common.moplaf.common.Run#run(com.misc.common.moplaf.common.RunContext)
 	 * @generated
 	 */
-	EOperation getRun__Run__Run();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.common.Run#runBackground() <em>Run Background</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Run Background</em>' operation.
-	 * @see com.misc.common.moplaf.common.Run#runBackground()
-	 * @generated
-	 */
-	EOperation getRun__RunBackground();
+	EOperation getRun__Run__RunContext();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.common.Run#cancel() <em>Cancel</em>}' operation.
@@ -989,14 +988,34 @@ public interface CommonPackage extends EPackage {
 	EOperation getRun__Cancel();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.common.Run#onProgress(java.lang.String, float) <em>On Progress</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.common.Run#setProgress(java.lang.String, float) <em>Set Progress</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>On Progress</em>' operation.
-	 * @see com.misc.common.moplaf.common.Run#onProgress(java.lang.String, float)
+	 * @return the meta object for the '<em>Set Progress</em>' operation.
+	 * @see com.misc.common.moplaf.common.Run#setProgress(java.lang.String, float)
 	 * @generated
 	 */
-	EOperation getRun__OnProgress__String_float();
+	EOperation getRun__SetProgress__String_float();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.common.Run#setProgress(com.misc.common.moplaf.common.ProgressFeedback) <em>Set Progress</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Progress</em>' operation.
+	 * @see com.misc.common.moplaf.common.Run#setProgress(com.misc.common.moplaf.common.ProgressFeedback)
+	 * @generated
+	 */
+	EOperation getRun__SetProgress__ProgressFeedback();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.common.Run#getReturn() <em>Get Return</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Return</em>' operation.
+	 * @see com.misc.common.moplaf.common.Run#getReturn()
+	 * @generated
+	 */
+	EOperation getRun__GetReturn();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.common.JobParameter <em>Job Parameter</em>}'.
@@ -1053,6 +1072,17 @@ public interface CommonPackage extends EPackage {
 	EAttribute getJobParameter_Description();
 
 	/**
+	 * Returns the meta object for data type '{@link com.misc.common.moplaf.common.RunContext <em>Run Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Run Context</em>'.
+	 * @see com.misc.common.moplaf.common.RunContext
+	 * @model instanceClass="com.misc.common.moplaf.common.RunContext"
+	 * @generated
+	 */
+	EDataType getRunContext();
+
+	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.common.JobParameterType <em>Job Parameter Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1063,15 +1093,15 @@ public interface CommonPackage extends EPackage {
 	EEnum getJobParameterType();
 
 	/**
-	 * Returns the meta object for data type '{@link com.misc.common.moplaf.common.CommandFeedback <em>Command Feedback</em>}'.
+	 * Returns the meta object for data type '{@link com.misc.common.moplaf.common.EnabledFeedback <em>Enabled Feedback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Command Feedback</em>'.
-	 * @see com.misc.common.moplaf.common.CommandFeedback
-	 * @model instanceClass="com.misc.common.moplaf.common.CommandFeedback"
+	 * @return the meta object for data type '<em>Enabled Feedback</em>'.
+	 * @see com.misc.common.moplaf.common.EnabledFeedback
+	 * @model instanceClass="com.misc.common.moplaf.common.EnabledFeedback"
 	 * @generated
 	 */
-	EDataType getCommandFeedback();
+	EDataType getEnabledFeedback();
 
 	/**
 	 * Returns the meta object for data type '{@link com.misc.common.moplaf.common.ReturnFeedback <em>Return Feedback</em>}'.
@@ -1094,6 +1124,17 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getException();
+
+	/**
+	 * Returns the meta object for data type '{@link com.misc.common.moplaf.common.ProgressFeedback <em>Progress Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Progress Feedback</em>'.
+	 * @see com.misc.common.moplaf.common.ProgressFeedback
+	 * @model instanceClass="com.misc.common.moplaf.common.ProgressFeedback"
+	 * @generated
+	 */
+	EDataType getProgressFeedback();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1315,14 +1356,6 @@ public interface CommonPackage extends EPackage {
 		EAttribute RUN__CANCELED = eINSTANCE.getRun_Canceled();
 
 		/**
-		 * The meta object literal for the '<em><b>Parent Run</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RUN__PARENT_RUN = eINSTANCE.getRun_ParentRun();
-
-		/**
 		 * The meta object literal for the '<em><b>Run Feedback</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1376,15 +1409,7 @@ public interface CommonPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RUN___RUN__RUN = eINSTANCE.getRun__Run__Run();
-
-		/**
-		 * The meta object literal for the '<em><b>Run Background</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation RUN___RUN_BACKGROUND = eINSTANCE.getRun__RunBackground();
+		EOperation RUN___RUN__RUNCONTEXT = eINSTANCE.getRun__Run__RunContext();
 
 		/**
 		 * The meta object literal for the '<em><b>Cancel</b></em>' operation.
@@ -1395,12 +1420,28 @@ public interface CommonPackage extends EPackage {
 		EOperation RUN___CANCEL = eINSTANCE.getRun__Cancel();
 
 		/**
-		 * The meta object literal for the '<em><b>On Progress</b></em>' operation.
+		 * The meta object literal for the '<em><b>Set Progress</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RUN___ON_PROGRESS__STRING_FLOAT = eINSTANCE.getRun__OnProgress__String_float();
+		EOperation RUN___SET_PROGRESS__STRING_FLOAT = eINSTANCE.getRun__SetProgress__String_float();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Progress</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RUN___SET_PROGRESS__PROGRESSFEEDBACK = eINSTANCE.getRun__SetProgress__ProgressFeedback();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Return</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RUN___GET_RETURN = eINSTANCE.getRun__GetReturn();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.common.impl.JobParameterImpl <em>Job Parameter</em>}' class.
@@ -1445,6 +1486,16 @@ public interface CommonPackage extends EPackage {
 		EAttribute JOB_PARAMETER__DESCRIPTION = eINSTANCE.getJobParameter_Description();
 
 		/**
+		 * The meta object literal for the '<em>Run Context</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.common.RunContext
+		 * @see com.misc.common.moplaf.common.impl.CommonPackageImpl#getRunContext()
+		 * @generated
+		 */
+		EDataType RUN_CONTEXT = eINSTANCE.getRunContext();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.common.JobParameterType <em>Job Parameter Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1455,14 +1506,14 @@ public interface CommonPackage extends EPackage {
 		EEnum JOB_PARAMETER_TYPE = eINSTANCE.getJobParameterType();
 
 		/**
-		 * The meta object literal for the '<em>Command Feedback</em>' data type.
+		 * The meta object literal for the '<em>Enabled Feedback</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.common.CommandFeedback
-		 * @see com.misc.common.moplaf.common.impl.CommonPackageImpl#getCommandFeedback()
+		 * @see com.misc.common.moplaf.common.EnabledFeedback
+		 * @see com.misc.common.moplaf.common.impl.CommonPackageImpl#getEnabledFeedback()
 		 * @generated
 		 */
-		EDataType COMMAND_FEEDBACK = eINSTANCE.getCommandFeedback();
+		EDataType ENABLED_FEEDBACK = eINSTANCE.getEnabledFeedback();
 
 		/**
 		 * The meta object literal for the '<em>Return Feedback</em>' data type.
@@ -1483,6 +1534,16 @@ public interface CommonPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType EXCEPTION = eINSTANCE.getException();
+
+		/**
+		 * The meta object literal for the '<em>Progress Feedback</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.common.ProgressFeedback
+		 * @see com.misc.common.moplaf.common.impl.CommonPackageImpl#getProgressFeedback()
+		 * @generated
+		 */
+		EDataType PROGRESS_FEEDBACK = eINSTANCE.getProgressFeedback();
 
 	}
 

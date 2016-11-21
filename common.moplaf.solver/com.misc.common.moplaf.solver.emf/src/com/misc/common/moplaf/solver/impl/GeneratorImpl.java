@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.solver.impl;
 
 import com.misc.common.moplaf.common.ReturnFeedback;
+import com.misc.common.moplaf.common.RunContext;
 import com.misc.common.moplaf.common.impl.RunImpl;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorCons;
@@ -603,7 +604,7 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 	 * @see com.misc.common.moplaf.common.impl.RunImpl#runImpl()
 	 */
 	@Override
-	protected ReturnFeedback runImpl() {
+	protected ReturnFeedback runImpl(RunContext runContext) {
 		try {
 			ReturnFeedback generateFeedback = this.generate();
 			if ( generateFeedback.isFailure() ){

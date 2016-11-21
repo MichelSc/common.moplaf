@@ -4,10 +4,10 @@
     nsPrefix="cmn">
   <eClassifiers xsi:type="ecore:EClass" name="Job" eSuperTypes="#//Run">
     <eOperations name="addParameter">
-      <eParameters name="name" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+      <eParameters name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
       <eParameters name="type" eType="#//JobParameterType"/>
       <eParameters name="attribute" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
-      <eParameters name="description" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+      <eParameters name="description" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     </eOperations>
     <eOperations name="refreshParameters"/>
     <eOperations name="getArgAsString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -54,31 +54,33 @@
   <eClassifiers xsi:type="ecore:EClass" name="Run">
     <eOperations name="run" eType="#//ReturnFeedback"/>
     <eOperations name="run" eType="#//ReturnFeedback">
-      <eParameters name="parentRun" eType="#//Run"/>
+      <eParameters name="runContext" eType="#//RunContext"/>
     </eOperations>
-    <eOperations name="runBackground"/>
     <eOperations name="cancel"/>
-    <eOperations name="onProgress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+    <eOperations name="setProgress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="task" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="work" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     </eOperations>
+    <eOperations name="setProgress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="progress" eType="#//ProgressFeedback"/>
+    </eOperations>
+    <eOperations name="getReturn" eType="#//ReturnFeedback"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Canceled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ParentRun" eType="#//Run"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunFeedback" eType="#//CommandFeedback"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunFeedback" eType="#//EnabledFeedback"
         changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CancelFeedback" eType="#//CommandFeedback"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CancelFeedback" eType="#//EnabledFeedback"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReturnSuccess" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReturnFeedback" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReturnInformation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="CommandFeedback" instanceClassName="com.misc.common.moplaf.common.CommandFeedback"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="EnabledFeedback" instanceClassName="com.misc.common.moplaf.common.EnabledFeedback"/>
   <eClassifiers xsi:type="ecore:EDataType" name="ReturnFeedback" instanceClassName="com.misc.common.moplaf.common.ReturnFeedback"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Exception" instanceClassName="java.lang.Exception"/>
   <eClassifiers xsi:type="ecore:EClass" name="JobParameter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="#//JobParameterType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="JobAttribute" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EAttribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="JobAttribute" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EAttribute"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="JobParameterType">
@@ -88,4 +90,6 @@
     <eLiterals name="JOB_PARAMETER_TYPE_DATE" value="3" literal="Date"/>
     <eLiterals name="JOB_PARAMETER_TYPE_ENUM" value="4" literal="Enum"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="ProgressFeedback" instanceClassName="com.misc.common.moplaf.common.ProgressFeedback"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="RunContext" instanceClassName="com.misc.common.moplaf.common.RunContext"/>
 </ecore:EPackage>

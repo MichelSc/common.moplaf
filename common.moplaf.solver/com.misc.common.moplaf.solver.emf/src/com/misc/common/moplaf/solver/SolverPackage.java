@@ -80,15 +80,6 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR__CANCELED = CommonPackage.RUN__CANCELED;
 
 	/**
-	 * The feature id for the '<em><b>Parent Run</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR__PARENT_RUN = CommonPackage.RUN__PARENT_RUN;
-
-	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -284,16 +275,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___RUN__RUN = CommonPackage.RUN___RUN__RUN;
-
-	/**
-	 * The operation id for the '<em>Run Background</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR___RUN_BACKGROUND = CommonPackage.RUN___RUN_BACKGROUND;
+	int GENERATOR___RUN__RUNCONTEXT = CommonPackage.RUN___RUN__RUNCONTEXT;
 
 	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
@@ -305,13 +287,31 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR___CANCEL = CommonPackage.RUN___CANCEL;
 
 	/**
-	 * The operation id for the '<em>On Progress</em>' operation.
+	 * The operation id for the '<em>Set Progress</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___ON_PROGRESS__STRING_FLOAT = CommonPackage.RUN___ON_PROGRESS__STRING_FLOAT;
+	int GENERATOR___SET_PROGRESS__STRING_FLOAT = CommonPackage.RUN___SET_PROGRESS__STRING_FLOAT;
+
+	/**
+	 * The operation id for the '<em>Set Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR___SET_PROGRESS__PROGRESSFEEDBACK = CommonPackage.RUN___SET_PROGRESS__PROGRESSFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Get Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR___GET_RETURN = CommonPackage.RUN___GET_RETURN;
 
 	/**
 	 * The operation id for the '<em>Generate</em>' operation.
@@ -1933,15 +1933,6 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_PROVIDER__CANCELED = CommonPackage.RUN__CANCELED;
 
 	/**
-	 * The feature id for the '<em><b>Parent Run</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_PROVIDER__PARENT_RUN = CommonPackage.RUN__PARENT_RUN;
-
-	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2038,16 +2029,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER___RUN__RUN = CommonPackage.RUN___RUN__RUN;
-
-	/**
-	 * The operation id for the '<em>Run Background</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_PROVIDER___RUN_BACKGROUND = CommonPackage.RUN___RUN_BACKGROUND;
+	int SOLUTION_PROVIDER___RUN__RUNCONTEXT = CommonPackage.RUN___RUN__RUNCONTEXT;
 
 	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
@@ -2059,13 +2041,31 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_PROVIDER___CANCEL = CommonPackage.RUN___CANCEL;
 
 	/**
-	 * The operation id for the '<em>On Progress</em>' operation.
+	 * The operation id for the '<em>Set Progress</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER___ON_PROGRESS__STRING_FLOAT = CommonPackage.RUN___ON_PROGRESS__STRING_FLOAT;
+	int SOLUTION_PROVIDER___SET_PROGRESS__STRING_FLOAT = CommonPackage.RUN___SET_PROGRESS__STRING_FLOAT;
+
+	/**
+	 * The operation id for the '<em>Set Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER___SET_PROGRESS__PROGRESSFEEDBACK = CommonPackage.RUN___SET_PROGRESS__PROGRESSFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Get Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER___GET_RETURN = CommonPackage.RUN___GET_RETURN;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -2130,15 +2130,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_READER__CANCELED = SOLUTION_PROVIDER__CANCELED;
-
-	/**
-	 * The feature id for the '<em><b>Parent Run</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_READER__PARENT_RUN = SOLUTION_PROVIDER__PARENT_RUN;
 
 	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
@@ -2246,16 +2237,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_READER___RUN__RUN = SOLUTION_PROVIDER___RUN__RUN;
-
-	/**
-	 * The operation id for the '<em>Run Background</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_READER___RUN_BACKGROUND = SOLUTION_PROVIDER___RUN_BACKGROUND;
+	int SOLUTION_READER___RUN__RUNCONTEXT = SOLUTION_PROVIDER___RUN__RUNCONTEXT;
 
 	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
@@ -2267,13 +2249,31 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_READER___CANCEL = SOLUTION_PROVIDER___CANCEL;
 
 	/**
-	 * The operation id for the '<em>On Progress</em>' operation.
+	 * The operation id for the '<em>Set Progress</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_READER___ON_PROGRESS__STRING_FLOAT = SOLUTION_PROVIDER___ON_PROGRESS__STRING_FLOAT;
+	int SOLUTION_READER___SET_PROGRESS__STRING_FLOAT = SOLUTION_PROVIDER___SET_PROGRESS__STRING_FLOAT;
+
+	/**
+	 * The operation id for the '<em>Set Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER___SET_PROGRESS__PROGRESSFEEDBACK = SOLUTION_PROVIDER___SET_PROGRESS__PROGRESSFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Get Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER___GET_RETURN = SOLUTION_PROVIDER___GET_RETURN;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -2356,15 +2356,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_READER_PATTERN__CANCELED = SOLUTION_READER__CANCELED;
-
-	/**
-	 * The feature id for the '<em><b>Parent Run</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_READER_PATTERN__PARENT_RUN = SOLUTION_READER__PARENT_RUN;
 
 	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
@@ -2517,16 +2508,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_READER_PATTERN___RUN__RUN = SOLUTION_READER___RUN__RUN;
-
-	/**
-	 * The operation id for the '<em>Run Background</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_READER_PATTERN___RUN_BACKGROUND = SOLUTION_READER___RUN_BACKGROUND;
+	int SOLUTION_READER_PATTERN___RUN__RUNCONTEXT = SOLUTION_READER___RUN__RUNCONTEXT;
 
 	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
@@ -2538,13 +2520,31 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_READER_PATTERN___CANCEL = SOLUTION_READER___CANCEL;
 
 	/**
-	 * The operation id for the '<em>On Progress</em>' operation.
+	 * The operation id for the '<em>Set Progress</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_READER_PATTERN___ON_PROGRESS__STRING_FLOAT = SOLUTION_READER___ON_PROGRESS__STRING_FLOAT;
+	int SOLUTION_READER_PATTERN___SET_PROGRESS__STRING_FLOAT = SOLUTION_READER___SET_PROGRESS__STRING_FLOAT;
+
+	/**
+	 * The operation id for the '<em>Set Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER_PATTERN___SET_PROGRESS__PROGRESSFEEDBACK = SOLUTION_READER___SET_PROGRESS__PROGRESSFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Get Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER_PATTERN___GET_RETURN = SOLUTION_READER___GET_RETURN;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -2718,15 +2718,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER__CANCELED = SOLUTION_PROVIDER__CANCELED;
-
-	/**
-	 * The feature id for the '<em><b>Parent Run</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER__PARENT_RUN = SOLUTION_PROVIDER__PARENT_RUN;
 
 	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
@@ -3050,16 +3041,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER___RUN__RUN = SOLUTION_PROVIDER___RUN__RUN;
-
-	/**
-	 * The operation id for the '<em>Run Background</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER___RUN_BACKGROUND = SOLUTION_PROVIDER___RUN_BACKGROUND;
+	int SOLVER___RUN__RUNCONTEXT = SOLUTION_PROVIDER___RUN__RUNCONTEXT;
 
 	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
@@ -3071,13 +3053,31 @@ public interface SolverPackage extends EPackage {
 	int SOLVER___CANCEL = SOLUTION_PROVIDER___CANCEL;
 
 	/**
-	 * The operation id for the '<em>On Progress</em>' operation.
+	 * The operation id for the '<em>Set Progress</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER___ON_PROGRESS__STRING_FLOAT = SOLUTION_PROVIDER___ON_PROGRESS__STRING_FLOAT;
+	int SOLVER___SET_PROGRESS__STRING_FLOAT = SOLUTION_PROVIDER___SET_PROGRESS__STRING_FLOAT;
+
+	/**
+	 * The operation id for the '<em>Set Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER___SET_PROGRESS__PROGRESSFEEDBACK = SOLUTION_PROVIDER___SET_PROGRESS__PROGRESSFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Get Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER___GET_RETURN = SOLUTION_PROVIDER___GET_RETURN;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -3398,15 +3398,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_CP__CANCELED = SOLVER__CANCELED;
-
-	/**
-	 * The feature id for the '<em><b>Parent Run</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_CP__PARENT_RUN = SOLVER__PARENT_RUN;
 
 	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
@@ -3759,16 +3750,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_CP___RUN__RUN = SOLVER___RUN__RUN;
-
-	/**
-	 * The operation id for the '<em>Run Background</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_CP___RUN_BACKGROUND = SOLVER___RUN_BACKGROUND;
+	int SOLVER_CP___RUN__RUNCONTEXT = SOLVER___RUN__RUNCONTEXT;
 
 	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
@@ -3780,13 +3762,31 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_CP___CANCEL = SOLVER___CANCEL;
 
 	/**
-	 * The operation id for the '<em>On Progress</em>' operation.
+	 * The operation id for the '<em>Set Progress</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_CP___ON_PROGRESS__STRING_FLOAT = SOLVER___ON_PROGRESS__STRING_FLOAT;
+	int SOLVER_CP___SET_PROGRESS__STRING_FLOAT = SOLVER___SET_PROGRESS__STRING_FLOAT;
+
+	/**
+	 * The operation id for the '<em>Set Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP___SET_PROGRESS__PROGRESSFEEDBACK = SOLVER___SET_PROGRESS__PROGRESSFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Get Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP___GET_RETURN = SOLVER___GET_RETURN;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -3967,15 +3967,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP__CANCELED = SOLVER__CANCELED;
-
-	/**
-	 * The feature id for the '<em><b>Parent Run</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_LP__PARENT_RUN = SOLVER__PARENT_RUN;
 
 	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
@@ -4326,16 +4317,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_LP___RUN__RUN = SOLVER___RUN__RUN;
-
-	/**
-	 * The operation id for the '<em>Run Background</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_LP___RUN_BACKGROUND = SOLVER___RUN_BACKGROUND;
+	int SOLVER_LP___RUN__RUNCONTEXT = SOLVER___RUN__RUNCONTEXT;
 
 	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
@@ -4347,13 +4329,31 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_LP___CANCEL = SOLVER___CANCEL;
 
 	/**
-	 * The operation id for the '<em>On Progress</em>' operation.
+	 * The operation id for the '<em>Set Progress</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_LP___ON_PROGRESS__STRING_FLOAT = SOLVER___ON_PROGRESS__STRING_FLOAT;
+	int SOLVER_LP___SET_PROGRESS__STRING_FLOAT = SOLVER___SET_PROGRESS__STRING_FLOAT;
+
+	/**
+	 * The operation id for the '<em>Set Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP___SET_PROGRESS__PROGRESSFEEDBACK = SOLVER___SET_PROGRESS__PROGRESSFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Get Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP___GET_RETURN = SOLVER___GET_RETURN;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.

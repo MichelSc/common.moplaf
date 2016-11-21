@@ -3,9 +3,11 @@
 package com.misc.common.moplaf.common.provider;
 
 
-import com.misc.common.moplaf.common.CommandFeedback;
+import com.misc.common.moplaf.common.EnabledFeedback;
+import com.misc.common.moplaf.common.ProgressFeedback;
 import com.misc.common.moplaf.common.CommonPackage;
 import com.misc.common.moplaf.common.Run;
+import com.misc.common.moplaf.common.RunContext;
 import com.misc.common.moplaf.emf.edit.command.CancelCommand;
 import com.misc.common.moplaf.emf.edit.command.RunBackgroundCommand;
 import com.misc.common.moplaf.emf.edit.command.RunCommand;
@@ -13,10 +15,13 @@ import com.misc.common.moplaf.emf.edit.command.RunCommand;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -67,7 +72,6 @@ public class RunItemProvider
 			super.getPropertyDescriptors(object);
 
 			addCanceledPropertyDescriptor(object);
-			addParentRunPropertyDescriptor(object);
 			addRunFeedbackPropertyDescriptor(object);
 			addCancelFeedbackPropertyDescriptor(object);
 			addReturnSuccessPropertyDescriptor(object);
@@ -95,28 +99,6 @@ public class RunItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 getString("_UI__10JobControlPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Parent Run feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addParentRunPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Run_ParentRun_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Run_ParentRun_feature", "_UI_Run_type"),
-				 CommonPackage.Literals.RUN__PARENT_RUN,
-				 false,
-				 false,
-				 true,
-				 null,
 				 getString("_UI__10JobControlPropertyCategory"),
 				 null));
 	}
@@ -316,7 +298,7 @@ public class RunItemProvider
 		@Override
 		protected boolean prepare(){
 			boolean isExecutable = true;
-			CommandFeedback feedback = this.run.getRunFeedback();
+			EnabledFeedback feedback = this.run.getRunFeedback();
 			if ( !feedback.isMayExecute() ) {
 				isExecutable = false;
 				this.setDescription(feedback.getFeedback());
@@ -344,17 +326,55 @@ public class RunItemProvider
 		@Override
 		protected boolean prepare(){
 			boolean isExecutable = true;
-			CommandFeedback feedback = this.run.getRunFeedback();
+			EnabledFeedback feedback = this.run.getRunFeedback();
 			if ( !feedback.isMayExecute() ) {
 				isExecutable = false;
 				this.setDescription(feedback.getFeedback());
 			}
 			return isExecutable;
 		}
+		
+		class BackgroundRunContext implements RunContext{
+			IProgressMonitor monitor = null;
+			
+			BackgroundRunContext(IProgressMonitor amonitor){
+				monitor = amonitor;
+			}
+
+			@Override
+			public boolean onProgress(ProgressFeedback progress) {
+				boolean goOn = true;
+				if ( this.monitor != null){
+					if ( this.monitor.isCanceled())				{
+						goOn = false;
+					}
+					this.monitor.setTaskName(progress.getTask());
+				}
+				return goOn;
+			}
+			
+		};
+		
+		private BackgroundRunContext backgroundRunContext = null;
 
 		@Override
 		public void execute() {
-			this.run.runBackground();
+			
+			 Job job = new Job("Run in Background") {
+		     protected IStatus run(IProgressMonitor monitor) {
+		    	    RunRunBackgroundCommand.this.backgroundRunContext = new BackgroundRunContext(monitor);
+		    	    monitor.beginTask("Initialization", 100);
+		    	    //Plugin.INSTANCE.logInfo("Solve, job started");
+		    	    RunRunBackgroundCommand.this.run.run(RunRunBackgroundCommand.this.backgroundRunContext);
+		    	    RunRunBackgroundCommand.this.backgroundRunContext = null;
+		            return Status.OK_STATUS;
+		        }
+		     };  // class Job
+		     job.setPriority(Job.SHORT);
+		     job.setUser(true);
+		     job.setSystem(false);
+		     //Plugin.INSTANCE.logInfo("solve, job submitted");
+		     job.schedule(); // start as soon as possible			}
 		}
 	} // class RunRunBackgroundCommand
 	
@@ -372,7 +392,7 @@ public class RunItemProvider
 		@Override
 		protected boolean prepare(){
 			boolean isExecutable = true;
-			CommandFeedback feedback = this.run.getCancelFeedback();
+			EnabledFeedback feedback = this.run.getCancelFeedback();
 			if ( !feedback.isMayExecute() ) {
 				isExecutable = false;
 				this.setDescription(feedback.getFeedback());

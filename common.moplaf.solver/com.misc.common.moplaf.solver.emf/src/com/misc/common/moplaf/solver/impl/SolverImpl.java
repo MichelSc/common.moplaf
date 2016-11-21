@@ -2,8 +2,9 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
-import com.misc.common.moplaf.common.CommandFeedback;
+import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.common.ReturnFeedback;
+import com.misc.common.moplaf.common.RunContext;
 import com.misc.common.moplaf.solver.EnumGoalType;
 import com.misc.common.moplaf.solver.EnumLpConsType;
 import com.misc.common.moplaf.solver.EnumSolverLogLevel;
@@ -1310,11 +1311,11 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * @see com.misc.common.moplaf.common.impl.RunImpl#getRunFeedback()
 	 */
 	@Override
-	public CommandFeedback getRunFeedback() {
+	public EnabledFeedback getRunFeedback() {
 		if (this.isInitializing()) {
-			return new CommandFeedback(false, "initializing");
+			return new EnabledFeedback(false, "initializing");
 		}
-		return CommandFeedback.NOFEEDBACK;
+		return EnabledFeedback.NOFEEDBACK;
 	}
 
 	/*
@@ -1323,7 +1324,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * @see com.misc.common.moplaf.common.impl.RunImpl#runImpl()
 	 */
 	@Override
-	protected ReturnFeedback runImpl() {
+	protected ReturnFeedback runImpl(RunContext runContext) {
 		return this.solve();
 	}
 
@@ -1534,7 +1535,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 																				// padded
 			// work
 			int work = (int) (100 * (1.0f - OptimalityGap));
-			goOn = this.onProgress(task, work);
+			goOn = this.setProgress(task, work);
 		}
 		if (!goOn) {
 			this.setRunRequestTerminate(true);

@@ -15,9 +15,11 @@
       <genEnumLiterals ecoreEnumLiteral="common.ecore#//JobParameterType/JOB_PARAMETER_TYPE_DATE"/>
       <genEnumLiterals ecoreEnumLiteral="common.ecore#//JobParameterType/JOB_PARAMETER_TYPE_ENUM"/>
     </genEnums>
-    <genDataTypes ecoreDataType="common.ecore#//CommandFeedback"/>
+    <genDataTypes ecoreDataType="common.ecore#//EnabledFeedback"/>
     <genDataTypes ecoreDataType="common.ecore#//ReturnFeedback"/>
     <genDataTypes ecoreDataType="common.ecore#//Exception"/>
+    <genDataTypes ecoreDataType="common.ecore#//ProgressFeedback"/>
+    <genDataTypes ecoreDataType="common.ecore#//RunContext"/>
     <genClasses ecoreClass="common.ecore#//Job" labelFeature="#//common/Job/Description">
       <genFeatures createChild="false" propertyCategory="10 Job" ecoreFeature="ecore:EAttribute common.ecore#//Job/Name"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="11 Job Status"
@@ -65,8 +67,6 @@
     </genClasses>
     <genClasses ecoreClass="common.ecore#//Run">
       <genFeatures createChild="false" propertyCategory="10 Job Control" ecoreFeature="ecore:EAttribute common.ecore#//Run/Canceled"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="10 Job Control"
-          propertySortChoices="true" ecoreFeature="ecore:EReference common.ecore#//Run/ParentRun"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job Control"
           ecoreFeature="ecore:EAttribute common.ecore#//Run/RunFeedback"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job Control"
@@ -78,15 +78,15 @@
       <genFeatures createChild="false" propertyCategory="12 Job Return" propertyMultiLine="true"
           ecoreFeature="ecore:EAttribute common.ecore#//Run/ReturnInformation"/>
       <genOperations ecoreOperation="common.ecore#//Run/run"/>
-      <genOperations ecoreOperation="common.ecore#//Run/run.1">
-        <genParameters ecoreParameter="common.ecore#//Run/run.1/parentRun"/>
-      </genOperations>
-      <genOperations ecoreOperation="common.ecore#//Run/runBackground"/>
       <genOperations ecoreOperation="common.ecore#//Run/cancel"/>
-      <genOperations ecoreOperation="common.ecore#//Run/onProgress">
-        <genParameters ecoreParameter="common.ecore#//Run/onProgress/task"/>
-        <genParameters ecoreParameter="common.ecore#//Run/onProgress/work"/>
+      <genOperations ecoreOperation="common.ecore#//Run/setProgress">
+        <genParameters ecoreParameter="common.ecore#//Run/setProgress/task"/>
+        <genParameters ecoreParameter="common.ecore#//Run/setProgress/work"/>
       </genOperations>
+      <genOperations ecoreOperation="common.ecore#//Run/setProgress.1">
+        <genParameters ecoreParameter="common.ecore#//Run/setProgress.1/progress"/>
+      </genOperations>
+      <genOperations ecoreOperation="common.ecore#//Run/getReturn"/>
     </genClasses>
     <genClasses ecoreClass="common.ecore#//JobParameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//JobParameter/Name"/>

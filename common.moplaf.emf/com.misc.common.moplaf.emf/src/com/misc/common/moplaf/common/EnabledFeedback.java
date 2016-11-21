@@ -1,13 +1,13 @@
 package com.misc.common.moplaf.common;
 
-public class CommandFeedback {
+public class EnabledFeedback {
 	
 	private boolean mayExecute;
 	private String feedback;
 	
-	static public CommandFeedback NOFEEDBACK = new CommandFeedback(true, "");
+	static public EnabledFeedback NOFEEDBACK = new EnabledFeedback(true, "");
 	
-	public CommandFeedback(boolean mayExecute, String feedback) {
+	public EnabledFeedback(boolean mayExecute, String feedback) {
 		super();
 		this.mayExecute = mayExecute;
 		this.feedback = feedback;
