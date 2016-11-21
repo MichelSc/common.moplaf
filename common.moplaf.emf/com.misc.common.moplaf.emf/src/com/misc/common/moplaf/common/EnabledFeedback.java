@@ -13,7 +13,7 @@ public class EnabledFeedback {
 		this.feedback = feedback;
 	}
 	
-	public boolean isMayExecute() {
+	public boolean isEnabled() {
 		return mayExecute;
 	}
 	public String getFeedback() {

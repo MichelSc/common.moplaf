@@ -299,7 +299,7 @@ public class RunItemProvider
 		protected boolean prepare(){
 			boolean isExecutable = true;
 			EnabledFeedback feedback = this.run.getRunFeedback();
-			if ( !feedback.isMayExecute() ) {
+			if ( !feedback.isEnabled() ) {
 				isExecutable = false;
 				this.setDescription(feedback.getFeedback());
 			}
@@ -327,7 +327,7 @@ public class RunItemProvider
 		protected boolean prepare(){
 			boolean isExecutable = true;
 			EnabledFeedback feedback = this.run.getRunFeedback();
-			if ( !feedback.isMayExecute() ) {
+			if ( !feedback.isEnabled() ) {
 				isExecutable = false;
 				this.setDescription(feedback.getFeedback());
 			}
@@ -338,7 +338,7 @@ public class RunItemProvider
 			IProgressMonitor monitor = null;
 			
 			BackgroundRunContext(IProgressMonitor amonitor){
-				monitor = amonitor;
+				this.monitor = amonitor;
 			}
 
 			@Override
@@ -393,7 +393,7 @@ public class RunItemProvider
 		protected boolean prepare(){
 			boolean isExecutable = true;
 			EnabledFeedback feedback = this.run.getCancelFeedback();
-			if ( !feedback.isMayExecute() ) {
+			if ( !feedback.isEnabled() ) {
 				isExecutable = false;
 				this.setDescription(feedback.getFeedback());
 			}
