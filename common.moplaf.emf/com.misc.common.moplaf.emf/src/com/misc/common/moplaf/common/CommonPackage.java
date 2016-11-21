@@ -70,22 +70,13 @@ public interface CommonPackage extends EPackage {
 	int RUN = 1;
 
 	/**
-	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RUN__CANCELED = 0;
-
-	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RUN__RUN_FEEDBACK = 1;
+	int RUN__RUN_FEEDBACK = 0;
 
 	/**
 	 * The feature id for the '<em><b>Cancel Feedback</b></em>' attribute.
@@ -94,7 +85,25 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN__CANCEL_FEEDBACK = 2;
+	int RUN__CANCEL_FEEDBACK = 1;
+
+	/**
+	 * The feature id for the '<em><b>Reset Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUN__RESET_FEEDBACK = 2;
+
+	/**
+	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUN__CANCELED = 3;
 
 	/**
 	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
@@ -103,7 +112,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN__RETURN_SUCCESS = 3;
+	int RUN__RETURN_SUCCESS = 4;
 
 	/**
 	 * The feature id for the '<em><b>Return Feedback</b></em>' attribute.
@@ -112,7 +121,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN__RETURN_FEEDBACK = 4;
+	int RUN__RETURN_FEEDBACK = 5;
 
 	/**
 	 * The feature id for the '<em><b>Return Information</b></em>' attribute.
@@ -121,7 +130,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN__RETURN_INFORMATION = 5;
+	int RUN__RETURN_INFORMATION = 6;
 
 	/**
 	 * The number of structural features of the '<em>Run</em>' class.
@@ -130,7 +139,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN_FEATURE_COUNT = 6;
+	int RUN_FEATURE_COUNT = 7;
 
 	/**
 	 * The operation id for the '<em>Reset</em>' operation.
@@ -215,15 +224,6 @@ public interface CommonPackage extends EPackage {
 	int JOB = 0;
 
 	/**
-	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB__CANCELED = RUN__CANCELED;
-
-	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -240,6 +240,24 @@ public interface CommonPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB__CANCEL_FEEDBACK = RUN__CANCEL_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Reset Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB__RESET_FEEDBACK = RUN__RESET_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB__CANCELED = RUN__CANCELED;
 
 	/**
 	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
@@ -923,6 +941,17 @@ public interface CommonPackage extends EPackage {
 	EAttribute getRun_CancelFeedback();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.common.Run#getResetFeedback <em>Reset Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Reset Feedback</em>'.
+	 * @see com.misc.common.moplaf.common.Run#getResetFeedback()
+	 * @see #getRun()
+	 * @generated
+	 */
+	EAttribute getRun_ResetFeedback();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.common.Run#isReturnSuccess <em>Return Success</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1370,6 +1399,14 @@ public interface CommonPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RUN__CANCEL_FEEDBACK = eINSTANCE.getRun_CancelFeedback();
+
+		/**
+		 * The meta object literal for the '<em><b>Reset Feedback</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RUN__RESET_FEEDBACK = eINSTANCE.getRun_ResetFeedback();
 
 		/**
 		 * The meta object literal for the '<em><b>Return Success</b></em>' attribute feature.

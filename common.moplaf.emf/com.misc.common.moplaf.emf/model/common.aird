@@ -142,10 +142,6 @@
                 <styles xmi:type="notation:FontStyle" xmi:id="__rqdsa9WEea-z_w-T1jAOw" fontName="Segoe UI" fontHeight="8"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="__rqdsq9WEea-z_w-T1jAOw"/>
               </children>
-              <children xmi:type="notation:Node" xmi:id="_Wvg8gEdcEea7WsgHBwpAvg" type="3010" element="_WvcEAEdcEea7WsgHBwpAvg">
-                <styles xmi:type="notation:FontStyle" xmi:id="_Wvg8gUdcEea7WsgHBwpAvg" fontName="Segoe UI" fontHeight="8"/>
-                <layoutConstraint xmi:type="notation:Location" xmi:id="_Wvg8gkdcEea7WsgHBwpAvg"/>
-              </children>
               <children xmi:type="notation:Node" xmi:id="_w4v-AEkDEeaZMa8q_NYnZQ" type="3010" element="_w4ccAEkDEeaZMa8q_NYnZQ">
                 <styles xmi:type="notation:FontStyle" xmi:id="_w4v-AUkDEeaZMa8q_NYnZQ" fontColor="2697711" fontName="Segoe UI" fontHeight="8"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_w4v-AkkDEeaZMa8q_NYnZQ"/>
@@ -153,6 +149,14 @@
               <children xmi:type="notation:Node" xmi:id="_AZrVQEkEEeaZMa8q_NYnZQ" type="3010" element="_AZS6wEkEEeaZMa8q_NYnZQ">
                 <styles xmi:type="notation:FontStyle" xmi:id="_AZrVQUkEEeaZMa8q_NYnZQ" fontColor="2697711" fontName="Segoe UI" fontHeight="8"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_AZrVQkkEEeaZMa8q_NYnZQ"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_qrV5kK_aEeaieIr8F3t6zw" type="3010" element="_qqsZUK_aEeaieIr8F3t6zw">
+                <styles xmi:type="notation:FontStyle" xmi:id="_qrV5ka_aEeaieIr8F3t6zw" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_qrV5kq_aEeaieIr8F3t6zw"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_Wvg8gEdcEea7WsgHBwpAvg" type="3010" element="_WvcEAEdcEea7WsgHBwpAvg">
+                <styles xmi:type="notation:FontStyle" xmi:id="_Wvg8gUdcEea7WsgHBwpAvg" fontName="Segoe UI" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_Wvg8gkdcEea7WsgHBwpAvg"/>
               </children>
               <children xmi:type="notation:Node" xmi:id="_nigJtIrVEeaL_Y4l_OeRng" type="3010" element="_nigJsIrVEeaL_Y4l_OeRng">
                 <styles xmi:type="notation:FontStyle" xmi:id="_nigJtYrVEeaL_Y4l_OeRng" fontName="Segoe UI" fontHeight="8"/>
@@ -550,14 +554,6 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_WvcEAEdcEea7WsgHBwpAvg" name="Canceled : EBoolean = false" tooltipText="">
-          <target xmi:type="ecore:EAttribute" href="common.ecore#//Run/Canceled"/>
-          <semanticElements xmi:type="ecore:EAttribute" href="common.ecore#//Run/Canceled"/>
-          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_WvcrEEdcEea7WsgHBwpAvg" labelAlignment="LEFT">
-            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
-          </ownedStyle>
-          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
-        </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_w4ccAEkDEeaZMa8q_NYnZQ" name="/RunFeedback : EnabledFeedback" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="common.ecore#//Run/RunFeedback"/>
           <semanticElements xmi:type="ecore:EAttribute" href="common.ecore#//Run/RunFeedback"/>
@@ -568,6 +564,20 @@
           <target xmi:type="ecore:EAttribute" href="common.ecore#//Run/CancelFeedback"/>
           <semanticElements xmi:type="ecore:EAttribute" href="common.ecore#//Run/CancelFeedback"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_FBi4QEkEEeaZMa8q_NYnZQ" labelColor="39,76,114" labelAlignment="LEFT" description="_2Ls6sEWoEeai4o6Ufvs2NA"/>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_qqsZUK_aEeaieIr8F3t6zw" name="/ResetFeedback : EnabledFeedback" tooltipText="">
+          <target xmi:type="ecore:EAttribute" href="common.ecore#//Run/ResetFeedback"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="common.ecore#//Run/ResetFeedback"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_qqtncK_aEeaieIr8F3t6zw" labelColor="39,76,114" labelAlignment="LEFT" description="_2Ls6sEWoEeai4o6Ufvs2NA"/>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_WvcEAEdcEea7WsgHBwpAvg" name="Canceled : EBoolean = false" tooltipText="">
+          <target xmi:type="ecore:EAttribute" href="common.ecore#//Run/Canceled"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="common.ecore#//Run/Canceled"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_WvcrEEdcEea7WsgHBwpAvg" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+          </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_nigJsIrVEeaL_Y4l_OeRng" name="ReturnSuccess : EBoolean = false" tooltipText="">

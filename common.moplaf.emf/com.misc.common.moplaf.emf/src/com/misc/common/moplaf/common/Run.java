@@ -13,9 +13,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.common.Run#isCanceled <em>Canceled</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.Run#getRunFeedback <em>Run Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.Run#getCancelFeedback <em>Cancel Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.common.Run#getResetFeedback <em>Reset Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.common.Run#isCanceled <em>Canceled</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.Run#isReturnSuccess <em>Return Success</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.Run#getReturnFeedback <em>Return Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.Run#getReturnInformation <em>Return Information</em>}</li>
@@ -81,6 +82,21 @@ public interface Run extends EObject {
 	 * @generated
 	 */
 	EnabledFeedback getCancelFeedback();
+
+	/**
+	 * Returns the value of the '<em><b>Reset Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Reset Feedback</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reset Feedback</em>' attribute.
+	 * @see com.misc.common.moplaf.common.CommonPackage#getRun_ResetFeedback()
+	 * @model dataType="com.misc.common.moplaf.common.EnabledFeedback" transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	EnabledFeedback getResetFeedback();
 
 	/**
 	 * Returns the value of the '<em><b>Return Success</b></em>' attribute.

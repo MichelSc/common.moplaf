@@ -72,9 +72,10 @@ public class RunItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCanceledPropertyDescriptor(object);
 			addRunFeedbackPropertyDescriptor(object);
 			addCancelFeedbackPropertyDescriptor(object);
+			addResetFeedbackPropertyDescriptor(object);
+			addCanceledPropertyDescriptor(object);
 			addReturnSuccessPropertyDescriptor(object);
 			addReturnFeedbackPropertyDescriptor(object);
 			addReturnInformationPropertyDescriptor(object);
@@ -140,6 +141,28 @@ public class RunItemProvider
 				 getString("_UI_Run_CancelFeedback_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Run_CancelFeedback_feature", "_UI_Run_type"),
 				 CommonPackage.Literals.RUN__CANCEL_FEEDBACK,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__10JobControlPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Reset Feedback feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addResetFeedbackPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Run_ResetFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Run_ResetFeedback_feature", "_UI_Run_type"),
+				 CommonPackage.Literals.RUN__RESET_FEEDBACK,
 				 false,
 				 false,
 				 false,
@@ -233,8 +256,11 @@ public class RunItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Run run = (Run)object;
-		return getString("_UI_Run_type") + " " + run.isCanceled();
+		EnabledFeedback labelValue = ((Run)object).getRunFeedback();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Run_type") :
+			getString("_UI_Run_type") + " " + label;
 	}
 	
 
@@ -250,9 +276,10 @@ public class RunItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Run.class)) {
-			case CommonPackage.RUN__CANCELED:
 			case CommonPackage.RUN__RUN_FEEDBACK:
 			case CommonPackage.RUN__CANCEL_FEEDBACK:
+			case CommonPackage.RUN__RESET_FEEDBACK:
+			case CommonPackage.RUN__CANCELED:
 			case CommonPackage.RUN__RETURN_SUCCESS:
 			case CommonPackage.RUN__RETURN_FEEDBACK:
 			case CommonPackage.RUN__RETURN_INFORMATION:
@@ -420,6 +447,11 @@ public class RunItemProvider
 		@Override
 		protected boolean prepare(){
 			boolean isExecutable = true;
+			EnabledFeedback feedback = this.run.getResetFeedback();
+			if ( !feedback.isEnabled() ) {
+				isExecutable = false;
+				this.setDescription(feedback.getFeedback());
+			}
 			return isExecutable;
 		}
 

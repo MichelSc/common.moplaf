@@ -34,7 +34,6 @@
           ecoreFeature="ecore:EAttribute common.ecore#//Job/EndTime"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="11 Job Status"
           ecoreFeature="ecore:EAttribute common.ecore#//Job/Duration"/>
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Job/Created"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Job/Running"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Job/Stopped"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute common.ecore#//Job/Finished"/>
@@ -66,18 +65,24 @@
       <genOperations ecoreOperation="common.ecore#//Job/setArgs"/>
     </genClasses>
     <genClasses ecoreClass="common.ecore#//Run">
-      <genFeatures createChild="false" propertyCategory="10 Job Control" ecoreFeature="ecore:EAttribute common.ecore#//Run/Canceled"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job Control"
           ecoreFeature="ecore:EAttribute common.ecore#//Run/RunFeedback"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job Control"
           ecoreFeature="ecore:EAttribute common.ecore#//Run/CancelFeedback"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job Control"
+          ecoreFeature="ecore:EAttribute common.ecore#//Run/ResetFeedback"/>
+      <genFeatures createChild="false" propertyCategory="10 Job Control" ecoreFeature="ecore:EAttribute common.ecore#//Run/Canceled"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="12 Job Return"
           ecoreFeature="ecore:EAttribute common.ecore#//Run/ReturnSuccess"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="12 Job Return"
           ecoreFeature="ecore:EAttribute common.ecore#//Run/ReturnFeedback"/>
       <genFeatures createChild="false" propertyCategory="12 Job Return" propertyMultiLine="true"
           ecoreFeature="ecore:EAttribute common.ecore#//Run/ReturnInformation"/>
+      <genOperations ecoreOperation="common.ecore#//Run/reset"/>
       <genOperations ecoreOperation="common.ecore#//Run/run"/>
+      <genOperations ecoreOperation="common.ecore#//Run/run.1">
+        <genParameters ecoreParameter="common.ecore#//Run/run.1/runContext"/>
+      </genOperations>
       <genOperations ecoreOperation="common.ecore#//Run/cancel"/>
       <genOperations ecoreOperation="common.ecore#//Run/setProgress">
         <genParameters ecoreParameter="common.ecore#//Run/setProgress/task"/>

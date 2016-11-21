@@ -2,19 +2,19 @@ package com.misc.common.moplaf.common;
 
 public class EnabledFeedback {
 	
-	private boolean mayExecute;
+	private boolean enabled;
 	private String feedback;
 	
 	static public EnabledFeedback NOFEEDBACK = new EnabledFeedback(true, "");
 	
-	public EnabledFeedback(boolean mayExecute, String feedback) {
+	public EnabledFeedback(boolean enabled, String feedback) {
 		super();
-		this.mayExecute = mayExecute;
+		this.enabled = enabled;
 		this.feedback = feedback;
 	}
 	
 	public boolean isEnabled() {
-		return mayExecute;
+		return enabled;
 	}
 	public String getFeedback() {
 		return feedback;
@@ -22,8 +22,8 @@ public class EnabledFeedback {
 
 	@Override
 	public String toString() {
-		if ( this.mayExecute) { return ""; }
-		return "May not execute, feedback=" + feedback + "";
+		if ( this.enabled) { return ""; }
+		return "Not enabled, feedback=" + feedback + "";
 	}
 	
 }

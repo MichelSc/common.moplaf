@@ -26,9 +26,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.common.impl.RunImpl#isCanceled <em>Canceled</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.impl.RunImpl#getRunFeedback <em>Run Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.impl.RunImpl#getCancelFeedback <em>Cancel Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.common.impl.RunImpl#getResetFeedback <em>Reset Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.common.impl.RunImpl#isCanceled <em>Canceled</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.impl.RunImpl#isReturnSuccess <em>Return Success</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.impl.RunImpl#getReturnFeedback <em>Return Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.impl.RunImpl#getReturnInformation <em>Return Information</em>}</li>
@@ -37,26 +38,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * @generated
  */
 public class RunImpl extends MinimalEObjectImpl.Container implements Run {
-	/**
-	 * The default value of the '{@link #isCanceled() <em>Canceled</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isCanceled()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean CANCELED_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isCanceled() <em>Canceled</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isCanceled()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean canceled = CANCELED_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getRunFeedback() <em>Run Feedback</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -76,6 +57,36 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 	 * @ordered
 	 */
 	protected static final EnabledFeedback CANCEL_FEEDBACK_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getResetFeedback() <em>Reset Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResetFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EnabledFeedback RESET_FEEDBACK_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #isCanceled() <em>Canceled</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCanceled()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CANCELED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isCanceled() <em>Canceled</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCanceled()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean canceled = CANCELED_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isReturnSuccess() <em>Return Success</em>}' attribute.
@@ -193,6 +204,14 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 		if ( this.isCanceled()){
 			return new EnabledFeedback(false, "canceled");
 		}
+		return EnabledFeedback.NOFEEDBACK;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EnabledFeedback getResetFeedback() {
 		return EnabledFeedback.NOFEEDBACK;
 	}
 
@@ -393,12 +412,14 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CommonPackage.RUN__CANCELED:
-				return isCanceled();
 			case CommonPackage.RUN__RUN_FEEDBACK:
 				return getRunFeedback();
 			case CommonPackage.RUN__CANCEL_FEEDBACK:
 				return getCancelFeedback();
+			case CommonPackage.RUN__RESET_FEEDBACK:
+				return getResetFeedback();
+			case CommonPackage.RUN__CANCELED:
+				return isCanceled();
 			case CommonPackage.RUN__RETURN_SUCCESS:
 				return isReturnSuccess();
 			case CommonPackage.RUN__RETURN_FEEDBACK:
@@ -465,12 +486,14 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CommonPackage.RUN__CANCELED:
-				return canceled != CANCELED_EDEFAULT;
 			case CommonPackage.RUN__RUN_FEEDBACK:
 				return RUN_FEEDBACK_EDEFAULT == null ? getRunFeedback() != null : !RUN_FEEDBACK_EDEFAULT.equals(getRunFeedback());
 			case CommonPackage.RUN__CANCEL_FEEDBACK:
 				return CANCEL_FEEDBACK_EDEFAULT == null ? getCancelFeedback() != null : !CANCEL_FEEDBACK_EDEFAULT.equals(getCancelFeedback());
+			case CommonPackage.RUN__RESET_FEEDBACK:
+				return RESET_FEEDBACK_EDEFAULT == null ? getResetFeedback() != null : !RESET_FEEDBACK_EDEFAULT.equals(getResetFeedback());
+			case CommonPackage.RUN__CANCELED:
+				return canceled != CANCELED_EDEFAULT;
 			case CommonPackage.RUN__RETURN_SUCCESS:
 				return returnSuccess != RETURN_SUCCESS_EDEFAULT;
 			case CommonPackage.RUN__RETURN_FEEDBACK:
