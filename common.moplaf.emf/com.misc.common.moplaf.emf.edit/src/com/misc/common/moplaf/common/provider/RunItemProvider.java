@@ -9,6 +9,7 @@ import com.misc.common.moplaf.common.CommonPackage;
 import com.misc.common.moplaf.common.Run;
 import com.misc.common.moplaf.common.RunContext;
 import com.misc.common.moplaf.emf.edit.command.CancelCommand;
+import com.misc.common.moplaf.emf.edit.command.ResetCommand;
 import com.misc.common.moplaf.emf.edit.command.RunBackgroundCommand;
 import com.misc.common.moplaf.emf.edit.command.RunCommand;
 
@@ -405,6 +406,29 @@ public class RunItemProvider
 		}
 	} // class RunCancelCommand
 	
+	/*
+	 * RunResetCommand
+	 */
+	public class RunResetCommand extends ResetCommand{
+		private Run run;
+		
+		// constructor
+		public RunResetCommand(Run aRun)	{
+			this.run = aRun;
+		}
+
+		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			return isExecutable;
+		}
+
+		@Override
+		public void execute() {
+			this.run.reset();
+		}
+	} // class RunResetCommand
+	
 	/**
 	 * 
 	 */
@@ -420,6 +444,9 @@ public class RunItemProvider
 		}
 		else if ( commandClass == CancelCommand.class){
 			return new RunCancelCommand((Run) object); 
+		}
+		else if ( commandClass == ResetCommand.class){
+			return new RunResetCommand((Run) object); 
 		}
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand
