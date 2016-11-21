@@ -260,6 +260,15 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_FEATURE_COUNT = CommonPackage.RUN_FEATURE_COUNT + 14;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR___RESET = CommonPackage.RUN___RESET;
+
+	/**
 	 * The operation id for the '<em>Run</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2014,6 +2023,15 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_PROVIDER_FEATURE_COUNT = CommonPackage.RUN_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER___RESET = CommonPackage.RUN___RESET;
+
+	/**
 	 * The operation id for the '<em>Run</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2220,6 +2238,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_READER_FEATURE_COUNT = SOLUTION_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER___RESET = SOLUTION_PROVIDER___RESET;
 
 	/**
 	 * The operation id for the '<em>Run</em>' operation.
@@ -2491,6 +2518,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_READER_PATTERN_FEATURE_COUNT = SOLUTION_READER_FEATURE_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER_PATTERN___RESET = SOLUTION_READER___RESET;
 
 	/**
 	 * The operation id for the '<em>Run</em>' operation.
@@ -3024,6 +3060,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_FEATURE_COUNT = SOLUTION_PROVIDER_FEATURE_COUNT + 25;
+
+	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER___RESET = SOLUTION_PROVIDER___RESET;
 
 	/**
 	 * The operation id for the '<em>Run</em>' operation.
@@ -3735,6 +3780,15 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_CP_FEATURE_COUNT = SOLVER_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP___RESET = SOLVER___RESET;
+
+	/**
 	 * The operation id for the '<em>Run</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4300,6 +4354,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP_FEATURE_COUNT = SOLVER_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP___RESET = SOLVER___RESET;
 
 	/**
 	 * The operation id for the '<em>Run</em>' operation.

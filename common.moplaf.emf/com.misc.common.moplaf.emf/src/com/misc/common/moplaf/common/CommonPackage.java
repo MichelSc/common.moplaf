@@ -133,13 +133,13 @@ public interface CommonPackage extends EPackage {
 	int RUN_FEATURE_COUNT = 6;
 
 	/**
-	 * The operation id for the '<em>Run</em>' operation.
+	 * The operation id for the '<em>Reset</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___RUN = 0;
+	int RUN___RESET = 0;
 
 	/**
 	 * The operation id for the '<em>Run</em>' operation.
@@ -148,7 +148,16 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___RUN__RUNCONTEXT = 1;
+	int RUN___RUN = 1;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUN___RUN__RUNCONTEXT = 2;
 
 	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
@@ -157,7 +166,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___CANCEL = 2;
+	int RUN___CANCEL = 3;
 
 	/**
 	 * The operation id for the '<em>Set Progress</em>' operation.
@@ -166,7 +175,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___SET_PROGRESS__STRING_FLOAT = 3;
+	int RUN___SET_PROGRESS__STRING_FLOAT = 4;
 
 	/**
 	 * The operation id for the '<em>Set Progress</em>' operation.
@@ -175,7 +184,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___SET_PROGRESS__PROGRESSFEEDBACK = 4;
+	int RUN___SET_PROGRESS__PROGRESSFEEDBACK = 5;
 
 	/**
 	 * The operation id for the '<em>Get Return</em>' operation.
@@ -184,7 +193,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___GET_RETURN = 5;
+	int RUN___GET_RETURN = 6;
 
 	/**
 	 * The number of operations of the '<em>Run</em>' class.
@@ -193,7 +202,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN_OPERATION_COUNT = 6;
+	int RUN_OPERATION_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.common.impl.JobImpl <em>Job</em>}' class.
@@ -323,22 +332,13 @@ public interface CommonPackage extends EPackage {
 	int JOB__DURATION = RUN_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Created</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB__CREATED = RUN_FEATURE_COUNT + 7;
-
-	/**
 	 * The feature id for the '<em><b>Running</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__RUNNING = RUN_FEATURE_COUNT + 8;
+	int JOB__RUNNING = RUN_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Stopped</b></em>' attribute.
@@ -347,7 +347,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__STOPPED = RUN_FEATURE_COUNT + 9;
+	int JOB__STOPPED = RUN_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Finished</b></em>' attribute.
@@ -356,7 +356,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__FINISHED = RUN_FEATURE_COUNT + 10;
+	int JOB__FINISHED = RUN_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Args</b></em>' attribute list.
@@ -365,7 +365,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__ARGS = RUN_FEATURE_COUNT + 11;
+	int JOB__ARGS = RUN_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -374,7 +374,7 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__PARAMETERS = RUN_FEATURE_COUNT + 12;
+	int JOB__PARAMETERS = RUN_FEATURE_COUNT + 11;
 
 	/**
 	 * The number of structural features of the '<em>Job</em>' class.
@@ -383,7 +383,16 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_FEATURE_COUNT = RUN_FEATURE_COUNT + 13;
+	int JOB_FEATURE_COUNT = RUN_FEATURE_COUNT + 12;
+
+	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB___RESET = RUN___RESET;
 
 	/**
 	 * The operation id for the '<em>Run</em>' operation.
@@ -736,17 +745,6 @@ public interface CommonPackage extends EPackage {
 	EAttribute getJob_Duration();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.common.Job#isCreated <em>Created</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Created</em>'.
-	 * @see com.misc.common.moplaf.common.Job#isCreated()
-	 * @see #getJob()
-	 * @generated
-	 */
-	EAttribute getJob_Created();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.common.Job#isRunning <em>Running</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -956,6 +954,16 @@ public interface CommonPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getRun_ReturnInformation();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.common.Run#reset() <em>Reset</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Reset</em>' operation.
+	 * @see com.misc.common.moplaf.common.Run#reset()
+	 * @generated
+	 */
+	EOperation getRun__Reset();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.common.Run#run() <em>Run</em>}' operation.
@@ -1226,14 +1234,6 @@ public interface CommonPackage extends EPackage {
 		EAttribute JOB__DURATION = eINSTANCE.getJob_Duration();
 
 		/**
-		 * The meta object literal for the '<em><b>Created</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JOB__CREATED = eINSTANCE.getJob_Created();
-
-		/**
 		 * The meta object literal for the '<em><b>Running</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1394,6 +1394,14 @@ public interface CommonPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RUN__RETURN_INFORMATION = eINSTANCE.getRun_ReturnInformation();
+
+		/**
+		 * The meta object literal for the '<em><b>Reset</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RUN___RESET = eINSTANCE.getRun__Reset();
 
 		/**
 		 * The meta object literal for the '<em><b>Run</b></em>' operation.

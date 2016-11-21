@@ -23,7 +23,6 @@ import org.eclipse.emf.ecore.EAttribute;
  *   <li>{@link com.misc.common.moplaf.common.Job#getStartTime <em>Start Time</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.Job#getEndTime <em>End Time</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.Job#getDuration <em>Duration</em>}</li>
- *   <li>{@link com.misc.common.moplaf.common.Job#isCreated <em>Created</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.Job#isRunning <em>Running</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.Job#isStopped <em>Stopped</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.Job#isFinished <em>Finished</em>}</li>
@@ -184,33 +183,6 @@ public interface Job extends Run {
 	 * @generated
 	 */
 	void setDuration(float value);
-
-	/**
-	 * Returns the value of the '<em><b>Created</b></em>' attribute.
-	 * The default value is <code>"true"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Created</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Created</em>' attribute.
-	 * @see #setCreated(boolean)
-	 * @see com.misc.common.moplaf.common.CommonPackage#getJob_Created()
-	 * @model default="true"
-	 * @generated
-	 */
-	boolean isCreated();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.common.Job#isCreated <em>Created</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Created</em>' attribute.
-	 * @see #isCreated()
-	 * @generated
-	 */
-	void setCreated(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Running</b></em>' attribute.

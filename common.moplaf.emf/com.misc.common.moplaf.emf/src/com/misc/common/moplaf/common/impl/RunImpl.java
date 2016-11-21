@@ -258,6 +258,28 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CommonPackage.RUN__RETURN_INFORMATION, oldReturnInformation, returnInformation));
 	}
+	
+	/*
+	 * 
+	 */
+	protected void resetImpl() {
+		// default implementation does nothing
+	}
+
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void reset() {
+		this.setCanceled(false);
+		this.setReturnSuccess(false);
+		this.setReturnFeedback("");
+		this.setReturnInformation("");
+		
+		this.resetImpl();
+	}
 
 	/*
 	 * 
@@ -467,6 +489,9 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case CommonPackage.RUN___RESET:
+				reset();
+				return null;
 			case CommonPackage.RUN___RUN:
 				return run();
 			case CommonPackage.RUN___RUN__RUNCONTEXT:

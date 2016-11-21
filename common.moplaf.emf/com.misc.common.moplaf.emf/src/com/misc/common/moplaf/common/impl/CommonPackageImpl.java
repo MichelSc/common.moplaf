@@ -235,7 +235,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Created() {
+	public EAttribute getJob_Running() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -244,7 +244,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Running() {
+	public EAttribute getJob_Stopped() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -253,7 +253,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Stopped() {
+	public EAttribute getJob_Finished() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -262,7 +262,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Finished() {
+	public EAttribute getJob_Args() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -271,17 +271,8 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Args() {
-		return (EAttribute)jobEClass.getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getJob_Parameters() {
-		return (EReference)jobEClass.getEStructuralFeatures().get(12);
+		return (EReference)jobEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -424,7 +415,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRun__Run() {
+	public EOperation getRun__Reset() {
 		return runEClass.getEOperations().get(0);
 	}
 
@@ -433,7 +424,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRun__Run__RunContext() {
+	public EOperation getRun__Run() {
 		return runEClass.getEOperations().get(1);
 	}
 
@@ -442,7 +433,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRun__Cancel() {
+	public EOperation getRun__Run__RunContext() {
 		return runEClass.getEOperations().get(2);
 	}
 
@@ -451,7 +442,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRun__SetProgress__String_float() {
+	public EOperation getRun__Cancel() {
 		return runEClass.getEOperations().get(3);
 	}
 
@@ -460,7 +451,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRun__SetProgress__ProgressFeedback() {
+	public EOperation getRun__SetProgress__String_float() {
 		return runEClass.getEOperations().get(4);
 	}
 
@@ -469,8 +460,17 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRun__GetReturn() {
+	public EOperation getRun__SetProgress__ProgressFeedback() {
 		return runEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRun__GetReturn() {
+		return runEClass.getEOperations().get(6);
 	}
 
 	/**
@@ -608,7 +608,6 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		createEAttribute(jobEClass, JOB__START_TIME);
 		createEAttribute(jobEClass, JOB__END_TIME);
 		createEAttribute(jobEClass, JOB__DURATION);
-		createEAttribute(jobEClass, JOB__CREATED);
 		createEAttribute(jobEClass, JOB__RUNNING);
 		createEAttribute(jobEClass, JOB__STOPPED);
 		createEAttribute(jobEClass, JOB__FINISHED);
@@ -630,6 +629,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		createEAttribute(runEClass, RUN__RETURN_SUCCESS);
 		createEAttribute(runEClass, RUN__RETURN_FEEDBACK);
 		createEAttribute(runEClass, RUN__RETURN_INFORMATION);
+		createEOperation(runEClass, RUN___RESET);
 		createEOperation(runEClass, RUN___RUN);
 		createEOperation(runEClass, RUN___RUN__RUNCONTEXT);
 		createEOperation(runEClass, RUN___CANCEL);
@@ -696,7 +696,6 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		initEAttribute(getJob_StartTime(), ecorePackage.getEDate(), "StartTime", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_EndTime(), ecorePackage.getEDate(), "EndTime", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_Duration(), ecorePackage.getEFloat(), "Duration", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJob_Created(), ecorePackage.getEBoolean(), "Created", "true", 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_Running(), ecorePackage.getEBoolean(), "Running", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_Stopped(), ecorePackage.getEBoolean(), "Stopped", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_Finished(), ecorePackage.getEBoolean(), "Finished", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -742,6 +741,8 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		initEAttribute(getRun_ReturnSuccess(), ecorePackage.getEBoolean(), "ReturnSuccess", null, 0, 1, Run.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRun_ReturnFeedback(), ecorePackage.getEString(), "ReturnFeedback", null, 0, 1, Run.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRun_ReturnInformation(), ecorePackage.getEString(), "ReturnInformation", null, 0, 1, Run.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getRun__Reset(), null, "reset", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getRun__Run(), this.getReturnFeedback(), "run", 0, 1, IS_UNIQUE, IS_ORDERED);
 

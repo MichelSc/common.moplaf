@@ -334,13 +334,16 @@ public class RunItemProvider
 			return isExecutable;
 		}
 		
-		class BackgroundRunContext implements RunContext{
-			IProgressMonitor monitor = null;
-			
-			BackgroundRunContext(IProgressMonitor amonitor){
-				this.monitor = amonitor;
+		class BackgroundRunJob extends Job implements RunContext{
+			public BackgroundRunJob(String name) {
+				super(name);
+			    this.setPriority(Job.SHORT);
+			    this.setUser(true);
+			    this.setSystem(false);
 			}
 
+			private IProgressMonitor monitor = null;
+			
 			@Override
 			public boolean onProgress(ProgressFeedback progress) {
 				boolean goOn = true;
@@ -352,27 +355,23 @@ public class RunItemProvider
 				}
 				return goOn;
 			}
+
+			@Override
+			protected IStatus run(IProgressMonitor monitor) {
+				this.monitor = monitor;
+	    	    monitor.beginTask("Initialization", 100);
+	    	    //Plugin.INSTANCE.logInfo("Solve, job started");
+	    	    RunRunBackgroundCommand.this.run.run(this);
+	            this.monitor = null;
+	            return Status.OK_STATUS;
+			}
 			
 		};
 		
-		private BackgroundRunContext backgroundRunContext = null;
-
 		@Override
 		public void execute() {
 			
-			 Job job = new Job("Run in Background") {
-		     protected IStatus run(IProgressMonitor monitor) {
-		    	    RunRunBackgroundCommand.this.backgroundRunContext = new BackgroundRunContext(monitor);
-		    	    monitor.beginTask("Initialization", 100);
-		    	    //Plugin.INSTANCE.logInfo("Solve, job started");
-		    	    RunRunBackgroundCommand.this.run.run(RunRunBackgroundCommand.this.backgroundRunContext);
-		    	    RunRunBackgroundCommand.this.backgroundRunContext = null;
-		            return Status.OK_STATUS;
-		        }
-		     };  // class Job
-		     job.setPriority(Job.SHORT);
-		     job.setUser(true);
-		     job.setSystem(false);
+			 Job job = new BackgroundRunJob ("Run in Background");
 		     //Plugin.INSTANCE.logInfo("solve, job submitted");
 		     job.schedule(); // start as soon as possible			}
 		}

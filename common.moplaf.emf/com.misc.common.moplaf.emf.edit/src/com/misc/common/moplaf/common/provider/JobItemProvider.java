@@ -313,7 +313,6 @@ public class JobItemProvider
 			case CommonPackage.JOB__START_TIME:
 			case CommonPackage.JOB__END_TIME:
 			case CommonPackage.JOB__DURATION:
-			case CommonPackage.JOB__CREATED:
 			case CommonPackage.JOB__RUNNING:
 			case CommonPackage.JOB__STOPPED:
 			case CommonPackage.JOB__FINISHED:

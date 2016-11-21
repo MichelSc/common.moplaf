@@ -45,7 +45,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.common.impl.JobImpl#getStartTime <em>Start Time</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.impl.JobImpl#getEndTime <em>End Time</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.impl.JobImpl#getDuration <em>Duration</em>}</li>
- *   <li>{@link com.misc.common.moplaf.common.impl.JobImpl#isCreated <em>Created</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.impl.JobImpl#isRunning <em>Running</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.impl.JobImpl#isStopped <em>Stopped</em>}</li>
  *   <li>{@link com.misc.common.moplaf.common.impl.JobImpl#isFinished <em>Finished</em>}</li>
@@ -165,26 +164,6 @@ public class JobImpl extends RunImpl implements Job {
 	 * @ordered
 	 */
 	protected float duration = DURATION_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isCreated() <em>Created</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isCreated()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean CREATED_EDEFAULT = true;
-
-	/**
-	 * The cached value of the '{@link #isCreated() <em>Created</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isCreated()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean created = CREATED_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isRunning() <em>Running</em>}' attribute.
@@ -312,10 +291,10 @@ public class JobImpl extends RunImpl implements Job {
 	 */
 	public String getStatus() {
 		String status = "Unknown";
-		if      ( this.isCreated())   { status = "Created"; }
-		else if ( this.isRunning())   { status = "Running"; }
+		if      ( this.isFinished())  { status = "Finished"; }
 		else if ( this.isStopped())   { status = "Stopped"; }
-		else if ( this.isFinished())  { status = "Finished"; }
+		else if ( this.isRunning())   { status = "Running"; }
+		else                          { status = "Created"; }
 		
 		return status;
 	}
@@ -410,27 +389,6 @@ public class JobImpl extends RunImpl implements Job {
 		duration = newDuration;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CommonPackage.JOB__DURATION, oldDuration, duration));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isCreated() {
-		return created;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCreated(boolean newCreated) {
-		boolean oldCreated = created;
-		created = newCreated;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CommonPackage.JOB__CREATED, oldCreated, created));
 	}
 
 	/**
@@ -551,6 +509,28 @@ public class JobImpl extends RunImpl implements Job {
 		this.getParameters().clear();
 		this.refreshParametersImpl();
 	}
+	
+	/*
+	 * 
+	 */
+	protected void jobResetImpl() {
+		// default implementation does nothing
+	}
+
+
+
+	@Override
+	protected void resetImpl() {
+		this.setStopped(false);
+		this.setFinished(false);
+		this.setRunning(false);
+
+		this.setStartTime(null);
+		this.setEndTime(null);
+		this.setDuration(0.0f);
+		
+		this.jobResetImpl();
+	}
 
 	/*
 	 * Return true if finisehd, false if stopped or canceled
@@ -567,8 +547,8 @@ public class JobImpl extends RunImpl implements Job {
 	 */
 	@Override
 	protected ReturnFeedback runImpl(RunContext runContext) {
-		this.setCreated(false);
-		this.setStopped(false);
+		this.reset(); // or let the user reset himself??
+		
 		this.setRunning(true);
 		this.setStartTime(new Date());
 
@@ -576,7 +556,6 @@ public class JobImpl extends RunImpl implements Job {
 		
 		this.setFinished(feedback.isSuccess());
 		this.setStopped(feedback.isFailure());
-		this.setRunning(false);
 		this.setEndTime(new Date());
 		long ticks = this.getEndTime().getTime()-this.getStartTime().getTime();
 		float hours = (float)ticks/1000.0f/60.0f/60.0f;
@@ -704,8 +683,6 @@ public class JobImpl extends RunImpl implements Job {
 				return getEndTime();
 			case CommonPackage.JOB__DURATION:
 				return getDuration();
-			case CommonPackage.JOB__CREATED:
-				return isCreated();
 			case CommonPackage.JOB__RUNNING:
 				return isRunning();
 			case CommonPackage.JOB__STOPPED:
@@ -740,9 +717,6 @@ public class JobImpl extends RunImpl implements Job {
 				return;
 			case CommonPackage.JOB__DURATION:
 				setDuration((Float)newValue);
-				return;
-			case CommonPackage.JOB__CREATED:
-				setCreated((Boolean)newValue);
 				return;
 			case CommonPackage.JOB__RUNNING:
 				setRunning((Boolean)newValue);
@@ -785,9 +759,6 @@ public class JobImpl extends RunImpl implements Job {
 			case CommonPackage.JOB__DURATION:
 				setDuration(DURATION_EDEFAULT);
 				return;
-			case CommonPackage.JOB__CREATED:
-				setCreated(CREATED_EDEFAULT);
-				return;
 			case CommonPackage.JOB__RUNNING:
 				setRunning(RUNNING_EDEFAULT);
 				return;
@@ -829,8 +800,6 @@ public class JobImpl extends RunImpl implements Job {
 				return END_TIME_EDEFAULT == null ? endTime != null : !END_TIME_EDEFAULT.equals(endTime);
 			case CommonPackage.JOB__DURATION:
 				return duration != DURATION_EDEFAULT;
-			case CommonPackage.JOB__CREATED:
-				return created != CREATED_EDEFAULT;
 			case CommonPackage.JOB__RUNNING:
 				return running != RUNNING_EDEFAULT;
 			case CommonPackage.JOB__STOPPED:
@@ -924,8 +893,6 @@ public class JobImpl extends RunImpl implements Job {
 		result.append(endTime);
 		result.append(", Duration: ");
 		result.append(duration);
-		result.append(", Created: ");
-		result.append(created);
 		result.append(", Running: ");
 		result.append(running);
 		result.append(", Stopped: ");
