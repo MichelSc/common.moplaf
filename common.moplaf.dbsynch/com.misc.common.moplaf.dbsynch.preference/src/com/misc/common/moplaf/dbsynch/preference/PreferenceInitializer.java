@@ -14,6 +14,7 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer impleme
 		prefStore.setDefault(PREF_LOG_ON_INFO,    false);
 		prefStore.setDefault(PREF_LOG_ON_WARNING, true);
 		prefStore.setDefault(PREF_LOG_ON_ERROR,   true);
+		prefStore.setDefault(PREF_SHOW_METADATA,  false);
 	}
 
 }

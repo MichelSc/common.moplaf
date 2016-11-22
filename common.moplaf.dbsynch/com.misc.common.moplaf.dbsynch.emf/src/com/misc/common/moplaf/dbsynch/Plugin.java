@@ -25,6 +25,7 @@ public final class Plugin extends EMFPlugin implements PrefConstants {
 	private boolean logOnInfo    = false;
 	private boolean logOnWarning = false;
 	private boolean logOnError   = false;
+	private boolean showMetadata = false;
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
@@ -86,6 +87,10 @@ public final class Plugin extends EMFPlugin implements PrefConstants {
 		return this.logOnError;
 	}
 
+	public boolean getShowMetadata(){
+		return this.showMetadata;
+	}
+
 	protected void logMessage(String message, String level){
 		String logLine = String.format("DbSynch: %2$s: %1$s" , 
 				         		         message, 
@@ -118,6 +123,7 @@ public final class Plugin extends EMFPlugin implements PrefConstants {
 		this.logOnInfo    = prefStore.getBoolean(com.misc.common.moplaf.dbsynch.preference.PrefConstants.PREF_LOG_ON_INFO);
 		this.logOnWarning = prefStore.getBoolean(com.misc.common.moplaf.dbsynch.preference.PrefConstants.PREF_LOG_ON_WARNING);
 		this.logOnError   = prefStore.getBoolean(com.misc.common.moplaf.dbsynch.preference.PrefConstants.PREF_LOG_ON_ERROR);
+		this.showMetadata = prefStore.getBoolean(com.misc.common.moplaf.dbsynch.preference.PrefConstants.PREF_SHOW_METADATA);
 		
 		prefStore.addPropertyChangeListener(new IPropertyChangeListener() {
 		      public void propertyChange(PropertyChangeEvent event) {
@@ -135,6 +141,8 @@ public final class Plugin extends EMFPlugin implements PrefConstants {
 						Plugin.this.logOnWarning = newValueAsBoolean;
 		    	  } else if ( property == com.misc.common.moplaf.dbsynch.preference.PrefConstants.PREF_LOG_ON_ERROR ){
 						Plugin.this.logOnError = newValueAsBoolean;
+		    	  } else if ( property == com.misc.common.moplaf.dbsynch.preference.PrefConstants.PREF_SHOW_METADATA ){
+						Plugin.this.showMetadata = newValueAsBoolean;
 		    	  }
 		       }});
 

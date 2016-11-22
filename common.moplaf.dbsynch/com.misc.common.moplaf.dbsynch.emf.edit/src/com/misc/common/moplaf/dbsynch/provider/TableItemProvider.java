@@ -352,14 +352,15 @@ public class TableItemProvider
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DbSynchPackage.Literals.TABLE__KEY_COLUMNS);
-			childrenFeatures.add(DbSynchPackage.Literals.TABLE__DATA_COLUMNS);
+			if ( com.misc.common.moplaf.dbsynch.Plugin.INSTANCE.getShowMetadata()){
+				childrenFeatures.add(DbSynchPackage.Literals.TABLE__KEY_COLUMNS);
+				childrenFeatures.add(DbSynchPackage.Literals.TABLE__DATA_COLUMNS);
+			}
 		}
 		return childrenFeatures;
 	}
