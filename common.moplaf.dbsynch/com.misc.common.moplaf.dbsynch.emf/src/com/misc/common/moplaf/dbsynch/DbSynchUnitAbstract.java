@@ -128,7 +128,7 @@ public interface DbSynchUnitAbstract extends EObject {
 	 * <!-- begin-model-doc -->
 	 * Load the tables in the group, update the rows accordingly (synchronize the application data as a function of what is read)
 	 * <!-- end-model-doc -->
-	 * @model dataType="com.misc.common.moplaf.common.ReturnFeedback"
+	 * @model dataType="com.misc.common.moplaf.dbsynch.ReturnFeedback"
 	 * @generated
 	 */
 	ReturnFeedback synchUp();
@@ -139,7 +139,7 @@ public interface DbSynchUnitAbstract extends EObject {
 	 * <!-- begin-model-doc -->
 	 * Load the tables in the group, update the rows accordingly (synchronize the application data as a function of what is read)
 	 * <!-- end-model-doc -->
-	 * @model dataType="com.misc.common.moplaf.common.ReturnFeedback"
+	 * @model dataType="com.misc.common.moplaf.dbsynch.ReturnFeedback"
 	 * @generated
 	 */
 	ReturnFeedback synchDown();

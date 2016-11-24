@@ -1,7 +1,6 @@
 package com.misc.common.moplaf.solver.impl;
 
 
-import com.misc.common.moplaf.common.impl.RunImpl;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.IGeneratorTool;
 import com.misc.common.moplaf.solver.Solution;
@@ -34,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public abstract class SolutionProviderImpl extends RunImpl implements SolutionProvider {
+public abstract class SolutionProviderImpl extends com.misc.common.moplaf.job.impl.RunImpl implements SolutionProvider {
 	/**
 	 * The cached value of the '{@link #getSolution() <em>Solution</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

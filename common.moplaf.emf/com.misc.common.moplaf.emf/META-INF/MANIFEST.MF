@@ -6,11 +6,8 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport
+Require-Bundle: org.eclipse.core.runtime
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
-Export-Package: com.misc.common.moplaf.emf,
- com.misc.common.moplaf.common,
- com.misc.common.moplaf.common.impl,
- com.misc.common.moplaf.common.util
+Export-Package: com.misc.common.moplaf.common,
+ com.misc.common.moplaf.emf

@@ -3,7 +3,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.solver.emf/src" modelPluginID="com.misc.common.moplaf.solver.emf"
     modelName="Solver" modelPluginClass="com.misc.common.moplaf.solver.Plugin" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
-    usedGenPackages="../../com.misc.common.moplaf.emf/model/common.genmodel#//common ../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"
+    usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../com.misc.common.moplaf.job.emf/model/job.genmodel#//job"
     operationReflection="true" importOrganizing="true">
   <foreignModel>solver.ecore</foreignModel>
   <genPackages prefix="Solver" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"

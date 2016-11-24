@@ -38,8 +38,8 @@
     <eLiterals name="EnumLiteralGoalTypeOptimized" value="1" literal="Optimized"/>
     <eLiterals name="EnumLiteralGoalTypeFree" value="2" literal="Free"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Generator" abstract="true" eSuperTypes="../../com.misc.common.moplaf.emf/model/common.ecore#//Run">
-    <eOperations name="generate" eType="ecore:EDataType ../../com.misc.common.moplaf.emf/model/common.ecore#//ReturnFeedback"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Generator" abstract="true" eSuperTypes="../../com.misc.common.moplaf.job.emf/model/job.ecore#//Run">
+    <eOperations name="generate" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//ReturnFeedback"/>
     <eOperations name="generateRootTuples" eExceptions="#//Exception"/>
     <eOperations name="generateTuples" eExceptions="#//Exception"/>
     <eOperations name="generateTupleXReferences" eExceptions="#//Exception"/>
@@ -255,7 +255,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="FileFormat" eType="#//EnumLpFileFormat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="FileCompressed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SolutionProvider" abstract="true" eSuperTypes="../../com.misc.common.moplaf.emf/model/common.ecore#//Run #//IGeneratorTool">
+  <eClassifiers xsi:type="ecore:EClass" name="SolutionProvider" abstract="true" eSuperTypes="../../com.misc.common.moplaf.job.emf/model/job.ecore#//Run #//IGeneratorTool">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A SolutionProvider is capable of providing a solution for a given linear formulation (a Generator).&#xA;Solution is provided as a collection of SolutionLpVars (resp. SolutionLpCons), giving properties of the solution for a particular variable GeneratorLpVar (resp. a particular constraint GeneratorLpCons)&#xA;"/>
     </eAnnotations>
@@ -268,7 +268,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Solver" abstract="true" eSuperTypes="#//SolutionProvider">
-    <eOperations name="solve" eType="ecore:EDataType ../../com.misc.common.moplaf.emf/model/common.ecore#//ReturnFeedback">
+    <eOperations name="solve" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//ReturnFeedback">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Method to be called by the client to solve the lp and to produce the solution&#xA;"/>
       </eAnnotations>

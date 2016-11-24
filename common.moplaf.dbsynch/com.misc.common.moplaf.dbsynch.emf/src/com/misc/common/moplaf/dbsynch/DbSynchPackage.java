@@ -1200,6 +1200,27 @@ public interface DbSynchPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '<em>Enabled Feedback</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.common.EnabledFeedback
+	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getEnabledFeedback()
+	 * @generated
+	 */
+	int ENABLED_FEEDBACK = 11;
+
+	/**
+	 * The meta object id for the '<em>Return Feedback</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.common.ReturnFeedback
+	 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getReturnFeedback()
+	 * @generated
+	 */
+	int RETURN_FEEDBACK = 12;
+
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.dbsynch.DataSource <em>Data Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2001,6 +2022,28 @@ public interface DbSynchPackage extends EPackage {
 	EDataType getObject();
 
 	/**
+	 * Returns the meta object for data type '{@link com.misc.common.moplaf.common.EnabledFeedback <em>Enabled Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Enabled Feedback</em>'.
+	 * @see com.misc.common.moplaf.common.EnabledFeedback
+	 * @model instanceClass="com.misc.common.moplaf.common.EnabledFeedback"
+	 * @generated
+	 */
+	EDataType getEnabledFeedback();
+
+	/**
+	 * Returns the meta object for data type '{@link com.misc.common.moplaf.common.ReturnFeedback <em>Return Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Return Feedback</em>'.
+	 * @see com.misc.common.moplaf.common.ReturnFeedback
+	 * @model instanceClass="com.misc.common.moplaf.common.ReturnFeedback"
+	 * @generated
+	 */
+	EDataType getReturnFeedback();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2652,6 +2695,26 @@ public interface DbSynchPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType OBJECT = eINSTANCE.getObject();
+
+		/**
+		 * The meta object literal for the '<em>Enabled Feedback</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.common.EnabledFeedback
+		 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getEnabledFeedback()
+		 * @generated
+		 */
+		EDataType ENABLED_FEEDBACK = eINSTANCE.getEnabledFeedback();
+
+		/**
+		 * The meta object literal for the '<em>Return Feedback</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.common.ReturnFeedback
+		 * @see com.misc.common.moplaf.dbsynch.impl.DbSynchPackageImpl#getReturnFeedback()
+		 * @generated
+		 */
+		EDataType RETURN_FEEDBACK = eINSTANCE.getReturnFeedback();
 
 	}
 

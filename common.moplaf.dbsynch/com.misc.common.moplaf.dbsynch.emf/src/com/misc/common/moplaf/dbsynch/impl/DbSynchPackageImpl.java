@@ -2,7 +2,8 @@
  */
 package com.misc.common.moplaf.dbsynch.impl;
 
-import com.misc.common.moplaf.common.CommonPackage;
+import com.misc.common.moplaf.common.EnabledFeedback;
+import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.dbsynch.DataSource;
 import com.misc.common.moplaf.dbsynch.DataSourceJdbc;
 import com.misc.common.moplaf.dbsynch.DbSynchFactory;
@@ -112,6 +113,20 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	private EDataType objectEDataType = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType enabledFeedbackEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType returnFeedbackEDataType = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -158,7 +173,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		isInited = true;
 
 		// Initialize simple dependencies
-		CommonPackage.eINSTANCE.eClass();
+		EcorePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theDbSynchPackage.createPackageContents();
@@ -864,6 +879,24 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getEnabledFeedback() {
+		return enabledFeedbackEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getReturnFeedback() {
+		return returnFeedbackEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public DbSynchFactory getDbSynchFactory() {
 		return (DbSynchFactory)getEFactoryInstance();
 	}
@@ -973,6 +1006,8 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		// Create data types
 		tableRowKeyEDataType = createEDataType(TABLE_ROW_KEY);
 		objectEDataType = createEDataType(OBJECT);
+		enabledFeedbackEDataType = createEDataType(ENABLED_FEEDBACK);
+		returnFeedbackEDataType = createEDataType(RETURN_FEEDBACK);
 	}
 
 	/**
@@ -999,7 +1034,6 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		CommonPackage theCommonPackage = (CommonPackage)EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI);
 		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
@@ -1015,14 +1049,14 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		initEClass(dataSourceEClass, DataSource.class, "DataSource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDataSource_Connected(), ecorePackage.getEBoolean(), "Connected", null, 0, 1, DataSource.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getDataSource__Connect(), theCommonPackage.getReturnFeedback(), "connect", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getDataSource__Connect(), this.getReturnFeedback(), "connect", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getDataSource__Disconnect(), theCommonPackage.getReturnFeedback(), "disconnect", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getDataSource__Disconnect(), this.getReturnFeedback(), "disconnect", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		EOperation op = initEOperation(getDataSource__SynchDownTableImpl__Table(), theCommonPackage.getReturnFeedback(), "synchDownTableImpl", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getDataSource__SynchDownTableImpl__Table(), this.getReturnFeedback(), "synchDownTableImpl", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTable(), "table", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getDataSource__SynchUpTableImpl__Table(), theCommonPackage.getReturnFeedback(), "synchUpTableImpl", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getDataSource__SynchUpTableImpl__Table(), this.getReturnFeedback(), "synchUpTableImpl", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTable(), "table", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(dataSourceJdbcEClass, DataSourceJdbc.class, "DataSourceJdbc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1038,9 +1072,9 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 
 		initEOperation(getDbSynchUnitAbstract__RefreshMetaData(), null, "refreshMetaData", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getDbSynchUnitAbstract__SynchUp(), theCommonPackage.getReturnFeedback(), "synchUp", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getDbSynchUnitAbstract__SynchUp(), this.getReturnFeedback(), "synchUp", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getDbSynchUnitAbstract__SynchDown(), theCommonPackage.getReturnFeedback(), "synchDown", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getDbSynchUnitAbstract__SynchDown(), this.getReturnFeedback(), "synchDown", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getDbSynchUnitAbstract__GetParamValue__EAttribute(), this.getObject(), "getParamValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theEcorePackage.getEAttribute(), "attribute", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1102,9 +1136,9 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 
 		initEOperation(getTable__RefreshMetaData(), null, "refreshMetaData", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getTable__SynchDown(), theCommonPackage.getReturnFeedback(), "synchDown", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getTable__SynchDown(), this.getReturnFeedback(), "synchDown", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getTable__SynchUp(), theCommonPackage.getReturnFeedback(), "synchUp", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getTable__SynchUp(), this.getReturnFeedback(), "synchUp", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getTable__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1164,6 +1198,8 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		// Initialize data types
 		initEDataType(tableRowKeyEDataType, TableRowKey.class, "TableRowKey", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(objectEDataType, Object.class, "Object", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(enabledFeedbackEDataType, EnabledFeedback.class, "EnabledFeedback", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(returnFeedbackEDataType, ReturnFeedback.class, "ReturnFeedback", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -2,7 +2,7 @@
  */
 package com.misc.common.moplaf.solver;
 
-import com.misc.common.moplaf.common.CommonPackage;
+import com.misc.common.moplaf.job.JobPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -71,22 +71,13 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR = 0;
 
 	/**
-	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR__CANCELED = CommonPackage.RUN__CANCELED;
-
-	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__RUN_FEEDBACK = CommonPackage.RUN__RUN_FEEDBACK;
+	int GENERATOR__RUN_FEEDBACK = JobPackage.RUN__RUN_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Cancel Feedback</b></em>' attribute.
@@ -95,7 +86,25 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__CANCEL_FEEDBACK = CommonPackage.RUN__CANCEL_FEEDBACK;
+	int GENERATOR__CANCEL_FEEDBACK = JobPackage.RUN__CANCEL_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Reset Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__RESET_FEEDBACK = JobPackage.RUN__RESET_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR__CANCELED = JobPackage.RUN__CANCELED;
 
 	/**
 	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
@@ -104,7 +113,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__RETURN_SUCCESS = CommonPackage.RUN__RETURN_SUCCESS;
+	int GENERATOR__RETURN_SUCCESS = JobPackage.RUN__RETURN_SUCCESS;
 
 	/**
 	 * The feature id for the '<em><b>Return Feedback</b></em>' attribute.
@@ -113,7 +122,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__RETURN_FEEDBACK = CommonPackage.RUN__RETURN_FEEDBACK;
+	int GENERATOR__RETURN_FEEDBACK = JobPackage.RUN__RETURN_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Return Information</b></em>' attribute.
@@ -122,7 +131,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__RETURN_INFORMATION = CommonPackage.RUN__RETURN_INFORMATION;
+	int GENERATOR__RETURN_INFORMATION = JobPackage.RUN__RETURN_INFORMATION;
 
 	/**
 	 * The feature id for the '<em><b>Tuple Root</b></em>' reference list.
@@ -131,7 +140,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__TUPLE_ROOT = CommonPackage.RUN_FEATURE_COUNT + 0;
+	int GENERATOR__TUPLE_ROOT = JobPackage.RUN_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Goals</b></em>' reference list.
@@ -140,7 +149,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__GOALS = CommonPackage.RUN_FEATURE_COUNT + 1;
+	int GENERATOR__GOALS = JobPackage.RUN_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Generator Feature Modes</b></em>' reference list.
@@ -149,7 +158,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__GENERATOR_FEATURE_MODES = CommonPackage.RUN_FEATURE_COUNT + 2;
+	int GENERATOR__GENERATOR_FEATURE_MODES = JobPackage.RUN_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Solution Provider</b></em>' reference list.
@@ -158,7 +167,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__SOLUTION_PROVIDER = CommonPackage.RUN_FEATURE_COUNT + 3;
+	int GENERATOR__SOLUTION_PROVIDER = JobPackage.RUN_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Remarks</b></em>' attribute.
@@ -167,7 +176,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__REMARKS = CommonPackage.RUN_FEATURE_COUNT + 4;
+	int GENERATOR__REMARKS = JobPackage.RUN_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Footprint Nof Vars</b></em>' attribute.
@@ -176,7 +185,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__FOOTPRINT_NOF_VARS = CommonPackage.RUN_FEATURE_COUNT + 5;
+	int GENERATOR__FOOTPRINT_NOF_VARS = JobPackage.RUN_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Footprint Nof Cons</b></em>' attribute.
@@ -185,7 +194,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__FOOTPRINT_NOF_CONS = CommonPackage.RUN_FEATURE_COUNT + 6;
+	int GENERATOR__FOOTPRINT_NOF_CONS = JobPackage.RUN_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Footprint Nof Terms</b></em>' attribute.
@@ -194,7 +203,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__FOOTPRINT_NOF_TERMS = CommonPackage.RUN_FEATURE_COUNT + 7;
+	int GENERATOR__FOOTPRINT_NOF_TERMS = JobPackage.RUN_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Count Cons</b></em>' attribute.
@@ -203,7 +212,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__COUNT_CONS = CommonPackage.RUN_FEATURE_COUNT + 8;
+	int GENERATOR__COUNT_CONS = JobPackage.RUN_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Count Vars</b></em>' attribute.
@@ -212,7 +221,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__COUNT_VARS = CommonPackage.RUN_FEATURE_COUNT + 9;
+	int GENERATOR__COUNT_VARS = JobPackage.RUN_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>ELp Var Count</b></em>' containment reference.
@@ -221,7 +230,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__ELP_VAR_COUNT = CommonPackage.RUN_FEATURE_COUNT + 10;
+	int GENERATOR__ELP_VAR_COUNT = JobPackage.RUN_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>ELp Cons Count</b></em>' containment reference.
@@ -230,7 +239,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__ELP_CONS_COUNT = CommonPackage.RUN_FEATURE_COUNT + 11;
+	int GENERATOR__ELP_CONS_COUNT = JobPackage.RUN_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -239,7 +248,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__CODE = CommonPackage.RUN_FEATURE_COUNT + 12;
+	int GENERATOR__CODE = JobPackage.RUN_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Selected</b></em>' reference.
@@ -248,7 +257,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__SELECTED = CommonPackage.RUN_FEATURE_COUNT + 13;
+	int GENERATOR__SELECTED = JobPackage.RUN_FEATURE_COUNT + 13;
 
 	/**
 	 * The number of structural features of the '<em>Generator</em>' class.
@@ -257,7 +266,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_FEATURE_COUNT = CommonPackage.RUN_FEATURE_COUNT + 14;
+	int GENERATOR_FEATURE_COUNT = JobPackage.RUN_FEATURE_COUNT + 14;
 
 	/**
 	 * The operation id for the '<em>Reset</em>' operation.
@@ -266,7 +275,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___RESET = CommonPackage.RUN___RESET;
+	int GENERATOR___RESET = JobPackage.RUN___RESET;
 
 	/**
 	 * The operation id for the '<em>Run</em>' operation.
@@ -275,7 +284,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___RUN = CommonPackage.RUN___RUN;
+	int GENERATOR___RUN = JobPackage.RUN___RUN;
 
 	/**
 	 * The operation id for the '<em>Run</em>' operation.
@@ -284,7 +293,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___RUN__RUNCONTEXT = CommonPackage.RUN___RUN__RUNCONTEXT;
+	int GENERATOR___RUN__RUNCONTEXT = JobPackage.RUN___RUN__RUNCONTEXT;
 
 	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
@@ -293,7 +302,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___CANCEL = CommonPackage.RUN___CANCEL;
+	int GENERATOR___CANCEL = JobPackage.RUN___CANCEL;
 
 	/**
 	 * The operation id for the '<em>Set Progress</em>' operation.
@@ -302,7 +311,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___SET_PROGRESS__STRING_FLOAT = CommonPackage.RUN___SET_PROGRESS__STRING_FLOAT;
+	int GENERATOR___SET_PROGRESS__STRING_FLOAT = JobPackage.RUN___SET_PROGRESS__STRING_FLOAT;
 
 	/**
 	 * The operation id for the '<em>Set Progress</em>' operation.
@@ -311,7 +320,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___SET_PROGRESS__PROGRESSFEEDBACK = CommonPackage.RUN___SET_PROGRESS__PROGRESSFEEDBACK;
+	int GENERATOR___SET_PROGRESS__PROGRESSFEEDBACK = JobPackage.RUN___SET_PROGRESS__PROGRESSFEEDBACK;
 
 	/**
 	 * The operation id for the '<em>Get Return</em>' operation.
@@ -320,7 +329,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___GET_RETURN = CommonPackage.RUN___GET_RETURN;
+	int GENERATOR___GET_RETURN = JobPackage.RUN___GET_RETURN;
 
 	/**
 	 * The operation id for the '<em>Generate</em>' operation.
@@ -329,7 +338,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___GENERATE = CommonPackage.RUN_OPERATION_COUNT + 0;
+	int GENERATOR___GENERATE = JobPackage.RUN_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Generate Root Tuples</em>' operation.
@@ -338,7 +347,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___GENERATE_ROOT_TUPLES = CommonPackage.RUN_OPERATION_COUNT + 1;
+	int GENERATOR___GENERATE_ROOT_TUPLES = JobPackage.RUN_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Generate Tuples</em>' operation.
@@ -347,7 +356,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___GENERATE_TUPLES = CommonPackage.RUN_OPERATION_COUNT + 2;
+	int GENERATOR___GENERATE_TUPLES = JobPackage.RUN_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Generate Tuple XReferences</em>' operation.
@@ -356,7 +365,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___GENERATE_TUPLE_XREFERENCES = CommonPackage.RUN_OPERATION_COUNT + 3;
+	int GENERATOR___GENERATE_TUPLE_XREFERENCES = JobPackage.RUN_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Generate Vars</em>' operation.
@@ -365,7 +374,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___GENERATE_VARS = CommonPackage.RUN_OPERATION_COUNT + 4;
+	int GENERATOR___GENERATE_VARS = JobPackage.RUN_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Generate Cons</em>' operation.
@@ -374,7 +383,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___GENERATE_CONS = CommonPackage.RUN_OPERATION_COUNT + 5;
+	int GENERATOR___GENERATE_CONS = JobPackage.RUN_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Generate Goals</em>' operation.
@@ -383,7 +392,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___GENERATE_GOALS = CommonPackage.RUN_OPERATION_COUNT + 6;
+	int GENERATOR___GENERATE_GOALS = JobPackage.RUN_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Accept Solution</em>' operation.
@@ -392,7 +401,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___ACCEPT_SOLUTION__SOLUTION = CommonPackage.RUN_OPERATION_COUNT + 7;
+	int GENERATOR___ACCEPT_SOLUTION__SOLUTION = JobPackage.RUN_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Select Feature Mode</em>' operation.
@@ -401,7 +410,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___SELECT_FEATURE_MODE__GENERATORFEATUREMODE_GENERATORTUPLE = CommonPackage.RUN_OPERATION_COUNT + 8;
+	int GENERATOR___SELECT_FEATURE_MODE__GENERATORFEATUREMODE_GENERATORTUPLE = JobPackage.RUN_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Visit Tuples</em>' operation.
@@ -410,7 +419,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___VISIT_TUPLES__ITUPLEVISITOR = CommonPackage.RUN_OPERATION_COUNT + 9;
+	int GENERATOR___VISIT_TUPLES__ITUPLEVISITOR = JobPackage.RUN_OPERATION_COUNT + 9;
 
 	/**
 	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
@@ -419,7 +428,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___REFRESH_SELECTED_SOLUTION = CommonPackage.RUN_OPERATION_COUNT + 10;
+	int GENERATOR___REFRESH_SELECTED_SOLUTION = JobPackage.RUN_OPERATION_COUNT + 10;
 
 	/**
 	 * The number of operations of the '<em>Generator</em>' class.
@@ -428,7 +437,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_OPERATION_COUNT = CommonPackage.RUN_OPERATION_COUNT + 11;
+	int GENERATOR_OPERATION_COUNT = JobPackage.RUN_OPERATION_COUNT + 11;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorTupleImpl <em>Generator Tuple</em>}' class.
@@ -1933,22 +1942,13 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_PROVIDER = 20;
 
 	/**
-	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_PROVIDER__CANCELED = CommonPackage.RUN__CANCELED;
-
-	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER__RUN_FEEDBACK = CommonPackage.RUN__RUN_FEEDBACK;
+	int SOLUTION_PROVIDER__RUN_FEEDBACK = JobPackage.RUN__RUN_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Cancel Feedback</b></em>' attribute.
@@ -1957,7 +1957,25 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER__CANCEL_FEEDBACK = CommonPackage.RUN__CANCEL_FEEDBACK;
+	int SOLUTION_PROVIDER__CANCEL_FEEDBACK = JobPackage.RUN__CANCEL_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Reset Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER__RESET_FEEDBACK = JobPackage.RUN__RESET_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER__CANCELED = JobPackage.RUN__CANCELED;
 
 	/**
 	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
@@ -1966,7 +1984,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER__RETURN_SUCCESS = CommonPackage.RUN__RETURN_SUCCESS;
+	int SOLUTION_PROVIDER__RETURN_SUCCESS = JobPackage.RUN__RETURN_SUCCESS;
 
 	/**
 	 * The feature id for the '<em><b>Return Feedback</b></em>' attribute.
@@ -1975,7 +1993,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER__RETURN_FEEDBACK = CommonPackage.RUN__RETURN_FEEDBACK;
+	int SOLUTION_PROVIDER__RETURN_FEEDBACK = JobPackage.RUN__RETURN_FEEDBACK;
 
 	/**
 	 * The feature id for the '<em><b>Return Information</b></em>' attribute.
@@ -1984,7 +2002,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER__RETURN_INFORMATION = CommonPackage.RUN__RETURN_INFORMATION;
+	int SOLUTION_PROVIDER__RETURN_INFORMATION = JobPackage.RUN__RETURN_INFORMATION;
 
 	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
@@ -1993,7 +2011,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER__SOLUTION = CommonPackage.RUN_FEATURE_COUNT + 0;
+	int SOLUTION_PROVIDER__SOLUTION = JobPackage.RUN_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Current Solution Nr</b></em>' attribute.
@@ -2002,7 +2020,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER__CURRENT_SOLUTION_NR = CommonPackage.RUN_FEATURE_COUNT + 1;
+	int SOLUTION_PROVIDER__CURRENT_SOLUTION_NR = JobPackage.RUN_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -2011,7 +2029,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER__CODE = CommonPackage.RUN_FEATURE_COUNT + 2;
+	int SOLUTION_PROVIDER__CODE = JobPackage.RUN_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Solution Provider</em>' class.
@@ -2020,7 +2038,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER_FEATURE_COUNT = CommonPackage.RUN_FEATURE_COUNT + 3;
+	int SOLUTION_PROVIDER_FEATURE_COUNT = JobPackage.RUN_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Reset</em>' operation.
@@ -2029,7 +2047,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER___RESET = CommonPackage.RUN___RESET;
+	int SOLUTION_PROVIDER___RESET = JobPackage.RUN___RESET;
 
 	/**
 	 * The operation id for the '<em>Run</em>' operation.
@@ -2038,7 +2056,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER___RUN = CommonPackage.RUN___RUN;
+	int SOLUTION_PROVIDER___RUN = JobPackage.RUN___RUN;
 
 	/**
 	 * The operation id for the '<em>Run</em>' operation.
@@ -2047,7 +2065,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER___RUN__RUNCONTEXT = CommonPackage.RUN___RUN__RUNCONTEXT;
+	int SOLUTION_PROVIDER___RUN__RUNCONTEXT = JobPackage.RUN___RUN__RUNCONTEXT;
 
 	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
@@ -2056,7 +2074,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER___CANCEL = CommonPackage.RUN___CANCEL;
+	int SOLUTION_PROVIDER___CANCEL = JobPackage.RUN___CANCEL;
 
 	/**
 	 * The operation id for the '<em>Set Progress</em>' operation.
@@ -2065,7 +2083,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER___SET_PROGRESS__STRING_FLOAT = CommonPackage.RUN___SET_PROGRESS__STRING_FLOAT;
+	int SOLUTION_PROVIDER___SET_PROGRESS__STRING_FLOAT = JobPackage.RUN___SET_PROGRESS__STRING_FLOAT;
 
 	/**
 	 * The operation id for the '<em>Set Progress</em>' operation.
@@ -2074,7 +2092,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER___SET_PROGRESS__PROGRESSFEEDBACK = CommonPackage.RUN___SET_PROGRESS__PROGRESSFEEDBACK;
+	int SOLUTION_PROVIDER___SET_PROGRESS__PROGRESSFEEDBACK = JobPackage.RUN___SET_PROGRESS__PROGRESSFEEDBACK;
 
 	/**
 	 * The operation id for the '<em>Get Return</em>' operation.
@@ -2083,7 +2101,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER___GET_RETURN = CommonPackage.RUN___GET_RETURN;
+	int SOLUTION_PROVIDER___GET_RETURN = JobPackage.RUN___GET_RETURN;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -2092,7 +2110,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER___GET_GENERATOR = CommonPackage.RUN_OPERATION_COUNT + 0;
+	int SOLUTION_PROVIDER___GET_GENERATOR = JobPackage.RUN_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Dispose</em>' operation.
@@ -2101,7 +2119,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER___DISPOSE = CommonPackage.RUN_OPERATION_COUNT + 1;
+	int SOLUTION_PROVIDER___DISPOSE = JobPackage.RUN_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Solution Factory</em>' operation.
@@ -2110,7 +2128,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER___SOLUTION_FACTORY = CommonPackage.RUN_OPERATION_COUNT + 2;
+	int SOLUTION_PROVIDER___SOLUTION_FACTORY = JobPackage.RUN_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Construct Solution</em>' operation.
@@ -2119,7 +2137,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER___CONSTRUCT_SOLUTION = CommonPackage.RUN_OPERATION_COUNT + 3;
+	int SOLUTION_PROVIDER___CONSTRUCT_SOLUTION = JobPackage.RUN_OPERATION_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Solution Provider</em>' class.
@@ -2128,7 +2146,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER_OPERATION_COUNT = CommonPackage.RUN_OPERATION_COUNT + 4;
+	int SOLUTION_PROVIDER_OPERATION_COUNT = JobPackage.RUN_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionReaderImpl <em>Solution Reader</em>}' class.
@@ -2139,15 +2157,6 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	int SOLUTION_READER = 17;
-
-	/**
-	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_READER__CANCELED = SOLUTION_PROVIDER__CANCELED;
 
 	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
@@ -2166,6 +2175,24 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_READER__CANCEL_FEEDBACK = SOLUTION_PROVIDER__CANCEL_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Reset Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER__RESET_FEEDBACK = SOLUTION_PROVIDER__RESET_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER__CANCELED = SOLUTION_PROVIDER__CANCELED;
 
 	/**
 	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
@@ -2376,15 +2403,6 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_READER_PATTERN = 18;
 
 	/**
-	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_READER_PATTERN__CANCELED = SOLUTION_READER__CANCELED;
-
-	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2401,6 +2419,24 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_READER_PATTERN__CANCEL_FEEDBACK = SOLUTION_READER__CANCEL_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Reset Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER_PATTERN__RESET_FEEDBACK = SOLUTION_READER__RESET_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER_PATTERN__CANCELED = SOLUTION_READER__CANCELED;
 
 	/**
 	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
@@ -2747,15 +2783,6 @@ public interface SolverPackage extends EPackage {
 	int ILP_WRITER_OPERATION_COUNT = IGENERATOR_TOOL_OPERATION_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER__CANCELED = SOLUTION_PROVIDER__CANCELED;
-
-	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2772,6 +2799,24 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER__CANCEL_FEEDBACK = SOLUTION_PROVIDER__CANCEL_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Reset Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER__RESET_FEEDBACK = SOLUTION_PROVIDER__RESET_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER__CANCELED = SOLUTION_PROVIDER__CANCELED;
 
 	/**
 	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
@@ -3436,15 +3481,6 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_CP = 22;
 
 	/**
-	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_CP__CANCELED = SOLVER__CANCELED;
-
-	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3461,6 +3497,24 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_CP__CANCEL_FEEDBACK = SOLVER__CANCEL_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Reset Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP__RESET_FEEDBACK = SOLVER__RESET_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP__CANCELED = SOLVER__CANCELED;
 
 	/**
 	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
@@ -4014,15 +4068,6 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_CP_OPERATION_COUNT = SOLVER_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_LP__CANCELED = SOLVER__CANCELED;
-
-	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4039,6 +4084,24 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP__CANCEL_FEEDBACK = SOLVER__CANCEL_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Reset Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP__RESET_FEEDBACK = SOLVER__RESET_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP__CANCELED = SOLVER__CANCELED;
 
 	/**
 	 * The feature id for the '<em><b>Return Success</b></em>' attribute.

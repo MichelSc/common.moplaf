@@ -2,6 +2,8 @@
  */
 package com.misc.common.moplaf.dbsynch.impl;
 
+import com.misc.common.moplaf.common.EnabledFeedback;
+import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.dbsynch.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -79,6 +81,10 @@ public class DbSynchFactoryImpl extends EFactoryImpl implements DbSynchFactory {
 				return createTableRowKeyFromString(eDataType, initialValue);
 			case DbSynchPackage.OBJECT:
 				return createObjectFromString(eDataType, initialValue);
+			case DbSynchPackage.ENABLED_FEEDBACK:
+				return createEnabledFeedbackFromString(eDataType, initialValue);
+			case DbSynchPackage.RETURN_FEEDBACK:
+				return createReturnFeedbackFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -100,6 +106,10 @@ public class DbSynchFactoryImpl extends EFactoryImpl implements DbSynchFactory {
 				return convertTableRowKeyToString(eDataType, instanceValue);
 			case DbSynchPackage.OBJECT:
 				return convertObjectToString(eDataType, instanceValue);
+			case DbSynchPackage.ENABLED_FEEDBACK:
+				return convertEnabledFeedbackToString(eDataType, instanceValue);
+			case DbSynchPackage.RETURN_FEEDBACK:
+				return convertReturnFeedbackToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -198,6 +208,42 @@ public class DbSynchFactoryImpl extends EFactoryImpl implements DbSynchFactory {
 	 * @generated
 	 */
 	public String convertObjectToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EnabledFeedback createEnabledFeedbackFromString(EDataType eDataType, String initialValue) {
+		return (EnabledFeedback)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEnabledFeedbackToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ReturnFeedback createReturnFeedbackFromString(EDataType eDataType, String initialValue) {
+		return (ReturnFeedback)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertReturnFeedbackToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

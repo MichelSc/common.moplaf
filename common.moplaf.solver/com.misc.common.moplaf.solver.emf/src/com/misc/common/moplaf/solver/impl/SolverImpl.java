@@ -4,7 +4,7 @@ package com.misc.common.moplaf.solver.impl;
 
 import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.common.ReturnFeedback;
-import com.misc.common.moplaf.common.RunContext;
+import com.misc.common.moplaf.job.RunContext;
 import com.misc.common.moplaf.solver.EnumGoalType;
 import com.misc.common.moplaf.solver.EnumLpConsType;
 import com.misc.common.moplaf.solver.EnumSolverLogLevel;

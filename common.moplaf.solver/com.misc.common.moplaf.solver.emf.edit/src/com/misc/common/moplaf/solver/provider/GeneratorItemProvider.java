@@ -3,7 +3,7 @@
 package com.misc.common.moplaf.solver.provider;
 
 
-import com.misc.common.moplaf.common.provider.RunItemProvider;
+import com.misc.common.moplaf.job.provider.RunItemProvider;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionProvider;

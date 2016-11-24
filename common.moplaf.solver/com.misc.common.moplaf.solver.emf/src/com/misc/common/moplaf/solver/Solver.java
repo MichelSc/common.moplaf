@@ -722,7 +722,7 @@ public interface Solver extends SolutionProvider {
 	 * Method to be called by the client to solve the lp and to produce the solution
 	 * 
 	 * <!-- end-model-doc -->
-	 * @model dataType="com.misc.common.moplaf.common.ReturnFeedback"
+	 * @model dataType="com.misc.common.moplaf.job.ReturnFeedback"
 	 * @generated
 	 */
 	ReturnFeedback solve();

@@ -2,7 +2,7 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
-import com.misc.common.moplaf.common.CommonPackage;
+import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.solver.EnumCpLinearType;
 import com.misc.common.moplaf.solver.EnumCpLogicalType;
 import com.misc.common.moplaf.solver.EnumGoalType;
@@ -523,7 +523,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		isInited = true;
 
 		// Initialize simple dependencies
-		CommonPackage.eINSTANCE.eClass();
+		JobPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theSolverPackage.createPackageContents();
@@ -3284,14 +3284,14 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		CommonPackage theCommonPackage = (CommonPackage)EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI);
+		JobPackage theJobPackage = (JobPackage)EPackage.Registry.INSTANCE.getEPackage(JobPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		generatorEClass.getESuperTypes().add(theCommonPackage.getRun());
+		generatorEClass.getESuperTypes().add(theJobPackage.getRun());
 		generatorTupleEClass.getESuperTypes().add(this.getGeneratorElement());
 		generatorTupleMemberEClass.getESuperTypes().add(this.getGeneratorElement());
 		generatorVarEClass.getESuperTypes().add(this.getGeneratorTupleMember());
@@ -3304,7 +3304,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		solutionReaderEClass.getESuperTypes().add(this.getSolutionProvider());
 		solutionReaderPatternEClass.getESuperTypes().add(this.getSolutionReader());
 		iLpWriterEClass.getESuperTypes().add(this.getIGeneratorTool());
-		solutionProviderEClass.getESuperTypes().add(theCommonPackage.getRun());
+		solutionProviderEClass.getESuperTypes().add(theJobPackage.getRun());
 		solutionProviderEClass.getESuperTypes().add(this.getIGeneratorTool());
 		solverEClass.getESuperTypes().add(this.getSolutionProvider());
 		solverCpEClass.getESuperTypes().add(this.getSolver());
@@ -3345,7 +3345,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		initEAttribute(getGenerator_Code(), ecorePackage.getEString(), "Code", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGenerator_Selected(), this.getSolution(), null, "Selected", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getGenerator__Generate(), theCommonPackage.getReturnFeedback(), "generate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getGenerator__Generate(), theJobPackage.getReturnFeedback(), "generate", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		EOperation op = initEOperation(getGenerator__GenerateRootTuples(), null, "generateRootTuples", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
@@ -3558,7 +3558,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		initEReference(getSolver_InitialSolution(), this.getSolution(), this.getSolution_SolverAsInitialSolution(), "InitialSolution", null, 0, 1, Solver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSolver_Goals(), this.getSolverGoal(), this.getSolverGoal_Solver(), "Goals", null, 0, -1, Solver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getSolver__Solve(), theCommonPackage.getReturnFeedback(), "solve", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getSolver__Solve(), theJobPackage.getReturnFeedback(), "solve", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getSolver__BuildVars(), null, "buildVars", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());

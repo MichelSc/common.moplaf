@@ -2,10 +2,11 @@
  */
 package com.misc.common.moplaf.solver.provider;
 
-import com.misc.common.moplaf.common.provider.CommonEditPlugin;
+import com.misc.common.moplaf.job.provider.JobEditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
 
 /**
  * This is the central singleton for the Solver edit plugin.
@@ -39,7 +40,8 @@ public final class SolverEditPlugin extends EMFPlugin {
 	public SolverEditPlugin() {
 		super
 		  (new ResourceLocator [] {
-		     CommonEditPlugin.INSTANCE,
+		     EcoreEditPlugin.INSTANCE,
+		     JobEditPlugin.INSTANCE,
 		   });
 	}
 

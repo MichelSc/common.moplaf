@@ -61,7 +61,7 @@ public interface DataSource extends DbSynchUnitAbstract {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="com.misc.common.moplaf.common.ReturnFeedback"
+	 * @model dataType="com.misc.common.moplaf.dbsynch.ReturnFeedback"
 	 * @generated
 	 */
 	ReturnFeedback connect();
@@ -69,7 +69,7 @@ public interface DataSource extends DbSynchUnitAbstract {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="com.misc.common.moplaf.common.ReturnFeedback"
+	 * @model dataType="com.misc.common.moplaf.dbsynch.ReturnFeedback"
 	 * @generated
 	 */
 	ReturnFeedback disconnect();
@@ -77,7 +77,7 @@ public interface DataSource extends DbSynchUnitAbstract {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="com.misc.common.moplaf.common.ReturnFeedback"
+	 * @model dataType="com.misc.common.moplaf.dbsynch.ReturnFeedback"
 	 * @generated
 	 */
 	ReturnFeedback synchDownTableImpl(Table table);
@@ -85,7 +85,7 @@ public interface DataSource extends DbSynchUnitAbstract {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="com.misc.common.moplaf.common.ReturnFeedback"
+	 * @model dataType="com.misc.common.moplaf.dbsynch.ReturnFeedback"
 	 * @generated
 	 */
 	ReturnFeedback synchUpTableImpl(Table table);
