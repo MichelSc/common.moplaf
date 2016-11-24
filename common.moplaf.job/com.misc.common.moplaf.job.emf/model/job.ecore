@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="job" nsURI="//www.misc.com/common/moplaf/job/model/0.1" nsPrefix="job">
+  <eClassifiers xsi:type="ecore:EClass" name="JobParameter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="#//JobParameterType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="JobAttribute" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EAttribute"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="JobParameterType">
+    <eLiterals name="JOB_PARAMETER_TYPE_INT" literal="Int"/>
+    <eLiterals name="JOB_PARAMETER_TYPE_STRING" value="1" literal="String"/>
+    <eLiterals name="JOB_PARAMETER_TYPE_FLOAT" value="2" literal="Float"/>
+    <eLiterals name="JOB_PARAMETER_TYPE_DATE" value="3" literal="Date"/>
+    <eLiterals name="JOB_PARAMETER_TYPE_ENUM" value="4" literal="Enum"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="ProgressFeedback" instanceClassName="com.misc.common.moplaf.job.ProgressFeedback"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="RunContext" instanceClassName="com.misc.common.moplaf.job.RunContext"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Exception" instanceClassName="java.lang.Exception"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="ReturnFeedback" instanceClassName="com.misc.common.moplaf.common.ReturnFeedback"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="EnabledFeedback" instanceClassName="com.misc.common.moplaf.common.EnabledFeedback"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Run">
+    <eOperations name="reset"/>
+    <eOperations name="run" eType="#//ReturnFeedback"/>
+    <eOperations name="run" eType="#//ReturnFeedback">
+      <eParameters name="runContext" eType="#//RunContext"/>
+    </eOperations>
+    <eOperations name="cancel"/>
+    <eOperations name="setProgress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="task" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="work" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    </eOperations>
+    <eOperations name="setProgress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="progress" eType="#//ProgressFeedback"/>
+    </eOperations>
+    <eOperations name="getReturn" eType="#//ReturnFeedback"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunFeedback" eType="#//EnabledFeedback"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CancelFeedback" eType="#//EnabledFeedback"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ResetFeedback" eType="#//EnabledFeedback"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Canceled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReturnSuccess" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReturnFeedback" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReturnInformation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Job" eSuperTypes="#//Run">
+    <eOperations name="addParameter">
+      <eParameters name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+      <eParameters name="type" eType="#//JobParameterType"/>
+      <eParameters name="attribute" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
+      <eParameters name="description" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    </eOperations>
+    <eOperations name="refreshParameters"/>
+    <eOperations name="getArgAsString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        eExceptions="#//Exception">
+      <eParameters name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="getArgAsInt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        eExceptions="#//Exception">
+      <eParameters name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="getArgAsFloat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
+        eExceptions="#//Exception">
+      <eParameters name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="getArgAsDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"
+        eExceptions="#//Exception">
+      <eParameters name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="getArgAsDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"
+        eExceptions="#//Exception">
+      <eParameters name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="simpleDateFormat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="setArgs" eExceptions="#//Exception"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HelpText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StartTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EndTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Running" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Stopped" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Finished" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Args" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Parameters" upperBound="-1"
+        eType="#//JobParameter" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>
