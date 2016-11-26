@@ -4,10 +4,6 @@ package com.misc.common.moplaf.job;
 
 import java.util.Date;
 
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EAttribute;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Job</b></em>'.
@@ -17,18 +13,14 @@ import org.eclipse.emf.ecore.EAttribute;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.job.Job#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Job#getStatus <em>Status</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Job#getDescription <em>Description</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.Job#getHelpText <em>Help Text</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Job#getStartTime <em>Start Time</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Job#getEndTime <em>End Time</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Job#getDuration <em>Duration</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.Job#isRunning <em>Running</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.Job#isStopped <em>Stopped</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.Job#isStarted <em>Started</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.Job#isFinished <em>Finished</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.Job#getArgs <em>Args</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.Job#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.Job#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.job.JobPackage#getJob()
@@ -36,32 +28,6 @@ import org.eclipse.emf.ecore.EAttribute;
  * @generated
  */
 public interface Job extends Run {
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see com.misc.common.moplaf.job.JobPackage#getJob_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.job.Job#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -91,21 +57,6 @@ public interface Job extends Run {
 	 * @generated
 	 */
 	String getDescription();
-
-	/**
-	 * Returns the value of the '<em><b>Help Text</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Help Text</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Help Text</em>' attribute.
-	 * @see com.misc.common.moplaf.job.JobPackage#getJob_HelpText()
-	 * @model transient="true" changeable="false" volatile="true" derived="true"
-	 * @generated
-	 */
-	String getHelpText();
 
 	/**
 	 * Returns the value of the '<em><b>Start Time</b></em>' attribute.
@@ -186,56 +137,30 @@ public interface Job extends Run {
 	void setDuration(float value);
 
 	/**
-	 * Returns the value of the '<em><b>Running</b></em>' attribute.
+	 * Returns the value of the '<em><b>Started</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Running</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Started</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Running</em>' attribute.
-	 * @see #setRunning(boolean)
-	 * @see com.misc.common.moplaf.job.JobPackage#getJob_Running()
+	 * @return the value of the '<em>Started</em>' attribute.
+	 * @see #setStarted(boolean)
+	 * @see com.misc.common.moplaf.job.JobPackage#getJob_Started()
 	 * @model
 	 * @generated
 	 */
-	boolean isRunning();
+	boolean isStarted();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.job.Job#isRunning <em>Running</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.job.Job#isStarted <em>Started</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Running</em>' attribute.
-	 * @see #isRunning()
+	 * @param value the new value of the '<em>Started</em>' attribute.
+	 * @see #isStarted()
 	 * @generated
 	 */
-	void setRunning(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Stopped</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Stopped</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Stopped</em>' attribute.
-	 * @see #setStopped(boolean)
-	 * @see com.misc.common.moplaf.job.JobPackage#getJob_Stopped()
-	 * @model
-	 * @generated
-	 */
-	boolean isStopped();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.job.Job#isStopped <em>Stopped</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Stopped</em>' attribute.
-	 * @see #isStopped()
-	 * @generated
-	 */
-	void setStopped(boolean value);
+	void setStarted(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Finished</b></em>' attribute.
@@ -264,99 +189,29 @@ public interface Job extends Run {
 	void setFinished(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Args</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Args</em>' attribute list isn't clear,
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Args</em>' attribute list.
-	 * @see com.misc.common.moplaf.job.JobPackage#getJob_Args()
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see com.misc.common.moplaf.job.JobPackage#getJob_Name()
 	 * @model
 	 * @generated
 	 */
-	EList<String> getArgs();
+	String getName();
 
 	/**
-	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.job.JobParameter}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parameters</em>' containment reference list.
-	 * @see com.misc.common.moplaf.job.JobPackage#getJob_Parameters()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<JobParameter> getParameters();
-
-	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.job.Job#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
 	 * @generated
 	 */
-	void addParameter(String name, JobParameterType type, EAttribute attribute, String description);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void refreshParameters();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="com.misc.common.moplaf.job.Exception"
-	 * @generated
-	 */
-	String getArgAsString(int index) throws Exception;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="com.misc.common.moplaf.job.Exception"
-	 * @generated
-	 */
-	int getArgAsInt(int index) throws Exception;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="com.misc.common.moplaf.job.Exception"
-	 * @generated
-	 */
-	float getArgAsFloat(int index) throws Exception;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="com.misc.common.moplaf.job.Exception"
-	 * @generated
-	 */
-	Date getArgAsDate(int index) throws Exception;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="com.misc.common.moplaf.job.Exception"
-	 * @generated
-	 */
-	Date getArgAsDate(int index, String simpleDateFormat) throws Exception;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model exceptions="com.misc.common.moplaf.job.Exception"
-	 * @generated
-	 */
-	void setArgs() throws Exception;
+	void setName(String value);
 
 } // Job

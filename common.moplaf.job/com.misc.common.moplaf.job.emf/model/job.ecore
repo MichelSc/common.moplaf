@@ -4,7 +4,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="JobParameter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="#//JobParameterType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="JobAttribute" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EAttribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="JobAttribute" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EAttribute"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="JobParameterType">
@@ -46,11 +46,23 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReturnInformation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Job" eSuperTypes="#//Run">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StartTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EndTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Started" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Finished" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JobConsole" eSuperTypes="#//Job">
     <eOperations name="addParameter">
-      <eParameters name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+      <eParameters name="name" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
       <eParameters name="type" eType="#//JobParameterType"/>
       <eParameters name="attribute" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
-      <eParameters name="description" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+      <eParameters name="description" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     </eOperations>
     <eOperations name="refreshParameters"/>
     <eOperations name="getArgAsString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -75,21 +87,10 @@
       <eParameters name="simpleDateFormat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eOperations name="setArgs" eExceptions="#//Exception"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HelpText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StartTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EndTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Running" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Stopped" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Finished" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Args" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Parameters" upperBound="-1"
         eType="#//JobParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HelpText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Args" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

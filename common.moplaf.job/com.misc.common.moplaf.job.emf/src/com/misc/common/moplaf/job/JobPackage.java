@@ -351,22 +351,13 @@ public interface JobPackage extends EPackage {
 	int JOB__RETURN_INFORMATION = RUN__RETURN_INFORMATION;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB__NAME = RUN_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Status</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__STATUS = RUN_FEATURE_COUNT + 1;
+	int JOB__STATUS = RUN_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -375,16 +366,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__DESCRIPTION = RUN_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Help Text</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB__HELP_TEXT = RUN_FEATURE_COUNT + 3;
+	int JOB__DESCRIPTION = RUN_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Start Time</b></em>' attribute.
@@ -393,7 +375,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__START_TIME = RUN_FEATURE_COUNT + 4;
+	int JOB__START_TIME = RUN_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>End Time</b></em>' attribute.
@@ -402,7 +384,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__END_TIME = RUN_FEATURE_COUNT + 5;
+	int JOB__END_TIME = RUN_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Duration</b></em>' attribute.
@@ -411,25 +393,16 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__DURATION = RUN_FEATURE_COUNT + 6;
+	int JOB__DURATION = RUN_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Running</b></em>' attribute.
+	 * The feature id for the '<em><b>Started</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__RUNNING = RUN_FEATURE_COUNT + 7;
-
-	/**
-	 * The feature id for the '<em><b>Stopped</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB__STOPPED = RUN_FEATURE_COUNT + 8;
+	int JOB__STARTED = RUN_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Finished</b></em>' attribute.
@@ -438,25 +411,16 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__FINISHED = RUN_FEATURE_COUNT + 9;
+	int JOB__FINISHED = RUN_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Args</b></em>' attribute list.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB__ARGS = RUN_FEATURE_COUNT + 10;
-
-	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int JOB__PARAMETERS = RUN_FEATURE_COUNT + 11;
+	int JOB__NAME = RUN_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Job</em>' class.
@@ -465,7 +429,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_FEATURE_COUNT = RUN_FEATURE_COUNT + 12;
+	int JOB_FEATURE_COUNT = RUN_FEATURE_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Reset</em>' operation.
@@ -531,13 +495,266 @@ public interface JobPackage extends EPackage {
 	int JOB___GET_RETURN = RUN___GET_RETURN;
 
 	/**
+	 * The number of operations of the '<em>Job</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_OPERATION_COUNT = RUN_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.job.impl.JobConsoleImpl <em>Console</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.job.impl.JobConsoleImpl
+	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getJobConsole()
+	 * @generated
+	 */
+	int JOB_CONSOLE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE__RUN_FEEDBACK = JOB__RUN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Cancel Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE__CANCEL_FEEDBACK = JOB__CANCEL_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Reset Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE__RESET_FEEDBACK = JOB__RESET_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE__CANCELED = JOB__CANCELED;
+
+	/**
+	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE__RETURN_SUCCESS = JOB__RETURN_SUCCESS;
+
+	/**
+	 * The feature id for the '<em><b>Return Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE__RETURN_FEEDBACK = JOB__RETURN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Return Information</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE__RETURN_INFORMATION = JOB__RETURN_INFORMATION;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE__STATUS = JOB__STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE__DESCRIPTION = JOB__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Start Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE__START_TIME = JOB__START_TIME;
+
+	/**
+	 * The feature id for the '<em><b>End Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE__END_TIME = JOB__END_TIME;
+
+	/**
+	 * The feature id for the '<em><b>Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE__DURATION = JOB__DURATION;
+
+	/**
+	 * The feature id for the '<em><b>Started</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE__STARTED = JOB__STARTED;
+
+	/**
+	 * The feature id for the '<em><b>Finished</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE__FINISHED = JOB__FINISHED;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE__NAME = JOB__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE__PARAMETERS = JOB_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Help Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE__HELP_TEXT = JOB_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Args</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE__ARGS = JOB_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Console</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE_FEATURE_COUNT = JOB_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE___RESET = JOB___RESET;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE___RUN = JOB___RUN;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE___RUN__RUNCONTEXT = JOB___RUN__RUNCONTEXT;
+
+	/**
+	 * The operation id for the '<em>Cancel</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE___CANCEL = JOB___CANCEL;
+
+	/**
+	 * The operation id for the '<em>Set Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE___SET_PROGRESS__STRING_FLOAT = JOB___SET_PROGRESS__STRING_FLOAT;
+
+	/**
+	 * The operation id for the '<em>Set Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE___SET_PROGRESS__PROGRESSFEEDBACK = JOB___SET_PROGRESS__PROGRESSFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Get Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE___GET_RETURN = JOB___GET_RETURN;
+
+	/**
 	 * The operation id for the '<em>Add Parameter</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB___ADD_PARAMETER__STRING_JOBPARAMETERTYPE_EATTRIBUTE_STRING = RUN_OPERATION_COUNT + 0;
+	int JOB_CONSOLE___ADD_PARAMETER__STRING_JOBPARAMETERTYPE_EATTRIBUTE_STRING = JOB_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Refresh Parameters</em>' operation.
@@ -546,7 +763,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB___REFRESH_PARAMETERS = RUN_OPERATION_COUNT + 1;
+	int JOB_CONSOLE___REFRESH_PARAMETERS = JOB_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Arg As String</em>' operation.
@@ -555,7 +772,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB___GET_ARG_AS_STRING__INT = RUN_OPERATION_COUNT + 2;
+	int JOB_CONSOLE___GET_ARG_AS_STRING__INT = JOB_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Arg As Int</em>' operation.
@@ -564,7 +781,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB___GET_ARG_AS_INT__INT = RUN_OPERATION_COUNT + 3;
+	int JOB_CONSOLE___GET_ARG_AS_INT__INT = JOB_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Arg As Float</em>' operation.
@@ -573,7 +790,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB___GET_ARG_AS_FLOAT__INT = RUN_OPERATION_COUNT + 4;
+	int JOB_CONSOLE___GET_ARG_AS_FLOAT__INT = JOB_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Get Arg As Date</em>' operation.
@@ -582,7 +799,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB___GET_ARG_AS_DATE__INT = RUN_OPERATION_COUNT + 5;
+	int JOB_CONSOLE___GET_ARG_AS_DATE__INT = JOB_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get Arg As Date</em>' operation.
@@ -591,7 +808,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB___GET_ARG_AS_DATE__INT_STRING = RUN_OPERATION_COUNT + 6;
+	int JOB_CONSOLE___GET_ARG_AS_DATE__INT_STRING = JOB_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Set Args</em>' operation.
@@ -600,16 +817,16 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB___SET_ARGS = RUN_OPERATION_COUNT + 7;
+	int JOB_CONSOLE___SET_ARGS = JOB_OPERATION_COUNT + 7;
 
 	/**
-	 * The number of operations of the '<em>Job</em>' class.
+	 * The number of operations of the '<em>Console</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_OPERATION_COUNT = RUN_OPERATION_COUNT + 8;
+	int JOB_CONSOLE_OPERATION_COUNT = JOB_OPERATION_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.job.JobParameterType <em>Parameter Type</em>}' enum.
@@ -619,7 +836,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getJobParameterType()
 	 * @generated
 	 */
-	int JOB_PARAMETER_TYPE = 3;
+	int JOB_PARAMETER_TYPE = 4;
 
 	/**
 	 * The meta object id for the '<em>Progress Feedback</em>' data type.
@@ -629,7 +846,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getProgressFeedback()
 	 * @generated
 	 */
-	int PROGRESS_FEEDBACK = 4;
+	int PROGRESS_FEEDBACK = 5;
 
 	/**
 	 * The meta object id for the '<em>Run Context</em>' data type.
@@ -639,7 +856,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getRunContext()
 	 * @generated
 	 */
-	int RUN_CONTEXT = 5;
+	int RUN_CONTEXT = 6;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -649,7 +866,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 6;
+	int EXCEPTION = 7;
 
 	/**
 	 * The meta object id for the '<em>Return Feedback</em>' data type.
@@ -659,7 +876,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getReturnFeedback()
 	 * @generated
 	 */
-	int RETURN_FEEDBACK = 7;
+	int RETURN_FEEDBACK = 8;
 
 	/**
 	 * The meta object id for the '<em>Enabled Feedback</em>' data type.
@@ -669,7 +886,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getEnabledFeedback()
 	 * @generated
 	 */
-	int ENABLED_FEEDBACK = 8;
+	int ENABLED_FEEDBACK = 9;
 
 
 	/**
@@ -894,17 +1111,6 @@ public interface JobPackage extends EPackage {
 	EClass getJob();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.Job#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.misc.common.moplaf.job.Job#getName()
-	 * @see #getJob()
-	 * @generated
-	 */
-	EAttribute getJob_Name();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.Job#getStatus <em>Status</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -925,17 +1131,6 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getJob_Description();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.Job#getHelpText <em>Help Text</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Help Text</em>'.
-	 * @see com.misc.common.moplaf.job.Job#getHelpText()
-	 * @see #getJob()
-	 * @generated
-	 */
-	EAttribute getJob_HelpText();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.Job#getStartTime <em>Start Time</em>}'.
@@ -971,26 +1166,15 @@ public interface JobPackage extends EPackage {
 	EAttribute getJob_Duration();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.Job#isRunning <em>Running</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.Job#isStarted <em>Started</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Running</em>'.
-	 * @see com.misc.common.moplaf.job.Job#isRunning()
+	 * @return the meta object for the attribute '<em>Started</em>'.
+	 * @see com.misc.common.moplaf.job.Job#isStarted()
 	 * @see #getJob()
 	 * @generated
 	 */
-	EAttribute getJob_Running();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.Job#isStopped <em>Stopped</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Stopped</em>'.
-	 * @see com.misc.common.moplaf.job.Job#isStopped()
-	 * @see #getJob()
-	 * @generated
-	 */
-	EAttribute getJob_Stopped();
+	EAttribute getJob_Started();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.Job#isFinished <em>Finished</em>}'.
@@ -1004,106 +1188,138 @@ public interface JobPackage extends EPackage {
 	EAttribute getJob_Finished();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link com.misc.common.moplaf.job.Job#getArgs <em>Args</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.Job#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Args</em>'.
-	 * @see com.misc.common.moplaf.job.Job#getArgs()
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.job.Job#getName()
 	 * @see #getJob()
 	 * @generated
 	 */
-	EAttribute getJob_Args();
+	EAttribute getJob_Name();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.job.Job#getParameters <em>Parameters</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.JobConsole <em>Console</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Console</em>'.
+	 * @see com.misc.common.moplaf.job.JobConsole
+	 * @generated
+	 */
+	EClass getJobConsole();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.job.JobConsole#getParameters <em>Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
-	 * @see com.misc.common.moplaf.job.Job#getParameters()
-	 * @see #getJob()
+	 * @see com.misc.common.moplaf.job.JobConsole#getParameters()
+	 * @see #getJobConsole()
 	 * @generated
 	 */
-	EReference getJob_Parameters();
+	EReference getJobConsole_Parameters();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Job#addParameter(java.lang.String, com.misc.common.moplaf.job.JobParameterType, org.eclipse.emf.ecore.EAttribute, java.lang.String) <em>Add Parameter</em>}' operation.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.JobConsole#getHelpText <em>Help Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Help Text</em>'.
+	 * @see com.misc.common.moplaf.job.JobConsole#getHelpText()
+	 * @see #getJobConsole()
+	 * @generated
+	 */
+	EAttribute getJobConsole_HelpText();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link com.misc.common.moplaf.job.JobConsole#getArgs <em>Args</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Args</em>'.
+	 * @see com.misc.common.moplaf.job.JobConsole#getArgs()
+	 * @see #getJobConsole()
+	 * @generated
+	 */
+	EAttribute getJobConsole_Args();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.JobConsole#addParameter(java.lang.String, com.misc.common.moplaf.job.JobParameterType, org.eclipse.emf.ecore.EAttribute, java.lang.String) <em>Add Parameter</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Add Parameter</em>' operation.
-	 * @see com.misc.common.moplaf.job.Job#addParameter(java.lang.String, com.misc.common.moplaf.job.JobParameterType, org.eclipse.emf.ecore.EAttribute, java.lang.String)
+	 * @see com.misc.common.moplaf.job.JobConsole#addParameter(java.lang.String, com.misc.common.moplaf.job.JobParameterType, org.eclipse.emf.ecore.EAttribute, java.lang.String)
 	 * @generated
 	 */
-	EOperation getJob__AddParameter__String_JobParameterType_EAttribute_String();
+	EOperation getJobConsole__AddParameter__String_JobParameterType_EAttribute_String();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Job#refreshParameters() <em>Refresh Parameters</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.JobConsole#refreshParameters() <em>Refresh Parameters</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Refresh Parameters</em>' operation.
-	 * @see com.misc.common.moplaf.job.Job#refreshParameters()
+	 * @see com.misc.common.moplaf.job.JobConsole#refreshParameters()
 	 * @generated
 	 */
-	EOperation getJob__RefreshParameters();
+	EOperation getJobConsole__RefreshParameters();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Job#getArgAsString(int) <em>Get Arg As String</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.JobConsole#getArgAsString(int) <em>Get Arg As String</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Arg As String</em>' operation.
-	 * @see com.misc.common.moplaf.job.Job#getArgAsString(int)
+	 * @see com.misc.common.moplaf.job.JobConsole#getArgAsString(int)
 	 * @generated
 	 */
-	EOperation getJob__GetArgAsString__int();
+	EOperation getJobConsole__GetArgAsString__int();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Job#getArgAsInt(int) <em>Get Arg As Int</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.JobConsole#getArgAsInt(int) <em>Get Arg As Int</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Arg As Int</em>' operation.
-	 * @see com.misc.common.moplaf.job.Job#getArgAsInt(int)
+	 * @see com.misc.common.moplaf.job.JobConsole#getArgAsInt(int)
 	 * @generated
 	 */
-	EOperation getJob__GetArgAsInt__int();
+	EOperation getJobConsole__GetArgAsInt__int();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Job#getArgAsFloat(int) <em>Get Arg As Float</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.JobConsole#getArgAsFloat(int) <em>Get Arg As Float</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Arg As Float</em>' operation.
-	 * @see com.misc.common.moplaf.job.Job#getArgAsFloat(int)
+	 * @see com.misc.common.moplaf.job.JobConsole#getArgAsFloat(int)
 	 * @generated
 	 */
-	EOperation getJob__GetArgAsFloat__int();
+	EOperation getJobConsole__GetArgAsFloat__int();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Job#getArgAsDate(int) <em>Get Arg As Date</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.JobConsole#getArgAsDate(int) <em>Get Arg As Date</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Arg As Date</em>' operation.
-	 * @see com.misc.common.moplaf.job.Job#getArgAsDate(int)
+	 * @see com.misc.common.moplaf.job.JobConsole#getArgAsDate(int)
 	 * @generated
 	 */
-	EOperation getJob__GetArgAsDate__int();
+	EOperation getJobConsole__GetArgAsDate__int();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Job#getArgAsDate(int, java.lang.String) <em>Get Arg As Date</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.JobConsole#getArgAsDate(int, java.lang.String) <em>Get Arg As Date</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Arg As Date</em>' operation.
-	 * @see com.misc.common.moplaf.job.Job#getArgAsDate(int, java.lang.String)
+	 * @see com.misc.common.moplaf.job.JobConsole#getArgAsDate(int, java.lang.String)
 	 * @generated
 	 */
-	EOperation getJob__GetArgAsDate__int_String();
+	EOperation getJobConsole__GetArgAsDate__int_String();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Job#setArgs() <em>Set Args</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.JobConsole#setArgs() <em>Set Args</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Set Args</em>' operation.
-	 * @see com.misc.common.moplaf.job.Job#setArgs()
+	 * @see com.misc.common.moplaf.job.JobConsole#setArgs()
 	 * @generated
 	 */
-	EOperation getJob__SetArgs();
+	EOperation getJobConsole__SetArgs();
 
 	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.job.JobParameterType <em>Parameter Type</em>}'.
@@ -1368,14 +1584,6 @@ public interface JobPackage extends EPackage {
 		EClass JOB = eINSTANCE.getJob();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JOB__NAME = eINSTANCE.getJob_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Status</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1390,14 +1598,6 @@ public interface JobPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute JOB__DESCRIPTION = eINSTANCE.getJob_Description();
-
-		/**
-		 * The meta object literal for the '<em><b>Help Text</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JOB__HELP_TEXT = eINSTANCE.getJob_HelpText();
 
 		/**
 		 * The meta object literal for the '<em><b>Start Time</b></em>' attribute feature.
@@ -1424,20 +1624,12 @@ public interface JobPackage extends EPackage {
 		EAttribute JOB__DURATION = eINSTANCE.getJob_Duration();
 
 		/**
-		 * The meta object literal for the '<em><b>Running</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Started</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute JOB__RUNNING = eINSTANCE.getJob_Running();
-
-		/**
-		 * The meta object literal for the '<em><b>Stopped</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute JOB__STOPPED = eINSTANCE.getJob_Stopped();
+		EAttribute JOB__STARTED = eINSTANCE.getJob_Started();
 
 		/**
 		 * The meta object literal for the '<em><b>Finished</b></em>' attribute feature.
@@ -1448,12 +1640,22 @@ public interface JobPackage extends EPackage {
 		EAttribute JOB__FINISHED = eINSTANCE.getJob_Finished();
 
 		/**
-		 * The meta object literal for the '<em><b>Args</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute JOB__ARGS = eINSTANCE.getJob_Args();
+		EAttribute JOB__NAME = eINSTANCE.getJob_Name();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.JobConsoleImpl <em>Console</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.job.impl.JobConsoleImpl
+		 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getJobConsole()
+		 * @generated
+		 */
+		EClass JOB_CONSOLE = eINSTANCE.getJobConsole();
 
 		/**
 		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
@@ -1461,7 +1663,23 @@ public interface JobPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference JOB__PARAMETERS = eINSTANCE.getJob_Parameters();
+		EReference JOB_CONSOLE__PARAMETERS = eINSTANCE.getJobConsole_Parameters();
+
+		/**
+		 * The meta object literal for the '<em><b>Help Text</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_CONSOLE__HELP_TEXT = eINSTANCE.getJobConsole_HelpText();
+
+		/**
+		 * The meta object literal for the '<em><b>Args</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_CONSOLE__ARGS = eINSTANCE.getJobConsole_Args();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Parameter</b></em>' operation.
@@ -1469,7 +1687,7 @@ public interface JobPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation JOB___ADD_PARAMETER__STRING_JOBPARAMETERTYPE_EATTRIBUTE_STRING = eINSTANCE.getJob__AddParameter__String_JobParameterType_EAttribute_String();
+		EOperation JOB_CONSOLE___ADD_PARAMETER__STRING_JOBPARAMETERTYPE_EATTRIBUTE_STRING = eINSTANCE.getJobConsole__AddParameter__String_JobParameterType_EAttribute_String();
 
 		/**
 		 * The meta object literal for the '<em><b>Refresh Parameters</b></em>' operation.
@@ -1477,7 +1695,7 @@ public interface JobPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation JOB___REFRESH_PARAMETERS = eINSTANCE.getJob__RefreshParameters();
+		EOperation JOB_CONSOLE___REFRESH_PARAMETERS = eINSTANCE.getJobConsole__RefreshParameters();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Arg As String</b></em>' operation.
@@ -1485,7 +1703,7 @@ public interface JobPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation JOB___GET_ARG_AS_STRING__INT = eINSTANCE.getJob__GetArgAsString__int();
+		EOperation JOB_CONSOLE___GET_ARG_AS_STRING__INT = eINSTANCE.getJobConsole__GetArgAsString__int();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Arg As Int</b></em>' operation.
@@ -1493,7 +1711,7 @@ public interface JobPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation JOB___GET_ARG_AS_INT__INT = eINSTANCE.getJob__GetArgAsInt__int();
+		EOperation JOB_CONSOLE___GET_ARG_AS_INT__INT = eINSTANCE.getJobConsole__GetArgAsInt__int();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Arg As Float</b></em>' operation.
@@ -1501,7 +1719,7 @@ public interface JobPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation JOB___GET_ARG_AS_FLOAT__INT = eINSTANCE.getJob__GetArgAsFloat__int();
+		EOperation JOB_CONSOLE___GET_ARG_AS_FLOAT__INT = eINSTANCE.getJobConsole__GetArgAsFloat__int();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Arg As Date</b></em>' operation.
@@ -1509,7 +1727,7 @@ public interface JobPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation JOB___GET_ARG_AS_DATE__INT = eINSTANCE.getJob__GetArgAsDate__int();
+		EOperation JOB_CONSOLE___GET_ARG_AS_DATE__INT = eINSTANCE.getJobConsole__GetArgAsDate__int();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Arg As Date</b></em>' operation.
@@ -1517,7 +1735,7 @@ public interface JobPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation JOB___GET_ARG_AS_DATE__INT_STRING = eINSTANCE.getJob__GetArgAsDate__int_String();
+		EOperation JOB_CONSOLE___GET_ARG_AS_DATE__INT_STRING = eINSTANCE.getJobConsole__GetArgAsDate__int_String();
 
 		/**
 		 * The meta object literal for the '<em><b>Set Args</b></em>' operation.
@@ -1525,7 +1743,7 @@ public interface JobPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation JOB___SET_ARGS = eINSTANCE.getJob__SetArgs();
+		EOperation JOB_CONSOLE___SET_ARGS = eINSTANCE.getJobConsole__SetArgs();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.JobParameterType <em>Parameter Type</em>}' enum.

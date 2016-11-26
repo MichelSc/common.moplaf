@@ -63,6 +63,7 @@ public class JobFactoryImpl extends EFactoryImpl implements JobFactory {
 			case JobPackage.JOB_PARAMETER: return createJobParameter();
 			case JobPackage.RUN: return createRun();
 			case JobPackage.JOB: return createJob();
+			case JobPackage.JOB_CONSOLE: return createJobConsole();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -146,6 +147,16 @@ public class JobFactoryImpl extends EFactoryImpl implements JobFactory {
 	public Job createJob() {
 		JobImpl job = new JobImpl();
 		return job;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JobConsole createJobConsole() {
+		JobConsoleImpl jobConsole = new JobConsoleImpl();
+		return jobConsole;
 	}
 
 	/**

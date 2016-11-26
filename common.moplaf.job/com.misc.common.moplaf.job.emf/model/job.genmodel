@@ -34,9 +34,12 @@
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Enabled"
           ecoreFeature="ecore:EAttribute job.ecore#//Run/ResetFeedback"/>
       <genFeatures createChild="false" propertyCategory="10 Job Control" ecoreFeature="ecore:EAttribute job.ecore#//Run/Canceled"/>
-      <genFeatures createChild="false" propertyCategory="10 Job Status" ecoreFeature="ecore:EAttribute job.ecore#//Run/ReturnSuccess"/>
-      <genFeatures createChild="false" propertyCategory="10 Job Status" ecoreFeature="ecore:EAttribute job.ecore#//Run/ReturnFeedback"/>
-      <genFeatures createChild="false" propertyCategory="10 Job Status" ecoreFeature="ecore:EAttribute job.ecore#//Run/ReturnInformation"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job Status"
+          ecoreFeature="ecore:EAttribute job.ecore#//Run/ReturnSuccess"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job Status"
+          ecoreFeature="ecore:EAttribute job.ecore#//Run/ReturnFeedback"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job Status"
+          ecoreFeature="ecore:EAttribute job.ecore#//Run/ReturnInformation"/>
       <genOperations ecoreOperation="job.ecore#//Run/reset"/>
       <genOperations ecoreOperation="job.ecore#//Run/run"/>
       <genOperations ecoreOperation="job.ecore#//Run/run.1">
@@ -53,46 +56,47 @@
       <genOperations ecoreOperation="job.ecore#//Run/getReturn"/>
     </genClasses>
     <genClasses ecoreClass="job.ecore#//Job">
-      <genFeatures createChild="false" propertyCategory="10 Job" ecoreFeature="ecore:EAttribute job.ecore#//Job/Name"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job Status"
           ecoreFeature="ecore:EAttribute job.ecore#//Job/Status"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job"
           ecoreFeature="ecore:EAttribute job.ecore#//Job/Description"/>
-      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job"
-          propertyMultiLine="true" ecoreFeature="ecore:EAttribute job.ecore#//Job/HelpText"/>
       <genFeatures createChild="false" propertyCategory="10 Job Status" ecoreFeature="ecore:EAttribute job.ecore#//Job/StartTime"/>
       <genFeatures createChild="false" propertyCategory="10 Job Status" ecoreFeature="ecore:EAttribute job.ecore#//Job/EndTime"/>
       <genFeatures createChild="false" propertyCategory="10 Job Status" ecoreFeature="ecore:EAttribute job.ecore#//Job/Duration"/>
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//Job/Running"/>
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//Job/Stopped"/>
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//Job/Finished"/>
-      <genFeatures createChild="false" propertyCategory="10 Job Control" propertyDescription=""
-          ecoreFeature="ecore:EAttribute job.ecore#//Job/Args"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference job.ecore#//Job/Parameters"/>
-      <genOperations ecoreOperation="job.ecore#//Job/addParameter">
-        <genParameters ecoreParameter="job.ecore#//Job/addParameter/name"/>
-        <genParameters ecoreParameter="job.ecore#//Job/addParameter/type"/>
-        <genParameters ecoreParameter="job.ecore#//Job/addParameter/attribute"/>
-        <genParameters ecoreParameter="job.ecore#//Job/addParameter/description"/>
+      <genFeatures property="None" createChild="false" propertyCategory="10 Job Status"
+          ecoreFeature="ecore:EAttribute job.ecore#//Job/Started"/>
+      <genFeatures property="None" createChild="false" propertyCategory="" ecoreFeature="ecore:EAttribute job.ecore#//Job/Finished"/>
+      <genFeatures createChild="false" propertyCategory="10 Job" ecoreFeature="ecore:EAttribute job.ecore#//Job/Name"/>
+    </genClasses>
+    <genClasses ecoreClass="job.ecore#//JobConsole">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference job.ecore#//JobConsole/Parameters"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job"
+          ecoreFeature="ecore:EAttribute job.ecore#//JobConsole/HelpText"/>
+      <genFeatures createChild="false" propertyCategory="10 Job" ecoreFeature="ecore:EAttribute job.ecore#//JobConsole/Args"/>
+      <genOperations ecoreOperation="job.ecore#//JobConsole/addParameter">
+        <genParameters ecoreParameter="job.ecore#//JobConsole/addParameter/name"/>
+        <genParameters ecoreParameter="job.ecore#//JobConsole/addParameter/type"/>
+        <genParameters ecoreParameter="job.ecore#//JobConsole/addParameter/attribute"/>
+        <genParameters ecoreParameter="job.ecore#//JobConsole/addParameter/description"/>
       </genOperations>
-      <genOperations ecoreOperation="job.ecore#//Job/refreshParameters"/>
-      <genOperations ecoreOperation="job.ecore#//Job/getArgAsString">
-        <genParameters ecoreParameter="job.ecore#//Job/getArgAsString/index"/>
+      <genOperations ecoreOperation="job.ecore#//JobConsole/refreshParameters"/>
+      <genOperations ecoreOperation="job.ecore#//JobConsole/getArgAsString">
+        <genParameters ecoreParameter="job.ecore#//JobConsole/getArgAsString/index"/>
       </genOperations>
-      <genOperations ecoreOperation="job.ecore#//Job/getArgAsInt">
-        <genParameters ecoreParameter="job.ecore#//Job/getArgAsInt/index"/>
+      <genOperations ecoreOperation="job.ecore#//JobConsole/getArgAsInt">
+        <genParameters ecoreParameter="job.ecore#//JobConsole/getArgAsInt/index"/>
       </genOperations>
-      <genOperations ecoreOperation="job.ecore#//Job/getArgAsFloat">
-        <genParameters ecoreParameter="job.ecore#//Job/getArgAsFloat/index"/>
+      <genOperations ecoreOperation="job.ecore#//JobConsole/getArgAsFloat">
+        <genParameters ecoreParameter="job.ecore#//JobConsole/getArgAsFloat/index"/>
       </genOperations>
-      <genOperations ecoreOperation="job.ecore#//Job/getArgAsDate">
-        <genParameters ecoreParameter="job.ecore#//Job/getArgAsDate/index"/>
+      <genOperations ecoreOperation="job.ecore#//JobConsole/getArgAsDate">
+        <genParameters ecoreParameter="job.ecore#//JobConsole/getArgAsDate/index"/>
       </genOperations>
-      <genOperations ecoreOperation="job.ecore#//Job/getArgAsDate.1">
-        <genParameters ecoreParameter="job.ecore#//Job/getArgAsDate.1/index"/>
-        <genParameters ecoreParameter="job.ecore#//Job/getArgAsDate.1/simpleDateFormat"/>
+      <genOperations ecoreOperation="job.ecore#//JobConsole/getArgAsDate.1">
+        <genParameters ecoreParameter="job.ecore#//JobConsole/getArgAsDate.1/index"/>
+        <genParameters ecoreParameter="job.ecore#//JobConsole/getArgAsDate.1/simpleDateFormat"/>
       </genOperations>
-      <genOperations ecoreOperation="job.ecore#//Job/setArgs"/>
+      <genOperations ecoreOperation="job.ecore#//JobConsole/setArgs"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

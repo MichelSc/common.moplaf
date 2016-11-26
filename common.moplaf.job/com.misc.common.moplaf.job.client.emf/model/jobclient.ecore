@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="jobclient" nsURI="//www.misc.com/common/moplaf/job/client/model/0.1"
+    nsPrefix="jbc">
+  <eClassifiers xsi:type="ecore:EClass" name="JobRemote" eSuperTypes="../../com.misc.common.moplaf.job.emf/model/job.ecore#//Job">
+    <eOperations name="onProgress">
+      <eParameters name="feedback" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//ProgressFeedback"/>
+    </eOperations>
+    <eOperations name="onReturn">
+      <eParameters name="feedback" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//ReturnFeedback"/>
+    </eOperations>
+    <eOperations name="kill"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SubmissionID" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="HandlingEngine" eType="#//JobEngine"
+        eOpposite="#//JobEngine/SubmittedJobs"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Result" eType="#//JobRemoteResult"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JobEngine">
+    <eOperations name="submitJob" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt">
+      <eParameters name="job" eType="#//JobRemote"/>
+    </eOperations>
+    <eOperations name="getJob" eType="#//JobRemote">
+      <eParameters name="submissionID" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SubmittedJobs" upperBound="-1"
+        eType="#//JobRemote" eOpposite="#//JobRemote/HandlingEngine"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JobRemoteResult"/>
+</ecore:EPackage>

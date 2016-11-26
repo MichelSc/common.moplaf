@@ -141,6 +141,29 @@ public class JobItemProviderAdapterFactory extends JobAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.JobConsole} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected JobConsoleItemProvider jobConsoleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.job.JobConsole}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createJobConsoleAdapter() {
+		if (jobConsoleItemProvider == null) {
+			jobConsoleItemProvider = new JobConsoleItemProvider(this);
+		}
+
+		return jobConsoleItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -242,6 +265,7 @@ public class JobItemProviderAdapterFactory extends JobAdapterFactory implements 
 		if (jobParameterItemProvider != null) jobParameterItemProvider.dispose();
 		if (runItemProvider != null) runItemProvider.dispose();
 		if (jobItemProvider != null) jobItemProvider.dispose();
+		if (jobConsoleItemProvider != null) jobConsoleItemProvider.dispose();
 	}
 
 }

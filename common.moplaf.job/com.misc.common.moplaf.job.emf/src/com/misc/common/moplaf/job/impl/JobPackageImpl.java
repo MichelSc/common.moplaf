@@ -6,6 +6,7 @@ import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.common.ReturnFeedback;
 
 import com.misc.common.moplaf.job.Job;
+import com.misc.common.moplaf.job.JobConsole;
 import com.misc.common.moplaf.job.JobFactory;
 import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.job.JobParameter;
@@ -52,6 +53,13 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * @generated
 	 */
 	private EClass jobEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass jobConsoleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -353,7 +361,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Name() {
+	public EAttribute getJob_Status() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -362,7 +370,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Status() {
+	public EAttribute getJob_Description() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -371,7 +379,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Description() {
+	public EAttribute getJob_StartTime() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -380,7 +388,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_HelpText() {
+	public EAttribute getJob_EndTime() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -389,7 +397,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_StartTime() {
+	public EAttribute getJob_Duration() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -398,7 +406,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_EndTime() {
+	public EAttribute getJob_Started() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -407,7 +415,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Duration() {
+	public EAttribute getJob_Finished() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -416,7 +424,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Running() {
+	public EAttribute getJob_Name() {
 		return (EAttribute)jobEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -425,8 +433,8 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Stopped() {
-		return (EAttribute)jobEClass.getEStructuralFeatures().get(8);
+	public EClass getJobConsole() {
+		return jobConsoleEClass;
 	}
 
 	/**
@@ -434,8 +442,8 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Finished() {
-		return (EAttribute)jobEClass.getEStructuralFeatures().get(9);
+	public EReference getJobConsole_Parameters() {
+		return (EReference)jobConsoleEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -443,8 +451,8 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getJob_Args() {
-		return (EAttribute)jobEClass.getEStructuralFeatures().get(10);
+	public EAttribute getJobConsole_HelpText() {
+		return (EAttribute)jobConsoleEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -452,8 +460,8 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getJob_Parameters() {
-		return (EReference)jobEClass.getEStructuralFeatures().get(11);
+	public EAttribute getJobConsole_Args() {
+		return (EAttribute)jobConsoleEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -461,8 +469,8 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getJob__AddParameter__String_JobParameterType_EAttribute_String() {
-		return jobEClass.getEOperations().get(0);
+	public EOperation getJobConsole__AddParameter__String_JobParameterType_EAttribute_String() {
+		return jobConsoleEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -470,8 +478,8 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getJob__RefreshParameters() {
-		return jobEClass.getEOperations().get(1);
+	public EOperation getJobConsole__RefreshParameters() {
+		return jobConsoleEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -479,8 +487,8 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getJob__GetArgAsString__int() {
-		return jobEClass.getEOperations().get(2);
+	public EOperation getJobConsole__GetArgAsString__int() {
+		return jobConsoleEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -488,8 +496,8 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getJob__GetArgAsInt__int() {
-		return jobEClass.getEOperations().get(3);
+	public EOperation getJobConsole__GetArgAsInt__int() {
+		return jobConsoleEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -497,8 +505,8 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getJob__GetArgAsFloat__int() {
-		return jobEClass.getEOperations().get(4);
+	public EOperation getJobConsole__GetArgAsFloat__int() {
+		return jobConsoleEClass.getEOperations().get(4);
 	}
 
 	/**
@@ -506,8 +514,8 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getJob__GetArgAsDate__int() {
-		return jobEClass.getEOperations().get(5);
+	public EOperation getJobConsole__GetArgAsDate__int() {
+		return jobConsoleEClass.getEOperations().get(5);
 	}
 
 	/**
@@ -515,8 +523,8 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getJob__GetArgAsDate__int_String() {
-		return jobEClass.getEOperations().get(6);
+	public EOperation getJobConsole__GetArgAsDate__int_String() {
+		return jobConsoleEClass.getEOperations().get(6);
 	}
 
 	/**
@@ -524,8 +532,8 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getJob__SetArgs() {
-		return jobEClass.getEOperations().get(7);
+	public EOperation getJobConsole__SetArgs() {
+		return jobConsoleEClass.getEOperations().get(7);
 	}
 
 	/**
@@ -633,26 +641,27 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		createEOperation(runEClass, RUN___GET_RETURN);
 
 		jobEClass = createEClass(JOB);
-		createEAttribute(jobEClass, JOB__NAME);
 		createEAttribute(jobEClass, JOB__STATUS);
 		createEAttribute(jobEClass, JOB__DESCRIPTION);
-		createEAttribute(jobEClass, JOB__HELP_TEXT);
 		createEAttribute(jobEClass, JOB__START_TIME);
 		createEAttribute(jobEClass, JOB__END_TIME);
 		createEAttribute(jobEClass, JOB__DURATION);
-		createEAttribute(jobEClass, JOB__RUNNING);
-		createEAttribute(jobEClass, JOB__STOPPED);
+		createEAttribute(jobEClass, JOB__STARTED);
 		createEAttribute(jobEClass, JOB__FINISHED);
-		createEAttribute(jobEClass, JOB__ARGS);
-		createEReference(jobEClass, JOB__PARAMETERS);
-		createEOperation(jobEClass, JOB___ADD_PARAMETER__STRING_JOBPARAMETERTYPE_EATTRIBUTE_STRING);
-		createEOperation(jobEClass, JOB___REFRESH_PARAMETERS);
-		createEOperation(jobEClass, JOB___GET_ARG_AS_STRING__INT);
-		createEOperation(jobEClass, JOB___GET_ARG_AS_INT__INT);
-		createEOperation(jobEClass, JOB___GET_ARG_AS_FLOAT__INT);
-		createEOperation(jobEClass, JOB___GET_ARG_AS_DATE__INT);
-		createEOperation(jobEClass, JOB___GET_ARG_AS_DATE__INT_STRING);
-		createEOperation(jobEClass, JOB___SET_ARGS);
+		createEAttribute(jobEClass, JOB__NAME);
+
+		jobConsoleEClass = createEClass(JOB_CONSOLE);
+		createEReference(jobConsoleEClass, JOB_CONSOLE__PARAMETERS);
+		createEAttribute(jobConsoleEClass, JOB_CONSOLE__HELP_TEXT);
+		createEAttribute(jobConsoleEClass, JOB_CONSOLE__ARGS);
+		createEOperation(jobConsoleEClass, JOB_CONSOLE___ADD_PARAMETER__STRING_JOBPARAMETERTYPE_EATTRIBUTE_STRING);
+		createEOperation(jobConsoleEClass, JOB_CONSOLE___REFRESH_PARAMETERS);
+		createEOperation(jobConsoleEClass, JOB_CONSOLE___GET_ARG_AS_STRING__INT);
+		createEOperation(jobConsoleEClass, JOB_CONSOLE___GET_ARG_AS_INT__INT);
+		createEOperation(jobConsoleEClass, JOB_CONSOLE___GET_ARG_AS_FLOAT__INT);
+		createEOperation(jobConsoleEClass, JOB_CONSOLE___GET_ARG_AS_DATE__INT);
+		createEOperation(jobConsoleEClass, JOB_CONSOLE___GET_ARG_AS_DATE__INT_STRING);
+		createEOperation(jobConsoleEClass, JOB_CONSOLE___SET_ARGS);
 
 		// Create enums
 		jobParameterTypeEEnum = createEEnum(JOB_PARAMETER_TYPE);
@@ -697,6 +706,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 
 		// Add supertypes to classes
 		jobEClass.getESuperTypes().add(this.getRun());
+		jobConsoleEClass.getESuperTypes().add(this.getJob());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(jobParameterEClass, JobParameter.class, "JobParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -733,49 +743,50 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		initEOperation(getRun__GetReturn(), this.getReturnFeedback(), "getReturn", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(jobEClass, Job.class, "Job", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getJob_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_Status(), ecorePackage.getEString(), "Status", null, 0, 1, Job.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_Description(), ecorePackage.getEString(), "Description", null, 0, 1, Job.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJob_HelpText(), ecorePackage.getEString(), "HelpText", null, 0, 1, Job.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_StartTime(), ecorePackage.getEDate(), "StartTime", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_EndTime(), ecorePackage.getEDate(), "EndTime", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_Duration(), ecorePackage.getEFloat(), "Duration", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJob_Running(), ecorePackage.getEBoolean(), "Running", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJob_Stopped(), ecorePackage.getEBoolean(), "Stopped", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJob_Started(), ecorePackage.getEBoolean(), "Started", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJob_Finished(), ecorePackage.getEBoolean(), "Finished", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJob_Args(), ecorePackage.getEString(), "Args", null, 0, -1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJob_Parameters(), this.getJobParameter(), null, "Parameters", null, 0, -1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJob_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Job.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getJob__AddParameter__String_JobParameterType_EAttribute_String(), null, "addParameter", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEClass(jobConsoleEClass, JobConsole.class, "JobConsole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getJobConsole_Parameters(), this.getJobParameter(), null, "Parameters", null, 0, -1, JobConsole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobConsole_HelpText(), ecorePackage.getEString(), "HelpText", null, 0, 1, JobConsole.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobConsole_Args(), ecorePackage.getEString(), "Args", null, 0, -1, JobConsole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getJobConsole__AddParameter__String_JobParameterType_EAttribute_String(), null, "addParameter", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theEcorePackage.getEString(), "name", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getJobParameterType(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEAttribute(), "attribute", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theEcorePackage.getEString(), "description", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getJob__RefreshParameters(), null, "refreshParameters", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getJobConsole__RefreshParameters(), null, "refreshParameters", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getJob__GetArgAsString__int(), ecorePackage.getEString(), "getArgAsString", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getJobConsole__GetArgAsString__int(), ecorePackage.getEString(), "getArgAsString", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "index", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
-		op = initEOperation(getJob__GetArgAsInt__int(), ecorePackage.getEInt(), "getArgAsInt", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getJobConsole__GetArgAsInt__int(), ecorePackage.getEInt(), "getArgAsInt", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "index", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
-		op = initEOperation(getJob__GetArgAsFloat__int(), ecorePackage.getEFloat(), "getArgAsFloat", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getJobConsole__GetArgAsFloat__int(), ecorePackage.getEFloat(), "getArgAsFloat", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "index", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
-		op = initEOperation(getJob__GetArgAsDate__int(), ecorePackage.getEDate(), "getArgAsDate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getJobConsole__GetArgAsDate__int(), ecorePackage.getEDate(), "getArgAsDate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "index", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
-		op = initEOperation(getJob__GetArgAsDate__int_String(), ecorePackage.getEDate(), "getArgAsDate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getJobConsole__GetArgAsDate__int_String(), ecorePackage.getEDate(), "getArgAsDate", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "index", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "simpleDateFormat", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
-		op = initEOperation(getJob__SetArgs(), null, "setArgs", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getJobConsole__SetArgs(), null, "setArgs", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
 		// Initialize enums and add enum literals
