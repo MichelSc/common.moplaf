@@ -35,7 +35,7 @@
       </eAnnotations>
     </eOperations>
     <eOperations name="getParamValue" eType="#//Object">
-      <eParameters name="attribute" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EAttribute"/>
+      <eParameters name="attribute" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
     </eOperations>
     <eOperations name="getParamAttributes" upperBound="-1" eType="#//Object"/>
     <eOperations name="addTable">

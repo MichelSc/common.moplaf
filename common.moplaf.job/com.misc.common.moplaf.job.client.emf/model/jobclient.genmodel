@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.job.client.emf/src" modelPluginID="com.misc.common.moplaf.job.client.emf"
+    modelName="Jobclient" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    usedGenPackages="../../com.misc.common.moplaf.job.emf/model/job.genmodel#//job"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>jobclient.ecore</foreignModel>
+  <genPackages prefix="Jobclient" basePackage="com.misc.common.moplaf.job" disposableProviderFactory="true"
+      ecorePackage="jobclient.ecore#/">
+    <genClasses ecoreClass="jobclient.ecore#//JobRemote">
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job"
+          ecoreFeature="ecore:EAttribute jobclient.ecore#//JobRemote/SubmissionID"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference jobclient.ecore#//JobRemote/HandlingEngine"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jobclient.ecore#//JobRemote/Result"/>
+      <genOperations ecoreOperation="jobclient.ecore#//JobRemote/onProgress">
+        <genParameters ecoreParameter="jobclient.ecore#//JobRemote/onProgress/feedback"/>
+      </genOperations>
+      <genOperations ecoreOperation="jobclient.ecore#//JobRemote/onReturn">
+        <genParameters ecoreParameter="jobclient.ecore#//JobRemote/onReturn/feedback"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="jobclient.ecore#//JobEngine">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference jobclient.ecore#//JobEngine/SubmittedJobs"/>
+      <genOperations ecoreOperation="jobclient.ecore#//JobEngine/submitJob">
+        <genParameters ecoreParameter="jobclient.ecore#//JobEngine/submitJob/job"/>
+      </genOperations>
+      <genOperations ecoreOperation="jobclient.ecore#//JobEngine/getJob">
+        <genParameters ecoreParameter="jobclient.ecore#//JobEngine/getJob/submissionID"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="jobclient.ecore#//JobRemoteResult"/>
+    <genClasses ecoreClass="jobclient.ecore#//JobEngineInProcess">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobclient.ecore#//JobEngineInProcess/Asynchronous"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
