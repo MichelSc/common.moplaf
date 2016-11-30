@@ -191,11 +191,10 @@ public class JobItemProvider extends RunItemProvider {
 	 * This returns Job.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Job"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Job.png"));
 	}
 
 	/**
