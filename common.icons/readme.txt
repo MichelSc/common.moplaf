@@ -1,8 +1,10 @@
 Michel 20140512
   icons downloaded from http://www.flaticon.com/
-Michel 20150815: e few more downloads
 
-We should mention somewhere: 
+Michel 20150815: a few more downloads
+
+We 
+should mention somewhere: 
 <div>Icons made by 
   <a href="http://www.flaticon.com/authors/bogdan-rosu" title="Bogdan Rosu">Bogdan Rosu</a> 
   from 
