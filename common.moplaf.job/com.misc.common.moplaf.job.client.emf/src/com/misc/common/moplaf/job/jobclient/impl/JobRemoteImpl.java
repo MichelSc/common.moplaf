@@ -7,8 +7,7 @@ import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.job.ProgressFeedback;
 
 import com.misc.common.moplaf.job.impl.JobImpl;
-
-import com.misc.common.moplaf.job.jobclient.JobEngine;
+import com.misc.common.moplaf.job.jobclient.JobEngineProxy;
 import com.misc.common.moplaf.job.jobclient.JobRemote;
 import com.misc.common.moplaf.job.jobclient.JobRemoteResult;
 import com.misc.common.moplaf.job.jobclient.JobclientPackage;
@@ -70,7 +69,7 @@ public class JobRemoteImpl extends JobImpl implements JobRemote {
 	 * @generated
 	 * @ordered
 	 */
-	protected JobEngine handlingEngine;
+	protected JobEngineProxy handlingEngine;
 
 	/**
 	 * The cached value of the '{@link #getResult() <em>Result</em>}' containment reference.
@@ -127,10 +126,10 @@ public class JobRemoteImpl extends JobImpl implements JobRemote {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JobEngine getHandlingEngine() {
+	public JobEngineProxy getHandlingEngine() {
 		if (handlingEngine != null && handlingEngine.eIsProxy()) {
 			InternalEObject oldHandlingEngine = (InternalEObject)handlingEngine;
-			handlingEngine = (JobEngine)eResolveProxy(oldHandlingEngine);
+			handlingEngine = (JobEngineProxy)eResolveProxy(oldHandlingEngine);
 			if (handlingEngine != oldHandlingEngine) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JobclientPackage.JOB_REMOTE__HANDLING_ENGINE, oldHandlingEngine, handlingEngine));
@@ -144,7 +143,7 @@ public class JobRemoteImpl extends JobImpl implements JobRemote {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public JobEngine basicGetHandlingEngine() {
+	public JobEngineProxy basicGetHandlingEngine() {
 		return handlingEngine;
 	}
 
@@ -153,8 +152,8 @@ public class JobRemoteImpl extends JobImpl implements JobRemote {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetHandlingEngine(JobEngine newHandlingEngine, NotificationChain msgs) {
-		JobEngine oldHandlingEngine = handlingEngine;
+	public NotificationChain basicSetHandlingEngine(JobEngineProxy newHandlingEngine, NotificationChain msgs) {
+		JobEngineProxy oldHandlingEngine = handlingEngine;
 		handlingEngine = newHandlingEngine;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JobclientPackage.JOB_REMOTE__HANDLING_ENGINE, oldHandlingEngine, newHandlingEngine);
@@ -168,13 +167,13 @@ public class JobRemoteImpl extends JobImpl implements JobRemote {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setHandlingEngine(JobEngine newHandlingEngine) {
+	public void setHandlingEngine(JobEngineProxy newHandlingEngine) {
 		if (newHandlingEngine != handlingEngine) {
 			NotificationChain msgs = null;
 			if (handlingEngine != null)
-				msgs = ((InternalEObject)handlingEngine).eInverseRemove(this, JobclientPackage.JOB_ENGINE__SUBMITTED_JOBS, JobEngine.class, msgs);
+				msgs = ((InternalEObject)handlingEngine).eInverseRemove(this, JobclientPackage.JOB_ENGINE_PROXY__SUBMITTED_JOBS, JobEngineProxy.class, msgs);
 			if (newHandlingEngine != null)
-				msgs = ((InternalEObject)newHandlingEngine).eInverseAdd(this, JobclientPackage.JOB_ENGINE__SUBMITTED_JOBS, JobEngine.class, msgs);
+				msgs = ((InternalEObject)newHandlingEngine).eInverseAdd(this, JobclientPackage.JOB_ENGINE_PROXY__SUBMITTED_JOBS, JobEngineProxy.class, msgs);
 			msgs = basicSetHandlingEngine(newHandlingEngine, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -251,8 +250,8 @@ public class JobRemoteImpl extends JobImpl implements JobRemote {
 		switch (featureID) {
 			case JobclientPackage.JOB_REMOTE__HANDLING_ENGINE:
 				if (handlingEngine != null)
-					msgs = ((InternalEObject)handlingEngine).eInverseRemove(this, JobclientPackage.JOB_ENGINE__SUBMITTED_JOBS, JobEngine.class, msgs);
-				return basicSetHandlingEngine((JobEngine)otherEnd, msgs);
+					msgs = ((InternalEObject)handlingEngine).eInverseRemove(this, JobclientPackage.JOB_ENGINE_PROXY__SUBMITTED_JOBS, JobEngineProxy.class, msgs);
+				return basicSetHandlingEngine((JobEngineProxy)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -304,7 +303,7 @@ public class JobRemoteImpl extends JobImpl implements JobRemote {
 				setSubmissionID((Integer)newValue);
 				return;
 			case JobclientPackage.JOB_REMOTE__HANDLING_ENGINE:
-				setHandlingEngine((JobEngine)newValue);
+				setHandlingEngine((JobEngineProxy)newValue);
 				return;
 			case JobclientPackage.JOB_REMOTE__RESULT:
 				setResult((JobRemoteResult)newValue);
@@ -325,7 +324,7 @@ public class JobRemoteImpl extends JobImpl implements JobRemote {
 				setSubmissionID(SUBMISSION_ID_EDEFAULT);
 				return;
 			case JobclientPackage.JOB_REMOTE__HANDLING_ENGINE:
-				setHandlingEngine((JobEngine)null);
+				setHandlingEngine((JobEngineProxy)null);
 				return;
 			case JobclientPackage.JOB_REMOTE__RESULT:
 				setResult((JobRemoteResult)null);

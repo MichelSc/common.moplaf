@@ -118,6 +118,29 @@ public class JobclientItemProviderAdapterFactory extends JobclientAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.jobclient.SubmittedJob} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SubmittedJobItemProvider submittedJobItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.job.jobclient.SubmittedJob}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSubmittedJobAdapter() {
+		if (submittedJobItemProvider == null) {
+			submittedJobItemProvider = new SubmittedJobItemProvider(this);
+		}
+
+		return submittedJobItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.jobclient.JobEngineInProcess} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -241,6 +264,7 @@ public class JobclientItemProviderAdapterFactory extends JobclientAdapterFactory
 	public void dispose() {
 		if (jobRemoteItemProvider != null) jobRemoteItemProvider.dispose();
 		if (jobRemoteResultItemProvider != null) jobRemoteResultItemProvider.dispose();
+		if (submittedJobItemProvider != null) submittedJobItemProvider.dispose();
 		if (jobEngineInProcessItemProvider != null) jobEngineInProcessItemProvider.dispose();
 	}
 

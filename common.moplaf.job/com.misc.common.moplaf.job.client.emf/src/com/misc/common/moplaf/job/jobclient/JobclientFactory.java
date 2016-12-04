@@ -40,6 +40,15 @@ public interface JobclientFactory extends EFactory {
 	JobRemoteResult createJobRemoteResult();
 
 	/**
+	 * Returns a new object of class '<em>Submitted Job</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Submitted Job</em>'.
+	 * @generated
+	 */
+	SubmittedJob createSubmittedJob();
+
+	/**
 	 * Returns a new object of class '<em>Job Engine In Process</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -3,21 +3,21 @@
 package com.misc.common.moplaf.job.jobclient.provider;
 
 
+import com.misc.common.moplaf.common.EnabledFeedback;
+import com.misc.common.moplaf.emf.edit.command.StartCommand;
+import com.misc.common.moplaf.emf.edit.command.StopCommand;
 import com.misc.common.moplaf.job.jobclient.JobEngine;
-import com.misc.common.moplaf.job.jobclient.JobRemote;
 import com.misc.common.moplaf.job.jobclient.JobclientPackage;
 
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.emf.common.command.AbstractCommand;
 import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.edit.command.DragAndDropCommand;
+import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -66,7 +66,9 @@ public class JobEngineItemProvider
 			super.getPropertyDescriptors(object);
 
 			addSubmittedJobsPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
+			addRunningPropertyDescriptor(object);
+			addStartFeedbackPropertyDescriptor(object);
+			addStopFeedbackPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -94,20 +96,64 @@ public class JobEngineItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Running feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addRunningPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_JobEngine_Name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_JobEngine_Name_feature", "_UI_JobEngine_type"),
-				 JobclientPackage.Literals.JOB_ENGINE__NAME,
+				 getString("_UI_JobEngine_Running_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobEngine_Running_feature", "_UI_JobEngine_type"),
+				 JobclientPackage.Literals.JOB_ENGINE__RUNNING,
 				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Start Feedback feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStartFeedbackPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobEngine_StartFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobEngine_StartFeedback_feature", "_UI_JobEngine_type"),
+				 JobclientPackage.Literals.JOB_ENGINE__START_FEEDBACK,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Stop Feedback feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStopFeedbackPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobEngine_StopFeedback_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobEngine_StopFeedback_feature", "_UI_JobEngine_type"),
+				 JobclientPackage.Literals.JOB_ENGINE__STOP_FEEDBACK,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -123,10 +169,8 @@ public class JobEngineItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((JobEngine)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_JobEngine_type") :
-			getString("_UI_JobEngine_type") + " " + label;
+		JobEngine jobEngine = (JobEngine)object;
+		return getString("_UI_JobEngine_type") + " " + jobEngine.isRunning();
 	}
 	
 
@@ -142,7 +186,9 @@ public class JobEngineItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(JobEngine.class)) {
-			case JobclientPackage.JOB_ENGINE__NAME:
+			case JobclientPackage.JOB_ENGINE__RUNNING:
+			case JobclientPackage.JOB_ENGINE__START_FEEDBACK:
+			case JobclientPackage.JOB_ENGINE__STOP_FEEDBACK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -172,78 +218,76 @@ public class JobEngineItemProvider
 		return JobclientEditPlugin.INSTANCE;
 	}
 
-	/**
-	 * Implements Command JobEngineSubmitJobCommand
+	/*
+	 * StartCommand
 	 */
-	public class JobEngineSubmitJobCommand extends AbstractCommand {
-
-		protected JobEngine jobEngine;
-		protected JobRemote jobRemote;
+	public class EngineStartCommand extends StartCommand{
+		private JobEngine jobEngine;
 		
-		public JobEngineSubmitJobCommand(JobEngine jobEngine, JobRemote jobRemote) {
-			super();
-			this.jobEngine = jobEngine;
-			this.jobRemote = jobRemote;
-		}
-
-		protected boolean prepare(){
-			isExecutable = true;
-			return isExecutable;
-		}
-
-		public boolean canUndo() { 
-			return false; 
+		// constructor
+		public EngineStartCommand(JobEngine aJobEngine)	{
+			this.jobEngine = aJobEngine;
 		}
 
 		@Override
-		public void redo() {
-			execute();		
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			EnabledFeedback feedback = this.jobEngine.getStartFeedback();
+			if ( !feedback.isEnabled() ) {
+				isExecutable = false;
+				this.setDescription(feedback.getFeedback());
+			}
+			return isExecutable;
 		}
 
 		@Override
 		public void execute() {
-			this.jobEngine.submitJob(this.jobRemote);
+			this.jobEngine.start();
 		}
-
-	}
-
-
-	/**
-	 * Create a drag and drop command for this Solver
+	} // class EngineStartCommand
+	
+	/*
+	 * StopCommand
 	 */
-	public class JobEngineDragAndDropCommand extends DragAndDropCommand{
+	public class EngineStopCommand extends StopCommand{
+		private JobEngine jobEngine;
+		
 		// constructor
-	   	public JobEngineDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
-				int operation, Collection<?> collection) {
-			super(domain, owner, location, operations, operation, collection);
+		public EngineStopCommand(JobEngine aJobEngine)	{
+			this.jobEngine = aJobEngine;
 		}
-	   	
-	    /**
-	     * This implementation of prepare is called again to implement {@link #validate validate}.
-	     * The method {@link #reset} will have been called before doing so.
-	     */
-	    @Override
-	    protected boolean prepare(){
-	    	CompoundCommand compound = new CompoundCommand();
-			JobEngine thisJobEnigne= (JobEngine) this.owner;
-			for (Object element : collection){
-				if ( element instanceof JobRemote){
-		  	   		JobRemote droppedJob = (JobRemote) element;
-		  	   		JobEngineSubmitJobCommand cmd = new JobEngineSubmitJobCommand(thisJobEnigne, droppedJob);
-				   	compound.append(cmd);
-				} 
+
+		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			EnabledFeedback feedback = this.jobEngine.getStopFeedback();
+			if ( !feedback.isEnabled() ) {
+				isExecutable = false;
+				this.setDescription(feedback.getFeedback());
 			}
-	    	this.dragCommand = null;
-			this.dropCommand = compound;
-	    	return true;
-	    } // prepare
-	};
+			return isExecutable;
+		}
+
+		@Override
+		public void execute() {
+			this.jobEngine.stop();
+		}
+	} // class EngineStopCommand
+	
 	/**
-	 * Create a command for a drag and drop on this Solver
+	 * 
 	 */
 	@Override
-	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
-			int operation, Collection<?> collection) {
-		return new JobEngineDragAndDropCommand(domain, owner, location, operations, operation, collection);
-	}
+	public Command createCommand(Object object, EditingDomain domain,
+			Class<? extends Command> commandClass,
+			CommandParameter commandParameter) {
+		if ( commandClass == StartCommand.class){
+			return new EngineStartCommand((JobEngine) object); 
+		}
+		else if ( commandClass == StopCommand.class){
+			return new EngineStopCommand((JobEngine) object); 
+		}
+
+		return super.createCommand(object, domain, commandClass, commandParameter);
+	} //method createCommand
 }

@@ -58,6 +58,7 @@ public class JobclientFactoryImpl extends EFactoryImpl implements JobclientFacto
 		switch (eClass.getClassifierID()) {
 			case JobclientPackage.JOB_REMOTE: return createJobRemote();
 			case JobclientPackage.JOB_REMOTE_RESULT: return createJobRemoteResult();
+			case JobclientPackage.SUBMITTED_JOB: return createSubmittedJob();
 			case JobclientPackage.JOB_ENGINE_IN_PROCESS: return createJobEngineInProcess();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -82,6 +83,16 @@ public class JobclientFactoryImpl extends EFactoryImpl implements JobclientFacto
 	public JobRemoteResult createJobRemoteResult() {
 		JobRemoteResultImpl jobRemoteResult = new JobRemoteResultImpl();
 		return jobRemoteResult;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SubmittedJob createSubmittedJob() {
+		SubmittedJobImpl submittedJob = new SubmittedJobImpl();
+		return submittedJob;
 	}
 
 	/**

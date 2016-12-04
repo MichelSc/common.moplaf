@@ -2,16 +2,15 @@
  */
 package com.misc.common.moplaf.job.jobclient.impl;
 
-import com.misc.common.moplaf.common.ReturnFeedback;
-import com.misc.common.moplaf.job.RunContext;
+import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.job.jobclient.JobEngine;
-import com.misc.common.moplaf.job.jobclient.JobRemote;
 import com.misc.common.moplaf.job.jobclient.JobclientPackage;
 
+import com.misc.common.moplaf.job.jobclient.SubmittedJob;
 import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
 
+import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -19,11 +18,10 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -35,40 +33,60 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl#getSubmittedJobs <em>Submitted Jobs</em>}</li>
- *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl#isRunning <em>Running</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl#getStartFeedback <em>Start Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl#getStopFeedback <em>Stop Feedback</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class JobEngineImpl extends MinimalEObjectImpl.Container implements JobEngine {
 	/**
-	 * The cached value of the '{@link #getSubmittedJobs() <em>Submitted Jobs</em>}' reference list.
+	 * The cached value of the '{@link #getSubmittedJobs() <em>Submitted Jobs</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSubmittedJobs()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<JobRemote> submittedJobs;
+	protected EList<SubmittedJob> submittedJobs;
 
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The default value of the '{@link #isRunning() <em>Running</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #isRunning()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
+	protected static final boolean RUNNING_EDEFAULT = false;
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * The cached value of the '{@link #isRunning() <em>Running</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
+	 * @see #isRunning()
 	 * @generated
 	 * @ordered
 	 */
-	protected String name = NAME_EDEFAULT;
+	protected boolean running = RUNNING_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getStartFeedback() <em>Start Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStartFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EnabledFeedback START_FEEDBACK_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getStopFeedback() <em>Stop Feedback</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStopFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EnabledFeedback STOP_FEEDBACK_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -94,9 +112,9 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<JobRemote> getSubmittedJobs() {
+	public EList<SubmittedJob> getSubmittedJobs() {
 		if (submittedJobs == null) {
-			submittedJobs = new EObjectWithInverseResolvingEList<JobRemote>(JobRemote.class, this, JobclientPackage.JOB_ENGINE__SUBMITTED_JOBS, JobclientPackage.JOB_REMOTE__HANDLING_ENGINE);
+			submittedJobs = new EObjectContainmentEList<SubmittedJob>(SubmittedJob.class, this, JobclientPackage.JOB_ENGINE__SUBMITTED_JOBS);
 		}
 		return submittedJobs;
 	}
@@ -106,8 +124,8 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName() {
-		return name;
+	public boolean isRunning() {
+		return running;
 	}
 
 	/**
@@ -115,60 +133,61 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
+	public void setRunning(boolean newRunning) {
+		boolean oldRunning = running;
+		running = newRunning;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JobclientPackage.JOB_ENGINE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, JobclientPackage.JOB_ENGINE__RUNNING, oldRunning, running));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public int submitJob(JobRemote job) {
-		// create a new submission id
-		int newId = 0;
-		for ( JobRemote aJob : this.getSubmittedJobs()){
-			if ( aJob.getSubmissionID()>newId){
-				newId = aJob.getSubmissionID();
-			}
+	public EnabledFeedback getStartFeedback() {
+		if ( this.isRunning()){
+			return new EnabledFeedback(false, "Engine started");
 		}
-		newId++;
-		// add the job
-		this.getSubmittedJobs().add(job);
-		// run the job
-		RunContext runContext = null;
-		ReturnFeedback result = job.run(runContext);
-		job.onReturn(result);
-		// job is run
-		return newId;
+		return EnabledFeedback.NOFEEDBACK;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public JobRemote getJob(int submissionID) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case JobclientPackage.JOB_ENGINE__SUBMITTED_JOBS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSubmittedJobs()).basicAdd(otherEnd, msgs);
+	public EnabledFeedback getStopFeedback() {
+		if ( !this.isRunning()){
+			return new EnabledFeedback(false, "Engine stopped");
 		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
+		return EnabledFeedback.NOFEEDBACK;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void start() {
+		CommonPlugin.INSTANCE.log("Engine started");
+		this.setRunning(true);
+	}
+	
+	protected void startImpl(){
+		// to be overloaded by concrete engine
+		// default does nothing
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void stop() {
+		CommonPlugin.INSTANCE.log("Engine stopped");
+		this.setRunning(false);
+	}
+	
+	protected void stopImpl(){
+		// to be overloaded by concrete engine
+		// default does nothing
 	}
 
 	/**
@@ -195,8 +214,12 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 		switch (featureID) {
 			case JobclientPackage.JOB_ENGINE__SUBMITTED_JOBS:
 				return getSubmittedJobs();
-			case JobclientPackage.JOB_ENGINE__NAME:
-				return getName();
+			case JobclientPackage.JOB_ENGINE__RUNNING:
+				return isRunning();
+			case JobclientPackage.JOB_ENGINE__START_FEEDBACK:
+				return getStartFeedback();
+			case JobclientPackage.JOB_ENGINE__STOP_FEEDBACK:
+				return getStopFeedback();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -212,10 +235,10 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 		switch (featureID) {
 			case JobclientPackage.JOB_ENGINE__SUBMITTED_JOBS:
 				getSubmittedJobs().clear();
-				getSubmittedJobs().addAll((Collection<? extends JobRemote>)newValue);
+				getSubmittedJobs().addAll((Collection<? extends SubmittedJob>)newValue);
 				return;
-			case JobclientPackage.JOB_ENGINE__NAME:
-				setName((String)newValue);
+			case JobclientPackage.JOB_ENGINE__RUNNING:
+				setRunning((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -232,8 +255,8 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 			case JobclientPackage.JOB_ENGINE__SUBMITTED_JOBS:
 				getSubmittedJobs().clear();
 				return;
-			case JobclientPackage.JOB_ENGINE__NAME:
-				setName(NAME_EDEFAULT);
+			case JobclientPackage.JOB_ENGINE__RUNNING:
+				setRunning(RUNNING_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -249,8 +272,12 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 		switch (featureID) {
 			case JobclientPackage.JOB_ENGINE__SUBMITTED_JOBS:
 				return submittedJobs != null && !submittedJobs.isEmpty();
-			case JobclientPackage.JOB_ENGINE__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case JobclientPackage.JOB_ENGINE__RUNNING:
+				return running != RUNNING_EDEFAULT;
+			case JobclientPackage.JOB_ENGINE__START_FEEDBACK:
+				return START_FEEDBACK_EDEFAULT == null ? getStartFeedback() != null : !START_FEEDBACK_EDEFAULT.equals(getStartFeedback());
+			case JobclientPackage.JOB_ENGINE__STOP_FEEDBACK:
+				return STOP_FEEDBACK_EDEFAULT == null ? getStopFeedback() != null : !STOP_FEEDBACK_EDEFAULT.equals(getStopFeedback());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -263,10 +290,12 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case JobclientPackage.JOB_ENGINE___SUBMIT_JOB__JOBREMOTE:
-				return submitJob((JobRemote)arguments.get(0));
-			case JobclientPackage.JOB_ENGINE___GET_JOB__INT:
-				return getJob((Integer)arguments.get(0));
+			case JobclientPackage.JOB_ENGINE___START:
+				start();
+				return null;
+			case JobclientPackage.JOB_ENGINE___STOP:
+				stop();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -281,8 +310,8 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (Name: ");
-		result.append(name);
+		result.append(" (Running: ");
+		result.append(running);
 		result.append(')');
 		return result.toString();
 	}

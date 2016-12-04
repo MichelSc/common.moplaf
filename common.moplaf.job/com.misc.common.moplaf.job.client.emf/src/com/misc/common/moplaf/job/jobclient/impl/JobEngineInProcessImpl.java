@@ -2,7 +2,10 @@
  */
 package com.misc.common.moplaf.job.jobclient.impl;
 
+import com.misc.common.moplaf.common.ReturnFeedback;
+import com.misc.common.moplaf.job.RunContext;
 import com.misc.common.moplaf.job.jobclient.JobEngineInProcess;
+import com.misc.common.moplaf.job.jobclient.JobRemote;
 import com.misc.common.moplaf.job.jobclient.JobclientPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -24,7 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class JobEngineInProcessImpl extends JobEngineImpl implements JobEngineInProcess {
+public class JobEngineInProcessImpl extends JobEngineProxyImpl implements JobEngineInProcess {
 	/**
 	 * The default value of the '{@link #isAsynchronous() <em>Asynchronous</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -158,5 +161,17 @@ public class JobEngineInProcessImpl extends JobEngineImpl implements JobEngineIn
 		result.append(')');
 		return result.toString();
 	}
+
+	/**
+	 * 
+	 */
+	@Override
+	protected ReturnFeedback runJobImpl(JobRemote job) {
+		RunContext runContext = null;
+		ReturnFeedback result = job.run(runContext);
+		return result;
+	}
+	
+	
 
 } //JobEngineInProcessImpl

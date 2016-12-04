@@ -54,7 +54,7 @@ public interface JobRemote extends Job {
 
 	/**
 	 * Returns the value of the '<em><b>Handling Engine</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.jobclient.JobEngine#getSubmittedJobs <em>Submitted Jobs</em>}'.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.jobclient.JobEngineProxy#getSubmittedJobs <em>Submitted Jobs</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Handling Engine</em>' reference isn't clear,
@@ -62,13 +62,13 @@ public interface JobRemote extends Job {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Handling Engine</em>' reference.
-	 * @see #setHandlingEngine(JobEngine)
+	 * @see #setHandlingEngine(JobEngineProxy)
 	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobRemote_HandlingEngine()
-	 * @see com.misc.common.moplaf.job.jobclient.JobEngine#getSubmittedJobs
+	 * @see com.misc.common.moplaf.job.jobclient.JobEngineProxy#getSubmittedJobs
 	 * @model opposite="SubmittedJobs"
 	 * @generated
 	 */
-	JobEngine getHandlingEngine();
+	JobEngineProxy getHandlingEngine();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobclient.JobRemote#getHandlingEngine <em>Handling Engine</em>}' reference.
@@ -78,7 +78,7 @@ public interface JobRemote extends Job {
 	 * @see #getHandlingEngine()
 	 * @generated
 	 */
-	void setHandlingEngine(JobEngine value);
+	void setHandlingEngine(JobEngineProxy value);
 
 	/**
 	 * Returns the value of the '<em><b>Result</b></em>' containment reference.

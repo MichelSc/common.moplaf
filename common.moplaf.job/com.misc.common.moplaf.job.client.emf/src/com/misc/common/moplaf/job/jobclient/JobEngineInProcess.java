@@ -19,7 +19,7 @@ package com.misc.common.moplaf.job.jobclient;
  * @model
  * @generated
  */
-public interface JobEngineInProcess extends JobEngine {
+public interface JobEngineInProcess extends JobEngineProxy {
 	/**
 	 * Returns the value of the '<em><b>Asynchronous</b></em>' attribute.
 	 * <!-- begin-user-doc -->

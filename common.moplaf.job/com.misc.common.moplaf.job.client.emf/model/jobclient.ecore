@@ -10,12 +10,12 @@
       <eParameters name="feedback" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//ReturnFeedback"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SubmissionID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="HandlingEngine" eType="#//JobEngine"
-        eOpposite="#//JobEngine/SubmittedJobs"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="HandlingEngine" eType="#//JobEngineProxy"
+        eOpposite="#//JobEngineProxy/SubmittedJobs"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Result" eType="#//JobRemoteResult"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="JobEngine" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="JobEngineProxy" abstract="true">
     <eOperations name="submitJob" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
       <eParameters name="job" eType="#//JobRemote"/>
     </eOperations>
@@ -27,7 +27,22 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JobRemoteResult"/>
-  <eClassifiers xsi:type="ecore:EClass" name="JobEngineInProcess" eSuperTypes="#//JobEngine">
+  <eClassifiers xsi:type="ecore:EClass" name="JobEngine" abstract="true">
+    <eOperations name="start"/>
+    <eOperations name="stop"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SubmittedJobs" upperBound="-1"
+        eType="#//SubmittedJob" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Running" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StartFeedback" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StopFeedback" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SubmittedJob">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Job" eType="#//JobRemote"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JobEngineInProcess" eSuperTypes="#//JobEngineProxy">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Asynchronous" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -331,14 +331,14 @@ public interface JobclientPackage extends EPackage {
 	int JOB_REMOTE_OPERATION_COUNT = JobPackage.JOB_OPERATION_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl <em>Job Engine</em>}' class.
+	 * The meta object id for the '{@link com.misc.common.moplaf.job.jobclient.impl.JobEngineProxyImpl <em>Job Engine Proxy</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl
-	 * @see com.misc.common.moplaf.job.jobclient.impl.JobclientPackageImpl#getJobEngine()
+	 * @see com.misc.common.moplaf.job.jobclient.impl.JobEngineProxyImpl
+	 * @see com.misc.common.moplaf.job.jobclient.impl.JobclientPackageImpl#getJobEngineProxy()
 	 * @generated
 	 */
-	int JOB_ENGINE = 1;
+	int JOB_ENGINE_PROXY = 1;
 
 	/**
 	 * The feature id for the '<em><b>Submitted Jobs</b></em>' reference list.
@@ -347,7 +347,7 @@ public interface JobclientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE__SUBMITTED_JOBS = 0;
+	int JOB_ENGINE_PROXY__SUBMITTED_JOBS = 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -356,16 +356,16 @@ public interface JobclientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE__NAME = 1;
+	int JOB_ENGINE_PROXY__NAME = 1;
 
 	/**
-	 * The number of structural features of the '<em>Job Engine</em>' class.
+	 * The number of structural features of the '<em>Job Engine Proxy</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_FEATURE_COUNT = 2;
+	int JOB_ENGINE_PROXY_FEATURE_COUNT = 2;
 
 	/**
 	 * The operation id for the '<em>Submit Job</em>' operation.
@@ -374,7 +374,7 @@ public interface JobclientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE___SUBMIT_JOB__JOBREMOTE = 0;
+	int JOB_ENGINE_PROXY___SUBMIT_JOB__JOBREMOTE = 0;
 
 	/**
 	 * The operation id for the '<em>Get Job</em>' operation.
@@ -383,16 +383,36 @@ public interface JobclientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE___GET_JOB__INT = 1;
+	int JOB_ENGINE_PROXY___GET_JOB__INT = 1;
 
 	/**
-	 * The number of operations of the '<em>Job Engine</em>' class.
+	 * The number of operations of the '<em>Job Engine Proxy</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_OPERATION_COUNT = 2;
+	int JOB_ENGINE_PROXY_OPERATION_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl <em>Job Engine</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl
+	 * @see com.misc.common.moplaf.job.jobclient.impl.JobclientPackageImpl#getJobEngine()
+	 * @generated
+	 */
+	int JOB_ENGINE = 3;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.job.jobclient.impl.SubmittedJobImpl <em>Submitted Job</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.job.jobclient.impl.SubmittedJobImpl
+	 * @see com.misc.common.moplaf.job.jobclient.impl.JobclientPackageImpl#getSubmittedJob()
+	 * @generated
+	 */
+	int SUBMITTED_JOB = 4;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.job.jobclient.impl.JobRemoteResultImpl <em>Job Remote Result</em>}' class.
@@ -423,6 +443,106 @@ public interface JobclientPackage extends EPackage {
 	int JOB_REMOTE_RESULT_OPERATION_COUNT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Submitted Jobs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE__SUBMITTED_JOBS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Running</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE__RUNNING = 1;
+
+	/**
+	 * The feature id for the '<em><b>Start Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE__START_FEEDBACK = 2;
+
+	/**
+	 * The feature id for the '<em><b>Stop Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE__STOP_FEEDBACK = 3;
+
+	/**
+	 * The number of structural features of the '<em>Job Engine</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_FEATURE_COUNT = 4;
+
+	/**
+	 * The operation id for the '<em>Start</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE___START = 0;
+
+	/**
+	 * The operation id for the '<em>Stop</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE___STOP = 1;
+
+	/**
+	 * The number of operations of the '<em>Job Engine</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_OPERATION_COUNT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Job</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBMITTED_JOB__JOB = 0;
+
+	/**
+	 * The number of structural features of the '<em>Submitted Job</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBMITTED_JOB_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Submitted Job</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBMITTED_JOB_OPERATION_COUNT = 0;
+
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.job.jobclient.impl.JobEngineInProcessImpl <em>Job Engine In Process</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -430,7 +550,7 @@ public interface JobclientPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.jobclient.impl.JobclientPackageImpl#getJobEngineInProcess()
 	 * @generated
 	 */
-	int JOB_ENGINE_IN_PROCESS = 3;
+	int JOB_ENGINE_IN_PROCESS = 5;
 
 	/**
 	 * The feature id for the '<em><b>Submitted Jobs</b></em>' reference list.
@@ -439,7 +559,7 @@ public interface JobclientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_IN_PROCESS__SUBMITTED_JOBS = JOB_ENGINE__SUBMITTED_JOBS;
+	int JOB_ENGINE_IN_PROCESS__SUBMITTED_JOBS = JOB_ENGINE_PROXY__SUBMITTED_JOBS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -448,7 +568,7 @@ public interface JobclientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_IN_PROCESS__NAME = JOB_ENGINE__NAME;
+	int JOB_ENGINE_IN_PROCESS__NAME = JOB_ENGINE_PROXY__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Asynchronous</b></em>' attribute.
@@ -457,7 +577,7 @@ public interface JobclientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_IN_PROCESS__ASYNCHRONOUS = JOB_ENGINE_FEATURE_COUNT + 0;
+	int JOB_ENGINE_IN_PROCESS__ASYNCHRONOUS = JOB_ENGINE_PROXY_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Job Engine In Process</em>' class.
@@ -466,7 +586,7 @@ public interface JobclientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_IN_PROCESS_FEATURE_COUNT = JOB_ENGINE_FEATURE_COUNT + 1;
+	int JOB_ENGINE_IN_PROCESS_FEATURE_COUNT = JOB_ENGINE_PROXY_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Submit Job</em>' operation.
@@ -475,7 +595,7 @@ public interface JobclientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_IN_PROCESS___SUBMIT_JOB__JOBREMOTE = JOB_ENGINE___SUBMIT_JOB__JOBREMOTE;
+	int JOB_ENGINE_IN_PROCESS___SUBMIT_JOB__JOBREMOTE = JOB_ENGINE_PROXY___SUBMIT_JOB__JOBREMOTE;
 
 	/**
 	 * The operation id for the '<em>Get Job</em>' operation.
@@ -484,7 +604,7 @@ public interface JobclientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_IN_PROCESS___GET_JOB__INT = JOB_ENGINE___GET_JOB__INT;
+	int JOB_ENGINE_IN_PROCESS___GET_JOB__INT = JOB_ENGINE_PROXY___GET_JOB__INT;
 
 	/**
 	 * The number of operations of the '<em>Job Engine In Process</em>' class.
@@ -493,7 +613,7 @@ public interface JobclientPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_IN_PROCESS_OPERATION_COUNT = JOB_ENGINE_OPERATION_COUNT + 0;
+	int JOB_ENGINE_IN_PROCESS_OPERATION_COUNT = JOB_ENGINE_PROXY_OPERATION_COUNT + 0;
 
 
 	/**
@@ -560,6 +680,58 @@ public interface JobclientPackage extends EPackage {
 	EOperation getJobRemote__OnReturn__ReturnFeedback();
 
 	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.jobclient.JobEngineProxy <em>Job Engine Proxy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Job Engine Proxy</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobEngineProxy
+	 * @generated
+	 */
+	EClass getJobEngineProxy();
+
+	/**
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.job.jobclient.JobEngineProxy#getSubmittedJobs <em>Submitted Jobs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Submitted Jobs</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobEngineProxy#getSubmittedJobs()
+	 * @see #getJobEngineProxy()
+	 * @generated
+	 */
+	EReference getJobEngineProxy_SubmittedJobs();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobEngineProxy#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobEngineProxy#getName()
+	 * @see #getJobEngineProxy()
+	 * @generated
+	 */
+	EAttribute getJobEngineProxy_Name();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobEngineProxy#submitJob(com.misc.common.moplaf.job.jobclient.JobRemote) <em>Submit Job</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Submit Job</em>' operation.
+	 * @see com.misc.common.moplaf.job.jobclient.JobEngineProxy#submitJob(com.misc.common.moplaf.job.jobclient.JobRemote)
+	 * @generated
+	 */
+	EOperation getJobEngineProxy__SubmitJob__JobRemote();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobEngineProxy#getJob(int) <em>Get Job</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Job</em>' operation.
+	 * @see com.misc.common.moplaf.job.jobclient.JobEngineProxy#getJob(int)
+	 * @generated
+	 */
+	EOperation getJobEngineProxy__GetJob__int();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.jobclient.JobEngine <em>Job Engine</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -570,10 +742,10 @@ public interface JobclientPackage extends EPackage {
 	EClass getJobEngine();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.job.jobclient.JobEngine#getSubmittedJobs <em>Submitted Jobs</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.job.jobclient.JobEngine#getSubmittedJobs <em>Submitted Jobs</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Submitted Jobs</em>'.
+	 * @return the meta object for the containment reference list '<em>Submitted Jobs</em>'.
 	 * @see com.misc.common.moplaf.job.jobclient.JobEngine#getSubmittedJobs()
 	 * @see #getJobEngine()
 	 * @generated
@@ -581,45 +753,78 @@ public interface JobclientPackage extends EPackage {
 	EReference getJobEngine_SubmittedJobs();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobEngine#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobEngine#isRunning <em>Running</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see com.misc.common.moplaf.job.jobclient.JobEngine#getName()
+	 * @return the meta object for the attribute '<em>Running</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobEngine#isRunning()
 	 * @see #getJobEngine()
 	 * @generated
 	 */
-	EAttribute getJobEngine_Name();
+	EAttribute getJobEngine_Running();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobEngine#submitJob(com.misc.common.moplaf.job.jobclient.JobRemote) <em>Submit Job</em>}' operation.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobEngine#getStartFeedback <em>Start Feedback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Submit Job</em>' operation.
-	 * @see com.misc.common.moplaf.job.jobclient.JobEngine#submitJob(com.misc.common.moplaf.job.jobclient.JobRemote)
+	 * @return the meta object for the attribute '<em>Start Feedback</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobEngine#getStartFeedback()
+	 * @see #getJobEngine()
 	 * @generated
 	 */
-	EOperation getJobEngine__SubmitJob__JobRemote();
+	EAttribute getJobEngine_StartFeedback();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobEngine#getJob(int) <em>Get Job</em>}' operation.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobEngine#getStopFeedback <em>Stop Feedback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Job</em>' operation.
-	 * @see com.misc.common.moplaf.job.jobclient.JobEngine#getJob(int)
+	 * @return the meta object for the attribute '<em>Stop Feedback</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobEngine#getStopFeedback()
+	 * @see #getJobEngine()
 	 * @generated
 	 */
-	EOperation getJobEngine__GetJob__int();
+	EAttribute getJobEngine_StopFeedback();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.jobclient.JobRemoteResult <em>Job Remote Result</em>}'.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobEngine#start() <em>Start</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Job Remote Result</em>'.
-	 * @see com.misc.common.moplaf.job.jobclient.JobRemoteResult
+	 * @return the meta object for the '<em>Start</em>' operation.
+	 * @see com.misc.common.moplaf.job.jobclient.JobEngine#start()
 	 * @generated
 	 */
-	EClass getJobRemoteResult();
+	EOperation getJobEngine__Start();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobEngine#stop() <em>Stop</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Stop</em>' operation.
+	 * @see com.misc.common.moplaf.job.jobclient.JobEngine#stop()
+	 * @generated
+	 */
+	EOperation getJobEngine__Stop();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.jobclient.SubmittedJob <em>Submitted Job</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Submitted Job</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.SubmittedJob
+	 * @generated
+	 */
+	EClass getSubmittedJob();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.job.jobclient.SubmittedJob#getJob <em>Job</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Job</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.SubmittedJob#getJob()
+	 * @see #getSubmittedJob()
+	 * @generated
+	 */
+	EReference getSubmittedJob_Job();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.jobclient.JobEngineInProcess <em>Job Engine In Process</em>}'.
@@ -641,6 +846,16 @@ public interface JobclientPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getJobEngineInProcess_Asynchronous();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.jobclient.JobRemoteResult <em>Job Remote Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Job Remote Result</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobRemoteResult
+	 * @generated
+	 */
+	EClass getJobRemoteResult();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -716,6 +931,48 @@ public interface JobclientPackage extends EPackage {
 		EOperation JOB_REMOTE___ON_RETURN__RETURNFEEDBACK = eINSTANCE.getJobRemote__OnReturn__ReturnFeedback();
 
 		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.job.jobclient.impl.JobEngineProxyImpl <em>Job Engine Proxy</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.job.jobclient.impl.JobEngineProxyImpl
+		 * @see com.misc.common.moplaf.job.jobclient.impl.JobclientPackageImpl#getJobEngineProxy()
+		 * @generated
+		 */
+		EClass JOB_ENGINE_PROXY = eINSTANCE.getJobEngineProxy();
+
+		/**
+		 * The meta object literal for the '<em><b>Submitted Jobs</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JOB_ENGINE_PROXY__SUBMITTED_JOBS = eINSTANCE.getJobEngineProxy_SubmittedJobs();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_ENGINE_PROXY__NAME = eINSTANCE.getJobEngineProxy_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Submit Job</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JOB_ENGINE_PROXY___SUBMIT_JOB__JOBREMOTE = eINSTANCE.getJobEngineProxy__SubmitJob__JobRemote();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Job</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JOB_ENGINE_PROXY___GET_JOB__INT = eINSTANCE.getJobEngineProxy__GetJob__int();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl <em>Job Engine</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -726,7 +983,7 @@ public interface JobclientPackage extends EPackage {
 		EClass JOB_ENGINE = eINSTANCE.getJobEngine();
 
 		/**
-		 * The meta object literal for the '<em><b>Submitted Jobs</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Submitted Jobs</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -734,38 +991,62 @@ public interface JobclientPackage extends EPackage {
 		EReference JOB_ENGINE__SUBMITTED_JOBS = eINSTANCE.getJobEngine_SubmittedJobs();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Running</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute JOB_ENGINE__NAME = eINSTANCE.getJobEngine_Name();
+		EAttribute JOB_ENGINE__RUNNING = eINSTANCE.getJobEngine_Running();
 
 		/**
-		 * The meta object literal for the '<em><b>Submit Job</b></em>' operation.
+		 * The meta object literal for the '<em><b>Start Feedback</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation JOB_ENGINE___SUBMIT_JOB__JOBREMOTE = eINSTANCE.getJobEngine__SubmitJob__JobRemote();
+		EAttribute JOB_ENGINE__START_FEEDBACK = eINSTANCE.getJobEngine_StartFeedback();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Job</b></em>' operation.
+		 * The meta object literal for the '<em><b>Stop Feedback</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation JOB_ENGINE___GET_JOB__INT = eINSTANCE.getJobEngine__GetJob__int();
+		EAttribute JOB_ENGINE__STOP_FEEDBACK = eINSTANCE.getJobEngine_StopFeedback();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.job.jobclient.impl.JobRemoteResultImpl <em>Job Remote Result</em>}' class.
+		 * The meta object literal for the '<em><b>Start</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.job.jobclient.impl.JobRemoteResultImpl
-		 * @see com.misc.common.moplaf.job.jobclient.impl.JobclientPackageImpl#getJobRemoteResult()
 		 * @generated
 		 */
-		EClass JOB_REMOTE_RESULT = eINSTANCE.getJobRemoteResult();
+		EOperation JOB_ENGINE___START = eINSTANCE.getJobEngine__Start();
+
+		/**
+		 * The meta object literal for the '<em><b>Stop</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JOB_ENGINE___STOP = eINSTANCE.getJobEngine__Stop();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.job.jobclient.impl.SubmittedJobImpl <em>Submitted Job</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.job.jobclient.impl.SubmittedJobImpl
+		 * @see com.misc.common.moplaf.job.jobclient.impl.JobclientPackageImpl#getSubmittedJob()
+		 * @generated
+		 */
+		EClass SUBMITTED_JOB = eINSTANCE.getSubmittedJob();
+
+		/**
+		 * The meta object literal for the '<em><b>Job</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SUBMITTED_JOB__JOB = eINSTANCE.getSubmittedJob_Job();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.jobclient.impl.JobEngineInProcessImpl <em>Job Engine In Process</em>}' class.
@@ -784,6 +1065,16 @@ public interface JobclientPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute JOB_ENGINE_IN_PROCESS__ASYNCHRONOUS = eINSTANCE.getJobEngineInProcess_Asynchronous();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.job.jobclient.impl.JobRemoteResultImpl <em>Job Remote Result</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.job.jobclient.impl.JobRemoteResultImpl
+		 * @see com.misc.common.moplaf.job.jobclient.impl.JobclientPackageImpl#getJobRemoteResult()
+		 * @generated
+		 */
+		EClass JOB_REMOTE_RESULT = eINSTANCE.getJobRemoteResult();
 
 	}
 

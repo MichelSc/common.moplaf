@@ -77,9 +77,9 @@ public class JobclientSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JobclientPackage.JOB_ENGINE: {
-				JobEngine jobEngine = (JobEngine)theEObject;
-				T result = caseJobEngine(jobEngine);
+			case JobclientPackage.JOB_ENGINE_PROXY: {
+				JobEngineProxy jobEngineProxy = (JobEngineProxy)theEObject;
+				T result = caseJobEngineProxy(jobEngineProxy);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -89,10 +89,22 @@ public class JobclientSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case JobclientPackage.JOB_ENGINE: {
+				JobEngine jobEngine = (JobEngine)theEObject;
+				T result = caseJobEngine(jobEngine);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JobclientPackage.SUBMITTED_JOB: {
+				SubmittedJob submittedJob = (SubmittedJob)theEObject;
+				T result = caseSubmittedJob(submittedJob);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case JobclientPackage.JOB_ENGINE_IN_PROCESS: {
 				JobEngineInProcess jobEngineInProcess = (JobEngineInProcess)theEObject;
 				T result = caseJobEngineInProcess(jobEngineInProcess);
-				if (result == null) result = caseJobEngine(jobEngineInProcess);
+				if (result == null) result = caseJobEngineProxy(jobEngineInProcess);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -116,6 +128,21 @@ public class JobclientSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Job Engine Proxy</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Job Engine Proxy</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseJobEngineProxy(JobEngineProxy object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Job Engine</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -131,17 +158,17 @@ public class JobclientSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Job Remote Result</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Submitted Job</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Job Remote Result</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Submitted Job</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseJobRemoteResult(JobRemoteResult object) {
+	public T caseSubmittedJob(SubmittedJob object) {
 		return null;
 	}
 
@@ -157,6 +184,21 @@ public class JobclientSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseJobEngineInProcess(JobEngineInProcess object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Job Remote Result</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Job Remote Result</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseJobRemoteResult(JobRemoteResult object) {
 		return null;
 	}
 
