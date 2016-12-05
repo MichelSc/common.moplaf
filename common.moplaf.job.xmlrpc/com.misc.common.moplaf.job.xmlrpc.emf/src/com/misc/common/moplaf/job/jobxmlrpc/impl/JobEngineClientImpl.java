@@ -4,8 +4,6 @@ package com.misc.common.moplaf.job.jobxmlrpc.impl;
 
 import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.job.jobclient.JobRemote;
-import com.misc.common.moplaf.job.jobclient.JobclientFactory;
-import com.misc.common.moplaf.job.jobclient.SubmittedJob;
 import com.misc.common.moplaf.job.jobclient.impl.JobEngineProxyImpl;
 import com.misc.common.moplaf.job.jobxmlrpc.JobEngineClient;
 import com.misc.common.moplaf.job.jobxmlrpc.JobxmlrpcPackage;
@@ -310,8 +308,6 @@ public class JobEngineClientImpl extends JobEngineProxyImpl implements JobEngine
 	    rs.getResourceFactoryRegistry().getExtensionToFactoryMap().put("xml", rf);
 	    URI uri = URI.createURI("http://www.misc.com/tmp/job.xml");
 	    XMLResource resource = (XMLResource)rs.createResource(uri);
-	    JobRemote newJob = null;//DemurropFactory.eINSTANCE.createSolveDemurrop();
-	    resource.getContents().add(newJob);
 	    EObject copyJob = EcoreUtil.copy(job);
 	    resource.getContents().add(copyJob);
 	    StringWriter stringWriter = new StringWriter();

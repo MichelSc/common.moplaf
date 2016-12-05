@@ -11,7 +11,9 @@
         defaultValueLiteral="xmlrpc"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JobEngineServer" eSuperTypes="../../com.misc.common.moplaf.job.client.emf/model/jobclient.ecore#//JobEngine">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Port" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Port" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="8080"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="xmlrpc"/>
   </eClassifiers>
 </ecore:EPackage>

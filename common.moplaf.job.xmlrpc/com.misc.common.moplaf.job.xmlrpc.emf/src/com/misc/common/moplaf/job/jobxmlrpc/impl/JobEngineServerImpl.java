@@ -51,7 +51,7 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int PORT_EDEFAULT = 0;
+	protected static final int PORT_EDEFAULT = 8080;
 
 	/**
 	 * The cached value of the '{@link #getPort() <em>Port</em>}' attribute.
@@ -71,7 +71,7 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String PATH_EDEFAULT = null;
+	protected static final String PATH_EDEFAULT = "xmlrpc";
 
 	/**
 	 * The cached value of the '{@link #getPath() <em>Path</em>}' attribute.

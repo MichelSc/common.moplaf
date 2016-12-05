@@ -119,7 +119,7 @@ public class JobEngineServerItemProvider extends JobEngineItemProvider {
 	@Override
 	public String getText(Object object) {
 		JobEngineServer jobEngineServer = (JobEngineServer)object;
-		return getString("_UI_JobEngineServer_type") + " " + jobEngineServer.getPort();
+		return getString("_UI_JobEngineServer_type") + " " + jobEngineServer.isRunning();
 	}
 	
 

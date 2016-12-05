@@ -169,6 +169,33 @@ public interface JobxmlrpcPackage extends EPackage {
 	int JOB_ENGINE_SERVER__SUBMITTED_JOBS = JobclientPackage.JOB_ENGINE__SUBMITTED_JOBS;
 
 	/**
+	 * The feature id for the '<em><b>Running</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_SERVER__RUNNING = JobclientPackage.JOB_ENGINE__RUNNING;
+
+	/**
+	 * The feature id for the '<em><b>Start Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_SERVER__START_FEEDBACK = JobclientPackage.JOB_ENGINE__START_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Stop Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_SERVER__STOP_FEEDBACK = JobclientPackage.JOB_ENGINE__STOP_FEEDBACK;
+
+	/**
 	 * The feature id for the '<em><b>Port</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -194,6 +221,24 @@ public interface JobxmlrpcPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB_ENGINE_SERVER_FEATURE_COUNT = JobclientPackage.JOB_ENGINE_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Start</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_SERVER___START = JobclientPackage.JOB_ENGINE___START;
+
+	/**
+	 * The operation id for the '<em>Stop</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_SERVER___STOP = JobclientPackage.JOB_ENGINE___STOP;
 
 	/**
 	 * The number of operations of the '<em>Job Engine Server</em>' class.

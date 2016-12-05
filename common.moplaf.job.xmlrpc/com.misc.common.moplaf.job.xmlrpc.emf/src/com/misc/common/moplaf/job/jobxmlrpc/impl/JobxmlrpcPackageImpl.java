@@ -242,8 +242,8 @@ public class JobxmlrpcPackageImpl extends EPackageImpl implements JobxmlrpcPacka
 		initEAttribute(getJobEngineClient_Path(), ecorePackage.getEString(), "Path", "xmlrpc", 0, 1, JobEngineClient.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(jobEngineServerEClass, JobEngineServer.class, "JobEngineServer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getJobEngineServer_Port(), ecorePackage.getEInt(), "Port", null, 0, 1, JobEngineServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJobEngineServer_Path(), ecorePackage.getEString(), "Path", null, 0, 1, JobEngineServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobEngineServer_Port(), ecorePackage.getEInt(), "Port", "8080", 0, 1, JobEngineServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobEngineServer_Path(), ecorePackage.getEString(), "Path", "xmlrpc", 0, 1, JobEngineServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
