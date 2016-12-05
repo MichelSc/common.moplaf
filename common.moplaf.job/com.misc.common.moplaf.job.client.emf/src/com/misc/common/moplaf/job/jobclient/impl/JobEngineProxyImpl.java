@@ -139,10 +139,11 @@ public abstract class JobEngineProxyImpl extends MinimalEObjectImpl.Container im
 		this.getSubmittedJobs().add(job);
 
 		// run the job
-		ReturnFeedback result = this.runJobImpl(job);
+		ReturnFeedback runfeedback = this.runJobImpl(job);
+		job.setReturn(runfeedback);
 
 		// job is run
-		job.onReturn(result);
+		job.onReturn(runfeedback);
 		return newId;
 	}
 

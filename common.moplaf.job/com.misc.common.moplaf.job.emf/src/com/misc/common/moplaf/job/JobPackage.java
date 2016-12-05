@@ -269,13 +269,22 @@ public interface JobPackage extends EPackage {
 	int RUN___GET_RETURN = 6;
 
 	/**
+	 * The operation id for the '<em>Set Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUN___SET_RETURN__RETURNFEEDBACK = 7;
+
+	/**
 	 * The number of operations of the '<em>Run</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RUN_OPERATION_COUNT = 7;
+	int RUN_OPERATION_COUNT = 8;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.job.impl.JobImpl <em>Job</em>}' class.
@@ -493,6 +502,15 @@ public interface JobPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB___GET_RETURN = RUN___GET_RETURN;
+
+	/**
+	 * The operation id for the '<em>Set Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB___SET_RETURN__RETURNFEEDBACK = RUN___SET_RETURN__RETURNFEEDBACK;
 
 	/**
 	 * The number of operations of the '<em>Job</em>' class.
@@ -746,6 +764,15 @@ public interface JobPackage extends EPackage {
 	 * @ordered
 	 */
 	int JOB_CONSOLE___GET_RETURN = JOB___GET_RETURN;
+
+	/**
+	 * The operation id for the '<em>Set Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE___SET_RETURN__RETURNFEEDBACK = JOB___SET_RETURN__RETURNFEEDBACK;
 
 	/**
 	 * The operation id for the '<em>Add Parameter</em>' operation.
@@ -1099,6 +1126,16 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getRun__GetReturn();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Run#setReturn(com.misc.common.moplaf.common.ReturnFeedback) <em>Set Return</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Set Return</em>' operation.
+	 * @see com.misc.common.moplaf.job.Run#setReturn(com.misc.common.moplaf.common.ReturnFeedback)
+	 * @generated
+	 */
+	EOperation getRun__SetReturn__ReturnFeedback();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.Job <em>Job</em>}'.
@@ -1572,6 +1609,14 @@ public interface JobPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation RUN___GET_RETURN = eINSTANCE.getRun__GetReturn();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Return</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RUN___SET_RETURN__RETURNFEEDBACK = eINSTANCE.getRun__SetReturn__ReturnFeedback();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.JobImpl <em>Job</em>}' class.

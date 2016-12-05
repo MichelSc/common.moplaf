@@ -34,6 +34,9 @@
       <eParameters name="progress" eType="#//ProgressFeedback"/>
     </eOperations>
     <eOperations name="getReturn" eType="#//ReturnFeedback"/>
+    <eOperations name="setReturn">
+      <eParameters name="feedback" eType="#//ReturnFeedback"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunFeedback" eType="#//EnabledFeedback"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CancelFeedback" eType="#//EnabledFeedback"

@@ -336,9 +336,7 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 		} catch (Exception e){
 			feedback = new ReturnFeedback("RunImpl.run ", e);
 		}
-		this.setReturnSuccess    (feedback.isSuccess());
-		this.setReturnFeedback   (feedback.getFeedback());
-		this.setReturnInformation(feedback.getInformation());
+		this.setReturn(feedback);
 		return feedback;
 	}
 
@@ -385,7 +383,17 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 		return new ReturnFeedback(this.isReturnSuccess(), this.getReturnInformation());
 	}
 
-//	/**
+/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void setReturn(ReturnFeedback feedback) {
+		this.setReturnSuccess    (feedback.isSuccess());
+		this.setReturnFeedback   (feedback.getFeedback());
+		this.setReturnInformation(feedback.getInformation());
+	}
+
+	//	/**
 //	 * <!-- begin-user-doc -->
 //	 * <!-- end-user-doc -->
 //	 */
@@ -529,6 +537,9 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 				return setProgress((ProgressFeedback)arguments.get(0));
 			case JobPackage.RUN___GET_RETURN:
 				return getReturn();
+			case JobPackage.RUN___SET_RETURN__RETURNFEEDBACK:
+				setReturn((ReturnFeedback)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

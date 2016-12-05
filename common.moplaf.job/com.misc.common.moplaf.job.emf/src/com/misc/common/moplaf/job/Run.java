@@ -235,4 +235,12 @@ public interface Run extends EObject {
 	 */
 	ReturnFeedback getReturn();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model feedbackDataType="com.misc.common.moplaf.job.ReturnFeedback"
+	 * @generated
+	 */
+	void setReturn(ReturnFeedback feedback);
+
 } // Run

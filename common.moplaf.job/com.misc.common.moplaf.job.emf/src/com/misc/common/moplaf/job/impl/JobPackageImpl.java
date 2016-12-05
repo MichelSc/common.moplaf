@@ -352,6 +352,15 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getRun__SetReturn__ReturnFeedback() {
+		return runEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getJob() {
 		return jobEClass;
 	}
@@ -639,6 +648,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		createEOperation(runEClass, RUN___SET_PROGRESS__STRING_FLOAT);
 		createEOperation(runEClass, RUN___SET_PROGRESS__PROGRESSFEEDBACK);
 		createEOperation(runEClass, RUN___GET_RETURN);
+		createEOperation(runEClass, RUN___SET_RETURN__RETURNFEEDBACK);
 
 		jobEClass = createEClass(JOB);
 		createEAttribute(jobEClass, JOB__STATUS);
@@ -738,6 +748,9 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		addEParameter(op, this.getProgressFeedback(), "progress", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getRun__GetReturn(), this.getReturnFeedback(), "getReturn", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getRun__SetReturn__ReturnFeedback(), null, "setReturn", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getReturnFeedback(), "feedback", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(jobEClass, Job.class, "Job", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJob_Status(), ecorePackage.getEString(), "Status", null, 0, 1, Job.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
