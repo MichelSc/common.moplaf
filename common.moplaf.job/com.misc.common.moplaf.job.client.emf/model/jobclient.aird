@@ -126,6 +126,10 @@
                 <styles xmi:type="notation:FontStyle" xmi:id="_0EyrVLSzEeaJbtE6aO0cZQ" fontName="Oxygen-Sans" fontHeight="8"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_0EyrVbSzEeaJbtE6aO0cZQ"/>
               </children>
+              <children xmi:type="notation:Node" xmi:id="_morHQLvAEeavI5fRrHIk5A" type="3010" element="_mnxvYLvAEeavI5fRrHIk5A">
+                <styles xmi:type="notation:FontStyle" xmi:id="_morHQbvAEeavI5fRrHIk5A" fontName="Segoe UI" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_morHQrvAEeavI5fRrHIk5A"/>
+              </children>
               <styles xmi:type="notation:SortingStyle" xmi:id="_0Er9obSzEeaJbtE6aO0cZQ"/>
               <styles xmi:type="notation:FilteringStyle" xmi:id="_0Er9orSzEeaJbtE6aO0cZQ"/>
             </children>
@@ -542,6 +546,15 @@
           <target xmi:type="ecore:EOperation" href="platform:/resource/com.misc.common.moplaf.job.emf/model/job.ecore#//Run/getReturn"/>
           <semanticElements xmi:type="ecore:EOperation" href="platform:/resource/com.misc.common.moplaf.job.emf/model/job.ecore#//Run/getReturn"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_0EeiQrSzEeaJbtE6aO0cZQ" labelAlignment="LEFT">
+            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_mnxvYLvAEeavI5fRrHIk5A" name="setReturn(feedback ReturnFeedback)" tooltipText="setReturn(feedback)">
+          <target xmi:type="ecore:EOperation" href="platform:/resource/com.misc.common.moplaf.job.emf/model/job.ecore#//Run/setReturn"/>
+          <semanticElements xmi:type="ecore:EOperation" href="platform:/resource/com.misc.common.moplaf.job.emf/model/job.ecore#//Run/setReturn"/>
+          <semanticElements xmi:type="ecore:EParameter" href="platform:/resource/com.misc.common.moplaf.job.emf/model/job.ecore#//Run/setReturn/feedback"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_mn0LoLvAEeavI5fRrHIk5A" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>

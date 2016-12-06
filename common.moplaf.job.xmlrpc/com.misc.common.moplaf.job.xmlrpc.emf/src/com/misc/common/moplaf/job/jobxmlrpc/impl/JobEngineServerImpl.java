@@ -14,11 +14,10 @@ import java.io.IOException;
 import java.io.StringBufferInputStream;
 
 import org.apache.xmlrpc.XmlRpcException;
-import org.apache.xmlrpc.XmlRpcHandler;
-import org.apache.xmlrpc.XmlRpcRequest;
 import org.apache.xmlrpc.server.PropertyHandlerMapping;
 import org.apache.xmlrpc.server.XmlRpcServer;
 import org.apache.xmlrpc.server.XmlRpcServerConfigImpl;
+import org.apache.xmlrpc.server.XmlRpcStreamServer;
 import org.apache.xmlrpc.webserver.WebServer;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.URI;
@@ -269,7 +268,9 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 	@Override
 	protected void startImpl() {
 		// handler mapping
-		PropertyHandlerMapping mapping = new PropertyHandlerMapping();
+		PropertyHandlerMapping mapping = new PropertyHandlerMapping(){
+			
+		};
 		try {
 			mapping.addHandler("handlejob", HandleJob.class);
 		} catch (XmlRpcException e1) {
@@ -278,7 +279,14 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 		}
 		
 		// web server
-		WebServer webserver = new WebServer(this.getPort());
+		WebServer webserver = new WebServer(this.getPort()){
+			@Override
+	        protected XmlRpcStreamServer newXmlRpcStreamServer() {
+	            XmlRpcStreamServer streamServer = super.newXmlRpcStreamServer();
+	            return streamServer;
+	        }
+			
+		};
 		XmlRpcServerConfigImpl config = new XmlRpcServerConfigImpl();
 		XmlRpcServer server = webserver.getXmlRpcServer();
 		server.setConfig(config);
