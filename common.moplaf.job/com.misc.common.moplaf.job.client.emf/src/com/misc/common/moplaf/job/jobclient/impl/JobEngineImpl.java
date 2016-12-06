@@ -169,6 +169,7 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 	public void start() {
 		CommonPlugin.INSTANCE.log("Engine started");
 		this.setRunning(true);
+		this.startImpl();
 	}
 	
 	protected void startImpl(){
@@ -183,6 +184,7 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 	public void stop() {
 		CommonPlugin.INSTANCE.log("Engine stopped");
 		this.setRunning(false);
+		this.stopImpl();
 	}
 	
 	protected void stopImpl(){

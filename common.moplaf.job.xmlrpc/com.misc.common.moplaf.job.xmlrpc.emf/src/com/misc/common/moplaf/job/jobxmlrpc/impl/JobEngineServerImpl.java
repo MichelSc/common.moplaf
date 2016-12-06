@@ -236,34 +236,20 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 	 */
 	private WebServer webServer = null;
 	
-	private class RequestHandler implements XmlRpcHandler{
+	public final static class HandleJob {
+		
+		public HandleJob() {};
 
-		@Override
-		public Object execute(XmlRpcRequest arg0) throws XmlRpcException {
-			String method = arg0.getMethodName();
-			if ( !method.equals("dorun") ){
-				throw new XmlRpcException("unimplemented method "+method);
-			}
-			int parameterCount = arg0.getParameterCount();
-			if ( parameterCount!=1 ){
-				throw new XmlRpcException("wrong parameter count for method dorun "+parameterCount);
-			}
-			Object firstArg = arg0.getParameter(0);
-			if ( !(firstArg instanceof String) ){
-				throw new XmlRpcException("wrong parameter type for method dorun "+firstArg.getClass().getName());
-			}
-			String jobAsString = (String) firstArg;
-			
+		public String runJob(String jobAsString) {
 			// instantiate the job
-		    //ResourceSet rs = new ResourceSetImpl();
 			@SuppressWarnings("deprecation")
 			StringBufferInputStream stringReader= new StringBufferInputStream(jobAsString);
 		    URI uri = URI.createURI("http://www.misc.com/tmp/job.xml");
 		    XMLResource resource = new XMLResourceImpl(uri);
 		    try {
-				resource.load(stringReader, null);
+		    	resource.load(stringReader, null);
 			} catch (IOException e) {
-				throw new XmlRpcException("job not loaded ");
+//				throw new XmlRpcException("job not loaded ");
 			}
 		    
 			for (Object object : resource.getContents()){
@@ -271,7 +257,7 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 		    		JobRemote job = (JobRemote) object;
 		    		SubmittedJob submittedJob = JobclientFactory.eINSTANCE.createSubmittedJob();
 		    		submittedJob.setJob(job);
-		    		JobEngineServerImpl.this.getSubmittedJobs().add(submittedJob);
+		    		//JobEngineServerImpl.this.getSubmittedJobs().add(submittedJob);
 		    	}
 		    }
 			
@@ -282,16 +268,17 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 
 	@Override
 	protected void startImpl() {
+		// handler mapping
 		PropertyHandlerMapping mapping = new PropertyHandlerMapping();
 		try {
-			mapping.addHandler("xmlrpc", RequestHandler.class);
+			mapping.addHandler("handlejob", HandleJob.class);
 		} catch (XmlRpcException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
+		// web server
 		WebServer webserver = new WebServer(this.getPort());
-		
 		XmlRpcServerConfigImpl config = new XmlRpcServerConfigImpl();
 		XmlRpcServer server = webserver.getXmlRpcServer();
 		server.setConfig(config);
@@ -302,13 +289,16 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		this.webServer = webserver;
 	}
 
 	@Override
 	protected void stopImpl() {
-		this.webServer.shutdown();
-		this.webServer = null;
+		if ( this.webServer!=null){
+			this.webServer.shutdown();
+			this.webServer = null;
+		}
 	}
 	
 	

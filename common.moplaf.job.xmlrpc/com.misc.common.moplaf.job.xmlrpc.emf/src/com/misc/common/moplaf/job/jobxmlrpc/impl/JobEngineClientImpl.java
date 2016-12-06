@@ -16,6 +16,7 @@ import java.net.URL;
 import org.apache.xmlrpc.XmlRpcException;
 import org.apache.xmlrpc.client.XmlRpcClient;
 import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
+import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
@@ -285,17 +286,20 @@ public class JobEngineClientImpl extends JobEngineProxyImpl implements JobEngine
 	@Override
 	protected ReturnFeedback runJobImpl(JobRemote job) {
 		
+		
 		// the server connection
 		String host = this.getHost();
 		int port = this.getPort();
 		String path = this.getPath();
 		String urlAsString = String.format("http://%s:%d/%s", host, port, path);
 		XmlRpcClientConfigImpl config = new XmlRpcClientConfigImpl();
+		CommonPlugin.INSTANCE.log("JobEngineClient, url="+urlAsString);
 	    try {
 			config.setServerURL(new URL(urlAsString));
 		} catch (MalformedURLException e) {
 			return new ReturnFeedback("JobEngineClient.runJobImpl, connect", e);
 		}
+	    
 	    XmlRpcClient client = new XmlRpcClient();
 	    client.setConfig(config);
 	    
@@ -319,7 +323,9 @@ public class JobEngineClientImpl extends JobEngineProxyImpl implements JobEngine
 	    String jobAsString = stringWriter.toString();
 	    Object[] params = new Object[]{jobAsString};
 	    try {
-			String result = (String) client.execute("RunJob", params);
+	    	// parameter 1: the method being performed
+//	    	String result = (String) client.execute("com.misc.common.moplaf.job.jobxmlrpc.impl.JobEngineServerImpl.HandleJob.runJob", params);
+	    	String result = (String) client.execute("handlejob.runJob", params);
 		} catch (XmlRpcException e) {
 			return new ReturnFeedback("JobEngineClient.runJobImpl, call", e);
 		}

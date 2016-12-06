@@ -304,6 +304,15 @@ public interface JobclientPackage extends EPackage {
 	int JOB_REMOTE___GET_RETURN = JobPackage.JOB___GET_RETURN;
 
 	/**
+	 * The operation id for the '<em>Set Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_REMOTE___SET_RETURN__RETURNFEEDBACK = JobPackage.JOB___SET_RETURN__RETURNFEEDBACK;
+
+	/**
 	 * The operation id for the '<em>On Progress</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

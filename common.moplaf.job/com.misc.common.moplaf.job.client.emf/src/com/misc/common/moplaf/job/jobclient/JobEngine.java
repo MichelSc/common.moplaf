@@ -54,7 +54,7 @@ public interface JobEngine extends EObject {
 	 * @return the value of the '<em>Running</em>' attribute.
 	 * @see #setRunning(boolean)
 	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobEngine_Running()
-	 * @model
+	 * @model transient="true"
 	 * @generated
 	 */
 	boolean isRunning();
