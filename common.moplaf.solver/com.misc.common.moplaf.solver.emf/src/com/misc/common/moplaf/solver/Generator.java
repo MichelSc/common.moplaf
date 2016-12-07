@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.solver;
 
 import com.misc.common.moplaf.common.ReturnFeedback;
+import com.misc.common.moplaf.job.Run;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -69,7 +70,7 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface Generator extends com.misc.common.moplaf.job.Run {
+public interface Generator extends Run {
 	/**
 	 * Returns the value of the '<em><b>Tuple Root</b></em>' reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.solver.GeneratorTuple}.

@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.solver.util;
 
+import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.solver.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -256,7 +257,7 @@ public class SolverAdapterFactory extends AdapterFactoryImpl {
 				return createGeneratorLpLinearAdapter();
 			}
 			@Override
-			public Adapter caseRun(com.misc.common.moplaf.job.Run object) {
+			public Adapter caseRun(Run object) {
 				return createRunAdapter();
 			}
 			@Override

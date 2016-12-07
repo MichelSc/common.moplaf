@@ -194,7 +194,7 @@ public class JobItemProvider extends RunItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Job.png"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/job.png"));
 	}
 
 	/**

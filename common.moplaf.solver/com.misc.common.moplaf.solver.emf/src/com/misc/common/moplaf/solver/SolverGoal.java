@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getSolverGoal()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface SolverGoal extends EObject {

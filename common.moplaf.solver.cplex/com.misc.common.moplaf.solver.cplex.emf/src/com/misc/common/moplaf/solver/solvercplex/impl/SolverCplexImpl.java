@@ -569,15 +569,60 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		Status status = null;
 		boolean feasible   = false;
 		try  {
+			// set the params
+			// log level
+			// Java IloCplex.Param.MIP.Display MIPDisplay (int) 
+			// Description
+			//Decides what CPLEX reports to the screen and records in a log during mixed integer optimization (MIP). 
+			//The amount of information displayed increases with increasing values of this parameter.
+			//  A setting of 0 (zero) causes no node log to be displayed until the optimal solution is found.
+			//  A setting of 1 (one) displays an entry for each integer feasible solution found.
+			//    Each entry contains:
+			//      the value of the objective function;
+			//      the node count;
+			//      the number of unexplored nodes in the tree;
+			//      the current optimality gap.
+			// A setting of 2 also generates an entry at a frequency determined by the MIP node log interval parameter. At a lower frequency, the log additionally displays elapsed time in seconds and deterministic time in ticks.
+			// A setting of 3 gives all the information of option 2 plus additional information:
+			//   At the same frequency as option 2, the node log adds a line specifying the number of cutting planes added to the problem since the last node log line was displayed; this additional line is omitted if the number of cuts added since the last log line is 0 (zero).
+			//   Whenever a MIP start was successfully used to find a new incumbent solution, that success is recorded in the node log. (This information about MIP starts is independent of the MIP interval frequency in option 2.)
+			//   For each new incumbent that is found, the node log displays how much time in seconds and how many deterministic ticks elapsed since the beginning of optimization. (This information about elapsed time between new incumbents is independent of the MIP interval frequency in option 2.)
+			//  A setting of 4 additionally generates entries for the LP root relaxation according to the setting of the parameter to control the simplex iteration information display (SimDisplay, CPX_PARAM_SIMDISPLAY).
+			//  A setting of 5 additionally generates entries for the LP subproblems, also according to the setting of the parameter to control the simplex iteration information display (SimDisplay, CPX_PARAM_SIMDISPLAY).
+			
+			//0 No display until optimal solution has been found 
+			//1 Display integer feasible solutions 
+			//2 Display integer feasible solutions plus an entry at a frequency set by MIP node log interval; default 
+			//3 Display the number of cuts added since previous display; information about the processing of each successful MIP start; elapsed time in seconds and elapsed time in deterministic ticks for integer feasible solutions 
+			//4 Display information available from previous options and information about the LP subproblem at root 
+			//5 Display information available from previous options and information about the LP subproblems at root and at nodes
+			int paramLogLevelSelected = 2;
+			switch ( this.getSolverLogLevel()){
+			case ENUM_NONE:
+				paramLogLevelSelected = 0;
+				break;
+			case ENUM_MIN:
+				paramLogLevelSelected = 1;
+				break;
+			case ENUM_NORMAL:
+				paramLogLevelSelected = 2;
+				break;
+			case ENUM_FULL:
+				paramLogLevelSelected = 5;
+				break;
+			}
+			Plugin.INSTANCE.logInfo("SolverCplex: param IloCplex.Param.MIP.Display set "+paramLogLevelSelected);
+			this.lp.setParam(IloCplex.Param.MIP.Display, paramLogLevelSelected);
 			if ( this.isSolverLinearRelaxation() ) {
 				Plugin.INSTANCE.logInfo("SolverCplex: continuous solve returned ");
 			} // if linear relaxed
 			else {
-				Plugin.INSTANCE.logInfo("SolverCplex: mip solver returned");
+				Plugin.INSTANCE.logInfo("SolverCplex: mip solver started");
 				SolverCplexCallbackMIPInfo callback = new SolverCplexCallbackMIPInfo();
 				this.lp.use(callback);
 				feasible = this.lp.solve(); 
 				status = this.lp.getStatus();
+				Plugin.INSTANCE.logInfo("SolverCplex: mip solver returned");
 			} // if mip
 		}
 		catch (Exception e)		{

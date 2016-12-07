@@ -10,7 +10,6 @@ import com.misc.common.moplaf.solver.ILpWriter;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionProvider;
 import com.misc.common.moplaf.solver.Solver;
-import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import java.util.Collection;
@@ -661,21 +660,6 @@ public class SolverItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SolverPackage.Literals.SOLVER__GOALS,
-				 SolverFactory.eINSTANCE.createSolverGoal()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SolverPackage.Literals.SOLVER__GOALS,
-				 SolverFactory.eINSTANCE.createSolverGeneratorGoal()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SolverPackage.Literals.SOLVER__GOALS,
-				 SolverFactory.eINSTANCE.createSolverGoalPreviousSolver()));
 	}
 
 	/**

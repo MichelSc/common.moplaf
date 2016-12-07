@@ -283,7 +283,7 @@
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//Solver/Finished"/>
       <genFeatures notify="false" createChild="false" propertyCategory="10 General"
           propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//Solver/InitialSolution"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference solver.ecore#//Solver/Goals"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//Solver/Goals"/>
       <genOperations ecoreOperation="solver.ecore#//Solver/solve"/>
       <genOperations ecoreOperation="solver.ecore#//Solver/buildVars"/>
       <genOperations ecoreOperation="solver.ecore#//Solver/buildVar">

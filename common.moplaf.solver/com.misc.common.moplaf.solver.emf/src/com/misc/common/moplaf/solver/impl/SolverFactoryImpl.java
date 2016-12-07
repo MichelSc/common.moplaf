@@ -69,7 +69,6 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 			case SolverPackage.GENERATOR_CONSTRAINT_ENABLER: return createGeneratorConstraintEnabler();
 			case SolverPackage.GENERATOR_VAR_OVERFLOW: return createGeneratorVarOverflow();
 			case SolverPackage.SOLUTION_READER_PATTERN: return createSolutionReaderPattern();
-			case SolverPackage.SOLVER_GOAL: return createSolverGoal();
 			case SolverPackage.SOLVER_GENERATOR_GOAL: return createSolverGeneratorGoal();
 			case SolverPackage.SOLVER_GOAL_PREVIOUS_SOLVER: return createSolverGoalPreviousSolver();
 			case SolverPackage.SOLUTION: return createSolution();
@@ -188,16 +187,6 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 	public GeneratorLpLinear createGeneratorLpLinear() {
 		GeneratorLpLinearImpl generatorLpLinear = new GeneratorLpLinearImpl();
 		return generatorLpLinear;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SolverGoal createSolverGoal() {
-		SolverGoalImpl solverGoal = new SolverGoalImpl();
-		return solverGoal;
 	}
 
 	/**

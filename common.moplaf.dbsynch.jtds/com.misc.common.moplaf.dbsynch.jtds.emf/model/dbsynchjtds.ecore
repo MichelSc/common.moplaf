@@ -4,7 +4,7 @@
     nsPrefix="dbsj">
   <eClassifiers xsi:type="ecore:EClass" name="DataSourceJdbcJtds" eSuperTypes="../../com.misc.common.moplaf.dbsynch.emf/model/dbsynch.ecore#//DataSourceJdbc">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Host" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="localshost"/>
+        defaultValueLiteral="localhost"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Port" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="1433"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DataBase" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

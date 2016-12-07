@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *
  * @generated
  */
-public class SolverGoalImpl extends MinimalEObjectImpl.Container implements SolverGoal {
+public abstract class SolverGoalImpl extends MinimalEObjectImpl.Container implements SolverGoal {
 	/**
 	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
 	 * <!-- begin-user-doc -->

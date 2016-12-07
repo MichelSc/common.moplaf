@@ -332,6 +332,15 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR___GET_RETURN = JobPackage.RUN___GET_RETURN;
 
 	/**
+	 * The operation id for the '<em>Set Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR___SET_RETURN__RETURNFEEDBACK = JobPackage.RUN___SET_RETURN__RETURNFEEDBACK;
+
+	/**
 	 * The operation id for the '<em>Generate</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2104,6 +2113,15 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_PROVIDER___GET_RETURN = JobPackage.RUN___GET_RETURN;
 
 	/**
+	 * The operation id for the '<em>Set Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER___SET_RETURN__RETURNFEEDBACK = JobPackage.RUN___SET_RETURN__RETURNFEEDBACK;
+
+	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2328,6 +2346,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_READER___GET_RETURN = SOLUTION_PROVIDER___GET_RETURN;
+
+	/**
+	 * The operation id for the '<em>Set Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER___SET_RETURN__RETURNFEEDBACK = SOLUTION_PROVIDER___SET_RETURN__RETURNFEEDBACK;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -2617,6 +2644,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_READER_PATTERN___GET_RETURN = SOLUTION_READER___GET_RETURN;
+
+	/**
+	 * The operation id for the '<em>Set Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER_PATTERN___SET_RETURN__RETURNFEEDBACK = SOLUTION_READER___SET_RETURN__RETURNFEEDBACK;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -3168,6 +3204,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER___GET_RETURN = SOLUTION_PROVIDER___GET_RETURN;
+
+	/**
+	 * The operation id for the '<em>Set Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER___SET_RETURN__RETURNFEEDBACK = SOLUTION_PROVIDER___SET_RETURN__RETURNFEEDBACK;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -3897,6 +3942,15 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_CP___GET_RETURN = SOLVER___GET_RETURN;
 
 	/**
+	 * The operation id for the '<em>Set Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP___SET_RETURN__RETURNFEEDBACK = SOLVER___SET_RETURN__RETURNFEEDBACK;
+
+	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4480,6 +4534,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP___GET_RETURN = SOLVER___GET_RETURN;
+
+	/**
+	 * The operation id for the '<em>Set Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP___SET_RETURN__RETURNFEEDBACK = SOLVER___SET_RETURN__RETURNFEEDBACK;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.

@@ -4,6 +4,7 @@ package com.misc.common.moplaf.solver.impl;
 
 import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.job.RunContext;
+import com.misc.common.moplaf.job.impl.RunImpl;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorCons;
 import com.misc.common.moplaf.solver.GeneratorFeatureMode;
@@ -60,7 +61,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public abstract class GeneratorImpl extends com.misc.common.moplaf.job.impl.RunImpl implements Generator {
+public abstract class GeneratorImpl extends RunImpl implements Generator {
 	/**
 	 * The cached value of the '{@link #getGeneratorFeatureModes() <em>Generator Feature Modes</em>}' reference list.
 	 * <!-- begin-user-doc -->

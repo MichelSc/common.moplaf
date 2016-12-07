@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.solver.util;
 
+import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.solver.*;
 
 import org.eclipse.emf.ecore.EObject;
@@ -541,7 +542,7 @@ public class SolverSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRun(com.misc.common.moplaf.job.Run object) {
+	public T caseRun(Run object) {
 		return null;
 	}
 
