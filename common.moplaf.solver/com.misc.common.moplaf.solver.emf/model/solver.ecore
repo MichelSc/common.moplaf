@@ -374,6 +374,11 @@
         eType="#//GeneratorGoal"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="GoalWeight" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat" defaultValueLiteral="1.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GoalBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Optimize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Constraint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolverGoalPreviousSolver" eSuperTypes="#//SolverGoal">
     <eStructuralFeatures xsi:type="ecore:EReference" name="PreviousSolver" lowerBound="1"
@@ -493,8 +498,8 @@
       <eParameters name="weight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     </eOperations>
     <eOperations name="buildCons" eExceptions="#//Exception">
-      <eParameters name="solutionGoal" eType="#//SolutionGoal"/>
       <eParameters name="builder" eType="#//Solver"/>
+      <eParameters name="rhs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     </eOperations>
     <eOperations name="getSolutionGoal" eType="#//SolutionGoal">
       <eParameters name="solution" eType="#//Solution"/>

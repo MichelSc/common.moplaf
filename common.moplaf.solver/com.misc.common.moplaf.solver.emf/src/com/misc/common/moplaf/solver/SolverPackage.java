@@ -4877,13 +4877,40 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_GENERATOR_GOAL__GOAL_WEIGHT = SOLVER_GOAL_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Goal Bound</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GENERATOR_GOAL__GOAL_BOUND = SOLVER_GOAL_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Optimize</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GENERATOR_GOAL__OPTIMIZE = SOLVER_GOAL_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Constraint</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GENERATOR_GOAL__CONSTRAINT = SOLVER_GOAL_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Generator Goal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_GENERATOR_GOAL_FEATURE_COUNT = SOLVER_GOAL_FEATURE_COUNT + 2;
+	int SOLVER_GENERATOR_GOAL_FEATURE_COUNT = SOLVER_GOAL_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Build Goal</em>' operation.
@@ -6711,7 +6738,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_GOAL___BUILD_CONS__SOLUTIONGOAL_SOLVER = GENERATOR_ELEMENT_OPERATION_COUNT + 1;
+	int GENERATOR_GOAL___BUILD_CONS__FLOAT_SOLVER = GENERATOR_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Solution Goal</em>' operation.
@@ -6855,7 +6882,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_LP_GOAL___BUILD_CONS__SOLUTIONGOAL_SOLVER = GENERATOR_GOAL___BUILD_CONS__SOLUTIONGOAL_SOLVER;
+	int GENERATOR_LP_GOAL___BUILD_CONS__FLOAT_SOLVER = GENERATOR_GOAL___BUILD_CONS__FLOAT_SOLVER;
 
 	/**
 	 * The operation id for the '<em>Get Solution Goal</em>' operation.
@@ -7612,14 +7639,14 @@ public interface SolverPackage extends EPackage {
 	EOperation getGeneratorGoal__Build__Solver_float();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorGoal#buildCons(com.misc.common.moplaf.solver.SolutionGoal, com.misc.common.moplaf.solver.Solver) <em>Build Cons</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorGoal#buildCons(com.misc.common.moplaf.solver.Solver, float) <em>Build Cons</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Build Cons</em>' operation.
-	 * @see com.misc.common.moplaf.solver.GeneratorGoal#buildCons(com.misc.common.moplaf.solver.SolutionGoal, com.misc.common.moplaf.solver.Solver)
+	 * @see com.misc.common.moplaf.solver.GeneratorGoal#buildCons(com.misc.common.moplaf.solver.Solver, float)
 	 * @generated
 	 */
-	EOperation getGeneratorGoal__BuildCons__SolutionGoal_Solver();
+	EOperation getGeneratorGoal__BuildCons__float_Solver();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorGoal#getSolutionGoal(com.misc.common.moplaf.solver.Solution) <em>Get Solution Goal</em>}' operation.
@@ -7777,6 +7804,39 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSolverGeneratorGoal_GoalWeight();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.SolverGeneratorGoal#getGoalBound <em>Goal Bound</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Goal Bound</em>'.
+	 * @see com.misc.common.moplaf.solver.SolverGeneratorGoal#getGoalBound()
+	 * @see #getSolverGeneratorGoal()
+	 * @generated
+	 */
+	EAttribute getSolverGeneratorGoal_GoalBound();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.SolverGeneratorGoal#isOptimize <em>Optimize</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Optimize</em>'.
+	 * @see com.misc.common.moplaf.solver.SolverGeneratorGoal#isOptimize()
+	 * @see #getSolverGeneratorGoal()
+	 * @generated
+	 */
+	EAttribute getSolverGeneratorGoal_Optimize();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.SolverGeneratorGoal#isConstraint <em>Constraint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Constraint</em>'.
+	 * @see com.misc.common.moplaf.solver.SolverGeneratorGoal#isConstraint()
+	 * @see #getSolverGeneratorGoal()
+	 * @generated
+	 */
+	EAttribute getSolverGeneratorGoal_Constraint();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.SolverGoalPreviousSolver <em>Goal Previous Solver</em>}'.
@@ -10293,7 +10353,7 @@ public interface SolverPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation GENERATOR_GOAL___BUILD_CONS__SOLUTIONGOAL_SOLVER = eINSTANCE.getGeneratorGoal__BuildCons__SolutionGoal_Solver();
+		EOperation GENERATOR_GOAL___BUILD_CONS__FLOAT_SOLVER = eINSTANCE.getGeneratorGoal__BuildCons__float_Solver();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Solution Goal</b></em>' operation.
@@ -10422,6 +10482,30 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOLVER_GENERATOR_GOAL__GOAL_WEIGHT = eINSTANCE.getSolverGeneratorGoal_GoalWeight();
+
+		/**
+		 * The meta object literal for the '<em><b>Goal Bound</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOLVER_GENERATOR_GOAL__GOAL_BOUND = eINSTANCE.getSolverGeneratorGoal_GoalBound();
+
+		/**
+		 * The meta object literal for the '<em><b>Optimize</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOLVER_GENERATOR_GOAL__OPTIMIZE = eINSTANCE.getSolverGeneratorGoal_Optimize();
+
+		/**
+		 * The meta object literal for the '<em><b>Constraint</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOLVER_GENERATOR_GOAL__CONSTRAINT = eINSTANCE.getSolverGeneratorGoal_Constraint();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.SolverGoalPreviousSolverImpl <em>Goal Previous Solver</em>}' class.

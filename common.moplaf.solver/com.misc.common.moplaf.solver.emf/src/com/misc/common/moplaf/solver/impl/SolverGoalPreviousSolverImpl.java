@@ -7,6 +7,7 @@ import com.misc.common.moplaf.solver.GeneratorGoal;
 import com.misc.common.moplaf.solver.Plugin;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionGoal;
+import com.misc.common.moplaf.solver.SolutionLpGoal;
 import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverGoalPreviousSolver;
 import com.misc.common.moplaf.solver.SolverPackage;
@@ -89,7 +90,12 @@ public class SolverGoalPreviousSolverImpl extends SolverGoalImpl implements Solv
 				// ignore the goal
 			} else {
 				GeneratorGoal goal = solutionGoal.getGoal();
-				goal.buildCons(solutionGoal, solver);
+				// TO DO: finalize, now this is quick fix
+				if ( solutionGoal instanceof SolutionLpGoal){
+					SolutionLpGoal lpgoal = (SolutionLpGoal)solutionGoal;
+					float rhs = lpgoal.getValue();
+					goal.buildCons(solver, rhs); 
+				}
 			}
 		}
 	}

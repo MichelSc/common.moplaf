@@ -14,6 +14,9 @@ package com.misc.common.moplaf.solver;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.SolverGeneratorGoal#getGoalToSolve <em>Goal To Solve</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.SolverGeneratorGoal#getGoalWeight <em>Goal Weight</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.SolverGeneratorGoal#getGoalBound <em>Goal Bound</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.SolverGeneratorGoal#isOptimize <em>Optimize</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.SolverGeneratorGoal#isConstraint <em>Constraint</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getSolverGeneratorGoal()
@@ -73,5 +76,85 @@ public interface SolverGeneratorGoal extends SolverGoal {
 	 * @generated
 	 */
 	void setGoalWeight(float value);
+
+	/**
+	 * Returns the value of the '<em><b>Goal Bound</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Goal Bound</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Goal Bound</em>' attribute.
+	 * @see #setGoalBound(float)
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolverGeneratorGoal_GoalBound()
+	 * @model
+	 * @generated
+	 */
+	float getGoalBound();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.solver.SolverGeneratorGoal#getGoalBound <em>Goal Bound</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Goal Bound</em>' attribute.
+	 * @see #getGoalBound()
+	 * @generated
+	 */
+	void setGoalBound(float value);
+
+	/**
+	 * Returns the value of the '<em><b>Optimize</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Optimize</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Optimize</em>' attribute.
+	 * @see #setOptimize(boolean)
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolverGeneratorGoal_Optimize()
+	 * @model default="true"
+	 * @generated
+	 */
+	boolean isOptimize();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.solver.SolverGeneratorGoal#isOptimize <em>Optimize</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Optimize</em>' attribute.
+	 * @see #isOptimize()
+	 * @generated
+	 */
+	void setOptimize(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Constraint</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Constraint</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Constraint</em>' attribute.
+	 * @see #setConstraint(boolean)
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolverGeneratorGoal_Constraint()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isConstraint();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.solver.SolverGeneratorGoal#isConstraint <em>Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Constraint</em>' attribute.
+	 * @see #isConstraint()
+	 * @generated
+	 */
+	void setConstraint(boolean value);
 
 } // SolverGeneratorGoal

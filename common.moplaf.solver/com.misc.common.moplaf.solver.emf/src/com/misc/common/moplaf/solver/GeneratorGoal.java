@@ -51,14 +51,6 @@ public interface GeneratorGoal extends GeneratorElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
-	 * @generated
-	 */
-	void buildCons(SolutionGoal solutionGoal, Solver builder) throws Exception;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
@@ -156,5 +148,13 @@ public interface GeneratorGoal extends GeneratorElement {
 	 * @generated
 	 */
 	void build(Solver builder, float weight) throws Exception;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
+	 * @generated
+	 */
+	void buildCons(Solver builder, float rhs) throws Exception;
 
 } // GeneratorGoal

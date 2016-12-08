@@ -223,13 +223,8 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	 * <!-- end-user-doc -->
 	 */
 	@Override
-	public void buildCons(SolutionGoal solutionGoal, Solver builder) throws Exception{
-		if ( ! (solutionGoal instanceof SolutionLpGoal)){
-			return;
-		}
+	public void buildCons(Solver builder, float rhs) throws Exception{
 			
-		SolutionLpGoal solutionLpGoal = (SolutionLpGoal)solutionGoal;
-		float rhs = solutionLpGoal.getValue();
 		GeneratorLpLinear linearExpr = this;
 		EnumLpConsType direction = EnumLpConsType.ENUM_LITERAL_LP_CONS_EQUAL;
 		switch ( this.getObjectiveType().ordinal()){

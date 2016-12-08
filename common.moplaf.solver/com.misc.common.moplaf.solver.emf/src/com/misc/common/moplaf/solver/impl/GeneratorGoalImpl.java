@@ -145,17 +145,6 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void buildCons(SolutionGoal solutionGoal, Solver builder) throws Exception {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 */
 	public SolutionGoal getSolutionGoal(Solution solution) {
 		for(SolutionGoal currentsol : this.getSolution()) {
@@ -293,6 +282,17 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void buildCons(Solver builder, float rhs) throws Exception {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -393,9 +393,9 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case SolverPackage.GENERATOR_GOAL___BUILD_CONS__SOLUTIONGOAL_SOLVER:
+			case SolverPackage.GENERATOR_GOAL___BUILD_CONS__FLOAT_SOLVER:
 				try {
-					buildCons((SolutionGoal)arguments.get(0), (Solver)arguments.get(1));
+					buildCons((Solver)arguments.get(0), (Float)arguments.get(1));
 					return null;
 				}
 				catch (Throwable throwable) {

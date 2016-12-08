@@ -1040,7 +1040,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getGeneratorGoal__BuildCons__SolutionGoal_Solver() {
+	public EOperation getGeneratorGoal__BuildCons__float_Solver() {
 		return generatorGoalEClass.getEOperations().get(1);
 	}
 
@@ -1177,6 +1177,33 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 */
 	public EAttribute getSolverGeneratorGoal_GoalWeight() {
 		return (EAttribute)solverGeneratorGoalEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSolverGeneratorGoal_GoalBound() {
+		return (EAttribute)solverGeneratorGoalEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSolverGeneratorGoal_Optimize() {
+		return (EAttribute)solverGeneratorGoalEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSolverGeneratorGoal_Constraint() {
+		return (EAttribute)solverGeneratorGoalEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -3145,6 +3172,9 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		solverGeneratorGoalEClass = createEClass(SOLVER_GENERATOR_GOAL);
 		createEReference(solverGeneratorGoalEClass, SOLVER_GENERATOR_GOAL__GOAL_TO_SOLVE);
 		createEAttribute(solverGeneratorGoalEClass, SOLVER_GENERATOR_GOAL__GOAL_WEIGHT);
+		createEAttribute(solverGeneratorGoalEClass, SOLVER_GENERATOR_GOAL__GOAL_BOUND);
+		createEAttribute(solverGeneratorGoalEClass, SOLVER_GENERATOR_GOAL__OPTIMIZE);
+		createEAttribute(solverGeneratorGoalEClass, SOLVER_GENERATOR_GOAL__CONSTRAINT);
 
 		solverGoalPreviousSolverEClass = createEClass(SOLVER_GOAL_PREVIOUS_SOLVER);
 		createEReference(solverGoalPreviousSolverEClass, SOLVER_GOAL_PREVIOUS_SOLVER__PREVIOUS_SOLVER);
@@ -3233,7 +3263,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		createEAttribute(generatorGoalEClass, GENERATOR_GOAL__LABEL);
 		createEReference(generatorGoalEClass, GENERATOR_GOAL__SOLUTION);
 		createEOperation(generatorGoalEClass, GENERATOR_GOAL___BUILD__SOLVER_FLOAT);
-		createEOperation(generatorGoalEClass, GENERATOR_GOAL___BUILD_CONS__SOLUTIONGOAL_SOLVER);
+		createEOperation(generatorGoalEClass, GENERATOR_GOAL___BUILD_CONS__FLOAT_SOLVER);
 		createEOperation(generatorGoalEClass, GENERATOR_GOAL___GET_SOLUTION_GOAL__SOLUTION);
 
 		generatorLpGoalEClass = createEClass(GENERATOR_LP_GOAL);
@@ -3627,6 +3657,9 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		initEClass(solverGeneratorGoalEClass, SolverGeneratorGoal.class, "SolverGeneratorGoal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSolverGeneratorGoal_GoalToSolve(), this.getGeneratorGoal(), null, "GoalToSolve", null, 1, 1, SolverGeneratorGoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSolverGeneratorGoal_GoalWeight(), ecorePackage.getEFloat(), "GoalWeight", "1.0", 1, 1, SolverGeneratorGoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolverGeneratorGoal_GoalBound(), ecorePackage.getEFloat(), "GoalBound", null, 0, 1, SolverGeneratorGoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolverGeneratorGoal_Optimize(), ecorePackage.getEBoolean(), "Optimize", "true", 0, 1, SolverGeneratorGoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolverGeneratorGoal_Constraint(), ecorePackage.getEBoolean(), "Constraint", "false", 0, 1, SolverGeneratorGoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(solverGoalPreviousSolverEClass, SolverGoalPreviousSolver.class, "SolverGoalPreviousSolver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSolverGoalPreviousSolver_PreviousSolver(), this.getSolver(), null, "PreviousSolver", null, 1, 1, SolverGoalPreviousSolver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3734,9 +3767,9 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		addEParameter(op, ecorePackage.getEFloat(), "weight", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
-		op = initEOperation(getGeneratorGoal__BuildCons__SolutionGoal_Solver(), null, "buildCons", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getSolutionGoal(), "solutionGoal", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getGeneratorGoal__BuildCons__float_Solver(), null, "buildCons", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getSolver(), "builder", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEFloat(), "rhs", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
 		op = initEOperation(getGeneratorGoal__GetSolutionGoal__Solution(), this.getSolutionGoal(), "getSolutionGoal", 0, 1, IS_UNIQUE, IS_ORDERED);

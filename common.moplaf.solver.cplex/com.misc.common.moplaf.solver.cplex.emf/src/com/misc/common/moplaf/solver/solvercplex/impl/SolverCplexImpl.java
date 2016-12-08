@@ -638,28 +638,66 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		float   goalvalue  = 0.0f;
 		float   mipgap     = 0.0f;
 		
-		if      ( status == Status.Optimal)    { optimal = true; }
-		else if ( status == Status.Infeasible) { unfeasible = true; }
+
+		if  ( status == Status.Optimal ) { 
+			//	The Optimal solution status reports that the IloCplex optimizer has found an optimal solution that can be queried with the method getValue.
+			Plugin.INSTANCE.logInfo("SolverCplex: status Optimal");
+			optimal = true; 
+		} else if ( status == Status.Infeasible) { 
+			//	The Infeasible solution status reports that the IloCplex optimizer has determined that the model is infeasible.
+			Plugin.INSTANCE.logInfo("SolverCplex: status Infeasible");
+			unfeasible = true; 
+		} else if ( status == Status.Bounded){
+			//	The Bounded solution status reports that the IloCplex optimizer has determined that the model is not unbounded.
+			Plugin.INSTANCE.logInfo("SolverCplex: status Bounded");
+		} else if ( status == Status.Error){
+			//	The Error solution status reports that an error has occurred.
+			Plugin.INSTANCE.logInfo("SolverCplex: status Error");
+		} else if ( status == Status.Feasible){
+			//	The Feasible solution status reports that the IloCplex optimizer has found a feasible solution that can be queried with the method getValue.
+			Plugin.INSTANCE.logInfo("SolverCplex: status Feasible");
+		} else if ( status == Status.InfeasibleOrUnbounded){
+			//	The InfeasibleOrUnbounded solution status reports that the IloCplex optimizer has determined that the model is infeasible or unbounded.
+			Plugin.INSTANCE.logInfo("SolverCplex: status InfeasibleOrUnbounded");
+			unfeasible = true; 
+		} else if ( status == Status.Unbounded){
+			//	The Unbounded solution status reports that the IloCplex optimizer has determined that the model is unbounded.
+			Plugin.INSTANCE.logInfo("SolverCplex: status Unbounded");
+		} else if ( status == Status.Unknown){
+			//	The Unknown solution status reports that the optimizer has not gathered any information about the active model.   
+			Plugin.INSTANCE.logInfo("SolverCplex: status Unknown");
+		}
 		if ( feasible ) {
 			try {
 				goalvalue = (float) this.lp.getObjValue();
-				SolutionLp newSolution = (SolutionLp) this.constructSolution();
-				newSolution.setValue(goalvalue);
-				mipgap    = (float) this.lp.getMIPRelativeGap();
-				for ( Map.Entry<GeneratorLpVar, IloNumVar> varentry : vars.entrySet())	{
-					IloNumVar cplexvar = varentry.getValue();
-					GeneratorLpVar lpvar = varentry.getKey();
-					float optimalvalue;
-						optimalvalue = (float) this.lp.getValue(cplexvar);
-					if ( Math.abs(optimalvalue)>0.00001){
-						SolutionVar solvervar = newSolution.constructSolutionVar(lpvar);
-						solvervar.setOptimalValue(optimalvalue);
-					}
-				} // traverse the vars
-				this.makeSolutionGoals(newSolution);
-			} 
-			catch (IloException e) {
+			} catch (IloException e) {
+				Plugin.INSTANCE.logError("SolverCplex: getObjValue, exception "+e);
+				return new ReturnFeedback("SolverCplex.getObjValue", e);
 			}
+			try {
+				mipgap    = (float) this.lp.getMIPRelativeGap();
+			} catch (IloException e) {
+				Plugin.INSTANCE.logError("SolverCplex: getMIPRelativeGap, exception "+e);
+				return new ReturnFeedback("SolverCplex.getMIPRelativeGap", e);
+			}
+			SolutionLp newSolution = (SolutionLp) this.constructSolution();
+			newSolution.setValue(goalvalue);
+			for ( Map.Entry<GeneratorLpVar, IloNumVar> varentry : vars.entrySet())	{
+				IloNumVar cplexvar = varentry.getValue();
+				GeneratorLpVar lpvar = varentry.getKey();
+				float optimalvalue = 0.0f;
+				try {
+					optimalvalue = (float) this.lp.getValue(cplexvar);
+				} catch (IloException e) {
+					Plugin.INSTANCE.logError("SolverCplex: getValue, exception "+e+ ", object "+cplexvar.getName());
+//					return new ReturnFeedback("SolverCplex.getMIPRelativeGap", e);
+				}
+				if ( Math.abs(optimalvalue)>0.00001){
+					SolutionVar solvervar = newSolution.constructSolutionVar(lpvar);
+					solvervar.setOptimalValue(optimalvalue);
+				}
+			} // traverse the vars
+			this.makeSolutionGoals(newSolution);
 			if ( optimal) {
 				mipgap = 0.0f; // michel 20160415: not sure this is correct
 			}

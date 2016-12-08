@@ -47,6 +47,9 @@ public class SolverGeneratorGoalItemProvider extends SolverGoalItemProvider {
 
 			addGoalToSolvePropertyDescriptor(object);
 			addGoalWeightPropertyDescriptor(object);
+			addGoalBoundPropertyDescriptor(object);
+			addOptimizePropertyDescriptor(object);
+			addConstraintPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -96,6 +99,72 @@ public class SolverGeneratorGoalItemProvider extends SolverGoalItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Goal Bound feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addGoalBoundPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SolverGeneratorGoal_GoalBound_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SolverGeneratorGoal_GoalBound_feature", "_UI_SolverGeneratorGoal_type"),
+				 SolverPackage.Literals.SOLVER_GENERATOR_GOAL__GOAL_BOUND,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Optimize feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOptimizePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SolverGeneratorGoal_Optimize_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SolverGeneratorGoal_Optimize_feature", "_UI_SolverGeneratorGoal_type"),
+				 SolverPackage.Literals.SOLVER_GENERATOR_GOAL__OPTIMIZE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Constraint feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addConstraintPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SolverGeneratorGoal_Constraint_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SolverGeneratorGoal_Constraint_feature", "_UI_SolverGeneratorGoal_type"),
+				 SolverPackage.Literals.SOLVER_GENERATOR_GOAL__CONSTRAINT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -123,6 +192,9 @@ public class SolverGeneratorGoalItemProvider extends SolverGoalItemProvider {
 
 		switch (notification.getFeatureID(SolverGeneratorGoal.class)) {
 			case SolverPackage.SOLVER_GENERATOR_GOAL__GOAL_WEIGHT:
+			case SolverPackage.SOLVER_GENERATOR_GOAL__GOAL_BOUND:
+			case SolverPackage.SOLVER_GENERATOR_GOAL__OPTIMIZE:
+			case SolverPackage.SOLVER_GENERATOR_GOAL__CONSTRAINT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

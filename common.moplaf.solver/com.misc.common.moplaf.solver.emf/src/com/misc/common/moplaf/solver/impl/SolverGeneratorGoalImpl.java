@@ -25,6 +25,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolverGeneratorGoalImpl#getGoalToSolve <em>Goal To Solve</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolverGeneratorGoalImpl#getGoalWeight <em>Goal Weight</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.SolverGeneratorGoalImpl#getGoalBound <em>Goal Bound</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.SolverGeneratorGoalImpl#isOptimize <em>Optimize</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.SolverGeneratorGoalImpl#isConstraint <em>Constraint</em>}</li>
  * </ul>
  *
  * @generated
@@ -61,6 +64,66 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 	protected float goalWeight = GOAL_WEIGHT_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getGoalBound() <em>Goal Bound</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGoalBound()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float GOAL_BOUND_EDEFAULT = 0.0F;
+
+	/**
+	 * The cached value of the '{@link #getGoalBound() <em>Goal Bound</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGoalBound()
+	 * @generated
+	 * @ordered
+	 */
+	protected float goalBound = GOAL_BOUND_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isOptimize() <em>Optimize</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isOptimize()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean OPTIMIZE_EDEFAULT = true;
+
+	/**
+	 * The cached value of the '{@link #isOptimize() <em>Optimize</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isOptimize()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean optimize = OPTIMIZE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isConstraint() <em>Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isConstraint()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CONSTRAINT_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isConstraint() <em>Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isConstraint()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean constraint = CONSTRAINT_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -90,8 +153,13 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 			Plugin.INSTANCE.logWarning("Solver, buildGoal: no generator goal, goal ignored");
 		}
 		Solver solver = this.getSolver();
-		float weight = this.getGoalWeight();
-		goal.build(solver, weight);
+		if ( this.isOptimize()){
+			float weight = this.getGoalWeight();
+			goal.build(solver, weight);
+		} else if ( this.isConstraint()){
+			float rhs = this.getGoalBound();
+			goal.buildCons(solver, rhs);
+		}
 	}
 
 	/**
@@ -171,6 +239,69 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public float getGoalBound() {
+		return goalBound;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGoalBound(float newGoalBound) {
+		float oldGoalBound = goalBound;
+		goalBound = newGoalBound;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER_GENERATOR_GOAL__GOAL_BOUND, oldGoalBound, goalBound));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isOptimize() {
+		return optimize;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOptimize(boolean newOptimize) {
+		boolean oldOptimize = optimize;
+		optimize = newOptimize;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER_GENERATOR_GOAL__OPTIMIZE, oldOptimize, optimize));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isConstraint() {
+		return constraint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConstraint(boolean newConstraint) {
+		boolean oldConstraint = constraint;
+		constraint = newConstraint;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER_GENERATOR_GOAL__CONSTRAINT, oldConstraint, constraint));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -179,6 +310,12 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 				return basicGetGoalToSolve();
 			case SolverPackage.SOLVER_GENERATOR_GOAL__GOAL_WEIGHT:
 				return getGoalWeight();
+			case SolverPackage.SOLVER_GENERATOR_GOAL__GOAL_BOUND:
+				return getGoalBound();
+			case SolverPackage.SOLVER_GENERATOR_GOAL__OPTIMIZE:
+				return isOptimize();
+			case SolverPackage.SOLVER_GENERATOR_GOAL__CONSTRAINT:
+				return isConstraint();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -196,6 +333,15 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 				return;
 			case SolverPackage.SOLVER_GENERATOR_GOAL__GOAL_WEIGHT:
 				setGoalWeight((Float)newValue);
+				return;
+			case SolverPackage.SOLVER_GENERATOR_GOAL__GOAL_BOUND:
+				setGoalBound((Float)newValue);
+				return;
+			case SolverPackage.SOLVER_GENERATOR_GOAL__OPTIMIZE:
+				setOptimize((Boolean)newValue);
+				return;
+			case SolverPackage.SOLVER_GENERATOR_GOAL__CONSTRAINT:
+				setConstraint((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -215,6 +361,15 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 			case SolverPackage.SOLVER_GENERATOR_GOAL__GOAL_WEIGHT:
 				setGoalWeight(GOAL_WEIGHT_EDEFAULT);
 				return;
+			case SolverPackage.SOLVER_GENERATOR_GOAL__GOAL_BOUND:
+				setGoalBound(GOAL_BOUND_EDEFAULT);
+				return;
+			case SolverPackage.SOLVER_GENERATOR_GOAL__OPTIMIZE:
+				setOptimize(OPTIMIZE_EDEFAULT);
+				return;
+			case SolverPackage.SOLVER_GENERATOR_GOAL__CONSTRAINT:
+				setConstraint(CONSTRAINT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -231,6 +386,12 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 				return goalToSolve != null;
 			case SolverPackage.SOLVER_GENERATOR_GOAL__GOAL_WEIGHT:
 				return goalWeight != GOAL_WEIGHT_EDEFAULT;
+			case SolverPackage.SOLVER_GENERATOR_GOAL__GOAL_BOUND:
+				return goalBound != GOAL_BOUND_EDEFAULT;
+			case SolverPackage.SOLVER_GENERATOR_GOAL__OPTIMIZE:
+				return optimize != OPTIMIZE_EDEFAULT;
+			case SolverPackage.SOLVER_GENERATOR_GOAL__CONSTRAINT:
+				return constraint != CONSTRAINT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -247,6 +408,12 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (GoalWeight: ");
 		result.append(goalWeight);
+		result.append(", GoalBound: ");
+		result.append(goalBound);
+		result.append(", Optimize: ");
+		result.append(optimize);
+		result.append(", Constraint: ");
+		result.append(constraint);
 		result.append(')');
 		return result.toString();
 	}
