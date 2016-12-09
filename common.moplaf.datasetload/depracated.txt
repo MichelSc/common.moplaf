@@ -1,0 +1,5 @@
+Michel 20161208:
+
+The datasetload component is deprecated and no longer maintained. 
+
+The component and its derivatives are fully superseded by the dbsynch component.
