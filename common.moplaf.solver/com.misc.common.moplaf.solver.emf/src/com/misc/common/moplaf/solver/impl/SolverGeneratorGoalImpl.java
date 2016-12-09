@@ -143,6 +143,9 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 	}
 
 	/**
+	 * Called by the framework when the solver is built, namely by method {@link Solver#buildGoals()}.
+	 * <p>
+	 * Add a constraint and/or a contribution to the objective accordingly to the settings of this SolverGoal
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
@@ -156,7 +159,8 @@ public class SolverGeneratorGoalImpl extends SolverGoalImpl implements SolverGen
 		if ( this.isOptimize()){
 			float weight = this.getGoalWeight();
 			goal.build(solver, weight);
-		} else if ( this.isConstraint()){
+		}
+		if ( this.isConstraint()){
 			float rhs = this.getGoalBound();
 			goal.buildCons(solver, rhs);
 		}

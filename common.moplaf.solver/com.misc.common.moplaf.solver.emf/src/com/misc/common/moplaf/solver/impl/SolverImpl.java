@@ -5,7 +5,6 @@ package com.misc.common.moplaf.solver.impl;
 import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.job.RunContext;
-import com.misc.common.moplaf.solver.EnumGoalType;
 import com.misc.common.moplaf.solver.EnumLpConsType;
 import com.misc.common.moplaf.solver.EnumSolverLogLevel;
 import com.misc.common.moplaf.solver.Generator;
@@ -33,6 +32,7 @@ import com.misc.common.moplaf.solver.SolverPackage;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -557,187 +557,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 */
 	protected SolverImpl() {
 		super();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void buildVar(GeneratorVar var) throws Exception {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 */
-	public void buildLpVar(GeneratorLpVar var) throws Exception {
-		this.buildLpVarImpl(var);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 */
-	public void buildCons() throws Exception {
-		// build the normal constraints
-		Generator generator = this.getGenerator();
-		class ConsMapper implements ITupleVisitor {
-			@Override
-			public void visitTuple(GeneratorTuple tuple) throws Exception {
-				for (GeneratorCons cons : tuple.getCons()) {
-					cons.build(SolverImpl.this);
-				}
-			}
-		}
-		; // class ConsMapper
-		ConsMapper consmapper = new ConsMapper();
-		generator.visitTuples(consmapper);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 */
-	public void buildVars() throws Exception {
-		Generator generator = this.getGenerator();
-		// build the vars
-		class VarMapper implements ITupleVisitor {
-			@Override
-			public void visitTuple(GeneratorTuple tuple) throws Exception {
-				for (GeneratorVar var : tuple.getVar()) {
-					var.build(SolverImpl.this);
-				} // traverse the vars of the tuple
-			} // method visitTuple
-		}
-		; // VarMapper
-		VarMapper varmapper = new VarMapper();
-		generator.visitTuples(varmapper);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 */
-	protected void buildLpVarImpl(GeneratorLpVar var) throws Exception {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void buildCons(GeneratorCons cons) throws Exception {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 */
-	public void buildLpCons(GeneratorLpCons cons) throws Exception {
-		this.buildLpCons(cons, cons, cons.getRighHandSide(), cons.getType());
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 */
-	public void buildLpCons(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type)
-			throws Exception {
-		if (element instanceof GeneratorLpGoal) {
-			this.generatorGoalsToConstraint.add((GeneratorGoal) element);
-		}
-		this.buildLpConsImpl(element, linear, rhs, type);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 */
-	public void buildGoals() throws Exception {
-		// build the constraints implied by previous solvers and the goal
-		for (SolverGoal goal : this.getGoals()) {
-			goal.buildGoal();
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 */
-	protected void buildLpConsImpl(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type)
-			throws Exception {
-		// to be overloaded
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 */
-	public void buildLpGoal(GeneratorLpGoal goal, float weight) throws Exception {
-		this.generatorGoalsToSolve.add(goal);
-		this.buildLpGoalImpl(goal, weight);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 */
-	protected void buildLpGoalImpl(GeneratorLpGoal goal, float weight) throws Exception {
-		// to be overloaded
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 */
-	public SolverGeneratorGoal constructSolverGoal(GeneratorGoal goal) {
-		SolverGeneratorGoal newGoal = SolverFactory.eINSTANCE.createSolverGeneratorGoal();
-		newGoal.setGoalToSolve(goal);
-		this.getGoals().add(newGoal);
-		return newGoal;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 */
-	public SolverGoalPreviousSolver constructSolverGoal(Solution previousSolution) {
-		SolverGoalPreviousSolver newGoal = SolverFactory.eINSTANCE.createSolverGoalPreviousSolver();
-		Solver solver = (Solver) (previousSolution.getProvider());
-		newGoal.setPreviousSolver(solver);
-		newGoal.setPreviousSolution(previousSolution);
-		this.getGoals().add(newGoal);
-		return newGoal;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 */
-	public SolverGoalPreviousSolver constructSolverGoal(Solver previousSolver) {
-		SolverGoalPreviousSolver newGoal = SolverFactory.eINSTANCE.createSolverGoalPreviousSolver();
-		Solution previousSolution = null;
-		if (previousSolver.getSolution().size() > 0) {
-			previousSolution = previousSolver.getSolution().get(0);
-		}
-		newGoal.setPreviousSolver(previousSolver);
-		newGoal.setPreviousSolution(previousSolution);
-		this.getGoals().add(newGoal);
-		return newGoal;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 */
-	public void makeSolutionGoals(Solution solution) {
-		Generator generator = this.getGenerator();
-		for (GeneratorGoal goal : generator.getGoals()) {
-			SolutionGoal solutionGoal = solution.constructSolutionGoal(goal);
-			EnumGoalType type = EnumGoalType.ENUM_LITERAL_GOAL_TYPE_FREE;
-			if (this.generatorGoalsToSolve.contains(goal)) {
-				type = EnumGoalType.ENUM_LITERAL_GOAL_TYPE_OPTIMIZED;
-			} else if (this.generatorGoalsToConstraint.contains(goal)) {
-				type = EnumGoalType.ENUM_LITERAL_GOAL_TYPE_CONSTRAINED;
-			}
-			solutionGoal.setType(type);
-		}
 	}
 
 	/**
@@ -1287,6 +1106,210 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void buildVar(GeneratorVar var) throws Exception {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * Called by the framework for every {@link GeneratorLPVar} to be added to the solver.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 */
+	public void buildLpVar(GeneratorLpVar var) throws Exception {
+		this.buildLpVarImpl(var);
+	}
+
+	/**
+	 * Method to be overriden by a concrete LpSolver for adding a var to the concrete solver.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 */
+	protected void buildLpVarImpl(GeneratorLpVar var) throws Exception {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * Method called by the concrete solver when loading the model. Specify the vars to be loaded.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 */
+	public void buildVars() throws Exception {
+		Generator generator = this.getGenerator();
+		// build the vars
+		class VarMapper implements ITupleVisitor {
+			@Override
+			public void visitTuple(GeneratorTuple tuple) throws Exception {
+				for (GeneratorVar var : tuple.getVar()) {
+					var.build(SolverImpl.this);
+				} // traverse the vars of the tuple
+			} // method visitTuple
+		}
+		; // VarMapper
+		VarMapper varmapper = new VarMapper();
+		generator.visitTuples(varmapper);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void buildCons(GeneratorCons cons) throws Exception {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * Called by the framework for every {@link GeneratorLpCons} to be added to the solver.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 */
+	public void buildLpCons(GeneratorLpCons cons) throws Exception {
+		this.buildLpCons(cons, cons, cons.getRighHandSide(), cons.getType());
+	}
+
+	/**
+	 * Called by the framework for every constraints to be added to the solver. These constraints
+	 * can be explicit constraint {@link GeneratorLpCons} or constraint induced by goal {@link GeneratorLpGoal}. 
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 */
+	public void buildLpCons(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type)
+			throws Exception {
+		if (element instanceof GeneratorLpGoal) {
+			this.generatorGoalsToConstraint.put((GeneratorGoal) element, rhs);
+		}
+		this.buildLpConsImpl(element, linear, rhs, type);
+	}
+
+	/**
+	 * Method to be overriden by a concrete LpSolver for adding a constraint to the concrete solver.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 */
+	protected void buildLpConsImpl(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type)
+			throws Exception {
+		// to be overloaded
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * Called by the framework for every {@link GeneratorCons} to be added to the solver.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 */
+	public void buildCons() throws Exception {
+		// build the normal constraints
+		Generator generator = this.getGenerator();
+		class ConsMapper implements ITupleVisitor {
+			@Override
+			public void visitTuple(GeneratorTuple tuple) throws Exception {
+				for (GeneratorCons cons : tuple.getCons()) {
+					cons.build(SolverImpl.this);
+				}
+			}
+		}
+		; // class ConsMapper
+		ConsMapper consmapper = new ConsMapper();
+		generator.visitTuples(consmapper);
+	}
+
+	/**
+	 * Method called by the framework to add a contribution to the objective function.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 */
+	public void buildLpGoal(GeneratorLpGoal goal, float weight) throws Exception {
+		this.generatorGoalsToSolve.add(goal);
+		this.buildLpGoalImpl(goal, weight);
+	}
+
+	/**
+	 * Method to be overriden by the concrete solver to add a contribution to the objective function.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 */
+	protected void buildLpGoalImpl(GeneratorLpGoal goal, float weight) throws Exception {
+		// to be overloaded
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * Method called by the concrete solver while building the solver model.
+	 * Delegate the building of the goals to the {@link SolverGoal}s
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 */
+	public void buildGoals() throws Exception {
+		// build the constraints implied by previous solvers and the goal
+		for (SolverGoal goal : this.getGoals()) {
+			goal.buildGoal();
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 */
+	public SolverGeneratorGoal constructSolverGoal(GeneratorGoal goal) {
+		SolverGeneratorGoal newGoal = SolverFactory.eINSTANCE.createSolverGeneratorGoal();
+		newGoal.setGoalToSolve(goal);
+		this.getGoals().add(newGoal);
+		return newGoal;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 */
+	public SolverGoalPreviousSolver constructSolverGoal(Solution previousSolution) {
+		SolverGoalPreviousSolver newGoal = SolverFactory.eINSTANCE.createSolverGoalPreviousSolver();
+		Solver solver = (Solver) (previousSolution.getProvider());
+		newGoal.setPreviousSolver(solver);
+		newGoal.setPreviousSolution(previousSolution);
+		this.getGoals().add(newGoal);
+		return newGoal;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 */
+	public SolverGoalPreviousSolver constructSolverGoal(Solver previousSolver) {
+		SolverGoalPreviousSolver newGoal = SolverFactory.eINSTANCE.createSolverGoalPreviousSolver();
+		Solution previousSolution = null;
+		if (previousSolver.getSolution().size() > 0) {
+			previousSolution = previousSolver.getSolution().get(0);
+		}
+		newGoal.setPreviousSolver(previousSolver);
+		newGoal.setPreviousSolution(previousSolution);
+		this.getGoals().add(newGoal);
+		return newGoal;
+	}
+
+	/**
+	 * Method called by the concrete implementation of {@link SolverImpl#solveImpl()}, when 
+	 * handling a solution found, if any.
+	 * <p>
+	 * Traverse the {@link GeneratorGoal} and create {@link SolutionGoal} accordingly.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 */
+	public void makeSolutionGoals(Solution solution) {
+		Generator generator = this.getGenerator();
+		for (GeneratorGoal goal : generator.getGoals()) {
+			// construct the solution goal and initialize it with the solution value
+			SolutionGoal solutionGoal = solution.constructSolutionGoal(goal);
+
+			// is the goal an optimization goal?
+			if (this.generatorGoalsToSolve.contains(goal)) {
+				solutionGoal.setOptimized(true);
+			} 
+			
+			// is the goal a feasibility goal?
+			Float goalBound = this.generatorGoalsToConstraint.get(goal);
+			if ( goalBound != null ){ 
+				solutionGoal.setConstrained(true);
+				solutionGoal.setBound(goalBound);
+			}
+		}
+	}
+
+
+	/**
 	 * <!-- begin-user-doc --> Release all the references to this Solver <!--
 	 * end-user-doc -->
 	 */
@@ -1389,8 +1412,17 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * Remember the goals to optimize.
+	 * This will be used when building the solution, that is in method {@link #makeSolutionGoals(Solution)}
+	 */
 	private HashSet<GeneratorGoal> generatorGoalsToSolve = new HashSet<GeneratorGoal>();
-	private HashSet<GeneratorGoal> generatorGoalsToConstraint = new HashSet<GeneratorGoal>();
+
+	/**
+	 * Remember the goals used as constraint.
+	 * This will be used when building the solution, that is in method {@link #makeSolutionGoals(Solution)}
+	 */
+	private HashMap<GeneratorGoal, Float> generatorGoalsToConstraint = new HashMap<GeneratorGoal, Float>();
 
 	private Date eLastMonitoredFeedback;
 	private static int eMonitorRefreshRateMillis = 100;

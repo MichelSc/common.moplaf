@@ -113,8 +113,6 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 				return createEnumCpLinearTypeFromString(eDataType, initialValue);
 			case SolverPackage.ENUM_CP_LOGICAL_TYPE:
 				return createEnumCpLogicalTypeFromString(eDataType, initialValue);
-			case SolverPackage.ENUM_GOAL_TYPE:
-				return createEnumGoalTypeFromString(eDataType, initialValue);
 			case SolverPackage.ENUM_LP_FILE_FORMAT:
 				return createEnumLpFileFormatFromString(eDataType, initialValue);
 			case SolverPackage.ITUPLE_VISITOR:
@@ -146,8 +144,6 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 				return convertEnumCpLinearTypeToString(eDataType, instanceValue);
 			case SolverPackage.ENUM_CP_LOGICAL_TYPE:
 				return convertEnumCpLogicalTypeToString(eDataType, instanceValue);
-			case SolverPackage.ENUM_GOAL_TYPE:
-				return convertEnumGoalTypeToString(eDataType, instanceValue);
 			case SolverPackage.ENUM_LP_FILE_FORMAT:
 				return convertEnumLpFileFormatToString(eDataType, instanceValue);
 			case SolverPackage.ITUPLE_VISITOR:
@@ -586,26 +582,6 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 	 * @generated
 	 */
 	public String convertEnumCpLogicalTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EnumGoalType createEnumGoalTypeFromString(EDataType eDataType, String initialValue) {
-		EnumGoalType result = EnumGoalType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertEnumGoalTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

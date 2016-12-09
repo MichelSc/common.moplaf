@@ -33,11 +33,6 @@
     <eLiterals name="EnumLiteralCpLogicalOr" literal="Or"/>
     <eLiterals name="EnumLiteralCpLogicalAnd" value="1" literal="And"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="EnumGoalType">
-    <eLiterals name="EnumLiteralGoalTypeConstrained" literal="Constrained"/>
-    <eLiterals name="EnumLiteralGoalTypeOptimized" value="1" literal="Optimized"/>
-    <eLiterals name="EnumLiteralGoalTypeFree" value="2" literal="Free"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Generator" abstract="true" eSuperTypes="../../com.misc.common.moplaf.job.emf/model/job.ecore#//Run">
     <eOperations name="generate" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//ReturnFeedback"/>
     <eOperations name="generateRootTuples" eExceptions="#//Exception"/>
@@ -440,11 +435,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="SolutionLpCons" eSuperTypes="#//SolutionCons"/>
   <eClassifiers xsi:type="ecore:EClass" name="SolutionGoal" eSuperTypes="#//SolutionElement">
     <eOperations name="refresh"/>
+    <eOperations name="buildGoalAsPreviousSolver" eExceptions="#//Exception">
+      <eParameters name="builder" eType="#//Solver"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Goal" lowerBound="1" eType="#//GeneratorGoal"
         eOpposite="#//GeneratorGoal/Solution"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="#//EnumGoalType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Constrained" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Optimized" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Bound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolutionLpGoal" eSuperTypes="#//SolutionGoal">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>

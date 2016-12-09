@@ -393,7 +393,7 @@ public abstract class GeneratorGoalImpl extends GeneratorElementImpl implements 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case SolverPackage.GENERATOR_GOAL___BUILD_CONS__FLOAT_SOLVER:
+			case SolverPackage.GENERATOR_GOAL___BUILD_CONS__SOLVER_FLOAT:
 				try {
 					buildCons((Solver)arguments.get(0), (Float)arguments.get(1));
 					return null;

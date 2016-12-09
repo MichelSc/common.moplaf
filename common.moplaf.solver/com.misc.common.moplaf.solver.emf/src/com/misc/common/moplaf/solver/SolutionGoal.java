@@ -14,7 +14,9 @@ package com.misc.common.moplaf.solver;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.SolutionGoal#getGoal <em>Goal</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.SolutionGoal#getLabel <em>Label</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.SolutionGoal#getType <em>Type</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.SolutionGoal#isConstrained <em>Constrained</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.SolutionGoal#isOptimized <em>Optimized</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.SolutionGoal#getBound <em>Bound</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getSolutionGoal()
@@ -66,33 +68,82 @@ public interface SolutionGoal extends SolutionElement {
 	String getLabel();
 
 	/**
-	 * Returns the value of the '<em><b>Type</b></em>' attribute.
-	 * The literals are from the enumeration {@link com.misc.common.moplaf.solver.EnumGoalType}.
+	 * Returns the value of the '<em><b>Constrained</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Type</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Constrained</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Type</em>' attribute.
-	 * @see com.misc.common.moplaf.solver.EnumGoalType
-	 * @see #setType(EnumGoalType)
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolutionGoal_Type()
+	 * @return the value of the '<em>Constrained</em>' attribute.
+	 * @see #setConstrained(boolean)
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolutionGoal_Constrained()
 	 * @model
 	 * @generated
 	 */
-	EnumGoalType getType();
+	boolean isConstrained();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.solver.SolutionGoal#getType <em>Type</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.solver.SolutionGoal#isConstrained <em>Constrained</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' attribute.
-	 * @see com.misc.common.moplaf.solver.EnumGoalType
-	 * @see #getType()
+	 * @param value the new value of the '<em>Constrained</em>' attribute.
+	 * @see #isConstrained()
 	 * @generated
 	 */
-	void setType(EnumGoalType value);
+	void setConstrained(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Optimized</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Optimized</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Optimized</em>' attribute.
+	 * @see #setOptimized(boolean)
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolutionGoal_Optimized()
+	 * @model
+	 * @generated
+	 */
+	boolean isOptimized();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.solver.SolutionGoal#isOptimized <em>Optimized</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Optimized</em>' attribute.
+	 * @see #isOptimized()
+	 * @generated
+	 */
+	void setOptimized(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Bound</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Bound</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Bound</em>' attribute.
+	 * @see #setBound(float)
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolutionGoal_Bound()
+	 * @model
+	 * @generated
+	 */
+	float getBound();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.solver.SolutionGoal#getBound <em>Bound</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Bound</em>' attribute.
+	 * @see #getBound()
+	 * @generated
+	 */
+	void setBound(float value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -101,5 +152,13 @@ public interface SolutionGoal extends SolutionElement {
 	 * @generated
 	 */
 	void refresh();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
+	 * @generated
+	 */
+	void buildGoalAsPreviousSolver(Solver builder) throws Exception;
 
 } // SolutionGoal

@@ -210,6 +210,8 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	
 	
 	/**
+	 * Called by the framework when building the Solver model.
+	 * Add this linear as a contribution to the objective function with the given weight
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
@@ -219,6 +221,8 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	}
 
 	/**
+	 * Called by the framework when building the Solver model.
+	 * Add this linear as a constraint with the given bound
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */

@@ -5,7 +5,6 @@ package com.misc.common.moplaf.solver.impl;
 import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.solver.EnumCpLinearType;
 import com.misc.common.moplaf.solver.EnumCpLogicalType;
-import com.misc.common.moplaf.solver.EnumGoalType;
 import com.misc.common.moplaf.solver.EnumLpConsType;
 import com.misc.common.moplaf.solver.EnumLpFileFormat;
 import com.misc.common.moplaf.solver.EnumLpVarType;
@@ -447,13 +446,6 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * @generated
 	 */
 	private EEnum enumCpLogicalTypeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum enumGoalTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1040,7 +1032,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getGeneratorGoal__BuildCons__float_Solver() {
+	public EOperation getGeneratorGoal__BuildCons__Solver_float() {
 		return generatorGoalEClass.getEOperations().get(1);
 	}
 
@@ -2525,8 +2517,26 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolutionGoal_Type() {
+	public EAttribute getSolutionGoal_Constrained() {
 		return (EAttribute)solutionGoalEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSolutionGoal_Optimized() {
+		return (EAttribute)solutionGoalEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSolutionGoal_Bound() {
+		return (EAttribute)solutionGoalEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -2536,6 +2546,15 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 */
 	public EOperation getSolutionGoal__Refresh() {
 		return solutionGoalEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSolutionGoal__BuildGoalAsPreviousSolver__Solver() {
+		return solutionGoalEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -2930,15 +2949,6 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getEnumGoalType() {
-		return enumGoalTypeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getEnumLpFileFormat() {
 		return enumLpFileFormatEEnum;
 	}
@@ -3222,8 +3232,11 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		solutionGoalEClass = createEClass(SOLUTION_GOAL);
 		createEReference(solutionGoalEClass, SOLUTION_GOAL__GOAL);
 		createEAttribute(solutionGoalEClass, SOLUTION_GOAL__LABEL);
-		createEAttribute(solutionGoalEClass, SOLUTION_GOAL__TYPE);
+		createEAttribute(solutionGoalEClass, SOLUTION_GOAL__CONSTRAINED);
+		createEAttribute(solutionGoalEClass, SOLUTION_GOAL__OPTIMIZED);
+		createEAttribute(solutionGoalEClass, SOLUTION_GOAL__BOUND);
 		createEOperation(solutionGoalEClass, SOLUTION_GOAL___REFRESH);
+		createEOperation(solutionGoalEClass, SOLUTION_GOAL___BUILD_GOAL_AS_PREVIOUS_SOLVER__SOLVER);
 
 		solutionLpGoalEClass = createEClass(SOLUTION_LP_GOAL);
 		createEAttribute(solutionLpGoalEClass, SOLUTION_LP_GOAL__VALUE);
@@ -3263,7 +3276,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		createEAttribute(generatorGoalEClass, GENERATOR_GOAL__LABEL);
 		createEReference(generatorGoalEClass, GENERATOR_GOAL__SOLUTION);
 		createEOperation(generatorGoalEClass, GENERATOR_GOAL___BUILD__SOLVER_FLOAT);
-		createEOperation(generatorGoalEClass, GENERATOR_GOAL___BUILD_CONS__FLOAT_SOLVER);
+		createEOperation(generatorGoalEClass, GENERATOR_GOAL___BUILD_CONS__SOLVER_FLOAT);
 		createEOperation(generatorGoalEClass, GENERATOR_GOAL___GET_SOLUTION_GOAL__SOLUTION);
 
 		generatorLpGoalEClass = createEClass(GENERATOR_LP_GOAL);
@@ -3282,7 +3295,6 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		enumSolverLogLevelEEnum = createEEnum(ENUM_SOLVER_LOG_LEVEL);
 		enumCpLinearTypeEEnum = createEEnum(ENUM_CP_LINEAR_TYPE);
 		enumCpLogicalTypeEEnum = createEEnum(ENUM_CP_LOGICAL_TYPE);
-		enumGoalTypeEEnum = createEEnum(ENUM_GOAL_TYPE);
 		enumLpFileFormatEEnum = createEEnum(ENUM_LP_FILE_FORMAT);
 
 		// Create data types
@@ -3720,9 +3732,15 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		initEClass(solutionGoalEClass, SolutionGoal.class, "SolutionGoal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSolutionGoal_Goal(), this.getGeneratorGoal(), this.getGeneratorGoal_Solution(), "Goal", null, 1, 1, SolutionGoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSolutionGoal_Label(), ecorePackage.getEString(), "Label", null, 0, 1, SolutionGoal.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSolutionGoal_Type(), this.getEnumGoalType(), "Type", null, 0, 1, SolutionGoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolutionGoal_Constrained(), ecorePackage.getEBoolean(), "Constrained", null, 0, 1, SolutionGoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolutionGoal_Optimized(), ecorePackage.getEBoolean(), "Optimized", null, 0, 1, SolutionGoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolutionGoal_Bound(), ecorePackage.getEFloat(), "Bound", null, 0, 1, SolutionGoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getSolutionGoal__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getSolutionGoal__BuildGoalAsPreviousSolver__Solver(), null, "buildGoalAsPreviousSolver", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getSolver(), "builder", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getException());
 
 		initEClass(solutionLpGoalEClass, SolutionLpGoal.class, "SolutionLpGoal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSolutionLpGoal_Value(), ecorePackage.getEFloat(), "Value", null, 0, 1, SolutionLpGoal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3767,7 +3785,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		addEParameter(op, ecorePackage.getEFloat(), "weight", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
 
-		op = initEOperation(getGeneratorGoal__BuildCons__float_Solver(), null, "buildCons", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getGeneratorGoal__BuildCons__Solver_float(), null, "buildCons", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getSolver(), "builder", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEFloat(), "rhs", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
@@ -3820,11 +3838,6 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		initEEnum(enumCpLogicalTypeEEnum, EnumCpLogicalType.class, "EnumCpLogicalType");
 		addEEnumLiteral(enumCpLogicalTypeEEnum, EnumCpLogicalType.ENUM_LITERAL_CP_LOGICAL_OR);
 		addEEnumLiteral(enumCpLogicalTypeEEnum, EnumCpLogicalType.ENUM_LITERAL_CP_LOGICAL_AND);
-
-		initEEnum(enumGoalTypeEEnum, EnumGoalType.class, "EnumGoalType");
-		addEEnumLiteral(enumGoalTypeEEnum, EnumGoalType.ENUM_LITERAL_GOAL_TYPE_CONSTRAINED);
-		addEEnumLiteral(enumGoalTypeEEnum, EnumGoalType.ENUM_LITERAL_GOAL_TYPE_OPTIMIZED);
-		addEEnumLiteral(enumGoalTypeEEnum, EnumGoalType.ENUM_LITERAL_GOAL_TYPE_FREE);
 
 		initEEnum(enumLpFileFormatEEnum, EnumLpFileFormat.class, "EnumLpFileFormat");
 		addEEnumLiteral(enumLpFileFormatEEnum, EnumLpFileFormat.FILE_FORMAT_MPS);

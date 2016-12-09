@@ -2,8 +2,10 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
+import com.misc.common.moplaf.solver.GeneratorGoal;
 import com.misc.common.moplaf.solver.GeneratorLpGoal;
 import com.misc.common.moplaf.solver.SolutionLpGoal;
+import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -76,7 +78,30 @@ public class SolutionLpGoalImpl extends SolutionGoalImpl implements SolutionLpGo
 		}
 	}
 	
-	
+	/**
+	 * Called by the framework when building the solver model.
+	 * <p>
+	 * Add a constraint to the solver model.
+	 * <p>
+	 * Accordingly to the solution goal of this previous solver, use as bound 
+	 * either the previous (optimal) value of the goal or the previous bound 
+	 * for the goal.
+	 * <p>
+	 * For this, delegate building the constraint to the {@link GeneratorGoal#buildCons(Solver, float)}
+	 */
+	@Override
+	public void buildGoalAsPreviousSolver(Solver builder) throws Exception {
+		GeneratorGoal goal = this.getGoal();
+		if ( this.isOptimized()){
+			// optimal value becomes a bound
+			float bound = this.getValue();
+			goal.buildCons(builder, bound);
+		} else if ( this.isConstrained()){
+			// previous bound remains a bound
+			float bound = this.getBound();
+			goal.buildCons(builder, bound); 
+		}
+	}
 
 	@Override
 	public String getLabel() {

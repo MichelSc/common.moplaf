@@ -47,7 +47,9 @@ public class SolutionGoalItemProvider extends SolutionElementItemProvider {
 
 			addGoalPropertyDescriptor(object);
 			addLabelPropertyDescriptor(object);
-			addTypePropertyDescriptor(object);
+			addConstrainedPropertyDescriptor(object);
+			addOptimizedPropertyDescriptor(object);
+			addBoundPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -97,23 +99,67 @@ public class SolutionGoalItemProvider extends SolutionElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Type feature.
+	 * This adds a property descriptor for the Constrained feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTypePropertyDescriptor(Object object) {
+	protected void addConstrainedPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SolutionGoal_Type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SolutionGoal_Type_feature", "_UI_SolutionGoal_type"),
-				 SolverPackage.Literals.SOLUTION_GOAL__TYPE,
+				 getString("_UI_SolutionGoal_Constrained_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SolutionGoal_Constrained_feature", "_UI_SolutionGoal_type"),
+				 SolverPackage.Literals.SOLUTION_GOAL__CONSTRAINED,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Optimized feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOptimizedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SolutionGoal_Optimized_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SolutionGoal_Optimized_feature", "_UI_SolutionGoal_type"),
+				 SolverPackage.Literals.SOLUTION_GOAL__OPTIMIZED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Bound feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBoundPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SolutionGoal_Bound_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SolutionGoal_Bound_feature", "_UI_SolutionGoal_type"),
+				 SolverPackage.Literals.SOLUTION_GOAL__BOUND,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -157,7 +203,9 @@ public class SolutionGoalItemProvider extends SolutionElementItemProvider {
 
 		switch (notification.getFeatureID(SolutionGoal.class)) {
 			case SolverPackage.SOLUTION_GOAL__LABEL:
-			case SolverPackage.SOLUTION_GOAL__TYPE:
+			case SolverPackage.SOLUTION_GOAL__CONSTRAINED:
+			case SolverPackage.SOLUTION_GOAL__OPTIMIZED:
+			case SolverPackage.SOLUTION_GOAL__BOUND:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

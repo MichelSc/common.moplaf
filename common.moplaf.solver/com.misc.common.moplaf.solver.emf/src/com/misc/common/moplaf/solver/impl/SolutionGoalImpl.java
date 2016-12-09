@@ -2,9 +2,9 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
-import com.misc.common.moplaf.solver.EnumGoalType;
 import com.misc.common.moplaf.solver.GeneratorGoal;
 import com.misc.common.moplaf.solver.SolutionGoal;
+import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import java.lang.reflect.InvocationTargetException;
@@ -27,7 +27,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionGoalImpl#getGoal <em>Goal</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionGoalImpl#getLabel <em>Label</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionGoalImpl#getType <em>Type</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionGoalImpl#isConstrained <em>Constrained</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionGoalImpl#isOptimized <em>Optimized</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.SolutionGoalImpl#getBound <em>Bound</em>}</li>
  * </ul>
  *
  * @generated
@@ -54,24 +56,64 @@ public class SolutionGoalImpl extends SolutionElementImpl implements SolutionGoa
 	protected static final String LABEL_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * The default value of the '{@link #isConstrained() <em>Constrained</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #isConstrained()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final EnumGoalType TYPE_EDEFAULT = EnumGoalType.ENUM_LITERAL_GOAL_TYPE_CONSTRAINED;
+	protected static final boolean CONSTRAINED_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * The cached value of the '{@link #isConstrained() <em>Constrained</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #isConstrained()
 	 * @generated
 	 * @ordered
 	 */
-	protected EnumGoalType type = TYPE_EDEFAULT;
+	protected boolean constrained = CONSTRAINED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isOptimized() <em>Optimized</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isOptimized()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean OPTIMIZED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isOptimized() <em>Optimized</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isOptimized()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean optimized = OPTIMIZED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getBound() <em>Bound</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBound()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float BOUND_EDEFAULT = 0.0F;
+
+	/**
+	 * The cached value of the '{@link #getBound() <em>Bound</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBound()
+	 * @generated
+	 * @ordered
+	 */
+	protected float bound = BOUND_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -168,8 +210,8 @@ public class SolutionGoalImpl extends SolutionElementImpl implements SolutionGoa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EnumGoalType getType() {
-		return type;
+	public boolean isConstrained() {
+		return constrained;
 	}
 
 	/**
@@ -177,11 +219,53 @@ public class SolutionGoalImpl extends SolutionElementImpl implements SolutionGoa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(EnumGoalType newType) {
-		EnumGoalType oldType = type;
-		type = newType == null ? TYPE_EDEFAULT : newType;
+	public void setConstrained(boolean newConstrained) {
+		boolean oldConstrained = constrained;
+		constrained = newConstrained;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLUTION_GOAL__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLUTION_GOAL__CONSTRAINED, oldConstrained, constrained));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isOptimized() {
+		return optimized;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOptimized(boolean newOptimized) {
+		boolean oldOptimized = optimized;
+		optimized = newOptimized;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLUTION_GOAL__OPTIMIZED, oldOptimized, optimized));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public float getBound() {
+		return bound;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBound(float newBound) {
+		float oldBound = bound;
+		bound = newBound;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLUTION_GOAL__BOUND, oldBound, bound));
 	}
 
 	/**
@@ -190,6 +274,17 @@ public class SolutionGoalImpl extends SolutionElementImpl implements SolutionGoa
 	 * @generated
 	 */
 	public void refresh() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void buildGoalAsPreviousSolver(Solver builder) throws Exception {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -238,8 +333,12 @@ public class SolutionGoalImpl extends SolutionElementImpl implements SolutionGoa
 				return basicGetGoal();
 			case SolverPackage.SOLUTION_GOAL__LABEL:
 				return getLabel();
-			case SolverPackage.SOLUTION_GOAL__TYPE:
-				return getType();
+			case SolverPackage.SOLUTION_GOAL__CONSTRAINED:
+				return isConstrained();
+			case SolverPackage.SOLUTION_GOAL__OPTIMIZED:
+				return isOptimized();
+			case SolverPackage.SOLUTION_GOAL__BOUND:
+				return getBound();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -255,8 +354,14 @@ public class SolutionGoalImpl extends SolutionElementImpl implements SolutionGoa
 			case SolverPackage.SOLUTION_GOAL__GOAL:
 				setGoal((GeneratorGoal)newValue);
 				return;
-			case SolverPackage.SOLUTION_GOAL__TYPE:
-				setType((EnumGoalType)newValue);
+			case SolverPackage.SOLUTION_GOAL__CONSTRAINED:
+				setConstrained((Boolean)newValue);
+				return;
+			case SolverPackage.SOLUTION_GOAL__OPTIMIZED:
+				setOptimized((Boolean)newValue);
+				return;
+			case SolverPackage.SOLUTION_GOAL__BOUND:
+				setBound((Float)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -273,8 +378,14 @@ public class SolutionGoalImpl extends SolutionElementImpl implements SolutionGoa
 			case SolverPackage.SOLUTION_GOAL__GOAL:
 				setGoal((GeneratorGoal)null);
 				return;
-			case SolverPackage.SOLUTION_GOAL__TYPE:
-				setType(TYPE_EDEFAULT);
+			case SolverPackage.SOLUTION_GOAL__CONSTRAINED:
+				setConstrained(CONSTRAINED_EDEFAULT);
+				return;
+			case SolverPackage.SOLUTION_GOAL__OPTIMIZED:
+				setOptimized(OPTIMIZED_EDEFAULT);
+				return;
+			case SolverPackage.SOLUTION_GOAL__BOUND:
+				setBound(BOUND_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -292,8 +403,12 @@ public class SolutionGoalImpl extends SolutionElementImpl implements SolutionGoa
 				return goal != null;
 			case SolverPackage.SOLUTION_GOAL__LABEL:
 				return LABEL_EDEFAULT == null ? getLabel() != null : !LABEL_EDEFAULT.equals(getLabel());
-			case SolverPackage.SOLUTION_GOAL__TYPE:
-				return type != TYPE_EDEFAULT;
+			case SolverPackage.SOLUTION_GOAL__CONSTRAINED:
+				return constrained != CONSTRAINED_EDEFAULT;
+			case SolverPackage.SOLUTION_GOAL__OPTIMIZED:
+				return optimized != OPTIMIZED_EDEFAULT;
+			case SolverPackage.SOLUTION_GOAL__BOUND:
+				return bound != BOUND_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -309,6 +424,14 @@ public class SolutionGoalImpl extends SolutionElementImpl implements SolutionGoa
 			case SolverPackage.SOLUTION_GOAL___REFRESH:
 				refresh();
 				return null;
+			case SolverPackage.SOLUTION_GOAL___BUILD_GOAL_AS_PREVIOUS_SOLVER__SOLVER:
+				try {
+					buildGoalAsPreviousSolver((Solver)arguments.get(0));
+					return null;
+				}
+				catch (Throwable throwable) {
+					throw new InvocationTargetException(throwable);
+				}
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -323,8 +446,12 @@ public class SolutionGoalImpl extends SolutionElementImpl implements SolutionGoa
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (Type: ");
-		result.append(type);
+		result.append(" (Constrained: ");
+		result.append(constrained);
+		result.append(", Optimized: ");
+		result.append(optimized);
+		result.append(", Bound: ");
+		result.append(bound);
 		result.append(')');
 		return result.toString();
 	}

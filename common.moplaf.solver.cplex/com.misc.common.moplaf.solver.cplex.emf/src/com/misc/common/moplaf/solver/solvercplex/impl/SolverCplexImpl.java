@@ -257,7 +257,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 	@Override
 	protected void buildLpConsImpl(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception {
 		IloLinearNumExpr expr = this.lp.linearNumExpr();
-	    for ( GeneratorLpTerm lpterm : linear.getLpTerm())			{
+	    for ( GeneratorLpTerm lpterm : linear.getLpTerm())	{
 		    GeneratorLpVar lpvar = lpterm.getLpVar();
 		    IloNumVar cplexvar = vars.get(lpvar);
 		    float coefficient = lpterm.getCoeff();
@@ -639,6 +639,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		float   mipgap     = 0.0f;
 		
 
+		// handle the return status of cplex
 		if  ( status == Status.Optimal ) { 
 			//	The Optimal solution status reports that the IloCplex optimizer has found an optimal solution that can be queried with the method getValue.
 			Plugin.INSTANCE.logInfo("SolverCplex: status Optimal");
@@ -690,6 +691,11 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 					optimalvalue = (float) this.lp.getValue(cplexvar);
 				} catch (IloException e) {
 					Plugin.INSTANCE.logError("SolverCplex: getValue, exception "+e+ ", object "+cplexvar.getName());
+					// michel 20161209: 
+					//    cplex returns an exception for variable not used by the solver
+					//    actually the value of the variable does not matter
+					//    what should be do, set an optimal value or nothing or mark it as unbound?
+					//    this is an open questions
 //					return new ReturnFeedback("SolverCplex.getMIPRelativeGap", e);
 				}
 				if ( Math.abs(optimalvalue)>0.00001){
@@ -698,9 +704,6 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 				}
 			} // traverse the vars
 			this.makeSolutionGoals(newSolution);
-			if ( optimal) {
-				mipgap = 0.0f; // michel 20160415: not sure this is correct
-			}
 		}
 		this.setSolFeasible(feasible);
 		this.setSolUnfeasible(unfeasible);
