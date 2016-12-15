@@ -105,7 +105,10 @@ public class SolutionLpGoalImpl extends SolutionGoalImpl implements SolutionLpGo
 
 	@Override
 	public String getLabel() {
-		String label = String.format("Goal %s = %f", this.getGoal().getCode(), this.getValue());
+		String type = "Free";
+		if ( this.isOptimized() ){ type = "Optimized"; }
+		else if ( this.isConstrained()) { type = "Constrained"; }
+		String label = String.format("%s %s = %f", type, this.getGoal().getCode(), this.getValue());
 		return label;
 	}
 
