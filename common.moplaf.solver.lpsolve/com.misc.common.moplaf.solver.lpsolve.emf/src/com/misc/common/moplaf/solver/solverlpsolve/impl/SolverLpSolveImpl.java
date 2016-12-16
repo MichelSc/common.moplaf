@@ -47,21 +47,17 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link com.misc.common.moplaf.solver.solverlpsolve.impl.SolverLpSolveImpl#getFilePath
- * <em>File Path</em>}</li>
- * <li>{@link com.misc.common.moplaf.solver.solverlpsolve.impl.SolverLpSolveImpl#getFileFormat
- * <em>File Format</em>}</li>
- * <li>{@link com.misc.common.moplaf.solver.solverlpsolve.impl.SolverLpSolveImpl#isFileCompressed
- * <em>File Compressed</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.solverlpsolve.impl.SolverLpSolveImpl#getFilePath <em>File Path</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.solverlpsolve.impl.SolverLpSolveImpl#getFileFormat <em>File Format</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.solverlpsolve.impl.SolverLpSolveImpl#isFileCompressed <em>File Compressed</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 	/**
-	 * The default value of the '{@link #getFilePath() <em>File Path</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getFilePath() <em>File Path</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getFilePath()
 	 * @generated
 	 * @ordered
@@ -69,9 +65,8 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 	protected static final String FILE_PATH_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getFilePath() <em>File Path</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getFilePath() <em>File Path</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getFilePath()
 	 * @generated
 	 * @ordered
@@ -79,9 +74,8 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 	protected String filePath = FILE_PATH_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getFileFormat() <em>File Format</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The default value of the '{@link #getFileFormat() <em>File Format</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getFileFormat()
 	 * @generated
 	 * @ordered
@@ -89,9 +83,8 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 	protected static final EnumLpFileFormat FILE_FORMAT_EDEFAULT = EnumLpFileFormat.FILE_FORMAT_MPS;
 
 	/**
-	 * The cached value of the '{@link #getFileFormat() <em>File Format</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getFileFormat() <em>File Format</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getFileFormat()
 	 * @generated
 	 * @ordered
@@ -122,7 +115,6 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected SolverLpSolveImpl() {
@@ -131,7 +123,6 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -141,7 +132,6 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getFilePath() {
@@ -150,20 +140,17 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setFilePath(String newFilePath) {
 		String oldFilePath = filePath;
 		filePath = newFilePath;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_PATH,
-					oldFilePath, filePath));
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_PATH, oldFilePath, filePath));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EnumLpFileFormat getFileFormat() {
@@ -172,20 +159,17 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setFileFormat(EnumLpFileFormat newFileFormat) {
 		EnumLpFileFormat oldFileFormat = fileFormat;
 		fileFormat = newFileFormat == null ? FILE_FORMAT_EDEFAULT : newFileFormat;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_FORMAT,
-					oldFileFormat, fileFormat));
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_FORMAT, oldFileFormat, fileFormat));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean isFileCompressed() {
@@ -194,15 +178,13 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setFileCompressed(boolean newFileCompressed) {
 		boolean oldFileCompressed = fileCompressed;
 		fileCompressed = newFileCompressed;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_COMPRESSED,
-					oldFileCompressed, fileCompressed));
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_COMPRESSED, oldFileCompressed, fileCompressed));
 	}
 
 	/**
@@ -253,7 +235,6 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getLpAsString() {
@@ -264,99 +245,90 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_PATH:
-			return getFilePath();
-		case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_FORMAT:
-			return getFileFormat();
-		case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_COMPRESSED:
-			return isFileCompressed();
+			case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_PATH:
+				return getFilePath();
+			case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_FORMAT:
+				return getFileFormat();
+			case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_COMPRESSED:
+				return isFileCompressed();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_PATH:
-			setFilePath((String) newValue);
-			return;
-		case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_FORMAT:
-			setFileFormat((EnumLpFileFormat) newValue);
-			return;
-		case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_COMPRESSED:
-			setFileCompressed((Boolean) newValue);
-			return;
+			case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_PATH:
+				setFilePath((String)newValue);
+				return;
+			case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_FORMAT:
+				setFileFormat((EnumLpFileFormat)newValue);
+				return;
+			case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_COMPRESSED:
+				setFileCompressed((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_PATH:
-			setFilePath(FILE_PATH_EDEFAULT);
-			return;
-		case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_FORMAT:
-			setFileFormat(FILE_FORMAT_EDEFAULT);
-			return;
-		case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_COMPRESSED:
-			setFileCompressed(FILE_COMPRESSED_EDEFAULT);
-			return;
+			case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_PATH:
+				setFilePath(FILE_PATH_EDEFAULT);
+				return;
+			case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_FORMAT:
+				setFileFormat(FILE_FORMAT_EDEFAULT);
+				return;
+			case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_COMPRESSED:
+				setFileCompressed(FILE_COMPRESSED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_PATH:
-			return FILE_PATH_EDEFAULT == null ? filePath != null : !FILE_PATH_EDEFAULT.equals(filePath);
-		case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_FORMAT:
-			return fileFormat != FILE_FORMAT_EDEFAULT;
-		case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_COMPRESSED:
-			return fileCompressed != FILE_COMPRESSED_EDEFAULT;
+			case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_PATH:
+				return FILE_PATH_EDEFAULT == null ? filePath != null : !FILE_PATH_EDEFAULT.equals(filePath);
+			case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_FORMAT:
+				return fileFormat != FILE_FORMAT_EDEFAULT;
+			case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_COMPRESSED:
+				return fileCompressed != FILE_COMPRESSED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == ILpWriter.class) {
 			switch (derivedFeatureID) {
-			case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_PATH:
-				return SolverPackage.ILP_WRITER__FILE_PATH;
-			case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_FORMAT:
-				return SolverPackage.ILP_WRITER__FILE_FORMAT;
-			case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_COMPRESSED:
-				return SolverPackage.ILP_WRITER__FILE_COMPRESSED;
-			default:
-				return -1;
+				case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_PATH: return SolverPackage.ILP_WRITER__FILE_PATH;
+				case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_FORMAT: return SolverPackage.ILP_WRITER__FILE_FORMAT;
+				case SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_COMPRESSED: return SolverPackage.ILP_WRITER__FILE_COMPRESSED;
+				default: return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -364,21 +336,16 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == ILpWriter.class) {
 			switch (baseFeatureID) {
-			case SolverPackage.ILP_WRITER__FILE_PATH:
-				return SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_PATH;
-			case SolverPackage.ILP_WRITER__FILE_FORMAT:
-				return SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_FORMAT;
-			case SolverPackage.ILP_WRITER__FILE_COMPRESSED:
-				return SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_COMPRESSED;
-			default:
-				return -1;
+				case SolverPackage.ILP_WRITER__FILE_PATH: return SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_PATH;
+				case SolverPackage.ILP_WRITER__FILE_FORMAT: return SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_FORMAT;
+				case SolverPackage.ILP_WRITER__FILE_COMPRESSED: return SolverlpsolvePackage.SOLVER_LP_SOLVE__FILE_COMPRESSED;
+				default: return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -386,19 +353,15 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == ILpWriter.class) {
 			switch (baseOperationID) {
-			case SolverPackage.ILP_WRITER___WRITE_LP_TO_FILE:
-				return SolverlpsolvePackage.SOLVER_LP_SOLVE___WRITE_LP_TO_FILE;
-			case SolverPackage.ILP_WRITER___GET_LP_AS_STRING:
-				return SolverlpsolvePackage.SOLVER_LP_SOLVE___GET_LP_AS_STRING;
-			default:
-				return -1;
+				case SolverPackage.ILP_WRITER___WRITE_LP_TO_FILE: return SolverlpsolvePackage.SOLVER_LP_SOLVE___WRITE_LP_TO_FILE;
+				case SolverPackage.ILP_WRITER___GET_LP_AS_STRING: return SolverlpsolvePackage.SOLVER_LP_SOLVE___GET_LP_AS_STRING;
+				default: return -1;
 			}
 		}
 		return super.eDerivedOperationID(baseOperationID, baseClass);
@@ -406,30 +369,27 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-		case SolverlpsolvePackage.SOLVER_LP_SOLVE___WRITE_LP_TO_FILE:
-			writeLpToFile();
-			return null;
-		case SolverlpsolvePackage.SOLVER_LP_SOLVE___GET_LP_AS_STRING:
-			return getLpAsString();
+			case SolverlpsolvePackage.SOLVER_LP_SOLVE___WRITE_LP_TO_FILE:
+				writeLpToFile();
+				return null;
+			case SolverlpsolvePackage.SOLVER_LP_SOLVE___GET_LP_AS_STRING:
+				return getLpAsString();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (FilePath: ");

@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.solver.solverlpsolve.util;
 
+import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.solver.IGeneratorTool;
 import com.misc.common.moplaf.solver.ILpWriter;
 import com.misc.common.moplaf.solver.SolutionProvider;
@@ -79,6 +80,7 @@ public class SolverlpsolveSwitch<T> extends Switch<T> {
 				if (result == null) result = caseILpWriter(solverLpSolve);
 				if (result == null) result = caseSolver(solverLpSolve);
 				if (result == null) result = caseSolutionProvider(solverLpSolve);
+				if (result == null) result = caseRun(solverLpSolve);
 				if (result == null) result = caseIGeneratorTool(solverLpSolve);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -99,6 +101,21 @@ public class SolverlpsolveSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSolverLpSolve(SolverLpSolve object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Run</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Run</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRun(Run object) {
 		return null;
 	}
 
