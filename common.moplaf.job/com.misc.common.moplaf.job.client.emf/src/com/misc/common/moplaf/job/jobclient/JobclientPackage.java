@@ -488,13 +488,31 @@ public interface JobclientPackage extends EPackage {
 	int JOB_ENGINE__STOP_FEEDBACK = 3;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE__NAME = 4;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE__LABEL = 5;
+
+	/**
 	 * The number of structural features of the '<em>Job Engine</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_FEATURE_COUNT = 4;
+	int JOB_ENGINE_FEATURE_COUNT = 6;
 
 	/**
 	 * The operation id for the '<em>Start</em>' operation.
@@ -795,6 +813,28 @@ public interface JobclientPackage extends EPackage {
 	EAttribute getJobEngine_StopFeedback();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobEngine#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobEngine#getName()
+	 * @see #getJobEngine()
+	 * @generated
+	 */
+	EAttribute getJobEngine_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobEngine#getLabel <em>Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Label</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobEngine#getLabel()
+	 * @see #getJobEngine()
+	 * @generated
+	 */
+	EAttribute getJobEngine_Label();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobEngine#start() <em>Start</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1022,6 +1062,22 @@ public interface JobclientPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute JOB_ENGINE__STOP_FEEDBACK = eINSTANCE.getJobEngine_StopFeedback();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_ENGINE__NAME = eINSTANCE.getJobEngine_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_ENGINE__LABEL = eINSTANCE.getJobEngine_Label();
 
 		/**
 		 * The meta object literal for the '<em><b>Start</b></em>' operation.

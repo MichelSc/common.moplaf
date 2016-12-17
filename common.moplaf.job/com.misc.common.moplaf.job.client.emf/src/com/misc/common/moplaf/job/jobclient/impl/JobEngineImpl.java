@@ -36,6 +36,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl#isRunning <em>Running</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl#getStartFeedback <em>Start Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl#getStopFeedback <em>Stop Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl#getLabel <em>Label</em>}</li>
  * </ul>
  *
  * @generated
@@ -87,6 +89,36 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 	 * @ordered
 	 */
 	protected static final EnabledFeedback STOP_FEEDBACK_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LABEL_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -165,6 +197,38 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JobclientPackage.JOB_ENGINE__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public String getLabel() {
+		String label = String.format("%s (%s)", 
+				                     this.getName(),
+				                     this.isRunning()?"running":"stopped");
+		return label;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public void start() {
 		CommonPlugin.INSTANCE.log("Engine started");
@@ -222,6 +286,10 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 				return getStartFeedback();
 			case JobclientPackage.JOB_ENGINE__STOP_FEEDBACK:
 				return getStopFeedback();
+			case JobclientPackage.JOB_ENGINE__NAME:
+				return getName();
+			case JobclientPackage.JOB_ENGINE__LABEL:
+				return getLabel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -242,6 +310,9 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 			case JobclientPackage.JOB_ENGINE__RUNNING:
 				setRunning((Boolean)newValue);
 				return;
+			case JobclientPackage.JOB_ENGINE__NAME:
+				setName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -259,6 +330,9 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 				return;
 			case JobclientPackage.JOB_ENGINE__RUNNING:
 				setRunning(RUNNING_EDEFAULT);
+				return;
+			case JobclientPackage.JOB_ENGINE__NAME:
+				setName(NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -280,6 +354,10 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 				return START_FEEDBACK_EDEFAULT == null ? getStartFeedback() != null : !START_FEEDBACK_EDEFAULT.equals(getStartFeedback());
 			case JobclientPackage.JOB_ENGINE__STOP_FEEDBACK:
 				return STOP_FEEDBACK_EDEFAULT == null ? getStopFeedback() != null : !STOP_FEEDBACK_EDEFAULT.equals(getStopFeedback());
+			case JobclientPackage.JOB_ENGINE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case JobclientPackage.JOB_ENGINE__LABEL:
+				return LABEL_EDEFAULT == null ? getLabel() != null : !LABEL_EDEFAULT.equals(getLabel());
 		}
 		return super.eIsSet(featureID);
 	}
@@ -314,6 +392,8 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (Running: ");
 		result.append(running);
+		result.append(", Name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

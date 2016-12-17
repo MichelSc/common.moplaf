@@ -20,6 +20,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobEngine#isRunning <em>Running</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobEngine#getStartFeedback <em>Start Feedback</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.JobEngine#getStopFeedback <em>Stop Feedback</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobEngine#getName <em>Name</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.JobEngine#getLabel <em>Label</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobEngine()
@@ -98,6 +100,47 @@ public interface JobEngine extends EObject {
 	 * @generated
 	 */
 	EnabledFeedback getStopFeedback();
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobEngine_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.job.jobclient.JobEngine#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Label</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Label</em>' attribute.
+	 * @see com.misc.common.moplaf.job.jobclient.JobclientPackage#getJobEngine_Label()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getLabel();
 
 	/**
 	 * <!-- begin-user-doc -->

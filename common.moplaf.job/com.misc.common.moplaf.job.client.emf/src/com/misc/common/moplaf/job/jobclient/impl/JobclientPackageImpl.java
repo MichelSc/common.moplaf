@@ -283,6 +283,24 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getJobEngine_Name() {
+		return (EAttribute)jobEngineEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJobEngine_Label() {
+		return (EAttribute)jobEngineEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getJobEngine__Start() {
 		return jobEngineEClass.getEOperations().get(0);
 	}
@@ -389,6 +407,8 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 		createEAttribute(jobEngineEClass, JOB_ENGINE__RUNNING);
 		createEAttribute(jobEngineEClass, JOB_ENGINE__START_FEEDBACK);
 		createEAttribute(jobEngineEClass, JOB_ENGINE__STOP_FEEDBACK);
+		createEAttribute(jobEngineEClass, JOB_ENGINE__NAME);
+		createEAttribute(jobEngineEClass, JOB_ENGINE__LABEL);
 		createEOperation(jobEngineEClass, JOB_ENGINE___START);
 		createEOperation(jobEngineEClass, JOB_ENGINE___STOP);
 
@@ -462,6 +482,8 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 		initEAttribute(getJobEngine_Running(), ecorePackage.getEBoolean(), "Running", null, 0, 1, JobEngine.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobEngine_StartFeedback(), theJobPackage.getEnabledFeedback(), "StartFeedback", null, 0, 1, JobEngine.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobEngine_StopFeedback(), theJobPackage.getEnabledFeedback(), "StopFeedback", null, 0, 1, JobEngine.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobEngine_Name(), ecorePackage.getEString(), "Name", null, 0, 1, JobEngine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobEngine_Label(), ecorePackage.getEString(), "Label", null, 0, 1, JobEngine.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getJobEngine__Start(), null, "start", 0, 1, IS_UNIQUE, IS_ORDERED);
 

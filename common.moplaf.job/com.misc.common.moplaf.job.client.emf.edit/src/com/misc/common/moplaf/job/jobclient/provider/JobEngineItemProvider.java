@@ -70,6 +70,8 @@ public class JobEngineItemProvider
 			addRunningPropertyDescriptor(object);
 			addStartFeedbackPropertyDescriptor(object);
 			addStopFeedbackPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
+			addLabelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -163,6 +165,50 @@ public class JobEngineItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobEngine_Name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobEngine_Name_feature", "_UI_JobEngine_type"),
+				 JobclientPackage.Literals.JOB_ENGINE__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Label feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLabelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobEngine_Label_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobEngine_Label_feature", "_UI_JobEngine_type"),
+				 JobclientPackage.Literals.JOB_ENGINE__LABEL,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -200,8 +246,10 @@ public class JobEngineItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		JobEngine jobEngine = (JobEngine)object;
-		return getString("_UI_JobEngine_type") + " " + jobEngine.isRunning();
+		String label = ((JobEngine)object).getLabel();
+		return label == null || label.length() == 0 ?
+			getString("_UI_JobEngine_type") :
+			getString("_UI_JobEngine_type") + " " + label;
 	}
 	
 
@@ -220,6 +268,8 @@ public class JobEngineItemProvider
 			case JobclientPackage.JOB_ENGINE__RUNNING:
 			case JobclientPackage.JOB_ENGINE__START_FEEDBACK:
 			case JobclientPackage.JOB_ENGINE__STOP_FEEDBACK:
+			case JobclientPackage.JOB_ENGINE__NAME:
+			case JobclientPackage.JOB_ENGINE__LABEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

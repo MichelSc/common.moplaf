@@ -32,12 +32,14 @@
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="jobclient.ecore#//JobRemoteResult"/>
-    <genClasses image="false" ecoreClass="jobclient.ecore#//JobEngine">
+    <genClasses image="false" ecoreClass="jobclient.ecore#//JobEngine" labelFeature="#//jobclient/JobEngine/Label">
       <genFeatures notify="false" children="true" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference jobclient.ecore#//JobEngine/SubmittedJobs"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobclient.ecore#//JobEngine/Running"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute jobclient.ecore#//JobEngine/StartFeedback"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute jobclient.ecore#//JobEngine/StopFeedback"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobclient.ecore#//JobEngine/Name"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute jobclient.ecore#//JobEngine/Label"/>
       <genOperations ecoreOperation="jobclient.ecore#//JobEngine/start"/>
       <genOperations ecoreOperation="jobclient.ecore#//JobEngine/stop"/>
     </genClasses>

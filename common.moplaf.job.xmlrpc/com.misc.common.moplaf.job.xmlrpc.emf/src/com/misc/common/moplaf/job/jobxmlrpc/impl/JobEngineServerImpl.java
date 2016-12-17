@@ -14,11 +14,14 @@ import java.io.IOException;
 import java.io.StringBufferInputStream;
 
 import org.apache.xmlrpc.XmlRpcException;
+import org.apache.xmlrpc.XmlRpcRequest;
 import org.apache.xmlrpc.server.PropertyHandlerMapping;
+import org.apache.xmlrpc.server.XmlRpcLocalStreamServer;
 import org.apache.xmlrpc.server.XmlRpcServer;
 import org.apache.xmlrpc.server.XmlRpcServerConfigImpl;
 import org.apache.xmlrpc.server.XmlRpcStreamServer;
 import org.apache.xmlrpc.webserver.WebServer;
+import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
@@ -241,6 +244,7 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 
 		public String runJob(String jobAsString) {
 			// instantiate the job
+			CommonPlugin.INSTANCE.log("HandleJob.runJob: called");
 			@SuppressWarnings("deprecation")
 			StringBufferInputStream stringReader= new StringBufferInputStream(jobAsString);
 		    URI uri = URI.createURI("http://www.misc.com/tmp/job.xml");
@@ -267,32 +271,57 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 
 	@Override
 	protected void startImpl() {
+		CommonPlugin.INSTANCE.log("JobEngineServer.start: called");
 		// handler mapping
 		PropertyHandlerMapping mapping = new PropertyHandlerMapping(){
 			
 		};
+		
 		try {
+			CommonPlugin.INSTANCE.log("JobEngineServer.start: going to add handler");
 			mapping.addHandler("handlejob", HandleJob.class);
+			CommonPlugin.INSTANCE.log("JobEngineServer.start: done with adding handler");
 		} catch (XmlRpcException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
 		// web server
+		CommonPlugin.INSTANCE.log("JobEngineServer.start: going to create webserver");
 		WebServer webserver = new WebServer(this.getPort()){
+			
 			@Override
 	        protected XmlRpcStreamServer newXmlRpcStreamServer() {
+				CommonPlugin.INSTANCE.log("WebServer.start: going to create rpc server");
 	            XmlRpcStreamServer streamServer = super.newXmlRpcStreamServer();
+	            /*
+	             * new XmlRpcLocalStreamServer(){
+
+					@Override
+					public Object execute(XmlRpcRequest pRequest) throws XmlRpcException {
+						CommonPlugin.INSTANCE.log("XmlRpcLocalStreamServer.execute");
+						// TODO Auto-generated method stub
+						return super.execute(pRequest);
+					}
+	            	
+	            	
+	            };
+	             */
+				CommonPlugin.INSTANCE.log("WebServer.start: done with creating rpc server");
 	            return streamServer;
 	        }
 			
 		};
-		XmlRpcServerConfigImpl config = new XmlRpcServerConfigImpl();
+		XmlRpcServerConfigImpl config = new XmlRpcServerConfigImpl(){
+			
+		};
 		XmlRpcServer server = webserver.getXmlRpcServer();
 		server.setConfig(config);
 		server.setHandlerMapping(mapping);
 		try {
+			CommonPlugin.INSTANCE.log("JobEngineServer.start: going to start");
 			webserver.start();
+			CommonPlugin.INSTANCE.log("JobEngineServer.start: started");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
