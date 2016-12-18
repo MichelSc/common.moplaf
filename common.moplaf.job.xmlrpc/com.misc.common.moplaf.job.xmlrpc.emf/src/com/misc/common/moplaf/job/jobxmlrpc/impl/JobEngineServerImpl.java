@@ -16,13 +16,14 @@ import java.io.StringBufferInputStream;
 import org.apache.xmlrpc.XmlRpcException;
 import org.apache.xmlrpc.XmlRpcRequest;
 import org.apache.xmlrpc.server.PropertyHandlerMapping;
-import org.apache.xmlrpc.server.XmlRpcLocalStreamServer;
+import org.apache.xmlrpc.server.RequestProcessorFactoryFactory;
 import org.apache.xmlrpc.server.XmlRpcServer;
 import org.apache.xmlrpc.server.XmlRpcServerConfigImpl;
-import org.apache.xmlrpc.server.XmlRpcStreamServer;
 import org.apache.xmlrpc.webserver.WebServer;
 import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -238,13 +239,41 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 	 */
 	private WebServer webServer = null;
 	
-	public final static class HandleJob {
+	/**
+	 * 
+	 * @author michel
+	 *
+	 */
+	public class JobEngineRequestProcessorFactoryFactory implements RequestProcessorFactoryFactory {
+		// the factory
+		private final RequestProcessorFactory factory = new JobEngineRequestProcessorFactory();
+
+		public RequestProcessorFactory getRequestProcessorFactory(Class aClass) throws XmlRpcException {
+			return factory;
+		}
+
+		private class JobEngineRequestProcessorFactory implements RequestProcessorFactory {
+			public Object getRequestProcessor(XmlRpcRequest xmlRpcRequest) throws XmlRpcException {
+				return JobEngineServerImpl.this.runJobHandler;
+			}
+		}
+	}
+	
+	public interface HandleJob {
+		public String runJob(String jobAsString);
+	}
+	
+	private HandleJob runJobHandler = new HandleJobImpl();
+	
+	public class HandleJobImpl implements HandleJob {
 		
-		public HandleJob() {};
+		public HandleJobImpl() {};
 
 		public String runJob(String jobAsString) {
-			// instantiate the job
-			CommonPlugin.INSTANCE.log("HandleJob.runJob: called");
+			CommonPlugin.INSTANCE.log("HandleJob.runJob: called ");
+
+			JobEngineServer jobEngineServer = JobEngineServerImpl.this;
+			
 			@SuppressWarnings("deprecation")
 			StringBufferInputStream stringReader= new StringBufferInputStream(jobAsString);
 		    URI uri = URI.createURI("http://www.misc.com/tmp/job.xml");
@@ -252,17 +281,31 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 		    try {
 		    	resource.load(stringReader, null);
 			} catch (IOException e) {
-//				throw new XmlRpcException("job not loaded ");
+				CommonPlugin.INSTANCE.log("HandleJob.runJob: exception in load: "+e.getMessage());
+				return "erreur";
 			}
 		    
-			for (Object object : resource.getContents()){
-		    	if ( object instanceof JobRemote) {
-		    		JobRemote job = (JobRemote) object;
+		    try {
+			    // get the jogs
+		    	EList<JobRemote> jobs = new BasicEList<JobRemote>();
+				for (Object object : resource.getContents()){
+			    	if ( object instanceof JobRemote) {
+			    		JobRemote job = (JobRemote) object;
+			    		jobs.add(job);
+						CommonPlugin.INSTANCE.log("HandleJob.runJob: job received");
+			    	}
+				}
+			    // add the jobs
+				for ( JobRemote job : jobs){
 		    		SubmittedJob submittedJob = JobclientFactory.eINSTANCE.createSubmittedJob();
+		    		jobEngineServer.getSubmittedJobs().add(submittedJob);
 		    		submittedJob.setJob(job);
-		    		//JobEngineServerImpl.this.getSubmittedJobs().add(submittedJob);
-		    	}
+					CommonPlugin.INSTANCE.log("HandleJob.runJob: job submitted");
+				}
 		    }
+			catch (Exception e) {
+				CommonPlugin.INSTANCE.log("HandleJob.runJob: exception "+e.getMessage());
+			}
 			
 			return jobAsString;
 		}
@@ -278,7 +321,9 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 		};
 		
 		try {
-			CommonPlugin.INSTANCE.log("JobEngineServer.start: going to add handler");
+			CommonPlugin.INSTANCE.log("JobEngineServer.start: intialize MappingHandler");
+			mapping.setRequestProcessorFactoryFactory(new JobEngineRequestProcessorFactoryFactory());
+			CommonPlugin.INSTANCE.log("JobEngineServer.start: done with adding factory");
 			mapping.addHandler("handlejob", HandleJob.class);
 			CommonPlugin.INSTANCE.log("JobEngineServer.start: done with adding handler");
 		} catch (XmlRpcException e1) {
@@ -288,33 +333,8 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 		
 		// web server
 		CommonPlugin.INSTANCE.log("JobEngineServer.start: going to create webserver");
-		WebServer webserver = new WebServer(this.getPort()){
-			
-			@Override
-	        protected XmlRpcStreamServer newXmlRpcStreamServer() {
-				CommonPlugin.INSTANCE.log("WebServer.start: going to create rpc server");
-	            XmlRpcStreamServer streamServer = super.newXmlRpcStreamServer();
-	            /*
-	             * new XmlRpcLocalStreamServer(){
-
-					@Override
-					public Object execute(XmlRpcRequest pRequest) throws XmlRpcException {
-						CommonPlugin.INSTANCE.log("XmlRpcLocalStreamServer.execute");
-						// TODO Auto-generated method stub
-						return super.execute(pRequest);
-					}
-	            	
-	            	
-	            };
-	             */
-				CommonPlugin.INSTANCE.log("WebServer.start: done with creating rpc server");
-	            return streamServer;
-	        }
-			
-		};
-		XmlRpcServerConfigImpl config = new XmlRpcServerConfigImpl(){
-			
-		};
+		WebServer webserver = new WebServer(this.getPort());
+		XmlRpcServerConfigImpl config = new XmlRpcServerConfigImpl();
 		XmlRpcServer server = webserver.getXmlRpcServer();
 		server.setConfig(config);
 		server.setHandlerMapping(mapping);
@@ -323,7 +343,7 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 			webserver.start();
 			CommonPlugin.INSTANCE.log("JobEngineServer.start: started");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			CommonPlugin.INSTANCE.log("JobEngineServer.start: exception when starting the server "+e.getMessage());
 			e.printStackTrace();
 		}
 		

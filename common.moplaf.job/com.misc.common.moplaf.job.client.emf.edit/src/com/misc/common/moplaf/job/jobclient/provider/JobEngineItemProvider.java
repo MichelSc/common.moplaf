@@ -272,6 +272,9 @@ public class JobEngineItemProvider
 			case JobclientPackage.JOB_ENGINE__LABEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case JobclientPackage.JOB_ENGINE__SUBMITTED_JOBS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}

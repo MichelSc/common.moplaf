@@ -196,6 +196,24 @@ public interface JobxmlrpcPackage extends EPackage {
 	int JOB_ENGINE_SERVER__STOP_FEEDBACK = JobclientPackage.JOB_ENGINE__STOP_FEEDBACK;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_SERVER__NAME = JobclientPackage.JOB_ENGINE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_SERVER__LABEL = JobclientPackage.JOB_ENGINE__LABEL;
+
+	/**
 	 * The feature id for the '<em><b>Port</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

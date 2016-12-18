@@ -5,7 +5,6 @@ package com.misc.common.moplaf.job.jobclient.impl;
 import com.misc.common.moplaf.job.jobclient.JobRemote;
 import com.misc.common.moplaf.job.jobclient.JobclientPackage;
 import com.misc.common.moplaf.job.jobclient.SubmittedJob;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 

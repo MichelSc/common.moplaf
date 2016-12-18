@@ -33,7 +33,7 @@
     </genClasses>
     <genClasses ecoreClass="jobclient.ecore#//JobRemoteResult"/>
     <genClasses image="false" ecoreClass="jobclient.ecore#//JobEngine" labelFeature="#//jobclient/JobEngine/Label">
-      <genFeatures notify="false" children="true" createChild="false" propertySortChoices="true"
+      <genFeatures children="true" createChild="false" propertyDescription="" propertySortChoices="true"
           ecoreFeature="ecore:EReference jobclient.ecore#//JobEngine/SubmittedJobs"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jobclient.ecore#//JobEngine/Running"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute jobclient.ecore#//JobEngine/StartFeedback"/>
