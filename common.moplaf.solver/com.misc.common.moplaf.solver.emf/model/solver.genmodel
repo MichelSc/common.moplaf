@@ -39,11 +39,6 @@
       <genEnumLiterals ecoreEnumLiteral="solver.ecore#//EnumCpLogicalType/EnumLiteralCpLogicalOr"/>
       <genEnumLiterals ecoreEnumLiteral="solver.ecore#//EnumCpLogicalType/EnumLiteralCpLogicalAnd"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="solver.ecore#//EnumGoalType">
-      <genEnumLiterals ecoreEnumLiteral="solver.ecore#//EnumGoalType/EnumLiteralGoalTypeConstrained"/>
-      <genEnumLiterals ecoreEnumLiteral="solver.ecore#//EnumGoalType/EnumLiteralGoalTypeOptimized"/>
-      <genEnumLiterals ecoreEnumLiteral="solver.ecore#//EnumGoalType/EnumLiteralGoalTypeFree"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="solver.ecore#//EnumLpFileFormat">
       <genEnumLiterals ecoreEnumLiteral="solver.ecore#//EnumLpFileFormat/FileFormatMps"/>
       <genEnumLiterals ecoreEnumLiteral="solver.ecore#//EnumLpFileFormat/FileFormatCplex"/>
@@ -339,6 +334,9 @@
     <genClasses image="false" ecoreClass="solver.ecore#//SolverGeneratorGoal">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//SolverGeneratorGoal/GoalToSolve"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolverGeneratorGoal/GoalWeight"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolverGeneratorGoal/GoalBound"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolverGeneratorGoal/Optimize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolverGeneratorGoal/Constraint"/>
     </genClasses>
     <genClasses image="false" ecoreClass="solver.ecore#//SolverGoalPreviousSolver">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//SolverGoalPreviousSolver/PreviousSolver"/>
@@ -392,8 +390,13 @@
     <genClasses ecoreClass="solver.ecore#//SolutionGoal">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//SolutionGoal/Goal"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolutionGoal/Label"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolutionGoal/Type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolutionGoal/Constrained"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolutionGoal/Optimized"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolutionGoal/Bound"/>
       <genOperations ecoreOperation="solver.ecore#//SolutionGoal/refresh"/>
+      <genOperations ecoreOperation="solver.ecore#//SolutionGoal/buildGoalAsPreviousSolver">
+        <genParameters ecoreParameter="solver.ecore#//SolutionGoal/buildGoalAsPreviousSolver/builder"/>
+      </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="solver.ecore#//SolutionLpGoal">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolutionLpGoal/Value"/>
@@ -439,8 +442,8 @@
         <genParameters ecoreParameter="solver.ecore#//GeneratorGoal/build/weight"/>
       </genOperations>
       <genOperations ecoreOperation="solver.ecore#//GeneratorGoal/buildCons">
-        <genParameters ecoreParameter="solver.ecore#//GeneratorGoal/buildCons/solutionGoal"/>
         <genParameters ecoreParameter="solver.ecore#//GeneratorGoal/buildCons/builder"/>
+        <genParameters ecoreParameter="solver.ecore#//GeneratorGoal/buildCons/rhs"/>
       </genOperations>
       <genOperations ecoreOperation="solver.ecore#//GeneratorGoal/getSolutionGoal">
         <genParameters ecoreParameter="solver.ecore#//GeneratorGoal/getSolutionGoal/solution"/>

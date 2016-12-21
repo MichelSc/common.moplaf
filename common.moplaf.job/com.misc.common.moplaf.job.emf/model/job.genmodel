@@ -54,6 +54,9 @@
         <genParameters ecoreParameter="job.ecore#//Run/setProgress.1/progress"/>
       </genOperations>
       <genOperations ecoreOperation="job.ecore#//Run/getReturn"/>
+      <genOperations ecoreOperation="job.ecore#//Run/setReturn">
+        <genParameters ecoreParameter="job.ecore#//Run/setReturn/feedback"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="job.ecore#//Job">
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Job Status"
