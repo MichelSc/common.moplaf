@@ -690,11 +690,11 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 				try {
 					optimalvalue = (float) this.lp.getValue(cplexvar);
 				} catch (IloException e) {
-					Plugin.INSTANCE.logError("SolverCplex: getValue, exception "+e+ ", object "+cplexvar.getName());
+					Plugin.INSTANCE.logInfo("SolverCplex: getValue, exception "+e+ ", object "+cplexvar.getName());
 					// michel 20161209: 
 					//    cplex returns an exception for variable not used by the solver
 					//    actually the value of the variable does not matter
-					//    what should be do, set an optimal value or nothing or mark it as unbound?
+					//    what should be done, set an optimal value or nothing or mark it as unbound?
 					//    this is an open questions
 //					return new ReturnFeedback("SolverCplex.getMIPRelativeGap", e);
 				}

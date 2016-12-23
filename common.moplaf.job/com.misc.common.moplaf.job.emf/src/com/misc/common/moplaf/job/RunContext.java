@@ -1,18 +1,16 @@
 /**
  */
 package com.misc.common.moplaf.job;
-/**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Run Context</b></em>'.
- * <!-- end-user-doc -->
- *
- *
- */
-public interface RunContext  {
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Interface to be imported by the context running the run
+	 *
 	 */
-	boolean onProgress(ProgressFeedback progress);
-
-} // RunContext
+	public interface RunContext  {
+		/**
+		 * Call back by the applicative logic to report progress of the task
+		 * 
+		 * @return true if the run may continue, false if the run must abort
+		 */
+		boolean onProgress(ProgressFeedback progress);
+	
+	} // RunContext

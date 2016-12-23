@@ -372,6 +372,11 @@ public class RunItemProvider
 
 			private IProgressMonitor monitor = null;
 			
+			/**
+			 * Call back from the applicative logic
+			 * 
+			 * @return true if the run may continue, false if the run must abort
+ 			 */
 			@Override
 			public boolean onProgress(ProgressFeedback progress) {
 				boolean goOn = true;
@@ -388,8 +393,11 @@ public class RunItemProvider
 			protected IStatus run(IProgressMonitor monitor) {
 				this.monitor = monitor;
 	    	    monitor.beginTask("Initialization", 100);
-	    	    //Plugin.INSTANCE.logInfo("Solve, job started");
+
+	    	    // run the run
 	    	    RunRunBackgroundCommand.this.run.run(this);
+
+	    	    // run is finished
 	            this.monitor = null;
 	            return Status.OK_STATUS;
 			}
