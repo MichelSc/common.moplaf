@@ -1,30 +1,49 @@
 package com.misc.common.moplaf.common;
 
+
 public class Color {
 	private int r;
 	private int g;
 	private int b;
+
+	
+	public Color(int rgb) {
+		super();
+		int b = rgb % 256;
+		int rest = (rgb-b)/256;
+		int g = rest % 256;
+		int r = rest / 256;
+		this.r = r;
+		this.g = g;
+		this.b = b;
+		}
+
 	public Color(int r, int g, int b) {
 		super();
 		this.r = r;
 		this.g = g;
 		this.b = b;
 	}
+	
 	public Color(float r, float g, float b) {
 		super();
 		this.r = (int) Math.floor(r*255.0f);
 		this.g = (int) Math.floor(g*255.0f);
 		this.b = (int) Math.floor(b*255.0f);
 	}
+	
 	public int getR() {
 		return r;
 	}
+	
 	public int getG() {
 		return g;
 	}
+	
 	public int getB() {
 		return b;
 	}
+	
 	public int toInt(){
 	    int toReturn = 256 * ( 256 * this.r + this.g )+ this.b;
 	    return toReturn;
@@ -46,6 +65,11 @@ public class Color {
 		  case 5: return new Color(value, p, q);
 		  default: throw new RuntimeException("Something went wrong when converting from HSV to RGB. Input was " + hue + ", " + saturation + ", " + value);
 		}
+	}
+	
+	public String getURIAsString(){
+		String uri = String.format("color://rgb/%d/%d/%d", this.getR(), this.getG(), this.getB());
+		return uri;
 	}
 
 }
