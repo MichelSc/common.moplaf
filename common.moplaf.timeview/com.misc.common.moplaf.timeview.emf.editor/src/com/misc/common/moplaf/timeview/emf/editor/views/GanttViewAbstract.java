@@ -1,11 +1,10 @@
-package com.misc.common.moplaf.timeview.impl;
+package com.misc.common.moplaf.timeview.emf.editor.views;
 
-
-
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.ui.part.*;
+import org.eclipse.ui.part.ViewPart;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheetPage;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.ui.part.*;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.jface.viewers.*;
@@ -13,11 +12,10 @@ import org.eclipse.jface.action.*;
 import org.eclipse.ui.*;
 import org.eclipse.swt.widgets.Menu;
 
-import com.misc.common.moplaf.emf.edit.ui.provider.AdapterFactoryArrayContentProvider;
-import com.misc.common.moplaf.emf.edit.ui.provider.AdapterFactoryArrayLabelProvider;
-import com.misc.common.moplaf.timeview.GanttViewerAbstract;
-import com.misc.common.moplaf.timeview.impl.AdapterFactoryIntervalEventProvider;
-
+import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayContentProvider;
+import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayLabelProvider;
+import com.misc.common.moplaf.timeview.emf.editor.provider.AdapterFactoryIntervalEventProvider;
+import com.misc.common.moplaf.timeview.viewers.GanttViewerAbstract;
 
 
 public abstract class GanttViewAbstract extends ViewPart {
@@ -178,34 +176,28 @@ public abstract class GanttViewAbstract extends ViewPart {
 		action2.setToolTipText("Action 2 tooltip");
 		action2.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
 				getImageDescriptor(ISharedImages.IMG_OBJS_INFO_TSK));
-		/*
-		doubleClickAction = new Action() {
-		
-			public void run() {
-				ISelection selection = viewer.getSelection();
-				Object obj = ((IStructuredSelection)selection).getFirstElement();
-				showMessage("Double-click detected on "+obj.toString());
-			}
-		};
-		*/
+//		doubleClickAction = new Action() {
+//		
+//			public void run() {
+//				ISelection selection = viewer.getSelection();
+//				Object obj = ((IStructuredSelection)selection).getFirstElement();
+//				showMessage("Double-click detected on "+obj.toString());
+//			}
+//		};
 	}
 
 	private void hookDoubleClickAction() {
-	/*
-		viewer.addDoubleClickListener(new IDoubleClickListener() {
-			public void doubleClick(DoubleClickEvent event) {
-				doubleClickAction.run();
-			}
-		});
-*/
+//		viewer.addDoubleClickListener(new IDoubleClickListener() {
+//			public void doubleClick(DoubleClickEvent event) {
+//				doubleClickAction.run();
+//			}
+//		});
 	}
 	private void showMessage(String message) {
-	/*
-		MessageDialog.openInformation(
-			viewer.getControl().getShell(),
-			"Gantt View",
-			message);
-*/
+//		MessageDialog.openInformation(
+//			viewer.getControl().getShell(),
+//			"Gantt View",
+//			message);
 	}
 	
 

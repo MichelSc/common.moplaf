@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Editor
+Bundle-SymbolicName: com.misc.common.moplaf.timeview.emf.editor
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: MISC
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.ui;bundle-version="3.108.0",
+ org.eclipse.core.runtime;bundle-version="3.12.0",
+ org.eclipse.emf.edit.ui;bundle-version="2.12.0",
+ com.misc.common.moplaf.emf.edit;bundle-version="1.0.0",
+ com.misc.common.moplaf.timeview;bundle-version="1.0.0",
+ com.misc.common.moplaf.timeview.emf.edit;bundle-version="1.0.0",
+ com.misc.common.moplaf.emf.editor;bundle-version="1.0.0"
+Export-Package: com.misc.common.moplaf.timeview.emf.editor.provider,
+ com.misc.common.moplaf.timeview.emf.editor.views

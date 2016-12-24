@@ -1,4 +1,4 @@
-package com.misc.common.moplaf.emf.editor;
+package com.misc.common.moplaf.emf.editor.provider;
 
 import com.misc.common.moplaf.emf.edit.Util;
 

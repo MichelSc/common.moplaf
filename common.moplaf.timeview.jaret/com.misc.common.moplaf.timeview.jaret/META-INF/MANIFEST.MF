@@ -7,7 +7,8 @@ Bundle-Activator: com.misc.common.moplaf.timeview.jaret.Activator
 Bundle-Vendor: MISC
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- com.misc.common.moplaf.timeview;bundle-version="1.0.0";visibility:=reexport
+ com.misc.common.moplaf.timeview;bundle-version="1.0.0";visibility:=reexport,
+ com.misc.common.moplaf.timeview.emf.editor;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .,

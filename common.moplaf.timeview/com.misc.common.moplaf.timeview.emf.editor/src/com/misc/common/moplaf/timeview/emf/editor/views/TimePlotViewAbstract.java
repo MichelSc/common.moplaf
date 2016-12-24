@@ -1,4 +1,4 @@
-package com.misc.common.moplaf.timeview.impl;
+package com.misc.common.moplaf.timeview.emf.editor.views;
 
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.*;
@@ -9,9 +9,10 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.jface.viewers.*;
 import org.eclipse.ui.*;
 
-import com.misc.common.moplaf.emf.edit.ui.provider.AdapterFactoryArrayContentProvider;
-import com.misc.common.moplaf.emf.edit.ui.provider.AdapterFactoryArrayLabelProvider;
-import com.misc.common.moplaf.timeview.TimePlotViewerAbstract;
+import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayContentProvider;
+import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayLabelProvider;
+import com.misc.common.moplaf.timeview.emf.editor.provider.AdapterFactoryAmountEventProvider;
+import com.misc.common.moplaf.timeview.viewers.TimePlotViewerAbstract;
 
 public abstract class TimePlotViewAbstract extends ViewPart {
 

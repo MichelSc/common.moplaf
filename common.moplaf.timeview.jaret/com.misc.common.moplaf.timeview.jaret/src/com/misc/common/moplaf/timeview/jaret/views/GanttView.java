@@ -4,8 +4,8 @@ package com.misc.common.moplaf.timeview.jaret.views;
 
 import org.eclipse.swt.widgets.Composite;
 
-import com.misc.common.moplaf.timeview.GanttViewerAbstract;
-import com.misc.common.moplaf.timeview.impl.GanttViewAbstract;
+import com.misc.common.moplaf.timeview.emf.editor.views.GanttViewAbstract;
+import com.misc.common.moplaf.timeview.viewers.GanttViewerAbstract;
 
 
 

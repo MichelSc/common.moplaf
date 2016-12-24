@@ -1,4 +1,4 @@
-package com.misc.common.moplaf.timeview;
+package com.misc.common.moplaf.timeview.viewers;
 
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.jface.viewers.ContentViewer;
@@ -10,6 +10,8 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
+
+import com.misc.common.moplaf.timeview.IAmountEventProvider;
 
 
 public abstract class TimePlotViewerAbstract extends ContentViewer {

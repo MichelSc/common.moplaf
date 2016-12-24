@@ -3,8 +3,8 @@
 package com.misc.common.moplaf.time.discrete.provider;
 
 import com.misc.common.moplaf.time.discrete.util.DiscreteAdapterFactory;
-import com.misc.common.moplaf.timeview.impl.IItemIntervalEventProvider;
-import com.misc.common.moplaf.timeview.impl.IItemIntervalEventsProvider;
+import com.misc.common.moplaf.timeview.emf.edit.IItemIntervalEventProvider;
+import com.misc.common.moplaf.timeview.emf.edit.IItemIntervalEventsProvider;
 
 import java.util.ArrayList;
 import java.util.Collection;

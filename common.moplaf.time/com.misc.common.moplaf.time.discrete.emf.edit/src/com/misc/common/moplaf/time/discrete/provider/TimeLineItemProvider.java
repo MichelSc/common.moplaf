@@ -8,7 +8,7 @@ import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
 import com.misc.common.moplaf.time.discrete.DiscreteFactory;
 import com.misc.common.moplaf.time.discrete.DiscretePackage;
 import com.misc.common.moplaf.time.discrete.TimeLine;
-import com.misc.common.moplaf.timeview.impl.IItemIntervalEventsProvider;
+import com.misc.common.moplaf.timeview.emf.edit.IItemIntervalEventsProvider;
 
 import java.util.Collection;
 import java.util.List;

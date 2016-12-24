@@ -24,7 +24,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 
-import com.misc.common.moplaf.timeview.GanttViewerAbstract;
+import com.misc.common.moplaf.timeview.viewers.GanttViewerAbstract;
 
 import de.jaret.util.date.Interval;
 import de.jaret.util.date.IntervalImpl;

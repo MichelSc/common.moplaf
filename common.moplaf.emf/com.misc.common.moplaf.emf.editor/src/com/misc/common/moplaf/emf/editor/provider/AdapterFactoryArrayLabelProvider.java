@@ -1,4 +1,4 @@
-package com.misc.common.moplaf.emf.edit.ui.provider;
+package com.misc.common.moplaf.emf.editor.provider;
 
 import java.util.Collection;
 

@@ -1,4 +1,4 @@
-package com.misc.common.moplaf.timeview.impl;
+package com.misc.common.moplaf.timeview.emf.editor.provider;
 
 import java.util.Collection;
 import java.util.Date;
@@ -6,6 +6,9 @@ import java.util.Date;
 import org.eclipse.emf.common.notify.AdapterFactory;
 
 import com.misc.common.moplaf.timeview.IAmountEventProvider;
+import com.misc.common.moplaf.timeview.emf.edit.IItemAmountEventProvider;
+import com.misc.common.moplaf.timeview.emf.edit.IItemAmountEventsProvider;
+import com.misc.common.moplaf.timeview.emf.edit.IItemDiscontinuousAmountEventProvider;
 
 public class AdapterFactoryAmountEventProvider implements
 		IAmountEventProvider {

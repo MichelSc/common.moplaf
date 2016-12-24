@@ -1,4 +1,4 @@
-package com.misc.common.moplaf.timeview.impl;
+package com.misc.common.moplaf.timeview.emf.edit;
 
 import java.util.Collection;
 

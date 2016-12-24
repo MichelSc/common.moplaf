@@ -5,7 +5,7 @@ package com.misc.common.moplaf.time.discrete.provider;
 
 import com.misc.common.moplaf.time.discrete.DiscretePackage;
 import com.misc.common.moplaf.time.discrete.TimeBucket;
-import com.misc.common.moplaf.timeview.impl.IItemIntervalEventProvider;
+import com.misc.common.moplaf.timeview.emf.edit.IItemIntervalEventProvider;
 
 import java.util.Collection;
 import java.util.Date;
