@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import org.eclipse.core.internal.runtime.Activator;
+import org.eclipse.core.runtime.Plugin;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -46,6 +48,8 @@ public class GanttViewer extends GanttViewerAbstract {
 	// fields 
 	private TimeBarViewer timeBarViewer;
 	private DefaultHierarchicalTimeBarModel timeBarModel;
+	private JaretDate minDateToBe = null;
+	private JaretDate maxDateToBe = null;
 
 	// constructor
 	public GanttViewer(Composite parent){
@@ -59,6 +63,7 @@ public class GanttViewer extends GanttViewerAbstract {
 		this.timeBarViewer.setHierarchyRenderer(new DefaultHierarchyRenderer());
 		this.timeBarViewer.addSelectionChangedListener(new GanttViewerISeletionListener());
 		this.timeBarViewer.setInitialDisplayRange(new JaretDate(), 365*24*60*60);
+		this.timeBarViewer.setAdjustMinMaxDatesByModel(false); // set the minDate of the TimeBarViewer with model.getMinMaxDate; this is not supported by the hierarchical model
 
 		this.timeBarViewer.setTimeBarRenderer(new IntervalRendeder());
 
@@ -289,6 +294,18 @@ public class GanttViewer extends GanttViewerAbstract {
 	// map to jaret Row
 	// ******************************
 	public class GanttViewerRow extends DefaultTimeBarNode {
+		
+		@Override
+		public JaretDate getMaxDate() {
+			// TODO Auto-generated method stub
+			return super.getMaxDate();
+		}
+		@Override
+		public JaretDate getMinDate() {
+			// TODO Auto-generated method stub
+			return super.getMinDate();
+		}
+
 		private Object modelObject;
 		private boolean withEvents = true;
 		public GanttViewerRow (Object modelObject, boolean withEvents){
@@ -314,9 +331,11 @@ public class GanttViewer extends GanttViewerAbstract {
 	// ******************************
 	public class GanttViewerInterval extends IntervalImpl {
 		private Object modelObject;
+		
 		public GanttViewerInterval(Object modelObject){
 			this.modelObject = modelObject;
 		}
+		
 		public Object getModelObject(){
 			return this.modelObject;
 		}
@@ -367,11 +386,16 @@ public class GanttViewer extends GanttViewerAbstract {
 			DefaultHierarchicalTimeBarModel model = null;
 			GanttViewerRow rootNode = null;
 			Object modelElement = input;
+			
 			boolean eventsOnRoot = this.getIIntervalEventProvider().isIntervalEvents(input);
 	        rootNode = this.createRow(modelElement, eventsOnRoot);
+	        
 			model = new DefaultHierarchicalTimeBarModel(rootNode);
 			this.timeBarModel = model;
 			this.timeBarViewer.setModel(timeBarModel);
+			
+			this.minDateToBe = null;
+			this.maxDateToBe = null;
 			this.refresh();
 		}
 	}
@@ -387,7 +411,28 @@ public class GanttViewer extends GanttViewerAbstract {
 			}
 			
 			this.timeBarViewer.getHierarchicalViewState().setExpandedRecursive(rootNode, true);
+			
+			this.timeBarViewer.setMinDate(this.minDateToBe);
+			this.timeBarViewer.setMaxDate(this.maxDateToBe);
+			
+			
 		}
+		
+		JaretDate minDate = this.timeBarViewer.getMinDate();
+		Date minDate2 = minDate==null ? null : minDate.getDate();
+		JaretDate maxDate = this.timeBarViewer.getMaxDate();
+		Date maxDate2 = maxDate==null ? null : maxDate.getDate();
+		System.out.format("GanttViewer mix-max date %1$tF %1$tT , %2$tF %2$tT \n", minDate2, maxDate2);
+		
+		if( minDate!=null){
+			long seconds = this.timeBarViewer.getDelegate().getTotalSeconds();
+			JaretDate center = new JaretDate(minDate);
+			center.advanceSeconds(seconds/2);
+			System.out.format("setSecondsDisplayed %1$tF %1$tT , %2$d  \n", center.getDate(), seconds);
+			this.timeBarViewer.setSecondsDisplayed((int)seconds, center);
+			this.timeBarViewer.setStartDate(minDate);;
+		}
+		
 		this.timeBarViewer.redraw();
 	}
 	
@@ -436,6 +481,30 @@ public class GanttViewer extends GanttViewerAbstract {
 		this.refreshNodeLabel(row);
 		this.refreshNodeRowSubrows(row);
 		this.refreshNodeRowIntervals(row);
+		
+		JaretDate minDate = row.getMinDate();
+		Date minDate2 = minDate==null ? null : minDate.getDate();
+		JaretDate maxDate = row.getMaxDate();
+		Date maxDate2 = maxDate==null ? null : maxDate.getDate();
+		String rowAsString = row.getTextToBe();
+		String line = String.format("Refresh NodeRow %3$s mix-max date %1$tF %1$tT , %2$tF %2$tT", minDate2, maxDate2, rowAsString);
+		System.out.append(line + "\n");
+		
+		TimeBarViewer timeViewer = GanttViewer.this.timeBarViewer;
+		
+		if( minDate!=null){
+			JaretDate minDateAsIs = GanttViewer.this.minDateToBe;
+			if ( minDateAsIs==null || minDateAsIs.compareTo(minDate)>0 ){
+				GanttViewer.this.minDateToBe = minDate;
+			}
+		}
+
+		if ( maxDate!=null ) {
+			JaretDate maxDateAsIs = GanttViewer.this.maxDateToBe;
+			if ( maxDateAsIs==null || maxDateAsIs.compareTo(maxDate)<0 ) {
+				GanttViewer.this.maxDateToBe = maxDate;
+			}
+		}
 	}
 	
 	private void refreshNodeRowSubrows(GanttViewerRow row, 

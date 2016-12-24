@@ -75,16 +75,29 @@ public abstract class GanttViewerAbstract extends ContentViewer {
 	}
 	
 	// selection management
+	/**
+	 * Specified by ISelectionProvider.
+	 * Get the selection for this provider
+	 */
 	@Override
 	public ISelection getSelection() {
 		return this.currentSelection;
 	}
 
 	@Override
+	/**
+	 * Specified by ISelectionProvider.
+	 * Get the selection for this provider
+	 */
 	public void setSelection(ISelection selection, boolean reveal) {
 		this.currentSelection = selection;
 	}
 	
+	/**
+	 * Set the selection in the environment.
+	 * Called by the concrete implementation when the selection must change
+	 * @param selectedObject
+	 */
 	protected void setSelectedElement(Object selectedObject){
 		if ( selectedObject!=this.selectedElement ){
 			this.setSelection(new StructuredSelection(selectedObject), false);
