@@ -1,11 +1,13 @@
 package com.misc.common.moplaf.common;
 
+import org.eclipse.emf.common.util.URI;
 
 public class Color {
 	private int r;
 	private int g;
 	private int b;
-
+	
+	static public Color COLOR_BLACK = new Color(0,0,0);
 	
 	public Color(int rgb) {
 		super();
@@ -32,23 +34,6 @@ public class Color {
 		this.b = (int) Math.floor(b*255.0f);
 	}
 	
-	public int getR() {
-		return r;
-	}
-	
-	public int getG() {
-		return g;
-	}
-	
-	public int getB() {
-		return b;
-	}
-	
-	public int toInt(){
-	    int toReturn = 256 * ( 256 * this.r + this.g )+ this.b;
-	    return toReturn;
-	}
-	
 	public static Color colorFromHueSaturation(float hue, float saturation, float value){ 
 		int h = (int)(hue * 6.0f);
 		float f = hue * 6.0f - h;
@@ -66,6 +51,28 @@ public class Color {
 		  default: throw new RuntimeException("Something went wrong when converting from HSV to RGB. Input was " + hue + ", " + saturation + ", " + value);
 		}
 	}
+
+	public int getR() {
+		return r;
+	}
+	
+	public int getG() {
+		return g;
+	}
+	
+	public int getB() {
+		return b;
+	}
+	
+	public int toInt(){
+	    int toReturn = 256 * ( 256 * this.r + this.g )+ this.b;
+	    return toReturn;
+	}
+	
+	public URI toURI(){
+		return URI.createURI(this.getURIAsString());
+	}
+	
 	
 	public String getURIAsString(){
 		String uri = String.format("color://rgb/%d/%d/%d", this.getR(), this.getG(), this.getB());
