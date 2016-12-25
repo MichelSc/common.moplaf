@@ -4,6 +4,9 @@ import java.util.Collection;
 
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IContributionManager;
+import org.eclipse.swt.graphics.RGB;
+
+import com.misc.common.moplaf.common.Color;
 
 public class Util {
 
@@ -29,6 +32,24 @@ public class Util {
 				}
 			}
 		}
+	}
+	
+	/**
+	 * 
+	 */
+	public static RGB integerToRgb(int anInt){
+		Color color = new Color(anInt);
+		RGB rgb = new RGB(color.getR(), color.getG(), color.getB());
+		return rgb; 
+	}
+
+	/**
+	 * 
+	 */
+	public static int integerToRgb(RGB aRGB){
+		Color color = new Color(aRGB.red, aRGB.green, aRGB.blue);
+		int anInt = color.toInt();
+		return anInt; 
 	}
 
 }

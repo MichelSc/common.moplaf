@@ -6,8 +6,7 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
+Require-Bundle: org.eclipse.core.runtime,
  com.misc.common.moplaf.emf;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

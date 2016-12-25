@@ -1,6 +1,5 @@
 package com.misc.common.moplaf.emf.editor.provider;
 
-import com.misc.common.moplaf.emf.edit.Util;
 
 
 import java.util.Calendar;
@@ -34,6 +33,7 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.ui.views.properties.IPropertyDescriptor;
 import org.eclipse.ui.views.properties.IPropertySource;
 
+import com.misc.common.moplaf.emf.editor.Util;
 
 import org.eclipse.emf.common.ui.celleditor.ExtendedDialogCellEditor;
 
@@ -124,7 +124,7 @@ public class AdapterFactoryContentProviderExtended extends
 	                ColorDialog d = new ColorDialog (cellEditorWindow.getShell(), SWT.OPEN);
   	                d.setRGB(rgbAsIs);
 	                RGB rgbToBe = d.open();  // open the dialog
-	                Integer toReturn = Util.rgbToInt(rgbToBe);
+	                Integer toReturn = Util.integerToRgb(rgbToBe);
 	                return toReturn;
 	            	} // opendialogBox
 	         };  // class ExtendedDialogCellEditor
