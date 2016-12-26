@@ -6,25 +6,61 @@ import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.jface.preference.IPreferenceStore;
-import org.eclipse.jface.util.IPropertyChangeListener;
-import org.eclipse.jface.util.PropertyChangeEvent;
-import org.osgi.framework.BundleContext;
 
-import com.misc.common.moplaf.solver.preference.Activator;
-import com.misc.common.moplaf.solver.preference.PrefConstants;
 
 /**
  * This is the central singleton for the Solver model plugin.
  * <!-- begin-user-doc -->
- * @implements PrefConstants
  * <!-- end-user-doc -->
  * @generated
  */
-public final class Plugin extends EMFPlugin implements PrefConstants {
+public final class Plugin extends EMFPlugin  {
 	private boolean logOnInfo    = true;
 	private boolean logOnWarning = true;
 	private boolean logOnError   = true;
+	
+	// Setters
+	public void setLogOnInfo(boolean logOnInfo) {
+		this.logOnInfo = logOnInfo;
+	}
+
+	public void setLogOnWarning(boolean logOnWarning) {
+		this.logOnWarning = logOnWarning;
+	}
+
+	public void setLogOnError(boolean logOnError) {
+		this.logOnError = logOnError;
+	}
+
+	public static void setPlugin(Implementation plugin) {
+		Plugin.plugin = plugin;
+	}
+
+
+	// Getters
+	/**
+	 * Returns the singleton instance of the Eclipse plugin.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the singleton instance.
+	 * @generated
+	 */
+	public static Implementation getPlugin() {
+		return plugin;
+	}
+
+	public boolean getLogOnInfo(){
+		return this.logOnInfo;
+	}
+
+	public boolean getLogOnWarning(){
+		return this.logOnWarning;
+	}
+
+	public boolean getLogOnError(){
+		return this.logOnError;
+	}
+
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
@@ -63,29 +99,6 @@ public final class Plugin extends EMFPlugin implements PrefConstants {
 		return plugin;
 	}
 
-	/**
-	 * Returns the singleton instance of the Eclipse plugin.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the singleton instance.
-	 * @generated
-	 */
-	public static Implementation getPlugin() {
-		return plugin;
-	}
-
-	public boolean getLogOnInfo(){
-		return this.logOnInfo;
-	}
-
-	public boolean getLogOnWarning(){
-		return this.logOnWarning;
-	}
-
-	public boolean getLogOnError(){
-		return this.logOnError;
-	}
-
 	protected void logMessage(String message, String level){
 		String logLine = String.format("Solver: %2$s: %1$s" , 
 				         		         message, 
@@ -111,38 +124,6 @@ public final class Plugin extends EMFPlugin implements PrefConstants {
 		}
 	}
 	
-
-	public void onStartUp(){
-		CommonPlugin.INSTANCE.log("com.misc.common.moplaf.solver.Plugin.onStartUp: called");
-
-		final IPreferenceStore prefStore = Activator.getDefault().getPreferenceStore();
-		this.logOnInfo    = prefStore.getBoolean(PREF_LOG_ON_INFO);
-		this.logOnWarning = prefStore.getBoolean(PREF_LOG_ON_WARNING);
-		this.logOnError   = prefStore.getBoolean(PREF_LOG_ON_ERROR);
-		
-		prefStore.addPropertyChangeListener(new IPropertyChangeListener() {
-		      public void propertyChange(PropertyChangeEvent event) {
-		    	  String property = event.getProperty();
-		    	  Object newValue = event.getNewValue();
-		    	  
-		    	  Boolean newValueAsBoolean = false;
-		    	  if ( newValue instanceof Boolean ){
-		    		  newValueAsBoolean = (Boolean)newValue;
-		    	  }
-
-		    	  if ( property == PREF_LOG_ON_INFO ){
-				  		Plugin.this.logOnInfo = newValueAsBoolean;
-		    	  } else if ( property == PREF_LOG_ON_WARNING ){
-						Plugin.this.logOnWarning = newValueAsBoolean;
-		    	  } else if ( property == PREF_LOG_ON_ERROR ){
-						Plugin.this.logOnError = newValueAsBoolean;
-		    	  }
-		       }});
-
-		CommonPlugin.INSTANCE.log("com.misc.common.moplaf.solver.Plugin.onStartUp: done");
-	}
-
-	
 	/**
 	 * The actual implementation of the Eclipse <b>Plugin</b>.
 	 * <!-- begin-user-doc -->
@@ -164,16 +145,6 @@ public final class Plugin extends EMFPlugin implements PrefConstants {
 			plugin = this;
 		}
 
-		/**
-		 * Starts the plugin.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 */
-		@Override
-		public void start(BundleContext context) throws Exception {
-			super.start(context);
-			Plugin.INSTANCE.onStartUp();
-		}
 	}
 
 }

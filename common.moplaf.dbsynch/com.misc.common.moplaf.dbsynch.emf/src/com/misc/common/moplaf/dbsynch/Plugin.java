@@ -6,13 +6,7 @@ import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.jface.preference.IPreferenceStore;
-import org.eclipse.jface.util.IPropertyChangeListener;
-import org.eclipse.jface.util.PropertyChangeEvent;
-import org.osgi.framework.BundleContext;
 
-import com.misc.common.moplaf.dbsynch.preference.Activator;
-import com.misc.common.moplaf.dbsynch.preference.PrefConstants;
 
 /**
  * This is the central singleton for the dbsynch model plugin.
@@ -21,11 +15,30 @@ import com.misc.common.moplaf.dbsynch.preference.PrefConstants;
  * <!-- end-user-doc -->
  * @generated
  */
-public final class Plugin extends EMFPlugin implements PrefConstants {
+public final class Plugin extends EMFPlugin  {
 	private boolean logOnInfo    = false;
 	private boolean logOnWarning = false;
 	private boolean logOnError   = false;
 	private boolean showMetadata = false;
+
+	public void setLogOnInfo(boolean logOnInfo) {
+		this.logOnInfo = logOnInfo;
+	}
+
+	public void setLogOnWarning(boolean logOnWarning) {
+		this.logOnWarning = logOnWarning;
+	}
+
+	public void setLogOnError(boolean logOnError) {
+		this.logOnError = logOnError;
+	}
+
+	public void setShowMetadata(boolean showMetadata) {
+		this.showMetadata = showMetadata;
+	}
+
+
+
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
@@ -116,39 +129,6 @@ public final class Plugin extends EMFPlugin implements PrefConstants {
 		}
 	}
 	
-	public void onStartUp(){
-		CommonPlugin.INSTANCE.log("com.misc.common.moplaf.dbsync.Plugin.onStartUp: called");
-
-		final IPreferenceStore prefStore = Activator.getDefault().getPreferenceStore();
-		this.logOnInfo    = prefStore.getBoolean(com.misc.common.moplaf.dbsynch.preference.PrefConstants.PREF_LOG_ON_INFO);
-		this.logOnWarning = prefStore.getBoolean(com.misc.common.moplaf.dbsynch.preference.PrefConstants.PREF_LOG_ON_WARNING);
-		this.logOnError   = prefStore.getBoolean(com.misc.common.moplaf.dbsynch.preference.PrefConstants.PREF_LOG_ON_ERROR);
-		this.showMetadata = prefStore.getBoolean(com.misc.common.moplaf.dbsynch.preference.PrefConstants.PREF_SHOW_METADATA);
-		
-		prefStore.addPropertyChangeListener(new IPropertyChangeListener() {
-		      public void propertyChange(PropertyChangeEvent event) {
-		    	  String property = event.getProperty();
-		    	  Object newValue = event.getNewValue();
-		    	  
-		    	  Boolean newValueAsBoolean = false;
-		    	  if ( newValue instanceof Boolean ){
-		    		  newValueAsBoolean = (Boolean)newValue;
-		    	  }
-
-		    	  if ( property == com.misc.common.moplaf.dbsynch.preference.PrefConstants.PREF_LOG_ON_INFO ){
-				  		Plugin.this.logOnInfo = newValueAsBoolean;
-		    	  } else if ( property == com.misc.common.moplaf.dbsynch.preference.PrefConstants.PREF_LOG_ON_WARNING ){
-						Plugin.this.logOnWarning = newValueAsBoolean;
-		    	  } else if ( property == com.misc.common.moplaf.dbsynch.preference.PrefConstants.PREF_LOG_ON_ERROR ){
-						Plugin.this.logOnError = newValueAsBoolean;
-		    	  } else if ( property == com.misc.common.moplaf.dbsynch.preference.PrefConstants.PREF_SHOW_METADATA ){
-						Plugin.this.showMetadata = newValueAsBoolean;
-		    	  }
-		       }});
-
-		CommonPlugin.INSTANCE.log("com.misc.common.moplaf.dbsynch.Plugin.onStartUp: done");
-	}
-
 
 	
 	/**
@@ -172,16 +152,6 @@ public final class Plugin extends EMFPlugin implements PrefConstants {
 			plugin = this;
 		}
 		
-		/**
-		 * Starts the plugin.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 */
-		@Override
-		public void start(BundleContext context) throws Exception {
-			super.start(context);
-			Plugin.INSTANCE.onStartUp();
-		}
 	}
 
 }

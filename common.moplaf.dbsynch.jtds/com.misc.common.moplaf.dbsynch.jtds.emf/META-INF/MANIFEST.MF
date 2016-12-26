@@ -13,6 +13,5 @@ Export-Package: com.misc.common.moplaf.dbsynch.dbsynchjtds,
  com.misc.common.moplaf.dbsynch.dbsynchjtds.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- com.misc.common.moplaf.dbsynch.emf;visibility:=reexport,
- com.misc.common.moplaf.emf;visibility:=reexport
+ com.misc.common.moplaf.dbsynch.emf;visibility:=reexport
 Bundle-ActivationPolicy: lazy
