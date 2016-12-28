@@ -259,6 +259,15 @@ public interface JobxmlrpcPackage extends EPackage {
 	int JOB_ENGINE_SERVER___STOP = JobclientPackage.JOB_ENGINE___STOP;
 
 	/**
+	 * The operation id for the '<em>On Job Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE_SERVER___ON_JOB_PROGRESS__SUBMITTEDJOB_PROGRESSFEEDBACK = JobclientPackage.JOB_ENGINE___ON_JOB_PROGRESS__SUBMITTEDJOB_PROGRESSFEEDBACK;
+
+	/**
 	 * The number of operations of the '<em>Job Engine Server</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -30,8 +30,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="JobEngine" abstract="true">
     <eOperations name="start"/>
     <eOperations name="stop"/>
+    <eOperations name="onJobProgress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="job" eType="#//SubmittedJob"/>
+      <eParameters name="progress" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//ProgressFeedback"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="SubmittedJobs" upperBound="-1"
-        eType="#//SubmittedJob" containment="true"/>
+        eType="#//SubmittedJob" containment="true" eOpposite="#//SubmittedJob/JobEngine"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Running" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         transient="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="StartFeedback" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//EnabledFeedback"
@@ -45,6 +49,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="SubmittedJob">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Job" eType="#//JobRemote"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="JobEngine" lowerBound="1"
+        eType="#//JobEngine" eOpposite="#//JobEngine/SubmittedJobs"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JobEngineInProcess" eSuperTypes="#//JobEngineProxy">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Asynchronous" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>

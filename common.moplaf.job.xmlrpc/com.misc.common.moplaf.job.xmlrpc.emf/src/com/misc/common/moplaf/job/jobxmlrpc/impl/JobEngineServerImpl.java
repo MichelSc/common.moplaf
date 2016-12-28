@@ -2,6 +2,10 @@
  */
 package com.misc.common.moplaf.job.jobxmlrpc.impl;
 
+import com.misc.common.moplaf.common.ReturnFeedback;
+import com.misc.common.moplaf.job.Plugin;
+import com.misc.common.moplaf.job.Run;
+import com.misc.common.moplaf.job.RunContext;
 import com.misc.common.moplaf.job.jobclient.JobRemote;
 import com.misc.common.moplaf.job.jobclient.JobclientFactory;
 import com.misc.common.moplaf.job.jobclient.SubmittedJob;
@@ -20,7 +24,6 @@ import org.apache.xmlrpc.server.RequestProcessorFactoryFactory;
 import org.apache.xmlrpc.server.XmlRpcServer;
 import org.apache.xmlrpc.server.XmlRpcServerConfigImpl;
 import org.apache.xmlrpc.webserver.WebServer;
-import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -30,9 +33,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 
+
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Job Engine Server</b></em>'.
+ * <p>
+ * This Engine implements an Http server and answers to xmlrpc calls.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
@@ -259,18 +266,39 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 		}
 	}
 	
+	/**
+	 * The interface called by a remote client.
+	 * @author michel
+	 *
+	 */
 	public interface HandleJob {
 		public String runJob(String jobAsString);
 	}
 	
+	/**
+	 * The handler instance for this {@link JobEngineServerImpl}
+	 * 
+	 */
 	private HandleJob runJobHandler = new HandleJobImpl();
 	
+	
+	/**
+	 * @author michel
+	 *
+	 */
 	public class HandleJobImpl implements HandleJob {
 		
 		public HandleJobImpl() {};
 
+		/**
+		 * Run this job
+		 * <p>
+		 * Deserialize the job as string, execute is by calling the method {@link Run#run(RunContext)}.
+		 * Its result is then serialized and returned as String.
+		 */
+		@Override
 		public String runJob(String jobAsString) {
-			CommonPlugin.INSTANCE.log("HandleJob.runJob: called ");
+			Plugin.INSTANCE.logInfo("HandleJob.runJob: called ");
 
 			JobEngineServer jobEngineServer = JobEngineServerImpl.this;
 			
@@ -281,7 +309,7 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 		    try {
 		    	resource.load(stringReader, null);
 			} catch (IOException e) {
-				CommonPlugin.INSTANCE.log("HandleJob.runJob: exception in load: "+e.getMessage());
+				Plugin.INSTANCE.logError("HandleJob.runJob: exception in load: "+e.getMessage());
 				return "erreur";
 			}
 		    
@@ -292,7 +320,7 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 			    	if ( object instanceof JobRemote) {
 			    		JobRemote job = (JobRemote) object;
 			    		jobs.add(job);
-						CommonPlugin.INSTANCE.log("HandleJob.runJob: job received");
+			    		Plugin.INSTANCE.logInfo("HandleJob.runJob: job received");
 			    	}
 				}
 			    // add the jobs
@@ -300,50 +328,53 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 		    		SubmittedJob submittedJob = JobclientFactory.eINSTANCE.createSubmittedJob();
 		    		jobEngineServer.getSubmittedJobs().add(submittedJob);
 		    		submittedJob.setJob(job);
-					CommonPlugin.INSTANCE.log("HandleJob.runJob: job submitted");
+		    		Plugin.INSTANCE.logInfo("HandleJob.runJob: job submitted");
+		    		ReturnFeedback jobFeedback = job.run(submittedJob);
+					Plugin.INSTANCE.logInfo("HandleJob.runJob: job executed");
 				}
 		    }
 			catch (Exception e) {
-				CommonPlugin.INSTANCE.log("HandleJob.runJob: exception "+e.getMessage());
+				Plugin.INSTANCE.logError("HandleJob.runJob: exception "+e.getMessage());
 			}
 			
 			return jobAsString;
 		}
+
 	};
 
 
 	@Override
 	protected void startImpl() {
-		CommonPlugin.INSTANCE.log("JobEngineServer.start: called");
+		Plugin.INSTANCE.logInfo("JobEngineServer.start: called");
 		// handler mapping
 		PropertyHandlerMapping mapping = new PropertyHandlerMapping(){
 			
 		};
 		
 		try {
-			CommonPlugin.INSTANCE.log("JobEngineServer.start: intialize MappingHandler");
+			Plugin.INSTANCE.logInfo("JobEngineServer.start: intialize MappingHandler");
 			mapping.setRequestProcessorFactoryFactory(new JobEngineRequestProcessorFactoryFactory());
-			CommonPlugin.INSTANCE.log("JobEngineServer.start: done with adding factory");
+			Plugin.INSTANCE.logInfo("JobEngineServer.start: done with adding factory");
 			mapping.addHandler("handlejob", HandleJob.class);
-			CommonPlugin.INSTANCE.log("JobEngineServer.start: done with adding handler");
+			Plugin.INSTANCE.logInfo("JobEngineServer.start: done with adding handler");
 		} catch (XmlRpcException e1) {
-			// TODO Auto-generated catch block
+			Plugin.INSTANCE.logError("JobEngineServer.start: exception when starting the server "+e1.getMessage());
 			e1.printStackTrace();
 		}
 		
 		// web server
-		CommonPlugin.INSTANCE.log("JobEngineServer.start: going to create webserver");
+		Plugin.INSTANCE.logInfo("JobEngineServer.start: going to create webserver");
 		WebServer webserver = new WebServer(this.getPort());
 		XmlRpcServerConfigImpl config = new XmlRpcServerConfigImpl();
 		XmlRpcServer server = webserver.getXmlRpcServer();
 		server.setConfig(config);
 		server.setHandlerMapping(mapping);
 		try {
-			CommonPlugin.INSTANCE.log("JobEngineServer.start: going to start");
+			Plugin.INSTANCE.logInfo("JobEngineServer.start: going to start");
 			webserver.start();
-			CommonPlugin.INSTANCE.log("JobEngineServer.start: started");
+			Plugin.INSTANCE.logInfo("JobEngineServer.start: started");
 		} catch (IOException e) {
-			CommonPlugin.INSTANCE.log("JobEngineServer.start: exception when starting the server "+e.getMessage());
+			Plugin.INSTANCE.logError("JobEngineServer.start: exception when starting the server "+e.getMessage());
 			e.printStackTrace();
 		}
 		

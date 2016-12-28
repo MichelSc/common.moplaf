@@ -3,6 +3,8 @@
 package com.misc.common.moplaf.job.jobclient.impl;
 
 import com.misc.common.moplaf.common.EnabledFeedback;
+import com.misc.common.moplaf.job.Plugin;
+import com.misc.common.moplaf.job.ProgressFeedback;
 import com.misc.common.moplaf.job.jobclient.JobEngine;
 import com.misc.common.moplaf.job.jobclient.JobclientPackage;
 
@@ -10,7 +12,6 @@ import com.misc.common.moplaf.job.jobclient.SubmittedJob;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
-import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -20,8 +21,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -146,7 +146,7 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 	 */
 	public EList<SubmittedJob> getSubmittedJobs() {
 		if (submittedJobs == null) {
-			submittedJobs = new EObjectContainmentEList<SubmittedJob>(SubmittedJob.class, this, JobclientPackage.JOB_ENGINE__SUBMITTED_JOBS);
+			submittedJobs = new EObjectContainmentWithInverseEList<SubmittedJob>(SubmittedJob.class, this, JobclientPackage.JOB_ENGINE__SUBMITTED_JOBS, JobclientPackage.SUBMITTED_JOB__JOB_ENGINE);
 		}
 		return submittedJobs;
 	}
@@ -231,7 +231,7 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 */
 	public void start() {
-		CommonPlugin.INSTANCE.log("Engine started");
+		Plugin.INSTANCE.logInfo("Engine started");
 		this.setRunning(true);
 		this.startImpl();
 	}
@@ -246,11 +246,36 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 */
 	public void stop() {
-		CommonPlugin.INSTANCE.log("Engine stopped");
+		Plugin.INSTANCE.logInfo("Engine stopped");
 		this.setRunning(false);
 		this.stopImpl();
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public boolean onJobProgress(SubmittedJob job, ProgressFeedback progress) {
+		Plugin.INSTANCE.logInfo("Engine, on job progress: "+progress.toString());
+		boolean goOn = true;
+		return goOn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case JobclientPackage.JOB_ENGINE__SUBMITTED_JOBS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSubmittedJobs()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
 	protected void stopImpl(){
 		// to be overloaded by concrete engine
 		// default does nothing
@@ -376,6 +401,8 @@ public abstract class JobEngineImpl extends MinimalEObjectImpl.Container impleme
 			case JobclientPackage.JOB_ENGINE___STOP:
 				stop();
 				return null;
+			case JobclientPackage.JOB_ENGINE___ON_JOB_PROGRESS__SUBMITTEDJOB_PROGRESSFEEDBACK:
+				return onJobProgress((SubmittedJob)arguments.get(0), (ProgressFeedback)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

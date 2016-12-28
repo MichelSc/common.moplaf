@@ -7,6 +7,9 @@ import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import com.misc.common.moplaf.common.Logger;
+import com.misc.common.moplaf.common.Logger.Level;
+
 
 /**
  * This is the central singleton for the Job model plugin.
@@ -15,16 +18,17 @@ import org.eclipse.emf.common.util.ResourceLocator;
  * @generated
  */
 public final class Plugin extends EMFPlugin {
-//	private boolean logOnInfo    = false;
-//	private boolean logOnWarning = false;
-//	private boolean logOnError   = false;
+	private Logger logger = new Logger("Job");
 	private boolean showMetadata = false;
+
+	public Logger getLogger(){
+		return this.logger;
+	}
 	
 	// Setter
 	public void setShowMetadata(boolean showMetadata) {
 		this.showMetadata = showMetadata;
 	}
-
 
 
 	/**
@@ -64,6 +68,19 @@ public final class Plugin extends EMFPlugin {
 	public ResourceLocator getPluginResourceLocator() {
 		return plugin;
 	}
+
+	public void logInfo(String message){
+		this.logger.log(Level.INFO, message);
+	}
+	
+	public void logWarning(String message){
+		this.logger.log(Level.WARNING, message);
+	}
+	
+	public void logError(String message){
+		this.logger.log(Level.ERROR, message);
+	}
+	
 
 	/**
 	 * Returns the singleton instance of the Eclipse plugin.

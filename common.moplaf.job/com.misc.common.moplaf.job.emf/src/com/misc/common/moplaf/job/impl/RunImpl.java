@@ -368,7 +368,7 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 		if ( this.runContext == null){
 			return true;
 		}
-		boolean goOn = runContext.onProgress(progress);
+		boolean goOn = runContext.onProgress(this, progress);
 		if ( !goOn){
 			this.cancel();
 		}

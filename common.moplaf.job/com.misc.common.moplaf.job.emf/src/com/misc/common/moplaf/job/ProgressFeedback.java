@@ -20,7 +20,7 @@ public class ProgressFeedback {
 
 	@Override
 	public String toString() {
-		String string = String.format("%f: %s", this.task, this.work);
+		String string = String.format("%f: %s", this.work, this.task);
 		return string;
 	}
 	

@@ -29,7 +29,13 @@ public class Activator extends AbstractUIPlugin implements PrefConstants{
 	public void onStartUp(){
 		final IPreferenceStore prefStore = Activator.getDefault().getPreferenceStore();
 		boolean showMetadata = prefStore.getBoolean(PREF_SHOW_METADATA);
+		boolean logOnInfo    = prefStore.getBoolean(PREF_LOG_ON_INFO);
+		boolean logOnWarning = prefStore.getBoolean(PREF_LOG_ON_WARNING);
+		boolean logOnError   = prefStore.getBoolean(PREF_LOG_ON_ERROR);
 		
+		Plugin.INSTANCE.getLogger().setLogOnInfo   (logOnInfo);
+		Plugin.INSTANCE.getLogger().setLogOnWarning(logOnWarning);
+		Plugin.INSTANCE.getLogger().setLogOnError  (logOnError);
 		Plugin.INSTANCE.setShowMetadata(showMetadata);
 		
 		prefStore.addPropertyChangeListener(new IPropertyChangeListener() {
@@ -42,8 +48,14 @@ public class Activator extends AbstractUIPlugin implements PrefConstants{
 		    		  newValueAsBoolean = (Boolean)newValue;
 		    	  }
 
-		    	  if ( property == PREF_SHOW_METADATA ){
-		    			Plugin.INSTANCE.setShowMetadata(newValueAsBoolean);
+		    	  if ( property == PREF_LOG_ON_INFO ){
+		    			Plugin.INSTANCE.getLogger().setLogOnInfo   (newValueAsBoolean);
+		    	  } else if ( property == PREF_LOG_ON_WARNING ){
+		    			Plugin.INSTANCE.getLogger().setLogOnWarning(newValueAsBoolean);
+		    	  } else if ( property == PREF_LOG_ON_ERROR ){
+		    			Plugin.INSTANCE.getLogger().setLogOnError  (newValueAsBoolean);
+		    	  } else if ( property == PREF_SHOW_METADATA ){
+		    			Plugin.INSTANCE.setShowMetadata	           (newValueAsBoolean);
 		    	  }
 		       }});
 	}

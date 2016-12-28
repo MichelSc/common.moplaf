@@ -319,6 +319,15 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getJobEngine__OnJobProgress__SubmittedJob_ProgressFeedback() {
+		return jobEngineEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSubmittedJob() {
 		return submittedJobEClass;
 	}
@@ -330,6 +339,15 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 	 */
 	public EReference getSubmittedJob_Job() {
 		return (EReference)submittedJobEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSubmittedJob_JobEngine() {
+		return (EReference)submittedJobEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -411,9 +429,11 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 		createEAttribute(jobEngineEClass, JOB_ENGINE__LABEL);
 		createEOperation(jobEngineEClass, JOB_ENGINE___START);
 		createEOperation(jobEngineEClass, JOB_ENGINE___STOP);
+		createEOperation(jobEngineEClass, JOB_ENGINE___ON_JOB_PROGRESS__SUBMITTEDJOB_PROGRESSFEEDBACK);
 
 		submittedJobEClass = createEClass(SUBMITTED_JOB);
 		createEReference(submittedJobEClass, SUBMITTED_JOB__JOB);
+		createEReference(submittedJobEClass, SUBMITTED_JOB__JOB_ENGINE);
 
 		jobEngineInProcessEClass = createEClass(JOB_ENGINE_IN_PROCESS);
 		createEAttribute(jobEngineInProcessEClass, JOB_ENGINE_IN_PROCESS__ASYNCHRONOUS);
@@ -478,7 +498,7 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 		initEClass(jobRemoteResultEClass, JobRemoteResult.class, "JobRemoteResult", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(jobEngineEClass, JobEngine.class, "JobEngine", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getJobEngine_SubmittedJobs(), this.getSubmittedJob(), null, "SubmittedJobs", null, 0, -1, JobEngine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJobEngine_SubmittedJobs(), this.getSubmittedJob(), this.getSubmittedJob_JobEngine(), "SubmittedJobs", null, 0, -1, JobEngine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobEngine_Running(), ecorePackage.getEBoolean(), "Running", null, 0, 1, JobEngine.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobEngine_StartFeedback(), theJobPackage.getEnabledFeedback(), "StartFeedback", null, 0, 1, JobEngine.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobEngine_StopFeedback(), theJobPackage.getEnabledFeedback(), "StopFeedback", null, 0, 1, JobEngine.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -489,8 +509,13 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 
 		initEOperation(getJobEngine__Stop(), null, "stop", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getJobEngine__OnJobProgress__SubmittedJob_ProgressFeedback(), ecorePackage.getEBoolean(), "onJobProgress", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getSubmittedJob(), "job", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theJobPackage.getProgressFeedback(), "progress", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(submittedJobEClass, SubmittedJob.class, "SubmittedJob", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSubmittedJob_Job(), this.getJobRemote(), null, "Job", null, 0, 1, SubmittedJob.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSubmittedJob_JobEngine(), this.getJobEngine(), this.getJobEngine_SubmittedJobs(), "JobEngine", null, 1, 1, SubmittedJob.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(jobEngineInProcessEClass, JobEngineInProcess.class, "JobEngineInProcess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJobEngineInProcess_Asynchronous(), ecorePackage.getEBoolean(), "Asynchronous", null, 0, 1, JobEngineInProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

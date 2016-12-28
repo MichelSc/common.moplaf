@@ -378,7 +378,7 @@ public class RunItemProvider
 			 * @return true if the run may continue, false if the run must abort
  			 */
 			@Override
-			public boolean onProgress(ProgressFeedback progress) {
+			public boolean onProgress(Run run, ProgressFeedback progress) {
 				boolean goOn = true;
 				if ( this.monitor != null){
 					if ( this.monitor.isCanceled())				{

@@ -36,9 +36,9 @@ public class Activator extends AbstractUIPlugin implements PrefConstants {
 		boolean logOnWarning = prefStore.getBoolean(PREF_LOG_ON_WARNING);
 		boolean logOnError   = prefStore.getBoolean(PREF_LOG_ON_ERROR);
 		
-		Plugin.INSTANCE.setLogOnInfo   (logOnInfo);
-		Plugin.INSTANCE.setLogOnWarning(logOnWarning);
-		Plugin.INSTANCE.setLogOnError  (logOnError);
+		Plugin.INSTANCE.getLogger().setLogOnInfo   (logOnInfo);
+		Plugin.INSTANCE.getLogger().setLogOnWarning(logOnWarning);
+		Plugin.INSTANCE.getLogger().setLogOnError  (logOnError);
 		
 		prefStore.addPropertyChangeListener(new IPropertyChangeListener() {
 		      public void propertyChange(PropertyChangeEvent event) {
@@ -51,11 +51,11 @@ public class Activator extends AbstractUIPlugin implements PrefConstants {
 		    	  }
 
 		    	  if ( property == PREF_LOG_ON_INFO ){
-		    			Plugin.INSTANCE.setLogOnInfo(newValueAsBoolean);
+		    			Plugin.INSTANCE.getLogger().setLogOnInfo   (newValueAsBoolean);
 		    	  } else if ( property == PREF_LOG_ON_WARNING ){
-		    			Plugin.INSTANCE.setLogOnWarning(newValueAsBoolean);
+		    			Plugin.INSTANCE.getLogger().setLogOnWarning(newValueAsBoolean);
 		    	  } else if ( property == PREF_LOG_ON_ERROR ){
-		    			Plugin.INSTANCE.setLogOnError(newValueAsBoolean);
+		    			Plugin.INSTANCE.getLogger().setLogOnError  (newValueAsBoolean);
 		    	  }
 		       }});
 

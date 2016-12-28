@@ -2,10 +2,12 @@
  */
 package com.misc.common.moplaf.dbsynch;
 
-import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+
+import com.misc.common.moplaf.common.Logger;
+import com.misc.common.moplaf.common.Logger.Level;
 
 
 /**
@@ -16,28 +18,16 @@ import org.eclipse.emf.common.util.ResourceLocator;
  * @generated
  */
 public final class Plugin extends EMFPlugin  {
-	private boolean logOnInfo    = false;
-	private boolean logOnWarning = false;
-	private boolean logOnError   = false;
+	private Logger logger = new Logger();
 	private boolean showMetadata = false;
 
-	public void setLogOnInfo(boolean logOnInfo) {
-		this.logOnInfo = logOnInfo;
+	public Logger getLogger(){
+		return this.logger;
 	}
-
-	public void setLogOnWarning(boolean logOnWarning) {
-		this.logOnWarning = logOnWarning;
-	}
-
-	public void setLogOnError(boolean logOnError) {
-		this.logOnError = logOnError;
-	}
-
+	
 	public void setShowMetadata(boolean showMetadata) {
 		this.showMetadata = showMetadata;
 	}
-
-
 
 	/**
 	 * Keep track of the singleton.
@@ -88,45 +78,27 @@ public final class Plugin extends EMFPlugin  {
 		return plugin;
 	}
 
-	public boolean getLogOnInfo(){
-		return this.logOnInfo;
-	}
-
-	public boolean getLogOnWarning(){
-		return this.logOnWarning;
-	}
-
-	public boolean getLogOnError(){
-		return this.logOnError;
-	}
-
 	public boolean getShowMetadata(){
 		return this.showMetadata;
 	}
 
-	protected void logMessage(String message, String level){
-		String logLine = String.format("DbSynch: %2$s: %1$s" , 
-				         		         message, 
-				         		         level);
-		CommonPlugin.INSTANCE.log( logLine);
-	}
+//	protected void logMessage(String message, String level){
+//		String logLine = String.format("DbSynch: %2$s: %1$s" , 
+//				         		         message, 
+//				         		         level);
+//		CommonPlugin.INSTANCE.log( logLine);
+//	}
 	
 	public void logInfo(String message){
-		if ( this.getLogOnInfo() ){
-			this.logMessage(message, "info");
-		}
+		this.logger.log(Level.INFO, message);
 	}
 	
 	public void logWarning(String message){
-		if ( this.getLogOnWarning() ){
-			this.logMessage(message, "warning");
-		}
+		this.logger.log(Level.WARNING, message);
 	}
 	
 	public void logError(String message){
-		if ( this.getLogOnError() ){
-			this.logMessage(message, "error");
-		}
+		this.logger.log(Level.ERROR, message);
 	}
 	
 

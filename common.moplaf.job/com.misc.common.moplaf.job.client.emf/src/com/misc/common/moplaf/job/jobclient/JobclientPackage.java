@@ -533,13 +533,22 @@ public interface JobclientPackage extends EPackage {
 	int JOB_ENGINE___STOP = 1;
 
 	/**
+	 * The operation id for the '<em>On Job Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_ENGINE___ON_JOB_PROGRESS__SUBMITTEDJOB_PROGRESSFEEDBACK = 2;
+
+	/**
 	 * The number of operations of the '<em>Job Engine</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_ENGINE_OPERATION_COUNT = 2;
+	int JOB_ENGINE_OPERATION_COUNT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Job</b></em>' containment reference.
@@ -551,13 +560,22 @@ public interface JobclientPackage extends EPackage {
 	int SUBMITTED_JOB__JOB = 0;
 
 	/**
+	 * The feature id for the '<em><b>Job Engine</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUBMITTED_JOB__JOB_ENGINE = 1;
+
+	/**
 	 * The number of structural features of the '<em>Submitted Job</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUBMITTED_JOB_FEATURE_COUNT = 1;
+	int SUBMITTED_JOB_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Submitted Job</em>' class.
@@ -855,6 +873,16 @@ public interface JobclientPackage extends EPackage {
 	EOperation getJobEngine__Stop();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobEngine#onJobProgress(com.misc.common.moplaf.job.jobclient.SubmittedJob, com.misc.common.moplaf.job.ProgressFeedback) <em>On Job Progress</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>On Job Progress</em>' operation.
+	 * @see com.misc.common.moplaf.job.jobclient.JobEngine#onJobProgress(com.misc.common.moplaf.job.jobclient.SubmittedJob, com.misc.common.moplaf.job.ProgressFeedback)
+	 * @generated
+	 */
+	EOperation getJobEngine__OnJobProgress__SubmittedJob_ProgressFeedback();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.jobclient.SubmittedJob <em>Submitted Job</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -874,6 +902,17 @@ public interface JobclientPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSubmittedJob_Job();
+
+	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.job.jobclient.SubmittedJob#getJobEngine <em>Job Engine</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Job Engine</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.SubmittedJob#getJobEngine()
+	 * @see #getSubmittedJob()
+	 * @generated
+	 */
+	EReference getSubmittedJob_JobEngine();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.jobclient.JobEngineInProcess <em>Job Engine In Process</em>}'.
@@ -1096,6 +1135,14 @@ public interface JobclientPackage extends EPackage {
 		EOperation JOB_ENGINE___STOP = eINSTANCE.getJobEngine__Stop();
 
 		/**
+		 * The meta object literal for the '<em><b>On Job Progress</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JOB_ENGINE___ON_JOB_PROGRESS__SUBMITTEDJOB_PROGRESSFEEDBACK = eINSTANCE.getJobEngine__OnJobProgress__SubmittedJob_ProgressFeedback();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.jobclient.impl.SubmittedJobImpl <em>Submitted Job</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1112,6 +1159,14 @@ public interface JobclientPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SUBMITTED_JOB__JOB = eINSTANCE.getSubmittedJob_Job();
+
+		/**
+		 * The meta object literal for the '<em><b>Job Engine</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SUBMITTED_JOB__JOB_ENGINE = eINSTANCE.getSubmittedJob_JobEngine();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.jobclient.impl.JobEngineInProcessImpl <em>Job Engine In Process</em>}' class.
