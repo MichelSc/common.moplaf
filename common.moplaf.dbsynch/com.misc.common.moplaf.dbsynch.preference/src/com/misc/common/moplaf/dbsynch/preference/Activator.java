@@ -56,7 +56,7 @@ public class Activator extends AbstractUIPlugin implements PrefConstants{
 		    	  } else if ( property == PREF_LOG_ON_WARNING ){
 		    			Plugin.INSTANCE.getLogger().setLogOnWarning(newValueAsBoolean);
 		    	  } else if ( property == PREF_LOG_ON_ERROR ){
-		    			Plugin.INSTANCE.getLogger().setLogOnWarning(newValueAsBoolean);
+		    			Plugin.INSTANCE.getLogger().setLogOnError  (newValueAsBoolean);
 		    	  } else if ( property == PREF_SHOW_METADATA ){
 		    			Plugin.INSTANCE.setShowMetadata	           (newValueAsBoolean);
 		    	  }

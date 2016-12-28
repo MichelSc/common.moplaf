@@ -18,13 +18,17 @@ import com.misc.common.moplaf.common.Logger.Level;
  * @generated
  */
 public final class Plugin extends EMFPlugin  {
-	private Logger logger = new Logger();
+	private Logger logger = new Logger("DbSynch");
 	private boolean showMetadata = false;
 
 	public Logger getLogger(){
 		return this.logger;
 	}
 	
+	public boolean getShowMetadata(){
+		return this.showMetadata;
+	}
+
 	public void setShowMetadata(boolean showMetadata) {
 		this.showMetadata = showMetadata;
 	}
@@ -78,17 +82,6 @@ public final class Plugin extends EMFPlugin  {
 		return plugin;
 	}
 
-	public boolean getShowMetadata(){
-		return this.showMetadata;
-	}
-
-//	protected void logMessage(String message, String level){
-//		String logLine = String.format("DbSynch: %2$s: %1$s" , 
-//				         		         message, 
-//				         		         level);
-//		CommonPlugin.INSTANCE.log( logLine);
-//	}
-	
 	public void logInfo(String message){
 		this.logger.log(Level.INFO, message);
 	}

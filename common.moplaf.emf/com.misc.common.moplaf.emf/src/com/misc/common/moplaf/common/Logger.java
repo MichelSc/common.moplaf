@@ -37,18 +37,6 @@ public class Logger {
 		this.logOnError = logOnError;
 	}
 
-//	public boolean getLogOnInfo(){
-//		return this.logOnInfo;
-//	}
-//
-//	public boolean getLogOnWarning(){
-//		return this.logOnWarning;
-//	}
-//
-//	public boolean getLogOnError(){
-//		return this.logOnError;
-//	}
-	
 	public boolean getLogOnLevel(Level level){
 		switch ( level){
 		case TOUCH:   return this.logOnTouch;
