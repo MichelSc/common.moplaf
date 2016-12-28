@@ -16,5 +16,11 @@
             class="com.misc.common.moplaf.job.preference.PreferenceInitializer">
       </initializer>
    </extension>
+   <extension
+         point="org.eclipse.ui.startup">
+      <startup
+            class="com.misc.common.moplaf.job.preference.Startup">
+      </startup>
+   </extension>
 
 </plugin>

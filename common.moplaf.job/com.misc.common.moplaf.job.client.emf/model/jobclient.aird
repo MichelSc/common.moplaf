@@ -366,7 +366,7 @@
             <children xmi:type="notation:Node" xmi:id="__JI6cMzZEeaRlZIM-K1SVw" type="6003">
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="__JI6cczZEeaRlZIM-K1SVw" y="10"/>
             </children>
-            <styles xmi:type="notation:ConnectorStyle" xmi:id="__JITYczZEeaRlZIM-K1SVw" routing="Rectilinear"/>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="__JITYczZEeaRlZIM-K1SVw"/>
             <styles xmi:type="notation:FontStyle" xmi:id="__JITYszZEeaRlZIM-K1SVw" fontName="Oxygen-Sans" fontHeight="8"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__JITY8zZEeaRlZIM-K1SVw" points="[900, 252, 900, 252]$[1008, 672, 1008, 672]"/>
             <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__JKvoMzZEeaRlZIM-K1SVw" id="(0.4988179669030733,0.5)"/>
@@ -851,7 +851,8 @@
         <target xmi:type="ecore:EReference" href="jobclient.ecore#//JobEngine/SubmittedJobs"/>
         <semanticElements xmi:type="ecore:EReference" href="jobclient.ecore#//SubmittedJob/JobEngine"/>
         <semanticElements xmi:type="ecore:EReference" href="jobclient.ecore#//JobEngine/SubmittedJobs"/>
-        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="__IxuE8zZEeaRlZIM-K1SVw" description="__IxuEMzZEeaRlZIM-K1SVw" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="__IxuE8zZEeaRlZIM-K1SVw" description="__IxuEMzZEeaRlZIM-K1SVw" sourceArrow="FillDiamond" strokeColor="0,0,0">
+          <customFeatures>routingStyle</customFeatures>
           <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="__IxuFMzZEeaRlZIM-K1SVw" showIcon="false"/>
           <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="__IxuFczZEeaRlZIM-K1SVw" showIcon="false"/>
         </ownedStyle>

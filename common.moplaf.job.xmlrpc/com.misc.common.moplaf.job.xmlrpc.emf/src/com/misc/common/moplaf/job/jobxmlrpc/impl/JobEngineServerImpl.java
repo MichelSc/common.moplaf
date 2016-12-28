@@ -7,6 +7,7 @@ import com.misc.common.moplaf.job.Plugin;
 import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.RunContext;
 import com.misc.common.moplaf.job.jobclient.JobRemote;
+import com.misc.common.moplaf.job.jobclient.JobRemoteResult;
 import com.misc.common.moplaf.job.jobclient.JobclientFactory;
 import com.misc.common.moplaf.job.jobclient.SubmittedJob;
 import com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl;
@@ -14,8 +15,11 @@ import com.misc.common.moplaf.job.jobclient.impl.JobEngineImpl;
 import com.misc.common.moplaf.job.jobxmlrpc.JobEngineServer;
 import com.misc.common.moplaf.job.jobxmlrpc.JobxmlrpcPackage;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.StringBufferInputStream;
+import java.io.InputStream;
+import java.io.StringWriter;
+import java.io.Writer;
 
 import org.apache.xmlrpc.XmlRpcException;
 import org.apache.xmlrpc.XmlRpcRequest;
@@ -29,7 +33,9 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 
@@ -51,7 +57,6 @@ import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
  *
  * @generated
  */
-@SuppressWarnings("deprecation")
 public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServer {
 	/**
 	 * The default value of the '{@link #getPort() <em>Port</em>}' attribute.
@@ -298,16 +303,16 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 		 */
 		@Override
 		public String runJob(String jobAsString) {
+			String resultAsString = "";
 			Plugin.INSTANCE.logInfo("HandleJob.runJob: called ");
 
 			JobEngineServer jobEngineServer = JobEngineServerImpl.this;
 			
-			@SuppressWarnings("deprecation")
-			StringBufferInputStream stringReader= new StringBufferInputStream(jobAsString);
+			InputStream inputStream = new ByteArrayInputStream(jobAsString.getBytes());
 		    URI uri = URI.createURI("http://www.misc.com/tmp/job.xml");
 		    XMLResource resource = new XMLResourceImpl(uri);
 		    try {
-		    	resource.load(stringReader, null);
+		    	resource.load(inputStream, null);
 			} catch (IOException e) {
 				Plugin.INSTANCE.logError("HandleJob.runJob: exception in load: "+e.getMessage());
 				return "erreur";
@@ -330,14 +335,21 @@ public class JobEngineServerImpl extends JobEngineImpl implements JobEngineServe
 		    		submittedJob.setJob(job);
 		    		Plugin.INSTANCE.logInfo("HandleJob.runJob: job submitted");
 		    		ReturnFeedback jobFeedback = job.run(submittedJob);
+		    		JobRemoteResult result = job.getResult();
+		    		EObject resultCopy = EcoreUtil.copy(result);
+		    		resource.getContents().add(resultCopy);
 					Plugin.INSTANCE.logInfo("HandleJob.runJob: job executed");
 				}
+				Writer outputStream = new StringWriter();
+				resource.save(outputStream, null);
+				resultAsString = outputStream.toString();
 		    }
 			catch (Exception e) {
 				Plugin.INSTANCE.logError("HandleJob.runJob: exception "+e.getMessage());
 			}
 			
-			return jobAsString;
+			Plugin.INSTANCE.logInfo("HandleJob.runJob: call done ");
+			return resultAsString;
 		}
 
 	};

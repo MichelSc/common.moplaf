@@ -3,7 +3,7 @@
 package com.misc.common.moplaf.job.jobclient.impl;
 
 import com.misc.common.moplaf.common.ReturnFeedback;
-
+import com.misc.common.moplaf.job.Plugin;
 import com.misc.common.moplaf.job.ProgressFeedback;
 
 import com.misc.common.moplaf.job.impl.JobImpl;
@@ -14,7 +14,6 @@ import com.misc.common.moplaf.job.jobclient.JobclientPackage;
 
 import java.lang.reflect.InvocationTargetException;
 
-import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -229,7 +228,7 @@ public class JobRemoteImpl extends JobImpl implements JobRemote {
 	 * <!-- end-user-doc -->
 	 */
 	public void onProgress(ProgressFeedback feedback) {
-		CommonPlugin.INSTANCE.log("Job on progress");
+		Plugin.INSTANCE.logInfo("JobRemoteImpl.onProgress");
 	}
 
 	/**
@@ -237,7 +236,7 @@ public class JobRemoteImpl extends JobImpl implements JobRemote {
 	 * <!-- end-user-doc -->
 	 */
 	public void onReturn(ReturnFeedback feedback) {
-		CommonPlugin.INSTANCE.log("Job on return");
+		Plugin.INSTANCE.logInfo("JobRemoteImpl.onReturn");
 	}
 
 	/**
