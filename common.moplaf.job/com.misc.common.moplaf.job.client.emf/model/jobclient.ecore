@@ -9,11 +9,15 @@
     <eOperations name="onReturn">
       <eParameters name="feedback" eType="ecore:EDataType ../../com.misc.common.moplaf.job.emf/model/job.ecore#//ReturnFeedback"/>
     </eOperations>
+    <eOperations name="refreshProgress"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SubmissionID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="HandlingEngine" eType="#//JobEngineProxy"
         eOpposite="#//JobEngineProxy/SubmittedJobs"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Result" eType="#//JobRemoteResult"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LastProgress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LastProgressWork" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LastProgressTask" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JobEngineProxy" abstract="true">
     <eOperations name="submitJob" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
