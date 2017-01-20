@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Kpiview
+Bundle-SymbolicName: com.misc.common.moplaf.kpiview
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: MISC
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

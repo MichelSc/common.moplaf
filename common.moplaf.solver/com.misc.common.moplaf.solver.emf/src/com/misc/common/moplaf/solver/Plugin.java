@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
  * @generated
  */
 public final class Plugin extends EMFPlugin  {
-	private Logger logger = new Logger("Job");
+	private Logger logger = new Logger("Solver");
 	
 	public Logger getLogger(){
 		return this.logger;
