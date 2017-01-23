@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Moplaf"
+            id="com.misc.common.moplaf.kpiview.medusa">
+      </category>
+      <view
+            name="KPI View"
+            icon="icons/sample.gif"
+            category="com.misc.common.moplaf.kpiview.medusa"
+            class="com.misc.common.moplaf.kpiview.medusa.views.KPIView"
+            id="com.misc.common.moplaf.kpiview.medusa.views.KPIView">
+      </view>
+   </extension>
+
+</plugin>
