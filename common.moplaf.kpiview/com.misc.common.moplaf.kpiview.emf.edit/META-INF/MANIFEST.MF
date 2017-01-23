@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Edit
-Bundle-SymbolicName: com.misc.common.moplaf.timeview.emf.edit
+Bundle-SymbolicName: com.misc.common.moplaf.kpiview.emf.edit
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: MISC
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

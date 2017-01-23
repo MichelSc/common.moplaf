@@ -5,3 +5,7 @@ Bundle-SymbolicName: com.misc.common.moplaf.kpiview
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: MISC
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.ui;bundle-version="3.108.0",
+ org.eclipse.core.runtime;bundle-version="3.12.0"
+Export-Package: com.misc.common.moplaf.kpiview,
+ com.misc.common.moplaf.kpiview.viewers
