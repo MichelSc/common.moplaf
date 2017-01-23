@@ -1,10 +1,9 @@
-package com.misc.common.moplaf.timeview.emf.editor.views;
+package com.misc.common.moplaf.kpiview.emf.editor.views;
 
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.ui.part.*;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.jface.viewers.*;
@@ -14,20 +13,21 @@ import org.eclipse.swt.widgets.Menu;
 
 import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayContentProvider;
 import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayLabelProvider;
-import com.misc.common.moplaf.timeview.emf.editor.provider.AdapterFactoryIntervalEventProvider;
-import com.misc.common.moplaf.timeview.viewers.GanttViewerAbstract;
+import com.misc.common.moplaf.kpiview.emf.editor.provider.AdapterFactoryKPIProvider;
+import com.misc.common.moplaf.kpiview.viewers.KPIViewerAbstract;
 
 
-public abstract class GanttViewAbstract extends ViewPart {
+public abstract class KPIViewAbstract extends ViewPart {
 
 	/**
 	 * The ID of the view as specified by the extension.
 	 */
-	public static final String ID = "com.misc.common.moplaf.timeview.views.GanttView";
+	public static final String ID = "com.misc.common.moplaf.timeview.views.KPIView";
 
-	private GanttViewerAbstract viewer;
-	private Action action1;
-	private Action action2;
+	private KPIViewerAbstract viewer;
+
+//	private Action action1;
+//	private Action action2;
 	//private Action doubleClickAction;
 	private ISelectionListener selectionListener;
 	private ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
@@ -41,11 +41,11 @@ public abstract class GanttViewAbstract extends ViewPart {
 		@Override
 		public void selectionChanged(IWorkbenchPart part, ISelection selection) {
 			
-			if (  GanttViewAbstract.this.viewer != null && part!= GanttViewAbstract.this) {
+			if (  KPIViewAbstract.this.viewer != null && part!= KPIViewAbstract.this) {
 				if (  !selection.isEmpty() 
 				  && selection instanceof IStructuredSelection) {
 					IStructuredSelection structuredSelection = (IStructuredSelection)selection;
-					GanttViewAbstract.this.viewer.setInput(structuredSelection.toArray());
+					KPIViewAbstract.this.viewer.setInput(structuredSelection.toArray());
 				} // there is a selection
 			} // there is a viewer
 		}
@@ -54,13 +54,13 @@ public abstract class GanttViewAbstract extends ViewPart {
 	/**
 	 * The constructor.
 	 */
-	public GanttViewAbstract() {
+	public KPIViewAbstract() {
 	}
 	
 	/**
 	 * Create the viewer, abstract
 	 */
-	protected abstract GanttViewerAbstract createViewer(Composite parent);
+	protected abstract KPIViewerAbstract createViewer(Composite parent);
 	
 	/**
 	 * This is a callback that will allow us
@@ -69,10 +69,10 @@ public abstract class GanttViewAbstract extends ViewPart {
 	public void createPartControl(Composite parent) {
         //GridData gd = new GridData(GridData.FILL_BOTH);
         this.viewer = this.createViewer(parent);
-        this.viewer.setContentProvider      (new AdapterFactoryArrayContentProvider (this.adapterFactory));
-		this.viewer.setLabelProvider        (new AdapterFactoryArrayLabelProvider   (this.adapterFactory));
-		this.viewer.setColorProvider        (new AdapterFactoryArrayLabelProvider   (this.adapterFactory));
-		this.viewer.setIntervalEventProvider(new AdapterFactoryIntervalEventProvider(this.adapterFactory));
+        this.viewer.setContentProvider   (new AdapterFactoryArrayContentProvider (this.adapterFactory));
+		this.viewer.setLabelProvider     (new AdapterFactoryArrayLabelProvider   (this.adapterFactory));
+		this.viewer.setColorProvider     (new AdapterFactoryArrayLabelProvider   (this.adapterFactory));
+		this.viewer.setKPIProvider       (new AdapterFactoryKPIProvider          (this.adapterFactory));
 
         //viewer.setLayoutData(gd);
 		//PlatformUI.getWorkbench().getHelpSystem().setHelp(viewer.getControl(), "com.misc.common.moplaf.timeview.jaret.viewer");
@@ -124,7 +124,7 @@ public abstract class GanttViewAbstract extends ViewPart {
 		menuMgr.setRemoveAllWhenShown(true);
 		menuMgr.addMenuListener(new IMenuListener() {
 			public void menuAboutToShow(IMenuManager manager) {
-				GanttViewAbstract.this.fillContextMenu(manager);
+				KPIViewAbstract.this.fillContextMenu(manager);
 			}
 		});
 		Menu menu = menuMgr.createContextMenu(viewer.getControl());
@@ -139,43 +139,43 @@ public abstract class GanttViewAbstract extends ViewPart {
 	}
 
 	private void fillLocalPullDown(IMenuManager manager) {
-		manager.add(action1);
-		manager.add(new Separator());
-		manager.add(action2);
+//		manager.add(action1);
+//		manager.add(new Separator());
+//		manager.add(action2);
 	}
 
 	private void fillContextMenu(IMenuManager manager) {
-		manager.add(action1);
-		manager.add(action2);
-		// Other plug-ins can contribute there actions here
-		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
+//		manager.add(action1);
+//		manager.add(action2);
+//		// Other plug-ins can contribute there actions here
+//		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 	}
 	
 	private void fillLocalToolBar(IToolBarManager manager) {
-		manager.add(action1);
-		manager.add(action2);
+//		manager.add(action1);
+//		manager.add(action2);
 	}
 
 	private void makeActions() {
-		action1 = new Action() {
-			public void run() {
-				showMessage("Action 1 executed");
-			}
-		};
-		action1.setText("Action 1");
-		action1.setToolTipText("Action 1 tooltip");
-		action1.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
-			getImageDescriptor(ISharedImages.IMG_OBJS_INFO_TSK));
-		
-		action2 = new Action() {
-			public void run() {
-				showMessage("Action 2 executed");
-			}
-		};
-		action2.setText("Action 2");
-		action2.setToolTipText("Action 2 tooltip");
-		action2.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
-				getImageDescriptor(ISharedImages.IMG_OBJS_INFO_TSK));
+//		action1 = new Action() {
+//			public void run() {
+//				showMessage("Action 1 executed");
+//			}
+//		};
+//		action1.setText("Action 1");
+//		action1.setToolTipText("Action 1 tooltip");
+//		action1.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
+//			getImageDescriptor(ISharedImages.IMG_OBJS_INFO_TSK));
+//		
+//		action2 = new Action() {
+//			public void run() {
+//				showMessage("Action 2 executed");
+//			}
+//		};
+//		action2.setText("Action 2");
+//		action2.setToolTipText("Action 2 tooltip");
+//		action2.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
+//				getImageDescriptor(ISharedImages.IMG_OBJS_INFO_TSK));
 //		doubleClickAction = new Action() {
 //		
 //			public void run() {
