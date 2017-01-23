@@ -9,17 +9,9 @@ public interface IKPIProvider {
 	// a KPI thing
 	boolean isKPI(Object element);
 
-	// a KPI value
-	boolean isKPIValue(Object element);
-
 	// a KPI Range
 	boolean isKPIRange(Object element);
 
-	// collection of KPIValues
-	//  e.g TransportCost of TransportEfficiency
-	//  supported by a KPI
-	Object[] getKPIValues(Object element);
-	
 	// collection of KPIRanges
 	//  e.g. CriticallyHigh 
 	//  e.g. WarninglyHigh 
@@ -33,7 +25,7 @@ public interface IKPIProvider {
 	// allow to compare the same KPI of different objects
 	String getKPIID(Object element);  
 
-	// KPIValue properties, supported by a KPIValue
+	// KPIValue properties, supported by a KPI
 	float getAmount(Object element);
 	float getMinAmount(Object element);
 	float getMaxAmount(Object element);
@@ -41,13 +33,4 @@ public interface IKPIProvider {
 	// KPIRange properties, supported by a KPIRange
 	float getLowAmount(Object element);
 	float getHighAmount(Object element);
-
-	// identifies a value of a KPI  
-	//   e.g. "projects.someclient.someapp.transport.cost.value.planned"
-	//   e.g. "projects.someclient.someapp.transport.cost.value.actual"
-	//   e.g. "projects.someclient.someapp.transport.cost.range.complete"
-	//   e.g. "projects.someclient.someapp.transport.cost.range.low"
-	//   e.g. "projects.someclient.someapp.transport.cost.range.high"
-	//   allows to compare the same KPI value of different objects
-	String getKPIAmountID(Object element);
 }
