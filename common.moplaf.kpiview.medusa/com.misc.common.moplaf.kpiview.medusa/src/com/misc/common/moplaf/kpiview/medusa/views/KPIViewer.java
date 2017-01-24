@@ -1,8 +1,6 @@
 package com.misc.common.moplaf.kpiview.medusa.views;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -12,28 +10,22 @@ import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.ImageData;
-import org.eclipse.swt.graphics.ImageLoader;
-import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.FileDialog;
 
 import com.misc.common.moplaf.kpiview.viewers.KPIViewerAbstract;
 
 import eu.hansolo.medusa.Gauge;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+
+import javafx.embed.swt.FXCanvas;
 
 
 
@@ -132,50 +124,49 @@ public class KPIViewer extends KPIViewerAbstract {
 	// fields 
 	//-------------------------------------------------------------------------------------
     private GridPane pane;  
-
-	private static final double TILE_SIZE = 200;
-	      
-	private Gauge    gauges[][];
+    private FXCanvas canvas = null;
+	private LinkedList<KPIViewed> gauges;
+	
+	private class KPIViewed {
+		private Gauge gauge;
+		private Object modelObject;
+		int gridIndex;
+	}
 
 	//-------------------------------------------------------------------------------------
 	// constructor
 	public KPIViewer(Composite parent){
+		// grid pane
     	pane = new GridPane();  
         pane.setPadding(new Insets(20));  
         pane.setHgap(10);  
         pane.setVgap(15);  
         pane.setBackground(new Background(new BackgroundFill(Color.rgb(130,116,133), CornerRadii.EMPTY, Insets.EMPTY)));  
-//        pane.setBackground(new Background(new BackgroundFill(Color.rgb(39,44,50), CornerRadii.EMPTY, Insets.EMPTY))); 
 
+        // scroll pane
         ScrollPane superPane = new ScrollPane();
         superPane.setContent(pane);
         
+        // scene
         Scene newScene =  new Scene(superPane);
         
-        FXCanvas canvas = new FXCanvas(parent, SWT.NONE);
-        Scene scene = createScene();
-        canvas.setScene(scene);
-        shell.open();
-        while (!shell.isDisposed()) {
-            if (!display.readAndDispatch()) display.sleep();
-        }
-        display.dispose();
-
-
-
+        // FXCanvas
+        canvas = new FXCanvas(parent, SWT.NONE);
+        canvas.setScene(newScene);
 	}
 	
 	//-------------------------------------------------------------------------------------
 	@Override
 	public Control getControl() {
-		return null;
+		return this.canvas;
 	}
 	//-------------------------------------------------------------------------------------
 	
 	//-------------------------------------------------------------------------------------
 	// keep model and plot in synch
 	//-------------------------------------------------------------------------------------
-	/* (non-Javadoc)
+	/**
+	 * Called by ContentViewe.setInput, himself called by KPIViewAbstract.selectionChanged
 	 * @see org.eclipse.jface.viewers.Viewer#inputChanged(java.lang.Object, java.lang.Object)
 	 */
 	@Override
@@ -198,62 +189,56 @@ public class KPIViewer extends KPIViewerAbstract {
 
 		LinkedList<Gauge> gaugesToRemove = new LinkedList<Gauge>();
 
-		boolean allRemoved = true;
-		for ( Gauge gauge: this.xyGraph.getPlotArea().getTraceList()){
-			TimePlotDataProvider dataprovider = (TimePlotDataProvider)trace.getDataProvider();
-			if ( ! children.contains(dataprovider.modelObject) ){
-				tracesToRemove.add(trace);
-			} else {
-				children.remove(dataprovider.modelObject);
-				allRemoved = false;
-			}
-		}
+//		boolean allRemoved = true;
+//		for ( Gauge gauge: this.xyGraph.getPlotArea().getTraceList()){
+//			TimePlotDataProvider dataprovider = (TimePlotDataProvider)trace.getDataProvider();
+//			if ( ! children.contains(dataprovider.modelObject) ){
+//				tracesToRemove.add(trace);
+//			} else {
+//				children.remove(dataprovider.modelObject);
+//				allRemoved = false;
+//			}
+//		}
+//		
+//		// do the adds
+//		boolean somethingAdded = false;
+//		for( Object modelObjectToAdd : children){
+//			if ( this.getIAmountEventProvider().isAmountEvents(modelObjectToAdd)){
+//				// it is a collection of events
+//				String traceLabel = this.getILabelProvider().getText(modelObjectToAdd);
+//				Color  color      = this.getIColorProvider().getForeground(modelObjectToAdd);
+//				TimePlotDataProvider dataProvider = new TimePlotDataProvider(modelObjectToAdd);
+//				Trace trace = new Trace(traceLabel, xyGraph.primaryXAxis, xyGraph.primaryYAxis, dataProvider);
+//				trace.setPointStyle(PointStyle.XCROSS);
+//				trace.setTraceColor(color);
+//				this.xyGraph.addTrace(trace);
+//				somethingAdded = true;
+//			}
+//		}
+//		
+//		if ( allRemoved && !somethingAdded){
+//			// the chart will be empty: we keep is as it si
+//			return;
+//		}
+//		
+//		// do the removes
+//		for ( Trace traceToRemove : tracesToRemove){
+//			this.xyGraph.removeTrace(traceToRemove);
+//		}
 		
-		// do the adds
-		boolean somethingAdded = false;
-		for( Object modelObjectToAdd : children){
-			if ( this.getIAmountEventProvider().isAmountEvents(modelObjectToAdd)){
-				// it is a collection of events
-				String traceLabel = this.getILabelProvider().getText(modelObjectToAdd);
-				Color  color      = this.getIColorProvider().getForeground(modelObjectToAdd);
-				TimePlotDataProvider dataProvider = new TimePlotDataProvider(modelObjectToAdd);
-				Trace trace = new Trace(traceLabel, xyGraph.primaryXAxis, xyGraph.primaryYAxis, dataProvider);
-				trace.setPointStyle(PointStyle.XCROSS);
-				trace.setTraceColor(color);
-				this.xyGraph.addTrace(trace);
-				somethingAdded = true;
-			}
-		}
+//		for ( Trace traceAsIs : this.xyGraph.getPlotArea().getTraceList()){
+//			this.refreshTrace(traceAsIs);
+//		}
 		
-		if ( allRemoved && !somethingAdded){
-			// the chart will be empty: we keep is as it si
-			return;
-		}
-		
-		// do the removes
-		for ( Trace traceToRemove : tracesToRemove){
-			this.xyGraph.removeTrace(traceToRemove);
-		}
-		
-		for ( Trace traceAsIs : this.xyGraph.getPlotArea().getTraceList()){
-			this.refreshTrace(traceAsIs);
-		}
-		
-		this.timePlotCanvas.redraw();
+//		this.timePlotCanvas.redraw();
 	}
 	
-	private void refreshTrace(Gauge gauge){
-		TimePlotDataProvider dataProvider = (TimePlotDataProvider)trace.getDataProvider();
-		Object modelObject = dataProvider.modelObject;
+	private void refresh(KPIViewed kpiViewed){
+		Object modelObject = null;
 		
-		dataProvider.clear();
-		// update the child rows
-		Object[] childrenModelElement = this.getIAmountEventProvider().getAmountEvents(modelObject);
-		for (Object childModelElement : childrenModelElement) {
-			dataProvider.addEventObject(childModelElement);
-		} // traverse the children of the model object
-	} // method refreshTrace
-}; // class TimePlotViewer
+		float kpi = this.getIKPIProvider().getAmount(modelObject);
+	} // method refresh(KPIViewed)
+}; // class KPIViewer
 
 
 	

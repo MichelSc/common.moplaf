@@ -20,7 +20,7 @@ public abstract class KPIViewerAbstract extends ContentViewer {
 	private Object          selectedElement = null;
 	private ISelection      currentSelection = null;
 	private IColorProvider  colorProvider = null;
-	private IKPIProvider    KPIEventProvider = null;
+	private IKPIProvider    KPIProvider = null;
 
 	// providers management
 	@Override
@@ -40,7 +40,7 @@ public abstract class KPIViewerAbstract extends ContentViewer {
 	}
 	
 	public void setKPIProvider(IKPIProvider KPIProvider){
-		this.KPIEventProvider = KPIProvider;
+		this.KPIProvider = KPIProvider;
 	}
 	
 	/**
@@ -73,8 +73,8 @@ public abstract class KPIViewerAbstract extends ContentViewer {
 		return this.colorProvider;
 	}
 	
-	protected IKPIProvider getIIntervalEventProvider(){
-		return this.KPIEventProvider;
+	protected IKPIProvider getIKPIProvider(){
+		return this.KPIProvider;
 	}
 	
 	// selection management
@@ -108,6 +108,7 @@ public abstract class KPIViewerAbstract extends ContentViewer {
 		}
 	}
 	
+	@Override
 	public void refresh(){
 	}
 
