@@ -125,12 +125,67 @@ public class KPIViewer extends KPIViewerAbstract {
 	//-------------------------------------------------------------------------------------
     private GridPane pane;  
     private FXCanvas canvas = null;
-	private LinkedList<KPIViewed> gauges;
+	private LinkedList<KPIProviderViewed> KPIproviders	 = new LinkedList<KPIProviderViewed>();
+;
+	
+	private int rowsSpan = 5;
+	private int columnSpan = 10;
+
+	private class KPIProviderViewed {
+		private Object modelObject;
+		private LinkedList<KPIViewed> KPIsViewed;
+		
+		public KPIProviderViewed(Object modelObject) {
+			super();
+			this.modelObject = modelObject;
+			this.KPIsViewed = new LinkedList<KPIViewed>();
+		}
+		
+		public Object getModelObject() {
+			return modelObject;
+		}
+		
+		public void setModelObject(Object modelObject) {
+			this.modelObject = modelObject;
+		}
+
+		public LinkedList<KPIViewed> getKPIsViewed() {
+			return KPIsViewed;
+		}
+		
+		public void dispose(){
+			Iterator<KPIViewed> iterator = this.KPIsViewed.iterator();
+			while ( iterator.hasNext()){
+				KPIViewed next = iterator.next();
+				iterator.remove();
+				next.dispose();
+			}
+		}
+	}
 	
 	private class KPIViewed {
 		private Gauge gauge;
 		private Object modelObject;
-		int gridIndex;
+		
+		public KPIViewed(Gauge gauge, Object modelObject) {
+			super();
+			this.gauge = gauge;
+			this.modelObject = modelObject;
+		}
+
+		public Gauge getGauge() {
+			return gauge;
+		}
+
+		public Object getModelObject() {
+			return modelObject;
+		}
+		
+		public void dispose(){
+			KPIViewer.this.pane.getChildren().remove(this.gauge);
+			this.gauge = null;
+		}
+		
 	}
 
 	//-------------------------------------------------------------------------------------
@@ -185,55 +240,47 @@ public class KPIViewer extends KPIViewerAbstract {
 
 		Object[] childrenModelElement = this.getTreeContentProvider().getChildren(this.getInput());
 		
-		HashSet<Object> children = new HashSet<Object>(Arrays.asList(childrenModelElement));
-
-		LinkedList<Gauge> gaugesToRemove = new LinkedList<Gauge>();
-
-//		boolean allRemoved = true;
-//		for ( Gauge gauge: this.xyGraph.getPlotArea().getTraceList()){
-//			TimePlotDataProvider dataprovider = (TimePlotDataProvider)trace.getDataProvider();
-//			if ( ! children.contains(dataprovider.modelObject) ){
-//				tracesToRemove.add(trace);
-//			} else {
-//				children.remove(dataprovider.modelObject);
-//				allRemoved = false;
-//			}
-//		}
-//		
-//		// do the adds
-//		boolean somethingAdded = false;
-//		for( Object modelObjectToAdd : children){
-//			if ( this.getIAmountEventProvider().isAmountEvents(modelObjectToAdd)){
-//				// it is a collection of events
-//				String traceLabel = this.getILabelProvider().getText(modelObjectToAdd);
-//				Color  color      = this.getIColorProvider().getForeground(modelObjectToAdd);
-//				TimePlotDataProvider dataProvider = new TimePlotDataProvider(modelObjectToAdd);
-//				Trace trace = new Trace(traceLabel, xyGraph.primaryXAxis, xyGraph.primaryYAxis, dataProvider);
-//				trace.setPointStyle(PointStyle.XCROSS);
-//				trace.setTraceColor(color);
-//				this.xyGraph.addTrace(trace);
-//				somethingAdded = true;
-//			}
-//		}
-//		
-//		if ( allRemoved && !somethingAdded){
-//			// the chart will be empty: we keep is as it si
-//			return;
-//		}
-//		
-//		// do the removes
-//		for ( Trace traceToRemove : tracesToRemove){
-//			this.xyGraph.removeTrace(traceToRemove);
-//		}
-		
-//		for ( Trace traceAsIs : this.xyGraph.getPlotArea().getTraceList()){
-//			this.refreshTrace(traceAsIs);
-//		}
-		
-//		this.timePlotCanvas.redraw();
-	}
+		int columnIndex = 0;
+		Iterator<KPIProviderViewed> iteratorKPI = this.KPIproviders.iterator();
+		KPIProviderViewed currentKPI = iteratorKPI.hasNext() ? iteratorKPI.next() : null;
+		for ( Object childModelElement : childrenModelElement){
+			if ( this.getIKPIProvider().hasKPIs(childModelElement)){
+				// the child is a kpis provider
+				if ( currentKPI==null ){
+					// no more element in the list
+					// add a new one
+					KPIProviderViewed newKPIProviderViewed = new KPIProviderViewed(childModelElement);
+					this.KPIproviders.add(newKPIProviderViewed);
+					this.refresh(newKPIProviderViewed, columnIndex);
+				} else if (currentKPI.getModelObject()==childModelElement){
+					// this is the same
+					// update
+					this.refresh(currentKPI, columnIndex);
+				} else {
+					// this is a different one
+					currentKPI.dispose();
+					currentKPI.setModelObject(childModelElement);
+					this.refresh(currentKPI, columnIndex);
+				}
+				// loop control
+				columnIndex++;
+				currentKPI = iteratorKPI.hasNext() ? iteratorKPI.next() : null;
+			}  // the child is a KPIprovider
+		}  // traverse the children
+		while ( iteratorKPI.hasNext() ){
+			KPIProviderViewed next = iteratorKPI.next();
+			next.dispose();
+			iteratorKPI.remove();
+		}
+	}  // refresh
 	
-	private void refresh(KPIViewed kpiViewed){
+	private void refresh(KPIProviderViewed provider, int column){
+		Object modelObject = null;
+		
+		float kpi = this.getIKPIProvider().getAmount(modelObject);
+	} // method refresh(KPIViewed)
+
+	private void refresh(KPIViewed kpiViewed, int row){
 		Object modelObject = null;
 		
 		float kpi = this.getIKPIProvider().getAmount(modelObject);

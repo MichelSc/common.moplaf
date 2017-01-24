@@ -67,8 +67,6 @@ public class AdapterFactoryKPIProvider implements
 		this.lastKPIRangeElementHighAmount = KPIRangeItemProvider.getHighAmount(element);
 	}
 	
-	
-	
 	// object management  ------------------------------------------------------------
 	
 	// constructor
@@ -78,9 +76,11 @@ public class AdapterFactoryKPIProvider implements
 	
 	// dispose
 	public void dispose(){
-		this.lastKPIElement = null;
 		this.lastKPIsElement = null;
 		this.lastKPIsElementKPIs = null;
+		this.lastKPIElement = null;
+		this.lastKPIElementKPIRanges = null;
+		this.lastKPIRangeElement = null;
 	}
 
 	// KPIs collection methods ------------------------------------------------------------
