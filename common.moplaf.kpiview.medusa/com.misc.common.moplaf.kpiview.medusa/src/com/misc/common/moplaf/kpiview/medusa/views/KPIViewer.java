@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.Iterator;
 
+import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -11,6 +12,7 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
 
 import com.misc.common.moplaf.kpiview.viewers.KPIViewerAbstract;
 
@@ -80,6 +82,7 @@ public class KPIViewer extends KPIViewerAbstract {
 	//-------------------------------------------------------------------------------------
     private GridPane pane;  
     private FXCanvas canvas = null;
+    static private double TILE_SIZE = 172.0; 
 //	private LinkedList<KPIProviderViewed> KPIproviders	 = new LinkedList<KPIProviderViewed>();
 //;
 	
@@ -145,9 +148,14 @@ public class KPIViewer extends KPIViewerAbstract {
 	public KPIViewer(Composite parent){
         // FXCanvas
         canvas = new FXCanvas(parent, SWT.NONE);
+//        org.eclipse.swt.graphics.Color background = new org.eclipse.swt.graphics.Color(Display.getCurrent(), 130, 116, 133);
+//        parent.setBackground(background);
+//        canvas.setBackground(background);
+//        parent.setBackgroundMode(SWT.INHERIT_FORCE);
 		// grid pane
     	pane = new GridPane();  
         pane.setPadding(new Insets(20));  
+        
         pane.setHgap(10);  
         pane.setVgap(15);  
         pane.setBackground(new Background(new BackgroundFill(Color.rgb(130,116,133), CornerRadii.EMPTY, Insets.EMPTY)));  
@@ -221,7 +229,7 @@ public class KPIViewer extends KPIViewerAbstract {
 		}  // traverse the children
 		
 		// remove the unused nodes
-		this.pane.getChildren().remove(context.nodes);
+		this.pane.getChildren().removeAll(context.nodes.values());
 	}  // refresh
 	
 	/**
@@ -247,9 +255,11 @@ public class KPIViewer extends KPIViewerAbstract {
 				gauge.setBarColor(Color.rgb(255,183,77));  
 				gauge.setBarBackgroundColor(Color.rgb(39,44,50));  
 				gauge.setAnimated(true);  
-				gauge.setSkinType(SkinType.TILE_KPI);
-//	              gauge.setPrefSize(100.0, 100.0);
-//	          	  gauge.setSkin(new MoplafSkinType(gauge));
+				gauge.setPrefSize(TILE_SIZE, TILE_SIZE);
+//				gauge.setSkinType(SkinType.TILE_KPI);
+          	  	gauge.setSkin(new GaugeSkinTypeTilePercentage(gauge));
+                gauge.setBackgroundPaint(Color.rgb(42,42,42));
+                gauge.setValueColor(Color.AQUA);
 	            node = gauge;  
 				pane.add(node , row, column);
 			}  // create the node
@@ -266,6 +276,8 @@ public class KPIViewer extends KPIViewerAbstract {
 		float value = this.getIKPIProvider().getAmount(kpi);
 		float minValue = this.getIKPIProvider().getMinAmount(kpi);
 		float maxValue = this.getIKPIProvider().getMaxAmount(kpi);
+//		String msg = String.format("KPI %f (%f, %f)", value, minValue, maxValue);
+//		CommonPlugin.INSTANCE.log("KPIViewer: refresh node "+msg);
 		gauge.setValue(value);
         gauge.setMinValue(minValue);
         gauge.setMaxValue(maxValue);
