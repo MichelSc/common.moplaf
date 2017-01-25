@@ -222,8 +222,10 @@ public abstract class KPIViewAbstract extends ViewPart {
 		// unregister the selection listener
 		IWorkbenchPartSite site = getSite();
 		IWorkbenchWindow window = site.getWorkbenchWindow();
-		window.getSelectionService().removeSelectionListener(this.selectionListener);
-		this.selectionListener = null;
+		if ( this.selectionListener!=null){
+			window.getSelectionService().removeSelectionListener(this.selectionListener);
+			this.selectionListener = null;
+		}
 		
 		// done, dispose other things
 		super.dispose();

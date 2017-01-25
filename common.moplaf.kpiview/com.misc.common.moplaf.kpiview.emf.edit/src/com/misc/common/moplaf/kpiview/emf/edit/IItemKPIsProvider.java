@@ -12,7 +12,7 @@ import java.util.Collection;
  *   <li>regenerate the code</li>
  *   <li>add the unimplemented methods</li>
  *   <li>implement {@link #getKPIs(Object)}</li>
- *   <li>override {@link #isAdapterForType(Object)} and return true when the type is IItemKPIsProvider</li>
+ *   <li>override {@link #isAdapterForType(Object)} and return true when the type is IItemKPIsProvider (apparently, this is not necessary)</li>
  * </ul> 
  * In the project's ProviderAdapterFactory, you may need to change 
  * <ul>

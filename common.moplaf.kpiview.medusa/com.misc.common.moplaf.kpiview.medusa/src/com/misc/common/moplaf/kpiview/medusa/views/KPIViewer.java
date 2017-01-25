@@ -1,9 +1,8 @@
 package com.misc.common.moplaf.kpiview.medusa.views;
 
-import java.util.Arrays;
-import java.util.HashSet;
+import java.util.HashMap;
+import java.util.AbstractMap.SimpleEntry;
 import java.util.Iterator;
-import java.util.LinkedList;
 
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -16,7 +15,10 @@ import org.eclipse.swt.widgets.Control;
 import com.misc.common.moplaf.kpiview.viewers.KPIViewerAbstract;
 
 import eu.hansolo.medusa.Gauge;
+import eu.hansolo.medusa.Gauge.SkinType;
+import eu.hansolo.medusa.GaugeBuilder;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Background;
@@ -33,6 +35,8 @@ public class KPIViewer extends KPIViewerAbstract {
 	//-------------------------------------------------------------------------------------
 	// selection management
 	//-------------------------------------------------------------------------------------
+	
+	// listening to this form selection
 	private class KPIViewerISeletionListener implements ISelectionChangedListener{
 		private IStructuredSelection oldSelection = null;
 
@@ -60,6 +64,7 @@ public class KPIViewer extends KPIViewerAbstract {
 		}
 	} // class selection listener
 
+	// forwarding this form selection
 	private void setSelectedModelObject(Object selection){
 		Object selectedObject = null;
 //		if ( selection instanceof GanttViewerInterval){
@@ -71,126 +76,75 @@ public class KPIViewer extends KPIViewerAbstract {
 		this.setSelectedElement(selectedObject);
 	}
 	//-------------------------------------------------------------------------------------
-	// nested classes
-	//-------------------------------------------------------------------------------------
-//	public class TimePlotDataProvider {
-//		
-//		private class KPIModelObject {
-//			private Object eventObject;
-//			private int gaugeIndex ;
-//			public KPIModelObject(Object eventObject, int gaugeIndex){
-//				this.eventObject = eventObject;
-//				this.gaugeIndex = gaugeIndex;
-//			}
-//		};
-//		
-//		protected boolean dataRangedirty = false;
-//		private Object modelObject;
-//		private ArrayList<TimePlotDataProviderModelObject> eventObjects;
-//
-//		public TimePlotDataProvider(Object modelObject) {
-//			super(true);
-//			listeners = new ArrayList<IDataProviderListener>();
-//			this.eventObjects = new ArrayList<TimePlotDataProviderModelObject>();
-//			this.modelObject = modelObject;
-//		}
-//		
-//		public void addEventObject(Object eventObject){
-//			Date moment        = TimePlotViewer.this.getIAmountEventProvider().getEventMoment(eventObject);
-//			float amountBefore = TimePlotViewer.this.getIAmountEventProvider().getEventAmountBefore(eventObject);
-//			float amountAfter  = TimePlotViewer.this.getIAmountEventProvider().getEventAmountAfter(eventObject);
-//			this.eventObjects.add(new TimePlotDataProviderModelObject(eventObject, moment, amountBefore, amountAfter));
-//			this.dataRangedirty = true;
-//		}
-//		
-//		public void clear(){
-//			this.eventObjects.clear();
-//			this.dataRangedirty = true;
-//	}
-
-//		@Override
-//		public int getSize() {
-//			return this.eventObjects.size()*2;
-//		}
-//
-//		}
-
-		
-//	}; // class TimePlotDataProvider 
-	//-------------------------------------------------------------------------------------
-	//-------------------------------------------------------------------------------------
-
-	//-------------------------------------------------------------------------------------
 	// fields 
 	//-------------------------------------------------------------------------------------
     private GridPane pane;  
     private FXCanvas canvas = null;
-	private LinkedList<KPIProviderViewed> KPIproviders	 = new LinkedList<KPIProviderViewed>();
-;
+//	private LinkedList<KPIProviderViewed> KPIproviders	 = new LinkedList<KPIProviderViewed>();
+//;
 	
-	private int rowsSpan = 5;
-	private int columnSpan = 10;
-
-	private class KPIProviderViewed {
-		private Object modelObject;
-		private LinkedList<KPIViewed> KPIsViewed;
-		
-		public KPIProviderViewed(Object modelObject) {
-			super();
-			this.modelObject = modelObject;
-			this.KPIsViewed = new LinkedList<KPIViewed>();
-		}
-		
-		public Object getModelObject() {
-			return modelObject;
-		}
-		
-		public void setModelObject(Object modelObject) {
-			this.modelObject = modelObject;
-		}
-
-		public LinkedList<KPIViewed> getKPIsViewed() {
-			return KPIsViewed;
-		}
-		
-		public void dispose(){
-			Iterator<KPIViewed> iterator = this.KPIsViewed.iterator();
-			while ( iterator.hasNext()){
-				KPIViewed next = iterator.next();
-				iterator.remove();
-				next.dispose();
-			}
-		}
-	}
+//	private class KPIProviderViewed {
+//		private Object modelObject;
+//		private LinkedList<KPIViewed> KPIsViewed;
+//		
+//		public KPIProviderViewed(Object modelObject) {
+//			super();
+//			this.modelObject = modelObject;
+//			this.KPIsViewed = new LinkedList<KPIViewed>();
+//		}
+//		
+//		public Object getModelObject() {
+//			return modelObject;
+//		}
+//		
+//		public void setModelObject(Object modelObject) {
+//			this.modelObject = modelObject;
+//		}
+//
+//		public LinkedList<KPIViewed> getKPIsViewed() {
+//			return KPIsViewed;
+//		}
+//		
+//		public void dispose(){
+//			Iterator<KPIViewed> iterator = this.KPIsViewed.iterator();
+//			while ( iterator.hasNext()){
+//				KPIViewed next = iterator.next();
+//				iterator.remove();
+//				next.dispose();
+//			}
+//		}
+//	}
 	
-	private class KPIViewed {
-		private Gauge gauge;
-		private Object modelObject;
-		
-		public KPIViewed(Gauge gauge, Object modelObject) {
-			super();
-			this.gauge = gauge;
-			this.modelObject = modelObject;
-		}
-
-		public Gauge getGauge() {
-			return gauge;
-		}
-
-		public Object getModelObject() {
-			return modelObject;
-		}
-		
-		public void dispose(){
-			KPIViewer.this.pane.getChildren().remove(this.gauge);
-			this.gauge = null;
-		}
-		
-	}
+//	private class KPIViewed {
+//		private Gauge gauge;
+//		private Object modelObject;
+//		
+//		public KPIViewed(Gauge gauge, Object modelObject) {
+//			super();
+//			this.gauge = gauge;
+//			this.modelObject = modelObject;
+//		}
+//
+//		public Gauge getGauge() {
+//			return gauge;
+//		}
+//
+//		public Object getModelObject() {
+//			return modelObject;
+//		}
+//		
+//		public void dispose(){
+//			KPIViewer.this.pane.getChildren().remove(this.gauge);
+//			this.gauge = null;
+//		}
+//		
+//	}
 
 	//-------------------------------------------------------------------------------------
 	// constructor
 	public KPIViewer(Composite parent){
+        // FXCanvas
+        canvas = new FXCanvas(parent, SWT.NONE);
 		// grid pane
     	pane = new GridPane();  
         pane.setPadding(new Insets(20));  
@@ -204,12 +158,10 @@ public class KPIViewer extends KPIViewerAbstract {
         
         // scene
         Scene newScene =  new Scene(superPane);
-        
-        // FXCanvas
-        canvas = new FXCanvas(parent, SWT.NONE);
         canvas.setScene(newScene);
 	}
 	
+
 	//-------------------------------------------------------------------------------------
 	@Override
 	public Control getControl() {
@@ -218,10 +170,10 @@ public class KPIViewer extends KPIViewerAbstract {
 	//-------------------------------------------------------------------------------------
 	
 	//-------------------------------------------------------------------------------------
-	// keep model and plot in synch
+	// keep model and this form in synch
 	//-------------------------------------------------------------------------------------
 	/**
-	 * Called by ContentViewe.setInput, himself called by KPIViewAbstract.selectionChanged
+	 * Called by ContentViewer.setInput, himself called by KPIViewAbstract.selectionChanged
 	 * @see org.eclipse.jface.viewers.Viewer#inputChanged(java.lang.Object, java.lang.Object)
 	 */
 	@Override
@@ -229,61 +181,113 @@ public class KPIViewer extends KPIViewerAbstract {
 		super.inputChanged(input, oldInput);
 		
 		if ( input != oldInput){
-			//CommonPlugin.INSTANCE.log("TimePlotViewer: inputChanged "+input.toString());
+			//CommonPlugin.INSTANCE.log("KPIViewer: inputChanged "+input.toString());
 			this.refresh();
 		}
 	}
+	
+	private class RefreshContext{
+		HashMap<java.util.Map.Entry<Integer,Integer>, Node> nodes = new HashMap<>();
+		HashMap<String, Integer> rows = new HashMap<>();
+        GaugeBuilder builder = GaugeBuilder.create();
+	};
 
+	/**
+	 * Method refresh
+	 */
 	@Override
 	public void refresh() {
-		//CommonPlugin.INSTANCE.log("TimePlotViewer: refresh");
+		//CommonPlugin.INSTANCE.log("KPIViewer: refresh");
 
-		Object[] childrenModelElement = this.getTreeContentProvider().getChildren(this.getInput());
+		RefreshContext context = new RefreshContext();
 		
+		// gather nodes and their positions
+		for( Node node : this.pane.getChildren()){
+			int row = GridPane.getRowIndex(node);
+			int column = GridPane.getColumnIndex(node);
+			context.nodes.put(new SimpleEntry<>(row, column), node);
+		}
+		
+		// traverse the providers
 		int columnIndex = 0;
-		Iterator<KPIProviderViewed> iteratorKPI = this.KPIproviders.iterator();
-		KPIProviderViewed currentKPI = iteratorKPI.hasNext() ? iteratorKPI.next() : null;
+		Object[] childrenModelElement = this.getTreeContentProvider().getChildren(this.getInput());
 		for ( Object childModelElement : childrenModelElement){
 			if ( this.getIKPIProvider().hasKPIs(childModelElement)){
-				// the child is a kpis provider
-				if ( currentKPI==null ){
-					// no more element in the list
-					// add a new one
-					KPIProviderViewed newKPIProviderViewed = new KPIProviderViewed(childModelElement);
-					this.KPIproviders.add(newKPIProviderViewed);
-					this.refresh(newKPIProviderViewed, columnIndex);
-				} else if (currentKPI.getModelObject()==childModelElement){
-					// this is the same
-					// update
-					this.refresh(currentKPI, columnIndex);
-				} else {
-					// this is a different one
-					currentKPI.dispose();
-					currentKPI.setModelObject(childModelElement);
-					this.refresh(currentKPI, columnIndex);
-				}
+				// the child is a kpi provider
+				this.refresh(context, childModelElement, columnIndex);
 				// loop control
 				columnIndex++;
-				currentKPI = iteratorKPI.hasNext() ? iteratorKPI.next() : null;
 			}  // the child is a KPIprovider
 		}  // traverse the children
-		while ( iteratorKPI.hasNext() ){
-			KPIProviderViewed next = iteratorKPI.next();
-			next.dispose();
-			iteratorKPI.remove();
-		}
+		
+		// remove the unused nodes
+		this.pane.getChildren().remove(context.nodes);
 	}  // refresh
 	
-	private void refresh(KPIProviderViewed provider, int column){
-		Object modelObject = null;
-		
-		float kpi = this.getIKPIProvider().getAmount(modelObject);
+	/**
+	 * Refresh logic for a KPI provider in a column
+	 * @param context
+	 * @param provider
+	 * @param column
+	 */
+	private void refresh(RefreshContext context, Object provider, int column){
+		for ( Object kpi : this.getIKPIProvider().getKPIs(provider)){
+			// get the row
+			String kpiid = this.getIKPIProvider().getKPIID(kpi);
+			Integer row = context.rows.get(kpiid);
+			if ( row==null){
+				row = context.rows.size();
+				context.rows.put(kpiid, row);
+			}
+			// get the node
+			Node node = context.nodes.remove(new SimpleEntry<>(row, column));
+			if ( node == null){
+				// create the node
+				Gauge gauge = context.builder.build();
+				gauge.setBarColor(Color.rgb(255,183,77));  
+				gauge.setBarBackgroundColor(Color.rgb(39,44,50));  
+				gauge.setAnimated(true);  
+				gauge.setSkinType(SkinType.TILE_KPI);
+//	              gauge.setPrefSize(100.0, 100.0);
+//	          	  gauge.setSkin(new MoplafSkinType(gauge));
+	            node = gauge;  
+				pane.add(node , row, column);
+			}  // create the node
+			this.refresh((Gauge)node, kpi);
+		}  // traverse the objects to show
 	} // method refresh(KPIViewed)
 
-	private void refresh(KPIViewed kpiViewed, int row){
-		Object modelObject = null;
-		
-		float kpi = this.getIKPIProvider().getAmount(modelObject);
+	/**
+	 * Refresh logic for a kpi value of a provider on a node
+	 * @param gauge
+	 * @param kpi
+	 */
+	private void refresh(Gauge gauge, Object kpi){
+		float value = this.getIKPIProvider().getAmount(kpi);
+		float minValue = this.getIKPIProvider().getMinAmount(kpi);
+		float maxValue = this.getIKPIProvider().getMaxAmount(kpi);
+		gauge.setValue(value);
+        gauge.setMinValue(minValue);
+        gauge.setMaxValue(maxValue);
+        // not supported by TILES gauges
+//        gauge.setMinMeasuredValue(20.0);
+//        gauge.setMinMeasuredValueVisible(true);
+        // starts from zero
+//        gauge.setStartFromZero(false);
+        // lcd supported by AMP, INDICATOR, HORIZONTAL, QUARTER
+//        gauge.setLcdVisible(false);;
+        // serctions are supported by BULLET_CHART, SIMPLE, TINY, SECTION, SIMPLE_SECTION
+//        gauge.addSection(new Section(10,20, Color.AZURE));
+//        gauge.addSection(new Section(33,50, Color.YELLOW));
+        // areas supported by INDICATOR, HORIZONTAL, VERTICAL, QUARTER
+//        gauge.setAreasVisible(true);
+//        gauge.addArea(new Section(80,100, Color.RED));
+        // threshold supported by BULLETCHART, KPI, MODERN, INDICATOR, HORIZONTAL, VERTICAL, QUARTER, TILEKPI
+//        gauge.setThresholdVisible(true);
+//        gauge.setThreshold(654);
+//        gauge.setThresholdColor(Color.RED);
+//        gauge.addSection(new Section(600, 1000, Color.GREEN));
+//        gauge.setSectionsVisible(false);
 	} // method refresh(KPIViewed)
 }; // class KPIViewer
 
