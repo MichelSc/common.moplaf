@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.Iterator;
 
-import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -12,12 +11,10 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Display;
 
 import com.misc.common.moplaf.kpiview.viewers.KPIViewerAbstract;
 
 import eu.hansolo.medusa.Gauge;
-import eu.hansolo.medusa.Gauge.SkinType;
 import eu.hansolo.medusa.GaugeBuilder;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
@@ -282,12 +279,13 @@ public class KPIViewer extends KPIViewerAbstract {
 		float value = this.getIKPIProvider().getAmount(kpi);
 		float minValue = this.getIKPIProvider().getMinAmount(kpi);
 		float maxValue = this.getIKPIProvider().getMaxAmount(kpi);
-		String name = this.getILabelProvider().getText(kpi);
+		String unit    = this.getIKPIProvider().getUnit(kpi);
+		String name    = this.getILabelProvider().getText(kpi);
 //		String msg = String.format("KPI %f (%f, %f)", value, minValue, maxValue);
 //		CommonPlugin.INSTANCE.log("KPIViewer: refresh node "+msg);
 //		gauge.setTitleColor(Color.WHITE);
 		gauge.setTitle(name);
-		gauge.setUnit("t");
+		gauge.setUnit(unit);
 		gauge.setValue(value);
         gauge.setMaxValue(maxValue);
         gauge.setMinValue(minValue); // set min fires a RECALC event, so works better when modified as last

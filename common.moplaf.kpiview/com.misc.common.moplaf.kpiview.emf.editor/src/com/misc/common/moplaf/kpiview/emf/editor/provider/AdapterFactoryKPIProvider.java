@@ -1,7 +1,5 @@
 package com.misc.common.moplaf.kpiview.emf.editor.provider;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 
 import com.misc.common.moplaf.kpiview.IKPIProvider;
@@ -15,22 +13,16 @@ public class AdapterFactoryKPIProvider implements
 	private AdapterFactory adapterFactory;
 	
 	// cached KPIs
-	private Object        lastKPIsElement = null;
-	private Collection<?> lastKPIsElementKPIs = null;
-	private boolean       lastKPIsElementHasKPIs = false;
+	private Object            lastKPIsElement = null;
+	private IItemKPIsProvider lastKPIsElementItemProvider = null;
 	
 	// cached KPI
 	private Object lastKPIElement = null;
-	private float  lastKPIElementAmount = 0.0f;
-	private float  lastKPIElementMinAmount = 0.0f;
-	private float  lastKPIElementMaxAmount = 0.0f;
-	private String lastKPIElementKPIID = "";
-	private Collection<?> lastKPIElementKPIRanges = null;
+	private IItemKPIProvider  lastKPIElementItemProvider = null;
 	
 	// cached KPI
 	private Object lastKPIRangeElement = null;
-	private float  lastKPIRangeElementLowAmount = 0.0f;
-	private float  lastKPIRangeElementHighAmount = 0.0f;
+	private IItemKPIRangeProvider  lastKPIRangeElementItemProvider = null;
 	
 	// maintain cache
 
@@ -38,13 +30,7 @@ public class AdapterFactoryKPIProvider implements
 		if ( element == this.lastKPIsElement ) { return ; }
 		IItemKPIsProvider KPIsItemProvider = (IItemKPIsProvider) this.adapterFactory.adapt(element, IItemKPIsProvider.class);
 		this.lastKPIsElement = element;
-		if ( KPIsItemProvider==null ){
-			this.lastKPIsElementHasKPIs = false;
-			this.lastKPIsElementKPIs = null;
-			return;
-		}
-		this.lastKPIsElementHasKPIs = true;
-		this.lastKPIsElementKPIs = KPIsItemProvider.getKPIs(element);
+		this.lastKPIsElementItemProvider = KPIsItemProvider;
 		return;
 	}
 
@@ -52,19 +38,13 @@ public class AdapterFactoryKPIProvider implements
 		if ( element == this.lastKPIElement ) { return ; }
 		IItemKPIProvider KPIItemProvider = (IItemKPIProvider) this.adapterFactory.adapt(element, IItemKPIProvider.class);
 		this.lastKPIElement = element;
-		this.lastKPIElementAmount    = KPIItemProvider.getKPIAmount(element);
-		this.lastKPIElementMinAmount = KPIItemProvider.getMinAmount(element);
-		this.lastKPIElementMaxAmount = KPIItemProvider.getMaxAmount(element);
-		this.lastKPIElementKPIID     = KPIItemProvider.getKPIID(element);
-		this.lastKPIElementKPIRanges = KPIItemProvider.getKPIRanges(element);
+		this.lastKPIElementItemProvider = KPIItemProvider;
 	}
 	
 	private void getKPIRangeItemProvider(Object element){
 		if ( element == this.lastKPIRangeElement ) { return ; }
 		IItemKPIRangeProvider KPIRangeItemProvider = (IItemKPIRangeProvider) this.adapterFactory.adapt(element, IItemKPIRangeProvider.class);
 		this.lastKPIRangeElement = element;
-		this.lastKPIRangeElementLowAmount  = KPIRangeItemProvider.getLowAmount(element);
-		this.lastKPIRangeElementHighAmount = KPIRangeItemProvider.getHighAmount(element);
 	}
 	
 	// object management  ------------------------------------------------------------
@@ -77,54 +57,61 @@ public class AdapterFactoryKPIProvider implements
 	// dispose
 	public void dispose(){
 		this.lastKPIsElement = null;
-		this.lastKPIsElementKPIs = null;
+		this.lastKPIsElementItemProvider = null;
 		this.lastKPIElement = null;
-		this.lastKPIElementKPIRanges = null;
+		this.lastKPIElementItemProvider = null;
 		this.lastKPIRangeElement = null;
+		this.lastKPIRangeElementItemProvider = null;
 	}
 
 	// KPIs collection methods ------------------------------------------------------------
 	@Override
 	public boolean hasKPIs(Object element) {
 		this.getKPIsItemProvider(element);
-		return this.lastKPIsElementHasKPIs;
+		return this.lastKPIsElementItemProvider!=null;
 	}
 
 	@Override
 	public Object[] getKPIs(Object element) {
 		this.getKPIsItemProvider(element);
-		return this.lastKPIsElementKPIs.toArray();
+		return this.lastKPIsElementItemProvider.getKPIs(element).toArray();
 	}
 
 	// KPI methods ------------------------------------------------------------
 	@Override
 	public String getKPIID(Object element) {
 		this.getKPIItemProvider(element);
-		return this.lastKPIElementKPIID;
+		return this.lastKPIElementItemProvider.getKPIID(element);
+	}
+
+	@Override
+	public String getUnit(Object element) {
+		this.getKPIItemProvider(element);
+		return this.lastKPIElementItemProvider.getUnit(element);
 	}
 
 	@Override
 	public float getAmount(Object element) {
 		this.getKPIItemProvider(element);
-		return this.lastKPIElementAmount;
+		return this.lastKPIElementItemProvider.getKPIAmount(element);
 	}
 
 	@Override
 	public float getMinAmount(Object element) {
 		this.getKPIItemProvider(element);
-		return this.lastKPIElementMinAmount;
+		return this.lastKPIElementItemProvider.getMinAmount(element);
 	}
 
 	@Override
 	public float getMaxAmount(Object element) {
 		this.getKPIItemProvider(element);
-		return this.lastKPIElementMaxAmount;
+		return this.lastKPIElementItemProvider.getMaxAmount(element);
 	}
 
 	@Override
 	public Object[] getKPIRanges(Object element) {
 		this.getKPIItemProvider(element);
-		return this.lastKPIElementKPIRanges.toArray();
+		return this.lastKPIElementItemProvider.getKPIRanges(element).toArray();
 	}
 
 	// KPI range methods ------------------------------------------------------------
@@ -132,14 +119,13 @@ public class AdapterFactoryKPIProvider implements
 	@Override
 	public float getLowAmount(Object element) {
 		this.getKPIRangeItemProvider(element);
-		return this.lastKPIRangeElementLowAmount;
+		return this.lastKPIRangeElementItemProvider.getLowAmount(element);
 	}
 
 	@Override
 	public float getHighAmount(Object element) {
 		this.getKPIRangeItemProvider(element);
-		return this.lastKPIRangeElementHighAmount;
+		return this.lastKPIRangeElementItemProvider.getHighAmount(element);
 	}
-
 
 }

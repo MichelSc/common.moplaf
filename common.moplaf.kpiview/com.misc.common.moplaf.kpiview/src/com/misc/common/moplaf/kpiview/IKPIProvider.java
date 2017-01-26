@@ -17,6 +17,7 @@ public interface IKPIProvider {
 	float getAmount(Object element);
 	float getMinAmount(Object element);
 	float getMaxAmount(Object element);
+	String getUnit(Object element);  
 
 	// collection of KPIRanges
 	//  e.g. CriticallyHigh 
