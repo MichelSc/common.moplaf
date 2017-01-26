@@ -201,8 +201,9 @@ public class KPIViewer extends KPIViewerAbstract {
         		                                    .barBackgroundColor(Color.rgb(39,44,50))
         		                                    .backgroundPaint(Color.rgb(42,42,42))
         		                                    .animated(true)
-        		                                    .prefSize(TILE_SIZE, TILE_SIZE);
-
+        		                                    .prefSize(TILE_SIZE, TILE_SIZE)
+        		                                    .valueColor(Color.rgb(90, 90, 90))
+        		                                    .unitColor(Color.rgb(90, 90, 90));
 	};
 
 	/**
@@ -253,18 +254,19 @@ public class KPIViewer extends KPIViewerAbstract {
 				context.rows.put(kpiid, row);
 			}
 			// get the node
-			Node node = context.nodes.remove(new SimpleEntry<>(row, column));
-			if ( node == null){
+			SimpleEntry<Integer, Integer> key = new SimpleEntry<>(row, column);
+			Node node = context.nodes.remove(key);
+			if ( node == null ){
 				// create the node
 				Gauge gauge = context.builder.build();
 //				gauge.setSkinType(SkinType.TILE_KPI);
           	  	gauge.setSkin(new GaugeSkinTypeTilePercentage(gauge));
-//                gauge.setValueColor(Color.AQUA);
-                gauge.setUnitColor(Color.rgb(90, 90, 90));
-                gauge.setValueColor(Color.rgb(90, 90, 90));
 	            node = gauge;  
+          	  	node.setUserData(provider);
 				pane.add(node , row, column);
-			}  // create the node
+			}  else if ( node.getUserData()!=provider){
+          	  	node.setUserData(provider);
+			}
 			this.refresh((Gauge)node, kpi);
 		}  // traverse the objects to show
 	} // method refresh(KPIViewed)
@@ -281,8 +283,8 @@ public class KPIViewer extends KPIViewerAbstract {
 //		String msg = String.format("KPI %f (%f, %f)", value, minValue, maxValue);
 //		CommonPlugin.INSTANCE.log("KPIViewer: refresh node "+msg);
 		gauge.setValue(value);
-        gauge.setMinValue(minValue);
         gauge.setMaxValue(maxValue);
+        gauge.setMinValue(minValue); // set min fires a RECALC event, so works better when modified as last
         // not supported by TILES gauges
 //        gauge.setMinMeasuredValue(20.0);
 //        gauge.setMinMeasuredValueVisible(true);

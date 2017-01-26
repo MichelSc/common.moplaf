@@ -166,6 +166,9 @@ public class GaugeSkinTypeTilePercentage extends SkinBase<Gauge> implements Skin
         pane.setBackground(this.paneBG);
 
         getChildren().setAll(pane);
+        
+        this.redrawText();
+        this.redrawColor();
     }
     
 
@@ -210,13 +213,25 @@ public class GaugeSkinTypeTilePercentage extends SkinBase<Gauge> implements Skin
 
     private void setBar(final double VALUE) {
     	Gauge gauge = this.getSkinnable();
-		//CommonPlugin.INSTANCE.log("MoplafSkinType: setBar");
+    	
+//    	String msg = String.format("MoplafSkinType: setBar %f (%s, %s)", VALUE, minValue, maxValue);
+//		CommonPlugin.INSTANCE.log(msg);
+    	
+    	// bar width 
         double targetValue = (clamp(minValue, maxValue, VALUE) - minValue) * stepSize;
         bar.setWidth(targetValue);
+        
+        // kpi value
         valueText.setText(String.format(locale, formatString, VALUE));
+        
+        // percentage value
         percentageText.setText(String.format(locale, formatString, ((VALUE - minValue) / range * 100)));
+        
+        // max value color
         maxValueRect.setFill(VALUE > gauge.getThreshold() ? barColor : gauge.getThresholdColor());
         resizeDynamicText();
+        
+        // sections
         if (sectionsVisible && !sections.isEmpty()) { setBarColor(VALUE); }
     }
 
@@ -330,40 +345,61 @@ public class GaugeSkinTypeTilePercentage extends SkinBase<Gauge> implements Skin
         }
     }
 
-    private void redraw() {
+    private void redrawColor(){
     	Gauge gauge = this.getSkinnable();
-//		CommonPlugin.INSTANCE.log("MoplafSkinType: redraw");
-
-        locale       = gauge.getLocale();
-        formatString = new StringBuilder("%.").append(Integer.toString(gauge.getDecimals())).append("f").toString();
-
+    	
+    	titleText.setFill(gauge.getTitleColor());
+    	maxValueText.setFill(gauge.getValueColor());
+    	maxValueUnitText.setFill(gauge.getValueColor());
+    	valueText.setFill(gauge.getValueColor());
+    	unitText.setFill(gauge.getUnitColor());
+    }
+    
+    private void redrawText(){
+    	Gauge gauge = this.getSkinnable();
+    	
         titleText.setText(gauge.getTitle());
-        percentageText.setText(String.format(locale, "%." + gauge.getTickLabelDecimals() + "f", gauge.getValue() / range * 100));
+        maxValueUnitText.setText(gauge.getUnit());
+    }
+    
+    private void redrawValues(){
+    	Gauge gauge = this.getSkinnable();
+    	double value = gauge.getValue();
+    
+//        locale       = gauge.getLocale();
+//        formatString = new StringBuilder("%.").append(Integer.toString(gauge.getDecimals())).append("f").toString();
+
+        // percentage value
+//        percentageText.setText(String.format(locale, "%." + gauge.getTickLabelDecimals() + "f", value / range * 100));
         
+        // max value
         double maxValueTmp = gauge.getThreshold();
         String maxValueTmpS = String.format(locale, "%." + gauge.getTickLabelDecimals() + "f", maxValueTmp); 
         maxValueText.setText(maxValueTmpS);
 //        maxValueText.setManaged(true);
 //        maxValueText.setVisible(true);
 
-        maxValueUnitText.setText(gauge.getUnit());
+//        barColor = gauge.getBarColor();
+//
+//        if (sectionsVisible && !sections.isEmpty()) {
+//            setBarColor(value);
+//        } else {
+//            bar.setFill(barColor);
+//        }
+
+    }
+    
+    private void redraw() {
+    	Gauge gauge = this.getSkinnable();
+//		CommonPlugin.INSTANCE.log("MoplafSkinType: redraw");
+    	double value = gauge.getValue();
+    	this.setBar(value);
+
+    	this.redrawValues();
+//    	this.redrawColor();
+//    	this.redrawText();
 
         resizeStaticText();
 
-        barColor = gauge.getBarColor();
-
-        if (sectionsVisible && !sections.isEmpty()) {
-            setBarColor(gauge.getValue());
-        } else {
-            bar.setFill(barColor);
-        }
-
-        titleText.setFill(gauge.getTitleColor());
-//        maxValueText.setFill(gauge.getBackgroundPaint());
-//        maxValueUnitText.setFill(gauge.getBackgroundPaint());
-        maxValueText.setFill(gauge.getValueColor());
-        maxValueUnitText.setFill(gauge.getValueColor());
-        valueText.setFill(gauge.getValueColor());
-        unitText.setFill(gauge.getUnitColor());
     }
 }
