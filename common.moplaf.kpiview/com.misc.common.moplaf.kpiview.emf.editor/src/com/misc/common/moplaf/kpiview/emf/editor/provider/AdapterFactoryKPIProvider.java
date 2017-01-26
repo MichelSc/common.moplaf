@@ -45,6 +45,7 @@ public class AdapterFactoryKPIProvider implements
 		if ( element == this.lastKPIRangeElement ) { return ; }
 		IItemKPIRangeProvider KPIRangeItemProvider = (IItemKPIRangeProvider) this.adapterFactory.adapt(element, IItemKPIRangeProvider.class);
 		this.lastKPIRangeElement = element;
+		this.lastKPIRangeElementItemProvider = KPIRangeItemProvider;
 	}
 	
 	// object management  ------------------------------------------------------------

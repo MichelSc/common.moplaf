@@ -16,6 +16,7 @@ import com.misc.common.moplaf.kpiview.viewers.KPIViewerAbstract;
 
 import eu.hansolo.medusa.Gauge;
 import eu.hansolo.medusa.GaugeBuilder;
+import eu.hansolo.medusa.Section;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -276,6 +277,35 @@ public class KPIViewer extends KPIViewerAbstract {
 	 * @param kpi
 	 */
 	private void refresh(Gauge gauge, Object kpi){
+        // sections
+        Iterator<Section> currentSection = gauge.getSections().iterator();
+        for ( Object currentRange : this.getIKPIProvider().getKPIRanges(kpi)){
+        	// get the values
+        	float lowValue = this.getIKPIProvider().getLowAmount(currentRange);
+        	float highValue = this.getIKPIProvider().getLowAmount(currentRange);
+        	org.eclipse.swt.graphics.Color color = this.getIColorProvider().getForeground(currentRange);
+        	// create/remove the Section
+    		Section section = null;
+        	if ( currentSection.hasNext()){
+        		// reuse
+        		section = currentSection.next();
+        	} else {
+        		// create
+        		section = new Section();
+        		gauge.addSection(section);
+        	}
+        	// update
+    		section.setStart(lowValue);
+    		section.setStop(highValue);
+    		if ( color!=null){
+        		section.setColor(Color.rgb(color.getRed(), color.getGreen(), color.getBlue()));
+    		}
+        }
+        while ( currentSection.hasNext()){
+        	currentSection.next();
+        	currentSection.remove();
+        }
+        // scalar attributes
 		float value = this.getIKPIProvider().getAmount(kpi);
 		float minValue = this.getIKPIProvider().getMinAmount(kpi);
 		float maxValue = this.getIKPIProvider().getMaxAmount(kpi);
@@ -283,7 +313,6 @@ public class KPIViewer extends KPIViewerAbstract {
 		String name    = this.getILabelProvider().getText(kpi);
 //		String msg = String.format("KPI %f (%f, %f)", value, minValue, maxValue);
 //		CommonPlugin.INSTANCE.log("KPIViewer: refresh node "+msg);
-//		gauge.setTitleColor(Color.WHITE);
 		gauge.setTitle(name);
 		gauge.setUnit(unit);
 		gauge.setValue(value);
