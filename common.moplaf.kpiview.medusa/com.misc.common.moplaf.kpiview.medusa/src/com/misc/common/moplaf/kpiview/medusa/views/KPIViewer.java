@@ -203,6 +203,7 @@ public class KPIViewer extends KPIViewerAbstract {
         		                                    .animated(true)
         		                                    .prefSize(TILE_SIZE, TILE_SIZE)
         		                                    .valueColor(Color.rgb(90, 90, 90))
+        		                                    .titleColor(Color.rgb(90, 90, 90))
         		                                    .unitColor(Color.rgb(90, 90, 90));
 	};
 
@@ -260,6 +261,7 @@ public class KPIViewer extends KPIViewerAbstract {
 				// create the node
 				Gauge gauge = context.builder.build();
 //				gauge.setSkinType(SkinType.TILE_KPI);
+//				gauge.setSkinType(SkinType.TILE_TEXT_KPI);
           	  	gauge.setSkin(new GaugeSkinTypeTilePercentage(gauge));
 	            node = gauge;  
           	  	node.setUserData(provider);
@@ -280,8 +282,12 @@ public class KPIViewer extends KPIViewerAbstract {
 		float value = this.getIKPIProvider().getAmount(kpi);
 		float minValue = this.getIKPIProvider().getMinAmount(kpi);
 		float maxValue = this.getIKPIProvider().getMaxAmount(kpi);
+		String name = this.getILabelProvider().getText(kpi);
 //		String msg = String.format("KPI %f (%f, %f)", value, minValue, maxValue);
 //		CommonPlugin.INSTANCE.log("KPIViewer: refresh node "+msg);
+//		gauge.setTitleColor(Color.WHITE);
+		gauge.setTitle(name);
+		gauge.setUnit("t");
 		gauge.setValue(value);
         gauge.setMaxValue(maxValue);
         gauge.setMinValue(minValue); // set min fires a RECALC event, so works better when modified as last

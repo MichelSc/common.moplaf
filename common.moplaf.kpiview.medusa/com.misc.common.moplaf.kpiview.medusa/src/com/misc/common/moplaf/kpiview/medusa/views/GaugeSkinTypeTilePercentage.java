@@ -136,7 +136,8 @@ public class GaugeSkinTypeTilePercentage extends SkinBase<Gauge> implements Skin
 
         titleText = new Text();
         titleText.setFill(gauge.getTitleColor());
-        Helper.enableNode(titleText, !gauge.getTitle().isEmpty());
+//        Helper.enableNode(titleText, !gauge.getTitle().isEmpty());
+        Helper.enableNode(titleText, true);
 
         valueText = new Text();
         valueText.setFill(gauge.getValueColor());
@@ -144,7 +145,8 @@ public class GaugeSkinTypeTilePercentage extends SkinBase<Gauge> implements Skin
 
         unitText = new Text(gauge.getUnit());
         unitText.setFill(gauge.getUnitColor());
-        Helper.enableNode(unitText, !gauge.getUnit().isEmpty());
+//        Helper.enableNode(unitText, !gauge.getUnit().isEmpty());
+        Helper.enableNode(unitText, true);
 
         percentageText = new Text();
         percentageText.setFill(gauge.getBarColor());
@@ -167,8 +169,6 @@ public class GaugeSkinTypeTilePercentage extends SkinBase<Gauge> implements Skin
 
         getChildren().setAll(pane);
         
-        this.redrawText();
-        this.redrawColor();
     }
     
 
@@ -358,8 +358,12 @@ public class GaugeSkinTypeTilePercentage extends SkinBase<Gauge> implements Skin
     private void redrawText(){
     	Gauge gauge = this.getSkinnable();
     	
+    	// title
         titleText.setText(gauge.getTitle());
+        
+        // unit
         maxValueUnitText.setText(gauge.getUnit());
+        unitText.setText(gauge.getUnit());
     }
     
     private void redrawValues(){
@@ -396,8 +400,8 @@ public class GaugeSkinTypeTilePercentage extends SkinBase<Gauge> implements Skin
     	this.setBar(value);
 
     	this.redrawValues();
-//    	this.redrawColor();
-//    	this.redrawText();
+        this.redrawText();
+        this.redrawColor();
 
         resizeStaticText();
 
