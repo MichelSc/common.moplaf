@@ -197,7 +197,12 @@ public class KPIViewer extends KPIViewerAbstract {
 	private class RefreshContext{
 		HashMap<java.util.Map.Entry<Integer,Integer>, Node> nodes = new HashMap<>();
 		HashMap<String, Integer> rows = new HashMap<>();
-        GaugeBuilder builder = GaugeBuilder.create();
+        GaugeBuilder builder = GaugeBuilder.create().barColor(Color.rgb(255,183,77))
+        		                                    .barBackgroundColor(Color.rgb(39,44,50))
+        		                                    .backgroundPaint(Color.rgb(42,42,42))
+        		                                    .animated(true)
+        		                                    .prefSize(TILE_SIZE, TILE_SIZE);
+
 	};
 
 	/**
@@ -252,14 +257,11 @@ public class KPIViewer extends KPIViewerAbstract {
 			if ( node == null){
 				// create the node
 				Gauge gauge = context.builder.build();
-				gauge.setBarColor(Color.rgb(255,183,77));  
-				gauge.setBarBackgroundColor(Color.rgb(39,44,50));  
-				gauge.setAnimated(true);  
-				gauge.setPrefSize(TILE_SIZE, TILE_SIZE);
 //				gauge.setSkinType(SkinType.TILE_KPI);
           	  	gauge.setSkin(new GaugeSkinTypeTilePercentage(gauge));
-                gauge.setBackgroundPaint(Color.rgb(42,42,42));
-                gauge.setValueColor(Color.AQUA);
+//                gauge.setValueColor(Color.AQUA);
+                gauge.setUnitColor(Color.rgb(90, 90, 90));
+                gauge.setValueColor(Color.rgb(90, 90, 90));
 	            node = gauge;  
 				pane.add(node , row, column);
 			}  // create the node

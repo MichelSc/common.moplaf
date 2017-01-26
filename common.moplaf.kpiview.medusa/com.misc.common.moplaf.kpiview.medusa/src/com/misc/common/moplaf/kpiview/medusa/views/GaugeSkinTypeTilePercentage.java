@@ -38,8 +38,6 @@ import javafx.scene.text.Text;
 import java.util.List;
 import java.util.Locale;
 
-//import org.eclipse.emf.common.CommonPlugin;
-
 import static eu.hansolo.medusa.tools.Helper.clamp;
 
 
@@ -54,6 +52,9 @@ public class GaugeSkinTypeTilePercentage extends SkinBase<Gauge> implements Skin
     private static final double        MAXIMUM_WIDTH    = 1024;
     private static final double        MAXIMUM_HEIGHT   = 1024;
     private              double        size;
+	private              Background    barBackgroundBG;
+	private              Border        paneBorder;
+    private              Background    paneBG;
     private              Region        barBackground;
     private              Rectangle     barClip;
     private              Rectangle     bar;
@@ -100,66 +101,80 @@ public class GaugeSkinTypeTilePercentage extends SkinBase<Gauge> implements Skin
 
     // ******************** Initialization ************************************
     private void initGraphics() {
-//		CommonPlugin.INSTANCE.log("MoplafSkinType: initGraphics");
+    	Gauge gauge = this.getSkinnable();
+    	
+    	// note: this implementation does not support background modification after initialization
+		barBackgroundBG = new Background(new BackgroundFill(gauge.getBarBackgroundColor(), 
+				                         new CornerRadii(0.0, 0.0, 0.025, 0.025, true), 
+				                         Insets.EMPTY));
+		paneBorder = new Border(new BorderStroke(gauge.getBorderPaint(), BorderStrokeStyle.SOLID, 
+				                new CornerRadii(PREFERRED_WIDTH * 0.025), 
+				                new BorderWidths(gauge.getBorderWidth())));
+        paneBG = new Background(new BackgroundFill(gauge.getBackgroundPaint(), 
+        		                new CornerRadii(PREFERRED_WIDTH * 0.025), 
+        		                Insets.EMPTY));
+
         // Set initial size
-        if (Double.compare(getSkinnable().getPrefWidth(), 0.0) <= 0 || Double.compare(getSkinnable().getPrefHeight(), 0.0) <= 0 ||
-            Double.compare(getSkinnable().getWidth(), 0.0) <= 0 || Double.compare(getSkinnable().getHeight(), 0.0) <= 0) {
-            if (getSkinnable().getPrefWidth() > 0 && getSkinnable().getPrefHeight() > 0) {
-                getSkinnable().setPrefSize(getSkinnable().getPrefWidth(), getSkinnable().getPrefHeight());
+        if (Double.compare(gauge.getPrefWidth(), 0.0) <= 0 || Double.compare(gauge.getPrefHeight(), 0.0) <= 0 ||
+            Double.compare(gauge.getWidth(), 0.0) <= 0 || Double.compare(gauge.getHeight(), 0.0) <= 0) {
+            if (gauge.getPrefWidth() > 0 && gauge.getPrefHeight() > 0) {
+                gauge.setPrefSize(gauge.getPrefWidth(), gauge.getPrefHeight());
             } else {
-                getSkinnable().setPrefSize(PREFERRED_WIDTH, PREFERRED_HEIGHT);
+                gauge.setPrefSize(PREFERRED_WIDTH, PREFERRED_HEIGHT);
             }
         }
 
         barBackground = new Region();
-        barBackground.setBackground(new Background(new BackgroundFill(getSkinnable().getBarBackgroundColor(), new CornerRadii(0.0, 0.0, 0.025, 0.025, true), Insets.EMPTY)));
+		barBackground.setBackground(this.barBackgroundBG);
 
         barClip = new Rectangle();
 
         bar = new Rectangle();
-        bar.setFill(getSkinnable().getBarColor());
+        bar.setFill(gauge.getBarColor());
         bar.setStroke(null);
         bar.setClip(barClip);
 
         titleText = new Text();
-        titleText.setFill(getSkinnable().getTitleColor());
-        Helper.enableNode(titleText, !getSkinnable().getTitle().isEmpty());
+        titleText.setFill(gauge.getTitleColor());
+        Helper.enableNode(titleText, !gauge.getTitle().isEmpty());
 
         valueText = new Text();
-        valueText.setFill(getSkinnable().getValueColor());
-        Helper.enableNode(valueText, getSkinnable().isValueVisible());
+        valueText.setFill(gauge.getValueColor());
+        Helper.enableNode(valueText, gauge.isValueVisible());
 
-        unitText = new Text(getSkinnable().getUnit());
-        unitText.setFill(getSkinnable().getUnitColor());
-        Helper.enableNode(unitText, !getSkinnable().getUnit().isEmpty());
+        unitText = new Text(gauge.getUnit());
+        unitText.setFill(gauge.getUnitColor());
+        Helper.enableNode(unitText, !gauge.getUnit().isEmpty());
 
         percentageText = new Text();
-        percentageText.setFill(getSkinnable().getBarColor());
+        percentageText.setFill(gauge.getBarColor());
 
         percentageUnitText = new Text("%");
-        percentageUnitText.setFill(getSkinnable().getBarColor());
+        percentageUnitText.setFill(gauge.getBarColor());
 
         maxValueRect = new Rectangle();
-        maxValueRect.setFill(getSkinnable().getThresholdColor());
+        maxValueRect.setFill(gauge.getThresholdColor());
 
         maxValueText = new Text();
-        maxValueText.setFill(getSkinnable().getBackgroundPaint());
+        maxValueText.setFill(gauge.getBackgroundPaint());
 
-        maxValueUnitText = new Text(getSkinnable().getUnit());
-        maxValueUnitText.setFill(getSkinnable().getBackgroundPaint());
+        maxValueUnitText = new Text(gauge.getUnit());
+        maxValueUnitText.setFill(gauge.getBackgroundPaint());
 
         pane = new Pane(barBackground, bar, titleText, valueText, unitText, percentageText, percentageUnitText, maxValueRect, maxValueText, maxValueUnitText);
-        pane.setBorder(new Border(new BorderStroke(getSkinnable().getBorderPaint(), BorderStrokeStyle.SOLID, new CornerRadii(PREFERRED_WIDTH * 0.025), new BorderWidths(getSkinnable().getBorderWidth()))));
-        pane.setBackground(new Background(new BackgroundFill(getSkinnable().getBackgroundPaint(), new CornerRadii(PREFERRED_WIDTH * 0.025), Insets.EMPTY)));
+		pane.setBorder(this.paneBorder);
+        pane.setBackground(this.paneBG);
 
         getChildren().setAll(pane);
     }
+    
 
     private void registerListeners() {
-        getSkinnable().widthProperty().addListener(o -> handleEvents("RESIZE"));
-        getSkinnable().heightProperty().addListener(o -> handleEvents("RESIZE"));
-        getSkinnable().setOnUpdate(e -> handleEvents(e.eventType.name()));
-        getSkinnable().currentValueProperty().addListener(o -> setBar(getSkinnable().getCurrentValue()));
+    	Gauge gauge = this.getSkinnable();
+        gauge.widthProperty().addListener(o -> handleEvents("RESIZE"));
+        gauge.heightProperty().addListener(o -> handleEvents("RESIZE"));
+        gauge.setOnUpdate(e -> handleEvents(e.eventType.name()));
+        gauge.currentValueProperty().addListener(o -> setBar(gauge.getCurrentValue()));
     }
 
 
@@ -172,33 +187,35 @@ public class GaugeSkinTypeTilePercentage extends SkinBase<Gauge> implements Skin
     @Override protected double computeMaxHeight(final double WIDTH, final double TOP, final double RIGHT, final double BOTTOM, final double LEFT)  { return MAXIMUM_HEIGHT; }
 
     private void handleEvents(final String EVENT_TYPE) {
+    	Gauge gauge = this.getSkinnable();
         if ("RESIZE".equals(EVENT_TYPE)) {
             resize();
             redraw();
         } else if ("REDRAW".equals(EVENT_TYPE)) {
             redraw();
         } else if ("RECALC".equals(EVENT_TYPE)) {
-            minValue = getSkinnable().getMinValue();
-            maxValue = getSkinnable().getMaxValue();
-            range    = getSkinnable().getRange();
+            minValue = gauge.getMinValue();
+            maxValue = gauge.getMaxValue();
+            range    = gauge.getRange();
             stepSize = size / range;
             redraw();
         } else if ("VISIBLITY".equals(EVENT_TYPE)) {
-            Helper.enableNode(titleText, !getSkinnable().getTitle().isEmpty());
-            Helper.enableNode(valueText, getSkinnable().isValueVisible());
-            Helper.enableNode(unitText, !getSkinnable().getUnit().isEmpty());
+            Helper.enableNode(titleText, !gauge.getTitle().isEmpty());
+            Helper.enableNode(valueText, gauge.isValueVisible());
+            Helper.enableNode(unitText, !gauge.getUnit().isEmpty());
         } else if ("SECTION".equals(EVENT_TYPE)) {
-            sections = getSkinnable().getSections();
+            sections = gauge.getSections();
         }
     }
 
     private void setBar(final double VALUE) {
-//		CommonPlugin.INSTANCE.log("MoplafSkinType: setBar");
+    	Gauge gauge = this.getSkinnable();
+		//CommonPlugin.INSTANCE.log("MoplafSkinType: setBar");
         double targetValue = (clamp(minValue, maxValue, VALUE) - minValue) * stepSize;
         bar.setWidth(targetValue);
         valueText.setText(String.format(locale, formatString, VALUE));
         percentageText.setText(String.format(locale, formatString, ((VALUE - minValue) / range * 100)));
-        maxValueRect.setFill(VALUE > getSkinnable().getThreshold() ? barColor : getSkinnable().getThresholdColor());
+        maxValueRect.setFill(VALUE > gauge.getThreshold() ? barColor : gauge.getThresholdColor());
         resizeDynamicText();
         if (sectionsVisible && !sections.isEmpty()) { setBarColor(VALUE); }
     }
@@ -276,8 +293,9 @@ public class GaugeSkinTypeTilePercentage extends SkinBase<Gauge> implements Skin
     }
 
     private void resize() {
-        double width  = getSkinnable().getWidth() - getSkinnable().getInsets().getLeft() - getSkinnable().getInsets().getRight();
-        double height = getSkinnable().getHeight() - getSkinnable().getInsets().getTop() - getSkinnable().getInsets().getBottom();
+    	Gauge gauge = this.getSkinnable();
+        double width  = gauge.getWidth() - gauge.getInsets().getLeft() - gauge.getInsets().getRight();
+        double height = gauge.getHeight() - gauge.getInsets().getTop() - gauge.getInsets().getBottom();
         size          = width < height ? width : height;
 
         stepSize      = size / range;
@@ -297,7 +315,7 @@ public class GaugeSkinTypeTilePercentage extends SkinBase<Gauge> implements Skin
 
             bar.setX(0);
             bar.setY(size * 0.965);
-            bar.setWidth(clamp(minValue, maxValue, getSkinnable().getCurrentValue()) * stepSize);
+            bar.setWidth(clamp(minValue, maxValue, gauge.getCurrentValue()) * stepSize);
             bar.setHeight(size * 0.035);
 
             resizeStaticText();
@@ -313,41 +331,39 @@ public class GaugeSkinTypeTilePercentage extends SkinBase<Gauge> implements Skin
     }
 
     private void redraw() {
+    	Gauge gauge = this.getSkinnable();
 //		CommonPlugin.INSTANCE.log("MoplafSkinType: redraw");
-        pane.setBorder(new Border(new BorderStroke(getSkinnable().getBorderPaint(), BorderStrokeStyle.SOLID, new CornerRadii(size * 0.025), new BorderWidths(getSkinnable().getBorderWidth() / PREFERRED_WIDTH * size))));
-        pane.setBackground(new Background(new BackgroundFill(getSkinnable().getBackgroundPaint(), new CornerRadii(size * 0.025), Insets.EMPTY)));
 
-        locale       = getSkinnable().getLocale();
-        formatString = new StringBuilder("%.").append(Integer.toString(getSkinnable().getDecimals())).append("f").toString();
+        locale       = gauge.getLocale();
+        formatString = new StringBuilder("%.").append(Integer.toString(gauge.getDecimals())).append("f").toString();
 
-        titleText.setText(getSkinnable().getTitle());
-        percentageText.setText(String.format(locale, "%." + getSkinnable().getTickLabelDecimals() + "f", getSkinnable().getValue() / range * 100));
+        titleText.setText(gauge.getTitle());
+        percentageText.setText(String.format(locale, "%." + gauge.getTickLabelDecimals() + "f", gauge.getValue() / range * 100));
         
-        double maxValueTmp = getSkinnable().getThreshold();
-        String maxValueTmpS = String.format(locale, "%." + getSkinnable().getTickLabelDecimals() + "f", maxValueTmp); 
+        double maxValueTmp = gauge.getThreshold();
+        String maxValueTmpS = String.format(locale, "%." + gauge.getTickLabelDecimals() + "f", maxValueTmp); 
         maxValueText.setText(maxValueTmpS);
 //        maxValueText.setManaged(true);
 //        maxValueText.setVisible(true);
 
-        maxValueUnitText.setText(getSkinnable().getUnit());
+        maxValueUnitText.setText(gauge.getUnit());
 
         resizeStaticText();
 
-        barBackground.setBackground(new Background(new BackgroundFill(getSkinnable().getBarBackgroundColor().brighter().brighter(), new CornerRadii(0.0, 0.0, size * 0.025, size * 0.025, false), Insets.EMPTY)));
-        barColor = getSkinnable().getBarColor();
+        barColor = gauge.getBarColor();
 
         if (sectionsVisible && !sections.isEmpty()) {
-            setBarColor(getSkinnable().getValue());
+            setBarColor(gauge.getValue());
         } else {
             bar.setFill(barColor);
         }
 
-        titleText.setFill(getSkinnable().getTitleColor());
-//        maxValueText.setFill(getSkinnable().getBackgroundPaint());
-//        maxValueUnitText.setFill(getSkinnable().getBackgroundPaint());
-        maxValueText.setFill(getSkinnable().getValueColor());
-        maxValueUnitText.setFill(getSkinnable().getValueColor());
-        valueText.setFill(getSkinnable().getValueColor());
-        unitText.setFill(getSkinnable().getUnitColor());
+        titleText.setFill(gauge.getTitleColor());
+//        maxValueText.setFill(gauge.getBackgroundPaint());
+//        maxValueUnitText.setFill(gauge.getBackgroundPaint());
+        maxValueText.setFill(gauge.getValueColor());
+        maxValueUnitText.setFill(gauge.getValueColor());
+        valueText.setFill(gauge.getValueColor());
+        unitText.setFill(gauge.getUnitColor());
     }
 }
