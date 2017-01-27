@@ -3,6 +3,7 @@ package com.misc.common.moplaf.kpiview.medusa.views;
 import java.util.HashMap;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.Iterator;
+import java.util.LinkedList;
 
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -199,6 +200,7 @@ public class KPIViewer extends KPIViewerAbstract {
         		                                    .barBackgroundColor(Color.rgb(39,44,50))
         		                                    .backgroundPaint(Color.rgb(42,42,42))
         		                                    .animated(true)
+        		                                    .sectionsVisible(true)
         		                                    .prefSize(TILE_SIZE, TILE_SIZE)
         		                                    .valueColor(Color.rgb(90, 90, 90))
         		                                    .titleColor(Color.rgb(90, 90, 90))
@@ -278,33 +280,35 @@ public class KPIViewer extends KPIViewerAbstract {
 	 */
 	private void refresh(Gauge gauge, Object kpi){
         // sections
-        Iterator<Section> currentSection = gauge.getSections().iterator();
+        LinkedList<Section> sectionsAsIs = new LinkedList<Section>(gauge.getSections());
         for ( Object currentRange : this.getIKPIProvider().getKPIRanges(kpi)){
         	// get the values
-        	float lowValue = this.getIKPIProvider().getLowAmount(currentRange);
-        	float highValue = this.getIKPIProvider().getLowAmount(currentRange);
+        	double lowValue  = this.getIKPIProvider().getLowAmount(currentRange);
+        	double highValue = this.getIKPIProvider().getHighAmount(currentRange);
         	org.eclipse.swt.graphics.Color color = this.getIColorProvider().getForeground(currentRange);
         	// create/remove the Section
+        	// get
+            Iterator<Section> currentSection = sectionsAsIs.iterator();
     		Section section = null;
-        	if ( currentSection.hasNext()){
-        		// reuse
-        		section = currentSection.next();
-        	} else {
+            while ( currentSection.hasNext()){
+            	Section tmp = currentSection.next();
+            	if ( tmp.getStart()==lowValue && tmp.getStop()==highValue){
+            		currentSection.remove();
+            		section = tmp;
+            		break;
+            	}
+            }
+        	if ( section==null){
         		// create
-        		section = new Section();
+        		section = new Section(lowValue, highValue);
         		gauge.addSection(section);
         	}
         	// update
-    		section.setStart(lowValue);
-    		section.setStop(highValue);
     		if ( color!=null){
         		section.setColor(Color.rgb(color.getRed(), color.getGreen(), color.getBlue()));
     		}
         }
-        while ( currentSection.hasNext()){
-        	currentSection.next();
-        	currentSection.remove();
-        }
+        gauge.getSections().removeAll(sectionsAsIs);
         // scalar attributes
 		float value = this.getIKPIProvider().getAmount(kpi);
 		float minValue = this.getIKPIProvider().getMinAmount(kpi);

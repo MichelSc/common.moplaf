@@ -124,6 +124,9 @@ public class AdapterFactoryContentProviderExtended extends
 	                ColorDialog d = new ColorDialog (cellEditorWindow.getShell(), SWT.OPEN);
   	                d.setRGB(rgbAsIs);
 	                RGB rgbToBe = d.open();  // open the dialog
+	                if ( rgbToBe == null){
+	                	return null;
+	                }
 	                Integer toReturn = Util.integerToRgb(rgbToBe);
 	                return toReturn;
 	            	} // opendialogBox
