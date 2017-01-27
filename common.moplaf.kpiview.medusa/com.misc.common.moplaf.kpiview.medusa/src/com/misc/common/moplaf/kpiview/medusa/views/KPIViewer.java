@@ -5,7 +5,7 @@ import java.util.AbstractMap.SimpleEntry;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-
+import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -20,12 +20,15 @@ import eu.hansolo.medusa.Gauge;
 import eu.hansolo.medusa.GaugeBuilder;
 import eu.hansolo.medusa.Section;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-
+import javafx.scene.shape.Rectangle;
 import javafx.embed.swt.FXCanvas;
 
 
@@ -80,6 +83,7 @@ public class KPIViewer extends KPIViewerAbstract {
     private GridPane pane;  
     private FXCanvas canvas = null;
     static private double TILE_SIZE = 172.0; 
+    static private int HEADER_ROWS = 1; // number of rows in header
 //	private LinkedList<KPIProviderViewed> KPIproviders	 = new LinkedList<KPIProviderViewed>();
 //;
 	
@@ -207,7 +211,7 @@ public class KPIViewer extends KPIViewerAbstract {
 	 */
 	@Override
 	public void refresh() {
-		//CommonPlugin.INSTANCE.log("KPIViewer: refresh");
+		CommonPlugin.INSTANCE.log("KPIViewer: refresh");
 		
 		if ( this.pane==null) { return; }
 
@@ -236,6 +240,16 @@ public class KPIViewer extends KPIViewerAbstract {
 		this.pane.getChildren().removeAll(context.nodes.values());
 	}  // refresh
 	
+	private Node getOrRemoveNode(RefreshContext context, int column, int row, Object userData){
+		SimpleEntry<Integer, Integer> key = new SimpleEntry<>(row, column);
+		Node node = context.nodes.remove(key);
+		if ( node!=null && node.getUserData()!=userData){
+			pane.getChildren().remove(node);
+			return null;
+		}
+		return node;
+	}
+	
 	/**
 	 * Refresh logic for a KPI provider in a column
 	 * @param context
@@ -243,21 +257,68 @@ public class KPIViewer extends KPIViewerAbstract {
 	 * @param column
 	 */
 	private void refresh(RefreshContext context, Object provider, int column){
+		this.refresHeader(context, provider, column);
+		this.refreshKPIs(context, provider, column);
+	}
+	
+	/**
+	 * Refresh the header
+	 * @param context
+	 * @param provider
+	 * @param column
+	 */
+	private void refresHeader(RefreshContext context, Object provider, int column){
+		// draw the header
+		Node nodeHeader = this.getOrRemoveNode(context, column, 0, provider);
+		if ( nodeHeader == null){
+			// get the values
+			String name = this.getILabelProvider().getText(provider);
+        	org.eclipse.swt.graphics.Color colorSwt = this.getIColorProvider().getForeground(provider);
+        	
+		    // label
+		    Label label = new Label(name);  
+		    label.setAlignment(Pos.CENTER);  
+		    label.setPadding(new Insets(0, 0, 10, 0));
+		    
+			// bar
+		    Rectangle bar = new Rectangle(200, 3);  
+		    bar.setArcWidth(6);  
+		    bar.setArcHeight(6);  
+
+		    // colors
+        	if ( colorSwt!=null) {
+        		Color colorFX = Color.rgb(colorSwt.getRed(), colorSwt.getGreen(), colorSwt.getBlue());
+    		    label.setTextFill(colorFX);  
+    		    bar.setFill(colorFX);  
+        	}
+
+        	// node: VBox
+		    VBox vBox = new VBox(label, bar);  
+		    vBox.setSpacing(3);  
+		    vBox.setAlignment(Pos.CENTER);  
+		    vBox.setUserData(provider);
+			pane.add(vBox , column, 0);
+		}
+	}
+	
+	/**
+	 * Refresh the KPI's
+	 * @param context
+	 * @param provider
+	 * @param column
+	 */
+	private void refreshKPIs(RefreshContext context, Object provider, int column){
+		// draw the kpis
 		for ( Object kpi : this.getIKPIProvider().getKPIs(provider)){
 			// get the row
 			String kpiid = this.getIKPIProvider().getKPIID(kpi);
 			Integer row = context.rows.get(kpiid);
 			if ( row==null){
-				row = context.rows.size();
+				row = context.rows.size()+ HEADER_ROWS;
 				context.rows.put(kpiid, row);
 			}
 			// get the node
-			SimpleEntry<Integer, Integer> key = new SimpleEntry<>(row, column);
-			Node node = context.nodes.remove(key);
-			if ( node!=null && node.getUserData()!=provider){
-				pane.getChildren().remove(node);
-				node = null;
-			}
+			Node node = this.getOrRemoveNode(context, column, row, kpi);
 			if ( node == null ){
 				// create the node
 				Gauge gauge = context.builder.build();
@@ -265,7 +326,7 @@ public class KPIViewer extends KPIViewerAbstract {
 //				gauge.setSkinType(SkinType.TILE_TEXT_KPI);
           	  	gauge.setSkin(new GaugeSkinTypeTilePercentage(gauge));
 	            node = gauge;  
-          	  	node.setUserData(provider);
+          	  	node.setUserData(kpi);
 				pane.add(node , column, row);
 			} 
 			this.refresh((Gauge)node, kpi);
@@ -278,6 +339,16 @@ public class KPIViewer extends KPIViewerAbstract {
 	 * @param kpi
 	 */
 	private void refresh(Gauge gauge, Object kpi){
+		this.refreshKPISections(gauge, kpi);
+		this.refreshKPIAttributes(gauge, kpi);
+	}
+
+	/**
+	 * 
+	 * @param gauge
+	 * @param kpi
+	 */
+	private void refreshKPISections(Gauge gauge, Object kpi){
         // sections
         LinkedList<Section> sectionsAsIs = new LinkedList<Section>(gauge.getSections());
         for ( Object currentRange : this.getIKPIProvider().getKPIRanges(kpi)){
@@ -308,6 +379,14 @@ public class KPIViewer extends KPIViewerAbstract {
     		}
         }
         gauge.getSections().removeAll(sectionsAsIs);
+	}
+	
+	/**
+	 * 
+	 * @param gauge
+	 * @param kpi
+	 */
+	private void refreshKPIAttributes(Gauge gauge, Object kpi){
         // scalar attributes
 		float value = this.getIKPIProvider().getAmount(kpi);
 		float minValue = this.getIKPIProvider().getMinAmount(kpi);
@@ -321,7 +400,10 @@ public class KPIViewer extends KPIViewerAbstract {
 		gauge.setValue(value);
         gauge.setMaxValue(maxValue);
         gauge.setMinValue(minValue); // set min fires a RECALC event, so works better when modified as last
+	} // method refresh(KPIViewed)
         // not supported by TILES gauges
+	
+	
 //        gauge.setMinMeasuredValue(20.0);
 //        gauge.setMinMeasuredValueVisible(true);
         // starts from zero
@@ -340,7 +422,6 @@ public class KPIViewer extends KPIViewerAbstract {
 //        gauge.setThresholdColor(Color.RED);
 //        gauge.addSection(new Section(600, 1000, Color.GREEN));
 //        gauge.setSectionsVisible(false);
-	} // method refresh(KPIViewed)
 }; // class KPIViewer
 
 
