@@ -5,6 +5,8 @@ import java.util.AbstractMap.SimpleEntry;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+import javax.naming.ContextNotEmptyException;
+
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -256,8 +258,8 @@ public class KPIViewer extends KPIViewerAbstract {
 			}
 			// get the node
 			SimpleEntry<Integer, Integer> key = new SimpleEntry<>(row, column);
-			Node node = context.nodes.remove(key);
-			if ( node == null ){
+			Node node = context.nodes.get(key);
+			if ( node == null || node.getUserData()!=provider ){
 				// create the node
 				Gauge gauge = context.builder.build();
 //				gauge.setSkinType(SkinType.TILE_KPI);
@@ -266,8 +268,8 @@ public class KPIViewer extends KPIViewerAbstract {
 	            node = gauge;  
           	  	node.setUserData(provider);
 				pane.add(node , row, column);
-			}  else if ( node.getUserData()!=provider){
-          	  	node.setUserData(provider);
+			}  else if ( node!=null && node.getUserData()==provider){
+				context.nodes.remove(key);
 			}
 			this.refresh((Gauge)node, kpi);
 		}  // traverse the objects to show
