@@ -5,7 +5,6 @@ import java.util.AbstractMap.SimpleEntry;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-import javax.naming.ContextNotEmptyException;
 
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -14,7 +13,6 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Display;
 
 import com.misc.common.moplaf.kpiview.viewers.KPIViewerAbstract;
 
@@ -25,9 +23,6 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 
@@ -258,8 +253,12 @@ public class KPIViewer extends KPIViewerAbstract {
 			}
 			// get the node
 			SimpleEntry<Integer, Integer> key = new SimpleEntry<>(row, column);
-			Node node = context.nodes.get(key);
-			if ( node == null || node.getUserData()!=provider ){
+			Node node = context.nodes.remove(key);
+			if ( node!=null && node.getUserData()!=provider){
+				pane.getChildren().remove(node);
+				node = null;
+			}
+			if ( node == null ){
 				// create the node
 				Gauge gauge = context.builder.build();
 //				gauge.setSkinType(SkinType.TILE_KPI);
@@ -267,10 +266,8 @@ public class KPIViewer extends KPIViewerAbstract {
           	  	gauge.setSkin(new GaugeSkinTypeTilePercentage(gauge));
 	            node = gauge;  
           	  	node.setUserData(provider);
-				pane.add(node , row, column);
-			}  else if ( node!=null && node.getUserData()==provider){
-				context.nodes.remove(key);
-			}
+				pane.add(node , column, row);
+			} 
 			this.refresh((Gauge)node, kpi);
 		}  // traverse the objects to show
 	} // method refresh(KPIViewed)

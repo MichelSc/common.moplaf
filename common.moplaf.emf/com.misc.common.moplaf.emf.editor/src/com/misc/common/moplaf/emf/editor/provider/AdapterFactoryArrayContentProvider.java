@@ -3,12 +3,19 @@ package com.misc.common.moplaf.emf.editor.provider;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 
 public class AdapterFactoryArrayContentProvider extends AdapterFactoryContentProvider {
 
 	public AdapterFactoryArrayContentProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
+	}
+
+	@Override
+	public void notifyChanged(Notification notification) {
+		// TODO Auto-generated method stub
+		super.notifyChanged(notification);
 	}
 
 	@Override

@@ -5,6 +5,8 @@ import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 import org.eclipse.swt.widgets.Composite;
 
+import java.util.Iterator;
+
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.jface.viewers.*;
@@ -46,13 +48,17 @@ public abstract class KPIViewAbstract extends ViewPart {
 				if (  !selection.isEmpty() 
 				  && selection instanceof IStructuredSelection) {
 					IStructuredSelection structuredSelection = (IStructuredSelection)selection;
-//					Iterator iterator = structuredSelection.iterator();
-//					while ( iterator.hasNext()){
-//						Object selectedObject = iterator.next();
-//						if ( KPIViewerAbstract.this.vi)
-//						
-//					}
-					KPIViewAbstract.this.viewer.setInput(structuredSelection.toArray());
+					boolean setInput = false;
+					Iterator iterator = structuredSelection.iterator();
+					while ( iterator.hasNext() && !setInput ){
+						Object selectedObject = iterator.next();
+						if ( KPIViewAbstract.this.viewer.getIKPIProvider().hasKPIs(selectedObject)){
+							setInput = true;
+						}
+					}
+					if( setInput){
+						KPIViewAbstract.this.viewer.setInput(structuredSelection.toArray());
+					}
 				} // there is a selection
 			} // there is a viewer
 		}

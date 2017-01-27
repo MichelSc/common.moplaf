@@ -65,19 +65,19 @@ public abstract class KPIViewerAbstract extends ContentViewer {
 		Assert.isTrue(provider instanceof ILabelProvider);
 	}
 	
-	protected ITreeContentProvider getTreeContentProvider(){
+	public ITreeContentProvider getTreeContentProvider(){
 		return (ITreeContentProvider)this.getContentProvider();
 	}
 	
-	protected ILabelProvider getILabelProvider(){
+	public ILabelProvider getILabelProvider(){
 		return (ILabelProvider)this.getLabelProvider();
 	}
 	
-	protected IColorProvider getIColorProvider(){
+	public IColorProvider getIColorProvider(){
 		return this.colorProvider;
 	}
 	
-	protected IKPIProvider getIKPIProvider(){
+	public IKPIProvider getIKPIProvider(){
 		return this.KPIProvider;
 	}
 	
@@ -114,6 +114,7 @@ public abstract class KPIViewerAbstract extends ContentViewer {
 	
 	@Override
 	public void refresh(){
+		System.out.format("KPIViewerAbstract refresh (%s)", "blabla");
 	}
 
 }
