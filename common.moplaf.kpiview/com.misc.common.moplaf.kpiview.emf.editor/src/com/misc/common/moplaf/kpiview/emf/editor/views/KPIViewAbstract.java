@@ -5,8 +5,6 @@ import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 import org.eclipse.swt.widgets.Composite;
 
-import java.util.Iterator;
-
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.jface.viewers.*;
@@ -76,7 +74,6 @@ public abstract class KPIViewAbstract extends ViewPart {
 	 * to create the viewer and initialize it.
 	 */
 	public void createPartControl(Composite parent) {
-        //GridData gd = new GridData(GridData.FILL_BOTH);
         this.viewer = this.createViewer(parent);
         this.viewer.setContentProvider   (new AdapterFactoryArrayContentProvider (this.adapterFactory));
 		this.viewer.setLabelProvider     (new AdapterFactoryArrayLabelProvider   (this.adapterFactory));

@@ -16,6 +16,10 @@ import com.misc.common.moplaf.kpiview.IKPIProvider;
 
 
 public abstract class KPIViewerAbstract extends ContentViewer {
+	
+	protected int BACKGROUND_COLOR_R = 130;
+	protected int BACKGROUND_COLOR_G = 116;
+	protected int BACKGROUND_COLOR_B = 133;
 
 	private Object          selectedElement = null;
 	private ISelection      currentSelection = null;

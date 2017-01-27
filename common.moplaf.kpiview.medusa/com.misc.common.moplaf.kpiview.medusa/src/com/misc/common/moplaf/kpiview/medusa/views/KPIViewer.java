@@ -12,6 +12,7 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
 
 import com.misc.common.moplaf.kpiview.viewers.KPIViewerAbstract;
 
@@ -145,23 +146,20 @@ public class KPIViewer extends KPIViewerAbstract {
 	//-------------------------------------------------------------------------------------
 	// constructor
 	public KPIViewer(Composite parent){
+		String backgroundColorCss = String.format("-fx-background: rgb(%d,%d,%d);", BACKGROUND_COLOR_R, BACKGROUND_COLOR_G, BACKGROUND_COLOR_B);
+		
         // FXCanvas
         canvas = new FXCanvas(parent, SWT.NONE);
-//        org.eclipse.swt.graphics.Color background = new org.eclipse.swt.graphics.Color(Display.getCurrent(), 130, 116, 133);
-//        parent.setBackground(background);
-//        canvas.setBackground(background);
-//        parent.setBackgroundMode(SWT.INHERIT_FORCE);
 		// grid pane
     	pane = new GridPane();  
         pane.setPadding(new Insets(20));  
-        
         pane.setHgap(10);  
         pane.setVgap(15);  
-        pane.setBackground(new Background(new BackgroundFill(Color.rgb(130,116,133), CornerRadii.EMPTY, Insets.EMPTY)));  
 
         // scroll pane
         ScrollPane superPane = new ScrollPane();
         superPane.setContent(pane);
+        superPane.setStyle(backgroundColorCss); // could not find a way to do it programatically, setBackground does not work!
         
         // scene
         Scene newScene =  new Scene(superPane);
@@ -213,6 +211,8 @@ public class KPIViewer extends KPIViewerAbstract {
 	@Override
 	public void refresh() {
 		//CommonPlugin.INSTANCE.log("KPIViewer: refresh");
+		
+		if ( this.pane==null) { return; }
 
 		RefreshContext context = new RefreshContext();
 		
