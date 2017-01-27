@@ -141,12 +141,15 @@ public class GaugeSkinTypeTilePercentage extends SkinBase<Gauge> implements Skin
 
         maxValueRect = new Rectangle();
         maxValueRect.setFill(gauge.getThresholdColor());
+        Helper.enableNode(maxValueRect, false);
 
         maxValueText = new Text();
         maxValueText.setFill(gauge.getBackgroundPaint());
+        Helper.enableNode(maxValueText, false);
 
         maxValueUnitText = new Text(gauge.getUnit());
         maxValueUnitText.setFill(gauge.getBackgroundPaint());
+        Helper.enableNode(maxValueUnitText, false);
 
         pane = new Pane(barBackground, bar, titleText, valueText, unitText, percentageText, percentageUnitText, maxValueRect, maxValueText, maxValueUnitText);
 		pane.setBorder(this.paneBorder);

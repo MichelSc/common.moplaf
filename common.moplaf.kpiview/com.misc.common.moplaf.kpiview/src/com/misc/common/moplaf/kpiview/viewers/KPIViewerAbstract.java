@@ -21,6 +21,10 @@ public abstract class KPIViewerAbstract extends ContentViewer {
 	protected int BACKGROUND_COLOR_G = 116;
 	protected int BACKGROUND_COLOR_B = 133;
 
+	protected int TEXT_COLOR_R = 150;
+	protected int TEXT_COLOR_G = 150;
+	protected int TEXT_COLOR_B = 150;
+
 	private Object          selectedElement = null;
 	private ISelection      currentSelection = null;
 	private IColorProvider  colorProvider = null;

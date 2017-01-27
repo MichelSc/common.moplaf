@@ -84,6 +84,10 @@ public class KPIViewer extends KPIViewerAbstract {
     private FXCanvas canvas = null;
     static private double TILE_SIZE = 172.0; 
     static private int HEADER_ROWS = 1; // number of rows in header
+    static private int GRID_H_GAP = 5;
+    static private int GRID_V_GAP = 15;
+    
+    private Color TEXT_COLOR = Color.rgb(TEXT_COLOR_R, TEXT_COLOR_G, TEXT_COLOR_B);
 //	private LinkedList<KPIProviderViewed> KPIproviders	 = new LinkedList<KPIProviderViewed>();
 //;
 	
@@ -154,8 +158,8 @@ public class KPIViewer extends KPIViewerAbstract {
 		// grid pane
     	pane = new GridPane();  
         pane.setPadding(new Insets(20));  
-        pane.setHgap(10);  
-        pane.setVgap(15);  
+        pane.setHgap(GRID_H_GAP);  
+        pane.setVgap(GRID_V_GAP);  
 
         // scroll pane
         ScrollPane superPane = new ScrollPane();
@@ -201,9 +205,9 @@ public class KPIViewer extends KPIViewerAbstract {
         		                                    .animated(true)
         		                                    .sectionsVisible(true)
         		                                    .prefSize(TILE_SIZE, TILE_SIZE)
-        		                                    .valueColor(Color.rgb(90, 90, 90))
-        		                                    .titleColor(Color.rgb(90, 90, 90))
-        		                                    .unitColor(Color.rgb(90, 90, 90));
+        		                                    .valueColor(TEXT_COLOR)
+        		                                    .titleColor(TEXT_COLOR)
+        		                                    .unitColor(TEXT_COLOR);
 	};
 
 	/**
