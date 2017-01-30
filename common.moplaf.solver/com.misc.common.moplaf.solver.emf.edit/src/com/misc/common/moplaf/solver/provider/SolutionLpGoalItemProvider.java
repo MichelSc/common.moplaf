@@ -3,6 +3,9 @@
 package com.misc.common.moplaf.solver.provider;
 
 
+import com.misc.common.moplaf.kpiview.emf.edit.IItemKPIProvider;
+import com.misc.common.moplaf.solver.GeneratorGoal;
+import com.misc.common.moplaf.solver.GeneratorLpGoal;
 import com.misc.common.moplaf.solver.SolutionLpGoal;
 import com.misc.common.moplaf.solver.SolverPackage;
 
@@ -20,10 +23,11 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.solver.SolutionLpGoal} object.
  * <!-- begin-user-doc -->
+ * @implements IItemKPIProvider 
  * <!-- end-user-doc -->
  * @generated
  */
-public class SolutionLpGoalItemProvider extends SolutionGoalItemProvider {
+public class SolutionLpGoalItemProvider extends SolutionGoalItemProvider implements IItemKPIProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -116,6 +120,61 @@ public class SolutionLpGoalItemProvider extends SolutionGoalItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
+	 * Specified by IItemKPIProvider
+	 */
+	@Override
+	public float getKPIAmount(Object element) {
+		SolutionLpGoal solution = (SolutionLpGoal)element;
+		return solution.getValue();
+	}
+
+	/**
+	 * Specified by IItemKPIProvider
+	 */
+	@Override
+	public float getMinAmount(Object element) {
+		SolutionLpGoal solution = (SolutionLpGoal)element;
+		GeneratorLpGoal goal = (GeneratorLpGoal) solution.getGoal();
+		return goal.getMinValueIndicative();
+	}
+
+	/**
+	 * Specified by IItemKPIProvider
+	 */
+	@Override
+	public float getMaxAmount(Object element) {
+		SolutionLpGoal solution = (SolutionLpGoal)element;
+		GeneratorLpGoal goal = (GeneratorLpGoal) solution.getGoal();
+		return goal.getMaxValueIndicative();
+	}
+
+	/**
+	 * Specified by IItemKPIProvider
+	 */
+	@Override
+	public String getKPIID(Object element) {
+		SolutionLpGoal solution = (SolutionLpGoal)element;
+		GeneratorGoal goal = solution.getGoal();
+		return goal.getName();
+	}
+
+	/**
+	 * Specified by IItemKPIProvider
+	 */
+	@Override
+	public String getUnit(Object element) {
+		return null;
+	}
+
+	/**
+	 * Specified by IItemKPIProvider
+	 */
+	@Override
+	public Collection<?> getKPIRanges(Object element) {
+		return null;
 	}
 
 }

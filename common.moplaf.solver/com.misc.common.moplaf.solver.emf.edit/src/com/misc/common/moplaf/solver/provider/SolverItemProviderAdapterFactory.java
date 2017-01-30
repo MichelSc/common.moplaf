@@ -2,6 +2,8 @@
  */
 package com.misc.common.moplaf.solver.provider;
 
+import com.misc.common.moplaf.kpiview.emf.edit.IItemKPIProvider;
+import com.misc.common.moplaf.kpiview.emf.edit.IItemKPIsProvider;
 import com.misc.common.moplaf.solver.util.SolverAdapterFactory;
 
 import java.util.ArrayList;
@@ -61,7 +63,6 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 	 * This constructs an instance.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public SolverItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
@@ -69,6 +70,8 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
 		supportedTypes.add(IItemPropertySource.class);
+		supportedTypes.add(IItemKPIsProvider.class);
+		supportedTypes.add(IItemKPIProvider.class);
 	}
 
 	/**

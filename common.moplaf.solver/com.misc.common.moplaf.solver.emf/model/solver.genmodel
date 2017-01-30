@@ -453,6 +453,8 @@
       <genFeatures createChild="false" propertyCategory="10 General" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpGoal/ObjectiveType"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="30 Solution"
           propertyDescription="" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpGoal/SelectedSolutionValue"/>
+      <genFeatures createChild="false" propertyCategory="30 Solution" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpGoal/MinValueIndicative"/>
+      <genFeatures createChild="false" propertyCategory="30 Solution" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpGoal/MaxValueIndicative"/>
       <genOperations ecoreOperation="solver.ecore#//GeneratorLpGoal/getSolutionValue">
         <genParameters ecoreParameter="solver.ecore#//GeneratorLpGoal/getSolutionValue/solution"/>
       </genOperations>

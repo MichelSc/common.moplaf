@@ -523,6 +523,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SelectedSolutionValue"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat" changeable="false"
         volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MinValueIndicative" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxValueIndicative" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
+        defaultValueLiteral="100000000000"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpLinear">
     <eOperations name="constructTerm" eType="#//GeneratorLpTerm">

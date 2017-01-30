@@ -42,6 +42,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl#getLpTerm <em>Lp Term</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl#getObjectiveType <em>Objective Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl#getSelectedSolutionValue <em>Selected Solution Value</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl#getMinValueIndicative <em>Min Value Indicative</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl#getMaxValueIndicative <em>Max Value Indicative</em>}</li>
  * </ul>
  *
  * @generated
@@ -86,6 +88,46 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	 * @ordered
 	 */
 	protected static final float SELECTED_SOLUTION_VALUE_EDEFAULT = 0.0F;
+
+	/**
+	 * The default value of the '{@link #getMinValueIndicative() <em>Min Value Indicative</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMinValueIndicative()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float MIN_VALUE_INDICATIVE_EDEFAULT = 0.0F;
+
+	/**
+	 * The cached value of the '{@link #getMinValueIndicative() <em>Min Value Indicative</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMinValueIndicative()
+	 * @generated
+	 * @ordered
+	 */
+	protected float minValueIndicative = MIN_VALUE_INDICATIVE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMaxValueIndicative() <em>Max Value Indicative</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxValueIndicative()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float MAX_VALUE_INDICATIVE_EDEFAULT = 9.9999998E10F;
+
+	/**
+	 * The cached value of the '{@link #getMaxValueIndicative() <em>Max Value Indicative</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxValueIndicative()
+	 * @generated
+	 * @ordered
+	 */
+	protected float maxValueIndicative = MAX_VALUE_INDICATIVE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -161,6 +203,48 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 		} 
 		
 		return 0.0f;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public float getMinValueIndicative() {
+		return minValueIndicative;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMinValueIndicative(float newMinValueIndicative) {
+		float oldMinValueIndicative = minValueIndicative;
+		minValueIndicative = newMinValueIndicative;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_LP_GOAL__MIN_VALUE_INDICATIVE, oldMinValueIndicative, minValueIndicative));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public float getMaxValueIndicative() {
+		return maxValueIndicative;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMaxValueIndicative(float newMaxValueIndicative) {
+		float oldMaxValueIndicative = maxValueIndicative;
+		maxValueIndicative = newMaxValueIndicative;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_LP_GOAL__MAX_VALUE_INDICATIVE, oldMaxValueIndicative, maxValueIndicative));
 	}
 
 	/**
@@ -286,6 +370,10 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 				return getObjectiveType();
 			case SolverPackage.GENERATOR_LP_GOAL__SELECTED_SOLUTION_VALUE:
 				return getSelectedSolutionValue();
+			case SolverPackage.GENERATOR_LP_GOAL__MIN_VALUE_INDICATIVE:
+				return getMinValueIndicative();
+			case SolverPackage.GENERATOR_LP_GOAL__MAX_VALUE_INDICATIVE:
+				return getMaxValueIndicative();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -306,6 +394,12 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 			case SolverPackage.GENERATOR_LP_GOAL__OBJECTIVE_TYPE:
 				setObjectiveType((EnumObjectiveType)newValue);
 				return;
+			case SolverPackage.GENERATOR_LP_GOAL__MIN_VALUE_INDICATIVE:
+				setMinValueIndicative((Float)newValue);
+				return;
+			case SolverPackage.GENERATOR_LP_GOAL__MAX_VALUE_INDICATIVE:
+				setMaxValueIndicative((Float)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -323,6 +417,12 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 				return;
 			case SolverPackage.GENERATOR_LP_GOAL__OBJECTIVE_TYPE:
 				setObjectiveType(OBJECTIVE_TYPE_EDEFAULT);
+				return;
+			case SolverPackage.GENERATOR_LP_GOAL__MIN_VALUE_INDICATIVE:
+				setMinValueIndicative(MIN_VALUE_INDICATIVE_EDEFAULT);
+				return;
+			case SolverPackage.GENERATOR_LP_GOAL__MAX_VALUE_INDICATIVE:
+				setMaxValueIndicative(MAX_VALUE_INDICATIVE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -342,6 +442,10 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 				return objectiveType != OBJECTIVE_TYPE_EDEFAULT;
 			case SolverPackage.GENERATOR_LP_GOAL__SELECTED_SOLUTION_VALUE:
 				return getSelectedSolutionValue() != SELECTED_SOLUTION_VALUE_EDEFAULT;
+			case SolverPackage.GENERATOR_LP_GOAL__MIN_VALUE_INDICATIVE:
+				return minValueIndicative != MIN_VALUE_INDICATIVE_EDEFAULT;
+			case SolverPackage.GENERATOR_LP_GOAL__MAX_VALUE_INDICATIVE:
+				return maxValueIndicative != MAX_VALUE_INDICATIVE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -422,6 +526,10 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (ObjectiveType: ");
 		result.append(objectiveType);
+		result.append(", MinValueIndicative: ");
+		result.append(minValueIndicative);
+		result.append(", MaxValueIndicative: ");
+		result.append(maxValueIndicative);
 		result.append(')');
 		return result.toString();
 	}

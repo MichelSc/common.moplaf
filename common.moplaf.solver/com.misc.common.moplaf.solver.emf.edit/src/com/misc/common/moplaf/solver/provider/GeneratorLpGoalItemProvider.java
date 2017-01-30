@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.solver.provider;
 
 
+import com.misc.common.moplaf.kpiview.emf.edit.IItemKPIProvider;
 import com.misc.common.moplaf.solver.GeneratorLpGoal;
 import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.solver.SolverPackage;
@@ -23,10 +24,11 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.solver.GeneratorLpGoal} object.
  * <!-- begin-user-doc -->
+ * @implements IItemKPIProvider 
  * <!-- end-user-doc -->
  * @generated
  */
-public class GeneratorLpGoalItemProvider extends GeneratorGoalItemProvider {
+public class GeneratorLpGoalItemProvider extends GeneratorGoalItemProvider implements IItemKPIProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -50,6 +52,8 @@ public class GeneratorLpGoalItemProvider extends GeneratorGoalItemProvider {
 
 			addObjectiveTypePropertyDescriptor(object);
 			addSelectedSolutionValuePropertyDescriptor(object);
+			addMinValueIndicativePropertyDescriptor(object);
+			addMaxValueIndicativePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -95,6 +99,50 @@ public class GeneratorLpGoalItemProvider extends GeneratorGoalItemProvider {
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 getString("_UI__30SolutionPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Min Value Indicative feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMinValueIndicativePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GeneratorLpGoal_MinValueIndicative_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorLpGoal_MinValueIndicative_feature", "_UI_GeneratorLpGoal_type"),
+				 SolverPackage.Literals.GENERATOR_LP_GOAL__MIN_VALUE_INDICATIVE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Max Value Indicative feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMaxValueIndicativePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_GeneratorLpGoal_MaxValueIndicative_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratorLpGoal_MaxValueIndicative_feature", "_UI_GeneratorLpGoal_type"),
+				 SolverPackage.Literals.GENERATOR_LP_GOAL__MAX_VALUE_INDICATIVE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
 				 null));
 	}
 
@@ -157,6 +205,8 @@ public class GeneratorLpGoalItemProvider extends GeneratorGoalItemProvider {
 		switch (notification.getFeatureID(GeneratorLpGoal.class)) {
 			case SolverPackage.GENERATOR_LP_GOAL__OBJECTIVE_TYPE:
 			case SolverPackage.GENERATOR_LP_GOAL__SELECTED_SOLUTION_VALUE:
+			case SolverPackage.GENERATOR_LP_GOAL__MIN_VALUE_INDICATIVE:
+			case SolverPackage.GENERATOR_LP_GOAL__MAX_VALUE_INDICATIVE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -180,4 +230,55 @@ public class GeneratorLpGoalItemProvider extends GeneratorGoalItemProvider {
 				 SolverFactory.eINSTANCE.createGeneratorLpTerm()));
 	}
 
+	/**
+	 * Specified by IItemKPIProvider
+	 */
+	@Override
+	public float getKPIAmount(Object element) {
+		GeneratorLpGoal goal = (GeneratorLpGoal) element;
+		return goal.getSelectedSolutionValue();
+	}
+
+	/**
+	 * Specified by IItemKPIProvider
+	 */
+	@Override
+	public float getMinAmount(Object element) {
+		GeneratorLpGoal goal = (GeneratorLpGoal) element;
+		return goal.getMinValueIndicative();
+	}
+
+	/**
+	 * Specified by IItemKPIProvider
+	 */
+	@Override
+	public float getMaxAmount(Object element) {
+		GeneratorLpGoal goal = (GeneratorLpGoal) element;
+		return goal.getMaxValueIndicative();
+	}
+
+	/**
+	 * Specified by IItemKPIProvider
+	 */
+	@Override
+	public String getKPIID(Object element) {
+		GeneratorLpGoal goal = (GeneratorLpGoal) element;
+		return goal.getName();
+	}
+
+	/**
+	 * Specified by IItemKPIProvider
+	 */
+	@Override
+	public String getUnit(Object element) {
+		return null;
+	}
+
+	/**
+	 * Specified by IItemKPIProvider
+	 */
+	@Override
+	public Collection<?> getKPIRanges(Object element) {
+		return null;
+	}
 }

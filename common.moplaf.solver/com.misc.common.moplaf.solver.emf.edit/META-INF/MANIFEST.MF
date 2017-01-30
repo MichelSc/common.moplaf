@@ -18,5 +18,6 @@ Require-Bundle: org.eclipse.core.runtime,
  com.misc.common.moplaf.job.emf.edit;visibility:=reexport,
  com.misc.common.moplaf.emf;visibility:=reexport,
  com.misc.common.moplaf.emf.edit;bundle-version="1.0.0";visibility:=reexport,
- org.eclipse.equinox.registry
+ org.eclipse.equinox.registry,
+ com.misc.common.moplaf.kpiview.emf.edit;bundle-version="1.0.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy

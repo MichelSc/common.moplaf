@@ -16,6 +16,7 @@ For openjdk on linux, install package openjfx.
 eclipse
 
 Install the IDE thing  from e(fx)clipse - http://download.eclipse.org/efxclipse/updates-released/2.4.0/site
+  this is necessary: otherwise, the IDE does not find FXCanvas
 
 Following plugins are required
   org.eclipse.fx.ui.workbench3

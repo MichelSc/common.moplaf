@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.solver.provider;
 
 
+import com.misc.common.moplaf.kpiview.emf.edit.IItemKPIsProvider;
 import com.misc.common.moplaf.solver.SolutionLp;
 
 import com.misc.common.moplaf.solver.SolverPackage;
@@ -20,10 +21,11 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.solver.SolutionLp} object.
  * <!-- begin-user-doc -->
+ * @implements IItemKPIsProvider 
  * <!-- end-user-doc -->
  * @generated
  */
-public class SolutionLpItemProvider extends SolutionItemProvider {
+public class SolutionLpItemProvider extends SolutionItemProvider implements IItemKPIsProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -116,6 +118,15 @@ public class SolutionLpItemProvider extends SolutionItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
+	 * Specified by IItemKPIsProvider
+	 */
+	@Override
+	public Collection<?> getKPIs(Object element) {
+		SolutionLp solution = (SolutionLp)element;
+		return solution.getGoals();
 	}
 
 }

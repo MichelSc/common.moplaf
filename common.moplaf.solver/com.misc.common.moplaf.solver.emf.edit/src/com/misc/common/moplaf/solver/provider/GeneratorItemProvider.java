@@ -4,6 +4,7 @@ package com.misc.common.moplaf.solver.provider;
 
 
 import com.misc.common.moplaf.job.provider.RunItemProvider;
+import com.misc.common.moplaf.kpiview.emf.edit.IItemKPIsProvider;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionProvider;
@@ -24,11 +25,12 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.solver.Generator} object.
  * <!-- begin-user-doc -->
+ * @implements IItemKPIsProvider   
  * <!-- end-user-doc -->
  * @generated
  */
 public class GeneratorItemProvider
-	extends RunItemProvider {
+	extends RunItemProvider implements IItemKPIsProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -369,6 +371,15 @@ public class GeneratorItemProvider
 	@Override
 	public ResourceLocator getResourceLocator() {
 		return SolverEditPlugin.INSTANCE;
+	}
+
+	/**
+	 * Specified by IItemKPIsProvider
+	 */
+	@Override
+	public Collection<?> getKPIs(Object element) {
+		Generator generator = (Generator)element;
+		return generator.getGoals();
 	}
 
 }

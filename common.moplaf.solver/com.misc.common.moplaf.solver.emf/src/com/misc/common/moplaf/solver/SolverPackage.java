@@ -6894,13 +6894,31 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_LP_GOAL__SELECTED_SOLUTION_VALUE = GENERATOR_GOAL_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Min Value Indicative</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_GOAL__MIN_VALUE_INDICATIVE = GENERATOR_GOAL_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Max Value Indicative</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_GOAL__MAX_VALUE_INDICATIVE = GENERATOR_GOAL_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Generator Lp Goal</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_LP_GOAL_FEATURE_COUNT = GENERATOR_GOAL_FEATURE_COUNT + 3;
+	int GENERATOR_LP_GOAL_FEATURE_COUNT = GENERATOR_GOAL_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -7733,6 +7751,28 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGeneratorLpGoal_SelectedSolutionValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorLpGoal#getMinValueIndicative <em>Min Value Indicative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Min Value Indicative</em>'.
+	 * @see com.misc.common.moplaf.solver.GeneratorLpGoal#getMinValueIndicative()
+	 * @see #getGeneratorLpGoal()
+	 * @generated
+	 */
+	EAttribute getGeneratorLpGoal_MinValueIndicative();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorLpGoal#getMaxValueIndicative <em>Max Value Indicative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Max Value Indicative</em>'.
+	 * @see com.misc.common.moplaf.solver.GeneratorLpGoal#getMaxValueIndicative()
+	 * @see #getGeneratorLpGoal()
+	 * @generated
+	 */
+	EAttribute getGeneratorLpGoal_MaxValueIndicative();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorLpGoal#getSolutionValue(com.misc.common.moplaf.solver.Solution) <em>Get Solution Value</em>}' operation.
@@ -10454,6 +10494,22 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GENERATOR_LP_GOAL__SELECTED_SOLUTION_VALUE = eINSTANCE.getGeneratorLpGoal_SelectedSolutionValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Min Value Indicative</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERATOR_LP_GOAL__MIN_VALUE_INDICATIVE = eINSTANCE.getGeneratorLpGoal_MinValueIndicative();
+
+		/**
+		 * The meta object literal for the '<em><b>Max Value Indicative</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERATOR_LP_GOAL__MAX_VALUE_INDICATIVE = eINSTANCE.getGeneratorLpGoal_MaxValueIndicative();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Solution Value</b></em>' operation.
