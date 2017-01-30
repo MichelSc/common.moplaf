@@ -355,33 +355,36 @@ public class KPIViewer extends KPIViewerAbstract {
 	private void refreshKPISections(Gauge gauge, Object kpi){
         // sections
         LinkedList<Section> sectionsAsIs = new LinkedList<Section>(gauge.getSections());
-        for ( Object currentRange : this.getIKPIProvider().getKPIRanges(kpi)){
-        	// get the values
-        	double lowValue  = this.getIKPIProvider().getLowAmount(currentRange);
-        	double highValue = this.getIKPIProvider().getHighAmount(currentRange);
-        	org.eclipse.swt.graphics.Color color = this.getIColorProvider().getForeground(currentRange);
-        	// create/remove the Section
-        	// get
-            Iterator<Section> currentSection = sectionsAsIs.iterator();
-    		Section section = null;
-            while ( currentSection.hasNext()){
-            	Section tmp = currentSection.next();
-            	if ( tmp.getStart()==lowValue && tmp.getStop()==highValue){
-            		currentSection.remove();
-            		section = tmp;
-            		break;
-            	}
-            }
-        	if ( section==null){
-        		// create
-        		section = new Section(lowValue, highValue);
-        		gauge.addSection(section);
-        	}
-        	// update
-    		if ( color!=null){
-        		section.setColor(Color.rgb(color.getRed(), color.getGreen(), color.getBlue()));
-    		}
-        }
+        Object[] ranges = this.getIKPIProvider().getKPIRanges(kpi);
+        if ( ranges != null ) { 
+	        for ( Object currentRange : ranges){
+	        	// get the values
+	        	double lowValue  = this.getIKPIProvider().getLowAmount(currentRange);
+	        	double highValue = this.getIKPIProvider().getHighAmount(currentRange);
+	        	org.eclipse.swt.graphics.Color color = this.getIColorProvider().getForeground(currentRange);
+	        	// create/remove the Section
+	        	// get
+	            Iterator<Section> currentSection = sectionsAsIs.iterator();
+	    		Section section = null;
+	            while ( currentSection.hasNext()){
+	            	Section tmp = currentSection.next();
+	            	if ( tmp.getStart()==lowValue && tmp.getStop()==highValue){
+	            		currentSection.remove();
+	            		section = tmp;
+	            		break;
+	            	}
+	            }
+	        	if ( section==null){
+	        		// create
+	        		section = new Section(lowValue, highValue);
+	        		gauge.addSection(section);
+	        	}
+	        	// update
+	    		if ( color!=null){
+	        		section.setColor(Color.rgb(color.getRed(), color.getGreen(), color.getBlue()));
+	    		}
+	        }   // traverse the ranges
+        }  // there are ranges
         gauge.getSections().removeAll(sectionsAsIs);
 	}
 	

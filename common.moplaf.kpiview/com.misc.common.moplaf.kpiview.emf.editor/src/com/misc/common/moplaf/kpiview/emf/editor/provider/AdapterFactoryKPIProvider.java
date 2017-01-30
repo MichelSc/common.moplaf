@@ -1,5 +1,7 @@
 package com.misc.common.moplaf.kpiview.emf.editor.provider;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 
 import com.misc.common.moplaf.kpiview.IKPIProvider;
@@ -112,7 +114,9 @@ public class AdapterFactoryKPIProvider implements
 	@Override
 	public Object[] getKPIRanges(Object element) {
 		this.getKPIItemProvider(element);
-		return this.lastKPIElementItemProvider.getKPIRanges(element).toArray();
+		Collection<?> collection = this.lastKPIElementItemProvider.getKPIRanges(element);
+		if ( collection == null ) { return null;}
+		return collection.toArray();
 	}
 
 	// KPI range methods ------------------------------------------------------------
