@@ -14,6 +14,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 
+import com.misc.common.moplaf.kpiview.Plugin;
 import com.misc.common.moplaf.kpiview.viewers.KPIViewerAbstract;
 
 import eu.hansolo.medusa.Gauge;
@@ -82,10 +83,12 @@ public class KPIViewer extends KPIViewerAbstract {
 	//-------------------------------------------------------------------------------------
     private GridPane pane;  
     private FXCanvas canvas = null;
-    static private double TILE_SIZE = 172.0; 
+//    static private double TILE_SIZE = 172.0; 
     static private int HEADER_ROWS = 1; // number of rows in header
-    static private int GRID_H_GAP = 5;
-    static private int GRID_V_GAP = 15;
+//    static private int GRID_H_GAP = 5;
+//    static private int GRID_V_GAP = 15;
+    
+    private int tileSize = 172;
     
     private Color TEXT_COLOR = Color.rgb(TEXT_COLOR_R, TEXT_COLOR_G, TEXT_COLOR_B);
 //	private LinkedList<KPIProviderViewed> KPIproviders	 = new LinkedList<KPIProviderViewed>();
@@ -158,8 +161,10 @@ public class KPIViewer extends KPIViewerAbstract {
 		// grid pane
     	pane = new GridPane();  
         pane.setPadding(new Insets(20));  
-        pane.setHgap(GRID_H_GAP);  
-        pane.setVgap(GRID_V_GAP);  
+        pane.setHgap(Plugin.INSTANCE.getGridHorizontalGap());  
+        pane.setVgap(Plugin.INSTANCE.getGridVerticalGap());  
+        
+        this.tileSize = Plugin.INSTANCE.getTileSize();
 
         // scroll pane
         ScrollPane superPane = new ScrollPane();
@@ -204,10 +209,10 @@ public class KPIViewer extends KPIViewerAbstract {
         		                                    .backgroundPaint(Color.rgb(42,42,42))
         		                                    .animated(true)
         		                                    .sectionsVisible(true)
-        		                                    .prefSize(TILE_SIZE, TILE_SIZE)
-        		                                    .valueColor(TEXT_COLOR)
-        		                                    .titleColor(TEXT_COLOR)
-        		                                    .unitColor(TEXT_COLOR);
+        		                                    .prefSize(KPIViewer.this.tileSize, KPIViewer.this.tileSize)
+        		                                    .valueColor(KPIViewer.this.TEXT_COLOR)
+        		                                    .titleColor(KPIViewer.this.TEXT_COLOR)
+        		                                    .unitColor(KPIViewer.this.TEXT_COLOR);
 	};
 
 	/**
