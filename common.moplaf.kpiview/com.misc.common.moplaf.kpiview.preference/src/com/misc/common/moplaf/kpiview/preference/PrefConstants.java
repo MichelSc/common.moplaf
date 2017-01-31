@@ -5,5 +5,7 @@ public interface PrefConstants {
 	String PREF_TILE_SIZE           = "com.misc.common.moplaf.kpiview.Preference.tileSize";
 	String PREF_GRID_HORIZONTAL_GAP = "com.misc.common.moplaf.kpiview.Preference.gridHorizontalGap";
 	String PREF_GRID_VERTICAL_GAP   = "com.misc.common.moplaf.kpiview.Preference.gridVerticalGap";
+	String PREF_COLOR_BACKGROUND    = "com.misc.common.moplaf.kpiview.Preference.colorBackgroundColor";
+	String PREF_COLOR_TEXT          = "com.misc.common.moplaf.kpiview.Preference.colorText";
 
 }

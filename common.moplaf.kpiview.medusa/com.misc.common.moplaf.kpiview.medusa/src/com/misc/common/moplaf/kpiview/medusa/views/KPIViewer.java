@@ -11,6 +11,7 @@ import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 
@@ -83,14 +84,11 @@ public class KPIViewer extends KPIViewerAbstract {
 	//-------------------------------------------------------------------------------------
     private GridPane pane;  
     private FXCanvas canvas = null;
-//    static private double TILE_SIZE = 172.0; 
     static private int HEADER_ROWS = 1; // number of rows in header
-//    static private int GRID_H_GAP = 5;
-//    static private int GRID_V_GAP = 15;
     
-    private int tileSize = 172;
+    private int tileSize;
     
-    private Color TEXT_COLOR = Color.rgb(TEXT_COLOR_R, TEXT_COLOR_G, TEXT_COLOR_B);
+    private Color TEXT_COLOR;
 //	private LinkedList<KPIProviderViewed> KPIproviders	 = new LinkedList<KPIProviderViewed>();
 //;
 	
@@ -154,7 +152,14 @@ public class KPIViewer extends KPIViewerAbstract {
 	//-------------------------------------------------------------------------------------
 	// constructor
 	public KPIViewer(Composite parent){
-		String backgroundColorCss = String.format("-fx-background: rgb(%d,%d,%d);", BACKGROUND_COLOR_R, BACKGROUND_COLOR_G, BACKGROUND_COLOR_B);
+		// get defaults/preferences
+        this.tileSize = Plugin.INSTANCE.getTileSize();
+        
+        RGB textColor   = Plugin.INSTANCE.getTextColor();
+        this.TEXT_COLOR = Color.rgb(textColor.red, textColor.green, textColor.blue);
+         
+        RGB backgroundColor = Plugin.INSTANCE.getBackgroundColor();
+		String backgroundColorCss = String.format("-fx-background: rgb(%d,%d,%d);", backgroundColor.red, backgroundColor.green, backgroundColor.blue);
 		
         // FXCanvas
         canvas = new FXCanvas(parent, SWT.NONE);
@@ -164,7 +169,6 @@ public class KPIViewer extends KPIViewerAbstract {
         pane.setHgap(Plugin.INSTANCE.getGridHorizontalGap());  
         pane.setVgap(Plugin.INSTANCE.getGridVerticalGap());  
         
-        this.tileSize = Plugin.INSTANCE.getTileSize();
 
         // scroll pane
         ScrollPane superPane = new ScrollPane();
