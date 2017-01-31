@@ -4,14 +4,10 @@
 
    <extension
          point="org.eclipse.ui.views">
-      <category
-            name="Moplaf"
-            id="com.misc.common.moplaf.timeview.nebula">
-      </category>
       <view
             name="TimePlot View"
             icon="icons/sample.gif"
-            category="com.misc.common.moplaf.timeview.nebula"
+            category="com.misc.common.moplaf.view.category.moplaf"
             class="com.misc.common.moplaf.timeview.nebula.views.TimePlotView"
             id="com.misc.common.moplaf.timeview.nebula.views.TimePlotView">
       </view>
