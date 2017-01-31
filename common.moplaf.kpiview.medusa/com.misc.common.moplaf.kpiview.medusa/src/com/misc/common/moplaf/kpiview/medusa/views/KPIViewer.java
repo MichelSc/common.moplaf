@@ -340,7 +340,8 @@ public class KPIViewer extends KPIViewerAbstract {
 				float minValue = this.getIKPIProvider().getMinAmount(kpi);
 				float maxValue = this.getIKPIProvider().getMaxAmount(kpi);
 				String unit    = this.getIKPIProvider().getUnit(kpi);
-				String name    = this.getILabelProvider().getText(kpi);
+//				String name    = this.getILabelProvider().getText(kpi);
+				String name    = this.getIKPIProvider().getKPIID(kpi);
 //				String msg = String.format("KPI %f (%f, %f)", value, minValue, maxValue);
 //				CommonPlugin.INSTANCE.log("KPIViewer: refresh node "+msg);
 				gauge.setTitle(name);
