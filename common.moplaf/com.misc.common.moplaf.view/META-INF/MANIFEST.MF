@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: View
+Bundle-SymbolicName: com.misc.common.moplaf.view;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: MISC
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.ui

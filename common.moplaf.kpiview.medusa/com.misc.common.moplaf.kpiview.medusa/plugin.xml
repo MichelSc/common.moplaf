@@ -4,14 +4,10 @@
 
    <extension
          point="org.eclipse.ui.views">
-      <category
-            name="Moplaf"
-            id="com.misc.common.moplaf.kpiview.medusa">
-      </category>
       <view
             name="KPI View"
             icon="icons/sample.gif"
-            category="com.misc.common.moplaf.kpiview.medusa"
+            category="com.misc.common.moplaf.view.category.moplaf"
             class="com.misc.common.moplaf.kpiview.medusa.views.KPIView"
             id="com.misc.common.moplaf.kpiview.medusa.views.KPIView">
       </view>

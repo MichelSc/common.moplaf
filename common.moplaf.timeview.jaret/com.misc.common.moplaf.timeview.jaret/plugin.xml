@@ -4,14 +4,10 @@
 
    <extension
          point="org.eclipse.ui.views">
-      <category
-            name="Moplaf"
-            id="com.misc.common.moplaf.timeview.jaret">
-      </category>
       <view
             name="Gantt View"
             icon="icons/sample.gif"
-            category="com.misc.common.moplaf.timeview.jaret"
+            category="com.misc.common.moplaf.view.category.moplaf"
             class="com.misc.common.moplaf.timeview.jaret.views.GanttView"
             id="com.misc.common.moplaf.timeview.jaret.views.GanttView">
       </view>
