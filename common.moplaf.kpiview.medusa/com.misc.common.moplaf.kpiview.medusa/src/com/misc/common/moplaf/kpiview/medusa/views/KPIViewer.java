@@ -337,6 +337,16 @@ public class KPIViewer extends KPIViewerAbstract {
 				Gauge gauge = context.builder.build();
 //				gauge.setSkinType(SkinType.TILE_KPI);
 //				gauge.setSkinType(SkinType.TILE_TEXT_KPI);
+				float minValue = this.getIKPIProvider().getMinAmount(kpi);
+				float maxValue = this.getIKPIProvider().getMaxAmount(kpi);
+				String unit    = this.getIKPIProvider().getUnit(kpi);
+				String name    = this.getILabelProvider().getText(kpi);
+//				String msg = String.format("KPI %f (%f, %f)", value, minValue, maxValue);
+//				CommonPlugin.INSTANCE.log("KPIViewer: refresh node "+msg);
+				gauge.setTitle(name);
+				gauge.setUnit(unit);
+			    gauge.setMinValue(minValue); // set min fires a RECALC event, so works better when modified as last
+		        gauge.setMaxValue(maxValue);
           	  	gauge.setSkin(new GaugeSkinTypeTilePercentage(gauge));
 	            node = gauge;  
           	  	node.setUserData(kpi);
@@ -405,17 +415,7 @@ public class KPIViewer extends KPIViewerAbstract {
 	private void refreshKPIAttributes(Gauge gauge, Object kpi){
         // scalar attributes
 		float value = this.getIKPIProvider().getAmount(kpi);
-		float minValue = this.getIKPIProvider().getMinAmount(kpi);
-		float maxValue = this.getIKPIProvider().getMaxAmount(kpi);
-		String unit    = this.getIKPIProvider().getUnit(kpi);
-		String name    = this.getILabelProvider().getText(kpi);
-//		String msg = String.format("KPI %f (%f, %f)", value, minValue, maxValue);
-//		CommonPlugin.INSTANCE.log("KPIViewer: refresh node "+msg);
-		gauge.setTitle(name);
-		gauge.setUnit(unit);
 		gauge.setValue(value);
-        gauge.setMaxValue(maxValue);
-        gauge.setMinValue(minValue); // set min fires a RECALC event, so works better when modified as last
 	} // method refresh(KPIViewed)
         // not supported by TILES gauges
 	

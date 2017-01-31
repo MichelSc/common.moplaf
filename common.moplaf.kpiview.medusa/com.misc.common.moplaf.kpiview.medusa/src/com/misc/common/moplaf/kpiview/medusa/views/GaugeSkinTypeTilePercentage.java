@@ -66,7 +66,7 @@ public class GaugeSkinTypeTilePercentage extends SkinBase<Gauge> implements Skin
     // ******************** Constructors **************************************
     public GaugeSkinTypeTilePercentage(Gauge gauge) {
         super(gauge);
-        if (gauge.isAutoScale()) gauge.calcAutoScale();
+//        if (gauge.isAutoScale()) gauge.calcAutoScale();
         minValue        = gauge.getMinValue();
         maxValue        = gauge.getMaxValue();
         range           = gauge.getRange();

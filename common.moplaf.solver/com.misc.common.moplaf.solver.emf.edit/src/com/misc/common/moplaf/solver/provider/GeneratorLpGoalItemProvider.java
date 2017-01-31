@@ -120,7 +120,7 @@ public class GeneratorLpGoalItemProvider extends GeneratorGoalItemProvider imple
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__30SolutionPropertyCategory"),
 				 null));
 	}
 
@@ -142,7 +142,7 @@ public class GeneratorLpGoalItemProvider extends GeneratorGoalItemProvider imple
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__30SolutionPropertyCategory"),
 				 null));
 	}
 
