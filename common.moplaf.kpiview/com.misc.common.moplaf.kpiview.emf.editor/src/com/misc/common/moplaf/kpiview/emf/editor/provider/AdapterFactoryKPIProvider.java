@@ -14,6 +14,11 @@ public class AdapterFactoryKPIProvider implements
 		IKPIProvider {
 	private AdapterFactory adapterFactory;
 	
+	private Object adapt(Object target, Object type){
+		return this.adapterFactory.adapt(target, type);
+		//return Util.adapt(target, type);
+	}
+	
 	// cached KPIs
 	private Object            lastKPIsElement = null;
 	private IItemKPIsProvider lastKPIsElementItemProvider = null;
@@ -30,7 +35,7 @@ public class AdapterFactoryKPIProvider implements
 
 	private void getKPIsItemProvider(Object element){
 		if ( element == this.lastKPIsElement ) { return ; }
-		IItemKPIsProvider KPIsItemProvider = (IItemKPIsProvider) this.adapterFactory.adapt(element, IItemKPIsProvider.class);
+		IItemKPIsProvider KPIsItemProvider = (IItemKPIsProvider) this.adapt(element, IItemKPIsProvider.class);
 		this.lastKPIsElement = element;
 		this.lastKPIsElementItemProvider = KPIsItemProvider;
 		return;
@@ -38,14 +43,14 @@ public class AdapterFactoryKPIProvider implements
 
 	private void getKPIItemProvider(Object element){
 		if ( element == this.lastKPIElement ) { return ; }
-		IItemKPIProvider KPIItemProvider = (IItemKPIProvider) this.adapterFactory.adapt(element, IItemKPIProvider.class);
+		IItemKPIProvider KPIItemProvider = (IItemKPIProvider) this.adapt(element, IItemKPIProvider.class);
 		this.lastKPIElement = element;
 		this.lastKPIElementItemProvider = KPIItemProvider;
 	}
 	
 	private void getKPIRangeItemProvider(Object element){
 		if ( element == this.lastKPIRangeElement ) { return ; }
-		IItemKPIRangeProvider KPIRangeItemProvider = (IItemKPIRangeProvider) this.adapterFactory.adapt(element, IItemKPIRangeProvider.class);
+		IItemKPIRangeProvider KPIRangeItemProvider = (IItemKPIRangeProvider) this.adapt(element, IItemKPIRangeProvider.class);
 		this.lastKPIRangeElement = element;
 		this.lastKPIRangeElementItemProvider = KPIRangeItemProvider;
 	}

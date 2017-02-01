@@ -16,8 +16,9 @@
                org.eclipse.emf.edit.provider.ITreeItemContentProvider
                org.eclipse.emf.edit.provider.IItemLabelProvider
                org.eclipse.emf.edit.provider.IItemPropertySource
-               com.misc.common.moplaf.kpiview.emf.edit.IItemKPIProvider
-               com.misc.common.moplaf.kpiview.emf.edit.IItemKPIsProvider "/>
+               com.misc.common.moplaf.kpiview.emf.edit.IItemKPIsProvider 
+               com.misc.common.moplaf.kpiview.emf.edit.IItemKPIProvider 
+               com.misc.common.moplaf.kpiview.emf.edit.IItemKPIRangeProvider"/>
    </extension>
 
 </plugin>
