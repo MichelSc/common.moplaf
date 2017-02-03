@@ -43,6 +43,9 @@ note that  jfxswt is on a different place (namely on the root of the JRE, and no
 1) The launch configuration, vm arguments  -Dosgi.framework.extensions=org.eclipse.fx.osgi
 2) set the org.eclipse.fx.osgi jar next to the org.eclipse.osgi jar 
   copy it from <home>\.eclipse\org.eclipse.platform_4.6.1_968905197_win32_win32_x86_64\plugins
+
+extra steps on linux
+  set env var SWT_GTK3 to 0
 -------------------------------------------------------------------------------
 Dont know when necessary
   org.eclipse.fx.javafx   
