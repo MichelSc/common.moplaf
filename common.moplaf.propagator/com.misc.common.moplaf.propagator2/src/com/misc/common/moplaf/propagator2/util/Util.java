@@ -18,8 +18,9 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 
 import com.misc.common.moplaf.propagator2.Bindings;
-import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctionScope;
+import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
 import com.misc.common.moplaf.propagator2.Plugin;
+import com.misc.common.moplaf.propagator2.PropagatorFunction;
 import com.misc.common.moplaf.propagator2.PropagatorFunctionBindings;
 
 public class Util {
@@ -100,6 +101,12 @@ public class Util {
 		return "unknown";
 	}
 	
+	/**
+	 * getContainer 
+	 * @param object
+	 * @param paramclass
+	 * @return
+	 */
 	public static EObject getContainer(EObject object, EClass paramclass){
 		EObject current = object;
 		while ( current!=null){
@@ -111,6 +118,12 @@ public class Util {
 		return null;
 	}
 	
+	/**
+	 * 
+	 * @param target
+	 * @param type
+	 * @return
+	 */
 	public static Adapter getAdapter(Notifier target, Object type)	{
 		if ( target == null ){
 			return null;
@@ -123,6 +136,12 @@ public class Util {
 	    return null;
 	}	
 	
+	/**
+	 * 
+	 * @param target
+	 * @param type
+	 * @return
+	 */
 	public static Adapter adapt(Notifier target, Object type){
 		if ( type instanceof Class ){
 			Class adaptertype = (Class)type;
@@ -165,25 +184,64 @@ public class Util {
 	    return Util.getAdapter(target, type);
 	}	
 	
+	/** propagate on the whole resource
+	 * 
+	 * @param resource_set
+	 */
 	public static void propagate(ResourceSet resource_set){
 		for (Resource resource : resource_set.getResources()) {
 			Util.propagate(resource);
 		} 
 	}
 
+	/** propagate a resource
+	 * 
+	 * @param resource
+	 */
 	public static void propagate(Resource resource){
 		TreeIterator<EObject> iterator = resource.getAllContents();
 		while (iterator.hasNext()){
 			EObject object = iterator.next();
-			 if ( object instanceof ObjectWithPropagatorFunctionScope ){
-				 ObjectWithPropagatorFunctionScope scope = (ObjectWithPropagatorFunctionScope)object;
+			 if ( object instanceof ObjectWithPropagatorFunctions ){
+				 ObjectWithPropagatorFunctions scope = (ObjectWithPropagatorFunctions)object;
 				 Plugin.INSTANCE.logInfo("refresh object "+ scope.toString(), null);
-				 scope.refresh();
+				 propagate(scope);
 				 iterator.prune();
 			 }  // the object is a propagator scope
 		} // traverse the objects
 	}
 	
+	/**
+	 * Get the propagation scope for the object
+	 * @param object
+	 * @return
+	 */
+	public static PropagatorFunction getScope(ObjectWithPropagatorFunctions object){
+		for ( PropagatorFunction propagatorFunction : object.getPropagatorFunctions()){
+			PropagatorFunction pf = propagatorFunction.getScope();
+			if ( pf!=null){
+				return pf;
+			}
+		}
+		return null;
+	}
+	
+	/**
+	 * Propagate an object
+	 * @param object
+	 */
+	public static void propagate(ObjectWithPropagatorFunctions object){
+		PropagatorFunction scope = getScope(object);
+		if ( scope!=null){
+			scope.refresh();
+		}
+	}
+	
+	/** logic is object active
+	 * 
+	 * @param target
+	 * @return
+	 */
 	public static boolean notifierIsEObjectActive(Notifier target){
 
 		if ( !(target instanceof EObject) ) { return false; }

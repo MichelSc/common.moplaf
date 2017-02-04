@@ -9,20 +9,21 @@
       ecorePackage="propagator.ecore#/">
     <genDataTypes ecoreDataType="propagator.ecore#//Bindings"/>
     <genClasses ecoreClass="propagator.ecore#//ObjectWithPropagatorFunctions">
-      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="99 Propagator"
-          ecoreFeature="ecore:EReference propagator.ecore#//ObjectWithPropagatorFunctions/PropagatorFunctions"/>
+      <genFeatures property="Readonly" notify="false" children="true" createChild="true"
+          propertyCategory="99 Propagator" ecoreFeature="ecore:EReference propagator.ecore#//ObjectWithPropagatorFunctions/PropagatorFunctions"/>
       <genOperations ecoreOperation="propagator.ecore#//ObjectWithPropagatorFunctions/onOwned"/>
       <genOperations ecoreOperation="propagator.ecore#//ObjectWithPropagatorFunctions/onNotOwned"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="propagator.ecore#//ObjectWithPropagatorFunctionScope">
-      <genOperations ecoreOperation="propagator.ecore#//ObjectWithPropagatorFunctionScope/refresh"/>
-      <genOperations ecoreOperation="propagator.ecore#//ObjectWithPropagatorFunctionScope/newOperation2"/>
+      <genOperations ecoreOperation="propagator.ecore#//ObjectWithPropagatorFunctions/getPropagatorFunction">
+        <genParameters ecoreParameter="propagator.ecore#//ObjectWithPropagatorFunctions/getPropagatorFunction/type"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="propagator.ecore#//PropagatorFunction" labelFeature="#//propagator2/PropagatorFunction/Description">
       <genFeatures notify="false" createChild="false" propertyCategory="10 Associations"
           propertySortChoices="true" ecoreFeature="ecore:EReference propagator.ecore#//PropagatorFunction/Parent"/>
       <genFeatures notify="false" createChild="false" propertyCategory="10 Associations"
           propertySortChoices="true" ecoreFeature="ecore:EReference propagator.ecore#//PropagatorFunction/Antecedents"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="10 Associations"
+          ecoreFeature="ecore:EReference propagator.ecore#//PropagatorFunction/AntecedentsSibling"/>
       <genFeatures createChild="false" propertyCategory="20 State" propertyDescription=""
           ecoreFeature="ecore:EAttribute propagator.ecore#//PropagatorFunction/Touched"/>
       <genFeatures notify="false" createChild="false" propertyCategory="20 State"
@@ -53,6 +54,10 @@
       <genOperations ecoreOperation="propagator.ecore#//PropagatorFunction/doRefresh.1">
         <genParameters ecoreParameter="propagator.ecore#//PropagatorFunction/doRefresh.1/toucher"/>
       </genOperations>
+      <genOperations ecoreOperation="propagator.ecore#//PropagatorFunction/isPropagatorFunctionOfType">
+        <genParameters ecoreParameter="propagator.ecore#//PropagatorFunction/isPropagatorFunctionOfType/type"/>
+      </genOperations>
+      <genOperations ecoreOperation="propagator.ecore#//PropagatorFunction/getScope"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

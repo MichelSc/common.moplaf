@@ -19,6 +19,7 @@ import java.util.HashSet;
 import java.util.function.Predicate;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
@@ -30,6 +31,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -341,24 +343,39 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	 * @generated
 	 */
 	public ObjectWithPropagatorFunctions getObjectWithPropagatorFunctions() {
-		ObjectWithPropagatorFunctions objectWithPropagatorFunctions = basicGetObjectWithPropagatorFunctions();
-		return objectWithPropagatorFunctions != null && objectWithPropagatorFunctions.eIsProxy() ? (ObjectWithPropagatorFunctions)eResolveProxy((InternalEObject)objectWithPropagatorFunctions) : objectWithPropagatorFunctions;
+		if (eContainerFeatureID() != PropagatorPackage.PROPAGATOR_FUNCTION__OBJECT_WITH_PROPAGATOR_FUNCTIONS) return null;
+		return (ObjectWithPropagatorFunctions)eInternalContainer();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
-	public ObjectWithPropagatorFunctions basicGetObjectWithPropagatorFunctions() {
-		EObject container = this.eContainer;
-		if ( container instanceof ObjectWithPropagatorFunctions){
-			return (ObjectWithPropagatorFunctions) container;
+	public NotificationChain basicSetObjectWithPropagatorFunctions(ObjectWithPropagatorFunctions newObjectWithPropagatorFunctions, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newObjectWithPropagatorFunctions, PropagatorPackage.PROPAGATOR_FUNCTION__OBJECT_WITH_PROPAGATOR_FUNCTIONS, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setObjectWithPropagatorFunctions(ObjectWithPropagatorFunctions newObjectWithPropagatorFunctions) {
+		if (newObjectWithPropagatorFunctions != eInternalContainer() || (eContainerFeatureID() != PropagatorPackage.PROPAGATOR_FUNCTION__OBJECT_WITH_PROPAGATOR_FUNCTIONS && newObjectWithPropagatorFunctions != null)) {
+			if (EcoreUtil.isAncestor(this, newObjectWithPropagatorFunctions))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newObjectWithPropagatorFunctions != null)
+				msgs = ((InternalEObject)newObjectWithPropagatorFunctions).eInverseAdd(this, PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS__PROPAGATOR_FUNCTIONS, ObjectWithPropagatorFunctions.class, msgs);
+			msgs = basicSetObjectWithPropagatorFunctions(newObjectWithPropagatorFunctions, msgs);
+			if (msgs != null) msgs.dispatch();
 		}
-		String logMessage = String.format("The owner of the PropagatorFunction %s must be a ObjectWithPropagatorFunctions and not %s",
-                this.getClass().getName(),
-                container == null ? "null" : container.getClass().getName());
-		Plugin.INSTANCE.logError(logMessage, null);
-		return null;
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PropagatorPackage.PROPAGATOR_FUNCTION__OBJECT_WITH_PROPAGATOR_FUNCTIONS, newObjectWithPropagatorFunctions, newObjectWithPropagatorFunctions));
 	}
 
 	/**
@@ -602,6 +619,76 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public boolean isPropagatorFunctionOfType(Object type) {
+		if ( type instanceof Class<?>) {
+			return  ((Class<?>)type).isInstance(this);
+		} else if ( type instanceof String ) {
+			return this.getType().equals((String)type);
+		}
+		return false;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public PropagatorFunction getScope() {
+		PropagatorFunction parent = this.getParent();
+		if ( parent == null ) { 
+			return this;
+		} else {
+			return parent.getScope();
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case PropagatorPackage.PROPAGATOR_FUNCTION__OBJECT_WITH_PROPAGATOR_FUNCTIONS:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetObjectWithPropagatorFunctions((ObjectWithPropagatorFunctions)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case PropagatorPackage.PROPAGATOR_FUNCTION__OBJECT_WITH_PROPAGATOR_FUNCTIONS:
+				return basicSetObjectWithPropagatorFunctions(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case PropagatorPackage.PROPAGATOR_FUNCTION__OBJECT_WITH_PROPAGATOR_FUNCTIONS:
+				return eInternalContainer().eInverseRemove(this, PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS__PROPAGATOR_FUNCTIONS, ObjectWithPropagatorFunctions.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
 	 * Default implementation touch
 	 * <!-- end-user-doc -->
 	 */
@@ -630,7 +717,7 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	public void enable() {
 		Bindings bindings = this.getBindings();
 		if ( bindings!=null){
-			ObjectWithPropagatorFunctions object = this.basicGetObjectWithPropagatorFunctions();
+			ObjectWithPropagatorFunctions object = this.getObjectWithPropagatorFunctions();
 			
 			PropagatorFunctionBindings adapter = (PropagatorFunctionBindings) Util.getAdapter(object, bindings);
 			
@@ -660,7 +747,7 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 
 		Bindings bindings = this.getBindings();
 		if ( bindings!=null){
-			ObjectWithPropagatorFunctions object = this.basicGetObjectWithPropagatorFunctions();
+			ObjectWithPropagatorFunctions object = this.getObjectWithPropagatorFunctions();
 		
 			PropagatorFunctionBindings adapter = (PropagatorFunctionBindings) Util.getAdapter(object, bindings);
 		
@@ -703,8 +790,7 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 			case PropagatorPackage.PROPAGATOR_FUNCTION__ENABLED:
 				return isEnabled();
 			case PropagatorPackage.PROPAGATOR_FUNCTION__OBJECT_WITH_PROPAGATOR_FUNCTIONS:
-				if (resolve) return getObjectWithPropagatorFunctions();
-				return basicGetObjectWithPropagatorFunctions();
+				return getObjectWithPropagatorFunctions();
 			case PropagatorPackage.PROPAGATOR_FUNCTION__TYPE:
 				return getType();
 			case PropagatorPackage.PROPAGATOR_FUNCTION__OBJECT:
@@ -740,6 +826,9 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 			case PropagatorPackage.PROPAGATOR_FUNCTION__ENABLED:
 				setEnabled((Boolean)newValue);
 				return;
+			case PropagatorPackage.PROPAGATOR_FUNCTION__OBJECT_WITH_PROPAGATOR_FUNCTIONS:
+				setObjectWithPropagatorFunctions((ObjectWithPropagatorFunctions)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -763,6 +852,9 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 				return;
 			case PropagatorPackage.PROPAGATOR_FUNCTION__ENABLED:
 				setEnabled(ENABLED_EDEFAULT);
+				return;
+			case PropagatorPackage.PROPAGATOR_FUNCTION__OBJECT_WITH_PROPAGATOR_FUNCTIONS:
+				setObjectWithPropagatorFunctions((ObjectWithPropagatorFunctions)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -791,7 +883,7 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 			case PropagatorPackage.PROPAGATOR_FUNCTION__ENABLED:
 				return enabled != ENABLED_EDEFAULT;
 			case PropagatorPackage.PROPAGATOR_FUNCTION__OBJECT_WITH_PROPAGATOR_FUNCTIONS:
-				return basicGetObjectWithPropagatorFunctions() != null;
+				return getObjectWithPropagatorFunctions() != null;
 			case PropagatorPackage.PROPAGATOR_FUNCTION__TYPE:
 				return TYPE_EDEFAULT == null ? getType() != null : !TYPE_EDEFAULT.equals(getType());
 			case PropagatorPackage.PROPAGATOR_FUNCTION__OBJECT:
@@ -842,6 +934,10 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 			case PropagatorPackage.PROPAGATOR_FUNCTION___DO_REFRESH__EOBJECT:
 				doRefresh((EObject)arguments.get(0));
 				return null;
+			case PropagatorPackage.PROPAGATOR_FUNCTION___IS_PROPAGATOR_FUNCTION_OF_TYPE__OBJECT:
+				return isPropagatorFunctionOfType(arguments.get(0));
+			case PropagatorPackage.PROPAGATOR_FUNCTION___GET_SCOPE:
+				return getScope();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

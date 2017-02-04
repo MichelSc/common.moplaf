@@ -72,12 +72,6 @@ public class PropagatorSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTION_SCOPE: {
-				ObjectWithPropagatorFunctionScope objectWithPropagatorFunctionScope = (ObjectWithPropagatorFunctionScope)theEObject;
-				T result = caseObjectWithPropagatorFunctionScope(objectWithPropagatorFunctionScope);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case PropagatorPackage.PROPAGATOR_FUNCTION: {
 				PropagatorFunction propagatorFunction = (PropagatorFunction)theEObject;
 				T result = casePropagatorFunction(propagatorFunction);
@@ -100,21 +94,6 @@ public class PropagatorSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseObjectWithPropagatorFunctions(ObjectWithPropagatorFunctions object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Object With Propagator Function Scope</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Object With Propagator Function Scope</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseObjectWithPropagatorFunctionScope(ObjectWithPropagatorFunctionScope object) {
 		return null;
 	}
 

@@ -65,7 +65,15 @@ import com.misc.common.moplaf.propagator2.util.Util;
  */
 public class PropagatorFunctionAdapterManager extends AdapterImpl
 {
-  /**
+	private PropagatorFunctionsConstructor propagatorFunctionsConstructor;
+	
+	public PropagatorFunctionAdapterManager(PropagatorFunctionsConstructor constructor) {
+		super();
+		propagatorFunctionsConstructor = constructor;
+		// TODO Auto-generated constructor stub
+	}
+
+/**
    * Handles a notification by calling {@link #selfAdapt selfAdapter}.
    */
   @Override
@@ -458,6 +466,7 @@ public class PropagatorFunctionAdapterManager extends AdapterImpl
 		if ( notifier instanceof ObjectWithPropagatorFunctions) {
 			ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
 			objectWithPropagatorFunctions.onOwned();
+			this.propagatorFunctionsConstructor.construct(objectWithPropagatorFunctions);
 		}
 	  }
   }

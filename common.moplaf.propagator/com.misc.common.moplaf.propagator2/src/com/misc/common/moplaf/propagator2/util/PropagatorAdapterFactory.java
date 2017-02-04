@@ -72,10 +72,6 @@ public class PropagatorAdapterFactory extends AdapterFactoryImpl {
 				return createObjectWithPropagatorFunctionsAdapter();
 			}
 			@Override
-			public Adapter caseObjectWithPropagatorFunctionScope(ObjectWithPropagatorFunctionScope object) {
-				return createObjectWithPropagatorFunctionScopeAdapter();
-			}
-			@Override
 			public Adapter casePropagatorFunction(PropagatorFunction object) {
 				return createPropagatorFunctionAdapter();
 			}
@@ -110,20 +106,6 @@ public class PropagatorAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createObjectWithPropagatorFunctionsAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctionScope <em>Object With Propagator Function Scope</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctionScope
-	 * @generated
-	 */
-	public Adapter createObjectWithPropagatorFunctionScopeAdapter() {
 		return null;
 	}
 

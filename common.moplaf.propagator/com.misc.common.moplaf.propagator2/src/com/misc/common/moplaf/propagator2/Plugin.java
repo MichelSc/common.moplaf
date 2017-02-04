@@ -15,11 +15,10 @@ import com.misc.common.moplaf.propagator2.util.Util;
 /**
  * This is the central singleton for the Propagator model plugin.
  * <!-- begin-user-doc -->
- * @implements PrefConstants
  * <!-- end-user-doc -->
  * @generated
  */
-public final class Plugin extends EMFPlugin {
+public final class Plugin extends EMFPlugin  {
 	private Logger logger = new Logger("Propagator");
 	
 	public Logger getLogger(){

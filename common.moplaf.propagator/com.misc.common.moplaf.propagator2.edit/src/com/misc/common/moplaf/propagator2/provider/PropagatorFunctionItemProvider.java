@@ -62,6 +62,7 @@ public class PropagatorFunctionItemProvider
 
 			addParentPropertyDescriptor(object);
 			addAntecedentsPropertyDescriptor(object);
+			addAntecedentsSiblingPropertyDescriptor(object);
 			addTouchedPropertyDescriptor(object);
 			addTouchedChildrenPropertyDescriptor(object);
 			addTouchersPropertyDescriptor(object);
@@ -111,6 +112,28 @@ public class PropagatorFunctionItemProvider
 				 true,
 				 false,
 				 true,
+				 null,
+				 getString("_UI__10AssociationsPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Antecedents Sibling feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAntecedentsSiblingPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PropagatorFunction_AntecedentsSibling_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PropagatorFunction_AntecedentsSibling_feature", "_UI_PropagatorFunction_type"),
+				 PropagatorPackage.Literals.PROPAGATOR_FUNCTION__ANTECEDENTS_SIBLING,
+				 false,
+				 false,
+				 false,
 				 null,
 				 getString("_UI__10AssociationsPropertyCategory"),
 				 null));

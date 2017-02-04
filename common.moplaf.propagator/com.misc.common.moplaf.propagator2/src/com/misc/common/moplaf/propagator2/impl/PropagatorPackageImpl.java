@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctionScope;
 import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
 import com.misc.common.moplaf.propagator2.PropagatorFactory;
 import com.misc.common.moplaf.propagator2.PropagatorFunction;
@@ -30,13 +29,6 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * @generated
 	 */
 	private EClass objectWithPropagatorFunctionsEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass objectWithPropagatorFunctionScopeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -154,17 +146,8 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getObjectWithPropagatorFunctionScope() {
-		return objectWithPropagatorFunctionScopeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getObjectWithPropagatorFunctionScope__Refresh() {
-		return objectWithPropagatorFunctionScopeEClass.getEOperations().get(0);
+	public EOperation getObjectWithPropagatorFunctions__GetPropagatorFunction__Object() {
+		return objectWithPropagatorFunctionsEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -379,6 +362,24 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getPropagatorFunction__IsPropagatorFunctionOfType__Object() {
+		return propagatorFunctionEClass.getEOperations().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPropagatorFunction__GetScope() {
+		return propagatorFunctionEClass.getEOperations().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getPropagatorFunction__Enable() {
 		return propagatorFunctionEClass.getEOperations().get(0);
 	}
@@ -433,9 +434,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 		createEReference(objectWithPropagatorFunctionsEClass, OBJECT_WITH_PROPAGATOR_FUNCTIONS__PROPAGATOR_FUNCTIONS);
 		createEOperation(objectWithPropagatorFunctionsEClass, OBJECT_WITH_PROPAGATOR_FUNCTIONS___ON_OWNED);
 		createEOperation(objectWithPropagatorFunctionsEClass, OBJECT_WITH_PROPAGATOR_FUNCTIONS___ON_NOT_OWNED);
-
-		objectWithPropagatorFunctionScopeEClass = createEClass(OBJECT_WITH_PROPAGATOR_FUNCTION_SCOPE);
-		createEOperation(objectWithPropagatorFunctionScopeEClass, OBJECT_WITH_PROPAGATOR_FUNCTION_SCOPE___REFRESH);
+		createEOperation(objectWithPropagatorFunctionsEClass, OBJECT_WITH_PROPAGATOR_FUNCTIONS___GET_PROPAGATOR_FUNCTION__OBJECT);
 
 		propagatorFunctionEClass = createEClass(PROPAGATOR_FUNCTION);
 		createEReference(propagatorFunctionEClass, PROPAGATOR_FUNCTION__PARENT);
@@ -462,6 +461,8 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___DO_GET_BINDINGS);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___DO_REFRESH);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___DO_REFRESH__EOBJECT);
+		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___IS_PROPAGATOR_FUNCTION_OF_TYPE__OBJECT);
+		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___GET_SCOPE);
 
 		// Create data types
 		bindingsEDataType = createEDataType(BINDINGS);
@@ -498,15 +499,14 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(objectWithPropagatorFunctionsEClass, ObjectWithPropagatorFunctions.class, "ObjectWithPropagatorFunctions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getObjectWithPropagatorFunctions_PropagatorFunctions(), this.getPropagatorFunction(), null, "PropagatorFunctions", null, 0, -1, ObjectWithPropagatorFunctions.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getObjectWithPropagatorFunctions_PropagatorFunctions(), this.getPropagatorFunction(), this.getPropagatorFunction_ObjectWithPropagatorFunctions(), "PropagatorFunctions", null, 0, -1, ObjectWithPropagatorFunctions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getObjectWithPropagatorFunctions__OnOwned(), null, "onOwned", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getObjectWithPropagatorFunctions__OnNotOwned(), null, "onNotOwned", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(objectWithPropagatorFunctionScopeEClass, ObjectWithPropagatorFunctionScope.class, "ObjectWithPropagatorFunctionScope", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEOperation(getObjectWithPropagatorFunctionScope__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getObjectWithPropagatorFunctions__GetPropagatorFunction__Object(), this.getPropagatorFunction(), "getPropagatorFunction", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(propagatorFunctionEClass, PropagatorFunction.class, "PropagatorFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPropagatorFunction_Parent(), this.getPropagatorFunction(), null, "Parent", null, 0, 1, PropagatorFunction.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -516,7 +516,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 		initEReference(getPropagatorFunction_TouchedChildren(), this.getPropagatorFunction(), null, "TouchedChildren", null, 0, -1, PropagatorFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPropagatorFunction_Touchers(), ecorePackage.getEObject(), null, "Touchers", null, 0, -1, PropagatorFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPropagatorFunction_Enabled(), ecorePackage.getEBoolean(), "Enabled", null, 0, 1, PropagatorFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPropagatorFunction_ObjectWithPropagatorFunctions(), this.getObjectWithPropagatorFunctions(), null, "ObjectWithPropagatorFunctions", null, 1, 1, PropagatorFunction.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getPropagatorFunction_ObjectWithPropagatorFunctions(), this.getObjectWithPropagatorFunctions(), this.getObjectWithPropagatorFunctions_PropagatorFunctions(), "ObjectWithPropagatorFunctions", null, 1, 1, PropagatorFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPropagatorFunction_Type(), ecorePackage.getEString(), "Type", null, 0, 1, PropagatorFunction.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPropagatorFunction_Object(), ecorePackage.getEString(), "Object", null, 0, 1, PropagatorFunction.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPropagatorFunction_Instance(), ecorePackage.getEString(), "Instance", null, 0, 1, PropagatorFunction.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -526,7 +526,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 
 		initEOperation(getPropagatorFunction__Disable(), null, "disable", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		EOperation op = initEOperation(getPropagatorFunction__Touch__EObject(), null, "touch", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPropagatorFunction__Touch__EObject(), null, "touch", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEObject(), "toucher", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getPropagatorFunction__RefreshAntecedents(), ecorePackage.getEBoolean(), "refreshAntecedents", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -547,6 +547,11 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 
 		op = initEOperation(getPropagatorFunction__DoRefresh__EObject(), null, "doRefresh", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEObject(), "toucher", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getPropagatorFunction__IsPropagatorFunctionOfType__Object(), ecorePackage.getEBoolean(), "isPropagatorFunctionOfType", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getPropagatorFunction__GetScope(), this.getPropagatorFunction(), "getScope", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(bindingsEDataType, Bindings.class, "Bindings", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

@@ -5,13 +5,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="ObjectWithPropagatorFunctions">
     <eOperations name="onOwned"/>
     <eOperations name="onNotOwned"/>
+    <eOperations name="getPropagatorFunction" eType="#//PropagatorFunction">
+      <eParameters name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="PropagatorFunctions" upperBound="-1"
-        eType="#//PropagatorFunction" changeable="false" volatile="true" transient="true"
-        derived="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ObjectWithPropagatorFunctionScope" abstract="true"
-      interface="true">
-    <eOperations name="refresh"/>
+        eType="#//PropagatorFunction" containment="true" eOpposite="#//PropagatorFunction/ObjectWithPropagatorFunctions"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PropagatorFunction">
     <eOperations name="enable"/>
@@ -30,6 +28,10 @@
     <eOperations name="doRefresh">
       <eParameters name="toucher" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
+    <eOperations name="isPropagatorFunctionOfType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+    <eOperations name="getScope" eType="#//PropagatorFunction"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Parent" eType="#//PropagatorFunction"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Antecedents" upperBound="-1"
@@ -45,8 +47,7 @@
         eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ObjectWithPropagatorFunctions"
-        lowerBound="1" eType="#//ObjectWithPropagatorFunctions" changeable="false"
-        volatile="true" transient="true" derived="true"/>
+        lowerBound="1" eType="#//ObjectWithPropagatorFunctions" eOpposite="#//ObjectWithPropagatorFunctions/PropagatorFunctions"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Object" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

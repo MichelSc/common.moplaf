@@ -2,9 +2,18 @@
  */
 package com.misc.common.moplaf.propagator2;
 
-import org.eclipse.emf.common.util.EList;
+import java.lang.reflect.InvocationTargetException;
 
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.resource.Resource;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,17 +48,19 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ObjectWithPropagatorFunctions extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Propagator Functions</b></em>' reference list.
+	 * Returns the value of the '<em><b>Propagator Functions</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.propagator2.PropagatorFunction}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#getObjectWithPropagatorFunctions <em>Object With Propagator Functions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Propagator Functions</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Propagator Functions</em>' reference list.
+	 * @return the value of the '<em>Propagator Functions</em>' containment reference list.
 	 * @see com.misc.common.moplaf.propagator2.PropagatorPackage#getObjectWithPropagatorFunctions_PropagatorFunctions()
-	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @see com.misc.common.moplaf.propagator2.PropagatorFunction#getObjectWithPropagatorFunctions
+	 * @model opposite="ObjectWithPropagatorFunctions" containment="true"
 	 * @generated
 	 */
 	EList<PropagatorFunction> getPropagatorFunctions();
@@ -69,5 +80,76 @@ public interface ObjectWithPropagatorFunctions extends EObject {
 	 * @generated
 	 */
 	void onNotOwned();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	PropagatorFunction getPropagatorFunction(Object type);
+	
+	/**
+	 * Convenience method 
+	 * @return
+	 */
+	public <T> T getPropagatorFunction(Class<T> type);
+
+	@Override
+	EList<Adapter> eAdapters();
+
+	@Override
+	boolean eDeliver();
+
+	@Override
+	void eSetDeliver(boolean deliver);
+
+	@Override
+	void eNotify(Notification notification);
+
+	@Override
+	EClass eClass();
+
+	@Override
+	Resource eResource();
+
+	@Override
+	EObject eContainer();
+
+	@Override
+	EStructuralFeature eContainingFeature();
+
+	@Override
+	EReference eContainmentFeature();
+
+	@Override
+	EList<EObject> eContents();
+
+	@Override
+	TreeIterator<EObject> eAllContents();
+
+	@Override
+	boolean eIsProxy();
+
+	@Override
+	EList<EObject> eCrossReferences();
+
+	@Override
+	Object eGet(EStructuralFeature feature);
+
+	@Override
+	Object eGet(EStructuralFeature feature, boolean resolve);
+
+	@Override
+	void eSet(EStructuralFeature feature, Object newValue);
+
+	@Override
+	boolean eIsSet(EStructuralFeature feature);
+
+	@Override
+	void eUnset(EStructuralFeature feature);
+
+	@Override
+	Object eInvoke(EOperation operation, EList<?> arguments) throws InvocationTargetException;
 
 } // ObjectWithPropagatorFunctions

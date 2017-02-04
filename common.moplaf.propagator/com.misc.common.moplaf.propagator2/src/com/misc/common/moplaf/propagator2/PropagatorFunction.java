@@ -224,19 +224,32 @@ public interface PropagatorFunction extends EObject {
 	void setEnabled(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Object With Propagator Functions</b></em>' reference.
+	 * Returns the value of the '<em><b>Object With Propagator Functions</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions#getPropagatorFunctions <em>Propagator Functions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Object With Propagator Functions</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Object With Propagator Functions</em>' reference.
+	 * @return the value of the '<em>Object With Propagator Functions</em>' container reference.
+	 * @see #setObjectWithPropagatorFunctions(ObjectWithPropagatorFunctions)
 	 * @see com.misc.common.moplaf.propagator2.PropagatorPackage#getPropagatorFunction_ObjectWithPropagatorFunctions()
-	 * @model required="true" transient="true" changeable="false" volatile="true" derived="true"
+	 * @see com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions#getPropagatorFunctions
+	 * @model opposite="PropagatorFunctions" required="true" transient="false"
 	 * @generated
 	 */
 	ObjectWithPropagatorFunctions getObjectWithPropagatorFunctions();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#getObjectWithPropagatorFunctions <em>Object With Propagator Functions</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Object With Propagator Functions</em>' container reference.
+	 * @see #getObjectWithPropagatorFunctions()
+	 * @generated
+	 */
+	void setObjectWithPropagatorFunctions(ObjectWithPropagatorFunctions value);
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
@@ -393,6 +406,22 @@ public interface PropagatorFunction extends EObject {
 	 * @generated
 	 */
 	void doRefresh(EObject toucher);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean isPropagatorFunctionOfType(Object type);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	PropagatorFunction getScope();
 
 	/**
 	 * <!-- begin-user-doc -->
