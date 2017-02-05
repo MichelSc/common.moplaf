@@ -561,7 +561,7 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * Reset touched state
 	 */
-	private void untouch(){
+	public void untouch(){
 		if ( this.isTouched() ){
 			this.setTouched(false);
 			this.getTouchers().clear();
@@ -766,8 +766,6 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 			}
 		}
 		
-		// untouch
-		this.untouch();
 	}
 
 	/**
@@ -917,6 +915,9 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 				return null;
 			case PropagatorPackage.PROPAGATOR_FUNCTION___TOUCH__EOBJECT:
 				touch((EObject)arguments.get(0));
+				return null;
+			case PropagatorPackage.PROPAGATOR_FUNCTION___UNTOUCH:
+				untouch();
 				return null;
 			case PropagatorPackage.PROPAGATOR_FUNCTION___REFRESH_ANTECEDENTS:
 				return refreshAntecedents();

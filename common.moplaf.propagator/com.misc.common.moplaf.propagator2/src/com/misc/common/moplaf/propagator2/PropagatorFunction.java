@@ -341,6 +341,14 @@ public interface PropagatorFunction extends EObject {
 	 * @model
 	 * @generated
 	 */
+	void untouch();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	boolean refreshAntecedents();
 
 	/**

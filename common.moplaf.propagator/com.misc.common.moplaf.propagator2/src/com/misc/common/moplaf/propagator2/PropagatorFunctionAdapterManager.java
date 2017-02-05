@@ -62,439 +62,450 @@ import com.misc.common.moplaf.propagator2.util.Util;
  *   <li>as for instance cross-references
  *   </ul>
  * </ul>
+ * Internally, this Adapter listens to notifications and handles them by calling the following methods, 
+ * when appropriate, but always in this sequence
+ *   <ul> 
+ *   <li>{@link #onNotifierContained(Notifier)}
+ *   <li>{@link #onAdapterAdded(Notifier)}
+ *   <li>{@link #onAdapterRemoved(Notifier)}
+ *   <li>{@link #onNotifierNotContained(Notifier)}
+ *   </ul>
  */
 public class PropagatorFunctionAdapterManager extends AdapterImpl
 {
 	private PropagatorFunctionsConstructor propagatorFunctionsConstructor;
-	
+
 	public PropagatorFunctionAdapterManager(PropagatorFunctionsConstructor constructor) {
 		super();
 		propagatorFunctionsConstructor = constructor;
-		// TODO Auto-generated constructor stub
 	}
 
-/**
-   * Handles a notification by calling {@link #selfAdapt selfAdapter}.
-   */
-  @Override
-  public void notifyChanged(Notification notification)
-  {
-    selfAdapt(notification);
+	/**
+	 * Handles a notification by calling {@link #selfAdapt selfAdapter}.
+	 */
+	@Override
+	public void notifyChanged(Notification notification)
+	{
+		selfAdapt(notification);
 
-    super.notifyChanged(notification);
-  }
+		super.notifyChanged(notification);
+	}
 
-  /**
-   * Handles a notification by calling {@link #handleContainment handleContainment}
-   * for any containment-based notification.
-   */
-  protected void selfAdapt(Notification notification)
-  {
-    Object notifier = notification.getNotifier();
-    if (notifier instanceof ResourceSet)
-    {
-      if (notification.getFeatureID(ResourceSet.class) == ResourceSet.RESOURCE_SET__RESOURCES)
-      {
-        handleContainment(notification);
-      }
-    }
-    else if (notifier instanceof Resource)
-    {
-      if (notification.getFeatureID(Resource.class) == Resource.RESOURCE__CONTENTS)
-      {
-        handleContainment(notification);
-      }
-    }
-    else if (notifier instanceof EObject)
-    {
-      Object feature = notification.getFeature();
-      if (feature instanceof EReference)
-      {
-        EReference eReference = (EReference)feature;
-        if (eReference.isContainment())
-        {
-          handleContainment(notification);
-        }
-      }
-    }
-  }
+	/**
+	 * Handles a notification by calling {@link #handleContainment handleContainment}
+	 * for any containment-based notification.
+	 */
+	protected void selfAdapt(Notification notification)
+	{
+		Object notifier = notification.getNotifier();
+		if (notifier instanceof ResourceSet)
+		{
+			if (notification.getFeatureID(ResourceSet.class) == ResourceSet.RESOURCE_SET__RESOURCES)
+			{
+				handleContainment(notification);
+			}
+		}
+		else if (notifier instanceof Resource)
+		{
+			if (notification.getFeatureID(Resource.class) == Resource.RESOURCE__CONTENTS)
+			{
+				handleContainment(notification);
+			}
+		}
+		else if (notifier instanceof EObject)
+		{
+			Object feature = notification.getFeature();
+			if (feature instanceof EReference)
+			{
+				EReference eReference = (EReference)feature;
+				if (eReference.isContainment())
+				{
+					handleContainment(notification);
+				}
+			}
+		}
+	}
 
-  /**
-   * Handles a containment change by adding and removing the adapter as appropriate.
-   */
-  protected void handleContainment(Notification notification)
-  {
-    switch (notification.getEventType())
-    {
-      case Notification.RESOLVE:
-      {
-        // We need to be careful that the proxy may be resolved while we are attaching this adapter.
-        // We need to avoid attaching the adapter during the resolve 
-        // and also attaching it again as we walk the eContents() later.
-        // Checking here avoids having to check during addAdapter.
-        //
-        Notifier oldValue = (Notifier)notification.getOldValue();
-        if (oldValue.eAdapters().contains(this))
-        {
-          this.onNotifierNotContained(oldValue);
-          removeAdapter(oldValue);
-          Notifier newValue = (Notifier)notification.getNewValue();
-          this.onNotifierContained(newValue);
-          addAdapter(newValue);
-          this.onResolve(oldValue, newValue);
-        }
-        break;
-      }
-      case Notification.UNSET:
-      {
-        Object oldValue = notification.getOldValue();
-        if (oldValue != Boolean.TRUE && oldValue != Boolean.FALSE)
-        {
-          if (oldValue != null)
-          {
-            removeAdapter((Notifier)oldValue);
-            this.onNotifierNotContained((Notifier)oldValue);
-          }
-          Notifier newValue = (Notifier)notification.getNewValue();
-          if (newValue != null)
-          {
-            this.onNotifierNotContained((Notifier)newValue);
-            addAdapter(newValue);
-          }
-        }
-        break;
-      }
-      case Notification.SET:
-      {
-        Notifier oldValue = (Notifier)notification.getOldValue();
-        if (oldValue != null)
-        {
-          removeAdapter(oldValue);
-          this.onNotifierNotContained(oldValue);
-        }
-        Notifier newValue = (Notifier)notification.getNewValue();
-        if (newValue != null)
-        {
-          this.onNotifierContained(newValue);
-          addAdapter(newValue);
-        }
-        break;
-      }
-      case Notification.ADD:
-      {
-        Notifier newValue = (Notifier)notification.getNewValue();
-        if (newValue != null)
-        {
-          this.onNotifierContained(newValue);
-          addAdapter(newValue);
-        }
-        break;
-      }
-      case Notification.ADD_MANY:
-      {
-        @SuppressWarnings("unchecked") Collection<Notifier> newValues = (Collection<Notifier>)notification.getNewValue();
-        for (Notifier newValue : newValues)
-        {
-          this.onNotifierContained(newValue);
-          addAdapter(newValue);
-        }
-        break;
-      }
-      case Notification.REMOVE:
-      {
-        Notifier oldValue = (Notifier)notification.getOldValue();
-        if (oldValue != null)
-        {
-          removeAdapter(oldValue);
-          this.onNotifierNotContained(oldValue);
-        }
-        break;
-      }
-      case Notification.REMOVE_MANY:
-      {
-        @SuppressWarnings("unchecked") Collection<Notifier> oldValues = (Collection<Notifier>)notification.getOldValue();
-        for ( Notifier oldContentValue : oldValues)
-        {
-          removeAdapter(oldContentValue);
-          this.onNotifierNotContained(oldContentValue);
-        }
-        break;
-      }
-    }
-  }
+	/**
+	 * Handles a containment change by adding and removing the adapter as appropriate.
+	 */
+	protected void handleContainment(Notification notification)
+	{
+		switch (notification.getEventType())
+		{
+		case Notification.RESOLVE:
+		{
+			// We need to be careful that the proxy may be resolved while we are attaching this adapter.
+			// We need to avoid attaching the adapter during the resolve 
+			// and also attaching it again as we walk the eContents() later.
+			// Checking here avoids having to check during addAdapter.
+			//
+			Notifier oldValue = (Notifier)notification.getOldValue();
+			if (oldValue.eAdapters().contains(this))
+			{
+				this.onNotifierNotContained(oldValue);
+				removeAdapter(oldValue);
+				Notifier newValue = (Notifier)notification.getNewValue();
+				this.onNotifierContained(newValue);
+				addAdapter(newValue);
+				this.onResolve(oldValue, newValue);
+			}
+			break;
+		}
+		case Notification.UNSET:
+		{
+			Object oldValue = notification.getOldValue();
+			if (oldValue != Boolean.TRUE && oldValue != Boolean.FALSE)
+			{
+				if (oldValue != null)
+				{
+					removeAdapter((Notifier)oldValue);
+					this.onNotifierNotContained((Notifier)oldValue);
+				}
+				Notifier newValue = (Notifier)notification.getNewValue();
+				if (newValue != null)
+				{
+					this.onNotifierNotContained((Notifier)newValue);
+					addAdapter(newValue);
+				}
+			}
+			break;
+		}
+		case Notification.SET:
+		{
+			Notifier oldValue = (Notifier)notification.getOldValue();
+			if (oldValue != null)
+			{
+				removeAdapter(oldValue);
+				this.onNotifierNotContained(oldValue);
+			}
+			Notifier newValue = (Notifier)notification.getNewValue();
+			if (newValue != null)
+			{
+				this.onNotifierContained(newValue);
+				addAdapter(newValue);
+			}
+			break;
+		}
+		case Notification.ADD:
+		{
+			Notifier newValue = (Notifier)notification.getNewValue();
+			if (newValue != null)
+			{
+				this.onNotifierContained(newValue);
+				addAdapter(newValue);
+			}
+			break;
+		}
+		case Notification.ADD_MANY:
+		{
+			@SuppressWarnings("unchecked") Collection<Notifier> newValues = (Collection<Notifier>)notification.getNewValue();
+			for (Notifier newValue : newValues)
+			{
+				this.onNotifierContained(newValue);
+				addAdapter(newValue);
+			}
+			break;
+		}
+		case Notification.REMOVE:
+		{
+			Notifier oldValue = (Notifier)notification.getOldValue();
+			if (oldValue != null)
+			{
+				removeAdapter(oldValue);
+				this.onNotifierNotContained(oldValue);
+			}
+			break;
+		}
+		case Notification.REMOVE_MANY:
+		{
+			@SuppressWarnings("unchecked") Collection<Notifier> oldValues = (Collection<Notifier>)notification.getOldValue();
+			for ( Notifier oldContentValue : oldValues)
+			{
+				removeAdapter(oldContentValue);
+				this.onNotifierNotContained(oldContentValue);
+			}
+			break;
+		}
+		}
+	}
 
-  /**
-   * Handles installation of the adapter
-   * by adding the adapter to each of the directly contained objects.
-   */
-  @Override
-  public void setTarget(Notifier target)
-  {
-    if (target instanceof EObject)
-    {
-      setTarget((EObject)target);
-    }
-    else if (target instanceof Resource)
-    {
-      setTarget((Resource)target);
-    }
-    else if (target instanceof ResourceSet)
-    {
-      setTarget((ResourceSet)target);
-    }
-    else
-    {
-      basicSetTarget(target);
-    }
-  }
-  
-  /**
-   * Actually sets the target by calling super.
-   */
-  protected void basicSetTarget(Notifier target)
-  {
-    super.setTarget(target);
-  }
+	/**
+	 * Handles installation of the adapter
+	 * by adding the adapter to each of the directly contained objects.
+	 */
+	@Override
+	public void setTarget(Notifier target)
+	{
+		if (target instanceof EObject)
+		{
+			setTarget((EObject)target);
+		}
+		else if (target instanceof Resource)
+		{
+			setTarget((Resource)target);
+		}
+		else if (target instanceof ResourceSet)
+		{
+			setTarget((ResourceSet)target);
+		}
+		else
+		{
+			basicSetTarget(target);
+		}
+	}
 
-  /**
-   * Handles installation of the adapter on an EObject
-   * by adding the adapter to each of the directly contained objects.
-   */
-  protected void setTarget(EObject target)
-  {
-	this.onAdapterAdded(target);  // first the container objects
-    basicSetTarget(target);
-    for (Iterator<? extends Notifier> i = target.eContents().iterator(); i.hasNext(); )
-    {
-      Notifier notifier = i.next();
-      addAdapter(notifier);  // second the contained objects
-    }
-  }
+	/**
+	 * Actually sets the target by calling super.
+	 */
+	protected void basicSetTarget(Notifier target)
+	{
+		super.setTarget(target);
+	}
 
-  /**
-   * Handles installation of the adapter on a Resource
-   * by adding the adapter to each of the directly contained objects.
-   */
-  protected void setTarget(Resource target)
-  {
-    basicSetTarget(target);
-    List<EObject> contents = target.getContents();
-    for (int i = 0, size = contents.size(); i < size; ++i)
-    {
-      Notifier notifier = contents.get(i);
-      addAdapter(notifier);
-    }
-  }
+	/**
+	 * Handles installation of the adapter on an EObject
+	 * by adding the adapter to each of the directly contained objects.
+	 */
+	protected void setTarget(EObject target)
+	{
+		this.onAdapterAdded(target);  // first the container objects
+		basicSetTarget(target);
+		for (Iterator<? extends Notifier> i = target.eContents().iterator(); i.hasNext(); )
+		{
+			Notifier notifier = i.next();
+			addAdapter(notifier);  // second the contained objects
+		}
+	}
 
-  /**
-   * Handles installation of the adapter on a ResourceSet
-   * by adding the adapter to each of the directly contained objects.
-   */
-  protected void setTarget(ResourceSet target)
-  {
-    basicSetTarget(target);
-    List<Resource> resources =  target.getResources();
-    for (int i = 0; i < resources.size(); ++i)
-    {
-      Notifier notifier = resources.get(i);
-      if (!notifier.eAdapters().contains(this))
-      {
-        addAdapter(notifier);
-      }
-    }
-  }
+	/**
+	 * Handles installation of the adapter on a Resource
+	 * by adding the adapter to each of the directly contained objects.
+	 */
+	protected void setTarget(Resource target)
+	{
+		basicSetTarget(target);
+		List<EObject> contents = target.getContents();
+		for (int i = 0, size = contents.size(); i < size; ++i)
+		{
+			Notifier notifier = contents.get(i);
+			addAdapter(notifier);
+		}
+	}
 
-  /**
-   * Handles undoing the installation of the adapter
-   * by removing the adapter from each of the directly contained objects.
-   */
-  @Override
-  public void unsetTarget(Notifier target)
-  {
-    unsetTarget((Object)target);
-  }
+	/**
+	 * Handles installation of the adapter on a ResourceSet
+	 * by adding the adapter to each of the directly contained objects.
+	 */
+	protected void setTarget(ResourceSet target)
+	{
+		basicSetTarget(target);
+		List<Resource> resources =  target.getResources();
+		for (int i = 0; i < resources.size(); ++i)
+		{
+			Notifier notifier = resources.get(i);
+			if (!notifier.eAdapters().contains(this))
+			{
+				addAdapter(notifier);
+			}
+		}
+	}
 
-  /**
-   * Actually unsets the target by calling super.
-   */
-  protected void basicUnsetTarget(Notifier target)
-  {
-    super.unsetTarget(target);
-  }
-  
-  /**
-   * Handles undoing the installation of the adapter
-   * by removing the adapter from each of the directly contained objects.
-   * @deprecated Use or override {@link #unsetTarget(Notifier)} instead.
-   */
-  @Deprecated
-  protected void unsetTarget(Object target)
-  {
-    if (target instanceof EObject)
-    {
-      unsetTarget((EObject)target);
-    }
-    else if (target instanceof Resource)
-    {
-      unsetTarget((Resource)target);
-    }
-    else if (target instanceof ResourceSet)
-    {
-      unsetTarget((ResourceSet)target);
-    }
-    else
-    {
-      basicUnsetTarget((Notifier)target);
-    }
-  }
+	/**
+	 * Handles undoing the installation of the adapter
+	 * by removing the adapter from each of the directly contained objects.
+	 */
+	@Override
+	public void unsetTarget(Notifier target)
+	{
+		unsetTarget((Object)target);
+	}
 
-  /**
-   * Handles undoing the installation of the adapter from an EObject
-   * by removing the adapter from each of the directly contained objects.
-   */
-  protected void unsetTarget(EObject target)
-  {
-    basicUnsetTarget(target);
-    for (Iterator<? extends Notifier> i = target.eContents().iterator(); i.hasNext(); )
-    {
-      Notifier notifier = i.next();
-      removeAdapter(notifier);  // first the contained objects
-    }
-    this.onAdapterRemoved(target);  // second the container object
-  }
+	/**
+	 * Actually unsets the target by calling super.
+	 */
+	protected void basicUnsetTarget(Notifier target)
+	{
+		super.unsetTarget(target);
+	}
 
-  /**
-   * Handles undoing the installation of the adapter from a Resource
-   * by removing the adapter from each of the directly contained objects.
-   */
-  protected void unsetTarget(Resource target)
-  {
-    basicUnsetTarget(target);
-    List<EObject> contents = target.getContents();
-    for (int i = 0, size = contents.size(); i < size; ++i)
-    {
-      Notifier notifier = contents.get(i);
-      removeAdapter(notifier);
-    }
-  }
+	/**
+	 * Handles undoing the installation of the adapter
+	 * by removing the adapter from each of the directly contained objects.
+	 * @deprecated Use or override {@link #unsetTarget(Notifier)} instead.
+	 */
+	@Deprecated
+	protected void unsetTarget(Object target)
+	{
+		if (target instanceof EObject)
+		{
+			unsetTarget((EObject)target);
+		}
+		else if (target instanceof Resource)
+		{
+			unsetTarget((Resource)target);
+		}
+		else if (target instanceof ResourceSet)
+		{
+			unsetTarget((ResourceSet)target);
+		}
+		else
+		{
+			basicUnsetTarget((Notifier)target);
+		}
+	}
 
-  /**
-   * Handles undoing the installation of the adapter from a ResourceSet
-   * by removing the adapter from each of the directly contained objects.
-   */
-  protected void unsetTarget(ResourceSet target)
-  {
-    basicUnsetTarget(target);
-    List<Resource> resources =  target.getResources();
-    for (int i = 0; i < resources.size(); ++i)
-    {
-      Notifier notifier = resources.get(i);
-      removeAdapter(notifier);
-    }
-  }
-  
-  protected void addAdapter(Notifier notifier)
-  {
-    notifier.eAdapters().add(this);
-  }
-  
-  protected void removeAdapter(Notifier notifier)
-  {
-    notifier.eAdapters().remove(this);
-  }
+	/**
+	 * Handles undoing the installation of the adapter from an EObject
+	 * by removing the adapter from each of the directly contained objects.
+	 */
+	protected void unsetTarget(EObject target)
+	{
+		basicUnsetTarget(target);
+		for (Iterator<? extends Notifier> i = target.eContents().iterator(); i.hasNext(); )
+		{
+			Notifier notifier = i.next();
+			removeAdapter(notifier);  // first the contained objects
+		}
+		this.onAdapterRemoved(target);  // second the container object
+	}
 
-  @Override
-  public boolean isAdapterForType(Object type) {
+	/**
+	 * Handles undoing the installation of the adapter from a Resource
+	 * by removing the adapter from each of the directly contained objects.
+	 */
+	protected void unsetTarget(Resource target)
+	{
+		basicUnsetTarget(target);
+		List<EObject> contents = target.getContents();
+		for (int i = 0, size = contents.size(); i < size; ++i)
+		{
+			Notifier notifier = contents.get(i);
+			removeAdapter(notifier);
+		}
+	}
+
+	/**
+	 * Handles undoing the installation of the adapter from a ResourceSet
+	 * by removing the adapter from each of the directly contained objects.
+	 */
+	protected void unsetTarget(ResourceSet target)
+	{
+		basicUnsetTarget(target);
+		List<Resource> resources =  target.getResources();
+		for (int i = 0; i < resources.size(); ++i)
+		{
+			Notifier notifier = resources.get(i);
+			removeAdapter(notifier);
+		}
+	}
+
+	protected void addAdapter(Notifier notifier)
+	{
+		notifier.eAdapters().add(this);
+	}
+
+	protected void removeAdapter(Notifier notifier)
+	{
+		notifier.eAdapters().remove(this);
+	}
+
+	@Override
+	public boolean isAdapterForType(Object type) {
 		if (!(type instanceof Class)) {
 			return false;
 		}
 		return ((Class) type).isAssignableFrom(this.getClass()); // this class
-																	// is a
-																	// specialization
-																	// of the
-																	// parameter
+		// is a
+		// specialization
+		// of the
+		// parameter
 	}
 
 
-  /**
-   * Handles the management of PropagatorFunctionAdapters (adds) when a Notifier enters the scope of the propagation
-   * Either if notifier is added or this PropagatorFunctionAdapterManager is added to the notifier
-   */
-  void onAdapterAdded(Notifier notifier){
-	//CommonPlugin.INSTANCE.log("PropagatorFunctionAdapterManager.onAdapterAdded, notifier "+notifier);
-	// control gets here when ownership is given
-//	if ( notifier instanceof ObjectWithPropagatorFunctions) {
-//		ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
-//		if ( !objectWithPropagatorFunctions.eIsProxy()){
-//			for ( PropagatorFunction propagatorFunction: objectWithPropagatorFunctions.getPropagatorFunctions()){
-//				propagatorFunction.enable();
-//			}
-//		}
-//	}
-	  if ( notifier instanceof PropagatorFunction ){
-		  PropagatorFunction propagatorFunction = (PropagatorFunction) notifier;
-		  propagatorFunction.enable();
-	  }
-  }
-
-  /**
-   * Handles the management of PropagatorFunctionAdapters (removes) when a Notifier enters the scope of the propagation
-   * Either if notifier is removed or this PropagatorFunctionAdapterManger is removed from the notifier
-   */
-  void onAdapterRemoved(Notifier notifier){
-	// CommonPlugin.INSTANCE.log("PropagatorFunctionAdapterManager.onAdapterRemoved, notifier "+notifier);
-	// control gets here when ownership is taken
-//	if ( notifier instanceof ObjectWithPropagatorFunctions) {
-//		ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
-//		for ( PropagatorFunction propagatorFunction: objectWithPropagatorFunctions.getPropagatorFunctions()){
-//			propagatorFunction.disable();
-//		}
-//	}
-	  if ( notifier instanceof PropagatorFunction ){
-		  PropagatorFunction propagatorFunction = (PropagatorFunction) notifier;
-		  propagatorFunction.disable();
-	  }
-  }
-  
-  /**
-   * Touches the PropagatorFunctionAdapters requiring it when the Notifier is contained 
-   * Note: the owner is already set, the propagators are already created, the adapter is already added
-   */
-  void onNotifierContained(Notifier notifier){
-	  if ( Util.notifierIsEObjectActive(notifier)){
-		// CommonPlugin.INSTANCE.log("PropagatorFunctionAdapterManager.onNotifierContained, notifier "+notifier);
-		if ( notifier instanceof ObjectWithPropagatorFunctions) {
-			ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
-			objectWithPropagatorFunctions.onOwned();
-			this.propagatorFunctionsConstructor.construct(objectWithPropagatorFunctions);
+	/**
+	 * Handles the management of PropagatorFunctionAdapters (adds) when a Notifier enters the scope of the propagation
+	 * Either if notifier is added or this PropagatorFunctionAdapterManager is added to the notifier
+	 */
+	private void onAdapterAdded(Notifier notifier){
+		//CommonPlugin.INSTANCE.log("PropagatorFunctionAdapterManager.onAdapterAdded, notifier "+notifier);
+		// control gets here when ownership is given
+		//	if ( notifier instanceof ObjectWithPropagatorFunctions) {
+		//		ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
+		//		if ( !objectWithPropagatorFunctions.eIsProxy()){
+		//			for ( PropagatorFunction propagatorFunction: objectWithPropagatorFunctions.getPropagatorFunctions()){
+		//				propagatorFunction.enable();
+		//			}
+		//		}
+		//	}
+		if ( notifier instanceof PropagatorFunction ){
+			PropagatorFunction propagatorFunction = (PropagatorFunction) notifier;
+			propagatorFunction.enable();
 		}
-	  }
-  }
-  
-  /**
-   * Touches the PropagatorFunctionAdapters requiring it when the Notifier is disposed 
-   * Note: the owner is already lost, the propagators are not yet removed, the adapter is not yet removed
-   */
-  void onNotifierNotContained(Notifier notifier){
-	// CommonPlugin.INSTANCE.log("PropagatorFunctionAdapterManager.onNotifierNotContained, notifier "+notifier);
+	}
+
+	/**
+	 * Handles the management of PropagatorFunctionAdapters (removes) when a Notifier enters the scope of the propagation
+	 * Either if notifier is removed or this PropagatorFunctionAdapterManger is removed from the notifier
+	 */
+	private void onAdapterRemoved(Notifier notifier){
+		// CommonPlugin.INSTANCE.log("PropagatorFunctionAdapterManager.onAdapterRemoved, notifier "+notifier);
+		// control gets here when ownership is taken
+		//	if ( notifier instanceof ObjectWithPropagatorFunctions) {
+		//		ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
+		//		for ( PropagatorFunction propagatorFunction: objectWithPropagatorFunctions.getPropagatorFunctions()){
+		//			propagatorFunction.disable();
+		//		}
+		//	}
+		if ( notifier instanceof PropagatorFunction ){
+			PropagatorFunction propagatorFunction = (PropagatorFunction) notifier;
+			propagatorFunction.disable();
+			propagatorFunction.untouch();
+		}
+	}
+
+	/**
+	 * Touches the PropagatorFunctionAdapters requiring it when the Notifier is contained 
+	 * Note: the owner is already set, the propagators are already created, the adapter is already added
+	 */
+	private void onNotifierContained(Notifier notifier){
+		if ( Util.notifierIsEObjectActive(notifier)){
+			if ( notifier instanceof ObjectWithPropagatorFunctions) {
+				ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
+				objectWithPropagatorFunctions.onOwned();
+				this.propagatorFunctionsConstructor.construct(objectWithPropagatorFunctions);
+			}
+		}
+	}
+
+	/**
+	 * Touches the PropagatorFunctionAdapters requiring it when the Notifier is disposed 
+	 * Note: the owner is already lost, the propagators are not yet removed, the adapter is not yet removed
+	 */
+	private void onNotifierNotContained(Notifier notifier){
+		// CommonPlugin.INSTANCE.log("PropagatorFunctionAdapterManager.onNotifierNotContained, notifier "+notifier);
 		if ( notifier instanceof ObjectWithPropagatorFunctions) {
 			ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
 			objectWithPropagatorFunctions.onNotOwned();
 		}
-  }
-  
-  /**
-   * Handled the PropagatorDependencyAdpater when the proxy is resolved 
-   */
-  void onResolve(Notifier oldNotifier, Notifier newNotifier){
-	LinkedList<Adapter> adaptersToMove = new LinkedList<Adapter>();
-	for ( Adapter adapter : oldNotifier.eAdapters()){
-		if ( adapter instanceof PropagatorFunctionBindings){
-			adaptersToMove.add(adapter);
-		}
+//		if ( notifier instanceof PropagatorFunction ){
+//			PropagatorFunction propagatorFunction = (PropagatorFunction) notifier;
+//			propagatorFunction.untouch();
+//		}
 	}
-	oldNotifier.eAdapters().removeAll(adaptersToMove);
-	newNotifier.eAdapters().addAll(adaptersToMove);
-  }
+
+	/**
+	 * Handled the PropagatorDependencyAdpater when the proxy is resolved 
+	 */
+	private void onResolve(Notifier oldNotifier, Notifier newNotifier){
+		LinkedList<Adapter> adaptersToMove = new LinkedList<Adapter>();
+		for ( Adapter adapter : oldNotifier.eAdapters()){
+			if ( adapter instanceof PropagatorFunctionBindings){
+				adaptersToMove.add(adapter);
+			}
+		}
+		oldNotifier.eAdapters().removeAll(adaptersToMove);
+		newNotifier.eAdapters().addAll(adaptersToMove);
+	}
 
 } // class PropagatorFunctionAdatperManager
