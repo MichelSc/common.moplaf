@@ -745,6 +745,7 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	public void disable() {
 		this.enabled = false;
 
+		// unregister
 		Bindings bindings = this.getBindings();
 		if ( bindings!=null){
 			ObjectWithPropagatorFunctions object = this.getObjectWithPropagatorFunctions();
@@ -764,6 +765,9 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 				}
 			}
 		}
+		
+		// untouch
+		this.untouch();
 	}
 
 	/**

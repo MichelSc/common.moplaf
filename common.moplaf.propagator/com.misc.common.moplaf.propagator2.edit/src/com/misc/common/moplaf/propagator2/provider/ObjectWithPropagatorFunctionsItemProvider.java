@@ -28,6 +28,7 @@ import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
 import com.misc.common.moplaf.propagator2.PropagatorFactory;
 import com.misc.common.moplaf.propagator2.PropagatorFunction;
 import com.misc.common.moplaf.propagator2.PropagatorPackage;
+import com.misc.common.moplaf.propagator2.util.Util;
 
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions} object.
@@ -199,6 +200,7 @@ public class ObjectWithPropagatorFunctionsItemProvider
 		protected boolean prepare(){
 			boolean isExecutable = true;
 				
+			this.scope = Util.getScope(this.objectWithPropagatorFunctions );
 			if ( this.scope==null){
 				isExecutable = false;
 				this.setDescription("no propagation scope");
