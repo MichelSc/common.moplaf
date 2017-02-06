@@ -472,7 +472,6 @@ public class PropagatorFunctionAdapterManager extends AdapterImpl
 		if ( Util.notifierIsEObjectActive(notifier)){
 			if ( notifier instanceof ObjectWithPropagatorFunctions) {
 				ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
-				objectWithPropagatorFunctions.onOwned();
 				this.propagatorFunctionsConstructor.construct(objectWithPropagatorFunctions);
 			}
 		}
@@ -486,7 +485,6 @@ public class PropagatorFunctionAdapterManager extends AdapterImpl
 		// CommonPlugin.INSTANCE.log("PropagatorFunctionAdapterManager.onNotifierNotContained, notifier "+notifier);
 		if ( notifier instanceof ObjectWithPropagatorFunctions) {
 			ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
-			objectWithPropagatorFunctions.onNotOwned();
 		}
 //		if ( notifier instanceof PropagatorFunction ){
 //			PropagatorFunction propagatorFunction = (PropagatorFunction) notifier;

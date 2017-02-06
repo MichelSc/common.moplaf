@@ -3,10 +3,11 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="propagator2" nsURI="http://www.misc.com/common/moplaf/propagator2/model/0.1"
     nsPrefix="prg">
   <eClassifiers xsi:type="ecore:EClass" name="ObjectWithPropagatorFunctions">
-    <eOperations name="onOwned"/>
-    <eOperations name="onNotOwned"/>
+    <eOperations name="addPropagatorFunction">
+      <eParameters name="propagatorFunction" eType="#//PropagatorFunction"/>
+    </eOperations>
     <eOperations name="getPropagatorFunction" eType="#//PropagatorFunction">
-      <eParameters name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="type" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="PropagatorFunctions" upperBound="-1"
         eType="#//PropagatorFunction" containment="true" eOpposite="#//PropagatorFunction/ObjectWithPropagatorFunctions"/>
@@ -28,9 +29,6 @@
     <eOperations name="doRefresh"/>
     <eOperations name="doRefresh">
       <eParameters name="toucher" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    </eOperations>
-    <eOperations name="isPropagatorFunctionOfType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eParameters name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
     </eOperations>
     <eOperations name="getScope" eType="#//PropagatorFunction"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Parent" eType="#//PropagatorFunction"

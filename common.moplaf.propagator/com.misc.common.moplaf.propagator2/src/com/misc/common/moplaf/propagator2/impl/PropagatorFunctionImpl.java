@@ -939,8 +939,6 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 			case PropagatorPackage.PROPAGATOR_FUNCTION___DO_REFRESH__EOBJECT:
 				doRefresh((EObject)arguments.get(0));
 				return null;
-			case PropagatorPackage.PROPAGATOR_FUNCTION___IS_PROPAGATOR_FUNCTION_OF_TYPE__OBJECT:
-				return isPropagatorFunctionOfType(arguments.get(0));
 			case PropagatorPackage.PROPAGATOR_FUNCTION___GET_SCOPE:
 				return getScope();
 		}

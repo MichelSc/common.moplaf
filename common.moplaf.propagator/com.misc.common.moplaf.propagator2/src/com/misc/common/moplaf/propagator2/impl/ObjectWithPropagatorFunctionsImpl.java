@@ -75,19 +75,26 @@ public class ObjectWithPropagatorFunctionsImpl extends MinimalEObjectImpl.Contai
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Default implementation does nothing
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
-	public void onOwned() {
+	public void addPropagatorFunction(PropagatorFunction propagatorFunction) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Method called when the owning relation is reset.
-	 * Default implementation does nothing 
 	 * <!-- end-user-doc -->
 	 */
-	public void onNotOwned() {
+	public PropagatorFunction getPropagatorFunction(EClass type) {
+		for ( PropagatorFunction propagatorFunction: this.getPropagatorFunctions()){
+			if ( type.isSuperTypeOf(propagatorFunction.eClass())){
+				return propagatorFunction;
+			}
+		}
+		return null;
 	}
 
 	/**
@@ -96,7 +103,7 @@ public class ObjectWithPropagatorFunctionsImpl extends MinimalEObjectImpl.Contai
 	 */
 	public PropagatorFunction getPropagatorFunction(Object type) {
 		for ( PropagatorFunction propagatorFunction: this.getPropagatorFunctions()){
-			if ( propagatorFunction.isPropagatorFunctionOfType(type) ){
+			if ( ((Class<?>)type).isInstance(propagatorFunction) ){
 				return propagatorFunction;
 			}
 		}
@@ -210,14 +217,11 @@ public class ObjectWithPropagatorFunctionsImpl extends MinimalEObjectImpl.Contai
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___ON_OWNED:
-				onOwned();
+			case PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION:
+				addPropagatorFunction((PropagatorFunction)arguments.get(0));
 				return null;
-			case PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___ON_NOT_OWNED:
-				onNotOwned();
-				return null;
-			case PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___GET_PROPAGATOR_FUNCTION__OBJECT:
-				return getPropagatorFunction(arguments.get(0));
+			case PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___GET_PROPAGATOR_FUNCTION__ECLASS:
+				return getPropagatorFunction((EClass)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

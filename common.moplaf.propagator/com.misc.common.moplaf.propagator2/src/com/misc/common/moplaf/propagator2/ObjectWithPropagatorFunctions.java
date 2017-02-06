@@ -71,7 +71,7 @@ public interface ObjectWithPropagatorFunctions extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void onOwned();
+	void addPropagatorFunction(PropagatorFunction propagatorFunction);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -79,16 +79,8 @@ public interface ObjectWithPropagatorFunctions extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void onNotOwned();
+	PropagatorFunction getPropagatorFunction(EClass type);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	PropagatorFunction getPropagatorFunction(Object type);
-	
 	/**
 	 * Convenience method 
 	 * @return

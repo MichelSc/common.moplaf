@@ -87,22 +87,13 @@ public interface PropagatorPackage extends EPackage {
 	int OBJECT_WITH_PROPAGATOR_FUNCTIONS_FEATURE_COUNT = 1;
 
 	/**
-	 * The operation id for the '<em>On Owned</em>' operation.
+	 * The operation id for the '<em>Add Propagator Function</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_WITH_PROPAGATOR_FUNCTIONS___ON_OWNED = 0;
-
-	/**
-	 * The operation id for the '<em>On Not Owned</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT_WITH_PROPAGATOR_FUNCTIONS___ON_NOT_OWNED = 1;
+	int OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = 0;
 
 	/**
 	 * The operation id for the '<em>Get Propagator Function</em>' operation.
@@ -111,7 +102,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_WITH_PROPAGATOR_FUNCTIONS___GET_PROPAGATOR_FUNCTION__OBJECT = 2;
+	int OBJECT_WITH_PROPAGATOR_FUNCTIONS___GET_PROPAGATOR_FUNCTION__ECLASS = 1;
 
 	/**
 	 * The number of operations of the '<em>Object With Propagator Functions</em>' class.
@@ -120,7 +111,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT = 3;
+	int OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.propagator2.impl.PropagatorFunctionImpl <em>Function</em>}' class.
@@ -367,22 +358,13 @@ public interface PropagatorPackage extends EPackage {
 	int PROPAGATOR_FUNCTION___DO_REFRESH__EOBJECT = 12;
 
 	/**
-	 * The operation id for the '<em>Is Propagator Function Of Type</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_FUNCTION___IS_PROPAGATOR_FUNCTION_OF_TYPE__OBJECT = 13;
-
-	/**
 	 * The operation id for the '<em>Get Scope</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___GET_SCOPE = 14;
+	int PROPAGATOR_FUNCTION___GET_SCOPE = 13;
 
 	/**
 	 * The number of operations of the '<em>Function</em>' class.
@@ -391,7 +373,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_OPERATION_COUNT = 15;
+	int PROPAGATOR_FUNCTION_OPERATION_COUNT = 14;
 
 	/**
 	 * The meta object id for the '<em>Bindings</em>' data type.
@@ -425,34 +407,24 @@ public interface PropagatorPackage extends EPackage {
 	EReference getObjectWithPropagatorFunctions_PropagatorFunctions();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions#onOwned() <em>On Owned</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions#addPropagatorFunction(com.misc.common.moplaf.propagator2.PropagatorFunction) <em>Add Propagator Function</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>On Owned</em>' operation.
-	 * @see com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions#onOwned()
+	 * @return the meta object for the '<em>Add Propagator Function</em>' operation.
+	 * @see com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions#addPropagatorFunction(com.misc.common.moplaf.propagator2.PropagatorFunction)
 	 * @generated
 	 */
-	EOperation getObjectWithPropagatorFunctions__OnOwned();
+	EOperation getObjectWithPropagatorFunctions__AddPropagatorFunction__PropagatorFunction();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions#onNotOwned() <em>On Not Owned</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>On Not Owned</em>' operation.
-	 * @see com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions#onNotOwned()
-	 * @generated
-	 */
-	EOperation getObjectWithPropagatorFunctions__OnNotOwned();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions#getPropagatorFunction(java.lang.Object) <em>Get Propagator Function</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions#getPropagatorFunction(org.eclipse.emf.ecore.EClass) <em>Get Propagator Function</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Get Propagator Function</em>' operation.
-	 * @see com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions#getPropagatorFunction(java.lang.Object)
+	 * @see com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions#getPropagatorFunction(org.eclipse.emf.ecore.EClass)
 	 * @generated
 	 */
-	EOperation getObjectWithPropagatorFunctions__GetPropagatorFunction__Object();
+	EOperation getObjectWithPropagatorFunctions__GetPropagatorFunction__EClass();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.propagator2.PropagatorFunction <em>Function</em>}'.
@@ -707,16 +679,6 @@ public interface PropagatorPackage extends EPackage {
 	EOperation getPropagatorFunction__DoRefresh__EObject();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#isPropagatorFunctionOfType(java.lang.Object) <em>Is Propagator Function Of Type</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Propagator Function Of Type</em>' operation.
-	 * @see com.misc.common.moplaf.propagator2.PropagatorFunction#isPropagatorFunctionOfType(java.lang.Object)
-	 * @generated
-	 */
-	EOperation getPropagatorFunction__IsPropagatorFunctionOfType__Object();
-
-	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#getScope() <em>Get Scope</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -799,20 +761,12 @@ public interface PropagatorPackage extends EPackage {
 		EReference OBJECT_WITH_PROPAGATOR_FUNCTIONS__PROPAGATOR_FUNCTIONS = eINSTANCE.getObjectWithPropagatorFunctions_PropagatorFunctions();
 
 		/**
-		 * The meta object literal for the '<em><b>On Owned</b></em>' operation.
+		 * The meta object literal for the '<em><b>Add Propagator Function</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation OBJECT_WITH_PROPAGATOR_FUNCTIONS___ON_OWNED = eINSTANCE.getObjectWithPropagatorFunctions__OnOwned();
-
-		/**
-		 * The meta object literal for the '<em><b>On Not Owned</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation OBJECT_WITH_PROPAGATOR_FUNCTIONS___ON_NOT_OWNED = eINSTANCE.getObjectWithPropagatorFunctions__OnNotOwned();
+		EOperation OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = eINSTANCE.getObjectWithPropagatorFunctions__AddPropagatorFunction__PropagatorFunction();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Propagator Function</b></em>' operation.
@@ -820,7 +774,7 @@ public interface PropagatorPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation OBJECT_WITH_PROPAGATOR_FUNCTIONS___GET_PROPAGATOR_FUNCTION__OBJECT = eINSTANCE.getObjectWithPropagatorFunctions__GetPropagatorFunction__Object();
+		EOperation OBJECT_WITH_PROPAGATOR_FUNCTIONS___GET_PROPAGATOR_FUNCTION__ECLASS = eINSTANCE.getObjectWithPropagatorFunctions__GetPropagatorFunction__EClass();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.propagator2.impl.PropagatorFunctionImpl <em>Function</em>}' class.
@@ -1015,14 +969,6 @@ public interface PropagatorPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PROPAGATOR_FUNCTION___DO_REFRESH__EOBJECT = eINSTANCE.getPropagatorFunction__DoRefresh__EObject();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Propagator Function Of Type</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PROPAGATOR_FUNCTION___IS_PROPAGATOR_FUNCTION_OF_TYPE__OBJECT = eINSTANCE.getPropagatorFunction__IsPropagatorFunctionOfType__Object();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Scope</b></em>' operation.
