@@ -10,21 +10,5 @@
  *******************************************************************************/
 package com.misc.common.moplaf.emf.edit;
 
-import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.Notifier;
-
 public class Util {
-	
-	static public Adapter adapt(Object target, Object type){
-		  if ( !(target instanceof Notifier)){ return null;	  }
-		  
-		  if ( !(type instanceof Class<?>) ) { return null; }
-		  Notifier notifier = (Notifier)target;
-		  for (Adapter adapter : notifier.eAdapters()){
-			  if ( (((Class<?>)type).isInstance(adapter)) ){
-				  return adapter;
-	      }
-	    }
-	    return null;
-	}
 };

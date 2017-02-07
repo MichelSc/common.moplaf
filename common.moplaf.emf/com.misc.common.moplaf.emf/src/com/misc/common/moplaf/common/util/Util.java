@@ -10,6 +10,12 @@
  *******************************************************************************/
 package com.misc.common.moplaf.common.util;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
+import org.eclipse.emf.common.CommonPlugin;
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
@@ -46,5 +52,48 @@ public class Util {
 		if ( !resourceImpl.isLoading()){ return false; }
 		
 		return true;
+	}
+
+	/**
+	 * 
+	 * @param target
+	 * @param type
+	 * @return
+	 */
+	static public Adapter adapt(Object target, Object type, boolean create) {
+		if ( !(target instanceof Notifier)){ return null;	  }
+		Notifier notifier = (Notifier)target;
+
+		if ( !(type instanceof Class<?>) ) { return null; }
+		Class<?>theClass = (Class<?>)type;
+
+		for (Adapter adapter : notifier.eAdapters()){
+			if ( theClass.isInstance(adapter) ){
+				return adapter;
+			}
+		} // traverse the adapater asis
+		
+		if ( !create) { return null; }
+		
+		// create
+		try {
+			Constructor<?> constructor = theClass.getDeclaredConstructor();
+			Adapter newAdapter = (Adapter)constructor.newInstance();
+			notifier.eAdapters().add(newAdapter);
+			return newAdapter;
+		} catch (Exception e) {
+			CommonPlugin.INSTANCE.log("com.misc.common.moplaf.emf.util.adapt: no constructor for "+theClass.getName());
+			return null;
+		}
+	}
+	
+	/**
+	 * 
+	 * @param target
+	 * @param type
+	 * @return
+	 */
+	static public Adapter adapt(Object target, Object type) {
+		return adapt(target, type, false);
 	}
 }
