@@ -11,7 +11,6 @@
 package com.misc.common.moplaf.common.util;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Adapter;
@@ -35,17 +34,23 @@ public class Util {
 		return true;
 	}
 
-	/** logic is object loading
+	/**
 	 * 
-	 * @param object
-	 * @return 
+	 * @param notifier
+	 * @return
 	 */
-	public static boolean isLoading(EObject object){
-		
-		if ( !hasResource(object) ) { return false; }
-	
-		Resource resource = object.eResource();
+	public static boolean isLoading(Notifier notifier){
+		if ( notifier instanceof Resource) { return isLoading((Resource)notifier); }
+		else if ( notifier instanceof EObject) { return isLoading((EObject)notifier); }
+		return false;
+	}
 
+	/**
+	 * 
+	 * @param resource
+	 * @return
+	 */
+	public static boolean isLoading(Resource resource){
 		if ( !(resource instanceof ResourceImpl)){ return false; }
 
 		ResourceImpl resourceImpl = (ResourceImpl)resource;
@@ -53,6 +58,18 @@ public class Util {
 		
 		return true;
 	}
+
+	/** logic is object loading
+	 * 
+	 * @param object
+	 * @return 
+	 */
+	public static boolean isLoading(EObject object){
+		if ( !hasResource(object) ) { return false; }
+		Resource resource = object.eResource();
+		return isLoading(resource);
+	}
+	
 
 	/**
 	 * 

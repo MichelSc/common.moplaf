@@ -2,7 +2,7 @@ package com.misc.common.moplaf.common.util;
 
 /**
  * The interface EContainmentListener must be implemented by EObject using EContainmentListener
- * for being 
+ * for being notified when
  * <ul>
  * <li>added to containment</li>
  * <li>removed from containment</li>

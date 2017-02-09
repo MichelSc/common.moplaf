@@ -33,6 +33,17 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * An adapter that maintains itself as an adapter for all contained objects 
  * as they come and go.
  * It can be installed for an {@link EObject}, a {@link Resource}, or a {@link ResourceSet}.
+ * <p>
+ * The purpose of the {@link EContainmentListenerAdapter} is to call {@link EContainmentListener}
+ * each time some containment event occurred in the object hierarchy where it is added.
+ * <p>
+ * The Adapter can be added to a Notifer with the convenience method {@link Util#adapt(Object, Object, boolean)}
+ * <p>
+ * Examples places when the addition can take place are
+ * <ul>
+ * <li> in the constructor of the root of the hierarchy </li>
+ * <li> in the method {@link #createModel} of the emf generated Editor, before or after a Resource is loaded in the ResourceSet </li>
+ * </ul>
  */
 public class EContainmentListenerAdapter extends AdapterImpl
 {
@@ -112,12 +123,13 @@ public class EContainmentListenerAdapter extends AdapterImpl
         {
           if (oldValue != null)
           {
-            removeAdapter((Notifier)oldValue, false, true);
+        	  handleContainmentRemoveAdapter((Notifier)oldValue, false, true);
+            
           }
           Notifier newValue = (Notifier)notification.getNewValue();
           if (newValue != null)
           {
-            addAdapter(newValue);
+        	  handleContainmentAddAdapter(newValue);
           }
         }
         break;
@@ -127,12 +139,12 @@ public class EContainmentListenerAdapter extends AdapterImpl
         Notifier oldValue = (Notifier)notification.getOldValue();
         if (oldValue != null)
         {
-          removeAdapter(oldValue, false, true);
+        	handleContainmentRemoveAdapter(oldValue, false, true);
         }
         Notifier newValue = (Notifier)notification.getNewValue();
         if (newValue != null)
         {
-          addAdapter(newValue);
+        	handleContainmentAddAdapter(newValue);
         }
         break;
       }
@@ -141,7 +153,7 @@ public class EContainmentListenerAdapter extends AdapterImpl
         Notifier newValue = (Notifier)notification.getNewValue();
         if (newValue != null)
         {
-          addAdapter(newValue);
+        	handleContainmentAddAdapter(newValue);
         }
         break;
       }
@@ -150,7 +162,7 @@ public class EContainmentListenerAdapter extends AdapterImpl
         @SuppressWarnings("unchecked") Collection<Notifier> newValues = (Collection<Notifier>)notification.getNewValue();
         for (Notifier newValue : newValues)
         {
-          addAdapter(newValue);
+        	handleContainmentAddAdapter(newValue);
         }
         break;
       }
@@ -161,7 +173,7 @@ public class EContainmentListenerAdapter extends AdapterImpl
         {
           boolean checkContainer = notification.getNotifier() instanceof Resource;
           boolean checkResource = notification.getFeature() != null;
-          removeAdapter(oldValue, checkContainer, checkResource);
+          handleContainmentRemoveAdapter(oldValue, checkContainer, checkResource);
         }
         break;
       }
@@ -172,11 +184,32 @@ public class EContainmentListenerAdapter extends AdapterImpl
         @SuppressWarnings("unchecked") Collection<Notifier> oldValues = (Collection<Notifier>)notification.getOldValue();
         for ( Notifier oldContentValue : oldValues)
         {
-          removeAdapter(oldContentValue, checkContainer, checkResource);
+        	handleContainmentRemoveAdapter(oldContentValue, checkContainer, checkResource);
         }
         break;
       }
     }
+  }
+  
+  /**
+   * 
+   * @param notifier
+   */
+  void handleContainmentAddAdapter(Notifier notifier){
+	  this.addAdapter(notifier);
+	  boolean isLoading = Util.isLoading(notifier);
+	  this.onContainedNotifier(notifier, isLoading);
+  }
+
+  /**
+   * 
+   * @param notifier
+   * @param checkContainer
+   * @param checkResource
+   */
+  void handleContainmentRemoveAdapter(Notifier notifier, boolean checkContainer, boolean checkResource){
+	  this.removeAdapter(notifier, checkContainer, checkResource);
+	  this.onNotContainedNotifier(notifier);
   }
 
   /**
@@ -355,10 +388,6 @@ public class EContainmentListenerAdapter extends AdapterImpl
     EList<Adapter> eAdapters = notifier.eAdapters();
     if (!eAdapters.contains(this))
     {
-      if ( notifier instanceof EContainmentListener) {
-    	  EContainmentListener listener = (EContainmentListener)notifier;
-    	  listener.onContained();
-      }
       eAdapters.add(this); 
     }
   }
@@ -392,14 +421,57 @@ public class EContainmentListenerAdapter extends AdapterImpl
   protected void removeAdapter(Notifier notifier)
   {
     notifier.eAdapters().remove(this); 
-    if ( notifier instanceof EContainmentListener) {
-  	  EContainmentListener listener = (EContainmentListener)notifier;
-  	  listener.onNotContained();
-    }
   }
 
   protected boolean resolve()
   {
     return true;
+  }
+  
+  private void onContainedNotifier(Notifier notifier, boolean isLoading){
+	  if      ( notifier instanceof Resource) { this.onContainedResource((Resource) notifier, isLoading); }
+	  else if ( notifier instanceof EObject)  { this.onContainedEObject((EObject) notifier,  isLoading);}
+  }
+  
+  private void onContainedResource(Resource resource, boolean isLoading){
+	  for ( EObject object : resource.getContents()){
+		  this.onContainedEObject(object, isLoading);
+	  }
+  }
+  
+  private void onContainedEObject(EObject object, boolean isLoading){
+	  // first this object, then the children
+	  if ( object instanceof EContainmentListener ){
+		  EContainmentListener listener = (EContainmentListener)object;
+		  if ( isLoading ) {
+			  listener.onLoaded();
+		  } else {
+			  listener.onContained();
+		  }
+	  }
+	  for ( EObject child : object.eContents()){
+		  this.onContainedEObject(child, isLoading);
+	  }
+  }
+  private void onNotContainedNotifier(Notifier notifier){
+	  if      ( notifier instanceof Resource) { this.onNotContainedResource((Resource) notifier); }
+	  else if ( notifier instanceof EObject)  { this.onNotContainedEObject((EObject) notifier);}
+  }
+  
+  private void onNotContainedResource(Resource resource){
+	  for ( EObject object : resource.getContents()){
+		  this.onNotContainedEObject(object);
+	  }
+  }
+  
+  private void onNotContainedEObject(EObject object){
+	  // first the children, then this object
+	  for ( EObject child : object.eContents()){
+		  this.onNotContainedEObject(child);
+	  }
+	  if ( object instanceof EContainmentListener ){
+		  EContainmentListener listener = (EContainmentListener)object;
+		  listener.onNotContained();
+	  }
   }
 }
