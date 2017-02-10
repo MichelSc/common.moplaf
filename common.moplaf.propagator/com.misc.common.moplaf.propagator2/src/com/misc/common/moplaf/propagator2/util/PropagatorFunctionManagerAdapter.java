@@ -1,4 +1,4 @@
-package com.misc.common.moplaf.propagator2;
+package com.misc.common.moplaf.propagator2.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
@@ -15,7 +15,10 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
-import com.misc.common.moplaf.propagator2.util.Util;
+import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
+import com.misc.common.moplaf.propagator2.PropagatorFunction;
+import com.misc.common.moplaf.propagator2.PropagatorFunctionBindings;
+import com.misc.common.moplaf.propagator2.PropagatorFunctionsConstructor;
 
 
 
@@ -71,11 +74,11 @@ import com.misc.common.moplaf.propagator2.util.Util;
  *   <li>{@link #onNotifierNotContained(Notifier)}
  *   </ul>
  */
-public class PropagatorFunctionAdapterManager extends AdapterImpl
+public class PropagatorFunctionManagerAdapter extends AdapterImpl
 {
 	private PropagatorFunctionsConstructor propagatorFunctionsConstructor;
 
-	public PropagatorFunctionAdapterManager(PropagatorFunctionsConstructor constructor) {
+	public PropagatorFunctionManagerAdapter(PropagatorFunctionsConstructor constructor) {
 		super();
 		propagatorFunctionsConstructor = constructor;
 	}

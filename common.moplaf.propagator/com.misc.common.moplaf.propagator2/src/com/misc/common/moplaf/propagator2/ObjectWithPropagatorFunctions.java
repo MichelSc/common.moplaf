@@ -71,6 +71,22 @@ public interface ObjectWithPropagatorFunctions extends EObject {
 	 * @model
 	 * @generated
 	 */
+	void addPropagatorFunction(PropagatorFunction propagatorFunction, EObject toucher);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addPropagatorFunction(PropagatorFunction propagatorFunction, boolean touch);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	void addPropagatorFunction(PropagatorFunction propagatorFunction);
 
 	/**

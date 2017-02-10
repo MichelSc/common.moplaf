@@ -9,6 +9,7 @@ import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
+import com.misc.common.moplaf.propagator2.util.PropagatorFunctionManagerAdapter;
 import com.misc.common.moplaf.propagator2.util.Util;
 
 
@@ -42,7 +43,7 @@ import com.misc.common.moplaf.propagator2.util.Util;
  * <p>
  * Registering the {@link PropagatorFunctionBindings}s is done by the method 
  * {@link PropagatorFunction#enable()}, called when listening begins, that is when the 
- * {@link PropagatorFunctionAdapterManager} is added to the notifier. 
+ * {@link PropagatorFunctionManagerAdapter} is added to the notifier. 
  * Unregistering the {@link PropagatorFunctionBindings}s is done by the method
  * {@link PropagatorFunction#disable()}, called when the adapter manager is removed from 
  * the Notifier.

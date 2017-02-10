@@ -9,6 +9,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
@@ -76,12 +77,32 @@ public class ObjectWithPropagatorFunctionsImpl extends MinimalEObjectImpl.Contai
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 */
+	public void addPropagatorFunction(PropagatorFunction propagatorFunction, EObject toucher) {
+		PropagatorFunction pf = this.getPropagatorFunction(propagatorFunction.getClass());
+		if ( pf!=null) { return; }
+		this.getPropagatorFunctions().add(propagatorFunction);
+		propagatorFunction.touch(toucher);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void addPropagatorFunction(PropagatorFunction propagatorFunction, boolean touch) {
+		PropagatorFunction pf = this.getPropagatorFunction(propagatorFunction.getClass());
+		if ( pf!=null) { return; }
+		this.getPropagatorFunctions().add(propagatorFunction);
+		if ( !touch) { return; }
+		propagatorFunction.touch(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public void addPropagatorFunction(PropagatorFunction propagatorFunction) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		this.addPropagatorFunction(propagatorFunction, false);
 	}
 
 	/**
@@ -217,6 +238,12 @@ public class ObjectWithPropagatorFunctionsImpl extends MinimalEObjectImpl.Contai
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT:
+				addPropagatorFunction((PropagatorFunction)arguments.get(0), (EObject)arguments.get(1));
+				return null;
+			case PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN:
+				addPropagatorFunction((PropagatorFunction)arguments.get(0), (Boolean)arguments.get(1));
+				return null;
 			case PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION:
 				addPropagatorFunction((PropagatorFunction)arguments.get(0));
 				return null;

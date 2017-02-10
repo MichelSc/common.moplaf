@@ -37,7 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The purpose of the {@link EContainmentListenerAdapter} is to call {@link EContainmentListener}
  * each time some containment event occurred in the object hierarchy where it is added.
  * <p>
- * The Adapter can be added to a Notifer with the convenience method {@link Util#adapt(Object, Object, boolean)}
+ * The Adapter can be added to a Notifier with the convenience method {@link Util#adapt(Object, Object, boolean)}
  * <p>
  * Examples places when the addition can take place are
  * <ul>

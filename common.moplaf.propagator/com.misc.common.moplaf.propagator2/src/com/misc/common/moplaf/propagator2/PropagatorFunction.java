@@ -5,6 +5,8 @@ package com.misc.common.moplaf.propagator2;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
+import com.misc.common.moplaf.propagator2.util.PropagatorFunctionManagerAdapter;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>PropagatorFunction</b></em>'.
@@ -69,13 +71,13 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>It is created by its ObjectWithPropagatorFunctions, typically when it is created, i.e. when
  *   it is owned (by method {@link ObjectWithPropagatorFunctions#onOwned()}, called by the 
- *   method {@link PropagatorFunctionAdapterManager#onNotifierContained})</li>
- *   <li>It is enabled when the {@link PropagatorFunctionAdapterManager} is added to the 
+ *   method {@link PropagatorFunctionManagerAdapter#onNotifierContained})</li>
+ *   <li>It is enabled when the {@link PropagatorFunctionManagerAdapter} is added to the 
  *   scope of the propagation (method {@link #enable()}, called by 
- *   {@link PropagatorFunctionAdapterManager#onAdapterAdded})</li>
- *   <li>It is disabled when the {@link PropagatorFunctionAdapterManager} is removed from the 
+ *   {@link PropagatorFunctionManagerAdapter#onAdapterAdded})</li>
+ *   <li>It is disabled when the {@link PropagatorFunctionManagerAdapter} is removed from the 
  *   scope of the propagation(method {@link #disable()}, called by 
- *   {@link PropagatorFunctionAdapterManager#onAdapterRemoved})</li>
+ *   {@link PropagatorFunctionManagerAdapter#onAdapterRemoved})</li>
  *   <li>The Parent of the a PropagatorFunction is supposed to be available when the propagator is enabled
  *   (typically when the propagator is owned), and is
  *   supposed never change. Touches are lost with ownership.</li>
