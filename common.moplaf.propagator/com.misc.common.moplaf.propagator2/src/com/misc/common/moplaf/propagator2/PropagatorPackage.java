@@ -259,13 +259,22 @@ public interface PropagatorPackage extends EPackage {
 	int PROPAGATOR_FUNCTION_FEATURE_COUNT = 12;
 
 	/**
+	 * The operation id for the '<em>Notify Changed Object</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION___NOTIFY_CHANGED_OBJECT__NOTIFICATION = 0;
+
+	/**
 	 * The operation id for the '<em>Enable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___ENABLE = 0;
+	int PROPAGATOR_FUNCTION___ENABLE = 1;
 
 	/**
 	 * The operation id for the '<em>Disable</em>' operation.
@@ -274,7 +283,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___DISABLE = 1;
+	int PROPAGATOR_FUNCTION___DISABLE = 2;
 
 	/**
 	 * The operation id for the '<em>Touch</em>' operation.
@@ -283,7 +292,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___TOUCH__EOBJECT = 2;
+	int PROPAGATOR_FUNCTION___TOUCH__EOBJECT = 3;
 
 	/**
 	 * The operation id for the '<em>Untouch</em>' operation.
@@ -292,7 +301,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___UNTOUCH = 3;
+	int PROPAGATOR_FUNCTION___UNTOUCH = 4;
 
 	/**
 	 * The operation id for the '<em>Refresh Antecedents</em>' operation.
@@ -301,7 +310,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___REFRESH_ANTECEDENTS = 4;
+	int PROPAGATOR_FUNCTION___REFRESH_ANTECEDENTS = 5;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -310,7 +319,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___REFRESH_THIS = 5;
+	int PROPAGATOR_FUNCTION___REFRESH_THIS = 6;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -319,7 +328,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___REFRESH_CHILDREN_AND_THIS = 6;
+	int PROPAGATOR_FUNCTION___REFRESH_CHILDREN_AND_THIS = 7;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -328,7 +337,16 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___REFRESH = 7;
+	int PROPAGATOR_FUNCTION___REFRESH = 8;
+
+	/**
+	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION___DO_GET_ANTECEDENTS = 9;
 
 	/**
 	 * The operation id for the '<em>Do Get Parent</em>' operation.
@@ -337,25 +355,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___DO_GET_PARENT = 8;
-
-	/**
-	 * The operation id for the '<em>Do Get Explicit Antecedents</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_FUNCTION___DO_GET_EXPLICIT_ANTECEDENTS = 9;
-
-	/**
-	 * The operation id for the '<em>Do Get Bindings</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_FUNCTION___DO_GET_BINDINGS = 10;
+	int PROPAGATOR_FUNCTION___DO_GET_PARENT = 10;
 
 	/**
 	 * The operation id for the '<em>Do Refresh</em>' operation.
@@ -394,14 +394,304 @@ public interface PropagatorPackage extends EPackage {
 	int PROPAGATOR_FUNCTION_OPERATION_COUNT = 14;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.propagator2.impl.PropagatorFunctionBindingsImpl <em>Function Bindings</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.propagator2.impl.PropagatorFunctionBindingsImpl
+	 * @see com.misc.common.moplaf.propagator2.impl.PropagatorPackageImpl#getPropagatorFunctionBindings()
+	 * @generated
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS__PARENT = PROPAGATOR_FUNCTION__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Antecedents</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS__ANTECEDENTS = PROPAGATOR_FUNCTION__ANTECEDENTS;
+
+	/**
+	 * The feature id for the '<em><b>Antecedents Sibling</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS__ANTECEDENTS_SIBLING = PROPAGATOR_FUNCTION__ANTECEDENTS_SIBLING;
+
+	/**
+	 * The feature id for the '<em><b>Touched</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS__TOUCHED = PROPAGATOR_FUNCTION__TOUCHED;
+
+	/**
+	 * The feature id for the '<em><b>Touched Children</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS__TOUCHED_CHILDREN = PROPAGATOR_FUNCTION__TOUCHED_CHILDREN;
+
+	/**
+	 * The feature id for the '<em><b>Touchers</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS__TOUCHERS = PROPAGATOR_FUNCTION__TOUCHERS;
+
+	/**
+	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS__ENABLED = PROPAGATOR_FUNCTION__ENABLED;
+
+	/**
+	 * The feature id for the '<em><b>Object With Propagator Functions</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS__OBJECT_WITH_PROPAGATOR_FUNCTIONS = PROPAGATOR_FUNCTION__OBJECT_WITH_PROPAGATOR_FUNCTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS__TYPE = PROPAGATOR_FUNCTION__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Object</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS__OBJECT = PROPAGATOR_FUNCTION__OBJECT;
+
+	/**
+	 * The feature id for the '<em><b>Instance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS__INSTANCE = PROPAGATOR_FUNCTION__INSTANCE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS__DESCRIPTION = PROPAGATOR_FUNCTION__DESCRIPTION;
+
+	/**
+	 * The number of structural features of the '<em>Function Bindings</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS_FEATURE_COUNT = PROPAGATOR_FUNCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Notify Changed Object</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS___NOTIFY_CHANGED_OBJECT__NOTIFICATION = PROPAGATOR_FUNCTION___NOTIFY_CHANGED_OBJECT__NOTIFICATION;
+
+	/**
+	 * The operation id for the '<em>Enable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS___ENABLE = PROPAGATOR_FUNCTION___ENABLE;
+
+	/**
+	 * The operation id for the '<em>Disable</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS___DISABLE = PROPAGATOR_FUNCTION___DISABLE;
+
+	/**
+	 * The operation id for the '<em>Touch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS___TOUCH__EOBJECT = PROPAGATOR_FUNCTION___TOUCH__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Untouch</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS___UNTOUCH = PROPAGATOR_FUNCTION___UNTOUCH;
+
+	/**
+	 * The operation id for the '<em>Refresh Antecedents</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS___REFRESH_ANTECEDENTS = PROPAGATOR_FUNCTION___REFRESH_ANTECEDENTS;
+
+	/**
+	 * The operation id for the '<em>Refresh This</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS___REFRESH_THIS = PROPAGATOR_FUNCTION___REFRESH_THIS;
+
+	/**
+	 * The operation id for the '<em>Refresh Children And This</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_FUNCTION___REFRESH_CHILDREN_AND_THIS;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS___REFRESH = PROPAGATOR_FUNCTION___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS___DO_GET_ANTECEDENTS = PROPAGATOR_FUNCTION___DO_GET_ANTECEDENTS;
+
+	/**
+	 * The operation id for the '<em>Do Get Parent</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS___DO_GET_PARENT = PROPAGATOR_FUNCTION___DO_GET_PARENT;
+
+	/**
+	 * The operation id for the '<em>Do Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS___DO_REFRESH = PROPAGATOR_FUNCTION___DO_REFRESH;
+
+	/**
+	 * The operation id for the '<em>Do Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS___DO_REFRESH__EOBJECT = PROPAGATOR_FUNCTION___DO_REFRESH__EOBJECT;
+
+	/**
+	 * The operation id for the '<em>Get Scope</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS___GET_SCOPE = PROPAGATOR_FUNCTION___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Do Get Bindings</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS___DO_GET_BINDINGS = PROPAGATOR_FUNCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Do Get Explicit Antecedents</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS___DO_GET_EXPLICIT_ANTECEDENTS = PROPAGATOR_FUNCTION_OPERATION_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Function Bindings</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS_OPERATION_COUNT = PROPAGATOR_FUNCTION_OPERATION_COUNT + 2;
+
+	/**
 	 * The meta object id for the '<em>Bindings</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.propagator2.Bindings
+	 * @see com.misc.common.moplaf.propagator2.util.Bindings
 	 * @see com.misc.common.moplaf.propagator2.impl.PropagatorPackageImpl#getBindings()
 	 * @generated
 	 */
-	int BINDINGS = 2;
+	int BINDINGS = 3;
+
+	/**
+	 * The meta object id for the '<em>Notification</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.eclipse.emf.common.notify.Notification
+	 * @see com.misc.common.moplaf.propagator2.impl.PropagatorPackageImpl#getNotification()
+	 * @generated
+	 */
+	int NOTIFICATION = 4;
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions <em>Object With Propagator Functions</em>}'.
@@ -596,6 +886,16 @@ public interface PropagatorPackage extends EPackage {
 	EAttribute getPropagatorFunction_Description();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#notifyChangedObject(org.eclipse.emf.common.notify.Notification) <em>Notify Changed Object</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Notify Changed Object</em>' operation.
+	 * @see com.misc.common.moplaf.propagator2.PropagatorFunction#notifyChangedObject(org.eclipse.emf.common.notify.Notification)
+	 * @generated
+	 */
+	EOperation getPropagatorFunction__NotifyChangedObject__Notification();
+
+	/**
 	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#getAntecedentsSibling <em>Antecedents Sibling</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -677,26 +977,6 @@ public interface PropagatorPackage extends EPackage {
 	EOperation getPropagatorFunction__DoGetParent();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#doGetExplicitAntecedents() <em>Do Get Explicit Antecedents</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Do Get Explicit Antecedents</em>' operation.
-	 * @see com.misc.common.moplaf.propagator2.PropagatorFunction#doGetExplicitAntecedents()
-	 * @generated
-	 */
-	EOperation getPropagatorFunction__DoGetExplicitAntecedents();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#doGetBindings() <em>Do Get Bindings</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Do Get Bindings</em>' operation.
-	 * @see com.misc.common.moplaf.propagator2.PropagatorFunction#doGetBindings()
-	 * @generated
-	 */
-	EOperation getPropagatorFunction__DoGetBindings();
-
-	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#doRefresh() <em>Do Refresh</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -727,6 +1007,46 @@ public interface PropagatorPackage extends EPackage {
 	EOperation getPropagatorFunction__GetScope();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#doGetAntecedents() <em>Do Get Antecedents</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Do Get Antecedents</em>' operation.
+	 * @see com.misc.common.moplaf.propagator2.PropagatorFunction#doGetAntecedents()
+	 * @generated
+	 */
+	EOperation getPropagatorFunction__DoGetAntecedents();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.propagator2.PropagatorFunctionBindings <em>Function Bindings</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Function Bindings</em>'.
+	 * @see com.misc.common.moplaf.propagator2.PropagatorFunctionBindings
+	 * @generated
+	 */
+	EClass getPropagatorFunctionBindings();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.PropagatorFunctionBindings#doGetBindings() <em>Do Get Bindings</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Do Get Bindings</em>' operation.
+	 * @see com.misc.common.moplaf.propagator2.PropagatorFunctionBindings#doGetBindings()
+	 * @generated
+	 */
+	EOperation getPropagatorFunctionBindings__DoGetBindings();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.PropagatorFunctionBindings#doGetExplicitAntecedents() <em>Do Get Explicit Antecedents</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Do Get Explicit Antecedents</em>' operation.
+	 * @see com.misc.common.moplaf.propagator2.PropagatorFunctionBindings#doGetExplicitAntecedents()
+	 * @generated
+	 */
+	EOperation getPropagatorFunctionBindings__DoGetExplicitAntecedents();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#enable() <em>Enable</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -747,15 +1067,26 @@ public interface PropagatorPackage extends EPackage {
 	EOperation getPropagatorFunction__Disable();
 
 	/**
-	 * Returns the meta object for data type '{@link com.misc.common.moplaf.propagator2.Bindings <em>Bindings</em>}'.
+	 * Returns the meta object for data type '{@link com.misc.common.moplaf.propagator2.util.Bindings <em>Bindings</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>Bindings</em>'.
-	 * @see com.misc.common.moplaf.propagator2.Bindings
-	 * @model instanceClass="com.misc.common.moplaf.propagator2.Bindings"
+	 * @see com.misc.common.moplaf.propagator2.util.Bindings
+	 * @model instanceClass="com.misc.common.moplaf.propagator2.util.Bindings"
 	 * @generated
 	 */
 	EDataType getBindings();
+
+	/**
+	 * Returns the meta object for data type '{@link org.eclipse.emf.common.notify.Notification <em>Notification</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Notification</em>'.
+	 * @see org.eclipse.emf.common.notify.Notification
+	 * @model instanceClass="org.eclipse.emf.common.notify.Notification"
+	 * @generated
+	 */
+	EDataType getNotification();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -929,6 +1260,14 @@ public interface PropagatorPackage extends EPackage {
 		EAttribute PROPAGATOR_FUNCTION__DESCRIPTION = eINSTANCE.getPropagatorFunction_Description();
 
 		/**
+		 * The meta object literal for the '<em><b>Notify Changed Object</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROPAGATOR_FUNCTION___NOTIFY_CHANGED_OBJECT__NOTIFICATION = eINSTANCE.getPropagatorFunction__NotifyChangedObject__Notification();
+
+		/**
 		 * The meta object literal for the '<em><b>Antecedents Sibling</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -993,22 +1332,6 @@ public interface PropagatorPackage extends EPackage {
 		EOperation PROPAGATOR_FUNCTION___DO_GET_PARENT = eINSTANCE.getPropagatorFunction__DoGetParent();
 
 		/**
-		 * The meta object literal for the '<em><b>Do Get Explicit Antecedents</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PROPAGATOR_FUNCTION___DO_GET_EXPLICIT_ANTECEDENTS = eINSTANCE.getPropagatorFunction__DoGetExplicitAntecedents();
-
-		/**
-		 * The meta object literal for the '<em><b>Do Get Bindings</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PROPAGATOR_FUNCTION___DO_GET_BINDINGS = eINSTANCE.getPropagatorFunction__DoGetBindings();
-
-		/**
 		 * The meta object literal for the '<em><b>Do Refresh</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1033,6 +1356,40 @@ public interface PropagatorPackage extends EPackage {
 		EOperation PROPAGATOR_FUNCTION___GET_SCOPE = eINSTANCE.getPropagatorFunction__GetScope();
 
 		/**
+		 * The meta object literal for the '<em><b>Do Get Antecedents</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROPAGATOR_FUNCTION___DO_GET_ANTECEDENTS = eINSTANCE.getPropagatorFunction__DoGetAntecedents();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.propagator2.impl.PropagatorFunctionBindingsImpl <em>Function Bindings</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.propagator2.impl.PropagatorFunctionBindingsImpl
+		 * @see com.misc.common.moplaf.propagator2.impl.PropagatorPackageImpl#getPropagatorFunctionBindings()
+		 * @generated
+		 */
+		EClass PROPAGATOR_FUNCTION_BINDINGS = eINSTANCE.getPropagatorFunctionBindings();
+
+		/**
+		 * The meta object literal for the '<em><b>Do Get Bindings</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROPAGATOR_FUNCTION_BINDINGS___DO_GET_BINDINGS = eINSTANCE.getPropagatorFunctionBindings__DoGetBindings();
+
+		/**
+		 * The meta object literal for the '<em><b>Do Get Explicit Antecedents</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROPAGATOR_FUNCTION_BINDINGS___DO_GET_EXPLICIT_ANTECEDENTS = eINSTANCE.getPropagatorFunctionBindings__DoGetExplicitAntecedents();
+
+		/**
 		 * The meta object literal for the '<em><b>Enable</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1052,11 +1409,21 @@ public interface PropagatorPackage extends EPackage {
 		 * The meta object literal for the '<em>Bindings</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.propagator2.Bindings
+		 * @see com.misc.common.moplaf.propagator2.util.Bindings
 		 * @see com.misc.common.moplaf.propagator2.impl.PropagatorPackageImpl#getBindings()
 		 * @generated
 		 */
 		EDataType BINDINGS = eINSTANCE.getBindings();
+
+		/**
+		 * The meta object literal for the '<em>Notification</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.eclipse.emf.common.notify.Notification
+		 * @see com.misc.common.moplaf.propagator2.impl.PropagatorPackageImpl#getNotification()
+		 * @generated
+		 */
+		EDataType NOTIFICATION = eINSTANCE.getNotification();
 
 	}
 

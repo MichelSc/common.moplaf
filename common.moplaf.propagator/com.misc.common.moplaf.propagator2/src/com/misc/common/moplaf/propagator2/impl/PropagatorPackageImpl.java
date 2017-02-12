@@ -2,7 +2,6 @@
  */
 package com.misc.common.moplaf.propagator2.impl;
 
-import com.misc.common.moplaf.propagator2.Bindings;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -14,7 +13,10 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
 import com.misc.common.moplaf.propagator2.PropagatorFactory;
 import com.misc.common.moplaf.propagator2.PropagatorFunction;
+import com.misc.common.moplaf.propagator2.PropagatorFunctionBindings;
 import com.misc.common.moplaf.propagator2.PropagatorPackage;
+import com.misc.common.moplaf.propagator2.util.Bindings;
+import org.eclipse.emf.common.notify.Notification;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,7 +44,21 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass propagatorFunctionBindingsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EDataType bindingsEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType notificationEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -272,6 +288,15 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getPropagatorFunction__NotifyChangedObject__Notification() {
+		return propagatorFunctionEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getPropagatorFunction_AntecedentsSibling() {
 		return (EReference)propagatorFunctionEClass.getEStructuralFeatures().get(2);
 	}
@@ -282,15 +307,6 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * @generated
 	 */
 	public EOperation getPropagatorFunction__Touch__EObject() {
-		return propagatorFunctionEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getPropagatorFunction__Untouch() {
 		return propagatorFunctionEClass.getEOperations().get(3);
 	}
 
@@ -299,7 +315,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__RefreshAntecedents() {
+	public EOperation getPropagatorFunction__Untouch() {
 		return propagatorFunctionEClass.getEOperations().get(4);
 	}
 
@@ -308,7 +324,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__RefreshThis() {
+	public EOperation getPropagatorFunction__RefreshAntecedents() {
 		return propagatorFunctionEClass.getEOperations().get(5);
 	}
 
@@ -317,7 +333,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__RefreshChildrenAndThis() {
+	public EOperation getPropagatorFunction__RefreshThis() {
 		return propagatorFunctionEClass.getEOperations().get(6);
 	}
 
@@ -326,7 +342,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__Refresh() {
+	public EOperation getPropagatorFunction__RefreshChildrenAndThis() {
 		return propagatorFunctionEClass.getEOperations().get(7);
 	}
 
@@ -335,7 +351,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__DoGetParent() {
+	public EOperation getPropagatorFunction__Refresh() {
 		return propagatorFunctionEClass.getEOperations().get(8);
 	}
 
@@ -344,16 +360,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__DoGetExplicitAntecedents() {
-		return propagatorFunctionEClass.getEOperations().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getPropagatorFunction__DoGetBindings() {
+	public EOperation getPropagatorFunction__DoGetParent() {
 		return propagatorFunctionEClass.getEOperations().get(10);
 	}
 
@@ -389,8 +396,44 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getPropagatorFunction__DoGetAntecedents() {
+		return propagatorFunctionEClass.getEOperations().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPropagatorFunctionBindings() {
+		return propagatorFunctionBindingsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPropagatorFunctionBindings__DoGetBindings() {
+		return propagatorFunctionBindingsEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPropagatorFunctionBindings__DoGetExplicitAntecedents() {
+		return propagatorFunctionBindingsEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getPropagatorFunction__Enable() {
-		return propagatorFunctionEClass.getEOperations().get(0);
+		return propagatorFunctionEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -399,7 +442,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * @generated
 	 */
 	public EOperation getPropagatorFunction__Disable() {
-		return propagatorFunctionEClass.getEOperations().get(1);
+		return propagatorFunctionEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -409,6 +452,15 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 */
 	public EDataType getBindings() {
 		return bindingsEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getNotification() {
+		return notificationEDataType;
 	}
 
 	/**
@@ -459,6 +511,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 		createEAttribute(propagatorFunctionEClass, PROPAGATOR_FUNCTION__OBJECT);
 		createEAttribute(propagatorFunctionEClass, PROPAGATOR_FUNCTION__INSTANCE);
 		createEAttribute(propagatorFunctionEClass, PROPAGATOR_FUNCTION__DESCRIPTION);
+		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___NOTIFY_CHANGED_OBJECT__NOTIFICATION);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___ENABLE);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___DISABLE);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___TOUCH__EOBJECT);
@@ -467,15 +520,19 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___REFRESH_THIS);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___REFRESH_CHILDREN_AND_THIS);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___REFRESH);
+		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___DO_GET_ANTECEDENTS);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___DO_GET_PARENT);
-		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___DO_GET_EXPLICIT_ANTECEDENTS);
-		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___DO_GET_BINDINGS);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___DO_REFRESH);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___DO_REFRESH__EOBJECT);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___GET_SCOPE);
 
+		propagatorFunctionBindingsEClass = createEClass(PROPAGATOR_FUNCTION_BINDINGS);
+		createEOperation(propagatorFunctionBindingsEClass, PROPAGATOR_FUNCTION_BINDINGS___DO_GET_BINDINGS);
+		createEOperation(propagatorFunctionBindingsEClass, PROPAGATOR_FUNCTION_BINDINGS___DO_GET_EXPLICIT_ANTECEDENTS);
+
 		// Create data types
 		bindingsEDataType = createEDataType(BINDINGS);
+		notificationEDataType = createEDataType(NOTIFICATION);
 	}
 
 	/**
@@ -506,6 +563,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		propagatorFunctionBindingsEClass.getESuperTypes().add(this.getPropagatorFunction());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(objectWithPropagatorFunctionsEClass, ObjectWithPropagatorFunctions.class, "ObjectWithPropagatorFunctions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -539,6 +597,9 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 		initEAttribute(getPropagatorFunction_Instance(), ecorePackage.getEString(), "Instance", null, 0, 1, PropagatorFunction.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPropagatorFunction_Description(), ecorePackage.getEString(), "Description", null, 0, 1, PropagatorFunction.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
+		op = initEOperation(getPropagatorFunction__NotifyChangedObject__Notification(), null, "notifyChangedObject", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getNotification(), "notification", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEOperation(getPropagatorFunction__Enable(), null, "enable", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getPropagatorFunction__Disable(), null, "disable", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -556,11 +617,9 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 
 		initEOperation(getPropagatorFunction__Refresh(), ecorePackage.getEBoolean(), "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getPropagatorFunction__DoGetAntecedents(), this.getPropagatorFunction(), "doGetAntecedents", 0, -1, IS_UNIQUE, IS_ORDERED);
+
 		initEOperation(getPropagatorFunction__DoGetParent(), this.getPropagatorFunction(), "doGetParent", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getPropagatorFunction__DoGetExplicitAntecedents(), this.getPropagatorFunction(), "doGetExplicitAntecedents", 0, -1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getPropagatorFunction__DoGetBindings(), this.getBindings(), "doGetBindings", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getPropagatorFunction__DoRefresh(), null, "doRefresh", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -569,8 +628,15 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 
 		initEOperation(getPropagatorFunction__GetScope(), this.getPropagatorFunction(), "getScope", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEClass(propagatorFunctionBindingsEClass, PropagatorFunctionBindings.class, "PropagatorFunctionBindings", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEOperation(getPropagatorFunctionBindings__DoGetBindings(), this.getBindings(), "doGetBindings", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getPropagatorFunctionBindings__DoGetExplicitAntecedents(), this.getPropagatorFunction(), "doGetExplicitAntecedents", 0, -1, IS_UNIQUE, IS_ORDERED);
+
 		// Initialize data types
 		initEDataType(bindingsEDataType, Bindings.class, "Bindings", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(notificationEDataType, Notification.class, "Notification", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

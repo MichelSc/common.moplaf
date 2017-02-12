@@ -1,4 +1,4 @@
-package com.misc.common.moplaf.propagator2;
+package com.misc.common.moplaf.propagator2.util;
 
 import java.util.Collection;
 import java.util.LinkedList;
@@ -13,7 +13,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import com.misc.common.moplaf.propagator2.util.Util;
+import com.misc.common.moplaf.propagator2.Plugin;
+import com.misc.common.moplaf.propagator2.PropagatorFunction;
 
 
 /**

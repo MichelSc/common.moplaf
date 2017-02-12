@@ -173,6 +173,11 @@ public class ObjectWithPropagatorFunctionsItemProvider
 			(createChildParameter
 				(PropagatorPackage.Literals.OBJECT_WITH_PROPAGATOR_FUNCTIONS__PROPAGATOR_FUNCTIONS,
 				 PropagatorFactory.eINSTANCE.createPropagatorFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PropagatorPackage.Literals.OBJECT_WITH_PROPAGATOR_FUNCTIONS__PROPAGATOR_FUNCTIONS,
+				 PropagatorFactory.eINSTANCE.createPropagatorFunctionBindings()));
 	}
 
 	/**

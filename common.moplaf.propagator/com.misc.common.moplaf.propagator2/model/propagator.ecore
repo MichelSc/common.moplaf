@@ -21,6 +21,9 @@
         eType="#//PropagatorFunction" containment="true" eOpposite="#//PropagatorFunction/ObjectWithPropagatorFunctions"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PropagatorFunction">
+    <eOperations name="notifyChangedObject">
+      <eParameters name="notification" eType="#//Notification"/>
+    </eOperations>
     <eOperations name="enable"/>
     <eOperations name="disable"/>
     <eOperations name="touch">
@@ -31,9 +34,8 @@
     <eOperations name="refreshThis" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="refreshChildrenAndThis" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="refresh" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="doGetAntecedents" upperBound="-1" eType="#//PropagatorFunction"/>
     <eOperations name="doGetParent" eType="#//PropagatorFunction"/>
-    <eOperations name="doGetExplicitAntecedents" upperBound="-1" eType="#//PropagatorFunction"/>
-    <eOperations name="doGetBindings" eType="#//Bindings"/>
     <eOperations name="doRefresh"/>
     <eOperations name="doRefresh">
       <eParameters name="toucher" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
@@ -64,5 +66,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="Bindings" instanceClassName="com.misc.common.moplaf.propagator2.Bindings"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorFunctionBindings" eSuperTypes="#//PropagatorFunction">
+    <eOperations name="doGetBindings" eType="#//Bindings"/>
+    <eOperations name="doGetExplicitAntecedents" upperBound="-1" eType="#//PropagatorFunction"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Bindings" instanceClassName="com.misc.common.moplaf.propagator2.util.Bindings"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Notification" instanceClassName="org.eclipse.emf.common.notify.Notification"/>
 </ecore:EPackage>

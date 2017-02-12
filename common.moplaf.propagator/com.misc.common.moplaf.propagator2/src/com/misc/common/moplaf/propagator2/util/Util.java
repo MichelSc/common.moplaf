@@ -17,11 +17,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 
-import com.misc.common.moplaf.propagator2.Bindings;
 import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
 import com.misc.common.moplaf.propagator2.Plugin;
 import com.misc.common.moplaf.propagator2.PropagatorFunction;
-import com.misc.common.moplaf.propagator2.PropagatorFunctionBindings;
 
 public class Util {
 	/**
