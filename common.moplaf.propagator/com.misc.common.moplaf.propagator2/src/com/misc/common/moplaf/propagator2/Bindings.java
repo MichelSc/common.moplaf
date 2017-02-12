@@ -266,9 +266,10 @@ public class Bindings {
 	}
 
 
-	public void addInboundBinding(EStructuralFeature feature){
+	public Bindings addInboundBinding(EStructuralFeature feature){
 		InboundBinding binding = new InboundBindingFeature(feature);
 		this.addInboundBinding(binding);
+		return this;
 	}
 
 	/**
@@ -393,9 +394,10 @@ public class Bindings {
 		}
 	}
 
-	public void addInboundBinding(EReference feature, Bindings bindings){
+	public Bindings addInboundBinding(EReference feature, Bindings bindings){
 		InboundBinding binding = new InboundBindingNavigationFeature(feature, bindings);
 		this.addInboundBinding(binding);
+		return this;
 	}
 
 	
@@ -419,8 +421,9 @@ public class Bindings {
 		
 	}
 	
-	public void addOutboundBinding(EStructuralFeature feature){
+	public Bindings addOutboundBinding(EStructuralFeature feature){
 		OutboundBinding binding = new OutboundBindingFeature(feature);
 		this.addOutboundBinding(binding);
+		return this;
 	}
 }
