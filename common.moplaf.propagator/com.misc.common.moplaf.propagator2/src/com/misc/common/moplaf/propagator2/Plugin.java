@@ -4,11 +4,12 @@ package com.misc.common.moplaf.propagator2;
 
 
 import org.eclipse.emf.common.EMFPlugin;
-import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import com.misc.common.moplaf.common.Logger;
 import com.misc.common.moplaf.common.Logger.Level;
+import com.misc.common.moplaf.propagator2.util.Bindings;
+import com.misc.common.moplaf.propagator2.util.PropagatorFunctionSourceBindings;
 import com.misc.common.moplaf.propagator2.util.Util;
 
 
@@ -74,29 +75,35 @@ public final class Plugin extends EMFPlugin  {
 	}
 	
 	private String formatLogMessage(String message, Object adapter){
-		String adapterAsString = "";
-		String objectAsString ="";
 		String messageAsString = message==null ? message+", ": "";
-		if ( adapter instanceof PropagatorFunctionBindings){
-			PropagatorFunctionBindings propagatorFunctionAdapter = (PropagatorFunctionBindings)adapter;
-			Notifier target = propagatorFunctionAdapter == null ? null : propagatorFunctionAdapter.getTarget();
-			objectAsString = String.format("object: %1$s(%2$d)", 
-											target == null ? "null" : Util.LastTokenDotSeparated(target.getClass().getName()),
-											target == null ? 0 : (target.hashCode() % 1000 +1));
-			adapterAsString = String.format("bindings: %1$s", 
-											propagatorFunctionAdapter.bindings.asString());
-		} else if ( adapter instanceof PropagatorFunction){
-			PropagatorFunction propagatorFunction = (PropagatorFunction)adapter;
-			ObjectWithPropagatorFunctions object = propagatorFunction.getObjectWithPropagatorFunctions();
-			objectAsString = String.format("object: %1$s(%2$d)", 
-					object == null ? "null" : Util.LastTokenDotSeparated(object.getClass().getName()),
-					object == null ? 0 : (object.hashCode() % 1000 +1));
-			adapterAsString = String.format("function: %1$s", 
-											Util.LastTokenDotSeparated(propagatorFunction.getClass().getName()));
+		PropagatorFunction propagatorFunction = null;
+		ObjectWithPropagatorFunctions object = null;
+		Bindings bindings = null;
+		
+		if ( adapter instanceof PropagatorFunctionSourceBindings){
+			PropagatorFunctionSourceBindings sourceBindings = (PropagatorFunctionSourceBindings)adapter;
+			bindings = sourceBindings.getBindings();
+			propagatorFunction = sourceBindings.getPropagatorFunction();
+			object = propagatorFunction.getObjectWithPropagatorFunctions();
+		} else if  ( adapter instanceof PropagatorFunctionBindings){
+			PropagatorFunctionBindings propagatorFunctionBindings = (PropagatorFunctionBindings)adapter;
+			bindings = propagatorFunctionBindings.doGetBindings();
+			propagatorFunction = propagatorFunctionBindings;
+			object = propagatorFunction.getObjectWithPropagatorFunctions();
 		}
-		return  String.format("%1$s %2$s, %3$s" , 
+		
+		String objectAsString = String.format("object: %1$s(%2$d)", 
+				object == null ? "null" : Util.LastTokenDotSeparated(object.getClass().getName()),
+				object == null ? 0 : (object.hashCode() % 1000 +1));
+		
+		String functionAsString = String.format("function: %1$s", Util.LastTokenDotSeparated(propagatorFunction.getClass().getName()));
+
+		String adapterAsString = String.format("bindings: %1$s", bindings.asString());
+		
+		return  String.format("%1$s %2$s, %3$s %4$s" , 
 										messageAsString, 
 								        objectAsString,
+								        functionAsString,
 								        adapterAsString);
 		
 	}

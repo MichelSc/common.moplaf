@@ -2,9 +2,10 @@
  */
 package com.misc.common.moplaf.propagator2;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-
+import com.misc.common.moplaf.propagator2.util.PropagatorFunctionBindingsToBeRemoved;
 import com.misc.common.moplaf.propagator2.util.PropagatorFunctionManagerAdapter;
 
 /**
@@ -16,7 +17,7 @@ import com.misc.common.moplaf.propagator2.util.PropagatorFunctionManagerAdapter;
  * methods {@link #doRefresh()} or {@link #doRefresh(EObject)} when the derived elements must be recalculated. 
  * 
  * <p>
- * Listening to changes is delegated to an adapter: {@link PropagatorFunctionBindings}. 
+ * Listening to changes is delegated to an adapter: {@link PropagatorFunctionBindingsToBeRemoved}. 
  * 
  * <p>
  * A PropagatorFunction: 
@@ -110,6 +111,8 @@ import com.misc.common.moplaf.propagator2.util.PropagatorFunctionManagerAdapter;
  * @generated
  */
 public interface PropagatorFunction extends EObject {
+	static BasicEList<PropagatorFunction> EMPTY_LIST = new BasicEList<PropagatorFunction>();
+
 	/**
 	 * Returns the value of the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -391,22 +394,6 @@ public interface PropagatorFunction extends EObject {
 	 * @model
 	 * @generated
 	 */
-	EList<PropagatorFunction> doGetExplicitAntecedents();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model dataType="com.misc.common.moplaf.propagator2.Bindings"
-	 * @generated
-	 */
-	Bindings doGetBindings();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
 	void doRefresh();
 
 	/**
@@ -424,6 +411,14 @@ public interface PropagatorFunction extends EObject {
 	 * @generated
 	 */
 	PropagatorFunction getScope();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	EList<PropagatorFunction> doGetAntecedents();
 
 	/**
 	 * <!-- begin-user-doc -->

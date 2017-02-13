@@ -2,21 +2,16 @@
  */
 package com.misc.common.moplaf.propagator2.impl;
 
-import com.misc.common.moplaf.propagator2.Bindings;
 import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
 import com.misc.common.moplaf.propagator2.Plugin;
 import com.misc.common.moplaf.propagator2.PropagatorFunction;
-import com.misc.common.moplaf.propagator2.PropagatorFunctionBindings;
-import com.misc.common.moplaf.propagator2.PropagatorFunctionSource;
-import com.misc.common.moplaf.propagator2.PropagatorFunctionVisitor;
 import com.misc.common.moplaf.propagator2.PropagatorPackage;
-import com.misc.common.moplaf.propagator2.util.Util;
+import com.misc.common.moplaf.propagator2.util.Bindings;
 
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.function.Predicate;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -29,14 +24,12 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Function</b></em>'.
- * @implements PropagatorFunctionSource
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
@@ -58,9 +51,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *
  * @generated
  */
-public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container implements PropagatorFunction, PropagatorFunctionSource {
+public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container implements PropagatorFunction {
 	
-	private Bindings bindings = null;
 	/**
 	 * The default value of the '{@link #isTouched() <em>Touched</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -195,81 +187,54 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 		return this.doGetParent();
 	}
 
+
 	/**
 	 * <!-- begin-user-doc -->
+	 * Default does nothing
 	 * <!-- end-user-doc -->
 	 */
-	private void getAntecedents_prvt(EList<PropagatorFunction> antecedents, Predicate<PropagatorFunction> doCollect) {
-		// explicit antecedents
-		EList<PropagatorFunction> explicitAntecedents = this.doGetExplicitAntecedents();
-		antecedents.addAll(explicitAntecedents);
-		
-		// bound sibling antecedents
-		Bindings bindings = this.doGetBindings();
-		if ( bindings!=null){
-			ObjectWithPropagatorFunctions object = this.getObjectWithPropagatorFunctions();
-			PropagatorFunctionBindings adapter = (PropagatorFunctionBindings) Util.getAdapter(object, this.getBindings());
-			if ( adapter!=null) {
-				// the adapter may not be present
-				// in that case, there are no antecedents
-				adapter.collectAntecedents(antecedents, doCollect);
-			}
-		}
-
+	public PropagatorFunction doGetParent() {
+		return null;
 	}
 
+
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 */
+	@Override
 	public EList<PropagatorFunction> getAntecedents() {
-		// Ensure that you remove @generated or mark it @generated NOT
-		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-		EList<PropagatorFunction> antecedents = new EObjectEList<PropagatorFunction>(PropagatorFunction.class, this, PropagatorPackage.PROPAGATOR_FUNCTION__ANTECEDENTS){
-
-			@Override
-			protected boolean isNotificationRequired() {
-				return false;
-			}
-		};
-		
-		this.getAntecedents_prvt(antecedents, null);
-		
+		EList<PropagatorFunction> antecedents = this.doGetAntecedents();
 		return antecedents;
-
 	}
 	
+		/**
+	 * 
+	 */
+	@Override
+	public EList<PropagatorFunction> getAntecedentsSibling() {
+		EList<PropagatorFunction> antecedents = this.getAntecedents();
+		EList<PropagatorFunction> antecedentsSiblings = new BasicEList<PropagatorFunction>();
+		for ( PropagatorFunction antecedent: antecedents){
+			if ( antecedent.getParent() == this.getParent()){
+				antecedentsSiblings.add(antecedent);
+			}
+		}
+		return antecedentsSiblings;
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public EList<PropagatorFunction> getAntecedentsSibling() {
-		class IsSiblingPredicate implements Predicate<PropagatorFunction>{
-
-			@Override
-			public boolean test(PropagatorFunction arg0) {
-				return PropagatorFunctionImpl.this.getParent()==arg0.getParent();
-			}
-			
+	public EList<PropagatorFunction> doGetAntecedents() {
+		return PropagatorFunction.EMPTY_LIST;
 		}
-		// Ensure that you remove @generated or mark it @generated NOT
-		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
-		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-		EList<PropagatorFunction> antecedents = new EObjectEList<PropagatorFunction>(PropagatorFunction.class, this, PropagatorPackage.PROPAGATOR_FUNCTION__ANTECEDENTS_SIBLING){
 
-			@Override
-			protected boolean isNotificationRequired() {
-				return false;
-			}
-		};
-		
-		this.getAntecedents_prvt(antecedents, new IsSiblingPredicate());
-		
-		return antecedents;
-	}
-
-
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -316,6 +281,63 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 		return touchers;
 	}
 
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void touch(EObject toucher) {
+//		if ( !this.isEnabled() ){
+//			return ;
+//		}
+		
+		if ( this.isTouched() ){
+			// already touched
+			if ( toucher==null ){ return; }
+			// already touched by touchers
+			// some (new) toucher
+			this.getTouchers().add(toucher);
+			return;
+			}
+
+		// ok we touch
+		// touch this
+		Plugin.INSTANCE.logTouch(this);
+		this.setTouched(true);
+		
+		// touch parent, if any
+		PropagatorFunction parent = this.getParent();
+		if ( parent != null ) {
+			parent.touch(null);
+			parent.getTouchedChildren().add(this);
+		}
+		
+		// toucher tracking
+		if ( toucher==null){
+			this.getTouchers().clear(); // touchers are not tracked any longer
+		} else {
+			this.getTouchers().add(toucher);
+		}
+	}
+	
+	/**
+	 * Reset touched state
+	 */
+	public void untouch(){
+		if ( this.isTouched() ){
+			this.setTouched(false);
+			this.getTouchers().clear();
+			PropagatorFunction parent = this.getParent();
+			if ( parent != null ) { 
+				parent.getTouchedChildren().remove(this);
+			}
+		}
+	}
+	
+
+
+
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -335,6 +357,18 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 		enabled = newEnabled;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PropagatorPackage.PROPAGATOR_FUNCTION__ENABLED, oldEnabled, enabled));
+	}
+
+	@Override
+	public void enable() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void disable() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	/**
@@ -423,39 +457,10 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void touch(EObject toucher) {
-//		if ( !this.isEnabled() ){
-//			return ;
-//		}
-		
-		if ( this.isTouched() ){
-			// already touched
-			if ( toucher==null ){ return; }
-			// already touched by touchers
-			// some (new) toucher
-			this.getTouchers().add(toucher);
-			return;
-			}
-
-		// ok we touch
-		// touch this
-		Plugin.INSTANCE.logTouch(this);
-		this.setTouched(true);
-		
-		// touch parent, if any
-		PropagatorFunction parent = this.getParent();
-		if ( parent != null ) {
-			parent.touch(null);
-			parent.getTouchedChildren().add(this);
-		}
-		
-		// toucher tracking
-		if ( toucher==null){
-			this.getTouchers().clear(); // touchers are not tracked any longer
-		} else {
-			this.getTouchers().add(toucher);
-		}
+	public void notifyChangedObject(Notification notification) {
+		// default does nothing
 	}
+
 	
 	/**
 	 * Refresh the PropagatorFunctionAdapter, so as is becomes untouched.
@@ -559,40 +564,6 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	}
 	
 	/**
-	 * Reset touched state
-	 */
-	public void untouch(){
-		if ( this.isTouched() ){
-			this.setTouched(false);
-			this.getTouchers().clear();
-			PropagatorFunction parent = this.getParent();
-			if ( parent != null ) { 
-				parent.getTouchedChildren().remove(this);
-			}
-		}
-	}
-	
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Default does nothing
-	 * <!-- end-user-doc -->
-	 */
-	public PropagatorFunction doGetParent() {
-		return null;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Default returns empty list
-	 * <!-- end-user-doc -->
-	 */
-	public EList<PropagatorFunction> doGetExplicitAntecedents() {
-		return new BasicEList<PropagatorFunction>();
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * Default does nothing
 	 * <!-- end-user-doc -->
@@ -643,6 +614,7 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 		}
 	}
 
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -687,86 +659,6 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * Default implementation touch
-	 * <!-- end-user-doc -->
-	 */
-	public void onObjectOwned() {
-		this.touch(null);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Default implementation does nothing
-	 * <!-- end-user-doc -->
-	 */
-	public void onObjectDispose() {
-	}
-
-	
-	private  Bindings getBindings(){ 
-		if ( this.bindings == null ) {
-			this.bindings = this.doGetBindings();
-		}
-		return this.bindings; }
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public void enable() {
-		Bindings bindings = this.getBindings();
-		if ( bindings!=null){
-			ObjectWithPropagatorFunctions object = this.getObjectWithPropagatorFunctions();
-			
-			PropagatorFunctionBindings adapter = (PropagatorFunctionBindings) Util.getAdapter(object, bindings);
-			
-			// create the dependency
-			if ( adapter == null) {
-				adapter = new PropagatorFunctionBindings(bindings);
-				object.eAdapters().add(adapter);
-			}
-			
-			// add this adapter as source to the new one
-			adapter.addSource(this);
-	
-			// activate the dependency
-			adapter.initDependencies();
-		}
-		
-		this.enabled = true;
-		
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public void disable() {
-		this.enabled = false;
-
-		// unregister
-		Bindings bindings = this.getBindings();
-		if ( bindings!=null){
-			ObjectWithPropagatorFunctions object = this.getObjectWithPropagatorFunctions();
-		
-			PropagatorFunctionBindings adapter = (PropagatorFunctionBindings) Util.getAdapter(object, bindings);
-		
-			// create the dependency
-			if ( adapter != null) {
-				// dactivate the dependency
-				adapter.disposeDependencies();
-			
-				// add this adapter as source to the new one
-				adapter.removeSource(this);
-	
-				if ( adapter.sourcesSetEmpty()){
-					object.eAdapters().remove(adapter);
-				}
-			}
-		}
-		
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -927,12 +819,10 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 				return refreshChildrenAndThis();
 			case PropagatorPackage.PROPAGATOR_FUNCTION___REFRESH:
 				return refresh();
+			case PropagatorPackage.PROPAGATOR_FUNCTION___DO_GET_ANTECEDENTS:
+				return doGetAntecedents();
 			case PropagatorPackage.PROPAGATOR_FUNCTION___DO_GET_PARENT:
 				return doGetParent();
-			case PropagatorPackage.PROPAGATOR_FUNCTION___DO_GET_EXPLICIT_ANTECEDENTS:
-				return doGetExplicitAntecedents();
-			case PropagatorPackage.PROPAGATOR_FUNCTION___DO_GET_BINDINGS:
-				return doGetBindings();
 			case PropagatorPackage.PROPAGATOR_FUNCTION___DO_REFRESH:
 				doRefresh();
 				return null;
@@ -963,11 +853,6 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 		return result.toString();
 	}
 
-	@Override
-	public void accept(PropagatorFunctionVisitor visitor) {
-		visitor.visitPropagatorFunction(this);
-	}
-	
 	// 
 	// propagation logic
 	//
@@ -1095,4 +980,5 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 		} // while some touched adapters
 		return true;
 	}
+
 } //PropagatorFunctionImpl

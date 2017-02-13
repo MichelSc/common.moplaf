@@ -12,6 +12,8 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import com.misc.common.moplaf.propagator2.*;
+import com.misc.common.moplaf.propagator2.util.Bindings;
+import org.eclipse.emf.common.notify.Notification;
 
 /**
  * <!-- begin-user-doc -->
@@ -59,6 +61,7 @@ public class PropagatorFactoryImpl extends EFactoryImpl implements PropagatorFac
 		switch (eClass.getClassifierID()) {
 			case PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS: return createObjectWithPropagatorFunctions();
 			case PropagatorPackage.PROPAGATOR_FUNCTION: return createPropagatorFunction();
+			case PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS: return createPropagatorFunctionBindings();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -74,6 +77,8 @@ public class PropagatorFactoryImpl extends EFactoryImpl implements PropagatorFac
 		switch (eDataType.getClassifierID()) {
 			case PropagatorPackage.BINDINGS:
 				return createBindingsFromString(eDataType, initialValue);
+			case PropagatorPackage.NOTIFICATION:
+				return createNotificationFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -89,6 +94,8 @@ public class PropagatorFactoryImpl extends EFactoryImpl implements PropagatorFac
 		switch (eDataType.getClassifierID()) {
 			case PropagatorPackage.BINDINGS:
 				return convertBindingsToString(eDataType, instanceValue);
+			case PropagatorPackage.NOTIFICATION:
+				return convertNotificationToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -119,6 +126,16 @@ public class PropagatorFactoryImpl extends EFactoryImpl implements PropagatorFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public PropagatorFunctionBindings createPropagatorFunctionBindings() {
+		PropagatorFunctionBindingsImpl propagatorFunctionBindings = new PropagatorFunctionBindingsImpl();
+		return propagatorFunctionBindings;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Bindings createBindingsFromString(EDataType eDataType, String initialValue) {
 		return (Bindings)super.createFromString(eDataType, initialValue);
 	}
@@ -129,6 +146,24 @@ public class PropagatorFactoryImpl extends EFactoryImpl implements PropagatorFac
 	 * @generated
 	 */
 	public String convertBindingsToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Notification createNotificationFromString(EDataType eDataType, String initialValue) {
+		return (Notification)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertNotificationToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

@@ -17,8 +17,6 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 
 import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
 import com.misc.common.moplaf.propagator2.PropagatorFunction;
-import com.misc.common.moplaf.propagator2.PropagatorFunctionBindings;
-import com.misc.common.moplaf.propagator2.PropagatorFunctionsConstructor;
 
 
 
@@ -34,7 +32,7 @@ import com.misc.common.moplaf.propagator2.PropagatorFunctionsConstructor;
  * their persistent storage (both primitive and derived elements), so after the Resource is loaded.
  * In the EMF generated editor, this will be in the createModel method.
  * <p>
- * Handle the management of the {@link PropagatorFunctionBindings} of the PropagatorFunctions in the containment tree. 
+ * Handle the management of the {@link PropagatorFunctionBindingsToBeRemoved} of the PropagatorFunctions in the containment tree. 
  * Implement specific behaviors at the following moments:
  * <ul> 
  * <li> when the Notifier is added to its container: method {@link #onNotifierContained(Notifier)}
@@ -46,17 +44,17 @@ import com.misc.common.moplaf.propagator2.PropagatorFunctionsConstructor;
  * <li>when the adapter is added: {@link #onAdapterAdded(Notifier)}
  *   <ul> 
  *   <li> enable the PropagatorFunctions: call to {@link PropagatorFunction#enable()}
- *   <li> the latter will create the dependencies: call {@link PropagatorFunctionBindings#initDependencies()}
+ *   <li> the latter will create the dependencies: call {@link PropagatorFunctionBindingsToBeRemoved#initDependencies()}
  *   </ul>
  * <li>when the Notifier is proxy resolved: {@link #onResolve(Notifier, Notifier)}
  *   <ul> 
- *   <li>move the {@link PropagatorFunctionBindings} adapters from the proxy object to the resolved object  
+ *   <li>move the {@link PropagatorFunctionBindingsToBeRemoved} adapters from the proxy object to the resolved object  
  *   </ul>
  * <li> when the adapter is removed: {@link #onAdapterRemoved(Notifier)}
  *   <ul> 
  *   <li> disable the propagator: call {@link PropagatorFunction#disable()}
- *   <li> the latter will dispose the dependencies: call to {@link PropagatorFunctionBindings#disposeDependencies()}
- *   <li> the {@link PropagatorFunctionBindings} adapters at not removed 
+ *   <li> the latter will dispose the dependencies: call to {@link PropagatorFunctionBindingsToBeRemoved#disposeDependencies()}
+ *   <li> the {@link PropagatorFunctionBindingsToBeRemoved} adapters at not removed 
  *   </ul>
  * <li>when the Notifier is removed from its container: {@link #onNotifierNotContained(Notifier)}
  *   <ul> 
@@ -501,7 +499,7 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 	private void onResolve(Notifier oldNotifier, Notifier newNotifier){
 		LinkedList<Adapter> adaptersToMove = new LinkedList<Adapter>();
 		for ( Adapter adapter : oldNotifier.eAdapters()){
-			if ( adapter instanceof PropagatorFunctionBindings){
+			if ( adapter instanceof PropagatorFunctionBindingsToBeRemoved){
 				adaptersToMove.add(adapter);
 			}
 		}
