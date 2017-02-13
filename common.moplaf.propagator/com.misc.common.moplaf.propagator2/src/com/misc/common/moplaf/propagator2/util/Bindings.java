@@ -302,18 +302,17 @@ public class Bindings {
 			if ( oldvalue instanceof EObject){
 				EObject oldtarget = (EObject)oldvalue;
 				adapter = Util.getPropagatorFunctionAdapter(oldtarget);
-				this.eBindings.touch(source, oldtarget);
-				adapter.removeSource(propagatorFunction, this.eBindings);
+				PropagatorFunctionSource oldsource = adapter.removeSource(propagatorFunction, this.eBindings);
+				this.eBindings.touch(oldsource, oldtarget);
 			} else if ( oldvalue instanceof Collection<?> ){
 				for ( Object element : (Collection<Object>)oldvalue){
 					if ( element instanceof EObject) {
 						EObject oldtarget = (EObject)element;
 						adapter = Util.getPropagatorFunctionAdapter(oldtarget);
-						this.eBindings.touch(source, oldtarget);
-						adapter.removeSource(propagatorFunction, this.eBindings);
+						PropagatorFunctionSource oldsource = adapter.removeSource(propagatorFunction, this.eBindings);
+						this.eBindings.touch(oldsource, oldtarget);
 					}
 				}
-				
 			}
 			if ( newvalue instanceof EObject){
 				EObject newtarget = (EObject)newvalue;
@@ -342,7 +341,7 @@ public class Bindings {
 			PropagatorFunction propagatorFunction = source.getPropagatorFunction();
 			EObject target = source.getTarget();
 			PropagatorFunctionAdapter adapter = Util.getPropagatorFunctionAdapter(target);
-			Object featurevalue = target.eGet((EStructuralFeature) this.eFeature, false ); // no resolve
+			Object featurevalue = target.eGet(this.eFeature, false ); // no resolve
 			if ( featurevalue instanceof Collection<?>){
 				Collection<EObject> referredobjects = (Collection<EObject>)featurevalue;
 				for (EObject referredobject : referredobjects){
@@ -363,7 +362,7 @@ public class Bindings {
 			PropagatorFunction propagatorFunction = source.getPropagatorFunction();
 			EObject target = source.getTarget();
 			PropagatorFunctionAdapter adapter = Util.getPropagatorFunctionAdapter(target);
-			Object featurevalue = target.eGet((EStructuralFeature) this.eFeature);
+			Object featurevalue = target.eGet(this.eFeature);
 			if ( featurevalue instanceof Collection<?>){
 				Collection<EObject> referredobjects = (Collection<EObject>)featurevalue;
 				for (EObject referredobject : referredobjects){
@@ -384,7 +383,7 @@ public class Bindings {
 			super.collectAntecedents(source, antecedents, doCollect);
 			// navigated to objects
 			EObject target = source.getTarget();
-			Object featurevalue = target.eGet((EStructuralFeature) this.eFeature);
+			Object featurevalue = target.eGet(this.eFeature);
 			if ( featurevalue instanceof Collection<?>){
 				Collection<EObject> referredobjects = (Collection<EObject>)featurevalue;
 				for (EObject referredobject : referredobjects){
@@ -433,7 +432,6 @@ public class Bindings {
 		public boolean isOutboundBinding(PropagatorFunctionSource source, Object element) {
 			return element == this.eFeature;
 		}
-		
 	}
 	
 	public Bindings addOutboundBinding(EStructuralFeature feature){

@@ -34,14 +34,22 @@ public abstract class PropagatorFunctionSource {
 	
 	// accessors
 	public abstract boolean isSourceForBindings(Object keyBindings);
+	
 	public PropagatorFunction getPropagatorFunction(){
 		return this.propagatorFunction;
 	}
+	
 	public EObject getTarget(){
 		return this.target;
 	}
 	
-	// outbound binding
+	/**
+	 * outbound binding: return whether the feature feature of the target of this source is set 
+	 * by the PropagatorFunction associated to this source
+	 * @param feature
+	 * @return
+	 */
+	
 	boolean isOutboundBinding(Object feature){
 		return false;
 	}

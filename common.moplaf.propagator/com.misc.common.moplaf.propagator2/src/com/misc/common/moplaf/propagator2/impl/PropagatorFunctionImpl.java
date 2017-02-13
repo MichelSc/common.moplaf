@@ -593,19 +593,6 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public boolean isPropagatorFunctionOfType(Object type) {
-		if ( type instanceof Class<?>) {
-			return  ((Class<?>)type).isInstance(this);
-		} else if ( type instanceof String ) {
-			return this.getType().equals((String)type);
-		}
-		return false;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
 	public PropagatorFunction getScope() {
 		PropagatorFunction parent = this.getParent();
 		if ( parent == null ) { 

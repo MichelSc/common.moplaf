@@ -191,8 +191,6 @@ public class PropagatorFunctionBindingsImpl extends PropagatorFunctionImpl imple
 			PropagatorFunctionSourceBindings source = new PropagatorFunctionSourceBindings(object, this, bindings);
 			
 			adapter.addSource(source);
-	
-			source.initDependencies();
 		}
 		
 		this.enabled = true;
@@ -213,8 +211,6 @@ public class PropagatorFunctionBindingsImpl extends PropagatorFunctionImpl imple
 			PropagatorFunctionAdapter adapter = Util.getPropagatorFunctionAdapter(object);
 			
 			PropagatorFunctionSource source = adapter.getSource(this, bindings);
-			
-			source.disposeDependencies();
 			
 			adapter.removeSource(source);
 	
