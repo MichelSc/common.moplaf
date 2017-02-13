@@ -109,7 +109,7 @@ public class PropagatorFunctionBindingsImpl extends PropagatorFunctionImpl imple
 			
 			PropagatorFunctionAdapter adapter = Util.getPropagatorFunctionAdapter(object);
 			
-			PropagatorFunctionSourceBindings source = new PropagatorFunctionSourceBindings(this, bindings);
+			PropagatorFunctionSourceBindings source = new PropagatorFunctionSourceBindings(object, this, bindings);
 
 			source.collectAntecedents(antecedents, doCollect);
 		}
@@ -188,7 +188,7 @@ public class PropagatorFunctionBindingsImpl extends PropagatorFunctionImpl imple
 			
 			PropagatorFunctionAdapter adapter = Util.getPropagatorFunctionAdapter(object);
 			
-			PropagatorFunctionSourceBindings source = new PropagatorFunctionSourceBindings(this, bindings);
+			PropagatorFunctionSourceBindings source = new PropagatorFunctionSourceBindings(object, this, bindings);
 			
 			adapter.addSource(source);
 	

@@ -1,15 +1,9 @@
 package com.misc.common.moplaf.propagator2.util;
 
 import java.util.LinkedList;
-import java.util.function.Predicate;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
-
-import com.misc.common.moplaf.propagator2.Plugin;
 import com.misc.common.moplaf.propagator2.PropagatorFunction;
 
 
@@ -65,14 +59,20 @@ import com.misc.common.moplaf.propagator2.PropagatorFunction;
 
 	public void addSource(PropagatorFunctionSource source){
 		this.sources.add(source);
+		source.initDependencies();
 	}
 
 	public void removeSource(PropagatorFunctionSource source){
+		source.disposeDependencies();
 		this.sources.remove(source);
 	}
 	
 	public boolean sourcesSetEmpty(){
 		return this.sources.isEmpty();
+	}
+	
+	public LinkedList<PropagatorFunctionSource> getSources(){
+		return this.sources;
 	}
 	
 	public PropagatorFunctionSource getSource(PropagatorFunction propagatorFunction, Object keyBindigs){
@@ -83,38 +83,12 @@ import com.misc.common.moplaf.propagator2.PropagatorFunction;
 		}
 		return null;
 	}
-
-
-	// -------------------------------------
-	// dependency management
-	// -------------------------------------
-
-//	void addDependency(PropagatorFunctionSource source, Notifier target){
-//	
-//		PropagatorFunctionAdapter adapter = (PropagatorFunctionAdapter) Util.getAdapter(target, PropagatorFunctionAdapter.class);
-//		
-//		// add this adapter as source to the new one
-//		adapter.addSource(source);
-//
-//		// activate the dependency
-//		if ( !((EObject)target).eIsProxy() ) {
-//			source.initDependencies();
-//		}
-//	}
-//		
-//	PropagatorFunctionAdapter removeDependency(PropagatorFunctionSource source, Notifier target){
-//		PropagatorFunctionAdapter adapter = (PropagatorFunctionAdapter) Util.getAdapter(target, PropagatorFunctionAdapter.class);
-//		adapter.removeSource(source);
-//		if ( adapter.sourcesSetEmpty()){
-//			adapter.disposeDependencies();
-//			target.eAdapters().remove(adapter);
-//		}
-//		return adapter;
-//	}
-		
-	// -------------------------------------
-	// activate, deactivate
-	// -------------------------------------
+	
+	public PropagatorFunctionSource removeSource(PropagatorFunction propagatorFunction, Object keyBindigs){
+		PropagatorFunctionSource source = this.getSource(propagatorFunction, keyBindigs);
+		this.removeSource(source);
+		return source;
+	}
 
 
 	/**
@@ -129,67 +103,4 @@ import com.misc.common.moplaf.propagator2.PropagatorFunction;
 			source.notifyChanged(msg);
 		}
 	}
-	
-//	class PropagatorFunctionToucher implements PropagatorFunctionVisitor{
-//		private EObject toucherObject;
-//		public PropagatorFunctionToucher(EObject toucher){
-//			this.toucherObject = toucher;
-//		}
-//		@Override
-//		public void visitPropagatorFunction(PropagatorFunction propagatorFunction) {
-//			propagatorFunction.touch(this.toucherObject);
-//		}
-//	}
-
-
-//	/**
-//	 * Ultimately, the inbound bindings call touch as a function of the notifications it receives
-//	 */
-//	public void touch(EObject toucher){
-//		// get target and Resource
-//		Notifier target = this.getTarget();
-//		
-//		if ( !Util.notifierIsEObjectActive(target) ){ return; }
-//		
-//		// ok we touch
-//		Plugin.INSTANCE.logTouch(this);
-//		this.accept(new PropagatorFunctionToucher((EObject)toucher));
-//	}
-//	
-//	class PropagatorFunctionCollector implements PropagatorFunctionVisitor{
-//		private EList<PropagatorFunction> collection;
-//		private Predicate<PropagatorFunction> doCollect;
-//		public PropagatorFunctionCollector(EList<PropagatorFunction> collection, Predicate<PropagatorFunction> doCollect){
-//			this.collection = collection;
-//			this.doCollect = doCollect;
-//		}
-//		@Override
-//		public void visitPropagatorFunction(PropagatorFunction propagatorFunction) {
-//			if ( this.doCollect==null || this.doCollect.test(propagatorFunction)){
-//				this.collection.add(propagatorFunction);
-//			}
-//		}
-//	}
-	
-//	/**
-//	 * Retrieve all the PropagatorFunctionAdapters depending on this PropagatorAbstractAdapter.
-//	 * <p>
-//	 * Used to collect the PropagatorFunctionAdapters bound through an inbound binding to this 
-//	 * Adapter
-//	 * <p>
-//	 * Default implementation does nothing.
-//	 */
-//	public void collectPropagatorFunctions(EList<PropagatorFunction> propagatorFunctions, Predicate<PropagatorFunction> doCollect){
-//		this.accept(new PropagatorFunctionCollector(propagatorFunctions, doCollect));
-//	}
-//	
-//	/*
-//	 * Collect the antecedents of the inbound bindings of this adapter
-//	 * <p>
-//	 * Used by the framework to derive the antecedents of a given PropagatorFunctionAdapter
-//	 */
-//	public void collectAntecedents(EList<PropagatorFunction> antecedents, Predicate<PropagatorFunction> doCollect){
-//			this.bindings.collectAntecedents(this, antecedents, doCollect);
-//	}
-
 }

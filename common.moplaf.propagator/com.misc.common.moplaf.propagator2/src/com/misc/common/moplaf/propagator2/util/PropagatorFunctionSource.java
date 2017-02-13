@@ -4,7 +4,9 @@ import java.util.function.Predicate;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
+import com.misc.common.moplaf.propagator2.Plugin;
 import com.misc.common.moplaf.propagator2.PropagatorFunction;
 
 /**
@@ -19,20 +21,43 @@ import com.misc.common.moplaf.propagator2.PropagatorFunction;
  * </ul>
  */
 
-public interface PropagatorFunctionSource {
-
-	// accessors
-	public boolean isSourceForBindings(Object keyBindings);
-	public PropagatorFunction getPropagatorFunction();
+public abstract class PropagatorFunctionSource {
+	private PropagatorFunction propagatorFunction;
+	private EObject target; 
 	
-	// manage dependencies
-	public void initDependencies();
-	public void disposeDependencies();
+	// constructor
+	public PropagatorFunctionSource( EObject target, PropagatorFunction propagatorFunction) {
+		super();
+		this.propagatorFunction = propagatorFunction;
+		this.target = target;
+	}
+	
+	// accessors
+	public abstract boolean isSourceForBindings(Object keyBindings);
+	public PropagatorFunction getPropagatorFunction(){
+		return this.propagatorFunction;
+	}
+	public EObject getTarget(){
+		return this.target;
+	}
+	
+	// outbound binding
+	boolean isOutboundBinding(Object feature){
+		return false;
+	}
+	
+	// manage dependencies of this source on the notifier
+	public void initDependencies(){}
+	public void disposeDependencies(){}
 	
 	// listening and collecting
-	public void notifyChanged(Notification notification);
-	public void collectAntecedents(EList<PropagatorFunction> antecedents, Predicate<PropagatorFunction> doCollect);
+	public void notifyChanged(Notification notification) {}
+	public void collectAntecedents(EList<PropagatorFunction> antecedents, Predicate<PropagatorFunction> doCollect){}
 	
-	// to be removed
-	public void accept(PropagatorFunctionVisitor visitor);
+	// touch
+	void touch(EObject toucher){
+		Plugin.INSTANCE.logTouch(this);
+		this.propagatorFunction.touch(toucher);
+	}
+	
 }

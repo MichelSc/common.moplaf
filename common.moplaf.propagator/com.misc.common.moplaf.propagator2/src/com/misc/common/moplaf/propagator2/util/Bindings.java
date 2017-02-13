@@ -4,9 +4,7 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.function.Predicate;
 
-import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -26,11 +24,11 @@ import com.misc.common.moplaf.propagator2.PropagatorFunction;
  * {@link OutboundBinding}.
  * <p>
  * An inbound Bindings decides when a modication is binding by implementing the method
- * {@link InboundBinding#notifyChanged(PropagatorFunctionBindingsToBeRemoved, Notification)}, that must call {@link PropagatorFunctionBindingsToBeRemoved#touch(EObject)}
+ * {@link InboundBinding#notifyChanged(PropagatorFunctionSource, Notification)}, that must call {@link PropagatorFunctionSource#touch(EObject)}
  * when there is inbound binding.
  * <p> 
  * An outbound Bindings decides when an adapter is setting an element by implementing
- * the method {@link OutboundBinding#isOutboundBinding(PropagatorFunctionBindingsToBeRemoved, Object)}, 
+ * the method {@link OutboundBinding#isOutboundBinding(PropagatorFunctionSource, Object)}, 
  * that must return true when there is outbound binding.
  * 
  * @author michel
@@ -45,31 +43,31 @@ public class Bindings {
 	 */
 	protected boolean isTrackToucher = false;
 	
-	private boolean touchWithToucher(PropagatorFunctionBindingsToBeRemoved adapter, Notifier toucher){
-		if ( !this.isTrackToucher )  { return false; }
-		if ( !(toucher instanceof EObject)){ return false; }
-		adapter.touch((EObject)toucher);
-		return true;
+	private void touch(PropagatorFunctionSource source, EObject toucher){
+		if ( !this.isTrackToucher ) {
+			toucher = null;
+		}
+		source.touch(toucher );
 	}
 
-	public void notifyChanged(PropagatorFunctionBindingsToBeRemoved adapter, Notification msg) {
+	public void notifyChanged(PropagatorFunctionSource adapter, Notification msg) {
 		for ( InboundBinding inboundBinding : this.inboundBindings){
 			inboundBinding.notifyChanged(adapter,  msg);
 		}
 	}
-	public void initDependencies(PropagatorFunctionBindingsToBeRemoved adapter) {
+	public void initDependencies(PropagatorFunctionSource source) {
 		for ( InboundBinding inboundBinding : this.inboundBindings){
-			inboundBinding.initDependencies(adapter);
+			inboundBinding.initDependencies(source);
 		}
 	}
-	public void disposeDependencies(PropagatorFunctionBindingsToBeRemoved adapter) {
+	public void disposeDependencies(PropagatorFunctionSource source) {
 		for ( InboundBinding inboundBinding : this.inboundBindings){
-			inboundBinding.disposeDependencies(adapter);
+			inboundBinding.disposeDependencies(source);
 		}
 	}
-	public void collectAntecedents(PropagatorFunctionBindingsToBeRemoved adapter, EList<PropagatorFunction> antecedents, Predicate<PropagatorFunction> doCollect){
+	public void collectAntecedents(PropagatorFunctionSource source, EList<PropagatorFunction> antecedents, Predicate<PropagatorFunction> doCollect){
 		for ( InboundBinding inboundBinding : this.inboundBindings){
-			inboundBinding.collectAntecedents(adapter, antecedents, doCollect);
+			inboundBinding.collectAntecedents(source, antecedents, doCollect);
 		}
 	}
 	
@@ -109,7 +107,7 @@ public class Bindings {
 		/**
 		 * must 1) call touch if the bound element is modified and 2) add/remove old/new bindings
 		 */
-		protected void notifyChanged(PropagatorFunctionBindingsToBeRemoved adapter, Notification msg) {};
+		protected void notifyChanged(PropagatorFunctionSource adapter, Notification msg) {};
 		/**
 		 * Return whether this inbound binding is tracking toucher
 		 */
@@ -127,9 +125,9 @@ public class Bindings {
 		/**
 		 * 
 		 */
-		void initDependencies(PropagatorFunctionBindingsToBeRemoved adapter){}
-		void disposeDependencies(PropagatorFunctionBindingsToBeRemoved adapter){}
-		public void collectAntecedents(PropagatorFunctionBindingsToBeRemoved adapter, EList<PropagatorFunction> antecedents, Predicate<PropagatorFunction> doCollect){}
+		void initDependencies(PropagatorFunctionSource source){}
+		void disposeDependencies(PropagatorFunctionSource source){}
+		public void collectAntecedents(PropagatorFunctionSource source, EList<PropagatorFunction> antecedents, Predicate<PropagatorFunction> doCollect){}
 
 	}
 
@@ -151,10 +149,10 @@ public class Bindings {
 	 * Informs the framework that the element is bound
 	 * trough some outbound binding of this PropagatorAbstractAdapter  
 	 */
-	public boolean isOutboundBinding(PropagatorFunctionBindingsToBeRemoved adapter, Object element){
+	public boolean isOutboundBinding(PropagatorFunctionSource source, Object element){
 		if ( this.outboundBindings!=null ){
 			for ( OutboundBinding binding : this.outboundBindings){
-				if ( binding.isOutboundBinding(adapter, element)){
+				if ( binding.isOutboundBinding(source, element)){
 					return true;
 				}
 			}
@@ -175,7 +173,7 @@ public class Bindings {
 		/*
 		 * Return the element of target of this binding is (out)bound to the Propator function 
 		 */
-		public boolean isOutboundBinding(PropagatorFunctionBindingsToBeRemoved adapter, Object element){
+		public boolean isOutboundBinding(PropagatorFunctionSource adapter, Object element){
 			return false;
 		}
 	}
@@ -246,28 +244,22 @@ public class Bindings {
 			return this.eFeature.getName();
 		}
 		@Override
-		protected void notifyChanged(PropagatorFunctionBindingsToBeRemoved adapter, Notification msg) {
+		protected void notifyChanged(PropagatorFunctionSource source, Notification msg) {
 			if ( msg.isTouch() ) { return ; }
 			if ( msg.getFeature()!= this.eFeature)  { return ; }
-			boolean touched = Bindings.this.touchWithToucher(adapter, adapter.getTarget());
-			if ( !touched ) {
-				adapter.touch(null);
-			}
+			Bindings.this.touch(source, source.getTarget());
 		}
 		@Override
-		public void collectAntecedents(PropagatorFunctionBindingsToBeRemoved adapter, EList<PropagatorFunction> antecedents, Predicate<PropagatorFunction> doCollect) {
-			Notifier notifier = adapter.getTarget();
-			for (Adapter otherAdapter : notifier.eAdapters()) {
-				if (otherAdapter instanceof PropagatorFunctionBindingsToBeRemoved) {
-					PropagatorFunctionBindingsToBeRemoved otherpropagator = (PropagatorFunctionBindingsToBeRemoved) otherAdapter;
-					if ( otherpropagator.isOutboundBinding(this.eFeature)){
-						otherpropagator.collectPropagatorFunctions(antecedents, doCollect);
-					}
+		public void collectAntecedents(PropagatorFunctionSource source, EList<PropagatorFunction> antecedents, Predicate<PropagatorFunction> doCollect) {
+			EObject target = source.getTarget();
+			PropagatorFunctionAdapter adapter = Util.getPropagatorFunctionAdapter(target);
+			for ( PropagatorFunctionSource otherSource : adapter.getSources()){
+				if ( otherSource.isOutboundBinding(this.eFeature)){
+					antecedents.add(otherSource.getPropagatorFunction());
 				}
 			}
-		}	
-	}
-
+		}
+	}; // class InboundBindingFeature
 
 	public Bindings addInboundBinding(EStructuralFeature feature){
 		InboundBinding binding = new InboundBindingFeature(feature);
@@ -285,7 +277,9 @@ public class Bindings {
 			this.eBindings = bindings;
 		}
 		@Override
-		protected void notifyChanged(PropagatorFunctionBindingsToBeRemoved adapter, Notification msg) {
+		protected void notifyChanged(PropagatorFunctionSource source, Notification msg) {
+			PropagatorFunction propagatorFunction = source.getPropagatorFunction();
+					
 			if ( msg.isTouch() ) { return ; 
 			}
 			if ( msg.getFeature()!= this.eFeature)  { return ; 
@@ -297,42 +291,46 @@ public class Bindings {
 			  && msg.getEventType()!=Notification.SET) { return; 
 			}
 
-			boolean touched = Bindings.this.touchWithToucher(adapter, adapter.getTarget());
+			Bindings.this.touch(source, source.getTarget());
 
 			// at this point, some change happened in the association
 			// add/remove the dependency and touch
 			Object newvalue = msg.getNewValue();
 			Object oldvalue = msg.getOldValue();
 			assert newvalue!=oldvalue;
+			PropagatorFunctionAdapter adapter;
 			if ( oldvalue instanceof EObject){
 				EObject oldtarget = (EObject)oldvalue;
-				touched = this.eBindings.touchWithToucher(adapter, oldtarget) || touched;
-				adapter.removeDependency(this.eBindings, oldtarget);
+				adapter = Util.getPropagatorFunctionAdapter(oldtarget);
+				this.eBindings.touch(source, oldtarget);
+				adapter.removeSource(propagatorFunction, this.eBindings);
 			} else if ( oldvalue instanceof Collection<?> ){
 				for ( Object element : (Collection<Object>)oldvalue){
 					if ( element instanceof EObject) {
 						EObject oldtarget = (EObject)element;
-						touched = this.eBindings.touchWithToucher(adapter, oldtarget) || touched;
-						adapter.removeDependency(this.eBindings, oldtarget);
+						adapter = Util.getPropagatorFunctionAdapter(oldtarget);
+						this.eBindings.touch(source, oldtarget);
+						adapter.removeSource(propagatorFunction, this.eBindings);
 					}
 				}
 				
 			}
 			if ( newvalue instanceof EObject){
 				EObject newtarget = (EObject)newvalue;
-				adapter.addDependency(this.eBindings, newtarget);
-				touched = this.eBindings.touchWithToucher(adapter, newtarget) || touched;
+				adapter = Util.getPropagatorFunctionAdapter(newtarget);
+				PropagatorFunctionSourceBindings newsource = new PropagatorFunctionSourceBindings(newtarget, propagatorFunction, this.eBindings);
+				adapter.addSource(newsource);
+				this.eBindings.touch(newsource, newtarget);
 			} else if ( newvalue instanceof Collection<?> ){
 				for ( Object element : (Collection<Object>)newvalue){
 					if ( element instanceof EObject) {
 						EObject newtarget = (EObject)element;
-						adapter.addDependency(this.eBindings, newtarget);
-						touched = this.eBindings.touchWithToucher(adapter, newtarget) || touched;
+						adapter = Util.getPropagatorFunctionAdapter(newtarget);
+						PropagatorFunctionSourceBindings newsource = new PropagatorFunctionSourceBindings(newtarget, propagatorFunction, this.eBindings);
+						adapter.addSource(newsource);
+						this.eBindings.touch(newsource, newtarget);
 					}
 				}
-			}
-			if ( ! touched ) {
-				adapter.touch(null);
 			}
 			return ;
 		}
@@ -340,45 +338,58 @@ public class Bindings {
 		 * 
 		 */
 		@Override
-		void initDependencies(PropagatorFunctionBindingsToBeRemoved adapter){
-			EObject object = (EObject) adapter.getTarget();
-			Object featurevalue = object.eGet((EStructuralFeature) this.eFeature, false ); // no resolve
+		void initDependencies(PropagatorFunctionSource source){
+			PropagatorFunction propagatorFunction = source.getPropagatorFunction();
+			EObject target = source.getTarget();
+			PropagatorFunctionAdapter adapter = Util.getPropagatorFunctionAdapter(target);
+			Object featurevalue = target.eGet((EStructuralFeature) this.eFeature, false ); // no resolve
 			if ( featurevalue instanceof Collection<?>){
 				Collection<EObject> referredobjects = (Collection<EObject>)featurevalue;
 				for (EObject referredobject : referredobjects){
-					adapter.addDependency(this.eBindings, referredobject);
+					PropagatorFunctionAdapter otheradapter = Util.getPropagatorFunctionAdapter(referredobject);
+					PropagatorFunctionSourceBindings newsource = new PropagatorFunctionSourceBindings(referredobject, propagatorFunction, this.eBindings);
+					adapter.addSource(newsource);
 				}
 			} else if ( featurevalue instanceof EObject){
-				EObject referredobject = (EObject)featurevalue;
-				adapter.addDependency(this.eBindings, referredobject);
+				EObject referredobject = (EObject) featurevalue;
+				PropagatorFunctionAdapter otheradapter = Util.getPropagatorFunctionAdapter((EObject)featurevalue);
+				PropagatorFunctionSourceBindings newsource = new PropagatorFunctionSourceBindings(referredobject, propagatorFunction, this.eBindings);
+				adapter.addSource(newsource);
 			}
 		}
 
 		@Override
-		void disposeDependencies(PropagatorFunctionBindingsToBeRemoved adapter){
-			EObject object = (EObject) adapter.getTarget();
-			Object featurevalue = object.eGet((EStructuralFeature) this.eFeature);
+		void disposeDependencies(PropagatorFunctionSource source){
+			PropagatorFunction propagatorFunction = source.getPropagatorFunction();
+			EObject target = source.getTarget();
+			PropagatorFunctionAdapter adapter = Util.getPropagatorFunctionAdapter(target);
+			Object featurevalue = target.eGet((EStructuralFeature) this.eFeature);
 			if ( featurevalue instanceof Collection<?>){
 				Collection<EObject> referredobjects = (Collection<EObject>)featurevalue;
 				for (EObject referredobject : referredobjects){
-					adapter.removeDependency(this.eBindings, referredobject);
+					PropagatorFunctionAdapter otheradapter = Util.getPropagatorFunctionAdapter(referredobject);
+					otheradapter.removeSource(propagatorFunction, this.eBindings);
 				}
 			} else if ( featurevalue instanceof EObject){
 				EObject referredobject = (EObject)featurevalue;
-				adapter.removeDependency(this.eBindings, referredobject);
+				PropagatorFunctionAdapter otheradapter = Util.getPropagatorFunctionAdapter(referredobject);
+				otheradapter.removeSource(propagatorFunction, this.eBindings);
 			}
 		}
+		
 		@Override
-		public void collectAntecedents(PropagatorFunctionBindingsToBeRemoved adapter, EList<PropagatorFunction> antecedents, Predicate<PropagatorFunction> doCollect) {
+		public void collectAntecedents(PropagatorFunctionSource source, EList<PropagatorFunction> antecedents, Predicate<PropagatorFunction> doCollect) {
+			PropagatorFunction propagatorFunction = source.getPropagatorFunction();
 			// this object
-			super.collectAntecedents(adapter, antecedents, doCollect);
+			super.collectAntecedents(source, antecedents, doCollect);
 			// navigated to objects
-			EObject object = (EObject) adapter.getTarget();
-			Object featurevalue = object.eGet((EStructuralFeature) this.eFeature);
+			EObject target = source.getTarget();
+			Object featurevalue = target.eGet((EStructuralFeature) this.eFeature);
 			if ( featurevalue instanceof Collection<?>){
 				Collection<EObject> referredobjects = (Collection<EObject>)featurevalue;
 				for (EObject referredobject : referredobjects){
-					PropagatorFunctionBindingsToBeRemoved dependency = (PropagatorFunctionBindingsToBeRemoved) Util.getAdapter(referredobject, this.eBindings);
+					PropagatorFunctionAdapter adapter = Util.getPropagatorFunctionAdapter(referredobject);
+					PropagatorFunctionSource dependency = adapter.getSource(propagatorFunction, this.eBindings);
 					if ( dependency == null ) {
 						Plugin.INSTANCE.logError("No dependency", adapter);
 					} else {
@@ -387,7 +398,8 @@ public class Bindings {
 				}
 			} else if ( featurevalue instanceof EObject){
 				EObject referredobject = (EObject)featurevalue;
-				PropagatorFunctionBindingsToBeRemoved dependency = (PropagatorFunctionBindingsToBeRemoved) Util.getAdapter(referredobject, this.eBindings);
+				PropagatorFunctionAdapter adapter = Util.getPropagatorFunctionAdapter(referredobject);
+				PropagatorFunctionSource dependency = adapter.getSource(propagatorFunction, this.eBindings);
 				if ( dependency == null ) {
 					Plugin.INSTANCE.logError("No dependency", adapter);
 				} else {
@@ -418,7 +430,7 @@ public class Bindings {
 		 * Return whether this inbound binding is binding the element of the target object
 		 */
 		@Override
-		public boolean isOutboundBinding(PropagatorFunctionBindingsToBeRemoved adapter, Object element) {
+		public boolean isOutboundBinding(PropagatorFunctionSource source, Object element) {
 			return element == this.eFeature;
 		}
 		

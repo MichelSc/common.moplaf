@@ -244,25 +244,5 @@ public class Util {
 		}
 	}
 	
-	/** logic is object active
-	 * 
-	 * @param target
-	 * @return
-	 */
-	public static boolean notifierIsEObjectActive(Notifier target){
-
-		if ( !(target instanceof EObject) ) { return false; }
-		EObject targetObject = (EObject)target;
-		Resource resource = targetObject.eResource();
-		if ( resource == null ) { return false; }
-		
-		// is the resource loading?
-		if ( resource instanceof ResourceImpl){
-			ResourceImpl resourceImpl = (ResourceImpl)resource;
-			if ( resourceImpl.isLoading()){ return false; }
-		}
-		
-		return true;
-	}
 
 };

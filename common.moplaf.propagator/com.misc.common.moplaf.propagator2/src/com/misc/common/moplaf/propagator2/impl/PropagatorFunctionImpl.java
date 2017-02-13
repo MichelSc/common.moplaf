@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.propagator2.impl;
 
+import com.misc.common.moplaf.common.util.Util;
 import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
 import com.misc.common.moplaf.propagator2.Plugin;
 import com.misc.common.moplaf.propagator2.PropagatorFunction;
@@ -287,10 +288,10 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 */
 	public void touch(EObject toucher) {
-//		if ( !this.isEnabled() ){
-//			return ;
-//		}
-		
+		ObjectWithPropagatorFunctions object = this.getObjectWithPropagatorFunctions();
+
+		if ( !Util.isLoading(object) ){ return; }
+
 		if ( this.isTouched() ){
 			// already touched
 			if ( toucher==null ){ return; }

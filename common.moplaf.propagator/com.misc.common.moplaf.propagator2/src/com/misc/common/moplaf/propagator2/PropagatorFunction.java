@@ -5,7 +5,6 @@ package com.misc.common.moplaf.propagator2;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import com.misc.common.moplaf.propagator2.util.PropagatorFunctionBindingsToBeRemoved;
 import com.misc.common.moplaf.propagator2.util.PropagatorFunctionManagerAdapter;
 
 /**

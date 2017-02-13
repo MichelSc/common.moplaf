@@ -470,7 +470,7 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 	 * Note: the owner is already set, the propagators are already created, the adapter is already added
 	 */
 	private void onNotifierContained(Notifier notifier){
-		if ( Util.notifierIsEObjectActive(notifier)){
+		if ( !com.misc.common.moplaf.common.util.Util.isLoading(notifier)){
 			if ( notifier instanceof ObjectWithPropagatorFunctions) {
 				ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
 				this.propagatorFunctionsConstructor.construct(objectWithPropagatorFunctions);
@@ -499,7 +499,7 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 	private void onResolve(Notifier oldNotifier, Notifier newNotifier){
 		LinkedList<Adapter> adaptersToMove = new LinkedList<Adapter>();
 		for ( Adapter adapter : oldNotifier.eAdapters()){
-			if ( adapter instanceof PropagatorFunctionBindingsToBeRemoved){
+			if ( adapter instanceof PropagatorFunctionAdapter){
 				adaptersToMove.add(adapter);
 			}
 		}

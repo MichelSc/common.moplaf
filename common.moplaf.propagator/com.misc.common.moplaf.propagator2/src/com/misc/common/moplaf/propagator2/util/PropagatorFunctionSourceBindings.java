@@ -4,35 +4,24 @@ import java.util.function.Predicate;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 import com.misc.common.moplaf.propagator2.PropagatorFunction;
 
-public class PropagatorFunctionSourceBindings implements PropagatorFunctionSource {
+public class PropagatorFunctionSourceBindings extends PropagatorFunctionSource {
 	/** Bindings for this PropagatorFunctionSource
 	 * 
 	 */
 	private Bindings bindings;
-
-	/** Propagator function on behalf this PropagationFunctionSource is listening
-	 */
-	private PropagatorFunction propagatorFunction;
 
 	/**
 	 * the constructor
 	 * @param bindings
 	 * @param from
 	 */
-	public PropagatorFunctionSourceBindings(PropagatorFunction from, Bindings bindings){
+	public PropagatorFunctionSourceBindings(EObject target, PropagatorFunction from, Bindings bindings){
+		super(target, from);
 		this.bindings = bindings;
-		this.propagatorFunction = from;
-	}
-
-	/** accessors
-	 * 
-	 */
-	@Override
-	public PropagatorFunction getPropagatorFunction() {
-		return this.propagatorFunction;
 	}
 
 	@Override
@@ -49,39 +38,29 @@ public class PropagatorFunctionSourceBindings implements PropagatorFunctionSourc
 	 */
 	@Override
 	public void initDependencies() {
-		// TODO Auto-generated method stub
-
+		this.bindings.initDependencies(this);
 	}
 
 	@Override
 	public void disposeDependencies() {
-		// TODO Auto-generated method stub
-
+		this.bindings.disposeDependencies(this);
 	}
-
 
 	/** listening and collecting antecedents
 	 * 
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
-		// TODO Auto-generated method stub
-
+		this.bindings.notifyChanged(this, notification);
 	}
 
-	
 	@Override
 	public void collectAntecedents(EList<PropagatorFunction> antecedents, Predicate<PropagatorFunction> doCollect) {
-		// TODO Auto-generated method stub
-		
+		this.bindings.collectAntecedents(this,  antecedents,  doCollect);
 	}
 
-
-	// to be removed
 	@Override
-	public void accept(PropagatorFunctionVisitor visitor) {
-		// TODO Auto-generated method stub
-
+	boolean isOutboundBinding(Object feature) {
+		return this.bindings.isOutboundBinding(this, feature);
 	}
-
 }
