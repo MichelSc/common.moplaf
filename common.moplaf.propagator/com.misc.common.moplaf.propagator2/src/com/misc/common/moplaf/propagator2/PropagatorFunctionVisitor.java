@@ -1,6 +1,4 @@
-package com.misc.common.moplaf.propagator2.util;
-
-import com.misc.common.moplaf.propagator2.PropagatorFunction;
+package com.misc.common.moplaf.propagator2;
 
 public interface PropagatorFunctionVisitor {
 	

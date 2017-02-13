@@ -9,7 +9,6 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import com.misc.common.moplaf.common.Logger;
 import com.misc.common.moplaf.common.Logger.Level;
-import com.misc.common.moplaf.propagator2.util.PropagatorFunctionBindings;
 import com.misc.common.moplaf.propagator2.util.Util;
 
 

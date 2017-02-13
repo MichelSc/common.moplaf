@@ -2,12 +2,10 @@
  */
 package com.misc.common.moplaf.propagator2;
 
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import com.misc.common.moplaf.propagator2.util.PropagatorFunctionBindings;
+
 import com.misc.common.moplaf.propagator2.util.PropagatorFunctionManagerAdapter;
-import org.eclipse.emf.common.notify.Notification;
 
 /**
  * <!-- begin-user-doc -->
@@ -112,8 +110,6 @@ import org.eclipse.emf.common.notify.Notification;
  * @generated
  */
 public interface PropagatorFunction extends EObject {
-	static BasicEList<PropagatorFunction> EMPTY_LIST = new BasicEList<PropagatorFunction>();
-
 	/**
 	 * Returns the value of the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -318,14 +314,6 @@ public interface PropagatorFunction extends EObject {
 	String getDescription();
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model notificationDataType="com.misc.common.moplaf.propagator2.Notification"
-	 * @generated
-	 */
-	void notifyChangedObject(Notification notification);
-
-	/**
 	 * Returns the value of the '<em><b>Antecedents Sibling</b></em>' reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.propagator2.PropagatorFunction}.
 	 * <!-- begin-user-doc -->
@@ -403,6 +391,22 @@ public interface PropagatorFunction extends EObject {
 	 * @model
 	 * @generated
 	 */
+	EList<PropagatorFunction> doGetExplicitAntecedents();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="com.misc.common.moplaf.propagator2.Bindings"
+	 * @generated
+	 */
+	Bindings doGetBindings();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	void doRefresh();
 
 	/**
@@ -420,14 +424,6 @@ public interface PropagatorFunction extends EObject {
 	 * @generated
 	 */
 	PropagatorFunction getScope();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	EList<PropagatorFunction> doGetAntecedents();
 
 	/**
 	 * <!-- begin-user-doc -->

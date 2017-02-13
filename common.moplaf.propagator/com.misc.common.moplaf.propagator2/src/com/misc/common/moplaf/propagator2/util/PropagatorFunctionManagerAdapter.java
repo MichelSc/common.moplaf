@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 
 import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
 import com.misc.common.moplaf.propagator2.PropagatorFunction;
+import com.misc.common.moplaf.propagator2.PropagatorFunctionBindings;
+import com.misc.common.moplaf.propagator2.PropagatorFunctionsConstructor;
 
 
 

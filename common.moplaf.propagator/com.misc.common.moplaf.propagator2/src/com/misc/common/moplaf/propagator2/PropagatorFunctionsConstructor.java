@@ -1,6 +1,4 @@
-package com.misc.common.moplaf.propagator2.util;
-
-import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
+package com.misc.common.moplaf.propagator2;
 
 /**
  * A PropagatorFunctionsConstructor will initialize an {@link ObjectWithPropagatorFunctions} with its PropagatoryFunctions}

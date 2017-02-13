@@ -76,10 +76,6 @@ public class PropagatorAdapterFactory extends AdapterFactoryImpl {
 				return createPropagatorFunctionAdapter();
 			}
 			@Override
-			public Adapter casePropagatorFunctionBindings(PropagatorFunctionBindings object) {
-				return createPropagatorFunctionBindingsAdapter();
-			}
-			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -124,20 +120,6 @@ public class PropagatorAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPropagatorFunctionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.propagator2.PropagatorFunctionBindings <em>Function Bindings</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.propagator2.PropagatorFunctionBindings
-	 * @generated
-	 */
-	public Adapter createPropagatorFunctionBindingsAdapter() {
 		return null;
 	}
 

@@ -1,4 +1,4 @@
-package com.misc.common.moplaf.propagator2.util;
+package com.misc.common.moplaf.propagator2;
 
 import java.util.Collection;
 import java.util.LinkedList;
@@ -13,8 +13,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import com.misc.common.moplaf.propagator2.Plugin;
-import com.misc.common.moplaf.propagator2.PropagatorFunction;
+import com.misc.common.moplaf.propagator2.util.Util;
 
 
 /**
@@ -267,10 +266,9 @@ public class Bindings {
 	}
 
 
-	public Bindings addInboundBinding(EStructuralFeature feature){
+	public void addInboundBinding(EStructuralFeature feature){
 		InboundBinding binding = new InboundBindingFeature(feature);
 		this.addInboundBinding(binding);
-		return this;
 	}
 
 	/**
@@ -395,10 +393,9 @@ public class Bindings {
 		}
 	}
 
-	public Bindings addInboundBinding(EReference feature, Bindings bindings){
+	public void addInboundBinding(EReference feature, Bindings bindings){
 		InboundBinding binding = new InboundBindingNavigationFeature(feature, bindings);
 		this.addInboundBinding(binding);
-		return this;
 	}
 
 	
@@ -422,9 +419,8 @@ public class Bindings {
 		
 	}
 	
-	public Bindings addOutboundBinding(EStructuralFeature feature){
+	public void addOutboundBinding(EStructuralFeature feature){
 		OutboundBinding binding = new OutboundBindingFeature(feature);
 		this.addOutboundBinding(binding);
-		return this;
 	}
 }

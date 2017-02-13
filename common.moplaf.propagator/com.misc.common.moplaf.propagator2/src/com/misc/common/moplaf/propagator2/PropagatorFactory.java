@@ -40,15 +40,6 @@ public interface PropagatorFactory extends EFactory {
 	PropagatorFunction createPropagatorFunction();
 
 	/**
-	 * Returns a new object of class '<em>Function Bindings</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Function Bindings</em>'.
-	 * @generated
-	 */
-	PropagatorFunctionBindings createPropagatorFunctionBindings();
-
-	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

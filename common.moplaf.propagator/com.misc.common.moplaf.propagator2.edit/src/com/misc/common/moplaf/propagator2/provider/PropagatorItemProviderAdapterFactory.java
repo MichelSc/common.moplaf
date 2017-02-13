@@ -118,29 +118,6 @@ public class PropagatorItemProviderAdapterFactory extends PropagatorAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.propagator2.PropagatorFunctionBindings} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PropagatorFunctionBindingsItemProvider propagatorFunctionBindingsItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.propagator2.PropagatorFunctionBindings}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPropagatorFunctionBindingsAdapter() {
-		if (propagatorFunctionBindingsItemProvider == null) {
-			propagatorFunctionBindingsItemProvider = new PropagatorFunctionBindingsItemProvider(this);
-		}
-
-		return propagatorFunctionBindingsItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -241,7 +218,6 @@ public class PropagatorItemProviderAdapterFactory extends PropagatorAdapterFacto
 	public void dispose() {
 		if (objectWithPropagatorFunctionsItemProvider != null) objectWithPropagatorFunctionsItemProvider.dispose();
 		if (propagatorFunctionItemProvider != null) propagatorFunctionItemProvider.dispose();
-		if (propagatorFunctionBindingsItemProvider != null) propagatorFunctionBindingsItemProvider.dispose();
 	}
 
 }
