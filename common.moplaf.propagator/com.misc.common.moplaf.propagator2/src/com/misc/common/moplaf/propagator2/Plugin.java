@@ -76,6 +76,7 @@ public final class Plugin extends EMFPlugin  {
 	
 	private String formatLogMessage(String message, Object adapter){
 		String messageAsString = message!=null ? message+", ": "";
+		
 		PropagatorFunction propagatorFunction = null;
 		ObjectWithPropagatorFunctions object = null;
 		Bindings bindings = null;
@@ -93,10 +94,12 @@ public final class Plugin extends EMFPlugin  {
 		}
 		
 		String objectAsString = String.format("object: %1$s(%2$d)", 
-				object == null ? "null" : Util.LastTokenDotSeparated(object.getClass().getName()),
+				object == null ? "No object" : Util.LastTokenDotSeparated(object.getClass().getName()),
 				object == null ? 0 : (object.hashCode() % 1000 +1));
 		
-		String functionAsString = String.format("function: %1$s", Util.LastTokenDotSeparated(propagatorFunction.getClass().getName()));
+		String functionAsString = propagatorFunction == null
+				               ? "No function"
+				               : String.format("function: %1$s", Util.LastTokenDotSeparated(propagatorFunction.getClass().getName()));
 
 		String bindingsAsString = bindings == null 
 				               ? "No bindings"

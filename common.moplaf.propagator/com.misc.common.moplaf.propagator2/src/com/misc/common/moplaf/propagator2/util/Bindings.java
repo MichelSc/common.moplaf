@@ -340,20 +340,19 @@ public class Bindings {
 		void initDependencies(PropagatorFunctionSource source){
 			PropagatorFunction propagatorFunction = source.getPropagatorFunction();
 			EObject target = source.getTarget();
-			PropagatorFunctionAdapter adapter = Util.getPropagatorFunctionAdapter(target);
 			Object featurevalue = target.eGet(this.eFeature, false ); // no resolve
 			if ( featurevalue instanceof Collection<?>){
 				Collection<EObject> referredobjects = (Collection<EObject>)featurevalue;
 				for (EObject referredobject : referredobjects){
 					PropagatorFunctionAdapter otheradapter = Util.getPropagatorFunctionAdapter(referredobject);
 					PropagatorFunctionSourceBindings newsource = new PropagatorFunctionSourceBindings(referredobject, propagatorFunction, this.eBindings);
-					adapter.addSource(newsource);
+					otheradapter.addSource(newsource);
 				}
 			} else if ( featurevalue instanceof EObject){
 				EObject referredobject = (EObject) featurevalue;
-				PropagatorFunctionAdapter otheradapter = Util.getPropagatorFunctionAdapter((EObject)featurevalue);
+				PropagatorFunctionAdapter otheradapter = Util.getPropagatorFunctionAdapter(referredobject);
 				PropagatorFunctionSourceBindings newsource = new PropagatorFunctionSourceBindings(referredobject, propagatorFunction, this.eBindings);
-				adapter.addSource(newsource);
+				otheradapter.addSource(newsource);
 			}
 		}
 
@@ -361,7 +360,6 @@ public class Bindings {
 		void disposeDependencies(PropagatorFunctionSource source){
 			PropagatorFunction propagatorFunction = source.getPropagatorFunction();
 			EObject target = source.getTarget();
-			PropagatorFunctionAdapter adapter = Util.getPropagatorFunctionAdapter(target);
 			Object featurevalue = target.eGet(this.eFeature);
 			if ( featurevalue instanceof Collection<?>){
 				Collection<EObject> referredobjects = (Collection<EObject>)featurevalue;
@@ -390,7 +388,7 @@ public class Bindings {
 					PropagatorFunctionAdapter adapter = Util.getPropagatorFunctionAdapter(referredobject);
 					PropagatorFunctionSource dependency = adapter.getSource(propagatorFunction, this.eBindings);
 					if ( dependency == null ) {
-						Plugin.INSTANCE.logError("No dependency", adapter);
+						Plugin.INSTANCE.logError("No dependency", propagatorFunction);
 					} else {
 						dependency.collectAntecedents(antecedents, doCollect);
 					}
@@ -400,7 +398,7 @@ public class Bindings {
 				PropagatorFunctionAdapter adapter = Util.getPropagatorFunctionAdapter(referredobject);
 				PropagatorFunctionSource dependency = adapter.getSource(propagatorFunction, this.eBindings);
 				if ( dependency == null ) {
-					Plugin.INSTANCE.logError("No dependency", adapter);
+					Plugin.INSTANCE.logError("No dependency", propagatorFunction);
 				} else {
 					dependency.collectAntecedents(antecedents, doCollect);
 				}
