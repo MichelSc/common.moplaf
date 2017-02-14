@@ -5,7 +5,6 @@ import java.util.AbstractMap.SimpleEntry;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -224,8 +223,6 @@ public class KPIViewer extends KPIViewerAbstract {
 	 */
 	@Override
 	public void refresh() {
-		CommonPlugin.INSTANCE.log("KPIViewer: refresh");
-		
 		if ( this.pane==null) { return; }
 
 		RefreshContext context = new RefreshContext();
