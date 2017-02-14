@@ -6,10 +6,8 @@ import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.solver.EnumLpConsType;
 import com.misc.common.moplaf.solver.EnumLpFileFormat;
 import com.misc.common.moplaf.solver.EnumLpVarType;
-import com.misc.common.moplaf.solver.EnumObjectiveType;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorElement;
-import com.misc.common.moplaf.solver.GeneratorLpGoal;
 import com.misc.common.moplaf.solver.GeneratorLpLinear;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
@@ -514,27 +512,14 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
 	}
 
 	/**
-     * Build the lp goal
+     * Build the lp goal term
 	 */
 	@Override
-	protected void buildLpGoalImpl(GeneratorLpGoal goal, float weight) throws Exception {
-		// direction
-		float direction = 1.0f;
-		if ( goal.getObjectiveType()==EnumObjectiveType.MAXIMUM){
-			direction = -1.0f;
-		}
-		// terms
-		for ( GeneratorLpTerm goalTerm : goal.getLpTerm()){
-			// create the objective coefficient
-			GeneratorLpVar lpvar = goalTerm.getLpVar();
-			float coefficient = goalTerm.getCoeff()*direction*weight;
-			if ( coefficient!=0.0f){
-			    long varindex = this.vars.get(lpvar);
-			    this.envScip.chgVarObj(this.consScip, varindex, coefficient);
-			}
-		}
+	protected void buildLpGoalTermImpl(GeneratorLpVar var, float coefficient) throws Exception {
+	    long varindex = this.vars.get(var);
+	    this.envScip.chgVarObj(this.consScip, varindex, coefficient);
 	}
-	
+
 	private static  int SCIP_VERBLEVEL_NONE    = 0;          /**< only error and warning messages are displayed */
 	private static  int SCIP_VERBLEVEL_DIALOG  = 1;          /**< only interactive dialogs, errors, and warnings are displayed */
 	private static  int SCIP_VERBLEVEL_MINIMAL = 2;          /**< only important messages are displayed */

@@ -16,10 +16,8 @@ import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.solver.EnumLpConsType;
 import com.misc.common.moplaf.solver.EnumLpFileFormat;
 import com.misc.common.moplaf.solver.EnumLpVarType;
-import com.misc.common.moplaf.solver.EnumObjectiveType;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorElement;
-import com.misc.common.moplaf.solver.GeneratorLpGoal;
 import com.misc.common.moplaf.solver.GeneratorLpLinear;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
@@ -591,28 +589,14 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
 	}
 
 	/**
-     * Build the lp goal
+     * Build the lp goal term
 	 */
 	@Override
-	protected void buildLpGoalImpl(GeneratorLpGoal goal, float weight) throws Exception {
-		if ( goal != null) {
-			for ( GeneratorLpTerm goalTerm : goal.getLpTerm()){
-				// create the objective coefficient
-				GeneratorLpVar lpvar = goalTerm.getLpVar();
-				float coefficient = goalTerm.getCoeff();
-				if ( coefficient!=0.0f){
-					if ( goal.getObjectiveType()==EnumObjectiveType.MAXIMUM){
-						coefficient = - coefficient;
-					}
-					GRBVar grbvar = vars.get(lpvar);
-					grbvar.set(DoubleAttr.Obj, coefficient);
-				}
-			}
-		}
+	protected void buildLpGoalTermImpl(GeneratorLpVar var, float coefficient) throws Exception {
+		GRBVar grbvar = vars.get(var);
+		grbvar.set(DoubleAttr.Obj, coefficient);
 	}
 
-
-	
 	/**
      * Load the lp
 	 */

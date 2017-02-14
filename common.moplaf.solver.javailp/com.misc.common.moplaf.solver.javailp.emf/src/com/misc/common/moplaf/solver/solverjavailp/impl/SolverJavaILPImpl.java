@@ -10,10 +10,8 @@ import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.solver.EnumLpConsType;
 import com.misc.common.moplaf.solver.EnumLpFileFormat;
 import com.misc.common.moplaf.solver.EnumLpVarType;
-import com.misc.common.moplaf.solver.EnumObjectiveType;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorElement;
-import com.misc.common.moplaf.solver.GeneratorLpGoal;
 import com.misc.common.moplaf.solver.GeneratorLpLinear;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
@@ -525,23 +523,13 @@ public class SolverJavaILPImpl extends SolverLpImpl implements SolverJavaILP {
 	}
 
 	/**
-     * Build the lp goal
+     * Build the lp goal term
 	 */
 	@Override
-	protected void buildLpGoalImpl(GeneratorLpGoal goal, float weight) throws Exception {
-		for ( GeneratorLpTerm goalTerm : goal.getLpTerm()){
-			GeneratorLpVar lpvar = goalTerm.getLpVar();
-			float coefficient = goalTerm.getCoeff()*weight;
-			if ( goal.getObjectiveType()==EnumObjectiveType.MAXIMUM){
-				coefficient = - coefficient;
-			}
-			if ( coefficient!=0.0f){
-				this.problem.getObjective().add(coefficient, lpvar.getCode());
-			}
-		}
+	protected void buildLpGoalTermImpl(GeneratorLpVar var, float coefficient) throws Exception {
+		this.problem.getObjective().add(coefficient, var.getCode());
 	}
 
-	
 	/**
      * Load the lp
 	 */

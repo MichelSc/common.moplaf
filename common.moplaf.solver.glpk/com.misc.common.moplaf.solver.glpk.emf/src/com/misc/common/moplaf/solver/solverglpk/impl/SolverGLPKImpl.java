@@ -29,10 +29,8 @@ import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.solver.EnumLpConsType;
 import com.misc.common.moplaf.solver.EnumLpFileFormat;
 import com.misc.common.moplaf.solver.EnumLpVarType;
-import com.misc.common.moplaf.solver.EnumObjectiveType;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorElement;
-import com.misc.common.moplaf.solver.GeneratorLpGoal;
 import com.misc.common.moplaf.solver.GeneratorLpLinear;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
@@ -863,25 +861,12 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 	/**
      * Build the lp goal
 	 */
+	
 	@Override
-	protected void buildLpGoalImpl(GeneratorLpGoal goal, float weight) throws Exception {
-		// direction
-		float direction = 1.0f;
-		if ( goal.getObjectiveType()==EnumObjectiveType.MAXIMUM){
-			direction = -1.0f;
-		}
-		// terms
-		for ( GeneratorLpTerm goalTerm : goal.getLpTerm()){
-			// create the objective coefficient
-			GeneratorLpVar lpvar = goalTerm.getLpVar();
-			float coefficient = goalTerm.getCoeff()*direction*weight;
-			if ( coefficient!=0.0f){
-			    int varindex = this.vars.get(lpvar);
-				GLPK.glp_set_obj_coef(this.lp, varindex, coefficient);
-			}
-		}
+	protected void buildLpGoalTermImpl(GeneratorLpVar var, float coefficient) throws Exception {
+	    int varindex = this.vars.get(var);
+		GLPK.glp_set_obj_coef(this.lp, varindex, coefficient);
 	}
-
 
 	/**
 	 * <!-- begin-user-doc -->
