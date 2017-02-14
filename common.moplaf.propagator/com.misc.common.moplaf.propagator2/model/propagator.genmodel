@@ -8,11 +8,21 @@
   <genPackages prefix="Propagator" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
       ecorePackage="propagator.ecore#/">
     <genDataTypes ecoreDataType="propagator.ecore#//Bindings"/>
+    <genDataTypes ecoreDataType="propagator.ecore#//Notification"/>
     <genClasses ecoreClass="propagator.ecore#//ObjectWithPropagatorFunctions">
       <genFeatures property="Readonly" notify="false" children="true" createChild="true"
           propertyCategory="99 Propagator" ecoreFeature="ecore:EReference propagator.ecore#//ObjectWithPropagatorFunctions/PropagatorFunctions"/>
-      <genOperations ecoreOperation="propagator.ecore#//ObjectWithPropagatorFunctions/onOwned"/>
-      <genOperations ecoreOperation="propagator.ecore#//ObjectWithPropagatorFunctions/onNotOwned"/>
+      <genOperations ecoreOperation="propagator.ecore#//ObjectWithPropagatorFunctions/addPropagatorFunction">
+        <genParameters ecoreParameter="propagator.ecore#//ObjectWithPropagatorFunctions/addPropagatorFunction/propagatorFunction"/>
+        <genParameters ecoreParameter="propagator.ecore#//ObjectWithPropagatorFunctions/addPropagatorFunction/toucher"/>
+      </genOperations>
+      <genOperations ecoreOperation="propagator.ecore#//ObjectWithPropagatorFunctions/addPropagatorFunction.1">
+        <genParameters ecoreParameter="propagator.ecore#//ObjectWithPropagatorFunctions/addPropagatorFunction.1/propagatorFunction"/>
+        <genParameters ecoreParameter="propagator.ecore#//ObjectWithPropagatorFunctions/addPropagatorFunction.1/touch"/>
+      </genOperations>
+      <genOperations ecoreOperation="propagator.ecore#//ObjectWithPropagatorFunctions/addPropagatorFunction.2">
+        <genParameters ecoreParameter="propagator.ecore#//ObjectWithPropagatorFunctions/addPropagatorFunction.2/propagatorFunction"/>
+      </genOperations>
       <genOperations ecoreOperation="propagator.ecore#//ObjectWithPropagatorFunctions/getPropagatorFunction">
         <genParameters ecoreParameter="propagator.ecore#//ObjectWithPropagatorFunctions/getPropagatorFunction/type"/>
       </genOperations>
@@ -22,7 +32,7 @@
           propertySortChoices="true" ecoreFeature="ecore:EReference propagator.ecore#//PropagatorFunction/Parent"/>
       <genFeatures notify="false" createChild="false" propertyCategory="10 Associations"
           propertySortChoices="true" ecoreFeature="ecore:EReference propagator.ecore#//PropagatorFunction/Antecedents"/>
-      <genFeatures property="Readonly" notify="false" createChild="false" propertyCategory="10 Associations"
+      <genFeatures notify="false" createChild="false" propertyCategory="10 Associations"
           ecoreFeature="ecore:EReference propagator.ecore#//PropagatorFunction/AntecedentsSibling"/>
       <genFeatures createChild="false" propertyCategory="20 State" propertyDescription=""
           ecoreFeature="ecore:EAttribute propagator.ecore#//PropagatorFunction/Touched"/>
@@ -43,21 +53,22 @@
       <genOperations ecoreOperation="propagator.ecore#//PropagatorFunction/touch">
         <genParameters ecoreParameter="propagator.ecore#//PropagatorFunction/touch/toucher"/>
       </genOperations>
+      <genOperations ecoreOperation="propagator.ecore#//PropagatorFunction/untouch"/>
       <genOperations ecoreOperation="propagator.ecore#//PropagatorFunction/refreshAntecedents"/>
       <genOperations ecoreOperation="propagator.ecore#//PropagatorFunction/refreshThis"/>
       <genOperations ecoreOperation="propagator.ecore#//PropagatorFunction/refreshChildrenAndThis"/>
       <genOperations ecoreOperation="propagator.ecore#//PropagatorFunction/refresh"/>
+      <genOperations ecoreOperation="propagator.ecore#//PropagatorFunction/doGetAntecedents"/>
       <genOperations ecoreOperation="propagator.ecore#//PropagatorFunction/doGetParent"/>
-      <genOperations ecoreOperation="propagator.ecore#//PropagatorFunction/doGetExplicitAntecedents"/>
-      <genOperations ecoreOperation="propagator.ecore#//PropagatorFunction/doGetBindings"/>
       <genOperations ecoreOperation="propagator.ecore#//PropagatorFunction/doRefresh"/>
       <genOperations ecoreOperation="propagator.ecore#//PropagatorFunction/doRefresh.1">
         <genParameters ecoreParameter="propagator.ecore#//PropagatorFunction/doRefresh.1/toucher"/>
       </genOperations>
-      <genOperations ecoreOperation="propagator.ecore#//PropagatorFunction/isPropagatorFunctionOfType">
-        <genParameters ecoreParameter="propagator.ecore#//PropagatorFunction/isPropagatorFunctionOfType/type"/>
-      </genOperations>
       <genOperations ecoreOperation="propagator.ecore#//PropagatorFunction/getScope"/>
+    </genClasses>
+    <genClasses ecoreClass="propagator.ecore#//PropagatorFunctionBindings">
+      <genOperations ecoreOperation="propagator.ecore#//PropagatorFunctionBindings/doGetBindings"/>
+      <genOperations ecoreOperation="propagator.ecore#//PropagatorFunctionBindings/doGetExplicitAntecedents"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

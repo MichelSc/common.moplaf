@@ -29,8 +29,8 @@ public interface PropagatorFunctionBindings extends PropagatorFunction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model antecedentsMany="true"
 	 * @generated
 	 */
-	EList<PropagatorFunction> doGetExplicitAntecedents();
+	void doCollectExplicitAntecedents(EList<PropagatorFunction> antecedents);
 } // PropagatorFunctionBindings

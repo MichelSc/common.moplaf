@@ -414,7 +414,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunctionBindings__DoGetExplicitAntecedents() {
+	public EOperation getPropagatorFunctionBindings__DoCollectExplicitAntecedents__EList() {
 		return propagatorFunctionBindingsEClass.getEOperations().get(1);
 	}
 
@@ -518,7 +518,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 
 		propagatorFunctionBindingsEClass = createEClass(PROPAGATOR_FUNCTION_BINDINGS);
 		createEOperation(propagatorFunctionBindingsEClass, PROPAGATOR_FUNCTION_BINDINGS___DO_GET_BINDINGS);
-		createEOperation(propagatorFunctionBindingsEClass, PROPAGATOR_FUNCTION_BINDINGS___DO_GET_EXPLICIT_ANTECEDENTS);
+		createEOperation(propagatorFunctionBindingsEClass, PROPAGATOR_FUNCTION_BINDINGS___DO_COLLECT_EXPLICIT_ANTECEDENTS__ELIST);
 
 		// Create data types
 		bindingsEDataType = createEDataType(BINDINGS);
@@ -619,7 +619,8 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 
 		initEOperation(getPropagatorFunctionBindings__DoGetBindings(), this.getBindings(), "doGetBindings", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getPropagatorFunctionBindings__DoGetExplicitAntecedents(), this.getPropagatorFunction(), "doGetExplicitAntecedents", 0, -1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPropagatorFunctionBindings__DoCollectExplicitAntecedents__EList(), null, "doCollectExplicitAntecedents", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getPropagatorFunction(), "antecedents", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(bindingsEDataType, Bindings.class, "Bindings", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

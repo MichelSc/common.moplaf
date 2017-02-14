@@ -638,13 +638,13 @@ public interface PropagatorPackage extends EPackage {
 	int PROPAGATOR_FUNCTION_BINDINGS___DO_GET_BINDINGS = PROPAGATOR_FUNCTION_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Do Get Explicit Antecedents</em>' operation.
+	 * The operation id for the '<em>Do Collect Explicit Antecedents</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_BINDINGS___DO_GET_EXPLICIT_ANTECEDENTS = PROPAGATOR_FUNCTION_OPERATION_COUNT + 1;
+	int PROPAGATOR_FUNCTION_BINDINGS___DO_COLLECT_EXPLICIT_ANTECEDENTS__ELIST = PROPAGATOR_FUNCTION_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Function Bindings</em>' class.
@@ -1009,14 +1009,14 @@ public interface PropagatorPackage extends EPackage {
 	EOperation getPropagatorFunctionBindings__DoGetBindings();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.PropagatorFunctionBindings#doGetExplicitAntecedents() <em>Do Get Explicit Antecedents</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.PropagatorFunctionBindings#doCollectExplicitAntecedents(org.eclipse.emf.common.util.EList) <em>Do Collect Explicit Antecedents</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Do Get Explicit Antecedents</em>' operation.
-	 * @see com.misc.common.moplaf.propagator2.PropagatorFunctionBindings#doGetExplicitAntecedents()
+	 * @return the meta object for the '<em>Do Collect Explicit Antecedents</em>' operation.
+	 * @see com.misc.common.moplaf.propagator2.PropagatorFunctionBindings#doCollectExplicitAntecedents(org.eclipse.emf.common.util.EList)
 	 * @generated
 	 */
-	EOperation getPropagatorFunctionBindings__DoGetExplicitAntecedents();
+	EOperation getPropagatorFunctionBindings__DoCollectExplicitAntecedents__EList();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#enable() <em>Enable</em>}' operation.
@@ -1346,12 +1346,12 @@ public interface PropagatorPackage extends EPackage {
 		EOperation PROPAGATOR_FUNCTION_BINDINGS___DO_GET_BINDINGS = eINSTANCE.getPropagatorFunctionBindings__DoGetBindings();
 
 		/**
-		 * The meta object literal for the '<em><b>Do Get Explicit Antecedents</b></em>' operation.
+		 * The meta object literal for the '<em><b>Do Collect Explicit Antecedents</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PROPAGATOR_FUNCTION_BINDINGS___DO_GET_EXPLICIT_ANTECEDENTS = eINSTANCE.getPropagatorFunctionBindings__DoGetExplicitAntecedents();
+		EOperation PROPAGATOR_FUNCTION_BINDINGS___DO_COLLECT_EXPLICIT_ANTECEDENTS__ELIST = eINSTANCE.getPropagatorFunctionBindings__DoCollectExplicitAntecedents__EList();
 
 		/**
 		 * The meta object literal for the '<em><b>Enable</b></em>' operation.

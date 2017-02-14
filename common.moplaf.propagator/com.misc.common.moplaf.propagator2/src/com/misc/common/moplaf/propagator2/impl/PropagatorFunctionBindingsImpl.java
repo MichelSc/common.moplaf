@@ -68,23 +68,23 @@ public class PropagatorFunctionBindingsImpl extends PropagatorFunctionImpl imple
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public EList<PropagatorFunction> doGetExplicitAntecedents() {
-		// default is empty list
-		return PropagatorFunction.EMPTY_LIST;
+	public void doCollectExplicitAntecedents(EList<PropagatorFunction> antecedents) {
+		// default does nothing
 	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DO_GET_BINDINGS:
 				return doGetBindings();
-			case PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DO_GET_EXPLICIT_ANTECEDENTS:
-				return doGetExplicitAntecedents();
+			case PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___DO_COLLECT_EXPLICIT_ANTECEDENTS__ELIST:
+				doCollectExplicitAntecedents((EList<PropagatorFunction>)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -97,20 +97,16 @@ public class PropagatorFunctionBindingsImpl extends PropagatorFunctionImpl imple
 	 * @param antecedents
 	 * @param doCollect
 	 */
-	private void getAntecedents_prvt(EList<PropagatorFunction> antecedents, Predicate<PropagatorFunction> doCollect) {
+	private void collectAntecedents_prvt(EList<PropagatorFunction> antecedents, Predicate<PropagatorFunction> doCollect) {
 		// explicit antecedents
-		EList<PropagatorFunction> explicitAntecedents = this.doGetExplicitAntecedents();
-		antecedents.addAll(explicitAntecedents);
+		this.doCollectExplicitAntecedents(antecedents);
 		
-		// bound sibling antecedents
+		// bound antecedents
 		Bindings bindings = this.getBindings();
 		if ( bindings!=null){
 			ObjectWithPropagatorFunctions object = this.getObjectWithPropagatorFunctions();
-			
 			PropagatorFunctionAdapter adapter = Util.getPropagatorFunctionAdapter(object);
-			
-			PropagatorFunctionSourceBindings source = new PropagatorFunctionSourceBindings(object, this, bindings);
-
+			PropagatorFunctionSource source = adapter.getSource(this, bindings);
 			source.collectAntecedents(antecedents, doCollect);
 		}
 	}
@@ -131,7 +127,7 @@ public class PropagatorFunctionBindingsImpl extends PropagatorFunctionImpl imple
 			}
 		};
 		
-		this.getAntecedents_prvt(antecedents, null);
+		this.collectAntecedents_prvt(antecedents, null);
 		
 		return antecedents;
 
@@ -161,7 +157,7 @@ public class PropagatorFunctionBindingsImpl extends PropagatorFunctionImpl imple
 			}
 		};
 		
-		this.getAntecedents_prvt(antecedents, new IsSiblingPredicate());
+		this.collectAntecedents_prvt(antecedents, new IsSiblingPredicate());
 		
 		return antecedents;
 	}

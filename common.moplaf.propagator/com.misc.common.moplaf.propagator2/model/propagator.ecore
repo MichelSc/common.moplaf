@@ -65,7 +65,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PropagatorFunctionBindings" eSuperTypes="#//PropagatorFunction">
     <eOperations name="doGetBindings" eType="#//Bindings"/>
-    <eOperations name="doGetExplicitAntecedents" upperBound="-1" eType="#//PropagatorFunction"/>
+    <eOperations name="doCollectExplicitAntecedents">
+      <eParameters name="antecedents" upperBound="-1" eType="#//PropagatorFunction"/>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Bindings" instanceClassName="com.misc.common.moplaf.propagator2.util.Bindings"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Notification" instanceClassName="org.eclipse.emf.common.notify.Notification"/>

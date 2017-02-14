@@ -131,7 +131,7 @@ public class PropagatorFunctionItemProvider
 				 getString("_UI_PropagatorFunction_AntecedentsSibling_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_PropagatorFunction_AntecedentsSibling_feature", "_UI_PropagatorFunction_type"),
 				 PropagatorPackage.Literals.PROPAGATOR_FUNCTION__ANTECEDENTS_SIBLING,
-				 false,
+				 true,
 				 false,
 				 false,
 				 null,

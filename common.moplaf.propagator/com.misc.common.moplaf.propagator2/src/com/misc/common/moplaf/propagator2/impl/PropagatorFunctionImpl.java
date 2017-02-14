@@ -290,7 +290,7 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	public void touch(EObject toucher) {
 		ObjectWithPropagatorFunctions object = this.getObjectWithPropagatorFunctions();
 
-		if ( !Util.isLoading(object) ){ return; }
+		if ( Util.isLoading(object) ){ return; }
 
 		if ( this.isTouched() ){
 			// already touched
