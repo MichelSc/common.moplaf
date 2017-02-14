@@ -280,21 +280,12 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 	}
 
 	/**
-     * Build the lp goal
+     * Build an lp goal term
 	 */
 	@Override
-	protected void buildLpGoalImpl(GeneratorLpGoal goal, float weight) throws Exception {
-		for ( GeneratorLpTerm goalTerm : goal.getLpTerm()){
-			GeneratorLpVar lpvar = goalTerm.getLpVar();
-			float coefficient = goalTerm.getCoeff()*weight;
-			if ( goal.getObjectiveType()==EnumObjectiveType.MAXIMUM){
-				coefficient = - coefficient;
-			}
-			if ( coefficient!=0.0f){
-			    IloNumVar cplexvar = vars.get(lpvar);
-				this.objective.addTerm(coefficient, cplexvar);
-			}
-		}
+	protected void buildLpGoalTermImpl(GeneratorLpVar var, float coefficient) throws Exception {
+		IloNumVar cplexvar = vars.get(var);
+		this.objective.addTerm(coefficient, cplexvar);
 	}
 
 	/**

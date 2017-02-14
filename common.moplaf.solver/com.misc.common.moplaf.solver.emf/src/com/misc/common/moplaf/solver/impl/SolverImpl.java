@@ -6,6 +6,7 @@ import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.job.RunContext;
 import com.misc.common.moplaf.solver.EnumLpConsType;
+import com.misc.common.moplaf.solver.EnumObjectiveType;
 import com.misc.common.moplaf.solver.EnumSolverLogLevel;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorCons;
@@ -14,6 +15,7 @@ import com.misc.common.moplaf.solver.GeneratorGoal;
 import com.misc.common.moplaf.solver.GeneratorLpCons;
 import com.misc.common.moplaf.solver.GeneratorLpGoal;
 import com.misc.common.moplaf.solver.GeneratorLpLinear;
+import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
 import com.misc.common.moplaf.solver.GeneratorTuple;
 import com.misc.common.moplaf.solver.GeneratorVar;
@@ -34,6 +36,8 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -1220,17 +1224,30 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 */
 	public void buildLpGoal(GeneratorLpGoal goal, float weight) throws Exception {
 		this.generatorGoalsToSolve.add(goal);
-		this.buildLpGoalImpl(goal, weight);
+		
+		for ( GeneratorLpTerm goalTerm : goal.getLpTerm()){
+			GeneratorLpVar lpvar = goalTerm.getLpVar();
+			float coefficient = goalTerm.getCoeff()*weight;
+			if ( goal.getObjectiveType()==EnumObjectiveType.MAXIMUM){
+				coefficient = - coefficient;
+			}
+			if ( coefficient!=0.0f){
+				Float valueAsIs = this.objectiveTerms.get(lpvar);
+				float valueToBe = coefficient + (valueAsIs==null ? 0.0f : valueAsIs);
+				this.objectiveTerms.put(lpvar, valueToBe);
+			}
+		}
 	}
 
 	/**
 	 * Method to be overriden by the concrete solver to add a contribution to the objective function.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	protected void buildLpGoalImpl(GeneratorLpGoal goal, float weight) throws Exception {
-		// to be overloaded
+	protected void buildLpGoalTermImpl(GeneratorLpVar var, float coefficient) throws Exception {
 		throw new UnsupportedOperationException();
 	}
+
+	private Map<GeneratorLpVar, Float> objectiveTerms = null;
 
 	/**
 	 * Method called by the concrete solver while building the solver model.
@@ -1238,10 +1255,19 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public void buildGoals() throws Exception {
+		this.objectiveTerms = new HashMap<GeneratorLpVar, Float>();
 		// build the constraints implied by previous solvers and the goal
 		for (SolverGoal goal : this.getGoals()) {
 			goal.buildGoal();
 		}
+		for ( Entry<GeneratorLpVar, Float> objectiveTerm : objectiveTerms.entrySet()){
+			float coefficient = objectiveTerm.getValue();
+			GeneratorLpVar var = objectiveTerm.getKey();
+			if ( coefficient!=0.0f){
+				this.buildLpGoalTermImpl(var, coefficient);
+			}
+		}
+		this.objectiveTerms = null;
 	}
 
 	/**
