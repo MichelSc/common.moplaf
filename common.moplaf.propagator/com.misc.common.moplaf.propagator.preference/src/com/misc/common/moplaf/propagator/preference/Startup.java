@@ -17,12 +17,14 @@ public class Startup implements IStartup, PrefConstants {
 		boolean logOnInfo    = prefStore.getBoolean(PREF_LOG_ON_INFO);
 		boolean logOnWarning = prefStore.getBoolean(PREF_LOG_ON_WARNING);
 		boolean logOnError   = prefStore.getBoolean(PREF_LOG_ON_ERROR);
+		boolean showMetadata = prefStore.getBoolean(PREF_SHOW_METADATA);
 		
 		Plugin.INSTANCE.getLogger().setLogOnTouch  (logOnTouch);
 		Plugin.INSTANCE.getLogger().setLogOnCalc   (logOnCalc);
 		Plugin.INSTANCE.getLogger().setLogOnInfo   (logOnInfo);
 		Plugin.INSTANCE.getLogger().setLogOnWarning(logOnWarning);
 		Plugin.INSTANCE.getLogger().setLogOnError  (logOnError);
+		Plugin.INSTANCE.setShowMetadata(showMetadata);
 	
 		prefStore.addPropertyChangeListener(new IPropertyChangeListener() {
 	      public void propertyChange(PropertyChangeEvent event) {
@@ -44,8 +46,9 @@ public class Startup implements IStartup, PrefConstants {
 	    			Plugin.INSTANCE.getLogger().setLogOnWarning(newValueAsBoolean);
 	    	  } else if ( property == PREF_LOG_ON_ERROR ){
 	    			Plugin.INSTANCE.getLogger().setLogOnError  (newValueAsBoolean);
+	    	  } else if ( property.equals(PREF_SHOW_METADATA) ){
+	    			Plugin.INSTANCE.setShowMetadata	           (newValueAsBoolean);
 	    	  }
 	       }});
 	}
-
 }

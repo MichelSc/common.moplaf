@@ -21,10 +21,20 @@ import com.misc.common.moplaf.propagator2.util.Util;
  */
 public final class Plugin extends EMFPlugin  {
 	private Logger logger = new Logger("Propagator");
-	
+	private boolean showMetadata = false;
+
 	public Logger getLogger(){
 		return this.logger;
 	}
+
+	public boolean getShowMetadata(){
+		return this.showMetadata;
+	}
+
+	public void setShowMetadata(boolean showMetadata) {
+		this.showMetadata = showMetadata;
+	}
+
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
