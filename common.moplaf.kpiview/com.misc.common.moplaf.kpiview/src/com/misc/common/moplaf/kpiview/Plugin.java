@@ -88,7 +88,7 @@ public class Plugin extends AbstractUIPlugin implements PrefConstants {
 		    	  
 		    	  if ( newValue instanceof Integer ){
 		    		  Integer newValueAsInteger = (Integer)newValue;
-			    	  if ( property.equals(PREF_TILE_SIZE) ){
+			    	  if        ( property.equals(PREF_TILE_SIZE) ){
 			    			Plugin.INSTANCE.setTileSize(newValueAsInteger);
 			    	  } else if ( property.equals(PREF_GRID_HORIZONTAL_GAP) ){
 			    			Plugin.INSTANCE.setGridHorizontalGap(newValueAsInteger);

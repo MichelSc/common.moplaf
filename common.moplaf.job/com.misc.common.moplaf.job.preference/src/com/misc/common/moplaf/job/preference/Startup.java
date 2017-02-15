@@ -32,13 +32,13 @@ public class Startup implements IStartup, PrefConstants {
 		    		  newValueAsBoolean = (Boolean)newValue;
 		    	  }
 
-		    	  if ( property == PREF_LOG_ON_INFO ){
+		    	  if        ( property.equals(PREF_LOG_ON_INFO) ){
 		    			Plugin.INSTANCE.getLogger().setLogOnInfo   (newValueAsBoolean);
-		    	  } else if ( property == PREF_LOG_ON_WARNING ){
+		    	  } else if ( property.equals(PREF_LOG_ON_WARNING) ){
 		    			Plugin.INSTANCE.getLogger().setLogOnWarning(newValueAsBoolean);
-		    	  } else if ( property == PREF_LOG_ON_ERROR ){
+		    	  } else if ( property.equals(PREF_LOG_ON_ERROR) ){
 		    			Plugin.INSTANCE.getLogger().setLogOnError  (newValueAsBoolean);
-		    	  } else if ( property == PREF_SHOW_METADATA ){
+		    	  } else if ( property.equals(PREF_SHOW_METADATA) ){
 		    			Plugin.INSTANCE.setShowMetadata	           (newValueAsBoolean);
 		    	  }
 		       }});
