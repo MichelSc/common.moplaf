@@ -6,7 +6,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
-import com.misc.common.moplaf.propagator2.Plugin;
 import com.misc.common.moplaf.propagator2.PropagatorFunction;
 
 /**
@@ -66,7 +65,7 @@ public abstract class PropagatorFunctionSource {
 	
 	// touch
 	public void touch(EObject toucher){
-		Plugin.INSTANCE.logTouch(this);
+		//Plugin.INSTANCE.logTouch(this);
 		this.propagatorFunction.touch(toucher);
 	}
 	
