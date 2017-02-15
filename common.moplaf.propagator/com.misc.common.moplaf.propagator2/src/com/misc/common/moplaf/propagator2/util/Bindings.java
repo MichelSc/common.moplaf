@@ -254,8 +254,11 @@ public class Bindings {
 			EObject target = source.getTarget();
 			PropagatorFunctionAdapter adapter = Util.getPropagatorFunctionAdapter(target);
 			for ( PropagatorFunctionSource otherSource : adapter.getSources()){
-				if ( otherSource.isOutboundBinding(this.eFeature)){
-					antecedents.add(otherSource.getPropagatorFunction());
+				PropagatorFunction otherPropagatorFunction = otherSource.getPropagatorFunction();
+				if ( otherSource.isOutboundBinding(this.eFeature) ){
+					if ( doCollect==null || doCollect.test(otherPropagatorFunction)){
+						antecedents.add(otherPropagatorFunction);
+					}
 				}
 			}
 		}

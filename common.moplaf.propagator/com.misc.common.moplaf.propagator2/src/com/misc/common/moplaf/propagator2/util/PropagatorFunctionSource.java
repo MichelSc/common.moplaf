@@ -10,13 +10,15 @@ import com.misc.common.moplaf.propagator2.Plugin;
 import com.misc.common.moplaf.propagator2.PropagatorFunction;
 
 /**
- * The interface to be supported for implementing the inbound bindings for one PropagatorFunction
+ * The base class for implementing the inbound bindings for one PropagatorFunction
  * on one EObject.
  * <p>
- * Following features are supported by a PropagatorFunction** 
+ * Following features are supported by a PropagatorFunctionSource 
  * <ul>
- * <li> listening to changes and calling touch() </li>
- * <li> collecting the antecedents </li>
+ * <li> associated with one PropagatorFunction: the one that is binding </li>
+ * <li> associated with one EObject: the object bound to the PropagatorFunction </li>
+ * <li> listening to changes in the EObject and forwarding touch() to the PropagatorFunction</li>
+ * <li> collecting the antecedents of the PropagatorFunction</li>
  * <li> managing the dependencies </li>
  * </ul>
  */
@@ -50,7 +52,7 @@ public abstract class PropagatorFunctionSource {
 	 * @return
 	 */
 	
-	boolean isOutboundBinding(Object feature){
+	public boolean isOutboundBinding(Object feature){
 		return false;
 	}
 	
@@ -63,7 +65,7 @@ public abstract class PropagatorFunctionSource {
 	public void collectAntecedents(EList<PropagatorFunction> antecedents, Predicate<PropagatorFunction> doCollect){}
 	
 	// touch
-	void touch(EObject toucher){
+	public void touch(EObject toucher){
 		Plugin.INSTANCE.logTouch(this);
 		this.propagatorFunction.touch(toucher);
 	}

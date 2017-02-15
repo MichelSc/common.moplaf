@@ -60,7 +60,7 @@ public class PropagatorFunctionSourceBindings extends PropagatorFunctionSource {
 	}
 
 	@Override
-	boolean isOutboundBinding(Object feature) {
+	public boolean isOutboundBinding(Object feature) {
 		return this.bindings.isOutboundBinding(this, feature);
 	}
 }
