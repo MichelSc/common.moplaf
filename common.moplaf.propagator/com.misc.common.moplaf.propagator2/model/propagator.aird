@@ -156,9 +156,9 @@
                   <styles xmi:type="notation:FontStyle" xmi:id="_VYtkQfHXEea-c9PQ1qM_Ug" fontName="Segoe UI" fontHeight="8"/>
                   <layoutConstraint xmi:type="notation:Location" xmi:id="_VYtkQvHXEea-c9PQ1qM_Ug"/>
                 </children>
-                <children xmi:type="notation:Node" xmi:id="_VYtkQ_HXEea-c9PQ1qM_Ug" type="3010" element="_VYI8gPHXEea-c9PQ1qM_Ug">
-                  <styles xmi:type="notation:FontStyle" xmi:id="_VYtkRPHXEea-c9PQ1qM_Ug" fontName="Segoe UI" fontHeight="8"/>
-                  <layoutConstraint xmi:type="notation:Location" xmi:id="_VYtkRfHXEea-c9PQ1qM_Ug"/>
+                <children xmi:type="notation:Node" xmi:id="_sRRKEPN8EeaDtd7GLa99DQ" type="3010" element="_sQwMsPN8EeaDtd7GLa99DQ">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_sRRKEfN8EeaDtd7GLa99DQ" fontName="Segoe UI" fontHeight="8"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_sRRKEvN8EeaDtd7GLa99DQ"/>
                 </children>
                 <styles xmi:type="notation:SortingStyle" xmi:id="_VYh-FfHXEea-c9PQ1qM_Ug"/>
                 <styles xmi:type="notation:FilteringStyle" xmi:id="_VYh-FvHXEea-c9PQ1qM_Ug"/>
@@ -497,10 +497,11 @@
             </ownedStyle>
             <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
           </ownedElements>
-          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_VYI8gPHXEea-c9PQ1qM_Ug" name="doGetExplicitAntecedents() : PropagatorFunction" tooltipText="doGetExplicitAntecedents() : PropagatorFunction">
-            <target xmi:type="ecore:EOperation" href="propagator.ecore#//PropagatorFunctionBindings/doGetExplicitAntecedents"/>
-            <semanticElements xmi:type="ecore:EOperation" href="propagator.ecore#//PropagatorFunctionBindings/doGetExplicitAntecedents"/>
-            <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_VYI8gfHXEea-c9PQ1qM_Ug" labelAlignment="LEFT">
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_sQwMsPN8EeaDtd7GLa99DQ" name="doCollectExplicitAntecedents(antecedents PropagatorFunction)" tooltipText="doCollectExplicitAntecedents(antecedents)">
+            <target xmi:type="ecore:EOperation" href="propagator.ecore#//PropagatorFunctionBindings/doCollectExplicitAntecedents"/>
+            <semanticElements xmi:type="ecore:EOperation" href="propagator.ecore#//PropagatorFunctionBindings/doCollectExplicitAntecedents"/>
+            <semanticElements xmi:type="ecore:EParameter" href="propagator.ecore#//PropagatorFunctionBindings/doCollectExplicitAntecedents/antecedents"/>
+            <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_sQxa0PN8EeaDtd7GLa99DQ" labelAlignment="LEFT">
               <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
             </ownedStyle>
             <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>

@@ -6,6 +6,7 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import com.misc.common.moplaf.propagator2.util.PropagatorFunctionManagerAdapter;
+import com.misc.common.moplaf.propagator2.util.PropagatorFunctionsConstructor;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,7 +17,7 @@ import com.misc.common.moplaf.propagator2.util.PropagatorFunctionManagerAdapter;
  * methods {@link #doRefresh()} or {@link #doRefresh(EObject)} when the derived elements must be recalculated. 
  * 
  * <p>
- * Listening to changes is delegated to an adapter: {@link PropagatorFunctionBindingsToBeRemoved}. 
+ * Listening to changes is delegated to an adapter: {@link PropagatorFunctionAdapter}. 
  * 
  * <p>
  * A PropagatorFunction: 
@@ -26,9 +27,10 @@ import com.misc.common.moplaf.propagator2.util.PropagatorFunctionManagerAdapter;
  * this adapter is responsible for; the whole purpose of the present framework is to call one of these methods 
  * exactly when needed:
  *   <ul>
- *   <li>{@link #doRefresh()}, that will be called when no touching EObject has been tracked
- *   <li>{@link #doRefresh(EObject)}, that will be called for every touching EObject that has been tracked, if any 
+ *   <li>{@link #doRefresh()}, that will be called when no touching EObject has been tracked</li>
+ *   <li>{@link #doRefresh(EObject)}, that will be called for every touching EObject that has been tracked, if any</li> 
  *   </ul>
+ * </li>
  * <li>maintains its touched state 
  *   <ul>
  *   <li>whether this PropagatorFunction is up to date or not: method {@link #isTouched()}
@@ -46,18 +48,10 @@ import com.misc.common.moplaf.propagator2.util.PropagatorFunctionManagerAdapter;
  *   <li>refreshing all children
  *   <li>refreshing this PropagatorFunction: method {@link #doRefresh()}
  *   </ul>
- * <li>retrieve the direct antecedents of this PropagatorFunction: the collection of PropagatorFunctions that need
- * to be proven up to date in order to update this adapter; this collection is calculated by traversing all the inbound bindings
- * of this PropagatorFunctionAdapter and by looking up other PropagatorFunctions (out) bound to the (in) bound features.
- *   <ul>
- *   <li>see {@link #getAllAntecedents()}: return all the direct antecedents
- *   <li>see {@link #getAntecedents()}: return the direct antecedents that are siblings of this PropagatorFunctionAdapters
- *   </ul>
  * <li>declares  
  *   <ul>
- *   <li>a Parent {@link PropagatorFunction}: method {@link #doGetParent()} 
- *   <li>a collection of siblings {@link PropagatorFunction} it depends on: method {@link #doGetExplicitAntecedents()}
- * that do not need to be derived from the Bindings (i.e. are explicit).  
+ *   <li>a Parent {@link PropagatorFunction}: method {@link #getParent()} 
+ *   <li>a collection {@link PropagatorFunction} on which this {@link PropagatorFunction} depends: the Antecedents: method {@link #getAntecedents()}   
  *   </ul>
  * satisfying 
  *   <ul>
@@ -65,12 +59,31 @@ import com.misc.common.moplaf.propagator2.util.PropagatorFunctionManagerAdapter;
  *   <li>second the children will be refreshed
  *   <li>finally this PropagatorFunction will be refreshed
  *   </ul>
+ * <li>offers the following methods, to be implemented by the concrete class
+ *   <ul>
+ *   <li> method {@link #doGetParent()}
+ *   <li> method {@link #doGetAntecedents()}
+ *   <li> method {@link #doRefresh()}
+ *   </ul>
+ * that are used by this PropagatorFunction for deriving the following data
+ *   <ul>
+ *   <li> the Parent of this PropagatorFunction
+ *   <li> the Antecedents of this PropagatorFunction
+ *   <li> the AntecedentsSibling of this PropagatorFunction
+ *   <li> to refresh the derived data this ProgatorFunction is responsible for
+ *   </ul>
+ * </li>
  * </ul>
  * <p>
  * The {@link PropagatorFunction} life cycle is as follows
  * <ul>
- *   <li>It is created by its ObjectWithPropagatorFunctions, typically when it is created, i.e. when
- *   it is owned (by method {@link ObjectWithPropagatorFunctions#onOwned()}, called by the 
+ *   <li>The life cycle is controlled by a {@link PropagatorFunctionManagerAdapter} which is 
+ *   responsible for creating, enabling and disabling the PropagatorFunction
+ *   <li>The construction of the PropagatorFunction is implemented in a
+ *    {@link PropagatorFunctionsConstructor}, which is responsible, for every type {@link ObjectWithPropagatorFunctions}
+ *    to create the appropriate PropagatorFunctions and to add them by calling
+ *   the method {@link ObjectWithPropagatorFunctions#addPropagatorFunction(PropagatorFunction)}
+ *   <li>the construction is done when the object is contained, called by the 
  *   method {@link PropagatorFunctionManagerAdapter#onNotifierContained})</li>
  *   <li>It is enabled when the {@link PropagatorFunctionManagerAdapter} is added to the 
  *   scope of the propagation (method {@link #enable()}, called by 

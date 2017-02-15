@@ -32,35 +32,28 @@ import com.misc.common.moplaf.propagator2.PropagatorFunction;
  * their persistent storage (both primitive and derived elements), so after the Resource is loaded.
  * In the EMF generated editor, this will be in the createModel method.
  * <p>
- * Handle the management of the {@link PropagatorFunctionBindingsToBeRemoved} of the PropagatorFunctions in the containment tree. 
- * Implement specific behaviors at the following moments:
+ * Handle the management of the {@link PropagatorFunction}, that is when they are constructed, enabled
+ * and disabled. For this, implement specific behaviors at the following moments:
  * <ul> 
  * <li> when the Notifier is added to its container: method {@link #onNotifierContained(Notifier)}
  *   <ul> 
- *   <li>call the Notifier's method  {@link ObjectWithPropagatorFunctions#onOwned()}
+ *   <li>call the constructor method  {@link PropagatorFunctionsConstructor#construct(ObjectWithPropagatorFunctions)}
  *   <li>this latter may create PropagatorFunctions
  *   <li>the created PropagatorFunctions may be touched, if the refresh must happen at construction time
  *   </ul>
  * <li>when the adapter is added: {@link #onAdapterAdded(Notifier)}
  *   <ul> 
  *   <li> enable the PropagatorFunctions: call to {@link PropagatorFunction#enable()}
- *   <li> the latter will create the dependencies: call {@link PropagatorFunctionBindingsToBeRemoved#initDependencies()}
+ *   <li> the latter will create the dependencies: call {@link PropagatorFunctionSource#initDependencies()}
  *   </ul>
  * <li>when the Notifier is proxy resolved: {@link #onResolve(Notifier, Notifier)}
  *   <ul> 
- *   <li>move the {@link PropagatorFunctionBindingsToBeRemoved} adapters from the proxy object to the resolved object  
+ *   <li>move the {@link PropagatorFunctionAdapter} adapters from the proxy object to the resolved object  
  *   </ul>
  * <li> when the adapter is removed: {@link #onAdapterRemoved(Notifier)}
  *   <ul> 
  *   <li> disable the propagator: call {@link PropagatorFunction#disable()}
- *   <li> the latter will dispose the dependencies: call to {@link PropagatorFunctionBindingsToBeRemoved#disposeDependencies()}
- *   <li> the {@link PropagatorFunctionBindingsToBeRemoved} adapters at not removed 
- *   </ul>
- * <li>when the Notifier is removed from its container: {@link #onNotifierNotContained(Notifier)}
- *   <ul> 
- *   <li>call the Notifier's method  {@link ObjectWithPropagatorFunctions#onNotOwned()}
- *   <li>the latter may then release any resource
- *   <li>as for instance cross-references
+ *   <li> the latter will dispose the dependencies: call to {@link PropagatorFunctionSource#disposeDependencies()}
  *   </ul>
  * </ul>
  * Internally, this Adapter listens to notifications and handles them by calling the following methods, 
