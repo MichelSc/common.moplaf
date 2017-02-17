@@ -6,18 +6,20 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import com.misc.common.moplaf.propagator2.util.PropagatorFunctionManagerAdapter;
+import com.misc.common.moplaf.propagator2.util.PropagatorFunctionSource;
 import com.misc.common.moplaf.propagator2.util.PropagatorFunctionsConstructor;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>PropagatorFunction</b></em>'.
  * <p>
- * Manage the refresh of derived data elements. The PropagatorFunction declares or retrieves data elements 
- * this data element depends on, remembers whether out of date, and ultimately calls 
+ * Manage the refresh of derived data elements. The PropagatorFunction declares other PropagatorFunctions it 
+ * depends ({@link #doGetAntecedents()} and {@link #doGetParent()}), remembers whether out of date, and ultimately calls 
  * methods {@link #doRefresh()} or {@link #doRefresh(EObject)} when the derived elements must be recalculated. 
  * 
  * <p>
- * Listening to changes is delegated to an adapter: {@link PropagatorFunctionAdapter}. 
+ * Listening to changes is delegated to a {@link PropagatorFunctionSource} that is attached to the 
+ * adapter {@link PropagatorFunctionAdapter} of the targetted object {@link EObject}. 
  * 
  * <p>
  * A PropagatorFunction: 

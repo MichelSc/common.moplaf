@@ -20,20 +20,25 @@ import org.eclipse.emf.ecore.resource.Resource;
  * The interface that will be supported by all object using {@link PropagatorFunction} for maintaining the state
  * of their derived elements.
  * <p>
- * Concrete object may
+ * A PropagatorFunction maintains a collection of {@link PropagatorFunction}, responsible for
+ * maintaining specific derived elements. They can be added by calling following methods
  * <ul> 
- * <li> use method {@link #onOwned()} 
- *   <ul> 
- *   <li> to create the PropagatorFunctions
- *   <li> to touch the created PropagatorFunction that need to be calculated at creation time
- *   <li> to do any procedural initialisations 
- *   </ul>
- * <li> use method {@link #onNotOwned()} 
- *   <ul> 
- *   <li> to do any procedural resource release, like clearing cross references 
- *   </ul>
+ * <li> method {@link #addPropagatorFunction(PropagatorFunction)} 
+ * <li> method {@link #addPropagatorFunction(PropagatorFunction, boolean)}
+ * <li> method {@link #addPropagatorFunction(PropagatorFunction, EObject)}
  * </ul>
-<!-- end-user-doc -->
+ * The extra parameter can be used to indicate if the newly added PropagatorFunction
+ * must be touched at addition time.
+ * <p>
+ * A given {@link PropagatorFunction} attached to this {@link ObjectWithPropagatorFunctions} may
+ * be retrieved by the methods
+ * <ul> 
+ * <li> method {@link #getPropagatorFunction(EClass)}
+ * <li> method {@link #getPropagatorFunction(Class)}
+ * </ul>
+ * using the type of the to be retrieved PropagatorFunction as key. Presently, only the type
+ * of the PropagatorFunction can be used as key.
+ * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
@@ -66,6 +71,8 @@ public interface ObjectWithPropagatorFunctions extends EObject {
 	EList<PropagatorFunction> getPropagatorFunctions();
 
 	/**
+	 * Add a {@link PropagatorFunction} to this ObjectWithPropagatorFunctions and touch
+	 * it with the received toucher.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
@@ -74,6 +81,8 @@ public interface ObjectWithPropagatorFunctions extends EObject {
 	void addPropagatorFunction(PropagatorFunction propagatorFunction, EObject toucher);
 
 	/**
+	 * Add a {@link PropagatorFunction} to this ObjectWithPropagatorFunctions and touch
+	 * it according to the parameter touch.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
@@ -82,6 +91,7 @@ public interface ObjectWithPropagatorFunctions extends EObject {
 	void addPropagatorFunction(PropagatorFunction propagatorFunction, boolean touch);
 
 	/**
+	 * Add a {@link PropagatorFunction} to this ObjectWithPropagatorFunctions and leave it untouched.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model

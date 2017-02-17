@@ -17,8 +17,9 @@ import com.misc.common.moplaf.propagator2.PropagatorFunction;
 
 /**
  *
- * A {@link Bindings} declares the Bindings of a {@link PropagatorFunction} and is
- * provided by {@link PropagatorFunction#doGetBindings()}.
+ * A {@link Bindings} declares the Bindings of a special kind of {@link PropagatorFunction}, the 
+ * {@link PropagatorFunctionBindings} and is
+ * provided by {@link PropagatorFunctionBindings#doGetBindings()}.
  * <p>
  * A Bindings provides a collection of {@link InboundBinding}s and  collection of
  * {@link OutboundBinding}.

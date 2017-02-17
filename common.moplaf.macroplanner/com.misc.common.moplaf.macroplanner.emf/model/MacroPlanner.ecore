@@ -35,7 +35,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Periods" upperBound="-1"
         eType="#//LocationResourcePeriod" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LocationResourcePeriod">
+  <eClassifiers xsi:type="ecore:EClass" name="LocationResourcePeriod" abstract="true"
+      interface="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="LevelAtBegin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="LevelAtEnd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Period" eType="#//Period"/>

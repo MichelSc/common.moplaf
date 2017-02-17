@@ -137,53 +137,6 @@ public class Util {
 	    return null;
 	}	
 	
-//	/**
-//	 * 
-//	 * @param target
-//	 * @param type
-//	 * @return
-//	 */
-//	public static Adapter adapt(Notifier target, Object type){
-//		if ( type instanceof Class ){
-//			Class adaptertype = (Class)type;
-//			Iterator<Adapter> currentAdapter = target.eAdapters().iterator();
-//			LinkedList<Adapter> toremove = new LinkedList<Adapter>();
-//			while ( currentAdapter.hasNext() ){
-//    			Adapter adapter = currentAdapter.next();
-//    			if (adaptertype.isAssignableFrom(adapter.getClass())) {
-//    				// adapter is a specialization 
-//    				return adapter;
-//    			}
-//    			else if ( adapter.getClass().isAssignableFrom(adaptertype)){
-//    				// adapter is more general and will be replaced
-//    				toremove.add(adapter);
-//    			}
-//		    } // traverse the adapters
-//			// no adpater found: remove the super types, and construct the required type
-//			target.eAdapters().removeAll(toremove);
-//			try {
-//				Constructor cons = adaptertype.getDeclaredConstructor();
-//				Adapter adapter = (Adapter) cons.newInstance();
-//				target.eAdapters().add(adapter);
-//				return adapter;
-//			} catch (Exception e) {
-//				CommonPlugin.INSTANCE.log("PropagatorLayer: no constructor for "+adaptertype.getName());
-//				return null;
-//			}
-//		}
-//		else if ( type instanceof Bindings ){
-//			Bindings adaptertype = (Bindings)type;
-//			Iterator<Adapter> currentAdapter = target.eAdapters().iterator();
-//			while ( currentAdapter.hasNext() ){
-//    			Adapter adapter = currentAdapter.next();
-//    			if ( adapter.isAdapterForType(adaptertype)){
-//    				return adapter;
-//    			}
-//    		return new PropagatorFunctionBindings(adaptertype);
-//		    } // traverse the adapters
-//		}
-//	    return Util.getAdapter(target, type);
-//	}	
 	
 	/** propagate on the whole resource
 	 * 
