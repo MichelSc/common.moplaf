@@ -2,10 +2,10 @@
  */
 package com.misc.common.moplaf.time.continuous.impl;
 
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.EventProvider;
 
 import com.misc.common.moplaf.time.continuous.ProvidedEvent;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import java.util.Date;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -64,7 +64,7 @@ public abstract class EventProviderImpl extends EventsProviderAbstractImpl imple
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ContinuousPackage.Literals.EVENT_PROVIDER;
+		return TimeContinuousPackage.Literals.EVENT_PROVIDER;
 	}
 
 	/**
@@ -107,7 +107,7 @@ public abstract class EventProviderImpl extends EventsProviderAbstractImpl imple
 		Date oldMoment = moment;
 		moment = newMoment;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.EVENT_PROVIDER__MOMENT, oldMoment, moment));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.EVENT_PROVIDER__MOMENT, oldMoment, moment));
 	}
 
 	/**
@@ -118,10 +118,10 @@ public abstract class EventProviderImpl extends EventsProviderAbstractImpl imple
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContinuousPackage.EVENT_PROVIDER__PROVIDED_EVENT:
+			case TimeContinuousPackage.EVENT_PROVIDER__PROVIDED_EVENT:
 				if (resolve) return getProvidedEvent();
 				return basicGetProvidedEvent();
-			case ContinuousPackage.EVENT_PROVIDER__MOMENT:
+			case TimeContinuousPackage.EVENT_PROVIDER__MOMENT:
 				return getMoment();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -135,7 +135,7 @@ public abstract class EventProviderImpl extends EventsProviderAbstractImpl imple
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContinuousPackage.EVENT_PROVIDER__MOMENT:
+			case TimeContinuousPackage.EVENT_PROVIDER__MOMENT:
 				setMoment((Date)newValue);
 				return;
 		}
@@ -150,7 +150,7 @@ public abstract class EventProviderImpl extends EventsProviderAbstractImpl imple
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.EVENT_PROVIDER__MOMENT:
+			case TimeContinuousPackage.EVENT_PROVIDER__MOMENT:
 				setMoment(MOMENT_EDEFAULT);
 				return;
 		}
@@ -165,9 +165,9 @@ public abstract class EventProviderImpl extends EventsProviderAbstractImpl imple
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.EVENT_PROVIDER__PROVIDED_EVENT:
+			case TimeContinuousPackage.EVENT_PROVIDER__PROVIDED_EVENT:
 				return basicGetProvidedEvent() != null;
-			case ContinuousPackage.EVENT_PROVIDER__MOMENT:
+			case TimeContinuousPackage.EVENT_PROVIDER__MOMENT:
 				return MOMENT_EDEFAULT == null ? moment != null : !MOMENT_EDEFAULT.equals(moment);
 		}
 		return super.eIsSet(featureID);

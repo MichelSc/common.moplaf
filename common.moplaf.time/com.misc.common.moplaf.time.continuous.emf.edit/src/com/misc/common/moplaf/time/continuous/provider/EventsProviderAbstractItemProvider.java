@@ -3,6 +3,9 @@
 package com.misc.common.moplaf.time.continuous.provider;
 
 
+import com.misc.common.moplaf.propagator2.PropagatorPackage;
+import com.misc.common.moplaf.propagator2.provider.ObjectWithPropagatorFunctionsItemProvider;
+import com.misc.common.moplaf.time.continuous.TimeContinuousFactory;
 import java.util.Collection;
 import java.util.List;
 
@@ -10,14 +13,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.time.continuous.EventsProviderAbstract} object.
@@ -26,13 +22,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
  * @generated
  */
 public class EventsProviderAbstractItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends ObjectWithPropagatorFunctionsItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -93,6 +83,21 @@ public class EventsProviderAbstractItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PropagatorPackage.Literals.OBJECT_WITH_PROPAGATOR_FUNCTIONS__PROPAGATOR_FUNCTIONS,
+				 TimeContinuousFactory.eINSTANCE.createPropagatorFunctionDistribution()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PropagatorPackage.Literals.OBJECT_WITH_PROPAGATOR_FUNCTIONS__PROPAGATOR_FUNCTIONS,
+				 TimeContinuousFactory.eINSTANCE.createPropagatorFunctionDistributionEvent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PropagatorPackage.Literals.OBJECT_WITH_PROPAGATOR_FUNCTIONS__PROPAGATOR_FUNCTIONS,
+				 TimeContinuousFactory.eINSTANCE.createPropagatorFunctionEventsProvider()));
 	}
 
 	/**

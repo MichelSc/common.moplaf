@@ -4,10 +4,10 @@
     modelPluginID="com.misc.common.moplaf.time.continuous.emf" modelName="Timecontinuous"
     editPluginClass="com.misc.common.moplaf.time.continuous.provider.TimeContinuousEditPlugin"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../com.misc.common.moplaf.propagator/model/propagator.genmodel#//propagator"
+    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../com.misc.common.moplaf.propagator2/model/propagator.genmodel#//propagator2"
     operationReflection="true" importOrganizing="true">
   <foreignModel>timecontinuous.ecore</foreignModel>
-  <genPackages prefix="Continuous" basePackage="com.misc.common.moplaf.time" resource="XML"
+  <genPackages prefix="TimeContinuous" basePackage="com.misc.common.moplaf.time" resource="XML"
       disposableProviderFactory="true" ecorePackage="timecontinuous.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="timecontinuous.ecore#//TimeUnit">
       <genEnumLiterals ecoreEnumLiteral="timecontinuous.ecore#//TimeUnit/Hour"/>
@@ -111,7 +111,6 @@
       <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/refreshInit"/>
       <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/refreshSequence"/>
       <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/refreshChildEvent"/>
-      <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/refresh"/>
       <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/refreshProvidedEvents"/>
       <genOperations ecoreOperation="timecontinuous.ecore#//Distribution/accept">
         <genParameters ecoreParameter="timecontinuous.ecore#//Distribution/accept/from"/>
@@ -243,6 +242,15 @@
     <genClasses image="false" ecoreClass="timecontinuous.ecore#//OwnedEvent"/>
     <genClasses image="false" ecoreClass="timecontinuous.ecore#//ProvidedEvent">
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//ProvidedEvent/EventProvider"/>
+    </genClasses>
+    <genClasses ecoreClass="timecontinuous.ecore#//PropagatorFunctionDistribution">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//PropagatorFunctionDistribution/Distribution"/>
+    </genClasses>
+    <genClasses ecoreClass="timecontinuous.ecore#//PropagatorFunctionDistributionEvent">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//PropagatorFunctionDistributionEvent/DistributionEvent"/>
+    </genClasses>
+    <genClasses ecoreClass="timecontinuous.ecore#//PropagatorFunctionEventsProvider">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference timecontinuous.ecore#//PropagatorFunctionEventsProvider/EventsProvider"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

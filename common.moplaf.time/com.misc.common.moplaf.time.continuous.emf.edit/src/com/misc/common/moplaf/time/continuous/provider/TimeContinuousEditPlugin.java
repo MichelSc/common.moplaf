@@ -2,8 +2,7 @@
  */
 package com.misc.common.moplaf.time.continuous.provider;
 
-import com.misc.common.moplaf.propagator.provider.PropagatorEditPlugin;
-
+import com.misc.common.moplaf.propagator2.provider.PropagatorEditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;

@@ -2,7 +2,7 @@
  */
 package com.misc.common.moplaf.time.continuous;
 
-import com.misc.common.moplaf.propagator.ObjectWithPropagatorFunctionAdapter;
+import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,11 +16,11 @@ import com.misc.common.moplaf.propagator.ObjectWithPropagatorFunctionAdapter;
  *   <li>{@link com.misc.common.moplaf.time.continuous.EventsProviderAbstract#getDistribution <em>Distribution</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getEventsProviderAbstract()
+ * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getEventsProviderAbstract()
  * @model abstract="true"
  * @generated
  */
-public interface EventsProviderAbstract extends ObjectWithPropagatorFunctionAdapter {
+public interface EventsProviderAbstract extends ObjectWithPropagatorFunctions {
 	/**
 	 * Returns the value of the '<em><b>Distribution</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.time.continuous.Distribution#getEventsProviders <em>Events Providers</em>}'.
@@ -32,7 +32,7 @@ public interface EventsProviderAbstract extends ObjectWithPropagatorFunctionAdap
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Distribution</em>' container reference.
 	 * @see #setDistribution(Distribution)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getEventsProviderAbstract_Distribution()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getEventsProviderAbstract_Distribution()
 	 * @see com.misc.common.moplaf.time.continuous.Distribution#getEventsProviders
 	 * @model opposite="EventsProviders" required="true" transient="false"
 	 * @generated

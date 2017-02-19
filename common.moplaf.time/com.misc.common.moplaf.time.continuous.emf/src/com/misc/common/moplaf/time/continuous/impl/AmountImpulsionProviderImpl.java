@@ -2,13 +2,13 @@
  */
 package com.misc.common.moplaf.time.continuous.impl;
 
+
 import com.misc.common.moplaf.time.continuous.AmountImpulsionAtomic;
 import com.misc.common.moplaf.time.continuous.AmountImpulsionProvider;
-import com.misc.common.moplaf.time.continuous.ContinuousFactory;
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.ProvidedEvent;
-
+import com.misc.common.moplaf.time.continuous.TimeContinuousFactory;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -78,7 +78,7 @@ public class AmountImpulsionProviderImpl extends EventProviderImpl implements Am
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ContinuousPackage.Literals.AMOUNT_IMPULSION_PROVIDER;
+		return TimeContinuousPackage.Literals.AMOUNT_IMPULSION_PROVIDER;
 	}
 
 	
@@ -109,7 +109,7 @@ public class AmountImpulsionProviderImpl extends EventProviderImpl implements Am
 		AmountImpulsionAtomic oldEvent = event;
 		event = newEvent;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ContinuousPackage.AMOUNT_IMPULSION_PROVIDER__EVENT, oldEvent, newEvent);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.AMOUNT_IMPULSION_PROVIDER__EVENT, oldEvent, newEvent);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -124,14 +124,14 @@ public class AmountImpulsionProviderImpl extends EventProviderImpl implements Am
 		if (newEvent != event) {
 			NotificationChain msgs = null;
 			if (event != null)
-				msgs = ((InternalEObject)event).eInverseRemove(this, ContinuousPackage.AMOUNT_IMPULSION_ATOMIC__PROVIDER, AmountImpulsionAtomic.class, msgs);
+				msgs = ((InternalEObject)event).eInverseRemove(this, TimeContinuousPackage.AMOUNT_IMPULSION_ATOMIC__PROVIDER, AmountImpulsionAtomic.class, msgs);
 			if (newEvent != null)
-				msgs = ((InternalEObject)newEvent).eInverseAdd(this, ContinuousPackage.AMOUNT_IMPULSION_ATOMIC__PROVIDER, AmountImpulsionAtomic.class, msgs);
+				msgs = ((InternalEObject)newEvent).eInverseAdd(this, TimeContinuousPackage.AMOUNT_IMPULSION_ATOMIC__PROVIDER, AmountImpulsionAtomic.class, msgs);
 			msgs = basicSetEvent(newEvent, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.AMOUNT_IMPULSION_PROVIDER__EVENT, newEvent, newEvent));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.AMOUNT_IMPULSION_PROVIDER__EVENT, newEvent, newEvent));
 	}
 
 	/**
@@ -152,7 +152,7 @@ public class AmountImpulsionProviderImpl extends EventProviderImpl implements Am
 		float oldAmountImpulsion = amountImpulsion;
 		amountImpulsion = newAmountImpulsion;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.AMOUNT_IMPULSION_PROVIDER__AMOUNT_IMPULSION, oldAmountImpulsion, amountImpulsion));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.AMOUNT_IMPULSION_PROVIDER__AMOUNT_IMPULSION, oldAmountImpulsion, amountImpulsion));
 	}
 
 	/**
@@ -163,9 +163,9 @@ public class AmountImpulsionProviderImpl extends EventProviderImpl implements Am
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_IMPULSION_PROVIDER__EVENT:
+			case TimeContinuousPackage.AMOUNT_IMPULSION_PROVIDER__EVENT:
 				if (event != null)
-					msgs = ((InternalEObject)event).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ContinuousPackage.AMOUNT_IMPULSION_PROVIDER__EVENT, null, msgs);
+					msgs = ((InternalEObject)event).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TimeContinuousPackage.AMOUNT_IMPULSION_PROVIDER__EVENT, null, msgs);
 				return basicSetEvent((AmountImpulsionAtomic)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -179,7 +179,7 @@ public class AmountImpulsionProviderImpl extends EventProviderImpl implements Am
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_IMPULSION_PROVIDER__EVENT:
+			case TimeContinuousPackage.AMOUNT_IMPULSION_PROVIDER__EVENT:
 				return basicSetEvent(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -193,9 +193,9 @@ public class AmountImpulsionProviderImpl extends EventProviderImpl implements Am
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_IMPULSION_PROVIDER__EVENT:
+			case TimeContinuousPackage.AMOUNT_IMPULSION_PROVIDER__EVENT:
 				return getEvent();
-			case ContinuousPackage.AMOUNT_IMPULSION_PROVIDER__AMOUNT_IMPULSION:
+			case TimeContinuousPackage.AMOUNT_IMPULSION_PROVIDER__AMOUNT_IMPULSION:
 				return getAmountImpulsion();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -209,10 +209,10 @@ public class AmountImpulsionProviderImpl extends EventProviderImpl implements Am
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_IMPULSION_PROVIDER__EVENT:
+			case TimeContinuousPackage.AMOUNT_IMPULSION_PROVIDER__EVENT:
 				setEvent((AmountImpulsionAtomic)newValue);
 				return;
-			case ContinuousPackage.AMOUNT_IMPULSION_PROVIDER__AMOUNT_IMPULSION:
+			case TimeContinuousPackage.AMOUNT_IMPULSION_PROVIDER__AMOUNT_IMPULSION:
 				setAmountImpulsion((Float)newValue);
 				return;
 		}
@@ -227,10 +227,10 @@ public class AmountImpulsionProviderImpl extends EventProviderImpl implements Am
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_IMPULSION_PROVIDER__EVENT:
+			case TimeContinuousPackage.AMOUNT_IMPULSION_PROVIDER__EVENT:
 				setEvent((AmountImpulsionAtomic)null);
 				return;
-			case ContinuousPackage.AMOUNT_IMPULSION_PROVIDER__AMOUNT_IMPULSION:
+			case TimeContinuousPackage.AMOUNT_IMPULSION_PROVIDER__AMOUNT_IMPULSION:
 				setAmountImpulsion(AMOUNT_IMPULSION_EDEFAULT);
 				return;
 		}
@@ -245,9 +245,9 @@ public class AmountImpulsionProviderImpl extends EventProviderImpl implements Am
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_IMPULSION_PROVIDER__EVENT:
+			case TimeContinuousPackage.AMOUNT_IMPULSION_PROVIDER__EVENT:
 				return event != null;
-			case ContinuousPackage.AMOUNT_IMPULSION_PROVIDER__AMOUNT_IMPULSION:
+			case TimeContinuousPackage.AMOUNT_IMPULSION_PROVIDER__AMOUNT_IMPULSION:
 				return amountImpulsion != AMOUNT_IMPULSION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
@@ -282,7 +282,7 @@ public class AmountImpulsionProviderImpl extends EventProviderImpl implements Am
 			}
 		} else {
 			if ( this.getEvent()==null){
-				AmountImpulsionAtomic newEvent = ContinuousFactory.eINSTANCE.createAmountImpulsionAtomic();
+				AmountImpulsionAtomic newEvent = TimeContinuousFactory.eINSTANCE.createAmountImpulsionAtomic();
 				newEvent.setProvider(this);
 			}
 		}

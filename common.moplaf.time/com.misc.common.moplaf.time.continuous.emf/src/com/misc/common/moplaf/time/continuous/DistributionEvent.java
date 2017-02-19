@@ -2,8 +2,7 @@
  */
 package com.misc.common.moplaf.time.continuous;
 
-import com.misc.common.moplaf.propagator.ObjectWithPropagatorFunctionAdapter;
-
+import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
 import java.util.Date;
 
 /**
@@ -29,12 +28,12 @@ import java.util.Date;
  *   <li>{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getDistributionAsProvidedEvent <em>Distribution As Provided Event</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistributionEvent()
+ * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistributionEvent()
  * @model abstract="true"
  *        annotation="http://www.obeo.fr/dsl/dnc/archetype archetype='Thing'"
  * @generated
  */
-public interface DistributionEvent extends ObjectWithPropagatorFunctionAdapter {
+public interface DistributionEvent extends ObjectWithPropagatorFunctions {
 	/**
 	 * Returns the value of the '<em><b>Moment</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -45,7 +44,7 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctionAdapter {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Moment</em>' attribute.
 	 * @see #setMoment(Date)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistributionEvent_Moment()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistributionEvent_Moment()
 	 * @model
 	 * @generated
 	 */
@@ -71,7 +70,7 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctionAdapter {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Event Nr</em>' attribute.
 	 * @see #setEventNr(int)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistributionEvent_EventNr()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistributionEvent_EventNr()
 	 * @model
 	 * @generated
 	 */
@@ -98,7 +97,7 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctionAdapter {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Next</em>' reference.
 	 * @see #setNext(DistributionEvent)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistributionEvent_Next()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistributionEvent_Next()
 	 * @see com.misc.common.moplaf.time.continuous.DistributionEvent#getPrevious
 	 * @model opposite="Previous"
 	 * @generated
@@ -126,7 +125,7 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctionAdapter {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Previous</em>' reference.
 	 * @see #setPrevious(DistributionEvent)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistributionEvent_Previous()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistributionEvent_Previous()
 	 * @see com.misc.common.moplaf.time.continuous.DistributionEvent#getNext
 	 * @model opposite="Next"
 	 * @generated
@@ -153,7 +152,7 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctionAdapter {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Amount Before</em>' attribute.
 	 * @see #setAmountBefore(float)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistributionEvent_AmountBefore()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistributionEvent_AmountBefore()
 	 * @model
 	 * @generated
 	 */
@@ -179,7 +178,7 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctionAdapter {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Amount After</em>' attribute.
 	 * @see #setAmountAfter(float)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistributionEvent_AmountAfter()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistributionEvent_AmountAfter()
 	 * @model
 	 * @generated
 	 */
@@ -205,7 +204,7 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctionAdapter {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Slope Before</em>' attribute.
 	 * @see #setSlopeBefore(float)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistributionEvent_SlopeBefore()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistributionEvent_SlopeBefore()
 	 * @model
 	 * @generated
 	 */
@@ -231,7 +230,7 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctionAdapter {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Slope After</em>' attribute.
 	 * @see #setSlopeAfter(float)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistributionEvent_SlopeAfter()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistributionEvent_SlopeAfter()
 	 * @model
 	 * @generated
 	 */
@@ -249,6 +248,7 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctionAdapter {
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
@@ -256,22 +256,11 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctionAdapter {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
-	 * @see #setDescription(String)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistributionEvent_Description()
-	 * @model
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistributionEvent_Description()
+	 * @model default="" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	String getDescription();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.time.continuous.DistributionEvent#getDescription <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Description</em>' attribute.
-	 * @see #getDescription()
-	 * @generated
-	 */
-	void setDescription(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Distribution As Sequence</b></em>' reference.
@@ -284,7 +273,7 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctionAdapter {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Distribution As Sequence</em>' reference.
 	 * @see #setDistributionAsSequence(Distribution)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistributionEvent_DistributionAsSequence()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistributionEvent_DistributionAsSequence()
 	 * @see com.misc.common.moplaf.time.continuous.Distribution#getSequenceEvents
 	 * @model opposite="SequenceEvents"
 	 * @generated
@@ -310,7 +299,7 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctionAdapter {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Distribution</em>' reference.
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistributionEvent_Distribution()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistributionEvent_Distribution()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
@@ -327,7 +316,7 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctionAdapter {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Distribution As Provided Event</em>' reference.
 	 * @see #setDistributionAsProvidedEvent(Distribution)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistributionEvent_DistributionAsProvidedEvent()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistributionEvent_DistributionAsProvidedEvent()
 	 * @see com.misc.common.moplaf.time.continuous.Distribution#getProvidedEvents
 	 * @model opposite="ProvidedEvents"
 	 * @generated
@@ -415,13 +404,5 @@ public interface DistributionEvent extends ObjectWithPropagatorFunctionAdapter {
 	 * @generated
 	 */
 	void refreshMoment();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void refreshDescription();
 
 } // DistributionEvent

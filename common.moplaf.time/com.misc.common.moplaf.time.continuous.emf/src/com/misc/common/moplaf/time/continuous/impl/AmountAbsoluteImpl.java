@@ -2,10 +2,9 @@
  */
 package com.misc.common.moplaf.time.continuous.impl;
 
-import com.misc.common.moplaf.propagator.Util;
+
 import com.misc.common.moplaf.time.continuous.AmountAbsolute;
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAmountAfter;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
@@ -57,16 +56,6 @@ public abstract class AmountAbsoluteImpl extends ProvidedEventImpl implements Am
 	}
 
 
-	/* (non-Javadoc)
-	 * @see com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#addPropagatorFunctionAdapter()
-	 */
-	@Override
-	public void addPropagatorFunctionAdapter() {
-		super.addPropagatorFunctionAdapter();
-		Util.adapt(this, PropagatorCalcAmountAbsoluteAmountAfter.class);
-	}
-
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -74,7 +63,7 @@ public abstract class AmountAbsoluteImpl extends ProvidedEventImpl implements Am
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ContinuousPackage.Literals.AMOUNT_ABSOLUTE;
+		return TimeContinuousPackage.Literals.AMOUNT_ABSOLUTE;
 	}
 
 	/**
@@ -95,7 +84,7 @@ public abstract class AmountAbsoluteImpl extends ProvidedEventImpl implements Am
 		float oldAmountAbsolute = amountAbsolute;
 		amountAbsolute = newAmountAbsolute;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.AMOUNT_ABSOLUTE__AMOUNT_ABSOLUTE, oldAmountAbsolute, amountAbsolute));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.AMOUNT_ABSOLUTE__AMOUNT_ABSOLUTE, oldAmountAbsolute, amountAbsolute));
 	}
 
 	/**
@@ -118,7 +107,7 @@ public abstract class AmountAbsoluteImpl extends ProvidedEventImpl implements Am
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_ABSOLUTE__AMOUNT_ABSOLUTE:
+			case TimeContinuousPackage.AMOUNT_ABSOLUTE__AMOUNT_ABSOLUTE:
 				return getAmountAbsolute();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -132,7 +121,7 @@ public abstract class AmountAbsoluteImpl extends ProvidedEventImpl implements Am
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_ABSOLUTE__AMOUNT_ABSOLUTE:
+			case TimeContinuousPackage.AMOUNT_ABSOLUTE__AMOUNT_ABSOLUTE:
 				setAmountAbsolute((Float)newValue);
 				return;
 		}
@@ -147,7 +136,7 @@ public abstract class AmountAbsoluteImpl extends ProvidedEventImpl implements Am
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_ABSOLUTE__AMOUNT_ABSOLUTE:
+			case TimeContinuousPackage.AMOUNT_ABSOLUTE__AMOUNT_ABSOLUTE:
 				setAmountAbsolute(AMOUNT_ABSOLUTE_EDEFAULT);
 				return;
 		}
@@ -162,7 +151,7 @@ public abstract class AmountAbsoluteImpl extends ProvidedEventImpl implements Am
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_ABSOLUTE__AMOUNT_ABSOLUTE:
+			case TimeContinuousPackage.AMOUNT_ABSOLUTE__AMOUNT_ABSOLUTE:
 				return amountAbsolute != AMOUNT_ABSOLUTE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
@@ -176,7 +165,7 @@ public abstract class AmountAbsoluteImpl extends ProvidedEventImpl implements Am
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ContinuousPackage.AMOUNT_ABSOLUTE___REFRESH_AMOUNT_ABSOLUTE:
+			case TimeContinuousPackage.AMOUNT_ABSOLUTE___REFRESH_AMOUNT_ABSOLUTE:
 				refreshAmountAbsolute();
 				return null;
 		}

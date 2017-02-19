@@ -15,7 +15,7 @@ package com.misc.common.moplaf.time.continuous;
  *   <li>{@link com.misc.common.moplaf.time.continuous.SlopeImpulsionAtomic#getProvider <em>Provider</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getSlopeImpulsionAtomic()
+ * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getSlopeImpulsionAtomic()
  * @model
  * @generated
  */
@@ -31,7 +31,7 @@ public interface SlopeImpulsionAtomic extends SlopeImpulsion {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Provider</em>' container reference.
 	 * @see #setProvider(SlopeImpulsionProvider)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getSlopeImpulsionAtomic_Provider()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getSlopeImpulsionAtomic_Provider()
 	 * @see com.misc.common.moplaf.time.continuous.SlopeImpulsionProvider#getEvent
 	 * @model opposite="Event" required="true" transient="false"
 	 * @generated

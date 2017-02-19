@@ -2,10 +2,10 @@
  */
 package com.misc.common.moplaf.time.continuous.impl;
 
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.OwnedEvent;
 
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -32,7 +32,7 @@ public abstract class OwnedEventImpl extends DistributionEventImpl implements Ow
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ContinuousPackage.Literals.OWNED_EVENT;
+		return TimeContinuousPackage.Literals.OWNED_EVENT;
 	}
 
 	@Override

@@ -2,12 +2,10 @@
  */
 package com.misc.common.moplaf.time.continuous.impl;
 
-import com.misc.common.moplaf.propagator.Util;
+
 import com.misc.common.moplaf.time.continuous.CapacityChange;
 import com.misc.common.moplaf.time.continuous.CapacityChangeStart;
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcCapacityChangeStartAmountImpulsion;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcCapacityChangeStartMoment;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 
 import java.util.Date;
 
@@ -41,15 +39,6 @@ public class CapacityChangeStartImpl extends AmountImpulsionImpl implements Capa
 		super();
 	}
 
-	/* (non-Javadoc)
-	 * @see com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#addPropagatorFunctionAdapter()
-	 */
-	@Override
-	public void addPropagatorFunctionAdapter() {
-		super.addPropagatorFunctionAdapter();
-		Util.adapt(this, PropagatorCalcCapacityChangeStartAmountImpulsion.class);
-		Util.adapt(this, PropagatorCalcCapacityChangeStartMoment.class);
-	}
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -57,7 +46,7 @@ public class CapacityChangeStartImpl extends AmountImpulsionImpl implements Capa
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ContinuousPackage.Literals.CAPACITY_CHANGE_START;
+		return TimeContinuousPackage.Literals.CAPACITY_CHANGE_START;
 	}
 
 	/**
@@ -66,7 +55,7 @@ public class CapacityChangeStartImpl extends AmountImpulsionImpl implements Capa
 	 * @generated
 	 */
 	public CapacityChange getProvider() {
-		if (eContainerFeatureID() != ContinuousPackage.CAPACITY_CHANGE_START__PROVIDER) return null;
+		if (eContainerFeatureID() != TimeContinuousPackage.CAPACITY_CHANGE_START__PROVIDER) return null;
 		return (CapacityChange)eInternalContainer();
 	}
 
@@ -76,7 +65,7 @@ public class CapacityChangeStartImpl extends AmountImpulsionImpl implements Capa
 	 * @generated
 	 */
 	public NotificationChain basicSetProvider(CapacityChange newProvider, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newProvider, ContinuousPackage.CAPACITY_CHANGE_START__PROVIDER, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newProvider, TimeContinuousPackage.CAPACITY_CHANGE_START__PROVIDER, msgs);
 		return msgs;
 	}
 
@@ -86,19 +75,19 @@ public class CapacityChangeStartImpl extends AmountImpulsionImpl implements Capa
 	 * @generated
 	 */
 	public void setProvider(CapacityChange newProvider) {
-		if (newProvider != eInternalContainer() || (eContainerFeatureID() != ContinuousPackage.CAPACITY_CHANGE_START__PROVIDER && newProvider != null)) {
+		if (newProvider != eInternalContainer() || (eContainerFeatureID() != TimeContinuousPackage.CAPACITY_CHANGE_START__PROVIDER && newProvider != null)) {
 			if (EcoreUtil.isAncestor(this, newProvider))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newProvider != null)
-				msgs = ((InternalEObject)newProvider).eInverseAdd(this, ContinuousPackage.CAPACITY_CHANGE__START_EVENT, CapacityChange.class, msgs);
+				msgs = ((InternalEObject)newProvider).eInverseAdd(this, TimeContinuousPackage.CAPACITY_CHANGE__START_EVENT, CapacityChange.class, msgs);
 			msgs = basicSetProvider(newProvider, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.CAPACITY_CHANGE_START__PROVIDER, newProvider, newProvider));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.CAPACITY_CHANGE_START__PROVIDER, newProvider, newProvider));
 	}
 
 	/**
@@ -127,7 +116,7 @@ public class CapacityChangeStartImpl extends AmountImpulsionImpl implements Capa
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContinuousPackage.CAPACITY_CHANGE_START__PROVIDER:
+			case TimeContinuousPackage.CAPACITY_CHANGE_START__PROVIDER:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetProvider((CapacityChange)otherEnd, msgs);
@@ -143,7 +132,7 @@ public class CapacityChangeStartImpl extends AmountImpulsionImpl implements Capa
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContinuousPackage.CAPACITY_CHANGE_START__PROVIDER:
+			case TimeContinuousPackage.CAPACITY_CHANGE_START__PROVIDER:
 				return basicSetProvider(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -157,8 +146,8 @@ public class CapacityChangeStartImpl extends AmountImpulsionImpl implements Capa
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case ContinuousPackage.CAPACITY_CHANGE_START__PROVIDER:
-				return eInternalContainer().eInverseRemove(this, ContinuousPackage.CAPACITY_CHANGE__START_EVENT, CapacityChange.class, msgs);
+			case TimeContinuousPackage.CAPACITY_CHANGE_START__PROVIDER:
+				return eInternalContainer().eInverseRemove(this, TimeContinuousPackage.CAPACITY_CHANGE__START_EVENT, CapacityChange.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -171,7 +160,7 @@ public class CapacityChangeStartImpl extends AmountImpulsionImpl implements Capa
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContinuousPackage.CAPACITY_CHANGE_START__PROVIDER:
+			case TimeContinuousPackage.CAPACITY_CHANGE_START__PROVIDER:
 				return getProvider();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -185,7 +174,7 @@ public class CapacityChangeStartImpl extends AmountImpulsionImpl implements Capa
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContinuousPackage.CAPACITY_CHANGE_START__PROVIDER:
+			case TimeContinuousPackage.CAPACITY_CHANGE_START__PROVIDER:
 				setProvider((CapacityChange)newValue);
 				return;
 		}
@@ -200,7 +189,7 @@ public class CapacityChangeStartImpl extends AmountImpulsionImpl implements Capa
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.CAPACITY_CHANGE_START__PROVIDER:
+			case TimeContinuousPackage.CAPACITY_CHANGE_START__PROVIDER:
 				setProvider((CapacityChange)null);
 				return;
 		}
@@ -215,7 +204,7 @@ public class CapacityChangeStartImpl extends AmountImpulsionImpl implements Capa
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.CAPACITY_CHANGE_START__PROVIDER:
+			case TimeContinuousPackage.CAPACITY_CHANGE_START__PROVIDER:
 				return getProvider() != null;
 		}
 		return super.eIsSet(featureID);

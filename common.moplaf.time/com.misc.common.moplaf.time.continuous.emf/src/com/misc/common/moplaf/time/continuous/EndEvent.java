@@ -9,7 +9,7 @@ package com.misc.common.moplaf.time.continuous;
  * <!-- end-user-doc -->
  *
  *
- * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getEndEvent()
+ * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getEndEvent()
  * @model
  * @generated
  */

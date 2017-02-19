@@ -2,15 +2,15 @@
  */
 package com.misc.common.moplaf.time.continuous.impl;
 
+
 import com.misc.common.moplaf.time.continuous.CapacityChange;
 import com.misc.common.moplaf.time.continuous.CapacityChangeEnd;
 import com.misc.common.moplaf.time.continuous.CapacityChangeStart;
-import com.misc.common.moplaf.time.continuous.ContinuousFactory;
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.DistributionEvent;
 import com.misc.common.moplaf.time.continuous.ProvidedEvent;
-
+import com.misc.common.moplaf.time.continuous.TimeContinuousFactory;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import java.util.Date;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -135,7 +135,7 @@ public class CapacityChangeImpl extends EventsProviderImpl implements CapacityCh
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ContinuousPackage.Literals.CAPACITY_CHANGE;
+		return TimeContinuousPackage.Literals.CAPACITY_CHANGE;
 	}
 
 	
@@ -143,7 +143,7 @@ public class CapacityChangeImpl extends EventsProviderImpl implements CapacityCh
 	public EList<ProvidedEvent> getProvidedEvents() {
 		EObjectEList list = new EObjectEList(DistributionEvent.class, 
 							                this, 
-							                ContinuousPackage.EVENTS_PROVIDER__PROVIDED_EVENTS);
+							                TimeContinuousPackage.EVENTS_PROVIDER__PROVIDED_EVENTS);
 		list.add(this.getStartEvent());
 		list.add(this.getEndEvent());
 		return list;
@@ -167,7 +167,7 @@ public class CapacityChangeImpl extends EventsProviderImpl implements CapacityCh
 		Date oldStart = start;
 		start = newStart;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.CAPACITY_CHANGE__START, oldStart, start));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.CAPACITY_CHANGE__START, oldStart, start));
 	}
 
 	/**
@@ -188,7 +188,7 @@ public class CapacityChangeImpl extends EventsProviderImpl implements CapacityCh
 		Date oldEnd = end;
 		end = newEnd;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.CAPACITY_CHANGE__END, oldEnd, end));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.CAPACITY_CHANGE__END, oldEnd, end));
 	}
 
 	/**
@@ -209,7 +209,7 @@ public class CapacityChangeImpl extends EventsProviderImpl implements CapacityCh
 		float oldAmount = amount;
 		amount = newAmount;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.CAPACITY_CHANGE__AMOUNT, oldAmount, amount));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.CAPACITY_CHANGE__AMOUNT, oldAmount, amount));
 	}
 
 	/**
@@ -230,7 +230,7 @@ public class CapacityChangeImpl extends EventsProviderImpl implements CapacityCh
 		CapacityChangeStart oldStartEvent = startEvent;
 		startEvent = newStartEvent;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ContinuousPackage.CAPACITY_CHANGE__START_EVENT, oldStartEvent, newStartEvent);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.CAPACITY_CHANGE__START_EVENT, oldStartEvent, newStartEvent);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -245,14 +245,14 @@ public class CapacityChangeImpl extends EventsProviderImpl implements CapacityCh
 		if (newStartEvent != startEvent) {
 			NotificationChain msgs = null;
 			if (startEvent != null)
-				msgs = ((InternalEObject)startEvent).eInverseRemove(this, ContinuousPackage.CAPACITY_CHANGE_START__PROVIDER, CapacityChangeStart.class, msgs);
+				msgs = ((InternalEObject)startEvent).eInverseRemove(this, TimeContinuousPackage.CAPACITY_CHANGE_START__PROVIDER, CapacityChangeStart.class, msgs);
 			if (newStartEvent != null)
-				msgs = ((InternalEObject)newStartEvent).eInverseAdd(this, ContinuousPackage.CAPACITY_CHANGE_START__PROVIDER, CapacityChangeStart.class, msgs);
+				msgs = ((InternalEObject)newStartEvent).eInverseAdd(this, TimeContinuousPackage.CAPACITY_CHANGE_START__PROVIDER, CapacityChangeStart.class, msgs);
 			msgs = basicSetStartEvent(newStartEvent, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.CAPACITY_CHANGE__START_EVENT, newStartEvent, newStartEvent));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.CAPACITY_CHANGE__START_EVENT, newStartEvent, newStartEvent));
 	}
 
 	/**
@@ -273,7 +273,7 @@ public class CapacityChangeImpl extends EventsProviderImpl implements CapacityCh
 		CapacityChangeEnd oldEndEvent = endEvent;
 		endEvent = newEndEvent;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ContinuousPackage.CAPACITY_CHANGE__END_EVENT, oldEndEvent, newEndEvent);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.CAPACITY_CHANGE__END_EVENT, oldEndEvent, newEndEvent);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -288,14 +288,14 @@ public class CapacityChangeImpl extends EventsProviderImpl implements CapacityCh
 		if (newEndEvent != endEvent) {
 			NotificationChain msgs = null;
 			if (endEvent != null)
-				msgs = ((InternalEObject)endEvent).eInverseRemove(this, ContinuousPackage.CAPACITY_CHANGE_END__PROVIDER, CapacityChangeEnd.class, msgs);
+				msgs = ((InternalEObject)endEvent).eInverseRemove(this, TimeContinuousPackage.CAPACITY_CHANGE_END__PROVIDER, CapacityChangeEnd.class, msgs);
 			if (newEndEvent != null)
-				msgs = ((InternalEObject)newEndEvent).eInverseAdd(this, ContinuousPackage.CAPACITY_CHANGE_END__PROVIDER, CapacityChangeEnd.class, msgs);
+				msgs = ((InternalEObject)newEndEvent).eInverseAdd(this, TimeContinuousPackage.CAPACITY_CHANGE_END__PROVIDER, CapacityChangeEnd.class, msgs);
 			msgs = basicSetEndEvent(newEndEvent, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.CAPACITY_CHANGE__END_EVENT, newEndEvent, newEndEvent));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.CAPACITY_CHANGE__END_EVENT, newEndEvent, newEndEvent));
 	}
 
 	/**
@@ -306,13 +306,13 @@ public class CapacityChangeImpl extends EventsProviderImpl implements CapacityCh
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContinuousPackage.CAPACITY_CHANGE__START_EVENT:
+			case TimeContinuousPackage.CAPACITY_CHANGE__START_EVENT:
 				if (startEvent != null)
-					msgs = ((InternalEObject)startEvent).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ContinuousPackage.CAPACITY_CHANGE__START_EVENT, null, msgs);
+					msgs = ((InternalEObject)startEvent).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TimeContinuousPackage.CAPACITY_CHANGE__START_EVENT, null, msgs);
 				return basicSetStartEvent((CapacityChangeStart)otherEnd, msgs);
-			case ContinuousPackage.CAPACITY_CHANGE__END_EVENT:
+			case TimeContinuousPackage.CAPACITY_CHANGE__END_EVENT:
 				if (endEvent != null)
-					msgs = ((InternalEObject)endEvent).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ContinuousPackage.CAPACITY_CHANGE__END_EVENT, null, msgs);
+					msgs = ((InternalEObject)endEvent).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TimeContinuousPackage.CAPACITY_CHANGE__END_EVENT, null, msgs);
 				return basicSetEndEvent((CapacityChangeEnd)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -326,9 +326,9 @@ public class CapacityChangeImpl extends EventsProviderImpl implements CapacityCh
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContinuousPackage.CAPACITY_CHANGE__START_EVENT:
+			case TimeContinuousPackage.CAPACITY_CHANGE__START_EVENT:
 				return basicSetStartEvent(null, msgs);
-			case ContinuousPackage.CAPACITY_CHANGE__END_EVENT:
+			case TimeContinuousPackage.CAPACITY_CHANGE__END_EVENT:
 				return basicSetEndEvent(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -342,15 +342,15 @@ public class CapacityChangeImpl extends EventsProviderImpl implements CapacityCh
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContinuousPackage.CAPACITY_CHANGE__START:
+			case TimeContinuousPackage.CAPACITY_CHANGE__START:
 				return getStart();
-			case ContinuousPackage.CAPACITY_CHANGE__END:
+			case TimeContinuousPackage.CAPACITY_CHANGE__END:
 				return getEnd();
-			case ContinuousPackage.CAPACITY_CHANGE__AMOUNT:
+			case TimeContinuousPackage.CAPACITY_CHANGE__AMOUNT:
 				return getAmount();
-			case ContinuousPackage.CAPACITY_CHANGE__START_EVENT:
+			case TimeContinuousPackage.CAPACITY_CHANGE__START_EVENT:
 				return getStartEvent();
-			case ContinuousPackage.CAPACITY_CHANGE__END_EVENT:
+			case TimeContinuousPackage.CAPACITY_CHANGE__END_EVENT:
 				return getEndEvent();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -364,19 +364,19 @@ public class CapacityChangeImpl extends EventsProviderImpl implements CapacityCh
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContinuousPackage.CAPACITY_CHANGE__START:
+			case TimeContinuousPackage.CAPACITY_CHANGE__START:
 				setStart((Date)newValue);
 				return;
-			case ContinuousPackage.CAPACITY_CHANGE__END:
+			case TimeContinuousPackage.CAPACITY_CHANGE__END:
 				setEnd((Date)newValue);
 				return;
-			case ContinuousPackage.CAPACITY_CHANGE__AMOUNT:
+			case TimeContinuousPackage.CAPACITY_CHANGE__AMOUNT:
 				setAmount((Float)newValue);
 				return;
-			case ContinuousPackage.CAPACITY_CHANGE__START_EVENT:
+			case TimeContinuousPackage.CAPACITY_CHANGE__START_EVENT:
 				setStartEvent((CapacityChangeStart)newValue);
 				return;
-			case ContinuousPackage.CAPACITY_CHANGE__END_EVENT:
+			case TimeContinuousPackage.CAPACITY_CHANGE__END_EVENT:
 				setEndEvent((CapacityChangeEnd)newValue);
 				return;
 		}
@@ -391,19 +391,19 @@ public class CapacityChangeImpl extends EventsProviderImpl implements CapacityCh
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.CAPACITY_CHANGE__START:
+			case TimeContinuousPackage.CAPACITY_CHANGE__START:
 				setStart(START_EDEFAULT);
 				return;
-			case ContinuousPackage.CAPACITY_CHANGE__END:
+			case TimeContinuousPackage.CAPACITY_CHANGE__END:
 				setEnd(END_EDEFAULT);
 				return;
-			case ContinuousPackage.CAPACITY_CHANGE__AMOUNT:
+			case TimeContinuousPackage.CAPACITY_CHANGE__AMOUNT:
 				setAmount(AMOUNT_EDEFAULT);
 				return;
-			case ContinuousPackage.CAPACITY_CHANGE__START_EVENT:
+			case TimeContinuousPackage.CAPACITY_CHANGE__START_EVENT:
 				setStartEvent((CapacityChangeStart)null);
 				return;
-			case ContinuousPackage.CAPACITY_CHANGE__END_EVENT:
+			case TimeContinuousPackage.CAPACITY_CHANGE__END_EVENT:
 				setEndEvent((CapacityChangeEnd)null);
 				return;
 		}
@@ -418,15 +418,15 @@ public class CapacityChangeImpl extends EventsProviderImpl implements CapacityCh
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.CAPACITY_CHANGE__START:
+			case TimeContinuousPackage.CAPACITY_CHANGE__START:
 				return START_EDEFAULT == null ? start != null : !START_EDEFAULT.equals(start);
-			case ContinuousPackage.CAPACITY_CHANGE__END:
+			case TimeContinuousPackage.CAPACITY_CHANGE__END:
 				return END_EDEFAULT == null ? end != null : !END_EDEFAULT.equals(end);
-			case ContinuousPackage.CAPACITY_CHANGE__AMOUNT:
+			case TimeContinuousPackage.CAPACITY_CHANGE__AMOUNT:
 				return amount != AMOUNT_EDEFAULT;
-			case ContinuousPackage.CAPACITY_CHANGE__START_EVENT:
+			case TimeContinuousPackage.CAPACITY_CHANGE__START_EVENT:
 				return startEvent != null;
-			case ContinuousPackage.CAPACITY_CHANGE__END_EVENT:
+			case TimeContinuousPackage.CAPACITY_CHANGE__END_EVENT:
 				return endEvent != null;
 		}
 		return super.eIsSet(featureID);
@@ -469,11 +469,11 @@ public class CapacityChangeImpl extends EventsProviderImpl implements CapacityCh
 			}
 		} else {
 			if ( this.getStartEvent()==null){
-				CapacityChangeStart newstart = ContinuousFactory.eINSTANCE.createCapacityChangeStart();
+				CapacityChangeStart newstart = TimeContinuousFactory.eINSTANCE.createCapacityChangeStart();
 				newstart.setProvider(this);
 			}
 			if ( this.getEndEvent()==null){
-				CapacityChangeEnd newend= ContinuousFactory.eINSTANCE.createCapacityChangeEnd();
+				CapacityChangeEnd newend= TimeContinuousFactory.eINSTANCE.createCapacityChangeEnd();
 				newend.setProvider(this);
 			}
 		}

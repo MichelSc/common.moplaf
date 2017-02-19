@@ -4,8 +4,8 @@ package com.misc.common.moplaf.time.continuous.provider;
 
 
 import com.misc.common.moplaf.time.continuous.CapacityChange;
-import com.misc.common.moplaf.time.continuous.ContinuousFactory;
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
+import com.misc.common.moplaf.time.continuous.TimeContinuousFactory;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -66,7 +66,7 @@ public class CapacityChangeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_CapacityChange_Start_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_CapacityChange_Start_feature", "_UI_CapacityChange_type"),
-				 ContinuousPackage.Literals.CAPACITY_CHANGE__START,
+				 TimeContinuousPackage.Literals.CAPACITY_CHANGE__START,
 				 true,
 				 false,
 				 false,
@@ -88,7 +88,7 @@ public class CapacityChangeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_CapacityChange_End_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_CapacityChange_End_feature", "_UI_CapacityChange_type"),
-				 ContinuousPackage.Literals.CAPACITY_CHANGE__END,
+				 TimeContinuousPackage.Literals.CAPACITY_CHANGE__END,
 				 true,
 				 false,
 				 false,
@@ -110,7 +110,7 @@ public class CapacityChangeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_CapacityChange_Amount_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_CapacityChange_Amount_feature", "_UI_CapacityChange_type"),
-				 ContinuousPackage.Literals.CAPACITY_CHANGE__AMOUNT,
+				 TimeContinuousPackage.Literals.CAPACITY_CHANGE__AMOUNT,
 				 true,
 				 false,
 				 false,
@@ -131,8 +131,8 @@ public class CapacityChangeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ContinuousPackage.Literals.CAPACITY_CHANGE__START_EVENT);
-			childrenFeatures.add(ContinuousPackage.Literals.CAPACITY_CHANGE__END_EVENT);
+			childrenFeatures.add(TimeContinuousPackage.Literals.CAPACITY_CHANGE__START_EVENT);
+			childrenFeatures.add(TimeContinuousPackage.Literals.CAPACITY_CHANGE__END_EVENT);
 		}
 		return childrenFeatures;
 	}
@@ -188,13 +188,13 @@ public class CapacityChangeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CapacityChange.class)) {
-			case ContinuousPackage.CAPACITY_CHANGE__START:
-			case ContinuousPackage.CAPACITY_CHANGE__END:
-			case ContinuousPackage.CAPACITY_CHANGE__AMOUNT:
+			case TimeContinuousPackage.CAPACITY_CHANGE__START:
+			case TimeContinuousPackage.CAPACITY_CHANGE__END:
+			case TimeContinuousPackage.CAPACITY_CHANGE__AMOUNT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ContinuousPackage.CAPACITY_CHANGE__START_EVENT:
-			case ContinuousPackage.CAPACITY_CHANGE__END_EVENT:
+			case TimeContinuousPackage.CAPACITY_CHANGE__START_EVENT:
+			case TimeContinuousPackage.CAPACITY_CHANGE__END_EVENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -214,13 +214,13 @@ public class CapacityChangeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContinuousPackage.Literals.CAPACITY_CHANGE__START_EVENT,
-				 ContinuousFactory.eINSTANCE.createCapacityChangeStart()));
+				(TimeContinuousPackage.Literals.CAPACITY_CHANGE__START_EVENT,
+				 TimeContinuousFactory.eINSTANCE.createCapacityChangeStart()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContinuousPackage.Literals.CAPACITY_CHANGE__END_EVENT,
-				 ContinuousFactory.eINSTANCE.createCapacityChangeEnd()));
+				(TimeContinuousPackage.Literals.CAPACITY_CHANGE__END_EVENT,
+				 TimeContinuousFactory.eINSTANCE.createCapacityChangeEnd()));
 	}
 
 }

@@ -3,13 +3,15 @@
 package com.misc.common.moplaf.time.continuous.provider;
 
 
-import com.misc.common.moplaf.time.continuous.ContinuousFactory;
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
+import com.misc.common.moplaf.propagator2.PropagatorPackage;
+import com.misc.common.moplaf.propagator2.provider.ObjectWithPropagatorFunctionsItemProvider;
 import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.DistributionEvent;
 import com.misc.common.moplaf.time.continuous.EventsProviderAbstract;
+import com.misc.common.moplaf.time.continuous.TimeContinuousFactory;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import com.misc.common.moplaf.time.continuous.TimeUnit;
-import com.misc.common.moplaf.timeview.impl.IItemAmountEventsProvider;
+import com.misc.common.moplaf.timeview.emf.edit.IItemAmountEventsProvider;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -20,14 +22,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -38,9 +34,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class DistributionItemProvider
-	extends ItemProviderAdapter
+	extends ObjectWithPropagatorFunctionsItemProvider
 	implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, IItemAmountEventsProvider {
+		IItemAmountEventsProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -97,7 +93,7 @@ public class DistributionItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Distribution_TimeUnit_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Distribution_TimeUnit_feature", "_UI_Distribution_type"),
-				 ContinuousPackage.Literals.DISTRIBUTION__TIME_UNIT,
+				 TimeContinuousPackage.Literals.DISTRIBUTION__TIME_UNIT,
 				 true,
 				 false,
 				 false,
@@ -119,7 +115,7 @@ public class DistributionItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Distribution_HorizonStart_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Distribution_HorizonStart_feature", "_UI_Distribution_type"),
-				 ContinuousPackage.Literals.DISTRIBUTION__HORIZON_START,
+				 TimeContinuousPackage.Literals.DISTRIBUTION__HORIZON_START,
 				 true,
 				 false,
 				 false,
@@ -141,7 +137,7 @@ public class DistributionItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Distribution_HorizonEnd_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Distribution_HorizonEnd_feature", "_UI_Distribution_type"),
-				 ContinuousPackage.Literals.DISTRIBUTION__HORIZON_END,
+				 TimeContinuousPackage.Literals.DISTRIBUTION__HORIZON_END,
 				 true,
 				 false,
 				 false,
@@ -163,7 +159,7 @@ public class DistributionItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Distribution_SequenceEvents_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Distribution_SequenceEvents_feature", "_UI_Distribution_type"),
-				 ContinuousPackage.Literals.DISTRIBUTION__SEQUENCE_EVENTS,
+				 TimeContinuousPackage.Literals.DISTRIBUTION__SEQUENCE_EVENTS,
 				 true,
 				 false,
 				 true,
@@ -185,7 +181,7 @@ public class DistributionItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Distribution_ParentDistribution_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Distribution_ParentDistribution_feature", "_UI_Distribution_type"),
-				 ContinuousPackage.Literals.DISTRIBUTION__PARENT_DISTRIBUTION,
+				 TimeContinuousPackage.Literals.DISTRIBUTION__PARENT_DISTRIBUTION,
 				 true,
 				 false,
 				 true,
@@ -207,7 +203,7 @@ public class DistributionItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Distribution_ChildDistribution_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Distribution_ChildDistribution_feature", "_UI_Distribution_type"),
-				 ContinuousPackage.Literals.DISTRIBUTION__CHILD_DISTRIBUTION,
+				 TimeContinuousPackage.Literals.DISTRIBUTION__CHILD_DISTRIBUTION,
 				 true,
 				 false,
 				 true,
@@ -229,7 +225,7 @@ public class DistributionItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Distribution_ProvidedEvents_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Distribution_ProvidedEvents_feature", "_UI_Distribution_type"),
-				 ContinuousPackage.Literals.DISTRIBUTION__PROVIDED_EVENTS,
+				 TimeContinuousPackage.Literals.DISTRIBUTION__PROVIDED_EVENTS,
 				 true,
 				 false,
 				 true,
@@ -250,8 +246,8 @@ public class DistributionItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ContinuousPackage.Literals.DISTRIBUTION__SEQUENCE_EVENTS);
-			childrenFeatures.add(ContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS);
+			childrenFeatures.add(TimeContinuousPackage.Literals.DISTRIBUTION__SEQUENCE_EVENTS);
+			childrenFeatures.add(TimeContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS);
 		}
 		return childrenFeatures;
 	}
@@ -307,18 +303,18 @@ public class DistributionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Distribution.class)) {
-			case ContinuousPackage.DISTRIBUTION__TIME_UNIT:
-			case ContinuousPackage.DISTRIBUTION__HORIZON_START:
-			case ContinuousPackage.DISTRIBUTION__HORIZON_END:
-			case ContinuousPackage.DISTRIBUTION__CHILD_EVENTS:
-			case ContinuousPackage.DISTRIBUTION__START:
-			case ContinuousPackage.DISTRIBUTION__END:
-			case ContinuousPackage.DISTRIBUTION__PARENT_DISTRIBUTION:
-			case ContinuousPackage.DISTRIBUTION__CHILD_DISTRIBUTION:
+			case TimeContinuousPackage.DISTRIBUTION__TIME_UNIT:
+			case TimeContinuousPackage.DISTRIBUTION__HORIZON_START:
+			case TimeContinuousPackage.DISTRIBUTION__HORIZON_END:
+			case TimeContinuousPackage.DISTRIBUTION__CHILD_EVENTS:
+			case TimeContinuousPackage.DISTRIBUTION__START:
+			case TimeContinuousPackage.DISTRIBUTION__END:
+			case TimeContinuousPackage.DISTRIBUTION__PARENT_DISTRIBUTION:
+			case TimeContinuousPackage.DISTRIBUTION__CHILD_DISTRIBUTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENTS:
-			case ContinuousPackage.DISTRIBUTION__EVENTS_PROVIDERS:
+			case TimeContinuousPackage.DISTRIBUTION__SEQUENCE_EVENTS:
+			case TimeContinuousPackage.DISTRIBUTION__EVENTS_PROVIDERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -338,33 +334,48 @@ public class DistributionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
-				 ContinuousFactory.eINSTANCE.createStockChange()));
+				(PropagatorPackage.Literals.OBJECT_WITH_PROPAGATOR_FUNCTIONS__PROPAGATOR_FUNCTIONS,
+				 TimeContinuousFactory.eINSTANCE.createPropagatorFunctionDistribution()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
-				 ContinuousFactory.eINSTANCE.createCapacityChange()));
+				(PropagatorPackage.Literals.OBJECT_WITH_PROPAGATOR_FUNCTIONS__PROPAGATOR_FUNCTIONS,
+				 TimeContinuousFactory.eINSTANCE.createPropagatorFunctionDistributionEvent()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
-				 ContinuousFactory.eINSTANCE.createSlopeImpulsionProvider()));
+				(PropagatorPackage.Literals.OBJECT_WITH_PROPAGATOR_FUNCTIONS__PROPAGATOR_FUNCTIONS,
+				 TimeContinuousFactory.eINSTANCE.createPropagatorFunctionEventsProvider()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
-				 ContinuousFactory.eINSTANCE.createSlopeAbsoluteProvider()));
+				(TimeContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
+				 TimeContinuousFactory.eINSTANCE.createStockChange()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
-				 ContinuousFactory.eINSTANCE.createAmountImpulsionProvider()));
+				(TimeContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
+				 TimeContinuousFactory.eINSTANCE.createCapacityChange()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
-				 ContinuousFactory.eINSTANCE.createAmountAbsoluteProvider()));
+				(TimeContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
+				 TimeContinuousFactory.eINSTANCE.createSlopeImpulsionProvider()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TimeContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
+				 TimeContinuousFactory.eINSTANCE.createSlopeAbsoluteProvider()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TimeContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
+				 TimeContinuousFactory.eINSTANCE.createAmountImpulsionProvider()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TimeContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
+				 TimeContinuousFactory.eINSTANCE.createAmountAbsoluteProvider()));
 	}
 
 	/**

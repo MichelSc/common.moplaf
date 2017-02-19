@@ -15,7 +15,7 @@ package com.misc.common.moplaf.time.continuous;
  *   <li>{@link com.misc.common.moplaf.time.continuous.ProvidedEvent#getEventProvider <em>Event Provider</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getProvidedEvent()
+ * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getProvidedEvent()
  * @model abstract="true"
  * @generated
  */
@@ -29,7 +29,7 @@ public interface ProvidedEvent extends DistributionEvent {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Event Provider</em>' reference.
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getProvidedEvent_EventProvider()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getProvidedEvent_EventProvider()
 	 * @model required="true" transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */

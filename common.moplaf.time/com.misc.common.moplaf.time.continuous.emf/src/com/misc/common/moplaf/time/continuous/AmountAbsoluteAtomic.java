@@ -15,7 +15,7 @@ package com.misc.common.moplaf.time.continuous;
  *   <li>{@link com.misc.common.moplaf.time.continuous.AmountAbsoluteAtomic#getProvider <em>Provider</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getAmountAbsoluteAtomic()
+ * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getAmountAbsoluteAtomic()
  * @model
  * @generated
  */
@@ -31,7 +31,7 @@ public interface AmountAbsoluteAtomic extends AmountAbsolute {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Provider</em>' container reference.
 	 * @see #setProvider(AmountAbsoluteProvider)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getAmountAbsoluteAtomic_Provider()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getAmountAbsoluteAtomic_Provider()
 	 * @see com.misc.common.moplaf.time.continuous.AmountAbsoluteProvider#getEvent
 	 * @model opposite="Event" required="true" transient="false"
 	 * @generated

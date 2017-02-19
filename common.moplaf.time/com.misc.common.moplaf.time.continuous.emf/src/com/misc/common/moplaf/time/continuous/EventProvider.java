@@ -17,7 +17,7 @@ import java.util.Date;
  *   <li>{@link com.misc.common.moplaf.time.continuous.EventProvider#getMoment <em>Moment</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getEventProvider()
+ * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getEventProvider()
  * @model abstract="true"
  * @generated
  */
@@ -31,7 +31,7 @@ public interface EventProvider extends EventsProviderAbstract {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Provided Event</em>' reference.
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getEventProvider_ProvidedEvent()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getEventProvider_ProvidedEvent()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
@@ -47,7 +47,7 @@ public interface EventProvider extends EventsProviderAbstract {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Moment</em>' attribute.
 	 * @see #setMoment(Date)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getEventProvider_Moment()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getEventProvider_Moment()
 	 * @model
 	 * @generated
 	 */

@@ -3,9 +3,9 @@
 package com.misc.common.moplaf.time.continuous.provider;
 
 
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.EventProvider;
 
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -65,7 +65,7 @@ public class EventProviderItemProvider extends EventsProviderAbstractItemProvide
 				 getResourceLocator(),
 				 getString("_UI_EventProvider_ProvidedEvent_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_EventProvider_ProvidedEvent_feature", "_UI_EventProvider_type"),
-				 ContinuousPackage.Literals.EVENT_PROVIDER__PROVIDED_EVENT,
+				 TimeContinuousPackage.Literals.EVENT_PROVIDER__PROVIDED_EVENT,
 				 false,
 				 false,
 				 false,
@@ -87,7 +87,7 @@ public class EventProviderItemProvider extends EventsProviderAbstractItemProvide
 				 getResourceLocator(),
 				 getString("_UI_EventProvider_Moment_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_EventProvider_Moment_feature", "_UI_EventProvider_type"),
-				 ContinuousPackage.Literals.EVENT_PROVIDER__MOMENT,
+				 TimeContinuousPackage.Literals.EVENT_PROVIDER__MOMENT,
 				 true,
 				 false,
 				 false,
@@ -124,7 +124,7 @@ public class EventProviderItemProvider extends EventsProviderAbstractItemProvide
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(EventProvider.class)) {
-			case ContinuousPackage.EVENT_PROVIDER__MOMENT:
+			case TimeContinuousPackage.EVENT_PROVIDER__MOMENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

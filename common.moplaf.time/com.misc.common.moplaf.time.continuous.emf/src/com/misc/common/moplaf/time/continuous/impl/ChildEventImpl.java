@@ -4,13 +4,9 @@ package com.misc.common.moplaf.time.continuous.impl;
 
 import java.util.Date;
 
-import com.misc.common.moplaf.propagator.Util;
 import com.misc.common.moplaf.time.continuous.ChildEvent;
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.DistributionEvent;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcChildEventAmountAfter;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcChildEventMoment;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcChildEventSlopeAfter;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
@@ -50,17 +46,6 @@ public class ChildEventImpl extends OwnedEventImpl implements ChildEvent {
 		super();
 	}
 
-	/* (non-Javadoc)
-	 * @see com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#addPropagatorFunctionAdapter()
-	 */
-	@Override
-	public void addPropagatorFunctionAdapter() {
-		super.addPropagatorFunctionAdapter();
-		Util.adapt(this, PropagatorCalcChildEventMoment.class);
-		Util.adapt(this, PropagatorCalcChildEventSlopeAfter.class);
-		Util.adapt(this, PropagatorCalcChildEventAmountAfter.class);
-	}
-
 	
 	/**
 	 * <!-- begin-user-doc -->
@@ -69,7 +54,7 @@ public class ChildEventImpl extends OwnedEventImpl implements ChildEvent {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ContinuousPackage.Literals.CHILD_EVENT;
+		return TimeContinuousPackage.Literals.CHILD_EVENT;
 	}
 
 	/**
@@ -83,7 +68,7 @@ public class ChildEventImpl extends OwnedEventImpl implements ChildEvent {
 			original = (DistributionEvent)eResolveProxy(oldOriginal);
 			if (original != oldOriginal) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ContinuousPackage.CHILD_EVENT__ORIGINAL, oldOriginal, original));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TimeContinuousPackage.CHILD_EVENT__ORIGINAL, oldOriginal, original));
 			}
 		}
 		return original;
@@ -107,7 +92,7 @@ public class ChildEventImpl extends OwnedEventImpl implements ChildEvent {
 		DistributionEvent oldOriginal = original;
 		original = newOriginal;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.CHILD_EVENT__ORIGINAL, oldOriginal, original));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.CHILD_EVENT__ORIGINAL, oldOriginal, original));
 	}
 
 	/**
@@ -118,7 +103,7 @@ public class ChildEventImpl extends OwnedEventImpl implements ChildEvent {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContinuousPackage.CHILD_EVENT__ORIGINAL:
+			case TimeContinuousPackage.CHILD_EVENT__ORIGINAL:
 				if (resolve) return getOriginal();
 				return basicGetOriginal();
 		}
@@ -133,7 +118,7 @@ public class ChildEventImpl extends OwnedEventImpl implements ChildEvent {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContinuousPackage.CHILD_EVENT__ORIGINAL:
+			case TimeContinuousPackage.CHILD_EVENT__ORIGINAL:
 				setOriginal((DistributionEvent)newValue);
 				return;
 		}
@@ -148,7 +133,7 @@ public class ChildEventImpl extends OwnedEventImpl implements ChildEvent {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.CHILD_EVENT__ORIGINAL:
+			case TimeContinuousPackage.CHILD_EVENT__ORIGINAL:
 				setOriginal((DistributionEvent)null);
 				return;
 		}
@@ -163,7 +148,7 @@ public class ChildEventImpl extends OwnedEventImpl implements ChildEvent {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.CHILD_EVENT__ORIGINAL:
+			case TimeContinuousPackage.CHILD_EVENT__ORIGINAL:
 				return original != null;
 		}
 		return super.eIsSet(featureID);

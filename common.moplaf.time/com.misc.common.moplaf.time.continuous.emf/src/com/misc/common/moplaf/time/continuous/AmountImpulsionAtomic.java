@@ -15,7 +15,7 @@ package com.misc.common.moplaf.time.continuous;
  *   <li>{@link com.misc.common.moplaf.time.continuous.AmountImpulsionAtomic#getProvider <em>Provider</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getAmountImpulsionAtomic()
+ * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getAmountImpulsionAtomic()
  * @model
  * @generated
  */
@@ -31,7 +31,7 @@ public interface AmountImpulsionAtomic extends AmountImpulsion {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Provider</em>' container reference.
 	 * @see #setProvider(AmountImpulsionProvider)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getAmountImpulsionAtomic_Provider()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getAmountImpulsionAtomic_Provider()
 	 * @see com.misc.common.moplaf.time.continuous.AmountImpulsionProvider#getEvent
 	 * @model opposite="Event" required="true" transient="false"
 	 * @generated

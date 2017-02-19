@@ -3,10 +3,10 @@
 package com.misc.common.moplaf.time.continuous.provider;
 
 
-import com.misc.common.moplaf.time.continuous.ContinuousFactory;
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.SlopeAbsoluteProvider;
 
+import com.misc.common.moplaf.time.continuous.TimeContinuousFactory;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -65,7 +65,7 @@ public class SlopeAbsoluteProviderItemProvider extends EventProviderItemProvider
 				 getResourceLocator(),
 				 getString("_UI_SlopeAbsoluteProvider_SlopeAbsolute_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SlopeAbsoluteProvider_SlopeAbsolute_feature", "_UI_SlopeAbsoluteProvider_type"),
-				 ContinuousPackage.Literals.SLOPE_ABSOLUTE_PROVIDER__SLOPE_ABSOLUTE,
+				 TimeContinuousPackage.Literals.SLOPE_ABSOLUTE_PROVIDER__SLOPE_ABSOLUTE,
 				 true,
 				 false,
 				 false,
@@ -86,7 +86,7 @@ public class SlopeAbsoluteProviderItemProvider extends EventProviderItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ContinuousPackage.Literals.SLOPE_ABSOLUTE_PROVIDER__EVENT);
+			childrenFeatures.add(TimeContinuousPackage.Literals.SLOPE_ABSOLUTE_PROVIDER__EVENT);
 		}
 		return childrenFeatures;
 	}
@@ -143,10 +143,10 @@ public class SlopeAbsoluteProviderItemProvider extends EventProviderItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SlopeAbsoluteProvider.class)) {
-			case ContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__SLOPE_ABSOLUTE:
+			case TimeContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__SLOPE_ABSOLUTE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__EVENT:
+			case TimeContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__EVENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -166,8 +166,8 @@ public class SlopeAbsoluteProviderItemProvider extends EventProviderItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContinuousPackage.Literals.SLOPE_ABSOLUTE_PROVIDER__EVENT,
-				 ContinuousFactory.eINSTANCE.createSlopeAbsoluteAtomic()));
+				(TimeContinuousPackage.Literals.SLOPE_ABSOLUTE_PROVIDER__EVENT,
+				 TimeContinuousFactory.eINSTANCE.createSlopeAbsoluteAtomic()));
 	}
 
 }

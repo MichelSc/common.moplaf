@@ -2,13 +2,11 @@
  */
 package com.misc.common.moplaf.time.continuous.impl;
 
-import com.misc.common.moplaf.propagator.Util;
+
 import com.misc.common.moplaf.time.continuous.AmountAbsoluteAtomic;
 import com.misc.common.moplaf.time.continuous.AmountAbsoluteProvider;
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAtomicAmountAbsolute;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAtomicRefreshMoment;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 
 import java.util.Date;
 
@@ -46,21 +44,11 @@ public class AmountAbsoluteAtomicImpl extends AmountAbsoluteImpl implements Amou
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 */
-	public void addPropagatorFunctionAdapter() {
-		super.addPropagatorFunctionAdapter();
-		Util.adapt(this, PropagatorCalcAmountAbsoluteAtomicRefreshMoment.class);
-		Util.adapt(this, PropagatorCalcAmountAbsoluteAtomicAmountAbsolute.class);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ContinuousPackage.Literals.AMOUNT_ABSOLUTE_ATOMIC;
+		return TimeContinuousPackage.Literals.AMOUNT_ABSOLUTE_ATOMIC;
 	}
 
 	/**
@@ -69,7 +57,7 @@ public class AmountAbsoluteAtomicImpl extends AmountAbsoluteImpl implements Amou
 	 * @generated
 	 */
 	public AmountAbsoluteProvider getProvider() {
-		if (eContainerFeatureID() != ContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC__PROVIDER) return null;
+		if (eContainerFeatureID() != TimeContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC__PROVIDER) return null;
 		return (AmountAbsoluteProvider)eInternalContainer();
 	}
 
@@ -80,7 +68,7 @@ public class AmountAbsoluteAtomicImpl extends AmountAbsoluteImpl implements Amou
 	 * @generated
 	 */
 	public NotificationChain basicSetProvider(AmountAbsoluteProvider newProvider, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newProvider, ContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC__PROVIDER, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newProvider, TimeContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC__PROVIDER, msgs);
 		return msgs;
 	}
 
@@ -90,19 +78,19 @@ public class AmountAbsoluteAtomicImpl extends AmountAbsoluteImpl implements Amou
 	 * @generated
 	 */
 	public void setProvider(AmountAbsoluteProvider newProvider) {
-		if (newProvider != eInternalContainer() || (eContainerFeatureID() != ContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC__PROVIDER && newProvider != null)) {
+		if (newProvider != eInternalContainer() || (eContainerFeatureID() != TimeContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC__PROVIDER && newProvider != null)) {
 			if (EcoreUtil.isAncestor(this, newProvider))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newProvider != null)
-				msgs = ((InternalEObject)newProvider).eInverseAdd(this, ContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__EVENT, AmountAbsoluteProvider.class, msgs);
+				msgs = ((InternalEObject)newProvider).eInverseAdd(this, TimeContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__EVENT, AmountAbsoluteProvider.class, msgs);
 			msgs = basicSetProvider(newProvider, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC__PROVIDER, newProvider, newProvider));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC__PROVIDER, newProvider, newProvider));
 	}
 
 	/**
@@ -113,7 +101,7 @@ public class AmountAbsoluteAtomicImpl extends AmountAbsoluteImpl implements Amou
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC__PROVIDER:
+			case TimeContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC__PROVIDER:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetProvider((AmountAbsoluteProvider)otherEnd, msgs);
@@ -129,7 +117,7 @@ public class AmountAbsoluteAtomicImpl extends AmountAbsoluteImpl implements Amou
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC__PROVIDER:
+			case TimeContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC__PROVIDER:
 				return basicSetProvider(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -143,8 +131,8 @@ public class AmountAbsoluteAtomicImpl extends AmountAbsoluteImpl implements Amou
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case ContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC__PROVIDER:
-				return eInternalContainer().eInverseRemove(this, ContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__EVENT, AmountAbsoluteProvider.class, msgs);
+			case TimeContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC__PROVIDER:
+				return eInternalContainer().eInverseRemove(this, TimeContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__EVENT, AmountAbsoluteProvider.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -165,7 +153,7 @@ public class AmountAbsoluteAtomicImpl extends AmountAbsoluteImpl implements Amou
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC__PROVIDER:
+			case TimeContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC__PROVIDER:
 				return getProvider();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -179,7 +167,7 @@ public class AmountAbsoluteAtomicImpl extends AmountAbsoluteImpl implements Amou
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC__PROVIDER:
+			case TimeContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC__PROVIDER:
 				setProvider((AmountAbsoluteProvider)newValue);
 				return;
 		}
@@ -194,7 +182,7 @@ public class AmountAbsoluteAtomicImpl extends AmountAbsoluteImpl implements Amou
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC__PROVIDER:
+			case TimeContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC__PROVIDER:
 				setProvider((AmountAbsoluteProvider)null);
 				return;
 		}
@@ -209,7 +197,7 @@ public class AmountAbsoluteAtomicImpl extends AmountAbsoluteImpl implements Amou
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC__PROVIDER:
+			case TimeContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC__PROVIDER:
 				return getProvider() != null;
 		}
 		return super.eIsSet(featureID);

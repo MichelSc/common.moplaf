@@ -3,10 +3,13 @@
 package com.misc.common.moplaf.time.continuous.provider;
 
 
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
+import com.misc.common.moplaf.propagator2.PropagatorPackage;
+import com.misc.common.moplaf.propagator2.provider.ObjectWithPropagatorFunctionsItemProvider;
 import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.DistributionEvent;
-import com.misc.common.moplaf.timeview.impl.IItemDiscontinuousAmountEventProvider;
+import com.misc.common.moplaf.time.continuous.TimeContinuousFactory;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
+import com.misc.common.moplaf.timeview.emf.edit.IItemDiscontinuousAmountEventProvider;
 
 import java.util.Collection;
 import java.util.Date;
@@ -16,13 +19,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -33,9 +31,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class DistributionEventItemProvider
-	extends ItemProviderAdapter
+	extends ObjectWithPropagatorFunctionsItemProvider
 	implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, IItemDiscontinuousAmountEventProvider {
+		IItemDiscontinuousAmountEventProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -96,7 +94,7 @@ public class DistributionEventItemProvider
 				 getResourceLocator(),
 				 getString("_UI_DistributionEvent_Moment_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DistributionEvent_Moment_feature", "_UI_DistributionEvent_type"),
-				 ContinuousPackage.Literals.DISTRIBUTION_EVENT__MOMENT,
+				 TimeContinuousPackage.Literals.DISTRIBUTION_EVENT__MOMENT,
 				 true,
 				 false,
 				 false,
@@ -118,7 +116,7 @@ public class DistributionEventItemProvider
 				 getResourceLocator(),
 				 getString("_UI_DistributionEvent_EventNr_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DistributionEvent_EventNr_feature", "_UI_DistributionEvent_type"),
-				 ContinuousPackage.Literals.DISTRIBUTION_EVENT__EVENT_NR,
+				 TimeContinuousPackage.Literals.DISTRIBUTION_EVENT__EVENT_NR,
 				 true,
 				 false,
 				 false,
@@ -140,7 +138,7 @@ public class DistributionEventItemProvider
 				 getResourceLocator(),
 				 getString("_UI_DistributionEvent_Next_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DistributionEvent_Next_feature", "_UI_DistributionEvent_type"),
-				 ContinuousPackage.Literals.DISTRIBUTION_EVENT__NEXT,
+				 TimeContinuousPackage.Literals.DISTRIBUTION_EVENT__NEXT,
 				 true,
 				 false,
 				 true,
@@ -162,7 +160,7 @@ public class DistributionEventItemProvider
 				 getResourceLocator(),
 				 getString("_UI_DistributionEvent_Previous_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DistributionEvent_Previous_feature", "_UI_DistributionEvent_type"),
-				 ContinuousPackage.Literals.DISTRIBUTION_EVENT__PREVIOUS,
+				 TimeContinuousPackage.Literals.DISTRIBUTION_EVENT__PREVIOUS,
 				 true,
 				 false,
 				 true,
@@ -184,7 +182,7 @@ public class DistributionEventItemProvider
 				 getResourceLocator(),
 				 getString("_UI_DistributionEvent_AmountBefore_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DistributionEvent_AmountBefore_feature", "_UI_DistributionEvent_type"),
-				 ContinuousPackage.Literals.DISTRIBUTION_EVENT__AMOUNT_BEFORE,
+				 TimeContinuousPackage.Literals.DISTRIBUTION_EVENT__AMOUNT_BEFORE,
 				 true,
 				 false,
 				 false,
@@ -206,7 +204,7 @@ public class DistributionEventItemProvider
 				 getResourceLocator(),
 				 getString("_UI_DistributionEvent_AmountAfter_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DistributionEvent_AmountAfter_feature", "_UI_DistributionEvent_type"),
-				 ContinuousPackage.Literals.DISTRIBUTION_EVENT__AMOUNT_AFTER,
+				 TimeContinuousPackage.Literals.DISTRIBUTION_EVENT__AMOUNT_AFTER,
 				 true,
 				 false,
 				 false,
@@ -228,7 +226,7 @@ public class DistributionEventItemProvider
 				 getResourceLocator(),
 				 getString("_UI_DistributionEvent_SlopeBefore_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DistributionEvent_SlopeBefore_feature", "_UI_DistributionEvent_type"),
-				 ContinuousPackage.Literals.DISTRIBUTION_EVENT__SLOPE_BEFORE,
+				 TimeContinuousPackage.Literals.DISTRIBUTION_EVENT__SLOPE_BEFORE,
 				 true,
 				 false,
 				 false,
@@ -250,7 +248,7 @@ public class DistributionEventItemProvider
 				 getResourceLocator(),
 				 getString("_UI_DistributionEvent_SlopeAfter_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DistributionEvent_SlopeAfter_feature", "_UI_DistributionEvent_type"),
-				 ContinuousPackage.Literals.DISTRIBUTION_EVENT__SLOPE_AFTER,
+				 TimeContinuousPackage.Literals.DISTRIBUTION_EVENT__SLOPE_AFTER,
 				 true,
 				 false,
 				 false,
@@ -272,7 +270,7 @@ public class DistributionEventItemProvider
 				 getResourceLocator(),
 				 getString("_UI_DistributionEvent_Description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DistributionEvent_Description_feature", "_UI_DistributionEvent_type"),
-				 ContinuousPackage.Literals.DISTRIBUTION_EVENT__DESCRIPTION,
+				 TimeContinuousPackage.Literals.DISTRIBUTION_EVENT__DESCRIPTION,
 				 true,
 				 false,
 				 false,
@@ -294,7 +292,7 @@ public class DistributionEventItemProvider
 				 getResourceLocator(),
 				 getString("_UI_DistributionEvent_DistributionAsSequence_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DistributionEvent_DistributionAsSequence_feature", "_UI_DistributionEvent_type"),
-				 ContinuousPackage.Literals.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE,
+				 TimeContinuousPackage.Literals.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE,
 				 true,
 				 false,
 				 true,
@@ -316,7 +314,7 @@ public class DistributionEventItemProvider
 				 getResourceLocator(),
 				 getString("_UI_DistributionEvent_Distribution_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DistributionEvent_Distribution_feature", "_UI_DistributionEvent_type"),
-				 ContinuousPackage.Literals.DISTRIBUTION_EVENT__DISTRIBUTION,
+				 TimeContinuousPackage.Literals.DISTRIBUTION_EVENT__DISTRIBUTION,
 				 false,
 				 false,
 				 false,
@@ -338,7 +336,7 @@ public class DistributionEventItemProvider
 				 getResourceLocator(),
 				 getString("_UI_DistributionEvent_DistributionAsProvidedEvent_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DistributionEvent_DistributionAsProvidedEvent_feature", "_UI_DistributionEvent_type"),
-				 ContinuousPackage.Literals.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT,
+				 TimeContinuousPackage.Literals.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT,
 				 true,
 				 false,
 				 true,
@@ -388,14 +386,14 @@ public class DistributionEventItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(DistributionEvent.class)) {
-			case ContinuousPackage.DISTRIBUTION_EVENT__MOMENT:
-			case ContinuousPackage.DISTRIBUTION_EVENT__EVENT_NR:
-			case ContinuousPackage.DISTRIBUTION_EVENT__AMOUNT_BEFORE:
-			case ContinuousPackage.DISTRIBUTION_EVENT__AMOUNT_AFTER:
-			case ContinuousPackage.DISTRIBUTION_EVENT__SLOPE_BEFORE:
-			case ContinuousPackage.DISTRIBUTION_EVENT__SLOPE_AFTER:
-			case ContinuousPackage.DISTRIBUTION_EVENT__DESCRIPTION:
-			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__MOMENT:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__EVENT_NR:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__AMOUNT_BEFORE:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__AMOUNT_AFTER:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__SLOPE_BEFORE:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__SLOPE_AFTER:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__DESCRIPTION:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -412,6 +410,21 @@ public class DistributionEventItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PropagatorPackage.Literals.OBJECT_WITH_PROPAGATOR_FUNCTIONS__PROPAGATOR_FUNCTIONS,
+				 TimeContinuousFactory.eINSTANCE.createPropagatorFunctionDistribution()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PropagatorPackage.Literals.OBJECT_WITH_PROPAGATOR_FUNCTIONS__PROPAGATOR_FUNCTIONS,
+				 TimeContinuousFactory.eINSTANCE.createPropagatorFunctionDistributionEvent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(PropagatorPackage.Literals.OBJECT_WITH_PROPAGATOR_FUNCTIONS__PROPAGATOR_FUNCTIONS,
+				 TimeContinuousFactory.eINSTANCE.createPropagatorFunctionEventsProvider()));
 	}
 
 	/**

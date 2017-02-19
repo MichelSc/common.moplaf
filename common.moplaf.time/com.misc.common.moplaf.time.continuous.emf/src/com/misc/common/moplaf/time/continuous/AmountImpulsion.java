@@ -15,7 +15,7 @@ package com.misc.common.moplaf.time.continuous;
  *   <li>{@link com.misc.common.moplaf.time.continuous.AmountImpulsion#getAmountImpulsion <em>Amount Impulsion</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getAmountImpulsion()
+ * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getAmountImpulsion()
  * @model abstract="true"
  * @generated
  */
@@ -30,7 +30,7 @@ public interface AmountImpulsion extends ProvidedEvent {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Amount Impulsion</em>' attribute.
 	 * @see #setAmountImpulsion(float)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getAmountImpulsion_AmountImpulsion()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getAmountImpulsion_AmountImpulsion()
 	 * @model
 	 * @generated
 	 */

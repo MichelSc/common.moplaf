@@ -2,9 +2,9 @@
  */
 package com.misc.common.moplaf.time.continuous.impl;
 
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.EventsProvider;
 import com.misc.common.moplaf.time.continuous.ProvidedEvent;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -39,7 +39,7 @@ public abstract class EventsProviderImpl extends EventsProviderAbstractImpl impl
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ContinuousPackage.Literals.EVENTS_PROVIDER;
+		return TimeContinuousPackage.Literals.EVENTS_PROVIDER;
 	}
 
 	/**
@@ -63,7 +63,7 @@ public abstract class EventsProviderImpl extends EventsProviderAbstractImpl impl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContinuousPackage.EVENTS_PROVIDER__PROVIDED_EVENTS:
+			case TimeContinuousPackage.EVENTS_PROVIDER__PROVIDED_EVENTS:
 				return getProvidedEvents();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -77,7 +77,7 @@ public abstract class EventsProviderImpl extends EventsProviderAbstractImpl impl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.EVENTS_PROVIDER__PROVIDED_EVENTS:
+			case TimeContinuousPackage.EVENTS_PROVIDER__PROVIDED_EVENTS:
 				return !getProvidedEvents().isEmpty();
 		}
 		return super.eIsSet(featureID);

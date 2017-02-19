@@ -35,7 +35,7 @@ import com.misc.common.moplaf.propagator2.PropagatorFunction;
  * @author michel
  *
  */
-public class Bindings {
+public class Bindings  {
 	
 	/**
 	 * When the dependency is 'TrackToucher' - the Notifier(s) touching - the toucher(s) - 
@@ -43,6 +43,47 @@ public class Bindings {
 	 * calculate method is invoked for every toucher.  
 	 */
 	protected boolean isTrackToucher = false;
+	
+	public Bindings(boolean isTrackToucher){
+		this.isTrackToucher = isTrackToucher;
+	}
+	/**
+	 * Perfom a deep copy.
+	 * @return
+	 */
+	public Bindings copy(){
+		Bindings newBindings = new Bindings(this.isTrackToucher);
+		for ( InboundBinding inboundBinding : this.inboundBindings){
+			newBindings.inboundBindings.add(inboundBinding.copy());
+		}
+		for ( OutboundBinding outboundBinding : this.outboundBindings){
+			newBindings.outboundBindings.add(outboundBinding.copy());
+		}
+		return newBindings;
+	}
+
+	private EClass getTargettedClass_prvt(EClass currentType, EClass otherType){
+		EClass targettedClass = null;
+		if ( currentType == null || currentType.isSuperTypeOf(otherType)){
+			targettedClass = otherType;
+		} else if ( otherType.isSuperTypeOf(currentType)){
+			targettedClass = currentType;
+		} else {
+			throw new ClassCastException("Non comparable types "+otherType.getName()+" and "+currentType.getName()+ " are targetted by the same propagator Bindings");
+		}
+		return targettedClass;
+	}
+	
+	public EClass getTargettedClass(){
+		EClass targettedClass = null;
+		for ( InboundBinding inboundBinding : this.inboundBindings){
+			targettedClass = this.getTargettedClass_prvt(targettedClass, inboundBinding.getTargettedClass());
+		}
+		for ( OutboundBinding outboundBinding : this.outboundBindings){
+			targettedClass = this.getTargettedClass_prvt(targettedClass, outboundBinding.getTargettedClass());
+		}
+		return targettedClass;
+	}
 	
 	private void touch(PropagatorFunctionSource source, EObject toucher){
 		if ( !this.isTrackToucher ) {
@@ -77,10 +118,11 @@ public class Bindings {
 	 * @return
 	 */
 	public String asString(){
+		EClass targettedClass = this.getTargettedClass();
 		String toReturn = "";
 		for ( InboundBinding inboundBinding : this.inboundBindings){
 			toReturn += toReturn.length()==0
-					  ? this.asStringImpl()+":"
+					  ? targettedClass.getName()+":"
 					  : ",";
 			toReturn += inboundBinding.asStringImpl();
 		}
@@ -103,11 +145,13 @@ public class Bindings {
 	/**
 	 * Base class for inbound bindings
 	 */
-	protected class InboundBinding {
+	protected abstract class InboundBinding {
 		protected InboundBinding(){};
 		/**
 		 * must 1) call touch if the bound element is modified and 2) add/remove old/new bindings
 		 */
+		public abstract InboundBinding copy();
+		
 		protected void notifyChanged(PropagatorFunctionSource adapter, Notification msg) {};
 		/**
 		 * Return whether this inbound binding is tracking toucher
@@ -115,6 +159,8 @@ public class Bindings {
 		public boolean isTrackingToucher(){
 			return false;
 		}
+		
+		public EClass getTargettedClass(){ return null; }
 		/**
 		 * 
 		 * @return
@@ -168,9 +214,10 @@ public class Bindings {
 	/**
 	 * Base class for outbound bindings
 	 */
-	protected class OutboundBinding {
-		protected OutboundBinding(){
-		};
+	protected abstract class OutboundBinding {
+		protected OutboundBinding(){};
+		public abstract OutboundBinding copy();
+		public EClass getTargettedClass(){ return null; }
 		/*
 		 * Return the element of target of this binding is (out)bound to the Propator function 
 		 */
@@ -192,39 +239,12 @@ public class Bindings {
 	/*
 	 * Convenience methods for constructing bindings, and ecore implementations
 	 */
-	/**
-	 * An implementation of Bindings based on EClass
-	 */
-	protected static class BindingsEClass extends Bindings{
-		/*
-		 * Fields
-		 */
-		private EClass eClass;
-		/*
-		 * Constructors
-		 */
-		public BindingsEClass(EClass eClass, boolean isTrackToucher){
-			this.eClass = eClass;
-			this.isTrackToucher = isTrackToucher;
-		}
-		/**
-		 * method AsString
-		 * @return
-		 */
-		@Override
-		public String asStringImpl(){
-			return this.eClass.getName();
-		}
-
-	}
-
-
-	static public Bindings constructEClassBindings(EClass aclass){
-		return new BindingsEClass(aclass, false);
+	static public Bindings constructBindings(){
+		return new Bindings(false);
 	};
 	
-	static public Bindings constructEClassBindings(EClass aclass, boolean isTrackToucher){
-		return new BindingsEClass(aclass, isTrackToucher);
+	static public Bindings constructBindings(boolean isTrackToucher){
+		return new Bindings(isTrackToucher);
 	};
 	
 	/**
@@ -235,6 +255,15 @@ public class Bindings {
 		public InboundBindingFeature(EStructuralFeature feature){
 			super();
 			this.eFeature = feature;
+		}
+		@Override
+		public InboundBinding copy() {
+			return new InboundBindingFeature(this.eFeature);
+		}
+		
+		@Override
+		public EClass getTargettedClass() {
+			return this.eFeature.getEContainingClass();
 		}
 		/**
 		 * method AsString
@@ -280,6 +309,11 @@ public class Bindings {
 			super(feature);
 			this.eBindings = bindings;
 		}
+		@Override
+		public InboundBinding copy() {
+			return new InboundBindingNavigationFeature((EReference)this.eFeature, this.eBindings.copy());
+		}
+		
 		@Override
 		protected void notifyChanged(PropagatorFunctionSource source, Notification msg) {
 			PropagatorFunction propagatorFunction = source.getPropagatorFunction();
@@ -426,6 +460,15 @@ public class Bindings {
 			super();
 			this.eFeature = feature;
 		}
+		@Override
+		public EClass getTargettedClass() {
+			return this.eFeature.getEContainingClass();
+		}
+		@Override
+		public OutboundBinding copy() {
+			return new OutboundBindingFeature(this.eFeature);
+			
+		}
 		
 		/**
 		 * Return whether this inbound binding is binding the element of the target object
@@ -434,6 +477,7 @@ public class Bindings {
 		public boolean isOutboundBinding(PropagatorFunctionSource source, Object element) {
 			return element == this.eFeature;
 		}
+
 	}
 	
 	public Bindings addOutboundBinding(EStructuralFeature feature){

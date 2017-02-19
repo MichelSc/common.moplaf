@@ -2,14 +2,12 @@
  */
 package com.misc.common.moplaf.time.continuous.impl;
 
-import com.misc.common.moplaf.propagator.Util;
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
+
 import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.SlopeAbsoluteAtomic;
 
 import com.misc.common.moplaf.time.continuous.SlopeAbsoluteProvider;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeAbsoluteAtomicRefreshMoment;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeAbsoluteAtomicSlopeAbsolute;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 
 import java.util.Date;
 
@@ -46,21 +44,11 @@ public class SlopeAbsoluteAtomicImpl extends SlopeAbsoluteImpl implements SlopeA
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 */
-	public void addPropagatorFunctionAdapter() {
-		super.addPropagatorFunctionAdapter();
-		Util.adapt(this, PropagatorCalcSlopeAbsoluteAtomicRefreshMoment.class);
-		Util.adapt(this, PropagatorCalcSlopeAbsoluteAtomicSlopeAbsolute.class);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ContinuousPackage.Literals.SLOPE_ABSOLUTE_ATOMIC;
+		return TimeContinuousPackage.Literals.SLOPE_ABSOLUTE_ATOMIC;
 	}
 
 	/**
@@ -69,7 +57,7 @@ public class SlopeAbsoluteAtomicImpl extends SlopeAbsoluteImpl implements SlopeA
 	 * @generated
 	 */
 	public SlopeAbsoluteProvider getProvider() {
-		if (eContainerFeatureID() != ContinuousPackage.SLOPE_ABSOLUTE_ATOMIC__PROVIDER) return null;
+		if (eContainerFeatureID() != TimeContinuousPackage.SLOPE_ABSOLUTE_ATOMIC__PROVIDER) return null;
 		return (SlopeAbsoluteProvider)eInternalContainer();
 	}
 
@@ -79,7 +67,7 @@ public class SlopeAbsoluteAtomicImpl extends SlopeAbsoluteImpl implements SlopeA
 	 * @generated
 	 */
 	public NotificationChain basicSetProvider(SlopeAbsoluteProvider newProvider, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newProvider, ContinuousPackage.SLOPE_ABSOLUTE_ATOMIC__PROVIDER, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newProvider, TimeContinuousPackage.SLOPE_ABSOLUTE_ATOMIC__PROVIDER, msgs);
 		return msgs;
 	}
 
@@ -89,19 +77,19 @@ public class SlopeAbsoluteAtomicImpl extends SlopeAbsoluteImpl implements SlopeA
 	 * @generated
 	 */
 	public void setProvider(SlopeAbsoluteProvider newProvider) {
-		if (newProvider != eInternalContainer() || (eContainerFeatureID() != ContinuousPackage.SLOPE_ABSOLUTE_ATOMIC__PROVIDER && newProvider != null)) {
+		if (newProvider != eInternalContainer() || (eContainerFeatureID() != TimeContinuousPackage.SLOPE_ABSOLUTE_ATOMIC__PROVIDER && newProvider != null)) {
 			if (EcoreUtil.isAncestor(this, newProvider))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newProvider != null)
-				msgs = ((InternalEObject)newProvider).eInverseAdd(this, ContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__EVENT, SlopeAbsoluteProvider.class, msgs);
+				msgs = ((InternalEObject)newProvider).eInverseAdd(this, TimeContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__EVENT, SlopeAbsoluteProvider.class, msgs);
 			msgs = basicSetProvider(newProvider, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.SLOPE_ABSOLUTE_ATOMIC__PROVIDER, newProvider, newProvider));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.SLOPE_ABSOLUTE_ATOMIC__PROVIDER, newProvider, newProvider));
 	}
 
 	/**
@@ -112,7 +100,7 @@ public class SlopeAbsoluteAtomicImpl extends SlopeAbsoluteImpl implements SlopeA
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContinuousPackage.SLOPE_ABSOLUTE_ATOMIC__PROVIDER:
+			case TimeContinuousPackage.SLOPE_ABSOLUTE_ATOMIC__PROVIDER:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetProvider((SlopeAbsoluteProvider)otherEnd, msgs);
@@ -128,7 +116,7 @@ public class SlopeAbsoluteAtomicImpl extends SlopeAbsoluteImpl implements SlopeA
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContinuousPackage.SLOPE_ABSOLUTE_ATOMIC__PROVIDER:
+			case TimeContinuousPackage.SLOPE_ABSOLUTE_ATOMIC__PROVIDER:
 				return basicSetProvider(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -142,8 +130,8 @@ public class SlopeAbsoluteAtomicImpl extends SlopeAbsoluteImpl implements SlopeA
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case ContinuousPackage.SLOPE_ABSOLUTE_ATOMIC__PROVIDER:
-				return eInternalContainer().eInverseRemove(this, ContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__EVENT, SlopeAbsoluteProvider.class, msgs);
+			case TimeContinuousPackage.SLOPE_ABSOLUTE_ATOMIC__PROVIDER:
+				return eInternalContainer().eInverseRemove(this, TimeContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__EVENT, SlopeAbsoluteProvider.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -165,7 +153,7 @@ public class SlopeAbsoluteAtomicImpl extends SlopeAbsoluteImpl implements SlopeA
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContinuousPackage.SLOPE_ABSOLUTE_ATOMIC__PROVIDER:
+			case TimeContinuousPackage.SLOPE_ABSOLUTE_ATOMIC__PROVIDER:
 				return getProvider();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -179,7 +167,7 @@ public class SlopeAbsoluteAtomicImpl extends SlopeAbsoluteImpl implements SlopeA
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContinuousPackage.SLOPE_ABSOLUTE_ATOMIC__PROVIDER:
+			case TimeContinuousPackage.SLOPE_ABSOLUTE_ATOMIC__PROVIDER:
 				setProvider((SlopeAbsoluteProvider)newValue);
 				return;
 		}
@@ -194,7 +182,7 @@ public class SlopeAbsoluteAtomicImpl extends SlopeAbsoluteImpl implements SlopeA
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.SLOPE_ABSOLUTE_ATOMIC__PROVIDER:
+			case TimeContinuousPackage.SLOPE_ABSOLUTE_ATOMIC__PROVIDER:
 				setProvider((SlopeAbsoluteProvider)null);
 				return;
 		}
@@ -209,7 +197,7 @@ public class SlopeAbsoluteAtomicImpl extends SlopeAbsoluteImpl implements SlopeA
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.SLOPE_ABSOLUTE_ATOMIC__PROVIDER:
+			case TimeContinuousPackage.SLOPE_ABSOLUTE_ATOMIC__PROVIDER:
 				return getProvider() != null;
 		}
 		return super.eIsSet(featureID);

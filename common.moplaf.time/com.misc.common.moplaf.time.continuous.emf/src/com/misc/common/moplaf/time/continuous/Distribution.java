@@ -2,8 +2,7 @@
  */
 package com.misc.common.moplaf.time.continuous;
 
-import com.misc.common.moplaf.propagator.ObjectWithPropagatorFunctionAdapter;
-
+import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
 import java.util.Date;
 
 import org.eclipse.emf.common.util.EList;
@@ -30,11 +29,11 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.time.continuous.Distribution#getProvidedEvents <em>Provided Events</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistribution()
+ * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistribution()
  * @model
  * @generated
  */
-public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
+public interface Distribution extends ObjectWithPropagatorFunctions {
 	/**
 	 * Returns the value of the '<em><b>Time Unit</b></em>' attribute.
 	 * The literals are from the enumeration {@link com.misc.common.moplaf.time.continuous.TimeUnit}.
@@ -47,7 +46,7 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	 * @return the value of the '<em>Time Unit</em>' attribute.
 	 * @see com.misc.common.moplaf.time.continuous.TimeUnit
 	 * @see #setTimeUnit(TimeUnit)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistribution_TimeUnit()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistribution_TimeUnit()
 	 * @model
 	 * @generated
 	 */
@@ -75,7 +74,7 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Horizon Start</em>' attribute.
 	 * @see #setHorizonStart(Date)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistribution_HorizonStart()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistribution_HorizonStart()
 	 * @model default="2000-01-01"
 	 * @generated
 	 */
@@ -102,7 +101,7 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Horizon End</em>' attribute.
 	 * @see #setHorizonEnd(Date)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistribution_HorizonEnd()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistribution_HorizonEnd()
 	 * @model default="2099-12-31"
 	 * @generated
 	 */
@@ -128,7 +127,7 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Child Events</em>' containment reference list.
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistribution_ChildEvents()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistribution_ChildEvents()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -145,7 +144,7 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sequence Events</em>' reference list.
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistribution_SequenceEvents()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistribution_SequenceEvents()
 	 * @see com.misc.common.moplaf.time.continuous.DistributionEvent#getDistributionAsSequence
 	 * @model opposite="DistributionAsSequence"
 	 * @generated
@@ -162,7 +161,7 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Start</em>' containment reference.
 	 * @see #setStart(StartEvent)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistribution_Start()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistribution_Start()
 	 * @model containment="true" required="true"
 	 *        extendedMetaData="name='End'"
 	 * @generated
@@ -189,7 +188,7 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>End</em>' containment reference.
 	 * @see #setEnd(EndEvent)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistribution_End()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistribution_End()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
@@ -216,7 +215,7 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Events Providers</em>' containment reference list.
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistribution_EventsProviders()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistribution_EventsProviders()
 	 * @see com.misc.common.moplaf.time.continuous.EventsProviderAbstract#getDistribution
 	 * @model opposite="Distribution" containment="true"
 	 * @generated
@@ -234,7 +233,7 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parent Distribution</em>' reference.
 	 * @see #setParentDistribution(Distribution)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistribution_ParentDistribution()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistribution_ParentDistribution()
 	 * @see com.misc.common.moplaf.time.continuous.Distribution#getChildDistribution
 	 * @model opposite="ChildDistribution"
 	 * @generated
@@ -262,7 +261,7 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Child Distribution</em>' reference list.
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistribution_ChildDistribution()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistribution_ChildDistribution()
 	 * @see com.misc.common.moplaf.time.continuous.Distribution#getParentDistribution
 	 * @model opposite="ParentDistribution"
 	 * @generated
@@ -280,7 +279,7 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Provided Events</em>' reference list.
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getDistribution_ProvidedEvents()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getDistribution_ProvidedEvents()
 	 * @see com.misc.common.moplaf.time.continuous.DistributionEvent#getDistributionAsProvidedEvent
 	 * @model opposite="DistributionAsProvidedEvent"
 	 * @generated
@@ -529,17 +528,6 @@ public interface Distribution extends ObjectWithPropagatorFunctionAdapter {
 	 * @generated
 	 */
 	void refreshChildEvent();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Refreshes all the derived data elements of the Distribution (event sequence, amount and slope)
-	 * <!-- end-model-doc -->
-	 * @model
-	 * @generated
-	 */
-	void refresh();
 
 	/**
 	 * <!-- begin-user-doc -->

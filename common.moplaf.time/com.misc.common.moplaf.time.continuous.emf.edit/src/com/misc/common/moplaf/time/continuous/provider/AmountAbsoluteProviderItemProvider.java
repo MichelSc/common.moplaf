@@ -4,9 +4,8 @@ package com.misc.common.moplaf.time.continuous.provider;
 
 
 import com.misc.common.moplaf.time.continuous.AmountAbsoluteProvider;
-import com.misc.common.moplaf.time.continuous.ContinuousFactory;
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
-
+import com.misc.common.moplaf.time.continuous.TimeContinuousFactory;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -65,7 +64,7 @@ public class AmountAbsoluteProviderItemProvider extends EventProviderItemProvide
 				 getResourceLocator(),
 				 getString("_UI_AmountAbsoluteProvider_AmountAbsolute_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AmountAbsoluteProvider_AmountAbsolute_feature", "_UI_AmountAbsoluteProvider_type"),
-				 ContinuousPackage.Literals.AMOUNT_ABSOLUTE_PROVIDER__AMOUNT_ABSOLUTE,
+				 TimeContinuousPackage.Literals.AMOUNT_ABSOLUTE_PROVIDER__AMOUNT_ABSOLUTE,
 				 true,
 				 false,
 				 false,
@@ -86,7 +85,7 @@ public class AmountAbsoluteProviderItemProvider extends EventProviderItemProvide
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ContinuousPackage.Literals.AMOUNT_ABSOLUTE_PROVIDER__EVENT);
+			childrenFeatures.add(TimeContinuousPackage.Literals.AMOUNT_ABSOLUTE_PROVIDER__EVENT);
 		}
 		return childrenFeatures;
 	}
@@ -143,10 +142,10 @@ public class AmountAbsoluteProviderItemProvider extends EventProviderItemProvide
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AmountAbsoluteProvider.class)) {
-			case ContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__AMOUNT_ABSOLUTE:
+			case TimeContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__AMOUNT_ABSOLUTE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__EVENT:
+			case TimeContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__EVENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -166,8 +165,8 @@ public class AmountAbsoluteProviderItemProvider extends EventProviderItemProvide
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContinuousPackage.Literals.AMOUNT_ABSOLUTE_PROVIDER__EVENT,
-				 ContinuousFactory.eINSTANCE.createAmountAbsoluteAtomic()));
+				(TimeContinuousPackage.Literals.AMOUNT_ABSOLUTE_PROVIDER__EVENT,
+				 TimeContinuousFactory.eINSTANCE.createAmountAbsoluteAtomic()));
 	}
 
 }

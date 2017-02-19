@@ -15,7 +15,7 @@ package com.misc.common.moplaf.time.continuous;
  *   <li>{@link com.misc.common.moplaf.time.continuous.AmountAbsolute#getAmountAbsolute <em>Amount Absolute</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getAmountAbsolute()
+ * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getAmountAbsolute()
  * @model abstract="true"
  * @generated
  */
@@ -30,7 +30,7 @@ public interface AmountAbsolute extends ProvidedEvent {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Amount Absolute</em>' attribute.
 	 * @see #setAmountAbsolute(float)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getAmountAbsolute_AmountAbsolute()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getAmountAbsolute_AmountAbsolute()
 	 * @model
 	 * @generated
 	 */

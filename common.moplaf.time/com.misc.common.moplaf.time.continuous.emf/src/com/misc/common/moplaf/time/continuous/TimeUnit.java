@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Time Unit</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getTimeUnit()
+ * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getTimeUnit()
  * @model
  * @generated
  */

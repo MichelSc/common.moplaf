@@ -2,14 +2,12 @@
  */
 package com.misc.common.moplaf.time.continuous.impl;
 
+
 import java.util.Date;
 
-import com.misc.common.moplaf.propagator.Util;
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.StockChange;
 import com.misc.common.moplaf.time.continuous.StockChangeEnd;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStockChangeEndMoment;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStockChangeEndSlopeImpulsion;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -41,16 +39,6 @@ public class StockChangeEndImpl extends SlopeImpulsionImpl implements StockChang
 		super();
 	}
 
-	/* (non-Javadoc)
-	 * @see com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#addPropagatorFunctionAdapter()
-	 */
-	@Override
-	public void addPropagatorFunctionAdapter() {
-		super.addPropagatorFunctionAdapter();
-		Util.adapt(this, PropagatorCalcStockChangeEndSlopeImpulsion.class);
-		Util.adapt(this, PropagatorCalcStockChangeEndMoment.class);
-	}
-	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -58,7 +46,7 @@ public class StockChangeEndImpl extends SlopeImpulsionImpl implements StockChang
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ContinuousPackage.Literals.STOCK_CHANGE_END;
+		return TimeContinuousPackage.Literals.STOCK_CHANGE_END;
 	}
 
 	/**
@@ -67,7 +55,7 @@ public class StockChangeEndImpl extends SlopeImpulsionImpl implements StockChang
 	 * @generated
 	 */
 	public StockChange getProvider() {
-		if (eContainerFeatureID() != ContinuousPackage.STOCK_CHANGE_END__PROVIDER) return null;
+		if (eContainerFeatureID() != TimeContinuousPackage.STOCK_CHANGE_END__PROVIDER) return null;
 		return (StockChange)eInternalContainer();
 	}
 
@@ -77,7 +65,7 @@ public class StockChangeEndImpl extends SlopeImpulsionImpl implements StockChang
 	 * @generated
 	 */
 	public NotificationChain basicSetProvider(StockChange newProvider, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newProvider, ContinuousPackage.STOCK_CHANGE_END__PROVIDER, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newProvider, TimeContinuousPackage.STOCK_CHANGE_END__PROVIDER, msgs);
 		return msgs;
 	}
 
@@ -87,19 +75,19 @@ public class StockChangeEndImpl extends SlopeImpulsionImpl implements StockChang
 	 * @generated
 	 */
 	public void setProvider(StockChange newProvider) {
-		if (newProvider != eInternalContainer() || (eContainerFeatureID() != ContinuousPackage.STOCK_CHANGE_END__PROVIDER && newProvider != null)) {
+		if (newProvider != eInternalContainer() || (eContainerFeatureID() != TimeContinuousPackage.STOCK_CHANGE_END__PROVIDER && newProvider != null)) {
 			if (EcoreUtil.isAncestor(this, newProvider))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newProvider != null)
-				msgs = ((InternalEObject)newProvider).eInverseAdd(this, ContinuousPackage.STOCK_CHANGE__END_EVENT, StockChange.class, msgs);
+				msgs = ((InternalEObject)newProvider).eInverseAdd(this, TimeContinuousPackage.STOCK_CHANGE__END_EVENT, StockChange.class, msgs);
 			msgs = basicSetProvider(newProvider, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.STOCK_CHANGE_END__PROVIDER, newProvider, newProvider));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.STOCK_CHANGE_END__PROVIDER, newProvider, newProvider));
 	}
 
 	/**
@@ -110,7 +98,7 @@ public class StockChangeEndImpl extends SlopeImpulsionImpl implements StockChang
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContinuousPackage.STOCK_CHANGE_END__PROVIDER:
+			case TimeContinuousPackage.STOCK_CHANGE_END__PROVIDER:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetProvider((StockChange)otherEnd, msgs);
@@ -126,7 +114,7 @@ public class StockChangeEndImpl extends SlopeImpulsionImpl implements StockChang
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContinuousPackage.STOCK_CHANGE_END__PROVIDER:
+			case TimeContinuousPackage.STOCK_CHANGE_END__PROVIDER:
 				return basicSetProvider(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -140,8 +128,8 @@ public class StockChangeEndImpl extends SlopeImpulsionImpl implements StockChang
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case ContinuousPackage.STOCK_CHANGE_END__PROVIDER:
-				return eInternalContainer().eInverseRemove(this, ContinuousPackage.STOCK_CHANGE__END_EVENT, StockChange.class, msgs);
+			case TimeContinuousPackage.STOCK_CHANGE_END__PROVIDER:
+				return eInternalContainer().eInverseRemove(this, TimeContinuousPackage.STOCK_CHANGE__END_EVENT, StockChange.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -154,7 +142,7 @@ public class StockChangeEndImpl extends SlopeImpulsionImpl implements StockChang
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContinuousPackage.STOCK_CHANGE_END__PROVIDER:
+			case TimeContinuousPackage.STOCK_CHANGE_END__PROVIDER:
 				return getProvider();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -168,7 +156,7 @@ public class StockChangeEndImpl extends SlopeImpulsionImpl implements StockChang
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContinuousPackage.STOCK_CHANGE_END__PROVIDER:
+			case TimeContinuousPackage.STOCK_CHANGE_END__PROVIDER:
 				setProvider((StockChange)newValue);
 				return;
 		}
@@ -183,7 +171,7 @@ public class StockChangeEndImpl extends SlopeImpulsionImpl implements StockChang
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.STOCK_CHANGE_END__PROVIDER:
+			case TimeContinuousPackage.STOCK_CHANGE_END__PROVIDER:
 				setProvider((StockChange)null);
 				return;
 		}
@@ -198,7 +186,7 @@ public class StockChangeEndImpl extends SlopeImpulsionImpl implements StockChang
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.STOCK_CHANGE_END__PROVIDER:
+			case TimeContinuousPackage.STOCK_CHANGE_END__PROVIDER:
 				return getProvider() != null;
 		}
 		return super.eIsSet(featureID);

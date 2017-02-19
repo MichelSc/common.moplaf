@@ -2,14 +2,11 @@
  */
 package com.misc.common.moplaf.time.continuous.impl;
 
+
 import java.util.Date;
 
-import com.misc.common.moplaf.propagator.Util;
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.StartEvent;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStartEventAmountAfter;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStartEventMoment;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStartEventSlopeAfter;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
@@ -79,17 +76,6 @@ public class StartEventImpl extends OwnedEventImpl implements StartEvent {
 		super();
 	}
 
-	/* (non-Javadoc)
-	 * @see com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#addPropagatorFunctionAdapter()
-	 */
-	@Override
-	public void addPropagatorFunctionAdapter() {
-		super.addPropagatorFunctionAdapter();
-		Util.adapt(this, PropagatorCalcStartEventSlopeAfter.class);
-		Util.adapt(this, PropagatorCalcStartEventAmountAfter.class);
-		Util.adapt(this, PropagatorCalcStartEventMoment.class);
-	}
-	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -97,7 +83,7 @@ public class StartEventImpl extends OwnedEventImpl implements StartEvent {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ContinuousPackage.Literals.START_EVENT;
+		return TimeContinuousPackage.Literals.START_EVENT;
 	}
 
 
@@ -119,7 +105,7 @@ public class StartEventImpl extends OwnedEventImpl implements StartEvent {
 		float oldAmountAtStart = amountAtStart;
 		amountAtStart = newAmountAtStart;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.START_EVENT__AMOUNT_AT_START, oldAmountAtStart, amountAtStart));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.START_EVENT__AMOUNT_AT_START, oldAmountAtStart, amountAtStart));
 	}
 
 	/**
@@ -140,7 +126,7 @@ public class StartEventImpl extends OwnedEventImpl implements StartEvent {
 		float oldSlopeAtStart = slopeAtStart;
 		slopeAtStart = newSlopeAtStart;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.START_EVENT__SLOPE_AT_START, oldSlopeAtStart, slopeAtStart));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.START_EVENT__SLOPE_AT_START, oldSlopeAtStart, slopeAtStart));
 	}
 
 	/**
@@ -151,9 +137,9 @@ public class StartEventImpl extends OwnedEventImpl implements StartEvent {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContinuousPackage.START_EVENT__AMOUNT_AT_START:
+			case TimeContinuousPackage.START_EVENT__AMOUNT_AT_START:
 				return getAmountAtStart();
-			case ContinuousPackage.START_EVENT__SLOPE_AT_START:
+			case TimeContinuousPackage.START_EVENT__SLOPE_AT_START:
 				return getSlopeAtStart();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -167,10 +153,10 @@ public class StartEventImpl extends OwnedEventImpl implements StartEvent {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContinuousPackage.START_EVENT__AMOUNT_AT_START:
+			case TimeContinuousPackage.START_EVENT__AMOUNT_AT_START:
 				setAmountAtStart((Float)newValue);
 				return;
-			case ContinuousPackage.START_EVENT__SLOPE_AT_START:
+			case TimeContinuousPackage.START_EVENT__SLOPE_AT_START:
 				setSlopeAtStart((Float)newValue);
 				return;
 		}
@@ -185,10 +171,10 @@ public class StartEventImpl extends OwnedEventImpl implements StartEvent {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.START_EVENT__AMOUNT_AT_START:
+			case TimeContinuousPackage.START_EVENT__AMOUNT_AT_START:
 				setAmountAtStart(AMOUNT_AT_START_EDEFAULT);
 				return;
-			case ContinuousPackage.START_EVENT__SLOPE_AT_START:
+			case TimeContinuousPackage.START_EVENT__SLOPE_AT_START:
 				setSlopeAtStart(SLOPE_AT_START_EDEFAULT);
 				return;
 		}
@@ -203,9 +189,9 @@ public class StartEventImpl extends OwnedEventImpl implements StartEvent {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.START_EVENT__AMOUNT_AT_START:
+			case TimeContinuousPackage.START_EVENT__AMOUNT_AT_START:
 				return amountAtStart != AMOUNT_AT_START_EDEFAULT;
-			case ContinuousPackage.START_EVENT__SLOPE_AT_START:
+			case TimeContinuousPackage.START_EVENT__SLOPE_AT_START:
 				return slopeAtStart != SLOPE_AT_START_EDEFAULT;
 		}
 		return super.eIsSet(featureID);

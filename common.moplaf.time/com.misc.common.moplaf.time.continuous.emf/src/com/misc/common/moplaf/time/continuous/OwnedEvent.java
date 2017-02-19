@@ -9,7 +9,7 @@ package com.misc.common.moplaf.time.continuous;
  * <!-- end-user-doc -->
  *
  *
- * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getOwnedEvent()
+ * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getOwnedEvent()
  * @model abstract="true"
  *        annotation="http://www.obeo.fr/dsl/dnc/archetype archetype='Description'"
  *        extendedMetaData="name='End'"

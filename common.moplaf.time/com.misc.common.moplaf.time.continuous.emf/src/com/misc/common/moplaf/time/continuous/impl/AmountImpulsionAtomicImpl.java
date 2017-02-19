@@ -2,13 +2,10 @@
  */
 package com.misc.common.moplaf.time.continuous.impl;
 
-import com.misc.common.moplaf.propagator.Util;
 import com.misc.common.moplaf.time.continuous.AmountImpulsionAtomic;
 import com.misc.common.moplaf.time.continuous.AmountImpulsionProvider;
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountImpulsionAtomicAmountImpulsion;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountImpulsionAtomicRefreshMoment;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 
 import java.util.Date;
 
@@ -45,22 +42,11 @@ public class AmountImpulsionAtomicImpl extends AmountImpulsionImpl implements Am
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 */
-	public void addPropagatorFunctionAdapter() {
-		super.addPropagatorFunctionAdapter();
-		Util.adapt(this, PropagatorCalcAmountImpulsionAtomicRefreshMoment.class);
-		Util.adapt(this, PropagatorCalcAmountImpulsionAtomicAmountImpulsion.class);
-	}
-
-	
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ContinuousPackage.Literals.AMOUNT_IMPULSION_ATOMIC;
+		return TimeContinuousPackage.Literals.AMOUNT_IMPULSION_ATOMIC;
 	}
 
 	/**
@@ -69,7 +55,7 @@ public class AmountImpulsionAtomicImpl extends AmountImpulsionImpl implements Am
 	 * @generated
 	 */
 	public AmountImpulsionProvider getProvider() {
-		if (eContainerFeatureID() != ContinuousPackage.AMOUNT_IMPULSION_ATOMIC__PROVIDER) return null;
+		if (eContainerFeatureID() != TimeContinuousPackage.AMOUNT_IMPULSION_ATOMIC__PROVIDER) return null;
 		return (AmountImpulsionProvider)eInternalContainer();
 	}
 
@@ -79,7 +65,7 @@ public class AmountImpulsionAtomicImpl extends AmountImpulsionImpl implements Am
 	 * @generated
 	 */
 	public NotificationChain basicSetProvider(AmountImpulsionProvider newProvider, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newProvider, ContinuousPackage.AMOUNT_IMPULSION_ATOMIC__PROVIDER, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newProvider, TimeContinuousPackage.AMOUNT_IMPULSION_ATOMIC__PROVIDER, msgs);
 		return msgs;
 	}
 
@@ -89,19 +75,19 @@ public class AmountImpulsionAtomicImpl extends AmountImpulsionImpl implements Am
 	 * @generated
 	 */
 	public void setProvider(AmountImpulsionProvider newProvider) {
-		if (newProvider != eInternalContainer() || (eContainerFeatureID() != ContinuousPackage.AMOUNT_IMPULSION_ATOMIC__PROVIDER && newProvider != null)) {
+		if (newProvider != eInternalContainer() || (eContainerFeatureID() != TimeContinuousPackage.AMOUNT_IMPULSION_ATOMIC__PROVIDER && newProvider != null)) {
 			if (EcoreUtil.isAncestor(this, newProvider))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newProvider != null)
-				msgs = ((InternalEObject)newProvider).eInverseAdd(this, ContinuousPackage.AMOUNT_IMPULSION_PROVIDER__EVENT, AmountImpulsionProvider.class, msgs);
+				msgs = ((InternalEObject)newProvider).eInverseAdd(this, TimeContinuousPackage.AMOUNT_IMPULSION_PROVIDER__EVENT, AmountImpulsionProvider.class, msgs);
 			msgs = basicSetProvider(newProvider, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.AMOUNT_IMPULSION_ATOMIC__PROVIDER, newProvider, newProvider));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.AMOUNT_IMPULSION_ATOMIC__PROVIDER, newProvider, newProvider));
 	}
 
 	/**
@@ -112,7 +98,7 @@ public class AmountImpulsionAtomicImpl extends AmountImpulsionImpl implements Am
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_IMPULSION_ATOMIC__PROVIDER:
+			case TimeContinuousPackage.AMOUNT_IMPULSION_ATOMIC__PROVIDER:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetProvider((AmountImpulsionProvider)otherEnd, msgs);
@@ -128,7 +114,7 @@ public class AmountImpulsionAtomicImpl extends AmountImpulsionImpl implements Am
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_IMPULSION_ATOMIC__PROVIDER:
+			case TimeContinuousPackage.AMOUNT_IMPULSION_ATOMIC__PROVIDER:
 				return basicSetProvider(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -142,8 +128,8 @@ public class AmountImpulsionAtomicImpl extends AmountImpulsionImpl implements Am
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case ContinuousPackage.AMOUNT_IMPULSION_ATOMIC__PROVIDER:
-				return eInternalContainer().eInverseRemove(this, ContinuousPackage.AMOUNT_IMPULSION_PROVIDER__EVENT, AmountImpulsionProvider.class, msgs);
+			case TimeContinuousPackage.AMOUNT_IMPULSION_ATOMIC__PROVIDER:
+				return eInternalContainer().eInverseRemove(this, TimeContinuousPackage.AMOUNT_IMPULSION_PROVIDER__EVENT, AmountImpulsionProvider.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -164,7 +150,7 @@ public class AmountImpulsionAtomicImpl extends AmountImpulsionImpl implements Am
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_IMPULSION_ATOMIC__PROVIDER:
+			case TimeContinuousPackage.AMOUNT_IMPULSION_ATOMIC__PROVIDER:
 				return getProvider();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -178,7 +164,7 @@ public class AmountImpulsionAtomicImpl extends AmountImpulsionImpl implements Am
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_IMPULSION_ATOMIC__PROVIDER:
+			case TimeContinuousPackage.AMOUNT_IMPULSION_ATOMIC__PROVIDER:
 				setProvider((AmountImpulsionProvider)newValue);
 				return;
 		}
@@ -193,7 +179,7 @@ public class AmountImpulsionAtomicImpl extends AmountImpulsionImpl implements Am
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_IMPULSION_ATOMIC__PROVIDER:
+			case TimeContinuousPackage.AMOUNT_IMPULSION_ATOMIC__PROVIDER:
 				setProvider((AmountImpulsionProvider)null);
 				return;
 		}
@@ -208,7 +194,7 @@ public class AmountImpulsionAtomicImpl extends AmountImpulsionImpl implements Am
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_IMPULSION_ATOMIC__PROVIDER:
+			case TimeContinuousPackage.AMOUNT_IMPULSION_ATOMIC__PROVIDER:
 				return getProvider() != null;
 		}
 		return super.eIsSet(featureID);

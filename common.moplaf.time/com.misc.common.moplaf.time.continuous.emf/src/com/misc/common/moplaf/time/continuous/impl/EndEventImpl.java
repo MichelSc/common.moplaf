@@ -2,12 +2,11 @@
  */
 package com.misc.common.moplaf.time.continuous.impl;
 
+
 import java.util.Date;
 
-import com.misc.common.moplaf.propagator.Util;
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.EndEvent;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEndEventMoment;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -28,15 +27,6 @@ public class EndEventImpl extends OwnedEventImpl implements EndEvent {
 		super();
 	}
 
-	/* (non-Javadoc)
-	 * @see com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#addPropagatorFunctionAdapter()
-	 */
-	@Override
-	public void addPropagatorFunctionAdapter() {
-		super.addPropagatorFunctionAdapter();
-		Util.adapt(this, PropagatorCalcEndEventMoment.class);
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -44,7 +34,7 @@ public class EndEventImpl extends OwnedEventImpl implements EndEvent {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ContinuousPackage.Literals.END_EVENT;
+		return TimeContinuousPackage.Literals.END_EVENT;
 	}
 
 	

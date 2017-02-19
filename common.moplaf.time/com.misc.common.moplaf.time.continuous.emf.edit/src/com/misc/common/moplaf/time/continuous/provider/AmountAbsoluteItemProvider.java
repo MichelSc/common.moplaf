@@ -4,7 +4,7 @@ package com.misc.common.moplaf.time.continuous.provider;
 
 
 import com.misc.common.moplaf.time.continuous.AmountAbsolute;
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -62,7 +62,7 @@ public class AmountAbsoluteItemProvider
 				 getResourceLocator(),
 				 getString("_UI_AmountAbsolute_AmountAbsolute_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AmountAbsolute_AmountAbsolute_feature", "_UI_AmountAbsolute_type"),
-				 ContinuousPackage.Literals.AMOUNT_ABSOLUTE__AMOUNT_ABSOLUTE,
+				 TimeContinuousPackage.Literals.AMOUNT_ABSOLUTE__AMOUNT_ABSOLUTE,
 				 true,
 				 false,
 				 false,
@@ -98,7 +98,7 @@ public class AmountAbsoluteItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AmountAbsolute.class)) {
-			case ContinuousPackage.AMOUNT_ABSOLUTE__AMOUNT_ABSOLUTE:
+			case TimeContinuousPackage.AMOUNT_ABSOLUTE__AMOUNT_ABSOLUTE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

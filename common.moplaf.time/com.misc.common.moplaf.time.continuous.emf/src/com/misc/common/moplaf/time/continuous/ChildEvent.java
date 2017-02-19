@@ -15,7 +15,7 @@ package com.misc.common.moplaf.time.continuous;
  *   <li>{@link com.misc.common.moplaf.time.continuous.ChildEvent#getOriginal <em>Original</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getChildEvent()
+ * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getChildEvent()
  * @model
  * @generated
  */
@@ -30,7 +30,7 @@ public interface ChildEvent extends OwnedEvent {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Original</em>' reference.
 	 * @see #setOriginal(DistributionEvent)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getChildEvent_Original()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getChildEvent_Original()
 	 * @model required="true"
 	 * @generated
 	 */

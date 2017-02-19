@@ -3,8 +3,8 @@
 package com.misc.common.moplaf.time.continuous.provider;
 
 
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.SlopeImpulsion;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -62,7 +62,7 @@ public class SlopeImpulsionItemProvider
 				 getResourceLocator(),
 				 getString("_UI_SlopeImpulsion_SlopeImpulsion_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SlopeImpulsion_SlopeImpulsion_feature", "_UI_SlopeImpulsion_type"),
-				 ContinuousPackage.Literals.SLOPE_IMPULSION__SLOPE_IMPULSION,
+				 TimeContinuousPackage.Literals.SLOPE_IMPULSION__SLOPE_IMPULSION,
 				 true,
 				 false,
 				 false,
@@ -98,7 +98,7 @@ public class SlopeImpulsionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SlopeImpulsion.class)) {
-			case ContinuousPackage.SLOPE_IMPULSION__SLOPE_IMPULSION:
+			case TimeContinuousPackage.SLOPE_IMPULSION__SLOPE_IMPULSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

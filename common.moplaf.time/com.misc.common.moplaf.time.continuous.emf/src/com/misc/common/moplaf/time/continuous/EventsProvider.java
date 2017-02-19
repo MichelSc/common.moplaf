@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.time.continuous.EventsProvider#getProvidedEvents <em>Provided Events</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getEventsProvider()
+ * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getEventsProvider()
  * @model abstract="true"
  * @generated
  */
@@ -31,7 +31,7 @@ public interface EventsProvider extends EventsProviderAbstract {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Provided Events</em>' reference list.
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getEventsProvider_ProvidedEvents()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getEventsProvider_ProvidedEvents()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */

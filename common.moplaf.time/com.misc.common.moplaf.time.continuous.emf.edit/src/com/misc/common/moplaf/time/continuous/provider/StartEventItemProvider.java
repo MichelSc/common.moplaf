@@ -3,8 +3,8 @@
 package com.misc.common.moplaf.time.continuous.provider;
 
 
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.StartEvent;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -63,7 +63,7 @@ public class StartEventItemProvider
 				 getResourceLocator(),
 				 getString("_UI_StartEvent_AmountAtStart_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_StartEvent_AmountAtStart_feature", "_UI_StartEvent_type"),
-				 ContinuousPackage.Literals.START_EVENT__AMOUNT_AT_START,
+				 TimeContinuousPackage.Literals.START_EVENT__AMOUNT_AT_START,
 				 true,
 				 false,
 				 false,
@@ -85,7 +85,7 @@ public class StartEventItemProvider
 				 getResourceLocator(),
 				 getString("_UI_StartEvent_SlopeAtStart_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_StartEvent_SlopeAtStart_feature", "_UI_StartEvent_type"),
-				 ContinuousPackage.Literals.START_EVENT__SLOPE_AT_START,
+				 TimeContinuousPackage.Literals.START_EVENT__SLOPE_AT_START,
 				 true,
 				 false,
 				 false,
@@ -132,8 +132,8 @@ public class StartEventItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(StartEvent.class)) {
-			case ContinuousPackage.START_EVENT__AMOUNT_AT_START:
-			case ContinuousPackage.START_EVENT__SLOPE_AT_START:
+			case TimeContinuousPackage.START_EVENT__AMOUNT_AT_START:
+			case TimeContinuousPackage.START_EVENT__SLOPE_AT_START:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -4,7 +4,7 @@ package com.misc.common.moplaf.time.continuous.provider;
 
 
 import com.misc.common.moplaf.time.continuous.AmountImpulsion;
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -62,7 +62,7 @@ public class AmountImpulsionItemProvider
 				 getResourceLocator(),
 				 getString("_UI_AmountImpulsion_AmountImpulsion_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AmountImpulsion_AmountImpulsion_feature", "_UI_AmountImpulsion_type"),
-				 ContinuousPackage.Literals.AMOUNT_IMPULSION__AMOUNT_IMPULSION,
+				 TimeContinuousPackage.Literals.AMOUNT_IMPULSION__AMOUNT_IMPULSION,
 				 true,
 				 false,
 				 false,
@@ -98,7 +98,7 @@ public class AmountImpulsionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AmountImpulsion.class)) {
-			case ContinuousPackage.AMOUNT_IMPULSION__AMOUNT_IMPULSION:
+			case TimeContinuousPackage.AMOUNT_IMPULSION__AMOUNT_IMPULSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

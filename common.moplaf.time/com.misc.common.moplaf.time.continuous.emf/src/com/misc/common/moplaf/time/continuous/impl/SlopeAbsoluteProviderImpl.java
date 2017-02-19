@@ -2,13 +2,13 @@
  */
 package com.misc.common.moplaf.time.continuous.impl;
 
-import com.misc.common.moplaf.time.continuous.ContinuousFactory;
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
+
 import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.ProvidedEvent;
 import com.misc.common.moplaf.time.continuous.SlopeAbsoluteAtomic;
 import com.misc.common.moplaf.time.continuous.SlopeAbsoluteProvider;
-
+import com.misc.common.moplaf.time.continuous.TimeContinuousFactory;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -78,7 +78,7 @@ public class SlopeAbsoluteProviderImpl extends EventProviderImpl implements Slop
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ContinuousPackage.Literals.SLOPE_ABSOLUTE_PROVIDER;
+		return TimeContinuousPackage.Literals.SLOPE_ABSOLUTE_PROVIDER;
 	}
 
 	/**
@@ -108,7 +108,7 @@ public class SlopeAbsoluteProviderImpl extends EventProviderImpl implements Slop
 		SlopeAbsoluteAtomic oldEvent = event;
 		event = newEvent;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__EVENT, oldEvent, newEvent);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__EVENT, oldEvent, newEvent);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -123,14 +123,14 @@ public class SlopeAbsoluteProviderImpl extends EventProviderImpl implements Slop
 		if (newEvent != event) {
 			NotificationChain msgs = null;
 			if (event != null)
-				msgs = ((InternalEObject)event).eInverseRemove(this, ContinuousPackage.SLOPE_ABSOLUTE_ATOMIC__PROVIDER, SlopeAbsoluteAtomic.class, msgs);
+				msgs = ((InternalEObject)event).eInverseRemove(this, TimeContinuousPackage.SLOPE_ABSOLUTE_ATOMIC__PROVIDER, SlopeAbsoluteAtomic.class, msgs);
 			if (newEvent != null)
-				msgs = ((InternalEObject)newEvent).eInverseAdd(this, ContinuousPackage.SLOPE_ABSOLUTE_ATOMIC__PROVIDER, SlopeAbsoluteAtomic.class, msgs);
+				msgs = ((InternalEObject)newEvent).eInverseAdd(this, TimeContinuousPackage.SLOPE_ABSOLUTE_ATOMIC__PROVIDER, SlopeAbsoluteAtomic.class, msgs);
 			msgs = basicSetEvent(newEvent, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__EVENT, newEvent, newEvent));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__EVENT, newEvent, newEvent));
 	}
 
 	/**
@@ -151,7 +151,7 @@ public class SlopeAbsoluteProviderImpl extends EventProviderImpl implements Slop
 		float oldSlopeAbsolute = slopeAbsolute;
 		slopeAbsolute = newSlopeAbsolute;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__SLOPE_ABSOLUTE, oldSlopeAbsolute, slopeAbsolute));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__SLOPE_ABSOLUTE, oldSlopeAbsolute, slopeAbsolute));
 	}
 
 	/**
@@ -162,9 +162,9 @@ public class SlopeAbsoluteProviderImpl extends EventProviderImpl implements Slop
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__EVENT:
+			case TimeContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__EVENT:
 				if (event != null)
-					msgs = ((InternalEObject)event).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__EVENT, null, msgs);
+					msgs = ((InternalEObject)event).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TimeContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__EVENT, null, msgs);
 				return basicSetEvent((SlopeAbsoluteAtomic)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -178,7 +178,7 @@ public class SlopeAbsoluteProviderImpl extends EventProviderImpl implements Slop
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__EVENT:
+			case TimeContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__EVENT:
 				return basicSetEvent(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -192,9 +192,9 @@ public class SlopeAbsoluteProviderImpl extends EventProviderImpl implements Slop
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__EVENT:
+			case TimeContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__EVENT:
 				return getEvent();
-			case ContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__SLOPE_ABSOLUTE:
+			case TimeContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__SLOPE_ABSOLUTE:
 				return getSlopeAbsolute();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -208,10 +208,10 @@ public class SlopeAbsoluteProviderImpl extends EventProviderImpl implements Slop
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__EVENT:
+			case TimeContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__EVENT:
 				setEvent((SlopeAbsoluteAtomic)newValue);
 				return;
-			case ContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__SLOPE_ABSOLUTE:
+			case TimeContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__SLOPE_ABSOLUTE:
 				setSlopeAbsolute((Float)newValue);
 				return;
 		}
@@ -226,10 +226,10 @@ public class SlopeAbsoluteProviderImpl extends EventProviderImpl implements Slop
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__EVENT:
+			case TimeContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__EVENT:
 				setEvent((SlopeAbsoluteAtomic)null);
 				return;
-			case ContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__SLOPE_ABSOLUTE:
+			case TimeContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__SLOPE_ABSOLUTE:
 				setSlopeAbsolute(SLOPE_ABSOLUTE_EDEFAULT);
 				return;
 		}
@@ -244,9 +244,9 @@ public class SlopeAbsoluteProviderImpl extends EventProviderImpl implements Slop
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__EVENT:
+			case TimeContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__EVENT:
 				return event != null;
-			case ContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__SLOPE_ABSOLUTE:
+			case TimeContinuousPackage.SLOPE_ABSOLUTE_PROVIDER__SLOPE_ABSOLUTE:
 				return slopeAbsolute != SLOPE_ABSOLUTE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
@@ -281,7 +281,7 @@ public class SlopeAbsoluteProviderImpl extends EventProviderImpl implements Slop
 			}
 		} else {
 			if ( this.getEvent()==null){
-				SlopeAbsoluteAtomic newEvent = ContinuousFactory.eINSTANCE.createSlopeAbsoluteAtomic();
+				SlopeAbsoluteAtomic newEvent = TimeContinuousFactory.eINSTANCE.createSlopeAbsoluteAtomic();
 				newEvent.setProvider(this);
 			}
 		}

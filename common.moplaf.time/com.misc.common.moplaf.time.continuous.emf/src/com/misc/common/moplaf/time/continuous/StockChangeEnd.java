@@ -15,7 +15,7 @@ package com.misc.common.moplaf.time.continuous;
  *   <li>{@link com.misc.common.moplaf.time.continuous.StockChangeEnd#getProvider <em>Provider</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getStockChangeEnd()
+ * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getStockChangeEnd()
  * @model extendedMetaData="name='SlopeImpulsion'"
  * @generated
  */
@@ -31,7 +31,7 @@ public interface StockChangeEnd extends SlopeImpulsion {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Provider</em>' container reference.
 	 * @see #setProvider(StockChange)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getStockChangeEnd_Provider()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getStockChangeEnd_Provider()
 	 * @see com.misc.common.moplaf.time.continuous.StockChange#getEndEvent
 	 * @model opposite="EndEvent" required="true" transient="false"
 	 * @generated

@@ -15,7 +15,7 @@ package com.misc.common.moplaf.time.continuous;
  *   <li>{@link com.misc.common.moplaf.time.continuous.SlopeAbsoluteAtomic#getProvider <em>Provider</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getSlopeAbsoluteAtomic()
+ * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getSlopeAbsoluteAtomic()
  * @model
  * @generated
  */
@@ -31,7 +31,7 @@ public interface SlopeAbsoluteAtomic extends SlopeAbsolute {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Provider</em>' container reference.
 	 * @see #setProvider(SlopeAbsoluteProvider)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getSlopeAbsoluteAtomic_Provider()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getSlopeAbsoluteAtomic_Provider()
 	 * @see com.misc.common.moplaf.time.continuous.SlopeAbsoluteProvider#getEvent
 	 * @model opposite="Event" required="true" transient="false"
 	 * @generated

@@ -16,7 +16,7 @@ package com.misc.common.moplaf.time.continuous;
  *   <li>{@link com.misc.common.moplaf.time.continuous.AmountImpulsionProvider#getAmountImpulsion <em>Amount Impulsion</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getAmountImpulsionProvider()
+ * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getAmountImpulsionProvider()
  * @model
  * @generated
  */
@@ -32,7 +32,7 @@ public interface AmountImpulsionProvider extends EventProvider {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Event</em>' containment reference.
 	 * @see #setEvent(AmountImpulsionAtomic)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getAmountImpulsionProvider_Event()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getAmountImpulsionProvider_Event()
 	 * @see com.misc.common.moplaf.time.continuous.AmountImpulsionAtomic#getProvider
 	 * @model opposite="Provider" containment="true"
 	 * @generated
@@ -60,7 +60,7 @@ public interface AmountImpulsionProvider extends EventProvider {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Amount Impulsion</em>' attribute.
 	 * @see #setAmountImpulsion(float)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getAmountImpulsionProvider_AmountImpulsion()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getAmountImpulsionProvider_AmountImpulsion()
 	 * @model default="0.0"
 	 * @generated
 	 */

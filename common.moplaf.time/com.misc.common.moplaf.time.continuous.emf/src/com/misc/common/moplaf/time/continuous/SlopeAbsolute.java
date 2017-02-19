@@ -15,7 +15,7 @@ package com.misc.common.moplaf.time.continuous;
  *   <li>{@link com.misc.common.moplaf.time.continuous.SlopeAbsolute#getSlopeAbsolute <em>Slope Absolute</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getSlopeAbsolute()
+ * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getSlopeAbsolute()
  * @model abstract="true"
  * @generated
  */
@@ -30,7 +30,7 @@ public interface SlopeAbsolute extends ProvidedEvent {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Slope Absolute</em>' attribute.
 	 * @see #setSlopeAbsolute(float)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getSlopeAbsolute_SlopeAbsolute()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getSlopeAbsolute_SlopeAbsolute()
 	 * @model
 	 * @generated
 	 */

@@ -24,7 +24,7 @@ import java.util.Date;
  *   <li>{@link com.misc.common.moplaf.time.continuous.CapacityChange#getEndEvent <em>End Event</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getCapacityChange()
+ * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getCapacityChange()
  * @model extendedMetaData="name='StockChange'"
  * @generated
  */
@@ -39,7 +39,7 @@ public interface CapacityChange extends EventsProvider {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Start</em>' attribute.
 	 * @see #setStart(Date)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getCapacityChange_Start()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getCapacityChange_Start()
 	 * @model
 	 * @generated
 	 */
@@ -65,7 +65,7 @@ public interface CapacityChange extends EventsProvider {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>End</em>' attribute.
 	 * @see #setEnd(Date)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getCapacityChange_End()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getCapacityChange_End()
 	 * @model
 	 * @generated
 	 */
@@ -91,7 +91,7 @@ public interface CapacityChange extends EventsProvider {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Amount</em>' attribute.
 	 * @see #setAmount(float)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getCapacityChange_Amount()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getCapacityChange_Amount()
 	 * @model
 	 * @generated
 	 */
@@ -118,7 +118,7 @@ public interface CapacityChange extends EventsProvider {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Start Event</em>' containment reference.
 	 * @see #setStartEvent(CapacityChangeStart)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getCapacityChange_StartEvent()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getCapacityChange_StartEvent()
 	 * @see com.misc.common.moplaf.time.continuous.CapacityChangeStart#getProvider
 	 * @model opposite="Provider" containment="true"
 	 * @generated
@@ -146,7 +146,7 @@ public interface CapacityChange extends EventsProvider {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>End Event</em>' containment reference.
 	 * @see #setEndEvent(CapacityChangeEnd)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getCapacityChange_EndEvent()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getCapacityChange_EndEvent()
 	 * @see com.misc.common.moplaf.time.continuous.CapacityChangeEnd#getProvider
 	 * @model opposite="Provider" containment="true"
 	 * @generated

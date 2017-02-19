@@ -3,8 +3,8 @@
 package com.misc.common.moplaf.time.continuous.provider;
 
 
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.SlopeAbsolute;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -62,7 +62,7 @@ public class SlopeAbsoluteItemProvider
 				 getResourceLocator(),
 				 getString("_UI_SlopeAbsolute_SlopeAbsolute_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SlopeAbsolute_SlopeAbsolute_feature", "_UI_SlopeAbsolute_type"),
-				 ContinuousPackage.Literals.SLOPE_ABSOLUTE__SLOPE_ABSOLUTE,
+				 TimeContinuousPackage.Literals.SLOPE_ABSOLUTE__SLOPE_ABSOLUTE,
 				 true,
 				 false,
 				 false,
@@ -98,7 +98,7 @@ public class SlopeAbsoluteItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SlopeAbsolute.class)) {
-			case ContinuousPackage.SLOPE_ABSOLUTE__SLOPE_ABSOLUTE:
+			case TimeContinuousPackage.SLOPE_ABSOLUTE__SLOPE_ABSOLUTE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

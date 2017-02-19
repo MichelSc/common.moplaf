@@ -15,7 +15,7 @@ package com.misc.common.moplaf.time.continuous;
  *   <li>{@link com.misc.common.moplaf.time.continuous.CapacityChangeEnd#getProvider <em>Provider</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getCapacityChangeEnd()
+ * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getCapacityChangeEnd()
  * @model
  * @generated
  */
@@ -31,7 +31,7 @@ public interface CapacityChangeEnd extends AmountImpulsion {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Provider</em>' container reference.
 	 * @see #setProvider(CapacityChange)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getCapacityChangeEnd_Provider()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getCapacityChangeEnd_Provider()
 	 * @see com.misc.common.moplaf.time.continuous.CapacityChange#getEndEvent
 	 * @model opposite="EndEvent" required="true" transient="false"
 	 * @generated

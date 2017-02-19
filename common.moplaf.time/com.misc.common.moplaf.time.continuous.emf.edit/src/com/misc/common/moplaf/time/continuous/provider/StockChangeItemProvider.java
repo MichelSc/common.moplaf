@@ -3,9 +3,9 @@
 package com.misc.common.moplaf.time.continuous.provider;
 
 
-import com.misc.common.moplaf.time.continuous.ContinuousFactory;
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.StockChange;
+import com.misc.common.moplaf.time.continuous.TimeContinuousFactory;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -66,7 +66,7 @@ public class StockChangeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_StockChange_Start_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_StockChange_Start_feature", "_UI_StockChange_type"),
-				 ContinuousPackage.Literals.STOCK_CHANGE__START,
+				 TimeContinuousPackage.Literals.STOCK_CHANGE__START,
 				 true,
 				 false,
 				 false,
@@ -88,7 +88,7 @@ public class StockChangeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_StockChange_End_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_StockChange_End_feature", "_UI_StockChange_type"),
-				 ContinuousPackage.Literals.STOCK_CHANGE__END,
+				 TimeContinuousPackage.Literals.STOCK_CHANGE__END,
 				 true,
 				 false,
 				 false,
@@ -110,7 +110,7 @@ public class StockChangeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_StockChange_Slope_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_StockChange_Slope_feature", "_UI_StockChange_type"),
-				 ContinuousPackage.Literals.STOCK_CHANGE__SLOPE,
+				 TimeContinuousPackage.Literals.STOCK_CHANGE__SLOPE,
 				 true,
 				 false,
 				 false,
@@ -131,8 +131,8 @@ public class StockChangeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ContinuousPackage.Literals.STOCK_CHANGE__START_EVENT);
-			childrenFeatures.add(ContinuousPackage.Literals.STOCK_CHANGE__END_EVENT);
+			childrenFeatures.add(TimeContinuousPackage.Literals.STOCK_CHANGE__START_EVENT);
+			childrenFeatures.add(TimeContinuousPackage.Literals.STOCK_CHANGE__END_EVENT);
 		}
 		return childrenFeatures;
 	}
@@ -188,13 +188,13 @@ public class StockChangeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(StockChange.class)) {
-			case ContinuousPackage.STOCK_CHANGE__START:
-			case ContinuousPackage.STOCK_CHANGE__END:
-			case ContinuousPackage.STOCK_CHANGE__SLOPE:
+			case TimeContinuousPackage.STOCK_CHANGE__START:
+			case TimeContinuousPackage.STOCK_CHANGE__END:
+			case TimeContinuousPackage.STOCK_CHANGE__SLOPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ContinuousPackage.STOCK_CHANGE__START_EVENT:
-			case ContinuousPackage.STOCK_CHANGE__END_EVENT:
+			case TimeContinuousPackage.STOCK_CHANGE__START_EVENT:
+			case TimeContinuousPackage.STOCK_CHANGE__END_EVENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -214,13 +214,13 @@ public class StockChangeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContinuousPackage.Literals.STOCK_CHANGE__START_EVENT,
-				 ContinuousFactory.eINSTANCE.createStockChangeStart()));
+				(TimeContinuousPackage.Literals.STOCK_CHANGE__START_EVENT,
+				 TimeContinuousFactory.eINSTANCE.createStockChangeStart()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContinuousPackage.Literals.STOCK_CHANGE__END_EVENT,
-				 ContinuousFactory.eINSTANCE.createStockChangeEnd()));
+				(TimeContinuousPackage.Literals.STOCK_CHANGE__END_EVENT,
+				 TimeContinuousFactory.eINSTANCE.createStockChangeEnd()));
 	}
 
 }

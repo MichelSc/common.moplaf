@@ -16,7 +16,7 @@ package com.misc.common.moplaf.time.continuous;
  *   <li>{@link com.misc.common.moplaf.time.continuous.SlopeAbsoluteProvider#getSlopeAbsolute <em>Slope Absolute</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getSlopeAbsoluteProvider()
+ * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getSlopeAbsoluteProvider()
  * @model
  * @generated
  */
@@ -32,7 +32,7 @@ public interface SlopeAbsoluteProvider extends EventProvider {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Event</em>' containment reference.
 	 * @see #setEvent(SlopeAbsoluteAtomic)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getSlopeAbsoluteProvider_Event()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getSlopeAbsoluteProvider_Event()
 	 * @see com.misc.common.moplaf.time.continuous.SlopeAbsoluteAtomic#getProvider
 	 * @model opposite="Provider" containment="true"
 	 * @generated
@@ -60,7 +60,7 @@ public interface SlopeAbsoluteProvider extends EventProvider {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Slope Absolute</em>' attribute.
 	 * @see #setSlopeAbsolute(float)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getSlopeAbsoluteProvider_SlopeAbsolute()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getSlopeAbsoluteProvider_SlopeAbsolute()
 	 * @model default="0.0"
 	 * @generated
 	 */

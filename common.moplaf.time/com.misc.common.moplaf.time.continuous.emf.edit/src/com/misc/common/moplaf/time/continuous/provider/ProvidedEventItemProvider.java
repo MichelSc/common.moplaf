@@ -3,9 +3,9 @@
 package com.misc.common.moplaf.time.continuous.provider;
 
 
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.ProvidedEvent;
 
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -62,7 +62,7 @@ public class ProvidedEventItemProvider extends DistributionEventItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_ProvidedEvent_EventProvider_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ProvidedEvent_EventProvider_feature", "_UI_ProvidedEvent_type"),
-				 ContinuousPackage.Literals.PROVIDED_EVENT__EVENT_PROVIDER,
+				 TimeContinuousPackage.Literals.PROVIDED_EVENT__EVENT_PROVIDER,
 				 false,
 				 false,
 				 false,

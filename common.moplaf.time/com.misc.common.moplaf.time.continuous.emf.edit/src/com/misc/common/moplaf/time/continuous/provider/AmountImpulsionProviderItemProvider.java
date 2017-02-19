@@ -4,9 +4,8 @@ package com.misc.common.moplaf.time.continuous.provider;
 
 
 import com.misc.common.moplaf.time.continuous.AmountImpulsionProvider;
-import com.misc.common.moplaf.time.continuous.ContinuousFactory;
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
-
+import com.misc.common.moplaf.time.continuous.TimeContinuousFactory;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -65,7 +64,7 @@ public class AmountImpulsionProviderItemProvider extends EventProviderItemProvid
 				 getResourceLocator(),
 				 getString("_UI_AmountImpulsionProvider_AmountImpulsion_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AmountImpulsionProvider_AmountImpulsion_feature", "_UI_AmountImpulsionProvider_type"),
-				 ContinuousPackage.Literals.AMOUNT_IMPULSION_PROVIDER__AMOUNT_IMPULSION,
+				 TimeContinuousPackage.Literals.AMOUNT_IMPULSION_PROVIDER__AMOUNT_IMPULSION,
 				 true,
 				 false,
 				 false,
@@ -86,7 +85,7 @@ public class AmountImpulsionProviderItemProvider extends EventProviderItemProvid
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ContinuousPackage.Literals.AMOUNT_IMPULSION_PROVIDER__EVENT);
+			childrenFeatures.add(TimeContinuousPackage.Literals.AMOUNT_IMPULSION_PROVIDER__EVENT);
 		}
 		return childrenFeatures;
 	}
@@ -143,10 +142,10 @@ public class AmountImpulsionProviderItemProvider extends EventProviderItemProvid
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(AmountImpulsionProvider.class)) {
-			case ContinuousPackage.AMOUNT_IMPULSION_PROVIDER__AMOUNT_IMPULSION:
+			case TimeContinuousPackage.AMOUNT_IMPULSION_PROVIDER__AMOUNT_IMPULSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ContinuousPackage.AMOUNT_IMPULSION_PROVIDER__EVENT:
+			case TimeContinuousPackage.AMOUNT_IMPULSION_PROVIDER__EVENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -166,8 +165,8 @@ public class AmountImpulsionProviderItemProvider extends EventProviderItemProvid
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContinuousPackage.Literals.AMOUNT_IMPULSION_PROVIDER__EVENT,
-				 ContinuousFactory.eINSTANCE.createAmountImpulsionAtomic()));
+				(TimeContinuousPackage.Literals.AMOUNT_IMPULSION_PROVIDER__EVENT,
+				 TimeContinuousFactory.eINSTANCE.createAmountImpulsionAtomic()));
 	}
 
 }

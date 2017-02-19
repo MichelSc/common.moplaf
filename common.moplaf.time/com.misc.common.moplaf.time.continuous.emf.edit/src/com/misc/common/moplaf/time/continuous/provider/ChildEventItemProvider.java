@@ -4,7 +4,7 @@ package com.misc.common.moplaf.time.continuous.provider;
 
 
 import com.misc.common.moplaf.time.continuous.ChildEvent;
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -60,7 +60,7 @@ public class ChildEventItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ChildEvent_Original_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ChildEvent_Original_feature", "_UI_ChildEvent_type"),
-				 ContinuousPackage.Literals.CHILD_EVENT__ORIGINAL,
+				 TimeContinuousPackage.Literals.CHILD_EVENT__ORIGINAL,
 				 true,
 				 false,
 				 true,

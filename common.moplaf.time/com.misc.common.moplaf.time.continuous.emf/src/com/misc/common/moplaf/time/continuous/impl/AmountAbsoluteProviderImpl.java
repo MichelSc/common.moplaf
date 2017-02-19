@@ -2,13 +2,13 @@
  */
 package com.misc.common.moplaf.time.continuous.impl;
 
+
 import com.misc.common.moplaf.time.continuous.AmountAbsoluteAtomic;
 import com.misc.common.moplaf.time.continuous.AmountAbsoluteProvider;
-import com.misc.common.moplaf.time.continuous.ContinuousFactory;
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.ProvidedEvent;
-
+import com.misc.common.moplaf.time.continuous.TimeContinuousFactory;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -78,7 +78,7 @@ public class AmountAbsoluteProviderImpl extends EventProviderImpl implements Amo
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ContinuousPackage.Literals.AMOUNT_ABSOLUTE_PROVIDER;
+		return TimeContinuousPackage.Literals.AMOUNT_ABSOLUTE_PROVIDER;
 	}
 	
 	
@@ -108,7 +108,7 @@ public class AmountAbsoluteProviderImpl extends EventProviderImpl implements Amo
 		AmountAbsoluteAtomic oldEvent = event;
 		event = newEvent;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__EVENT, oldEvent, newEvent);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__EVENT, oldEvent, newEvent);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -123,14 +123,14 @@ public class AmountAbsoluteProviderImpl extends EventProviderImpl implements Amo
 		if (newEvent != event) {
 			NotificationChain msgs = null;
 			if (event != null)
-				msgs = ((InternalEObject)event).eInverseRemove(this, ContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC__PROVIDER, AmountAbsoluteAtomic.class, msgs);
+				msgs = ((InternalEObject)event).eInverseRemove(this, TimeContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC__PROVIDER, AmountAbsoluteAtomic.class, msgs);
 			if (newEvent != null)
-				msgs = ((InternalEObject)newEvent).eInverseAdd(this, ContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC__PROVIDER, AmountAbsoluteAtomic.class, msgs);
+				msgs = ((InternalEObject)newEvent).eInverseAdd(this, TimeContinuousPackage.AMOUNT_ABSOLUTE_ATOMIC__PROVIDER, AmountAbsoluteAtomic.class, msgs);
 			msgs = basicSetEvent(newEvent, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__EVENT, newEvent, newEvent));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__EVENT, newEvent, newEvent));
 	}
 
 	/**
@@ -151,7 +151,7 @@ public class AmountAbsoluteProviderImpl extends EventProviderImpl implements Amo
 		float oldAmountAbsolute = amountAbsolute;
 		amountAbsolute = newAmountAbsolute;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__AMOUNT_ABSOLUTE, oldAmountAbsolute, amountAbsolute));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__AMOUNT_ABSOLUTE, oldAmountAbsolute, amountAbsolute));
 	}
 
 	/**
@@ -162,9 +162,9 @@ public class AmountAbsoluteProviderImpl extends EventProviderImpl implements Amo
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__EVENT:
+			case TimeContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__EVENT:
 				if (event != null)
-					msgs = ((InternalEObject)event).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__EVENT, null, msgs);
+					msgs = ((InternalEObject)event).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TimeContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__EVENT, null, msgs);
 				return basicSetEvent((AmountAbsoluteAtomic)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -178,7 +178,7 @@ public class AmountAbsoluteProviderImpl extends EventProviderImpl implements Amo
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__EVENT:
+			case TimeContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__EVENT:
 				return basicSetEvent(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -192,9 +192,9 @@ public class AmountAbsoluteProviderImpl extends EventProviderImpl implements Amo
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__EVENT:
+			case TimeContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__EVENT:
 				return getEvent();
-			case ContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__AMOUNT_ABSOLUTE:
+			case TimeContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__AMOUNT_ABSOLUTE:
 				return getAmountAbsolute();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -208,10 +208,10 @@ public class AmountAbsoluteProviderImpl extends EventProviderImpl implements Amo
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__EVENT:
+			case TimeContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__EVENT:
 				setEvent((AmountAbsoluteAtomic)newValue);
 				return;
-			case ContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__AMOUNT_ABSOLUTE:
+			case TimeContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__AMOUNT_ABSOLUTE:
 				setAmountAbsolute((Float)newValue);
 				return;
 		}
@@ -226,10 +226,10 @@ public class AmountAbsoluteProviderImpl extends EventProviderImpl implements Amo
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__EVENT:
+			case TimeContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__EVENT:
 				setEvent((AmountAbsoluteAtomic)null);
 				return;
-			case ContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__AMOUNT_ABSOLUTE:
+			case TimeContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__AMOUNT_ABSOLUTE:
 				setAmountAbsolute(AMOUNT_ABSOLUTE_EDEFAULT);
 				return;
 		}
@@ -244,9 +244,9 @@ public class AmountAbsoluteProviderImpl extends EventProviderImpl implements Amo
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__EVENT:
+			case TimeContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__EVENT:
 				return event != null;
-			case ContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__AMOUNT_ABSOLUTE:
+			case TimeContinuousPackage.AMOUNT_ABSOLUTE_PROVIDER__AMOUNT_ABSOLUTE:
 				return amountAbsolute != AMOUNT_ABSOLUTE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
@@ -281,7 +281,7 @@ public class AmountAbsoluteProviderImpl extends EventProviderImpl implements Amo
 			}
 		} else {
 			if ( this.getEvent()==null){
-				AmountAbsoluteAtomic newEvent = ContinuousFactory.eINSTANCE.createAmountAbsoluteAtomic();
+				AmountAbsoluteAtomic newEvent = TimeContinuousFactory.eINSTANCE.createAmountAbsoluteAtomic();
 				newEvent.setProvider(this);
 			}
 		}

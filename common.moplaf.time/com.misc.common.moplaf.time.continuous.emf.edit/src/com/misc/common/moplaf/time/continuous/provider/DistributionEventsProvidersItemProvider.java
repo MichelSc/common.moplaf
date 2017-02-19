@@ -7,8 +7,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.Distribution;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 
 public class DistributionEventsProvidersItemProvider extends DistributionNodesItemProvider {
 
@@ -21,7 +21,7 @@ public class DistributionEventsProvidersItemProvider extends DistributionNodesIt
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS);
+			childrenFeatures.add(TimeContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS);
 		}
 		return childrenFeatures;
 	}
@@ -45,7 +45,7 @@ public void notifyChanged(Notification notification) {
 //		case ContinuousPackage.DISTRIBUTION__CHILD_DISTRIBUTION:
 //			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 //			return;
-		case ContinuousPackage.DISTRIBUTION__EVENTS_PROVIDERS:
+		case TimeContinuousPackage.DISTRIBUTION__EVENTS_PROVIDERS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), 
 					          true,     // content refresh 
 					          false));  // label update

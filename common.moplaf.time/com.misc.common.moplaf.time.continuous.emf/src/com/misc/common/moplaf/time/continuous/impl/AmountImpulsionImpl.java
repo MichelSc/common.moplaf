@@ -2,10 +2,9 @@
  */
 package com.misc.common.moplaf.time.continuous.impl;
 
-import com.misc.common.moplaf.propagator.Util;
+
 import com.misc.common.moplaf.time.continuous.AmountImpulsion;
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountImpulsionAmountAfter;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
@@ -57,16 +56,6 @@ public abstract class AmountImpulsionImpl extends ProvidedEventImpl implements A
 	}
 	
 	
-	/* (non-Javadoc)
-	 * @see com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#addPropagatorFunctionAdapter()
-	 */
-	@Override
-	public void addPropagatorFunctionAdapter() {
-		super.addPropagatorFunctionAdapter();
-		Util.adapt(this, PropagatorCalcAmountImpulsionAmountAfter.class);
-	}
-
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -74,7 +63,7 @@ public abstract class AmountImpulsionImpl extends ProvidedEventImpl implements A
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ContinuousPackage.Literals.AMOUNT_IMPULSION;
+		return TimeContinuousPackage.Literals.AMOUNT_IMPULSION;
 	}
 
 	/**
@@ -95,7 +84,7 @@ public abstract class AmountImpulsionImpl extends ProvidedEventImpl implements A
 		float oldAmountImpulsion = amountImpulsion;
 		amountImpulsion = newAmountImpulsion;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.AMOUNT_IMPULSION__AMOUNT_IMPULSION, oldAmountImpulsion, amountImpulsion));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.AMOUNT_IMPULSION__AMOUNT_IMPULSION, oldAmountImpulsion, amountImpulsion));
 	}
 
 	/**
@@ -117,7 +106,7 @@ public abstract class AmountImpulsionImpl extends ProvidedEventImpl implements A
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_IMPULSION__AMOUNT_IMPULSION:
+			case TimeContinuousPackage.AMOUNT_IMPULSION__AMOUNT_IMPULSION:
 				return getAmountImpulsion();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -131,7 +120,7 @@ public abstract class AmountImpulsionImpl extends ProvidedEventImpl implements A
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_IMPULSION__AMOUNT_IMPULSION:
+			case TimeContinuousPackage.AMOUNT_IMPULSION__AMOUNT_IMPULSION:
 				setAmountImpulsion((Float)newValue);
 				return;
 		}
@@ -146,7 +135,7 @@ public abstract class AmountImpulsionImpl extends ProvidedEventImpl implements A
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_IMPULSION__AMOUNT_IMPULSION:
+			case TimeContinuousPackage.AMOUNT_IMPULSION__AMOUNT_IMPULSION:
 				setAmountImpulsion(AMOUNT_IMPULSION_EDEFAULT);
 				return;
 		}
@@ -161,7 +150,7 @@ public abstract class AmountImpulsionImpl extends ProvidedEventImpl implements A
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.AMOUNT_IMPULSION__AMOUNT_IMPULSION:
+			case TimeContinuousPackage.AMOUNT_IMPULSION__AMOUNT_IMPULSION:
 				return amountImpulsion != AMOUNT_IMPULSION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
@@ -175,7 +164,7 @@ public abstract class AmountImpulsionImpl extends ProvidedEventImpl implements A
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ContinuousPackage.AMOUNT_IMPULSION___REFRESH_AMOUNT_IMPULSION:
+			case TimeContinuousPackage.AMOUNT_IMPULSION___REFRESH_AMOUNT_IMPULSION:
 				refreshAmountImpulsion();
 				return null;
 		}

@@ -2,10 +2,9 @@
  */
 package com.misc.common.moplaf.time.continuous.impl;
 
-import com.misc.common.moplaf.propagator.Util;
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
+
 import com.misc.common.moplaf.time.continuous.SlopeImpulsion;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeImpulsionSlopeAfter;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -57,15 +56,6 @@ public abstract class SlopeImpulsionImpl extends ProvidedEventImpl implements Sl
 		super();
 	}
 
-	/* (non-Javadoc)
-	 * @see com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#addPropagatorFunctionAdapter()
-	 */
-	@Override
-	public void addPropagatorFunctionAdapter() {
-		super.addPropagatorFunctionAdapter();
-		Util.adapt(this, PropagatorCalcSlopeImpulsionSlopeAfter.class);
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -73,7 +63,7 @@ public abstract class SlopeImpulsionImpl extends ProvidedEventImpl implements Sl
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ContinuousPackage.Literals.SLOPE_IMPULSION;
+		return TimeContinuousPackage.Literals.SLOPE_IMPULSION;
 	}
 
 	/**
@@ -94,7 +84,7 @@ public abstract class SlopeImpulsionImpl extends ProvidedEventImpl implements Sl
 		float oldSlopeImpulsion = slopeImpulsion;
 		slopeImpulsion = newSlopeImpulsion;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.SLOPE_IMPULSION__SLOPE_IMPULSION, oldSlopeImpulsion, slopeImpulsion));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.SLOPE_IMPULSION__SLOPE_IMPULSION, oldSlopeImpulsion, slopeImpulsion));
 	}
 
 	/**
@@ -113,7 +103,7 @@ public abstract class SlopeImpulsionImpl extends ProvidedEventImpl implements Sl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContinuousPackage.SLOPE_IMPULSION__SLOPE_IMPULSION:
+			case TimeContinuousPackage.SLOPE_IMPULSION__SLOPE_IMPULSION:
 				return getSlopeImpulsion();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -127,7 +117,7 @@ public abstract class SlopeImpulsionImpl extends ProvidedEventImpl implements Sl
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContinuousPackage.SLOPE_IMPULSION__SLOPE_IMPULSION:
+			case TimeContinuousPackage.SLOPE_IMPULSION__SLOPE_IMPULSION:
 				setSlopeImpulsion((Float)newValue);
 				return;
 		}
@@ -142,7 +132,7 @@ public abstract class SlopeImpulsionImpl extends ProvidedEventImpl implements Sl
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.SLOPE_IMPULSION__SLOPE_IMPULSION:
+			case TimeContinuousPackage.SLOPE_IMPULSION__SLOPE_IMPULSION:
 				setSlopeImpulsion(SLOPE_IMPULSION_EDEFAULT);
 				return;
 		}
@@ -157,7 +147,7 @@ public abstract class SlopeImpulsionImpl extends ProvidedEventImpl implements Sl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.SLOPE_IMPULSION__SLOPE_IMPULSION:
+			case TimeContinuousPackage.SLOPE_IMPULSION__SLOPE_IMPULSION:
 				return slopeImpulsion != SLOPE_IMPULSION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
@@ -171,7 +161,7 @@ public abstract class SlopeImpulsionImpl extends ProvidedEventImpl implements Sl
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ContinuousPackage.SLOPE_IMPULSION___REFRESH_SLOPE_IMPULSION:
+			case TimeContinuousPackage.SLOPE_IMPULSION___REFRESH_SLOPE_IMPULSION:
 				refreshSlopeImpulsion();
 				return null;
 		}

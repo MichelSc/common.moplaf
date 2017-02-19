@@ -15,7 +15,7 @@ package com.misc.common.moplaf.time.continuous;
  *   <li>{@link com.misc.common.moplaf.time.continuous.SlopeImpulsion#getSlopeImpulsion <em>Slope Impulsion</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getSlopeImpulsion()
+ * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getSlopeImpulsion()
  * @model abstract="true"
  * @generated
  */
@@ -30,7 +30,7 @@ public interface SlopeImpulsion extends ProvidedEvent {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Slope Impulsion</em>' attribute.
 	 * @see #setSlopeImpulsion(float)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getSlopeImpulsion_SlopeImpulsion()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getSlopeImpulsion_SlopeImpulsion()
 	 * @model
 	 * @generated
 	 */

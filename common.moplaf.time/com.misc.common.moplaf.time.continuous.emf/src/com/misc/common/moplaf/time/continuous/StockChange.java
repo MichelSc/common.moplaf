@@ -24,7 +24,7 @@ import java.util.Date;
  *   <li>{@link com.misc.common.moplaf.time.continuous.StockChange#getEndEvent <em>End Event</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getStockChange()
+ * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getStockChange()
  * @model
  * @generated
  */
@@ -39,7 +39,7 @@ public interface StockChange extends EventsProvider {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Start</em>' attribute.
 	 * @see #setStart(Date)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getStockChange_Start()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getStockChange_Start()
 	 * @model
 	 * @generated
 	 */
@@ -65,7 +65,7 @@ public interface StockChange extends EventsProvider {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>End</em>' attribute.
 	 * @see #setEnd(Date)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getStockChange_End()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getStockChange_End()
 	 * @model
 	 * @generated
 	 */
@@ -91,7 +91,7 @@ public interface StockChange extends EventsProvider {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Slope</em>' attribute.
 	 * @see #setSlope(float)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getStockChange_Slope()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getStockChange_Slope()
 	 * @model
 	 * @generated
 	 */
@@ -118,7 +118,7 @@ public interface StockChange extends EventsProvider {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Start Event</em>' containment reference.
 	 * @see #setStartEvent(StockChangeStart)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getStockChange_StartEvent()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getStockChange_StartEvent()
 	 * @see com.misc.common.moplaf.time.continuous.StockChangeStart#getProvider
 	 * @model opposite="Provider" containment="true"
 	 * @generated
@@ -146,7 +146,7 @@ public interface StockChange extends EventsProvider {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>End Event</em>' containment reference.
 	 * @see #setEndEvent(StockChangeEnd)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getStockChange_EndEvent()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getStockChange_EndEvent()
 	 * @see com.misc.common.moplaf.time.continuous.StockChangeEnd#getProvider
 	 * @model opposite="Provider" containment="true"
 	 * @generated

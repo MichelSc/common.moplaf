@@ -2,14 +2,15 @@
  */
 package com.misc.common.moplaf.time.continuous.impl;
 
-import com.misc.common.moplaf.time.continuous.ContinuousFactory;
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
+
 import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.DistributionEvent;
 import com.misc.common.moplaf.time.continuous.ProvidedEvent;
 import com.misc.common.moplaf.time.continuous.StockChange;
 import com.misc.common.moplaf.time.continuous.StockChangeEnd;
 import com.misc.common.moplaf.time.continuous.StockChangeStart;
+import com.misc.common.moplaf.time.continuous.TimeContinuousFactory;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import java.util.Date;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -144,14 +145,14 @@ public class StockChangeImpl extends EventsProviderImpl implements StockChange {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ContinuousPackage.Literals.STOCK_CHANGE;
+		return TimeContinuousPackage.Literals.STOCK_CHANGE;
 	}
 
 	@Override
 	public EList<ProvidedEvent> getProvidedEvents() {
 		EObjectEList list = new EObjectEList(DistributionEvent.class, 
 							                this, 
-							                ContinuousPackage.EVENTS_PROVIDER__PROVIDED_EVENTS);
+							                TimeContinuousPackage.EVENTS_PROVIDER__PROVIDED_EVENTS);
 		list.add(this.getStartEvent());
 		list.add(this.getEndEvent());
 		return list;
@@ -176,7 +177,7 @@ public class StockChangeImpl extends EventsProviderImpl implements StockChange {
 		Date oldStart = start;
 		start = newStart;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.STOCK_CHANGE__START, oldStart, start));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.STOCK_CHANGE__START, oldStart, start));
 	}
 
 	/**
@@ -197,7 +198,7 @@ public class StockChangeImpl extends EventsProviderImpl implements StockChange {
 		Date oldEnd = end;
 		end = newEnd;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.STOCK_CHANGE__END, oldEnd, end));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.STOCK_CHANGE__END, oldEnd, end));
 	}
 
 	/**
@@ -218,7 +219,7 @@ public class StockChangeImpl extends EventsProviderImpl implements StockChange {
 		float oldSlope = slope;
 		slope = newSlope;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.STOCK_CHANGE__SLOPE, oldSlope, slope));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.STOCK_CHANGE__SLOPE, oldSlope, slope));
 	}
 
 	/**
@@ -240,7 +241,7 @@ public class StockChangeImpl extends EventsProviderImpl implements StockChange {
 		StockChangeStart oldStartEvent = startEvent;
 		startEvent = newStartEvent;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ContinuousPackage.STOCK_CHANGE__START_EVENT, oldStartEvent, newStartEvent);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.STOCK_CHANGE__START_EVENT, oldStartEvent, newStartEvent);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -256,14 +257,14 @@ public class StockChangeImpl extends EventsProviderImpl implements StockChange {
 		if (newStartEvent != startEvent) {
 			NotificationChain msgs = null;
 			if (startEvent != null)
-				msgs = ((InternalEObject)startEvent).eInverseRemove(this, ContinuousPackage.STOCK_CHANGE_START__PROVIDER, StockChangeStart.class, msgs);
+				msgs = ((InternalEObject)startEvent).eInverseRemove(this, TimeContinuousPackage.STOCK_CHANGE_START__PROVIDER, StockChangeStart.class, msgs);
 			if (newStartEvent != null)
-				msgs = ((InternalEObject)newStartEvent).eInverseAdd(this, ContinuousPackage.STOCK_CHANGE_START__PROVIDER, StockChangeStart.class, msgs);
+				msgs = ((InternalEObject)newStartEvent).eInverseAdd(this, TimeContinuousPackage.STOCK_CHANGE_START__PROVIDER, StockChangeStart.class, msgs);
 			msgs = basicSetStartEvent(newStartEvent, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.STOCK_CHANGE__START_EVENT, newStartEvent, newStartEvent));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.STOCK_CHANGE__START_EVENT, newStartEvent, newStartEvent));
 	}
 
 
@@ -286,7 +287,7 @@ public class StockChangeImpl extends EventsProviderImpl implements StockChange {
 		StockChangeEnd oldEndEvent = endEvent;
 		endEvent = newEndEvent;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ContinuousPackage.STOCK_CHANGE__END_EVENT, oldEndEvent, newEndEvent);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.STOCK_CHANGE__END_EVENT, oldEndEvent, newEndEvent);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -302,14 +303,14 @@ public class StockChangeImpl extends EventsProviderImpl implements StockChange {
 		if (newEndEvent != endEvent) {
 			NotificationChain msgs = null;
 			if (endEvent != null)
-				msgs = ((InternalEObject)endEvent).eInverseRemove(this, ContinuousPackage.STOCK_CHANGE_END__PROVIDER, StockChangeEnd.class, msgs);
+				msgs = ((InternalEObject)endEvent).eInverseRemove(this, TimeContinuousPackage.STOCK_CHANGE_END__PROVIDER, StockChangeEnd.class, msgs);
 			if (newEndEvent != null)
-				msgs = ((InternalEObject)newEndEvent).eInverseAdd(this, ContinuousPackage.STOCK_CHANGE_END__PROVIDER, StockChangeEnd.class, msgs);
+				msgs = ((InternalEObject)newEndEvent).eInverseAdd(this, TimeContinuousPackage.STOCK_CHANGE_END__PROVIDER, StockChangeEnd.class, msgs);
 			msgs = basicSetEndEvent(newEndEvent, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.STOCK_CHANGE__END_EVENT, newEndEvent, newEndEvent));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.STOCK_CHANGE__END_EVENT, newEndEvent, newEndEvent));
 	}
 
 
@@ -321,13 +322,13 @@ public class StockChangeImpl extends EventsProviderImpl implements StockChange {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContinuousPackage.STOCK_CHANGE__START_EVENT:
+			case TimeContinuousPackage.STOCK_CHANGE__START_EVENT:
 				if (startEvent != null)
-					msgs = ((InternalEObject)startEvent).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ContinuousPackage.STOCK_CHANGE__START_EVENT, null, msgs);
+					msgs = ((InternalEObject)startEvent).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TimeContinuousPackage.STOCK_CHANGE__START_EVENT, null, msgs);
 				return basicSetStartEvent((StockChangeStart)otherEnd, msgs);
-			case ContinuousPackage.STOCK_CHANGE__END_EVENT:
+			case TimeContinuousPackage.STOCK_CHANGE__END_EVENT:
 				if (endEvent != null)
-					msgs = ((InternalEObject)endEvent).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ContinuousPackage.STOCK_CHANGE__END_EVENT, null, msgs);
+					msgs = ((InternalEObject)endEvent).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TimeContinuousPackage.STOCK_CHANGE__END_EVENT, null, msgs);
 				return basicSetEndEvent((StockChangeEnd)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -341,9 +342,9 @@ public class StockChangeImpl extends EventsProviderImpl implements StockChange {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContinuousPackage.STOCK_CHANGE__START_EVENT:
+			case TimeContinuousPackage.STOCK_CHANGE__START_EVENT:
 				return basicSetStartEvent(null, msgs);
-			case ContinuousPackage.STOCK_CHANGE__END_EVENT:
+			case TimeContinuousPackage.STOCK_CHANGE__END_EVENT:
 				return basicSetEndEvent(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -357,15 +358,15 @@ public class StockChangeImpl extends EventsProviderImpl implements StockChange {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContinuousPackage.STOCK_CHANGE__START:
+			case TimeContinuousPackage.STOCK_CHANGE__START:
 				return getStart();
-			case ContinuousPackage.STOCK_CHANGE__END:
+			case TimeContinuousPackage.STOCK_CHANGE__END:
 				return getEnd();
-			case ContinuousPackage.STOCK_CHANGE__SLOPE:
+			case TimeContinuousPackage.STOCK_CHANGE__SLOPE:
 				return getSlope();
-			case ContinuousPackage.STOCK_CHANGE__START_EVENT:
+			case TimeContinuousPackage.STOCK_CHANGE__START_EVENT:
 				return getStartEvent();
-			case ContinuousPackage.STOCK_CHANGE__END_EVENT:
+			case TimeContinuousPackage.STOCK_CHANGE__END_EVENT:
 				return getEndEvent();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -379,19 +380,19 @@ public class StockChangeImpl extends EventsProviderImpl implements StockChange {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContinuousPackage.STOCK_CHANGE__START:
+			case TimeContinuousPackage.STOCK_CHANGE__START:
 				setStart((Date)newValue);
 				return;
-			case ContinuousPackage.STOCK_CHANGE__END:
+			case TimeContinuousPackage.STOCK_CHANGE__END:
 				setEnd((Date)newValue);
 				return;
-			case ContinuousPackage.STOCK_CHANGE__SLOPE:
+			case TimeContinuousPackage.STOCK_CHANGE__SLOPE:
 				setSlope((Float)newValue);
 				return;
-			case ContinuousPackage.STOCK_CHANGE__START_EVENT:
+			case TimeContinuousPackage.STOCK_CHANGE__START_EVENT:
 				setStartEvent((StockChangeStart)newValue);
 				return;
-			case ContinuousPackage.STOCK_CHANGE__END_EVENT:
+			case TimeContinuousPackage.STOCK_CHANGE__END_EVENT:
 				setEndEvent((StockChangeEnd)newValue);
 				return;
 		}
@@ -406,19 +407,19 @@ public class StockChangeImpl extends EventsProviderImpl implements StockChange {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.STOCK_CHANGE__START:
+			case TimeContinuousPackage.STOCK_CHANGE__START:
 				setStart(START_EDEFAULT);
 				return;
-			case ContinuousPackage.STOCK_CHANGE__END:
+			case TimeContinuousPackage.STOCK_CHANGE__END:
 				setEnd(END_EDEFAULT);
 				return;
-			case ContinuousPackage.STOCK_CHANGE__SLOPE:
+			case TimeContinuousPackage.STOCK_CHANGE__SLOPE:
 				setSlope(SLOPE_EDEFAULT);
 				return;
-			case ContinuousPackage.STOCK_CHANGE__START_EVENT:
+			case TimeContinuousPackage.STOCK_CHANGE__START_EVENT:
 				setStartEvent((StockChangeStart)null);
 				return;
-			case ContinuousPackage.STOCK_CHANGE__END_EVENT:
+			case TimeContinuousPackage.STOCK_CHANGE__END_EVENT:
 				setEndEvent((StockChangeEnd)null);
 				return;
 		}
@@ -433,15 +434,15 @@ public class StockChangeImpl extends EventsProviderImpl implements StockChange {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.STOCK_CHANGE__START:
+			case TimeContinuousPackage.STOCK_CHANGE__START:
 				return START_EDEFAULT == null ? start != null : !START_EDEFAULT.equals(start);
-			case ContinuousPackage.STOCK_CHANGE__END:
+			case TimeContinuousPackage.STOCK_CHANGE__END:
 				return END_EDEFAULT == null ? end != null : !END_EDEFAULT.equals(end);
-			case ContinuousPackage.STOCK_CHANGE__SLOPE:
+			case TimeContinuousPackage.STOCK_CHANGE__SLOPE:
 				return slope != SLOPE_EDEFAULT;
-			case ContinuousPackage.STOCK_CHANGE__START_EVENT:
+			case TimeContinuousPackage.STOCK_CHANGE__START_EVENT:
 				return startEvent != null;
-			case ContinuousPackage.STOCK_CHANGE__END_EVENT:
+			case TimeContinuousPackage.STOCK_CHANGE__END_EVENT:
 				return endEvent != null;
 		}
 		return super.eIsSet(featureID);
@@ -481,11 +482,11 @@ public class StockChangeImpl extends EventsProviderImpl implements StockChange {
 			}
 		} else {
 			if ( this.getStartEvent()==null){
-				StockChangeStart newstart = ContinuousFactory.eINSTANCE.createStockChangeStart();
+				StockChangeStart newstart = TimeContinuousFactory.eINSTANCE.createStockChangeStart();
 				newstart.setProvider(this);
 			}
 			if ( this.getEndEvent()==null){
-				StockChangeEnd newend= ContinuousFactory.eINSTANCE.createStockChangeEnd();
+				StockChangeEnd newend= TimeContinuousFactory.eINSTANCE.createStockChangeEnd();
 				newend.setProvider(this);
 			}
 		}

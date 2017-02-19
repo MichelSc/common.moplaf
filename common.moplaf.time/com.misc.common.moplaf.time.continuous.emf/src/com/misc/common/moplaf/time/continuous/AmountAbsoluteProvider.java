@@ -16,7 +16,7 @@ package com.misc.common.moplaf.time.continuous;
  *   <li>{@link com.misc.common.moplaf.time.continuous.AmountAbsoluteProvider#getAmountAbsolute <em>Amount Absolute</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getAmountAbsoluteProvider()
+ * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getAmountAbsoluteProvider()
  * @model
  * @generated
  */
@@ -32,7 +32,7 @@ public interface AmountAbsoluteProvider extends EventProvider {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Event</em>' containment reference.
 	 * @see #setEvent(AmountAbsoluteAtomic)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getAmountAbsoluteProvider_Event()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getAmountAbsoluteProvider_Event()
 	 * @see com.misc.common.moplaf.time.continuous.AmountAbsoluteAtomic#getProvider
 	 * @model opposite="Provider" containment="true"
 	 * @generated
@@ -60,7 +60,7 @@ public interface AmountAbsoluteProvider extends EventProvider {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Amount Absolute</em>' attribute.
 	 * @see #setAmountAbsolute(float)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getAmountAbsoluteProvider_AmountAbsolute()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getAmountAbsoluteProvider_AmountAbsolute()
 	 * @model default="0.0"
 	 * @generated
 	 */

@@ -8,11 +8,10 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.misc.common.moplaf.time.continuous,
- com.misc.common.moplaf.time.continuous.calc,
  com.misc.common.moplaf.time.continuous.impl,
  com.misc.common.moplaf.time.continuous.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
- com.misc.common.moplaf.propagator;visibility:=reexport
+ com.misc.common.moplaf.propagator2;bundle-version="1.0.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy

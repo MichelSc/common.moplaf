@@ -9,7 +9,7 @@
     <eLiterals name="Milli" value="3"/>
     <eLiterals name="Day" value="4"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Distribution" eSuperTypes="../../com.misc.common.moplaf.propagator/model/propagator.ecore#//ObjectWithPropagatorFunctionAdapter">
+  <eClassifiers xsi:type="ecore:EClass" name="Distribution" eSuperTypes="../../com.misc.common.moplaf.propagator2/model/propagator.ecore#//ObjectWithPropagatorFunctions">
     <eOperations name="getDuration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Returns the duration between two times in the unit of the distribution&#xA;"/>
@@ -136,11 +136,6 @@
       </eAnnotations>
     </eOperations>
     <eOperations name="refreshChildEvent"/>
-    <eOperations name="refresh">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Refreshes all the derived data elements of the Distribution (event sequence, amount and slope)"/>
-      </eAnnotations>
-    </eOperations>
     <eOperations name="refreshProvidedEvents">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Refreshes all the data elements related to the sequece of events (reference SequenceEvent, DistributionEvent EventNr, Next-Previous"/>
@@ -177,7 +172,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ProvidedEvents" upperBound="-1"
         eType="#//DistributionEvent" eOpposite="#//DistributionEvent/DistributionAsProvidedEvent"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DistributionEvent" abstract="true" eSuperTypes="../../com.misc.common.moplaf.propagator/model/propagator.ecore#//ObjectWithPropagatorFunctionAdapter">
+  <eClassifiers xsi:type="ecore:EClass" name="DistributionEvent" abstract="true" eSuperTypes="../../com.misc.common.moplaf.propagator2/model/propagator.ecore#//ObjectWithPropagatorFunctions">
     <eAnnotations source="http://www.obeo.fr/dsl/dnc/archetype">
       <details key="archetype" value="Thing"/>
     </eAnnotations>
@@ -198,7 +193,6 @@
     <eOperations name="refreshAmountAfter"/>
     <eOperations name="refreshSlopeAfter"/>
     <eOperations name="refreshMoment"/>
-    <eOperations name="refreshDescription"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Moment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="EventNr" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Next" eType="#//DistributionEvent"
@@ -209,7 +203,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="AmountAfter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SlopeBefore" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SlopeAfter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" defaultValueLiteral=""
+        derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="DistributionAsSequence"
         eType="#//Distribution" eOpposite="#//Distribution/SequenceEvents"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Distribution" eType="#//Distribution"
@@ -278,7 +274,7 @@
         eType="#//SlopeAbsoluteProvider" eOpposite="#//SlopeAbsoluteProvider/Event"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EventsProviderAbstract" abstract="true"
-      eSuperTypes="../../com.misc.common.moplaf.propagator/model/propagator.ecore#//ObjectWithPropagatorFunctionAdapter">
+      eSuperTypes="../../com.misc.common.moplaf.propagator2/model/propagator.ecore#//ObjectWithPropagatorFunctions">
     <eOperations name="refreshEvents"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Distribution" lowerBound="1"
         eType="#//Distribution" eOpposite="#//Distribution/EventsProviders"/>
@@ -356,5 +352,18 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="EventProvider" lowerBound="1"
         eType="#//EventsProviderAbstract" changeable="false" volatile="true" transient="true"
         derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorFunctionDistribution" eSuperTypes="../../com.misc.common.moplaf.propagator2/model/propagator.ecore#//PropagatorFunctionBindings">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Distribution" eType="#//Distribution"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorFunctionDistributionEvent"
+      eSuperTypes="../../com.misc.common.moplaf.propagator2/model/propagator.ecore#//PropagatorFunctionBindings">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="DistributionEvent" eType="#//DistributionEvent"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorFunctionEventsProvider" eSuperTypes="../../com.misc.common.moplaf.propagator2/model/propagator.ecore#//PropagatorFunctionBindings">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EventsProvider" eType="#//EventsProviderAbstract"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
 </ecore:EPackage>

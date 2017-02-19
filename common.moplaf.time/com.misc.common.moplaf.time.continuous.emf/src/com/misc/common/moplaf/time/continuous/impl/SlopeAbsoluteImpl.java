@@ -2,10 +2,9 @@
  */
 package com.misc.common.moplaf.time.continuous.impl;
 
-import com.misc.common.moplaf.propagator.Util;
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
+
 import com.misc.common.moplaf.time.continuous.SlopeAbsolute;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeAbsoluteSlopeAfter;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
@@ -56,15 +55,6 @@ public abstract class SlopeAbsoluteImpl extends ProvidedEventImpl implements Slo
 		super();
 	}
 
-	/* (non-Javadoc)
-	 * @see com.misc.common.moplaf.time.continuous.impl.DistributionEventImpl#addPropagatorFunctionAdapter()
-	 */
-	@Override
-	public void addPropagatorFunctionAdapter() {
-		super.addPropagatorFunctionAdapter();
-		Util.adapt(this, PropagatorCalcSlopeAbsoluteSlopeAfter.class);
-	}
-	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -72,7 +62,7 @@ public abstract class SlopeAbsoluteImpl extends ProvidedEventImpl implements Slo
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ContinuousPackage.Literals.SLOPE_ABSOLUTE;
+		return TimeContinuousPackage.Literals.SLOPE_ABSOLUTE;
 	}
 
 	/**
@@ -93,7 +83,7 @@ public abstract class SlopeAbsoluteImpl extends ProvidedEventImpl implements Slo
 		float oldSlopeAbsolute = slopeAbsolute;
 		slopeAbsolute = newSlopeAbsolute;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.SLOPE_ABSOLUTE__SLOPE_ABSOLUTE, oldSlopeAbsolute, slopeAbsolute));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.SLOPE_ABSOLUTE__SLOPE_ABSOLUTE, oldSlopeAbsolute, slopeAbsolute));
 	}
 
 	/**
@@ -115,7 +105,7 @@ public abstract class SlopeAbsoluteImpl extends ProvidedEventImpl implements Slo
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContinuousPackage.SLOPE_ABSOLUTE__SLOPE_ABSOLUTE:
+			case TimeContinuousPackage.SLOPE_ABSOLUTE__SLOPE_ABSOLUTE:
 				return getSlopeAbsolute();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -129,7 +119,7 @@ public abstract class SlopeAbsoluteImpl extends ProvidedEventImpl implements Slo
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContinuousPackage.SLOPE_ABSOLUTE__SLOPE_ABSOLUTE:
+			case TimeContinuousPackage.SLOPE_ABSOLUTE__SLOPE_ABSOLUTE:
 				setSlopeAbsolute((Float)newValue);
 				return;
 		}
@@ -144,7 +134,7 @@ public abstract class SlopeAbsoluteImpl extends ProvidedEventImpl implements Slo
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.SLOPE_ABSOLUTE__SLOPE_ABSOLUTE:
+			case TimeContinuousPackage.SLOPE_ABSOLUTE__SLOPE_ABSOLUTE:
 				setSlopeAbsolute(SLOPE_ABSOLUTE_EDEFAULT);
 				return;
 		}
@@ -159,7 +149,7 @@ public abstract class SlopeAbsoluteImpl extends ProvidedEventImpl implements Slo
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.SLOPE_ABSOLUTE__SLOPE_ABSOLUTE:
+			case TimeContinuousPackage.SLOPE_ABSOLUTE__SLOPE_ABSOLUTE:
 				return slopeAbsolute != SLOPE_ABSOLUTE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
@@ -173,7 +163,7 @@ public abstract class SlopeAbsoluteImpl extends ProvidedEventImpl implements Slo
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ContinuousPackage.SLOPE_ABSOLUTE___REFRESH_SLOPE_ABSOLUTE:
+			case TimeContinuousPackage.SLOPE_ABSOLUTE___REFRESH_SLOPE_ABSOLUTE:
 				refreshSlopeAbsolute();
 				return null;
 		}

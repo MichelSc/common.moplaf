@@ -2,16 +2,10 @@
  */
 package com.misc.common.moplaf.time.continuous.impl;
 
-import com.misc.common.moplaf.propagator.Util;
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
+import com.misc.common.moplaf.propagator2.impl.ObjectWithPropagatorFunctionsImpl;
 import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.DistributionEvent;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventAmountAfter;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventAmountBefore;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventDescription;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventSlopeAfter;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventSlopeBefore;
-
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
 
@@ -21,7 +15,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,7 +40,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container implements DistributionEvent {
+public abstract class DistributionEventImpl extends ObjectWithPropagatorFunctionsImpl implements DistributionEvent {
 	/**
 	 * The default value of the '{@link #getMoment() <em>Moment</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -196,17 +189,7 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String DESCRIPTION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected String description = DESCRIPTION_EDEFAULT;
+	protected static final String DESCRIPTION_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getDistributionAsSequence() <em>Distribution As Sequence</em>}' reference.
@@ -253,7 +236,7 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ContinuousPackage.Literals.DISTRIBUTION_EVENT;
+		return TimeContinuousPackage.Literals.DISTRIBUTION_EVENT;
 	}
 
 	/**
@@ -274,7 +257,7 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 		Date oldMoment = moment;
 		moment = newMoment;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.DISTRIBUTION_EVENT__MOMENT, oldMoment, moment));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.DISTRIBUTION_EVENT__MOMENT, oldMoment, moment));
 	}
 
 	/**
@@ -295,7 +278,7 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 		int oldEventNr = eventNr;
 		eventNr = newEventNr;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.DISTRIBUTION_EVENT__EVENT_NR, oldEventNr, eventNr));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.DISTRIBUTION_EVENT__EVENT_NR, oldEventNr, eventNr));
 	}
 
 	/**
@@ -309,7 +292,7 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 			next = (DistributionEvent)eResolveProxy(oldNext);
 			if (next != oldNext) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ContinuousPackage.DISTRIBUTION_EVENT__NEXT, oldNext, next));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TimeContinuousPackage.DISTRIBUTION_EVENT__NEXT, oldNext, next));
 			}
 		}
 		return next;
@@ -333,7 +316,7 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 		DistributionEvent oldNext = next;
 		next = newNext;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ContinuousPackage.DISTRIBUTION_EVENT__NEXT, oldNext, newNext);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.DISTRIBUTION_EVENT__NEXT, oldNext, newNext);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -348,14 +331,14 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 		if (newNext != next) {
 			NotificationChain msgs = null;
 			if (next != null)
-				msgs = ((InternalEObject)next).eInverseRemove(this, ContinuousPackage.DISTRIBUTION_EVENT__PREVIOUS, DistributionEvent.class, msgs);
+				msgs = ((InternalEObject)next).eInverseRemove(this, TimeContinuousPackage.DISTRIBUTION_EVENT__PREVIOUS, DistributionEvent.class, msgs);
 			if (newNext != null)
-				msgs = ((InternalEObject)newNext).eInverseAdd(this, ContinuousPackage.DISTRIBUTION_EVENT__PREVIOUS, DistributionEvent.class, msgs);
+				msgs = ((InternalEObject)newNext).eInverseAdd(this, TimeContinuousPackage.DISTRIBUTION_EVENT__PREVIOUS, DistributionEvent.class, msgs);
 			msgs = basicSetNext(newNext, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.DISTRIBUTION_EVENT__NEXT, newNext, newNext));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.DISTRIBUTION_EVENT__NEXT, newNext, newNext));
 	}
 
 	/**
@@ -369,7 +352,7 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 			previous = (DistributionEvent)eResolveProxy(oldPrevious);
 			if (previous != oldPrevious) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ContinuousPackage.DISTRIBUTION_EVENT__PREVIOUS, oldPrevious, previous));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TimeContinuousPackage.DISTRIBUTION_EVENT__PREVIOUS, oldPrevious, previous));
 			}
 		}
 		return previous;
@@ -393,7 +376,7 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 		DistributionEvent oldPrevious = previous;
 		previous = newPrevious;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ContinuousPackage.DISTRIBUTION_EVENT__PREVIOUS, oldPrevious, newPrevious);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.DISTRIBUTION_EVENT__PREVIOUS, oldPrevious, newPrevious);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -408,14 +391,14 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 		if (newPrevious != previous) {
 			NotificationChain msgs = null;
 			if (previous != null)
-				msgs = ((InternalEObject)previous).eInverseRemove(this, ContinuousPackage.DISTRIBUTION_EVENT__NEXT, DistributionEvent.class, msgs);
+				msgs = ((InternalEObject)previous).eInverseRemove(this, TimeContinuousPackage.DISTRIBUTION_EVENT__NEXT, DistributionEvent.class, msgs);
 			if (newPrevious != null)
-				msgs = ((InternalEObject)newPrevious).eInverseAdd(this, ContinuousPackage.DISTRIBUTION_EVENT__NEXT, DistributionEvent.class, msgs);
+				msgs = ((InternalEObject)newPrevious).eInverseAdd(this, TimeContinuousPackage.DISTRIBUTION_EVENT__NEXT, DistributionEvent.class, msgs);
 			msgs = basicSetPrevious(newPrevious, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.DISTRIBUTION_EVENT__PREVIOUS, newPrevious, newPrevious));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.DISTRIBUTION_EVENT__PREVIOUS, newPrevious, newPrevious));
 	}
 
 	/**
@@ -436,7 +419,7 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 		float oldAmountBefore = amountBefore;
 		amountBefore = newAmountBefore;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.DISTRIBUTION_EVENT__AMOUNT_BEFORE, oldAmountBefore, amountBefore));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.DISTRIBUTION_EVENT__AMOUNT_BEFORE, oldAmountBefore, amountBefore));
 	}
 
 	/**
@@ -457,7 +440,7 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 		float oldAmountAfter = amountAfter;
 		amountAfter = newAmountAfter;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.DISTRIBUTION_EVENT__AMOUNT_AFTER, oldAmountAfter, amountAfter));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.DISTRIBUTION_EVENT__AMOUNT_AFTER, oldAmountAfter, amountAfter));
 	}
 
 	/**
@@ -478,7 +461,7 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 		float oldSlopeBefore = slopeBefore;
 		slopeBefore = newSlopeBefore;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.DISTRIBUTION_EVENT__SLOPE_BEFORE, oldSlopeBefore, slopeBefore));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.DISTRIBUTION_EVENT__SLOPE_BEFORE, oldSlopeBefore, slopeBefore));
 	}
 
 	/**
@@ -499,28 +482,16 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 		float oldSlopeAfter = slopeAfter;
 		slopeAfter = newSlopeAfter;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.DISTRIBUTION_EVENT__SLOPE_AFTER, oldSlopeAfter, slopeAfter));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.DISTRIBUTION_EVENT__SLOPE_AFTER, oldSlopeAfter, slopeAfter));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public String getDescription() {
+		String description = String.format("Event(%1$ty-%1$tm-%1$td %1$tH-%1$tM-%1$tS, %2$.2f, %3$.2f)", this.getMoment(), this.getAmountBefore(), this.getAmountAfter());
 		return description;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDescription(String newDescription) {
-		String oldDescription = description;
-		description = newDescription;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.DISTRIBUTION_EVENT__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -534,7 +505,7 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 			distributionAsSequence = (Distribution)eResolveProxy(oldDistributionAsSequence);
 			if (distributionAsSequence != oldDistributionAsSequence) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE, oldDistributionAsSequence, distributionAsSequence));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TimeContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE, oldDistributionAsSequence, distributionAsSequence));
 			}
 		}
 		return distributionAsSequence;
@@ -558,7 +529,7 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 		Distribution oldDistributionAsSequence = distributionAsSequence;
 		distributionAsSequence = newDistributionAsSequence;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE, oldDistributionAsSequence, newDistributionAsSequence);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE, oldDistributionAsSequence, newDistributionAsSequence);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -573,14 +544,14 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 		if (newDistributionAsSequence != distributionAsSequence) {
 			NotificationChain msgs = null;
 			if (distributionAsSequence != null)
-				msgs = ((InternalEObject)distributionAsSequence).eInverseRemove(this, ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENTS, Distribution.class, msgs);
+				msgs = ((InternalEObject)distributionAsSequence).eInverseRemove(this, TimeContinuousPackage.DISTRIBUTION__SEQUENCE_EVENTS, Distribution.class, msgs);
 			if (newDistributionAsSequence != null)
-				msgs = ((InternalEObject)newDistributionAsSequence).eInverseAdd(this, ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENTS, Distribution.class, msgs);
+				msgs = ((InternalEObject)newDistributionAsSequence).eInverseAdd(this, TimeContinuousPackage.DISTRIBUTION__SEQUENCE_EVENTS, Distribution.class, msgs);
 			msgs = basicSetDistributionAsSequence(newDistributionAsSequence, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE, newDistributionAsSequence, newDistributionAsSequence));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE, newDistributionAsSequence, newDistributionAsSequence));
 	}
 
 	/**
@@ -616,7 +587,7 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 			distributionAsProvidedEvent = (Distribution)eResolveProxy(oldDistributionAsProvidedEvent);
 			if (distributionAsProvidedEvent != oldDistributionAsProvidedEvent) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT, oldDistributionAsProvidedEvent, distributionAsProvidedEvent));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TimeContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT, oldDistributionAsProvidedEvent, distributionAsProvidedEvent));
 			}
 		}
 		return distributionAsProvidedEvent;
@@ -640,7 +611,7 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 		Distribution oldDistributionAsProvidedEvent = distributionAsProvidedEvent;
 		distributionAsProvidedEvent = newDistributionAsProvidedEvent;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT, oldDistributionAsProvidedEvent, newDistributionAsProvidedEvent);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT, oldDistributionAsProvidedEvent, newDistributionAsProvidedEvent);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -655,14 +626,14 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 		if (newDistributionAsProvidedEvent != distributionAsProvidedEvent) {
 			NotificationChain msgs = null;
 			if (distributionAsProvidedEvent != null)
-				msgs = ((InternalEObject)distributionAsProvidedEvent).eInverseRemove(this, ContinuousPackage.DISTRIBUTION__PROVIDED_EVENTS, Distribution.class, msgs);
+				msgs = ((InternalEObject)distributionAsProvidedEvent).eInverseRemove(this, TimeContinuousPackage.DISTRIBUTION__PROVIDED_EVENTS, Distribution.class, msgs);
 			if (newDistributionAsProvidedEvent != null)
-				msgs = ((InternalEObject)newDistributionAsProvidedEvent).eInverseAdd(this, ContinuousPackage.DISTRIBUTION__PROVIDED_EVENTS, Distribution.class, msgs);
+				msgs = ((InternalEObject)newDistributionAsProvidedEvent).eInverseAdd(this, TimeContinuousPackage.DISTRIBUTION__PROVIDED_EVENTS, Distribution.class, msgs);
 			msgs = basicSetDistributionAsProvidedEvent(newDistributionAsProvidedEvent, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT, newDistributionAsProvidedEvent, newDistributionAsProvidedEvent));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT, newDistributionAsProvidedEvent, newDistributionAsProvidedEvent));
 	}
 
 	/**
@@ -773,47 +744,26 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 */
-	public void refreshDescription() {
-		String description = String.format("Event(%1$ty-%1$tm-%1$td %1$tH-%1$tM-%1$tS, %2$.2f, %3$.2f)", this.getMoment(), this.getAmountBefore(), this.getAmountAfter());
-		this.setDescription(description);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public void addPropagatorFunctionAdapter() {
-		Util.adapt(this, PropagatorCalcEventSlopeBefore.class);
-		Util.adapt(this, PropagatorCalcEventAmountBefore.class);
-		Util.adapt(this, PropagatorCalcEventSlopeAfter.class);
-		Util.adapt(this, PropagatorCalcEventAmountAfter.class);
-		Util.adapt(this, PropagatorCalcEventDescription.class);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContinuousPackage.DISTRIBUTION_EVENT__NEXT:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__NEXT:
 				if (next != null)
-					msgs = ((InternalEObject)next).eInverseRemove(this, ContinuousPackage.DISTRIBUTION_EVENT__PREVIOUS, DistributionEvent.class, msgs);
+					msgs = ((InternalEObject)next).eInverseRemove(this, TimeContinuousPackage.DISTRIBUTION_EVENT__PREVIOUS, DistributionEvent.class, msgs);
 				return basicSetNext((DistributionEvent)otherEnd, msgs);
-			case ContinuousPackage.DISTRIBUTION_EVENT__PREVIOUS:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__PREVIOUS:
 				if (previous != null)
-					msgs = ((InternalEObject)previous).eInverseRemove(this, ContinuousPackage.DISTRIBUTION_EVENT__NEXT, DistributionEvent.class, msgs);
+					msgs = ((InternalEObject)previous).eInverseRemove(this, TimeContinuousPackage.DISTRIBUTION_EVENT__NEXT, DistributionEvent.class, msgs);
 				return basicSetPrevious((DistributionEvent)otherEnd, msgs);
-			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
 				if (distributionAsSequence != null)
-					msgs = ((InternalEObject)distributionAsSequence).eInverseRemove(this, ContinuousPackage.DISTRIBUTION__SEQUENCE_EVENTS, Distribution.class, msgs);
+					msgs = ((InternalEObject)distributionAsSequence).eInverseRemove(this, TimeContinuousPackage.DISTRIBUTION__SEQUENCE_EVENTS, Distribution.class, msgs);
 				return basicSetDistributionAsSequence((Distribution)otherEnd, msgs);
-			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT:
 				if (distributionAsProvidedEvent != null)
-					msgs = ((InternalEObject)distributionAsProvidedEvent).eInverseRemove(this, ContinuousPackage.DISTRIBUTION__PROVIDED_EVENTS, Distribution.class, msgs);
+					msgs = ((InternalEObject)distributionAsProvidedEvent).eInverseRemove(this, TimeContinuousPackage.DISTRIBUTION__PROVIDED_EVENTS, Distribution.class, msgs);
 				return basicSetDistributionAsProvidedEvent((Distribution)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -827,13 +777,13 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContinuousPackage.DISTRIBUTION_EVENT__NEXT:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__NEXT:
 				return basicSetNext(null, msgs);
-			case ContinuousPackage.DISTRIBUTION_EVENT__PREVIOUS:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__PREVIOUS:
 				return basicSetPrevious(null, msgs);
-			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
 				return basicSetDistributionAsSequence(null, msgs);
-			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT:
 				return basicSetDistributionAsProvidedEvent(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -847,33 +797,33 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContinuousPackage.DISTRIBUTION_EVENT__MOMENT:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__MOMENT:
 				return getMoment();
-			case ContinuousPackage.DISTRIBUTION_EVENT__EVENT_NR:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__EVENT_NR:
 				return getEventNr();
-			case ContinuousPackage.DISTRIBUTION_EVENT__NEXT:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__NEXT:
 				if (resolve) return getNext();
 				return basicGetNext();
-			case ContinuousPackage.DISTRIBUTION_EVENT__PREVIOUS:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__PREVIOUS:
 				if (resolve) return getPrevious();
 				return basicGetPrevious();
-			case ContinuousPackage.DISTRIBUTION_EVENT__AMOUNT_BEFORE:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__AMOUNT_BEFORE:
 				return getAmountBefore();
-			case ContinuousPackage.DISTRIBUTION_EVENT__AMOUNT_AFTER:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__AMOUNT_AFTER:
 				return getAmountAfter();
-			case ContinuousPackage.DISTRIBUTION_EVENT__SLOPE_BEFORE:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__SLOPE_BEFORE:
 				return getSlopeBefore();
-			case ContinuousPackage.DISTRIBUTION_EVENT__SLOPE_AFTER:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__SLOPE_AFTER:
 				return getSlopeAfter();
-			case ContinuousPackage.DISTRIBUTION_EVENT__DESCRIPTION:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__DESCRIPTION:
 				return getDescription();
-			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
 				if (resolve) return getDistributionAsSequence();
 				return basicGetDistributionAsSequence();
-			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION:
 				if (resolve) return getDistribution();
 				return basicGetDistribution();
-			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT:
 				if (resolve) return getDistributionAsProvidedEvent();
 				return basicGetDistributionAsProvidedEvent();
 		}
@@ -888,37 +838,34 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContinuousPackage.DISTRIBUTION_EVENT__MOMENT:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__MOMENT:
 				setMoment((Date)newValue);
 				return;
-			case ContinuousPackage.DISTRIBUTION_EVENT__EVENT_NR:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__EVENT_NR:
 				setEventNr((Integer)newValue);
 				return;
-			case ContinuousPackage.DISTRIBUTION_EVENT__NEXT:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__NEXT:
 				setNext((DistributionEvent)newValue);
 				return;
-			case ContinuousPackage.DISTRIBUTION_EVENT__PREVIOUS:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__PREVIOUS:
 				setPrevious((DistributionEvent)newValue);
 				return;
-			case ContinuousPackage.DISTRIBUTION_EVENT__AMOUNT_BEFORE:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__AMOUNT_BEFORE:
 				setAmountBefore((Float)newValue);
 				return;
-			case ContinuousPackage.DISTRIBUTION_EVENT__AMOUNT_AFTER:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__AMOUNT_AFTER:
 				setAmountAfter((Float)newValue);
 				return;
-			case ContinuousPackage.DISTRIBUTION_EVENT__SLOPE_BEFORE:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__SLOPE_BEFORE:
 				setSlopeBefore((Float)newValue);
 				return;
-			case ContinuousPackage.DISTRIBUTION_EVENT__SLOPE_AFTER:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__SLOPE_AFTER:
 				setSlopeAfter((Float)newValue);
 				return;
-			case ContinuousPackage.DISTRIBUTION_EVENT__DESCRIPTION:
-				setDescription((String)newValue);
-				return;
-			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
 				setDistributionAsSequence((Distribution)newValue);
 				return;
-			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT:
 				setDistributionAsProvidedEvent((Distribution)newValue);
 				return;
 		}
@@ -933,37 +880,34 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.DISTRIBUTION_EVENT__MOMENT:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__MOMENT:
 				setMoment(MOMENT_EDEFAULT);
 				return;
-			case ContinuousPackage.DISTRIBUTION_EVENT__EVENT_NR:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__EVENT_NR:
 				setEventNr(EVENT_NR_EDEFAULT);
 				return;
-			case ContinuousPackage.DISTRIBUTION_EVENT__NEXT:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__NEXT:
 				setNext((DistributionEvent)null);
 				return;
-			case ContinuousPackage.DISTRIBUTION_EVENT__PREVIOUS:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__PREVIOUS:
 				setPrevious((DistributionEvent)null);
 				return;
-			case ContinuousPackage.DISTRIBUTION_EVENT__AMOUNT_BEFORE:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__AMOUNT_BEFORE:
 				setAmountBefore(AMOUNT_BEFORE_EDEFAULT);
 				return;
-			case ContinuousPackage.DISTRIBUTION_EVENT__AMOUNT_AFTER:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__AMOUNT_AFTER:
 				setAmountAfter(AMOUNT_AFTER_EDEFAULT);
 				return;
-			case ContinuousPackage.DISTRIBUTION_EVENT__SLOPE_BEFORE:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__SLOPE_BEFORE:
 				setSlopeBefore(SLOPE_BEFORE_EDEFAULT);
 				return;
-			case ContinuousPackage.DISTRIBUTION_EVENT__SLOPE_AFTER:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__SLOPE_AFTER:
 				setSlopeAfter(SLOPE_AFTER_EDEFAULT);
 				return;
-			case ContinuousPackage.DISTRIBUTION_EVENT__DESCRIPTION:
-				setDescription(DESCRIPTION_EDEFAULT);
-				return;
-			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
 				setDistributionAsSequence((Distribution)null);
 				return;
-			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT:
 				setDistributionAsProvidedEvent((Distribution)null);
 				return;
 		}
@@ -978,29 +922,29 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContinuousPackage.DISTRIBUTION_EVENT__MOMENT:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__MOMENT:
 				return MOMENT_EDEFAULT == null ? moment != null : !MOMENT_EDEFAULT.equals(moment);
-			case ContinuousPackage.DISTRIBUTION_EVENT__EVENT_NR:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__EVENT_NR:
 				return eventNr != EVENT_NR_EDEFAULT;
-			case ContinuousPackage.DISTRIBUTION_EVENT__NEXT:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__NEXT:
 				return next != null;
-			case ContinuousPackage.DISTRIBUTION_EVENT__PREVIOUS:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__PREVIOUS:
 				return previous != null;
-			case ContinuousPackage.DISTRIBUTION_EVENT__AMOUNT_BEFORE:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__AMOUNT_BEFORE:
 				return amountBefore != AMOUNT_BEFORE_EDEFAULT;
-			case ContinuousPackage.DISTRIBUTION_EVENT__AMOUNT_AFTER:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__AMOUNT_AFTER:
 				return amountAfter != AMOUNT_AFTER_EDEFAULT;
-			case ContinuousPackage.DISTRIBUTION_EVENT__SLOPE_BEFORE:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__SLOPE_BEFORE:
 				return slopeBefore != SLOPE_BEFORE_EDEFAULT;
-			case ContinuousPackage.DISTRIBUTION_EVENT__SLOPE_AFTER:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__SLOPE_AFTER:
 				return slopeAfter != SLOPE_AFTER_EDEFAULT;
-			case ContinuousPackage.DISTRIBUTION_EVENT__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_SEQUENCE:
 				return distributionAsSequence != null;
-			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION:
 				return basicGetDistribution() != null;
-			case ContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT:
 				return distributionAsProvidedEvent != null;
 		}
 		return super.eIsSet(featureID);
@@ -1014,34 +958,28 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case ContinuousPackage.DISTRIBUTION_EVENT___GET_AMOUNT_BEFORE__DATE:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT___GET_AMOUNT_BEFORE__DATE:
 				return getAmountBefore((Date)arguments.get(0));
-			case ContinuousPackage.DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT___GET_AMOUNT_AFTER__DATE:
 				return getAmountAfter((Date)arguments.get(0));
-			case ContinuousPackage.DISTRIBUTION_EVENT___IS_BEFORE__DISTRIBUTIONEVENT:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT___IS_BEFORE__DISTRIBUTIONEVENT:
 				return isBefore((DistributionEvent)arguments.get(0));
-			case ContinuousPackage.DISTRIBUTION_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT___IS_STRICT_BEFORE__DISTRIBUTIONEVENT:
 				return isStrictBefore((DistributionEvent)arguments.get(0));
-			case ContinuousPackage.DISTRIBUTION_EVENT___REFRESH_SLOPE_BEFORE:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT___REFRESH_SLOPE_BEFORE:
 				refreshSlopeBefore();
 				return null;
-			case ContinuousPackage.DISTRIBUTION_EVENT___REFRESH_AMOUNT_BEFORE:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT___REFRESH_AMOUNT_BEFORE:
 				refreshAmountBefore();
 				return null;
-			case ContinuousPackage.DISTRIBUTION_EVENT___REFRESH_AMOUNT_AFTER:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT___REFRESH_AMOUNT_AFTER:
 				refreshAmountAfter();
 				return null;
-			case ContinuousPackage.DISTRIBUTION_EVENT___REFRESH_SLOPE_AFTER:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT___REFRESH_SLOPE_AFTER:
 				refreshSlopeAfter();
 				return null;
-			case ContinuousPackage.DISTRIBUTION_EVENT___REFRESH_MOMENT:
+			case TimeContinuousPackage.DISTRIBUTION_EVENT___REFRESH_MOMENT:
 				refreshMoment();
-				return null;
-			case ContinuousPackage.DISTRIBUTION_EVENT___REFRESH_DESCRIPTION:
-				refreshDescription();
-				return null;
-			case ContinuousPackage.DISTRIBUTION_EVENT___ADD_PROPAGATOR_FUNCTION_ADAPTER:
-				addPropagatorFunctionAdapter();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
@@ -1069,8 +1007,6 @@ public abstract class DistributionEventImpl extends MinimalEObjectImpl.Container
 		result.append(slopeBefore);
 		result.append(", SlopeAfter: ");
 		result.append(slopeAfter);
-		result.append(", Description: ");
-		result.append(description);
 		result.append(')');
 		return result.toString();
 	}

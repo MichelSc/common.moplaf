@@ -16,7 +16,7 @@ package com.misc.common.moplaf.time.continuous;
  *   <li>{@link com.misc.common.moplaf.time.continuous.StartEvent#getSlopeAtStart <em>Slope At Start</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getStartEvent()
+ * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getStartEvent()
  * @model
  * @generated
  */
@@ -31,7 +31,7 @@ public interface StartEvent extends OwnedEvent {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Amount At Start</em>' attribute.
 	 * @see #setAmountAtStart(float)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getStartEvent_AmountAtStart()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getStartEvent_AmountAtStart()
 	 * @model
 	 * @generated
 	 */
@@ -57,7 +57,7 @@ public interface StartEvent extends OwnedEvent {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Slope At Start</em>' attribute.
 	 * @see #setSlopeAtStart(float)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getStartEvent_SlopeAtStart()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getStartEvent_SlopeAtStart()
 	 * @model
 	 * @generated
 	 */

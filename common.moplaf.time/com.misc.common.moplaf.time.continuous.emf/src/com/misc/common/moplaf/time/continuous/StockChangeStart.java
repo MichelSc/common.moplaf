@@ -15,7 +15,7 @@ package com.misc.common.moplaf.time.continuous;
  *   <li>{@link com.misc.common.moplaf.time.continuous.StockChangeStart#getProvider <em>Provider</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getStockChangeStart()
+ * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getStockChangeStart()
  * @model
  * @generated
  */
@@ -31,7 +31,7 @@ public interface StockChangeStart extends SlopeImpulsion {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Provider</em>' container reference.
 	 * @see #setProvider(StockChange)
-	 * @see com.misc.common.moplaf.time.continuous.ContinuousPackage#getStockChangeStart_Provider()
+	 * @see com.misc.common.moplaf.time.continuous.TimeContinuousPackage#getStockChangeStart_Provider()
 	 * @see com.misc.common.moplaf.time.continuous.StockChange#getStartEvent
 	 * @model opposite="StartEvent" required="true" transient="false"
 	 * @generated

@@ -3,10 +3,10 @@
 package com.misc.common.moplaf.time.continuous.provider;
 
 
-import com.misc.common.moplaf.time.continuous.ContinuousFactory;
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
 import com.misc.common.moplaf.time.continuous.SlopeImpulsionProvider;
 
+import com.misc.common.moplaf.time.continuous.TimeContinuousFactory;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -65,7 +65,7 @@ public class SlopeImpulsionProviderItemProvider extends EventProviderItemProvide
 				 getResourceLocator(),
 				 getString("_UI_SlopeImpulsionProvider_SlopeImpulsion_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SlopeImpulsionProvider_SlopeImpulsion_feature", "_UI_SlopeImpulsionProvider_type"),
-				 ContinuousPackage.Literals.SLOPE_IMPULSION_PROVIDER__SLOPE_IMPULSION,
+				 TimeContinuousPackage.Literals.SLOPE_IMPULSION_PROVIDER__SLOPE_IMPULSION,
 				 true,
 				 false,
 				 false,
@@ -86,7 +86,7 @@ public class SlopeImpulsionProviderItemProvider extends EventProviderItemProvide
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ContinuousPackage.Literals.SLOPE_IMPULSION_PROVIDER__EVENT);
+			childrenFeatures.add(TimeContinuousPackage.Literals.SLOPE_IMPULSION_PROVIDER__EVENT);
 		}
 		return childrenFeatures;
 	}
@@ -143,10 +143,10 @@ public class SlopeImpulsionProviderItemProvider extends EventProviderItemProvide
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SlopeImpulsionProvider.class)) {
-			case ContinuousPackage.SLOPE_IMPULSION_PROVIDER__SLOPE_IMPULSION:
+			case TimeContinuousPackage.SLOPE_IMPULSION_PROVIDER__SLOPE_IMPULSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ContinuousPackage.SLOPE_IMPULSION_PROVIDER__EVENT:
+			case TimeContinuousPackage.SLOPE_IMPULSION_PROVIDER__EVENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -166,8 +166,8 @@ public class SlopeImpulsionProviderItemProvider extends EventProviderItemProvide
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ContinuousPackage.Literals.SLOPE_IMPULSION_PROVIDER__EVENT,
-				 ContinuousFactory.eINSTANCE.createSlopeImpulsionAtomic()));
+				(TimeContinuousPackage.Literals.SLOPE_IMPULSION_PROVIDER__EVENT,
+				 TimeContinuousFactory.eINSTANCE.createSlopeImpulsionAtomic()));
 	}
 
 }

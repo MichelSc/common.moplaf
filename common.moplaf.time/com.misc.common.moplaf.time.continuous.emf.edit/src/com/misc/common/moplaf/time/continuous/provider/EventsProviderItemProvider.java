@@ -3,8 +3,7 @@
 package com.misc.common.moplaf.time.continuous.provider;
 
 
-import com.misc.common.moplaf.time.continuous.ContinuousPackage;
-
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -61,7 +60,7 @@ public class EventsProviderItemProvider extends EventsProviderAbstractItemProvid
 				 getResourceLocator(),
 				 getString("_UI_EventsProvider_ProvidedEvents_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_EventsProvider_ProvidedEvents_feature", "_UI_EventsProvider_type"),
-				 ContinuousPackage.Literals.EVENTS_PROVIDER__PROVIDED_EVENTS,
+				 TimeContinuousPackage.Literals.EVENTS_PROVIDER__PROVIDED_EVENTS,
 				 false,
 				 false,
 				 false,
