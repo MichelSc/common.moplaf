@@ -288,6 +288,15 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getPropagatorFunction__Init() {
+		return propagatorFunctionEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getPropagatorFunction_AntecedentsSibling() {
 		return (EReference)propagatorFunctionEClass.getEStructuralFeatures().get(2);
 	}
@@ -298,15 +307,6 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * @generated
 	 */
 	public EOperation getPropagatorFunction__Touch__EObject() {
-		return propagatorFunctionEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getPropagatorFunction__Untouch() {
 		return propagatorFunctionEClass.getEOperations().get(3);
 	}
 
@@ -315,7 +315,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__RefreshAntecedents() {
+	public EOperation getPropagatorFunction__Untouch() {
 		return propagatorFunctionEClass.getEOperations().get(4);
 	}
 
@@ -324,7 +324,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__RefreshThis() {
+	public EOperation getPropagatorFunction__RefreshAntecedents() {
 		return propagatorFunctionEClass.getEOperations().get(5);
 	}
 
@@ -333,7 +333,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__RefreshChildrenAndThis() {
+	public EOperation getPropagatorFunction__RefreshThis() {
 		return propagatorFunctionEClass.getEOperations().get(6);
 	}
 
@@ -342,7 +342,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__Refresh() {
+	public EOperation getPropagatorFunction__RefreshChildrenAndThis() {
 		return propagatorFunctionEClass.getEOperations().get(7);
 	}
 
@@ -351,8 +351,8 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__DoGetParent() {
-		return propagatorFunctionEClass.getEOperations().get(9);
+	public EOperation getPropagatorFunction__Refresh() {
+		return propagatorFunctionEClass.getEOperations().get(8);
 	}
 
 	/**
@@ -360,7 +360,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__DoRefresh() {
+	public EOperation getPropagatorFunction__DoGetParent() {
 		return propagatorFunctionEClass.getEOperations().get(10);
 	}
 
@@ -369,7 +369,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__DoRefresh__EObject() {
+	public EOperation getPropagatorFunction__DoRefresh() {
 		return propagatorFunctionEClass.getEOperations().get(11);
 	}
 
@@ -378,7 +378,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__GetScope() {
+	public EOperation getPropagatorFunction__DoRefresh__EObject() {
 		return propagatorFunctionEClass.getEOperations().get(12);
 	}
 
@@ -387,8 +387,17 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getPropagatorFunction__GetScope() {
+		return propagatorFunctionEClass.getEOperations().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getPropagatorFunction__DoGetAntecedents() {
-		return propagatorFunctionEClass.getEOperations().get(8);
+		return propagatorFunctionEClass.getEOperations().get(9);
 	}
 
 	/**
@@ -424,7 +433,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * @generated
 	 */
 	public EOperation getPropagatorFunction__Enable() {
-		return propagatorFunctionEClass.getEOperations().get(0);
+		return propagatorFunctionEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -433,7 +442,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * @generated
 	 */
 	public EOperation getPropagatorFunction__Disable() {
-		return propagatorFunctionEClass.getEOperations().get(1);
+		return propagatorFunctionEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -502,6 +511,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 		createEAttribute(propagatorFunctionEClass, PROPAGATOR_FUNCTION__OBJECT);
 		createEAttribute(propagatorFunctionEClass, PROPAGATOR_FUNCTION__INSTANCE);
 		createEAttribute(propagatorFunctionEClass, PROPAGATOR_FUNCTION__DESCRIPTION);
+		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___INIT);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___ENABLE);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___DISABLE);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___TOUCH__EOBJECT);
@@ -586,6 +596,8 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 		initEAttribute(getPropagatorFunction_Object(), ecorePackage.getEString(), "Object", null, 0, 1, PropagatorFunction.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPropagatorFunction_Instance(), ecorePackage.getEString(), "Instance", null, 0, 1, PropagatorFunction.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPropagatorFunction_Description(), ecorePackage.getEString(), "Description", null, 0, 1, PropagatorFunction.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getPropagatorFunction__Init(), null, "init", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getPropagatorFunction__Enable(), null, "enable", 0, 1, IS_UNIQUE, IS_ORDERED);
 

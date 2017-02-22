@@ -82,6 +82,7 @@ public class ObjectWithPropagatorFunctionsImpl extends MinimalEObjectImpl.Contai
 		PropagatorFunction pf = this.getPropagatorFunction(propagatorFunction.getClass());
 		if ( pf!=null) { return; }
 		this.getPropagatorFunctions().add(propagatorFunction);
+		propagatorFunction.init();
 		propagatorFunction.touch(toucher);
 	}
 
@@ -93,6 +94,7 @@ public class ObjectWithPropagatorFunctionsImpl extends MinimalEObjectImpl.Contai
 		PropagatorFunction pf = this.getPropagatorFunction(propagatorFunction.getClass());
 		if ( pf!=null) { return; }
 		this.getPropagatorFunctions().add(propagatorFunction);
+		propagatorFunction.init();
 		if ( !touch) { return; }
 		propagatorFunction.touch(null);
 	}

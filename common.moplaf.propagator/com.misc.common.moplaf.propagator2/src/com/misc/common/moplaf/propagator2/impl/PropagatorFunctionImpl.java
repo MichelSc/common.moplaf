@@ -458,6 +458,14 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public void init() {
+		// default does nothing
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public void notifyChangedObject(Notification notification) {
 		// default does nothing
 	}
@@ -787,6 +795,9 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case PropagatorPackage.PROPAGATOR_FUNCTION___INIT:
+				init();
+				return null;
 			case PropagatorPackage.PROPAGATOR_FUNCTION___ENABLE:
 				enable();
 				return null;

@@ -139,6 +139,10 @@
                   <styles xmi:type="notation:FontStyle" xmi:id="_VYsWJPHXEea-c9PQ1qM_Ug" fontName="Segoe UI" fontHeight="8"/>
                   <layoutConstraint xmi:type="notation:Location" xmi:id="_VYsWJfHXEea-c9PQ1qM_Ug"/>
                 </children>
+                <children xmi:type="notation:Node" xmi:id="_ezA3APgjEeas8uo0Tn-5Xw" type="3010" element="_eyU6gPgjEeas8uo0Tn-5Xw">
+                  <styles xmi:type="notation:FontStyle" xmi:id="_ezA3AfgjEeas8uo0Tn-5Xw" fontName="Segoe UI" fontHeight="8"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_ezA3AvgjEeas8uo0Tn-5Xw"/>
+                </children>
                 <children xmi:type="notation:Node" xmi:id="_VYs9MPHXEea-c9PQ1qM_Ug" type="3010" element="_VYF5MfHXEea-c9PQ1qM_Ug">
                   <styles xmi:type="notation:FontStyle" xmi:id="_VYs9MfHXEea-c9PQ1qM_Ug" fontName="Segoe UI" fontHeight="8"/>
                   <layoutConstraint xmi:type="notation:Location" xmi:id="_VYs9MvHXEea-c9PQ1qM_Ug"/>
@@ -466,6 +470,14 @@
             <target xmi:type="ecore:EOperation" href="propagator.ecore#//PropagatorFunction/getScope"/>
             <semanticElements xmi:type="ecore:EOperation" href="propagator.ecore#//PropagatorFunction/getScope"/>
             <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_VYF5MPHXEea-c9PQ1qM_Ug" labelAlignment="LEFT">
+              <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+          </ownedElements>
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_eyU6gPgjEeas8uo0Tn-5Xw" name="init()" tooltipText="init()">
+            <target xmi:type="ecore:EOperation" href="propagator.ecore#//PropagatorFunction/init"/>
+            <semanticElements xmi:type="ecore:EOperation" href="propagator.ecore#//PropagatorFunction/init"/>
+            <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_eyWIoPgjEeas8uo0Tn-5Xw" labelAlignment="LEFT">
               <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
             </ownedStyle>
             <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>

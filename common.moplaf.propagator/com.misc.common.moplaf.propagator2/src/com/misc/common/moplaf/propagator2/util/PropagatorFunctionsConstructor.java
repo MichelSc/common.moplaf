@@ -8,6 +8,5 @@ import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
  *
  */
 public interface PropagatorFunctionsConstructor {
-	void construct(ObjectWithPropagatorFunctions object);
-
+	void addPropagatorFunctions(ObjectWithPropagatorFunctions object);
 }

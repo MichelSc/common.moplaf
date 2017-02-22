@@ -21,6 +21,7 @@
         eType="#//PropagatorFunction" containment="true" eOpposite="#//PropagatorFunction/ObjectWithPropagatorFunctions"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PropagatorFunction">
+    <eOperations name="init"/>
     <eOperations name="enable"/>
     <eOperations name="disable"/>
     <eOperations name="touch">

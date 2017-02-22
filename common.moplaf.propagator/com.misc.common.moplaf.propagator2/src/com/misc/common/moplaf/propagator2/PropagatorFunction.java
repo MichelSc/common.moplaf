@@ -331,6 +331,14 @@ public interface PropagatorFunction extends EObject {
 	String getDescription();
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void init();
+
+	/**
 	 * Returns the value of the '<em><b>Antecedents Sibling</b></em>' reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.propagator2.PropagatorFunction}.
 	 * <!-- begin-user-doc -->

@@ -71,8 +71,6 @@ public interface ObjectWithPropagatorFunctions extends EObject {
 	EList<PropagatorFunction> getPropagatorFunctions();
 
 	/**
-	 * Add a {@link PropagatorFunction} to this ObjectWithPropagatorFunctions and touch
-	 * it with the received toucher.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
@@ -81,8 +79,6 @@ public interface ObjectWithPropagatorFunctions extends EObject {
 	void addPropagatorFunction(PropagatorFunction propagatorFunction, EObject toucher);
 
 	/**
-	 * Add a {@link PropagatorFunction} to this ObjectWithPropagatorFunctions and touch
-	 * it according to the parameter touch.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
@@ -91,7 +87,6 @@ public interface ObjectWithPropagatorFunctions extends EObject {
 	void addPropagatorFunction(PropagatorFunction propagatorFunction, boolean touch);
 
 	/**
-	 * Add a {@link PropagatorFunction} to this ObjectWithPropagatorFunctions and leave it untouched.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
