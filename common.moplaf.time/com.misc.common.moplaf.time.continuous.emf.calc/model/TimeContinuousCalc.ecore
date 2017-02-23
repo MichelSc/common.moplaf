@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="calc" nsURI="http://www.misc.com/common/moplaf/time/continuous/calc/model/0.1"
+    nsPrefix="timcontc">
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorScopeDistribution" eSuperTypes="../../com.misc.common.moplaf.time.continuous.emf/model/timecontinuous.ecore#//PropagatorFunctionDistribution"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcDistributionInitialization"
+      eSuperTypes="../../com.misc.common.moplaf.time.continuous.emf/model/timecontinuous.ecore#//PropagatorFunctionDistribution">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ConcreteParent" eType="#//PropagatorScopeDistribution"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorLayerCompositeEventRefresh"
+      eSuperTypes="../../com.misc.common.moplaf.time.continuous.emf/model/timecontinuous.ecore#//PropagatorFunctionDistribution">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ConcreteParent" eType="#//PropagatorScopeDistribution"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="AntecedenCalcDistributionInitialization"
+        eType="#//PropagatorCalcDistributionInitialization"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcDistributionChildEvents"
+      eSuperTypes="../../com.misc.common.moplaf.time.continuous.emf/model/timecontinuous.ecore#//PropagatorFunctionDistribution">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ConcreteParent" eType="#//PropagatorScopeDistribution"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcDistributionProvidedEvents"
+      eSuperTypes="../../com.misc.common.moplaf.time.continuous.emf/model/timecontinuous.ecore#//PropagatorFunctionDistribution">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ConcreteParent" eType="#//PropagatorScopeDistribution"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="AntecedentLayerCompositeeventRefresh"
+        eType="#//PropagatorLayerCompositeEventRefresh"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="AntecedentCalcDistributionchildEvents"
+        eType="#//PropagatorCalcDistributionChildEvents"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcDistributionSequence"
+      eSuperTypes="../../com.misc.common.moplaf.time.continuous.emf/model/timecontinuous.ecore#//PropagatorFunctionDistribution">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ConcreteParent" eType="#//PropagatorScopeDistribution"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="AntecedentCalcDistributionProvidedEvents"
+        eType="#//PropagatorCalcDistributionProvidedEvents"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorLayerDistributionSlopes" eSuperTypes="../../com.misc.common.moplaf.time.continuous.emf/model/timecontinuous.ecore#//PropagatorFunctionDistribution">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ConcreteParent" eType="#//PropagatorScopeDistribution"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="AntecedentCalcDistributionSequence"
+        eType="#//PropagatorCalcDistributionSequence"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorLayerDistributionAmounts"
+      eSuperTypes="../../com.misc.common.moplaf.time.continuous.emf/model/timecontinuous.ecore#//PropagatorFunctionDistribution">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ConcreteParent" eType="#//PropagatorScopeDistribution"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="AntecedentLayerDistributionSlopes"
+        eType="#//PropagatorLayerDistributionSlopes"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorLayerDistributionDescriptions"
+      eSuperTypes="../../com.misc.common.moplaf.time.continuous.emf/model/timecontinuous.ecore#//PropagatorFunctionDistribution">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ConcreteParent" eType="#//PropagatorScopeDistribution"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="AntecedentLayerDistributionAmounts"
+        eType="#//PropagatorLayerDistributionAmounts"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcAmountAbsoluteAmountAbsolute"
+      eSuperTypes="#//PropagatorCalcEventAmount"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcAmountAbsoluteAmountAfter"
+      eSuperTypes="#//PropagatorCalcEventAmountAfter"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcAmountAbsoluteAtomicAmountAbsolute"
+      eSuperTypes="#//PropagatorCalcAmountAbsoluteAmountAbsolute"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcAmountAbsoluteAtomicMoment"
+      eSuperTypes="#//PropagatorCalcEventMoment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcAmountImpulsionAmountAfter"
+      eSuperTypes="#//PropagatorCalcEventAmountAfter"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcAmountImpulsionAmountImpulsion"
+      eSuperTypes="#//PropagatorCalcEventAmount"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcAmountImpulsionAtomicAmountImpulsion"
+      eSuperTypes="#//PropagatorCalcAmountImpulsionAmountImpulsion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcAmountImpulsionAtomicMoment"
+      eSuperTypes="#//PropagatorCalcEventMoment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcCapacityChangeEndAmountImpulsion"
+      eSuperTypes="#//PropagatorCalcAmountImpulsionAmountImpulsion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcCapacityChangeEndMoment"
+      eSuperTypes="#//PropagatorCalcEventMoment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcCapacityChangeStartAmountImpulsion"
+      eSuperTypes="#//PropagatorCalcAmountImpulsionAmountImpulsion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcCapacityChangeStartMoment"
+      eSuperTypes="#//PropagatorCalcEventMoment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcChildEventAmountAfter"
+      eSuperTypes="#//PropagatorCalcEventAmountAfter"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcChildEventMoment" eSuperTypes="#//PropagatorCalcEventMoment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcChildEventSlopeAfter"
+      eSuperTypes="#//PropagatorCalcEventSlopeAfter"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcEndEventMoment" eSuperTypes="#//PropagatorCalcEventMoment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcEventAmountAfter" eSuperTypes="#//PropagatorCalcEventAmount"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcEventAmountBefore" eSuperTypes="#//PropagatorCalcEventAmount"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcEventDescription" eSuperTypes="../../com.misc.common.moplaf.time.continuous.emf/model/timecontinuous.ecore#//PropagatorFunctionDistributionEvent"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcEventMoment" eSuperTypes="../../com.misc.common.moplaf.time.continuous.emf/model/timecontinuous.ecore#//PropagatorFunctionDistributionEvent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ConcreteParent" eType="#//PropagatorCalcDistributionSequence"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcEventSlopeAfter" eSuperTypes="#//PropagatorCalcEventSlope"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcEventSlopeBefore" eSuperTypes="#//PropagatorCalcEventSlope"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcEventsProviderRefreshEvents"
+      eSuperTypes="../../com.misc.common.moplaf.time.continuous.emf/model/timecontinuous.ecore#//PropagatorFunctionEventsProvider">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ConcreteParent" eType="#//PropagatorLayerCompositeEventRefresh"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcSlopeAbsoluteAtomicMoment"
+      eSuperTypes="#//PropagatorCalcEventMoment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcSlopeAbsoluteAtomicSlopeAbsolute"
+      eSuperTypes="#//PropagatorCalcSlopeAbsoluteSlopeAbsolute"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcSlopeAbsoluteSlopeAbsolute"
+      eSuperTypes="#//PropagatorCalcEventSlope"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcSlopeAbsoluteSlopeAfter"
+      eSuperTypes="#//PropagatorCalcEventSlopeAfter"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcSlopeImpulsionAtomicMoment"
+      eSuperTypes="#//PropagatorCalcEventMoment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcSlopeImpulsionAtomicSlopeImpulsion"
+      eSuperTypes="#//PropagatorCalcSlopeImpulsionSlopeImpulsion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcSlopeImpulsionSlopeAfter"
+      eSuperTypes="#//PropagatorCalcEventSlopeAfter"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcSlopeImpulsionSlopeImpulsion"
+      eSuperTypes="#//PropagatorCalcEventSlope"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcStartEventAmountAfter"
+      eSuperTypes="#//PropagatorCalcEventAmountAfter"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcStartEventMoment" eSuperTypes="#//PropagatorCalcEventMoment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcStartEventSlopeAfter"
+      eSuperTypes="#//PropagatorCalcEventSlopeAfter"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcStockChangeEndMoment"
+      eSuperTypes="#//PropagatorCalcEventMoment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcStockChangeEndSlopeImpulsion"
+      eSuperTypes="#//PropagatorCalcSlopeImpulsionSlopeImpulsion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcStockChangeStartMoment"
+      eSuperTypes="#//PropagatorCalcEventMoment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcStockChangeStartSlopeImpulsion"
+      eSuperTypes="#//PropagatorCalcSlopeImpulsionSlopeImpulsion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcEventSlope" eSuperTypes="../../com.misc.common.moplaf.time.continuous.emf/model/timecontinuous.ecore#//PropagatorFunctionDistributionEvent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ConcreteParent" eType="#//PropagatorLayerDistributionSlopes"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcAmount"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcEventAmount" eSuperTypes="../../com.misc.common.moplaf.time.continuous.emf/model/timecontinuous.ecore#//PropagatorFunctionDistributionEvent">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ConcreteParent" eType="#//PropagatorLayerDistributionAmounts"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+</ecore:EPackage>

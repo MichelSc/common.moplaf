@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: com.misc.common.moplaf.time.continuous.emf.calc;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.misc.common.moplaf.time.continuous.calc,
+ com.misc.common.moplaf.time.continuous.calc.impl,
+ com.misc.common.moplaf.time.continuous.calc.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ com.misc.common.moplaf.propagator2;visibility:=reexport,
+ com.misc.common.moplaf.time.continuous.emf;visibility:=reexport
+Bundle-ActivationPolicy: lazy
