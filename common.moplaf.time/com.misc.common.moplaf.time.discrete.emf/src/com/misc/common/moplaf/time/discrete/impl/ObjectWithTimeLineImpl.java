@@ -2,8 +2,8 @@
  */
 package com.misc.common.moplaf.time.discrete.impl;
 
-import com.misc.common.moplaf.time.discrete.DiscreteFactory;
-import com.misc.common.moplaf.time.discrete.DiscretePackage;
+import com.misc.common.moplaf.time.discrete.TimeDiscreteFactory;
+import com.misc.common.moplaf.time.discrete.TimeDiscretePackage;
 import com.misc.common.moplaf.time.discrete.ObjectTimeBucket;
 import com.misc.common.moplaf.time.discrete.ObjectWithTimeLine;
 import com.misc.common.moplaf.time.discrete.TimeBucket;
@@ -107,7 +107,7 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return DiscretePackage.Literals.OBJECT_WITH_TIME_LINE;
+		return TimeDiscretePackage.Literals.OBJECT_WITH_TIME_LINE;
 	}
 
 	/**
@@ -131,7 +131,7 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 	 */
 	public EList<ObjectTimeBucket> getBuckets() {
 		if (buckets == null) {
-			buckets = new EObjectResolvingEList<ObjectTimeBucket>(ObjectTimeBucket.class, this, DiscretePackage.OBJECT_WITH_TIME_LINE__BUCKETS);
+			buckets = new EObjectResolvingEList<ObjectTimeBucket>(ObjectTimeBucket.class, this, TimeDiscretePackage.OBJECT_WITH_TIME_LINE__BUCKETS);
 		}
 		return buckets;
 	}
@@ -147,7 +147,7 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 			lastBucket = (ObjectTimeBucket)eResolveProxy(oldLastBucket);
 			if (lastBucket != oldLastBucket) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DiscretePackage.OBJECT_WITH_TIME_LINE__LAST_BUCKET, oldLastBucket, lastBucket));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TimeDiscretePackage.OBJECT_WITH_TIME_LINE__LAST_BUCKET, oldLastBucket, lastBucket));
 			}
 		}
 		return lastBucket;
@@ -171,7 +171,7 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 		ObjectTimeBucket oldLastBucket = lastBucket;
 		lastBucket = newLastBucket;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.OBJECT_WITH_TIME_LINE__LAST_BUCKET, oldLastBucket, lastBucket));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.OBJECT_WITH_TIME_LINE__LAST_BUCKET, oldLastBucket, lastBucket));
 	}
 
 	/**
@@ -185,7 +185,7 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 			firstBucket = (ObjectTimeBucket)eResolveProxy(oldFirstBucket);
 			if (firstBucket != oldFirstBucket) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DiscretePackage.OBJECT_WITH_TIME_LINE__FIRST_BUCKET, oldFirstBucket, firstBucket));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TimeDiscretePackage.OBJECT_WITH_TIME_LINE__FIRST_BUCKET, oldFirstBucket, firstBucket));
 			}
 		}
 		return firstBucket;
@@ -209,7 +209,7 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 		ObjectTimeBucket oldFirstBucket = firstBucket;
 		firstBucket = newFirstBucket;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.OBJECT_WITH_TIME_LINE__FIRST_BUCKET, oldFirstBucket, firstBucket));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.OBJECT_WITH_TIME_LINE__FIRST_BUCKET, oldFirstBucket, firstBucket));
 	}
 
 	/**
@@ -223,7 +223,7 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 			startBucket = (TimeBucket)eResolveProxy(oldStartBucket);
 			if (startBucket != oldStartBucket) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DiscretePackage.OBJECT_WITH_TIME_LINE__START_BUCKET, oldStartBucket, startBucket));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TimeDiscretePackage.OBJECT_WITH_TIME_LINE__START_BUCKET, oldStartBucket, startBucket));
 			}
 		}
 		return startBucket;
@@ -247,7 +247,7 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 		TimeBucket oldStartBucket = startBucket;
 		startBucket = newStartBucket;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.OBJECT_WITH_TIME_LINE__START_BUCKET, oldStartBucket, startBucket));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.OBJECT_WITH_TIME_LINE__START_BUCKET, oldStartBucket, startBucket));
 	}
 
 	/**
@@ -261,7 +261,7 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 			endBucket = (TimeBucket)eResolveProxy(oldEndBucket);
 			if (endBucket != oldEndBucket) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DiscretePackage.OBJECT_WITH_TIME_LINE__END_BUCKET, oldEndBucket, endBucket));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TimeDiscretePackage.OBJECT_WITH_TIME_LINE__END_BUCKET, oldEndBucket, endBucket));
 			}
 		}
 		return endBucket;
@@ -285,7 +285,7 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 		TimeBucket oldEndBucket = endBucket;
 		endBucket = newEndBucket;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.OBJECT_WITH_TIME_LINE__END_BUCKET, oldEndBucket, endBucket));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.OBJECT_WITH_TIME_LINE__END_BUCKET, oldEndBucket, endBucket));
 	}
 	
 	
@@ -308,7 +308,7 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 */
 	public ObjectTimeBucket constructObjectTimeBucket() {
-		ObjectTimeBucket newObjectBucket = DiscreteFactory.eINSTANCE.createObjectTimeBucket();
+		ObjectTimeBucket newObjectBucket = TimeDiscreteFactory.eINSTANCE.createObjectTimeBucket();
 		return newObjectBucket;
 	}
 	
@@ -329,18 +329,18 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DiscretePackage.OBJECT_WITH_TIME_LINE__BUCKETS:
+			case TimeDiscretePackage.OBJECT_WITH_TIME_LINE__BUCKETS:
 				return getBuckets();
-			case DiscretePackage.OBJECT_WITH_TIME_LINE__LAST_BUCKET:
+			case TimeDiscretePackage.OBJECT_WITH_TIME_LINE__LAST_BUCKET:
 				if (resolve) return getLastBucket();
 				return basicGetLastBucket();
-			case DiscretePackage.OBJECT_WITH_TIME_LINE__FIRST_BUCKET:
+			case TimeDiscretePackage.OBJECT_WITH_TIME_LINE__FIRST_BUCKET:
 				if (resolve) return getFirstBucket();
 				return basicGetFirstBucket();
-			case DiscretePackage.OBJECT_WITH_TIME_LINE__START_BUCKET:
+			case TimeDiscretePackage.OBJECT_WITH_TIME_LINE__START_BUCKET:
 				if (resolve) return getStartBucket();
 				return basicGetStartBucket();
-			case DiscretePackage.OBJECT_WITH_TIME_LINE__END_BUCKET:
+			case TimeDiscretePackage.OBJECT_WITH_TIME_LINE__END_BUCKET:
 				if (resolve) return getEndBucket();
 				return basicGetEndBucket();
 		}
@@ -356,20 +356,20 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DiscretePackage.OBJECT_WITH_TIME_LINE__BUCKETS:
+			case TimeDiscretePackage.OBJECT_WITH_TIME_LINE__BUCKETS:
 				getBuckets().clear();
 				getBuckets().addAll((Collection<? extends ObjectTimeBucket>)newValue);
 				return;
-			case DiscretePackage.OBJECT_WITH_TIME_LINE__LAST_BUCKET:
+			case TimeDiscretePackage.OBJECT_WITH_TIME_LINE__LAST_BUCKET:
 				setLastBucket((ObjectTimeBucket)newValue);
 				return;
-			case DiscretePackage.OBJECT_WITH_TIME_LINE__FIRST_BUCKET:
+			case TimeDiscretePackage.OBJECT_WITH_TIME_LINE__FIRST_BUCKET:
 				setFirstBucket((ObjectTimeBucket)newValue);
 				return;
-			case DiscretePackage.OBJECT_WITH_TIME_LINE__START_BUCKET:
+			case TimeDiscretePackage.OBJECT_WITH_TIME_LINE__START_BUCKET:
 				setStartBucket((TimeBucket)newValue);
 				return;
-			case DiscretePackage.OBJECT_WITH_TIME_LINE__END_BUCKET:
+			case TimeDiscretePackage.OBJECT_WITH_TIME_LINE__END_BUCKET:
 				setEndBucket((TimeBucket)newValue);
 				return;
 		}
@@ -384,19 +384,19 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DiscretePackage.OBJECT_WITH_TIME_LINE__BUCKETS:
+			case TimeDiscretePackage.OBJECT_WITH_TIME_LINE__BUCKETS:
 				getBuckets().clear();
 				return;
-			case DiscretePackage.OBJECT_WITH_TIME_LINE__LAST_BUCKET:
+			case TimeDiscretePackage.OBJECT_WITH_TIME_LINE__LAST_BUCKET:
 				setLastBucket((ObjectTimeBucket)null);
 				return;
-			case DiscretePackage.OBJECT_WITH_TIME_LINE__FIRST_BUCKET:
+			case TimeDiscretePackage.OBJECT_WITH_TIME_LINE__FIRST_BUCKET:
 				setFirstBucket((ObjectTimeBucket)null);
 				return;
-			case DiscretePackage.OBJECT_WITH_TIME_LINE__START_BUCKET:
+			case TimeDiscretePackage.OBJECT_WITH_TIME_LINE__START_BUCKET:
 				setStartBucket((TimeBucket)null);
 				return;
-			case DiscretePackage.OBJECT_WITH_TIME_LINE__END_BUCKET:
+			case TimeDiscretePackage.OBJECT_WITH_TIME_LINE__END_BUCKET:
 				setEndBucket((TimeBucket)null);
 				return;
 		}
@@ -411,15 +411,15 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DiscretePackage.OBJECT_WITH_TIME_LINE__BUCKETS:
+			case TimeDiscretePackage.OBJECT_WITH_TIME_LINE__BUCKETS:
 				return buckets != null && !buckets.isEmpty();
-			case DiscretePackage.OBJECT_WITH_TIME_LINE__LAST_BUCKET:
+			case TimeDiscretePackage.OBJECT_WITH_TIME_LINE__LAST_BUCKET:
 				return lastBucket != null;
-			case DiscretePackage.OBJECT_WITH_TIME_LINE__FIRST_BUCKET:
+			case TimeDiscretePackage.OBJECT_WITH_TIME_LINE__FIRST_BUCKET:
 				return firstBucket != null;
-			case DiscretePackage.OBJECT_WITH_TIME_LINE__START_BUCKET:
+			case TimeDiscretePackage.OBJECT_WITH_TIME_LINE__START_BUCKET:
 				return startBucket != null;
-			case DiscretePackage.OBJECT_WITH_TIME_LINE__END_BUCKET:
+			case TimeDiscretePackage.OBJECT_WITH_TIME_LINE__END_BUCKET:
 				return endBucket != null;
 		}
 		return super.eIsSet(featureID);
@@ -433,11 +433,11 @@ public class ObjectWithTimeLineImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case DiscretePackage.OBJECT_WITH_TIME_LINE___GET_BUCKET__TIMEBUCKET:
+			case TimeDiscretePackage.OBJECT_WITH_TIME_LINE___GET_BUCKET__TIMEBUCKET:
 				return getBucket((TimeBucket)arguments.get(0));
-			case DiscretePackage.OBJECT_WITH_TIME_LINE___CONSTRUCT_OBJECT_TIME_BUCKET:
+			case TimeDiscretePackage.OBJECT_WITH_TIME_LINE___CONSTRUCT_OBJECT_TIME_BUCKET:
 				return constructObjectTimeBucket();
-			case DiscretePackage.OBJECT_WITH_TIME_LINE___REFRESH:
+			case TimeDiscretePackage.OBJECT_WITH_TIME_LINE___REFRESH:
 				refresh();
 				return null;
 		}

@@ -2,7 +2,7 @@
  */
 package com.misc.common.moplaf.time.discrete.provider;
 
-import com.misc.common.moplaf.time.discrete.util.DiscreteAdapterFactory;
+import com.misc.common.moplaf.time.discrete.util.TimeDiscreteAdapterFactory;
 import com.misc.common.moplaf.timeview.emf.edit.IItemIntervalEventProvider;
 import com.misc.common.moplaf.timeview.emf.edit.IItemIntervalEventsProvider;
 
@@ -33,7 +33,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DiscreteItemProviderAdapterFactory extends DiscreteAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+public class TimeDiscreteItemProviderAdapterFactory extends TimeDiscreteAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -63,7 +63,7 @@ public class DiscreteItemProviderAdapterFactory extends DiscreteAdapterFactory i
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public DiscreteItemProviderAdapterFactory() {
+	public TimeDiscreteItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
 		supportedTypes.add(IStructuredItemContentProvider.class);
 		supportedTypes.add(ITreeItemContentProvider.class);

@@ -16,17 +16,17 @@ import org.eclipse.emf.ecore.EObject;
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see com.misc.common.moplaf.time.discrete.DiscretePackage
+ * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage
  * @generated
  */
-public class DiscreteAdapterFactory extends AdapterFactoryImpl {
+public class TimeDiscreteAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static DiscretePackage modelPackage;
+	protected static TimeDiscretePackage modelPackage;
 
 	/**
 	 * Creates an instance of the adapter factory.
@@ -34,9 +34,9 @@ public class DiscreteAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DiscreteAdapterFactory() {
+	public TimeDiscreteAdapterFactory() {
 		if (modelPackage == null) {
-			modelPackage = DiscretePackage.eINSTANCE;
+			modelPackage = TimeDiscretePackage.eINSTANCE;
 		}
 	}
 
@@ -65,8 +65,8 @@ public class DiscreteAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DiscreteSwitch<Adapter> modelSwitch =
-		new DiscreteSwitch<Adapter>() {
+	protected TimeDiscreteSwitch<Adapter> modelSwitch =
+		new TimeDiscreteSwitch<Adapter>() {
 			@Override
 			public Adapter caseTimeBucket(TimeBucket object) {
 				return createTimeBucketAdapter();

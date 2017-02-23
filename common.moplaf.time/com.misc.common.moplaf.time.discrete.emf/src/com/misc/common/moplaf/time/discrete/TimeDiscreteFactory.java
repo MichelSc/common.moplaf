@@ -9,17 +9,17 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * @see com.misc.common.moplaf.time.discrete.DiscretePackage
+ * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage
  * @generated
  */
-public interface DiscreteFactory extends EFactory {
+public interface TimeDiscreteFactory extends EFactory {
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	DiscreteFactory eINSTANCE = com.misc.common.moplaf.time.discrete.impl.DiscreteFactoryImpl.init();
+	TimeDiscreteFactory eINSTANCE = com.misc.common.moplaf.time.discrete.impl.TimeDiscreteFactoryImpl.init();
 
 	/**
 	 * Returns a new object of class '<em>Time Bucket</em>'.
@@ -82,6 +82,6 @@ public interface DiscreteFactory extends EFactory {
 	 * @return the package supported by this factory.
 	 * @generated
 	 */
-	DiscretePackage getDiscretePackage();
+	TimeDiscretePackage getTimeDiscretePackage();
 
 } //DiscreteFactory

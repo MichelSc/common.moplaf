@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeBucket#getTimeLine <em>Time Line</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeBucket()
+ * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeBucket()
  * @model
  * @generated
  */
@@ -42,7 +42,7 @@ public interface TimeBucket extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Bucket Nr</em>' attribute.
 	 * @see #setBucketNr(int)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeBucket_BucketNr()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeBucket_BucketNr()
 	 * @model
 	 * @generated
 	 */
@@ -68,7 +68,7 @@ public interface TimeBucket extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Bucket Start</em>' attribute.
 	 * @see #setBucketStart(Date)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeBucket_BucketStart()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeBucket_BucketStart()
 	 * @model
 	 * @generated
 	 */
@@ -94,7 +94,7 @@ public interface TimeBucket extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Bucket End</em>' attribute.
 	 * @see #setBucketEnd(Date)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeBucket_BucketEnd()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeBucket_BucketEnd()
 	 * @model
 	 * @generated
 	 */
@@ -121,7 +121,7 @@ public interface TimeBucket extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Next</em>' reference.
 	 * @see #setNext(TimeBucket)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeBucket_Next()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeBucket_Next()
 	 * @see com.misc.common.moplaf.time.discrete.TimeBucket#getPrevious
 	 * @model opposite="Previous"
 	 * @generated
@@ -149,7 +149,7 @@ public interface TimeBucket extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Previous</em>' reference.
 	 * @see #setPrevious(TimeBucket)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeBucket_Previous()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeBucket_Previous()
 	 * @see com.misc.common.moplaf.time.discrete.TimeBucket#getNext
 	 * @model opposite="Next"
 	 * @generated
@@ -176,7 +176,7 @@ public interface TimeBucket extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeBucket_Description()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeBucket_Description()
 	 * @model
 	 * @generated
 	 */
@@ -202,7 +202,7 @@ public interface TimeBucket extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Seconds</em>' attribute.
 	 * @see #setSeconds(int)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeBucket_Seconds()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeBucket_Seconds()
 	 * @model
 	 * @generated
 	 */
@@ -227,7 +227,7 @@ public interface TimeBucket extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Minutes</em>' attribute.
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeBucket_Minutes()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeBucket_Minutes()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
@@ -242,7 +242,7 @@ public interface TimeBucket extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Hours</em>' attribute.
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeBucket_Hours()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeBucket_Hours()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
@@ -259,7 +259,7 @@ public interface TimeBucket extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Time Line</em>' container reference.
 	 * @see #setTimeLine(TimeLine)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeBucket_TimeLine()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeBucket_TimeLine()
 	 * @see com.misc.common.moplaf.time.discrete.TimeLine#getBuckets
 	 * @model opposite="Buckets" required="true" transient="false"
 	 * @generated

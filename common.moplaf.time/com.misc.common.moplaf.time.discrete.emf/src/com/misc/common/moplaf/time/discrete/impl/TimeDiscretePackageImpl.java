@@ -3,8 +3,8 @@
 package com.misc.common.moplaf.time.discrete.impl;
 
 import com.misc.common.moplaf.time.discrete.BucketType;
-import com.misc.common.moplaf.time.discrete.DiscreteFactory;
-import com.misc.common.moplaf.time.discrete.DiscretePackage;
+import com.misc.common.moplaf.time.discrete.TimeDiscreteFactory;
+import com.misc.common.moplaf.time.discrete.TimeDiscretePackage;
 import com.misc.common.moplaf.time.discrete.MergeElement;
 import com.misc.common.moplaf.time.discrete.ObjectTimeBucket;
 import com.misc.common.moplaf.time.discrete.ObjectWithTimeLine;
@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage {
+public class TimeDiscretePackageImpl extends EPackageImpl implements TimeDiscretePackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -97,12 +97,12 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#eNS_URI
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */
-	private DiscretePackageImpl() {
-		super(eNS_URI, DiscreteFactory.eINSTANCE);
+	private TimeDiscretePackageImpl() {
+		super(eNS_URI, TimeDiscreteFactory.eINSTANCE);
 	}
 
 	/**
@@ -115,7 +115,7 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 * 
-	 * <p>This method is used to initialize {@link DiscretePackage#eINSTANCE} when that field is accessed.
+	 * <p>This method is used to initialize {@link TimeDiscretePackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -124,27 +124,27 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
-	public static DiscretePackage init() {
-		if (isInited) return (DiscretePackage)EPackage.Registry.INSTANCE.getEPackage(DiscretePackage.eNS_URI);
+	public static TimeDiscretePackage init() {
+		if (isInited) return (TimeDiscretePackage)EPackage.Registry.INSTANCE.getEPackage(TimeDiscretePackage.eNS_URI);
 
 		// Obtain or create and register package
-		DiscretePackageImpl theDiscretePackage = (DiscretePackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof DiscretePackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new DiscretePackageImpl());
+		TimeDiscretePackageImpl theTimeDiscretePackage = (TimeDiscretePackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof TimeDiscretePackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new TimeDiscretePackageImpl());
 
 		isInited = true;
 
 		// Create package meta-data objects
-		theDiscretePackage.createPackageContents();
+		theTimeDiscretePackage.createPackageContents();
 
 		// Initialize created meta-data
-		theDiscretePackage.initializePackageContents();
+		theTimeDiscretePackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
-		theDiscretePackage.freeze();
+		theTimeDiscretePackage.freeze();
 
   
 		// Update the registry and return the package
-		EPackage.Registry.INSTANCE.put(DiscretePackage.eNS_URI, theDiscretePackage);
-		return theDiscretePackage;
+		EPackage.Registry.INSTANCE.put(TimeDiscretePackage.eNS_URI, theTimeDiscretePackage);
+		return theTimeDiscretePackage;
 	}
 
 	/**
@@ -755,8 +755,8 @@ public class DiscretePackageImpl extends EPackageImpl implements DiscretePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DiscreteFactory getDiscreteFactory() {
-		return (DiscreteFactory)getEFactoryInstance();
+	public TimeDiscreteFactory getTimeDiscreteFactory() {
+		return (TimeDiscreteFactory)getEFactoryInstance();
 	}
 
 	/**

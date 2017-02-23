@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.util.Switch;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see com.misc.common.moplaf.time.discrete.DiscretePackage
+ * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage
  * @generated
  */
 public class DiscreteSwitch<T> extends Switch<T> {
@@ -29,7 +29,7 @@ public class DiscreteSwitch<T> extends Switch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static DiscretePackage modelPackage;
+	protected static TimeDiscretePackage modelPackage;
 
 	/**
 	 * Creates an instance of the switch.
@@ -39,7 +39,7 @@ public class DiscreteSwitch<T> extends Switch<T> {
 	 */
 	public DiscreteSwitch() {
 		if (modelPackage == null) {
-			modelPackage = DiscretePackage.eINSTANCE;
+			modelPackage = TimeDiscretePackage.eINSTANCE;
 		}
 	}
 
@@ -66,37 +66,37 @@ public class DiscreteSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case DiscretePackage.TIME_BUCKET: {
+			case TimeDiscretePackage.TIME_BUCKET: {
 				TimeBucket timeBucket = (TimeBucket)theEObject;
 				T result = caseTimeBucket(timeBucket);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DiscretePackage.TIME_LINE: {
+			case TimeDiscretePackage.TIME_LINE: {
 				TimeLine timeLine = (TimeLine)theEObject;
 				T result = caseTimeLine(timeLine);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DiscretePackage.TIME_LINE_MERGE: {
+			case TimeDiscretePackage.TIME_LINE_MERGE: {
 				TimeLineMerge timeLineMerge = (TimeLineMerge)theEObject;
 				T result = caseTimeLineMerge(timeLineMerge);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DiscretePackage.MERGE_ELEMENT: {
+			case TimeDiscretePackage.MERGE_ELEMENT: {
 				MergeElement mergeElement = (MergeElement)theEObject;
 				T result = caseMergeElement(mergeElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DiscretePackage.OBJECT_WITH_TIME_LINE: {
+			case TimeDiscretePackage.OBJECT_WITH_TIME_LINE: {
 				ObjectWithTimeLine objectWithTimeLine = (ObjectWithTimeLine)theEObject;
 				T result = caseObjectWithTimeLine(objectWithTimeLine);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DiscretePackage.OBJECT_TIME_BUCKET: {
+			case TimeDiscretePackage.OBJECT_TIME_BUCKET: {
 				ObjectTimeBucket objectTimeBucket = (ObjectTimeBucket)theEObject;
 				T result = caseObjectTimeBucket(objectTimeBucket);
 				if (result == null) result = defaultCase(theEObject);

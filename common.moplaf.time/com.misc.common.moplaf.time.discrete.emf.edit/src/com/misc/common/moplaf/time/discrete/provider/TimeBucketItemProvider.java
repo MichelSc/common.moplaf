@@ -3,7 +3,7 @@
 package com.misc.common.moplaf.time.discrete.provider;
 
 
-import com.misc.common.moplaf.time.discrete.DiscretePackage;
+import com.misc.common.moplaf.time.discrete.TimeDiscretePackage;
 import com.misc.common.moplaf.time.discrete.TimeBucket;
 import com.misc.common.moplaf.timeview.emf.edit.IItemIntervalEventProvider;
 
@@ -97,7 +97,7 @@ public class TimeBucketItemProvider
 				 getResourceLocator(),
 				 getString("_UI_TimeBucket_BucketStart_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TimeBucket_BucketStart_feature", "_UI_TimeBucket_type"),
-				 DiscretePackage.Literals.TIME_BUCKET__BUCKET_START,
+				 TimeDiscretePackage.Literals.TIME_BUCKET__BUCKET_START,
 				 true,
 				 false,
 				 false,
@@ -119,7 +119,7 @@ public class TimeBucketItemProvider
 				 getResourceLocator(),
 				 getString("_UI_TimeBucket_BucketEnd_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TimeBucket_BucketEnd_feature", "_UI_TimeBucket_type"),
-				 DiscretePackage.Literals.TIME_BUCKET__BUCKET_END,
+				 TimeDiscretePackage.Literals.TIME_BUCKET__BUCKET_END,
 				 true,
 				 false,
 				 false,
@@ -141,7 +141,7 @@ public class TimeBucketItemProvider
 				 getResourceLocator(),
 				 getString("_UI_TimeBucket_Next_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TimeBucket_Next_feature", "_UI_TimeBucket_type"),
-				 DiscretePackage.Literals.TIME_BUCKET__NEXT,
+				 TimeDiscretePackage.Literals.TIME_BUCKET__NEXT,
 				 true,
 				 false,
 				 true,
@@ -163,7 +163,7 @@ public class TimeBucketItemProvider
 				 getResourceLocator(),
 				 getString("_UI_TimeBucket_Previous_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TimeBucket_Previous_feature", "_UI_TimeBucket_type"),
-				 DiscretePackage.Literals.TIME_BUCKET__PREVIOUS,
+				 TimeDiscretePackage.Literals.TIME_BUCKET__PREVIOUS,
 				 true,
 				 false,
 				 true,
@@ -185,7 +185,7 @@ public class TimeBucketItemProvider
 				 getResourceLocator(),
 				 getString("_UI_TimeBucket_Description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TimeBucket_Description_feature", "_UI_TimeBucket_type"),
-				 DiscretePackage.Literals.TIME_BUCKET__DESCRIPTION,
+				 TimeDiscretePackage.Literals.TIME_BUCKET__DESCRIPTION,
 				 true,
 				 false,
 				 false,
@@ -207,7 +207,7 @@ public class TimeBucketItemProvider
 				 getResourceLocator(),
 				 getString("_UI_TimeBucket_Seconds_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TimeBucket_Seconds_feature", "_UI_TimeBucket_type"),
-				 DiscretePackage.Literals.TIME_BUCKET__SECONDS,
+				 TimeDiscretePackage.Literals.TIME_BUCKET__SECONDS,
 				 true,
 				 false,
 				 false,
@@ -229,7 +229,7 @@ public class TimeBucketItemProvider
 				 getResourceLocator(),
 				 getString("_UI_TimeBucket_Minutes_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TimeBucket_Minutes_feature", "_UI_TimeBucket_type"),
-				 DiscretePackage.Literals.TIME_BUCKET__MINUTES,
+				 TimeDiscretePackage.Literals.TIME_BUCKET__MINUTES,
 				 false,
 				 false,
 				 false,
@@ -253,7 +253,7 @@ public class TimeBucketItemProvider
 				 getResourceLocator(),
 				 getString("_UI_TimeBucket_Hours_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TimeBucket_Hours_feature", "_UI_TimeBucket_type"),
-				 DiscretePackage.Literals.TIME_BUCKET__HOURS,
+				 TimeDiscretePackage.Literals.TIME_BUCKET__HOURS,
 				 false,
 				 false,
 				 false,
@@ -277,7 +277,7 @@ public class TimeBucketItemProvider
 				 getResourceLocator(),
 				 getString("_UI_TimeBucket_BucketNr_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TimeBucket_BucketNr_feature", "_UI_TimeBucket_type"),
-				 DiscretePackage.Literals.TIME_BUCKET__BUCKET_NR,
+				 TimeDiscretePackage.Literals.TIME_BUCKET__BUCKET_NR,
 				 true,
 				 false,
 				 false,
@@ -324,13 +324,13 @@ public class TimeBucketItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TimeBucket.class)) {
-			case DiscretePackage.TIME_BUCKET__BUCKET_NR:
-			case DiscretePackage.TIME_BUCKET__BUCKET_START:
-			case DiscretePackage.TIME_BUCKET__BUCKET_END:
-			case DiscretePackage.TIME_BUCKET__DESCRIPTION:
-			case DiscretePackage.TIME_BUCKET__SECONDS:
-			case DiscretePackage.TIME_BUCKET__MINUTES:
-			case DiscretePackage.TIME_BUCKET__HOURS:
+			case TimeDiscretePackage.TIME_BUCKET__BUCKET_NR:
+			case TimeDiscretePackage.TIME_BUCKET__BUCKET_START:
+			case TimeDiscretePackage.TIME_BUCKET__BUCKET_END:
+			case TimeDiscretePackage.TIME_BUCKET__DESCRIPTION:
+			case TimeDiscretePackage.TIME_BUCKET__SECONDS:
+			case TimeDiscretePackage.TIME_BUCKET__MINUTES:
+			case TimeDiscretePackage.TIME_BUCKET__HOURS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

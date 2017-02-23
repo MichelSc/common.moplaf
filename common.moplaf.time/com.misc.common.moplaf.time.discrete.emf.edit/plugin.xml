@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://www.misc.com/common/moplaf/time/discrete/model/0.1"
-            class="com.misc.common.moplaf.time.discrete.provider.DiscreteItemProviderAdapterFactory"
+            class="com.misc.common.moplaf.time.discrete.provider.TimeDiscreteItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

@@ -4,8 +4,8 @@ package com.misc.common.moplaf.time.discrete.provider;
 
 
 import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
-import com.misc.common.moplaf.time.discrete.DiscreteFactory;
-import com.misc.common.moplaf.time.discrete.DiscretePackage;
+import com.misc.common.moplaf.time.discrete.TimeDiscreteFactory;
+import com.misc.common.moplaf.time.discrete.TimeDiscretePackage;
 import com.misc.common.moplaf.time.discrete.TimeLineMerge;
 
 import java.util.Collection;
@@ -84,7 +84,7 @@ public class TimeLineMergeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_TimeLineMerge_TimeLineTo_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TimeLineMerge_TimeLineTo_feature", "_UI_TimeLineMerge_type"),
-				 DiscretePackage.Literals.TIME_LINE_MERGE__TIME_LINE_TO,
+				 TimeDiscretePackage.Literals.TIME_LINE_MERGE__TIME_LINE_TO,
 				 true,
 				 false,
 				 true,
@@ -106,7 +106,7 @@ public class TimeLineMergeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_TimeLineMerge_FirstElement_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TimeLineMerge_FirstElement_feature", "_UI_TimeLineMerge_type"),
-				 DiscretePackage.Literals.TIME_LINE_MERGE__FIRST_ELEMENT,
+				 TimeDiscretePackage.Literals.TIME_LINE_MERGE__FIRST_ELEMENT,
 				 true,
 				 false,
 				 true,
@@ -128,7 +128,7 @@ public class TimeLineMergeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_TimeLineMerge_LastElement_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TimeLineMerge_LastElement_feature", "_UI_TimeLineMerge_type"),
-				 DiscretePackage.Literals.TIME_LINE_MERGE__LAST_ELEMENT,
+				 TimeDiscretePackage.Literals.TIME_LINE_MERGE__LAST_ELEMENT,
 				 true,
 				 false,
 				 true,
@@ -150,7 +150,7 @@ public class TimeLineMergeItemProvider
 				 getResourceLocator(),
 				 getString("_UI_TimeLineMerge_TimeLineFrom_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TimeLineMerge_TimeLineFrom_feature", "_UI_TimeLineMerge_type"),
-				 DiscretePackage.Literals.TIME_LINE_MERGE__TIME_LINE_FROM,
+				 TimeDiscretePackage.Literals.TIME_LINE_MERGE__TIME_LINE_FROM,
 				 true,
 				 false,
 				 true,
@@ -171,7 +171,7 @@ public class TimeLineMergeItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DiscretePackage.Literals.TIME_LINE_MERGE__ELEMENTS);
+			childrenFeatures.add(TimeDiscretePackage.Literals.TIME_LINE_MERGE__ELEMENTS);
 		}
 		return childrenFeatures;
 	}
@@ -223,7 +223,7 @@ public class TimeLineMergeItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TimeLineMerge.class)) {
-			case DiscretePackage.TIME_LINE_MERGE__ELEMENTS:
+			case TimeDiscretePackage.TIME_LINE_MERGE__ELEMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -243,8 +243,8 @@ public class TimeLineMergeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiscretePackage.Literals.TIME_LINE_MERGE__ELEMENTS,
-				 DiscreteFactory.eINSTANCE.createMergeElement()));
+				(TimeDiscretePackage.Literals.TIME_LINE_MERGE__ELEMENTS,
+				 TimeDiscreteFactory.eINSTANCE.createMergeElement()));
 	}
 
 	/**

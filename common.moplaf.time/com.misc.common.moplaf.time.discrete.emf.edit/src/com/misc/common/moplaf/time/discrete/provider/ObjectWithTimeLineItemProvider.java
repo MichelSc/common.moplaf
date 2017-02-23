@@ -4,7 +4,7 @@ package com.misc.common.moplaf.time.discrete.provider;
 
 
 import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
-import com.misc.common.moplaf.time.discrete.DiscretePackage;
+import com.misc.common.moplaf.time.discrete.TimeDiscretePackage;
 import com.misc.common.moplaf.time.discrete.ObjectWithTimeLine;
 
 import java.util.Collection;
@@ -84,7 +84,7 @@ public class ObjectWithTimeLineItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ObjectWithTimeLine_Buckets_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectWithTimeLine_Buckets_feature", "_UI_ObjectWithTimeLine_type"),
-				 DiscretePackage.Literals.OBJECT_WITH_TIME_LINE__BUCKETS,
+				 TimeDiscretePackage.Literals.OBJECT_WITH_TIME_LINE__BUCKETS,
 				 true,
 				 false,
 				 true,
@@ -106,7 +106,7 @@ public class ObjectWithTimeLineItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ObjectWithTimeLine_LastBucket_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectWithTimeLine_LastBucket_feature", "_UI_ObjectWithTimeLine_type"),
-				 DiscretePackage.Literals.OBJECT_WITH_TIME_LINE__LAST_BUCKET,
+				 TimeDiscretePackage.Literals.OBJECT_WITH_TIME_LINE__LAST_BUCKET,
 				 true,
 				 false,
 				 true,
@@ -128,7 +128,7 @@ public class ObjectWithTimeLineItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ObjectWithTimeLine_FirstBucket_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectWithTimeLine_FirstBucket_feature", "_UI_ObjectWithTimeLine_type"),
-				 DiscretePackage.Literals.OBJECT_WITH_TIME_LINE__FIRST_BUCKET,
+				 TimeDiscretePackage.Literals.OBJECT_WITH_TIME_LINE__FIRST_BUCKET,
 				 true,
 				 false,
 				 true,
@@ -150,7 +150,7 @@ public class ObjectWithTimeLineItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ObjectWithTimeLine_StartBucket_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectWithTimeLine_StartBucket_feature", "_UI_ObjectWithTimeLine_type"),
-				 DiscretePackage.Literals.OBJECT_WITH_TIME_LINE__START_BUCKET,
+				 TimeDiscretePackage.Literals.OBJECT_WITH_TIME_LINE__START_BUCKET,
 				 true,
 				 false,
 				 true,
@@ -172,7 +172,7 @@ public class ObjectWithTimeLineItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ObjectWithTimeLine_EndBucket_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectWithTimeLine_EndBucket_feature", "_UI_ObjectWithTimeLine_type"),
-				 DiscretePackage.Literals.OBJECT_WITH_TIME_LINE__END_BUCKET,
+				 TimeDiscretePackage.Literals.OBJECT_WITH_TIME_LINE__END_BUCKET,
 				 true,
 				 false,
 				 true,
@@ -215,7 +215,7 @@ public class ObjectWithTimeLineItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ObjectWithTimeLine.class)) {
-			case DiscretePackage.OBJECT_WITH_TIME_LINE__BUCKETS:
+			case TimeDiscretePackage.OBJECT_WITH_TIME_LINE__BUCKETS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

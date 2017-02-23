@@ -5,8 +5,8 @@ package com.misc.common.moplaf.time.discrete.provider;
 
 
 import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
-import com.misc.common.moplaf.time.discrete.DiscreteFactory;
-import com.misc.common.moplaf.time.discrete.DiscretePackage;
+import com.misc.common.moplaf.time.discrete.TimeDiscreteFactory;
+import com.misc.common.moplaf.time.discrete.TimeDiscretePackage;
 import com.misc.common.moplaf.time.discrete.TimeLine;
 import com.misc.common.moplaf.timeview.emf.edit.IItemIntervalEventsProvider;
 
@@ -102,7 +102,7 @@ public class TimeLineItemProvider
 				 getResourceLocator(),
 				 getString("_UI_TimeLine_BucketType_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TimeLine_BucketType_feature", "_UI_TimeLine_type"),
-				 DiscretePackage.Literals.TIME_LINE__BUCKET_TYPE,
+				 TimeDiscretePackage.Literals.TIME_LINE__BUCKET_TYPE,
 				 true,
 				 false,
 				 false,
@@ -124,7 +124,7 @@ public class TimeLineItemProvider
 				 getResourceLocator(),
 				 getString("_UI_TimeLine_BucketTypeRefreshed_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TimeLine_BucketTypeRefreshed_feature", "_UI_TimeLine_type"),
-				 DiscretePackage.Literals.TIME_LINE__BUCKET_TYPE_REFRESHED,
+				 TimeDiscretePackage.Literals.TIME_LINE__BUCKET_TYPE_REFRESHED,
 				 true,
 				 false,
 				 false,
@@ -146,7 +146,7 @@ public class TimeLineItemProvider
 				 getResourceLocator(),
 				 getString("_UI_TimeLine_Description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TimeLine_Description_feature", "_UI_TimeLine_type"),
-				 DiscretePackage.Literals.TIME_LINE__DESCRIPTION,
+				 TimeDiscretePackage.Literals.TIME_LINE__DESCRIPTION,
 				 true,
 				 false,
 				 false,
@@ -168,7 +168,7 @@ public class TimeLineItemProvider
 				 getResourceLocator(),
 				 getString("_UI_TimeLine_TimeZoneID_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TimeLine_TimeZoneID_feature", "_UI_TimeLine_type"),
-				 DiscretePackage.Literals.TIME_LINE__TIME_ZONE_ID,
+				 TimeDiscretePackage.Literals.TIME_LINE__TIME_ZONE_ID,
 				 true,
 				 false,
 				 false,
@@ -190,7 +190,7 @@ public class TimeLineItemProvider
 				 getResourceLocator(),
 				 getString("_UI_TimeLine_LocaleLanguage_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TimeLine_LocaleLanguage_feature", "_UI_TimeLine_type"),
-				 DiscretePackage.Literals.TIME_LINE__LOCALE_LANGUAGE,
+				 TimeDiscretePackage.Literals.TIME_LINE__LOCALE_LANGUAGE,
 				 true,
 				 false,
 				 false,
@@ -212,7 +212,7 @@ public class TimeLineItemProvider
 				 getResourceLocator(),
 				 getString("_UI_TimeLine_LocaleCountry_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TimeLine_LocaleCountry_feature", "_UI_TimeLine_type"),
-				 DiscretePackage.Literals.TIME_LINE__LOCALE_COUNTRY,
+				 TimeDiscretePackage.Literals.TIME_LINE__LOCALE_COUNTRY,
 				 true,
 				 false,
 				 false,
@@ -234,7 +234,7 @@ public class TimeLineItemProvider
 				 getResourceLocator(),
 				 getString("_UI_TimeLine_HorizonStart_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TimeLine_HorizonStart_feature", "_UI_TimeLine_type"),
-				 DiscretePackage.Literals.TIME_LINE__HORIZON_START,
+				 TimeDiscretePackage.Literals.TIME_LINE__HORIZON_START,
 				 true,
 				 false,
 				 false,
@@ -256,7 +256,7 @@ public class TimeLineItemProvider
 				 getResourceLocator(),
 				 getString("_UI_TimeLine_HorizonEnd_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TimeLine_HorizonEnd_feature", "_UI_TimeLine_type"),
-				 DiscretePackage.Literals.TIME_LINE__HORIZON_END,
+				 TimeDiscretePackage.Literals.TIME_LINE__HORIZON_END,
 				 true,
 				 false,
 				 false,
@@ -278,7 +278,7 @@ public class TimeLineItemProvider
 				 getResourceLocator(),
 				 getString("_UI_TimeLine_FirstBucket_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TimeLine_FirstBucket_feature", "_UI_TimeLine_type"),
-				 DiscretePackage.Literals.TIME_LINE__FIRST_BUCKET,
+				 TimeDiscretePackage.Literals.TIME_LINE__FIRST_BUCKET,
 				 true,
 				 false,
 				 true,
@@ -300,7 +300,7 @@ public class TimeLineItemProvider
 				 getResourceLocator(),
 				 getString("_UI_TimeLine_LastBucket_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TimeLine_LastBucket_feature", "_UI_TimeLine_type"),
-				 DiscretePackage.Literals.TIME_LINE__LAST_BUCKET,
+				 TimeDiscretePackage.Literals.TIME_LINE__LAST_BUCKET,
 				 true,
 				 false,
 				 true,
@@ -321,7 +321,7 @@ public class TimeLineItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DiscretePackage.Literals.TIME_LINE__BUCKETS);
+			childrenFeatures.add(TimeDiscretePackage.Literals.TIME_LINE__BUCKETS);
 		}
 		return childrenFeatures;
 	}
@@ -375,17 +375,17 @@ public class TimeLineItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(TimeLine.class)) {
-			case DiscretePackage.TIME_LINE__BUCKET_TYPE:
-			case DiscretePackage.TIME_LINE__BUCKET_TYPE_REFRESHED:
-			case DiscretePackage.TIME_LINE__DESCRIPTION:
-			case DiscretePackage.TIME_LINE__TIME_ZONE_ID:
-			case DiscretePackage.TIME_LINE__LOCALE_LANGUAGE:
-			case DiscretePackage.TIME_LINE__LOCALE_COUNTRY:
-			case DiscretePackage.TIME_LINE__HORIZON_START:
-			case DiscretePackage.TIME_LINE__HORIZON_END:
+			case TimeDiscretePackage.TIME_LINE__BUCKET_TYPE:
+			case TimeDiscretePackage.TIME_LINE__BUCKET_TYPE_REFRESHED:
+			case TimeDiscretePackage.TIME_LINE__DESCRIPTION:
+			case TimeDiscretePackage.TIME_LINE__TIME_ZONE_ID:
+			case TimeDiscretePackage.TIME_LINE__LOCALE_LANGUAGE:
+			case TimeDiscretePackage.TIME_LINE__LOCALE_COUNTRY:
+			case TimeDiscretePackage.TIME_LINE__HORIZON_START:
+			case TimeDiscretePackage.TIME_LINE__HORIZON_END:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case DiscretePackage.TIME_LINE__BUCKETS:
+			case TimeDiscretePackage.TIME_LINE__BUCKETS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -405,8 +405,8 @@ public class TimeLineItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiscretePackage.Literals.TIME_LINE__BUCKETS,
-				 DiscreteFactory.eINSTANCE.createTimeBucket()));
+				(TimeDiscretePackage.Literals.TIME_LINE__BUCKETS,
+				 TimeDiscreteFactory.eINSTANCE.createTimeBucket()));
 	}
 
 	/**

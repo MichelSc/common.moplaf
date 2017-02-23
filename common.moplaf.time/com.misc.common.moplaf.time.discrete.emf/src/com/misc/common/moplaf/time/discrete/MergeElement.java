@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.time.discrete.MergeElement#getSeconds <em>Seconds</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getMergeElement()
+ * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getMergeElement()
  * @model
  * @generated
  */
@@ -41,7 +41,7 @@ public interface MergeElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Bucket From</em>' reference.
 	 * @see #setBucketFrom(TimeBucket)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getMergeElement_BucketFrom()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getMergeElement_BucketFrom()
 	 * @model
 	 * @generated
 	 */
@@ -67,7 +67,7 @@ public interface MergeElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Bucket To</em>' reference.
 	 * @see #setBucketTo(TimeBucket)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getMergeElement_BucketTo()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getMergeElement_BucketTo()
 	 * @model
 	 * @generated
 	 */
@@ -94,7 +94,7 @@ public interface MergeElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Previous</em>' reference.
 	 * @see #setPrevious(MergeElement)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getMergeElement_Previous()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getMergeElement_Previous()
 	 * @see com.misc.common.moplaf.time.discrete.MergeElement#getNext
 	 * @model opposite="Next"
 	 * @generated
@@ -122,7 +122,7 @@ public interface MergeElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Next</em>' reference.
 	 * @see #setNext(MergeElement)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getMergeElement_Next()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getMergeElement_Next()
 	 * @see com.misc.common.moplaf.time.discrete.MergeElement#getPrevious
 	 * @model opposite="Previous"
 	 * @generated
@@ -149,7 +149,7 @@ public interface MergeElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Part From In To</em>' attribute.
 	 * @see #setPartFromInTo(float)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getMergeElement_PartFromInTo()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getMergeElement_PartFromInTo()
 	 * @model
 	 * @generated
 	 */
@@ -175,7 +175,7 @@ public interface MergeElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Part To In From</em>' attribute.
 	 * @see #setPartToInFrom(float)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getMergeElement_PartToInFrom()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getMergeElement_PartToInFrom()
 	 * @model
 	 * @generated
 	 */
@@ -201,7 +201,7 @@ public interface MergeElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Element Start</em>' attribute.
 	 * @see #setElementStart(Date)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getMergeElement_ElementStart()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getMergeElement_ElementStart()
 	 * @model
 	 * @generated
 	 */
@@ -227,7 +227,7 @@ public interface MergeElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Element End</em>' attribute.
 	 * @see #setElementEnd(Date)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getMergeElement_ElementEnd()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getMergeElement_ElementEnd()
 	 * @model
 	 * @generated
 	 */
@@ -253,7 +253,7 @@ public interface MergeElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Seconds</em>' attribute.
 	 * @see #setSeconds(int)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getMergeElement_Seconds()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getMergeElement_Seconds()
 	 * @model
 	 * @generated
 	 */

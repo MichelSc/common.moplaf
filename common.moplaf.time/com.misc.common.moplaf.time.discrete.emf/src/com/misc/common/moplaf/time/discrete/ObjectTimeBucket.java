@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.time.discrete.ObjectTimeBucket#getPrevious <em>Previous</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getObjectTimeBucket()
+ * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getObjectTimeBucket()
  * @model
  * @generated
  */
@@ -33,7 +33,7 @@ public interface ObjectTimeBucket extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Bucket</em>' reference.
 	 * @see #setBucket(TimeBucket)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getObjectTimeBucket_Bucket()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getObjectTimeBucket_Bucket()
 	 * @model required="true"
 	 * @generated
 	 */
@@ -60,7 +60,7 @@ public interface ObjectTimeBucket extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Next</em>' reference.
 	 * @see #setNext(ObjectTimeBucket)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getObjectTimeBucket_Next()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getObjectTimeBucket_Next()
 	 * @see com.misc.common.moplaf.time.discrete.ObjectTimeBucket#getPrevious
 	 * @model opposite="Previous"
 	 * @generated
@@ -88,7 +88,7 @@ public interface ObjectTimeBucket extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Previous</em>' reference.
 	 * @see #setPrevious(ObjectTimeBucket)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getObjectTimeBucket_Previous()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getObjectTimeBucket_Previous()
 	 * @see com.misc.common.moplaf.time.discrete.ObjectTimeBucket#getNext
 	 * @model opposite="Next"
 	 * @generated

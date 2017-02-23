@@ -2,7 +2,7 @@
  */
 package com.misc.common.moplaf.time.discrete.impl;
 
-import com.misc.common.moplaf.time.discrete.DiscretePackage;
+import com.misc.common.moplaf.time.discrete.TimeDiscretePackage;
 import com.misc.common.moplaf.time.discrete.TimeBucket;
 import com.misc.common.moplaf.time.discrete.TimeLine;
 
@@ -200,7 +200,7 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return DiscretePackage.Literals.TIME_BUCKET;
+		return TimeDiscretePackage.Literals.TIME_BUCKET;
 	}
 
 	/**
@@ -221,7 +221,7 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 		Date oldBucketStart = bucketStart;
 		bucketStart = newBucketStart;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.TIME_BUCKET__BUCKET_START, oldBucketStart, bucketStart));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.TIME_BUCKET__BUCKET_START, oldBucketStart, bucketStart));
 	}
 
 	/**
@@ -242,7 +242,7 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 		Date oldBucketEnd = bucketEnd;
 		bucketEnd = newBucketEnd;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.TIME_BUCKET__BUCKET_END, oldBucketEnd, bucketEnd));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.TIME_BUCKET__BUCKET_END, oldBucketEnd, bucketEnd));
 	}
 
 	/**
@@ -256,7 +256,7 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 			next = (TimeBucket)eResolveProxy(oldNext);
 			if (next != oldNext) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DiscretePackage.TIME_BUCKET__NEXT, oldNext, next));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TimeDiscretePackage.TIME_BUCKET__NEXT, oldNext, next));
 			}
 		}
 		return next;
@@ -280,7 +280,7 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 		TimeBucket oldNext = next;
 		next = newNext;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiscretePackage.TIME_BUCKET__NEXT, oldNext, newNext);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.TIME_BUCKET__NEXT, oldNext, newNext);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -295,14 +295,14 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 		if (newNext != next) {
 			NotificationChain msgs = null;
 			if (next != null)
-				msgs = ((InternalEObject)next).eInverseRemove(this, DiscretePackage.TIME_BUCKET__PREVIOUS, TimeBucket.class, msgs);
+				msgs = ((InternalEObject)next).eInverseRemove(this, TimeDiscretePackage.TIME_BUCKET__PREVIOUS, TimeBucket.class, msgs);
 			if (newNext != null)
-				msgs = ((InternalEObject)newNext).eInverseAdd(this, DiscretePackage.TIME_BUCKET__PREVIOUS, TimeBucket.class, msgs);
+				msgs = ((InternalEObject)newNext).eInverseAdd(this, TimeDiscretePackage.TIME_BUCKET__PREVIOUS, TimeBucket.class, msgs);
 			msgs = basicSetNext(newNext, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.TIME_BUCKET__NEXT, newNext, newNext));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.TIME_BUCKET__NEXT, newNext, newNext));
 	}
 
 	/**
@@ -316,7 +316,7 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 			previous = (TimeBucket)eResolveProxy(oldPrevious);
 			if (previous != oldPrevious) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DiscretePackage.TIME_BUCKET__PREVIOUS, oldPrevious, previous));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TimeDiscretePackage.TIME_BUCKET__PREVIOUS, oldPrevious, previous));
 			}
 		}
 		return previous;
@@ -340,7 +340,7 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 		TimeBucket oldPrevious = previous;
 		previous = newPrevious;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiscretePackage.TIME_BUCKET__PREVIOUS, oldPrevious, newPrevious);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.TIME_BUCKET__PREVIOUS, oldPrevious, newPrevious);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -355,14 +355,14 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 		if (newPrevious != previous) {
 			NotificationChain msgs = null;
 			if (previous != null)
-				msgs = ((InternalEObject)previous).eInverseRemove(this, DiscretePackage.TIME_BUCKET__NEXT, TimeBucket.class, msgs);
+				msgs = ((InternalEObject)previous).eInverseRemove(this, TimeDiscretePackage.TIME_BUCKET__NEXT, TimeBucket.class, msgs);
 			if (newPrevious != null)
-				msgs = ((InternalEObject)newPrevious).eInverseAdd(this, DiscretePackage.TIME_BUCKET__NEXT, TimeBucket.class, msgs);
+				msgs = ((InternalEObject)newPrevious).eInverseAdd(this, TimeDiscretePackage.TIME_BUCKET__NEXT, TimeBucket.class, msgs);
 			msgs = basicSetPrevious(newPrevious, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.TIME_BUCKET__PREVIOUS, newPrevious, newPrevious));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.TIME_BUCKET__PREVIOUS, newPrevious, newPrevious));
 	}
 
 	/**
@@ -383,7 +383,7 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.TIME_BUCKET__DESCRIPTION, oldDescription, description));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.TIME_BUCKET__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -404,7 +404,7 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 		int oldSeconds = seconds;
 		seconds = newSeconds;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.TIME_BUCKET__SECONDS, oldSeconds, seconds));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.TIME_BUCKET__SECONDS, oldSeconds, seconds));
 	}
 
 	/**
@@ -429,7 +429,7 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 	 * @generated
 	 */
 	public TimeLine getTimeLine() {
-		if (eContainerFeatureID() != DiscretePackage.TIME_BUCKET__TIME_LINE) return null;
+		if (eContainerFeatureID() != TimeDiscretePackage.TIME_BUCKET__TIME_LINE) return null;
 		return (TimeLine)eInternalContainer();
 	}
 
@@ -439,7 +439,7 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 	 * @generated
 	 */
 	public NotificationChain basicSetTimeLine(TimeLine newTimeLine, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newTimeLine, DiscretePackage.TIME_BUCKET__TIME_LINE, msgs);
+		msgs = eBasicSetContainer((InternalEObject)newTimeLine, TimeDiscretePackage.TIME_BUCKET__TIME_LINE, msgs);
 		return msgs;
 	}
 
@@ -449,19 +449,19 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 	 * @generated
 	 */
 	public void setTimeLine(TimeLine newTimeLine) {
-		if (newTimeLine != eInternalContainer() || (eContainerFeatureID() != DiscretePackage.TIME_BUCKET__TIME_LINE && newTimeLine != null)) {
+		if (newTimeLine != eInternalContainer() || (eContainerFeatureID() != TimeDiscretePackage.TIME_BUCKET__TIME_LINE && newTimeLine != null)) {
 			if (EcoreUtil.isAncestor(this, newTimeLine))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newTimeLine != null)
-				msgs = ((InternalEObject)newTimeLine).eInverseAdd(this, DiscretePackage.TIME_LINE__BUCKETS, TimeLine.class, msgs);
+				msgs = ((InternalEObject)newTimeLine).eInverseAdd(this, TimeDiscretePackage.TIME_LINE__BUCKETS, TimeLine.class, msgs);
 			msgs = basicSetTimeLine(newTimeLine, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.TIME_BUCKET__TIME_LINE, newTimeLine, newTimeLine));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.TIME_BUCKET__TIME_LINE, newTimeLine, newTimeLine));
 	}
 
 	/**
@@ -482,7 +482,7 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 		int oldBucketNr = bucketNr;
 		bucketNr = newBucketNr;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.TIME_BUCKET__BUCKET_NR, oldBucketNr, bucketNr));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.TIME_BUCKET__BUCKET_NR, oldBucketNr, bucketNr));
 	}
 
 	/**
@@ -549,15 +549,15 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DiscretePackage.TIME_BUCKET__NEXT:
+			case TimeDiscretePackage.TIME_BUCKET__NEXT:
 				if (next != null)
-					msgs = ((InternalEObject)next).eInverseRemove(this, DiscretePackage.TIME_BUCKET__PREVIOUS, TimeBucket.class, msgs);
+					msgs = ((InternalEObject)next).eInverseRemove(this, TimeDiscretePackage.TIME_BUCKET__PREVIOUS, TimeBucket.class, msgs);
 				return basicSetNext((TimeBucket)otherEnd, msgs);
-			case DiscretePackage.TIME_BUCKET__PREVIOUS:
+			case TimeDiscretePackage.TIME_BUCKET__PREVIOUS:
 				if (previous != null)
-					msgs = ((InternalEObject)previous).eInverseRemove(this, DiscretePackage.TIME_BUCKET__NEXT, TimeBucket.class, msgs);
+					msgs = ((InternalEObject)previous).eInverseRemove(this, TimeDiscretePackage.TIME_BUCKET__NEXT, TimeBucket.class, msgs);
 				return basicSetPrevious((TimeBucket)otherEnd, msgs);
-			case DiscretePackage.TIME_BUCKET__TIME_LINE:
+			case TimeDiscretePackage.TIME_BUCKET__TIME_LINE:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetTimeLine((TimeLine)otherEnd, msgs);
@@ -573,11 +573,11 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DiscretePackage.TIME_BUCKET__NEXT:
+			case TimeDiscretePackage.TIME_BUCKET__NEXT:
 				return basicSetNext(null, msgs);
-			case DiscretePackage.TIME_BUCKET__PREVIOUS:
+			case TimeDiscretePackage.TIME_BUCKET__PREVIOUS:
 				return basicSetPrevious(null, msgs);
-			case DiscretePackage.TIME_BUCKET__TIME_LINE:
+			case TimeDiscretePackage.TIME_BUCKET__TIME_LINE:
 				return basicSetTimeLine(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -591,8 +591,8 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case DiscretePackage.TIME_BUCKET__TIME_LINE:
-				return eInternalContainer().eInverseRemove(this, DiscretePackage.TIME_LINE__BUCKETS, TimeLine.class, msgs);
+			case TimeDiscretePackage.TIME_BUCKET__TIME_LINE:
+				return eInternalContainer().eInverseRemove(this, TimeDiscretePackage.TIME_LINE__BUCKETS, TimeLine.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -605,27 +605,27 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DiscretePackage.TIME_BUCKET__BUCKET_NR:
+			case TimeDiscretePackage.TIME_BUCKET__BUCKET_NR:
 				return getBucketNr();
-			case DiscretePackage.TIME_BUCKET__BUCKET_START:
+			case TimeDiscretePackage.TIME_BUCKET__BUCKET_START:
 				return getBucketStart();
-			case DiscretePackage.TIME_BUCKET__BUCKET_END:
+			case TimeDiscretePackage.TIME_BUCKET__BUCKET_END:
 				return getBucketEnd();
-			case DiscretePackage.TIME_BUCKET__NEXT:
+			case TimeDiscretePackage.TIME_BUCKET__NEXT:
 				if (resolve) return getNext();
 				return basicGetNext();
-			case DiscretePackage.TIME_BUCKET__PREVIOUS:
+			case TimeDiscretePackage.TIME_BUCKET__PREVIOUS:
 				if (resolve) return getPrevious();
 				return basicGetPrevious();
-			case DiscretePackage.TIME_BUCKET__DESCRIPTION:
+			case TimeDiscretePackage.TIME_BUCKET__DESCRIPTION:
 				return getDescription();
-			case DiscretePackage.TIME_BUCKET__SECONDS:
+			case TimeDiscretePackage.TIME_BUCKET__SECONDS:
 				return getSeconds();
-			case DiscretePackage.TIME_BUCKET__MINUTES:
+			case TimeDiscretePackage.TIME_BUCKET__MINUTES:
 				return getMinutes();
-			case DiscretePackage.TIME_BUCKET__HOURS:
+			case TimeDiscretePackage.TIME_BUCKET__HOURS:
 				return getHours();
-			case DiscretePackage.TIME_BUCKET__TIME_LINE:
+			case TimeDiscretePackage.TIME_BUCKET__TIME_LINE:
 				return getTimeLine();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -639,28 +639,28 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DiscretePackage.TIME_BUCKET__BUCKET_NR:
+			case TimeDiscretePackage.TIME_BUCKET__BUCKET_NR:
 				setBucketNr((Integer)newValue);
 				return;
-			case DiscretePackage.TIME_BUCKET__BUCKET_START:
+			case TimeDiscretePackage.TIME_BUCKET__BUCKET_START:
 				setBucketStart((Date)newValue);
 				return;
-			case DiscretePackage.TIME_BUCKET__BUCKET_END:
+			case TimeDiscretePackage.TIME_BUCKET__BUCKET_END:
 				setBucketEnd((Date)newValue);
 				return;
-			case DiscretePackage.TIME_BUCKET__NEXT:
+			case TimeDiscretePackage.TIME_BUCKET__NEXT:
 				setNext((TimeBucket)newValue);
 				return;
-			case DiscretePackage.TIME_BUCKET__PREVIOUS:
+			case TimeDiscretePackage.TIME_BUCKET__PREVIOUS:
 				setPrevious((TimeBucket)newValue);
 				return;
-			case DiscretePackage.TIME_BUCKET__DESCRIPTION:
+			case TimeDiscretePackage.TIME_BUCKET__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case DiscretePackage.TIME_BUCKET__SECONDS:
+			case TimeDiscretePackage.TIME_BUCKET__SECONDS:
 				setSeconds((Integer)newValue);
 				return;
-			case DiscretePackage.TIME_BUCKET__TIME_LINE:
+			case TimeDiscretePackage.TIME_BUCKET__TIME_LINE:
 				setTimeLine((TimeLine)newValue);
 				return;
 		}
@@ -675,28 +675,28 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DiscretePackage.TIME_BUCKET__BUCKET_NR:
+			case TimeDiscretePackage.TIME_BUCKET__BUCKET_NR:
 				setBucketNr(BUCKET_NR_EDEFAULT);
 				return;
-			case DiscretePackage.TIME_BUCKET__BUCKET_START:
+			case TimeDiscretePackage.TIME_BUCKET__BUCKET_START:
 				setBucketStart(BUCKET_START_EDEFAULT);
 				return;
-			case DiscretePackage.TIME_BUCKET__BUCKET_END:
+			case TimeDiscretePackage.TIME_BUCKET__BUCKET_END:
 				setBucketEnd(BUCKET_END_EDEFAULT);
 				return;
-			case DiscretePackage.TIME_BUCKET__NEXT:
+			case TimeDiscretePackage.TIME_BUCKET__NEXT:
 				setNext((TimeBucket)null);
 				return;
-			case DiscretePackage.TIME_BUCKET__PREVIOUS:
+			case TimeDiscretePackage.TIME_BUCKET__PREVIOUS:
 				setPrevious((TimeBucket)null);
 				return;
-			case DiscretePackage.TIME_BUCKET__DESCRIPTION:
+			case TimeDiscretePackage.TIME_BUCKET__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case DiscretePackage.TIME_BUCKET__SECONDS:
+			case TimeDiscretePackage.TIME_BUCKET__SECONDS:
 				setSeconds(SECONDS_EDEFAULT);
 				return;
-			case DiscretePackage.TIME_BUCKET__TIME_LINE:
+			case TimeDiscretePackage.TIME_BUCKET__TIME_LINE:
 				setTimeLine((TimeLine)null);
 				return;
 		}
@@ -711,25 +711,25 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DiscretePackage.TIME_BUCKET__BUCKET_NR:
+			case TimeDiscretePackage.TIME_BUCKET__BUCKET_NR:
 				return bucketNr != BUCKET_NR_EDEFAULT;
-			case DiscretePackage.TIME_BUCKET__BUCKET_START:
+			case TimeDiscretePackage.TIME_BUCKET__BUCKET_START:
 				return BUCKET_START_EDEFAULT == null ? bucketStart != null : !BUCKET_START_EDEFAULT.equals(bucketStart);
-			case DiscretePackage.TIME_BUCKET__BUCKET_END:
+			case TimeDiscretePackage.TIME_BUCKET__BUCKET_END:
 				return BUCKET_END_EDEFAULT == null ? bucketEnd != null : !BUCKET_END_EDEFAULT.equals(bucketEnd);
-			case DiscretePackage.TIME_BUCKET__NEXT:
+			case TimeDiscretePackage.TIME_BUCKET__NEXT:
 				return next != null;
-			case DiscretePackage.TIME_BUCKET__PREVIOUS:
+			case TimeDiscretePackage.TIME_BUCKET__PREVIOUS:
 				return previous != null;
-			case DiscretePackage.TIME_BUCKET__DESCRIPTION:
+			case TimeDiscretePackage.TIME_BUCKET__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case DiscretePackage.TIME_BUCKET__SECONDS:
+			case TimeDiscretePackage.TIME_BUCKET__SECONDS:
 				return seconds != SECONDS_EDEFAULT;
-			case DiscretePackage.TIME_BUCKET__MINUTES:
+			case TimeDiscretePackage.TIME_BUCKET__MINUTES:
 				return getMinutes() != MINUTES_EDEFAULT;
-			case DiscretePackage.TIME_BUCKET__HOURS:
+			case TimeDiscretePackage.TIME_BUCKET__HOURS:
 				return getHours() != HOURS_EDEFAULT;
-			case DiscretePackage.TIME_BUCKET__TIME_LINE:
+			case TimeDiscretePackage.TIME_BUCKET__TIME_LINE:
 				return getTimeLine() != null;
 		}
 		return super.eIsSet(featureID);
@@ -743,17 +743,17 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case DiscretePackage.TIME_BUCKET___CONTAINS__DATE:
+			case TimeDiscretePackage.TIME_BUCKET___CONTAINS__DATE:
 				return contains((Date)arguments.get(0));
-			case DiscretePackage.TIME_BUCKET___IS_BEFORE__TIMEBUCKET:
+			case TimeDiscretePackage.TIME_BUCKET___IS_BEFORE__TIMEBUCKET:
 				return isBefore((TimeBucket)arguments.get(0));
-			case DiscretePackage.TIME_BUCKET___IS_BEFORE_STRICTLY__TIMEBUCKET:
+			case TimeDiscretePackage.TIME_BUCKET___IS_BEFORE_STRICTLY__TIMEBUCKET:
 				return isBeforeStrictly((TimeBucket)arguments.get(0));
-			case DiscretePackage.TIME_BUCKET___IS_AFTER__TIMEBUCKET:
+			case TimeDiscretePackage.TIME_BUCKET___IS_AFTER__TIMEBUCKET:
 				return isAfter((TimeBucket)arguments.get(0));
-			case DiscretePackage.TIME_BUCKET___IS_AFTER_STRICTLY__TIMEBUCKET:
+			case TimeDiscretePackage.TIME_BUCKET___IS_AFTER_STRICTLY__TIMEBUCKET:
 				return isAfterStrictly((TimeBucket)arguments.get(0));
-			case DiscretePackage.TIME_BUCKET___GET_SECONDS_INTERSECTION__DATE_DATE:
+			case TimeDiscretePackage.TIME_BUCKET___GET_SECONDS_INTERSECTION__DATE_DATE:
 				return getSecondsIntersection((Date)arguments.get(0), (Date)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);

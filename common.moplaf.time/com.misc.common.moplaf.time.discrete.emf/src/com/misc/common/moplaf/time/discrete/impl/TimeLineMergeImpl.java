@@ -3,8 +3,8 @@
 package com.misc.common.moplaf.time.discrete.impl;
 
 import com.misc.common.moplaf.time.Util;
-import com.misc.common.moplaf.time.discrete.DiscreteFactory;
-import com.misc.common.moplaf.time.discrete.DiscretePackage;
+import com.misc.common.moplaf.time.discrete.TimeDiscreteFactory;
+import com.misc.common.moplaf.time.discrete.TimeDiscretePackage;
 import com.misc.common.moplaf.time.discrete.MergeElement;
 import com.misc.common.moplaf.time.discrete.TimeBucket;
 import com.misc.common.moplaf.time.discrete.TimeLine;
@@ -109,7 +109,7 @@ public class TimeLineMergeImpl extends MinimalEObjectImpl.Container implements T
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return DiscretePackage.Literals.TIME_LINE_MERGE;
+		return TimeDiscretePackage.Literals.TIME_LINE_MERGE;
 	}
 
 	/**
@@ -119,7 +119,7 @@ public class TimeLineMergeImpl extends MinimalEObjectImpl.Container implements T
 	 */
 	public EList<MergeElement> getElements() {
 		if (elements == null) {
-			elements = new EObjectContainmentEList<MergeElement>(MergeElement.class, this, DiscretePackage.TIME_LINE_MERGE__ELEMENTS);
+			elements = new EObjectContainmentEList<MergeElement>(MergeElement.class, this, TimeDiscretePackage.TIME_LINE_MERGE__ELEMENTS);
 		}
 		return elements;
 	}
@@ -135,7 +135,7 @@ public class TimeLineMergeImpl extends MinimalEObjectImpl.Container implements T
 			timeLineTo = (TimeLine)eResolveProxy(oldTimeLineTo);
 			if (timeLineTo != oldTimeLineTo) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DiscretePackage.TIME_LINE_MERGE__TIME_LINE_TO, oldTimeLineTo, timeLineTo));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TimeDiscretePackage.TIME_LINE_MERGE__TIME_LINE_TO, oldTimeLineTo, timeLineTo));
 			}
 		}
 		return timeLineTo;
@@ -159,7 +159,7 @@ public class TimeLineMergeImpl extends MinimalEObjectImpl.Container implements T
 		TimeLine oldTimeLineTo = timeLineTo;
 		timeLineTo = newTimeLineTo;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.TIME_LINE_MERGE__TIME_LINE_TO, oldTimeLineTo, timeLineTo));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.TIME_LINE_MERGE__TIME_LINE_TO, oldTimeLineTo, timeLineTo));
 	}
 
 	/**
@@ -173,7 +173,7 @@ public class TimeLineMergeImpl extends MinimalEObjectImpl.Container implements T
 			firstElement = (MergeElement)eResolveProxy(oldFirstElement);
 			if (firstElement != oldFirstElement) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DiscretePackage.TIME_LINE_MERGE__FIRST_ELEMENT, oldFirstElement, firstElement));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TimeDiscretePackage.TIME_LINE_MERGE__FIRST_ELEMENT, oldFirstElement, firstElement));
 			}
 		}
 		return firstElement;
@@ -197,7 +197,7 @@ public class TimeLineMergeImpl extends MinimalEObjectImpl.Container implements T
 		MergeElement oldFirstElement = firstElement;
 		firstElement = newFirstElement;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.TIME_LINE_MERGE__FIRST_ELEMENT, oldFirstElement, firstElement));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.TIME_LINE_MERGE__FIRST_ELEMENT, oldFirstElement, firstElement));
 	}
 
 	/**
@@ -211,7 +211,7 @@ public class TimeLineMergeImpl extends MinimalEObjectImpl.Container implements T
 			lastElement = (MergeElement)eResolveProxy(oldLastElement);
 			if (lastElement != oldLastElement) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DiscretePackage.TIME_LINE_MERGE__LAST_ELEMENT, oldLastElement, lastElement));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TimeDiscretePackage.TIME_LINE_MERGE__LAST_ELEMENT, oldLastElement, lastElement));
 			}
 		}
 		return lastElement;
@@ -235,7 +235,7 @@ public class TimeLineMergeImpl extends MinimalEObjectImpl.Container implements T
 		MergeElement oldLastElement = lastElement;
 		lastElement = newLastElement;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.TIME_LINE_MERGE__LAST_ELEMENT, oldLastElement, lastElement));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.TIME_LINE_MERGE__LAST_ELEMENT, oldLastElement, lastElement));
 	}
 
 	/**
@@ -249,7 +249,7 @@ public class TimeLineMergeImpl extends MinimalEObjectImpl.Container implements T
 			timeLineFrom = (TimeLine)eResolveProxy(oldTimeLineFrom);
 			if (timeLineFrom != oldTimeLineFrom) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DiscretePackage.TIME_LINE_MERGE__TIME_LINE_FROM, oldTimeLineFrom, timeLineFrom));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TimeDiscretePackage.TIME_LINE_MERGE__TIME_LINE_FROM, oldTimeLineFrom, timeLineFrom));
 			}
 		}
 		return timeLineFrom;
@@ -273,7 +273,7 @@ public class TimeLineMergeImpl extends MinimalEObjectImpl.Container implements T
 		TimeLine oldTimeLineFrom = timeLineFrom;
 		timeLineFrom = newTimeLineFrom;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.TIME_LINE_MERGE__TIME_LINE_FROM, oldTimeLineFrom, timeLineFrom));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.TIME_LINE_MERGE__TIME_LINE_FROM, oldTimeLineFrom, timeLineFrom));
 	}
 
 	/**
@@ -325,7 +325,7 @@ public class TimeLineMergeImpl extends MinimalEObjectImpl.Container implements T
 				else               earliestendto = nextto.getBucketEnd();
 			}
 			// create the element
-			MergeElement currentelement = DiscreteFactory.eINSTANCE.createMergeElement();
+			MergeElement currentelement = TimeDiscreteFactory.eINSTANCE.createMergeElement();
 			int seconds = Util.getSeconds(currentstart,  currentend);
 			float partfrominto = currentto==null   ? 0f : (float)seconds/currentto.getSeconds();
 			float parttoinfrom = currentfrom==null ? 0f : (float)seconds/currentfrom.getSeconds();
@@ -361,7 +361,7 @@ public class TimeLineMergeImpl extends MinimalEObjectImpl.Container implements T
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DiscretePackage.TIME_LINE_MERGE__ELEMENTS:
+			case TimeDiscretePackage.TIME_LINE_MERGE__ELEMENTS:
 				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -375,18 +375,18 @@ public class TimeLineMergeImpl extends MinimalEObjectImpl.Container implements T
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DiscretePackage.TIME_LINE_MERGE__ELEMENTS:
+			case TimeDiscretePackage.TIME_LINE_MERGE__ELEMENTS:
 				return getElements();
-			case DiscretePackage.TIME_LINE_MERGE__TIME_LINE_TO:
+			case TimeDiscretePackage.TIME_LINE_MERGE__TIME_LINE_TO:
 				if (resolve) return getTimeLineTo();
 				return basicGetTimeLineTo();
-			case DiscretePackage.TIME_LINE_MERGE__FIRST_ELEMENT:
+			case TimeDiscretePackage.TIME_LINE_MERGE__FIRST_ELEMENT:
 				if (resolve) return getFirstElement();
 				return basicGetFirstElement();
-			case DiscretePackage.TIME_LINE_MERGE__LAST_ELEMENT:
+			case TimeDiscretePackage.TIME_LINE_MERGE__LAST_ELEMENT:
 				if (resolve) return getLastElement();
 				return basicGetLastElement();
-			case DiscretePackage.TIME_LINE_MERGE__TIME_LINE_FROM:
+			case TimeDiscretePackage.TIME_LINE_MERGE__TIME_LINE_FROM:
 				if (resolve) return getTimeLineFrom();
 				return basicGetTimeLineFrom();
 		}
@@ -402,20 +402,20 @@ public class TimeLineMergeImpl extends MinimalEObjectImpl.Container implements T
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DiscretePackage.TIME_LINE_MERGE__ELEMENTS:
+			case TimeDiscretePackage.TIME_LINE_MERGE__ELEMENTS:
 				getElements().clear();
 				getElements().addAll((Collection<? extends MergeElement>)newValue);
 				return;
-			case DiscretePackage.TIME_LINE_MERGE__TIME_LINE_TO:
+			case TimeDiscretePackage.TIME_LINE_MERGE__TIME_LINE_TO:
 				setTimeLineTo((TimeLine)newValue);
 				return;
-			case DiscretePackage.TIME_LINE_MERGE__FIRST_ELEMENT:
+			case TimeDiscretePackage.TIME_LINE_MERGE__FIRST_ELEMENT:
 				setFirstElement((MergeElement)newValue);
 				return;
-			case DiscretePackage.TIME_LINE_MERGE__LAST_ELEMENT:
+			case TimeDiscretePackage.TIME_LINE_MERGE__LAST_ELEMENT:
 				setLastElement((MergeElement)newValue);
 				return;
-			case DiscretePackage.TIME_LINE_MERGE__TIME_LINE_FROM:
+			case TimeDiscretePackage.TIME_LINE_MERGE__TIME_LINE_FROM:
 				setTimeLineFrom((TimeLine)newValue);
 				return;
 		}
@@ -430,19 +430,19 @@ public class TimeLineMergeImpl extends MinimalEObjectImpl.Container implements T
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DiscretePackage.TIME_LINE_MERGE__ELEMENTS:
+			case TimeDiscretePackage.TIME_LINE_MERGE__ELEMENTS:
 				getElements().clear();
 				return;
-			case DiscretePackage.TIME_LINE_MERGE__TIME_LINE_TO:
+			case TimeDiscretePackage.TIME_LINE_MERGE__TIME_LINE_TO:
 				setTimeLineTo((TimeLine)null);
 				return;
-			case DiscretePackage.TIME_LINE_MERGE__FIRST_ELEMENT:
+			case TimeDiscretePackage.TIME_LINE_MERGE__FIRST_ELEMENT:
 				setFirstElement((MergeElement)null);
 				return;
-			case DiscretePackage.TIME_LINE_MERGE__LAST_ELEMENT:
+			case TimeDiscretePackage.TIME_LINE_MERGE__LAST_ELEMENT:
 				setLastElement((MergeElement)null);
 				return;
-			case DiscretePackage.TIME_LINE_MERGE__TIME_LINE_FROM:
+			case TimeDiscretePackage.TIME_LINE_MERGE__TIME_LINE_FROM:
 				setTimeLineFrom((TimeLine)null);
 				return;
 		}
@@ -457,15 +457,15 @@ public class TimeLineMergeImpl extends MinimalEObjectImpl.Container implements T
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DiscretePackage.TIME_LINE_MERGE__ELEMENTS:
+			case TimeDiscretePackage.TIME_LINE_MERGE__ELEMENTS:
 				return elements != null && !elements.isEmpty();
-			case DiscretePackage.TIME_LINE_MERGE__TIME_LINE_TO:
+			case TimeDiscretePackage.TIME_LINE_MERGE__TIME_LINE_TO:
 				return timeLineTo != null;
-			case DiscretePackage.TIME_LINE_MERGE__FIRST_ELEMENT:
+			case TimeDiscretePackage.TIME_LINE_MERGE__FIRST_ELEMENT:
 				return firstElement != null;
-			case DiscretePackage.TIME_LINE_MERGE__LAST_ELEMENT:
+			case TimeDiscretePackage.TIME_LINE_MERGE__LAST_ELEMENT:
 				return lastElement != null;
-			case DiscretePackage.TIME_LINE_MERGE__TIME_LINE_FROM:
+			case TimeDiscretePackage.TIME_LINE_MERGE__TIME_LINE_FROM:
 				return timeLineFrom != null;
 		}
 		return super.eIsSet(featureID);
@@ -479,7 +479,7 @@ public class TimeLineMergeImpl extends MinimalEObjectImpl.Container implements T
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case DiscretePackage.TIME_LINE_MERGE___REFRESH:
+			case TimeDiscretePackage.TIME_LINE_MERGE___REFRESH:
 				refresh();
 				return null;
 		}

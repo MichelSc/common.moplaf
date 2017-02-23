@@ -2,7 +2,7 @@
  */
 package com.misc.common.moplaf.time.discrete.provider;
 
-import com.misc.common.moplaf.time.discrete.DiscretePackage;
+import com.misc.common.moplaf.time.discrete.TimeDiscretePackage;
 import com.misc.common.moplaf.time.discrete.MergeElement;
 
 import java.util.Collection;
@@ -85,7 +85,7 @@ public class MergeElementItemProvider
 				 getResourceLocator(),
 				 getString("_UI_MergeElement_BucketFrom_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_MergeElement_BucketFrom_feature", "_UI_MergeElement_type"),
-				 DiscretePackage.Literals.MERGE_ELEMENT__BUCKET_FROM,
+				 TimeDiscretePackage.Literals.MERGE_ELEMENT__BUCKET_FROM,
 				 true,
 				 false,
 				 true,
@@ -107,7 +107,7 @@ public class MergeElementItemProvider
 				 getResourceLocator(),
 				 getString("_UI_MergeElement_BucketTo_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_MergeElement_BucketTo_feature", "_UI_MergeElement_type"),
-				 DiscretePackage.Literals.MERGE_ELEMENT__BUCKET_TO,
+				 TimeDiscretePackage.Literals.MERGE_ELEMENT__BUCKET_TO,
 				 true,
 				 false,
 				 true,
@@ -129,7 +129,7 @@ public class MergeElementItemProvider
 				 getResourceLocator(),
 				 getString("_UI_MergeElement_Previous_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_MergeElement_Previous_feature", "_UI_MergeElement_type"),
-				 DiscretePackage.Literals.MERGE_ELEMENT__PREVIOUS,
+				 TimeDiscretePackage.Literals.MERGE_ELEMENT__PREVIOUS,
 				 true,
 				 false,
 				 true,
@@ -151,7 +151,7 @@ public class MergeElementItemProvider
 				 getResourceLocator(),
 				 getString("_UI_MergeElement_Next_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_MergeElement_Next_feature", "_UI_MergeElement_type"),
-				 DiscretePackage.Literals.MERGE_ELEMENT__NEXT,
+				 TimeDiscretePackage.Literals.MERGE_ELEMENT__NEXT,
 				 true,
 				 false,
 				 true,
@@ -173,7 +173,7 @@ public class MergeElementItemProvider
 				 getResourceLocator(),
 				 getString("_UI_MergeElement_PartFromInTo_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_MergeElement_PartFromInTo_feature", "_UI_MergeElement_type"),
-				 DiscretePackage.Literals.MERGE_ELEMENT__PART_FROM_IN_TO,
+				 TimeDiscretePackage.Literals.MERGE_ELEMENT__PART_FROM_IN_TO,
 				 true,
 				 false,
 				 false,
@@ -195,7 +195,7 @@ public class MergeElementItemProvider
 				 getResourceLocator(),
 				 getString("_UI_MergeElement_PartToInFrom_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_MergeElement_PartToInFrom_feature", "_UI_MergeElement_type"),
-				 DiscretePackage.Literals.MERGE_ELEMENT__PART_TO_IN_FROM,
+				 TimeDiscretePackage.Literals.MERGE_ELEMENT__PART_TO_IN_FROM,
 				 true,
 				 false,
 				 false,
@@ -217,7 +217,7 @@ public class MergeElementItemProvider
 				 getResourceLocator(),
 				 getString("_UI_MergeElement_ElementStart_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_MergeElement_ElementStart_feature", "_UI_MergeElement_type"),
-				 DiscretePackage.Literals.MERGE_ELEMENT__ELEMENT_START,
+				 TimeDiscretePackage.Literals.MERGE_ELEMENT__ELEMENT_START,
 				 true,
 				 false,
 				 false,
@@ -239,7 +239,7 @@ public class MergeElementItemProvider
 				 getResourceLocator(),
 				 getString("_UI_MergeElement_ElementEnd_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_MergeElement_ElementEnd_feature", "_UI_MergeElement_type"),
-				 DiscretePackage.Literals.MERGE_ELEMENT__ELEMENT_END,
+				 TimeDiscretePackage.Literals.MERGE_ELEMENT__ELEMENT_END,
 				 true,
 				 false,
 				 false,
@@ -261,7 +261,7 @@ public class MergeElementItemProvider
 				 getResourceLocator(),
 				 getString("_UI_MergeElement_Seconds_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_MergeElement_Seconds_feature", "_UI_MergeElement_type"),
-				 DiscretePackage.Literals.MERGE_ELEMENT__SECONDS,
+				 TimeDiscretePackage.Literals.MERGE_ELEMENT__SECONDS,
 				 true,
 				 false,
 				 false,
@@ -305,11 +305,11 @@ public class MergeElementItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(MergeElement.class)) {
-			case DiscretePackage.MERGE_ELEMENT__PART_FROM_IN_TO:
-			case DiscretePackage.MERGE_ELEMENT__PART_TO_IN_FROM:
-			case DiscretePackage.MERGE_ELEMENT__ELEMENT_START:
-			case DiscretePackage.MERGE_ELEMENT__ELEMENT_END:
-			case DiscretePackage.MERGE_ELEMENT__SECONDS:
+			case TimeDiscretePackage.MERGE_ELEMENT__PART_FROM_IN_TO:
+			case TimeDiscretePackage.MERGE_ELEMENT__PART_TO_IN_FROM:
+			case TimeDiscretePackage.MERGE_ELEMENT__ELEMENT_START:
+			case TimeDiscretePackage.MERGE_ELEMENT__ELEMENT_END:
+			case TimeDiscretePackage.MERGE_ELEMENT__SECONDS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

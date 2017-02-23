@@ -22,11 +22,11 @@ import org.eclipse.emf.ecore.EReference;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see com.misc.common.moplaf.time.discrete.DiscreteFactory
+ * @see com.misc.common.moplaf.time.discrete.TimeDiscreteFactory
  * @model kind="package"
  * @generated
  */
-public interface DiscretePackage extends EPackage {
+public interface TimeDiscretePackage extends EPackage {
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -57,14 +57,14 @@ public interface DiscretePackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	DiscretePackage eINSTANCE = com.misc.common.moplaf.time.discrete.impl.DiscretePackageImpl.init();
+	TimeDiscretePackage eINSTANCE = com.misc.common.moplaf.time.discrete.impl.TimeDiscretePackageImpl.init();
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.discrete.impl.TimeBucketImpl <em>Time Bucket</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see com.misc.common.moplaf.time.discrete.impl.TimeBucketImpl
-	 * @see com.misc.common.moplaf.time.discrete.impl.DiscretePackageImpl#getTimeBucket()
+	 * @see com.misc.common.moplaf.time.discrete.impl.TimeDiscretePackageImpl#getTimeBucket()
 	 * @generated
 	 */
 	int TIME_BUCKET = 0;
@@ -236,7 +236,7 @@ public interface DiscretePackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see com.misc.common.moplaf.time.discrete.impl.TimeLineImpl
-	 * @see com.misc.common.moplaf.time.discrete.impl.DiscretePackageImpl#getTimeLine()
+	 * @see com.misc.common.moplaf.time.discrete.impl.TimeDiscretePackageImpl#getTimeLine()
 	 * @generated
 	 */
 	int TIME_LINE = 1;
@@ -408,7 +408,7 @@ public interface DiscretePackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see com.misc.common.moplaf.time.discrete.impl.TimeLineMergeImpl
-	 * @see com.misc.common.moplaf.time.discrete.impl.DiscretePackageImpl#getTimeLineMerge()
+	 * @see com.misc.common.moplaf.time.discrete.impl.TimeDiscretePackageImpl#getTimeLineMerge()
 	 * @generated
 	 */
 	int TIME_LINE_MERGE = 2;
@@ -490,7 +490,7 @@ public interface DiscretePackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see com.misc.common.moplaf.time.discrete.impl.MergeElementImpl
-	 * @see com.misc.common.moplaf.time.discrete.impl.DiscretePackageImpl#getMergeElement()
+	 * @see com.misc.common.moplaf.time.discrete.impl.TimeDiscretePackageImpl#getMergeElement()
 	 * @generated
 	 */
 	int MERGE_ELEMENT = 3;
@@ -599,7 +599,7 @@ public interface DiscretePackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see com.misc.common.moplaf.time.discrete.impl.ObjectWithTimeLineImpl
-	 * @see com.misc.common.moplaf.time.discrete.impl.DiscretePackageImpl#getObjectWithTimeLine()
+	 * @see com.misc.common.moplaf.time.discrete.impl.TimeDiscretePackageImpl#getObjectWithTimeLine()
 	 * @generated
 	 */
 	int OBJECT_WITH_TIME_LINE = 4;
@@ -699,7 +699,7 @@ public interface DiscretePackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see com.misc.common.moplaf.time.discrete.impl.ObjectTimeBucketImpl
-	 * @see com.misc.common.moplaf.time.discrete.impl.DiscretePackageImpl#getObjectTimeBucket()
+	 * @see com.misc.common.moplaf.time.discrete.impl.TimeDiscretePackageImpl#getObjectTimeBucket()
 	 * @generated
 	 */
 	int OBJECT_TIME_BUCKET = 5;
@@ -763,7 +763,7 @@ public interface DiscretePackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see com.misc.common.moplaf.time.discrete.BucketType
-	 * @see com.misc.common.moplaf.time.discrete.impl.DiscretePackageImpl#getBucketType()
+	 * @see com.misc.common.moplaf.time.discrete.impl.TimeDiscretePackageImpl#getBucketType()
 	 * @generated
 	 */
 	int BUCKET_TYPE = 6;
@@ -773,7 +773,7 @@ public interface DiscretePackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see com.misc.common.moplaf.time.discrete.BucketIterator
-	 * @see com.misc.common.moplaf.time.discrete.impl.DiscretePackageImpl#getBucketIterator()
+	 * @see com.misc.common.moplaf.time.discrete.impl.TimeDiscretePackageImpl#getBucketIterator()
 	 * @generated
 	 */
 	int BUCKET_ITERATOR = 7;
@@ -1500,7 +1500,7 @@ public interface DiscretePackage extends EPackage {
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
-	DiscreteFactory getDiscreteFactory();
+	TimeDiscreteFactory getTimeDiscreteFactory();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1521,7 +1521,7 @@ public interface DiscretePackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see com.misc.common.moplaf.time.discrete.impl.TimeBucketImpl
-		 * @see com.misc.common.moplaf.time.discrete.impl.DiscretePackageImpl#getTimeBucket()
+		 * @see com.misc.common.moplaf.time.discrete.impl.TimeDiscretePackageImpl#getTimeBucket()
 		 * @generated
 		 */
 		EClass TIME_BUCKET = eINSTANCE.getTimeBucket();
@@ -1659,7 +1659,7 @@ public interface DiscretePackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see com.misc.common.moplaf.time.discrete.impl.TimeLineImpl
-		 * @see com.misc.common.moplaf.time.discrete.impl.DiscretePackageImpl#getTimeLine()
+		 * @see com.misc.common.moplaf.time.discrete.impl.TimeDiscretePackageImpl#getTimeLine()
 		 * @generated
 		 */
 		EClass TIME_LINE = eINSTANCE.getTimeLine();
@@ -1797,7 +1797,7 @@ public interface DiscretePackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see com.misc.common.moplaf.time.discrete.impl.TimeLineMergeImpl
-		 * @see com.misc.common.moplaf.time.discrete.impl.DiscretePackageImpl#getTimeLineMerge()
+		 * @see com.misc.common.moplaf.time.discrete.impl.TimeDiscretePackageImpl#getTimeLineMerge()
 		 * @generated
 		 */
 		EClass TIME_LINE_MERGE = eINSTANCE.getTimeLineMerge();
@@ -1855,7 +1855,7 @@ public interface DiscretePackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see com.misc.common.moplaf.time.discrete.impl.MergeElementImpl
-		 * @see com.misc.common.moplaf.time.discrete.impl.DiscretePackageImpl#getMergeElement()
+		 * @see com.misc.common.moplaf.time.discrete.impl.TimeDiscretePackageImpl#getMergeElement()
 		 * @generated
 		 */
 		EClass MERGE_ELEMENT = eINSTANCE.getMergeElement();
@@ -1937,7 +1937,7 @@ public interface DiscretePackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see com.misc.common.moplaf.time.discrete.impl.ObjectWithTimeLineImpl
-		 * @see com.misc.common.moplaf.time.discrete.impl.DiscretePackageImpl#getObjectWithTimeLine()
+		 * @see com.misc.common.moplaf.time.discrete.impl.TimeDiscretePackageImpl#getObjectWithTimeLine()
 		 * @generated
 		 */
 		EClass OBJECT_WITH_TIME_LINE = eINSTANCE.getObjectWithTimeLine();
@@ -2011,7 +2011,7 @@ public interface DiscretePackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see com.misc.common.moplaf.time.discrete.impl.ObjectTimeBucketImpl
-		 * @see com.misc.common.moplaf.time.discrete.impl.DiscretePackageImpl#getObjectTimeBucket()
+		 * @see com.misc.common.moplaf.time.discrete.impl.TimeDiscretePackageImpl#getObjectTimeBucket()
 		 * @generated
 		 */
 		EClass OBJECT_TIME_BUCKET = eINSTANCE.getObjectTimeBucket();
@@ -2053,7 +2053,7 @@ public interface DiscretePackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see com.misc.common.moplaf.time.discrete.BucketType
-		 * @see com.misc.common.moplaf.time.discrete.impl.DiscretePackageImpl#getBucketType()
+		 * @see com.misc.common.moplaf.time.discrete.impl.TimeDiscretePackageImpl#getBucketType()
 		 * @generated
 		 */
 		EEnum BUCKET_TYPE = eINSTANCE.getBucketType();
@@ -2063,7 +2063,7 @@ public interface DiscretePackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see com.misc.common.moplaf.time.discrete.BucketIterator
-		 * @see com.misc.common.moplaf.time.discrete.impl.DiscretePackageImpl#getBucketIterator()
+		 * @see com.misc.common.moplaf.time.discrete.impl.TimeDiscretePackageImpl#getBucketIterator()
 		 * @generated
 		 */
 		EDataType BUCKET_ITERATOR = eINSTANCE.getBucketIterator();

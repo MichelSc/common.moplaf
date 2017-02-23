@@ -2,7 +2,7 @@
  */
 package com.misc.common.moplaf.time.discrete.impl;
 
-import com.misc.common.moplaf.time.discrete.DiscretePackage;
+import com.misc.common.moplaf.time.discrete.TimeDiscretePackage;
 import com.misc.common.moplaf.time.discrete.MergeElement;
 import com.misc.common.moplaf.time.discrete.TimeBucket;
 
@@ -195,7 +195,7 @@ public class MergeElementImpl extends MinimalEObjectImpl.Container implements Me
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return DiscretePackage.Literals.MERGE_ELEMENT;
+		return TimeDiscretePackage.Literals.MERGE_ELEMENT;
 	}
 
 	/**
@@ -209,7 +209,7 @@ public class MergeElementImpl extends MinimalEObjectImpl.Container implements Me
 			bucketFrom = (TimeBucket)eResolveProxy(oldBucketFrom);
 			if (bucketFrom != oldBucketFrom) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DiscretePackage.MERGE_ELEMENT__BUCKET_FROM, oldBucketFrom, bucketFrom));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TimeDiscretePackage.MERGE_ELEMENT__BUCKET_FROM, oldBucketFrom, bucketFrom));
 			}
 		}
 		return bucketFrom;
@@ -233,7 +233,7 @@ public class MergeElementImpl extends MinimalEObjectImpl.Container implements Me
 		TimeBucket oldBucketFrom = bucketFrom;
 		bucketFrom = newBucketFrom;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.MERGE_ELEMENT__BUCKET_FROM, oldBucketFrom, bucketFrom));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.MERGE_ELEMENT__BUCKET_FROM, oldBucketFrom, bucketFrom));
 	}
 
 	/**
@@ -247,7 +247,7 @@ public class MergeElementImpl extends MinimalEObjectImpl.Container implements Me
 			bucketTo = (TimeBucket)eResolveProxy(oldBucketTo);
 			if (bucketTo != oldBucketTo) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DiscretePackage.MERGE_ELEMENT__BUCKET_TO, oldBucketTo, bucketTo));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TimeDiscretePackage.MERGE_ELEMENT__BUCKET_TO, oldBucketTo, bucketTo));
 			}
 		}
 		return bucketTo;
@@ -271,7 +271,7 @@ public class MergeElementImpl extends MinimalEObjectImpl.Container implements Me
 		TimeBucket oldBucketTo = bucketTo;
 		bucketTo = newBucketTo;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.MERGE_ELEMENT__BUCKET_TO, oldBucketTo, bucketTo));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.MERGE_ELEMENT__BUCKET_TO, oldBucketTo, bucketTo));
 	}
 
 	/**
@@ -285,7 +285,7 @@ public class MergeElementImpl extends MinimalEObjectImpl.Container implements Me
 			previous = (MergeElement)eResolveProxy(oldPrevious);
 			if (previous != oldPrevious) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DiscretePackage.MERGE_ELEMENT__PREVIOUS, oldPrevious, previous));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TimeDiscretePackage.MERGE_ELEMENT__PREVIOUS, oldPrevious, previous));
 			}
 		}
 		return previous;
@@ -309,7 +309,7 @@ public class MergeElementImpl extends MinimalEObjectImpl.Container implements Me
 		MergeElement oldPrevious = previous;
 		previous = newPrevious;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiscretePackage.MERGE_ELEMENT__PREVIOUS, oldPrevious, newPrevious);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.MERGE_ELEMENT__PREVIOUS, oldPrevious, newPrevious);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -324,14 +324,14 @@ public class MergeElementImpl extends MinimalEObjectImpl.Container implements Me
 		if (newPrevious != previous) {
 			NotificationChain msgs = null;
 			if (previous != null)
-				msgs = ((InternalEObject)previous).eInverseRemove(this, DiscretePackage.MERGE_ELEMENT__NEXT, MergeElement.class, msgs);
+				msgs = ((InternalEObject)previous).eInverseRemove(this, TimeDiscretePackage.MERGE_ELEMENT__NEXT, MergeElement.class, msgs);
 			if (newPrevious != null)
-				msgs = ((InternalEObject)newPrevious).eInverseAdd(this, DiscretePackage.MERGE_ELEMENT__NEXT, MergeElement.class, msgs);
+				msgs = ((InternalEObject)newPrevious).eInverseAdd(this, TimeDiscretePackage.MERGE_ELEMENT__NEXT, MergeElement.class, msgs);
 			msgs = basicSetPrevious(newPrevious, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.MERGE_ELEMENT__PREVIOUS, newPrevious, newPrevious));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.MERGE_ELEMENT__PREVIOUS, newPrevious, newPrevious));
 	}
 
 	/**
@@ -345,7 +345,7 @@ public class MergeElementImpl extends MinimalEObjectImpl.Container implements Me
 			next = (MergeElement)eResolveProxy(oldNext);
 			if (next != oldNext) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DiscretePackage.MERGE_ELEMENT__NEXT, oldNext, next));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TimeDiscretePackage.MERGE_ELEMENT__NEXT, oldNext, next));
 			}
 		}
 		return next;
@@ -369,7 +369,7 @@ public class MergeElementImpl extends MinimalEObjectImpl.Container implements Me
 		MergeElement oldNext = next;
 		next = newNext;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiscretePackage.MERGE_ELEMENT__NEXT, oldNext, newNext);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.MERGE_ELEMENT__NEXT, oldNext, newNext);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -384,14 +384,14 @@ public class MergeElementImpl extends MinimalEObjectImpl.Container implements Me
 		if (newNext != next) {
 			NotificationChain msgs = null;
 			if (next != null)
-				msgs = ((InternalEObject)next).eInverseRemove(this, DiscretePackage.MERGE_ELEMENT__PREVIOUS, MergeElement.class, msgs);
+				msgs = ((InternalEObject)next).eInverseRemove(this, TimeDiscretePackage.MERGE_ELEMENT__PREVIOUS, MergeElement.class, msgs);
 			if (newNext != null)
-				msgs = ((InternalEObject)newNext).eInverseAdd(this, DiscretePackage.MERGE_ELEMENT__PREVIOUS, MergeElement.class, msgs);
+				msgs = ((InternalEObject)newNext).eInverseAdd(this, TimeDiscretePackage.MERGE_ELEMENT__PREVIOUS, MergeElement.class, msgs);
 			msgs = basicSetNext(newNext, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.MERGE_ELEMENT__NEXT, newNext, newNext));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.MERGE_ELEMENT__NEXT, newNext, newNext));
 	}
 
 	/**
@@ -412,7 +412,7 @@ public class MergeElementImpl extends MinimalEObjectImpl.Container implements Me
 		float oldPartFromInTo = partFromInTo;
 		partFromInTo = newPartFromInTo;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.MERGE_ELEMENT__PART_FROM_IN_TO, oldPartFromInTo, partFromInTo));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.MERGE_ELEMENT__PART_FROM_IN_TO, oldPartFromInTo, partFromInTo));
 	}
 
 	/**
@@ -433,7 +433,7 @@ public class MergeElementImpl extends MinimalEObjectImpl.Container implements Me
 		float oldPartToInFrom = partToInFrom;
 		partToInFrom = newPartToInFrom;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.MERGE_ELEMENT__PART_TO_IN_FROM, oldPartToInFrom, partToInFrom));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.MERGE_ELEMENT__PART_TO_IN_FROM, oldPartToInFrom, partToInFrom));
 	}
 
 	/**
@@ -454,7 +454,7 @@ public class MergeElementImpl extends MinimalEObjectImpl.Container implements Me
 		Date oldElementStart = elementStart;
 		elementStart = newElementStart;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.MERGE_ELEMENT__ELEMENT_START, oldElementStart, elementStart));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.MERGE_ELEMENT__ELEMENT_START, oldElementStart, elementStart));
 	}
 
 	/**
@@ -475,7 +475,7 @@ public class MergeElementImpl extends MinimalEObjectImpl.Container implements Me
 		Date oldElementEnd = elementEnd;
 		elementEnd = newElementEnd;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.MERGE_ELEMENT__ELEMENT_END, oldElementEnd, elementEnd));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.MERGE_ELEMENT__ELEMENT_END, oldElementEnd, elementEnd));
 	}
 
 	/**
@@ -496,7 +496,7 @@ public class MergeElementImpl extends MinimalEObjectImpl.Container implements Me
 		int oldSeconds = seconds;
 		seconds = newSeconds;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.MERGE_ELEMENT__SECONDS, oldSeconds, seconds));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.MERGE_ELEMENT__SECONDS, oldSeconds, seconds));
 	}
 
 	/**
@@ -507,13 +507,13 @@ public class MergeElementImpl extends MinimalEObjectImpl.Container implements Me
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DiscretePackage.MERGE_ELEMENT__PREVIOUS:
+			case TimeDiscretePackage.MERGE_ELEMENT__PREVIOUS:
 				if (previous != null)
-					msgs = ((InternalEObject)previous).eInverseRemove(this, DiscretePackage.MERGE_ELEMENT__NEXT, MergeElement.class, msgs);
+					msgs = ((InternalEObject)previous).eInverseRemove(this, TimeDiscretePackage.MERGE_ELEMENT__NEXT, MergeElement.class, msgs);
 				return basicSetPrevious((MergeElement)otherEnd, msgs);
-			case DiscretePackage.MERGE_ELEMENT__NEXT:
+			case TimeDiscretePackage.MERGE_ELEMENT__NEXT:
 				if (next != null)
-					msgs = ((InternalEObject)next).eInverseRemove(this, DiscretePackage.MERGE_ELEMENT__PREVIOUS, MergeElement.class, msgs);
+					msgs = ((InternalEObject)next).eInverseRemove(this, TimeDiscretePackage.MERGE_ELEMENT__PREVIOUS, MergeElement.class, msgs);
 				return basicSetNext((MergeElement)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -527,9 +527,9 @@ public class MergeElementImpl extends MinimalEObjectImpl.Container implements Me
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DiscretePackage.MERGE_ELEMENT__PREVIOUS:
+			case TimeDiscretePackage.MERGE_ELEMENT__PREVIOUS:
 				return basicSetPrevious(null, msgs);
-			case DiscretePackage.MERGE_ELEMENT__NEXT:
+			case TimeDiscretePackage.MERGE_ELEMENT__NEXT:
 				return basicSetNext(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -543,27 +543,27 @@ public class MergeElementImpl extends MinimalEObjectImpl.Container implements Me
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DiscretePackage.MERGE_ELEMENT__BUCKET_FROM:
+			case TimeDiscretePackage.MERGE_ELEMENT__BUCKET_FROM:
 				if (resolve) return getBucketFrom();
 				return basicGetBucketFrom();
-			case DiscretePackage.MERGE_ELEMENT__BUCKET_TO:
+			case TimeDiscretePackage.MERGE_ELEMENT__BUCKET_TO:
 				if (resolve) return getBucketTo();
 				return basicGetBucketTo();
-			case DiscretePackage.MERGE_ELEMENT__PREVIOUS:
+			case TimeDiscretePackage.MERGE_ELEMENT__PREVIOUS:
 				if (resolve) return getPrevious();
 				return basicGetPrevious();
-			case DiscretePackage.MERGE_ELEMENT__NEXT:
+			case TimeDiscretePackage.MERGE_ELEMENT__NEXT:
 				if (resolve) return getNext();
 				return basicGetNext();
-			case DiscretePackage.MERGE_ELEMENT__PART_FROM_IN_TO:
+			case TimeDiscretePackage.MERGE_ELEMENT__PART_FROM_IN_TO:
 				return getPartFromInTo();
-			case DiscretePackage.MERGE_ELEMENT__PART_TO_IN_FROM:
+			case TimeDiscretePackage.MERGE_ELEMENT__PART_TO_IN_FROM:
 				return getPartToInFrom();
-			case DiscretePackage.MERGE_ELEMENT__ELEMENT_START:
+			case TimeDiscretePackage.MERGE_ELEMENT__ELEMENT_START:
 				return getElementStart();
-			case DiscretePackage.MERGE_ELEMENT__ELEMENT_END:
+			case TimeDiscretePackage.MERGE_ELEMENT__ELEMENT_END:
 				return getElementEnd();
-			case DiscretePackage.MERGE_ELEMENT__SECONDS:
+			case TimeDiscretePackage.MERGE_ELEMENT__SECONDS:
 				return getSeconds();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -577,31 +577,31 @@ public class MergeElementImpl extends MinimalEObjectImpl.Container implements Me
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DiscretePackage.MERGE_ELEMENT__BUCKET_FROM:
+			case TimeDiscretePackage.MERGE_ELEMENT__BUCKET_FROM:
 				setBucketFrom((TimeBucket)newValue);
 				return;
-			case DiscretePackage.MERGE_ELEMENT__BUCKET_TO:
+			case TimeDiscretePackage.MERGE_ELEMENT__BUCKET_TO:
 				setBucketTo((TimeBucket)newValue);
 				return;
-			case DiscretePackage.MERGE_ELEMENT__PREVIOUS:
+			case TimeDiscretePackage.MERGE_ELEMENT__PREVIOUS:
 				setPrevious((MergeElement)newValue);
 				return;
-			case DiscretePackage.MERGE_ELEMENT__NEXT:
+			case TimeDiscretePackage.MERGE_ELEMENT__NEXT:
 				setNext((MergeElement)newValue);
 				return;
-			case DiscretePackage.MERGE_ELEMENT__PART_FROM_IN_TO:
+			case TimeDiscretePackage.MERGE_ELEMENT__PART_FROM_IN_TO:
 				setPartFromInTo((Float)newValue);
 				return;
-			case DiscretePackage.MERGE_ELEMENT__PART_TO_IN_FROM:
+			case TimeDiscretePackage.MERGE_ELEMENT__PART_TO_IN_FROM:
 				setPartToInFrom((Float)newValue);
 				return;
-			case DiscretePackage.MERGE_ELEMENT__ELEMENT_START:
+			case TimeDiscretePackage.MERGE_ELEMENT__ELEMENT_START:
 				setElementStart((Date)newValue);
 				return;
-			case DiscretePackage.MERGE_ELEMENT__ELEMENT_END:
+			case TimeDiscretePackage.MERGE_ELEMENT__ELEMENT_END:
 				setElementEnd((Date)newValue);
 				return;
-			case DiscretePackage.MERGE_ELEMENT__SECONDS:
+			case TimeDiscretePackage.MERGE_ELEMENT__SECONDS:
 				setSeconds((Integer)newValue);
 				return;
 		}
@@ -616,31 +616,31 @@ public class MergeElementImpl extends MinimalEObjectImpl.Container implements Me
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DiscretePackage.MERGE_ELEMENT__BUCKET_FROM:
+			case TimeDiscretePackage.MERGE_ELEMENT__BUCKET_FROM:
 				setBucketFrom((TimeBucket)null);
 				return;
-			case DiscretePackage.MERGE_ELEMENT__BUCKET_TO:
+			case TimeDiscretePackage.MERGE_ELEMENT__BUCKET_TO:
 				setBucketTo((TimeBucket)null);
 				return;
-			case DiscretePackage.MERGE_ELEMENT__PREVIOUS:
+			case TimeDiscretePackage.MERGE_ELEMENT__PREVIOUS:
 				setPrevious((MergeElement)null);
 				return;
-			case DiscretePackage.MERGE_ELEMENT__NEXT:
+			case TimeDiscretePackage.MERGE_ELEMENT__NEXT:
 				setNext((MergeElement)null);
 				return;
-			case DiscretePackage.MERGE_ELEMENT__PART_FROM_IN_TO:
+			case TimeDiscretePackage.MERGE_ELEMENT__PART_FROM_IN_TO:
 				setPartFromInTo(PART_FROM_IN_TO_EDEFAULT);
 				return;
-			case DiscretePackage.MERGE_ELEMENT__PART_TO_IN_FROM:
+			case TimeDiscretePackage.MERGE_ELEMENT__PART_TO_IN_FROM:
 				setPartToInFrom(PART_TO_IN_FROM_EDEFAULT);
 				return;
-			case DiscretePackage.MERGE_ELEMENT__ELEMENT_START:
+			case TimeDiscretePackage.MERGE_ELEMENT__ELEMENT_START:
 				setElementStart(ELEMENT_START_EDEFAULT);
 				return;
-			case DiscretePackage.MERGE_ELEMENT__ELEMENT_END:
+			case TimeDiscretePackage.MERGE_ELEMENT__ELEMENT_END:
 				setElementEnd(ELEMENT_END_EDEFAULT);
 				return;
-			case DiscretePackage.MERGE_ELEMENT__SECONDS:
+			case TimeDiscretePackage.MERGE_ELEMENT__SECONDS:
 				setSeconds(SECONDS_EDEFAULT);
 				return;
 		}
@@ -655,23 +655,23 @@ public class MergeElementImpl extends MinimalEObjectImpl.Container implements Me
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DiscretePackage.MERGE_ELEMENT__BUCKET_FROM:
+			case TimeDiscretePackage.MERGE_ELEMENT__BUCKET_FROM:
 				return bucketFrom != null;
-			case DiscretePackage.MERGE_ELEMENT__BUCKET_TO:
+			case TimeDiscretePackage.MERGE_ELEMENT__BUCKET_TO:
 				return bucketTo != null;
-			case DiscretePackage.MERGE_ELEMENT__PREVIOUS:
+			case TimeDiscretePackage.MERGE_ELEMENT__PREVIOUS:
 				return previous != null;
-			case DiscretePackage.MERGE_ELEMENT__NEXT:
+			case TimeDiscretePackage.MERGE_ELEMENT__NEXT:
 				return next != null;
-			case DiscretePackage.MERGE_ELEMENT__PART_FROM_IN_TO:
+			case TimeDiscretePackage.MERGE_ELEMENT__PART_FROM_IN_TO:
 				return partFromInTo != PART_FROM_IN_TO_EDEFAULT;
-			case DiscretePackage.MERGE_ELEMENT__PART_TO_IN_FROM:
+			case TimeDiscretePackage.MERGE_ELEMENT__PART_TO_IN_FROM:
 				return partToInFrom != PART_TO_IN_FROM_EDEFAULT;
-			case DiscretePackage.MERGE_ELEMENT__ELEMENT_START:
+			case TimeDiscretePackage.MERGE_ELEMENT__ELEMENT_START:
 				return ELEMENT_START_EDEFAULT == null ? elementStart != null : !ELEMENT_START_EDEFAULT.equals(elementStart);
-			case DiscretePackage.MERGE_ELEMENT__ELEMENT_END:
+			case TimeDiscretePackage.MERGE_ELEMENT__ELEMENT_END:
 				return ELEMENT_END_EDEFAULT == null ? elementEnd != null : !ELEMENT_END_EDEFAULT.equals(elementEnd);
-			case DiscretePackage.MERGE_ELEMENT__SECONDS:
+			case TimeDiscretePackage.MERGE_ELEMENT__SECONDS:
 				return seconds != SECONDS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);

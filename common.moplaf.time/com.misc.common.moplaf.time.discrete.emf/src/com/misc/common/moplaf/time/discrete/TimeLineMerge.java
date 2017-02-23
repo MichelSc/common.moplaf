@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeLineMerge#getTimeLineFrom <em>Time Line From</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeLineMerge()
+ * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeLineMerge()
  * @model
  * @generated
  */
@@ -37,7 +37,7 @@ public interface TimeLineMerge extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Elements</em>' containment reference list.
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeLineMerge_Elements()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeLineMerge_Elements()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -53,7 +53,7 @@ public interface TimeLineMerge extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Time Line To</em>' reference.
 	 * @see #setTimeLineTo(TimeLine)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeLineMerge_TimeLineTo()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeLineMerge_TimeLineTo()
 	 * @model
 	 * @generated
 	 */
@@ -79,7 +79,7 @@ public interface TimeLineMerge extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>First Element</em>' reference.
 	 * @see #setFirstElement(MergeElement)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeLineMerge_FirstElement()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeLineMerge_FirstElement()
 	 * @model
 	 * @generated
 	 */
@@ -105,7 +105,7 @@ public interface TimeLineMerge extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Last Element</em>' reference.
 	 * @see #setLastElement(MergeElement)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeLineMerge_LastElement()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeLineMerge_LastElement()
 	 * @model
 	 * @generated
 	 */
@@ -131,7 +131,7 @@ public interface TimeLineMerge extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Time Line From</em>' reference.
 	 * @see #setTimeLineFrom(TimeLine)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeLineMerge_TimeLineFrom()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeLineMerge_TimeLineFrom()
 	 * @model
 	 * @generated
 	 */

@@ -5,8 +5,8 @@ package com.misc.common.moplaf.time.discrete.impl;
 import com.misc.common.moplaf.time.Util;
 import com.misc.common.moplaf.time.discrete.BucketIterator;
 import com.misc.common.moplaf.time.discrete.BucketType;
-import com.misc.common.moplaf.time.discrete.DiscreteFactory;
-import com.misc.common.moplaf.time.discrete.DiscretePackage;
+import com.misc.common.moplaf.time.discrete.TimeDiscreteFactory;
+import com.misc.common.moplaf.time.discrete.TimeDiscretePackage;
 import com.misc.common.moplaf.time.discrete.TimeBucket;
 import com.misc.common.moplaf.time.discrete.TimeLine;
 
@@ -261,7 +261,7 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return DiscretePackage.Literals.TIME_LINE;
+		return TimeDiscretePackage.Literals.TIME_LINE;
 	}
 
 	/**
@@ -282,7 +282,7 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		BucketType oldBucketType = bucketType;
 		bucketType = newBucketType == null ? BUCKET_TYPE_EDEFAULT : newBucketType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.TIME_LINE__BUCKET_TYPE, oldBucketType, bucketType));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.TIME_LINE__BUCKET_TYPE, oldBucketType, bucketType));
 	}
 
 	/**
@@ -303,7 +303,7 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		BucketType oldBucketTypeRefreshed = bucketTypeRefreshed;
 		bucketTypeRefreshed = newBucketTypeRefreshed == null ? BUCKET_TYPE_REFRESHED_EDEFAULT : newBucketTypeRefreshed;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.TIME_LINE__BUCKET_TYPE_REFRESHED, oldBucketTypeRefreshed, bucketTypeRefreshed));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.TIME_LINE__BUCKET_TYPE_REFRESHED, oldBucketTypeRefreshed, bucketTypeRefreshed));
 	}
 
 	/**
@@ -324,7 +324,7 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.TIME_LINE__DESCRIPTION, oldDescription, description));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.TIME_LINE__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -345,7 +345,7 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		String oldTimeZoneID = timeZoneID;
 		timeZoneID = newTimeZoneID;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.TIME_LINE__TIME_ZONE_ID, oldTimeZoneID, timeZoneID));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.TIME_LINE__TIME_ZONE_ID, oldTimeZoneID, timeZoneID));
 	}
 
 	/**
@@ -366,7 +366,7 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		String oldLocaleLanguage = localeLanguage;
 		localeLanguage = newLocaleLanguage;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.TIME_LINE__LOCALE_LANGUAGE, oldLocaleLanguage, localeLanguage));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.TIME_LINE__LOCALE_LANGUAGE, oldLocaleLanguage, localeLanguage));
 	}
 
 	/**
@@ -387,7 +387,7 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		String oldLocaleCountry = localeCountry;
 		localeCountry = newLocaleCountry;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.TIME_LINE__LOCALE_COUNTRY, oldLocaleCountry, localeCountry));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.TIME_LINE__LOCALE_COUNTRY, oldLocaleCountry, localeCountry));
 	}
 
 	/**
@@ -408,7 +408,7 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		Date oldHorizonStart = horizonStart;
 		horizonStart = newHorizonStart;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.TIME_LINE__HORIZON_START, oldHorizonStart, horizonStart));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.TIME_LINE__HORIZON_START, oldHorizonStart, horizonStart));
 	}
 
 	/**
@@ -429,7 +429,7 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		Date oldHorizonEnd = horizonEnd;
 		horizonEnd = newHorizonEnd;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.TIME_LINE__HORIZON_END, oldHorizonEnd, horizonEnd));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.TIME_LINE__HORIZON_END, oldHorizonEnd, horizonEnd));
 	}
 
 	/**
@@ -439,7 +439,7 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 	 */
 	public EList<TimeBucket> getBuckets() {
 		if (buckets == null) {
-			buckets = new EObjectContainmentWithInverseEList<TimeBucket>(TimeBucket.class, this, DiscretePackage.TIME_LINE__BUCKETS, DiscretePackage.TIME_BUCKET__TIME_LINE);
+			buckets = new EObjectContainmentWithInverseEList<TimeBucket>(TimeBucket.class, this, TimeDiscretePackage.TIME_LINE__BUCKETS, TimeDiscretePackage.TIME_BUCKET__TIME_LINE);
 		}
 		return buckets;
 	}
@@ -455,7 +455,7 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 			firstBucket = (TimeBucket)eResolveProxy(oldFirstBucket);
 			if (firstBucket != oldFirstBucket) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DiscretePackage.TIME_LINE__FIRST_BUCKET, oldFirstBucket, firstBucket));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TimeDiscretePackage.TIME_LINE__FIRST_BUCKET, oldFirstBucket, firstBucket));
 			}
 		}
 		return firstBucket;
@@ -479,7 +479,7 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		TimeBucket oldFirstBucket = firstBucket;
 		firstBucket = newFirstBucket;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.TIME_LINE__FIRST_BUCKET, oldFirstBucket, firstBucket));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.TIME_LINE__FIRST_BUCKET, oldFirstBucket, firstBucket));
 	}
 
 	/**
@@ -493,7 +493,7 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 			lastBucket = (TimeBucket)eResolveProxy(oldLastBucket);
 			if (lastBucket != oldLastBucket) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DiscretePackage.TIME_LINE__LAST_BUCKET, oldLastBucket, lastBucket));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TimeDiscretePackage.TIME_LINE__LAST_BUCKET, oldLastBucket, lastBucket));
 			}
 		}
 		return lastBucket;
@@ -517,7 +517,7 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 		TimeBucket oldLastBucket = lastBucket;
 		lastBucket = newLastBucket;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiscretePackage.TIME_LINE__LAST_BUCKET, oldLastBucket, lastBucket));
+			eNotify(new ENotificationImpl(this, Notification.SET, TimeDiscretePackage.TIME_LINE__LAST_BUCKET, oldLastBucket, lastBucket));
 	}
 
 	public TimeBucket constructBucket(Date sometime){
@@ -532,7 +532,7 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 	 * <!-- end-user-doc -->
 	 */
 	public TimeBucket createBucket() {
-		return DiscreteFactory.eINSTANCE.createTimeBucket();
+		return TimeDiscreteFactory.eINSTANCE.createTimeBucket();
 	}
 
 	/**
@@ -544,7 +544,7 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DiscretePackage.TIME_LINE__BUCKETS:
+			case TimeDiscretePackage.TIME_LINE__BUCKETS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getBuckets()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -558,7 +558,7 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DiscretePackage.TIME_LINE__BUCKETS:
+			case TimeDiscretePackage.TIME_LINE__BUCKETS:
 				return ((InternalEList<?>)getBuckets()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -572,28 +572,28 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DiscretePackage.TIME_LINE__BUCKET_TYPE:
+			case TimeDiscretePackage.TIME_LINE__BUCKET_TYPE:
 				return getBucketType();
-			case DiscretePackage.TIME_LINE__BUCKET_TYPE_REFRESHED:
+			case TimeDiscretePackage.TIME_LINE__BUCKET_TYPE_REFRESHED:
 				return getBucketTypeRefreshed();
-			case DiscretePackage.TIME_LINE__DESCRIPTION:
+			case TimeDiscretePackage.TIME_LINE__DESCRIPTION:
 				return getDescription();
-			case DiscretePackage.TIME_LINE__TIME_ZONE_ID:
+			case TimeDiscretePackage.TIME_LINE__TIME_ZONE_ID:
 				return getTimeZoneID();
-			case DiscretePackage.TIME_LINE__LOCALE_LANGUAGE:
+			case TimeDiscretePackage.TIME_LINE__LOCALE_LANGUAGE:
 				return getLocaleLanguage();
-			case DiscretePackage.TIME_LINE__LOCALE_COUNTRY:
+			case TimeDiscretePackage.TIME_LINE__LOCALE_COUNTRY:
 				return getLocaleCountry();
-			case DiscretePackage.TIME_LINE__HORIZON_START:
+			case TimeDiscretePackage.TIME_LINE__HORIZON_START:
 				return getHorizonStart();
-			case DiscretePackage.TIME_LINE__HORIZON_END:
+			case TimeDiscretePackage.TIME_LINE__HORIZON_END:
 				return getHorizonEnd();
-			case DiscretePackage.TIME_LINE__BUCKETS:
+			case TimeDiscretePackage.TIME_LINE__BUCKETS:
 				return getBuckets();
-			case DiscretePackage.TIME_LINE__FIRST_BUCKET:
+			case TimeDiscretePackage.TIME_LINE__FIRST_BUCKET:
 				if (resolve) return getFirstBucket();
 				return basicGetFirstBucket();
-			case DiscretePackage.TIME_LINE__LAST_BUCKET:
+			case TimeDiscretePackage.TIME_LINE__LAST_BUCKET:
 				if (resolve) return getLastBucket();
 				return basicGetLastBucket();
 		}
@@ -609,38 +609,38 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DiscretePackage.TIME_LINE__BUCKET_TYPE:
+			case TimeDiscretePackage.TIME_LINE__BUCKET_TYPE:
 				setBucketType((BucketType)newValue);
 				return;
-			case DiscretePackage.TIME_LINE__BUCKET_TYPE_REFRESHED:
+			case TimeDiscretePackage.TIME_LINE__BUCKET_TYPE_REFRESHED:
 				setBucketTypeRefreshed((BucketType)newValue);
 				return;
-			case DiscretePackage.TIME_LINE__DESCRIPTION:
+			case TimeDiscretePackage.TIME_LINE__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case DiscretePackage.TIME_LINE__TIME_ZONE_ID:
+			case TimeDiscretePackage.TIME_LINE__TIME_ZONE_ID:
 				setTimeZoneID((String)newValue);
 				return;
-			case DiscretePackage.TIME_LINE__LOCALE_LANGUAGE:
+			case TimeDiscretePackage.TIME_LINE__LOCALE_LANGUAGE:
 				setLocaleLanguage((String)newValue);
 				return;
-			case DiscretePackage.TIME_LINE__LOCALE_COUNTRY:
+			case TimeDiscretePackage.TIME_LINE__LOCALE_COUNTRY:
 				setLocaleCountry((String)newValue);
 				return;
-			case DiscretePackage.TIME_LINE__HORIZON_START:
+			case TimeDiscretePackage.TIME_LINE__HORIZON_START:
 				setHorizonStart((Date)newValue);
 				return;
-			case DiscretePackage.TIME_LINE__HORIZON_END:
+			case TimeDiscretePackage.TIME_LINE__HORIZON_END:
 				setHorizonEnd((Date)newValue);
 				return;
-			case DiscretePackage.TIME_LINE__BUCKETS:
+			case TimeDiscretePackage.TIME_LINE__BUCKETS:
 				getBuckets().clear();
 				getBuckets().addAll((Collection<? extends TimeBucket>)newValue);
 				return;
-			case DiscretePackage.TIME_LINE__FIRST_BUCKET:
+			case TimeDiscretePackage.TIME_LINE__FIRST_BUCKET:
 				setFirstBucket((TimeBucket)newValue);
 				return;
-			case DiscretePackage.TIME_LINE__LAST_BUCKET:
+			case TimeDiscretePackage.TIME_LINE__LAST_BUCKET:
 				setLastBucket((TimeBucket)newValue);
 				return;
 		}
@@ -655,37 +655,37 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DiscretePackage.TIME_LINE__BUCKET_TYPE:
+			case TimeDiscretePackage.TIME_LINE__BUCKET_TYPE:
 				setBucketType(BUCKET_TYPE_EDEFAULT);
 				return;
-			case DiscretePackage.TIME_LINE__BUCKET_TYPE_REFRESHED:
+			case TimeDiscretePackage.TIME_LINE__BUCKET_TYPE_REFRESHED:
 				setBucketTypeRefreshed(BUCKET_TYPE_REFRESHED_EDEFAULT);
 				return;
-			case DiscretePackage.TIME_LINE__DESCRIPTION:
+			case TimeDiscretePackage.TIME_LINE__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case DiscretePackage.TIME_LINE__TIME_ZONE_ID:
+			case TimeDiscretePackage.TIME_LINE__TIME_ZONE_ID:
 				setTimeZoneID(TIME_ZONE_ID_EDEFAULT);
 				return;
-			case DiscretePackage.TIME_LINE__LOCALE_LANGUAGE:
+			case TimeDiscretePackage.TIME_LINE__LOCALE_LANGUAGE:
 				setLocaleLanguage(LOCALE_LANGUAGE_EDEFAULT);
 				return;
-			case DiscretePackage.TIME_LINE__LOCALE_COUNTRY:
+			case TimeDiscretePackage.TIME_LINE__LOCALE_COUNTRY:
 				setLocaleCountry(LOCALE_COUNTRY_EDEFAULT);
 				return;
-			case DiscretePackage.TIME_LINE__HORIZON_START:
+			case TimeDiscretePackage.TIME_LINE__HORIZON_START:
 				setHorizonStart(HORIZON_START_EDEFAULT);
 				return;
-			case DiscretePackage.TIME_LINE__HORIZON_END:
+			case TimeDiscretePackage.TIME_LINE__HORIZON_END:
 				setHorizonEnd(HORIZON_END_EDEFAULT);
 				return;
-			case DiscretePackage.TIME_LINE__BUCKETS:
+			case TimeDiscretePackage.TIME_LINE__BUCKETS:
 				getBuckets().clear();
 				return;
-			case DiscretePackage.TIME_LINE__FIRST_BUCKET:
+			case TimeDiscretePackage.TIME_LINE__FIRST_BUCKET:
 				setFirstBucket((TimeBucket)null);
 				return;
-			case DiscretePackage.TIME_LINE__LAST_BUCKET:
+			case TimeDiscretePackage.TIME_LINE__LAST_BUCKET:
 				setLastBucket((TimeBucket)null);
 				return;
 		}
@@ -700,27 +700,27 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DiscretePackage.TIME_LINE__BUCKET_TYPE:
+			case TimeDiscretePackage.TIME_LINE__BUCKET_TYPE:
 				return bucketType != BUCKET_TYPE_EDEFAULT;
-			case DiscretePackage.TIME_LINE__BUCKET_TYPE_REFRESHED:
+			case TimeDiscretePackage.TIME_LINE__BUCKET_TYPE_REFRESHED:
 				return bucketTypeRefreshed != BUCKET_TYPE_REFRESHED_EDEFAULT;
-			case DiscretePackage.TIME_LINE__DESCRIPTION:
+			case TimeDiscretePackage.TIME_LINE__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case DiscretePackage.TIME_LINE__TIME_ZONE_ID:
+			case TimeDiscretePackage.TIME_LINE__TIME_ZONE_ID:
 				return TIME_ZONE_ID_EDEFAULT == null ? timeZoneID != null : !TIME_ZONE_ID_EDEFAULT.equals(timeZoneID);
-			case DiscretePackage.TIME_LINE__LOCALE_LANGUAGE:
+			case TimeDiscretePackage.TIME_LINE__LOCALE_LANGUAGE:
 				return LOCALE_LANGUAGE_EDEFAULT == null ? localeLanguage != null : !LOCALE_LANGUAGE_EDEFAULT.equals(localeLanguage);
-			case DiscretePackage.TIME_LINE__LOCALE_COUNTRY:
+			case TimeDiscretePackage.TIME_LINE__LOCALE_COUNTRY:
 				return LOCALE_COUNTRY_EDEFAULT == null ? localeCountry != null : !LOCALE_COUNTRY_EDEFAULT.equals(localeCountry);
-			case DiscretePackage.TIME_LINE__HORIZON_START:
+			case TimeDiscretePackage.TIME_LINE__HORIZON_START:
 				return HORIZON_START_EDEFAULT == null ? horizonStart != null : !HORIZON_START_EDEFAULT.equals(horizonStart);
-			case DiscretePackage.TIME_LINE__HORIZON_END:
+			case TimeDiscretePackage.TIME_LINE__HORIZON_END:
 				return HORIZON_END_EDEFAULT == null ? horizonEnd != null : !HORIZON_END_EDEFAULT.equals(horizonEnd);
-			case DiscretePackage.TIME_LINE__BUCKETS:
+			case TimeDiscretePackage.TIME_LINE__BUCKETS:
 				return buckets != null && !buckets.isEmpty();
-			case DiscretePackage.TIME_LINE__FIRST_BUCKET:
+			case TimeDiscretePackage.TIME_LINE__FIRST_BUCKET:
 				return firstBucket != null;
-			case DiscretePackage.TIME_LINE__LAST_BUCKET:
+			case TimeDiscretePackage.TIME_LINE__LAST_BUCKET:
 				return lastBucket != null;
 		}
 		return super.eIsSet(featureID);
@@ -734,16 +734,16 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case DiscretePackage.TIME_LINE___REFRESH_HORIZON:
+			case TimeDiscretePackage.TIME_LINE___REFRESH_HORIZON:
 				refreshHorizon();
 				return null;
-			case DiscretePackage.TIME_LINE___ITERATOR__DATE_DATE_BOOLEAN:
+			case TimeDiscretePackage.TIME_LINE___ITERATOR__DATE_DATE_BOOLEAN:
 				return iterator((Date)arguments.get(0), (Date)arguments.get(1), (Boolean)arguments.get(2));
-			case DiscretePackage.TIME_LINE___GET_BUCKET_FLOOR__DATE:
+			case TimeDiscretePackage.TIME_LINE___GET_BUCKET_FLOOR__DATE:
 				return getBucketFloor((Date)arguments.get(0));
-			case DiscretePackage.TIME_LINE___GET_BUCKET_CEIL__DATE:
+			case TimeDiscretePackage.TIME_LINE___GET_BUCKET_CEIL__DATE:
 				return getBucketCeil((Date)arguments.get(0));
-			case DiscretePackage.TIME_LINE___CREATE_BUCKET:
+			case TimeDiscretePackage.TIME_LINE___CREATE_BUCKET:
 				return createBucket();
 		}
 		return super.eInvoke(operationID, arguments);

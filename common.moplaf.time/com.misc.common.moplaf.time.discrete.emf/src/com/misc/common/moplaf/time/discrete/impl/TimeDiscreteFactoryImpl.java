@@ -19,24 +19,24 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DiscreteFactoryImpl extends EFactoryImpl implements DiscreteFactory {
+public class TimeDiscreteFactoryImpl extends EFactoryImpl implements TimeDiscreteFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static DiscreteFactory init() {
+	public static TimeDiscreteFactory init() {
 		try {
-			DiscreteFactory theDiscreteFactory = (DiscreteFactory)EPackage.Registry.INSTANCE.getEFactory(DiscretePackage.eNS_URI);
-			if (theDiscreteFactory != null) {
-				return theDiscreteFactory;
+			TimeDiscreteFactory theTimeDiscreteFactory = (TimeDiscreteFactory)EPackage.Registry.INSTANCE.getEFactory(TimeDiscretePackage.eNS_URI);
+			if (theTimeDiscreteFactory != null) {
+				return theTimeDiscreteFactory;
 			}
 		}
 		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
-		return new DiscreteFactoryImpl();
+		return new TimeDiscreteFactoryImpl();
 	}
 
 	/**
@@ -45,7 +45,7 @@ public class DiscreteFactoryImpl extends EFactoryImpl implements DiscreteFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DiscreteFactoryImpl() {
+	public TimeDiscreteFactoryImpl() {
 		super();
 	}
 
@@ -57,12 +57,12 @@ public class DiscreteFactoryImpl extends EFactoryImpl implements DiscreteFactory
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case DiscretePackage.TIME_BUCKET: return createTimeBucket();
-			case DiscretePackage.TIME_LINE: return createTimeLine();
-			case DiscretePackage.TIME_LINE_MERGE: return createTimeLineMerge();
-			case DiscretePackage.MERGE_ELEMENT: return createMergeElement();
-			case DiscretePackage.OBJECT_WITH_TIME_LINE: return createObjectWithTimeLine();
-			case DiscretePackage.OBJECT_TIME_BUCKET: return createObjectTimeBucket();
+			case TimeDiscretePackage.TIME_BUCKET: return createTimeBucket();
+			case TimeDiscretePackage.TIME_LINE: return createTimeLine();
+			case TimeDiscretePackage.TIME_LINE_MERGE: return createTimeLineMerge();
+			case TimeDiscretePackage.MERGE_ELEMENT: return createMergeElement();
+			case TimeDiscretePackage.OBJECT_WITH_TIME_LINE: return createObjectWithTimeLine();
+			case TimeDiscretePackage.OBJECT_TIME_BUCKET: return createObjectTimeBucket();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -76,9 +76,9 @@ public class DiscreteFactoryImpl extends EFactoryImpl implements DiscreteFactory
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case DiscretePackage.BUCKET_TYPE:
+			case TimeDiscretePackage.BUCKET_TYPE:
 				return createBucketTypeFromString(eDataType, initialValue);
-			case DiscretePackage.BUCKET_ITERATOR:
+			case TimeDiscretePackage.BUCKET_ITERATOR:
 				return createBucketIteratorFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
@@ -93,9 +93,9 @@ public class DiscreteFactoryImpl extends EFactoryImpl implements DiscreteFactory
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case DiscretePackage.BUCKET_TYPE:
+			case TimeDiscretePackage.BUCKET_TYPE:
 				return convertBucketTypeToString(eDataType, instanceValue);
-			case DiscretePackage.BUCKET_ITERATOR:
+			case TimeDiscretePackage.BUCKET_ITERATOR:
 				return convertBucketIteratorToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
@@ -205,8 +205,8 @@ public class DiscreteFactoryImpl extends EFactoryImpl implements DiscreteFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DiscretePackage getDiscretePackage() {
-		return (DiscretePackage)getEPackage();
+	public TimeDiscretePackage getTimeDiscretePackage() {
+		return (TimeDiscretePackage)getEPackage();
 	}
 
 	/**
@@ -216,8 +216,8 @@ public class DiscreteFactoryImpl extends EFactoryImpl implements DiscreteFactory
 	 * @generated
 	 */
 	@Deprecated
-	public static DiscretePackage getPackage() {
-		return DiscretePackage.eINSTANCE;
+	public static TimeDiscretePackage getPackage() {
+		return TimeDiscretePackage.eINSTANCE;
 	}
 
 } //DiscreteFactoryImpl

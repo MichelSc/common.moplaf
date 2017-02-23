@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.time.discrete.TimeLine#getLastBucket <em>Last Bucket</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeLine()
+ * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeLine()
  * @model
  * @generated
  */
@@ -48,7 +48,7 @@ public interface TimeLine extends EObject {
 	 * @return the value of the '<em>Bucket Type</em>' attribute.
 	 * @see com.misc.common.moplaf.time.discrete.BucketType
 	 * @see #setBucketType(BucketType)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeLine_BucketType()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeLine_BucketType()
 	 * @model default="Hour"
 	 * @generated
 	 */
@@ -78,7 +78,7 @@ public interface TimeLine extends EObject {
 	 * @return the value of the '<em>Bucket Type Refreshed</em>' attribute.
 	 * @see com.misc.common.moplaf.time.discrete.BucketType
 	 * @see #setBucketTypeRefreshed(BucketType)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeLine_BucketTypeRefreshed()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeLine_BucketTypeRefreshed()
 	 * @model default="Hour"
 	 * @generated
 	 */
@@ -105,7 +105,7 @@ public interface TimeLine extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeLine_Description()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeLine_Description()
 	 * @model
 	 * @generated
 	 */
@@ -132,7 +132,7 @@ public interface TimeLine extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Time Zone ID</em>' attribute.
 	 * @see #setTimeZoneID(String)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeLine_TimeZoneID()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeLine_TimeZoneID()
 	 * @model default="Europe/Brussels"
 	 * @generated
 	 */
@@ -159,7 +159,7 @@ public interface TimeLine extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Locale Language</em>' attribute.
 	 * @see #setLocaleLanguage(String)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeLine_LocaleLanguage()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeLine_LocaleLanguage()
 	 * @model default="fr"
 	 * @generated
 	 */
@@ -186,7 +186,7 @@ public interface TimeLine extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Locale Country</em>' attribute.
 	 * @see #setLocaleCountry(String)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeLine_LocaleCountry()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeLine_LocaleCountry()
 	 * @model default="BE"
 	 * @generated
 	 */
@@ -212,7 +212,7 @@ public interface TimeLine extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Horizon Start</em>' attribute.
 	 * @see #setHorizonStart(Date)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeLine_HorizonStart()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeLine_HorizonStart()
 	 * @model
 	 * @generated
 	 */
@@ -238,7 +238,7 @@ public interface TimeLine extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Horizon End</em>' attribute.
 	 * @see #setHorizonEnd(Date)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeLine_HorizonEnd()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeLine_HorizonEnd()
 	 * @model
 	 * @generated
 	 */
@@ -265,7 +265,7 @@ public interface TimeLine extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Buckets</em>' containment reference list.
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeLine_Buckets()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeLine_Buckets()
 	 * @see com.misc.common.moplaf.time.discrete.TimeBucket#getTimeLine
 	 * @model opposite="TimeLine" containment="true"
 	 * @generated
@@ -282,7 +282,7 @@ public interface TimeLine extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>First Bucket</em>' reference.
 	 * @see #setFirstBucket(TimeBucket)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeLine_FirstBucket()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeLine_FirstBucket()
 	 * @model
 	 * @generated
 	 */
@@ -308,7 +308,7 @@ public interface TimeLine extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Last Bucket</em>' reference.
 	 * @see #setLastBucket(TimeBucket)
-	 * @see com.misc.common.moplaf.time.discrete.DiscretePackage#getTimeLine_LastBucket()
+	 * @see com.misc.common.moplaf.time.discrete.TimeDiscretePackage#getTimeLine_LastBucket()
 	 * @model
 	 * @generated
 	 */
