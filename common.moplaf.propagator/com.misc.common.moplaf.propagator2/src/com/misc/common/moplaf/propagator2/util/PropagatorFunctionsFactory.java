@@ -36,6 +36,18 @@ public class PropagatorFunctionsFactory implements PropagatorFunctionsConstructo
 		return this;
 	}
 	
+	public PropagatorFunctionsFactory consructPropagatorFunctionFactory(EClass targetType){
+		PropagatorFunctionsFactory factory = new PropagatorFunctionsFactory();
+		this.addPropagatorFunctionsFactory(targetType, factory);
+		return factory;
+	};
+	
+	public PropagatorFunctionsConstructors consructPropagatorFunctionsConstructors(EClass targetType){
+		PropagatorFunctionsConstructors factory = new PropagatorFunctionsConstructors();
+		this.addPropagatorFunctionsFactory(targetType, factory);
+		return factory;
+	};
+	
 	/**
 	 * Create a Factory for a given TargetType
 	 * @param targetType
