@@ -13,6 +13,7 @@ import com.misc.common.moplaf.time.continuous.calc.TimeContinuousCalcPackage;
 import com.misc.common.moplaf.time.continuous.impl.PropagatorFunctionDistributionImpl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -216,15 +217,24 @@ public class PropagatorCalcDistributionSequenceImpl extends PropagatorFunctionDi
 		return super.eIsSet(featureID);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see com.misc.common.moplaf.propagator2.impl.PropagatorFunctionImpl#doGetParent()
-	 */
+	@Override
+	public void init() {
+		super.init();
+		Distribution distribution = this.getDistribution();
+		this.setConcreteParent(distribution.getPropagatorFunction(PropagatorScopeDistribution.class));
+		this.setAntecedentCalcDistributionProvidedEvents(distribution.getPropagatorFunction(PropagatorCalcDistributionProvidedEvents.class));
+	}
+
 	@Override
 	public PropagatorFunction doGetParent() {
 		return this.getConcreteParent();
 	}
-	
+
+	@Override
+	public void doCollectExplicitAntecedents(EList<PropagatorFunction> antecedents) {
+		antecedents.add(this.getAntecedentCalcDistributionProvidedEvents());
+	}
+
 	private static Bindings distributionEventBindings = Bindings.constructBindings()
 			.addInboundBinding(TimeContinuousPackage.Literals.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT);
 	

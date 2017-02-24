@@ -107,10 +107,6 @@ public class TimeContinuousCalcAdapterFactory extends AdapterFactoryImpl {
 				return createPropagatorLayerDistributionAmountsAdapter();
 			}
 			@Override
-			public Adapter casePropagatorLayerDistributionDescriptions(PropagatorLayerDistributionDescriptions object) {
-				return createPropagatorLayerDistributionDescriptionsAdapter();
-			}
-			@Override
 			public Adapter casePropagatorCalcAmountAbsoluteAmountAbsolute(PropagatorCalcAmountAbsoluteAmountAbsolute object) {
 				return createPropagatorCalcAmountAbsoluteAmountAbsoluteAdapter();
 			}
@@ -181,10 +177,6 @@ public class TimeContinuousCalcAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter casePropagatorCalcEventAmountBefore(PropagatorCalcEventAmountBefore object) {
 				return createPropagatorCalcEventAmountBeforeAdapter();
-			}
-			@Override
-			public Adapter casePropagatorCalcEventDescription(PropagatorCalcEventDescription object) {
-				return createPropagatorCalcEventDescriptionAdapter();
 			}
 			@Override
 			public Adapter casePropagatorCalcEventMoment(PropagatorCalcEventMoment object) {
@@ -265,6 +257,10 @@ public class TimeContinuousCalcAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter casePropagatorCalcEventSlope(PropagatorCalcEventSlope object) {
 				return createPropagatorCalcEventSlopeAdapter();
+			}
+			@Override
+			public Adapter casePropagatorCalcAmount(PropagatorCalcAmount object) {
+				return createPropagatorCalcAmountAdapter();
 			}
 			@Override
 			public Adapter casePropagatorCalcEventAmount(PropagatorCalcEventAmount object) {
@@ -619,20 +615,6 @@ public class TimeContinuousCalcAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventDescription <em>Propagator Calc Event Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventDescription
-	 * @generated
-	 */
-	public Adapter createPropagatorCalcEventDescriptionAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventMoment <em>Propagator Calc Event Moment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -913,6 +895,20 @@ public class TimeContinuousCalcAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmount <em>Propagator Calc Amount</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmount
+	 * @generated
+	 */
+	public Adapter createPropagatorCalcAmountAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventAmount <em>Propagator Calc Event Amount</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -951,20 +947,6 @@ public class TimeContinuousCalcAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPropagatorLayerDistributionAmountsAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionDescriptions <em>Propagator Layer Distribution Descriptions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionDescriptions
-	 * @generated
-	 */
-	public Adapter createPropagatorLayerDistributionDescriptionsAdapter() {
 		return null;
 	}
 

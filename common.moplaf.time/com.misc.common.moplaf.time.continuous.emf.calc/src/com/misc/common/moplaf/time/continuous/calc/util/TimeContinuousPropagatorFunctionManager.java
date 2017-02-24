@@ -6,6 +6,8 @@ import org.eclipse.emf.common.CommonPlugin;
 import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
 import com.misc.common.moplaf.propagator2.util.PropagatorFunctionManagerAdapter;
 import com.misc.common.moplaf.propagator2.util.PropagatorFunctionsConstructor;
+import com.misc.common.moplaf.propagator2.util.PropagatorFunctionsConstructors;
+import com.misc.common.moplaf.propagator2.util.PropagatorFunctionsFactory;
 import com.misc.common.moplaf.time.continuous.AmountAbsolute;
 import com.misc.common.moplaf.time.continuous.AmountAbsoluteAtomic;
 import com.misc.common.moplaf.time.continuous.AmountAbsoluteProvider;
@@ -34,6 +36,7 @@ import com.misc.common.moplaf.time.continuous.StartEvent;
 import com.misc.common.moplaf.time.continuous.StockChange;
 import com.misc.common.moplaf.time.continuous.StockChangeEnd;
 import com.misc.common.moplaf.time.continuous.StockChangeStart;
+import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcChildEventAmountAfter;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcChildEventMoment;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcChildEventSlopeAfter;
@@ -44,7 +47,6 @@ import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionSeq
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEndEventMoment;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventAmountAfter;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventAmountBefore;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventDescription;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventSlopeAfter;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventSlopeBefore;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventsProviderRefreshEvents;
@@ -63,10 +65,10 @@ import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStockChangeStar
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStockChangeStartSlopeImpulsion;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorLayerCompositeEventRefresh;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionAmounts;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionDescriptions;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionSlopes;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorScopeDistribution;
 import com.misc.common.moplaf.time.continuous.calc.TimeContinuousCalcFactory;
+import com.misc.common.moplaf.time.continuous.calc.TimeContinuousCalcPackage;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAmountAfter;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAtomicAmountAbsolute;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAtomicMoment;
@@ -85,7 +87,7 @@ public class TimeContinuousPropagatorFunctionManager extends PropagatorFunctionM
 	 * Constructor
 	 */
 	public TimeContinuousPropagatorFunctionManager() {
-		super( new Constructor());
+		super( constructor);
 	}
 
 	/**
@@ -100,112 +102,43 @@ public class TimeContinuousPropagatorFunctionManager extends PropagatorFunctionM
 		 }
 	}
 
-	/**
-	 * the factory for the PropagatorFunctions
-	 * @author michel
-	 *
-	 */
-	static public class Constructor extends TimeContinuousSwitch<Boolean> implements PropagatorFunctionsConstructor {
-		@Override
-		public void construct(ObjectWithPropagatorFunctions object) {
-			doSwitch(object);
-		}
 
-		@Override
-		public Boolean caseDistribution(Distribution object) {
-			PropagatorScopeDistribution scopeDistribution = TimeContinuousCalcFactory.eINSTANCE.createPropagatorScopeDistribution();
-			object.addPropagatorFunction(scopeDistribution);
+		static PropagatorFunctionsConstructors distributionPropagatorFunctionsConstructors = PropagatorFunctionsFactory.constructPropagatorFunctionsConstructors() 
+				.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_SCOPE_DISTRIBUTION)
+				.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION)
+				.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH)
+				.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_DISTRIBUTION_CHILD_EVENTS)
+				.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS)
+				.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE)
+				.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_LAYER_DISTRIBUTION_SLOPES)
+				.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS)
+				;
 
-			PropagatorCalcDistributionInitialization calcDistributionInitialization = TimeContinuousCalcFactory.eINSTANCE.createPropagatorCalcDistributionInitialization();
-			calcDistributionInitialization.setConcreteParent(scopeDistribution);
-			object.addPropagatorFunction(calcDistributionInitialization, true);
+		static PropagatorFunctionsConstructors distributionEventPropagatorFunctionsConstructors = PropagatorFunctionsFactory.constructPropagatorFunctionsConstructors() 
+				.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_EVENT_SLOPE_BEFORE)
+				.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE)
+				.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_EVENT_SLOPE_AFTER)
+				.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_EVENT_AMOUNT_AFTER)
+				;
 
-			PropagatorLayerCompositeEventRefresh layerCompositeEventRefresh= TimeContinuousCalcFactory.eINSTANCE.createPropagatorLayerCompositeEventRefresh();
-			layerCompositeEventRefresh.setConcreteParent(scopeDistribution);
-			layerCompositeEventRefresh.setAntecedenCalcDistributionInitialization(calcDistributionInitialization);
-			object.addPropagatorFunction(layerCompositeEventRefresh);
+		static PropagatorFunctionsConstructors childEventPropagatorFunctionsConstructors = PropagatorFunctionsFactory.constructPropagatorFunctionsConstructors() 
+				.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_CHILD_EVENT_MOMENT)
+				.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_CHILD_EVENT_SLOPE_AFTER)
+				.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_CHILD_EVENT_AMOUNT_AFTER)
+				;
 
-			PropagatorCalcDistributionChildEvents calcDistributionChildEvents = TimeContinuousCalcFactory.eINSTANCE.createPropagatorCalcDistributionChildEvents();
-			calcDistributionChildEvents.setConcreteParent(scopeDistribution);
-			object.addPropagatorFunction(calcDistributionChildEvents);
-
-			PropagatorCalcDistributionProvidedEvents calcDistributionProvidedEvents= TimeContinuousCalcFactory.eINSTANCE.createPropagatorCalcDistributionProvidedEvents();
-			calcDistributionProvidedEvents.setConcreteParent(scopeDistribution);
-			calcDistributionProvidedEvents.setAntecedentCalcDistributionchildEvents(calcDistributionChildEvents);
-			calcDistributionProvidedEvents.setAntecedentLayerCompositeeventRefresh(layerCompositeEventRefresh);
-			object.addPropagatorFunction(calcDistributionProvidedEvents);
-
-			PropagatorCalcDistributionSequence calcDistributionSequence = TimeContinuousCalcFactory.eINSTANCE.createPropagatorCalcDistributionSequence();
-			calcDistributionSequence.setConcreteParent(scopeDistribution);
-			calcDistributionSequence.setAntecedentCalcDistributionProvidedEvents(calcDistributionProvidedEvents);
-			object.addPropagatorFunction(calcDistributionSequence);
-
-			PropagatorLayerDistributionSlopes layerDistributionSlopes = TimeContinuousCalcFactory.eINSTANCE.createPropagatorLayerDistributionSlopes();
-			layerDistributionSlopes.setConcreteParent(scopeDistribution);
-			layerDistributionSlopes.setAntecedentCalcDistributionSequence(calcDistributionSequence);
-			object.addPropagatorFunction(layerDistributionSlopes);
-
-			PropagatorLayerDistributionAmounts layerDistributionAmounts = TimeContinuousCalcFactory.eINSTANCE.createPropagatorLayerDistributionAmounts();
-			layerDistributionAmounts.setConcreteParent(scopeDistribution);
-			layerDistributionAmounts.setAntecedentLayerDistributionSlopes(layerDistributionSlopes);
-			object.addPropagatorFunction(layerDistributionAmounts);
-
-			PropagatorLayerDistributionDescriptions layerDistributionDescriptions = TimeContinuousCalcFactory.eINSTANCE.createPropagatorLayerDistributionDescriptions();
-			layerDistributionDescriptions.setConcreteParent(scopeDistribution);
-			layerDistributionDescriptions.setAntecedentLayerDistributionAmounts(layerDistributionAmounts);
-			object.addPropagatorFunction(layerDistributionDescriptions);
-
-			return null;
-		}
-
-		@Override
-		public Boolean caseDistributionEvent(DistributionEvent object) {
-			PropagatorCalcEventSlopeBefore calcEventSlopeBefore= TimeContinuousCalcFactory.eINSTANCE.createPropagatorCalcEventSlopeBefore();
-			object.addPropagatorFunction(calcEventSlopeBefore);
-
-			PropagatorCalcEventAmountBefore calcEventAmountBefore= TimeContinuousCalcFactory.eINSTANCE.createPropagatorCalcEventAmountBefore();
-			object.addPropagatorFunction(calcEventAmountBefore);
-
-			PropagatorCalcEventSlopeAfter calcEventSlopeAfter= TimeContinuousCalcFactory.eINSTANCE.createPropagatorCalcEventSlopeAfter();
-			object.addPropagatorFunction(calcEventSlopeAfter);
-
-			PropagatorCalcEventAmountAfter calcEventAmountAfter= TimeContinuousCalcFactory.eINSTANCE.createPropagatorCalcEventAmountAfter();
-			object.addPropagatorFunction(calcEventAmountAfter);
-
-			PropagatorCalcEventDescription calcEventDescription= TimeContinuousCalcFactory.eINSTANCE.createPropagatorCalcEventDescription();
-			object.addPropagatorFunction(calcEventDescription);
-
-			return null;
-		}
-
-		@Override
-		public Boolean caseChildEvent(ChildEvent object) {
-			PropagatorCalcChildEventMoment calcChildEventMoment= TimeContinuousCalcFactory.eINSTANCE.createPropagatorCalcChildEventMoment();
-			object.addPropagatorFunction(calcChildEventMoment);
-
-			PropagatorCalcChildEventSlopeAfter calcChildEventSlopeAfter= TimeContinuousCalcFactory.eINSTANCE.createPropagatorCalcChildEventSlopeAfter();
-			object.addPropagatorFunction(calcChildEventSlopeAfter);
-
-			PropagatorCalcChildEventAmountAfter calcChildEventAmountAfter= TimeContinuousCalcFactory.eINSTANCE.createPropagatorCalcChildEventAmountAfter();
-			object.addPropagatorFunction(calcChildEventAmountAfter);
-
-			return null;
-		}
-
-		@Override
-		public Boolean caseStartEvent(StartEvent object) {
-			
-			PropagatorCalcStartEventSlopeAfter calcStartEventSlopeAfter = TimeContinuousCalcFactory.eINSTANCE.createPropagatorCalcStartEventSlopeAfter();
-			object.addPropagatorFunction(calcStartEventSlopeAfter);
-
-			PropagatorCalcStartEventAmountAfter calcStartEventAmountAfter = TimeContinuousCalcFactory.eINSTANCE.createPropagatorCalcStartEventAmountAfter();
-			object.addPropagatorFunction(calcStartEventAmountAfter);
-
-			PropagatorCalcStartEventMoment calcStartEventMoment = TimeContinuousCalcFactory.eINSTANCE.createPropagatorCalcStartEventMoment();
-			object.addPropagatorFunction(calcStartEventMoment);
-
-			return null;
-		}
+		static PropagatorFunctionsConstructors startEventPropagatorFunctionsConstructors = PropagatorFunctionsFactory.constructPropagatorFunctionsConstructors() 
+				.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_START_EVENT_SLOPE_AFTER)
+				.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_START_EVENT_AMOUNT_AFTER)
+				.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_START_EVENT_MOMENT)
+				;
+		
+		static PropagatorFunctionsFactory constructor = PropagatorFunctionsFactory.constructPropagatorFunctionsFactory()
+				.addPropagatorFunctionsFactory(TimeContinuousPackage.Literals.DISTRIBUTION,       distributionPropagatorFunctionsConstructors)
+				.addPropagatorFunctionsFactory(TimeContinuousPackage.Literals.DISTRIBUTION_EVENT, distributionEventPropagatorFunctionsConstructors)
+				.addPropagatorFunctionsFactory(TimeContinuousPackage.Literals.START_EVENT,        startEventPropagatorFunctionsConstructors)
+				;
+		
 
 		@Override
 		public Boolean caseEndEvent(EndEvent object) {

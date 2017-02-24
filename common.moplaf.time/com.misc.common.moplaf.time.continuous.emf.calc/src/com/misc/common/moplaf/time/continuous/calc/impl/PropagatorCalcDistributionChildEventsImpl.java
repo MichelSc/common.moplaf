@@ -157,6 +157,13 @@ public class PropagatorCalcDistributionChildEventsImpl extends PropagatorFunctio
 		return super.eIsSet(featureID);
 	}
 
+	@Override
+	public void init() {
+		super.init();
+		Distribution distribution = this.getDistribution();
+		this.setConcreteParent(distribution.getPropagatorFunction(PropagatorScopeDistribution.class));
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * @see com.misc.common.moplaf.propagator2.impl.PropagatorFunctionImpl#doGetParent()

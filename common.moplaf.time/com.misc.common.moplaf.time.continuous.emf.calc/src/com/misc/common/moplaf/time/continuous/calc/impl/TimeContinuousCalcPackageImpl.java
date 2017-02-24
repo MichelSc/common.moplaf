@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.time.continuous.calc.impl;
 
 import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
+import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmount;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAmountAbsolute;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAmountAfter;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAtomicAmountAbsolute;
@@ -26,7 +27,6 @@ import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEndEventMoment;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventAmount;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventAmountAfter;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventAmountBefore;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventDescription;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventMoment;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventSlope;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventSlopeAfter;
@@ -49,7 +49,6 @@ import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStockChangeStar
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStockChangeStartSlopeImpulsion;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorLayerCompositeEventRefresh;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionAmounts;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionDescriptions;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionSlopes;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorScopeDistribution;
 import com.misc.common.moplaf.time.continuous.calc.TimeContinuousCalcFactory;
@@ -227,13 +226,6 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass propagatorCalcEventDescriptionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass propagatorCalcEventMomentEClass = null;
 
 	/**
@@ -374,6 +366,13 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass propagatorCalcAmountEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass propagatorCalcEventAmountEClass = null;
 
 	/**
@@ -389,13 +388,6 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * @generated
 	 */
 	private EClass propagatorLayerDistributionAmountsEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass propagatorLayerDistributionDescriptionsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -741,15 +733,6 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPropagatorCalcEventDescription() {
-		return propagatorCalcEventDescriptionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getPropagatorCalcEventMoment() {
 		return propagatorCalcEventMomentEClass;
 	}
@@ -957,6 +940,15 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getPropagatorCalcAmount() {
+		return propagatorCalcAmountEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPropagatorCalcEventAmount() {
 		return propagatorCalcEventAmountEClass;
 	}
@@ -1022,33 +1014,6 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 */
 	public EReference getPropagatorLayerDistributionAmounts_AntecedentLayerDistributionSlopes() {
 		return (EReference)propagatorLayerDistributionAmountsEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPropagatorLayerDistributionDescriptions() {
-		return propagatorLayerDistributionDescriptionsEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPropagatorLayerDistributionDescriptions_ConcreteParent() {
-		return (EReference)propagatorLayerDistributionDescriptionsEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPropagatorLayerDistributionDescriptions_AntecedentLayerDistributionAmounts() {
-		return (EReference)propagatorLayerDistributionDescriptionsEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1144,10 +1109,6 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 		createEReference(propagatorLayerDistributionAmountsEClass, PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS__CONCRETE_PARENT);
 		createEReference(propagatorLayerDistributionAmountsEClass, PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS__ANTECEDENT_LAYER_DISTRIBUTION_SLOPES);
 
-		propagatorLayerDistributionDescriptionsEClass = createEClass(PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS);
-		createEReference(propagatorLayerDistributionDescriptionsEClass, PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS__CONCRETE_PARENT);
-		createEReference(propagatorLayerDistributionDescriptionsEClass, PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS__ANTECEDENT_LAYER_DISTRIBUTION_AMOUNTS);
-
 		propagatorCalcAmountAbsoluteAmountAbsoluteEClass = createEClass(PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE);
 
 		propagatorCalcAmountAbsoluteAmountAfterEClass = createEClass(PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER);
@@ -1183,8 +1144,6 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 		propagatorCalcEventAmountAfterEClass = createEClass(PROPAGATOR_CALC_EVENT_AMOUNT_AFTER);
 
 		propagatorCalcEventAmountBeforeEClass = createEClass(PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE);
-
-		propagatorCalcEventDescriptionEClass = createEClass(PROPAGATOR_CALC_EVENT_DESCRIPTION);
 
 		propagatorCalcEventMomentEClass = createEClass(PROPAGATOR_CALC_EVENT_MOMENT);
 		createEReference(propagatorCalcEventMomentEClass, PROPAGATOR_CALC_EVENT_MOMENT__CONCRETE_PARENT);
@@ -1229,6 +1188,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 		propagatorCalcEventSlopeEClass = createEClass(PROPAGATOR_CALC_EVENT_SLOPE);
 		createEReference(propagatorCalcEventSlopeEClass, PROPAGATOR_CALC_EVENT_SLOPE__CONCRETE_PARENT);
 
+		propagatorCalcAmountEClass = createEClass(PROPAGATOR_CALC_AMOUNT);
+
 		propagatorCalcEventAmountEClass = createEClass(PROPAGATOR_CALC_EVENT_AMOUNT);
 		createEReference(propagatorCalcEventAmountEClass, PROPAGATOR_CALC_EVENT_AMOUNT__CONCRETE_PARENT);
 	}
@@ -1272,7 +1233,6 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 		propagatorCalcDistributionSequenceEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionDistribution());
 		propagatorLayerDistributionSlopesEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionDistribution());
 		propagatorLayerDistributionAmountsEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionDistribution());
-		propagatorLayerDistributionDescriptionsEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionDistribution());
 		propagatorCalcAmountAbsoluteAmountAbsoluteEClass.getESuperTypes().add(this.getPropagatorCalcEventAmount());
 		propagatorCalcAmountAbsoluteAmountAfterEClass.getESuperTypes().add(this.getPropagatorCalcEventAmountAfter());
 		propagatorCalcAmountAbsoluteAtomicAmountAbsoluteEClass.getESuperTypes().add(this.getPropagatorCalcAmountAbsoluteAmountAbsolute());
@@ -1291,7 +1251,6 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 		propagatorCalcEndEventMomentEClass.getESuperTypes().add(this.getPropagatorCalcEventMoment());
 		propagatorCalcEventAmountAfterEClass.getESuperTypes().add(this.getPropagatorCalcEventAmount());
 		propagatorCalcEventAmountBeforeEClass.getESuperTypes().add(this.getPropagatorCalcEventAmount());
-		propagatorCalcEventDescriptionEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionDistributionEvent());
 		propagatorCalcEventMomentEClass.getESuperTypes().add(theTimeContinuousPackage.getPropagatorFunctionDistributionEvent());
 		propagatorCalcEventSlopeAfterEClass.getESuperTypes().add(this.getPropagatorCalcEventSlope());
 		propagatorCalcEventSlopeBeforeEClass.getESuperTypes().add(this.getPropagatorCalcEventSlope());
@@ -1344,10 +1303,6 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 		initEReference(getPropagatorLayerDistributionAmounts_ConcreteParent(), this.getPropagatorScopeDistribution(), null, "ConcreteParent", null, 0, 1, PropagatorLayerDistributionAmounts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPropagatorLayerDistributionAmounts_AntecedentLayerDistributionSlopes(), this.getPropagatorLayerDistributionSlopes(), null, "AntecedentLayerDistributionSlopes", null, 0, 1, PropagatorLayerDistributionAmounts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(propagatorLayerDistributionDescriptionsEClass, PropagatorLayerDistributionDescriptions.class, "PropagatorLayerDistributionDescriptions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPropagatorLayerDistributionDescriptions_ConcreteParent(), this.getPropagatorScopeDistribution(), null, "ConcreteParent", null, 0, 1, PropagatorLayerDistributionDescriptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPropagatorLayerDistributionDescriptions_AntecedentLayerDistributionAmounts(), this.getPropagatorLayerDistributionAmounts(), null, "AntecedentLayerDistributionAmounts", null, 0, 1, PropagatorLayerDistributionDescriptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(propagatorCalcAmountAbsoluteAmountAbsoluteEClass, PropagatorCalcAmountAbsoluteAmountAbsolute.class, "PropagatorCalcAmountAbsoluteAmountAbsolute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(propagatorCalcAmountAbsoluteAmountAfterEClass, PropagatorCalcAmountAbsoluteAmountAfter.class, "PropagatorCalcAmountAbsoluteAmountAfter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1383,8 +1338,6 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 		initEClass(propagatorCalcEventAmountAfterEClass, PropagatorCalcEventAmountAfter.class, "PropagatorCalcEventAmountAfter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(propagatorCalcEventAmountBeforeEClass, PropagatorCalcEventAmountBefore.class, "PropagatorCalcEventAmountBefore", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(propagatorCalcEventDescriptionEClass, PropagatorCalcEventDescription.class, "PropagatorCalcEventDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(propagatorCalcEventMomentEClass, PropagatorCalcEventMoment.class, "PropagatorCalcEventMoment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPropagatorCalcEventMoment_ConcreteParent(), this.getPropagatorCalcDistributionSequence(), null, "ConcreteParent", null, 0, 1, PropagatorCalcEventMoment.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -1428,6 +1381,8 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 
 		initEClass(propagatorCalcEventSlopeEClass, PropagatorCalcEventSlope.class, "PropagatorCalcEventSlope", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPropagatorCalcEventSlope_ConcreteParent(), this.getPropagatorLayerDistributionSlopes(), null, "ConcreteParent", null, 0, 1, PropagatorCalcEventSlope.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEClass(propagatorCalcAmountEClass, PropagatorCalcAmount.class, "PropagatorCalcAmount", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(propagatorCalcEventAmountEClass, PropagatorCalcEventAmount.class, "PropagatorCalcEventAmount", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPropagatorCalcEventAmount_ConcreteParent(), this.getPropagatorLayerDistributionAmounts(), null, "ConcreteParent", null, 0, 1, PropagatorCalcEventAmount.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);

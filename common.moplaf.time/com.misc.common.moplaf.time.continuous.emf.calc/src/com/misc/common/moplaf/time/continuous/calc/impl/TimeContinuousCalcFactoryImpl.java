@@ -64,7 +64,6 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 			case TimeContinuousCalcPackage.PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE: return createPropagatorCalcDistributionSequence();
 			case TimeContinuousCalcPackage.PROPAGATOR_LAYER_DISTRIBUTION_SLOPES: return createPropagatorLayerDistributionSlopes();
 			case TimeContinuousCalcPackage.PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS: return createPropagatorLayerDistributionAmounts();
-			case TimeContinuousCalcPackage.PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS: return createPropagatorLayerDistributionDescriptions();
 			case TimeContinuousCalcPackage.PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE: return createPropagatorCalcAmountAbsoluteAmountAbsolute();
 			case TimeContinuousCalcPackage.PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER: return createPropagatorCalcAmountAbsoluteAmountAfter();
 			case TimeContinuousCalcPackage.PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE: return createPropagatorCalcAmountAbsoluteAtomicAmountAbsolute();
@@ -83,7 +82,6 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 			case TimeContinuousCalcPackage.PROPAGATOR_CALC_END_EVENT_MOMENT: return createPropagatorCalcEndEventMoment();
 			case TimeContinuousCalcPackage.PROPAGATOR_CALC_EVENT_AMOUNT_AFTER: return createPropagatorCalcEventAmountAfter();
 			case TimeContinuousCalcPackage.PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE: return createPropagatorCalcEventAmountBefore();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_EVENT_DESCRIPTION: return createPropagatorCalcEventDescription();
 			case TimeContinuousCalcPackage.PROPAGATOR_CALC_EVENT_MOMENT: return createPropagatorCalcEventMoment();
 			case TimeContinuousCalcPackage.PROPAGATOR_CALC_EVENT_SLOPE_AFTER: return createPropagatorCalcEventSlopeAfter();
 			case TimeContinuousCalcPackage.PROPAGATOR_CALC_EVENT_SLOPE_BEFORE: return createPropagatorCalcEventSlopeBefore();
@@ -104,6 +102,7 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 			case TimeContinuousCalcPackage.PROPAGATOR_CALC_STOCK_CHANGE_START_MOMENT: return createPropagatorCalcStockChangeStartMoment();
 			case TimeContinuousCalcPackage.PROPAGATOR_CALC_STOCK_CHANGE_START_SLOPE_IMPULSION: return createPropagatorCalcStockChangeStartSlopeImpulsion();
 			case TimeContinuousCalcPackage.PROPAGATOR_CALC_EVENT_SLOPE: return createPropagatorCalcEventSlope();
+			case TimeContinuousCalcPackage.PROPAGATOR_CALC_AMOUNT: return createPropagatorCalcAmount();
 			case TimeContinuousCalcPackage.PROPAGATOR_CALC_EVENT_AMOUNT: return createPropagatorCalcEventAmount();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -335,16 +334,6 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PropagatorCalcEventDescription createPropagatorCalcEventDescription() {
-		PropagatorCalcEventDescriptionImpl propagatorCalcEventDescription = new PropagatorCalcEventDescriptionImpl();
-		return propagatorCalcEventDescription;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public PropagatorCalcEventMoment createPropagatorCalcEventMoment() {
 		PropagatorCalcEventMomentImpl propagatorCalcEventMoment = new PropagatorCalcEventMomentImpl();
 		return propagatorCalcEventMoment;
@@ -545,6 +534,16 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public PropagatorCalcAmount createPropagatorCalcAmount() {
+		PropagatorCalcAmountImpl propagatorCalcAmount = new PropagatorCalcAmountImpl();
+		return propagatorCalcAmount;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PropagatorCalcEventAmount createPropagatorCalcEventAmount() {
 		PropagatorCalcEventAmountImpl propagatorCalcEventAmount = new PropagatorCalcEventAmountImpl();
 		return propagatorCalcEventAmount;
@@ -568,16 +567,6 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	public PropagatorLayerDistributionAmounts createPropagatorLayerDistributionAmounts() {
 		PropagatorLayerDistributionAmountsImpl propagatorLayerDistributionAmounts = new PropagatorLayerDistributionAmountsImpl();
 		return propagatorLayerDistributionAmounts;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PropagatorLayerDistributionDescriptions createPropagatorLayerDistributionDescriptions() {
-		PropagatorLayerDistributionDescriptionsImpl propagatorLayerDistributionDescriptions = new PropagatorLayerDistributionDescriptionsImpl();
-		return propagatorLayerDistributionDescriptions;
 	}
 
 	/**

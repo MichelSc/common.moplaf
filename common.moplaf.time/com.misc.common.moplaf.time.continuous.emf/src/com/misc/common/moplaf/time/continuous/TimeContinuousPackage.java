@@ -6841,6 +6841,15 @@ public interface TimeContinuousPackage extends EPackage {
 	int PROPAGATOR_FUNCTION_DISTRIBUTION_FEATURE_COUNT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION___INIT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___INIT;
+
+	/**
 	 * The operation id for the '<em>Enable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7121,6 +7130,15 @@ public interface TimeContinuousPackage extends EPackage {
 	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT_FEATURE_COUNT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___INIT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___INIT;
+
+	/**
 	 * The operation id for the '<em>Enable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7399,6 +7417,15 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER_FEATURE_COUNT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_EVENTS_PROVIDER___INIT = PropagatorPackage.PROPAGATOR_FUNCTION_BINDINGS___INIT;
 
 	/**
 	 * The operation id for the '<em>Enable</em>' operation.

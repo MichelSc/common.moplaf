@@ -220,15 +220,6 @@ public interface TimeContinuousCalcFactory extends EFactory {
 	PropagatorCalcEventAmountBefore createPropagatorCalcEventAmountBefore();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Event Description</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Event Description</em>'.
-	 * @generated
-	 */
-	PropagatorCalcEventDescription createPropagatorCalcEventDescription();
-
-	/**
 	 * Returns a new object of class '<em>Propagator Calc Event Moment</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -409,6 +400,15 @@ public interface TimeContinuousCalcFactory extends EFactory {
 	PropagatorCalcEventSlope createPropagatorCalcEventSlope();
 
 	/**
+	 * Returns a new object of class '<em>Propagator Calc Amount</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Propagator Calc Amount</em>'.
+	 * @generated
+	 */
+	PropagatorCalcAmount createPropagatorCalcAmount();
+
+	/**
 	 * Returns a new object of class '<em>Propagator Calc Event Amount</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -434,15 +434,6 @@ public interface TimeContinuousCalcFactory extends EFactory {
 	 * @generated
 	 */
 	PropagatorLayerDistributionAmounts createPropagatorLayerDistributionAmounts();
-
-	/**
-	 * Returns a new object of class '<em>Propagator Layer Distribution Descriptions</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Layer Distribution Descriptions</em>'.
-	 * @generated
-	 */
-	PropagatorLayerDistributionDescriptions createPropagatorLayerDistributionDescriptions();
 
 	/**
 	 * Returns a new object of class '<em>Propagator Layer Distribution Slopes</em>'.

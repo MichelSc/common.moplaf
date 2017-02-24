@@ -65,7 +65,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcAmountAbsoluteAmountAbsolute()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE = 9;
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE = 8;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventAmountAfterImpl <em>Propagator Calc Event Amount After</em>}' class.
@@ -75,7 +75,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcEventAmountAfter()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_EVENT_AMOUNT_AFTER = 25;
+	int PROPAGATOR_CALC_EVENT_AMOUNT_AFTER = 24;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountAbsoluteAmountAfterImpl <em>Propagator Calc Amount Absolute Amount After</em>}' class.
@@ -85,7 +85,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcAmountAbsoluteAmountAfter()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER = 10;
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER = 9;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountAbsoluteAtomicAmountAbsoluteImpl <em>Propagator Calc Amount Absolute Atomic Amount Absolute</em>}' class.
@@ -95,7 +95,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcAmountAbsoluteAtomicAmountAbsolute()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE = 11;
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE = 10;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventMomentImpl <em>Propagator Calc Event Moment</em>}' class.
@@ -105,7 +105,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcEventMoment()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_EVENT_MOMENT = 28;
+	int PROPAGATOR_CALC_EVENT_MOMENT = 26;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountImpulsionAmountAfterImpl <em>Propagator Calc Amount Impulsion Amount After</em>}' class.
@@ -115,7 +115,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcAmountImpulsionAmountAfter()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_AFTER = 13;
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_AFTER = 12;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountImpulsionAmountImpulsionImpl <em>Propagator Calc Amount Impulsion Amount Impulsion</em>}' class.
@@ -125,7 +125,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcAmountImpulsionAmountImpulsion()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION = 14;
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION = 13;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountImpulsionAtomicAmountImpulsionImpl <em>Propagator Calc Amount Impulsion Atomic Amount Impulsion</em>}' class.
@@ -135,7 +135,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcAmountImpulsionAtomicAmountImpulsion()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_AMOUNT_IMPULSION = 15;
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_AMOUNT_IMPULSION = 14;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcCapacityChangeEndAmountImpulsionImpl <em>Propagator Calc Capacity Change End Amount Impulsion</em>}' class.
@@ -145,7 +145,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcCapacityChangeEndAmountImpulsion()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_AMOUNT_IMPULSION = 17;
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_AMOUNT_IMPULSION = 16;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcCapacityChangeEndMomentImpl <em>Propagator Calc Capacity Change End Moment</em>}' class.
@@ -155,7 +155,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcCapacityChangeEndMoment()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_MOMENT = 18;
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_MOMENT = 17;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcCapacityChangeStartAmountImpulsionImpl <em>Propagator Calc Capacity Change Start Amount Impulsion</em>}' class.
@@ -165,7 +165,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcCapacityChangeStartAmountImpulsion()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_AMOUNT_IMPULSION = 19;
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_AMOUNT_IMPULSION = 18;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcCapacityChangeStartMomentImpl <em>Propagator Calc Capacity Change Start Moment</em>}' class.
@@ -175,7 +175,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcCapacityChangeStartMoment()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_MOMENT = 20;
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_MOMENT = 19;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcChildEventAmountAfterImpl <em>Propagator Calc Child Event Amount After</em>}' class.
@@ -185,7 +185,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcChildEventAmountAfter()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_CHILD_EVENT_AMOUNT_AFTER = 21;
+	int PROPAGATOR_CALC_CHILD_EVENT_AMOUNT_AFTER = 20;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcChildEventMomentImpl <em>Propagator Calc Child Event Moment</em>}' class.
@@ -195,7 +195,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcChildEventMoment()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_CHILD_EVENT_MOMENT = 22;
+	int PROPAGATOR_CALC_CHILD_EVENT_MOMENT = 21;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventSlopeAfterImpl <em>Propagator Calc Event Slope After</em>}' class.
@@ -205,7 +205,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcEventSlopeAfter()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_EVENT_SLOPE_AFTER = 29;
+	int PROPAGATOR_CALC_EVENT_SLOPE_AFTER = 27;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcChildEventSlopeAfterImpl <em>Propagator Calc Child Event Slope After</em>}' class.
@@ -215,7 +215,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcChildEventSlopeAfter()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_CHILD_EVENT_SLOPE_AFTER = 23;
+	int PROPAGATOR_CALC_CHILD_EVENT_SLOPE_AFTER = 22;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionChildEventsImpl <em>Propagator Calc Distribution Child Events</em>}' class.
@@ -265,7 +265,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcEndEventMoment()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_END_EVENT_MOMENT = 24;
+	int PROPAGATOR_CALC_END_EVENT_MOMENT = 23;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventAmountBeforeImpl <em>Propagator Calc Event Amount Before</em>}' class.
@@ -275,17 +275,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcEventAmountBefore()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE = 26;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventDescriptionImpl <em>Propagator Calc Event Description</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventDescriptionImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcEventDescription()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION = 27;
+	int PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE = 25;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventSlopeBeforeImpl <em>Propagator Calc Event Slope Before</em>}' class.
@@ -295,7 +285,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcEventSlopeBefore()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_EVENT_SLOPE_BEFORE = 30;
+	int PROPAGATOR_CALC_EVENT_SLOPE_BEFORE = 28;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventsProviderRefreshEventsImpl <em>Propagator Calc Events Provider Refresh Events</em>}' class.
@@ -305,7 +295,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcEventsProviderRefreshEvents()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_EVENTS_PROVIDER_REFRESH_EVENTS = 31;
+	int PROPAGATOR_CALC_EVENTS_PROVIDER_REFRESH_EVENTS = 29;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeAbsoluteSlopeAbsoluteImpl <em>Propagator Calc Slope Absolute Slope Absolute</em>}' class.
@@ -315,7 +305,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcSlopeAbsoluteSlopeAbsolute()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE = 34;
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE = 32;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeAbsoluteAtomicSlopeAbsoluteImpl <em>Propagator Calc Slope Absolute Atomic Slope Absolute</em>}' class.
@@ -325,7 +315,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcSlopeAbsoluteAtomicSlopeAbsolute()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_SLOPE_ABSOLUTE = 33;
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_SLOPE_ABSOLUTE = 31;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeAbsoluteSlopeAfterImpl <em>Propagator Calc Slope Absolute Slope After</em>}' class.
@@ -335,7 +325,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcSlopeAbsoluteSlopeAfter()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_AFTER = 35;
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_AFTER = 33;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeImpulsionSlopeImpulsionImpl <em>Propagator Calc Slope Impulsion Slope Impulsion</em>}' class.
@@ -345,7 +335,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcSlopeImpulsionSlopeImpulsion()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION = 39;
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION = 37;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeImpulsionAtomicSlopeImpulsionImpl <em>Propagator Calc Slope Impulsion Atomic Slope Impulsion</em>}' class.
@@ -355,7 +345,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcSlopeImpulsionAtomicSlopeImpulsion()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_SLOPE_IMPULSION = 37;
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_SLOPE_IMPULSION = 35;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeImpulsionSlopeAfterImpl <em>Propagator Calc Slope Impulsion Slope After</em>}' class.
@@ -365,7 +355,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcSlopeImpulsionSlopeAfter()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_AFTER = 38;
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_AFTER = 36;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStartEventAmountAfterImpl <em>Propagator Calc Start Event Amount After</em>}' class.
@@ -375,7 +365,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcStartEventAmountAfter()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_START_EVENT_AMOUNT_AFTER = 40;
+	int PROPAGATOR_CALC_START_EVENT_AMOUNT_AFTER = 38;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStartEventMomentImpl <em>Propagator Calc Start Event Moment</em>}' class.
@@ -385,7 +375,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcStartEventMoment()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_START_EVENT_MOMENT = 41;
+	int PROPAGATOR_CALC_START_EVENT_MOMENT = 39;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStartEventSlopeAfterImpl <em>Propagator Calc Start Event Slope After</em>}' class.
@@ -395,7 +385,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcStartEventSlopeAfter()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_START_EVENT_SLOPE_AFTER = 42;
+	int PROPAGATOR_CALC_START_EVENT_SLOPE_AFTER = 40;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStockChangeEndMomentImpl <em>Propagator Calc Stock Change End Moment</em>}' class.
@@ -405,7 +395,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcStockChangeEndMoment()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_STOCK_CHANGE_END_MOMENT = 43;
+	int PROPAGATOR_CALC_STOCK_CHANGE_END_MOMENT = 41;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStockChangeEndSlopeImpulsionImpl <em>Propagator Calc Stock Change End Slope Impulsion</em>}' class.
@@ -415,7 +405,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcStockChangeEndSlopeImpulsion()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_STOCK_CHANGE_END_SLOPE_IMPULSION = 44;
+	int PROPAGATOR_CALC_STOCK_CHANGE_END_SLOPE_IMPULSION = 42;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStockChangeStartMomentImpl <em>Propagator Calc Stock Change Start Moment</em>}' class.
@@ -425,7 +415,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcStockChangeStartMoment()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_STOCK_CHANGE_START_MOMENT = 45;
+	int PROPAGATOR_CALC_STOCK_CHANGE_START_MOMENT = 43;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStockChangeStartSlopeImpulsionImpl <em>Propagator Calc Stock Change Start Slope Impulsion</em>}' class.
@@ -435,7 +425,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcStockChangeStartSlopeImpulsion()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_STOCK_CHANGE_START_SLOPE_IMPULSION = 46;
+	int PROPAGATOR_CALC_STOCK_CHANGE_START_SLOPE_IMPULSION = 44;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerCompositeEventRefreshImpl <em>Propagator Layer Composite Event Refresh</em>}' class.
@@ -456,16 +446,6 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 */
 	int PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS = 7;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerDistributionDescriptionsImpl <em>Propagator Layer Distribution Descriptions</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerDistributionDescriptionsImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorLayerDistributionDescriptions()
-	 * @generated
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS = 8;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerDistributionSlopesImpl <em>Propagator Layer Distribution Slopes</em>}' class.
@@ -612,6 +592,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_SCOPE_DISTRIBUTION_FEATURE_COUNT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_SCOPE_DISTRIBUTION___INIT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___INIT;
 
 	/**
 	 * The operation id for the '<em>Enable</em>' operation.
@@ -891,6 +880,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION_FEATURE_COUNT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION___INIT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___INIT;
 
 	/**
 	 * The operation id for the '<em>Enable</em>' operation.
@@ -1181,6 +1179,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH_FEATURE_COUNT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_FEATURE_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH___INIT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___INIT;
+
+	/**
 	 * The operation id for the '<em>Enable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1458,6 +1465,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_DISTRIBUTION_CHILD_EVENTS_FEATURE_COUNT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_DISTRIBUTION_CHILD_EVENTS___INIT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___INIT;
 
 	/**
 	 * The operation id for the '<em>Enable</em>' operation.
@@ -1757,6 +1773,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS_FEATURE_COUNT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS___INIT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___INIT;
+
+	/**
 	 * The operation id for the '<em>Enable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2043,6 +2068,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE_FEATURE_COUNT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE___INIT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___INIT;
 
 	/**
 	 * The operation id for the '<em>Enable</em>' operation.
@@ -2333,6 +2367,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_LAYER_DISTRIBUTION_SLOPES_FEATURE_COUNT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_FEATURE_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_LAYER_DISTRIBUTION_SLOPES___INIT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___INIT;
+
+	/**
 	 * The operation id for the '<em>Enable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2621,6 +2664,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS_FEATURE_COUNT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_FEATURE_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS___INIT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___INIT;
+
+	/**
 	 * The operation id for the '<em>Enable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2765,294 +2817,6 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS_OPERATION_COUNT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Parent</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS__PARENT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__PARENT;
-
-	/**
-	 * The feature id for the '<em><b>Antecedents</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS__ANTECEDENTS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__ANTECEDENTS;
-
-	/**
-	 * The feature id for the '<em><b>Antecedents Sibling</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS__ANTECEDENTS_SIBLING = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__ANTECEDENTS_SIBLING;
-
-	/**
-	 * The feature id for the '<em><b>Touched</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS__TOUCHED = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__TOUCHED;
-
-	/**
-	 * The feature id for the '<em><b>Touched Children</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS__TOUCHED_CHILDREN = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__TOUCHED_CHILDREN;
-
-	/**
-	 * The feature id for the '<em><b>Touchers</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS__TOUCHERS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__TOUCHERS;
-
-	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS__ENABLED = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__ENABLED;
-
-	/**
-	 * The feature id for the '<em><b>Object With Propagator Functions</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS__OBJECT_WITH_PROPAGATOR_FUNCTIONS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__OBJECT_WITH_PROPAGATOR_FUNCTIONS;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS__TYPE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Object</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS__OBJECT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__OBJECT;
-
-	/**
-	 * The feature id for the '<em><b>Instance</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS__INSTANCE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__INSTANCE;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS__DESCRIPTION = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Distribution</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS__DISTRIBUTION = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION__DISTRIBUTION;
-
-	/**
-	 * The feature id for the '<em><b>Concrete Parent</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS__CONCRETE_PARENT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Antecedent Layer Distribution Amounts</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS__ANTECEDENT_LAYER_DISTRIBUTION_AMOUNTS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Propagator Layer Distribution Descriptions</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS_FEATURE_COUNT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Enable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS___ENABLE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___ENABLE;
-
-	/**
-	 * The operation id for the '<em>Disable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS___DISABLE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___DISABLE;
-
-	/**
-	 * The operation id for the '<em>Touch</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS___TOUCH__EOBJECT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___TOUCH__EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Untouch</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS___UNTOUCH = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___UNTOUCH;
-
-	/**
-	 * The operation id for the '<em>Refresh Antecedents</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS___REFRESH_ANTECEDENTS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_ANTECEDENTS;
-
-	/**
-	 * The operation id for the '<em>Refresh This</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS___REFRESH_THIS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_THIS;
-
-	/**
-	 * The operation id for the '<em>Refresh Children And This</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS___REFRESH_CHILDREN_AND_THIS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH_CHILDREN_AND_THIS;
-
-	/**
-	 * The operation id for the '<em>Refresh</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS___REFRESH = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___REFRESH;
-
-	/**
-	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS___DO_GET_ANTECEDENTS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___DO_GET_ANTECEDENTS;
-
-	/**
-	 * The operation id for the '<em>Do Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS___DO_GET_PARENT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___DO_GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Do Refresh</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS___DO_REFRESH = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___DO_REFRESH;
-
-	/**
-	 * The operation id for the '<em>Do Refresh</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS___DO_REFRESH__EOBJECT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___DO_REFRESH__EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Get Scope</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS___GET_SCOPE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___GET_SCOPE;
-
-	/**
-	 * The operation id for the '<em>Do Get Bindings</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS___DO_GET_BINDINGS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___DO_GET_BINDINGS;
-
-	/**
-	 * The operation id for the '<em>Do Collect Explicit Antecedents</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS___DO_COLLECT_EXPLICIT_ANTECEDENTS__ELIST = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION___DO_COLLECT_EXPLICIT_ANTECEDENTS__ELIST;
-
-	/**
-	 * The number of operations of the '<em>Propagator Layer Distribution Descriptions</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS_OPERATION_COUNT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventAmountImpl <em>Propagator Calc Event Amount</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3060,7 +2824,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcEventAmount()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_EVENT_AMOUNT = 48;
+	int PROPAGATOR_CALC_EVENT_AMOUNT = 47;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -3196,6 +2960,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_EVENT_AMOUNT_FEATURE_COUNT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_AMOUNT___INIT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___INIT;
 
 	/**
 	 * The operation id for the '<em>Enable</em>' operation.
@@ -3477,6 +3250,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE_FEATURE_COUNT = PROPAGATOR_CALC_EVENT_AMOUNT_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE___INIT = PROPAGATOR_CALC_EVENT_AMOUNT___INIT;
+
+	/**
 	 * The operation id for the '<em>Enable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3754,6 +3536,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_EVENT_AMOUNT_AFTER_FEATURE_COUNT = PROPAGATOR_CALC_EVENT_AMOUNT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___INIT = PROPAGATOR_CALC_EVENT_AMOUNT___INIT;
 
 	/**
 	 * The operation id for the '<em>Enable</em>' operation.
@@ -4035,6 +3826,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER_FEATURE_COUNT = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER___INIT = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___INIT;
+
+	/**
 	 * The operation id for the '<em>Enable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4312,6 +4112,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE_FEATURE_COUNT = PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE___INIT = PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE___INIT;
 
 	/**
 	 * The operation id for the '<em>Enable</em>' operation.
@@ -4593,6 +4402,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_EVENT_MOMENT_FEATURE_COUNT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_MOMENT___INIT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___INIT;
+
+	/**
 	 * The operation id for the '<em>Enable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4744,7 +4562,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcAmountAbsoluteAtomicMoment()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_MOMENT = 12;
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_MOMENT = 11;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -4880,6 +4698,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_MOMENT_FEATURE_COUNT = PROPAGATOR_CALC_EVENT_MOMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_MOMENT___INIT = PROPAGATOR_CALC_EVENT_MOMENT___INIT;
 
 	/**
 	 * The operation id for the '<em>Enable</em>' operation.
@@ -5161,6 +4988,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_AFTER_FEATURE_COUNT = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_AFTER___INIT = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___INIT;
+
+	/**
 	 * The operation id for the '<em>Enable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5438,6 +5274,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION_FEATURE_COUNT = PROPAGATOR_CALC_EVENT_AMOUNT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___INIT = PROPAGATOR_CALC_EVENT_AMOUNT___INIT;
 
 	/**
 	 * The operation id for the '<em>Enable</em>' operation.
@@ -5719,6 +5564,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_AMOUNT_IMPULSION_FEATURE_COUNT = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_AMOUNT_IMPULSION___INIT = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___INIT;
+
+	/**
 	 * The operation id for the '<em>Enable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5870,7 +5724,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcAmountImpulsionAtomicMoment()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_MOMENT = 16;
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_MOMENT = 15;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -6006,6 +5860,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_MOMENT_FEATURE_COUNT = PROPAGATOR_CALC_EVENT_MOMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_MOMENT___INIT = PROPAGATOR_CALC_EVENT_MOMENT___INIT;
 
 	/**
 	 * The operation id for the '<em>Enable</em>' operation.
@@ -6287,6 +6150,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_AMOUNT_IMPULSION_FEATURE_COUNT = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_AMOUNT_IMPULSION___INIT = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___INIT;
+
+	/**
 	 * The operation id for the '<em>Enable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6564,6 +6436,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_MOMENT_FEATURE_COUNT = PROPAGATOR_CALC_EVENT_MOMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_MOMENT___INIT = PROPAGATOR_CALC_EVENT_MOMENT___INIT;
 
 	/**
 	 * The operation id for the '<em>Enable</em>' operation.
@@ -6845,6 +6726,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_AMOUNT_IMPULSION_FEATURE_COUNT = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_AMOUNT_IMPULSION___INIT = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION___INIT;
+
+	/**
 	 * The operation id for the '<em>Enable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7122,6 +7012,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_MOMENT_FEATURE_COUNT = PROPAGATOR_CALC_EVENT_MOMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_MOMENT___INIT = PROPAGATOR_CALC_EVENT_MOMENT___INIT;
 
 	/**
 	 * The operation id for the '<em>Enable</em>' operation.
@@ -7403,6 +7302,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_CHILD_EVENT_AMOUNT_AFTER_FEATURE_COUNT = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CHILD_EVENT_AMOUNT_AFTER___INIT = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___INIT;
+
+	/**
 	 * The operation id for the '<em>Enable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7682,6 +7590,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_CHILD_EVENT_MOMENT_FEATURE_COUNT = PROPAGATOR_CALC_EVENT_MOMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CHILD_EVENT_MOMENT___INIT = PROPAGATOR_CALC_EVENT_MOMENT___INIT;
+
+	/**
 	 * The operation id for the '<em>Enable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7833,7 +7750,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcEventSlope()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_EVENT_SLOPE = 47;
+	int PROPAGATOR_CALC_EVENT_SLOPE = 45;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -7969,6 +7886,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_EVENT_SLOPE_FEATURE_COUNT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_SLOPE___INIT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___INIT;
 
 	/**
 	 * The operation id for the '<em>Enable</em>' operation.
@@ -8250,6 +8176,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_EVENT_SLOPE_AFTER_FEATURE_COUNT = PROPAGATOR_CALC_EVENT_SLOPE_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_SLOPE_AFTER___INIT = PROPAGATOR_CALC_EVENT_SLOPE___INIT;
+
+	/**
 	 * The operation id for the '<em>Enable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8527,6 +8462,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_CHILD_EVENT_SLOPE_AFTER_FEATURE_COUNT = PROPAGATOR_CALC_EVENT_SLOPE_AFTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_CHILD_EVENT_SLOPE_AFTER___INIT = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___INIT;
 
 	/**
 	 * The operation id for the '<em>Enable</em>' operation.
@@ -8808,6 +8752,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_END_EVENT_MOMENT_FEATURE_COUNT = PROPAGATOR_CALC_EVENT_MOMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_END_EVENT_MOMENT___INIT = PROPAGATOR_CALC_EVENT_MOMENT___INIT;
+
+	/**
 	 * The operation id for the '<em>Enable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9087,6 +9040,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE_FEATURE_COUNT = PROPAGATOR_CALC_EVENT_AMOUNT_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE___INIT = PROPAGATOR_CALC_EVENT_AMOUNT___INIT;
+
+	/**
 	 * The operation id for the '<em>Enable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9237,276 +9199,6 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION__PARENT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__PARENT;
-
-	/**
-	 * The feature id for the '<em><b>Antecedents</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION__ANTECEDENTS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__ANTECEDENTS;
-
-	/**
-	 * The feature id for the '<em><b>Antecedents Sibling</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION__ANTECEDENTS_SIBLING = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__ANTECEDENTS_SIBLING;
-
-	/**
-	 * The feature id for the '<em><b>Touched</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION__TOUCHED = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__TOUCHED;
-
-	/**
-	 * The feature id for the '<em><b>Touched Children</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION__TOUCHED_CHILDREN = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__TOUCHED_CHILDREN;
-
-	/**
-	 * The feature id for the '<em><b>Touchers</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION__TOUCHERS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__TOUCHERS;
-
-	/**
-	 * The feature id for the '<em><b>Enabled</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION__ENABLED = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__ENABLED;
-
-	/**
-	 * The feature id for the '<em><b>Object With Propagator Functions</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION__OBJECT_WITH_PROPAGATOR_FUNCTIONS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__OBJECT_WITH_PROPAGATOR_FUNCTIONS;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION__TYPE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Object</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION__OBJECT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__OBJECT;
-
-	/**
-	 * The feature id for the '<em><b>Instance</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION__INSTANCE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__INSTANCE;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION__DESCRIPTION = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Distribution Event</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION__DISTRIBUTION_EVENT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT__DISTRIBUTION_EVENT;
-
-	/**
-	 * The number of structural features of the '<em>Propagator Calc Event Description</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION_FEATURE_COUNT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Enable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION___ENABLE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___ENABLE;
-
-	/**
-	 * The operation id for the '<em>Disable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION___DISABLE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___DISABLE;
-
-	/**
-	 * The operation id for the '<em>Touch</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION___TOUCH__EOBJECT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___TOUCH__EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Untouch</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION___UNTOUCH = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___UNTOUCH;
-
-	/**
-	 * The operation id for the '<em>Refresh Antecedents</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION___REFRESH_ANTECEDENTS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_ANTECEDENTS;
-
-	/**
-	 * The operation id for the '<em>Refresh This</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION___REFRESH_THIS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_THIS;
-
-	/**
-	 * The operation id for the '<em>Refresh Children And This</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION___REFRESH_CHILDREN_AND_THIS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH_CHILDREN_AND_THIS;
-
-	/**
-	 * The operation id for the '<em>Refresh</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION___REFRESH = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___REFRESH;
-
-	/**
-	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION___DO_GET_ANTECEDENTS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___DO_GET_ANTECEDENTS;
-
-	/**
-	 * The operation id for the '<em>Do Get Parent</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION___DO_GET_PARENT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___DO_GET_PARENT;
-
-	/**
-	 * The operation id for the '<em>Do Refresh</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION___DO_REFRESH = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___DO_REFRESH;
-
-	/**
-	 * The operation id for the '<em>Do Refresh</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION___DO_REFRESH__EOBJECT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___DO_REFRESH__EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Get Scope</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION___GET_SCOPE = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___GET_SCOPE;
-
-	/**
-	 * The operation id for the '<em>Do Get Bindings</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION___DO_GET_BINDINGS = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___DO_GET_BINDINGS;
-
-	/**
-	 * The operation id for the '<em>Do Collect Explicit Antecedents</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION___DO_COLLECT_EXPLICIT_ANTECEDENTS__ELIST = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT___DO_COLLECT_EXPLICIT_ANTECEDENTS__ELIST;
-
-	/**
-	 * The number of operations of the '<em>Propagator Calc Event Description</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_EVENT_DESCRIPTION_OPERATION_COUNT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Parent</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
 	int PROPAGATOR_CALC_EVENT_SLOPE_BEFORE__PARENT = PROPAGATOR_CALC_EVENT_SLOPE__PARENT;
 
 	/**
@@ -9634,6 +9326,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_EVENT_SLOPE_BEFORE_FEATURE_COUNT = PROPAGATOR_CALC_EVENT_SLOPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENT_SLOPE_BEFORE___INIT = PROPAGATOR_CALC_EVENT_SLOPE___INIT;
 
 	/**
 	 * The operation id for the '<em>Enable</em>' operation.
@@ -9915,6 +9616,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_EVENTS_PROVIDER_REFRESH_EVENTS_FEATURE_COUNT = TimeContinuousPackage.PROPAGATOR_FUNCTION_EVENTS_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_EVENTS_PROVIDER_REFRESH_EVENTS___INIT = TimeContinuousPackage.PROPAGATOR_FUNCTION_EVENTS_PROVIDER___INIT;
+
+	/**
 	 * The operation id for the '<em>Enable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10066,7 +9776,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcSlopeAbsoluteAtomicMoment()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_MOMENT = 32;
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_MOMENT = 30;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -10202,6 +9912,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_MOMENT_FEATURE_COUNT = PROPAGATOR_CALC_EVENT_MOMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_MOMENT___INIT = PROPAGATOR_CALC_EVENT_MOMENT___INIT;
 
 	/**
 	 * The operation id for the '<em>Enable</em>' operation.
@@ -10483,6 +10202,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE_FEATURE_COUNT = PROPAGATOR_CALC_EVENT_SLOPE_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE___INIT = PROPAGATOR_CALC_EVENT_SLOPE___INIT;
+
+	/**
 	 * The operation id for the '<em>Enable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10760,6 +10488,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_SLOPE_ABSOLUTE_FEATURE_COUNT = PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_SLOPE_ABSOLUTE___INIT = PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE___INIT;
 
 	/**
 	 * The operation id for the '<em>Enable</em>' operation.
@@ -11041,6 +10778,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_AFTER_FEATURE_COUNT = PROPAGATOR_CALC_EVENT_SLOPE_AFTER_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_AFTER___INIT = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___INIT;
+
+	/**
 	 * The operation id for the '<em>Enable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11192,7 +10938,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcSlopeImpulsionAtomicMoment()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_MOMENT = 36;
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_MOMENT = 34;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -11328,6 +11074,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_MOMENT_FEATURE_COUNT = PROPAGATOR_CALC_EVENT_MOMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_MOMENT___INIT = PROPAGATOR_CALC_EVENT_MOMENT___INIT;
 
 	/**
 	 * The operation id for the '<em>Enable</em>' operation.
@@ -11609,6 +11364,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION_FEATURE_COUNT = PROPAGATOR_CALC_EVENT_SLOPE_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___INIT = PROPAGATOR_CALC_EVENT_SLOPE___INIT;
+
+	/**
 	 * The operation id for the '<em>Enable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11886,6 +11650,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_SLOPE_IMPULSION_FEATURE_COUNT = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_SLOPE_IMPULSION___INIT = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___INIT;
 
 	/**
 	 * The operation id for the '<em>Enable</em>' operation.
@@ -12167,6 +11940,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_AFTER_FEATURE_COUNT = PROPAGATOR_CALC_EVENT_SLOPE_AFTER_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_AFTER___INIT = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___INIT;
+
+	/**
 	 * The operation id for the '<em>Enable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12444,6 +12226,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_START_EVENT_AMOUNT_AFTER_FEATURE_COUNT = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_START_EVENT_AMOUNT_AFTER___INIT = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER___INIT;
 
 	/**
 	 * The operation id for the '<em>Enable</em>' operation.
@@ -12725,6 +12516,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_START_EVENT_MOMENT_FEATURE_COUNT = PROPAGATOR_CALC_EVENT_MOMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_START_EVENT_MOMENT___INIT = PROPAGATOR_CALC_EVENT_MOMENT___INIT;
+
+	/**
 	 * The operation id for the '<em>Enable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13002,6 +12802,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_START_EVENT_SLOPE_AFTER_FEATURE_COUNT = PROPAGATOR_CALC_EVENT_SLOPE_AFTER_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_START_EVENT_SLOPE_AFTER___INIT = PROPAGATOR_CALC_EVENT_SLOPE_AFTER___INIT;
 
 	/**
 	 * The operation id for the '<em>Enable</em>' operation.
@@ -13283,6 +13092,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_STOCK_CHANGE_END_MOMENT_FEATURE_COUNT = PROPAGATOR_CALC_EVENT_MOMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_STOCK_CHANGE_END_MOMENT___INIT = PROPAGATOR_CALC_EVENT_MOMENT___INIT;
+
+	/**
 	 * The operation id for the '<em>Enable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13560,6 +13378,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_STOCK_CHANGE_END_SLOPE_IMPULSION_FEATURE_COUNT = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_STOCK_CHANGE_END_SLOPE_IMPULSION___INIT = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___INIT;
 
 	/**
 	 * The operation id for the '<em>Enable</em>' operation.
@@ -13841,6 +13668,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_STOCK_CHANGE_START_MOMENT_FEATURE_COUNT = PROPAGATOR_CALC_EVENT_MOMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_STOCK_CHANGE_START_MOMENT___INIT = PROPAGATOR_CALC_EVENT_MOMENT___INIT;
+
+	/**
 	 * The operation id for the '<em>Enable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -14120,6 +13956,15 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_STOCK_CHANGE_START_SLOPE_IMPULSION_FEATURE_COUNT = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_STOCK_CHANGE_START_SLOPE_IMPULSION___INIT = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION___INIT;
+
+	/**
 	 * The operation id for the '<em>Enable</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -14262,6 +14107,35 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_STOCK_CHANGE_START_SLOPE_IMPULSION_OPERATION_COUNT = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountImpl <em>Propagator Calc Amount</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcAmount()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_AMOUNT = 46;
+
+	/**
+	 * The number of structural features of the '<em>Propagator Calc Amount</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Propagator Calc Amount</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_CALC_AMOUNT_OPERATION_COUNT = 0;
 
 
 	/**
@@ -14562,16 +14436,6 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	EClass getPropagatorCalcEventAmountBefore();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventDescription <em>Propagator Calc Event Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Propagator Calc Event Description</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventDescription
-	 * @generated
-	 */
-	EClass getPropagatorCalcEventDescription();
-
-	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventMoment <em>Propagator Calc Event Moment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -14805,6 +14669,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	EReference getPropagatorCalcEventSlope_ConcreteParent();
 
 	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmount <em>Propagator Calc Amount</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Propagator Calc Amount</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmount
+	 * @generated
+	 */
+	EClass getPropagatorCalcAmount();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventAmount <em>Propagator Calc Event Amount</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -14888,38 +14762,6 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPropagatorLayerDistributionAmounts_AntecedentLayerDistributionSlopes();
-
-	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionDescriptions <em>Propagator Layer Distribution Descriptions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Propagator Layer Distribution Descriptions</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionDescriptions
-	 * @generated
-	 */
-	EClass getPropagatorLayerDistributionDescriptions();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionDescriptions#getConcreteParent <em>Concrete Parent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Concrete Parent</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionDescriptions#getConcreteParent()
-	 * @see #getPropagatorLayerDistributionDescriptions()
-	 * @generated
-	 */
-	EReference getPropagatorLayerDistributionDescriptions_ConcreteParent();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionDescriptions#getAntecedentLayerDistributionAmounts <em>Antecedent Layer Distribution Amounts</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Antecedent Layer Distribution Amounts</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionDescriptions#getAntecedentLayerDistributionAmounts()
-	 * @see #getPropagatorLayerDistributionDescriptions()
-	 * @generated
-	 */
-	EReference getPropagatorLayerDistributionDescriptions_AntecedentLayerDistributionAmounts();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionSlopes <em>Propagator Layer Distribution Slopes</em>}'.
@@ -15263,16 +15105,6 @@ public interface TimeContinuousCalcPackage extends EPackage {
 		EClass PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE = eINSTANCE.getPropagatorCalcEventAmountBefore();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventDescriptionImpl <em>Propagator Calc Event Description</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventDescriptionImpl
-		 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcEventDescription()
-		 * @generated
-		 */
-		EClass PROPAGATOR_CALC_EVENT_DESCRIPTION = eINSTANCE.getPropagatorCalcEventDescription();
-
-		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventMomentImpl <em>Propagator Calc Event Moment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -15497,6 +15329,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 		EReference PROPAGATOR_CALC_EVENT_SLOPE__CONCRETE_PARENT = eINSTANCE.getPropagatorCalcEventSlope_ConcreteParent();
 
 		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountImpl <em>Propagator Calc Amount</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountImpl
+		 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcAmount()
+		 * @generated
+		 */
+		EClass PROPAGATOR_CALC_AMOUNT = eINSTANCE.getPropagatorCalcAmount();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventAmountImpl <em>Propagator Calc Event Amount</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -15565,32 +15407,6 @@ public interface TimeContinuousCalcPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS__ANTECEDENT_LAYER_DISTRIBUTION_SLOPES = eINSTANCE.getPropagatorLayerDistributionAmounts_AntecedentLayerDistributionSlopes();
-
-		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerDistributionDescriptionsImpl <em>Propagator Layer Distribution Descriptions</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerDistributionDescriptionsImpl
-		 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorLayerDistributionDescriptions()
-		 * @generated
-		 */
-		EClass PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS = eINSTANCE.getPropagatorLayerDistributionDescriptions();
-
-		/**
-		 * The meta object literal for the '<em><b>Concrete Parent</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS__CONCRETE_PARENT = eINSTANCE.getPropagatorLayerDistributionDescriptions_ConcreteParent();
-
-		/**
-		 * The meta object literal for the '<em><b>Antecedent Layer Distribution Amounts</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS__ANTECEDENT_LAYER_DISTRIBUTION_AMOUNTS = eINSTANCE.getPropagatorLayerDistributionDescriptions_AntecedentLayerDistributionAmounts();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerDistributionSlopesImpl <em>Propagator Layer Distribution Slopes</em>}' class.

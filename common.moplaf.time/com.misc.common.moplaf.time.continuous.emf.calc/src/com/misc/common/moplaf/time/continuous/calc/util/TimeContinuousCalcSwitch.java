@@ -145,15 +145,6 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_LAYER_DISTRIBUTION_DESCRIPTIONS: {
-				PropagatorLayerDistributionDescriptions propagatorLayerDistributionDescriptions = (PropagatorLayerDistributionDescriptions)theEObject;
-				T result = casePropagatorLayerDistributionDescriptions(propagatorLayerDistributionDescriptions);
-				if (result == null) result = casePropagatorFunctionDistribution(propagatorLayerDistributionDescriptions);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorLayerDistributionDescriptions);
-				if (result == null) result = casePropagatorFunction(propagatorLayerDistributionDescriptions);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case TimeContinuousCalcPackage.PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE: {
 				PropagatorCalcAmountAbsoluteAmountAbsolute propagatorCalcAmountAbsoluteAmountAbsolute = (PropagatorCalcAmountAbsoluteAmountAbsolute)theEObject;
 				T result = casePropagatorCalcAmountAbsoluteAmountAbsolute(propagatorCalcAmountAbsoluteAmountAbsolute);
@@ -339,15 +330,6 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcEventAmountBefore);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcEventAmountBefore);
 				if (result == null) result = casePropagatorFunction(propagatorCalcEventAmountBefore);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_EVENT_DESCRIPTION: {
-				PropagatorCalcEventDescription propagatorCalcEventDescription = (PropagatorCalcEventDescription)theEObject;
-				T result = casePropagatorCalcEventDescription(propagatorCalcEventDescription);
-				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcEventDescription);
-				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcEventDescription);
-				if (result == null) result = casePropagatorFunction(propagatorCalcEventDescription);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -553,6 +535,12 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				if (result == null) result = casePropagatorFunctionDistributionEvent(propagatorCalcEventSlope);
 				if (result == null) result = casePropagatorFunctionBindings(propagatorCalcEventSlope);
 				if (result == null) result = casePropagatorFunction(propagatorCalcEventSlope);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TimeContinuousCalcPackage.PROPAGATOR_CALC_AMOUNT: {
+				PropagatorCalcAmount propagatorCalcAmount = (PropagatorCalcAmount)theEObject;
+				T result = casePropagatorCalcAmount(propagatorCalcAmount);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -900,21 +888,6 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Event Description</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Event Description</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePropagatorCalcEventDescription(PropagatorCalcEventDescription object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Event Moment</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1215,6 +1188,21 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Amount</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Amount</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePropagatorCalcAmount(PropagatorCalcAmount object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Event Amount</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1256,21 +1244,6 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePropagatorLayerDistributionAmounts(PropagatorLayerDistributionAmounts object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Layer Distribution Descriptions</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Layer Distribution Descriptions</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePropagatorLayerDistributionDescriptions(PropagatorLayerDistributionDescriptions object) {
 		return null;
 	}
 

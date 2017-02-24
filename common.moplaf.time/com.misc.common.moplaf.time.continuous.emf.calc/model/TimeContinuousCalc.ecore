@@ -42,12 +42,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="AntecedentLayerDistributionSlopes"
         eType="#//PropagatorLayerDistributionSlopes"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PropagatorLayerDistributionDescriptions"
-      eSuperTypes="../../com.misc.common.moplaf.time.continuous.emf/model/timecontinuous.ecore#//PropagatorFunctionDistribution">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ConcreteParent" eType="#//PropagatorScopeDistribution"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="AntecedentLayerDistributionAmounts"
-        eType="#//PropagatorLayerDistributionAmounts"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcAmountAbsoluteAmountAbsolute"
       eSuperTypes="#//PropagatorCalcEventAmount"/>
   <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcAmountAbsoluteAmountAfter"
@@ -80,7 +74,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcEndEventMoment" eSuperTypes="#//PropagatorCalcEventMoment"/>
   <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcEventAmountAfter" eSuperTypes="#//PropagatorCalcEventAmount"/>
   <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcEventAmountBefore" eSuperTypes="#//PropagatorCalcEventAmount"/>
-  <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcEventDescription" eSuperTypes="../../com.misc.common.moplaf.time.continuous.emf/model/timecontinuous.ecore#//PropagatorFunctionDistributionEvent"/>
   <eClassifiers xsi:type="ecore:EClass" name="PropagatorCalcEventMoment" eSuperTypes="../../com.misc.common.moplaf.time.continuous.emf/model/timecontinuous.ecore#//PropagatorFunctionDistributionEvent">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ConcreteParent" eType="#//PropagatorCalcDistributionSequence"
         changeable="false" volatile="true" transient="true" derived="true"/>
