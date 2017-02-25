@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.time.continuous.calc.impl;
 
 import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
+
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmount;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAmountAbsolute;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAmountAfter;
@@ -56,8 +57,8 @@ import com.misc.common.moplaf.time.continuous.calc.TimeContinuousCalcPackage;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.EReference;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -67,6 +68,62 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * @generated
  */
 public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeContinuousCalcPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass propagatorScopeDistributionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass propagatorCalcDistributionInitializationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass propagatorLayerCompositeEventRefreshEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass propagatorCalcDistributionChildEventsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass propagatorCalcDistributionProvidedEventsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass propagatorCalcDistributionSequenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass propagatorLayerDistributionSlopesEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass propagatorLayerDistributionAmountsEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -171,34 +228,6 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 * @generated
 	 */
 	private EClass propagatorCalcChildEventSlopeAfterEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass propagatorCalcDistributionChildEventsEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass propagatorCalcDistributionInitializationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass propagatorCalcDistributionProvidedEventsEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass propagatorCalcDistributionSequenceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -376,34 +405,6 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	private EClass propagatorCalcEventAmountEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass propagatorLayerCompositeEventRefreshEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass propagatorLayerDistributionAmountsEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass propagatorLayerDistributionSlopesEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass propagatorScopeDistributionEClass = null;
-
-	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -465,6 +466,195 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(TimeContinuousCalcPackage.eNS_URI, theTimeContinuousCalcPackage);
 		return theTimeContinuousCalcPackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPropagatorScopeDistribution() {
+		return propagatorScopeDistributionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPropagatorCalcDistributionInitialization() {
+		return propagatorCalcDistributionInitializationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPropagatorCalcDistributionInitialization_ConcreteParent() {
+		return (EReference)propagatorCalcDistributionInitializationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPropagatorLayerCompositeEventRefresh() {
+		return propagatorLayerCompositeEventRefreshEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPropagatorLayerCompositeEventRefresh_ConcreteParent() {
+		return (EReference)propagatorLayerCompositeEventRefreshEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPropagatorLayerCompositeEventRefresh_AntecedenCalcDistributionInitialization() {
+		return (EReference)propagatorLayerCompositeEventRefreshEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPropagatorCalcDistributionChildEvents() {
+		return propagatorCalcDistributionChildEventsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPropagatorCalcDistributionChildEvents_ConcreteParent() {
+		return (EReference)propagatorCalcDistributionChildEventsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPropagatorCalcDistributionProvidedEvents() {
+		return propagatorCalcDistributionProvidedEventsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPropagatorCalcDistributionProvidedEvents_ConcreteParent() {
+		return (EReference)propagatorCalcDistributionProvidedEventsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPropagatorCalcDistributionProvidedEvents_AntecedentLayerCompositeeventRefresh() {
+		return (EReference)propagatorCalcDistributionProvidedEventsEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPropagatorCalcDistributionProvidedEvents_AntecedentCalcDistributionchildEvents() {
+		return (EReference)propagatorCalcDistributionProvidedEventsEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPropagatorCalcDistributionSequence() {
+		return propagatorCalcDistributionSequenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPropagatorCalcDistributionSequence_ConcreteParent() {
+		return (EReference)propagatorCalcDistributionSequenceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPropagatorCalcDistributionSequence_AntecedentCalcDistributionProvidedEvents() {
+		return (EReference)propagatorCalcDistributionSequenceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPropagatorLayerDistributionSlopes() {
+		return propagatorLayerDistributionSlopesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPropagatorLayerDistributionSlopes_ConcreteParent() {
+		return (EReference)propagatorLayerDistributionSlopesEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPropagatorLayerDistributionSlopes_AntecedentCalcDistributionSequence() {
+		return (EReference)propagatorLayerDistributionSlopesEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPropagatorLayerDistributionAmounts() {
+		return propagatorLayerDistributionAmountsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPropagatorLayerDistributionAmounts_ConcreteParent() {
+		return (EReference)propagatorLayerDistributionAmountsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPropagatorLayerDistributionAmounts_AntecedentLayerDistributionSlopes() {
+		return (EReference)propagatorLayerDistributionAmountsEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -600,105 +790,6 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 */
 	public EClass getPropagatorCalcChildEventSlopeAfter() {
 		return propagatorCalcChildEventSlopeAfterEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPropagatorCalcDistributionChildEvents() {
-		return propagatorCalcDistributionChildEventsEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPropagatorCalcDistributionChildEvents_ConcreteParent() {
-		return (EReference)propagatorCalcDistributionChildEventsEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPropagatorCalcDistributionInitialization() {
-		return propagatorCalcDistributionInitializationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPropagatorCalcDistributionInitialization_ConcreteParent() {
-		return (EReference)propagatorCalcDistributionInitializationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPropagatorCalcDistributionProvidedEvents() {
-		return propagatorCalcDistributionProvidedEventsEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPropagatorCalcDistributionProvidedEvents_ConcreteParent() {
-		return (EReference)propagatorCalcDistributionProvidedEventsEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPropagatorCalcDistributionProvidedEvents_AntecedentLayerCompositeeventRefresh() {
-		return (EReference)propagatorCalcDistributionProvidedEventsEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPropagatorCalcDistributionProvidedEvents_AntecedentCalcDistributionchildEvents() {
-		return (EReference)propagatorCalcDistributionProvidedEventsEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPropagatorCalcDistributionSequence() {
-		return propagatorCalcDistributionSequenceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPropagatorCalcDistributionSequence_ConcreteParent() {
-		return (EReference)propagatorCalcDistributionSequenceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPropagatorCalcDistributionSequence_AntecedentCalcDistributionProvidedEvents() {
-		return (EReference)propagatorCalcDistributionSequenceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -960,96 +1051,6 @@ public class TimeContinuousCalcPackageImpl extends EPackageImpl implements TimeC
 	 */
 	public EReference getPropagatorCalcEventAmount_ConcreteParent() {
 		return (EReference)propagatorCalcEventAmountEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPropagatorLayerCompositeEventRefresh() {
-		return propagatorLayerCompositeEventRefreshEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPropagatorLayerCompositeEventRefresh_ConcreteParent() {
-		return (EReference)propagatorLayerCompositeEventRefreshEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPropagatorLayerCompositeEventRefresh_AntecedenCalcDistributionInitialization() {
-		return (EReference)propagatorLayerCompositeEventRefreshEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPropagatorLayerDistributionAmounts() {
-		return propagatorLayerDistributionAmountsEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPropagatorLayerDistributionAmounts_ConcreteParent() {
-		return (EReference)propagatorLayerDistributionAmountsEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPropagatorLayerDistributionAmounts_AntecedentLayerDistributionSlopes() {
-		return (EReference)propagatorLayerDistributionAmountsEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPropagatorLayerDistributionSlopes() {
-		return propagatorLayerDistributionSlopesEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPropagatorLayerDistributionSlopes_ConcreteParent() {
-		return (EReference)propagatorLayerDistributionSlopesEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPropagatorLayerDistributionSlopes_AntecedentCalcDistributionSequence() {
-		return (EReference)propagatorLayerDistributionSlopesEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPropagatorScopeDistribution() {
-		return propagatorScopeDistributionEClass;
 	}
 
 	/**

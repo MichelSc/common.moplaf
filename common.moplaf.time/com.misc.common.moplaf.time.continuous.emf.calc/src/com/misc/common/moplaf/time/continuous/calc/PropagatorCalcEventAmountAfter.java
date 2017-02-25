@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.time.continuous.calc;
 
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Propagator Calc Event Amount After</b></em>'.

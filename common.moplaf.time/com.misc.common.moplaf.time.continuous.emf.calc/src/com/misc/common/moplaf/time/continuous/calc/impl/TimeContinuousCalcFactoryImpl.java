@@ -114,6 +114,86 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public PropagatorScopeDistribution createPropagatorScopeDistribution() {
+		PropagatorScopeDistributionImpl propagatorScopeDistribution = new PropagatorScopeDistributionImpl();
+		return propagatorScopeDistribution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PropagatorCalcDistributionInitialization createPropagatorCalcDistributionInitialization() {
+		PropagatorCalcDistributionInitializationImpl propagatorCalcDistributionInitialization = new PropagatorCalcDistributionInitializationImpl();
+		return propagatorCalcDistributionInitialization;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PropagatorLayerCompositeEventRefresh createPropagatorLayerCompositeEventRefresh() {
+		PropagatorLayerCompositeEventRefreshImpl propagatorLayerCompositeEventRefresh = new PropagatorLayerCompositeEventRefreshImpl();
+		return propagatorLayerCompositeEventRefresh;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PropagatorCalcDistributionChildEvents createPropagatorCalcDistributionChildEvents() {
+		PropagatorCalcDistributionChildEventsImpl propagatorCalcDistributionChildEvents = new PropagatorCalcDistributionChildEventsImpl();
+		return propagatorCalcDistributionChildEvents;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PropagatorCalcDistributionProvidedEvents createPropagatorCalcDistributionProvidedEvents() {
+		PropagatorCalcDistributionProvidedEventsImpl propagatorCalcDistributionProvidedEvents = new PropagatorCalcDistributionProvidedEventsImpl();
+		return propagatorCalcDistributionProvidedEvents;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PropagatorCalcDistributionSequence createPropagatorCalcDistributionSequence() {
+		PropagatorCalcDistributionSequenceImpl propagatorCalcDistributionSequence = new PropagatorCalcDistributionSequenceImpl();
+		return propagatorCalcDistributionSequence;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PropagatorLayerDistributionSlopes createPropagatorLayerDistributionSlopes() {
+		PropagatorLayerDistributionSlopesImpl propagatorLayerDistributionSlopes = new PropagatorLayerDistributionSlopesImpl();
+		return propagatorLayerDistributionSlopes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PropagatorLayerDistributionAmounts createPropagatorLayerDistributionAmounts() {
+		PropagatorLayerDistributionAmountsImpl propagatorLayerDistributionAmounts = new PropagatorLayerDistributionAmountsImpl();
+		return propagatorLayerDistributionAmounts;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PropagatorCalcAmountAbsoluteAmountAbsolute createPropagatorCalcAmountAbsoluteAmountAbsolute() {
 		PropagatorCalcAmountAbsoluteAmountAbsoluteImpl propagatorCalcAmountAbsoluteAmountAbsolute = new PropagatorCalcAmountAbsoluteAmountAbsoluteImpl();
 		return propagatorCalcAmountAbsoluteAmountAbsolute;
@@ -257,46 +337,6 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	public PropagatorCalcChildEventSlopeAfter createPropagatorCalcChildEventSlopeAfter() {
 		PropagatorCalcChildEventSlopeAfterImpl propagatorCalcChildEventSlopeAfter = new PropagatorCalcChildEventSlopeAfterImpl();
 		return propagatorCalcChildEventSlopeAfter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PropagatorCalcDistributionChildEvents createPropagatorCalcDistributionChildEvents() {
-		PropagatorCalcDistributionChildEventsImpl propagatorCalcDistributionChildEvents = new PropagatorCalcDistributionChildEventsImpl();
-		return propagatorCalcDistributionChildEvents;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PropagatorCalcDistributionInitialization createPropagatorCalcDistributionInitialization() {
-		PropagatorCalcDistributionInitializationImpl propagatorCalcDistributionInitialization = new PropagatorCalcDistributionInitializationImpl();
-		return propagatorCalcDistributionInitialization;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PropagatorCalcDistributionProvidedEvents createPropagatorCalcDistributionProvidedEvents() {
-		PropagatorCalcDistributionProvidedEventsImpl propagatorCalcDistributionProvidedEvents = new PropagatorCalcDistributionProvidedEventsImpl();
-		return propagatorCalcDistributionProvidedEvents;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PropagatorCalcDistributionSequence createPropagatorCalcDistributionSequence() {
-		PropagatorCalcDistributionSequenceImpl propagatorCalcDistributionSequence = new PropagatorCalcDistributionSequenceImpl();
-		return propagatorCalcDistributionSequence;
 	}
 
 	/**
@@ -547,46 +587,6 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	public PropagatorCalcEventAmount createPropagatorCalcEventAmount() {
 		PropagatorCalcEventAmountImpl propagatorCalcEventAmount = new PropagatorCalcEventAmountImpl();
 		return propagatorCalcEventAmount;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PropagatorLayerCompositeEventRefresh createPropagatorLayerCompositeEventRefresh() {
-		PropagatorLayerCompositeEventRefreshImpl propagatorLayerCompositeEventRefresh = new PropagatorLayerCompositeEventRefreshImpl();
-		return propagatorLayerCompositeEventRefresh;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PropagatorLayerDistributionAmounts createPropagatorLayerDistributionAmounts() {
-		PropagatorLayerDistributionAmountsImpl propagatorLayerDistributionAmounts = new PropagatorLayerDistributionAmountsImpl();
-		return propagatorLayerDistributionAmounts;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PropagatorLayerDistributionSlopes createPropagatorLayerDistributionSlopes() {
-		PropagatorLayerDistributionSlopesImpl propagatorLayerDistributionSlopes = new PropagatorLayerDistributionSlopesImpl();
-		return propagatorLayerDistributionSlopes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PropagatorScopeDistribution createPropagatorScopeDistribution() {
-		PropagatorScopeDistributionImpl propagatorScopeDistribution = new PropagatorScopeDistributionImpl();
-		return propagatorScopeDistribution;
 	}
 
 	/**

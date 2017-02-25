@@ -3,7 +3,6 @@ package com.misc.common.moplaf.propagator2.util;
 import java.util.LinkedList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EFactory;
 
 import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
 
@@ -15,6 +14,16 @@ public class PropagatorFunctionsConstructors  implements PropagatorFunctionsCons
 	public PropagatorFunctionsConstructors() {
 		super();
 	}
+	
+	@Override
+	public PropagatorFunctionsConstructor copy() {
+		PropagatorFunctionsConstructors newConstructors = new PropagatorFunctionsConstructors();
+		for ( PropagatorFunctionsConstructor constructor : this.constructors){
+			newConstructors.addConstructor(constructor.copy());
+		}
+		return newConstructors;
+	}
+
 	
 	public void addConstructor(PropagatorFunctionsConstructor constructor){
 		this.constructors.add(constructor);
@@ -39,4 +48,5 @@ public class PropagatorFunctionsConstructors  implements PropagatorFunctionsCons
 			factory.addPropagatorFunctions(object);
 		}
 	}
+
 }

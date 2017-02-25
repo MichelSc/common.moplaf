@@ -2,15 +2,12 @@
  */
 package com.misc.common.moplaf.time.continuous.calc.impl;
 
-import com.misc.common.moplaf.propagator2.PropagatorFunction;
-import com.misc.common.moplaf.propagator2.util.Bindings;
-import com.misc.common.moplaf.time.continuous.Distribution;
-import com.misc.common.moplaf.time.continuous.DistributionEvent;
-import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionSequence;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventMoment;
 import com.misc.common.moplaf.time.continuous.calc.TimeContinuousCalcPackage;
+
 import com.misc.common.moplaf.time.continuous.impl.PropagatorFunctionDistributionEventImpl;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -60,11 +57,13 @@ public class PropagatorCalcEventMomentImpl extends PropagatorFunctionDistributio
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	public PropagatorCalcDistributionSequence basicGetConcreteParent() {
-		Distribution distribution = this.getDistributionEvent().getDistribution();
-		PropagatorCalcDistributionSequence caclDistributionSequence = distribution.getPropagatorFunction(PropagatorCalcDistributionSequence.class);
-		return caclDistributionSequence;
+		// TODO: implement this method to return the 'Concrete Parent' reference
+		// -> do not perform proxy resolution
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -96,34 +95,4 @@ public class PropagatorCalcEventMomentImpl extends PropagatorFunctionDistributio
 		return super.eIsSet(featureID);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see com.misc.common.moplaf.propagator2.impl.PropagatorFunctionImpl#doGetParent()
-	 */
-	@Override
-	public PropagatorFunction doGetParent() {
-		return this.getConcreteParent();
-	}
-	
-	protected static Bindings distributionEventBindings = Bindings.constructBindings()
-			.addInboundBinding(TimeContinuousPackage.Literals.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT);
-	
-	/*
-	 * (non-Javadoc)
-	 * @see com.misc.common.moplaf.propagator2.impl.PropagatorFunctionBindingsImpl#doGetBindings()
-	 */
-	@Override
-	public Bindings doGetBindings() {
-		return distributionEventBindings;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * @see com.misc.common.moplaf.propagator2.impl.PropagatorFunctionImpl#doRefresh()
-	 */
-	@Override
-	public void doRefresh() {
-		DistributionEvent event = this.basicGetDistributionEvent();
-		event.refreshMoment();
-	}
 } //PropagatorCalcEventMomentImpl

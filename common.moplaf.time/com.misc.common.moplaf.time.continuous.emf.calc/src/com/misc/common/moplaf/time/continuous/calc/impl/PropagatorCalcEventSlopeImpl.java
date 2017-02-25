@@ -2,8 +2,6 @@
  */
 package com.misc.common.moplaf.time.continuous.calc.impl;
 
-
-import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventSlope;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionSlopes;
 import com.misc.common.moplaf.time.continuous.calc.TimeContinuousCalcPackage;
@@ -59,11 +57,13 @@ public class PropagatorCalcEventSlopeImpl extends PropagatorFunctionDistribution
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	public PropagatorLayerDistributionSlopes basicGetConcreteParent() {
-			Distribution distribution = this.getDistributionEvent().getDistribution();
-			PropagatorLayerDistributionSlopes layerDistributionSlopes= distribution.getPropagatorFunction(PropagatorLayerDistributionSlopes.class);
-			return layerDistributionSlopes;
+		// TODO: implement this method to return the 'Concrete Parent' reference
+		// -> do not perform proxy resolution
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**

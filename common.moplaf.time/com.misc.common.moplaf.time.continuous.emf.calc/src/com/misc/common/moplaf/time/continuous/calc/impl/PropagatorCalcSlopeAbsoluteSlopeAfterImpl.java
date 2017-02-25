@@ -2,10 +2,9 @@
  */
 package com.misc.common.moplaf.time.continuous.calc.impl;
 
-import com.misc.common.moplaf.propagator2.util.Bindings;
-import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcSlopeAbsoluteSlopeAfter;
 import com.misc.common.moplaf.time.continuous.calc.TimeContinuousCalcPackage;
+
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -33,18 +32,6 @@ public class PropagatorCalcSlopeAbsoluteSlopeAfterImpl extends PropagatorCalcEve
 	@Override
 	protected EClass eStaticClass() {
 		return TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_AFTER;
-	}
-
-	protected static Bindings distributionEventBindings = PropagatorCalcEventSlopeAfterImpl.distributionEventBindings.copy()
-			.addInboundBinding(TimeContinuousPackage.Literals.SLOPE_ABSOLUTE__SLOPE_ABSOLUTE);
-	
-	/*
-	 * (non-Javadoc)
-	 * @see com.misc.common.moplaf.propagator2.impl.PropagatorFunctionBindingsImpl#doGetBindings()
-	 */
-	@Override
-	public Bindings doGetBindings() {
-		return distributionEventBindings;
 	}
 
 } //PropagatorCalcSlopeAbsoluteSlopeAfterImpl

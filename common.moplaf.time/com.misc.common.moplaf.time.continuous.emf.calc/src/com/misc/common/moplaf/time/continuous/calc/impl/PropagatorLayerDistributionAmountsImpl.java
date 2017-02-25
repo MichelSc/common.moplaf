@@ -2,19 +2,18 @@
  */
 package com.misc.common.moplaf.time.continuous.calc.impl;
 
-
-import com.misc.common.moplaf.propagator2.PropagatorFunction;
-import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionAmounts;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionSlopes;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorScopeDistribution;
 import com.misc.common.moplaf.time.continuous.calc.TimeContinuousCalcPackage;
+
 import com.misc.common.moplaf.time.continuous.impl.PropagatorFunctionDistributionImpl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -41,6 +40,7 @@ public class PropagatorLayerDistributionAmountsImpl extends PropagatorFunctionDi
 	 * @ordered
 	 */
 	protected PropagatorScopeDistribution concreteParent;
+
 	/**
 	 * The cached value of the '{@link #getAntecedentLayerDistributionSlopes() <em>Antecedent Layer Distribution Slopes</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -216,21 +216,4 @@ public class PropagatorLayerDistributionAmountsImpl extends PropagatorFunctionDi
 		return super.eIsSet(featureID);
 	}
 
-	@Override
-	public void init() {
-		super.init();
-		Distribution distribution = this.getDistribution();
-		this.setConcreteParent(distribution.getPropagatorFunction(PropagatorScopeDistribution.class));
-		this.setAntecedentLayerDistributionSlopes(distribution.getPropagatorFunction(PropagatorLayerDistributionSlopes.class));
-	}
-
-	@Override
-	public PropagatorFunction doGetParent() {
-		return this.getConcreteParent();
-	}
-
-	@Override
-	public void doCollectExplicitAntecedents(EList<PropagatorFunction> antecedents) {
-		antecedents.add(this.getAntecedentLayerDistributionSlopes());
-	}
 } //PropagatorLayerDistributionAmountsImpl

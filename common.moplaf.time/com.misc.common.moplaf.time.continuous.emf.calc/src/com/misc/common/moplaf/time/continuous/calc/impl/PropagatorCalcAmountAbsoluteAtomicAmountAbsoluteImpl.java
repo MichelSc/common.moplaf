@@ -2,10 +2,9 @@
  */
 package com.misc.common.moplaf.time.continuous.calc.impl;
 
-import com.misc.common.moplaf.propagator2.util.Bindings;
-import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAtomicAmountAbsolute;
 import com.misc.common.moplaf.time.continuous.calc.TimeContinuousCalcPackage;
+
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -33,21 +32,6 @@ public class PropagatorCalcAmountAbsoluteAtomicAmountAbsoluteImpl extends Propag
 	@Override
 	protected EClass eStaticClass() {
 		return TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE;
-	}
-
-	protected static Bindings providerBindings = Bindings.constructBindings()
-			.addInboundBinding(TimeContinuousPackage.Literals.AMOUNT_ABSOLUTE_PROVIDER__AMOUNT_ABSOLUTE);
-
-	protected static Bindings distributionEventBindings = PropagatorCalcAmountAbsoluteAmountAbsoluteImpl.distributionEventBindings.copy()
-			.addInboundBinding(TimeContinuousPackage.Literals.AMOUNT_ABSOLUTE_ATOMIC__PROVIDER, providerBindings);
-	
-	/*
-	 * (non-Javadoc)
-	 * @see com.misc.common.moplaf.propagator2.impl.PropagatorFunctionBindingsImpl#doGetBindings()
-	 */
-	@Override
-	public Bindings doGetBindings() {
-		return distributionEventBindings;
 	}
 
 } //PropagatorCalcAmountAbsoluteAtomicAmountAbsoluteImpl

@@ -2,13 +2,10 @@
  */
 package com.misc.common.moplaf.time.continuous.calc.impl;
 
-import com.misc.common.moplaf.propagator2.util.Bindings;
-import com.misc.common.moplaf.time.continuous.Distribution;
-import com.misc.common.moplaf.time.continuous.EventsProviderAbstract;
-import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventsProviderRefreshEvents;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorLayerCompositeEventRefresh;
 import com.misc.common.moplaf.time.continuous.calc.TimeContinuousCalcPackage;
+
 import com.misc.common.moplaf.time.continuous.impl.PropagatorFunctionEventsProviderImpl;
 
 import org.eclipse.emf.ecore.EClass;
@@ -60,12 +57,13 @@ public class PropagatorCalcEventsProviderRefreshEventsImpl extends PropagatorFun
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	public PropagatorLayerCompositeEventRefresh basicGetConcreteParent() {
-		EventsProviderAbstract provider = this.getEventsProvider();
-		Distribution distribution = provider.getDistribution();
-		PropagatorLayerCompositeEventRefresh parent = distribution.getPropagatorFunction(PropagatorLayerCompositeEventRefresh.class);
-		return parent;
+		// TODO: implement this method to return the 'Concrete Parent' reference
+		// -> do not perform proxy resolution
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -95,24 +93,6 @@ public class PropagatorCalcEventsProviderRefreshEventsImpl extends PropagatorFun
 				return basicGetConcreteParent() != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	protected static Bindings providerBindings = Bindings.constructBindings()
-			.addInboundBinding(TimeContinuousPackage.Literals.EVENTS_PROVIDER_ABSTRACT__DISTRIBUTION);
-	
-	/*
-	 * (non-Javadoc)
-	 * @see com.misc.common.moplaf.propagator2.impl.PropagatorFunctionBindingsImpl#doGetBindings()
-	 */
-	@Override
-	public Bindings doGetBindings() {
-		return providerBindings;
-	}
-
-	@Override
-	public void doRefresh() {
-		EventsProviderAbstract provider = this.getEventsProvider();
-		provider.refreshEvents();
 	}
 
 } //PropagatorCalcEventsProviderRefreshEventsImpl

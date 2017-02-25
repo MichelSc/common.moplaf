@@ -22,7 +22,6 @@ import com.misc.common.moplaf.time.continuous.PropagatorFunctionDistribution;
  * @generated
  */
 public interface PropagatorLayerDistributionAmounts extends PropagatorFunctionDistribution {
-
 	/**
 	 * Returns the value of the '<em><b>Concrete Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -74,4 +73,5 @@ public interface PropagatorLayerDistributionAmounts extends PropagatorFunctionDi
 	 * @generated
 	 */
 	void setAntecedentLayerDistributionSlopes(PropagatorLayerDistributionSlopes value);
+
 } // PropagatorLayerDistributionAmounts

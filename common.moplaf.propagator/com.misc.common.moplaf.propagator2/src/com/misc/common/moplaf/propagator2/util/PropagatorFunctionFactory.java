@@ -24,10 +24,17 @@ public class PropagatorFunctionFactory implements PropagatorFunctionsConstructor
 	}
 
 	@Override
+	public PropagatorFunctionsConstructor copy() {
+		PropagatorFunctionFactory newFactory = new PropagatorFunctionFactory(this.propagatorFunctionType, this.touch);
+		return newFactory;
+	}
+	
+	@Override
 	public void addPropagatorFunctions(ObjectWithPropagatorFunctions object) {
 		EFactory factory = this.propagatorFunctionType.getEPackage().getEFactoryInstance();
 		PropagatorFunction newPropagatorFunction = (PropagatorFunction) factory.create(this.propagatorFunctionType);
 		object.addPropagatorFunction(newPropagatorFunction, touch);
 	}
+
 	
 }

@@ -21,7 +21,6 @@ import com.misc.common.moplaf.time.continuous.PropagatorFunctionDistributionEven
  * @generated
  */
 public interface PropagatorCalcEventMoment extends PropagatorFunctionDistributionEvent {
-
 	/**
 	 * Returns the value of the '<em><b>Concrete Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -36,4 +35,5 @@ public interface PropagatorCalcEventMoment extends PropagatorFunctionDistributio
 	 * @generated
 	 */
 	PropagatorCalcDistributionSequence getConcreteParent();
+
 } // PropagatorCalcEventMoment

@@ -21,7 +21,6 @@ import com.misc.common.moplaf.time.continuous.PropagatorFunctionEventsProvider;
  * @generated
  */
 public interface PropagatorCalcEventsProviderRefreshEvents extends PropagatorFunctionEventsProvider {
-
 	/**
 	 * Returns the value of the '<em><b>Concrete Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -36,4 +35,5 @@ public interface PropagatorCalcEventsProviderRefreshEvents extends PropagatorFun
 	 * @generated
 	 */
 	PropagatorLayerCompositeEventRefresh getConcreteParent();
+
 } // PropagatorCalcEventsProviderRefreshEvents

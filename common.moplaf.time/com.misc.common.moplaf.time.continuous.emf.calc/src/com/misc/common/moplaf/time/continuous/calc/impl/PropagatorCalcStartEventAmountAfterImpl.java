@@ -2,10 +2,9 @@
  */
 package com.misc.common.moplaf.time.continuous.calc.impl;
 
-import com.misc.common.moplaf.propagator2.util.Bindings;
-import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStartEventAmountAfter;
 import com.misc.common.moplaf.time.continuous.calc.TimeContinuousCalcPackage;
+
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -33,18 +32,6 @@ public class PropagatorCalcStartEventAmountAfterImpl extends PropagatorCalcEvent
 	@Override
 	protected EClass eStaticClass() {
 		return TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_START_EVENT_AMOUNT_AFTER;
-	}
-
-	protected static Bindings distributionEventBindings = PropagatorCalcEventAmountAfterImpl.distributionEventBindings.copy()
-			.addInboundBinding(TimeContinuousPackage.Literals.START_EVENT__AMOUNT_AT_START);
-
-	/*
-	 * (non-Javadoc)
-	 * @see com.misc.common.moplaf.propagator2.impl.PropagatorFunctionBindingsImpl#doGetBindings()
-	 */
-	@Override
-	public Bindings doGetBindings() {
-		return distributionEventBindings;
 	}
 
 } //PropagatorCalcStartEventAmountAfterImpl

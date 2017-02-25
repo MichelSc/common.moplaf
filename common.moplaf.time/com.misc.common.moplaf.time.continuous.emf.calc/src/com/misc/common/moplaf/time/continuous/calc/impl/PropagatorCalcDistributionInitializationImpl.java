@@ -2,16 +2,17 @@
  */
 package com.misc.common.moplaf.time.continuous.calc.impl;
 
-import com.misc.common.moplaf.propagator2.PropagatorFunction;
-import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionInitialization;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorScopeDistribution;
 import com.misc.common.moplaf.time.continuous.calc.TimeContinuousCalcPackage;
+
 import com.misc.common.moplaf.time.continuous.impl.PropagatorFunctionDistributionImpl;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -152,32 +153,6 @@ public class PropagatorCalcDistributionInitializationImpl extends PropagatorFunc
 				return concreteParent != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	@Override
-	public void init() {
-		super.init();
-		Distribution distribution = this.getDistribution();
-		this.setConcreteParent(distribution.getPropagatorFunction(PropagatorScopeDistribution.class));
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * @see com.misc.common.moplaf.propagator2.impl.PropagatorFunctionImpl#doGetParent()
-	 */
-	@Override
-	public PropagatorFunction doGetParent() {
-		return this.getConcreteParent();
-	}
-	
-	/*
-	 * (non-Javadoc)
-	 * @see com.misc.common.moplaf.propagator2.impl.PropagatorFunctionImpl#doRefresh()
-	 */
-	@Override
-	public void doRefresh() {
-		Distribution distribution = this.getDistribution();
-		distribution.refreshInit();
 	}
 
 } //PropagatorCalcDistributionInitializationImpl

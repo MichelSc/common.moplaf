@@ -22,6 +22,78 @@ public interface TimeContinuousCalcFactory extends EFactory {
 	TimeContinuousCalcFactory eINSTANCE = com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Propagator Scope Distribution</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Propagator Scope Distribution</em>'.
+	 * @generated
+	 */
+	PropagatorScopeDistribution createPropagatorScopeDistribution();
+
+	/**
+	 * Returns a new object of class '<em>Propagator Calc Distribution Initialization</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Propagator Calc Distribution Initialization</em>'.
+	 * @generated
+	 */
+	PropagatorCalcDistributionInitialization createPropagatorCalcDistributionInitialization();
+
+	/**
+	 * Returns a new object of class '<em>Propagator Layer Composite Event Refresh</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Propagator Layer Composite Event Refresh</em>'.
+	 * @generated
+	 */
+	PropagatorLayerCompositeEventRefresh createPropagatorLayerCompositeEventRefresh();
+
+	/**
+	 * Returns a new object of class '<em>Propagator Calc Distribution Child Events</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Propagator Calc Distribution Child Events</em>'.
+	 * @generated
+	 */
+	PropagatorCalcDistributionChildEvents createPropagatorCalcDistributionChildEvents();
+
+	/**
+	 * Returns a new object of class '<em>Propagator Calc Distribution Provided Events</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Propagator Calc Distribution Provided Events</em>'.
+	 * @generated
+	 */
+	PropagatorCalcDistributionProvidedEvents createPropagatorCalcDistributionProvidedEvents();
+
+	/**
+	 * Returns a new object of class '<em>Propagator Calc Distribution Sequence</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Propagator Calc Distribution Sequence</em>'.
+	 * @generated
+	 */
+	PropagatorCalcDistributionSequence createPropagatorCalcDistributionSequence();
+
+	/**
+	 * Returns a new object of class '<em>Propagator Layer Distribution Slopes</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Propagator Layer Distribution Slopes</em>'.
+	 * @generated
+	 */
+	PropagatorLayerDistributionSlopes createPropagatorLayerDistributionSlopes();
+
+	/**
+	 * Returns a new object of class '<em>Propagator Layer Distribution Amounts</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Propagator Layer Distribution Amounts</em>'.
+	 * @generated
+	 */
+	PropagatorLayerDistributionAmounts createPropagatorLayerDistributionAmounts();
+
+	/**
 	 * Returns a new object of class '<em>Propagator Calc Amount Absolute Amount Absolute</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -155,42 +227,6 @@ public interface TimeContinuousCalcFactory extends EFactory {
 	 * @generated
 	 */
 	PropagatorCalcChildEventSlopeAfter createPropagatorCalcChildEventSlopeAfter();
-
-	/**
-	 * Returns a new object of class '<em>Propagator Calc Distribution Child Events</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Distribution Child Events</em>'.
-	 * @generated
-	 */
-	PropagatorCalcDistributionChildEvents createPropagatorCalcDistributionChildEvents();
-
-	/**
-	 * Returns a new object of class '<em>Propagator Calc Distribution Initialization</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Distribution Initialization</em>'.
-	 * @generated
-	 */
-	PropagatorCalcDistributionInitialization createPropagatorCalcDistributionInitialization();
-
-	/**
-	 * Returns a new object of class '<em>Propagator Calc Distribution Provided Events</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Distribution Provided Events</em>'.
-	 * @generated
-	 */
-	PropagatorCalcDistributionProvidedEvents createPropagatorCalcDistributionProvidedEvents();
-
-	/**
-	 * Returns a new object of class '<em>Propagator Calc Distribution Sequence</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Distribution Sequence</em>'.
-	 * @generated
-	 */
-	PropagatorCalcDistributionSequence createPropagatorCalcDistributionSequence();
 
 	/**
 	 * Returns a new object of class '<em>Propagator Calc End Event Moment</em>'.
@@ -416,42 +452,6 @@ public interface TimeContinuousCalcFactory extends EFactory {
 	 * @generated
 	 */
 	PropagatorCalcEventAmount createPropagatorCalcEventAmount();
-
-	/**
-	 * Returns a new object of class '<em>Propagator Layer Composite Event Refresh</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Layer Composite Event Refresh</em>'.
-	 * @generated
-	 */
-	PropagatorLayerCompositeEventRefresh createPropagatorLayerCompositeEventRefresh();
-
-	/**
-	 * Returns a new object of class '<em>Propagator Layer Distribution Amounts</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Layer Distribution Amounts</em>'.
-	 * @generated
-	 */
-	PropagatorLayerDistributionAmounts createPropagatorLayerDistributionAmounts();
-
-	/**
-	 * Returns a new object of class '<em>Propagator Layer Distribution Slopes</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Layer Distribution Slopes</em>'.
-	 * @generated
-	 */
-	PropagatorLayerDistributionSlopes createPropagatorLayerDistributionSlopes();
-
-	/**
-	 * Returns a new object of class '<em>Propagator Scope Distribution</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Scope Distribution</em>'.
-	 * @generated
-	 */
-	PropagatorScopeDistribution createPropagatorScopeDistribution();
 
 	/**
 	 * Returns the package supported by this factory.

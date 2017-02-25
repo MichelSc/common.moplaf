@@ -23,7 +23,6 @@ import com.misc.common.moplaf.time.continuous.PropagatorFunctionDistribution;
  * @generated
  */
 public interface PropagatorCalcDistributionProvidedEvents extends PropagatorFunctionDistribution {
-
 	/**
 	 * Returns the value of the '<em><b>Concrete Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -101,4 +100,5 @@ public interface PropagatorCalcDistributionProvidedEvents extends PropagatorFunc
 	 * @generated
 	 */
 	void setAntecedentCalcDistributionchildEvents(PropagatorCalcDistributionChildEvents value);
+
 } // PropagatorCalcDistributionProvidedEvents

@@ -1,6 +1,7 @@
 package com.misc.common.moplaf.propagator2.util;
 
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -12,6 +13,14 @@ public class PropagatorFunctionsFactory implements PropagatorFunctionsConstructo
 
 	public PropagatorFunctionsFactory() {
 		super();
+	}
+	
+	public PropagatorFunctionsFactory copy(){
+		PropagatorFunctionsFactory newFactory = new PropagatorFunctionsFactory();
+		for(  Entry<EClass, PropagatorFunctionsConstructor> entry : this.propagatorFunctionsFactories.entrySet()){
+			newFactory.addPropagatorFunctionsFactory(entry.getKey(), entry.getValue().copy());
+		}
+		return newFactory;
 	}
 
 	/*
@@ -78,6 +87,4 @@ public class PropagatorFunctionsFactory implements PropagatorFunctionsConstructo
 			this.addPropagatorFunctions(superType, object);
 		}
 	}
-
-	
 }

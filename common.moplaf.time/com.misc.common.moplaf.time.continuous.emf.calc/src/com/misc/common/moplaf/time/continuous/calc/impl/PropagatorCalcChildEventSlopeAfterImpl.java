@@ -2,10 +2,9 @@
  */
 package com.misc.common.moplaf.time.continuous.calc.impl;
 
-import com.misc.common.moplaf.propagator2.util.Bindings;
-import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcChildEventSlopeAfter;
 import com.misc.common.moplaf.time.continuous.calc.TimeContinuousCalcPackage;
+
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -33,22 +32,6 @@ public class PropagatorCalcChildEventSlopeAfterImpl extends PropagatorCalcEventS
 	@Override
 	protected EClass eStaticClass() {
 		return TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_CHILD_EVENT_SLOPE_AFTER;
-	}
-	
-	protected static Bindings childEventBindings = Bindings.constructBindings()
-			.addInboundBinding(TimeContinuousPackage.Literals.DISTRIBUTION_EVENT__SLOPE_BEFORE)
-			.addInboundBinding(TimeContinuousPackage.Literals.DISTRIBUTION_EVENT__SLOPE_AFTER);
-	
-	protected static Bindings distributionEventBindings = PropagatorCalcEventSlopeAfterImpl.distributionEventBindings.copy()
-			.addInboundBinding(TimeContinuousPackage.Literals.CHILD_EVENT__ORIGINAL, childEventBindings);
-	
-	/*
-	 * (non-Javadoc)
-	 * @see com.misc.common.moplaf.propagator2.impl.PropagatorFunctionBindingsImpl#doGetBindings()
-	 */
-	@Override
-	public Bindings doGetBindings() {
-		return distributionEventBindings;
 	}
 
 } //PropagatorCalcChildEventSlopeAfterImpl

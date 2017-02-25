@@ -2,22 +2,19 @@
  */
 package com.misc.common.moplaf.time.continuous.calc.impl;
 
-
-import com.misc.common.moplaf.propagator2.PropagatorFunction;
-import com.misc.common.moplaf.propagator2.util.Bindings;
-import com.misc.common.moplaf.time.continuous.Distribution;
-import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionChildEvents;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionProvidedEvents;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorLayerCompositeEventRefresh;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorScopeDistribution;
 import com.misc.common.moplaf.time.continuous.calc.TimeContinuousCalcPackage;
+
 import com.misc.common.moplaf.time.continuous.impl.PropagatorFunctionDistributionImpl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -45,6 +42,7 @@ public class PropagatorCalcDistributionProvidedEventsImpl extends PropagatorFunc
 	 * @ordered
 	 */
 	protected PropagatorScopeDistribution concreteParent;
+
 	/**
 	 * The cached value of the '{@link #getAntecedentLayerCompositeeventRefresh() <em>Antecedent Layer Compositeevent Refresh</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -54,6 +52,7 @@ public class PropagatorCalcDistributionProvidedEventsImpl extends PropagatorFunc
 	 * @ordered
 	 */
 	protected PropagatorLayerCompositeEventRefresh antecedentLayerCompositeeventRefresh;
+
 	/**
 	 * The cached value of the '{@link #getAntecedentCalcDistributionchildEvents() <em>Antecedent Calc Distributionchild Events</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -278,46 +277,4 @@ public class PropagatorCalcDistributionProvidedEventsImpl extends PropagatorFunc
 		return super.eIsSet(featureID);
 	}
 
-	@Override
-	public void init() {
-		super.init();
-		Distribution distribution = this.getDistribution();
-		this.setConcreteParent(distribution.getPropagatorFunction(PropagatorScopeDistribution.class));
-		this.setAntecedentCalcDistributionchildEvents(distribution.getPropagatorFunction(PropagatorCalcDistributionChildEvents.class));
-		this.setAntecedentLayerCompositeeventRefresh(distribution.getPropagatorFunction(PropagatorLayerCompositeEventRefresh.class));
-	}
-
-	@Override
-	public PropagatorFunction doGetParent() {
-		return this.getConcreteParent();
-	}
-
-	@Override
-	public void doCollectExplicitAntecedents(EList<PropagatorFunction> antecedents) {
-		antecedents.add(this.getAntecedentCalcDistributionchildEvents());
-		antecedents.add(this.getAntecedentLayerCompositeeventRefresh());
-	}
-
-	private static Bindings distributionBindings = Bindings.constructBindings()
-			.addInboundBinding(TimeContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS)
-			.addInboundBinding(TimeContinuousPackage.Literals.DISTRIBUTION__CHILD_EVENTS);
-
-	/*
-	 * (non-Javadoc)
-	 * @see com.misc.common.moplaf.propagator2.impl.PropagatorFunctionBindingsImpl#doGetBindings()
-	 */
-	@Override
-	public Bindings doGetBindings() {
-		return distributionBindings;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * @see com.misc.common.moplaf.propagator2.impl.PropagatorFunctionImpl#doRefresh()
-	 */
-	@Override
-	public void doRefresh() {
-		Distribution distribution = this.getDistribution();
-		distribution.refreshProvidedEvents();
-	}
 } //PropagatorCalcDistributionProvidedEventsImpl

@@ -2,8 +2,8 @@
  */
 package com.misc.common.moplaf.time.continuous.calc;
 
-
 import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -56,406 +56,6 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 */
 	TimeContinuousCalcPackage eINSTANCE = com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl.init();
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountAbsoluteAmountAbsoluteImpl <em>Propagator Calc Amount Absolute Amount Absolute</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountAbsoluteAmountAbsoluteImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcAmountAbsoluteAmountAbsolute()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE = 8;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventAmountAfterImpl <em>Propagator Calc Event Amount After</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventAmountAfterImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcEventAmountAfter()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_EVENT_AMOUNT_AFTER = 24;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountAbsoluteAmountAfterImpl <em>Propagator Calc Amount Absolute Amount After</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountAbsoluteAmountAfterImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcAmountAbsoluteAmountAfter()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER = 9;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountAbsoluteAtomicAmountAbsoluteImpl <em>Propagator Calc Amount Absolute Atomic Amount Absolute</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountAbsoluteAtomicAmountAbsoluteImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcAmountAbsoluteAtomicAmountAbsolute()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE = 10;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventMomentImpl <em>Propagator Calc Event Moment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventMomentImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcEventMoment()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_EVENT_MOMENT = 26;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountImpulsionAmountAfterImpl <em>Propagator Calc Amount Impulsion Amount After</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountImpulsionAmountAfterImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcAmountImpulsionAmountAfter()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_AFTER = 12;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountImpulsionAmountImpulsionImpl <em>Propagator Calc Amount Impulsion Amount Impulsion</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountImpulsionAmountImpulsionImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcAmountImpulsionAmountImpulsion()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION = 13;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountImpulsionAtomicAmountImpulsionImpl <em>Propagator Calc Amount Impulsion Atomic Amount Impulsion</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountImpulsionAtomicAmountImpulsionImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcAmountImpulsionAtomicAmountImpulsion()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_AMOUNT_IMPULSION = 14;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcCapacityChangeEndAmountImpulsionImpl <em>Propagator Calc Capacity Change End Amount Impulsion</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcCapacityChangeEndAmountImpulsionImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcCapacityChangeEndAmountImpulsion()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_AMOUNT_IMPULSION = 16;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcCapacityChangeEndMomentImpl <em>Propagator Calc Capacity Change End Moment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcCapacityChangeEndMomentImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcCapacityChangeEndMoment()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_MOMENT = 17;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcCapacityChangeStartAmountImpulsionImpl <em>Propagator Calc Capacity Change Start Amount Impulsion</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcCapacityChangeStartAmountImpulsionImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcCapacityChangeStartAmountImpulsion()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_AMOUNT_IMPULSION = 18;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcCapacityChangeStartMomentImpl <em>Propagator Calc Capacity Change Start Moment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcCapacityChangeStartMomentImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcCapacityChangeStartMoment()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_MOMENT = 19;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcChildEventAmountAfterImpl <em>Propagator Calc Child Event Amount After</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcChildEventAmountAfterImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcChildEventAmountAfter()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_CHILD_EVENT_AMOUNT_AFTER = 20;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcChildEventMomentImpl <em>Propagator Calc Child Event Moment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcChildEventMomentImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcChildEventMoment()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_CHILD_EVENT_MOMENT = 21;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventSlopeAfterImpl <em>Propagator Calc Event Slope After</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventSlopeAfterImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcEventSlopeAfter()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_EVENT_SLOPE_AFTER = 27;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcChildEventSlopeAfterImpl <em>Propagator Calc Child Event Slope After</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcChildEventSlopeAfterImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcChildEventSlopeAfter()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_CHILD_EVENT_SLOPE_AFTER = 22;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionChildEventsImpl <em>Propagator Calc Distribution Child Events</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionChildEventsImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcDistributionChildEvents()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_DISTRIBUTION_CHILD_EVENTS = 3;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionInitializationImpl <em>Propagator Calc Distribution Initialization</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionInitializationImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcDistributionInitialization()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION = 1;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionProvidedEventsImpl <em>Propagator Calc Distribution Provided Events</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionProvidedEventsImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcDistributionProvidedEvents()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS = 4;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionSequenceImpl <em>Propagator Calc Distribution Sequence</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionSequenceImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcDistributionSequence()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE = 5;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEndEventMomentImpl <em>Propagator Calc End Event Moment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEndEventMomentImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcEndEventMoment()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_END_EVENT_MOMENT = 23;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventAmountBeforeImpl <em>Propagator Calc Event Amount Before</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventAmountBeforeImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcEventAmountBefore()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE = 25;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventSlopeBeforeImpl <em>Propagator Calc Event Slope Before</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventSlopeBeforeImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcEventSlopeBefore()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_EVENT_SLOPE_BEFORE = 28;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventsProviderRefreshEventsImpl <em>Propagator Calc Events Provider Refresh Events</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventsProviderRefreshEventsImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcEventsProviderRefreshEvents()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_EVENTS_PROVIDER_REFRESH_EVENTS = 29;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeAbsoluteSlopeAbsoluteImpl <em>Propagator Calc Slope Absolute Slope Absolute</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeAbsoluteSlopeAbsoluteImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcSlopeAbsoluteSlopeAbsolute()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE = 32;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeAbsoluteAtomicSlopeAbsoluteImpl <em>Propagator Calc Slope Absolute Atomic Slope Absolute</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeAbsoluteAtomicSlopeAbsoluteImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcSlopeAbsoluteAtomicSlopeAbsolute()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_SLOPE_ABSOLUTE = 31;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeAbsoluteSlopeAfterImpl <em>Propagator Calc Slope Absolute Slope After</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeAbsoluteSlopeAfterImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcSlopeAbsoluteSlopeAfter()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_AFTER = 33;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeImpulsionSlopeImpulsionImpl <em>Propagator Calc Slope Impulsion Slope Impulsion</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeImpulsionSlopeImpulsionImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcSlopeImpulsionSlopeImpulsion()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION = 37;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeImpulsionAtomicSlopeImpulsionImpl <em>Propagator Calc Slope Impulsion Atomic Slope Impulsion</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeImpulsionAtomicSlopeImpulsionImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcSlopeImpulsionAtomicSlopeImpulsion()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_SLOPE_IMPULSION = 35;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeImpulsionSlopeAfterImpl <em>Propagator Calc Slope Impulsion Slope After</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeImpulsionSlopeAfterImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcSlopeImpulsionSlopeAfter()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_AFTER = 36;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStartEventAmountAfterImpl <em>Propagator Calc Start Event Amount After</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStartEventAmountAfterImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcStartEventAmountAfter()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_START_EVENT_AMOUNT_AFTER = 38;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStartEventMomentImpl <em>Propagator Calc Start Event Moment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStartEventMomentImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcStartEventMoment()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_START_EVENT_MOMENT = 39;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStartEventSlopeAfterImpl <em>Propagator Calc Start Event Slope After</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStartEventSlopeAfterImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcStartEventSlopeAfter()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_START_EVENT_SLOPE_AFTER = 40;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStockChangeEndMomentImpl <em>Propagator Calc Stock Change End Moment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStockChangeEndMomentImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcStockChangeEndMoment()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_STOCK_CHANGE_END_MOMENT = 41;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStockChangeEndSlopeImpulsionImpl <em>Propagator Calc Stock Change End Slope Impulsion</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStockChangeEndSlopeImpulsionImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcStockChangeEndSlopeImpulsion()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_STOCK_CHANGE_END_SLOPE_IMPULSION = 42;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStockChangeStartMomentImpl <em>Propagator Calc Stock Change Start Moment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStockChangeStartMomentImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcStockChangeStartMoment()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_STOCK_CHANGE_START_MOMENT = 43;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStockChangeStartSlopeImpulsionImpl <em>Propagator Calc Stock Change Start Slope Impulsion</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStockChangeStartSlopeImpulsionImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcStockChangeStartSlopeImpulsion()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_STOCK_CHANGE_START_SLOPE_IMPULSION = 44;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerCompositeEventRefreshImpl <em>Propagator Layer Composite Event Refresh</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerCompositeEventRefreshImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorLayerCompositeEventRefresh()
-	 * @generated
-	 */
-	int PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH = 2;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerDistributionAmountsImpl <em>Propagator Layer Distribution Amounts</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerDistributionAmountsImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorLayerDistributionAmounts()
-	 * @generated
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS = 7;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerDistributionSlopesImpl <em>Propagator Layer Distribution Slopes</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerDistributionSlopesImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorLayerDistributionSlopes()
-	 * @generated
-	 */
-	int PROPAGATOR_LAYER_DISTRIBUTION_SLOPES = 6;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorScopeDistributionImpl <em>Propagator Scope Distribution</em>}' class.
@@ -747,6 +347,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_SCOPE_DISTRIBUTION_OPERATION_COUNT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionInitializationImpl <em>Propagator Calc Distribution Initialization</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionInitializationImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcDistributionInitialization()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION = 1;
+
+	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1033,6 +643,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION_OPERATION_COUNT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerCompositeEventRefreshImpl <em>Propagator Layer Composite Event Refresh</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerCompositeEventRefreshImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorLayerCompositeEventRefresh()
+	 * @generated
+	 */
+	int PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH = 2;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -1332,6 +952,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH_OPERATION_COUNT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionChildEventsImpl <em>Propagator Calc Distribution Child Events</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionChildEventsImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcDistributionChildEvents()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_DISTRIBUTION_CHILD_EVENTS = 3;
+
+	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1618,6 +1248,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_DISTRIBUTION_CHILD_EVENTS_OPERATION_COUNT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionProvidedEventsImpl <em>Propagator Calc Distribution Provided Events</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionProvidedEventsImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcDistributionProvidedEvents()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS = 4;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -1926,6 +1566,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS_OPERATION_COUNT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionSequenceImpl <em>Propagator Calc Distribution Sequence</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionSequenceImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcDistributionSequence()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE = 5;
+
+	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2223,6 +1873,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE_OPERATION_COUNT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerDistributionSlopesImpl <em>Propagator Layer Distribution Slopes</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerDistributionSlopesImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorLayerDistributionSlopes()
+	 * @generated
+	 */
+	int PROPAGATOR_LAYER_DISTRIBUTION_SLOPES = 6;
+
+	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2518,6 +2178,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_LAYER_DISTRIBUTION_SLOPES_OPERATION_COUNT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerDistributionAmountsImpl <em>Propagator Layer Distribution Amounts</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerDistributionAmountsImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorLayerDistributionAmounts()
+	 * @generated
+	 */
+	int PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS = 7;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -3115,6 +2785,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_EVENT_AMOUNT_OPERATION_COUNT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountAbsoluteAmountAbsoluteImpl <em>Propagator Calc Amount Absolute Amount Absolute</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountAbsoluteAmountAbsoluteImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcAmountAbsoluteAmountAbsolute()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE = 8;
+
+	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3401,6 +3081,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE_OPERATION_COUNT = PROPAGATOR_CALC_EVENT_AMOUNT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventAmountAfterImpl <em>Propagator Calc Event Amount After</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventAmountAfterImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcEventAmountAfter()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_EVENT_AMOUNT_AFTER = 24;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -3691,6 +3381,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_EVENT_AMOUNT_AFTER_OPERATION_COUNT = PROPAGATOR_CALC_EVENT_AMOUNT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountAbsoluteAmountAfterImpl <em>Propagator Calc Amount Absolute Amount After</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountAbsoluteAmountAfterImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcAmountAbsoluteAmountAfter()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER = 9;
+
+	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3979,6 +3679,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_AFTER_OPERATION_COUNT = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountAbsoluteAtomicAmountAbsoluteImpl <em>Propagator Calc Amount Absolute Atomic Amount Absolute</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountAbsoluteAtomicAmountAbsoluteImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcAmountAbsoluteAtomicAmountAbsolute()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE = 10;
+
+	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4265,6 +3975,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE_OPERATION_COUNT = PROPAGATOR_CALC_AMOUNT_ABSOLUTE_AMOUNT_ABSOLUTE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventMomentImpl <em>Propagator Calc Event Moment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventMomentImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcEventMoment()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_EVENT_MOMENT = 26;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -4853,6 +4573,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_MOMENT_OPERATION_COUNT = PROPAGATOR_CALC_EVENT_MOMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountImpulsionAmountAfterImpl <em>Propagator Calc Amount Impulsion Amount After</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountImpulsionAmountAfterImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcAmountImpulsionAmountAfter()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_AFTER = 12;
+
+	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5141,6 +4871,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_AFTER_OPERATION_COUNT = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountImpulsionAmountImpulsionImpl <em>Propagator Calc Amount Impulsion Amount Impulsion</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountImpulsionAmountImpulsionImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcAmountImpulsionAmountImpulsion()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION = 13;
+
+	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5427,6 +5167,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION_OPERATION_COUNT = PROPAGATOR_CALC_EVENT_AMOUNT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountImpulsionAtomicAmountImpulsionImpl <em>Propagator Calc Amount Impulsion Atomic Amount Impulsion</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountImpulsionAtomicAmountImpulsionImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcAmountImpulsionAtomicAmountImpulsion()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_AMOUNT_IMPULSION = 14;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -6015,6 +5765,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_MOMENT_OPERATION_COUNT = PROPAGATOR_CALC_EVENT_MOMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcCapacityChangeEndAmountImpulsionImpl <em>Propagator Calc Capacity Change End Amount Impulsion</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcCapacityChangeEndAmountImpulsionImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcCapacityChangeEndAmountImpulsion()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_AMOUNT_IMPULSION = 16;
+
+	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6301,6 +6061,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_AMOUNT_IMPULSION_OPERATION_COUNT = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcCapacityChangeEndMomentImpl <em>Propagator Calc Capacity Change End Moment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcCapacityChangeEndMomentImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcCapacityChangeEndMoment()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_MOMENT = 17;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -6591,6 +6361,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_CAPACITY_CHANGE_END_MOMENT_OPERATION_COUNT = PROPAGATOR_CALC_EVENT_MOMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcCapacityChangeStartAmountImpulsionImpl <em>Propagator Calc Capacity Change Start Amount Impulsion</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcCapacityChangeStartAmountImpulsionImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcCapacityChangeStartAmountImpulsion()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_AMOUNT_IMPULSION = 18;
+
+	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6877,6 +6657,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_AMOUNT_IMPULSION_OPERATION_COUNT = PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_IMPULSION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcCapacityChangeStartMomentImpl <em>Propagator Calc Capacity Change Start Moment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcCapacityChangeStartMomentImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcCapacityChangeStartMoment()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_MOMENT = 19;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -7167,6 +6957,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_CAPACITY_CHANGE_START_MOMENT_OPERATION_COUNT = PROPAGATOR_CALC_EVENT_MOMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcChildEventAmountAfterImpl <em>Propagator Calc Child Event Amount After</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcChildEventAmountAfterImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcChildEventAmountAfter()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_CHILD_EVENT_AMOUNT_AFTER = 20;
+
+	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7453,6 +7253,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_CHILD_EVENT_AMOUNT_AFTER_OPERATION_COUNT = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcChildEventMomentImpl <em>Propagator Calc Child Event Moment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcChildEventMomentImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcChildEventMoment()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_CHILD_EVENT_MOMENT = 21;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -8041,6 +7851,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_EVENT_SLOPE_OPERATION_COUNT = TimeContinuousPackage.PROPAGATOR_FUNCTION_DISTRIBUTION_EVENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventSlopeAfterImpl <em>Propagator Calc Event Slope After</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventSlopeAfterImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcEventSlopeAfter()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_EVENT_SLOPE_AFTER = 27;
+
+	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8327,6 +8147,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_EVENT_SLOPE_AFTER_OPERATION_COUNT = PROPAGATOR_CALC_EVENT_SLOPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcChildEventSlopeAfterImpl <em>Propagator Calc Child Event Slope After</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcChildEventSlopeAfterImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcChildEventSlopeAfter()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_CHILD_EVENT_SLOPE_AFTER = 22;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -8617,6 +8447,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_CHILD_EVENT_SLOPE_AFTER_OPERATION_COUNT = PROPAGATOR_CALC_EVENT_SLOPE_AFTER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEndEventMomentImpl <em>Propagator Calc End Event Moment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEndEventMomentImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcEndEventMoment()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_END_EVENT_MOMENT = 23;
+
+	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8903,6 +8743,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_END_EVENT_MOMENT_OPERATION_COUNT = PROPAGATOR_CALC_EVENT_MOMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventAmountBeforeImpl <em>Propagator Calc Event Amount Before</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventAmountBeforeImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcEventAmountBefore()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE = 25;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -9193,6 +9043,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE_OPERATION_COUNT = PROPAGATOR_CALC_EVENT_AMOUNT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventSlopeBeforeImpl <em>Propagator Calc Event Slope Before</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventSlopeBeforeImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcEventSlopeBefore()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_EVENT_SLOPE_BEFORE = 28;
+
+	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9479,6 +9339,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_EVENT_SLOPE_BEFORE_OPERATION_COUNT = PROPAGATOR_CALC_EVENT_SLOPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventsProviderRefreshEventsImpl <em>Propagator Calc Events Provider Refresh Events</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventsProviderRefreshEventsImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcEventsProviderRefreshEvents()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_EVENTS_PROVIDER_REFRESH_EVENTS = 29;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -10067,6 +9937,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_MOMENT_OPERATION_COUNT = PROPAGATOR_CALC_EVENT_MOMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeAbsoluteSlopeAbsoluteImpl <em>Propagator Calc Slope Absolute Slope Absolute</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeAbsoluteSlopeAbsoluteImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcSlopeAbsoluteSlopeAbsolute()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE = 32;
+
+	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10355,6 +10235,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE_OPERATION_COUNT = PROPAGATOR_CALC_EVENT_SLOPE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeAbsoluteAtomicSlopeAbsoluteImpl <em>Propagator Calc Slope Absolute Atomic Slope Absolute</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeAbsoluteAtomicSlopeAbsoluteImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcSlopeAbsoluteAtomicSlopeAbsolute()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_SLOPE_ABSOLUTE = 31;
+
+	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10641,6 +10531,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_SLOPE_ABSOLUTE_OPERATION_COUNT = PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_ABSOLUTE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeAbsoluteSlopeAfterImpl <em>Propagator Calc Slope Absolute Slope After</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeAbsoluteSlopeAfterImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcSlopeAbsoluteSlopeAfter()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_AFTER = 33;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -11229,6 +11129,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_MOMENT_OPERATION_COUNT = PROPAGATOR_CALC_EVENT_MOMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeImpulsionSlopeImpulsionImpl <em>Propagator Calc Slope Impulsion Slope Impulsion</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeImpulsionSlopeImpulsionImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcSlopeImpulsionSlopeImpulsion()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION = 37;
+
+	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11515,6 +11425,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION_OPERATION_COUNT = PROPAGATOR_CALC_EVENT_SLOPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeImpulsionAtomicSlopeImpulsionImpl <em>Propagator Calc Slope Impulsion Atomic Slope Impulsion</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeImpulsionAtomicSlopeImpulsionImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcSlopeImpulsionAtomicSlopeImpulsion()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_SLOPE_IMPULSION = 35;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -11805,6 +11725,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_SLOPE_IMPULSION_OPERATION_COUNT = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeImpulsionSlopeAfterImpl <em>Propagator Calc Slope Impulsion Slope After</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcSlopeImpulsionSlopeAfterImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcSlopeImpulsionSlopeAfter()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_AFTER = 36;
+
+	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12091,6 +12021,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_AFTER_OPERATION_COUNT = PROPAGATOR_CALC_EVENT_SLOPE_AFTER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStartEventAmountAfterImpl <em>Propagator Calc Start Event Amount After</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStartEventAmountAfterImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcStartEventAmountAfter()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_START_EVENT_AMOUNT_AFTER = 38;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -12381,6 +12321,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_START_EVENT_AMOUNT_AFTER_OPERATION_COUNT = PROPAGATOR_CALC_EVENT_AMOUNT_AFTER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStartEventMomentImpl <em>Propagator Calc Start Event Moment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStartEventMomentImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcStartEventMoment()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_START_EVENT_MOMENT = 39;
+
+	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12667,6 +12617,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_START_EVENT_MOMENT_OPERATION_COUNT = PROPAGATOR_CALC_EVENT_MOMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStartEventSlopeAfterImpl <em>Propagator Calc Start Event Slope After</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStartEventSlopeAfterImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcStartEventSlopeAfter()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_START_EVENT_SLOPE_AFTER = 40;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -12957,6 +12917,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_START_EVENT_SLOPE_AFTER_OPERATION_COUNT = PROPAGATOR_CALC_EVENT_SLOPE_AFTER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStockChangeEndMomentImpl <em>Propagator Calc Stock Change End Moment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStockChangeEndMomentImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcStockChangeEndMoment()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_STOCK_CHANGE_END_MOMENT = 41;
+
+	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13243,6 +13213,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_STOCK_CHANGE_END_MOMENT_OPERATION_COUNT = PROPAGATOR_CALC_EVENT_MOMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStockChangeEndSlopeImpulsionImpl <em>Propagator Calc Stock Change End Slope Impulsion</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStockChangeEndSlopeImpulsionImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcStockChangeEndSlopeImpulsion()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_STOCK_CHANGE_END_SLOPE_IMPULSION = 42;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -13533,6 +13513,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	int PROPAGATOR_CALC_STOCK_CHANGE_END_SLOPE_IMPULSION_OPERATION_COUNT = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStockChangeStartMomentImpl <em>Propagator Calc Stock Change Start Moment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStockChangeStartMomentImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcStockChangeStartMoment()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_STOCK_CHANGE_START_MOMENT = 43;
+
+	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13819,6 +13809,16 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_CALC_STOCK_CHANGE_START_MOMENT_OPERATION_COUNT = PROPAGATOR_CALC_EVENT_MOMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStockChangeStartSlopeImpulsionImpl <em>Propagator Calc Stock Change Start Slope Impulsion</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcStockChangeStartSlopeImpulsionImpl
+	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcStockChangeStartSlopeImpulsion()
+	 * @generated
+	 */
+	int PROPAGATOR_CALC_STOCK_CHANGE_START_SLOPE_IMPULSION = 44;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -14108,7 +14108,6 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 */
 	int PROPAGATOR_CALC_STOCK_CHANGE_START_SLOPE_IMPULSION_OPERATION_COUNT = PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_IMPULSION_OPERATION_COUNT + 0;
 
-
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountImpl <em>Propagator Calc Amount</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -14137,6 +14136,229 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 */
 	int PROPAGATOR_CALC_AMOUNT_OPERATION_COUNT = 0;
 
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorScopeDistribution <em>Propagator Scope Distribution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Propagator Scope Distribution</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorScopeDistribution
+	 * @generated
+	 */
+	EClass getPropagatorScopeDistribution();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionInitialization <em>Propagator Calc Distribution Initialization</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Propagator Calc Distribution Initialization</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionInitialization
+	 * @generated
+	 */
+	EClass getPropagatorCalcDistributionInitialization();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionInitialization#getConcreteParent <em>Concrete Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Concrete Parent</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionInitialization#getConcreteParent()
+	 * @see #getPropagatorCalcDistributionInitialization()
+	 * @generated
+	 */
+	EReference getPropagatorCalcDistributionInitialization_ConcreteParent();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerCompositeEventRefresh <em>Propagator Layer Composite Event Refresh</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Propagator Layer Composite Event Refresh</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorLayerCompositeEventRefresh
+	 * @generated
+	 */
+	EClass getPropagatorLayerCompositeEventRefresh();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerCompositeEventRefresh#getConcreteParent <em>Concrete Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Concrete Parent</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorLayerCompositeEventRefresh#getConcreteParent()
+	 * @see #getPropagatorLayerCompositeEventRefresh()
+	 * @generated
+	 */
+	EReference getPropagatorLayerCompositeEventRefresh_ConcreteParent();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerCompositeEventRefresh#getAntecedenCalcDistributionInitialization <em>Anteceden Calc Distribution Initialization</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Anteceden Calc Distribution Initialization</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorLayerCompositeEventRefresh#getAntecedenCalcDistributionInitialization()
+	 * @see #getPropagatorLayerCompositeEventRefresh()
+	 * @generated
+	 */
+	EReference getPropagatorLayerCompositeEventRefresh_AntecedenCalcDistributionInitialization();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionChildEvents <em>Propagator Calc Distribution Child Events</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Propagator Calc Distribution Child Events</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionChildEvents
+	 * @generated
+	 */
+	EClass getPropagatorCalcDistributionChildEvents();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionChildEvents#getConcreteParent <em>Concrete Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Concrete Parent</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionChildEvents#getConcreteParent()
+	 * @see #getPropagatorCalcDistributionChildEvents()
+	 * @generated
+	 */
+	EReference getPropagatorCalcDistributionChildEvents_ConcreteParent();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionProvidedEvents <em>Propagator Calc Distribution Provided Events</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Propagator Calc Distribution Provided Events</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionProvidedEvents
+	 * @generated
+	 */
+	EClass getPropagatorCalcDistributionProvidedEvents();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionProvidedEvents#getConcreteParent <em>Concrete Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Concrete Parent</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionProvidedEvents#getConcreteParent()
+	 * @see #getPropagatorCalcDistributionProvidedEvents()
+	 * @generated
+	 */
+	EReference getPropagatorCalcDistributionProvidedEvents_ConcreteParent();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionProvidedEvents#getAntecedentLayerCompositeeventRefresh <em>Antecedent Layer Compositeevent Refresh</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Antecedent Layer Compositeevent Refresh</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionProvidedEvents#getAntecedentLayerCompositeeventRefresh()
+	 * @see #getPropagatorCalcDistributionProvidedEvents()
+	 * @generated
+	 */
+	EReference getPropagatorCalcDistributionProvidedEvents_AntecedentLayerCompositeeventRefresh();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionProvidedEvents#getAntecedentCalcDistributionchildEvents <em>Antecedent Calc Distributionchild Events</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Antecedent Calc Distributionchild Events</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionProvidedEvents#getAntecedentCalcDistributionchildEvents()
+	 * @see #getPropagatorCalcDistributionProvidedEvents()
+	 * @generated
+	 */
+	EReference getPropagatorCalcDistributionProvidedEvents_AntecedentCalcDistributionchildEvents();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionSequence <em>Propagator Calc Distribution Sequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Propagator Calc Distribution Sequence</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionSequence
+	 * @generated
+	 */
+	EClass getPropagatorCalcDistributionSequence();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionSequence#getConcreteParent <em>Concrete Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Concrete Parent</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionSequence#getConcreteParent()
+	 * @see #getPropagatorCalcDistributionSequence()
+	 * @generated
+	 */
+	EReference getPropagatorCalcDistributionSequence_ConcreteParent();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionSequence#getAntecedentCalcDistributionProvidedEvents <em>Antecedent Calc Distribution Provided Events</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Antecedent Calc Distribution Provided Events</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionSequence#getAntecedentCalcDistributionProvidedEvents()
+	 * @see #getPropagatorCalcDistributionSequence()
+	 * @generated
+	 */
+	EReference getPropagatorCalcDistributionSequence_AntecedentCalcDistributionProvidedEvents();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionSlopes <em>Propagator Layer Distribution Slopes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Propagator Layer Distribution Slopes</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionSlopes
+	 * @generated
+	 */
+	EClass getPropagatorLayerDistributionSlopes();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionSlopes#getConcreteParent <em>Concrete Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Concrete Parent</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionSlopes#getConcreteParent()
+	 * @see #getPropagatorLayerDistributionSlopes()
+	 * @generated
+	 */
+	EReference getPropagatorLayerDistributionSlopes_ConcreteParent();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionSlopes#getAntecedentCalcDistributionSequence <em>Antecedent Calc Distribution Sequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Antecedent Calc Distribution Sequence</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionSlopes#getAntecedentCalcDistributionSequence()
+	 * @see #getPropagatorLayerDistributionSlopes()
+	 * @generated
+	 */
+	EReference getPropagatorLayerDistributionSlopes_AntecedentCalcDistributionSequence();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionAmounts <em>Propagator Layer Distribution Amounts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Propagator Layer Distribution Amounts</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionAmounts
+	 * @generated
+	 */
+	EClass getPropagatorLayerDistributionAmounts();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionAmounts#getConcreteParent <em>Concrete Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Concrete Parent</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionAmounts#getConcreteParent()
+	 * @see #getPropagatorLayerDistributionAmounts()
+	 * @generated
+	 */
+	EReference getPropagatorLayerDistributionAmounts_ConcreteParent();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionAmounts#getAntecedentLayerDistributionSlopes <em>Antecedent Layer Distribution Slopes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Antecedent Layer Distribution Slopes</em>'.
+	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionAmounts#getAntecedentLayerDistributionSlopes()
+	 * @see #getPropagatorLayerDistributionAmounts()
+	 * @generated
+	 */
+	EReference getPropagatorLayerDistributionAmounts_AntecedentLayerDistributionSlopes();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAmountAbsolute <em>Propagator Calc Amount Absolute Amount Absolute</em>}'.
@@ -14287,123 +14509,6 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPropagatorCalcChildEventSlopeAfter();
-
-	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionChildEvents <em>Propagator Calc Distribution Child Events</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Propagator Calc Distribution Child Events</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionChildEvents
-	 * @generated
-	 */
-	EClass getPropagatorCalcDistributionChildEvents();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionChildEvents#getConcreteParent <em>Concrete Parent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Concrete Parent</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionChildEvents#getConcreteParent()
-	 * @see #getPropagatorCalcDistributionChildEvents()
-	 * @generated
-	 */
-	EReference getPropagatorCalcDistributionChildEvents_ConcreteParent();
-
-	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionInitialization <em>Propagator Calc Distribution Initialization</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Propagator Calc Distribution Initialization</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionInitialization
-	 * @generated
-	 */
-	EClass getPropagatorCalcDistributionInitialization();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionInitialization#getConcreteParent <em>Concrete Parent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Concrete Parent</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionInitialization#getConcreteParent()
-	 * @see #getPropagatorCalcDistributionInitialization()
-	 * @generated
-	 */
-	EReference getPropagatorCalcDistributionInitialization_ConcreteParent();
-
-	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionProvidedEvents <em>Propagator Calc Distribution Provided Events</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Propagator Calc Distribution Provided Events</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionProvidedEvents
-	 * @generated
-	 */
-	EClass getPropagatorCalcDistributionProvidedEvents();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionProvidedEvents#getConcreteParent <em>Concrete Parent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Concrete Parent</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionProvidedEvents#getConcreteParent()
-	 * @see #getPropagatorCalcDistributionProvidedEvents()
-	 * @generated
-	 */
-	EReference getPropagatorCalcDistributionProvidedEvents_ConcreteParent();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionProvidedEvents#getAntecedentLayerCompositeeventRefresh <em>Antecedent Layer Compositeevent Refresh</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Antecedent Layer Compositeevent Refresh</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionProvidedEvents#getAntecedentLayerCompositeeventRefresh()
-	 * @see #getPropagatorCalcDistributionProvidedEvents()
-	 * @generated
-	 */
-	EReference getPropagatorCalcDistributionProvidedEvents_AntecedentLayerCompositeeventRefresh();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionProvidedEvents#getAntecedentCalcDistributionchildEvents <em>Antecedent Calc Distributionchild Events</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Antecedent Calc Distributionchild Events</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionProvidedEvents#getAntecedentCalcDistributionchildEvents()
-	 * @see #getPropagatorCalcDistributionProvidedEvents()
-	 * @generated
-	 */
-	EReference getPropagatorCalcDistributionProvidedEvents_AntecedentCalcDistributionchildEvents();
-
-	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionSequence <em>Propagator Calc Distribution Sequence</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Propagator Calc Distribution Sequence</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionSequence
-	 * @generated
-	 */
-	EClass getPropagatorCalcDistributionSequence();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionSequence#getConcreteParent <em>Concrete Parent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Concrete Parent</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionSequence#getConcreteParent()
-	 * @see #getPropagatorCalcDistributionSequence()
-	 * @generated
-	 */
-	EReference getPropagatorCalcDistributionSequence_ConcreteParent();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionSequence#getAntecedentCalcDistributionProvidedEvents <em>Antecedent Calc Distribution Provided Events</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Antecedent Calc Distribution Provided Events</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcDistributionSequence#getAntecedentCalcDistributionProvidedEvents()
-	 * @see #getPropagatorCalcDistributionSequence()
-	 * @generated
-	 */
-	EReference getPropagatorCalcDistributionSequence_AntecedentCalcDistributionProvidedEvents();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEndEventMoment <em>Propagator Calc End Event Moment</em>}'.
@@ -14700,112 +14805,6 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	EReference getPropagatorCalcEventAmount_ConcreteParent();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerCompositeEventRefresh <em>Propagator Layer Composite Event Refresh</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Propagator Layer Composite Event Refresh</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorLayerCompositeEventRefresh
-	 * @generated
-	 */
-	EClass getPropagatorLayerCompositeEventRefresh();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerCompositeEventRefresh#getConcreteParent <em>Concrete Parent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Concrete Parent</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorLayerCompositeEventRefresh#getConcreteParent()
-	 * @see #getPropagatorLayerCompositeEventRefresh()
-	 * @generated
-	 */
-	EReference getPropagatorLayerCompositeEventRefresh_ConcreteParent();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerCompositeEventRefresh#getAntecedenCalcDistributionInitialization <em>Anteceden Calc Distribution Initialization</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Anteceden Calc Distribution Initialization</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorLayerCompositeEventRefresh#getAntecedenCalcDistributionInitialization()
-	 * @see #getPropagatorLayerCompositeEventRefresh()
-	 * @generated
-	 */
-	EReference getPropagatorLayerCompositeEventRefresh_AntecedenCalcDistributionInitialization();
-
-	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionAmounts <em>Propagator Layer Distribution Amounts</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Propagator Layer Distribution Amounts</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionAmounts
-	 * @generated
-	 */
-	EClass getPropagatorLayerDistributionAmounts();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionAmounts#getConcreteParent <em>Concrete Parent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Concrete Parent</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionAmounts#getConcreteParent()
-	 * @see #getPropagatorLayerDistributionAmounts()
-	 * @generated
-	 */
-	EReference getPropagatorLayerDistributionAmounts_ConcreteParent();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionAmounts#getAntecedentLayerDistributionSlopes <em>Antecedent Layer Distribution Slopes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Antecedent Layer Distribution Slopes</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionAmounts#getAntecedentLayerDistributionSlopes()
-	 * @see #getPropagatorLayerDistributionAmounts()
-	 * @generated
-	 */
-	EReference getPropagatorLayerDistributionAmounts_AntecedentLayerDistributionSlopes();
-
-	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionSlopes <em>Propagator Layer Distribution Slopes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Propagator Layer Distribution Slopes</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionSlopes
-	 * @generated
-	 */
-	EClass getPropagatorLayerDistributionSlopes();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionSlopes#getConcreteParent <em>Concrete Parent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Concrete Parent</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionSlopes#getConcreteParent()
-	 * @see #getPropagatorLayerDistributionSlopes()
-	 * @generated
-	 */
-	EReference getPropagatorLayerDistributionSlopes_ConcreteParent();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionSlopes#getAntecedentCalcDistributionSequence <em>Antecedent Calc Distribution Sequence</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Antecedent Calc Distribution Sequence</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionSlopes#getAntecedentCalcDistributionSequence()
-	 * @see #getPropagatorLayerDistributionSlopes()
-	 * @generated
-	 */
-	EReference getPropagatorLayerDistributionSlopes_AntecedentCalcDistributionSequence();
-
-	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorScopeDistribution <em>Propagator Scope Distribution</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Propagator Scope Distribution</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorScopeDistribution
-	 * @generated
-	 */
-	EClass getPropagatorScopeDistribution();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -14828,6 +14827,190 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorScopeDistributionImpl <em>Propagator Scope Distribution</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorScopeDistributionImpl
+		 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorScopeDistribution()
+		 * @generated
+		 */
+		EClass PROPAGATOR_SCOPE_DISTRIBUTION = eINSTANCE.getPropagatorScopeDistribution();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionInitializationImpl <em>Propagator Calc Distribution Initialization</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionInitializationImpl
+		 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcDistributionInitialization()
+		 * @generated
+		 */
+		EClass PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION = eINSTANCE.getPropagatorCalcDistributionInitialization();
+
+		/**
+		 * The meta object literal for the '<em><b>Concrete Parent</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION__CONCRETE_PARENT = eINSTANCE.getPropagatorCalcDistributionInitialization_ConcreteParent();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerCompositeEventRefreshImpl <em>Propagator Layer Composite Event Refresh</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerCompositeEventRefreshImpl
+		 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorLayerCompositeEventRefresh()
+		 * @generated
+		 */
+		EClass PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH = eINSTANCE.getPropagatorLayerCompositeEventRefresh();
+
+		/**
+		 * The meta object literal for the '<em><b>Concrete Parent</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH__CONCRETE_PARENT = eINSTANCE.getPropagatorLayerCompositeEventRefresh_ConcreteParent();
+
+		/**
+		 * The meta object literal for the '<em><b>Anteceden Calc Distribution Initialization</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH__ANTECEDEN_CALC_DISTRIBUTION_INITIALIZATION = eINSTANCE.getPropagatorLayerCompositeEventRefresh_AntecedenCalcDistributionInitialization();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionChildEventsImpl <em>Propagator Calc Distribution Child Events</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionChildEventsImpl
+		 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcDistributionChildEvents()
+		 * @generated
+		 */
+		EClass PROPAGATOR_CALC_DISTRIBUTION_CHILD_EVENTS = eINSTANCE.getPropagatorCalcDistributionChildEvents();
+
+		/**
+		 * The meta object literal for the '<em><b>Concrete Parent</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPAGATOR_CALC_DISTRIBUTION_CHILD_EVENTS__CONCRETE_PARENT = eINSTANCE.getPropagatorCalcDistributionChildEvents_ConcreteParent();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionProvidedEventsImpl <em>Propagator Calc Distribution Provided Events</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionProvidedEventsImpl
+		 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcDistributionProvidedEvents()
+		 * @generated
+		 */
+		EClass PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS = eINSTANCE.getPropagatorCalcDistributionProvidedEvents();
+
+		/**
+		 * The meta object literal for the '<em><b>Concrete Parent</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS__CONCRETE_PARENT = eINSTANCE.getPropagatorCalcDistributionProvidedEvents_ConcreteParent();
+
+		/**
+		 * The meta object literal for the '<em><b>Antecedent Layer Compositeevent Refresh</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS__ANTECEDENT_LAYER_COMPOSITEEVENT_REFRESH = eINSTANCE.getPropagatorCalcDistributionProvidedEvents_AntecedentLayerCompositeeventRefresh();
+
+		/**
+		 * The meta object literal for the '<em><b>Antecedent Calc Distributionchild Events</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS__ANTECEDENT_CALC_DISTRIBUTIONCHILD_EVENTS = eINSTANCE.getPropagatorCalcDistributionProvidedEvents_AntecedentCalcDistributionchildEvents();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionSequenceImpl <em>Propagator Calc Distribution Sequence</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionSequenceImpl
+		 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcDistributionSequence()
+		 * @generated
+		 */
+		EClass PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE = eINSTANCE.getPropagatorCalcDistributionSequence();
+
+		/**
+		 * The meta object literal for the '<em><b>Concrete Parent</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE__CONCRETE_PARENT = eINSTANCE.getPropagatorCalcDistributionSequence_ConcreteParent();
+
+		/**
+		 * The meta object literal for the '<em><b>Antecedent Calc Distribution Provided Events</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE__ANTECEDENT_CALC_DISTRIBUTION_PROVIDED_EVENTS = eINSTANCE.getPropagatorCalcDistributionSequence_AntecedentCalcDistributionProvidedEvents();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerDistributionSlopesImpl <em>Propagator Layer Distribution Slopes</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerDistributionSlopesImpl
+		 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorLayerDistributionSlopes()
+		 * @generated
+		 */
+		EClass PROPAGATOR_LAYER_DISTRIBUTION_SLOPES = eINSTANCE.getPropagatorLayerDistributionSlopes();
+
+		/**
+		 * The meta object literal for the '<em><b>Concrete Parent</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPAGATOR_LAYER_DISTRIBUTION_SLOPES__CONCRETE_PARENT = eINSTANCE.getPropagatorLayerDistributionSlopes_ConcreteParent();
+
+		/**
+		 * The meta object literal for the '<em><b>Antecedent Calc Distribution Sequence</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPAGATOR_LAYER_DISTRIBUTION_SLOPES__ANTECEDENT_CALC_DISTRIBUTION_SEQUENCE = eINSTANCE.getPropagatorLayerDistributionSlopes_AntecedentCalcDistributionSequence();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerDistributionAmountsImpl <em>Propagator Layer Distribution Amounts</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerDistributionAmountsImpl
+		 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorLayerDistributionAmounts()
+		 * @generated
+		 */
+		EClass PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS = eINSTANCE.getPropagatorLayerDistributionAmounts();
+
+		/**
+		 * The meta object literal for the '<em><b>Concrete Parent</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS__CONCRETE_PARENT = eINSTANCE.getPropagatorLayerDistributionAmounts_ConcreteParent();
+
+		/**
+		 * The meta object literal for the '<em><b>Antecedent Layer Distribution Slopes</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS__ANTECEDENT_LAYER_DISTRIBUTION_SLOPES = eINSTANCE.getPropagatorLayerDistributionAmounts_AntecedentLayerDistributionSlopes();
+
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountAbsoluteAmountAbsoluteImpl <em>Propagator Calc Amount Absolute Amount Absolute</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -14977,102 +15160,6 @@ public interface TimeContinuousCalcPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PROPAGATOR_CALC_CHILD_EVENT_SLOPE_AFTER = eINSTANCE.getPropagatorCalcChildEventSlopeAfter();
-
-		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionChildEventsImpl <em>Propagator Calc Distribution Child Events</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionChildEventsImpl
-		 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcDistributionChildEvents()
-		 * @generated
-		 */
-		EClass PROPAGATOR_CALC_DISTRIBUTION_CHILD_EVENTS = eINSTANCE.getPropagatorCalcDistributionChildEvents();
-
-		/**
-		 * The meta object literal for the '<em><b>Concrete Parent</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROPAGATOR_CALC_DISTRIBUTION_CHILD_EVENTS__CONCRETE_PARENT = eINSTANCE.getPropagatorCalcDistributionChildEvents_ConcreteParent();
-
-		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionInitializationImpl <em>Propagator Calc Distribution Initialization</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionInitializationImpl
-		 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcDistributionInitialization()
-		 * @generated
-		 */
-		EClass PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION = eINSTANCE.getPropagatorCalcDistributionInitialization();
-
-		/**
-		 * The meta object literal for the '<em><b>Concrete Parent</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION__CONCRETE_PARENT = eINSTANCE.getPropagatorCalcDistributionInitialization_ConcreteParent();
-
-		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionProvidedEventsImpl <em>Propagator Calc Distribution Provided Events</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionProvidedEventsImpl
-		 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcDistributionProvidedEvents()
-		 * @generated
-		 */
-		EClass PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS = eINSTANCE.getPropagatorCalcDistributionProvidedEvents();
-
-		/**
-		 * The meta object literal for the '<em><b>Concrete Parent</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS__CONCRETE_PARENT = eINSTANCE.getPropagatorCalcDistributionProvidedEvents_ConcreteParent();
-
-		/**
-		 * The meta object literal for the '<em><b>Antecedent Layer Compositeevent Refresh</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS__ANTECEDENT_LAYER_COMPOSITEEVENT_REFRESH = eINSTANCE.getPropagatorCalcDistributionProvidedEvents_AntecedentLayerCompositeeventRefresh();
-
-		/**
-		 * The meta object literal for the '<em><b>Antecedent Calc Distributionchild Events</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROPAGATOR_CALC_DISTRIBUTION_PROVIDED_EVENTS__ANTECEDENT_CALC_DISTRIBUTIONCHILD_EVENTS = eINSTANCE.getPropagatorCalcDistributionProvidedEvents_AntecedentCalcDistributionchildEvents();
-
-		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionSequenceImpl <em>Propagator Calc Distribution Sequence</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcDistributionSequenceImpl
-		 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcDistributionSequence()
-		 * @generated
-		 */
-		EClass PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE = eINSTANCE.getPropagatorCalcDistributionSequence();
-
-		/**
-		 * The meta object literal for the '<em><b>Concrete Parent</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE__CONCRETE_PARENT = eINSTANCE.getPropagatorCalcDistributionSequence_ConcreteParent();
-
-		/**
-		 * The meta object literal for the '<em><b>Antecedent Calc Distribution Provided Events</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROPAGATOR_CALC_DISTRIBUTION_SEQUENCE__ANTECEDENT_CALC_DISTRIBUTION_PROVIDED_EVENTS = eINSTANCE.getPropagatorCalcDistributionSequence_AntecedentCalcDistributionProvidedEvents();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEndEventMomentImpl <em>Propagator Calc End Event Moment</em>}' class.
@@ -15355,94 +15442,6 @@ public interface TimeContinuousCalcPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROPAGATOR_CALC_EVENT_AMOUNT__CONCRETE_PARENT = eINSTANCE.getPropagatorCalcEventAmount_ConcreteParent();
-
-		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerCompositeEventRefreshImpl <em>Propagator Layer Composite Event Refresh</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerCompositeEventRefreshImpl
-		 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorLayerCompositeEventRefresh()
-		 * @generated
-		 */
-		EClass PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH = eINSTANCE.getPropagatorLayerCompositeEventRefresh();
-
-		/**
-		 * The meta object literal for the '<em><b>Concrete Parent</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH__CONCRETE_PARENT = eINSTANCE.getPropagatorLayerCompositeEventRefresh_ConcreteParent();
-
-		/**
-		 * The meta object literal for the '<em><b>Anteceden Calc Distribution Initialization</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH__ANTECEDEN_CALC_DISTRIBUTION_INITIALIZATION = eINSTANCE.getPropagatorLayerCompositeEventRefresh_AntecedenCalcDistributionInitialization();
-
-		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerDistributionAmountsImpl <em>Propagator Layer Distribution Amounts</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerDistributionAmountsImpl
-		 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorLayerDistributionAmounts()
-		 * @generated
-		 */
-		EClass PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS = eINSTANCE.getPropagatorLayerDistributionAmounts();
-
-		/**
-		 * The meta object literal for the '<em><b>Concrete Parent</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS__CONCRETE_PARENT = eINSTANCE.getPropagatorLayerDistributionAmounts_ConcreteParent();
-
-		/**
-		 * The meta object literal for the '<em><b>Antecedent Layer Distribution Slopes</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROPAGATOR_LAYER_DISTRIBUTION_AMOUNTS__ANTECEDENT_LAYER_DISTRIBUTION_SLOPES = eINSTANCE.getPropagatorLayerDistributionAmounts_AntecedentLayerDistributionSlopes();
-
-		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerDistributionSlopesImpl <em>Propagator Layer Distribution Slopes</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorLayerDistributionSlopesImpl
-		 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorLayerDistributionSlopes()
-		 * @generated
-		 */
-		EClass PROPAGATOR_LAYER_DISTRIBUTION_SLOPES = eINSTANCE.getPropagatorLayerDistributionSlopes();
-
-		/**
-		 * The meta object literal for the '<em><b>Concrete Parent</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROPAGATOR_LAYER_DISTRIBUTION_SLOPES__CONCRETE_PARENT = eINSTANCE.getPropagatorLayerDistributionSlopes_ConcreteParent();
-
-		/**
-		 * The meta object literal for the '<em><b>Antecedent Calc Distribution Sequence</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROPAGATOR_LAYER_DISTRIBUTION_SLOPES__ANTECEDENT_CALC_DISTRIBUTION_SEQUENCE = eINSTANCE.getPropagatorLayerDistributionSlopes_AntecedentCalcDistributionSequence();
-
-		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorScopeDistributionImpl <em>Propagator Scope Distribution</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorScopeDistributionImpl
-		 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorScopeDistribution()
-		 * @generated
-		 */
-		EClass PROPAGATOR_SCOPE_DISTRIBUTION = eINSTANCE.getPropagatorScopeDistribution();
 
 	}
 

@@ -2,10 +2,9 @@
  */
 package com.misc.common.moplaf.time.continuous.calc.impl;
 
-import com.misc.common.moplaf.propagator2.util.Bindings;
-import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcStockChangeEndMoment;
 import com.misc.common.moplaf.time.continuous.calc.TimeContinuousCalcPackage;
+
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -34,21 +33,5 @@ public class PropagatorCalcStockChangeEndMomentImpl extends PropagatorCalcEventM
 	protected EClass eStaticClass() {
 		return TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_STOCK_CHANGE_END_MOMENT;
 	}
-	
-	private static Bindings providerBindings = Bindings.constructBindings()
-			.addInboundBinding(TimeContinuousPackage.Literals.STOCK_CHANGE__END);
-	
-	protected static Bindings distributionEventBindings = PropagatorCalcEventMomentImpl.distributionEventBindings.copy()
-			.addInboundBinding(TimeContinuousPackage.Literals.STOCK_CHANGE_END__PROVIDER, providerBindings);
-
-	/*
-	 * (non-Javadoc)
-	 * @see com.misc.common.moplaf.propagator2.impl.PropagatorFunctionBindingsImpl#doGetBindings()
-	 */
-	@Override
-	public Bindings doGetBindings() {
-		return distributionEventBindings;
-	}
-
 
 } //PropagatorCalcStockChangeEndMomentImpl
