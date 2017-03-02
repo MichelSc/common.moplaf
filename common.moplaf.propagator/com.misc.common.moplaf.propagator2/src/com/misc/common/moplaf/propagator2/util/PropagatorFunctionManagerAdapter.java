@@ -435,7 +435,11 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 		if ( notifier instanceof PropagatorFunction ){
 			PropagatorFunction propagatorFunction = (PropagatorFunction) notifier;
 			propagatorFunction.enable();
+		} else if ( notifier instanceof ObjectWithPropagatorFunctions) {
+			ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
+			this.propagatorFunctionsConstructor.addPropagatorFunctions(objectWithPropagatorFunctions);
 		}
+
 	}
 
 	/**
@@ -455,6 +459,9 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 			PropagatorFunction propagatorFunction = (PropagatorFunction) notifier;
 			propagatorFunction.disable();
 			propagatorFunction.untouch();
+		} else if ( notifier instanceof ObjectWithPropagatorFunctions) {
+			ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
+			objectWithPropagatorFunctions.getPropagatorFunctions().clear();
 		}
 	}
 
@@ -463,12 +470,12 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 	 * Note: the owner is already set, the propagators are already created, the adapter is already added
 	 */
 	private void onNotifierContained(Notifier notifier){
-		if ( !com.misc.common.moplaf.common.util.Util.isLoading(notifier)){
-			if ( notifier instanceof ObjectWithPropagatorFunctions) {
-				ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
-				this.propagatorFunctionsConstructor.addPropagatorFunctions(objectWithPropagatorFunctions);
-			}
-		}
+//		if ( !com.misc.common.moplaf.common.util.Util.isLoading(notifier)){
+//			if ( notifier instanceof ObjectWithPropagatorFunctions) {
+//				ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
+//				this.propagatorFunctionsConstructor.addPropagatorFunctions(objectWithPropagatorFunctions);
+//			}
+//		}
 	}
 
 	/**
