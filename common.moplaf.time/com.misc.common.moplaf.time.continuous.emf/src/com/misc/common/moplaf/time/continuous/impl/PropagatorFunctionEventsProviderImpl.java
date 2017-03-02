@@ -62,7 +62,7 @@ public class PropagatorFunctionEventsProviderImpl extends PropagatorFunctionBind
 	 */
 	public EventsProviderAbstract basicGetEventsProvider() {
 		EObject container = this.eContainer;
-		if ( container instanceof DistributionEvent){
+		if ( container instanceof EventsProviderAbstract){
 			return (EventsProviderAbstract) container;
 		}
 		String logMessage = String.format("The owner of the PropagatorFunctionEventsProvider %s must be a EventsProviderAbstract and not %s",
