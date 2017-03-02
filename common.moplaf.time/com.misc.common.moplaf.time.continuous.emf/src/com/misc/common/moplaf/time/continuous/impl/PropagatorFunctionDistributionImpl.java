@@ -62,7 +62,7 @@ public class PropagatorFunctionDistributionImpl extends PropagatorFunctionBindin
 	 */
 	public Distribution basicGetDistribution() {
 		EObject container = this.eContainer;
-		if ( container instanceof DistributionEvent){
+		if ( container instanceof Distribution){
 			return (Distribution) container;
 		}
 		String logMessage = String.format("The owner of the PropagatorFunctionDistribution %s must be a Distribution and not %s",
