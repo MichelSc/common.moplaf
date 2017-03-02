@@ -255,7 +255,7 @@ public interface PropagatorFunction extends EObject {
 	 * @see #setObjectWithPropagatorFunctions(ObjectWithPropagatorFunctions)
 	 * @see com.misc.common.moplaf.propagator2.PropagatorPackage#getPropagatorFunction_ObjectWithPropagatorFunctions()
 	 * @see com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions#getPropagatorFunctions
-	 * @model opposite="PropagatorFunctions" required="true" transient="false"
+	 * @model opposite="PropagatorFunctions" required="true"
 	 * @generated
 	 */
 	ObjectWithPropagatorFunctions getObjectWithPropagatorFunctions();
