@@ -2,12 +2,14 @@
  */
 package com.misc.common.moplaf.time.continuous.calc.impl;
 
+import com.misc.common.moplaf.propagator2.PropagatorFunction;
 import com.misc.common.moplaf.propagator2.util.Bindings;
 import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.EventsProviderAbstract;
 import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventsProviderRefreshEvents;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorLayerCompositeEventRefresh;
+import com.misc.common.moplaf.time.continuous.calc.PropagatorScopeDistribution;
 import com.misc.common.moplaf.time.continuous.calc.TimeContinuousCalcPackage;
 import com.misc.common.moplaf.time.continuous.impl.PropagatorFunctionEventsProviderImpl;
 
@@ -99,6 +101,15 @@ public class PropagatorCalcEventsProviderRefreshEventsImpl extends PropagatorFun
 
 	protected static Bindings providerBindings = Bindings.constructBindings()
 			.addInboundBinding(TimeContinuousPackage.Literals.EVENTS_PROVIDER_ABSTRACT__DISTRIBUTION);
+	
+	/*
+	 * (non-Javadoc)
+	 * @see com.misc.common.moplaf.propagator2.impl.PropagatorFunctionImpl#doGetParent()
+	 */
+	@Override
+	public PropagatorFunction doGetParent() {
+		return this.getConcreteParent();
+	}
 	
 	/*
 	 * (non-Javadoc)
