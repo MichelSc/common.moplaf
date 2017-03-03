@@ -35,7 +35,7 @@ import com.misc.common.moplaf.propagator2.PropagatorFunction;
  * Handle the management of the {@link PropagatorFunction}, that is when they are constructed, enabled
  * and disabled. For this, implement specific behaviors at the following moments:
  * <ul> 
- * <li> when the Notifier is added to its container: method {@link #onNotifierContained(Notifier)}
+ * <li> when the Notifier is added to its container: method {@link #onNotifierContainedPre(Notifier)}
  *   <ul> 
  *   <li>call the constructor method  {@link PropagatorFunctionsConstructor#construct(ObjectWithPropagatorFunctions)}
  *   <li>this latter may create PropagatorFunctions
@@ -59,8 +59,9 @@ import com.misc.common.moplaf.propagator2.PropagatorFunction;
  * Internally, this Adapter listens to notifications and handles them by calling the following methods, 
  * when appropriate, but always in this sequence
  *   <ul> 
- *   <li>{@link #onNotifierContained(Notifier)}
+ *   <li>{@link #onNotifierContainedPre(Notifier)}
  *   <li>{@link #onAdapterAdded(Notifier)}
+ *   <li>Children are handled (Adapter added/removed)
  *   <li>{@link #onAdapterRemoved(Notifier)}
  *   <li>{@link #onNotifierNotContained(Notifier)}
  *   </ul>
@@ -137,12 +138,13 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 			Notifier oldValue = (Notifier)notification.getOldValue();
 			if (oldValue.eAdapters().contains(this))
 			{
-				this.onNotifierNotContained(oldValue);
 				removeAdapter(oldValue);
+				this.onNotifierNotContained(oldValue);
 				Notifier newValue = (Notifier)notification.getNewValue();
-				this.onNotifierContained(newValue);
+				this.onNotifierContainedPre(newValue);
 				addAdapter(newValue);
 				this.onResolve(oldValue, newValue);
+				this.onNotifierContainedPost(newValue);
 			}
 			break;
 		}
@@ -159,8 +161,9 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 				Notifier newValue = (Notifier)notification.getNewValue();
 				if (newValue != null)
 				{
-					this.onNotifierNotContained((Notifier)newValue);
+					this.onNotifierContainedPre((Notifier)newValue);
 					addAdapter(newValue);
+					this.onNotifierContainedPost((Notifier)newValue);
 				}
 			}
 			break;
@@ -176,8 +179,9 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 			Notifier newValue = (Notifier)notification.getNewValue();
 			if (newValue != null)
 			{
-				this.onNotifierContained(newValue);
+				this.onNotifierContainedPre(newValue);
 				addAdapter(newValue);
+				this.onNotifierContainedPost(newValue);
 			}
 			break;
 		}
@@ -186,8 +190,9 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 			Notifier newValue = (Notifier)notification.getNewValue();
 			if (newValue != null)
 			{
-				this.onNotifierContained(newValue);
+				this.onNotifierContainedPre(newValue);
 				addAdapter(newValue);
+				this.onNotifierContainedPost(newValue);
 			}
 			break;
 		}
@@ -196,8 +201,9 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 			@SuppressWarnings("unchecked") Collection<Notifier> newValues = (Collection<Notifier>)notification.getNewValue();
 			for (Notifier newValue : newValues)
 			{
-				this.onNotifierContained(newValue);
+				this.onNotifierContainedPre(newValue);
 				addAdapter(newValue);
+				this.onNotifierContainedPost(newValue);
 			}
 			break;
 		}
@@ -461,7 +467,9 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 			propagatorFunction.untouch();
 		} else if ( notifier instanceof ObjectWithPropagatorFunctions) {
 			ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
-			objectWithPropagatorFunctions.getPropagatorFunctions().clear();
+			if ( !com.misc.common.moplaf.common.util.Util.isUnloading(objectWithPropagatorFunctions)){
+				objectWithPropagatorFunctions.getPropagatorFunctions().clear();
+			}
 		}
 	}
 
@@ -469,13 +477,30 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 	 * Touches the PropagatorFunctionAdapters requiring it when the Notifier is contained 
 	 * Note: the owner is already set, the propagators are already created, the adapter is already added
 	 */
-	private void onNotifierContained(Notifier notifier){
+	private void onNotifierContainedPre(Notifier notifier){
 //		if ( !com.misc.common.moplaf.common.util.Util.isLoading(notifier)){
 //			if ( notifier instanceof ObjectWithPropagatorFunctions) {
 //				ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
 //				this.propagatorFunctionsConstructor.addPropagatorFunctions(objectWithPropagatorFunctions);
 //			}
 //		}
+	}
+
+	/**
+	 */
+	private void onNotifierContainedPost(Notifier notifier){
+		if ( notifier instanceof ObjectWithPropagatorFunctions) {
+			ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
+			if ( !com.misc.common.moplaf.common.util.Util.isLoading(objectWithPropagatorFunctions)){
+				// this is an object newly added (created)
+				// its PropagtorFunctions were just created
+				// they are in principle not up to date
+				// so we touch
+				for ( PropagatorFunction pf : objectWithPropagatorFunctions.getPropagatorFunctions()){
+					pf.touch(null);
+				}
+			}
+		}
 	}
 
 	/**

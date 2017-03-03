@@ -73,6 +73,43 @@ public class Util {
 
 	/**
 	 * 
+	 * @param notifier
+	 * @return
+	 */
+	public static boolean isUnoading(Notifier notifier){
+		if ( notifier instanceof Resource) { return isUnloading((Resource)notifier); }
+		else if ( notifier instanceof EObject) { return isUnloading((EObject)notifier); }
+		return false;
+	}
+
+	/**
+	 * 
+	 * @param resource
+	 * @return
+	 */
+	public static boolean isUnloading(Resource resource){
+		if ( !(resource instanceof ResourceImpl)){ return false; }
+
+		ResourceImpl resourceImpl = (ResourceImpl)resource;
+		if ( resourceImpl.isLoaded()){ return false; }
+		
+		return true;
+	}
+
+	/** logic is object loading
+	 * 
+	 * @param object
+	 * @return 
+	 */
+	public static boolean isUnloading(EObject object){
+		if ( !hasResource(object) ) { return false; }
+		Resource resource = object.eResource();
+		return isUnloading(resource);
+	}
+	
+
+	/**
+	 * 
 	 * @param target
 	 * @param type
 	 * @return

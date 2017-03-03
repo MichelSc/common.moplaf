@@ -93,25 +93,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = 0;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = 1;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = 2;
+	int OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = 0;
 
 	/**
 	 * The operation id for the '<em>Get Propagator Function</em>' operation.
@@ -120,7 +102,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_WITH_PROPAGATOR_FUNCTIONS___GET_PROPAGATOR_FUNCTION__ECLASS = 3;
+	int OBJECT_WITH_PROPAGATOR_FUNCTIONS___GET_PROPAGATOR_FUNCTION__ECLASS = 1;
 
 	/**
 	 * The number of operations of the '<em>Object With Propagator Functions</em>' class.
@@ -129,7 +111,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT = 4;
+	int OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.propagator2.impl.PropagatorFunctionImpl <em>Function</em>}' class.
@@ -715,26 +697,6 @@ public interface PropagatorPackage extends EPackage {
 	EReference getObjectWithPropagatorFunctions_PropagatorFunctions();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions#addPropagatorFunction(com.misc.common.moplaf.propagator2.PropagatorFunction, org.eclipse.emf.ecore.EObject) <em>Add Propagator Function</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Propagator Function</em>' operation.
-	 * @see com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions#addPropagatorFunction(com.misc.common.moplaf.propagator2.PropagatorFunction, org.eclipse.emf.ecore.EObject)
-	 * @generated
-	 */
-	EOperation getObjectWithPropagatorFunctions__AddPropagatorFunction__PropagatorFunction_EObject();
-
-	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions#addPropagatorFunction(com.misc.common.moplaf.propagator2.PropagatorFunction, boolean) <em>Add Propagator Function</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Propagator Function</em>' operation.
-	 * @see com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions#addPropagatorFunction(com.misc.common.moplaf.propagator2.PropagatorFunction, boolean)
-	 * @generated
-	 */
-	EOperation getObjectWithPropagatorFunctions__AddPropagatorFunction__PropagatorFunction_boolean();
-
-	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions#addPropagatorFunction(com.misc.common.moplaf.propagator2.PropagatorFunction) <em>Add Propagator Function</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1128,22 +1090,6 @@ public interface PropagatorPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OBJECT_WITH_PROPAGATOR_FUNCTIONS__PROPAGATOR_FUNCTIONS = eINSTANCE.getObjectWithPropagatorFunctions_PropagatorFunctions();
-
-		/**
-		 * The meta object literal for the '<em><b>Add Propagator Function</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = eINSTANCE.getObjectWithPropagatorFunctions__AddPropagatorFunction__PropagatorFunction_EObject();
-
-		/**
-		 * The meta object literal for the '<em><b>Add Propagator Function</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = eINSTANCE.getObjectWithPropagatorFunctions__AddPropagatorFunction__PropagatorFunction_boolean();
 
 		/**
 		 * The meta object literal for the '<em><b>Add Propagator Function</b></em>' operation.

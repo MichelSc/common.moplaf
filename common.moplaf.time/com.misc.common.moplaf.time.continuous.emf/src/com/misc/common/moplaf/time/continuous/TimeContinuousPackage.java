@@ -195,24 +195,6 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISTRIBUTION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
 	int DISTRIBUTION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
 
 	/**
@@ -601,24 +583,6 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISTRIBUTION_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISTRIBUTION_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
 	int DISTRIBUTION_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
 
 	/**
@@ -855,24 +819,6 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int OWNED_EVENT_FEATURE_COUNT = DISTRIBUTION_EVENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OWNED_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = DISTRIBUTION_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OWNED_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = DISTRIBUTION_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -1126,24 +1072,6 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHILD_EVENT_FEATURE_COUNT = OWNED_EVENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHILD_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = OWNED_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHILD_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = OWNED_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -1414,24 +1342,6 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int START_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = OWNED_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int START_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = OWNED_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
 	int START_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = OWNED_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
 
 	/**
@@ -1668,24 +1578,6 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int END_EVENT_FEATURE_COUNT = OWNED_EVENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int END_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = OWNED_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int END_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = OWNED_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -1939,24 +1831,6 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROVIDED_EVENT_FEATURE_COUNT = DISTRIBUTION_EVENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = DISTRIBUTION_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = DISTRIBUTION_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -2219,24 +2093,6 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int AMOUNT_IMPULSION_FEATURE_COUNT = PROVIDED_EVENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -2516,24 +2372,6 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLOPE_IMPULSION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
 	int SLOPE_IMPULSION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
 
 	/**
@@ -2805,24 +2643,6 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_ABSOLUTE___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
 	int AMOUNT_ABSOLUTE___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
 
 	/**
@@ -3086,24 +2906,6 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int SLOPE_ABSOLUTE_FEATURE_COUNT = PROVIDED_EVENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLOPE_ABSOLUTE___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLOPE_ABSOLUTE___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = PROVIDED_EVENT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -3392,24 +3194,6 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE_START___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = AMOUNT_IMPULSION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPACITY_CHANGE_START___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = AMOUNT_IMPULSION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
 	int CAPACITY_CHANGE_START___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = AMOUNT_IMPULSION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
 
 	/**
@@ -3682,24 +3466,6 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int CAPACITY_CHANGE_END_FEATURE_COUNT = AMOUNT_IMPULSION_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPACITY_CHANGE_END___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = AMOUNT_IMPULSION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPACITY_CHANGE_END___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = AMOUNT_IMPULSION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -3988,24 +3754,6 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE_START___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = SLOPE_IMPULSION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOCK_CHANGE_START___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = SLOPE_IMPULSION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
 	int STOCK_CHANGE_START___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = SLOPE_IMPULSION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
 
 	/**
@@ -4278,24 +4026,6 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int STOCK_CHANGE_END_FEATURE_COUNT = SLOPE_IMPULSION_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOCK_CHANGE_END___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = SLOPE_IMPULSION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOCK_CHANGE_END___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = SLOPE_IMPULSION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -4584,24 +4314,6 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION_ATOMIC___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = AMOUNT_IMPULSION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_ATOMIC___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = AMOUNT_IMPULSION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
 	int AMOUNT_IMPULSION_ATOMIC___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = AMOUNT_IMPULSION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
 
 	/**
@@ -4874,24 +4586,6 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int SLOPE_IMPULSION_ATOMIC_FEATURE_COUNT = SLOPE_IMPULSION_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLOPE_IMPULSION_ATOMIC___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = SLOPE_IMPULSION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLOPE_IMPULSION_ATOMIC___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = SLOPE_IMPULSION___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -5180,24 +4874,6 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_ABSOLUTE_ATOMIC___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = AMOUNT_ABSOLUTE___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_ABSOLUTE_ATOMIC___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = AMOUNT_ABSOLUTE___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
 	int AMOUNT_ABSOLUTE_ATOMIC___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = AMOUNT_ABSOLUTE___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
 
 	/**
@@ -5478,24 +5154,6 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_ABSOLUTE_ATOMIC___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = SLOPE_ABSOLUTE___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLOPE_ABSOLUTE_ATOMIC___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = SLOPE_ABSOLUTE___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
 	int SLOPE_ABSOLUTE_ATOMIC___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = SLOPE_ABSOLUTE___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
 
 	/**
@@ -5650,24 +5308,6 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENTS_PROVIDER_ABSTRACT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENTS_PROVIDER_ABSTRACT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
 	int EVENTS_PROVIDER_ABSTRACT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
 
 	/**
@@ -5742,24 +5382,6 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int EVENTS_PROVIDER_FEATURE_COUNT = EVENTS_PROVIDER_ABSTRACT_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENTS_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = EVENTS_PROVIDER_ABSTRACT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENTS_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = EVENTS_PROVIDER_ABSTRACT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -5895,24 +5517,6 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STOCK_CHANGE___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = EVENTS_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOCK_CHANGE___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = EVENTS_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
 	int STOCK_CHANGE___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = EVENTS_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
 
 	/**
@@ -6040,24 +5644,6 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_CHANGE___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = EVENTS_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPACITY_CHANGE___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = EVENTS_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
 	int CAPACITY_CHANGE___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = EVENTS_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
 
 	/**
@@ -6141,24 +5727,6 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int EVENT_PROVIDER_FEATURE_COUNT = EVENTS_PROVIDER_ABSTRACT_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = EVENTS_PROVIDER_ABSTRACT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = EVENTS_PROVIDER_ABSTRACT___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -6276,24 +5844,6 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SLOPE_IMPULSION_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLOPE_IMPULSION_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
 	int SLOPE_IMPULSION_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
 
 	/**
@@ -6395,24 +5945,6 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int SLOPE_ABSOLUTE_PROVIDER_FEATURE_COUNT = EVENT_PROVIDER_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLOPE_ABSOLUTE_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLOPE_ABSOLUTE_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.
@@ -6530,24 +6062,6 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AMOUNT_IMPULSION_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_IMPULSION_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
 	int AMOUNT_IMPULSION_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION = EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION;
 
 	/**
@@ -6649,24 +6163,6 @@ public interface TimeContinuousPackage extends EPackage {
 	 * @ordered
 	 */
 	int AMOUNT_ABSOLUTE_PROVIDER_FEATURE_COUNT = EVENT_PROVIDER_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_ABSOLUTE_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT = EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT;
-
-	/**
-	 * The operation id for the '<em>Add Propagator Function</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AMOUNT_ABSOLUTE_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN = EVENT_PROVIDER___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN;
 
 	/**
 	 * The operation id for the '<em>Add Propagator Function</em>' operation.

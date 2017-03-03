@@ -6,10 +6,10 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.notify.impl.NotificationImpl;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
@@ -65,11 +65,17 @@ public class ObjectWithPropagatorFunctionsImpl extends MinimalEObjectImpl.Contai
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public EList<PropagatorFunction> getPropagatorFunctions() {
 		if (propagatorFunctions == null) {
-			propagatorFunctions = new EObjectContainmentWithInverseEList<PropagatorFunction>(PropagatorFunction.class, this, PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS__PROPAGATOR_FUNCTIONS, PropagatorPackage.PROPAGATOR_FUNCTION__OBJECT_WITH_PROPAGATOR_FUNCTIONS);
+			propagatorFunctions = new EObjectContainmentWithInverseEList<PropagatorFunction>(PropagatorFunction.class, this, PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS__PROPAGATOR_FUNCTIONS, PropagatorPackage.PROPAGATOR_FUNCTION__OBJECT_WITH_PROPAGATOR_FUNCTIONS){
+
+				@Override
+				protected boolean isNotificationRequired() {
+					return false;
+				}
+				
+			};
 		}
 		return propagatorFunctions;
 	}
@@ -78,33 +84,11 @@ public class ObjectWithPropagatorFunctionsImpl extends MinimalEObjectImpl.Contai
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public void addPropagatorFunction(PropagatorFunction propagatorFunction, EObject toucher) {
-		PropagatorFunction pf = this.getPropagatorFunction(propagatorFunction.getClass());
-		if ( pf!=null) { return; }
-		this.getPropagatorFunctions().add(propagatorFunction);
-		propagatorFunction.init();
-		propagatorFunction.touch(toucher);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public void addPropagatorFunction(PropagatorFunction propagatorFunction, boolean touch) {
-		PropagatorFunction pf = this.getPropagatorFunction(propagatorFunction.getClass());
-		if ( pf!=null) { return; }
-		this.getPropagatorFunctions().add(propagatorFunction);
-		propagatorFunction.init();
-		if ( !touch) { return; }
-		propagatorFunction.touch(null);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
 	public void addPropagatorFunction(PropagatorFunction propagatorFunction) {
-		this.addPropagatorFunction(propagatorFunction, false);
+		PropagatorFunction pf = this.getPropagatorFunction(propagatorFunction.getClass());
+		if ( pf!=null) { return; }
+		this.getPropagatorFunctions().add(propagatorFunction);
+		propagatorFunction.init();
 	}
 
 	/**
@@ -240,12 +224,6 @@ public class ObjectWithPropagatorFunctionsImpl extends MinimalEObjectImpl.Contai
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT:
-				addPropagatorFunction((PropagatorFunction)arguments.get(0), (EObject)arguments.get(1));
-				return null;
-			case PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN:
-				addPropagatorFunction((PropagatorFunction)arguments.get(0), (Boolean)arguments.get(1));
-				return null;
 			case PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION:
 				addPropagatorFunction((PropagatorFunction)arguments.get(0));
 				return null;

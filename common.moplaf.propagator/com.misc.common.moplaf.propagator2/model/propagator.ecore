@@ -5,14 +5,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="ObjectWithPropagatorFunctions">
     <eOperations name="addPropagatorFunction">
       <eParameters name="propagatorFunction" eType="#//PropagatorFunction"/>
-      <eParameters name="toucher" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    </eOperations>
-    <eOperations name="addPropagatorFunction">
-      <eParameters name="propagatorFunction" eType="#//PropagatorFunction"/>
-      <eParameters name="touch" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    </eOperations>
-    <eOperations name="addPropagatorFunction">
-      <eParameters name="propagatorFunction" eType="#//PropagatorFunction"/>
     </eOperations>
     <eOperations name="getPropagatorFunction" eType="#//PropagatorFunction">
       <eParameters name="type" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>

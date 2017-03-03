@@ -35,13 +35,6 @@ public class PropagatorFunctionsConstructors  implements PropagatorFunctionsCons
 		return this;
 	}
 	
-	public PropagatorFunctionsConstructors addConstructor(EClass propagatorFunctionType, boolean touch){
-		PropagatorFunctionFactory constructor = new PropagatorFunctionFactory(propagatorFunctionType, touch);
-		this.addConstructor(constructor);
-		return this;
-	}
-	
-
 	@Override
 	public void addPropagatorFunctions(ObjectWithPropagatorFunctions object) {
 		for ( PropagatorFunctionsConstructor factory : this.constructors){

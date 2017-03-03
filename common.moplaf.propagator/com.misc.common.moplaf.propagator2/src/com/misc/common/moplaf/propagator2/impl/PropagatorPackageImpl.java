@@ -144,7 +144,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getObjectWithPropagatorFunctions__AddPropagatorFunction__PropagatorFunction_EObject() {
+	public EOperation getObjectWithPropagatorFunctions__AddPropagatorFunction__PropagatorFunction() {
 		return objectWithPropagatorFunctionsEClass.getEOperations().get(0);
 	}
 
@@ -153,26 +153,8 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getObjectWithPropagatorFunctions__AddPropagatorFunction__PropagatorFunction_boolean() {
-		return objectWithPropagatorFunctionsEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getObjectWithPropagatorFunctions__AddPropagatorFunction__PropagatorFunction() {
-		return objectWithPropagatorFunctionsEClass.getEOperations().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EOperation getObjectWithPropagatorFunctions__GetPropagatorFunction__EClass() {
-		return objectWithPropagatorFunctionsEClass.getEOperations().get(3);
+		return objectWithPropagatorFunctionsEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -493,8 +475,6 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 		// Create classes and their features
 		objectWithPropagatorFunctionsEClass = createEClass(OBJECT_WITH_PROPAGATOR_FUNCTIONS);
 		createEReference(objectWithPropagatorFunctionsEClass, OBJECT_WITH_PROPAGATOR_FUNCTIONS__PROPAGATOR_FUNCTIONS);
-		createEOperation(objectWithPropagatorFunctionsEClass, OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_EOBJECT);
-		createEOperation(objectWithPropagatorFunctionsEClass, OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION_BOOLEAN);
 		createEOperation(objectWithPropagatorFunctionsEClass, OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION);
 		createEOperation(objectWithPropagatorFunctionsEClass, OBJECT_WITH_PROPAGATOR_FUNCTIONS___GET_PROPAGATOR_FUNCTION__ECLASS);
 
@@ -569,15 +549,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 		initEClass(objectWithPropagatorFunctionsEClass, ObjectWithPropagatorFunctions.class, "ObjectWithPropagatorFunctions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getObjectWithPropagatorFunctions_PropagatorFunctions(), this.getPropagatorFunction(), this.getPropagatorFunction_ObjectWithPropagatorFunctions(), "PropagatorFunctions", null, 0, -1, ObjectWithPropagatorFunctions.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getObjectWithPropagatorFunctions__AddPropagatorFunction__PropagatorFunction_EObject(), null, "addPropagatorFunction", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getPropagatorFunction(), "propagatorFunction", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEObject(), "toucher", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getObjectWithPropagatorFunctions__AddPropagatorFunction__PropagatorFunction_boolean(), null, "addPropagatorFunction", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getPropagatorFunction(), "propagatorFunction", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEBoolean(), "touch", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getObjectWithPropagatorFunctions__AddPropagatorFunction__PropagatorFunction(), null, "addPropagatorFunction", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getObjectWithPropagatorFunctions__AddPropagatorFunction__PropagatorFunction(), null, "addPropagatorFunction", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getPropagatorFunction(), "propagatorFunction", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getObjectWithPropagatorFunctions__GetPropagatorFunction__EClass(), this.getPropagatorFunction(), "getPropagatorFunction", 0, 1, IS_UNIQUE, IS_ORDERED);
