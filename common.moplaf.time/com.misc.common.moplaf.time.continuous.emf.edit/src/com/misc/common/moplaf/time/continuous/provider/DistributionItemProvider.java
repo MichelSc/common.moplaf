@@ -73,6 +73,7 @@ public class DistributionItemProvider
 			addHorizonStartPropertyDescriptor(object);
 			addHorizonEndPropertyDescriptor(object);
 			addSequenceEventsPropertyDescriptor(object);
+			addEventsProvidersPropertyDescriptor(object);
 			addParentDistributionPropertyDescriptor(object);
 			addChildDistributionPropertyDescriptor(object);
 			addProvidedEventsPropertyDescriptor(object);
@@ -98,7 +99,7 @@ public class DistributionItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__1timePropertyCategory"),
+				 getString("_UI__10DistributioninPropertyCategory"),
 				 null));
 	}
 
@@ -120,7 +121,7 @@ public class DistributionItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__1timePropertyCategory"),
+				 getString("_UI__10DistributioninPropertyCategory"),
 				 null));
 	}
 
@@ -142,7 +143,7 @@ public class DistributionItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__1timePropertyCategory"),
+				 getString("_UI__10DistributioninPropertyCategory"),
 				 null));
 	}
 
@@ -164,7 +165,29 @@ public class DistributionItemProvider
 				 false,
 				 true,
 				 null,
+				 getString("_UI__20DistributionRefsPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Events Providers feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEventsProvidersPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Distribution_EventsProviders_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Distribution_EventsProviders_feature", "_UI_Distribution_type"),
+				 TimeContinuousPackage.Literals.DISTRIBUTION__EVENTS_PROVIDERS,
+				 true,
+				 false,
+				 false,
 				 null,
+				 getString("_UI__20DistributionRefsPropertyCategory"),
 				 null));
 	}
 
@@ -186,7 +209,7 @@ public class DistributionItemProvider
 				 false,
 				 true,
 				 null,
-				 getString("_UI__2distributionPropertyCategory"),
+				 getString("_UI__20DistributionHierarchyPropertyCategory"),
 				 null));
 	}
 
@@ -208,7 +231,7 @@ public class DistributionItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__20DistributionHierarchyPropertyCategory"),
 				 null));
 	}
 
@@ -230,7 +253,7 @@ public class DistributionItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__20DistributionRefsPropertyCategory"),
 				 null));
 	}
 

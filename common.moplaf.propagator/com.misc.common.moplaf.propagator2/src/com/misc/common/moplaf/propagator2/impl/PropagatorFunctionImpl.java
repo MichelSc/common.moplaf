@@ -311,6 +311,8 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 		if ( parent != null ) {
 			parent.touch(null);
 			parent.getTouchedChildren().add(this);
+		} else {
+			Plugin.INSTANCE.logWarning("No parent", this);
 		}
 		
 		// toucher tracking

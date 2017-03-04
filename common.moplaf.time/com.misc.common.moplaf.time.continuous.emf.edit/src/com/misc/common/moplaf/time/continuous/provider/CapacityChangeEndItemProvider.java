@@ -5,7 +5,6 @@ package com.misc.common.moplaf.time.continuous.provider;
 
 import com.misc.common.moplaf.time.continuous.CapacityChangeEnd;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -63,8 +62,7 @@ public class CapacityChangeEndItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Date labelValue = ((CapacityChangeEnd)object).getMoment();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((CapacityChangeEnd)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_CapacityChangeEnd_type") :
 			getString("_UI_CapacityChangeEnd_type") + " " + label;

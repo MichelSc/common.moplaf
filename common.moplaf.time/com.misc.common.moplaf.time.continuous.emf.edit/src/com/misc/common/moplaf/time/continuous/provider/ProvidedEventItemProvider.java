@@ -7,7 +7,6 @@ import com.misc.common.moplaf.time.continuous.ProvidedEvent;
 
 import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -79,8 +78,7 @@ public class ProvidedEventItemProvider extends DistributionEventItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Date labelValue = ((ProvidedEvent)object).getMoment();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((ProvidedEvent)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ProvidedEvent_type") :
 			getString("_UI_ProvidedEvent_type") + " " + label;

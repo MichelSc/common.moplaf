@@ -75,8 +75,6 @@ public class DistributionEventItemProvider
 			addSlopeAfterPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addDistributionAsSequencePropertyDescriptor(object);
-			addDistributionPropertyDescriptor(object);
-			addDistributionAsProvidedEventPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -99,7 +97,7 @@ public class DistributionEventItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10DistributionPropertyCategory"),
 				 null));
 	}
 
@@ -121,7 +119,7 @@ public class DistributionEventItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10DistributionPropertyCategory"),
 				 null));
 	}
 
@@ -143,7 +141,7 @@ public class DistributionEventItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__20DistributionRefsPropertyCategory"),
 				 null));
 	}
 
@@ -165,7 +163,7 @@ public class DistributionEventItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__20DistributionRefsPropertyCategory"),
 				 null));
 	}
 
@@ -187,7 +185,7 @@ public class DistributionEventItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10DistributionPropertyCategory"),
 				 null));
 	}
 
@@ -209,7 +207,7 @@ public class DistributionEventItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10DistributionPropertyCategory"),
 				 null));
 	}
 
@@ -231,7 +229,7 @@ public class DistributionEventItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10DistributionPropertyCategory"),
 				 null));
 	}
 
@@ -253,7 +251,7 @@ public class DistributionEventItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10DistributionPropertyCategory"),
 				 null));
 	}
 
@@ -275,7 +273,7 @@ public class DistributionEventItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10DistributionPropertyCategory"),
 				 null));
 	}
 
@@ -297,51 +295,7 @@ public class DistributionEventItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Distribution feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDistributionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DistributionEvent_Distribution_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DistributionEvent_Distribution_feature", "_UI_DistributionEvent_type"),
-				 TimeContinuousPackage.Literals.DISTRIBUTION_EVENT__DISTRIBUTION,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Distribution As Provided Event feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDistributionAsProvidedEventPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DistributionEvent_DistributionAsProvidedEvent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DistributionEvent_DistributionAsProvidedEvent_feature", "_UI_DistributionEvent_type"),
-				 TimeContinuousPackage.Literals.DISTRIBUTION_EVENT__DISTRIBUTION_AS_PROVIDED_EVENT,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
+				 getString("_UI__20DistributionRefsPropertyCategory"),
 				 null));
 	}
 
@@ -353,8 +307,7 @@ public class DistributionEventItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Date labelValue = ((DistributionEvent)object).getMoment();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((DistributionEvent)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_DistributionEvent_type") :
 			getString("_UI_DistributionEvent_type") + " " + label;

@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.time.continuous.calc.impl;
 
+import com.misc.common.moplaf.propagator2.PropagatorFunction;
 import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventAmount;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionAmounts;
@@ -94,4 +95,10 @@ public class PropagatorCalcEventAmountImpl extends PropagatorFunctionDistributio
 		return super.eIsSet(featureID);
 	}
 
+	@Override
+	public PropagatorFunction doGetParent() {
+		return this.getConcreteParent();
+	}
+
+	
 } //PropagatorCalcEventAmountImpl

@@ -70,7 +70,7 @@ public class EventProviderItemProvider extends EventsProviderAbstractItemProvide
 				 false,
 				 false,
 				 null,
-				 null,
+				 getString("_UI__20DistributionRefsPropertyCategory"),
 				 null));
 	}
 
@@ -92,7 +92,7 @@ public class EventProviderItemProvider extends EventsProviderAbstractItemProvide
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10ProviderPropertyCategory"),
 				 null));
 	}
 

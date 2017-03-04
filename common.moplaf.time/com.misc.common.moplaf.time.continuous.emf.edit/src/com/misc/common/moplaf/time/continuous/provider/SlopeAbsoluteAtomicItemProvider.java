@@ -6,7 +6,6 @@ package com.misc.common.moplaf.time.continuous.provider;
 import com.misc.common.moplaf.time.continuous.SlopeAbsoluteAtomic;
 
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -64,8 +63,7 @@ public class SlopeAbsoluteAtomicItemProvider extends SlopeAbsoluteItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Date labelValue = ((SlopeAbsoluteAtomic)object).getMoment();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((SlopeAbsoluteAtomic)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_SlopeAbsoluteAtomic_type") :
 			getString("_UI_SlopeAbsoluteAtomic_type") + " " + label;

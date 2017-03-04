@@ -37,8 +37,8 @@ public class PropagatorCalcEventAmountBeforeImpl extends PropagatorCalcEventAmou
 	}
 	
 	protected static Bindings eventBeforeBindings = Bindings.constructBindings()
-			.addOutboundBinding(TimeContinuousPackage.Literals.DISTRIBUTION_EVENT__AMOUNT_AFTER)
-			.addOutboundBinding(TimeContinuousPackage.Literals.DISTRIBUTION_EVENT__MOMENT);
+			.addInboundBinding(TimeContinuousPackage.Literals.DISTRIBUTION_EVENT__AMOUNT_AFTER)
+			.addInboundBinding(TimeContinuousPackage.Literals.DISTRIBUTION_EVENT__MOMENT);
 	
 	protected static Bindings distributionEventBindings = Bindings.constructBindings()
 			.addOutboundBinding(TimeContinuousPackage.Literals.DISTRIBUTION_EVENT__AMOUNT_BEFORE)

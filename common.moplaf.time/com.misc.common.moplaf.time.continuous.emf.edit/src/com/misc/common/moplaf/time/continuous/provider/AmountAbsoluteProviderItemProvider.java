@@ -69,7 +69,7 @@ public class AmountAbsoluteProviderItemProvider extends EventProviderItemProvide
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10ProviderPropertyCategory"),
 				 null));
 	}
 

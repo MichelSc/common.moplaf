@@ -65,7 +65,7 @@ public class EventsProviderItemProvider extends EventsProviderAbstractItemProvid
 				 false,
 				 false,
 				 null,
-				 null,
+				 getString("_UI__20DistributionRefsPropertyCategory"),
 				 null));
 	}
 
