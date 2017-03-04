@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+  <extension point="org.eclipse.sirius.componentization">
+    <component class="com.misc.common.moplaf.propagator2.design.Activator"
+               id="com.misc.common.moplaf.propagator2.design"
+	       name="propagator2">
+    </component>
+  </extension>
+  <extension
+        point="org.eclipse.sirius.common.resourceSetFactory">
+     <factory
+           class="com.misc.common.moplaf.propagator2.design.ResourceSetFactory">
+     </factory>
+  </extension>
+</plugin>

@@ -85,6 +85,10 @@ public final class Plugin extends EMFPlugin  {
 	}
 	
 	private String formatLogMessage(String message, Object adapter){
+		if ( adapter == null ) {
+			return message;
+		}
+		
 		String messageAsString = message!=null ? message+", ": "";
 		
 		PropagatorFunction propagatorFunction = null;
@@ -135,12 +139,24 @@ public final class Plugin extends EMFPlugin  {
 		this.logger.log(Level.INFO, this.formatLogMessage(message, adapter));
 	}
 	
+	public void logInfo(String message){
+		this.logger.log(Level.INFO, this.formatLogMessage(message, null));
+	}
+	
 	public void logWarning(String message, Object adapter){
 		this.logger.log(Level.WARNING, this.formatLogMessage(message, adapter));
 	}
 	
+	public void logWarning(String message){
+		this.logger.log(Level.WARNING, this.formatLogMessage(message, null));
+	}
+	
 	public void logError(String message, Object adapter){
 		this.logger.log(Level.ERROR, this.formatLogMessage(message, adapter));
+	}
+	
+	public void logError(String message){
+		this.logger.log(Level.ERROR, this.formatLogMessage(message, null));
 	}
 	
 

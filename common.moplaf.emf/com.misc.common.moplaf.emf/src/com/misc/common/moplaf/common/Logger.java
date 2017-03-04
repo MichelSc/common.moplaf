@@ -82,7 +82,7 @@ public class Logger {
 		TOUCH   ("touch"), 
 		CALC    ("calc"), 
 		INFO    ("info"), 
-		WARNING ("waring"), 
+		WARNING ("warning"), 
 		ERROR   ("error"), 
 		FATAL   ("fatal");
 		

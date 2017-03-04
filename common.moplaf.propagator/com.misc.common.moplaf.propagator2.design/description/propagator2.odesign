@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="propagator2" version="11.1.1.201610211630">
+  <ownedViewpoints name="propagator2.run_time_bindings" label="Run Time Bindings">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="propagator2.run_time_bindings.propagator_functions" label="Propagator Functions" domainClass="PropagatorFunction" enablePopupBars="true">
+      <defaultLayer name="layer_default" label="Default  Layer">
+        <nodeMappings name="layer_default.propagator_function" label="PropagatorFunction" domainClass="PropagatorFunction">
+          <style xsi:type="style:DotDescription" labelExpression="feature:Description" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+          <conditionnalStyles predicateExpression="feature:Touched">
+            <style xsi:type="style:SquareDescription" labelExpression="feature:Description" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+            </style>
+          </conditionnalStyles>
+        </nodeMappings>
+        <edgeMappings name="layer_default.antecedents" label="Antecedents" preconditionExpression="aql: target.Parent != source.Parent" sourceMapping="//@ownedViewpoints[name='propagator2.run_time_bindings']/@ownedRepresentations[name='propagator2.run_time_bindings.propagator_functions']/@defaultLayer/@nodeMappings[name='layer_default.propagator_function']" targetMapping="//@ownedViewpoints[name='propagator2.run_time_bindings']/@ownedRepresentations[name='propagator2.run_time_bindings.propagator_functions']/@defaultLayer/@nodeMappings[name='layer_default.propagator_function']" targetFinderExpression="feature:Antecedents">
+          <style lineStyle="dot" sizeComputationExpression="2" endsCentering="Both">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="layer_default.sibling_antecedents" label="Sibling Antecedents" sourceMapping="//@ownedViewpoints[name='propagator2.run_time_bindings']/@ownedRepresentations[name='propagator2.run_time_bindings.propagator_functions']/@defaultLayer/@nodeMappings[name='layer_default.propagator_function']" targetMapping="//@ownedViewpoints[name='propagator2.run_time_bindings']/@ownedRepresentations[name='propagator2.run_time_bindings.propagator_functions']/@defaultLayer/@nodeMappings[name='layer_default.propagator_function']" targetFinderExpression="feature:AntecedentsSibling">
+          <style lineStyle="dash" sizeComputationExpression="2" endsCentering="Both">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="layer_default.antecedents.parent" label="Parent" sourceMapping="//@ownedViewpoints[name='propagator2.run_time_bindings']/@ownedRepresentations[name='propagator2.run_time_bindings.propagator_functions']/@defaultLayer/@nodeMappings[name='layer_default.propagator_function']" targetMapping="//@ownedViewpoints[name='propagator2.run_time_bindings']/@ownedRepresentations[name='propagator2.run_time_bindings.propagator_functions']/@defaultLayer/@nodeMappings[name='layer_default.propagator_function']" targetFinderExpression="feature:Parent">
+          <style sizeComputationExpression="2" endsCentering="Both">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="com.misc.common.moplaf.propagator2.design.Services"/>
+  </ownedViewpoints>
+</description:Group>

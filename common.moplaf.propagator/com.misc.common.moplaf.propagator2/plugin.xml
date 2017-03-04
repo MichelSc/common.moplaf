@@ -6,6 +6,7 @@
 -->
 
 <plugin>
+   <extension-point id="propagator_function_manager" name="Propagator Function Manager" schema="schema/propagator_function_manager.exsd"/>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated propagator -->

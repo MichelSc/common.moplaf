@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.time.continuous.calc.impl;
 
 
+import com.misc.common.moplaf.propagator2.PropagatorFunction;
 import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventSlope;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorLayerDistributionSlopes;
@@ -94,5 +95,12 @@ public class PropagatorCalcEventSlopeImpl extends PropagatorFunctionDistribution
 		}
 		return super.eIsSet(featureID);
 	}
+
+	@Override
+	public PropagatorFunction doGetParent() {
+		return this.getConcreteParent();
+	}
+	
+	
 
 } //PropagatorCalcEventSlopeImpl

@@ -1,5 +1,10 @@
 package com.misc.common.moplaf.propagator2.util;
 
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IExtensionRegistry;
+import org.eclipse.core.runtime.Platform;
+
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
@@ -190,6 +195,41 @@ public class Util {
 			scope.refresh();
 		}
 	}
-	
+
+	/**
+	 * 
+	 * @param targetFileExtension
+	 * @param targetClass
+	 * @return
+	 */
+	static public PropagatorFunctionManagerAdapter createPropagatorFunctionManagerAdapter(String targetFileExtension, Class targetClass){
+		IExtensionRegistry reg = Platform.getExtensionRegistry();
+		IConfigurationElement[] elements = reg.getConfigurationElementsFor("com.misc.common.moplaf.propagator2.propagator_function_manager");
+		for ( IConfigurationElement element : elements){
+			try {
+				String element_file_extension = element.getAttribute("target_file_extension");
+				if ( targetFileExtension!=null && !targetFileExtension.equalsIgnoreCase(element_file_extension)){
+					continue;
+				}
+				String element_target_class_name = element.getAttribute("target_class");
+				if ( targetClass!=null && !targetClass.getName().equalsIgnoreCase(element_target_class_name)){
+					continue;
+				}
+				// both file extension and target class match
+				PropagatorFunctionManagerAdapter manager = (PropagatorFunctionManagerAdapter)element.createExecutableExtension("class");
+				return manager;
+			} catch (CoreException e) {
+				String message = String.format("Util.createPropagatorFunctionManagerAdapter: exception raised %s", 
+	                       		e.getMessage());	   
+				Plugin.INSTANCE.logError(message, null);
+			}
+		}
+		String message = String.format("No manager created for extension %s and target class %s", 
+				                       targetFileExtension == null ? "null" : targetFileExtension,
+				                    	targetClass == null ? "null" : targetClass.getName());	   
+		Plugin.INSTANCE.logError(message, null);
+		return null;
+		
+	}
 
 };
