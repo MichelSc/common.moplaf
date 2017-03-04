@@ -73,6 +73,8 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	 * @ordered
 	 */
 	protected boolean touched = TOUCHED_EDEFAULT;
+	
+	private PropagatorFunction touchedParent = null;
 
 	/**
 	 * The cached value of the '{@link #getTouchedChildren() <em>Touched Children</em>}' reference list.
@@ -314,6 +316,7 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 		} else {
 			Plugin.INSTANCE.logWarning("No parent", this);
 		}
+		this.touchedParent = parent;
 		
 		// toucher tracking
 		if ( toucher==null){
@@ -330,10 +333,11 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 		if ( this.isTouched() ){
 			this.setTouched(false);
 			this.getTouchers().clear();
-			PropagatorFunction parent = this.getParent();
+			PropagatorFunction parent = this.touchedParent;
 			if ( parent != null ) { 
 				parent.getTouchedChildren().remove(this);
 			}
+			this.touchedParent = null;
 		}
 	}
 	

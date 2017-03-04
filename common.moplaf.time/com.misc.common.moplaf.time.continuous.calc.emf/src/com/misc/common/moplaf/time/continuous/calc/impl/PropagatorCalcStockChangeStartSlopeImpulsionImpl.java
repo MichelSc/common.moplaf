@@ -38,7 +38,7 @@ public class PropagatorCalcStockChangeStartSlopeImpulsionImpl extends Propagator
 	protected static Bindings providerBindings = Bindings.constructBindings()
 			.addInboundBinding(TimeContinuousPackage.Literals.STOCK_CHANGE__SLOPE);
 
-	protected static Bindings distributionEventBindings = PropagatorCalcSlopeAbsoluteSlopeAbsoluteImpl.distributionEventBindings.copy()
+	protected static Bindings distributionEventBindings = PropagatorCalcSlopeImpulsionSlopeImpulsionImpl.distributionEventBindings.copy()
 			.addInboundBinding(TimeContinuousPackage.Literals.STOCK_CHANGE_START__PROVIDER, providerBindings);
 	
 	/*

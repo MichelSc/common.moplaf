@@ -62,6 +62,7 @@ public class PropagatorCalcEventAmountImpl extends PropagatorFunctionDistributio
 	 */
 	public PropagatorLayerDistributionAmounts basicGetConcreteParent() {
 		Distribution distribution = this.getDistributionEvent().getDistribution();
+		if ( distribution == null ) { return null; }
 		PropagatorLayerDistributionAmounts layerDistributionAmounts = distribution.getPropagatorFunction(PropagatorLayerDistributionAmounts.class);
 		return layerDistributionAmounts;
 	}

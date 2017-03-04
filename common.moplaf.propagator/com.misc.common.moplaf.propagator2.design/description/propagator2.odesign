@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="propagator2" version="11.1.1.201610211630">
-  <ownedViewpoints name="propagator2.run_time_bindings" label="Run Time Bindings">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="propagator2.run_time_bindings.propagator_functions" label="Propagator Functions" domainClass="PropagatorFunction" enablePopupBars="true">
+  <ownedViewpoints name="propagator2.run_time_bindings" label="Propagator: run time bindings">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="propagator2.run_time_bindings.propagator_functions" label="Propagator Functions" initialisation="true" showOnStartup="true" domainClass="http://www.misc.com/common/moplaf/propagator2/model/0.1#//PropagatorFunction" enablePopupBars="true">
       <defaultLayer name="layer_default" label="Default  Layer">
-        <nodeMappings name="layer_default.propagator_function" label="PropagatorFunction" domainClass="PropagatorFunction">
+        <nodeMappings name="layer_default.propagator_function" label="PropagatorFunction" preconditionExpression="aql: self.Parent = container or self = container or self.Parent.Parent = container" domainClass="PropagatorFunction">
           <style xsi:type="style:DotDescription" labelExpression="feature:Description" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>

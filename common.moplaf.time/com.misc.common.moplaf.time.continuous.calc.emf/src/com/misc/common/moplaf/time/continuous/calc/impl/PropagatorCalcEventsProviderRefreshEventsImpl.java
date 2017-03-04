@@ -9,7 +9,6 @@ import com.misc.common.moplaf.time.continuous.EventsProviderAbstract;
 import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventsProviderRefreshEvents;
 import com.misc.common.moplaf.time.continuous.calc.PropagatorLayerCompositeEventRefresh;
-import com.misc.common.moplaf.time.continuous.calc.PropagatorScopeDistribution;
 import com.misc.common.moplaf.time.continuous.calc.TimeContinuousCalcPackage;
 import com.misc.common.moplaf.time.continuous.impl.PropagatorFunctionEventsProviderImpl;
 
@@ -66,6 +65,7 @@ public class PropagatorCalcEventsProviderRefreshEventsImpl extends PropagatorFun
 	public PropagatorLayerCompositeEventRefresh basicGetConcreteParent() {
 		EventsProviderAbstract provider = this.getEventsProvider();
 		Distribution distribution = provider.getDistribution();
+		if ( distribution == null ) { return null; }
 		PropagatorLayerCompositeEventRefresh parent = distribution.getPropagatorFunction(PropagatorLayerCompositeEventRefresh.class);
 		return parent;
 	}

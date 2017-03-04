@@ -63,6 +63,7 @@ public class PropagatorCalcEventSlopeImpl extends PropagatorFunctionDistribution
 	 */
 	public PropagatorLayerDistributionSlopes basicGetConcreteParent() {
 			Distribution distribution = this.getDistributionEvent().getDistribution();
+			if ( distribution == null ) { return null; }
 			PropagatorLayerDistributionSlopes layerDistributionSlopes= distribution.getPropagatorFunction(PropagatorLayerDistributionSlopes.class);
 			return layerDistributionSlopes;
 	}
