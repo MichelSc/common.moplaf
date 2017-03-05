@@ -897,6 +897,7 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 			}
 			if ( currentOutput>=this.outputPossible){
 				float durationOffset = 0.0f;
+				Date earliestEnd = moment;
 				if ( previousDuration>0.0f) {
 					float previousRate = (amount-this.previousAmount)/previousDuration;
 				    float durationDistribution = (this.outputPossible-this.previousOutput)*this.ratePossible; 
@@ -904,11 +905,11 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 				    if ( durationDistribution>durationOffset){
 				    	durationOffset = durationDistribution;
 				    }
+					earliestEnd = DistributionImpl.this.getMoment(this.previousMoment, durationOffset);
 				}
-				Date earliestEnd = DistributionImpl.this.getMoment(this.previousMoment, durationOffset);
 				this.earliestOutput = DistributionImpl.this.getMoment(earliestEnd, -this.durationPossible);
 				return true; // do stop
-			}
+				}
 			this.previousAmount = amount;
 			this.previousMoment = moment;
 			this.previousOutput = currentOutput;

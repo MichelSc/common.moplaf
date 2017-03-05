@@ -2182,6 +2182,7 @@
         <customFeatures>routingStyle</customFeatures>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_dvmQpAGDEeeNbY4Nwv_fmQ" showIcon="false" labelColor="39,76,114">
           <customFeatures>labelSize</customFeatures>
+          <labelFormat>bold</labelFormat>
         </centerLabelStyle>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_dvmQpQGDEeeNbY4Nwv_fmQ" showIcon="false" labelColor="39,76,114">
           <customFeatures>labelSize</customFeatures>
