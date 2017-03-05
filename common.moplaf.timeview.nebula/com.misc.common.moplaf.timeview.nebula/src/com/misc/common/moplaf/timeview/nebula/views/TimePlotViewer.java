@@ -36,7 +36,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.FileDialog;
 
-import com.misc.common.moplaf.timeview.TimePlotViewerAbstract;
+import com.misc.common.moplaf.timeview.viewers.TimePlotViewerAbstract;
 
 
 public class TimePlotViewer extends TimePlotViewerAbstract {
