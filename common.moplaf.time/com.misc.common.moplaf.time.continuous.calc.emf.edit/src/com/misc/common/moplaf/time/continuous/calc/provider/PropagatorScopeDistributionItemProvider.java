@@ -68,8 +68,10 @@ public class PropagatorScopeDistributionItemProvider extends PropagatorFunctionD
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorScopeDistribution propagatorScopeDistribution = (PropagatorScopeDistribution)object;
-		return getString("_UI_PropagatorScopeDistribution_type") + " " + propagatorScopeDistribution.isTouched();
+		String label = ((PropagatorScopeDistribution)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorScopeDistribution_type") :
+			getString("_UI_PropagatorScopeDistribution_type") + " " + label;
 	}
 	
 

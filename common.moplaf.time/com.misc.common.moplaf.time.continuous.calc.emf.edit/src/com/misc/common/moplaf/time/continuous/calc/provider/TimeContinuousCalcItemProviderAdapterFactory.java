@@ -1130,29 +1130,6 @@ public class TimeContinuousCalcItemProviderAdapterFactory extends TimeContinuous
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmount} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PropagatorCalcAmountItemProvider propagatorCalcAmountItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmount}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPropagatorCalcAmountAdapter() {
-		if (propagatorCalcAmountItemProvider == null) {
-			propagatorCalcAmountItemProvider = new PropagatorCalcAmountItemProvider(this);
-		}
-
-		return propagatorCalcAmountItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventAmount} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1320,7 +1297,6 @@ public class TimeContinuousCalcItemProviderAdapterFactory extends TimeContinuous
 		if (propagatorCalcStockChangeStartMomentItemProvider != null) propagatorCalcStockChangeStartMomentItemProvider.dispose();
 		if (propagatorCalcStockChangeStartSlopeImpulsionItemProvider != null) propagatorCalcStockChangeStartSlopeImpulsionItemProvider.dispose();
 		if (propagatorCalcEventSlopeItemProvider != null) propagatorCalcEventSlopeItemProvider.dispose();
-		if (propagatorCalcAmountItemProvider != null) propagatorCalcAmountItemProvider.dispose();
 		if (propagatorCalcEventAmountItemProvider != null) propagatorCalcEventAmountItemProvider.dispose();
 	}
 

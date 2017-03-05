@@ -93,8 +93,10 @@ public class PropagatorCalcEventSlopeItemProvider extends PropagatorFunctionDist
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorCalcEventSlope propagatorCalcEventSlope = (PropagatorCalcEventSlope)object;
-		return getString("_UI_PropagatorCalcEventSlope_type") + " " + propagatorCalcEventSlope.isTouched();
+		String label = ((PropagatorCalcEventSlope)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorCalcEventSlope_type") :
+			getString("_UI_PropagatorCalcEventSlope_type") + " " + label;
 	}
 	
 

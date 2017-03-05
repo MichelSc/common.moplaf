@@ -64,8 +64,10 @@ public class PropagatorCalcSlopeAbsoluteAtomicMomentItemProvider extends Propaga
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorCalcSlopeAbsoluteAtomicMoment propagatorCalcSlopeAbsoluteAtomicMoment = (PropagatorCalcSlopeAbsoluteAtomicMoment)object;
-		return getString("_UI_PropagatorCalcSlopeAbsoluteAtomicMoment_type") + " " + propagatorCalcSlopeAbsoluteAtomicMoment.isTouched();
+		String label = ((PropagatorCalcSlopeAbsoluteAtomicMoment)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorCalcSlopeAbsoluteAtomicMoment_type") :
+			getString("_UI_PropagatorCalcSlopeAbsoluteAtomicMoment_type") + " " + label;
 	}
 	
 

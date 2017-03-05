@@ -64,8 +64,10 @@ public class PropagatorCalcStockChangeStartMomentItemProvider extends Propagator
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorCalcStockChangeStartMoment propagatorCalcStockChangeStartMoment = (PropagatorCalcStockChangeStartMoment)object;
-		return getString("_UI_PropagatorCalcStockChangeStartMoment_type") + " " + propagatorCalcStockChangeStartMoment.isTouched();
+		String label = ((PropagatorCalcStockChangeStartMoment)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorCalcStockChangeStartMoment_type") :
+			getString("_UI_PropagatorCalcStockChangeStartMoment_type") + " " + label;
 	}
 	
 

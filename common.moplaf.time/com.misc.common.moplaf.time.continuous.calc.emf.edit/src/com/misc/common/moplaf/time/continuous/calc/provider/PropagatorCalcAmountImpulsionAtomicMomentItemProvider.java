@@ -64,8 +64,10 @@ public class PropagatorCalcAmountImpulsionAtomicMomentItemProvider extends Propa
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorCalcAmountImpulsionAtomicMoment propagatorCalcAmountImpulsionAtomicMoment = (PropagatorCalcAmountImpulsionAtomicMoment)object;
-		return getString("_UI_PropagatorCalcAmountImpulsionAtomicMoment_type") + " " + propagatorCalcAmountImpulsionAtomicMoment.isTouched();
+		String label = ((PropagatorCalcAmountImpulsionAtomicMoment)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorCalcAmountImpulsionAtomicMoment_type") :
+			getString("_UI_PropagatorCalcAmountImpulsionAtomicMoment_type") + " " + label;
 	}
 	
 

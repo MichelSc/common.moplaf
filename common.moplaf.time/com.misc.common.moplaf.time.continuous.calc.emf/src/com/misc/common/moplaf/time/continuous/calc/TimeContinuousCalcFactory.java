@@ -400,15 +400,6 @@ public interface TimeContinuousCalcFactory extends EFactory {
 	PropagatorCalcEventSlope createPropagatorCalcEventSlope();
 
 	/**
-	 * Returns a new object of class '<em>Propagator Calc Amount</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Propagator Calc Amount</em>'.
-	 * @generated
-	 */
-	PropagatorCalcAmount createPropagatorCalcAmount();
-
-	/**
 	 * Returns a new object of class '<em>Propagator Calc Event Amount</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

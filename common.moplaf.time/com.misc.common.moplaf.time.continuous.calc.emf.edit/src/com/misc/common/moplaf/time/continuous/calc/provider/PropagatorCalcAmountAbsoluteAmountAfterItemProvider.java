@@ -64,8 +64,10 @@ public class PropagatorCalcAmountAbsoluteAmountAfterItemProvider extends Propaga
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorCalcAmountAbsoluteAmountAfter propagatorCalcAmountAbsoluteAmountAfter = (PropagatorCalcAmountAbsoluteAmountAfter)object;
-		return getString("_UI_PropagatorCalcAmountAbsoluteAmountAfter_type") + " " + propagatorCalcAmountAbsoluteAmountAfter.isTouched();
+		String label = ((PropagatorCalcAmountAbsoluteAmountAfter)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorCalcAmountAbsoluteAmountAfter_type") :
+			getString("_UI_PropagatorCalcAmountAbsoluteAmountAfter_type") + " " + label;
 	}
 	
 

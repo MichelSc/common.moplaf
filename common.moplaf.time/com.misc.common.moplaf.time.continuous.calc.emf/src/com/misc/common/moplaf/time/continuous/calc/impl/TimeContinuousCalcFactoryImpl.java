@@ -102,7 +102,6 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 			case TimeContinuousCalcPackage.PROPAGATOR_CALC_STOCK_CHANGE_START_MOMENT: return createPropagatorCalcStockChangeStartMoment();
 			case TimeContinuousCalcPackage.PROPAGATOR_CALC_STOCK_CHANGE_START_SLOPE_IMPULSION: return createPropagatorCalcStockChangeStartSlopeImpulsion();
 			case TimeContinuousCalcPackage.PROPAGATOR_CALC_EVENT_SLOPE: return createPropagatorCalcEventSlope();
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_AMOUNT: return createPropagatorCalcAmount();
 			case TimeContinuousCalcPackage.PROPAGATOR_CALC_EVENT_AMOUNT: return createPropagatorCalcEventAmount();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -527,16 +526,6 @@ public class TimeContinuousCalcFactoryImpl extends EFactoryImpl implements TimeC
 	public PropagatorCalcEventSlope createPropagatorCalcEventSlope() {
 		PropagatorCalcEventSlopeImpl propagatorCalcEventSlope = new PropagatorCalcEventSlopeImpl();
 		return propagatorCalcEventSlope;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PropagatorCalcAmount createPropagatorCalcAmount() {
-		PropagatorCalcAmountImpl propagatorCalcAmount = new PropagatorCalcAmountImpl();
-		return propagatorCalcAmount;
 	}
 
 	/**

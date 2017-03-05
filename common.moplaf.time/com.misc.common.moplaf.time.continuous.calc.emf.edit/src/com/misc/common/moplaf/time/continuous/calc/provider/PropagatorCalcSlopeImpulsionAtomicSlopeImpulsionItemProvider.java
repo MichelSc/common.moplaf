@@ -64,8 +64,10 @@ public class PropagatorCalcSlopeImpulsionAtomicSlopeImpulsionItemProvider extend
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorCalcSlopeImpulsionAtomicSlopeImpulsion propagatorCalcSlopeImpulsionAtomicSlopeImpulsion = (PropagatorCalcSlopeImpulsionAtomicSlopeImpulsion)object;
-		return getString("_UI_PropagatorCalcSlopeImpulsionAtomicSlopeImpulsion_type") + " " + propagatorCalcSlopeImpulsionAtomicSlopeImpulsion.isTouched();
+		String label = ((PropagatorCalcSlopeImpulsionAtomicSlopeImpulsion)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorCalcSlopeImpulsionAtomicSlopeImpulsion_type") :
+			getString("_UI_PropagatorCalcSlopeImpulsionAtomicSlopeImpulsion_type") + " " + label;
 	}
 	
 

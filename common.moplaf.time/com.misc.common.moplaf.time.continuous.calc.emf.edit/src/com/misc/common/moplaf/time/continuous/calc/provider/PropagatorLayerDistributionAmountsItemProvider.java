@@ -116,8 +116,10 @@ public class PropagatorLayerDistributionAmountsItemProvider extends PropagatorFu
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorLayerDistributionAmounts propagatorLayerDistributionAmounts = (PropagatorLayerDistributionAmounts)object;
-		return getString("_UI_PropagatorLayerDistributionAmounts_type") + " " + propagatorLayerDistributionAmounts.isTouched();
+		String label = ((PropagatorLayerDistributionAmounts)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorLayerDistributionAmounts_type") :
+			getString("_UI_PropagatorLayerDistributionAmounts_type") + " " + label;
 	}
 	
 

@@ -116,8 +116,10 @@ public class PropagatorCalcDistributionSequenceItemProvider extends PropagatorFu
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorCalcDistributionSequence propagatorCalcDistributionSequence = (PropagatorCalcDistributionSequence)object;
-		return getString("_UI_PropagatorCalcDistributionSequence_type") + " " + propagatorCalcDistributionSequence.isTouched();
+		String label = ((PropagatorCalcDistributionSequence)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorCalcDistributionSequence_type") :
+			getString("_UI_PropagatorCalcDistributionSequence_type") + " " + label;
 	}
 	
 

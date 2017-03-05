@@ -64,8 +64,10 @@ public class PropagatorCalcChildEventAmountAfterItemProvider extends PropagatorC
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorCalcChildEventAmountAfter propagatorCalcChildEventAmountAfter = (PropagatorCalcChildEventAmountAfter)object;
-		return getString("_UI_PropagatorCalcChildEventAmountAfter_type") + " " + propagatorCalcChildEventAmountAfter.isTouched();
+		String label = ((PropagatorCalcChildEventAmountAfter)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorCalcChildEventAmountAfter_type") :
+			getString("_UI_PropagatorCalcChildEventAmountAfter_type") + " " + label;
 	}
 	
 

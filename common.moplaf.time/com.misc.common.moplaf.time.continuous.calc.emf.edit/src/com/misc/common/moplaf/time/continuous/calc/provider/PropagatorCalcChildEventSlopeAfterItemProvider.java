@@ -64,8 +64,10 @@ public class PropagatorCalcChildEventSlopeAfterItemProvider extends PropagatorCa
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorCalcChildEventSlopeAfter propagatorCalcChildEventSlopeAfter = (PropagatorCalcChildEventSlopeAfter)object;
-		return getString("_UI_PropagatorCalcChildEventSlopeAfter_type") + " " + propagatorCalcChildEventSlopeAfter.isTouched();
+		String label = ((PropagatorCalcChildEventSlopeAfter)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorCalcChildEventSlopeAfter_type") :
+			getString("_UI_PropagatorCalcChildEventSlopeAfter_type") + " " + label;
 	}
 	
 

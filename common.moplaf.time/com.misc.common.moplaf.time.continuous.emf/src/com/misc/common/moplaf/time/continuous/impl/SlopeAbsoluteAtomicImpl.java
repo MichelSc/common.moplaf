@@ -4,6 +4,7 @@ package com.misc.common.moplaf.time.continuous.impl;
 
 
 import com.misc.common.moplaf.time.continuous.Distribution;
+import com.misc.common.moplaf.time.continuous.EventsProviderAbstract;
 import com.misc.common.moplaf.time.continuous.SlopeAbsoluteAtomic;
 
 import com.misc.common.moplaf.time.continuous.SlopeAbsoluteProvider;
@@ -141,7 +142,9 @@ public class SlopeAbsoluteAtomicImpl extends SlopeAbsoluteImpl implements SlopeA
 	 * <!-- end-user-doc -->
 	 */
 	public Distribution basicGetDistribution() {
-		return (Distribution)this.eContainer();
+		EventsProviderAbstract eventProvider = this.getEventProvider();
+		Distribution distribution = eventProvider.getDistribution(); 
+		return distribution;
 	}
 
 

@@ -259,10 +259,6 @@ public class TimeContinuousCalcAdapterFactory extends AdapterFactoryImpl {
 				return createPropagatorCalcEventSlopeAdapter();
 			}
 			@Override
-			public Adapter casePropagatorCalcAmount(PropagatorCalcAmount object) {
-				return createPropagatorCalcAmountAdapter();
-			}
-			@Override
 			public Adapter casePropagatorCalcEventAmount(PropagatorCalcEventAmount object) {
 				return createPropagatorCalcEventAmountAdapter();
 			}
@@ -891,20 +887,6 @@ public class TimeContinuousCalcAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPropagatorCalcEventSlopeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmount <em>Propagator Calc Amount</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmount
-	 * @generated
-	 */
-	public Adapter createPropagatorCalcAmountAdapter() {
 		return null;
 	}
 

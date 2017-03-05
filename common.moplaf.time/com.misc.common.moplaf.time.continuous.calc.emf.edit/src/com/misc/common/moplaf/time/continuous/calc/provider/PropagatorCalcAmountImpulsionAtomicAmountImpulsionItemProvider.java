@@ -64,8 +64,10 @@ public class PropagatorCalcAmountImpulsionAtomicAmountImpulsionItemProvider exte
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorCalcAmountImpulsionAtomicAmountImpulsion propagatorCalcAmountImpulsionAtomicAmountImpulsion = (PropagatorCalcAmountImpulsionAtomicAmountImpulsion)object;
-		return getString("_UI_PropagatorCalcAmountImpulsionAtomicAmountImpulsion_type") + " " + propagatorCalcAmountImpulsionAtomicAmountImpulsion.isTouched();
+		String label = ((PropagatorCalcAmountImpulsionAtomicAmountImpulsion)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorCalcAmountImpulsionAtomicAmountImpulsion_type") :
+			getString("_UI_PropagatorCalcAmountImpulsionAtomicAmountImpulsion_type") + " " + label;
 	}
 	
 

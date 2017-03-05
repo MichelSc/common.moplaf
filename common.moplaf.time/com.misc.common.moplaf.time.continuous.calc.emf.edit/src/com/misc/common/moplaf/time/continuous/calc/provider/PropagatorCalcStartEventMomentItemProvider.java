@@ -64,8 +64,10 @@ public class PropagatorCalcStartEventMomentItemProvider extends PropagatorCalcEv
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorCalcStartEventMoment propagatorCalcStartEventMoment = (PropagatorCalcStartEventMoment)object;
-		return getString("_UI_PropagatorCalcStartEventMoment_type") + " " + propagatorCalcStartEventMoment.isTouched();
+		String label = ((PropagatorCalcStartEventMoment)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorCalcStartEventMoment_type") :
+			getString("_UI_PropagatorCalcStartEventMoment_type") + " " + label;
 	}
 	
 

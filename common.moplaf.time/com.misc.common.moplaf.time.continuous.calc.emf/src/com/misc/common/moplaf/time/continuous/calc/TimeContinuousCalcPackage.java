@@ -2824,7 +2824,7 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcEventAmount()
 	 * @generated
 	 */
-	int PROPAGATOR_CALC_EVENT_AMOUNT = 47;
+	int PROPAGATOR_CALC_EVENT_AMOUNT = 46;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' reference.
@@ -14110,35 +14110,6 @@ public interface TimeContinuousCalcPackage extends EPackage {
 
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountImpl <em>Propagator Calc Amount</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountImpl
-	 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcAmount()
-	 * @generated
-	 */
-	int PROPAGATOR_CALC_AMOUNT = 46;
-
-	/**
-	 * The number of structural features of the '<em>Propagator Calc Amount</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_AMOUNT_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Propagator Calc Amount</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPAGATOR_CALC_AMOUNT_OPERATION_COUNT = 0;
-
-
-	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmountAbsoluteAmountAbsolute <em>Propagator Calc Amount Absolute Amount Absolute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -14667,16 +14638,6 @@ public interface TimeContinuousCalcPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPropagatorCalcEventSlope_ConcreteParent();
-
-	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmount <em>Propagator Calc Amount</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Propagator Calc Amount</em>'.
-	 * @see com.misc.common.moplaf.time.continuous.calc.PropagatorCalcAmount
-	 * @generated
-	 */
-	EClass getPropagatorCalcAmount();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.continuous.calc.PropagatorCalcEventAmount <em>Propagator Calc Event Amount</em>}'.
@@ -15327,16 +15288,6 @@ public interface TimeContinuousCalcPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROPAGATOR_CALC_EVENT_SLOPE__CONCRETE_PARENT = eINSTANCE.getPropagatorCalcEventSlope_ConcreteParent();
-
-		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountImpl <em>Propagator Calc Amount</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcAmountImpl
-		 * @see com.misc.common.moplaf.time.continuous.calc.impl.TimeContinuousCalcPackageImpl#getPropagatorCalcAmount()
-		 * @generated
-		 */
-		EClass PROPAGATOR_CALC_AMOUNT = eINSTANCE.getPropagatorCalcAmount();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.continuous.calc.impl.PropagatorCalcEventAmountImpl <em>Propagator Calc Event Amount</em>}' class.

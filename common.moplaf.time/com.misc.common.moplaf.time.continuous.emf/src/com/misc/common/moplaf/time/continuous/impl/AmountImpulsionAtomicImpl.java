@@ -5,6 +5,7 @@ package com.misc.common.moplaf.time.continuous.impl;
 import com.misc.common.moplaf.time.continuous.AmountImpulsionAtomic;
 import com.misc.common.moplaf.time.continuous.AmountImpulsionProvider;
 import com.misc.common.moplaf.time.continuous.Distribution;
+import com.misc.common.moplaf.time.continuous.EventsProviderAbstract;
 import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 
 import java.util.Date;
@@ -139,7 +140,9 @@ public class AmountImpulsionAtomicImpl extends AmountImpulsionImpl implements Am
 	 * <!-- end-user-doc -->
 	 */
 	public Distribution basicGetDistribution() {
-		return (Distribution)this.eContainer();
+		EventsProviderAbstract eventProvider = this.getEventProvider();
+		Distribution distribution = eventProvider.getDistribution(); 
+		return distribution;
 	}
 
 	/**

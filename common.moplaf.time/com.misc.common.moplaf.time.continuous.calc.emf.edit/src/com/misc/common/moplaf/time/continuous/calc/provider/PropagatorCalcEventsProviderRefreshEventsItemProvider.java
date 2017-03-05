@@ -93,8 +93,10 @@ public class PropagatorCalcEventsProviderRefreshEventsItemProvider extends Propa
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorCalcEventsProviderRefreshEvents propagatorCalcEventsProviderRefreshEvents = (PropagatorCalcEventsProviderRefreshEvents)object;
-		return getString("_UI_PropagatorCalcEventsProviderRefreshEvents_type") + " " + propagatorCalcEventsProviderRefreshEvents.isTouched();
+		String label = ((PropagatorCalcEventsProviderRefreshEvents)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorCalcEventsProviderRefreshEvents_type") :
+			getString("_UI_PropagatorCalcEventsProviderRefreshEvents_type") + " " + label;
 	}
 	
 

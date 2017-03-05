@@ -538,12 +538,6 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TimeContinuousCalcPackage.PROPAGATOR_CALC_AMOUNT: {
-				PropagatorCalcAmount propagatorCalcAmount = (PropagatorCalcAmount)theEObject;
-				T result = casePropagatorCalcAmount(propagatorCalcAmount);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case TimeContinuousCalcPackage.PROPAGATOR_CALC_EVENT_AMOUNT: {
 				PropagatorCalcEventAmount propagatorCalcEventAmount = (PropagatorCalcEventAmount)theEObject;
 				T result = casePropagatorCalcEventAmount(propagatorCalcEventAmount);
@@ -1184,21 +1178,6 @@ public class TimeContinuousCalcSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T casePropagatorCalcEventSlope(PropagatorCalcEventSlope object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Propagator Calc Amount</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Propagator Calc Amount</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePropagatorCalcAmount(PropagatorCalcAmount object) {
 		return null;
 	}
 

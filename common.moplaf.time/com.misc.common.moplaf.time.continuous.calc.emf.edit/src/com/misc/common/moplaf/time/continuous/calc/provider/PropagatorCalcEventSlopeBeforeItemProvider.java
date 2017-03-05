@@ -64,8 +64,10 @@ public class PropagatorCalcEventSlopeBeforeItemProvider extends PropagatorCalcEv
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorCalcEventSlopeBefore propagatorCalcEventSlopeBefore = (PropagatorCalcEventSlopeBefore)object;
-		return getString("_UI_PropagatorCalcEventSlopeBefore_type") + " " + propagatorCalcEventSlopeBefore.isTouched();
+		String label = ((PropagatorCalcEventSlopeBefore)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorCalcEventSlopeBefore_type") :
+			getString("_UI_PropagatorCalcEventSlopeBefore_type") + " " + label;
 	}
 	
 

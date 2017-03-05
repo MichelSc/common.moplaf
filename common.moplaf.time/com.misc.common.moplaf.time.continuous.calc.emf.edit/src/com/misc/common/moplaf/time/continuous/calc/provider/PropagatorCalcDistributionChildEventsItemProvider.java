@@ -93,8 +93,10 @@ public class PropagatorCalcDistributionChildEventsItemProvider extends Propagato
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorCalcDistributionChildEvents propagatorCalcDistributionChildEvents = (PropagatorCalcDistributionChildEvents)object;
-		return getString("_UI_PropagatorCalcDistributionChildEvents_type") + " " + propagatorCalcDistributionChildEvents.isTouched();
+		String label = ((PropagatorCalcDistributionChildEvents)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorCalcDistributionChildEvents_type") :
+			getString("_UI_PropagatorCalcDistributionChildEvents_type") + " " + label;
 	}
 	
 

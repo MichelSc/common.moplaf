@@ -64,8 +64,10 @@ public class PropagatorCalcStockChangeEndSlopeImpulsionItemProvider extends Prop
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorCalcStockChangeEndSlopeImpulsion propagatorCalcStockChangeEndSlopeImpulsion = (PropagatorCalcStockChangeEndSlopeImpulsion)object;
-		return getString("_UI_PropagatorCalcStockChangeEndSlopeImpulsion_type") + " " + propagatorCalcStockChangeEndSlopeImpulsion.isTouched();
+		String label = ((PropagatorCalcStockChangeEndSlopeImpulsion)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorCalcStockChangeEndSlopeImpulsion_type") :
+			getString("_UI_PropagatorCalcStockChangeEndSlopeImpulsion_type") + " " + label;
 	}
 	
 

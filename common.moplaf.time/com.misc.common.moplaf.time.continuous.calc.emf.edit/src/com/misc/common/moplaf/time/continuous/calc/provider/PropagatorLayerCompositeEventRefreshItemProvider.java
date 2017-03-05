@@ -116,8 +116,10 @@ public class PropagatorLayerCompositeEventRefreshItemProvider extends Propagator
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorLayerCompositeEventRefresh propagatorLayerCompositeEventRefresh = (PropagatorLayerCompositeEventRefresh)object;
-		return getString("_UI_PropagatorLayerCompositeEventRefresh_type") + " " + propagatorLayerCompositeEventRefresh.isTouched();
+		String label = ((PropagatorLayerCompositeEventRefresh)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorLayerCompositeEventRefresh_type") :
+			getString("_UI_PropagatorLayerCompositeEventRefresh_type") + " " + label;
 	}
 	
 

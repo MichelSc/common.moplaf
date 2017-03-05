@@ -64,8 +64,10 @@ public class PropagatorCalcCapacityChangeStartAmountImpulsionItemProvider extend
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorCalcCapacityChangeStartAmountImpulsion propagatorCalcCapacityChangeStartAmountImpulsion = (PropagatorCalcCapacityChangeStartAmountImpulsion)object;
-		return getString("_UI_PropagatorCalcCapacityChangeStartAmountImpulsion_type") + " " + propagatorCalcCapacityChangeStartAmountImpulsion.isTouched();
+		String label = ((PropagatorCalcCapacityChangeStartAmountImpulsion)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorCalcCapacityChangeStartAmountImpulsion_type") :
+			getString("_UI_PropagatorCalcCapacityChangeStartAmountImpulsion_type") + " " + label;
 	}
 	
 

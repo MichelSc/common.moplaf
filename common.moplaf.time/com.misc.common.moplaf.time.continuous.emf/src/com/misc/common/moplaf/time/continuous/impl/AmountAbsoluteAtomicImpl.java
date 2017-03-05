@@ -6,6 +6,7 @@ package com.misc.common.moplaf.time.continuous.impl;
 import com.misc.common.moplaf.time.continuous.AmountAbsoluteAtomic;
 import com.misc.common.moplaf.time.continuous.AmountAbsoluteProvider;
 import com.misc.common.moplaf.time.continuous.Distribution;
+import com.misc.common.moplaf.time.continuous.EventsProviderAbstract;
 import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 
 import java.util.Date;
@@ -142,7 +143,9 @@ public class AmountAbsoluteAtomicImpl extends AmountAbsoluteImpl implements Amou
 	 * <!-- end-user-doc -->
 	 */
 	public Distribution basicGetDistribution() {
-		return (Distribution)this.eContainer();
+		EventsProviderAbstract eventProvider = this.getEventProvider();
+		Distribution distribution = eventProvider.getDistribution(); 
+		return distribution;
 	}
 
 	/**

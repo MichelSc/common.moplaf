@@ -64,8 +64,10 @@ public class PropagatorCalcChildEventMomentItemProvider extends PropagatorCalcEv
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorCalcChildEventMoment propagatorCalcChildEventMoment = (PropagatorCalcChildEventMoment)object;
-		return getString("_UI_PropagatorCalcChildEventMoment_type") + " " + propagatorCalcChildEventMoment.isTouched();
+		String label = ((PropagatorCalcChildEventMoment)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorCalcChildEventMoment_type") :
+			getString("_UI_PropagatorCalcChildEventMoment_type") + " " + label;
 	}
 	
 

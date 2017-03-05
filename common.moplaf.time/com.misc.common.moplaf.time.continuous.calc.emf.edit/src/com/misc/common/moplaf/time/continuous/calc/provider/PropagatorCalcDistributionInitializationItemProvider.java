@@ -93,8 +93,10 @@ public class PropagatorCalcDistributionInitializationItemProvider extends Propag
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorCalcDistributionInitialization propagatorCalcDistributionInitialization = (PropagatorCalcDistributionInitialization)object;
-		return getString("_UI_PropagatorCalcDistributionInitialization_type") + " " + propagatorCalcDistributionInitialization.isTouched();
+		String label = ((PropagatorCalcDistributionInitialization)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorCalcDistributionInitialization_type") :
+			getString("_UI_PropagatorCalcDistributionInitialization_type") + " " + label;
 	}
 	
 

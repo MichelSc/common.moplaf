@@ -64,8 +64,10 @@ public class PropagatorCalcCapacityChangeStartMomentItemProvider extends Propaga
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorCalcCapacityChangeStartMoment propagatorCalcCapacityChangeStartMoment = (PropagatorCalcCapacityChangeStartMoment)object;
-		return getString("_UI_PropagatorCalcCapacityChangeStartMoment_type") + " " + propagatorCalcCapacityChangeStartMoment.isTouched();
+		String label = ((PropagatorCalcCapacityChangeStartMoment)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorCalcCapacityChangeStartMoment_type") :
+			getString("_UI_PropagatorCalcCapacityChangeStartMoment_type") + " " + label;
 	}
 	
 

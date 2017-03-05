@@ -64,8 +64,10 @@ public class PropagatorCalcCapacityChangeEndMomentItemProvider extends Propagato
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorCalcCapacityChangeEndMoment propagatorCalcCapacityChangeEndMoment = (PropagatorCalcCapacityChangeEndMoment)object;
-		return getString("_UI_PropagatorCalcCapacityChangeEndMoment_type") + " " + propagatorCalcCapacityChangeEndMoment.isTouched();
+		String label = ((PropagatorCalcCapacityChangeEndMoment)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorCalcCapacityChangeEndMoment_type") :
+			getString("_UI_PropagatorCalcCapacityChangeEndMoment_type") + " " + label;
 	}
 	
 

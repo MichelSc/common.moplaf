@@ -64,8 +64,10 @@ public class PropagatorCalcStockChangeEndMomentItemProvider extends PropagatorCa
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorCalcStockChangeEndMoment propagatorCalcStockChangeEndMoment = (PropagatorCalcStockChangeEndMoment)object;
-		return getString("_UI_PropagatorCalcStockChangeEndMoment_type") + " " + propagatorCalcStockChangeEndMoment.isTouched();
+		String label = ((PropagatorCalcStockChangeEndMoment)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorCalcStockChangeEndMoment_type") :
+			getString("_UI_PropagatorCalcStockChangeEndMoment_type") + " " + label;
 	}
 	
 

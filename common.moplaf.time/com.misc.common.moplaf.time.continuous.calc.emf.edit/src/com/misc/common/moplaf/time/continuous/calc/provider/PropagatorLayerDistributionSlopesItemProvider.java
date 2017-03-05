@@ -116,8 +116,10 @@ public class PropagatorLayerDistributionSlopesItemProvider extends PropagatorFun
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorLayerDistributionSlopes propagatorLayerDistributionSlopes = (PropagatorLayerDistributionSlopes)object;
-		return getString("_UI_PropagatorLayerDistributionSlopes_type") + " " + propagatorLayerDistributionSlopes.isTouched();
+		String label = ((PropagatorLayerDistributionSlopes)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorLayerDistributionSlopes_type") :
+			getString("_UI_PropagatorLayerDistributionSlopes_type") + " " + label;
 	}
 	
 

@@ -93,8 +93,10 @@ public class PropagatorCalcEventAmountItemProvider extends PropagatorFunctionDis
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorCalcEventAmount propagatorCalcEventAmount = (PropagatorCalcEventAmount)object;
-		return getString("_UI_PropagatorCalcEventAmount_type") + " " + propagatorCalcEventAmount.isTouched();
+		String label = ((PropagatorCalcEventAmount)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorCalcEventAmount_type") :
+			getString("_UI_PropagatorCalcEventAmount_type") + " " + label;
 	}
 	
 

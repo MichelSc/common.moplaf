@@ -64,8 +64,10 @@ public class PropagatorCalcSlopeAbsoluteSlopeAbsoluteItemProvider extends Propag
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorCalcSlopeAbsoluteSlopeAbsolute propagatorCalcSlopeAbsoluteSlopeAbsolute = (PropagatorCalcSlopeAbsoluteSlopeAbsolute)object;
-		return getString("_UI_PropagatorCalcSlopeAbsoluteSlopeAbsolute_type") + " " + propagatorCalcSlopeAbsoluteSlopeAbsolute.isTouched();
+		String label = ((PropagatorCalcSlopeAbsoluteSlopeAbsolute)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorCalcSlopeAbsoluteSlopeAbsolute_type") :
+			getString("_UI_PropagatorCalcSlopeAbsoluteSlopeAbsolute_type") + " " + label;
 	}
 	
 

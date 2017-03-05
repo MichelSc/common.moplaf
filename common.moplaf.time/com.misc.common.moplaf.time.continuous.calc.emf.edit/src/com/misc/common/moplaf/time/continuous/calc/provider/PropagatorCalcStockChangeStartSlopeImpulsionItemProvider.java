@@ -64,8 +64,10 @@ public class PropagatorCalcStockChangeStartSlopeImpulsionItemProvider extends Pr
 	 */
 	@Override
 	public String getText(Object object) {
-		PropagatorCalcStockChangeStartSlopeImpulsion propagatorCalcStockChangeStartSlopeImpulsion = (PropagatorCalcStockChangeStartSlopeImpulsion)object;
-		return getString("_UI_PropagatorCalcStockChangeStartSlopeImpulsion_type") + " " + propagatorCalcStockChangeStartSlopeImpulsion.isTouched();
+		String label = ((PropagatorCalcStockChangeStartSlopeImpulsion)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PropagatorCalcStockChangeStartSlopeImpulsion_type") :
+			getString("_UI_PropagatorCalcStockChangeStartSlopeImpulsion_type") + " " + label;
 	}
 	
 
