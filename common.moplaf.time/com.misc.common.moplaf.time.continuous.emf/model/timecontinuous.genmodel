@@ -162,25 +162,27 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference timecontinuous.ecore#//ChildEvent/Original"/>
     </genClasses>
     <genClasses ecoreClass="timecontinuous.ecore#//StartEvent" labelFeature="#//continuous/DistributionEvent/Description">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//StartEvent/AmountAtStart"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//StartEvent/SlopeAtStart"/>
+      <genFeatures createChild="false" propertyCategory="10 Distribution" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//StartEvent/AmountAtStart"/>
+      <genFeatures createChild="false" propertyCategory="10 Distribution" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//StartEvent/SlopeAtStart"/>
     </genClasses>
     <genClasses ecoreClass="timecontinuous.ecore#//EndEvent" labelFeature="#//continuous/DistributionEvent/Description"/>
     <genClasses image="false" ecoreClass="timecontinuous.ecore#//AmountImpulsion"
         labelFeature="#//continuous/DistributionEvent/Description">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//AmountImpulsion/AmountImpulsion"/>
+      <genFeatures createChild="false" propertyCategory="10 Distribution" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//AmountImpulsion/AmountImpulsion"/>
       <genOperations ecoreOperation="timecontinuous.ecore#//AmountImpulsion/refreshAmountImpulsion"/>
     </genClasses>
     <genClasses image="false" ecoreClass="timecontinuous.ecore#//SlopeImpulsion" labelFeature="#//continuous/DistributionEvent/Description">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//SlopeImpulsion/SlopeImpulsion"/>
+      <genFeatures createChild="false" propertyCategory="10 Distribution" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//SlopeImpulsion/SlopeImpulsion"/>
       <genOperations ecoreOperation="timecontinuous.ecore#//SlopeImpulsion/refreshSlopeImpulsion"/>
     </genClasses>
     <genClasses image="false" ecoreClass="timecontinuous.ecore#//AmountAbsolute" labelFeature="#//continuous/DistributionEvent/Description">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//AmountAbsolute/AmountAbsolute"/>
+      <genFeatures createChild="false" propertyCategory="10 Distribution" propertyDescription=""
+          ecoreFeature="ecore:EAttribute timecontinuous.ecore#//AmountAbsolute/AmountAbsolute"/>
       <genOperations ecoreOperation="timecontinuous.ecore#//AmountAbsolute/refreshAmountAbsolute"/>
     </genClasses>
     <genClasses image="false" ecoreClass="timecontinuous.ecore#//SlopeAbsolute" labelFeature="#//continuous/DistributionEvent/Description">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timecontinuous.ecore#//SlopeAbsolute/SlopeAbsolute"/>
+      <genFeatures createChild="false" propertyCategory="10 Distribution" propertyDescription=""
+          ecoreFeature="ecore:EAttribute timecontinuous.ecore#//SlopeAbsolute/SlopeAbsolute"/>
       <genOperations ecoreOperation="timecontinuous.ecore#//SlopeAbsolute/refreshSlopeAbsolute"/>
     </genClasses>
     <genClasses ecoreClass="timecontinuous.ecore#//CapacityChangeStart" labelFeature="#//continuous/DistributionEvent/Description">

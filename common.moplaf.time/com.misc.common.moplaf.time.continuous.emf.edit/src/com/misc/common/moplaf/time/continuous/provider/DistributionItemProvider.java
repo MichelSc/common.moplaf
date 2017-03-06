@@ -451,7 +451,10 @@ public class DistributionItemProvider
 		this.initChildren();
 		return this.children.get(1);
 	}
-	
+
+	/**
+	 * Specified by IItemAmountEventsProvider
+	 */
 	@Override
 	public Collection<?> getAmountEvents(Object element) {
 		Distribution distribution = (Distribution) element;
