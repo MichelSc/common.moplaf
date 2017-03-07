@@ -3,24 +3,29 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="macroplanner" nsURI="http://www.misc.com/common/moplaf/macroplanner/model/0.1"
     nsPrefix="mp">
   <eClassifiers xsi:type="ecore:EClass" name="SupplyChainMasterData">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Resources" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Products" upperBound="-1"
         eType="#//Product" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Locations" upperBound="-1"
         eType="#//Location" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Resources" upperBound="-1"
         eType="#//Resource" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Product">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Children" upperBound="-1"
         eType="#//Product" eOpposite="#//Product/Parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Parent" eType="#//Product"
         eOpposite="#//Product/Children"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Resource">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Children" upperBound="-1"
         eType="#//Resource" eOpposite="#//Resource/Parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Parent" eType="#//Resource"
         eOpposite="#//Resource/Children"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Location">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Products" upperBound="-1"
@@ -31,18 +36,27 @@
         eType="#//Location" eOpposite="#//Location/Parent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Parent" eType="#//Location"
         eOpposite="#//Location/Children"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LocationProduct">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Resource" eType="#//Product"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LocationResource">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="resource" eType="#//Resource"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Resource" eType="#//Resource"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SupplyChainData">
     <eStructuralFeatures xsi:type="ecore:EReference" name="SuppliesAndDemands" upperBound="-1"
         eType="#//ProductSupply" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="AvailabilitiesAndReservations"
         upperBound="-1" eType="#//ResourceAvailable" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Capacities" upperBound="-1"
+        eType="#//StockCapacity" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProductSupply">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Supplied" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
@@ -61,23 +75,37 @@
   <eClassifiers xsi:type="ecore:EClass" name="SupplyChainRoutings">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Routings" upperBound="-1"
         eType="#//Routing" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Routing">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Resources" upperBound="-1"
         eType="#//RoutingResource" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Products" upperBound="-1"
         eType="#//RoutingProduct" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RoutingProduct">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Consumption" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Offset" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="LocationProduct" lowerBound="1"
         eType="#//LocationProduct"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RoutingResource">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Reservation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
         defaultValueLiteral="0.0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Offset" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="LocationResource" eType="#//LocationResource"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StockCapacity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Capacity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="From" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="To" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Cost" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="LocationProduct" eType="#//LocationProduct"/>
   </eClassifiers>
 </ecore:EPackage>

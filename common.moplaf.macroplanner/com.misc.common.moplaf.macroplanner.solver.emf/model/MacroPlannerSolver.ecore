@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="solver" nsURI="http://www.misc.com/common/moplaf/macroplanner/solver/model/0.1"
+    nsPrefix="mps">
+  <eClassifiers xsi:type="ecore:EClass" name="Scenario">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="LPs" upperBound="-1" eType="#//LPMacroPlanner"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ScenarioStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ScenarioEnd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SelectedMasterData" eType="ecore:EClass ../../com.misc.common.moplaf.macroplanner.emf/model/MacroPlanner.ecore#//SupplyChainMasterData"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SelectedData" upperBound="-1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.macroplanner.emf/model/MacroPlanner.ecore#//SupplyChainData"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SelectedRoutings" eType="ecore:EClass ../../com.misc.common.moplaf.macroplanner.emf/model/MacroPlanner.ecore#//SupplyChainRoutings"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LPMacroPlanner" eSuperTypes="../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//Generator">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BucketSize" eType="ecore:EEnum ../../com.misc.common.moplaf.time.discrete.emf/model/timediscrete.ecore#//BucketType"/>
+  </eClassifiers>
+</ecore:EPackage>
