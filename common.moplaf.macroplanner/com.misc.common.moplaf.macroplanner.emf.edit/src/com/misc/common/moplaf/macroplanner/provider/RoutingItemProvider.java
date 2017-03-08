@@ -65,6 +65,7 @@ public class RoutingItemProvider
 
 			addNamePropertyDescriptor(object);
 			addCodePropertyDescriptor(object);
+			addCostPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -87,7 +88,7 @@ public class RoutingItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10MacroPlannerPropertyCategory"),
 				 null));
 	}
 
@@ -109,7 +110,29 @@ public class RoutingItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10MacroPlannerPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Cost feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCostPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Routing_Cost_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Routing_Cost_feature", "_UI_Routing_type"),
+				 MacroPlannerPackage.Literals.ROUTING__COST,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 getString("_UI__10MacroPlannerPropertyCategory"),
 				 null));
 	}
 
@@ -184,6 +207,7 @@ public class RoutingItemProvider
 		switch (notification.getFeatureID(Routing.class)) {
 			case MacroPlannerPackage.ROUTING__NAME:
 			case MacroPlannerPackage.ROUTING__CODE:
+			case MacroPlannerPackage.ROUTING__COST:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case MacroPlannerPackage.ROUTING__RESOURCES:

@@ -31,6 +31,7 @@ public interface Location extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Products</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.macroplanner.LocationProduct}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.macroplanner.LocationProduct#getLocation <em>Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Products</em>' containment reference list isn't clear,
@@ -39,7 +40,8 @@ public interface Location extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Products</em>' containment reference list.
 	 * @see com.misc.common.moplaf.macroplanner.MacroPlannerPackage#getLocation_Products()
-	 * @model containment="true"
+	 * @see com.misc.common.moplaf.macroplanner.LocationProduct#getLocation
+	 * @model opposite="Location" containment="true"
 	 * @generated
 	 */
 	EList<LocationProduct> getProducts();
@@ -47,6 +49,7 @@ public interface Location extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Resources</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.macroplanner.LocationResource}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.macroplanner.LocationResource#getLocation <em>Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Resources</em>' containment reference list isn't clear,
@@ -55,7 +58,8 @@ public interface Location extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Resources</em>' containment reference list.
 	 * @see com.misc.common.moplaf.macroplanner.MacroPlannerPackage#getLocation_Resources()
-	 * @model containment="true"
+	 * @see com.misc.common.moplaf.macroplanner.LocationResource#getLocation
+	 * @model opposite="Location" containment="true"
 	 * @generated
 	 */
 	EList<LocationResource> getResources();

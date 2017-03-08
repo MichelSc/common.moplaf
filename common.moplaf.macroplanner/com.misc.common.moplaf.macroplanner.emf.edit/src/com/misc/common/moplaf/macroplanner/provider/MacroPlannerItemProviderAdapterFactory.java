@@ -233,49 +233,72 @@ public class MacroPlannerItemProviderAdapterFactory extends MacroPlannerAdapterF
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.macroplanner.ProductSupply} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.macroplanner.Supply} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ProductSupplyItemProvider productSupplyItemProvider;
+	protected SupplyItemProvider supplyItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.macroplanner.ProductSupply}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.macroplanner.Supply}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createProductSupplyAdapter() {
-		if (productSupplyItemProvider == null) {
-			productSupplyItemProvider = new ProductSupplyItemProvider(this);
+	public Adapter createSupplyAdapter() {
+		if (supplyItemProvider == null) {
+			supplyItemProvider = new SupplyItemProvider(this);
 		}
 
-		return productSupplyItemProvider;
+		return supplyItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.macroplanner.ResourceAvailable} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.macroplanner.Availability} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ResourceAvailableItemProvider resourceAvailableItemProvider;
+	protected AvailabilityItemProvider availabilityItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.macroplanner.ResourceAvailable}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.macroplanner.Availability}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createResourceAvailableAdapter() {
-		if (resourceAvailableItemProvider == null) {
-			resourceAvailableItemProvider = new ResourceAvailableItemProvider(this);
+	public Adapter createAvailabilityAdapter() {
+		if (availabilityItemProvider == null) {
+			availabilityItemProvider = new AvailabilityItemProvider(this);
 		}
 
-		return resourceAvailableItemProvider;
+		return availabilityItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.macroplanner.Capacity} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CapacityItemProvider capacityItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.macroplanner.Capacity}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCapacityAdapter() {
+		if (capacityItemProvider == null) {
+			capacityItemProvider = new CapacityItemProvider(this);
+		}
+
+		return capacityItemProvider;
 	}
 
 	/**
@@ -476,8 +499,9 @@ public class MacroPlannerItemProviderAdapterFactory extends MacroPlannerAdapterF
 		if (locationProductItemProvider != null) locationProductItemProvider.dispose();
 		if (locationResourceItemProvider != null) locationResourceItemProvider.dispose();
 		if (supplyChainDataItemProvider != null) supplyChainDataItemProvider.dispose();
-		if (productSupplyItemProvider != null) productSupplyItemProvider.dispose();
-		if (resourceAvailableItemProvider != null) resourceAvailableItemProvider.dispose();
+		if (supplyItemProvider != null) supplyItemProvider.dispose();
+		if (availabilityItemProvider != null) availabilityItemProvider.dispose();
+		if (capacityItemProvider != null) capacityItemProvider.dispose();
 		if (supplyChainRoutingsItemProvider != null) supplyChainRoutingsItemProvider.dispose();
 		if (routingItemProvider != null) routingItemProvider.dispose();
 		if (routingProductItemProvider != null) routingProductItemProvider.dispose();

@@ -102,8 +102,9 @@ public class SupplyChainDataItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MacroPlannerPackage.Literals.SUPPLY_CHAIN_DATA__SUPPLIES_AND_DEMANDS);
-			childrenFeatures.add(MacroPlannerPackage.Literals.SUPPLY_CHAIN_DATA__AVAILABILITIES_AND_RESERVATIONS);
+			childrenFeatures.add(MacroPlannerPackage.Literals.SUPPLY_CHAIN_DATA__SUPPLIES);
+			childrenFeatures.add(MacroPlannerPackage.Literals.SUPPLY_CHAIN_DATA__AVAILABILITIES);
+			childrenFeatures.add(MacroPlannerPackage.Literals.SUPPLY_CHAIN_DATA__CAPACITIES);
 		}
 		return childrenFeatures;
 	}
@@ -162,8 +163,9 @@ public class SupplyChainDataItemProvider
 			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__SUPPLIES_AND_DEMANDS:
-			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__AVAILABILITIES_AND_RESERVATIONS:
+			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__SUPPLIES:
+			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__AVAILABILITIES:
+			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__CAPACITIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -183,13 +185,18 @@ public class SupplyChainDataItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MacroPlannerPackage.Literals.SUPPLY_CHAIN_DATA__SUPPLIES_AND_DEMANDS,
-				 MacroPlannerFactory.eINSTANCE.createProductSupply()));
+				(MacroPlannerPackage.Literals.SUPPLY_CHAIN_DATA__SUPPLIES,
+				 MacroPlannerFactory.eINSTANCE.createSupply()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MacroPlannerPackage.Literals.SUPPLY_CHAIN_DATA__AVAILABILITIES_AND_RESERVATIONS,
-				 MacroPlannerFactory.eINSTANCE.createResourceAvailable()));
+				(MacroPlannerPackage.Literals.SUPPLY_CHAIN_DATA__AVAILABILITIES,
+				 MacroPlannerFactory.eINSTANCE.createAvailability()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MacroPlannerPackage.Literals.SUPPLY_CHAIN_DATA__CAPACITIES,
+				 MacroPlannerFactory.eINSTANCE.createCapacity()));
 	}
 
 	/**

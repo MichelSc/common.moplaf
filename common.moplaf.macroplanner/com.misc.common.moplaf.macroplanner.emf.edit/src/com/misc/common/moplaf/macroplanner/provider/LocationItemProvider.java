@@ -133,7 +133,7 @@ public class LocationItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10MacroPlannerPropertyCategory"),
 				 null));
 	}
 
@@ -155,7 +155,7 @@ public class LocationItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10MacroPlannerPropertyCategory"),
 				 null));
 	}
 

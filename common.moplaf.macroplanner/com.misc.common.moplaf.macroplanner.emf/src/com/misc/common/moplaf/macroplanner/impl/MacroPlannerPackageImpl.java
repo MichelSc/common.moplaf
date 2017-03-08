@@ -2,18 +2,19 @@
  */
 package com.misc.common.moplaf.macroplanner.impl;
 
+import com.misc.common.moplaf.macroplanner.Availability;
+import com.misc.common.moplaf.macroplanner.Capacity;
 import com.misc.common.moplaf.macroplanner.Location;
 import com.misc.common.moplaf.macroplanner.LocationProduct;
 import com.misc.common.moplaf.macroplanner.LocationResource;
 import com.misc.common.moplaf.macroplanner.MacroPlannerFactory;
 import com.misc.common.moplaf.macroplanner.MacroPlannerPackage;
 import com.misc.common.moplaf.macroplanner.Product;
-import com.misc.common.moplaf.macroplanner.ProductSupply;
 import com.misc.common.moplaf.macroplanner.Resource;
-import com.misc.common.moplaf.macroplanner.ResourceAvailable;
 import com.misc.common.moplaf.macroplanner.Routing;
 import com.misc.common.moplaf.macroplanner.RoutingProduct;
 import com.misc.common.moplaf.macroplanner.RoutingResource;
+import com.misc.common.moplaf.macroplanner.Supply;
 import com.misc.common.moplaf.macroplanner.SupplyChainData;
 import com.misc.common.moplaf.macroplanner.SupplyChainMasterData;
 import com.misc.common.moplaf.macroplanner.SupplyChainRoutings;
@@ -86,14 +87,21 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass productSupplyEClass = null;
+	private EClass supplyEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass resourceAvailableEClass = null;
+	private EClass availabilityEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass capacityEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -396,7 +404,7 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLocationProduct_Resource() {
+	public EReference getLocationProduct_Location() {
 		return (EReference)locationProductEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -405,8 +413,35 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getLocationProduct_Product() {
+		return (EReference)locationProductEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getLocationProduct_Code() {
-		return (EAttribute)locationProductEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)locationProductEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLocationProduct_Supplies() {
+		return (EReference)locationProductEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLocationProduct_Capacities() {
+		return (EReference)locationProductEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -423,7 +458,7 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLocationResource_Resource() {
+	public EReference getLocationResource_Location() {
 		return (EReference)locationResourceEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -432,8 +467,26 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getLocationResource_Resource() {
+		return (EReference)locationResourceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getLocationResource_Code() {
-		return (EAttribute)locationResourceEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)locationResourceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLocationResource_Availabilities() {
+		return (EReference)locationResourceEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -450,7 +503,7 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSupplyChainData_SuppliesAndDemands() {
+	public EReference getSupplyChainData_Supplies() {
 		return (EReference)supplyChainDataEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -459,7 +512,7 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSupplyChainData_AvailabilitiesAndReservations() {
+	public EReference getSupplyChainData_Availabilities() {
 		return (EReference)supplyChainDataEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -477,8 +530,8 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getProductSupply() {
-		return productSupplyEClass;
+	public EReference getSupplyChainData_Capacities() {
+		return (EReference)supplyChainDataEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -486,8 +539,8 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProductSupply_Supplied() {
-		return (EAttribute)productSupplyEClass.getEStructuralFeatures().get(0);
+	public EClass getSupply() {
+		return supplyEClass;
 	}
 
 	/**
@@ -495,8 +548,8 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProductSupply_From() {
-		return (EAttribute)productSupplyEClass.getEStructuralFeatures().get(1);
+	public EAttribute getSupply_Quantity() {
+		return (EAttribute)supplyEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -504,8 +557,8 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProductSupply_To() {
-		return (EAttribute)productSupplyEClass.getEStructuralFeatures().get(2);
+	public EAttribute getSupply_From() {
+		return (EAttribute)supplyEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -513,8 +566,8 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProductSupply_Cost() {
-		return (EAttribute)productSupplyEClass.getEStructuralFeatures().get(3);
+	public EAttribute getSupply_To() {
+		return (EAttribute)supplyEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -522,8 +575,8 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProductSupply_LocationProduct() {
-		return (EReference)productSupplyEClass.getEStructuralFeatures().get(4);
+	public EAttribute getSupply_Cost() {
+		return (EAttribute)supplyEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -531,8 +584,8 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getResourceAvailable() {
-		return resourceAvailableEClass;
+	public EReference getSupply_LocationProduct() {
+		return (EReference)supplyEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -540,8 +593,8 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getResourceAvailable_Available() {
-		return (EAttribute)resourceAvailableEClass.getEStructuralFeatures().get(0);
+	public EAttribute getSupply_Enforce() {
+		return (EAttribute)supplyEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -549,8 +602,8 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getResourceAvailable_From() {
-		return (EAttribute)resourceAvailableEClass.getEStructuralFeatures().get(1);
+	public EClass getAvailability() {
+		return availabilityEClass;
 	}
 
 	/**
@@ -558,8 +611,8 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getResourceAvailable_To() {
-		return (EAttribute)resourceAvailableEClass.getEStructuralFeatures().get(2);
+	public EAttribute getAvailability_Quantity() {
+		return (EAttribute)availabilityEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -567,8 +620,8 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getResourceAvailable_Cost() {
-		return (EAttribute)resourceAvailableEClass.getEStructuralFeatures().get(3);
+	public EAttribute getAvailability_From() {
+		return (EAttribute)availabilityEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -576,8 +629,116 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceAvailable_LocationResource() {
-		return (EReference)resourceAvailableEClass.getEStructuralFeatures().get(4);
+	public EAttribute getAvailability_To() {
+		return (EAttribute)availabilityEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAvailability_Cost() {
+		return (EAttribute)availabilityEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAvailability_Enforce() {
+		return (EAttribute)availabilityEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAvailability_Penalty() {
+		return (EAttribute)availabilityEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAvailability_LocationResource() {
+		return (EReference)availabilityEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCapacity() {
+		return capacityEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCapacity_Quantity() {
+		return (EAttribute)capacityEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCapacity_From() {
+		return (EAttribute)capacityEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCapacity_To() {
+		return (EAttribute)capacityEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCapacity_Cost() {
+		return (EAttribute)capacityEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCapacity_Enforce() {
+		return (EAttribute)capacityEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCapacity_Penalty() {
+		return (EAttribute)capacityEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCapacity_LocationProduct() {
+		return (EReference)capacityEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -657,6 +818,15 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getRouting_Cost() {
+		return (EAttribute)routingEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRoutingProduct() {
 		return routingProductEClass;
 	}
@@ -666,8 +836,17 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRoutingProduct_Routing() {
+		return (EReference)routingProductEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getRoutingProduct_Consumption() {
-		return (EAttribute)routingProductEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)routingProductEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -676,7 +855,7 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * @generated
 	 */
 	public EAttribute getRoutingProduct_Offset() {
-		return (EAttribute)routingProductEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)routingProductEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -685,7 +864,7 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * @generated
 	 */
 	public EReference getRoutingProduct_LocationProduct() {
-		return (EReference)routingProductEClass.getEStructuralFeatures().get(2);
+		return (EReference)routingProductEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -694,7 +873,7 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * @generated
 	 */
 	public EAttribute getRoutingProduct_Code() {
-		return (EAttribute)routingProductEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)routingProductEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -711,8 +890,17 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRoutingResource_Routing() {
+		return (EReference)routingResourceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getRoutingResource_Reservation() {
-		return (EAttribute)routingResourceEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)routingResourceEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -721,7 +909,7 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * @generated
 	 */
 	public EAttribute getRoutingResource_Offset() {
-		return (EAttribute)routingResourceEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)routingResourceEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -730,7 +918,7 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * @generated
 	 */
 	public EReference getRoutingResource_LocationResource() {
-		return (EReference)routingResourceEClass.getEStructuralFeatures().get(2);
+		return (EReference)routingResourceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -739,7 +927,7 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * @generated
 	 */
 	public EAttribute getRoutingResource_Code() {
-		return (EAttribute)routingResourceEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)routingResourceEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -797,31 +985,49 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 		createEAttribute(locationEClass, LOCATION__CODE);
 
 		locationProductEClass = createEClass(LOCATION_PRODUCT);
-		createEReference(locationProductEClass, LOCATION_PRODUCT__RESOURCE);
+		createEReference(locationProductEClass, LOCATION_PRODUCT__LOCATION);
+		createEReference(locationProductEClass, LOCATION_PRODUCT__PRODUCT);
 		createEAttribute(locationProductEClass, LOCATION_PRODUCT__CODE);
+		createEReference(locationProductEClass, LOCATION_PRODUCT__SUPPLIES);
+		createEReference(locationProductEClass, LOCATION_PRODUCT__CAPACITIES);
 
 		locationResourceEClass = createEClass(LOCATION_RESOURCE);
+		createEReference(locationResourceEClass, LOCATION_RESOURCE__LOCATION);
 		createEReference(locationResourceEClass, LOCATION_RESOURCE__RESOURCE);
 		createEAttribute(locationResourceEClass, LOCATION_RESOURCE__CODE);
+		createEReference(locationResourceEClass, LOCATION_RESOURCE__AVAILABILITIES);
 
 		supplyChainDataEClass = createEClass(SUPPLY_CHAIN_DATA);
-		createEReference(supplyChainDataEClass, SUPPLY_CHAIN_DATA__SUPPLIES_AND_DEMANDS);
-		createEReference(supplyChainDataEClass, SUPPLY_CHAIN_DATA__AVAILABILITIES_AND_RESERVATIONS);
+		createEReference(supplyChainDataEClass, SUPPLY_CHAIN_DATA__SUPPLIES);
+		createEReference(supplyChainDataEClass, SUPPLY_CHAIN_DATA__AVAILABILITIES);
 		createEAttribute(supplyChainDataEClass, SUPPLY_CHAIN_DATA__NAME);
+		createEReference(supplyChainDataEClass, SUPPLY_CHAIN_DATA__CAPACITIES);
 
-		productSupplyEClass = createEClass(PRODUCT_SUPPLY);
-		createEAttribute(productSupplyEClass, PRODUCT_SUPPLY__SUPPLIED);
-		createEAttribute(productSupplyEClass, PRODUCT_SUPPLY__FROM);
-		createEAttribute(productSupplyEClass, PRODUCT_SUPPLY__TO);
-		createEAttribute(productSupplyEClass, PRODUCT_SUPPLY__COST);
-		createEReference(productSupplyEClass, PRODUCT_SUPPLY__LOCATION_PRODUCT);
+		supplyEClass = createEClass(SUPPLY);
+		createEAttribute(supplyEClass, SUPPLY__QUANTITY);
+		createEAttribute(supplyEClass, SUPPLY__FROM);
+		createEAttribute(supplyEClass, SUPPLY__TO);
+		createEAttribute(supplyEClass, SUPPLY__COST);
+		createEReference(supplyEClass, SUPPLY__LOCATION_PRODUCT);
+		createEAttribute(supplyEClass, SUPPLY__ENFORCE);
 
-		resourceAvailableEClass = createEClass(RESOURCE_AVAILABLE);
-		createEAttribute(resourceAvailableEClass, RESOURCE_AVAILABLE__AVAILABLE);
-		createEAttribute(resourceAvailableEClass, RESOURCE_AVAILABLE__FROM);
-		createEAttribute(resourceAvailableEClass, RESOURCE_AVAILABLE__TO);
-		createEAttribute(resourceAvailableEClass, RESOURCE_AVAILABLE__COST);
-		createEReference(resourceAvailableEClass, RESOURCE_AVAILABLE__LOCATION_RESOURCE);
+		availabilityEClass = createEClass(AVAILABILITY);
+		createEAttribute(availabilityEClass, AVAILABILITY__QUANTITY);
+		createEAttribute(availabilityEClass, AVAILABILITY__FROM);
+		createEAttribute(availabilityEClass, AVAILABILITY__TO);
+		createEAttribute(availabilityEClass, AVAILABILITY__COST);
+		createEAttribute(availabilityEClass, AVAILABILITY__ENFORCE);
+		createEAttribute(availabilityEClass, AVAILABILITY__PENALTY);
+		createEReference(availabilityEClass, AVAILABILITY__LOCATION_RESOURCE);
+
+		capacityEClass = createEClass(CAPACITY);
+		createEAttribute(capacityEClass, CAPACITY__QUANTITY);
+		createEAttribute(capacityEClass, CAPACITY__FROM);
+		createEAttribute(capacityEClass, CAPACITY__TO);
+		createEAttribute(capacityEClass, CAPACITY__COST);
+		createEAttribute(capacityEClass, CAPACITY__ENFORCE);
+		createEAttribute(capacityEClass, CAPACITY__PENALTY);
+		createEReference(capacityEClass, CAPACITY__LOCATION_PRODUCT);
 
 		supplyChainRoutingsEClass = createEClass(SUPPLY_CHAIN_ROUTINGS);
 		createEReference(supplyChainRoutingsEClass, SUPPLY_CHAIN_ROUTINGS__ROUTINGS);
@@ -832,17 +1038,20 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 		createEReference(routingEClass, ROUTING__PRODUCTS);
 		createEAttribute(routingEClass, ROUTING__NAME);
 		createEAttribute(routingEClass, ROUTING__CODE);
+		createEAttribute(routingEClass, ROUTING__COST);
 
 		routingProductEClass = createEClass(ROUTING_PRODUCT);
+		createEReference(routingProductEClass, ROUTING_PRODUCT__ROUTING);
+		createEReference(routingProductEClass, ROUTING_PRODUCT__LOCATION_PRODUCT);
 		createEAttribute(routingProductEClass, ROUTING_PRODUCT__CONSUMPTION);
 		createEAttribute(routingProductEClass, ROUTING_PRODUCT__OFFSET);
-		createEReference(routingProductEClass, ROUTING_PRODUCT__LOCATION_PRODUCT);
 		createEAttribute(routingProductEClass, ROUTING_PRODUCT__CODE);
 
 		routingResourceEClass = createEClass(ROUTING_RESOURCE);
+		createEReference(routingResourceEClass, ROUTING_RESOURCE__ROUTING);
+		createEReference(routingResourceEClass, ROUTING_RESOURCE__LOCATION_RESOURCE);
 		createEAttribute(routingResourceEClass, ROUTING_RESOURCE__RESERVATION);
 		createEAttribute(routingResourceEClass, ROUTING_RESOURCE__OFFSET);
-		createEReference(routingResourceEClass, ROUTING_RESOURCE__LOCATION_RESOURCE);
 		createEAttribute(routingResourceEClass, ROUTING_RESOURCE__CODE);
 	}
 
@@ -895,60 +1104,81 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 		initEAttribute(getResource_Code(), ecorePackage.getEString(), "Code", null, 0, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(locationEClass, Location.class, "Location", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLocation_Products(), this.getLocationProduct(), null, "Products", null, 0, -1, Location.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getLocation_Resources(), this.getLocationResource(), null, "Resources", null, 0, -1, Location.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLocation_Products(), this.getLocationProduct(), this.getLocationProduct_Location(), "Products", null, 0, -1, Location.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLocation_Resources(), this.getLocationResource(), this.getLocationResource_Location(), "Resources", null, 0, -1, Location.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLocation_Children(), this.getLocation(), this.getLocation_Parent(), "Children", null, 0, -1, Location.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLocation_Parent(), this.getLocation(), this.getLocation_Children(), "Parent", null, 0, 1, Location.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLocation_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Location.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLocation_Code(), ecorePackage.getEString(), "Code", null, 0, 1, Location.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(locationProductEClass, LocationProduct.class, "LocationProduct", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLocationProduct_Resource(), this.getProduct(), null, "Resource", null, 0, 1, LocationProduct.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLocationProduct_Location(), this.getLocation(), this.getLocation_Products(), "Location", null, 1, 1, LocationProduct.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLocationProduct_Product(), this.getProduct(), null, "Product", null, 0, 1, LocationProduct.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLocationProduct_Code(), ecorePackage.getEString(), "Code", null, 0, 1, LocationProduct.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getLocationProduct_Supplies(), this.getSupply(), this.getSupply_LocationProduct(), "Supplies", null, 0, -1, LocationProduct.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLocationProduct_Capacities(), this.getCapacity(), this.getCapacity_LocationProduct(), "Capacities", null, 0, -1, LocationProduct.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(locationResourceEClass, LocationResource.class, "LocationResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getLocationResource_Location(), this.getLocation(), this.getLocation_Resources(), "Location", null, 1, 1, LocationResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLocationResource_Resource(), this.getResource(), null, "Resource", null, 0, 1, LocationResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLocationResource_Code(), ecorePackage.getEString(), "Code", null, 0, 1, LocationResource.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getLocationResource_Availabilities(), this.getAvailability(), this.getAvailability_LocationResource(), "Availabilities", null, 0, -1, LocationResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(supplyChainDataEClass, SupplyChainData.class, "SupplyChainData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSupplyChainData_SuppliesAndDemands(), this.getProductSupply(), null, "SuppliesAndDemands", null, 0, -1, SupplyChainData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSupplyChainData_AvailabilitiesAndReservations(), this.getResourceAvailable(), null, "AvailabilitiesAndReservations", null, 0, -1, SupplyChainData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSupplyChainData_Supplies(), this.getSupply(), null, "Supplies", null, 0, -1, SupplyChainData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSupplyChainData_Availabilities(), this.getAvailability(), null, "Availabilities", null, 0, -1, SupplyChainData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSupplyChainData_Name(), ecorePackage.getEString(), "Name", null, 0, 1, SupplyChainData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSupplyChainData_Capacities(), this.getCapacity(), null, "Capacities", null, 0, -1, SupplyChainData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(productSupplyEClass, ProductSupply.class, "ProductSupply", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getProductSupply_Supplied(), ecorePackage.getEFloat(), "Supplied", null, 0, 1, ProductSupply.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProductSupply_From(), ecorePackage.getEDate(), "From", null, 0, 1, ProductSupply.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProductSupply_To(), ecorePackage.getEDate(), "To", null, 0, 1, ProductSupply.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProductSupply_Cost(), ecorePackage.getEFloat(), "Cost", null, 0, 1, ProductSupply.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProductSupply_LocationProduct(), this.getLocationProduct(), null, "LocationProduct", null, 0, 1, ProductSupply.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(supplyEClass, Supply.class, "Supply", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSupply_Quantity(), ecorePackage.getEFloat(), "Quantity", null, 0, 1, Supply.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSupply_From(), ecorePackage.getEDate(), "From", null, 0, 1, Supply.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSupply_To(), ecorePackage.getEDate(), "To", null, 0, 1, Supply.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSupply_Cost(), ecorePackage.getEFloat(), "Cost", null, 0, 1, Supply.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSupply_LocationProduct(), this.getLocationProduct(), this.getLocationProduct_Supplies(), "LocationProduct", null, 0, 1, Supply.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSupply_Enforce(), ecorePackage.getEBoolean(), "Enforce", null, 0, 1, Supply.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(resourceAvailableEClass, ResourceAvailable.class, "ResourceAvailable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getResourceAvailable_Available(), ecorePackage.getEFloat(), "Available", null, 0, 1, ResourceAvailable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getResourceAvailable_From(), ecorePackage.getEDate(), "From", null, 0, 1, ResourceAvailable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getResourceAvailable_To(), ecorePackage.getEDate(), "To", null, 0, 1, ResourceAvailable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getResourceAvailable_Cost(), ecorePackage.getEFloat(), "Cost", null, 0, 1, ResourceAvailable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getResourceAvailable_LocationResource(), this.getLocationResource(), null, "LocationResource", null, 0, 1, ResourceAvailable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(availabilityEClass, Availability.class, "Availability", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAvailability_Quantity(), ecorePackage.getEFloat(), "Quantity", null, 0, 1, Availability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAvailability_From(), ecorePackage.getEDate(), "From", null, 0, 1, Availability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAvailability_To(), ecorePackage.getEDate(), "To", null, 0, 1, Availability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAvailability_Cost(), ecorePackage.getEFloat(), "Cost", null, 0, 1, Availability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAvailability_Enforce(), ecorePackage.getEBoolean(), "Enforce", null, 0, 1, Availability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAvailability_Penalty(), ecorePackage.getEFloat(), "Penalty", null, 0, 1, Availability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAvailability_LocationResource(), this.getLocationResource(), this.getLocationResource_Availabilities(), "LocationResource", null, 0, 1, Availability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(capacityEClass, Capacity.class, "Capacity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCapacity_Quantity(), ecorePackage.getEFloat(), "Quantity", null, 0, 1, Capacity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCapacity_From(), ecorePackage.getEDate(), "From", null, 0, 1, Capacity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCapacity_To(), ecorePackage.getEDate(), "To", null, 0, 1, Capacity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCapacity_Cost(), ecorePackage.getEFloat(), "Cost", null, 0, 1, Capacity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCapacity_Enforce(), ecorePackage.getEBoolean(), "Enforce", null, 0, 1, Capacity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCapacity_Penalty(), ecorePackage.getEFloat(), "Penalty", null, 0, 1, Capacity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCapacity_LocationProduct(), this.getLocationProduct(), this.getLocationProduct_Capacities(), "LocationProduct", null, 0, 1, Capacity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(supplyChainRoutingsEClass, SupplyChainRoutings.class, "SupplyChainRoutings", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSupplyChainRoutings_Routings(), this.getRouting(), null, "Routings", null, 0, -1, SupplyChainRoutings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSupplyChainRoutings_Name(), ecorePackage.getEString(), "Name", null, 0, 1, SupplyChainRoutings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(routingEClass, Routing.class, "Routing", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRouting_Resources(), this.getRoutingResource(), null, "Resources", null, 0, -1, Routing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRouting_Products(), this.getRoutingProduct(), null, "Products", null, 0, -1, Routing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRouting_Resources(), this.getRoutingResource(), this.getRoutingResource_Routing(), "Resources", null, 0, -1, Routing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRouting_Products(), this.getRoutingProduct(), this.getRoutingProduct_Routing(), "Products", null, 0, -1, Routing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRouting_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Routing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRouting_Code(), ecorePackage.getEString(), "Code", null, 0, 1, Routing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRouting_Cost(), ecorePackage.getEFloat(), "Cost", null, 0, 1, Routing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(routingProductEClass, RoutingProduct.class, "RoutingProduct", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRoutingProduct_Routing(), this.getRouting(), this.getRouting_Products(), "Routing", null, 1, 1, RoutingProduct.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRoutingProduct_LocationProduct(), this.getLocationProduct(), null, "LocationProduct", null, 1, 1, RoutingProduct.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRoutingProduct_Consumption(), ecorePackage.getEFloat(), "Consumption", null, 0, 1, RoutingProduct.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRoutingProduct_Offset(), ecorePackage.getEFloat(), "Offset", null, 0, 1, RoutingProduct.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRoutingProduct_LocationProduct(), this.getLocationProduct(), null, "LocationProduct", null, 1, 1, RoutingProduct.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRoutingProduct_Code(), ecorePackage.getEString(), "Code", null, 0, 1, RoutingProduct.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(routingResourceEClass, RoutingResource.class, "RoutingResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRoutingResource_Routing(), this.getRouting(), this.getRouting_Resources(), "Routing", null, 1, 1, RoutingResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRoutingResource_LocationResource(), this.getLocationResource(), null, "LocationResource", null, 0, 1, RoutingResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRoutingResource_Reservation(), ecorePackage.getEFloat(), "Reservation", "0.0", 0, 1, RoutingResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRoutingResource_Offset(), ecorePackage.getEFloat(), "Offset", null, 0, 1, RoutingResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRoutingResource_LocationResource(), this.getLocationResource(), null, "LocationResource", null, 0, 1, RoutingResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRoutingResource_Code(), ecorePackage.getEString(), "Code", null, 0, 1, RoutingResource.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		// Create resource

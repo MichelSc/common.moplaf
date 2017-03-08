@@ -96,12 +96,16 @@ public class MacroPlannerAdapterFactory extends AdapterFactoryImpl {
 				return createSupplyChainDataAdapter();
 			}
 			@Override
-			public Adapter caseProductSupply(ProductSupply object) {
-				return createProductSupplyAdapter();
+			public Adapter caseSupply(Supply object) {
+				return createSupplyAdapter();
 			}
 			@Override
-			public Adapter caseResourceAvailable(ResourceAvailable object) {
-				return createResourceAvailableAdapter();
+			public Adapter caseAvailability(Availability object) {
+				return createAvailabilityAdapter();
+			}
+			@Override
+			public Adapter caseCapacity(Capacity object) {
+				return createCapacityAdapter();
 			}
 			@Override
 			public Adapter caseSupplyChainRoutings(SupplyChainRoutings object) {
@@ -238,30 +242,44 @@ public class MacroPlannerAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.macroplanner.ProductSupply <em>Product Supply</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.macroplanner.Supply <em>Supply</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.macroplanner.ProductSupply
+	 * @see com.misc.common.moplaf.macroplanner.Supply
 	 * @generated
 	 */
-	public Adapter createProductSupplyAdapter() {
+	public Adapter createSupplyAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.macroplanner.ResourceAvailable <em>Resource Available</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.macroplanner.Availability <em>Availability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.macroplanner.ResourceAvailable
+	 * @see com.misc.common.moplaf.macroplanner.Availability
 	 * @generated
 	 */
-	public Adapter createResourceAvailableAdapter() {
+	public Adapter createAvailabilityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.macroplanner.Capacity <em>Capacity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.macroplanner.Capacity
+	 * @generated
+	 */
+	public Adapter createCapacityAdapter() {
 		return null;
 	}
 

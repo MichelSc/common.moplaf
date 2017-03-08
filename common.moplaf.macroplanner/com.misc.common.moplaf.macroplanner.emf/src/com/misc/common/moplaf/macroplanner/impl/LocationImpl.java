@@ -19,8 +19,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -149,7 +148,7 @@ public class LocationImpl extends MinimalEObjectImpl.Container implements Locati
 	 */
 	public EList<LocationProduct> getProducts() {
 		if (products == null) {
-			products = new EObjectContainmentEList<LocationProduct>(LocationProduct.class, this, MacroPlannerPackage.LOCATION__PRODUCTS);
+			products = new EObjectContainmentWithInverseEList<LocationProduct>(LocationProduct.class, this, MacroPlannerPackage.LOCATION__PRODUCTS, MacroPlannerPackage.LOCATION_PRODUCT__LOCATION);
 		}
 		return products;
 	}
@@ -161,7 +160,7 @@ public class LocationImpl extends MinimalEObjectImpl.Container implements Locati
 	 */
 	public EList<LocationResource> getResources() {
 		if (resources == null) {
-			resources = new EObjectContainmentEList<LocationResource>(LocationResource.class, this, MacroPlannerPackage.LOCATION__RESOURCES);
+			resources = new EObjectContainmentWithInverseEList<LocationResource>(LocationResource.class, this, MacroPlannerPackage.LOCATION__RESOURCES, MacroPlannerPackage.LOCATION_RESOURCE__LOCATION);
 		}
 		return resources;
 	}
@@ -289,6 +288,10 @@ public class LocationImpl extends MinimalEObjectImpl.Container implements Locati
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case MacroPlannerPackage.LOCATION__PRODUCTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProducts()).basicAdd(otherEnd, msgs);
+			case MacroPlannerPackage.LOCATION__RESOURCES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getResources()).basicAdd(otherEnd, msgs);
 			case MacroPlannerPackage.LOCATION__CHILDREN:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getChildren()).basicAdd(otherEnd, msgs);
 			case MacroPlannerPackage.LOCATION__PARENT:

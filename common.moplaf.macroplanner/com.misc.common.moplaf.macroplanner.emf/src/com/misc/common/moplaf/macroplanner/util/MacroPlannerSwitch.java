@@ -108,15 +108,21 @@ public class MacroPlannerSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MacroPlannerPackage.PRODUCT_SUPPLY: {
-				ProductSupply productSupply = (ProductSupply)theEObject;
-				T result = caseProductSupply(productSupply);
+			case MacroPlannerPackage.SUPPLY: {
+				Supply supply = (Supply)theEObject;
+				T result = caseSupply(supply);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MacroPlannerPackage.RESOURCE_AVAILABLE: {
-				ResourceAvailable resourceAvailable = (ResourceAvailable)theEObject;
-				T result = caseResourceAvailable(resourceAvailable);
+			case MacroPlannerPackage.AVAILABILITY: {
+				Availability availability = (Availability)theEObject;
+				T result = caseAvailability(availability);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MacroPlannerPackage.CAPACITY: {
+				Capacity capacity = (Capacity)theEObject;
+				T result = caseCapacity(capacity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -254,32 +260,47 @@ public class MacroPlannerSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Product Supply</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Supply</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Product Supply</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Supply</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseProductSupply(ProductSupply object) {
+	public T caseSupply(Supply object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Resource Available</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Availability</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Resource Available</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Availability</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseResourceAvailable(ResourceAvailable object) {
+	public T caseAvailability(Availability object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Capacity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Capacity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCapacity(Capacity object) {
 		return null;
 	}
 

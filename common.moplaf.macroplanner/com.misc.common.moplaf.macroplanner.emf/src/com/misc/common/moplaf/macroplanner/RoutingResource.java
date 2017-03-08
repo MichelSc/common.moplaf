@@ -13,9 +13,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.RoutingResource#getRouting <em>Routing</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.RoutingResource#getLocationResource <em>Location Resource</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.RoutingResource#getReservation <em>Reservation</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.RoutingResource#getOffset <em>Offset</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.RoutingResource#getLocationResource <em>Location Resource</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.RoutingResource#getCode <em>Code</em>}</li>
  * </ul>
  *
@@ -24,6 +25,34 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface RoutingResource extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Routing</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.macroplanner.Routing#getResources <em>Resources</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Routing</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Routing</em>' container reference.
+	 * @see #setRouting(Routing)
+	 * @see com.misc.common.moplaf.macroplanner.MacroPlannerPackage#getRoutingResource_Routing()
+	 * @see com.misc.common.moplaf.macroplanner.Routing#getResources
+	 * @model opposite="Resources" required="true" transient="false"
+	 * @generated
+	 */
+	Routing getRouting();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.macroplanner.RoutingResource#getRouting <em>Routing</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Routing</em>' container reference.
+	 * @see #getRouting()
+	 * @generated
+	 */
+	void setRouting(Routing value);
+
 	/**
 	 * Returns the value of the '<em><b>Reservation</b></em>' attribute.
 	 * The default value is <code>"0.0"</code>.

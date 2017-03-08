@@ -4,7 +4,7 @@
     nsPrefix="mps">
   <eClassifiers xsi:type="ecore:EClass" name="Scenario">
     <eStructuralFeatures xsi:type="ecore:EReference" name="LPs" upperBound="-1" eType="#//LPMacroPlanner"
-        containment="true"/>
+        containment="true" eOpposite="#//LPMacroPlanner/Scenario"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ScenarioStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ScenarioEnd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
@@ -14,18 +14,41 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="SelectedRoutings" eType="ecore:EClass ../../com.misc.common.moplaf.macroplanner.emf/model/MacroPlanner.ecore#//SupplyChainRoutings"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LPMacroPlanner" eSuperTypes="../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//Generator">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BucketSize" eType="ecore:EEnum ../../com.misc.common.moplaf.time.discrete.emf/model/timediscrete.ecore#//BucketType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BucketSize" eType="ecore:EEnum ../../com.misc.common.moplaf.time.discrete.emf/model/timediscrete.ecore#//BucketType"
+        defaultValueLiteral="Day"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ProductSet" lowerBound="1"
-        eType="#//LPProductsSet" containment="true" eOpposite="#//LPProductsSet/MacroPlanner"/>
+        eType="#//LPProductSet" containment="true" eOpposite="#//LPProductSet/MacroPlanner"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ResourceSet" lowerBound="1"
-        eType="#//LPResourcesSet" containment="true" eOpposite="#//LPResourcesSet/MacroPlanner"/>
+        eType="#//LPResourceSet" containment="true" eOpposite="#//LPResourceSet/MacroPlanner"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="RoutingSet" lowerBound="1"
-        eType="#//LPRoutingsSet" containment="true" eOpposite="#//LPRoutingsSet/MacroPlanner"/>
+        eType="#//LPRoutingSet" containment="true" eOpposite="#//LPRoutingSet/MacroPlanner"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Scenario" lowerBound="1"
+        eType="#//Scenario" eOpposite="#//Scenario/LPs"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TimeLine" eType="ecore:EClass ../../com.misc.common.moplaf.time.discrete.emf/model/timediscrete.ecore#//TimeLine"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CostRoutings" lowerBound="1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpGoal"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CostSupplies" lowerBound="1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpGoal"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CostCapacities" lowerBound="1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpGoal"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CostAvailabilities" lowerBound="1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpGoal"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="PenaltyCapacities" lowerBound="1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpGoal"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="PenaltyAvailabilities"
+        lowerBound="1" eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpGoal"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LPTuple" eSuperTypes="../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorTuple"/>
   <eClassifiers xsi:type="ecore:EClass" name="LPTimeLine" eSuperTypes="#//LPTuple ../../com.misc.common.moplaf.time.discrete.emf/model/timediscrete.ecore#//ObjectWithTimeLine"/>
   <eClassifiers xsi:type="ecore:EClass" name="LPTimeBucket" eSuperTypes="#//LPTuple ../../com.misc.common.moplaf.time.discrete.emf/model/timediscrete.ecore#//ObjectTimeBucket"/>
-  <eClassifiers xsi:type="ecore:EClass" name="LPProductsSet" eSuperTypes="../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorTuple #//LPTuple">
+  <eClassifiers xsi:type="ecore:EClass" name="LPProductSet" eSuperTypes="../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorTuple #//LPTuple">
     <eStructuralFeatures xsi:type="ecore:EReference" name="MacroPlanner" lowerBound="1"
         eType="#//LPMacroPlanner" eOpposite="#//LPMacroPlanner/ProductSet"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Products" upperBound="-1"
@@ -33,11 +56,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LPProduct" eSuperTypes="#//LPTimeLine">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ProductSet" lowerBound="1"
-        eType="#//LPProductsSet" eOpposite="#//LPProductsSet/Products"/>
+        eType="#//LPProductSet" eOpposite="#//LPProductSet/Products"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Supplies" upperBound="-1"
-        eType="#//LPProductSupply" containment="true" eOpposite="#//LPProductSupply/Product"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Stocks" upperBound="-1"
-        eType="#//LPStockCapacity" containment="true" eOpposite="#//LPStockCapacity/Product"/>
+        eType="#//LPSupply" containment="true" eOpposite="#//LPSupply/Product"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Capacities" upperBound="-1"
+        eType="#//LPCapacity" containment="true" eOpposite="#//LPCapacity/Product"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Product" eType="ecore:EClass ../../com.misc.common.moplaf.macroplanner.emf/model/MacroPlanner.ecore#//LocationProduct"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="LPBuckets" upperBound="-1"
         eType="#//LPProductBucket" containment="true" eOpposite="#//LPProductBucket/Product"/>
@@ -45,38 +68,67 @@
   <eClassifiers xsi:type="ecore:EClass" name="LPProductBucket" eSuperTypes="#//LPTimeBucket">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Product" eType="#//LPProduct"
         eOpposite="#//LPProduct/LPBuckets"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Stocks" upperBound="-1"
-        eType="#//LPStockCapacityBucket" eOpposite="#//LPStockCapacityBucket/ProductBucket"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Supplies" eType="#//LPProductSupplyBucket"
-        eOpposite="#//LPProductSupplyBucket/ProductBucket"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Capacities" upperBound="-1"
+        eType="#//LPCapacityBucket" eOpposite="#//LPCapacityBucket/ProductBucket"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Supplies" eType="#//LPSupplyBucket"
+        eOpposite="#//LPSupplyBucket/ProductBucket"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Consumed" lowerBound="1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpVar"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Supplied" lowerBound="1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpVar"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Stocked" lowerBound="1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpVar"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CalcConsumed" lowerBound="1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpCons"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CalcSupplied" lowerBound="1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpCons"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Balance" lowerBound="1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpCons"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LPProductSupply" eSuperTypes="#//LPTimeLine">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Supply" eType="ecore:EClass ../../com.misc.common.moplaf.macroplanner.emf/model/MacroPlanner.ecore#//ProductSupply"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LPSupply" eSuperTypes="#//LPTimeLine">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Supply" eType="ecore:EClass ../../com.misc.common.moplaf.macroplanner.emf/model/MacroPlanner.ecore#//Supply"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="LPBuckets" upperBound="-1"
-        eType="#//LPProductSupplyBucket" containment="true" eOpposite="#//LPProductSupplyBucket/ProductSupply"/>
+        eType="#//LPSupplyBucket" containment="true" eOpposite="#//LPSupplyBucket/Supply"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Product" eType="#//LPProduct"
         eOpposite="#//LPProduct/Supplies"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LPProductSupplyBucket" eSuperTypes="#//LPTimeBucket">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ProductSupply" eType="#//LPProductSupply"
-        eOpposite="#//LPProductSupply/LPBuckets"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LPSupplyBucket" eSuperTypes="#//LPTimeBucket">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Supply" eType="#//LPSupply"
+        eOpposite="#//LPSupply/LPBuckets"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ProductBucket" eType="#//LPProductBucket"
         eOpposite="#//LPProductBucket/Supplies"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Supplied" lowerBound="1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpVar"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LPStockCapacity" eSuperTypes="#//LPTimeLine">
+  <eClassifiers xsi:type="ecore:EClass" name="LPCapacity" eSuperTypes="#//LPTimeLine">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Product" lowerBound="1"
-        eType="#//LPProduct" eOpposite="#//LPProduct/Stocks"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Capacity" eType="ecore:EClass ../../com.misc.common.moplaf.macroplanner.emf/model/MacroPlanner.ecore#//StockCapacity"/>
+        eType="#//LPProduct" eOpposite="#//LPProduct/Capacities"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Capacity" eType="ecore:EClass ../../com.misc.common.moplaf.macroplanner.emf/model/MacroPlanner.ecore#//Capacity"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="LPBuckets" upperBound="-1"
-        eType="#//LPStockCapacityBucket" containment="true" eOpposite="#//LPStockCapacityBucket/StockCapacity"/>
+        eType="#//LPCapacityBucket" containment="true" eOpposite="#//LPCapacityBucket/Capacity"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LPStockCapacityBucket" eSuperTypes="#//LPTimeBucket">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="StockCapacity" eType="#//LPStockCapacity"
-        eOpposite="#//LPStockCapacity/LPBuckets"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LPCapacityBucket" eSuperTypes="#//LPTimeBucket">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Capacity" eType="#//LPCapacity"
+        eOpposite="#//LPCapacity/LPBuckets"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ProductBucket" eType="#//LPProductBucket"
-        eOpposite="#//LPProductBucket/Stocks"/>
+        eOpposite="#//LPProductBucket/Capacities"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Stocked" lowerBound="1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpVar"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Slack" lowerBound="1" eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpVar"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Balance" lowerBound="1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpCons"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LPResourcesSet" eSuperTypes="#//LPTuple">
+  <eClassifiers xsi:type="ecore:EClass" name="LPResourceSet" eSuperTypes="#//LPTuple">
     <eStructuralFeatures xsi:type="ecore:EReference" name="MacroPlanner" lowerBound="1"
         eType="#//LPMacroPlanner" eOpposite="#//LPMacroPlanner/ResourceSet"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Resources" upperBound="-1"
@@ -84,9 +136,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LPResource" eSuperTypes="#//LPTimeLine">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Availabilities" upperBound="-1"
-        eType="#//LPResourceAvailable" containment="true" eOpposite="#//LPResourceAvailable/Resource"/>
+        eType="#//LPAvailability" containment="true" eOpposite="#//LPAvailability/Resource"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ResourceSet" lowerBound="1"
-        eType="#//LPResourcesSet" eOpposite="#//LPResourcesSet/Resources"/>
+        eType="#//LPResourceSet" eOpposite="#//LPResourceSet/Resources"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Resource" eType="ecore:EClass ../../com.misc.common.moplaf.macroplanner.emf/model/MacroPlanner.ecore#//LocationResource"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="LPBuckets" upperBound="-1"
         eType="#//LPResourceBucket" containment="true" eOpposite="#//LPResourceBucket/Resource"/>
@@ -95,22 +147,36 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Resource" eType="#//LPResource"
         eOpposite="#//LPResource/LPBuckets"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Availabilities" upperBound="-1"
-        eType="#//LPResourceAvailableBucket" eOpposite="#//LPResourceAvailableBucket/ResourceBucket"/>
+        eType="#//LPAvailabilityBucket" eOpposite="#//LPAvailabilityBucket/ResourceBucket"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Reserved" lowerBound="1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpVar"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Balance" lowerBound="1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpCons"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LPResourceAvailable" eSuperTypes="#//LPTimeLine">
+  <eClassifiers xsi:type="ecore:EClass" name="LPAvailability" eSuperTypes="#//LPTimeLine">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Resource" lowerBound="1"
         eType="#//LPResource" eOpposite="#//LPResource/Availabilities"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Available" eType="ecore:EClass ../../com.misc.common.moplaf.macroplanner.emf/model/MacroPlanner.ecore#//ResourceAvailable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Availability" eType="ecore:EClass ../../com.misc.common.moplaf.macroplanner.emf/model/MacroPlanner.ecore#//Availability"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="LPBuckets" upperBound="-1"
-        eType="#//LPResourceAvailableBucket" containment="true" eOpposite="#//LPResourceAvailableBucket/Available"/>
+        eType="#//LPAvailabilityBucket" containment="true" eOpposite="#//LPAvailabilityBucket/Availability"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LPResourceAvailableBucket" eSuperTypes="#//LPTimeBucket">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Available" eType="#//LPResourceAvailable"
-        eOpposite="#//LPResourceAvailable/LPBuckets"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LPAvailabilityBucket" eSuperTypes="#//LPTimeBucket">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Availability" eType="#//LPAvailability"
+        eOpposite="#//LPAvailability/LPBuckets"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ResourceBucket" eType="#//LPResourceBucket"
         eOpposite="#//LPResourceBucket/Availabilities"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Reserved" lowerBound="1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpVar"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Slack" lowerBound="1" eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpVar"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Balance" lowerBound="1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpCons"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LPRoutingsSet" eSuperTypes="#//LPTuple">
+  <eClassifiers xsi:type="ecore:EClass" name="LPRoutingSet" eSuperTypes="#//LPTuple">
     <eStructuralFeatures xsi:type="ecore:EReference" name="MacroPlanner" lowerBound="1"
         eType="#//LPMacroPlanner" eOpposite="#//LPMacroPlanner/RoutingSet"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Routings" upperBound="-1"
@@ -118,7 +184,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LPRouting" eSuperTypes="#//LPTimeLine">
     <eStructuralFeatures xsi:type="ecore:EReference" name="RoutingSet" lowerBound="1"
-        eType="#//LPRoutingsSet" eOpposite="#//LPRoutingsSet/Routings"/>
+        eType="#//LPRoutingSet" eOpposite="#//LPRoutingSet/Routings"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Routing" eType="ecore:EClass ../../com.misc.common.moplaf.macroplanner.emf/model/MacroPlanner.ecore#//Routing"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="LPBuckets" upperBound="-1"
         eType="#//LPRoutingBucket" containment="true" eOpposite="#//LPRoutingBucket/Routing"/>
@@ -127,14 +193,23 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Routing" eType="#//LPRouting"
         eOpposite="#//LPRouting/LPBuckets"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Products" upperBound="-1"
-        eType="#//LPRoutingProductBucket" containment="true"/>
+        eType="#//LPRoutingBucketProduct" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Resources" upperBound="-1"
-        eType="#//LPRoutingResourceBucket" containment="true"/>
+        eType="#//LPRoutingBucketResource" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Planned" lowerBound="1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpVar"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LPRoutingProductBucket" eSuperTypes="#//LPTuple">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ProductBucket" eType="#//LPProductBucket"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LPRoutingBucketProduct" eSuperTypes="#//LPTuple">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ProductBucket" lowerBound="1"
+        eType="#//LPProductBucket"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="RoutingProduct" lowerBound="1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.macroplanner.emf/model/MacroPlanner.ecore#//RoutingProduct"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LPRoutingResourceBucket" eSuperTypes="#//LPTuple">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ResourceBucket" eType="#//LPResourceBucket"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LPRoutingBucketResource" eSuperTypes="#//LPTuple">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ResourceBucket" lowerBound="1"
+        eType="#//LPResourceBucket"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="RoutingResource" lowerBound="1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.macroplanner.emf/model/MacroPlanner.ecore#//RoutingResource"/>
   </eClassifiers>
 </ecore:EPackage>

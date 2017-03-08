@@ -13,9 +13,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.RoutingProduct#getRouting <em>Routing</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.RoutingProduct#getLocationProduct <em>Location Product</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.RoutingProduct#getConsumption <em>Consumption</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.RoutingProduct#getOffset <em>Offset</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.RoutingProduct#getLocationProduct <em>Location Product</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.RoutingProduct#getCode <em>Code</em>}</li>
  * </ul>
  *
@@ -24,6 +25,34 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface RoutingProduct extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Routing</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.macroplanner.Routing#getProducts <em>Products</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Routing</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Routing</em>' container reference.
+	 * @see #setRouting(Routing)
+	 * @see com.misc.common.moplaf.macroplanner.MacroPlannerPackage#getRoutingProduct_Routing()
+	 * @see com.misc.common.moplaf.macroplanner.Routing#getProducts
+	 * @model opposite="Products" required="true" transient="false"
+	 * @generated
+	 */
+	Routing getRouting();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.macroplanner.RoutingProduct#getRouting <em>Routing</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Routing</em>' container reference.
+	 * @see #getRouting()
+	 * @generated
+	 */
+	void setRouting(Routing value);
+
 	/**
 	 * Returns the value of the '<em><b>Consumption</b></em>' attribute.
 	 * <!-- begin-user-doc -->

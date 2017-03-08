@@ -1,0 +1,73 @@
+/**
+ */
+package com.misc.common.moplaf.macroplanner.solver;
+
+import com.misc.common.moplaf.solver.GeneratorTuple;
+
+import org.eclipse.emf.common.util.EList;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>LP Product Set</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductSet#getMacroPlanner <em>Macro Planner</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductSet#getProducts <em>Products</em>}</li>
+ * </ul>
+ *
+ * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPProductSet()
+ * @model
+ * @generated
+ */
+public interface LPProductSet extends GeneratorTuple, LPTuple {
+	/**
+	 * Returns the value of the '<em><b>Macro Planner</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner#getProductSet <em>Product Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Macro Planner</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Macro Planner</em>' container reference.
+	 * @see #setMacroPlanner(LPMacroPlanner)
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPProductSet_MacroPlanner()
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner#getProductSet
+	 * @model opposite="ProductSet" required="true" transient="false"
+	 * @generated
+	 */
+	LPMacroPlanner getMacroPlanner();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.macroplanner.solver.LPProductSet#getMacroPlanner <em>Macro Planner</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Macro Planner</em>' container reference.
+	 * @see #getMacroPlanner()
+	 * @generated
+	 */
+	void setMacroPlanner(LPMacroPlanner value);
+
+	/**
+	 * Returns the value of the '<em><b>Products</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.macroplanner.solver.LPProduct}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.macroplanner.solver.LPProduct#getProductSet <em>Product Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Products</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Products</em>' containment reference list.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPProductSet_Products()
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPProduct#getProductSet
+	 * @model opposite="ProductSet" containment="true"
+	 * @generated
+	 */
+	EList<LPProduct> getProducts();
+
+} // LPProductSet

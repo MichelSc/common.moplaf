@@ -85,22 +85,31 @@ public interface MacroPlannerFactory extends EFactory {
 	SupplyChainData createSupplyChainData();
 
 	/**
-	 * Returns a new object of class '<em>Product Supply</em>'.
+	 * Returns a new object of class '<em>Supply</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Product Supply</em>'.
+	 * @return a new object of class '<em>Supply</em>'.
 	 * @generated
 	 */
-	ProductSupply createProductSupply();
+	Supply createSupply();
 
 	/**
-	 * Returns a new object of class '<em>Resource Available</em>'.
+	 * Returns a new object of class '<em>Availability</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Resource Available</em>'.
+	 * @return a new object of class '<em>Availability</em>'.
 	 * @generated
 	 */
-	ResourceAvailable createResourceAvailable();
+	Availability createAvailability();
+
+	/**
+	 * Returns a new object of class '<em>Capacity</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Capacity</em>'.
+	 * @generated
+	 */
+	Capacity createCapacity();
 
 	/**
 	 * Returns a new object of class '<em>Supply Chain Routings</em>'.

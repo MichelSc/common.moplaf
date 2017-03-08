@@ -60,31 +60,33 @@ public class LocationProductItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addResourcePropertyDescriptor(object);
+			addProductPropertyDescriptor(object);
 			addCodePropertyDescriptor(object);
+			addSuppliesPropertyDescriptor(object);
+			addCapacitiesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Resource feature.
+	 * This adds a property descriptor for the Product feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addResourcePropertyDescriptor(Object object) {
+	protected void addProductPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_LocationProduct_Resource_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LocationProduct_Resource_feature", "_UI_LocationProduct_type"),
-				 MacroPlannerPackage.Literals.LOCATION_PRODUCT__RESOURCE,
+				 getString("_UI_LocationProduct_Product_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LocationProduct_Product_feature", "_UI_LocationProduct_type"),
+				 MacroPlannerPackage.Literals.LOCATION_PRODUCT__PRODUCT,
 				 true,
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__10MacroPlannerPropertyCategory"),
 				 null));
 	}
 
@@ -106,6 +108,50 @@ public class LocationProductItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__10MacroPlannerPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Supplies feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSuppliesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LocationProduct_Supplies_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LocationProduct_Supplies_feature", "_UI_LocationProduct_type"),
+				 MacroPlannerPackage.Literals.LOCATION_PRODUCT__SUPPLIES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Capacities feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCapacitiesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LocationProduct_Capacities_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LocationProduct_Capacities_feature", "_UI_LocationProduct_type"),
+				 MacroPlannerPackage.Literals.LOCATION_PRODUCT__CAPACITIES,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

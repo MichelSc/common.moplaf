@@ -60,9 +60,9 @@ public class RoutingResourceItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addLocationResourcePropertyDescriptor(object);
 			addReservationPropertyDescriptor(object);
 			addOffsetPropertyDescriptor(object);
-			addLocationResourcePropertyDescriptor(object);
 			addCodePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -86,7 +86,7 @@ public class RoutingResourceItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10MacroPlannerPropertyCategory"),
 				 null));
 	}
 
@@ -108,7 +108,7 @@ public class RoutingResourceItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10MacroPlannerPropertyCategory"),
 				 null));
 	}
 
@@ -130,7 +130,7 @@ public class RoutingResourceItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__10MacroPlannerPropertyCategory"),
 				 null));
 	}
 
@@ -152,7 +152,7 @@ public class RoutingResourceItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI__10MacroPlannerPropertyCategory"),
 				 null));
 	}
 

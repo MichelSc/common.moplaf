@@ -62,6 +62,7 @@ public class LocationResourceItemProvider
 
 			addResourcePropertyDescriptor(object);
 			addCodePropertyDescriptor(object);
+			addAvailabilitiesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -106,6 +107,28 @@ public class LocationResourceItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__10MacroPlannerPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Availabilities feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAvailabilitiesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LocationResource_Availabilities_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LocationResource_Availabilities_feature", "_UI_LocationResource_type"),
+				 MacroPlannerPackage.Literals.LOCATION_RESOURCE__AVAILABILITIES,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

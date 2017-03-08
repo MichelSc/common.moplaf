@@ -2,9 +2,10 @@
  */
 package com.misc.common.moplaf.macroplanner.impl;
 
+import com.misc.common.moplaf.macroplanner.Availability;
+import com.misc.common.moplaf.macroplanner.Capacity;
 import com.misc.common.moplaf.macroplanner.MacroPlannerPackage;
-import com.misc.common.moplaf.macroplanner.ProductSupply;
-import com.misc.common.moplaf.macroplanner.ResourceAvailable;
+import com.misc.common.moplaf.macroplanner.Supply;
 import com.misc.common.moplaf.macroplanner.SupplyChainData;
 
 import java.util.Collection;
@@ -31,33 +32,34 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.macroplanner.impl.SupplyChainDataImpl#getSuppliesAndDemands <em>Supplies And Demands</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.impl.SupplyChainDataImpl#getAvailabilitiesAndReservations <em>Availabilities And Reservations</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.impl.SupplyChainDataImpl#getSupplies <em>Supplies</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.impl.SupplyChainDataImpl#getAvailabilities <em>Availabilities</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.SupplyChainDataImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.impl.SupplyChainDataImpl#getCapacities <em>Capacities</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class SupplyChainDataImpl extends MinimalEObjectImpl.Container implements SupplyChainData {
 	/**
-	 * The cached value of the '{@link #getSuppliesAndDemands() <em>Supplies And Demands</em>}' containment reference list.
+	 * The cached value of the '{@link #getSupplies() <em>Supplies</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSuppliesAndDemands()
+	 * @see #getSupplies()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ProductSupply> suppliesAndDemands;
+	protected EList<Supply> supplies;
 
 	/**
-	 * The cached value of the '{@link #getAvailabilitiesAndReservations() <em>Availabilities And Reservations</em>}' containment reference list.
+	 * The cached value of the '{@link #getAvailabilities() <em>Availabilities</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAvailabilitiesAndReservations()
+	 * @see #getAvailabilities()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ResourceAvailable> availabilitiesAndReservations;
+	protected EList<Availability> availabilities;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -78,6 +80,16 @@ public class SupplyChainDataImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getCapacities() <em>Capacities</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCapacities()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Capacity> capacities;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -103,11 +115,11 @@ public class SupplyChainDataImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ProductSupply> getSuppliesAndDemands() {
-		if (suppliesAndDemands == null) {
-			suppliesAndDemands = new EObjectContainmentEList<ProductSupply>(ProductSupply.class, this, MacroPlannerPackage.SUPPLY_CHAIN_DATA__SUPPLIES_AND_DEMANDS);
+	public EList<Supply> getSupplies() {
+		if (supplies == null) {
+			supplies = new EObjectContainmentEList<Supply>(Supply.class, this, MacroPlannerPackage.SUPPLY_CHAIN_DATA__SUPPLIES);
 		}
-		return suppliesAndDemands;
+		return supplies;
 	}
 
 	/**
@@ -115,11 +127,11 @@ public class SupplyChainDataImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ResourceAvailable> getAvailabilitiesAndReservations() {
-		if (availabilitiesAndReservations == null) {
-			availabilitiesAndReservations = new EObjectContainmentEList<ResourceAvailable>(ResourceAvailable.class, this, MacroPlannerPackage.SUPPLY_CHAIN_DATA__AVAILABILITIES_AND_RESERVATIONS);
+	public EList<Availability> getAvailabilities() {
+		if (availabilities == null) {
+			availabilities = new EObjectContainmentEList<Availability>(Availability.class, this, MacroPlannerPackage.SUPPLY_CHAIN_DATA__AVAILABILITIES);
 		}
-		return availabilitiesAndReservations;
+		return availabilities;
 	}
 
 	/**
@@ -148,13 +160,27 @@ public class SupplyChainDataImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Capacity> getCapacities() {
+		if (capacities == null) {
+			capacities = new EObjectContainmentEList<Capacity>(Capacity.class, this, MacroPlannerPackage.SUPPLY_CHAIN_DATA__CAPACITIES);
+		}
+		return capacities;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__SUPPLIES_AND_DEMANDS:
-				return ((InternalEList<?>)getSuppliesAndDemands()).basicRemove(otherEnd, msgs);
-			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__AVAILABILITIES_AND_RESERVATIONS:
-				return ((InternalEList<?>)getAvailabilitiesAndReservations()).basicRemove(otherEnd, msgs);
+			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__SUPPLIES:
+				return ((InternalEList<?>)getSupplies()).basicRemove(otherEnd, msgs);
+			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__AVAILABILITIES:
+				return ((InternalEList<?>)getAvailabilities()).basicRemove(otherEnd, msgs);
+			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__CAPACITIES:
+				return ((InternalEList<?>)getCapacities()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -167,12 +193,14 @@ public class SupplyChainDataImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__SUPPLIES_AND_DEMANDS:
-				return getSuppliesAndDemands();
-			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__AVAILABILITIES_AND_RESERVATIONS:
-				return getAvailabilitiesAndReservations();
+			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__SUPPLIES:
+				return getSupplies();
+			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__AVAILABILITIES:
+				return getAvailabilities();
 			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__NAME:
 				return getName();
+			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__CAPACITIES:
+				return getCapacities();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -186,16 +214,20 @@ public class SupplyChainDataImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__SUPPLIES_AND_DEMANDS:
-				getSuppliesAndDemands().clear();
-				getSuppliesAndDemands().addAll((Collection<? extends ProductSupply>)newValue);
+			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__SUPPLIES:
+				getSupplies().clear();
+				getSupplies().addAll((Collection<? extends Supply>)newValue);
 				return;
-			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__AVAILABILITIES_AND_RESERVATIONS:
-				getAvailabilitiesAndReservations().clear();
-				getAvailabilitiesAndReservations().addAll((Collection<? extends ResourceAvailable>)newValue);
+			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__AVAILABILITIES:
+				getAvailabilities().clear();
+				getAvailabilities().addAll((Collection<? extends Availability>)newValue);
 				return;
 			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__NAME:
 				setName((String)newValue);
+				return;
+			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__CAPACITIES:
+				getCapacities().clear();
+				getCapacities().addAll((Collection<? extends Capacity>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -209,14 +241,17 @@ public class SupplyChainDataImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__SUPPLIES_AND_DEMANDS:
-				getSuppliesAndDemands().clear();
+			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__SUPPLIES:
+				getSupplies().clear();
 				return;
-			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__AVAILABILITIES_AND_RESERVATIONS:
-				getAvailabilitiesAndReservations().clear();
+			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__AVAILABILITIES:
+				getAvailabilities().clear();
 				return;
 			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__NAME:
 				setName(NAME_EDEFAULT);
+				return;
+			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__CAPACITIES:
+				getCapacities().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -230,12 +265,14 @@ public class SupplyChainDataImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__SUPPLIES_AND_DEMANDS:
-				return suppliesAndDemands != null && !suppliesAndDemands.isEmpty();
-			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__AVAILABILITIES_AND_RESERVATIONS:
-				return availabilitiesAndReservations != null && !availabilitiesAndReservations.isEmpty();
+			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__SUPPLIES:
+				return supplies != null && !supplies.isEmpty();
+			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__AVAILABILITIES:
+				return availabilities != null && !availabilities.isEmpty();
 			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__CAPACITIES:
+				return capacities != null && !capacities.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

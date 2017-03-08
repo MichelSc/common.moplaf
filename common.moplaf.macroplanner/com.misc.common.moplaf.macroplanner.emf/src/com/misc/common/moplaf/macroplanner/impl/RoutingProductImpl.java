@@ -4,15 +4,18 @@ package com.misc.common.moplaf.macroplanner.impl;
 
 import com.misc.common.moplaf.macroplanner.LocationProduct;
 import com.misc.common.moplaf.macroplanner.MacroPlannerPackage;
+import com.misc.common.moplaf.macroplanner.Routing;
 import com.misc.common.moplaf.macroplanner.RoutingProduct;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,15 +25,26 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.impl.RoutingProductImpl#getRouting <em>Routing</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.impl.RoutingProductImpl#getLocationProduct <em>Location Product</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.RoutingProductImpl#getConsumption <em>Consumption</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.RoutingProductImpl#getOffset <em>Offset</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.impl.RoutingProductImpl#getLocationProduct <em>Location Product</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.RoutingProductImpl#getCode <em>Code</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class RoutingProductImpl extends MinimalEObjectImpl.Container implements RoutingProduct {
+	/**
+	 * The cached value of the '{@link #getLocationProduct() <em>Location Product</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLocationProduct()
+	 * @generated
+	 * @ordered
+	 */
+	protected LocationProduct locationProduct;
+
 	/**
 	 * The default value of the '{@link #getConsumption() <em>Consumption</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -72,16 +86,6 @@ public class RoutingProductImpl extends MinimalEObjectImpl.Container implements 
 	protected float offset = OFFSET_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getLocationProduct() <em>Location Product</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLocationProduct()
-	 * @generated
-	 * @ordered
-	 */
-	protected LocationProduct locationProduct;
-
-	/**
 	 * The default value of the '{@link #getCode() <em>Code</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -108,6 +112,47 @@ public class RoutingProductImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	protected EClass eStaticClass() {
 		return MacroPlannerPackage.Literals.ROUTING_PRODUCT;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Routing getRouting() {
+		if (eContainerFeatureID() != MacroPlannerPackage.ROUTING_PRODUCT__ROUTING) return null;
+		return (Routing)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRouting(Routing newRouting, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newRouting, MacroPlannerPackage.ROUTING_PRODUCT__ROUTING, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRouting(Routing newRouting) {
+		if (newRouting != eInternalContainer() || (eContainerFeatureID() != MacroPlannerPackage.ROUTING_PRODUCT__ROUTING && newRouting != null)) {
+			if (EcoreUtil.isAncestor(this, newRouting))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newRouting != null)
+				msgs = ((InternalEObject)newRouting).eInverseAdd(this, MacroPlannerPackage.ROUTING__PRODUCTS, Routing.class, msgs);
+			msgs = basicSetRouting(newRouting, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MacroPlannerPackage.ROUTING_PRODUCT__ROUTING, newRouting, newRouting));
 	}
 
 	/**
@@ -193,12 +238,56 @@ public class RoutingProductImpl extends MinimalEObjectImpl.Container implements 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public String getCode() {
-		// TODO: implement this method to return the 'Code' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		String code = String.format("RR(%s,%s)", 
+				this.getRouting()==null ? "null": this.getRouting().getCode(),
+				this.getLocationProduct()==null  ? "null": this.getLocationProduct().getCode());
+		return code;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case MacroPlannerPackage.ROUTING_PRODUCT__ROUTING:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetRouting((Routing)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case MacroPlannerPackage.ROUTING_PRODUCT__ROUTING:
+				return basicSetRouting(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case MacroPlannerPackage.ROUTING_PRODUCT__ROUTING:
+				return eInternalContainer().eInverseRemove(this, MacroPlannerPackage.ROUTING__PRODUCTS, Routing.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -209,13 +298,15 @@ public class RoutingProductImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case MacroPlannerPackage.ROUTING_PRODUCT__ROUTING:
+				return getRouting();
+			case MacroPlannerPackage.ROUTING_PRODUCT__LOCATION_PRODUCT:
+				if (resolve) return getLocationProduct();
+				return basicGetLocationProduct();
 			case MacroPlannerPackage.ROUTING_PRODUCT__CONSUMPTION:
 				return getConsumption();
 			case MacroPlannerPackage.ROUTING_PRODUCT__OFFSET:
 				return getOffset();
-			case MacroPlannerPackage.ROUTING_PRODUCT__LOCATION_PRODUCT:
-				if (resolve) return getLocationProduct();
-				return basicGetLocationProduct();
 			case MacroPlannerPackage.ROUTING_PRODUCT__CODE:
 				return getCode();
 		}
@@ -230,14 +321,17 @@ public class RoutingProductImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case MacroPlannerPackage.ROUTING_PRODUCT__ROUTING:
+				setRouting((Routing)newValue);
+				return;
+			case MacroPlannerPackage.ROUTING_PRODUCT__LOCATION_PRODUCT:
+				setLocationProduct((LocationProduct)newValue);
+				return;
 			case MacroPlannerPackage.ROUTING_PRODUCT__CONSUMPTION:
 				setConsumption((Float)newValue);
 				return;
 			case MacroPlannerPackage.ROUTING_PRODUCT__OFFSET:
 				setOffset((Float)newValue);
-				return;
-			case MacroPlannerPackage.ROUTING_PRODUCT__LOCATION_PRODUCT:
-				setLocationProduct((LocationProduct)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -251,14 +345,17 @@ public class RoutingProductImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case MacroPlannerPackage.ROUTING_PRODUCT__ROUTING:
+				setRouting((Routing)null);
+				return;
+			case MacroPlannerPackage.ROUTING_PRODUCT__LOCATION_PRODUCT:
+				setLocationProduct((LocationProduct)null);
+				return;
 			case MacroPlannerPackage.ROUTING_PRODUCT__CONSUMPTION:
 				setConsumption(CONSUMPTION_EDEFAULT);
 				return;
 			case MacroPlannerPackage.ROUTING_PRODUCT__OFFSET:
 				setOffset(OFFSET_EDEFAULT);
-				return;
-			case MacroPlannerPackage.ROUTING_PRODUCT__LOCATION_PRODUCT:
-				setLocationProduct((LocationProduct)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -272,12 +369,14 @@ public class RoutingProductImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case MacroPlannerPackage.ROUTING_PRODUCT__ROUTING:
+				return getRouting() != null;
+			case MacroPlannerPackage.ROUTING_PRODUCT__LOCATION_PRODUCT:
+				return locationProduct != null;
 			case MacroPlannerPackage.ROUTING_PRODUCT__CONSUMPTION:
 				return consumption != CONSUMPTION_EDEFAULT;
 			case MacroPlannerPackage.ROUTING_PRODUCT__OFFSET:
 				return offset != OFFSET_EDEFAULT;
-			case MacroPlannerPackage.ROUTING_PRODUCT__LOCATION_PRODUCT:
-				return locationProduct != null;
 			case MacroPlannerPackage.ROUTING_PRODUCT__CODE:
 				return CODE_EDEFAULT == null ? getCode() != null : !CODE_EDEFAULT.equals(getCode());
 		}

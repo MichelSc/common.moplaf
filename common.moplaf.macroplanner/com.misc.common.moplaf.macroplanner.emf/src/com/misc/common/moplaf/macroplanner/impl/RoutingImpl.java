@@ -19,8 +19,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -35,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.RoutingImpl#getProducts <em>Products</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.RoutingImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.RoutingImpl#getCode <em>Code</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.impl.RoutingImpl#getCost <em>Cost</em>}</li>
  * </ul>
  *
  * @generated
@@ -101,6 +101,26 @@ public class RoutingImpl extends MinimalEObjectImpl.Container implements Routing
 	protected String code = CODE_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getCost() <em>Cost</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCost()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float COST_EDEFAULT = 0.0F;
+
+	/**
+	 * The cached value of the '{@link #getCost() <em>Cost</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCost()
+	 * @generated
+	 * @ordered
+	 */
+	protected float cost = COST_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -126,7 +146,7 @@ public class RoutingImpl extends MinimalEObjectImpl.Container implements Routing
 	 */
 	public EList<RoutingResource> getResources() {
 		if (resources == null) {
-			resources = new EObjectContainmentEList<RoutingResource>(RoutingResource.class, this, MacroPlannerPackage.ROUTING__RESOURCES);
+			resources = new EObjectContainmentWithInverseEList<RoutingResource>(RoutingResource.class, this, MacroPlannerPackage.ROUTING__RESOURCES, MacroPlannerPackage.ROUTING_RESOURCE__ROUTING);
 		}
 		return resources;
 	}
@@ -138,7 +158,7 @@ public class RoutingImpl extends MinimalEObjectImpl.Container implements Routing
 	 */
 	public EList<RoutingProduct> getProducts() {
 		if (products == null) {
-			products = new EObjectContainmentEList<RoutingProduct>(RoutingProduct.class, this, MacroPlannerPackage.ROUTING__PRODUCTS);
+			products = new EObjectContainmentWithInverseEList<RoutingProduct>(RoutingProduct.class, this, MacroPlannerPackage.ROUTING__PRODUCTS, MacroPlannerPackage.ROUTING_PRODUCT__ROUTING);
 		}
 		return products;
 	}
@@ -190,6 +210,44 @@ public class RoutingImpl extends MinimalEObjectImpl.Container implements Routing
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public float getCost() {
+		return cost;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCost(float newCost) {
+		float oldCost = cost;
+		cost = newCost;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MacroPlannerPackage.ROUTING__COST, oldCost, cost));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case MacroPlannerPackage.ROUTING__RESOURCES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getResources()).basicAdd(otherEnd, msgs);
+			case MacroPlannerPackage.ROUTING__PRODUCTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProducts()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -217,6 +275,8 @@ public class RoutingImpl extends MinimalEObjectImpl.Container implements Routing
 				return getName();
 			case MacroPlannerPackage.ROUTING__CODE:
 				return getCode();
+			case MacroPlannerPackage.ROUTING__COST:
+				return getCost();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -244,6 +304,9 @@ public class RoutingImpl extends MinimalEObjectImpl.Container implements Routing
 			case MacroPlannerPackage.ROUTING__CODE:
 				setCode((String)newValue);
 				return;
+			case MacroPlannerPackage.ROUTING__COST:
+				setCost((Float)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -268,6 +331,9 @@ public class RoutingImpl extends MinimalEObjectImpl.Container implements Routing
 			case MacroPlannerPackage.ROUTING__CODE:
 				setCode(CODE_EDEFAULT);
 				return;
+			case MacroPlannerPackage.ROUTING__COST:
+				setCost(COST_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -288,6 +354,8 @@ public class RoutingImpl extends MinimalEObjectImpl.Container implements Routing
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case MacroPlannerPackage.ROUTING__CODE:
 				return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
+			case MacroPlannerPackage.ROUTING__COST:
+				return cost != COST_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -306,6 +374,8 @@ public class RoutingImpl extends MinimalEObjectImpl.Container implements Routing
 		result.append(name);
 		result.append(", Code: ");
 		result.append(code);
+		result.append(", Cost: ");
+		result.append(cost);
 		result.append(')');
 		return result.toString();
 	}

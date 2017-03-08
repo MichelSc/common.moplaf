@@ -63,8 +63,9 @@ public class MacroPlannerFactoryImpl extends EFactoryImpl implements MacroPlanne
 			case MacroPlannerPackage.LOCATION_PRODUCT: return createLocationProduct();
 			case MacroPlannerPackage.LOCATION_RESOURCE: return createLocationResource();
 			case MacroPlannerPackage.SUPPLY_CHAIN_DATA: return createSupplyChainData();
-			case MacroPlannerPackage.PRODUCT_SUPPLY: return createProductSupply();
-			case MacroPlannerPackage.RESOURCE_AVAILABLE: return createResourceAvailable();
+			case MacroPlannerPackage.SUPPLY: return createSupply();
+			case MacroPlannerPackage.AVAILABILITY: return createAvailability();
+			case MacroPlannerPackage.CAPACITY: return createCapacity();
 			case MacroPlannerPackage.SUPPLY_CHAIN_ROUTINGS: return createSupplyChainRoutings();
 			case MacroPlannerPackage.ROUTING: return createRouting();
 			case MacroPlannerPackage.ROUTING_PRODUCT: return createRoutingProduct();
@@ -149,9 +150,9 @@ public class MacroPlannerFactoryImpl extends EFactoryImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProductSupply createProductSupply() {
-		ProductSupplyImpl productSupply = new ProductSupplyImpl();
-		return productSupply;
+	public Supply createSupply() {
+		SupplyImpl supply = new SupplyImpl();
+		return supply;
 	}
 
 	/**
@@ -159,9 +160,19 @@ public class MacroPlannerFactoryImpl extends EFactoryImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceAvailable createResourceAvailable() {
-		ResourceAvailableImpl resourceAvailable = new ResourceAvailableImpl();
-		return resourceAvailable;
+	public Availability createAvailability() {
+		AvailabilityImpl availability = new AvailabilityImpl();
+		return availability;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Capacity createCapacity() {
+		CapacityImpl capacity = new CapacityImpl();
+		return capacity;
 	}
 
 	/**
