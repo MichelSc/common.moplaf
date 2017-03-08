@@ -6,8 +6,14 @@ import com.misc.common.moplaf.macroplanner.Capacity;
 
 import com.misc.common.moplaf.macroplanner.solver.LPCapacity;
 import com.misc.common.moplaf.macroplanner.solver.LPCapacityBucket;
+import com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner;
 import com.misc.common.moplaf.macroplanner.solver.LPProduct;
+import com.misc.common.moplaf.macroplanner.solver.LPProductSet;
+import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverFactory;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
+import com.misc.common.moplaf.time.discrete.ObjectTimeBucket;
+import com.misc.common.moplaf.time.discrete.TimeBucket;
+import com.misc.common.moplaf.time.discrete.TimeLine;
 
 import java.util.Collection;
 
@@ -301,4 +307,37 @@ public class LPCapacityImpl extends LPTimeLineImpl implements LPCapacity {
 		return super.eIsSet(featureID);
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public ObjectTimeBucket constructObjectTimeBucket() {
+		LPCapacityBucket newbucket = MacroPlannerSolverFactory.eINSTANCE.createLPCapacityBucket();
+		this.getLPBuckets().add(newbucket);
+		return newbucket;
+	}
+
+
+	/**
+	 * 
+	 */
+	@Override
+	public void generateTuples() {
+		super.generateTuples();
+
+		LPProduct product = this.getProduct();
+		LPProductSet products = product.getProductSet();
+		LPMacroPlanner lp = products.getMacroPlanner();
+		TimeLine timeline = lp.getTimeLine();
+		Capacity capacity = this.getCapacity();
+
+		// time line
+		TimeBucket startOfHorizon = timeline.getBucketFloor(capacity.getFrom());
+		TimeBucket endOfHorizon   = timeline.getBucketCeil(capacity.getTo());
+		this.setStartBucket(startOfHorizon);
+		this.setEndBucket  (endOfHorizon);
+		this.refresh();
+}
+
+	
 } //LPCapacityImpl

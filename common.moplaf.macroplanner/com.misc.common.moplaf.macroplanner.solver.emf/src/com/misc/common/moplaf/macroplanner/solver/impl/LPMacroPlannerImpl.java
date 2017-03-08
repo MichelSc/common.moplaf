@@ -1064,7 +1064,7 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 				}
 			}
 		}
-		this.setCostRoutings(goal); // owning
+		this.setCostSupplies(goal); // owning
 	}
 
 	/**
@@ -1087,7 +1087,7 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 				}
 			}
 		}
-		this.setCostRoutings(goal); // owning
+		this.setCostAvailabilities(goal); // owning
 	}
 
 
@@ -1111,7 +1111,7 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 				}
 			}
 		}
-		this.setCostRoutings(goal); // owning
+		this.setPenaltyAvailabilities(goal); // owning
 	}
 
 
@@ -1135,7 +1135,7 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 				}
 			}
 		}
-		this.setCostRoutings(goal); // owning
+		this.setCostCapacities(goal); // owning
 	}
 
 	/**
@@ -1158,7 +1158,7 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 				}
 			}
 		}
-		this.setCostRoutings(goal); // owning
+		this.setPenaltyCapacities(goal); // owning
 	}
 
 

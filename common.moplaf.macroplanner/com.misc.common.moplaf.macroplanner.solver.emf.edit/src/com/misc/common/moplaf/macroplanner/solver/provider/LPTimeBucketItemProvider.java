@@ -118,17 +118,6 @@ public class LPTimeBucketItemProvider extends LPTupleItemProvider {
 	}
 
 	/**
-	 * This returns LPTimeBucket.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/LPTimeBucket"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -136,7 +125,7 @@ public class LPTimeBucketItemProvider extends LPTupleItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((LPTimeBucket)object).getName();
+		String label = ((LPTimeBucket)object).getCode();
 		return label == null || label.length() == 0 ?
 			getString("_UI_LPTimeBucket_type") :
 			getString("_UI_LPTimeBucket_type") + " " + label;

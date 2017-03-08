@@ -105,17 +105,6 @@ public class LPCapacityItemProvider extends LPTimeLineItemProvider {
 	}
 
 	/**
-	 * This returns LPCapacity.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/LPCapacity"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -123,7 +112,7 @@ public class LPCapacityItemProvider extends LPTimeLineItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((LPCapacity)object).getName();
+		String label = ((LPCapacity)object).getCode();
 		return label == null || label.length() == 0 ?
 			getString("_UI_LPCapacity_type") :
 			getString("_UI_LPCapacity_type") + " " + label;

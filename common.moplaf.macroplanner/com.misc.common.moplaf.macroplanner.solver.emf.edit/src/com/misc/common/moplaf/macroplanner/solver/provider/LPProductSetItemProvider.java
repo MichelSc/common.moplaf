@@ -85,17 +85,6 @@ public class LPProductSetItemProvider extends GeneratorTupleItemProvider {
 	}
 
 	/**
-	 * This returns LPProductSet.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/LPProductSet"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -103,7 +92,7 @@ public class LPProductSetItemProvider extends GeneratorTupleItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((LPProductSet)object).getName();
+		String label = ((LPProductSet)object).getCode();
 		return label == null || label.length() == 0 ?
 			getString("_UI_LPProductSet_type") :
 			getString("_UI_LPProductSet_type") + " " + label;

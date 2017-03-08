@@ -134,17 +134,6 @@ public class LPProductBucketItemProvider extends LPTimeBucketItemProvider {
 	}
 
 	/**
-	 * This returns LPProductBucket.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/LPProductBucket"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -152,7 +141,7 @@ public class LPProductBucketItemProvider extends LPTimeBucketItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((LPProductBucket)object).getName();
+		String label = ((LPProductBucket)object).getCode();
 		return label == null || label.length() == 0 ?
 			getString("_UI_LPProductBucket_type") :
 			getString("_UI_LPProductBucket_type") + " " + label;

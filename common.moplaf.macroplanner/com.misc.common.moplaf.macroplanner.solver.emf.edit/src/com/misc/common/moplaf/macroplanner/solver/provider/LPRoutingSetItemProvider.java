@@ -81,17 +81,6 @@ public class LPRoutingSetItemProvider extends LPTupleItemProvider {
 	}
 
 	/**
-	 * This returns LPRoutingSet.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/LPRoutingSet"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -99,7 +88,7 @@ public class LPRoutingSetItemProvider extends LPTupleItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((LPRoutingSet)object).getName();
+		String label = ((LPRoutingSet)object).getCode();
 		return label == null || label.length() == 0 ?
 			getString("_UI_LPRoutingSet_type") :
 			getString("_UI_LPRoutingSet_type") + " " + label;

@@ -542,40 +542,13 @@ public interface MacroPlannerPackage extends EPackage {
 	int SUPPLY = 7;
 
 	/**
-	 * The feature id for the '<em><b>Quantity</b></em>' attribute.
+	 * The feature id for the '<em><b>Supply Chain Data</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY__QUANTITY = 0;
-
-	/**
-	 * The feature id for the '<em><b>From</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUPPLY__FROM = 1;
-
-	/**
-	 * The feature id for the '<em><b>To</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUPPLY__TO = 2;
-
-	/**
-	 * The feature id for the '<em><b>Cost</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SUPPLY__COST = 3;
+	int SUPPLY__SUPPLY_CHAIN_DATA = 0;
 
 	/**
 	 * The feature id for the '<em><b>Location Product</b></em>' reference.
@@ -584,7 +557,43 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY__LOCATION_PRODUCT = 4;
+	int SUPPLY__LOCATION_PRODUCT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Quantity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUPPLY__QUANTITY = 2;
+
+	/**
+	 * The feature id for the '<em><b>From</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUPPLY__FROM = 3;
+
+	/**
+	 * The feature id for the '<em><b>To</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUPPLY__TO = 4;
+
+	/**
+	 * The feature id for the '<em><b>Cost</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUPPLY__COST = 5;
 
 	/**
 	 * The feature id for the '<em><b>Enforce</b></em>' attribute.
@@ -593,7 +602,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY__ENFORCE = 5;
+	int SUPPLY__ENFORCE = 6;
 
 	/**
 	 * The number of structural features of the '<em>Supply</em>' class.
@@ -602,7 +611,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY_FEATURE_COUNT = 6;
+	int SUPPLY_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Supply</em>' class.
@@ -624,58 +633,13 @@ public interface MacroPlannerPackage extends EPackage {
 	int AVAILABILITY = 8;
 
 	/**
-	 * The feature id for the '<em><b>Quantity</b></em>' attribute.
+	 * The feature id for the '<em><b>Supply Chain Data</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AVAILABILITY__QUANTITY = 0;
-
-	/**
-	 * The feature id for the '<em><b>From</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AVAILABILITY__FROM = 1;
-
-	/**
-	 * The feature id for the '<em><b>To</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AVAILABILITY__TO = 2;
-
-	/**
-	 * The feature id for the '<em><b>Cost</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AVAILABILITY__COST = 3;
-
-	/**
-	 * The feature id for the '<em><b>Enforce</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AVAILABILITY__ENFORCE = 4;
-
-	/**
-	 * The feature id for the '<em><b>Penalty</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int AVAILABILITY__PENALTY = 5;
+	int AVAILABILITY__SUPPLY_CHAIN_DATA = 0;
 
 	/**
 	 * The feature id for the '<em><b>Location Resource</b></em>' reference.
@@ -684,7 +648,61 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AVAILABILITY__LOCATION_RESOURCE = 6;
+	int AVAILABILITY__LOCATION_RESOURCE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Quantity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AVAILABILITY__QUANTITY = 2;
+
+	/**
+	 * The feature id for the '<em><b>From</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AVAILABILITY__FROM = 3;
+
+	/**
+	 * The feature id for the '<em><b>To</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AVAILABILITY__TO = 4;
+
+	/**
+	 * The feature id for the '<em><b>Cost</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AVAILABILITY__COST = 5;
+
+	/**
+	 * The feature id for the '<em><b>Enforce</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AVAILABILITY__ENFORCE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Penalty</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AVAILABILITY__PENALTY = 7;
 
 	/**
 	 * The number of structural features of the '<em>Availability</em>' class.
@@ -693,7 +711,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AVAILABILITY_FEATURE_COUNT = 7;
+	int AVAILABILITY_FEATURE_COUNT = 8;
 
 	/**
 	 * The number of operations of the '<em>Availability</em>' class.
@@ -715,58 +733,13 @@ public interface MacroPlannerPackage extends EPackage {
 	int CAPACITY = 9;
 
 	/**
-	 * The feature id for the '<em><b>Quantity</b></em>' attribute.
+	 * The feature id for the '<em><b>Supply Chain Data</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY__QUANTITY = 0;
-
-	/**
-	 * The feature id for the '<em><b>From</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPACITY__FROM = 1;
-
-	/**
-	 * The feature id for the '<em><b>To</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPACITY__TO = 2;
-
-	/**
-	 * The feature id for the '<em><b>Cost</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPACITY__COST = 3;
-
-	/**
-	 * The feature id for the '<em><b>Enforce</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPACITY__ENFORCE = 4;
-
-	/**
-	 * The feature id for the '<em><b>Penalty</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAPACITY__PENALTY = 5;
+	int CAPACITY__SUPPLY_CHAIN_DATA = 0;
 
 	/**
 	 * The feature id for the '<em><b>Location Product</b></em>' reference.
@@ -775,7 +748,61 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY__LOCATION_PRODUCT = 6;
+	int CAPACITY__LOCATION_PRODUCT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Quantity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY__QUANTITY = 2;
+
+	/**
+	 * The feature id for the '<em><b>From</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY__FROM = 3;
+
+	/**
+	 * The feature id for the '<em><b>To</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY__TO = 4;
+
+	/**
+	 * The feature id for the '<em><b>Cost</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY__COST = 5;
+
+	/**
+	 * The feature id for the '<em><b>Enforce</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY__ENFORCE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Penalty</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPACITY__PENALTY = 7;
 
 	/**
 	 * The number of structural features of the '<em>Capacity</em>' class.
@@ -784,7 +811,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAPACITY_FEATURE_COUNT = 7;
+	int CAPACITY_FEATURE_COUNT = 8;
 
 	/**
 	 * The number of operations of the '<em>Capacity</em>' class.
@@ -1483,6 +1510,17 @@ public interface MacroPlannerPackage extends EPackage {
 	EClass getSupply();
 
 	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.macroplanner.Supply#getSupplyChainData <em>Supply Chain Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Supply Chain Data</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.Supply#getSupplyChainData()
+	 * @see #getSupply()
+	 * @generated
+	 */
+	EReference getSupply_SupplyChainData();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.Supply#getQuantity <em>Quantity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1557,6 +1595,17 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAvailability();
+
+	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.macroplanner.Availability#getSupplyChainData <em>Supply Chain Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Supply Chain Data</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.Availability#getSupplyChainData()
+	 * @see #getAvailability()
+	 * @generated
+	 */
+	EReference getAvailability_SupplyChainData();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.Availability#getQuantity <em>Quantity</em>}'.
@@ -1644,6 +1693,17 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getCapacity();
+
+	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.macroplanner.Capacity#getSupplyChainData <em>Supply Chain Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Supply Chain Data</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.Capacity#getSupplyChainData()
+	 * @see #getCapacity()
+	 * @generated
+	 */
+	EReference getCapacity_SupplyChainData();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.Capacity#getQuantity <em>Quantity</em>}'.
@@ -2301,6 +2361,14 @@ public interface MacroPlannerPackage extends EPackage {
 		EClass SUPPLY = eINSTANCE.getSupply();
 
 		/**
+		 * The meta object literal for the '<em><b>Supply Chain Data</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SUPPLY__SUPPLY_CHAIN_DATA = eINSTANCE.getSupply_SupplyChainData();
+
+		/**
 		 * The meta object literal for the '<em><b>Quantity</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2357,6 +2425,14 @@ public interface MacroPlannerPackage extends EPackage {
 		 * @generated
 		 */
 		EClass AVAILABILITY = eINSTANCE.getAvailability();
+
+		/**
+		 * The meta object literal for the '<em><b>Supply Chain Data</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AVAILABILITY__SUPPLY_CHAIN_DATA = eINSTANCE.getAvailability_SupplyChainData();
 
 		/**
 		 * The meta object literal for the '<em><b>Quantity</b></em>' attribute feature.
@@ -2423,6 +2499,14 @@ public interface MacroPlannerPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CAPACITY = eINSTANCE.getCapacity();
+
+		/**
+		 * The meta object literal for the '<em><b>Supply Chain Data</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CAPACITY__SUPPLY_CHAIN_DATA = eINSTANCE.getCapacity_SupplyChainData();
 
 		/**
 		 * The meta object literal for the '<em><b>Quantity</b></em>' attribute feature.

@@ -105,17 +105,6 @@ public class LPAvailabilityItemProvider extends LPTimeLineItemProvider {
 	}
 
 	/**
-	 * This returns LPAvailability.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/LPAvailability"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -123,7 +112,7 @@ public class LPAvailabilityItemProvider extends LPTimeLineItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((LPAvailability)object).getName();
+		String label = ((LPAvailability)object).getCode();
 		return label == null || label.length() == 0 ?
 			getString("_UI_LPAvailability_type") :
 			getString("_UI_LPAvailability_type") + " " + label;

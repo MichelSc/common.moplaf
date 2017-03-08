@@ -105,17 +105,6 @@ public class LPRoutingItemProvider extends LPTimeLineItemProvider {
 	}
 
 	/**
-	 * This returns LPRouting.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/LPRouting"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -123,7 +112,7 @@ public class LPRoutingItemProvider extends LPTimeLineItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((LPRouting)object).getName();
+		String label = ((LPRouting)object).getCode();
 		return label == null || label.length() == 0 ?
 			getString("_UI_LPRouting_type") :
 			getString("_UI_LPRouting_type") + " " + label;

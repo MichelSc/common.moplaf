@@ -85,17 +85,6 @@ public class LPRoutingBucketItemProvider extends LPTimeBucketItemProvider {
 	}
 
 	/**
-	 * This returns LPRoutingBucket.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/LPRoutingBucket"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -103,7 +92,7 @@ public class LPRoutingBucketItemProvider extends LPTimeBucketItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((LPRoutingBucket)object).getName();
+		String label = ((LPRoutingBucket)object).getCode();
 		return label == null || label.length() == 0 ?
 			getString("_UI_LPRoutingBucket_type") :
 			getString("_UI_LPRoutingBucket_type") + " " + label;

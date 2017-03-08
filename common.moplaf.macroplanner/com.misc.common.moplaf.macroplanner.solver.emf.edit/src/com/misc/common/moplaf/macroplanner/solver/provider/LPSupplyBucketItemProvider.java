@@ -106,17 +106,6 @@ public class LPSupplyBucketItemProvider extends LPTimeBucketItemProvider {
 	}
 
 	/**
-	 * This returns LPSupplyBucket.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/LPSupplyBucket"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -124,7 +113,7 @@ public class LPSupplyBucketItemProvider extends LPTimeBucketItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((LPSupplyBucket)object).getName();
+		String label = ((LPSupplyBucket)object).getCode();
 		return label == null || label.length() == 0 ?
 			getString("_UI_LPSupplyBucket_type") :
 			getString("_UI_LPSupplyBucket_type") + " " + label;

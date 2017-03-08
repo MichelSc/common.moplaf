@@ -60,11 +60,11 @@ public class SupplyItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addLocationProductPropertyDescriptor(object);
 			addQuantityPropertyDescriptor(object);
 			addFromPropertyDescriptor(object);
 			addToPropertyDescriptor(object);
 			addCostPropertyDescriptor(object);
-			addLocationProductPropertyDescriptor(object);
 			addEnforcePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;

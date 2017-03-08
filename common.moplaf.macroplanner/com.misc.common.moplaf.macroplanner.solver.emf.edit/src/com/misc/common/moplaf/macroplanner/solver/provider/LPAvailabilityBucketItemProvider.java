@@ -108,17 +108,6 @@ public class LPAvailabilityBucketItemProvider extends LPTimeBucketItemProvider {
 	}
 
 	/**
-	 * This returns LPAvailabilityBucket.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/LPAvailabilityBucket"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -126,7 +115,7 @@ public class LPAvailabilityBucketItemProvider extends LPTimeBucketItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((LPAvailabilityBucket)object).getName();
+		String label = ((LPAvailabilityBucket)object).getCode();
 		return label == null || label.length() == 0 ?
 			getString("_UI_LPAvailabilityBucket_type") :
 			getString("_UI_LPAvailabilityBucket_type") + " " + label;

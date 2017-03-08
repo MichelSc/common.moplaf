@@ -60,13 +60,13 @@ public class AvailabilityItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addLocationResourcePropertyDescriptor(object);
 			addQuantityPropertyDescriptor(object);
 			addFromPropertyDescriptor(object);
 			addToPropertyDescriptor(object);
 			addCostPropertyDescriptor(object);
 			addEnforcePropertyDescriptor(object);
 			addPenaltyPropertyDescriptor(object);
-			addLocationResourcePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}

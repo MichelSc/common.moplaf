@@ -3,8 +3,6 @@
 package com.misc.common.moplaf.macroplanner.solver.provider;
 
 
-import com.misc.common.moplaf.common.EnabledFeedback;
-
 import com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverFactory;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
@@ -125,17 +123,6 @@ public class LPMacroPlannerItemProvider extends GeneratorItemProvider {
 	}
 
 	/**
-	 * This returns LPMacroPlanner.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/LPMacroPlanner"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -143,8 +130,7 @@ public class LPMacroPlannerItemProvider extends GeneratorItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		EnabledFeedback labelValue = ((LPMacroPlanner)object).getRunFeedback();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((LPMacroPlanner)object).getCode();
 		return label == null || label.length() == 0 ?
 			getString("_UI_LPMacroPlanner_type") :
 			getString("_UI_LPMacroPlanner_type") + " " + label;

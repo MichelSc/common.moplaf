@@ -106,17 +106,6 @@ public class LPResourceItemProvider extends LPTimeLineItemProvider {
 	}
 
 	/**
-	 * This returns LPResource.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/LPResource"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -124,7 +113,7 @@ public class LPResourceItemProvider extends LPTimeLineItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((LPResource)object).getName();
+		String label = ((LPResource)object).getCode();
 		return label == null || label.length() == 0 ?
 			getString("_UI_LPResource_type") :
 			getString("_UI_LPResource_type") + " " + label;

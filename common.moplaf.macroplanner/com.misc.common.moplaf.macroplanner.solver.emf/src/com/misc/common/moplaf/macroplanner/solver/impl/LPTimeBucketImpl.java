@@ -439,4 +439,14 @@ public class LPTimeBucketImpl extends LPTupleImpl implements LPTimeBucket {
 		return super.eInvoke(operationID, arguments);
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public String getBucketShortName() {
+		TimeBucket bucket = this.getBucket();
+		String name = String.format("bu%04d", bucket.getBucketNr());
+		return name;
+	}
+
 } //LPTimeBucketImpl

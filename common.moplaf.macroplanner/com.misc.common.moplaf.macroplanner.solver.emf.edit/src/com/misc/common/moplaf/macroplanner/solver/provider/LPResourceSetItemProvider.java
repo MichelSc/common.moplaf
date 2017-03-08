@@ -81,17 +81,6 @@ public class LPResourceSetItemProvider extends LPTupleItemProvider {
 	}
 
 	/**
-	 * This returns LPResourceSet.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/LPResourceSet"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -99,7 +88,7 @@ public class LPResourceSetItemProvider extends LPTupleItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((LPResourceSet)object).getName();
+		String label = ((LPResourceSet)object).getCode();
 		return label == null || label.length() == 0 ?
 			getString("_UI_LPResourceSet_type") :
 			getString("_UI_LPResourceSet_type") + " " + label;

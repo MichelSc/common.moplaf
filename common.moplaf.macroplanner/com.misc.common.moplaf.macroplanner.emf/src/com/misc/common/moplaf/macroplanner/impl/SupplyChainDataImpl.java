@@ -20,8 +20,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -117,7 +116,7 @@ public class SupplyChainDataImpl extends MinimalEObjectImpl.Container implements
 	 */
 	public EList<Supply> getSupplies() {
 		if (supplies == null) {
-			supplies = new EObjectContainmentEList<Supply>(Supply.class, this, MacroPlannerPackage.SUPPLY_CHAIN_DATA__SUPPLIES);
+			supplies = new EObjectContainmentWithInverseEList<Supply>(Supply.class, this, MacroPlannerPackage.SUPPLY_CHAIN_DATA__SUPPLIES, MacroPlannerPackage.SUPPLY__SUPPLY_CHAIN_DATA);
 		}
 		return supplies;
 	}
@@ -129,7 +128,7 @@ public class SupplyChainDataImpl extends MinimalEObjectImpl.Container implements
 	 */
 	public EList<Availability> getAvailabilities() {
 		if (availabilities == null) {
-			availabilities = new EObjectContainmentEList<Availability>(Availability.class, this, MacroPlannerPackage.SUPPLY_CHAIN_DATA__AVAILABILITIES);
+			availabilities = new EObjectContainmentWithInverseEList<Availability>(Availability.class, this, MacroPlannerPackage.SUPPLY_CHAIN_DATA__AVAILABILITIES, MacroPlannerPackage.AVAILABILITY__SUPPLY_CHAIN_DATA);
 		}
 		return availabilities;
 	}
@@ -162,9 +161,28 @@ public class SupplyChainDataImpl extends MinimalEObjectImpl.Container implements
 	 */
 	public EList<Capacity> getCapacities() {
 		if (capacities == null) {
-			capacities = new EObjectContainmentEList<Capacity>(Capacity.class, this, MacroPlannerPackage.SUPPLY_CHAIN_DATA__CAPACITIES);
+			capacities = new EObjectContainmentWithInverseEList<Capacity>(Capacity.class, this, MacroPlannerPackage.SUPPLY_CHAIN_DATA__CAPACITIES, MacroPlannerPackage.CAPACITY__SUPPLY_CHAIN_DATA);
 		}
 		return capacities;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__SUPPLIES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSupplies()).basicAdd(otherEnd, msgs);
+			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__AVAILABILITIES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAvailabilities()).basicAdd(otherEnd, msgs);
+			case MacroPlannerPackage.SUPPLY_CHAIN_DATA__CAPACITIES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCapacities()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

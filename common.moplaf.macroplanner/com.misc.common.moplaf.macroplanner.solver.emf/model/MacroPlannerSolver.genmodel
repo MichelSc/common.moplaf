@@ -20,7 +20,8 @@
       <genFeatures notify="false" createChild="false" propertyCategory="40 ToUseMacroPlanner"
           propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//Scenario/SelectedRoutings"/>
     </genClasses>
-    <genClasses ecoreClass="MacroPlannerSolver.ecore#//LPMacroPlanner">
+    <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPMacroPlanner"
+        labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/Generator/Code">
       <genFeatures createChild="false" propertyCategory="40 ToUseMacroPlanner" ecoreFeature="ecore:EAttribute MacroPlannerSolver.ecore#//LPMacroPlanner/BucketSize"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPMacroPlanner/ProductSet"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPMacroPlanner/ResourceSet"/>
@@ -34,21 +35,24 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPMacroPlanner/PenaltyCapacities"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPMacroPlanner/PenaltyAvailabilities"/>
     </genClasses>
-    <genClasses ecoreClass="MacroPlannerSolver.ecore#//LPTuple"/>
-    <genClasses ecoreClass="MacroPlannerSolver.ecore#//LPTimeLine"/>
-    <genClasses ecoreClass="MacroPlannerSolver.ecore#//LPTimeBucket"/>
-    <genClasses ecoreClass="MacroPlannerSolver.ecore#//LPProductSet">
+    <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPTuple"/>
+    <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPTimeLine" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/GeneratorElement/Code"/>
+    <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPTimeBucket"
+        labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/GeneratorElement/Code"/>
+    <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPProductSet"
+        labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/GeneratorElement/Code">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPProductSet/MacroPlanner"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPProductSet/Products"/>
     </genClasses>
-    <genClasses ecoreClass="MacroPlannerSolver.ecore#//LPProduct">
+    <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPProduct" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/GeneratorElement/Code">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPProduct/ProductSet"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPProduct/Supplies"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPProduct/Capacities"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPProduct/Product"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPProduct/LPBuckets"/>
     </genClasses>
-    <genClasses ecoreClass="MacroPlannerSolver.ecore#//LPProductBucket">
+    <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPProductBucket"
+        labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/GeneratorElement/Code">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPProductBucket/Product"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPProductBucket/Capacities"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPProductBucket/Supplies"/>
@@ -59,72 +63,81 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPProductBucket/CalcSupplied"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPProductBucket/Balance"/>
     </genClasses>
-    <genClasses ecoreClass="MacroPlannerSolver.ecore#//LPSupply">
+    <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPSupply" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/GeneratorElement/Code">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPSupply/Supply"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPSupply/LPBuckets"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPSupply/Product"/>
     </genClasses>
-    <genClasses ecoreClass="MacroPlannerSolver.ecore#//LPSupplyBucket">
+    <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPSupplyBucket"
+        labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/GeneratorElement/Code">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPSupplyBucket/Supply"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPSupplyBucket/ProductBucket"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPSupplyBucket/Supplied"/>
     </genClasses>
-    <genClasses ecoreClass="MacroPlannerSolver.ecore#//LPCapacity">
+    <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPCapacity" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/GeneratorElement/Code">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPCapacity/Product"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPCapacity/Capacity"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPCapacity/LPBuckets"/>
     </genClasses>
-    <genClasses ecoreClass="MacroPlannerSolver.ecore#//LPCapacityBucket">
+    <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPCapacityBucket"
+        labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/GeneratorElement/Code">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPCapacityBucket/Capacity"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPCapacityBucket/ProductBucket"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPCapacityBucket/Stocked"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPCapacityBucket/Slack"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPCapacityBucket/Balance"/>
     </genClasses>
-    <genClasses ecoreClass="MacroPlannerSolver.ecore#//LPResourceSet">
+    <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPResourceSet"
+        labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/GeneratorElement/Code">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPResourceSet/MacroPlanner"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPResourceSet/Resources"/>
     </genClasses>
-    <genClasses ecoreClass="MacroPlannerSolver.ecore#//LPResource">
+    <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPResource" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/GeneratorElement/Code">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPResource/Availabilities"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPResource/ResourceSet"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPResource/Resource"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPResource/LPBuckets"/>
     </genClasses>
-    <genClasses ecoreClass="MacroPlannerSolver.ecore#//LPResourceBucket">
+    <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPResourceBucket"
+        labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/GeneratorElement/Code">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPResourceBucket/Resource"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPResourceBucket/Availabilities"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPResourceBucket/Reserved"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPResourceBucket/Balance"/>
     </genClasses>
-    <genClasses ecoreClass="MacroPlannerSolver.ecore#//LPAvailability">
+    <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPAvailability"
+        labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/GeneratorElement/Code">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPAvailability/Resource"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPAvailability/Availability"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPAvailability/LPBuckets"/>
     </genClasses>
-    <genClasses ecoreClass="MacroPlannerSolver.ecore#//LPAvailabilityBucket">
+    <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPAvailabilityBucket"
+        labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/GeneratorElement/Code">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPAvailabilityBucket/Availability"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPAvailabilityBucket/ResourceBucket"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPAvailabilityBucket/Reserved"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPAvailabilityBucket/Slack"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPAvailabilityBucket/Balance"/>
     </genClasses>
-    <genClasses ecoreClass="MacroPlannerSolver.ecore#//LPRoutingSet">
+    <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPRoutingSet"
+        labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/GeneratorElement/Code">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPRoutingSet/MacroPlanner"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPRoutingSet/Routings"/>
     </genClasses>
-    <genClasses ecoreClass="MacroPlannerSolver.ecore#//LPRouting">
+    <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPRouting" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/GeneratorElement/Code">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPRouting/RoutingSet"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPRouting/Routing"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPRouting/LPBuckets"/>
     </genClasses>
-    <genClasses ecoreClass="MacroPlannerSolver.ecore#//LPRoutingBucket">
+    <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPRoutingBucket"
+        labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/GeneratorElement/Code">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPRoutingBucket/Routing"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPRoutingBucket/Products"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPRoutingBucket/Resources"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPRoutingBucket/Planned"/>
     </genClasses>
-    <genClasses ecoreClass="MacroPlannerSolver.ecore#//LPRoutingBucketProduct">
+    <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPRoutingBucketProduct"
+        labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/GeneratorElement/Code">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPRoutingBucketProduct/ProductBucket"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPRoutingBucketProduct/RoutingProduct"/>
     </genClasses>

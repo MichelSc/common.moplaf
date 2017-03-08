@@ -60,13 +60,13 @@ public class CapacityItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addLocationProductPropertyDescriptor(object);
 			addQuantityPropertyDescriptor(object);
 			addFromPropertyDescriptor(object);
 			addToPropertyDescriptor(object);
 			addCostPropertyDescriptor(object);
 			addEnforcePropertyDescriptor(object);
 			addPenaltyPropertyDescriptor(object);
-			addLocationProductPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}

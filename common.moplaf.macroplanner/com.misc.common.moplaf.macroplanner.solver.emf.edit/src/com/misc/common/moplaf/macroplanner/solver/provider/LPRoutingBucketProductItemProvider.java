@@ -94,17 +94,6 @@ public class LPRoutingBucketProductItemProvider extends LPTupleItemProvider {
 	}
 
 	/**
-	 * This returns LPRoutingBucketProduct.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/LPRoutingBucketProduct"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -112,7 +101,7 @@ public class LPRoutingBucketProductItemProvider extends LPTupleItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((LPRoutingBucketProduct)object).getName();
+		String label = ((LPRoutingBucketProduct)object).getCode();
 		return label == null || label.length() == 0 ?
 			getString("_UI_LPRoutingBucketProduct_type") :
 			getString("_UI_LPRoutingBucketProduct_type") + " " + label;

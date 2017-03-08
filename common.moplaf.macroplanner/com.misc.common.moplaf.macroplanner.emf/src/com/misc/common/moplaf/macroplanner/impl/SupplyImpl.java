@@ -6,6 +6,7 @@ import com.misc.common.moplaf.macroplanner.LocationProduct;
 import com.misc.common.moplaf.macroplanner.MacroPlannerPackage;
 import com.misc.common.moplaf.macroplanner.Supply;
 
+import com.misc.common.moplaf.macroplanner.SupplyChainData;
 import java.util.Date;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -16,6 +17,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,17 +27,28 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.impl.SupplyImpl#getSupplyChainData <em>Supply Chain Data</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.impl.SupplyImpl#getLocationProduct <em>Location Product</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.SupplyImpl#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.SupplyImpl#getFrom <em>From</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.SupplyImpl#getTo <em>To</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.SupplyImpl#getCost <em>Cost</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.impl.SupplyImpl#getLocationProduct <em>Location Product</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.SupplyImpl#isEnforce <em>Enforce</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class SupplyImpl extends MinimalEObjectImpl.Container implements Supply {
+	/**
+	 * The cached value of the '{@link #getLocationProduct() <em>Location Product</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLocationProduct()
+	 * @generated
+	 * @ordered
+	 */
+	protected LocationProduct locationProduct;
+
 	/**
 	 * The default value of the '{@link #getQuantity() <em>Quantity</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -117,16 +130,6 @@ public class SupplyImpl extends MinimalEObjectImpl.Container implements Supply {
 	protected float cost = COST_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getLocationProduct() <em>Location Product</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLocationProduct()
-	 * @generated
-	 * @ordered
-	 */
-	protected LocationProduct locationProduct;
-
-	/**
 	 * The default value of the '{@link #isEnforce() <em>Enforce</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -163,6 +166,47 @@ public class SupplyImpl extends MinimalEObjectImpl.Container implements Supply {
 	@Override
 	protected EClass eStaticClass() {
 		return MacroPlannerPackage.Literals.SUPPLY;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SupplyChainData getSupplyChainData() {
+		if (eContainerFeatureID() != MacroPlannerPackage.SUPPLY__SUPPLY_CHAIN_DATA) return null;
+		return (SupplyChainData)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSupplyChainData(SupplyChainData newSupplyChainData, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newSupplyChainData, MacroPlannerPackage.SUPPLY__SUPPLY_CHAIN_DATA, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSupplyChainData(SupplyChainData newSupplyChainData) {
+		if (newSupplyChainData != eInternalContainer() || (eContainerFeatureID() != MacroPlannerPackage.SUPPLY__SUPPLY_CHAIN_DATA && newSupplyChainData != null)) {
+			if (EcoreUtil.isAncestor(this, newSupplyChainData))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newSupplyChainData != null)
+				msgs = ((InternalEObject)newSupplyChainData).eInverseAdd(this, MacroPlannerPackage.SUPPLY_CHAIN_DATA__SUPPLIES, SupplyChainData.class, msgs);
+			msgs = basicSetSupplyChainData(newSupplyChainData, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MacroPlannerPackage.SUPPLY__SUPPLY_CHAIN_DATA, newSupplyChainData, newSupplyChainData));
 	}
 
 	/**
@@ -338,6 +382,10 @@ public class SupplyImpl extends MinimalEObjectImpl.Container implements Supply {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case MacroPlannerPackage.SUPPLY__SUPPLY_CHAIN_DATA:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetSupplyChainData((SupplyChainData)otherEnd, msgs);
 			case MacroPlannerPackage.SUPPLY__LOCATION_PRODUCT:
 				if (locationProduct != null)
 					msgs = ((InternalEObject)locationProduct).eInverseRemove(this, MacroPlannerPackage.LOCATION_PRODUCT__SUPPLIES, LocationProduct.class, msgs);
@@ -354,6 +402,8 @@ public class SupplyImpl extends MinimalEObjectImpl.Container implements Supply {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case MacroPlannerPackage.SUPPLY__SUPPLY_CHAIN_DATA:
+				return basicSetSupplyChainData(null, msgs);
 			case MacroPlannerPackage.SUPPLY__LOCATION_PRODUCT:
 				return basicSetLocationProduct(null, msgs);
 		}
@@ -366,8 +416,27 @@ public class SupplyImpl extends MinimalEObjectImpl.Container implements Supply {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case MacroPlannerPackage.SUPPLY__SUPPLY_CHAIN_DATA:
+				return eInternalContainer().eInverseRemove(this, MacroPlannerPackage.SUPPLY_CHAIN_DATA__SUPPLIES, SupplyChainData.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case MacroPlannerPackage.SUPPLY__SUPPLY_CHAIN_DATA:
+				return getSupplyChainData();
+			case MacroPlannerPackage.SUPPLY__LOCATION_PRODUCT:
+				if (resolve) return getLocationProduct();
+				return basicGetLocationProduct();
 			case MacroPlannerPackage.SUPPLY__QUANTITY:
 				return getQuantity();
 			case MacroPlannerPackage.SUPPLY__FROM:
@@ -376,9 +445,6 @@ public class SupplyImpl extends MinimalEObjectImpl.Container implements Supply {
 				return getTo();
 			case MacroPlannerPackage.SUPPLY__COST:
 				return getCost();
-			case MacroPlannerPackage.SUPPLY__LOCATION_PRODUCT:
-				if (resolve) return getLocationProduct();
-				return basicGetLocationProduct();
 			case MacroPlannerPackage.SUPPLY__ENFORCE:
 				return isEnforce();
 		}
@@ -393,6 +459,12 @@ public class SupplyImpl extends MinimalEObjectImpl.Container implements Supply {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case MacroPlannerPackage.SUPPLY__SUPPLY_CHAIN_DATA:
+				setSupplyChainData((SupplyChainData)newValue);
+				return;
+			case MacroPlannerPackage.SUPPLY__LOCATION_PRODUCT:
+				setLocationProduct((LocationProduct)newValue);
+				return;
 			case MacroPlannerPackage.SUPPLY__QUANTITY:
 				setQuantity((Float)newValue);
 				return;
@@ -404,9 +476,6 @@ public class SupplyImpl extends MinimalEObjectImpl.Container implements Supply {
 				return;
 			case MacroPlannerPackage.SUPPLY__COST:
 				setCost((Float)newValue);
-				return;
-			case MacroPlannerPackage.SUPPLY__LOCATION_PRODUCT:
-				setLocationProduct((LocationProduct)newValue);
 				return;
 			case MacroPlannerPackage.SUPPLY__ENFORCE:
 				setEnforce((Boolean)newValue);
@@ -423,6 +492,12 @@ public class SupplyImpl extends MinimalEObjectImpl.Container implements Supply {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case MacroPlannerPackage.SUPPLY__SUPPLY_CHAIN_DATA:
+				setSupplyChainData((SupplyChainData)null);
+				return;
+			case MacroPlannerPackage.SUPPLY__LOCATION_PRODUCT:
+				setLocationProduct((LocationProduct)null);
+				return;
 			case MacroPlannerPackage.SUPPLY__QUANTITY:
 				setQuantity(QUANTITY_EDEFAULT);
 				return;
@@ -434,9 +509,6 @@ public class SupplyImpl extends MinimalEObjectImpl.Container implements Supply {
 				return;
 			case MacroPlannerPackage.SUPPLY__COST:
 				setCost(COST_EDEFAULT);
-				return;
-			case MacroPlannerPackage.SUPPLY__LOCATION_PRODUCT:
-				setLocationProduct((LocationProduct)null);
 				return;
 			case MacroPlannerPackage.SUPPLY__ENFORCE:
 				setEnforce(ENFORCE_EDEFAULT);
@@ -453,6 +525,10 @@ public class SupplyImpl extends MinimalEObjectImpl.Container implements Supply {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case MacroPlannerPackage.SUPPLY__SUPPLY_CHAIN_DATA:
+				return getSupplyChainData() != null;
+			case MacroPlannerPackage.SUPPLY__LOCATION_PRODUCT:
+				return locationProduct != null;
 			case MacroPlannerPackage.SUPPLY__QUANTITY:
 				return quantity != QUANTITY_EDEFAULT;
 			case MacroPlannerPackage.SUPPLY__FROM:
@@ -461,8 +537,6 @@ public class SupplyImpl extends MinimalEObjectImpl.Container implements Supply {
 				return TO_EDEFAULT == null ? to != null : !TO_EDEFAULT.equals(to);
 			case MacroPlannerPackage.SUPPLY__COST:
 				return cost != COST_EDEFAULT;
-			case MacroPlannerPackage.SUPPLY__LOCATION_PRODUCT:
-				return locationProduct != null;
 			case MacroPlannerPackage.SUPPLY__ENFORCE:
 				return enforce != ENFORCE_EDEFAULT;
 		}

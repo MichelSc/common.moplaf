@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.macroplanner.solver.impl;
 
+
 import com.misc.common.moplaf.macroplanner.solver.LPCapacityBucket;
 import com.misc.common.moplaf.macroplanner.solver.LPProduct;
 import com.misc.common.moplaf.macroplanner.solver.LPProductBucket;
@@ -727,4 +728,27 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 		return super.eIsSet(featureID);
 	}
 
+	/**
+	 * 
+	 */
+	@Override
+	public void generateTuples() {
+		super.generateTuples();
+		
+		LPProduct product = this.getProduct();
+		//TimeBucket bucket = this.getBucket();
+		
+		// logic name
+		String name = String.format("%s,%s", product.getName(), this.getBucketShortName());
+		this.setName(name);
+	}
+
+	/**
+	 * 
+	 */
+	@Override
+	public void generateXReferences() {
+		super.generateXReferences();
+		
+	}
 } //LPProductBucketImpl

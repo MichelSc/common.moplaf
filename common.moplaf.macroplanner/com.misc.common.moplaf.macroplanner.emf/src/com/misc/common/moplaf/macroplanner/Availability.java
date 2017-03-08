@@ -15,13 +15,14 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.Availability#getSupplyChainData <em>Supply Chain Data</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.Availability#getLocationResource <em>Location Resource</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.Availability#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.Availability#getFrom <em>From</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.Availability#getTo <em>To</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.Availability#getCost <em>Cost</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.Availability#isEnforce <em>Enforce</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.Availability#getPenalty <em>Penalty</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.Availability#getLocationResource <em>Location Resource</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.macroplanner.MacroPlannerPackage#getAvailability()
@@ -29,6 +30,34 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Availability extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Supply Chain Data</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.macroplanner.SupplyChainData#getAvailabilities <em>Availabilities</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Supply Chain Data</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Supply Chain Data</em>' container reference.
+	 * @see #setSupplyChainData(SupplyChainData)
+	 * @see com.misc.common.moplaf.macroplanner.MacroPlannerPackage#getAvailability_SupplyChainData()
+	 * @see com.misc.common.moplaf.macroplanner.SupplyChainData#getAvailabilities
+	 * @model opposite="Availabilities" required="true" transient="false"
+	 * @generated
+	 */
+	SupplyChainData getSupplyChainData();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.macroplanner.Availability#getSupplyChainData <em>Supply Chain Data</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Supply Chain Data</em>' container reference.
+	 * @see #getSupplyChainData()
+	 * @generated
+	 */
+	void setSupplyChainData(SupplyChainData value);
+
 	/**
 	 * Returns the value of the '<em><b>Quantity</b></em>' attribute.
 	 * <!-- begin-user-doc -->

@@ -108,17 +108,6 @@ public class LPCapacityBucketItemProvider extends LPTimeBucketItemProvider {
 	}
 
 	/**
-	 * This returns LPCapacityBucket.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/LPCapacityBucket"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -126,7 +115,7 @@ public class LPCapacityBucketItemProvider extends LPTimeBucketItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((LPCapacityBucket)object).getName();
+		String label = ((LPCapacityBucket)object).getCode();
 		return label == null || label.length() == 0 ?
 			getString("_UI_LPCapacityBucket_type") :
 			getString("_UI_LPCapacityBucket_type") + " " + label;

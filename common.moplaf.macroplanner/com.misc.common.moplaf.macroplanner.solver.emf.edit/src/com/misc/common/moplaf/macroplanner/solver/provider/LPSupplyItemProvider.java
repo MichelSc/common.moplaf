@@ -105,17 +105,6 @@ public class LPSupplyItemProvider extends LPTimeLineItemProvider {
 	}
 
 	/**
-	 * This returns LPSupply.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/LPSupply"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -123,7 +112,7 @@ public class LPSupplyItemProvider extends LPTimeLineItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((LPSupply)object).getName();
+		String label = ((LPSupply)object).getCode();
 		return label == null || label.length() == 0 ?
 			getString("_UI_LPSupply_type") :
 			getString("_UI_LPSupply_type") + " " + label;

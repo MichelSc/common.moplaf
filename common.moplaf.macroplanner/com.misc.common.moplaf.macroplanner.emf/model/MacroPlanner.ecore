@@ -61,41 +61,47 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SupplyChainData">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Supplies" upperBound="-1"
-        eType="#//Supply" containment="true"/>
+        eType="#//Supply" containment="true" eOpposite="#//Supply/SupplyChainData"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Availabilities" upperBound="-1"
-        eType="#//Availability" containment="true"/>
+        eType="#//Availability" containment="true" eOpposite="#//Availability/SupplyChainData"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Capacities" upperBound="-1"
-        eType="#//Capacity" containment="true"/>
+        eType="#//Capacity" containment="true" eOpposite="#//Capacity/SupplyChainData"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Supply">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SupplyChainData" lowerBound="1"
+        eType="#//SupplyChainData" eOpposite="#//SupplyChainData/Supplies"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="LocationProduct" eType="#//LocationProduct"
+        eOpposite="#//LocationProduct/Supplies"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Quantity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="From" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="To" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Cost" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="LocationProduct" eType="#//LocationProduct"
-        eOpposite="#//LocationProduct/Supplies"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Enforce" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Availability">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Quantity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="From" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="To" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Cost" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Enforce" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Penalty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SupplyChainData" lowerBound="1"
+        eType="#//SupplyChainData" eOpposite="#//SupplyChainData/Availabilities"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="LocationResource" eType="#//LocationResource"
         eOpposite="#//LocationResource/Availabilities"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Capacity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Quantity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="From" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="To" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Cost" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Enforce" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Penalty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Capacity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SupplyChainData" lowerBound="1"
+        eType="#//SupplyChainData" eOpposite="#//SupplyChainData/Capacities"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="LocationProduct" eType="#//LocationProduct"
         eOpposite="#//LocationProduct/Capacities"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Quantity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="From" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="To" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Cost" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Enforce" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Penalty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SupplyChainRoutings">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Routings" upperBound="-1"
