@@ -2,10 +2,15 @@
  */
 package com.misc.common.moplaf.macroplanner.solver.impl;
 
+import com.misc.common.moplaf.macroplanner.Location;
+import com.misc.common.moplaf.macroplanner.LocationResource;
+import com.misc.common.moplaf.macroplanner.SupplyChainMasterData;
 import com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner;
 import com.misc.common.moplaf.macroplanner.solver.LPResource;
 import com.misc.common.moplaf.macroplanner.solver.LPResourceSet;
+import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverFactory;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
+import com.misc.common.moplaf.macroplanner.solver.Scenario;
 
 import java.util.Collection;
 
@@ -239,4 +244,25 @@ public class LPResourceSetImpl extends LPTupleImpl implements LPResourceSet {
 		return super.eIsSet(featureID);
 	}
 
+	/**
+	 * 
+	 */
+	@Override
+	public void generateTuples() {
+		super.generateTuples();
+		
+		LPMacroPlanner lp = this.getMacroPlanner();
+		Scenario scenario = lp.getScenario();
+	    SupplyChainMasterData dataset = scenario.getSelectedMasterData();
+		
+		for (   Location location : dataset.getLocations()){
+			for( LocationResource location_resource: location.getResources()){
+				// location product
+				LPResource lpresource = MacroPlannerSolverFactory.eINSTANCE.createLPResource();
+				lpresource.setResource(location_resource);
+				lpresource.setName(location_resource.getCode());
+				this.getResources().add(lpresource); // owning
+			}
+		}
+	}
 } //LPResourceSetImpl

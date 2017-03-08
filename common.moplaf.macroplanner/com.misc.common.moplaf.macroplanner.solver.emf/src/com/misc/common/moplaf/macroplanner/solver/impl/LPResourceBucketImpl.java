@@ -374,4 +374,27 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 		return super.eIsSet(featureID);
 	}
 
+	/**
+	 * 
+	 */
+	@Override
+	public void generateTuples() {
+		super.generateTuples();
+		
+		LPResource resource = this.getResource();
+		//TimeBucket bucket = this.getBucket();
+		
+		// logic name
+		String name = String.format("%s,%s", resource.getName(), this.getBucketShortName());
+		this.setName(name);
+	}
+
+	/**
+	 * 
+	 */
+	@Override
+	public void generateXReferences() {
+		super.generateXReferences();
+		
+	}
 } //LPResourceBucketImpl

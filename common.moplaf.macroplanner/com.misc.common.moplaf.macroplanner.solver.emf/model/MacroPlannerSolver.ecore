@@ -135,10 +135,10 @@
         eType="#//LPResource" containment="true" eOpposite="#//LPResource/ResourceSet"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LPResource" eSuperTypes="#//LPTimeLine">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Availabilities" upperBound="-1"
-        eType="#//LPAvailability" containment="true" eOpposite="#//LPAvailability/Resource"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ResourceSet" lowerBound="1"
         eType="#//LPResourceSet" eOpposite="#//LPResourceSet/Resources"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Availabilities" upperBound="-1"
+        eType="#//LPAvailability" containment="true" eOpposite="#//LPAvailability/Resource"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Resource" eType="ecore:EClass ../../com.misc.common.moplaf.macroplanner.emf/model/MacroPlanner.ecore#//LocationResource"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="LPBuckets" upperBound="-1"
         eType="#//LPResourceBucket" containment="true" eOpposite="#//LPResourceBucket/Resource"/>

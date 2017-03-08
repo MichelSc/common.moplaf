@@ -3,11 +3,16 @@
 package com.misc.common.moplaf.macroplanner.solver.impl;
 
 import com.misc.common.moplaf.macroplanner.Availability;
-
 import com.misc.common.moplaf.macroplanner.solver.LPAvailability;
 import com.misc.common.moplaf.macroplanner.solver.LPAvailabilityBucket;
+import com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner;
 import com.misc.common.moplaf.macroplanner.solver.LPResource;
+import com.misc.common.moplaf.macroplanner.solver.LPResourceSet;
+import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverFactory;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
+import com.misc.common.moplaf.time.discrete.ObjectTimeBucket;
+import com.misc.common.moplaf.time.discrete.TimeBucket;
+import com.misc.common.moplaf.time.discrete.TimeLine;
 
 import java.util.Collection;
 
@@ -301,4 +306,35 @@ public class LPAvailabilityImpl extends LPTimeLineImpl implements LPAvailability
 		return super.eIsSet(featureID);
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public ObjectTimeBucket constructObjectTimeBucket() {
+		LPAvailabilityBucket newbucket = MacroPlannerSolverFactory.eINSTANCE.createLPAvailabilityBucket();
+		this.getLPBuckets().add(newbucket);
+		return newbucket;
+	}
+
+
+	/**
+	 * 
+	 */
+	@Override
+	public void generateTuples() {
+		super.generateTuples();
+
+		LPResource resource = this.getResource();
+		LPResourceSet resources = resource.getResourceSet();
+		LPMacroPlanner lp = resources.getMacroPlanner();
+		TimeLine timeline = lp.getTimeLine();
+		Availability availability = this.getAvailability();
+
+		// time line
+		TimeBucket startOfHorizon = timeline.getBucketFloor(availability.getFrom());
+		TimeBucket endOfHorizon   = timeline.getBucketCeil(availability.getTo());
+		this.setStartBucket(startOfHorizon);
+		this.setEndBucket  (endOfHorizon);
+		this.refresh();
+	}
 } //LPAvailabilityImpl

@@ -336,5 +336,5 @@ public class LPSupplyImpl extends LPTimeLineImpl implements LPSupply {
 		this.setStartBucket(startOfHorizon);
 		this.setEndBucket  (endOfHorizon);
 		this.refresh();
-}
+	}
 } //LPSupplyImpl

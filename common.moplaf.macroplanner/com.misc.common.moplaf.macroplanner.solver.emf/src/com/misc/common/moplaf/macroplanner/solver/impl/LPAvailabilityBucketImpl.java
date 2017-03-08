@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.macroplanner.solver.impl;
 
+
 import com.misc.common.moplaf.macroplanner.solver.LPAvailability;
 import com.misc.common.moplaf.macroplanner.solver.LPAvailabilityBucket;
 import com.misc.common.moplaf.macroplanner.solver.LPResourceBucket;
@@ -482,4 +483,27 @@ public class LPAvailabilityBucketImpl extends LPTimeBucketImpl implements LPAvai
 		return super.eIsSet(featureID);
 	}
 
+	/**
+	 * 
+	 */
+	@Override
+	public void generateTuples() {
+		super.generateTuples();
+		
+		LPAvailability availability = this.getAvailability();
+		//TimeBucket bucket = this.getBucket();
+		
+		// logic name
+		String name = String.format("%s,%s", availability.getName(), this.getBucketShortName());
+		this.setName(name);
+	}
+
+	/**
+	 * 
+	 */
+	@Override
+	public void generateXReferences() {
+		super.generateXReferences();
+		
+	}
 } //LPAvailabilityBucketImpl

@@ -3,12 +3,19 @@
 package com.misc.common.moplaf.macroplanner.solver.impl;
 
 import com.misc.common.moplaf.macroplanner.LocationResource;
-
+import com.misc.common.moplaf.macroplanner.Availability;
+import com.misc.common.moplaf.macroplanner.SupplyChainData;
 import com.misc.common.moplaf.macroplanner.solver.LPAvailability;
+import com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner;
 import com.misc.common.moplaf.macroplanner.solver.LPResource;
 import com.misc.common.moplaf.macroplanner.solver.LPResourceBucket;
 import com.misc.common.moplaf.macroplanner.solver.LPResourceSet;
+import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverFactory;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
+import com.misc.common.moplaf.macroplanner.solver.Scenario;
+import com.misc.common.moplaf.time.discrete.ObjectTimeBucket;
+import com.misc.common.moplaf.time.discrete.TimeBucket;
+import com.misc.common.moplaf.time.discrete.TimeLine;
 
 import java.util.Collection;
 
@@ -340,4 +347,47 @@ public class LPResourceImpl extends LPTimeLineImpl implements LPResource {
 		return super.eIsSet(featureID);
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public ObjectTimeBucket constructObjectTimeBucket() {
+		LPResourceBucket newbucket = MacroPlannerSolverFactory.eINSTANCE.createLPResourceBucket();
+		this.getLPBuckets().add(newbucket);
+		return newbucket;
+	}
+
+
+	/**
+	 * 
+	 */
+	@Override
+	public void generateTuples() {
+		super.generateTuples();
+
+		LPResourceSet resources = this.getResourceSet();
+		LPMacroPlanner lp = resources.getMacroPlanner();
+		TimeLine timeline = lp.getTimeLine();
+		Scenario scenario = lp.getScenario();
+	    EList<SupplyChainData> selectedSCData = scenario.getSelectedData();
+		LocationResource location_resource = this.getResource();
+		
+		// availabilities
+		for ( Availability availability: location_resource.getAvailabilities()){
+			if ( selectedSCData.contains(availability.getSupplyChainData())){
+				LPAvailability lpavailability = MacroPlannerSolverFactory.eINSTANCE.createLPAvailability();
+				lpavailability.setAvailability(availability);
+				String name = String.format("sup(%s, %tF)", location_resource.getCode(), availability.getFrom());
+				lpavailability.setName(name);
+				this.getAvailabilities().add(lpavailability); // owning
+			}
+		}
+
+		// time line
+		TimeBucket startOfHorizon = timeline.getFirstBucket();
+		TimeBucket endOfHorizon   = timeline.getLastBucket();
+		this.setStartBucket(startOfHorizon);
+		this.setEndBucket  (endOfHorizon);
+		this.refresh();
+	}
 } //LPResourceImpl

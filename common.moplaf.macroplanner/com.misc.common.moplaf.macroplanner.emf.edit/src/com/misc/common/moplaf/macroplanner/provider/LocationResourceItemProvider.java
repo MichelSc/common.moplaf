@@ -85,7 +85,7 @@ public class LocationResourceItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__10MacroPlannerPropertyCategory"),
 				 null));
 	}
 
