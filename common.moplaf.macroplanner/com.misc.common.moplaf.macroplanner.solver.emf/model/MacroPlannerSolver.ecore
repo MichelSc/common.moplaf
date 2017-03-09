@@ -74,8 +74,8 @@
         eOpposite="#//LPProduct/LPBuckets"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Capacities" upperBound="-1"
         eType="#//LPCapacityBucket" eOpposite="#//LPCapacityBucket/ProductBucket"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Supplies" eType="#//LPSupplyBucket"
-        eOpposite="#//LPSupplyBucket/ProductBucket"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Supplies" upperBound="-1"
+        eType="#//LPSupplyBucket" eOpposite="#//LPSupplyBucket/ProductBucket"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Consumptions" upperBound="-1"
         eType="#//LPRoutingBucketProduct" eOpposite="#//LPRoutingBucketProduct/ProductBucket"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Consumed" lowerBound="1"
@@ -112,6 +112,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Supplied" lowerBound="1"
         eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpVar"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Fraction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LPCapacity" eSuperTypes="#//LPTimeLine">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Product" lowerBound="1"

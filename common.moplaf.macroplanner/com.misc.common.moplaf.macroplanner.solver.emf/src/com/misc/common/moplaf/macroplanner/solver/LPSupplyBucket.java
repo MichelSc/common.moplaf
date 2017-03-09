@@ -16,6 +16,7 @@ import com.misc.common.moplaf.solver.GeneratorLpVar;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPSupplyBucket#getSupply <em>Supply</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPSupplyBucket#getProductBucket <em>Product Bucket</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPSupplyBucket#getSupplied <em>Supplied</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPSupplyBucket#getFraction <em>Fraction</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPSupplyBucket()
@@ -104,5 +105,31 @@ public interface LPSupplyBucket extends LPTimeBucket {
 	 * @generated
 	 */
 	void setSupplied(GeneratorLpVar value);
+
+	/**
+	 * Returns the value of the '<em><b>Fraction</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fraction</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fraction</em>' attribute.
+	 * @see #setFraction(float)
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPSupplyBucket_Fraction()
+	 * @model
+	 * @generated
+	 */
+	float getFraction();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.macroplanner.solver.LPSupplyBucket#getFraction <em>Fraction</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fraction</em>' attribute.
+	 * @see #getFraction()
+	 * @generated
+	 */
+	void setFraction(float value);
 
 } // LPSupplyBucket

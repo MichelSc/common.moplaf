@@ -80,7 +80,8 @@ public interface LPProductBucket extends LPTimeBucket {
 	EList<LPCapacityBucket> getCapacities();
 
 	/**
-	 * Returns the value of the '<em><b>Supplies</b></em>' reference.
+	 * Returns the value of the '<em><b>Supplies</b></em>' reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.macroplanner.solver.LPSupplyBucket}.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.macroplanner.solver.LPSupplyBucket#getProductBucket <em>Product Bucket</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -88,24 +89,13 @@ public interface LPProductBucket extends LPTimeBucket {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Supplies</em>' reference.
-	 * @see #setSupplies(LPSupplyBucket)
+	 * @return the value of the '<em>Supplies</em>' reference list.
 	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPProductBucket_Supplies()
 	 * @see com.misc.common.moplaf.macroplanner.solver.LPSupplyBucket#getProductBucket
 	 * @model opposite="ProductBucket"
 	 * @generated
 	 */
-	LPSupplyBucket getSupplies();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getSupplies <em>Supplies</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Supplies</em>' reference.
-	 * @see #getSupplies()
-	 * @generated
-	 */
-	void setSupplies(LPSupplyBucket value);
+	EList<LPSupplyBucket> getSupplies();
 
 	/**
 	 * Returns the value of the '<em><b>Consumptions</b></em>' reference list.

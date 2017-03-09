@@ -3,15 +3,20 @@
 package com.misc.common.moplaf.macroplanner.solver.impl;
 
 
+import com.misc.common.moplaf.macroplanner.Supply;
 import com.misc.common.moplaf.macroplanner.solver.LPProduct;
 import com.misc.common.moplaf.macroplanner.solver.LPProductBucket;
 import com.misc.common.moplaf.macroplanner.solver.LPSupply;
 import com.misc.common.moplaf.macroplanner.solver.LPSupplyBucket;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
-
+import com.misc.common.moplaf.solver.EnumLpVarType;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
+import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.time.discrete.ObjectTimeBucket;
 import com.misc.common.moplaf.time.discrete.TimeBucket;
+import com.misc.common.moplaf.time.Util;
+
+import java.util.Date;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -34,6 +39,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPSupplyBucketImpl#getSupply <em>Supply</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPSupplyBucketImpl#getProductBucket <em>Product Bucket</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPSupplyBucketImpl#getSupplied <em>Supplied</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPSupplyBucketImpl#getFraction <em>Fraction</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,6 +64,26 @@ public class LPSupplyBucketImpl extends LPTimeBucketImpl implements LPSupplyBuck
 	 * @ordered
 	 */
 	protected GeneratorLpVar supplied;
+
+	/**
+	 * The default value of the '{@link #getFraction() <em>Fraction</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFraction()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float FRACTION_EDEFAULT = 0.0F;
+
+	/**
+	 * The cached value of the '{@link #getFraction() <em>Fraction</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFraction()
+	 * @generated
+	 * @ordered
+	 */
+	protected float fraction = FRACTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -227,6 +253,27 @@ public class LPSupplyBucketImpl extends LPTimeBucketImpl implements LPSupplyBuck
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public float getFraction() {
+		return fraction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFraction(float newFraction) {
+		float oldFraction = fraction;
+		fraction = newFraction;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MacroPlannerSolverPackage.LP_SUPPLY_BUCKET__FRACTION, oldFraction, fraction));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -289,6 +336,8 @@ public class LPSupplyBucketImpl extends LPTimeBucketImpl implements LPSupplyBuck
 				return basicGetProductBucket();
 			case MacroPlannerSolverPackage.LP_SUPPLY_BUCKET__SUPPLIED:
 				return getSupplied();
+			case MacroPlannerSolverPackage.LP_SUPPLY_BUCKET__FRACTION:
+				return getFraction();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -309,6 +358,9 @@ public class LPSupplyBucketImpl extends LPTimeBucketImpl implements LPSupplyBuck
 				return;
 			case MacroPlannerSolverPackage.LP_SUPPLY_BUCKET__SUPPLIED:
 				setSupplied((GeneratorLpVar)newValue);
+				return;
+			case MacroPlannerSolverPackage.LP_SUPPLY_BUCKET__FRACTION:
+				setFraction((Float)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -331,6 +383,9 @@ public class LPSupplyBucketImpl extends LPTimeBucketImpl implements LPSupplyBuck
 			case MacroPlannerSolverPackage.LP_SUPPLY_BUCKET__SUPPLIED:
 				setSupplied((GeneratorLpVar)null);
 				return;
+			case MacroPlannerSolverPackage.LP_SUPPLY_BUCKET__FRACTION:
+				setFraction(FRACTION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -349,8 +404,26 @@ public class LPSupplyBucketImpl extends LPTimeBucketImpl implements LPSupplyBuck
 				return productBucket != null;
 			case MacroPlannerSolverPackage.LP_SUPPLY_BUCKET__SUPPLIED:
 				return supplied != null;
+			case MacroPlannerSolverPackage.LP_SUPPLY_BUCKET__FRACTION:
+				return fraction != FRACTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (Fraction: ");
+		result.append(fraction);
+		result.append(')');
+		return result.toString();
 	}
 
 	/**
@@ -360,12 +433,27 @@ public class LPSupplyBucketImpl extends LPTimeBucketImpl implements LPSupplyBuck
 	public void generateTuples() {
 		super.generateTuples();
 		
-		LPSupply supply = this.getSupply();
+		LPSupply lp_supply = this.getSupply();
+		Supply supply = lp_supply.getSupply();
+		float fraction = 1.0f;
+		Date from = supply.getFrom();
+		Date to = supply.getTo();
+		int seconds = Util.getSeconds(from, to);
+		if ( seconds<0){
+			fraction = 0.0f;
+		} else if ( seconds>0){
+			TimeBucket bucket = this.getBucket();
+			int secondInBucket = bucket.getSecondsIntersection(from, to);
+			fraction = (float)secondInBucket / (float)seconds;
+		}
+		this.setFraction(fraction);
 		//TimeBucket bucket = this.getBucket();
 		
 		// logic name
-		String name = String.format("%s,%s", supply.getName(), this.getBucketShortName());
+		String name = String.format("%s,%s", lp_supply.getName(), this.getBucketShortName());
 		this.setName(name);
+		
+		// fraction
 	}
 
 	/**
@@ -383,5 +471,27 @@ public class LPSupplyBucketImpl extends LPTimeBucketImpl implements LPSupplyBuck
 		ObjectTimeBucket product_bucket = product.getBucket(bucket);
 		this.setProductBucket((LPProductBucket) product_bucket);
 	}
+	
+	/**
+	 * 
+	 */
+	@Override
+	public void generateVars() {
+		super.generateVars();
+		
+		// var supplied
+		{
+		LPSupply lp_supply = this.getSupply();
+		Supply supply = lp_supply.getSupply();
+		float ub = supply.getQuantity()*this.getFraction();
+		GeneratorLpVar var = SolverFactory.eINSTANCE.createGeneratorLpVar();
+		var.setType(EnumLpVarType.ENUM_LITERAL_LP_VAR_REAL);
+		var.setLowerBound(0.0f);
+		var.setUpperBound(ub);
+		var.setName("supplied");
+		this.setSupplied(var);  // owning
+		}
+	}
+
 
 } //LPSupplyBucketImpl

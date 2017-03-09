@@ -49,6 +49,7 @@ public class LPResourceBucketItemProvider extends LPTimeBucketItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addAvailabilitiesPropertyDescriptor(object);
+			addReservationsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -67,6 +68,28 @@ public class LPResourceBucketItemProvider extends LPTimeBucketItemProvider {
 				 getString("_UI_LPResourceBucket_Availabilities_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_LPResourceBucket_Availabilities_feature", "_UI_LPResourceBucket_type"),
 				 MacroPlannerSolverPackage.Literals.LP_RESOURCE_BUCKET__AVAILABILITIES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Reservations feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReservationsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LPResourceBucket_Reservations_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LPResourceBucket_Reservations_feature", "_UI_LPResourceBucket_type"),
+				 MacroPlannerSolverPackage.Literals.LP_RESOURCE_BUCKET__RESERVATIONS,
 				 true,
 				 false,
 				 true,

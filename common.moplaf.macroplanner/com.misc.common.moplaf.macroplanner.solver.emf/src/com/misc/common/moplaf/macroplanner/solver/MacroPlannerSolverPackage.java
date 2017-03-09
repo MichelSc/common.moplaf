@@ -1841,7 +1841,7 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_PRODUCT_BUCKET__CAPACITIES = LP_TIME_BUCKET_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Supplies</b></em>' reference.
+	 * The feature id for the '<em><b>Supplies</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2401,13 +2401,22 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_SUPPLY_BUCKET__SUPPLIED = LP_TIME_BUCKET_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Fraction</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_SUPPLY_BUCKET__FRACTION = LP_TIME_BUCKET_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>LP Supply Bucket</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LP_SUPPLY_BUCKET_FEATURE_COUNT = LP_TIME_BUCKET_FEATURE_COUNT + 3;
+	int LP_SUPPLY_BUCKET_FEATURE_COUNT = LP_TIME_BUCKET_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -6081,10 +6090,10 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	EReference getLPProductBucket_Capacities();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getSupplies <em>Supplies</em>}'.
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getSupplies <em>Supplies</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Supplies</em>'.
+	 * @return the meta object for the reference list '<em>Supplies</em>'.
 	 * @see com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getSupplies()
 	 * @see #getLPProductBucket()
 	 * @generated
@@ -6253,6 +6262,17 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getLPSupplyBucket_Supplied();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.solver.LPSupplyBucket#getFraction <em>Fraction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fraction</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPSupplyBucket#getFraction()
+	 * @see #getLPSupplyBucket()
+	 * @generated
+	 */
+	EAttribute getLPSupplyBucket_Fraction();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.macroplanner.solver.LPCapacity <em>LP Capacity</em>}'.
@@ -7312,7 +7332,7 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		EReference LP_PRODUCT_BUCKET__CAPACITIES = eINSTANCE.getLPProductBucket_Capacities();
 
 		/**
-		 * The meta object literal for the '<em><b>Supplies</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Supplies</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -7442,6 +7462,14 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		 * @generated
 		 */
 		EReference LP_SUPPLY_BUCKET__SUPPLIED = eINSTANCE.getLPSupplyBucket_Supplied();
+
+		/**
+		 * The meta object literal for the '<em><b>Fraction</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LP_SUPPLY_BUCKET__FRACTION = eINSTANCE.getLPSupplyBucket_Fraction();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPCapacityImpl <em>LP Capacity</em>}' class.

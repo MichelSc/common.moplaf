@@ -50,6 +50,7 @@ public class LPProductBucketItemProvider extends LPTimeBucketItemProvider {
 
 			addCapacitiesPropertyDescriptor(object);
 			addSuppliesPropertyDescriptor(object);
+			addConsumptionsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -90,6 +91,28 @@ public class LPProductBucketItemProvider extends LPTimeBucketItemProvider {
 				 getString("_UI_LPProductBucket_Supplies_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_LPProductBucket_Supplies_feature", "_UI_LPProductBucket_type"),
 				 MacroPlannerSolverPackage.Literals.LP_PRODUCT_BUCKET__SUPPLIES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Consumptions feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addConsumptionsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LPProductBucket_Consumptions_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LPProductBucket_Consumptions_feature", "_UI_LPProductBucket_type"),
+				 MacroPlannerSolverPackage.Literals.LP_PRODUCT_BUCKET__CONSUMPTIONS,
 				 true,
 				 false,
 				 true,
