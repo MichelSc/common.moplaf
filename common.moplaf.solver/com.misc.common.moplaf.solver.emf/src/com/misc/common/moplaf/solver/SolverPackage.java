@@ -1383,13 +1383,22 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_LP_CONS___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT = GENERATOR_CONS_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Contribute Term</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_CONS___CONTRIBUTE_TERM__GENERATORLPVAR_FLOAT = GENERATOR_CONS_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Generator Lp Cons</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_LP_CONS_OPERATION_COUNT = GENERATOR_CONS_OPERATION_COUNT + 1;
+	int GENERATOR_LP_CONS_OPERATION_COUNT = GENERATOR_CONS_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpTermImpl <em>Generator Lp Term</em>}' class.
@@ -6975,13 +6984,22 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_LP_GOAL___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT = GENERATOR_GOAL_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Contribute Term</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_GOAL___CONTRIBUTE_TERM__GENERATORLPVAR_FLOAT = GENERATOR_GOAL_OPERATION_COUNT + 1;
+
+	/**
 	 * The operation id for the '<em>Get Solution Value</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_LP_GOAL___GET_SOLUTION_VALUE__SOLUTION = GENERATOR_GOAL_OPERATION_COUNT + 1;
+	int GENERATOR_LP_GOAL___GET_SOLUTION_VALUE__SOLUTION = GENERATOR_GOAL_OPERATION_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Generator Lp Goal</em>' class.
@@ -6990,7 +7008,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_LP_GOAL_OPERATION_COUNT = GENERATOR_GOAL_OPERATION_COUNT + 2;
+	int GENERATOR_LP_GOAL_OPERATION_COUNT = GENERATOR_GOAL_OPERATION_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Lp Term</b></em>' containment reference list.
@@ -7020,13 +7038,22 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_LP_LINEAR___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT = 0;
 
 	/**
+	 * The operation id for the '<em>Contribute Term</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_LINEAR___CONTRIBUTE_TERM__GENERATORLPVAR_FLOAT = 1;
+
+	/**
 	 * The number of operations of the '<em>Generator Lp Linear</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_LP_LINEAR_OPERATION_COUNT = 1;
+	int GENERATOR_LP_LINEAR_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '<em>ITuple Visitor</em>' data type.
@@ -7814,6 +7841,16 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getGeneratorLpLinear__ConstructTerm__GeneratorLpVar_float();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.GeneratorLpLinear#contributeTerm(com.misc.common.moplaf.solver.GeneratorLpVar, float) <em>Contribute Term</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Contribute Term</em>' operation.
+	 * @see com.misc.common.moplaf.solver.GeneratorLpLinear#contributeTerm(com.misc.common.moplaf.solver.GeneratorLpVar, float)
+	 * @generated
+	 */
+	EOperation getGeneratorLpLinear__ContributeTerm__GeneratorLpVar_float();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.SolverGoal <em>Goal</em>}'.
@@ -10544,6 +10581,14 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation GENERATOR_LP_LINEAR___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT = eINSTANCE.getGeneratorLpLinear__ConstructTerm__GeneratorLpVar_float();
+
+		/**
+		 * The meta object literal for the '<em><b>Contribute Term</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GENERATOR_LP_LINEAR___CONTRIBUTE_TERM__GENERATORLPVAR_FLOAT = eINSTANCE.getGeneratorLpLinear__ContributeTerm__GeneratorLpVar_float();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.SolverGoalImpl <em>Goal</em>}' class.

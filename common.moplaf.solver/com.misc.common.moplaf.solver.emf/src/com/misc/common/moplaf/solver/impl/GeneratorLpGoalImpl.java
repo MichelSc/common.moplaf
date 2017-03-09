@@ -14,8 +14,8 @@ import com.misc.common.moplaf.solver.SolutionGoal;
 import com.misc.common.moplaf.solver.SolutionLp;
 import com.misc.common.moplaf.solver.SolutionLpGoal;
 import com.misc.common.moplaf.solver.Solver;
-import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.solver.SolverPackage;
+import com.misc.common.moplaf.solver.util.Util;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
@@ -262,15 +262,23 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 
 
 	/**
+	 * Create an new term to the linear. Assume that the var is not yet present in the linear.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
 	public GeneratorLpTerm constructTerm(GeneratorLpVar var, float coef) {
-		GeneratorLpTerm term = SolverFactory.eINSTANCE.createGeneratorLpTerm();
-		term.setCoeff(coef);
-		term.setLpVar(var);
-		this.getLpTerm().add(term);
-		return term;
+		return Util.constructTerm(this,  var, coef);
+		}
+
+	/**
+	 * Contribute to a term in the linear.
+	 * If there is already a term for this var in this linear, its coefficient is augmented with coef.
+	 * Otherwise, a new term is constructed.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public GeneratorLpTerm contributeTerm(GeneratorLpVar var, float coef) {
+		return Util.contributeTerm(this, var, coef);
 	}
 
 	/**
@@ -492,6 +500,7 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 		if (baseClass == GeneratorLpLinear.class) {
 			switch (baseOperationID) {
 				case SolverPackage.GENERATOR_LP_LINEAR___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT: return SolverPackage.GENERATOR_LP_GOAL___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT;
+				case SolverPackage.GENERATOR_LP_LINEAR___CONTRIBUTE_TERM__GENERATORLPVAR_FLOAT: return SolverPackage.GENERATOR_LP_GOAL___CONTRIBUTE_TERM__GENERATORLPVAR_FLOAT;
 				default: return -1;
 			}
 		}
@@ -510,6 +519,8 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 				return getSolutionValue((Solution)arguments.get(0));
 			case SolverPackage.GENERATOR_LP_GOAL___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT:
 				return constructTerm((GeneratorLpVar)arguments.get(0), (Float)arguments.get(1));
+			case SolverPackage.GENERATOR_LP_GOAL___CONTRIBUTE_TERM__GENERATORLPVAR_FLOAT:
+				return contributeTerm((GeneratorLpVar)arguments.get(0), (Float)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

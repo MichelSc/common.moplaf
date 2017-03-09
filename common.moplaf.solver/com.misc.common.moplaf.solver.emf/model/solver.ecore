@@ -532,6 +532,10 @@
       <eParameters name="var" eType="#//GeneratorLpVar"/>
       <eParameters name="coef" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     </eOperations>
+    <eOperations name="contributeTerm" eType="#//GeneratorLpTerm">
+      <eParameters name="var" eType="#//GeneratorLpVar"/>
+      <eParameters name="coef" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="LpTerm" upperBound="-1"
         eType="#//GeneratorLpTerm" containment="true" eOpposite="#//GeneratorLpTerm/LpLinear"/>
   </eClassifiers>

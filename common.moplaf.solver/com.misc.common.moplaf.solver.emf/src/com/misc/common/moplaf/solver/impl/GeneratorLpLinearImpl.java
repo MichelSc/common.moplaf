@@ -90,6 +90,17 @@ public class GeneratorLpLinearImpl extends MinimalEObjectImpl.Container implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GeneratorLpTerm contributeTerm(GeneratorLpVar var, float coef) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public int getNofTerms() {
 		return this.getLpTerm().size();
@@ -194,6 +205,8 @@ public class GeneratorLpLinearImpl extends MinimalEObjectImpl.Container implemen
 		switch (operationID) {
 			case SolverPackage.GENERATOR_LP_LINEAR___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT:
 				return constructTerm((GeneratorLpVar)arguments.get(0), (Float)arguments.get(1));
+			case SolverPackage.GENERATOR_LP_LINEAR___CONTRIBUTE_TERM__GENERATORLPVAR_FLOAT:
+				return contributeTerm((GeneratorLpVar)arguments.get(0), (Float)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

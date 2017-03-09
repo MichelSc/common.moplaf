@@ -48,4 +48,12 @@ public interface GeneratorLpLinear extends EObject {
 	 */
 	GeneratorLpTerm constructTerm(GeneratorLpVar var, float coef);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	GeneratorLpTerm contributeTerm(GeneratorLpVar var, float coef);
+
 } // GeneratorLpLinear
