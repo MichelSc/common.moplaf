@@ -5,6 +5,7 @@ package com.misc.common.moplaf.macroplanner.solver.impl;
 import com.misc.common.moplaf.macroplanner.solver.LPAvailabilityBucket;
 import com.misc.common.moplaf.macroplanner.solver.LPResource;
 import com.misc.common.moplaf.macroplanner.solver.LPResourceBucket;
+import com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketResource;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
 
 import com.misc.common.moplaf.solver.GeneratorLpCons;
@@ -36,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#getResource <em>Resource</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#getAvailabilities <em>Availabilities</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#getReservations <em>Reservations</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#getReserved <em>Reserved</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#getBalance <em>Balance</em>}</li>
  * </ul>
@@ -52,6 +54,16 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 	 * @ordered
 	 */
 	protected EList<LPAvailabilityBucket> availabilities;
+
+	/**
+	 * The cached value of the '{@link #getReservations() <em>Reservations</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReservations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<LPRoutingBucketResource> reservations;
 
 	/**
 	 * The cached value of the '{@link #getReserved() <em>Reserved</em>}' containment reference.
@@ -143,6 +155,18 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 			availabilities = new EObjectWithInverseResolvingEList<LPAvailabilityBucket>(LPAvailabilityBucket.class, this, MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__AVAILABILITIES, MacroPlannerSolverPackage.LP_AVAILABILITY_BUCKET__RESOURCE_BUCKET);
 		}
 		return availabilities;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<LPRoutingBucketResource> getReservations() {
+		if (reservations == null) {
+			reservations = new EObjectWithInverseResolvingEList<LPRoutingBucketResource>(LPRoutingBucketResource.class, this, MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVATIONS, MacroPlannerSolverPackage.LP_ROUTING_BUCKET_RESOURCE__RESOURCE_BUCKET);
+		}
+		return reservations;
 	}
 
 	/**
@@ -246,6 +270,8 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 				return basicSetResource((LPResource)otherEnd, msgs);
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__AVAILABILITIES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAvailabilities()).basicAdd(otherEnd, msgs);
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVATIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getReservations()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -262,6 +288,8 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 				return basicSetResource(null, msgs);
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__AVAILABILITIES:
 				return ((InternalEList<?>)getAvailabilities()).basicRemove(otherEnd, msgs);
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVATIONS:
+				return ((InternalEList<?>)getReservations()).basicRemove(otherEnd, msgs);
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVED:
 				return basicSetReserved(null, msgs);
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__BALANCE:
@@ -296,6 +324,8 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 				return getResource();
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__AVAILABILITIES:
 				return getAvailabilities();
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVATIONS:
+				return getReservations();
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVED:
 				return getReserved();
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__BALANCE:
@@ -319,6 +349,10 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__AVAILABILITIES:
 				getAvailabilities().clear();
 				getAvailabilities().addAll((Collection<? extends LPAvailabilityBucket>)newValue);
+				return;
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVATIONS:
+				getReservations().clear();
+				getReservations().addAll((Collection<? extends LPRoutingBucketResource>)newValue);
 				return;
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVED:
 				setReserved((GeneratorLpVar)newValue);
@@ -344,6 +378,9 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__AVAILABILITIES:
 				getAvailabilities().clear();
 				return;
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVATIONS:
+				getReservations().clear();
+				return;
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVED:
 				setReserved((GeneratorLpVar)null);
 				return;
@@ -366,6 +403,8 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 				return getResource() != null;
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__AVAILABILITIES:
 				return availabilities != null && !availabilities.isEmpty();
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVATIONS:
+				return reservations != null && !reservations.isEmpty();
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVED:
 				return reserved != null;
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__BALANCE:

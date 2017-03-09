@@ -6,11 +6,15 @@ package com.misc.common.moplaf.macroplanner.solver.impl;
 import com.misc.common.moplaf.macroplanner.solver.LPCapacityBucket;
 import com.misc.common.moplaf.macroplanner.solver.LPProduct;
 import com.misc.common.moplaf.macroplanner.solver.LPProductBucket;
+import com.misc.common.moplaf.macroplanner.solver.LPRoutingBucket;
+import com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketProduct;
 import com.misc.common.moplaf.macroplanner.solver.LPSupplyBucket;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
-
+import com.misc.common.moplaf.solver.EnumLpConsType;
+import com.misc.common.moplaf.solver.EnumLpVarType;
 import com.misc.common.moplaf.solver.GeneratorLpCons;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
+import com.misc.common.moplaf.solver.SolverFactory;
 
 import java.util.Collection;
 
@@ -39,6 +43,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getProduct <em>Product</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getCapacities <em>Capacities</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getSupplies <em>Supplies</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getConsumptions <em>Consumptions</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getConsumed <em>Consumed</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getSupplied <em>Supplied</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getStocked <em>Stocked</em>}</li>
@@ -69,6 +74,16 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 	 * @ordered
 	 */
 	protected LPSupplyBucket supplies;
+
+	/**
+	 * The cached value of the '{@link #getConsumptions() <em>Consumptions</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConsumptions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<LPRoutingBucketProduct> consumptions;
 
 	/**
 	 * The cached value of the '{@link #getConsumed() <em>Consumed</em>}' containment reference.
@@ -260,6 +275,18 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLIES, newSupplies, newSupplies));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<LPRoutingBucketProduct> getConsumptions() {
+		if (consumptions == null) {
+			consumptions = new EObjectWithInverseResolvingEList<LPRoutingBucketProduct>(LPRoutingBucketProduct.class, this, MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CONSUMPTIONS, MacroPlannerSolverPackage.LP_ROUTING_BUCKET_PRODUCT__PRODUCT_BUCKET);
+		}
+		return consumptions;
 	}
 
 	/**
@@ -539,6 +566,8 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 				if (supplies != null)
 					msgs = ((InternalEObject)supplies).eInverseRemove(this, MacroPlannerSolverPackage.LP_SUPPLY_BUCKET__PRODUCT_BUCKET, LPSupplyBucket.class, msgs);
 				return basicSetSupplies((LPSupplyBucket)otherEnd, msgs);
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CONSUMPTIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getConsumptions()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -557,6 +586,8 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 				return ((InternalEList<?>)getCapacities()).basicRemove(otherEnd, msgs);
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLIES:
 				return basicSetSupplies(null, msgs);
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CONSUMPTIONS:
+				return ((InternalEList<?>)getConsumptions()).basicRemove(otherEnd, msgs);
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CONSUMED:
 				return basicSetConsumed(null, msgs);
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLIED:
@@ -602,6 +633,8 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLIES:
 				if (resolve) return getSupplies();
 				return basicGetSupplies();
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CONSUMPTIONS:
+				return getConsumptions();
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CONSUMED:
 				return getConsumed();
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLIED:
@@ -636,6 +669,10 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 				return;
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLIES:
 				setSupplies((LPSupplyBucket)newValue);
+				return;
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CONSUMPTIONS:
+				getConsumptions().clear();
+				getConsumptions().addAll((Collection<? extends LPRoutingBucketProduct>)newValue);
 				return;
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CONSUMED:
 				setConsumed((GeneratorLpVar)newValue);
@@ -676,6 +713,9 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLIES:
 				setSupplies((LPSupplyBucket)null);
 				return;
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CONSUMPTIONS:
+				getConsumptions().clear();
+				return;
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CONSUMED:
 				setConsumed((GeneratorLpVar)null);
 				return;
@@ -712,6 +752,8 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 				return capacities != null && !capacities.isEmpty();
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLIES:
 				return supplies != null;
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CONSUMPTIONS:
+				return consumptions != null && !consumptions.isEmpty();
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CONSUMED:
 				return consumed != null;
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLIED:
@@ -748,7 +790,52 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 	 */
 	@Override
 	public void generateXReferences() {
-		super.generateXReferences();
 		
+		super.generateXReferences();
+	}
+
+	/**
+	 * 
+	 */
+	@Override
+	public void generateVars() {
+		super.generateVars();
+		
+		// var consumed
+		GeneratorLpVar var = SolverFactory.eINSTANCE.createGeneratorLpVar();
+		var.setType(EnumLpVarType.ENUM_LITERAL_LP_VAR_REAL);
+		var.setLowerBound(0.0f);
+		var.setName("consumed");
+		this.setConsumed(var);  // owning
+	}
+	
+	/**
+	 * 
+	 */
+	@Override
+	public void generateCons() {
+		super.generateCons();
+		
+		this.generateLpConsCalcConsumed();
+	}
+
+	/**
+	 * 
+	 */
+	private void generateLpConsCalcConsumed(){
+
+		GeneratorLpCons cons = SolverFactory.eINSTANCE.createGeneratorLpCons();
+		cons.setType(EnumLpConsType.ENUM_LITERAL_LP_CONS_EQUAL);
+		cons.setName("calc_consumed");
+		GeneratorLpVar var_consumed = this.getConsumed();
+		cons.constructTerm(var_consumed, 1.0f);
+		float rhs = 0.0f;
+		for (  LPRoutingBucketProduct lp_product_bucket_consumed : this.getConsumptions()){
+			LPRoutingBucket lp_routing_bucket = lp_product_bucket_consumed.getRouting();
+			GeneratorLpVar var_routing_planned = lp_routing_bucket.getPlanned();
+			cons.constructTerm(var_routing_planned, 1.0f);
+		} // traverse last trip possible jetties
+		cons.setRighHandSide(rhs);
+		this.setCalcConsumed(cons); // owning
 	}
 } //LPProductBucketImpl

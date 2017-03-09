@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getResource <em>Resource</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getAvailabilities <em>Availabilities</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getReservations <em>Reservations</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getReserved <em>Reserved</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getBalance <em>Balance</em>}</li>
  * </ul>
@@ -72,6 +73,24 @@ public interface LPResourceBucket extends LPTimeBucket {
 	 * @generated
 	 */
 	EList<LPAvailabilityBucket> getAvailabilities();
+
+	/**
+	 * Returns the value of the '<em><b>Reservations</b></em>' reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketResource}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketResource#getResourceBucket <em>Resource Bucket</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Reservations</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reservations</em>' reference list.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPResourceBucket_Reservations()
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketResource#getResourceBucket
+	 * @model opposite="ResourceBucket"
+	 * @generated
+	 */
+	EList<LPRoutingBucketResource> getReservations();
 
 	/**
 	 * Returns the value of the '<em><b>Reserved</b></em>' containment reference.

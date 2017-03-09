@@ -631,7 +631,7 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLPProductBucket_Consumed() {
+	public EReference getLPProductBucket_Consumptions() {
 		return (EReference)lpProductBucketEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -640,7 +640,7 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLPProductBucket_Supplied() {
+	public EReference getLPProductBucket_Consumed() {
 		return (EReference)lpProductBucketEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -649,7 +649,7 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLPProductBucket_Stocked() {
+	public EReference getLPProductBucket_Supplied() {
 		return (EReference)lpProductBucketEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -658,7 +658,7 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLPProductBucket_CalcConsumed() {
+	public EReference getLPProductBucket_Stocked() {
 		return (EReference)lpProductBucketEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -667,7 +667,7 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLPProductBucket_CalcSupplied() {
+	public EReference getLPProductBucket_CalcConsumed() {
 		return (EReference)lpProductBucketEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -676,8 +676,17 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLPProductBucket_Balance() {
+	public EReference getLPProductBucket_CalcSupplied() {
 		return (EReference)lpProductBucketEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLPProductBucket_Balance() {
+		return (EReference)lpProductBucketEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -955,7 +964,7 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLPResourceBucket_Reserved() {
+	public EReference getLPResourceBucket_Reservations() {
 		return (EReference)lpResourceBucketEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -964,8 +973,17 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLPResourceBucket_Balance() {
+	public EReference getLPResourceBucket_Reserved() {
 		return (EReference)lpResourceBucketEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLPResourceBucket_Balance() {
+		return (EReference)lpResourceBucketEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1216,6 +1234,15 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getLPRoutingBucketProduct_Routing() {
+		return (EReference)lpRoutingBucketProductEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLPRoutingBucketResource() {
 		return lpRoutingBucketResourceEClass;
 	}
@@ -1236,6 +1263,15 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 	 */
 	public EReference getLPRoutingBucketResource_RoutingResource() {
 		return (EReference)lpRoutingBucketResourceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLPRoutingBucketResource_Routing() {
+		return (EReference)lpRoutingBucketResourceEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1401,6 +1437,7 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		createEReference(lpProductBucketEClass, LP_PRODUCT_BUCKET__PRODUCT);
 		createEReference(lpProductBucketEClass, LP_PRODUCT_BUCKET__CAPACITIES);
 		createEReference(lpProductBucketEClass, LP_PRODUCT_BUCKET__SUPPLIES);
+		createEReference(lpProductBucketEClass, LP_PRODUCT_BUCKET__CONSUMPTIONS);
 		createEReference(lpProductBucketEClass, LP_PRODUCT_BUCKET__CONSUMED);
 		createEReference(lpProductBucketEClass, LP_PRODUCT_BUCKET__SUPPLIED);
 		createEReference(lpProductBucketEClass, LP_PRODUCT_BUCKET__STOCKED);
@@ -1444,6 +1481,7 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		lpResourceBucketEClass = createEClass(LP_RESOURCE_BUCKET);
 		createEReference(lpResourceBucketEClass, LP_RESOURCE_BUCKET__RESOURCE);
 		createEReference(lpResourceBucketEClass, LP_RESOURCE_BUCKET__AVAILABILITIES);
+		createEReference(lpResourceBucketEClass, LP_RESOURCE_BUCKET__RESERVATIONS);
 		createEReference(lpResourceBucketEClass, LP_RESOURCE_BUCKET__RESERVED);
 		createEReference(lpResourceBucketEClass, LP_RESOURCE_BUCKET__BALANCE);
 
@@ -1491,10 +1529,12 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		lpRoutingBucketProductEClass = createEClass(LP_ROUTING_BUCKET_PRODUCT);
 		createEReference(lpRoutingBucketProductEClass, LP_ROUTING_BUCKET_PRODUCT__PRODUCT_BUCKET);
 		createEReference(lpRoutingBucketProductEClass, LP_ROUTING_BUCKET_PRODUCT__ROUTING_PRODUCT);
+		createEReference(lpRoutingBucketProductEClass, LP_ROUTING_BUCKET_PRODUCT__ROUTING);
 
 		lpRoutingBucketResourceEClass = createEClass(LP_ROUTING_BUCKET_RESOURCE);
 		createEReference(lpRoutingBucketResourceEClass, LP_ROUTING_BUCKET_RESOURCE__RESOURCE_BUCKET);
 		createEReference(lpRoutingBucketResourceEClass, LP_ROUTING_BUCKET_RESOURCE__ROUTING_RESOURCE);
+		createEReference(lpRoutingBucketResourceEClass, LP_ROUTING_BUCKET_RESOURCE__ROUTING);
 	}
 
 	/**
@@ -1605,6 +1645,7 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		initEReference(getLPProductBucket_Product(), this.getLPProduct(), this.getLPProduct_LPBuckets(), "Product", null, 0, 1, LPProductBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPProductBucket_Capacities(), this.getLPCapacityBucket(), this.getLPCapacityBucket_ProductBucket(), "Capacities", null, 0, -1, LPProductBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPProductBucket_Supplies(), this.getLPSupplyBucket(), this.getLPSupplyBucket_ProductBucket(), "Supplies", null, 0, 1, LPProductBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLPProductBucket_Consumptions(), this.getLPRoutingBucketProduct(), this.getLPRoutingBucketProduct_ProductBucket(), "Consumptions", null, 0, -1, LPProductBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPProductBucket_Consumed(), theSolverPackage.getGeneratorLpVar(), null, "Consumed", null, 1, 1, LPProductBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPProductBucket_Supplied(), theSolverPackage.getGeneratorLpVar(), null, "Supplied", null, 1, 1, LPProductBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPProductBucket_Stocked(), theSolverPackage.getGeneratorLpVar(), null, "Stocked", null, 1, 1, LPProductBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1650,6 +1691,7 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		initEClass(lpResourceBucketEClass, LPResourceBucket.class, "LPResourceBucket", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLPResourceBucket_Resource(), this.getLPResource(), this.getLPResource_LPBuckets(), "Resource", null, 0, 1, LPResourceBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPResourceBucket_Availabilities(), this.getLPAvailabilityBucket(), this.getLPAvailabilityBucket_ResourceBucket(), "Availabilities", null, 0, -1, LPResourceBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLPResourceBucket_Reservations(), this.getLPRoutingBucketResource(), this.getLPRoutingBucketResource_ResourceBucket(), "Reservations", null, 0, -1, LPResourceBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPResourceBucket_Reserved(), theSolverPackage.getGeneratorLpVar(), null, "Reserved", null, 1, 1, LPResourceBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPResourceBucket_Balance(), theSolverPackage.getGeneratorLpCons(), null, "Balance", null, 1, 1, LPResourceBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1690,17 +1732,19 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 
 		initEClass(lpRoutingBucketEClass, LPRoutingBucket.class, "LPRoutingBucket", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLPRoutingBucket_Routing(), this.getLPRouting(), this.getLPRouting_LPBuckets(), "Routing", null, 0, 1, LPRoutingBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getLPRoutingBucket_Products(), this.getLPRoutingBucketProduct(), null, "Products", null, 0, -1, LPRoutingBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getLPRoutingBucket_Resources(), this.getLPRoutingBucketResource(), null, "Resources", null, 0, -1, LPRoutingBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLPRoutingBucket_Products(), this.getLPRoutingBucketProduct(), this.getLPRoutingBucketProduct_Routing(), "Products", null, 0, -1, LPRoutingBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLPRoutingBucket_Resources(), this.getLPRoutingBucketResource(), this.getLPRoutingBucketResource_Routing(), "Resources", null, 0, -1, LPRoutingBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPRoutingBucket_Planned(), theSolverPackage.getGeneratorLpVar(), null, "Planned", null, 1, 1, LPRoutingBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(lpRoutingBucketProductEClass, LPRoutingBucketProduct.class, "LPRoutingBucketProduct", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLPRoutingBucketProduct_ProductBucket(), this.getLPProductBucket(), null, "ProductBucket", null, 1, 1, LPRoutingBucketProduct.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLPRoutingBucketProduct_ProductBucket(), this.getLPProductBucket(), this.getLPProductBucket_Consumptions(), "ProductBucket", null, 1, 1, LPRoutingBucketProduct.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPRoutingBucketProduct_RoutingProduct(), this.getLPRoutingProduct(), this.getLPRoutingProduct_LPBucket(), "RoutingProduct", null, 0, 1, LPRoutingBucketProduct.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLPRoutingBucketProduct_Routing(), this.getLPRoutingBucket(), this.getLPRoutingBucket_Products(), "Routing", null, 1, 1, LPRoutingBucketProduct.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(lpRoutingBucketResourceEClass, LPRoutingBucketResource.class, "LPRoutingBucketResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLPRoutingBucketResource_ResourceBucket(), this.getLPResourceBucket(), null, "ResourceBucket", null, 1, 1, LPRoutingBucketResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLPRoutingBucketResource_ResourceBucket(), this.getLPResourceBucket(), this.getLPResourceBucket_Reservations(), "ResourceBucket", null, 1, 1, LPRoutingBucketResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPRoutingBucketResource_RoutingResource(), this.getLPRoutingResource(), this.getLPRoutingResource_LPBucket(), "RoutingResource", null, 0, 1, LPRoutingBucketResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLPRoutingBucketResource_Routing(), this.getLPRoutingBucket(), this.getLPRoutingBucket_Resources(), "Routing", null, 1, 1, LPRoutingBucketResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

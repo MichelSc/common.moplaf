@@ -13,6 +13,7 @@ package com.misc.common.moplaf.macroplanner.solver;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketProduct#getProductBucket <em>Product Bucket</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketProduct#getRoutingProduct <em>Routing Product</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketProduct#getRouting <em>Routing</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPRoutingBucketProduct()
@@ -22,6 +23,7 @@ package com.misc.common.moplaf.macroplanner.solver;
 public interface LPRoutingBucketProduct extends LPTuple {
 	/**
 	 * Returns the value of the '<em><b>Product Bucket</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getConsumptions <em>Consumptions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Product Bucket</em>' reference isn't clear,
@@ -31,7 +33,8 @@ public interface LPRoutingBucketProduct extends LPTuple {
 	 * @return the value of the '<em>Product Bucket</em>' reference.
 	 * @see #setProductBucket(LPProductBucket)
 	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPRoutingBucketProduct_ProductBucket()
-	 * @model required="true"
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getConsumptions
+	 * @model opposite="Consumptions" required="true"
 	 * @generated
 	 */
 	LPProductBucket getProductBucket();
@@ -73,5 +76,33 @@ public interface LPRoutingBucketProduct extends LPTuple {
 	 * @generated
 	 */
 	void setRoutingProduct(LPRoutingProduct value);
+
+	/**
+	 * Returns the value of the '<em><b>Routing</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucket#getProducts <em>Products</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Routing</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Routing</em>' container reference.
+	 * @see #setRouting(LPRoutingBucket)
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPRoutingBucketProduct_Routing()
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPRoutingBucket#getProducts
+	 * @model opposite="Products" required="true" transient="false"
+	 * @generated
+	 */
+	LPRoutingBucket getRouting();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketProduct#getRouting <em>Routing</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Routing</em>' container reference.
+	 * @see #getRouting()
+	 * @generated
+	 */
+	void setRouting(LPRoutingBucket value);
 
 } // LPRoutingBucketProduct

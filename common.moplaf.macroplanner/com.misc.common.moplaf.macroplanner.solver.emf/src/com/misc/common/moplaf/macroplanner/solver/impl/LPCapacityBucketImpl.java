@@ -5,11 +5,14 @@ package com.misc.common.moplaf.macroplanner.solver.impl;
 
 import com.misc.common.moplaf.macroplanner.solver.LPCapacity;
 import com.misc.common.moplaf.macroplanner.solver.LPCapacityBucket;
+import com.misc.common.moplaf.macroplanner.solver.LPProduct;
 import com.misc.common.moplaf.macroplanner.solver.LPProductBucket;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
 
 import com.misc.common.moplaf.solver.GeneratorLpCons;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
+import com.misc.common.moplaf.time.discrete.ObjectTimeBucket;
+import com.misc.common.moplaf.time.discrete.TimeBucket;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -503,7 +506,14 @@ public class LPCapacityBucketImpl extends LPTimeBucketImpl implements LPCapacity
 	 */
 	@Override
 	public void generateXReferences() {
+		
 		super.generateXReferences();
 		
+		LPCapacity capacity = this.getCapacity();
+		LPProduct product = capacity.getProduct();
+		
+		TimeBucket bucket = this.getBucket();
+		ObjectTimeBucket product_bucket = product.getBucket(bucket);
+		this.setProductBucket((LPProductBucket) product_bucket);
 	}
 } //LPCapacityBucketImpl

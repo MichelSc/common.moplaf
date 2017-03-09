@@ -2,14 +2,16 @@
  */
 package com.misc.common.moplaf.macroplanner.solver.impl;
 
-
 import com.misc.common.moplaf.macroplanner.solver.LPAvailability;
 import com.misc.common.moplaf.macroplanner.solver.LPAvailabilityBucket;
+import com.misc.common.moplaf.macroplanner.solver.LPResource;
 import com.misc.common.moplaf.macroplanner.solver.LPResourceBucket;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
 
 import com.misc.common.moplaf.solver.GeneratorLpCons;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
+import com.misc.common.moplaf.time.discrete.ObjectTimeBucket;
+import com.misc.common.moplaf.time.discrete.TimeBucket;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -503,7 +505,14 @@ public class LPAvailabilityBucketImpl extends LPTimeBucketImpl implements LPAvai
 	 */
 	@Override
 	public void generateXReferences() {
+		
 		super.generateXReferences();
 		
+		LPAvailability availability = this.getAvailability();
+		LPResource resource = availability.getResource();
+		
+		TimeBucket bucket = this.getBucket();
+		ObjectTimeBucket resource_bucket = resource.getBucket(bucket);
+		this.setResourceBucket((LPResourceBucket) resource_bucket);
 	}
 } //LPAvailabilityBucketImpl

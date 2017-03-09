@@ -57,6 +57,7 @@ public interface LPRoutingBucket extends LPTimeBucket {
 	/**
 	 * Returns the value of the '<em><b>Products</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketProduct}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketProduct#getRouting <em>Routing</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Products</em>' containment reference list isn't clear,
@@ -65,7 +66,8 @@ public interface LPRoutingBucket extends LPTimeBucket {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Products</em>' containment reference list.
 	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPRoutingBucket_Products()
-	 * @model containment="true"
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketProduct#getRouting
+	 * @model opposite="Routing" containment="true"
 	 * @generated
 	 */
 	EList<LPRoutingBucketProduct> getProducts();
@@ -73,6 +75,7 @@ public interface LPRoutingBucket extends LPTimeBucket {
 	/**
 	 * Returns the value of the '<em><b>Resources</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketResource}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketResource#getRouting <em>Routing</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Resources</em>' containment reference list isn't clear,
@@ -81,7 +84,8 @@ public interface LPRoutingBucket extends LPTimeBucket {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Resources</em>' containment reference list.
 	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPRoutingBucket_Resources()
-	 * @model containment="true"
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketResource#getRouting
+	 * @model opposite="Routing" containment="true"
 	 * @generated
 	 */
 	EList<LPRoutingBucketResource> getResources();

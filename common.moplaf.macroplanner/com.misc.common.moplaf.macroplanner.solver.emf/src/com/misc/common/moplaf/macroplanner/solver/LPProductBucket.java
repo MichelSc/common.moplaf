@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getProduct <em>Product</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getCapacities <em>Capacities</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getSupplies <em>Supplies</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getConsumptions <em>Consumptions</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getConsumed <em>Consumed</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getSupplied <em>Supplied</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getStocked <em>Stocked</em>}</li>
@@ -105,6 +106,24 @@ public interface LPProductBucket extends LPTimeBucket {
 	 * @generated
 	 */
 	void setSupplies(LPSupplyBucket value);
+
+	/**
+	 * Returns the value of the '<em><b>Consumptions</b></em>' reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketProduct}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketProduct#getProductBucket <em>Product Bucket</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Consumptions</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Consumptions</em>' reference list.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPProductBucket_Consumptions()
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketProduct#getProductBucket
+	 * @model opposite="ProductBucket"
+	 * @generated
+	 */
+	EList<LPRoutingBucketProduct> getConsumptions();
 
 	/**
 	 * Returns the value of the '<em><b>Consumed</b></em>' containment reference.

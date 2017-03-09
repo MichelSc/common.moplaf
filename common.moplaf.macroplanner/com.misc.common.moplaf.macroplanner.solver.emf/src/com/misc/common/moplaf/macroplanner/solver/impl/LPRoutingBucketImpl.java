@@ -31,8 +31,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -150,7 +149,7 @@ public class LPRoutingBucketImpl extends LPTimeBucketImpl implements LPRoutingBu
 	 */
 	public EList<LPRoutingBucketProduct> getProducts() {
 		if (products == null) {
-			products = new EObjectContainmentEList<LPRoutingBucketProduct>(LPRoutingBucketProduct.class, this, MacroPlannerSolverPackage.LP_ROUTING_BUCKET__PRODUCTS);
+			products = new EObjectContainmentWithInverseEList<LPRoutingBucketProduct>(LPRoutingBucketProduct.class, this, MacroPlannerSolverPackage.LP_ROUTING_BUCKET__PRODUCTS, MacroPlannerSolverPackage.LP_ROUTING_BUCKET_PRODUCT__ROUTING);
 		}
 		return products;
 	}
@@ -162,7 +161,7 @@ public class LPRoutingBucketImpl extends LPTimeBucketImpl implements LPRoutingBu
 	 */
 	public EList<LPRoutingBucketResource> getResources() {
 		if (resources == null) {
-			resources = new EObjectContainmentEList<LPRoutingBucketResource>(LPRoutingBucketResource.class, this, MacroPlannerSolverPackage.LP_ROUTING_BUCKET__RESOURCES);
+			resources = new EObjectContainmentWithInverseEList<LPRoutingBucketResource>(LPRoutingBucketResource.class, this, MacroPlannerSolverPackage.LP_ROUTING_BUCKET__RESOURCES, MacroPlannerSolverPackage.LP_ROUTING_BUCKET_RESOURCE__ROUTING);
 		}
 		return resources;
 	}
@@ -215,6 +214,7 @@ public class LPRoutingBucketImpl extends LPTimeBucketImpl implements LPRoutingBu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -222,6 +222,10 @@ public class LPRoutingBucketImpl extends LPTimeBucketImpl implements LPRoutingBu
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetRouting((LPRouting)otherEnd, msgs);
+			case MacroPlannerSolverPackage.LP_ROUTING_BUCKET__PRODUCTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProducts()).basicAdd(otherEnd, msgs);
+			case MacroPlannerSolverPackage.LP_ROUTING_BUCKET__RESOURCES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getResources()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}

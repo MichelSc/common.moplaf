@@ -1850,13 +1850,22 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_PRODUCT_BUCKET__SUPPLIES = LP_TIME_BUCKET_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Consumptions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_PRODUCT_BUCKET__CONSUMPTIONS = LP_TIME_BUCKET_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Consumed</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LP_PRODUCT_BUCKET__CONSUMED = LP_TIME_BUCKET_FEATURE_COUNT + 3;
+	int LP_PRODUCT_BUCKET__CONSUMED = LP_TIME_BUCKET_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Supplied</b></em>' containment reference.
@@ -1865,7 +1874,7 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LP_PRODUCT_BUCKET__SUPPLIED = LP_TIME_BUCKET_FEATURE_COUNT + 4;
+	int LP_PRODUCT_BUCKET__SUPPLIED = LP_TIME_BUCKET_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Stocked</b></em>' containment reference.
@@ -1874,7 +1883,7 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LP_PRODUCT_BUCKET__STOCKED = LP_TIME_BUCKET_FEATURE_COUNT + 5;
+	int LP_PRODUCT_BUCKET__STOCKED = LP_TIME_BUCKET_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Calc Consumed</b></em>' containment reference.
@@ -1883,7 +1892,7 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LP_PRODUCT_BUCKET__CALC_CONSUMED = LP_TIME_BUCKET_FEATURE_COUNT + 6;
+	int LP_PRODUCT_BUCKET__CALC_CONSUMED = LP_TIME_BUCKET_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Calc Supplied</b></em>' containment reference.
@@ -1892,7 +1901,7 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LP_PRODUCT_BUCKET__CALC_SUPPLIED = LP_TIME_BUCKET_FEATURE_COUNT + 7;
+	int LP_PRODUCT_BUCKET__CALC_SUPPLIED = LP_TIME_BUCKET_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Balance</b></em>' containment reference.
@@ -1901,7 +1910,7 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LP_PRODUCT_BUCKET__BALANCE = LP_TIME_BUCKET_FEATURE_COUNT + 8;
+	int LP_PRODUCT_BUCKET__BALANCE = LP_TIME_BUCKET_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of structural features of the '<em>LP Product Bucket</em>' class.
@@ -1910,7 +1919,7 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LP_PRODUCT_BUCKET_FEATURE_COUNT = LP_TIME_BUCKET_FEATURE_COUNT + 9;
+	int LP_PRODUCT_BUCKET_FEATURE_COUNT = LP_TIME_BUCKET_FEATURE_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -3576,13 +3585,22 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_RESOURCE_BUCKET__AVAILABILITIES = LP_TIME_BUCKET_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Reservations</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_RESOURCE_BUCKET__RESERVATIONS = LP_TIME_BUCKET_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Reserved</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LP_RESOURCE_BUCKET__RESERVED = LP_TIME_BUCKET_FEATURE_COUNT + 2;
+	int LP_RESOURCE_BUCKET__RESERVED = LP_TIME_BUCKET_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Balance</b></em>' containment reference.
@@ -3591,7 +3609,7 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LP_RESOURCE_BUCKET__BALANCE = LP_TIME_BUCKET_FEATURE_COUNT + 3;
+	int LP_RESOURCE_BUCKET__BALANCE = LP_TIME_BUCKET_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>LP Resource Bucket</em>' class.
@@ -3600,7 +3618,7 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LP_RESOURCE_BUCKET_FEATURE_COUNT = LP_TIME_BUCKET_FEATURE_COUNT + 4;
+	int LP_RESOURCE_BUCKET_FEATURE_COUNT = LP_TIME_BUCKET_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -5394,13 +5412,22 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_ROUTING_BUCKET_PRODUCT__ROUTING_PRODUCT = LP_TUPLE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Routing</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_BUCKET_PRODUCT__ROUTING = LP_TUPLE_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>LP Routing Bucket Product</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LP_ROUTING_BUCKET_PRODUCT_FEATURE_COUNT = LP_TUPLE_FEATURE_COUNT + 2;
+	int LP_ROUTING_BUCKET_PRODUCT_FEATURE_COUNT = LP_TUPLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -5565,13 +5592,22 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_ROUTING_BUCKET_RESOURCE__ROUTING_RESOURCE = LP_TUPLE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Routing</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_BUCKET_RESOURCE__ROUTING = LP_TUPLE_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>LP Routing Bucket Resource</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LP_ROUTING_BUCKET_RESOURCE_FEATURE_COUNT = LP_TUPLE_FEATURE_COUNT + 2;
+	int LP_ROUTING_BUCKET_RESOURCE_FEATURE_COUNT = LP_TUPLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -6056,6 +6092,17 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	EReference getLPProductBucket_Supplies();
 
 	/**
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getConsumptions <em>Consumptions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Consumptions</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getConsumptions()
+	 * @see #getLPProductBucket()
+	 * @generated
+	 */
+	EReference getLPProductBucket_Consumptions();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getConsumed <em>Consumed</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6444,6 +6491,17 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	EReference getLPResourceBucket_Availabilities();
 
 	/**
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getReservations <em>Reservations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Reservations</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getReservations()
+	 * @see #getLPResourceBucket()
+	 * @generated
+	 */
+	EReference getLPResourceBucket_Reservations();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getReserved <em>Reserved</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6757,6 +6815,17 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	EReference getLPRoutingBucketProduct_RoutingProduct();
 
 	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketProduct#getRouting <em>Routing</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Routing</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketProduct#getRouting()
+	 * @see #getLPRoutingBucketProduct()
+	 * @generated
+	 */
+	EReference getLPRoutingBucketProduct_Routing();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketResource <em>LP Routing Bucket Resource</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6787,6 +6856,17 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getLPRoutingBucketResource_RoutingResource();
+
+	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketResource#getRouting <em>Routing</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Routing</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketResource#getRouting()
+	 * @see #getLPRoutingBucketResource()
+	 * @generated
+	 */
+	EReference getLPRoutingBucketResource_Routing();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct <em>LP Routing Product</em>}'.
@@ -7240,6 +7320,14 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		EReference LP_PRODUCT_BUCKET__SUPPLIES = eINSTANCE.getLPProductBucket_Supplies();
 
 		/**
+		 * The meta object literal for the '<em><b>Consumptions</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LP_PRODUCT_BUCKET__CONSUMPTIONS = eINSTANCE.getLPProductBucket_Consumptions();
+
+		/**
 		 * The meta object literal for the '<em><b>Consumed</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7542,6 +7630,14 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		EReference LP_RESOURCE_BUCKET__AVAILABILITIES = eINSTANCE.getLPResourceBucket_Availabilities();
 
 		/**
+		 * The meta object literal for the '<em><b>Reservations</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LP_RESOURCE_BUCKET__RESERVATIONS = eINSTANCE.getLPResourceBucket_Reservations();
+
+		/**
 		 * The meta object literal for the '<em><b>Reserved</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7786,6 +7882,14 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		EReference LP_ROUTING_BUCKET_PRODUCT__ROUTING_PRODUCT = eINSTANCE.getLPRoutingBucketProduct_RoutingProduct();
 
 		/**
+		 * The meta object literal for the '<em><b>Routing</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LP_ROUTING_BUCKET_PRODUCT__ROUTING = eINSTANCE.getLPRoutingBucketProduct_Routing();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingBucketResourceImpl <em>LP Routing Bucket Resource</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7810,6 +7914,14 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		 * @generated
 		 */
 		EReference LP_ROUTING_BUCKET_RESOURCE__ROUTING_RESOURCE = eINSTANCE.getLPRoutingBucketResource_RoutingResource();
+
+		/**
+		 * The meta object literal for the '<em><b>Routing</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LP_ROUTING_BUCKET_RESOURCE__ROUTING = eINSTANCE.getLPRoutingBucketResource_Routing();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingProductImpl <em>LP Routing Product</em>}' class.
