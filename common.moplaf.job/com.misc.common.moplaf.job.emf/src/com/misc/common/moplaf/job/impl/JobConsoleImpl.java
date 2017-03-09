@@ -238,7 +238,7 @@ public class JobConsoleImpl extends JobImpl implements JobConsole {
 				String paramValueAsLiteral = this.getArgAsString(paramIndex);
 				EEnum enumType = (EEnum) param.getJobAttribute().getEAttributeType();
 				EEnumLiteral literal = enumType.getEEnumLiteralByLiteral(paramValueAsLiteral);
-				this.eSet(param.getJobAttribute(), literal.getInstance());
+				this.eSet(param.getJobAttribute(), literal == null ? null : literal.getInstance());
 				break;
 			case JOB_PARAMETER_TYPE_DATE:
 				Date paramValueAsDate= this.getArgAsDate(paramIndex);
