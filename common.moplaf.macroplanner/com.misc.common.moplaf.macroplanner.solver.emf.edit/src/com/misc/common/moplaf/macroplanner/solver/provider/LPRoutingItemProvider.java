@@ -87,6 +87,8 @@ public class LPRoutingItemProvider extends LPTimeLineItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(MacroPlannerSolverPackage.Literals.LP_ROUTING__LP_BUCKETS);
+			childrenFeatures.add(MacroPlannerSolverPackage.Literals.LP_ROUTING__PRODUCTS);
+			childrenFeatures.add(MacroPlannerSolverPackage.Literals.LP_ROUTING__RESOURCES);
 		}
 		return childrenFeatures;
 	}
@@ -132,6 +134,8 @@ public class LPRoutingItemProvider extends LPTimeLineItemProvider {
 
 		switch (notification.getFeatureID(LPRouting.class)) {
 			case MacroPlannerSolverPackage.LP_ROUTING__LP_BUCKETS:
+			case MacroPlannerSolverPackage.LP_ROUTING__PRODUCTS:
+			case MacroPlannerSolverPackage.LP_ROUTING__RESOURCES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -153,6 +157,16 @@ public class LPRoutingItemProvider extends LPTimeLineItemProvider {
 			(createChildParameter
 				(MacroPlannerSolverPackage.Literals.LP_ROUTING__LP_BUCKETS,
 				 MacroPlannerSolverFactory.eINSTANCE.createLPRoutingBucket()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MacroPlannerSolverPackage.Literals.LP_ROUTING__PRODUCTS,
+				 MacroPlannerSolverFactory.eINSTANCE.createLPRoutingProduct()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MacroPlannerSolverPackage.Literals.LP_ROUTING__RESOURCES,
+				 MacroPlannerSolverFactory.eINSTANCE.createLPRoutingResource()));
 	}
 
 }

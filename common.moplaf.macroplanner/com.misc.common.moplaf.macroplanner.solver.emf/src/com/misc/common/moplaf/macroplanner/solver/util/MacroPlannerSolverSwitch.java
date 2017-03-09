@@ -265,6 +265,22 @@ public class MacroPlannerSolverSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case MacroPlannerSolverPackage.LP_ROUTING_PRODUCT: {
+				LPRoutingProduct lpRoutingProduct = (LPRoutingProduct)theEObject;
+				T result = caseLPRoutingProduct(lpRoutingProduct);
+				if (result == null) result = caseGeneratorTuple(lpRoutingProduct);
+				if (result == null) result = caseGeneratorElement(lpRoutingProduct);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MacroPlannerSolverPackage.LP_ROUTING_RESOURCE: {
+				LPRoutingResource lpRoutingResource = (LPRoutingResource)theEObject;
+				T result = caseLPRoutingResource(lpRoutingResource);
+				if (result == null) result = caseGeneratorTuple(lpRoutingResource);
+				if (result == null) result = caseGeneratorElement(lpRoutingResource);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case MacroPlannerSolverPackage.LP_ROUTING_BUCKET: {
 				LPRoutingBucket lpRoutingBucket = (LPRoutingBucket)theEObject;
 				T result = caseLPRoutingBucket(lpRoutingBucket);
@@ -625,6 +641,36 @@ public class MacroPlannerSolverSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseLPRoutingBucketResource(LPRoutingBucketResource object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>LP Routing Product</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>LP Routing Product</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLPRoutingProduct(LPRoutingProduct object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>LP Routing Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>LP Routing Resource</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLPRoutingResource(LPRoutingResource object) {
 		return null;
 	}
 

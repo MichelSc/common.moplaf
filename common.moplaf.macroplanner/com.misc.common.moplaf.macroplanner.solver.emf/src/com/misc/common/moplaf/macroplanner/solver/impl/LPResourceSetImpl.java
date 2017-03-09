@@ -12,6 +12,7 @@ import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverFactory;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
 import com.misc.common.moplaf.macroplanner.solver.Scenario;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -123,6 +124,19 @@ public class LPResourceSetImpl extends LPTupleImpl implements LPResourceSet {
 			resources = new EObjectContainmentWithInverseEList<LPResource>(LPResource.class, this, MacroPlannerSolverPackage.LP_RESOURCE_SET__RESOURCES, MacroPlannerSolverPackage.LP_RESOURCE__RESOURCE_SET);
 		}
 		return resources;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public LPResource getResource(LocationResource locationResource) {
+		for (LPResource r : this.getResources()){
+			if ( r.getResource() == locationResource){
+				return r;
+			}
+		}
+		return null;
 	}
 
 	/**
@@ -242,6 +256,20 @@ public class LPResourceSetImpl extends LPTupleImpl implements LPResourceSet {
 				return resources != null && !resources.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case MacroPlannerSolverPackage.LP_RESOURCE_SET___GET_RESOURCE__LOCATIONRESOURCE:
+				return getResource((LocationResource)arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

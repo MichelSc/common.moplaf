@@ -14,6 +14,7 @@ import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
 import com.misc.common.moplaf.macroplanner.solver.Scenario;
 import com.misc.common.moplaf.solver.impl.GeneratorTupleImpl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -125,6 +126,19 @@ public class LPProductSetImpl extends GeneratorTupleImpl implements LPProductSet
 			products = new EObjectContainmentWithInverseEList<LPProduct>(LPProduct.class, this, MacroPlannerSolverPackage.LP_PRODUCT_SET__PRODUCTS, MacroPlannerSolverPackage.LP_PRODUCT__PRODUCT_SET);
 		}
 		return products;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public LPProduct getProduct(LocationProduct locationProduct) {
+		for (LPProduct p : this.getProducts()){
+			if ( p.getProduct() == locationProduct){
+				return p;
+			}
+		}
+		return null;
 	}
 
 	/**
@@ -247,6 +261,20 @@ public class LPProductSetImpl extends GeneratorTupleImpl implements LPProductSet
 	}
 
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case MacroPlannerSolverPackage.LP_PRODUCT_SET___GET_PRODUCT__LOCATIONPRODUCT:
+				return getProduct((LocationProduct)arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
 	/**
 	 * 
 	 */

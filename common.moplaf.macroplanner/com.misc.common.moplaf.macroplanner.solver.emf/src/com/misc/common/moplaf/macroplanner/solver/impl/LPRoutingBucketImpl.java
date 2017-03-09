@@ -2,14 +2,24 @@
  */
 package com.misc.common.moplaf.macroplanner.solver.impl;
 
+
+import com.misc.common.moplaf.macroplanner.RoutingProduct;
+import com.misc.common.moplaf.macroplanner.RoutingResource;
+import com.misc.common.moplaf.macroplanner.solver.LPProduct;
+import com.misc.common.moplaf.macroplanner.solver.LPProductBucket;
+import com.misc.common.moplaf.macroplanner.solver.LPResource;
+import com.misc.common.moplaf.macroplanner.solver.LPResourceBucket;
 import com.misc.common.moplaf.macroplanner.solver.LPRouting;
 import com.misc.common.moplaf.macroplanner.solver.LPRoutingBucket;
 import com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketProduct;
 import com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketResource;
+import com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct;
+import com.misc.common.moplaf.macroplanner.solver.LPRoutingResource;
+import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverFactory;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
 
 import com.misc.common.moplaf.solver.GeneratorLpVar;
-
+import com.misc.common.moplaf.time.discrete.TimeBucket;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -341,4 +351,58 @@ public class LPRoutingBucketImpl extends LPTimeBucketImpl implements LPRoutingBu
 		return super.eIsSet(featureID);
 	}
 
+	/**
+	 * 
+	 */
+	@Override
+	public void generateTuples() {
+		super.generateTuples();
+		
+		LPRouting lprouting = this.getRouting();
+		TimeBucket bucket = this.getBucket();
+		
+		// logic name
+		String name = String.format("%s,%s", lprouting.getName(), this.getBucketShortName());
+		this.setName(name);
+		
+		// routing product bucket
+		for( LPRoutingProduct lp_routing_product : lprouting.getProducts()){
+			LPProduct lp_product = lp_routing_product.getProduct();
+			// apply the offset
+			RoutingProduct routing_product = lp_routing_product.getRoutingProduct();
+			float offsetInSeconds = routing_product.getOffset()*60.0f*60.0f; // seconds
+			TimeBucket consumptionBucket = bucket.getOffset(offsetInSeconds);
+			if ( consumptionBucket!=null){
+				LPProductBucket product_bucket = (LPProductBucket)lp_product.getBucket(consumptionBucket);
+				LPRoutingBucketProduct lp_routing_product_bucket = MacroPlannerSolverFactory.eINSTANCE.createLPRoutingBucketProduct();
+				lp_routing_product_bucket.setProductBucket(product_bucket);
+				lp_routing_product_bucket.setRoutingProduct(lp_routing_product);
+				this.getProducts().add(lp_routing_product_bucket); // owning
+			}
+		}
+		// routing resource bucket
+		for( LPRoutingResource lp_routing_resource : lprouting.getResources()){
+			LPResource lp_resource = lp_routing_resource.getResource();
+			// apply the offset
+			RoutingResource routing_resource = lp_routing_resource.getRoutingResource();
+			float offsetInSeconds = routing_resource.getOffset()*60.0f*60.0f; // seconds
+			TimeBucket reservationBucket = bucket.getOffset(offsetInSeconds);
+			if ( reservationBucket!=null){
+				LPResourceBucket resource_bucket = (LPResourceBucket)lp_resource.getBucket(reservationBucket);
+				LPRoutingBucketResource lp_routing_resource_bucket = MacroPlannerSolverFactory.eINSTANCE.createLPRoutingBucketResource();
+				lp_routing_resource_bucket.setResourceBucket(resource_bucket);
+				lp_routing_resource_bucket.setRoutingResource(lp_routing_resource);
+				this.getResources().add(lp_routing_resource_bucket); // owning
+			}
+		}
+	}
+
+	/**
+	 * 
+	 */
+	@Override
+	public void generateXReferences() {
+		super.generateXReferences();
+		
+	}
 } //LPRoutingBucketImpl

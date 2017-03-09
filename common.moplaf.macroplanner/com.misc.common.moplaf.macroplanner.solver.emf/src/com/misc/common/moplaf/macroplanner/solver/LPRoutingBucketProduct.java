@@ -2,8 +2,6 @@
  */
 package com.misc.common.moplaf.macroplanner.solver;
 
-import com.misc.common.moplaf.macroplanner.RoutingProduct;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>LP Routing Bucket Product</b></em>'.
@@ -50,6 +48,7 @@ public interface LPRoutingBucketProduct extends LPTuple {
 
 	/**
 	 * Returns the value of the '<em><b>Routing Product</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct#getLPBucket <em>LP Bucket</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Routing Product</em>' reference isn't clear,
@@ -57,12 +56,13 @@ public interface LPRoutingBucketProduct extends LPTuple {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Routing Product</em>' reference.
-	 * @see #setRoutingProduct(RoutingProduct)
+	 * @see #setRoutingProduct(LPRoutingProduct)
 	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPRoutingBucketProduct_RoutingProduct()
-	 * @model required="true"
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct#getLPBucket
+	 * @model opposite="LPBucket"
 	 * @generated
 	 */
-	RoutingProduct getRoutingProduct();
+	LPRoutingProduct getRoutingProduct();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketProduct#getRoutingProduct <em>Routing Product</em>}' reference.
@@ -72,6 +72,6 @@ public interface LPRoutingBucketProduct extends LPTuple {
 	 * @see #getRoutingProduct()
 	 * @generated
 	 */
-	void setRoutingProduct(RoutingProduct value);
+	void setRoutingProduct(LPRoutingProduct value);
 
 } // LPRoutingBucketProduct

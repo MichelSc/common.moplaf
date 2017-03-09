@@ -509,6 +509,52 @@ public class MacroPlannerSolverItemProviderAdapterFactory extends MacroPlannerSo
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LPRoutingProductItemProvider lpRoutingProductItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLPRoutingProductAdapter() {
+		if (lpRoutingProductItemProvider == null) {
+			lpRoutingProductItemProvider = new LPRoutingProductItemProvider(this);
+		}
+
+		return lpRoutingProductItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.macroplanner.solver.LPRoutingResource} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LPRoutingResourceItemProvider lpRoutingResourceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.macroplanner.solver.LPRoutingResource}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLPRoutingResourceAdapter() {
+		if (lpRoutingResourceItemProvider == null) {
+			lpRoutingResourceItemProvider = new LPRoutingResourceItemProvider(this);
+		}
+
+		return lpRoutingResourceItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucket} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -695,6 +741,8 @@ public class MacroPlannerSolverItemProviderAdapterFactory extends MacroPlannerSo
 		if (lpAvailabilityBucketItemProvider != null) lpAvailabilityBucketItemProvider.dispose();
 		if (lpRoutingSetItemProvider != null) lpRoutingSetItemProvider.dispose();
 		if (lpRoutingItemProvider != null) lpRoutingItemProvider.dispose();
+		if (lpRoutingProductItemProvider != null) lpRoutingProductItemProvider.dispose();
+		if (lpRoutingResourceItemProvider != null) lpRoutingResourceItemProvider.dispose();
 		if (lpRoutingBucketItemProvider != null) lpRoutingBucketItemProvider.dispose();
 		if (lpRoutingBucketProductItemProvider != null) lpRoutingBucketProductItemProvider.dispose();
 		if (lpRoutingBucketResourceItemProvider != null) lpRoutingBucketResourceItemProvider.dispose();

@@ -6,6 +6,7 @@ import com.misc.common.moplaf.solver.SolverPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -123,7 +124,7 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int SCENARIO__SELECTED_DATA = 5;
 
 	/**
-	 * The feature id for the '<em><b>Selected Routings</b></em>' reference.
+	 * The feature id for the '<em><b>Selected Routings</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1415,13 +1416,22 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_PRODUCT_SET___GENERATE_XREFERENCES = SolverPackage.GENERATOR_TUPLE___GENERATE_XREFERENCES;
 
 	/**
+	 * The operation id for the '<em>Get Product</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_PRODUCT_SET___GET_PRODUCT__LOCATIONPRODUCT = SolverPackage.GENERATOR_TUPLE_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>LP Product Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LP_PRODUCT_SET_OPERATION_COUNT = SolverPackage.GENERATOR_TUPLE_OPERATION_COUNT + 0;
+	int LP_PRODUCT_SET_OPERATION_COUNT = SolverPackage.GENERATOR_TUPLE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductImpl <em>LP Product</em>}' class.
@@ -3150,13 +3160,22 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_RESOURCE_SET___GENERATE_XREFERENCES = LP_TUPLE___GENERATE_XREFERENCES;
 
 	/**
+	 * The operation id for the '<em>Get Resource</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_RESOURCE_SET___GET_RESOURCE__LOCATIONRESOURCE = LP_TUPLE_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>LP Resource Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LP_RESOURCE_SET_OPERATION_COUNT = LP_TUPLE_OPERATION_COUNT + 0;
+	int LP_RESOURCE_SET_OPERATION_COUNT = LP_TUPLE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceImpl <em>LP Resource</em>}' class.
@@ -3286,22 +3305,22 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_RESOURCE__END_BUCKET = LP_TIME_LINE__END_BUCKET;
 
 	/**
-	 * The feature id for the '<em><b>Availabilities</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LP_RESOURCE__AVAILABILITIES = LP_TIME_LINE_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Resource Set</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LP_RESOURCE__RESOURCE_SET = LP_TIME_LINE_FEATURE_COUNT + 1;
+	int LP_RESOURCE__RESOURCE_SET = LP_TIME_LINE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Availabilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_RESOURCE__AVAILABILITIES = LP_TIME_LINE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Resource</b></em>' reference.
@@ -4506,13 +4525,31 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_ROUTING__LP_BUCKETS = LP_TIME_LINE_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Products</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING__PRODUCTS = LP_TIME_LINE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Resources</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING__RESOURCES = LP_TIME_LINE_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>LP Routing</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LP_ROUTING_FEATURE_COUNT = LP_TIME_LINE_FEATURE_COUNT + 3;
+	int LP_ROUTING_FEATURE_COUNT = LP_TIME_LINE_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -4621,7 +4658,425 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.macroplanner.solver.impl.MacroPlannerSolverPackageImpl#getLPRoutingBucket()
 	 * @generated
 	 */
-	int LP_ROUTING_BUCKET = 19;
+	int LP_ROUTING_BUCKET = 21;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingBucketProductImpl <em>LP Routing Bucket Product</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingBucketProductImpl
+	 * @see com.misc.common.moplaf.macroplanner.solver.impl.MacroPlannerSolverPackageImpl#getLPRoutingBucketProduct()
+	 * @generated
+	 */
+	int LP_ROUTING_BUCKET_PRODUCT = 22;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingBucketResourceImpl <em>LP Routing Bucket Resource</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingBucketResourceImpl
+	 * @see com.misc.common.moplaf.macroplanner.solver.impl.MacroPlannerSolverPackageImpl#getLPRoutingBucketResource()
+	 * @generated
+	 */
+	int LP_ROUTING_BUCKET_RESOURCE = 23;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingProductImpl <em>LP Routing Product</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingProductImpl
+	 * @see com.misc.common.moplaf.macroplanner.solver.impl.MacroPlannerSolverPackageImpl#getLPRoutingProduct()
+	 * @generated
+	 */
+	int LP_ROUTING_PRODUCT = 19;
+
+	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_PRODUCT__CODE = SolverPackage.GENERATOR_TUPLE__CODE;
+
+	/**
+	 * The feature id for the '<em><b>Generator As Root</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_PRODUCT__GENERATOR_AS_ROOT = SolverPackage.GENERATOR_TUPLE__GENERATOR_AS_ROOT;
+
+	/**
+	 * The feature id for the '<em><b>Tuple Element</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_PRODUCT__TUPLE_ELEMENT = SolverPackage.GENERATOR_TUPLE__TUPLE_ELEMENT;
+
+	/**
+	 * The feature id for the '<em><b>Tuple Container</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_PRODUCT__TUPLE_CONTAINER = SolverPackage.GENERATOR_TUPLE__TUPLE_CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Var</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_PRODUCT__VAR = SolverPackage.GENERATOR_TUPLE__VAR;
+
+	/**
+	 * The feature id for the '<em><b>Cons</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_PRODUCT__CONS = SolverPackage.GENERATOR_TUPLE__CONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_PRODUCT__NAME = SolverPackage.GENERATOR_TUPLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Members</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_PRODUCT__MEMBERS = SolverPackage.GENERATOR_TUPLE__MEMBERS;
+
+	/**
+	 * The feature id for the '<em><b>Routing</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_PRODUCT__ROUTING = SolverPackage.GENERATOR_TUPLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Product</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_PRODUCT__PRODUCT = SolverPackage.GENERATOR_TUPLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Routing Product</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_PRODUCT__ROUTING_PRODUCT = SolverPackage.GENERATOR_TUPLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>LP Bucket</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_PRODUCT__LP_BUCKET = SolverPackage.GENERATOR_TUPLE_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>LP Routing Product</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_PRODUCT_FEATURE_COUNT = SolverPackage.GENERATOR_TUPLE_FEATURE_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Get Generator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_PRODUCT___GET_GENERATOR = SolverPackage.GENERATOR_TUPLE___GET_GENERATOR;
+
+	/**
+	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_PRODUCT___REFRESH_SELECTED_SOLUTION = SolverPackage.GENERATOR_TUPLE___REFRESH_SELECTED_SOLUTION;
+
+	/**
+	 * The operation id for the '<em>Generate Vars</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_PRODUCT___GENERATE_VARS = SolverPackage.GENERATOR_TUPLE___GENERATE_VARS;
+
+	/**
+	 * The operation id for the '<em>Generate Cons</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_PRODUCT___GENERATE_CONS = SolverPackage.GENERATOR_TUPLE___GENERATE_CONS;
+
+	/**
+	 * The operation id for the '<em>Generate Tuples</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_PRODUCT___GENERATE_TUPLES = SolverPackage.GENERATOR_TUPLE___GENERATE_TUPLES;
+
+	/**
+	 * The operation id for the '<em>Visit Tuples</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_PRODUCT___VISIT_TUPLES__ITUPLEVISITOR = SolverPackage.GENERATOR_TUPLE___VISIT_TUPLES__ITUPLEVISITOR;
+
+	/**
+	 * The operation id for the '<em>Generate XReferences</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_PRODUCT___GENERATE_XREFERENCES = SolverPackage.GENERATOR_TUPLE___GENERATE_XREFERENCES;
+
+	/**
+	 * The number of operations of the '<em>LP Routing Product</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_PRODUCT_OPERATION_COUNT = SolverPackage.GENERATOR_TUPLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingResourceImpl <em>LP Routing Resource</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingResourceImpl
+	 * @see com.misc.common.moplaf.macroplanner.solver.impl.MacroPlannerSolverPackageImpl#getLPRoutingResource()
+	 * @generated
+	 */
+	int LP_ROUTING_RESOURCE = 20;
+
+	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_RESOURCE__CODE = SolverPackage.GENERATOR_TUPLE__CODE;
+
+	/**
+	 * The feature id for the '<em><b>Generator As Root</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_RESOURCE__GENERATOR_AS_ROOT = SolverPackage.GENERATOR_TUPLE__GENERATOR_AS_ROOT;
+
+	/**
+	 * The feature id for the '<em><b>Tuple Element</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_RESOURCE__TUPLE_ELEMENT = SolverPackage.GENERATOR_TUPLE__TUPLE_ELEMENT;
+
+	/**
+	 * The feature id for the '<em><b>Tuple Container</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_RESOURCE__TUPLE_CONTAINER = SolverPackage.GENERATOR_TUPLE__TUPLE_CONTAINER;
+
+	/**
+	 * The feature id for the '<em><b>Var</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_RESOURCE__VAR = SolverPackage.GENERATOR_TUPLE__VAR;
+
+	/**
+	 * The feature id for the '<em><b>Cons</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_RESOURCE__CONS = SolverPackage.GENERATOR_TUPLE__CONS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_RESOURCE__NAME = SolverPackage.GENERATOR_TUPLE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Members</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_RESOURCE__MEMBERS = SolverPackage.GENERATOR_TUPLE__MEMBERS;
+
+	/**
+	 * The feature id for the '<em><b>Routing</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_RESOURCE__ROUTING = SolverPackage.GENERATOR_TUPLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Resource</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_RESOURCE__RESOURCE = SolverPackage.GENERATOR_TUPLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Routing Resource</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_RESOURCE__ROUTING_RESOURCE = SolverPackage.GENERATOR_TUPLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>LP Bucket</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_RESOURCE__LP_BUCKET = SolverPackage.GENERATOR_TUPLE_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>LP Routing Resource</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_RESOURCE_FEATURE_COUNT = SolverPackage.GENERATOR_TUPLE_FEATURE_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Get Generator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_RESOURCE___GET_GENERATOR = SolverPackage.GENERATOR_TUPLE___GET_GENERATOR;
+
+	/**
+	 * The operation id for the '<em>Refresh Selected Solution</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_RESOURCE___REFRESH_SELECTED_SOLUTION = SolverPackage.GENERATOR_TUPLE___REFRESH_SELECTED_SOLUTION;
+
+	/**
+	 * The operation id for the '<em>Generate Vars</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_RESOURCE___GENERATE_VARS = SolverPackage.GENERATOR_TUPLE___GENERATE_VARS;
+
+	/**
+	 * The operation id for the '<em>Generate Cons</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_RESOURCE___GENERATE_CONS = SolverPackage.GENERATOR_TUPLE___GENERATE_CONS;
+
+	/**
+	 * The operation id for the '<em>Generate Tuples</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_RESOURCE___GENERATE_TUPLES = SolverPackage.GENERATOR_TUPLE___GENERATE_TUPLES;
+
+	/**
+	 * The operation id for the '<em>Visit Tuples</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_RESOURCE___VISIT_TUPLES__ITUPLEVISITOR = SolverPackage.GENERATOR_TUPLE___VISIT_TUPLES__ITUPLEVISITOR;
+
+	/**
+	 * The operation id for the '<em>Generate XReferences</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_RESOURCE___GENERATE_XREFERENCES = SolverPackage.GENERATOR_TUPLE___GENERATE_XREFERENCES;
+
+	/**
+	 * The number of operations of the '<em>LP Routing Resource</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_RESOURCE_OPERATION_COUNT = SolverPackage.GENERATOR_TUPLE_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -4849,16 +5304,6 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_ROUTING_BUCKET_OPERATION_COUNT = LP_TIME_BUCKET_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingBucketProductImpl <em>LP Routing Bucket Product</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingBucketProductImpl
-	 * @see com.misc.common.moplaf.macroplanner.solver.impl.MacroPlannerSolverPackageImpl#getLPRoutingBucketProduct()
-	 * @generated
-	 */
-	int LP_ROUTING_BUCKET_PRODUCT = 20;
-
-	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5028,16 +5473,6 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int LP_ROUTING_BUCKET_PRODUCT_OPERATION_COUNT = LP_TUPLE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingBucketResourceImpl <em>LP Routing Bucket Resource</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingBucketResourceImpl
-	 * @see com.misc.common.moplaf.macroplanner.solver.impl.MacroPlannerSolverPackageImpl#getLPRoutingBucketResource()
-	 * @generated
-	 */
-	int LP_ROUTING_BUCKET_RESOURCE = 21;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -5288,10 +5723,10 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	EReference getScenario_SelectedData();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.macroplanner.solver.Scenario#getSelectedRoutings <em>Selected Routings</em>}'.
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.macroplanner.solver.Scenario#getSelectedRoutings <em>Selected Routings</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Selected Routings</em>'.
+	 * @return the meta object for the reference list '<em>Selected Routings</em>'.
 	 * @see com.misc.common.moplaf.macroplanner.solver.Scenario#getSelectedRoutings()
 	 * @see #getScenario()
 	 * @generated
@@ -5501,6 +5936,16 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getLPProductSet_Products();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.macroplanner.solver.LPProductSet#getProduct(com.misc.common.moplaf.macroplanner.LocationProduct) <em>Get Product</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Product</em>' operation.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPProductSet#getProduct(com.misc.common.moplaf.macroplanner.LocationProduct)
+	 * @generated
+	 */
+	EOperation getLPProductSet__GetProduct__LocationProduct();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.macroplanner.solver.LPProduct <em>LP Product</em>}'.
@@ -5903,6 +6348,16 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	EReference getLPResourceSet_Resources();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.macroplanner.solver.LPResourceSet#getResource(com.misc.common.moplaf.macroplanner.LocationResource) <em>Get Resource</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Resource</em>' operation.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPResourceSet#getResource(com.misc.common.moplaf.macroplanner.LocationResource)
+	 * @generated
+	 */
+	EOperation getLPResourceSet__GetResource__LocationResource();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.macroplanner.solver.LPResource <em>LP Resource</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6194,6 +6649,28 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	EReference getLPRouting_LPBuckets();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.macroplanner.solver.LPRouting#getProducts <em>Products</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Products</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPRouting#getProducts()
+	 * @see #getLPRouting()
+	 * @generated
+	 */
+	EReference getLPRouting_Products();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.macroplanner.solver.LPRouting#getResources <em>Resources</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Resources</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPRouting#getResources()
+	 * @see #getLPRouting()
+	 * @generated
+	 */
+	EReference getLPRouting_Resources();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucket <em>LP Routing Bucket</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6312,6 +6789,114 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	EReference getLPRoutingBucketResource_RoutingResource();
 
 	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct <em>LP Routing Product</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>LP Routing Product</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct
+	 * @generated
+	 */
+	EClass getLPRoutingProduct();
+
+	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct#getRouting <em>Routing</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Routing</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct#getRouting()
+	 * @see #getLPRoutingProduct()
+	 * @generated
+	 */
+	EReference getLPRoutingProduct_Routing();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct#getProduct <em>Product</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Product</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct#getProduct()
+	 * @see #getLPRoutingProduct()
+	 * @generated
+	 */
+	EReference getLPRoutingProduct_Product();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct#getRoutingProduct <em>Routing Product</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Routing Product</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct#getRoutingProduct()
+	 * @see #getLPRoutingProduct()
+	 * @generated
+	 */
+	EReference getLPRoutingProduct_RoutingProduct();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct#getLPBucket <em>LP Bucket</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>LP Bucket</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct#getLPBucket()
+	 * @see #getLPRoutingProduct()
+	 * @generated
+	 */
+	EReference getLPRoutingProduct_LPBucket();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingResource <em>LP Routing Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>LP Routing Resource</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPRoutingResource
+	 * @generated
+	 */
+	EClass getLPRoutingResource();
+
+	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingResource#getRouting <em>Routing</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Routing</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPRoutingResource#getRouting()
+	 * @see #getLPRoutingResource()
+	 * @generated
+	 */
+	EReference getLPRoutingResource_Routing();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingResource#getResource <em>Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Resource</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPRoutingResource#getResource()
+	 * @see #getLPRoutingResource()
+	 * @generated
+	 */
+	EReference getLPRoutingResource_Resource();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingResource#getRoutingResource <em>Routing Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Routing Resource</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPRoutingResource#getRoutingResource()
+	 * @see #getLPRoutingResource()
+	 * @generated
+	 */
+	EReference getLPRoutingResource_RoutingResource();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingResource#getLPBucket <em>LP Bucket</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>LP Bucket</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPRoutingResource#getLPBucket()
+	 * @see #getLPRoutingResource()
+	 * @generated
+	 */
+	EReference getLPRoutingResource_LPBucket();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6393,7 +6978,7 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		EReference SCENARIO__SELECTED_DATA = eINSTANCE.getScenario_SelectedData();
 
 		/**
-		 * The meta object literal for the '<em><b>Selected Routings</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Selected Routings</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -6561,6 +7146,14 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		 * @generated
 		 */
 		EReference LP_PRODUCT_SET__PRODUCTS = eINSTANCE.getLPProductSet_Products();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Product</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation LP_PRODUCT_SET___GET_PRODUCT__LOCATIONPRODUCT = eINSTANCE.getLPProductSet__GetProduct__LocationProduct();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductImpl <em>LP Product</em>}' class.
@@ -6873,6 +7466,14 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		EReference LP_RESOURCE_SET__RESOURCES = eINSTANCE.getLPResourceSet_Resources();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Resource</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation LP_RESOURCE_SET___GET_RESOURCE__LOCATIONRESOURCE = eINSTANCE.getLPResourceSet__GetResource__LocationResource();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceImpl <em>LP Resource</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7101,6 +7702,22 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		EReference LP_ROUTING__LP_BUCKETS = eINSTANCE.getLPRouting_LPBuckets();
 
 		/**
+		 * The meta object literal for the '<em><b>Products</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LP_ROUTING__PRODUCTS = eINSTANCE.getLPRouting_Products();
+
+		/**
+		 * The meta object literal for the '<em><b>Resources</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LP_ROUTING__RESOURCES = eINSTANCE.getLPRouting_Resources();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingBucketImpl <em>LP Routing Bucket</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7193,6 +7810,90 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		 * @generated
 		 */
 		EReference LP_ROUTING_BUCKET_RESOURCE__ROUTING_RESOURCE = eINSTANCE.getLPRoutingBucketResource_RoutingResource();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingProductImpl <em>LP Routing Product</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingProductImpl
+		 * @see com.misc.common.moplaf.macroplanner.solver.impl.MacroPlannerSolverPackageImpl#getLPRoutingProduct()
+		 * @generated
+		 */
+		EClass LP_ROUTING_PRODUCT = eINSTANCE.getLPRoutingProduct();
+
+		/**
+		 * The meta object literal for the '<em><b>Routing</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LP_ROUTING_PRODUCT__ROUTING = eINSTANCE.getLPRoutingProduct_Routing();
+
+		/**
+		 * The meta object literal for the '<em><b>Product</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LP_ROUTING_PRODUCT__PRODUCT = eINSTANCE.getLPRoutingProduct_Product();
+
+		/**
+		 * The meta object literal for the '<em><b>Routing Product</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LP_ROUTING_PRODUCT__ROUTING_PRODUCT = eINSTANCE.getLPRoutingProduct_RoutingProduct();
+
+		/**
+		 * The meta object literal for the '<em><b>LP Bucket</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LP_ROUTING_PRODUCT__LP_BUCKET = eINSTANCE.getLPRoutingProduct_LPBucket();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingResourceImpl <em>LP Routing Resource</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingResourceImpl
+		 * @see com.misc.common.moplaf.macroplanner.solver.impl.MacroPlannerSolverPackageImpl#getLPRoutingResource()
+		 * @generated
+		 */
+		EClass LP_ROUTING_RESOURCE = eINSTANCE.getLPRoutingResource();
+
+		/**
+		 * The meta object literal for the '<em><b>Routing</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LP_ROUTING_RESOURCE__ROUTING = eINSTANCE.getLPRoutingResource_Routing();
+
+		/**
+		 * The meta object literal for the '<em><b>Resource</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LP_ROUTING_RESOURCE__RESOURCE = eINSTANCE.getLPRoutingResource_Resource();
+
+		/**
+		 * The meta object literal for the '<em><b>Routing Resource</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LP_ROUTING_RESOURCE__ROUTING_RESOURCE = eINSTANCE.getLPRoutingResource_RoutingResource();
+
+		/**
+		 * The meta object literal for the '<em><b>LP Bucket</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LP_ROUTING_RESOURCE__LP_BUCKET = eINSTANCE.getLPRoutingResource_LPBucket();
 
 	}
 

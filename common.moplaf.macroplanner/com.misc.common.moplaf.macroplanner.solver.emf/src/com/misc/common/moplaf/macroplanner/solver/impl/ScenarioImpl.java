@@ -137,14 +137,14 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 	protected EList<SupplyChainData> selectedData;
 
 	/**
-	 * The cached value of the '{@link #getSelectedRoutings() <em>Selected Routings</em>}' reference.
+	 * The cached value of the '{@link #getSelectedRoutings() <em>Selected Routings</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSelectedRoutings()
 	 * @generated
 	 * @ordered
 	 */
-	protected SupplyChainRoutings selectedRoutings;
+	protected EList<SupplyChainRoutings> selectedRoutings;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -295,37 +295,11 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SupplyChainRoutings getSelectedRoutings() {
-		if (selectedRoutings != null && selectedRoutings.eIsProxy()) {
-			InternalEObject oldSelectedRoutings = (InternalEObject)selectedRoutings;
-			selectedRoutings = (SupplyChainRoutings)eResolveProxy(oldSelectedRoutings);
-			if (selectedRoutings != oldSelectedRoutings) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MacroPlannerSolverPackage.SCENARIO__SELECTED_ROUTINGS, oldSelectedRoutings, selectedRoutings));
-			}
+	public EList<SupplyChainRoutings> getSelectedRoutings() {
+		if (selectedRoutings == null) {
+			selectedRoutings = new EObjectResolvingEList<SupplyChainRoutings>(SupplyChainRoutings.class, this, MacroPlannerSolverPackage.SCENARIO__SELECTED_ROUTINGS);
 		}
 		return selectedRoutings;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SupplyChainRoutings basicGetSelectedRoutings() {
-		return selectedRoutings;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSelectedRoutings(SupplyChainRoutings newSelectedRoutings) {
-		SupplyChainRoutings oldSelectedRoutings = selectedRoutings;
-		selectedRoutings = newSelectedRoutings;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MacroPlannerSolverPackage.SCENARIO__SELECTED_ROUTINGS, oldSelectedRoutings, selectedRoutings));
 	}
 
 	/**
@@ -379,8 +353,7 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 			case MacroPlannerSolverPackage.SCENARIO__SELECTED_DATA:
 				return getSelectedData();
 			case MacroPlannerSolverPackage.SCENARIO__SELECTED_ROUTINGS:
-				if (resolve) return getSelectedRoutings();
-				return basicGetSelectedRoutings();
+				return getSelectedRoutings();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -415,7 +388,8 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 				getSelectedData().addAll((Collection<? extends SupplyChainData>)newValue);
 				return;
 			case MacroPlannerSolverPackage.SCENARIO__SELECTED_ROUTINGS:
-				setSelectedRoutings((SupplyChainRoutings)newValue);
+				getSelectedRoutings().clear();
+				getSelectedRoutings().addAll((Collection<? extends SupplyChainRoutings>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -448,7 +422,7 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 				getSelectedData().clear();
 				return;
 			case MacroPlannerSolverPackage.SCENARIO__SELECTED_ROUTINGS:
-				setSelectedRoutings((SupplyChainRoutings)null);
+				getSelectedRoutings().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -475,7 +449,7 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 			case MacroPlannerSolverPackage.SCENARIO__SELECTED_DATA:
 				return selectedData != null && !selectedData.isEmpty();
 			case MacroPlannerSolverPackage.SCENARIO__SELECTED_ROUTINGS:
-				return selectedRoutings != null;
+				return selectedRoutings != null && !selectedRoutings.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

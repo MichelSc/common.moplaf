@@ -41,8 +41,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceImpl#getAvailabilities <em>Availabilities</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceImpl#getResourceSet <em>Resource Set</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceImpl#getAvailabilities <em>Availabilities</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceImpl#getResource <em>Resource</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceImpl#getLPBuckets <em>LP Buckets</em>}</li>
  * </ul>
@@ -211,12 +211,12 @@ public class LPResourceImpl extends LPTimeLineImpl implements LPResource {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MacroPlannerSolverPackage.LP_RESOURCE__AVAILABILITIES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAvailabilities()).basicAdd(otherEnd, msgs);
 			case MacroPlannerSolverPackage.LP_RESOURCE__RESOURCE_SET:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetResourceSet((LPResourceSet)otherEnd, msgs);
+			case MacroPlannerSolverPackage.LP_RESOURCE__AVAILABILITIES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAvailabilities()).basicAdd(otherEnd, msgs);
 			case MacroPlannerSolverPackage.LP_RESOURCE__LP_BUCKETS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getLPBuckets()).basicAdd(otherEnd, msgs);
 		}
@@ -231,10 +231,10 @@ public class LPResourceImpl extends LPTimeLineImpl implements LPResource {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MacroPlannerSolverPackage.LP_RESOURCE__AVAILABILITIES:
-				return ((InternalEList<?>)getAvailabilities()).basicRemove(otherEnd, msgs);
 			case MacroPlannerSolverPackage.LP_RESOURCE__RESOURCE_SET:
 				return basicSetResourceSet(null, msgs);
+			case MacroPlannerSolverPackage.LP_RESOURCE__AVAILABILITIES:
+				return ((InternalEList<?>)getAvailabilities()).basicRemove(otherEnd, msgs);
 			case MacroPlannerSolverPackage.LP_RESOURCE__LP_BUCKETS:
 				return ((InternalEList<?>)getLPBuckets()).basicRemove(otherEnd, msgs);
 		}
@@ -263,10 +263,10 @@ public class LPResourceImpl extends LPTimeLineImpl implements LPResource {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MacroPlannerSolverPackage.LP_RESOURCE__AVAILABILITIES:
-				return getAvailabilities();
 			case MacroPlannerSolverPackage.LP_RESOURCE__RESOURCE_SET:
 				return getResourceSet();
+			case MacroPlannerSolverPackage.LP_RESOURCE__AVAILABILITIES:
+				return getAvailabilities();
 			case MacroPlannerSolverPackage.LP_RESOURCE__RESOURCE:
 				if (resolve) return getResource();
 				return basicGetResource();
@@ -285,12 +285,12 @@ public class LPResourceImpl extends LPTimeLineImpl implements LPResource {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case MacroPlannerSolverPackage.LP_RESOURCE__RESOURCE_SET:
+				setResourceSet((LPResourceSet)newValue);
+				return;
 			case MacroPlannerSolverPackage.LP_RESOURCE__AVAILABILITIES:
 				getAvailabilities().clear();
 				getAvailabilities().addAll((Collection<? extends LPAvailability>)newValue);
-				return;
-			case MacroPlannerSolverPackage.LP_RESOURCE__RESOURCE_SET:
-				setResourceSet((LPResourceSet)newValue);
 				return;
 			case MacroPlannerSolverPackage.LP_RESOURCE__RESOURCE:
 				setResource((LocationResource)newValue);
@@ -311,11 +311,11 @@ public class LPResourceImpl extends LPTimeLineImpl implements LPResource {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MacroPlannerSolverPackage.LP_RESOURCE__AVAILABILITIES:
-				getAvailabilities().clear();
-				return;
 			case MacroPlannerSolverPackage.LP_RESOURCE__RESOURCE_SET:
 				setResourceSet((LPResourceSet)null);
+				return;
+			case MacroPlannerSolverPackage.LP_RESOURCE__AVAILABILITIES:
+				getAvailabilities().clear();
 				return;
 			case MacroPlannerSolverPackage.LP_RESOURCE__RESOURCE:
 				setResource((LocationResource)null);
@@ -335,10 +335,10 @@ public class LPResourceImpl extends LPTimeLineImpl implements LPResource {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MacroPlannerSolverPackage.LP_RESOURCE__AVAILABILITIES:
-				return availabilities != null && !availabilities.isEmpty();
 			case MacroPlannerSolverPackage.LP_RESOURCE__RESOURCE_SET:
 				return getResourceSet() != null;
+			case MacroPlannerSolverPackage.LP_RESOURCE__AVAILABILITIES:
+				return availabilities != null && !availabilities.isEmpty();
 			case MacroPlannerSolverPackage.LP_RESOURCE__RESOURCE:
 				return resource != null;
 			case MacroPlannerSolverPackage.LP_RESOURCE__LP_BUCKETS:

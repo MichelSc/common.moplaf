@@ -15,8 +15,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResource#getAvailabilities <em>Availabilities</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResource#getResourceSet <em>Resource Set</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResource#getAvailabilities <em>Availabilities</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResource#getResource <em>Resource</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResource#getLPBuckets <em>LP Buckets</em>}</li>
  * </ul>

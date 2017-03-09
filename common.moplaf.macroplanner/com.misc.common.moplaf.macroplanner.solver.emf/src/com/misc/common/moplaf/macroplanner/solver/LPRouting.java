@@ -18,6 +18,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPRouting#getRoutingSet <em>Routing Set</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPRouting#getRouting <em>Routing</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPRouting#getLPBuckets <em>LP Buckets</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPRouting#getProducts <em>Products</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPRouting#getResources <em>Resources</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPRouting()
@@ -96,5 +98,41 @@ public interface LPRouting extends LPTimeLine {
 	 * @generated
 	 */
 	EList<LPRoutingBucket> getLPBuckets();
+
+	/**
+	 * Returns the value of the '<em><b>Products</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct#getRouting <em>Routing</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Products</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Products</em>' containment reference list.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPRouting_Products()
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct#getRouting
+	 * @model opposite="Routing" containment="true"
+	 * @generated
+	 */
+	EList<LPRoutingProduct> getProducts();
+
+	/**
+	 * Returns the value of the '<em><b>Resources</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.macroplanner.solver.LPRoutingResource}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingResource#getRouting <em>Routing</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Resources</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Resources</em>' containment reference list.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPRouting_Resources()
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPRoutingResource#getRouting
+	 * @model opposite="Routing" containment="true"
+	 * @generated
+	 */
+	EList<LPRoutingResource> getResources();
 
 } // LPRouting

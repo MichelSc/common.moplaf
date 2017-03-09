@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.macroplanner.solver;
 
+import com.misc.common.moplaf.macroplanner.LocationProduct;
 import com.misc.common.moplaf.solver.GeneratorTuple;
 
 import org.eclipse.emf.common.util.EList;
@@ -69,5 +70,13 @@ public interface LPProductSet extends GeneratorTuple, LPTuple {
 	 * @generated
 	 */
 	EList<LPProduct> getProducts();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	LPProduct getProduct(LocationProduct locationProduct);
 
 } // LPProductSet

@@ -223,13 +223,22 @@ public interface TimeDiscretePackage extends EPackage {
 	int TIME_BUCKET___GET_SECONDS_INTERSECTION__DATE_DATE = 5;
 
 	/**
+	 * The operation id for the '<em>Get Offset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_BUCKET___GET_OFFSET__FLOAT = 6;
+
+	/**
 	 * The number of operations of the '<em>Time Bucket</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_BUCKET_OPERATION_COUNT = 6;
+	int TIME_BUCKET_OPERATION_COUNT = 7;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.discrete.impl.TimeLineImpl <em>Time Line</em>}' class.
@@ -960,6 +969,16 @@ public interface TimeDiscretePackage extends EPackage {
 	EOperation getTimeBucket__GetSecondsIntersection__Date_Date();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.discrete.TimeBucket#getOffset(float) <em>Get Offset</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Offset</em>' operation.
+	 * @see com.misc.common.moplaf.time.discrete.TimeBucket#getOffset(float)
+	 * @generated
+	 */
+	EOperation getTimeBucket__GetOffset__float();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.time.discrete.TimeLine <em>Time Line</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1653,6 +1672,14 @@ public interface TimeDiscretePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation TIME_BUCKET___GET_SECONDS_INTERSECTION__DATE_DATE = eINSTANCE.getTimeBucket__GetSecondsIntersection__Date_Date();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Offset</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TIME_BUCKET___GET_OFFSET__FLOAT = eINSTANCE.getTimeBucket__GetOffset__float();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.time.discrete.impl.TimeLineImpl <em>Time Line</em>}' class.

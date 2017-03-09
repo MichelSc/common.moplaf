@@ -75,6 +75,8 @@ public class MacroPlannerSolverFactoryImpl extends EFactoryImpl implements Macro
 			case MacroPlannerSolverPackage.LP_AVAILABILITY_BUCKET: return createLPAvailabilityBucket();
 			case MacroPlannerSolverPackage.LP_ROUTING_SET: return createLPRoutingSet();
 			case MacroPlannerSolverPackage.LP_ROUTING: return createLPRouting();
+			case MacroPlannerSolverPackage.LP_ROUTING_PRODUCT: return createLPRoutingProduct();
+			case MacroPlannerSolverPackage.LP_ROUTING_RESOURCE: return createLPRoutingResource();
 			case MacroPlannerSolverPackage.LP_ROUTING_BUCKET: return createLPRoutingBucket();
 			case MacroPlannerSolverPackage.LP_ROUTING_BUCKET_PRODUCT: return createLPRoutingBucketProduct();
 			case MacroPlannerSolverPackage.LP_ROUTING_BUCKET_RESOURCE: return createLPRoutingBucketResource();
@@ -301,6 +303,26 @@ public class MacroPlannerSolverFactoryImpl extends EFactoryImpl implements Macro
 	public LPRoutingBucketResource createLPRoutingBucketResource() {
 		LPRoutingBucketResourceImpl lpRoutingBucketResource = new LPRoutingBucketResourceImpl();
 		return lpRoutingBucketResource;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LPRoutingProduct createLPRoutingProduct() {
+		LPRoutingProductImpl lpRoutingProduct = new LPRoutingProductImpl();
+		return lpRoutingProduct;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LPRoutingResource createLPRoutingResource() {
+		LPRoutingResourceImpl lpRoutingResource = new LPRoutingResourceImpl();
+		return lpRoutingResource;
 	}
 
 	/**

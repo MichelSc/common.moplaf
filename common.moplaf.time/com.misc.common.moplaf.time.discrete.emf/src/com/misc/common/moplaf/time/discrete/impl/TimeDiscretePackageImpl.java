@@ -458,6 +458,15 @@ public class TimeDiscretePackageImpl extends EPackageImpl implements TimeDiscret
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getTimeBucket__GetOffset__float() {
+		return timeBucketEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTimeLineMerge() {
 		return timeLineMergeEClass;
 	}
@@ -795,6 +804,7 @@ public class TimeDiscretePackageImpl extends EPackageImpl implements TimeDiscret
 		createEOperation(timeBucketEClass, TIME_BUCKET___IS_AFTER__TIMEBUCKET);
 		createEOperation(timeBucketEClass, TIME_BUCKET___IS_AFTER_STRICTLY__TIMEBUCKET);
 		createEOperation(timeBucketEClass, TIME_BUCKET___GET_SECONDS_INTERSECTION__DATE_DATE);
+		createEOperation(timeBucketEClass, TIME_BUCKET___GET_OFFSET__FLOAT);
 
 		timeLineEClass = createEClass(TIME_LINE);
 		createEAttribute(timeLineEClass, TIME_LINE__BUCKET_TYPE);
@@ -916,6 +926,9 @@ public class TimeDiscretePackageImpl extends EPackageImpl implements TimeDiscret
 		op = initEOperation(getTimeBucket__GetSecondsIntersection__Date_Date(), ecorePackage.getEInt(), "getSecondsIntersection", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "from", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "to", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getTimeBucket__GetOffset__float(), this.getTimeBucket(), "getOffset", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEFloat(), "seconds", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(timeLineEClass, TimeLine.class, "TimeLine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTimeLine_BucketType(), this.getBucketType(), "BucketType", "Hour", 0, 1, TimeLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -3,8 +3,10 @@
 package com.misc.common.moplaf.macroplanner.solver.provider;
 
 
-import com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketResource;
+import com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
+
+import com.misc.common.moplaf.solver.provider.GeneratorTupleItemProvider;
 
 import java.util.Collection;
 import java.util.List;
@@ -12,24 +14,26 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketResource} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class LPRoutingBucketResourceItemProvider extends LPTupleItemProvider {
+public class LPRoutingProductItemProvider extends GeneratorTupleItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LPRoutingBucketResourceItemProvider(AdapterFactory adapterFactory) {
+	public LPRoutingProductItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -44,26 +48,27 @@ public class LPRoutingBucketResourceItemProvider extends LPTupleItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addResourceBucketPropertyDescriptor(object);
-			addRoutingResourcePropertyDescriptor(object);
+			addProductPropertyDescriptor(object);
+			addRoutingProductPropertyDescriptor(object);
+			addLPBucketPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Resource Bucket feature.
+	 * This adds a property descriptor for the Product feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addResourceBucketPropertyDescriptor(Object object) {
+	protected void addProductPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_LPRoutingBucketResource_ResourceBucket_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LPRoutingBucketResource_ResourceBucket_feature", "_UI_LPRoutingBucketResource_type"),
-				 MacroPlannerSolverPackage.Literals.LP_ROUTING_BUCKET_RESOURCE__RESOURCE_BUCKET,
+				 getString("_UI_LPRoutingProduct_Product_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LPRoutingProduct_Product_feature", "_UI_LPRoutingProduct_type"),
+				 MacroPlannerSolverPackage.Literals.LP_ROUTING_PRODUCT__PRODUCT,
 				 true,
 				 false,
 				 true,
@@ -73,19 +78,41 @@ public class LPRoutingBucketResourceItemProvider extends LPTupleItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Routing Resource feature.
+	 * This adds a property descriptor for the Routing Product feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRoutingResourcePropertyDescriptor(Object object) {
+	protected void addRoutingProductPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_LPRoutingBucketResource_RoutingResource_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LPRoutingBucketResource_RoutingResource_feature", "_UI_LPRoutingBucketResource_type"),
-				 MacroPlannerSolverPackage.Literals.LP_ROUTING_BUCKET_RESOURCE__ROUTING_RESOURCE,
+				 getString("_UI_LPRoutingProduct_RoutingProduct_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LPRoutingProduct_RoutingProduct_feature", "_UI_LPRoutingProduct_type"),
+				 MacroPlannerSolverPackage.Literals.LP_ROUTING_PRODUCT__ROUTING_PRODUCT,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the LP Bucket feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLPBucketPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LPRoutingProduct_LPBucket_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LPRoutingProduct_LPBucket_feature", "_UI_LPRoutingProduct_type"),
+				 MacroPlannerSolverPackage.Literals.LP_ROUTING_PRODUCT__LP_BUCKET,
 				 true,
 				 false,
 				 true,
@@ -106,7 +133,7 @@ public class LPRoutingBucketResourceItemProvider extends LPTupleItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MacroPlannerSolverPackage.Literals.LP_ROUTING_BUCKET_RESOURCE__RESOURCE_BUCKET);
+			childrenFeatures.add(MacroPlannerSolverPackage.Literals.LP_ROUTING_PRODUCT__LP_BUCKET);
 		}
 		return childrenFeatures;
 	}
@@ -132,10 +159,10 @@ public class LPRoutingBucketResourceItemProvider extends LPTupleItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((LPRoutingBucketResource)object).getName();
+		String label = ((LPRoutingProduct)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_LPRoutingBucketResource_type") :
-			getString("_UI_LPRoutingBucketResource_type") + " " + label;
+			getString("_UI_LPRoutingProduct_type") :
+			getString("_UI_LPRoutingProduct_type") + " " + label;
 	}
 	
 
@@ -162,6 +189,17 @@ public class LPRoutingBucketResourceItemProvider extends LPTupleItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return MacroPlannerSolverEditPlugin.INSTANCE;
 	}
 
 }

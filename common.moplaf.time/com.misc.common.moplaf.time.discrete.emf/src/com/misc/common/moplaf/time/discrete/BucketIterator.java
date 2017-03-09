@@ -8,7 +8,7 @@ import java.util.Iterator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>PO Time Scale Iterator</b></em>'.
+ * A representation of the model object '<em><b>BucketIterator</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>

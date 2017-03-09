@@ -173,29 +173,19 @@ public interface Scenario extends EObject {
 	EList<SupplyChainData> getSelectedData();
 
 	/**
-	 * Returns the value of the '<em><b>Selected Routings</b></em>' reference.
+	 * Returns the value of the '<em><b>Selected Routings</b></em>' reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.macroplanner.SupplyChainRoutings}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Selected Routings</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Selected Routings</em>' reference.
-	 * @see #setSelectedRoutings(SupplyChainRoutings)
+	 * @return the value of the '<em>Selected Routings</em>' reference list.
 	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getScenario_SelectedRoutings()
 	 * @model
 	 * @generated
 	 */
-	SupplyChainRoutings getSelectedRoutings();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.macroplanner.solver.Scenario#getSelectedRoutings <em>Selected Routings</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Selected Routings</em>' reference.
-	 * @see #getSelectedRoutings()
-	 * @generated
-	 */
-	void setSelectedRoutings(SupplyChainRoutings value);
+	EList<SupplyChainRoutings> getSelectedRoutings();
 
 } // Scenario

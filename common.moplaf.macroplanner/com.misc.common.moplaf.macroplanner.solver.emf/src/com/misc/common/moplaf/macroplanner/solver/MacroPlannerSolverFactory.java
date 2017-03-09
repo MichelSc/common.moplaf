@@ -220,6 +220,24 @@ public interface MacroPlannerSolverFactory extends EFactory {
 	LPRoutingBucketResource createLPRoutingBucketResource();
 
 	/**
+	 * Returns a new object of class '<em>LP Routing Product</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>LP Routing Product</em>'.
+	 * @generated
+	 */
+	LPRoutingProduct createLPRoutingProduct();
+
+	/**
+	 * Returns a new object of class '<em>LP Routing Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>LP Routing Resource</em>'.
+	 * @generated
+	 */
+	LPRoutingResource createLPRoutingResource();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

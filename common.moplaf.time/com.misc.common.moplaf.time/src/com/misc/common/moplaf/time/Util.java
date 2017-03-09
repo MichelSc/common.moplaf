@@ -31,6 +31,18 @@ public class Util {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	static public Date addSeconds(Date date, float seconds) {
+		if ( seconds == 0.0f) { return date; }
+		else {
+			float millisAsFromEpoch = date.getTime()+seconds*1000.0f;
+			return new Date((long)millisAsFromEpoch);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	static public int getSecondsIntersection(Date from1, Date to1, Date from2, Date to2) {
 		Date from = new Date(Math.max(from1.getTime(), from2.getTime()));
 		Date to   = new Date(Math.min(to1.getTime(), to2.getTime()));

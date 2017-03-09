@@ -153,6 +153,14 @@ public class MacroPlannerSolverAdapterFactory extends AdapterFactoryImpl {
 				return createLPRoutingAdapter();
 			}
 			@Override
+			public Adapter caseLPRoutingProduct(LPRoutingProduct object) {
+				return createLPRoutingProductAdapter();
+			}
+			@Override
+			public Adapter caseLPRoutingResource(LPRoutingResource object) {
+				return createLPRoutingResourceAdapter();
+			}
+			@Override
 			public Adapter caseLPRoutingBucket(LPRoutingBucket object) {
 				return createLPRoutingBucketAdapter();
 			}
@@ -513,6 +521,34 @@ public class MacroPlannerSolverAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLPRoutingBucketResourceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct <em>LP Routing Product</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct
+	 * @generated
+	 */
+	public Adapter createLPRoutingProductAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingResource <em>LP Routing Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPRoutingResource
+	 * @generated
+	 */
+	public Adapter createLPRoutingResourceAdapter() {
 		return null;
 	}
 

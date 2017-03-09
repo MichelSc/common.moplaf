@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.macroplanner.solver;
 
+import com.misc.common.moplaf.macroplanner.LocationResource;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -67,5 +68,13 @@ public interface LPResourceSet extends LPTuple {
 	 * @generated
 	 */
 	EList<LPResource> getResources();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	LPResource getResource(LocationResource locationResource);
 
 } // LPResourceSet
