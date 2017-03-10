@@ -111,6 +111,7 @@ public class LPResourceBucketItemProvider extends LPTimeBucketItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(MacroPlannerSolverPackage.Literals.LP_RESOURCE_BUCKET__RESERVED);
+			childrenFeatures.add(MacroPlannerSolverPackage.Literals.LP_RESOURCE_BUCKET__CALC_RESERVED);
 			childrenFeatures.add(MacroPlannerSolverPackage.Literals.LP_RESOURCE_BUCKET__BALANCE);
 		}
 		return childrenFeatures;
@@ -157,6 +158,7 @@ public class LPResourceBucketItemProvider extends LPTimeBucketItemProvider {
 
 		switch (notification.getFeatureID(LPResourceBucket.class)) {
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVED:
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__CALC_RESERVED:
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__BALANCE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -182,8 +184,36 @@ public class LPResourceBucketItemProvider extends LPTimeBucketItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(MacroPlannerSolverPackage.Literals.LP_RESOURCE_BUCKET__CALC_RESERVED,
+				 SolverFactory.eINSTANCE.createGeneratorLpCons()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(MacroPlannerSolverPackage.Literals.LP_RESOURCE_BUCKET__BALANCE,
 				 SolverFactory.eINSTANCE.createGeneratorLpCons()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == MacroPlannerSolverPackage.Literals.LP_RESOURCE_BUCKET__CALC_RESERVED ||
+			childFeature == MacroPlannerSolverPackage.Literals.LP_RESOURCE_BUCKET__BALANCE;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

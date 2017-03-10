@@ -544,7 +544,7 @@ public class LPCapacityBucketImpl extends LPTimeBucketImpl implements LPCapacity
 		GeneratorLpVar var = SolverFactory.eINSTANCE.createGeneratorLpVar();
 		var.setType(EnumLpVarType.ENUM_LITERAL_LP_VAR_REAL);
 		var.setLowerBound(0.0f);
-		var.setLowerBound(ub);
+		var.setUpperBound(ub);
 		var.setName("slack");
 		this.setSlack(var);  // owning
 		}

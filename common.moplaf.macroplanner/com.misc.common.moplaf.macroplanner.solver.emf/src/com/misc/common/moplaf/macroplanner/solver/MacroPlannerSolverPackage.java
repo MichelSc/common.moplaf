@@ -3621,13 +3621,22 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_RESOURCE_BUCKET__RESERVED = LP_TIME_BUCKET_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Calc Reserved</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_RESOURCE_BUCKET__CALC_RESERVED = LP_TIME_BUCKET_FEATURE_COUNT + 4;
+
+	/**
 	 * The feature id for the '<em><b>Balance</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LP_RESOURCE_BUCKET__BALANCE = LP_TIME_BUCKET_FEATURE_COUNT + 4;
+	int LP_RESOURCE_BUCKET__BALANCE = LP_TIME_BUCKET_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>LP Resource Bucket</em>' class.
@@ -3636,7 +3645,7 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LP_RESOURCE_BUCKET_FEATURE_COUNT = LP_TIME_BUCKET_FEATURE_COUNT + 5;
+	int LP_RESOURCE_BUCKET_FEATURE_COUNT = LP_TIME_BUCKET_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -6553,6 +6562,17 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	EReference getLPResourceBucket_Reserved();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getCalcReserved <em>Calc Reserved</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Calc Reserved</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getCalcReserved()
+	 * @see #getLPResourceBucket()
+	 * @generated
+	 */
+	EReference getLPResourceBucket_CalcReserved();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getBalance <em>Balance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7700,6 +7720,14 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		 * @generated
 		 */
 		EReference LP_RESOURCE_BUCKET__RESERVED = eINSTANCE.getLPResourceBucket_Reserved();
+
+		/**
+		 * The meta object literal for the '<em><b>Calc Reserved</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LP_RESOURCE_BUCKET__CALC_RESERVED = eINSTANCE.getLPResourceBucket_CalcReserved();
 
 		/**
 		 * The meta object literal for the '<em><b>Balance</b></em>' containment reference feature.

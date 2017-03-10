@@ -7,9 +7,11 @@ import com.misc.common.moplaf.macroplanner.solver.LPResource;
 import com.misc.common.moplaf.macroplanner.solver.LPResourceBucket;
 import com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketResource;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
-
+import com.misc.common.moplaf.solver.EnumLpConsType;
+import com.misc.common.moplaf.solver.EnumLpVarType;
 import com.misc.common.moplaf.solver.GeneratorLpCons;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
+import com.misc.common.moplaf.solver.SolverFactory;
 
 import java.util.Collection;
 
@@ -39,6 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#getAvailabilities <em>Availabilities</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#getReservations <em>Reservations</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#getReserved <em>Reserved</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#getCalcReserved <em>Calc Reserved</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#getBalance <em>Balance</em>}</li>
  * </ul>
  *
@@ -74,6 +77,16 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 	 * @ordered
 	 */
 	protected GeneratorLpVar reserved;
+
+	/**
+	 * The cached value of the '{@link #getCalcReserved() <em>Calc Reserved</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCalcReserved()
+	 * @generated
+	 * @ordered
+	 */
+	protected GeneratorLpCons calcReserved;
 
 	/**
 	 * The cached value of the '{@link #getBalance() <em>Balance</em>}' containment reference.
@@ -217,6 +230,49 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public GeneratorLpCons getCalcReserved() {
+		return calcReserved;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCalcReserved(GeneratorLpCons newCalcReserved, NotificationChain msgs) {
+		GeneratorLpCons oldCalcReserved = calcReserved;
+		calcReserved = newCalcReserved;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__CALC_RESERVED, oldCalcReserved, newCalcReserved);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCalcReserved(GeneratorLpCons newCalcReserved) {
+		if (newCalcReserved != calcReserved) {
+			NotificationChain msgs = null;
+			if (calcReserved != null)
+				msgs = ((InternalEObject)calcReserved).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__CALC_RESERVED, null, msgs);
+			if (newCalcReserved != null)
+				msgs = ((InternalEObject)newCalcReserved).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__CALC_RESERVED, null, msgs);
+			msgs = basicSetCalcReserved(newCalcReserved, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__CALC_RESERVED, newCalcReserved, newCalcReserved));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public GeneratorLpCons getBalance() {
 		return balance;
 	}
@@ -292,6 +348,8 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 				return ((InternalEList<?>)getReservations()).basicRemove(otherEnd, msgs);
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVED:
 				return basicSetReserved(null, msgs);
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__CALC_RESERVED:
+				return basicSetCalcReserved(null, msgs);
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__BALANCE:
 				return basicSetBalance(null, msgs);
 		}
@@ -328,6 +386,8 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 				return getReservations();
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVED:
 				return getReserved();
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__CALC_RESERVED:
+				return getCalcReserved();
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__BALANCE:
 				return getBalance();
 		}
@@ -357,6 +417,9 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVED:
 				setReserved((GeneratorLpVar)newValue);
 				return;
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__CALC_RESERVED:
+				setCalcReserved((GeneratorLpCons)newValue);
+				return;
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__BALANCE:
 				setBalance((GeneratorLpCons)newValue);
 				return;
@@ -384,6 +447,9 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVED:
 				setReserved((GeneratorLpVar)null);
 				return;
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__CALC_RESERVED:
+				setCalcReserved((GeneratorLpCons)null);
+				return;
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__BALANCE:
 				setBalance((GeneratorLpCons)null);
 				return;
@@ -407,6 +473,8 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 				return reservations != null && !reservations.isEmpty();
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVED:
 				return reserved != null;
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__CALC_RESERVED:
+				return calcReserved != null;
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__BALANCE:
 				return balance != null;
 		}
@@ -436,4 +504,50 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 		super.generateXReferences();
 		
 	}
+
+	/**
+	 * 
+	 */
+	@Override
+	public void generateVars() {
+		super.generateVars();
+		
+		// var reseerved
+		{
+		GeneratorLpVar var = SolverFactory.eINSTANCE.createGeneratorLpVar();
+		var.setType(EnumLpVarType.ENUM_LITERAL_LP_VAR_REAL);
+		var.setLowerBound(0.0f);
+		var.setName("reserved");
+		this.setReserved(var);  // owning
+		}
+	}
+
+	/**
+	 * 
+	 */
+	@Override
+	public void generateCons() {
+		super.generateCons();
+		
+		this.generateLpConsCalcReserved();
+	}
+
+	/**
+	 * 
+	 */
+	private void generateLpConsCalcReserved(){
+		GeneratorLpCons cons = SolverFactory.eINSTANCE.createGeneratorLpCons();
+		cons.setType(EnumLpConsType.ENUM_LITERAL_LP_CONS_EQUAL);
+		cons.setName("calc_reserved");
+		GeneratorLpVar var_reserved_total = this.getReserved();
+		cons.constructTerm(var_reserved_total, 1.0f);
+		float rhs = 0.0f;
+		for (  LPAvailabilityBucket lp_availability_bucket : this.getAvailabilities()){
+			GeneratorLpVar var_stocked = lp_availability_bucket.getReserved();
+			cons.contributeTerm(var_stocked, 1.0f);
+		} // 
+		cons.setRighHandSide(rhs);
+		this.setCalcReserved(cons); // owning
+	}
+
 } //LPResourceBucketImpl
