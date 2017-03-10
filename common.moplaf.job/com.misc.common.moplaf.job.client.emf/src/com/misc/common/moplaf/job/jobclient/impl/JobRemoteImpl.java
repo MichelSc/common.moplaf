@@ -14,6 +14,7 @@ import com.misc.common.moplaf.job.jobclient.JobclientPackage;
 
 import java.lang.reflect.InvocationTargetException;
 
+import java.util.Date;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -35,6 +36,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobRemoteImpl#getSubmissionID <em>Submission ID</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobRemoteImpl#getHandlingEngine <em>Handling Engine</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobRemoteImpl#getResult <em>Result</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobRemoteImpl#getLastProgress <em>Last Progress</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobRemoteImpl#getLastProgressWork <em>Last Progress Work</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.jobclient.impl.JobRemoteImpl#getLastProgressTask <em>Last Progress Task</em>}</li>
  * </ul>
  *
  * @generated
@@ -79,6 +83,66 @@ public class JobRemoteImpl extends JobImpl implements JobRemote {
 	 * @ordered
 	 */
 	protected JobRemoteResult result;
+
+	/**
+	 * The default value of the '{@link #getLastProgress() <em>Last Progress</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLastProgress()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Date LAST_PROGRESS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getLastProgress() <em>Last Progress</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLastProgress()
+	 * @generated
+	 * @ordered
+	 */
+	protected Date lastProgress = LAST_PROGRESS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLastProgressWork() <em>Last Progress Work</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLastProgressWork()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float LAST_PROGRESS_WORK_EDEFAULT = 0.0F;
+
+	/**
+	 * The cached value of the '{@link #getLastProgressWork() <em>Last Progress Work</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLastProgressWork()
+	 * @generated
+	 * @ordered
+	 */
+	protected float lastProgressWork = LAST_PROGRESS_WORK_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLastProgressTask() <em>Last Progress Task</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLastProgressTask()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LAST_PROGRESS_TASK_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getLastProgressTask() <em>Last Progress Task</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLastProgressTask()
+	 * @generated
+	 * @ordered
+	 */
+	protected String lastProgressTask = LAST_PROGRESS_TASK_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -226,6 +290,69 @@ public class JobRemoteImpl extends JobImpl implements JobRemote {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Date getLastProgress() {
+		return lastProgress;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLastProgress(Date newLastProgress) {
+		Date oldLastProgress = lastProgress;
+		lastProgress = newLastProgress;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JobclientPackage.JOB_REMOTE__LAST_PROGRESS, oldLastProgress, lastProgress));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public float getLastProgressWork() {
+		return lastProgressWork;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLastProgressWork(float newLastProgressWork) {
+		float oldLastProgressWork = lastProgressWork;
+		lastProgressWork = newLastProgressWork;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JobclientPackage.JOB_REMOTE__LAST_PROGRESS_WORK, oldLastProgressWork, lastProgressWork));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getLastProgressTask() {
+		return lastProgressTask;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLastProgressTask(String newLastProgressTask) {
+		String oldLastProgressTask = lastProgressTask;
+		lastProgressTask = newLastProgressTask;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JobclientPackage.JOB_REMOTE__LAST_PROGRESS_TASK, oldLastProgressTask, lastProgressTask));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public void onProgress(ProgressFeedback feedback) {
 		Plugin.INSTANCE.logInfo("JobRemoteImpl.onProgress");
@@ -237,6 +364,17 @@ public class JobRemoteImpl extends JobImpl implements JobRemote {
 	 */
 	public void onReturn(ReturnFeedback feedback) {
 		Plugin.INSTANCE.logInfo("JobRemoteImpl.onReturn");
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void refreshProgress() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -286,6 +424,12 @@ public class JobRemoteImpl extends JobImpl implements JobRemote {
 				return basicGetHandlingEngine();
 			case JobclientPackage.JOB_REMOTE__RESULT:
 				return getResult();
+			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS:
+				return getLastProgress();
+			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS_WORK:
+				return getLastProgressWork();
+			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS_TASK:
+				return getLastProgressTask();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -306,6 +450,15 @@ public class JobRemoteImpl extends JobImpl implements JobRemote {
 				return;
 			case JobclientPackage.JOB_REMOTE__RESULT:
 				setResult((JobRemoteResult)newValue);
+				return;
+			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS:
+				setLastProgress((Date)newValue);
+				return;
+			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS_WORK:
+				setLastProgressWork((Float)newValue);
+				return;
+			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS_TASK:
+				setLastProgressTask((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -328,6 +481,15 @@ public class JobRemoteImpl extends JobImpl implements JobRemote {
 			case JobclientPackage.JOB_REMOTE__RESULT:
 				setResult((JobRemoteResult)null);
 				return;
+			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS:
+				setLastProgress(LAST_PROGRESS_EDEFAULT);
+				return;
+			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS_WORK:
+				setLastProgressWork(LAST_PROGRESS_WORK_EDEFAULT);
+				return;
+			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS_TASK:
+				setLastProgressTask(LAST_PROGRESS_TASK_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -346,6 +508,12 @@ public class JobRemoteImpl extends JobImpl implements JobRemote {
 				return handlingEngine != null;
 			case JobclientPackage.JOB_REMOTE__RESULT:
 				return result != null;
+			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS:
+				return LAST_PROGRESS_EDEFAULT == null ? lastProgress != null : !LAST_PROGRESS_EDEFAULT.equals(lastProgress);
+			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS_WORK:
+				return lastProgressWork != LAST_PROGRESS_WORK_EDEFAULT;
+			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS_TASK:
+				return LAST_PROGRESS_TASK_EDEFAULT == null ? lastProgressTask != null : !LAST_PROGRESS_TASK_EDEFAULT.equals(lastProgressTask);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -364,6 +532,9 @@ public class JobRemoteImpl extends JobImpl implements JobRemote {
 			case JobclientPackage.JOB_REMOTE___ON_RETURN__RETURNFEEDBACK:
 				onReturn((ReturnFeedback)arguments.get(0));
 				return null;
+			case JobclientPackage.JOB_REMOTE___REFRESH_PROGRESS:
+				refreshProgress();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -380,6 +551,12 @@ public class JobRemoteImpl extends JobImpl implements JobRemote {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (SubmissionID: ");
 		result.append(submissionID);
+		result.append(", LastProgress: ");
+		result.append(lastProgress);
+		result.append(", LastProgressWork: ");
+		result.append(lastProgressWork);
+		result.append(", LastProgressTask: ");
+		result.append(lastProgressTask);
 		result.append(')');
 		return result.toString();
 	}

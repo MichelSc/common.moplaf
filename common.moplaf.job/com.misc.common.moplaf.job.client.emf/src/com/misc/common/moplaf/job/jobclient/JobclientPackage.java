@@ -232,13 +232,40 @@ public interface JobclientPackage extends EPackage {
 	int JOB_REMOTE__RESULT = JobPackage.JOB_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Last Progress</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_REMOTE__LAST_PROGRESS = JobPackage.JOB_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Last Progress Work</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_REMOTE__LAST_PROGRESS_WORK = JobPackage.JOB_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Last Progress Task</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_REMOTE__LAST_PROGRESS_TASK = JobPackage.JOB_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Job Remote</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_REMOTE_FEATURE_COUNT = JobPackage.JOB_FEATURE_COUNT + 3;
+	int JOB_REMOTE_FEATURE_COUNT = JobPackage.JOB_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Reset</em>' operation.
@@ -331,13 +358,22 @@ public interface JobclientPackage extends EPackage {
 	int JOB_REMOTE___ON_RETURN__RETURNFEEDBACK = JobPackage.JOB_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Refresh Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_REMOTE___REFRESH_PROGRESS = JobPackage.JOB_OPERATION_COUNT + 2;
+
+	/**
 	 * The number of operations of the '<em>Job Remote</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_REMOTE_OPERATION_COUNT = JobPackage.JOB_OPERATION_COUNT + 2;
+	int JOB_REMOTE_OPERATION_COUNT = JobPackage.JOB_OPERATION_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.job.jobclient.impl.JobEngineProxyImpl <em>Job Engine Proxy</em>}' class.
@@ -705,6 +741,39 @@ public interface JobclientPackage extends EPackage {
 	EReference getJobRemote_Result();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobRemote#getLastProgress <em>Last Progress</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Last Progress</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobRemote#getLastProgress()
+	 * @see #getJobRemote()
+	 * @generated
+	 */
+	EAttribute getJobRemote_LastProgress();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobRemote#getLastProgressWork <em>Last Progress Work</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Last Progress Work</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobRemote#getLastProgressWork()
+	 * @see #getJobRemote()
+	 * @generated
+	 */
+	EAttribute getJobRemote_LastProgressWork();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.jobclient.JobRemote#getLastProgressTask <em>Last Progress Task</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Last Progress Task</em>'.
+	 * @see com.misc.common.moplaf.job.jobclient.JobRemote#getLastProgressTask()
+	 * @see #getJobRemote()
+	 * @generated
+	 */
+	EAttribute getJobRemote_LastProgressTask();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobRemote#onProgress(com.misc.common.moplaf.job.ProgressFeedback) <em>On Progress</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -723,6 +792,16 @@ public interface JobclientPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getJobRemote__OnReturn__ReturnFeedback();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.jobclient.JobRemote#refreshProgress() <em>Refresh Progress</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh Progress</em>' operation.
+	 * @see com.misc.common.moplaf.job.jobclient.JobRemote#refreshProgress()
+	 * @generated
+	 */
+	EOperation getJobRemote__RefreshProgress();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.jobclient.JobEngineProxy <em>Job Engine Proxy</em>}'.
@@ -1003,6 +1082,30 @@ public interface JobclientPackage extends EPackage {
 		EReference JOB_REMOTE__RESULT = eINSTANCE.getJobRemote_Result();
 
 		/**
+		 * The meta object literal for the '<em><b>Last Progress</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_REMOTE__LAST_PROGRESS = eINSTANCE.getJobRemote_LastProgress();
+
+		/**
+		 * The meta object literal for the '<em><b>Last Progress Work</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_REMOTE__LAST_PROGRESS_WORK = eINSTANCE.getJobRemote_LastProgressWork();
+
+		/**
+		 * The meta object literal for the '<em><b>Last Progress Task</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_REMOTE__LAST_PROGRESS_TASK = eINSTANCE.getJobRemote_LastProgressTask();
+
+		/**
 		 * The meta object literal for the '<em><b>On Progress</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1017,6 +1120,14 @@ public interface JobclientPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation JOB_REMOTE___ON_RETURN__RETURNFEEDBACK = eINSTANCE.getJobRemote__OnReturn__ReturnFeedback();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh Progress</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JOB_REMOTE___REFRESH_PROGRESS = eINSTANCE.getJobRemote__RefreshProgress();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.jobclient.impl.JobEngineProxyImpl <em>Job Engine Proxy</em>}' class.

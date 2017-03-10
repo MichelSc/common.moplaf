@@ -175,6 +175,9 @@ public class JobEngineProxyItemProvider
 			case JobclientPackage.JOB_ENGINE_PROXY__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case JobclientPackage.JOB_ENGINE_PROXY__SUBMITTED_JOBS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}

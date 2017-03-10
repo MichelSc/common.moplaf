@@ -175,6 +175,33 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getJobRemote_LastProgress() {
+		return (EAttribute)jobRemoteEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJobRemote_LastProgressWork() {
+		return (EAttribute)jobRemoteEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getJobRemote_LastProgressTask() {
+		return (EAttribute)jobRemoteEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getJobRemote__OnProgress__ProgressFeedback() {
 		return jobRemoteEClass.getEOperations().get(0);
 	}
@@ -186,6 +213,15 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 	 */
 	public EOperation getJobRemote__OnReturn__ReturnFeedback() {
 		return jobRemoteEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getJobRemote__RefreshProgress() {
+		return jobRemoteEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -409,8 +445,12 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 		createEAttribute(jobRemoteEClass, JOB_REMOTE__SUBMISSION_ID);
 		createEReference(jobRemoteEClass, JOB_REMOTE__HANDLING_ENGINE);
 		createEReference(jobRemoteEClass, JOB_REMOTE__RESULT);
+		createEAttribute(jobRemoteEClass, JOB_REMOTE__LAST_PROGRESS);
+		createEAttribute(jobRemoteEClass, JOB_REMOTE__LAST_PROGRESS_WORK);
+		createEAttribute(jobRemoteEClass, JOB_REMOTE__LAST_PROGRESS_TASK);
 		createEOperation(jobRemoteEClass, JOB_REMOTE___ON_PROGRESS__PROGRESSFEEDBACK);
 		createEOperation(jobRemoteEClass, JOB_REMOTE___ON_RETURN__RETURNFEEDBACK);
+		createEOperation(jobRemoteEClass, JOB_REMOTE___REFRESH_PROGRESS);
 
 		jobEngineProxyEClass = createEClass(JOB_ENGINE_PROXY);
 		createEReference(jobEngineProxyEClass, JOB_ENGINE_PROXY__SUBMITTED_JOBS);
@@ -478,12 +518,17 @@ public class JobclientPackageImpl extends EPackageImpl implements JobclientPacka
 		initEAttribute(getJobRemote_SubmissionID(), ecorePackage.getEInt(), "SubmissionID", null, 0, 1, JobRemote.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJobRemote_HandlingEngine(), this.getJobEngineProxy(), this.getJobEngineProxy_SubmittedJobs(), "HandlingEngine", null, 0, 1, JobRemote.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJobRemote_Result(), this.getJobRemoteResult(), null, "Result", null, 0, 1, JobRemote.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobRemote_LastProgress(), ecorePackage.getEDate(), "LastProgress", null, 0, 1, JobRemote.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobRemote_LastProgressWork(), ecorePackage.getEFloat(), "LastProgressWork", null, 0, 1, JobRemote.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobRemote_LastProgressTask(), ecorePackage.getEString(), "LastProgressTask", null, 0, 1, JobRemote.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getJobRemote__OnProgress__ProgressFeedback(), null, "onProgress", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theJobPackage.getProgressFeedback(), "feedback", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getJobRemote__OnReturn__ReturnFeedback(), null, "onReturn", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theJobPackage.getReturnFeedback(), "feedback", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getJobRemote__RefreshProgress(), null, "refreshProgress", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(jobEngineProxyEClass, JobEngineProxy.class, "JobEngineProxy", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getJobEngineProxy_SubmittedJobs(), this.getJobRemote(), this.getJobRemote_HandlingEngine(), "SubmittedJobs", null, 0, -1, JobEngineProxy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

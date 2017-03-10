@@ -54,6 +54,9 @@ public class JobRemoteItemProvider extends JobItemProvider {
 
 			addSubmissionIDPropertyDescriptor(object);
 			addHandlingEnginePropertyDescriptor(object);
+			addLastProgressPropertyDescriptor(object);
+			addLastProgressWorkPropertyDescriptor(object);
+			addLastProgressTaskPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -98,6 +101,72 @@ public class JobRemoteItemProvider extends JobItemProvider {
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Last Progress feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLastProgressPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobRemote_LastProgress_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobRemote_LastProgress_feature", "_UI_JobRemote_type"),
+				 JobclientPackage.Literals.JOB_REMOTE__LAST_PROGRESS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Last Progress Work feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLastProgressWorkPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobRemote_LastProgressWork_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobRemote_LastProgressWork_feature", "_UI_JobRemote_type"),
+				 JobclientPackage.Literals.JOB_REMOTE__LAST_PROGRESS_WORK,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Last Progress Task feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLastProgressTaskPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_JobRemote_LastProgressTask_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_JobRemote_LastProgressTask_feature", "_UI_JobRemote_type"),
+				 JobclientPackage.Literals.JOB_REMOTE__LAST_PROGRESS_TASK,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -171,6 +240,9 @@ public class JobRemoteItemProvider extends JobItemProvider {
 
 		switch (notification.getFeatureID(JobRemote.class)) {
 			case JobclientPackage.JOB_REMOTE__SUBMISSION_ID:
+			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS:
+			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS_WORK:
+			case JobclientPackage.JOB_REMOTE__LAST_PROGRESS_TASK:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case JobclientPackage.JOB_REMOTE__RESULT:
