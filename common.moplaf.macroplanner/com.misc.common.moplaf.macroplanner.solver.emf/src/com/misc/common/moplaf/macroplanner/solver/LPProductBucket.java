@@ -25,6 +25,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getStocked <em>Stocked</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getCalcConsumed <em>Calc Consumed</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getCalcSupplied <em>Calc Supplied</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getCalcStocked <em>Calc Stocked</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getBalance <em>Balance</em>}</li>
  * </ul>
  *
@@ -244,6 +245,32 @@ public interface LPProductBucket extends LPTimeBucket {
 	 * @generated
 	 */
 	void setCalcSupplied(GeneratorLpCons value);
+
+	/**
+	 * Returns the value of the '<em><b>Calc Stocked</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Calc Stocked</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Calc Stocked</em>' containment reference.
+	 * @see #setCalcStocked(GeneratorLpCons)
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPProductBucket_CalcStocked()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	GeneratorLpCons getCalcStocked();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getCalcStocked <em>Calc Stocked</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Calc Stocked</em>' containment reference.
+	 * @see #getCalcStocked()
+	 * @generated
+	 */
+	void setCalcStocked(GeneratorLpCons value);
 
 	/**
 	 * Returns the value of the '<em><b>Balance</b></em>' containment reference.

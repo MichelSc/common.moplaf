@@ -93,6 +93,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="CalcSupplied" lowerBound="1"
         eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpCons"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CalcStocked" lowerBound="1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpCons"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Balance" lowerBound="1"
         eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpCons"
         containment="true"/>
@@ -211,8 +214,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Product" eType="#//LPProduct"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="RoutingProduct" lowerBound="1"
         eType="ecore:EClass ../../com.misc.common.moplaf.macroplanner.emf/model/MacroPlanner.ecore#//RoutingProduct"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="LPBucket" eType="#//LPRoutingBucketProduct"
-        eOpposite="#//LPRoutingBucketProduct/RoutingProduct"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="LPBuckets" upperBound="-1"
+        eType="#//LPRoutingBucketProduct" eOpposite="#//LPRoutingBucketProduct/RoutingProduct"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LPRoutingResource" eSuperTypes="../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorTuple">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Routing" eType="#//LPRouting"
@@ -220,8 +223,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Resource" eType="#//LPResource"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="RoutingResource" lowerBound="1"
         eType="ecore:EClass ../../com.misc.common.moplaf.macroplanner.emf/model/MacroPlanner.ecore#//RoutingResource"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="LPBucket" eType="#//LPRoutingBucketResource"
-        eOpposite="#//LPRoutingBucketResource/RoutingResource"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="LPBuckets" upperBound="-1"
+        eType="#//LPRoutingBucketResource" eOpposite="#//LPRoutingBucketResource/RoutingResource"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LPRoutingBucket" eSuperTypes="#//LPTimeBucket">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Routing" eType="#//LPRouting"
@@ -238,7 +241,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ProductBucket" lowerBound="1"
         eType="#//LPProductBucket" eOpposite="#//LPProductBucket/Consumptions"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="RoutingProduct" eType="#//LPRoutingProduct"
-        eOpposite="#//LPRoutingProduct/LPBucket"/>
+        eOpposite="#//LPRoutingProduct/LPBuckets"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Routing" lowerBound="1"
         eType="#//LPRoutingBucket" eOpposite="#//LPRoutingBucket/Products"/>
   </eClassifiers>
@@ -246,7 +249,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ResourceBucket" lowerBound="1"
         eType="#//LPResourceBucket" eOpposite="#//LPResourceBucket/Reservations"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="RoutingResource" eType="#//LPRoutingResource"
-        eOpposite="#//LPRoutingResource/LPBucket"/>
+        eOpposite="#//LPRoutingResource/LPBuckets"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Routing" lowerBound="1"
         eType="#//LPRoutingBucket" eOpposite="#//LPRoutingBucket/Resources"/>
   </eClassifiers>

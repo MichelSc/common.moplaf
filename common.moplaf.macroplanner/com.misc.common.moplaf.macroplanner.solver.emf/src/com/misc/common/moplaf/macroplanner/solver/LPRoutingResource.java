@@ -4,6 +4,7 @@ package com.misc.common.moplaf.macroplanner.solver;
 
 import com.misc.common.moplaf.macroplanner.RoutingResource;
 import com.misc.common.moplaf.solver.GeneratorTuple;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,7 +18,7 @@ import com.misc.common.moplaf.solver.GeneratorTuple;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingResource#getRouting <em>Routing</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingResource#getResource <em>Resource</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingResource#getRoutingResource <em>Routing Resource</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingResource#getLPBucket <em>LP Bucket</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingResource#getLPBuckets <em>LP Buckets</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPRoutingResource()
@@ -106,31 +107,21 @@ public interface LPRoutingResource extends GeneratorTuple {
 	void setRoutingResource(RoutingResource value);
 
 	/**
-	 * Returns the value of the '<em><b>LP Bucket</b></em>' reference.
+	 * Returns the value of the '<em><b>LP Buckets</b></em>' reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketResource}.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketResource#getRoutingResource <em>Routing Resource</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>LP Bucket</em>' reference isn't clear,
+	 * If the meaning of the '<em>LP Buckets</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>LP Bucket</em>' reference.
-	 * @see #setLPBucket(LPRoutingBucketResource)
-	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPRoutingResource_LPBucket()
+	 * @return the value of the '<em>LP Buckets</em>' reference list.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPRoutingResource_LPBuckets()
 	 * @see com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketResource#getRoutingResource
 	 * @model opposite="RoutingResource"
 	 * @generated
 	 */
-	LPRoutingBucketResource getLPBucket();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingResource#getLPBucket <em>LP Bucket</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>LP Bucket</em>' reference.
-	 * @see #getLPBucket()
-	 * @generated
-	 */
-	void setLPBucket(LPRoutingBucketResource value);
+	EList<LPRoutingBucketResource> getLPBuckets();
 
 } // LPRoutingResource

@@ -182,9 +182,9 @@ public class LPRoutingBucketProductImpl extends LPTupleImpl implements LPRouting
 		if (newRoutingProduct != routingProduct) {
 			NotificationChain msgs = null;
 			if (routingProduct != null)
-				msgs = ((InternalEObject)routingProduct).eInverseRemove(this, MacroPlannerSolverPackage.LP_ROUTING_PRODUCT__LP_BUCKET, LPRoutingProduct.class, msgs);
+				msgs = ((InternalEObject)routingProduct).eInverseRemove(this, MacroPlannerSolverPackage.LP_ROUTING_PRODUCT__LP_BUCKETS, LPRoutingProduct.class, msgs);
 			if (newRoutingProduct != null)
-				msgs = ((InternalEObject)newRoutingProduct).eInverseAdd(this, MacroPlannerSolverPackage.LP_ROUTING_PRODUCT__LP_BUCKET, LPRoutingProduct.class, msgs);
+				msgs = ((InternalEObject)newRoutingProduct).eInverseAdd(this, MacroPlannerSolverPackage.LP_ROUTING_PRODUCT__LP_BUCKETS, LPRoutingProduct.class, msgs);
 			msgs = basicSetRoutingProduct(newRoutingProduct, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -247,7 +247,7 @@ public class LPRoutingBucketProductImpl extends LPTupleImpl implements LPRouting
 				return basicSetProductBucket((LPProductBucket)otherEnd, msgs);
 			case MacroPlannerSolverPackage.LP_ROUTING_BUCKET_PRODUCT__ROUTING_PRODUCT:
 				if (routingProduct != null)
-					msgs = ((InternalEObject)routingProduct).eInverseRemove(this, MacroPlannerSolverPackage.LP_ROUTING_PRODUCT__LP_BUCKET, LPRoutingProduct.class, msgs);
+					msgs = ((InternalEObject)routingProduct).eInverseRemove(this, MacroPlannerSolverPackage.LP_ROUTING_PRODUCT__LP_BUCKETS, LPRoutingProduct.class, msgs);
 				return basicSetRoutingProduct((LPRoutingProduct)otherEnd, msgs);
 			case MacroPlannerSolverPackage.LP_ROUTING_BUCKET_PRODUCT__ROUTING:
 				if (eInternalContainer() != null)

@@ -138,6 +138,7 @@ public class LPProductBucketItemProvider extends LPTimeBucketItemProvider {
 			childrenFeatures.add(MacroPlannerSolverPackage.Literals.LP_PRODUCT_BUCKET__STOCKED);
 			childrenFeatures.add(MacroPlannerSolverPackage.Literals.LP_PRODUCT_BUCKET__CALC_CONSUMED);
 			childrenFeatures.add(MacroPlannerSolverPackage.Literals.LP_PRODUCT_BUCKET__CALC_SUPPLIED);
+			childrenFeatures.add(MacroPlannerSolverPackage.Literals.LP_PRODUCT_BUCKET__CALC_STOCKED);
 			childrenFeatures.add(MacroPlannerSolverPackage.Literals.LP_PRODUCT_BUCKET__BALANCE);
 		}
 		return childrenFeatures;
@@ -188,6 +189,7 @@ public class LPProductBucketItemProvider extends LPTimeBucketItemProvider {
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__STOCKED:
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CALC_CONSUMED:
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CALC_SUPPLIED:
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CALC_STOCKED:
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__BALANCE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -233,6 +235,11 @@ public class LPProductBucketItemProvider extends LPTimeBucketItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(MacroPlannerSolverPackage.Literals.LP_PRODUCT_BUCKET__CALC_STOCKED,
+				 SolverFactory.eINSTANCE.createGeneratorLpCons()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(MacroPlannerSolverPackage.Literals.LP_PRODUCT_BUCKET__BALANCE,
 				 SolverFactory.eINSTANCE.createGeneratorLpCons()));
 	}
@@ -254,6 +261,7 @@ public class LPProductBucketItemProvider extends LPTimeBucketItemProvider {
 			childFeature == MacroPlannerSolverPackage.Literals.LP_PRODUCT_BUCKET__STOCKED ||
 			childFeature == MacroPlannerSolverPackage.Literals.LP_PRODUCT_BUCKET__CALC_CONSUMED ||
 			childFeature == MacroPlannerSolverPackage.Literals.LP_PRODUCT_BUCKET__CALC_SUPPLIED ||
+			childFeature == MacroPlannerSolverPackage.Literals.LP_PRODUCT_BUCKET__CALC_STOCKED ||
 			childFeature == MacroPlannerSolverPackage.Literals.LP_PRODUCT_BUCKET__BALANCE;
 
 		if (qualify) {

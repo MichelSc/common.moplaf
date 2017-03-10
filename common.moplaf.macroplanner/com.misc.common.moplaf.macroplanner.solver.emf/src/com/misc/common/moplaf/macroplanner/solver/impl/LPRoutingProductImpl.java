@@ -10,14 +10,18 @@ import com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
 
 import com.misc.common.moplaf.solver.impl.GeneratorTupleImpl;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +34,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingProductImpl#getRouting <em>Routing</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingProductImpl#getProduct <em>Product</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingProductImpl#getRoutingProduct <em>Routing Product</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingProductImpl#getLPBucket <em>LP Bucket</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingProductImpl#getLPBuckets <em>LP Buckets</em>}</li>
  * </ul>
  *
  * @generated
@@ -56,14 +60,14 @@ public class LPRoutingProductImpl extends GeneratorTupleImpl implements LPRoutin
 	 */
 	protected RoutingProduct routingProduct;
 	/**
-	 * The cached value of the '{@link #getLPBucket() <em>LP Bucket</em>}' reference.
+	 * The cached value of the '{@link #getLPBuckets() <em>LP Buckets</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLPBucket()
+	 * @see #getLPBuckets()
 	 * @generated
 	 * @ordered
 	 */
-	protected LPRoutingBucketProduct lpBucket;
+	protected EList<LPRoutingBucketProduct> lpBuckets;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -206,16 +210,11 @@ public class LPRoutingProductImpl extends GeneratorTupleImpl implements LPRoutin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LPRoutingBucketProduct getLPBucket() {
-		if (lpBucket != null && lpBucket.eIsProxy()) {
-			InternalEObject oldLPBucket = (InternalEObject)lpBucket;
-			lpBucket = (LPRoutingBucketProduct)eResolveProxy(oldLPBucket);
-			if (lpBucket != oldLPBucket) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MacroPlannerSolverPackage.LP_ROUTING_PRODUCT__LP_BUCKET, oldLPBucket, lpBucket));
-			}
+	public EList<LPRoutingBucketProduct> getLPBuckets() {
+		if (lpBuckets == null) {
+			lpBuckets = new EObjectWithInverseResolvingEList<LPRoutingBucketProduct>(LPRoutingBucketProduct.class, this, MacroPlannerSolverPackage.LP_ROUTING_PRODUCT__LP_BUCKETS, MacroPlannerSolverPackage.LP_ROUTING_BUCKET_PRODUCT__ROUTING_PRODUCT);
 		}
-		return lpBucket;
+		return lpBuckets;
 	}
 
 	/**
@@ -223,49 +222,7 @@ public class LPRoutingProductImpl extends GeneratorTupleImpl implements LPRoutin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LPRoutingBucketProduct basicGetLPBucket() {
-		return lpBucket;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetLPBucket(LPRoutingBucketProduct newLPBucket, NotificationChain msgs) {
-		LPRoutingBucketProduct oldLPBucket = lpBucket;
-		lpBucket = newLPBucket;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MacroPlannerSolverPackage.LP_ROUTING_PRODUCT__LP_BUCKET, oldLPBucket, newLPBucket);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLPBucket(LPRoutingBucketProduct newLPBucket) {
-		if (newLPBucket != lpBucket) {
-			NotificationChain msgs = null;
-			if (lpBucket != null)
-				msgs = ((InternalEObject)lpBucket).eInverseRemove(this, MacroPlannerSolverPackage.LP_ROUTING_BUCKET_PRODUCT__ROUTING_PRODUCT, LPRoutingBucketProduct.class, msgs);
-			if (newLPBucket != null)
-				msgs = ((InternalEObject)newLPBucket).eInverseAdd(this, MacroPlannerSolverPackage.LP_ROUTING_BUCKET_PRODUCT__ROUTING_PRODUCT, LPRoutingBucketProduct.class, msgs);
-			msgs = basicSetLPBucket(newLPBucket, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MacroPlannerSolverPackage.LP_ROUTING_PRODUCT__LP_BUCKET, newLPBucket, newLPBucket));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -273,10 +230,8 @@ public class LPRoutingProductImpl extends GeneratorTupleImpl implements LPRoutin
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetRouting((LPRouting)otherEnd, msgs);
-			case MacroPlannerSolverPackage.LP_ROUTING_PRODUCT__LP_BUCKET:
-				if (lpBucket != null)
-					msgs = ((InternalEObject)lpBucket).eInverseRemove(this, MacroPlannerSolverPackage.LP_ROUTING_BUCKET_PRODUCT__ROUTING_PRODUCT, LPRoutingBucketProduct.class, msgs);
-				return basicSetLPBucket((LPRoutingBucketProduct)otherEnd, msgs);
+			case MacroPlannerSolverPackage.LP_ROUTING_PRODUCT__LP_BUCKETS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getLPBuckets()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -291,8 +246,8 @@ public class LPRoutingProductImpl extends GeneratorTupleImpl implements LPRoutin
 		switch (featureID) {
 			case MacroPlannerSolverPackage.LP_ROUTING_PRODUCT__ROUTING:
 				return basicSetRouting(null, msgs);
-			case MacroPlannerSolverPackage.LP_ROUTING_PRODUCT__LP_BUCKET:
-				return basicSetLPBucket(null, msgs);
+			case MacroPlannerSolverPackage.LP_ROUTING_PRODUCT__LP_BUCKETS:
+				return ((InternalEList<?>)getLPBuckets()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -327,9 +282,8 @@ public class LPRoutingProductImpl extends GeneratorTupleImpl implements LPRoutin
 			case MacroPlannerSolverPackage.LP_ROUTING_PRODUCT__ROUTING_PRODUCT:
 				if (resolve) return getRoutingProduct();
 				return basicGetRoutingProduct();
-			case MacroPlannerSolverPackage.LP_ROUTING_PRODUCT__LP_BUCKET:
-				if (resolve) return getLPBucket();
-				return basicGetLPBucket();
+			case MacroPlannerSolverPackage.LP_ROUTING_PRODUCT__LP_BUCKETS:
+				return getLPBuckets();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -339,6 +293,7 @@ public class LPRoutingProductImpl extends GeneratorTupleImpl implements LPRoutin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -351,8 +306,9 @@ public class LPRoutingProductImpl extends GeneratorTupleImpl implements LPRoutin
 			case MacroPlannerSolverPackage.LP_ROUTING_PRODUCT__ROUTING_PRODUCT:
 				setRoutingProduct((RoutingProduct)newValue);
 				return;
-			case MacroPlannerSolverPackage.LP_ROUTING_PRODUCT__LP_BUCKET:
-				setLPBucket((LPRoutingBucketProduct)newValue);
+			case MacroPlannerSolverPackage.LP_ROUTING_PRODUCT__LP_BUCKETS:
+				getLPBuckets().clear();
+				getLPBuckets().addAll((Collection<? extends LPRoutingBucketProduct>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -375,8 +331,8 @@ public class LPRoutingProductImpl extends GeneratorTupleImpl implements LPRoutin
 			case MacroPlannerSolverPackage.LP_ROUTING_PRODUCT__ROUTING_PRODUCT:
 				setRoutingProduct((RoutingProduct)null);
 				return;
-			case MacroPlannerSolverPackage.LP_ROUTING_PRODUCT__LP_BUCKET:
-				setLPBucket((LPRoutingBucketProduct)null);
+			case MacroPlannerSolverPackage.LP_ROUTING_PRODUCT__LP_BUCKETS:
+				getLPBuckets().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -396,8 +352,8 @@ public class LPRoutingProductImpl extends GeneratorTupleImpl implements LPRoutin
 				return product != null;
 			case MacroPlannerSolverPackage.LP_ROUTING_PRODUCT__ROUTING_PRODUCT:
 				return routingProduct != null;
-			case MacroPlannerSolverPackage.LP_ROUTING_PRODUCT__LP_BUCKET:
-				return lpBucket != null;
+			case MacroPlannerSolverPackage.LP_ROUTING_PRODUCT__LP_BUCKETS:
+				return lpBuckets != null && !lpBuckets.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

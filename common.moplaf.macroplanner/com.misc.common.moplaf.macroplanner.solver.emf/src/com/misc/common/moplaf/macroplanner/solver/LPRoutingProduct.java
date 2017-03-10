@@ -4,6 +4,7 @@ package com.misc.common.moplaf.macroplanner.solver;
 
 import com.misc.common.moplaf.macroplanner.RoutingProduct;
 import com.misc.common.moplaf.solver.GeneratorTuple;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,7 +18,7 @@ import com.misc.common.moplaf.solver.GeneratorTuple;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct#getRouting <em>Routing</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct#getProduct <em>Product</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct#getRoutingProduct <em>Routing Product</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct#getLPBucket <em>LP Bucket</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct#getLPBuckets <em>LP Buckets</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPRoutingProduct()
@@ -106,31 +107,21 @@ public interface LPRoutingProduct extends GeneratorTuple {
 	void setRoutingProduct(RoutingProduct value);
 
 	/**
-	 * Returns the value of the '<em><b>LP Bucket</b></em>' reference.
+	 * Returns the value of the '<em><b>LP Buckets</b></em>' reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketProduct}.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketProduct#getRoutingProduct <em>Routing Product</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>LP Bucket</em>' reference isn't clear,
+	 * If the meaning of the '<em>LP Buckets</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>LP Bucket</em>' reference.
-	 * @see #setLPBucket(LPRoutingBucketProduct)
-	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPRoutingProduct_LPBucket()
+	 * @return the value of the '<em>LP Buckets</em>' reference list.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPRoutingProduct_LPBuckets()
 	 * @see com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketProduct#getRoutingProduct
 	 * @model opposite="RoutingProduct"
 	 * @generated
 	 */
-	LPRoutingBucketProduct getLPBucket();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct#getLPBucket <em>LP Bucket</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>LP Bucket</em>' reference.
-	 * @see #getLPBucket()
-	 * @generated
-	 */
-	void setLPBucket(LPRoutingBucketProduct value);
+	EList<LPRoutingBucketProduct> getLPBuckets();
 
 } // LPRoutingProduct

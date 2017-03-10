@@ -17,8 +17,9 @@ import com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct;
 import com.misc.common.moplaf.macroplanner.solver.LPRoutingResource;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverFactory;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
-
+import com.misc.common.moplaf.solver.EnumLpVarType;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
+import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.time.discrete.TimeBucket;
 import java.util.Collection;
 
@@ -408,5 +409,22 @@ public class LPRoutingBucketImpl extends LPTimeBucketImpl implements LPRoutingBu
 	public void generateXReferences() {
 		super.generateXReferences();
 		
+	}
+	/**
+	 * 
+	 */
+	@Override
+	public void generateVars() {
+		super.generateVars();
+		
+		// var planned
+		{
+		GeneratorLpVar var = SolverFactory.eINSTANCE.createGeneratorLpVar();
+		var.setType(EnumLpVarType.ENUM_LITERAL_LP_VAR_REAL);
+		var.setLowerBound(0.0f);
+		var.setName("planned");
+		this.setPlanned(var);  // owning
+		}
+
 	}
 } //LPRoutingBucketImpl

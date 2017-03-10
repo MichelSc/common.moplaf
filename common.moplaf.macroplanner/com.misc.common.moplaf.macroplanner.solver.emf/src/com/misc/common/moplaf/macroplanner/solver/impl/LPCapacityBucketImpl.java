@@ -3,14 +3,17 @@
 package com.misc.common.moplaf.macroplanner.solver.impl;
 
 
+import com.misc.common.moplaf.macroplanner.Capacity;
 import com.misc.common.moplaf.macroplanner.solver.LPCapacity;
 import com.misc.common.moplaf.macroplanner.solver.LPCapacityBucket;
 import com.misc.common.moplaf.macroplanner.solver.LPProduct;
 import com.misc.common.moplaf.macroplanner.solver.LPProductBucket;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
-
+import com.misc.common.moplaf.solver.EnumLpConsType;
+import com.misc.common.moplaf.solver.EnumLpVarType;
 import com.misc.common.moplaf.solver.GeneratorLpCons;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
+import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.time.discrete.ObjectTimeBucket;
 import com.misc.common.moplaf.time.discrete.TimeBucket;
 
@@ -516,4 +519,64 @@ public class LPCapacityBucketImpl extends LPTimeBucketImpl implements LPCapacity
 		ObjectTimeBucket product_bucket = product.getBucket(bucket);
 		this.setProductBucket((LPProductBucket) product_bucket);
 	}
+
+	/**
+	 * 
+	 */
+	@Override
+	public void generateVars() {
+		super.generateVars();
+		
+		// var stocked
+		{
+		GeneratorLpVar var = SolverFactory.eINSTANCE.createGeneratorLpVar();
+		var.setType(EnumLpVarType.ENUM_LITERAL_LP_VAR_REAL);
+		var.setLowerBound(0.0f);
+		var.setName("stocked");
+		this.setStocked(var);  // owning
+		}
+		// var slack
+		{
+		LPCapacity lp_capacity = this.getCapacity();
+		Capacity capacity = lp_capacity.getCapacity();
+		float ub = capacity.isEnforce() ? 0.0f : Float.MAX_VALUE;
+
+		GeneratorLpVar var = SolverFactory.eINSTANCE.createGeneratorLpVar();
+		var.setType(EnumLpVarType.ENUM_LITERAL_LP_VAR_REAL);
+		var.setLowerBound(0.0f);
+		var.setLowerBound(ub);
+		var.setName("slack");
+		this.setSlack(var);  // owning
+		}
+	}
+
+	/**
+	 * 
+	 */
+	@Override
+	public void generateCons() {
+		super.generateCons();
+		
+		this.generateLpConsBalance();
+	}
+
+	/**
+	 * 
+	 */
+	private void generateLpConsBalance(){
+		LPCapacity lp_capacity = this.getCapacity();
+		Capacity capacity = lp_capacity.getCapacity();
+
+		GeneratorLpCons cons = SolverFactory.eINSTANCE.createGeneratorLpCons();
+		cons.setType(EnumLpConsType.ENUM_LITERAL_LP_CONS_SMALLER_OR_EQUAL);
+		cons.setName("balance");
+		GeneratorLpVar var_stocked = this.getStocked();
+		GeneratorLpVar var_slack   = this.getSlack();
+		cons.constructTerm(var_stocked, 1.0f);
+		cons.constructTerm(var_slack, -1.0f);
+		float rhs = capacity.getQuantity();
+		cons.setRighHandSide(rhs);
+		this.setBalance(cons); // owning
+	}
+
 } //LPCapacityBucketImpl

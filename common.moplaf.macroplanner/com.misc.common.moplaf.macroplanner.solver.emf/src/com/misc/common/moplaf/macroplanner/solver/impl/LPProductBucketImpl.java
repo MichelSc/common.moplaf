@@ -51,6 +51,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getStocked <em>Stocked</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getCalcConsumed <em>Calc Consumed</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getCalcSupplied <em>Calc Supplied</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getCalcStocked <em>Calc Stocked</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getBalance <em>Balance</em>}</li>
  * </ul>
  *
@@ -136,6 +137,16 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 	 * @ordered
 	 */
 	protected GeneratorLpCons calcSupplied;
+
+	/**
+	 * The cached value of the '{@link #getCalcStocked() <em>Calc Stocked</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCalcStocked()
+	 * @generated
+	 * @ordered
+	 */
+	protected GeneratorLpCons calcStocked;
 
 	/**
 	 * The cached value of the '{@link #getBalance() <em>Balance</em>}' containment reference.
@@ -463,6 +474,49 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public GeneratorLpCons getCalcStocked() {
+		return calcStocked;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCalcStocked(GeneratorLpCons newCalcStocked, NotificationChain msgs) {
+		GeneratorLpCons oldCalcStocked = calcStocked;
+		calcStocked = newCalcStocked;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CALC_STOCKED, oldCalcStocked, newCalcStocked);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCalcStocked(GeneratorLpCons newCalcStocked) {
+		if (newCalcStocked != calcStocked) {
+			NotificationChain msgs = null;
+			if (calcStocked != null)
+				msgs = ((InternalEObject)calcStocked).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CALC_STOCKED, null, msgs);
+			if (newCalcStocked != null)
+				msgs = ((InternalEObject)newCalcStocked).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CALC_STOCKED, null, msgs);
+			msgs = basicSetCalcStocked(newCalcStocked, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CALC_STOCKED, newCalcStocked, newCalcStocked));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public GeneratorLpCons getBalance() {
 		return balance;
 	}
@@ -550,6 +604,8 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 				return basicSetCalcConsumed(null, msgs);
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CALC_SUPPLIED:
 				return basicSetCalcSupplied(null, msgs);
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CALC_STOCKED:
+				return basicSetCalcStocked(null, msgs);
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__BALANCE:
 				return basicSetBalance(null, msgs);
 		}
@@ -596,6 +652,8 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 				return getCalcConsumed();
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CALC_SUPPLIED:
 				return getCalcSupplied();
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CALC_STOCKED:
+				return getCalcStocked();
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__BALANCE:
 				return getBalance();
 		}
@@ -641,6 +699,9 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CALC_SUPPLIED:
 				setCalcSupplied((GeneratorLpCons)newValue);
 				return;
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CALC_STOCKED:
+				setCalcStocked((GeneratorLpCons)newValue);
+				return;
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__BALANCE:
 				setBalance((GeneratorLpCons)newValue);
 				return;
@@ -683,6 +744,9 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CALC_SUPPLIED:
 				setCalcSupplied((GeneratorLpCons)null);
 				return;
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CALC_STOCKED:
+				setCalcStocked((GeneratorLpCons)null);
+				return;
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__BALANCE:
 				setBalance((GeneratorLpCons)null);
 				return;
@@ -716,6 +780,8 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 				return calcConsumed != null;
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CALC_SUPPLIED:
 				return calcSupplied != null;
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CALC_STOCKED:
+				return calcStocked != null;
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__BALANCE:
 				return balance != null;
 		}
@@ -770,6 +836,15 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 		var.setName("supplied");
 		this.setSupplied(var);  // owning
 		}
+		
+		// var stocked
+		{
+		GeneratorLpVar var = SolverFactory.eINSTANCE.createGeneratorLpVar();
+		var.setType(EnumLpVarType.ENUM_LITERAL_LP_VAR_REAL);
+		var.setLowerBound(0.0f);
+		var.setName("stocked");
+		this.setStocked(var);  // owning
+		}
 	}
 	
 	/**
@@ -781,6 +856,7 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 		
 		this.generateLpConsCalcConsumed();
 		this.generateLpConsCalcSupplied();
+		this.generateLpConsCalcStocked();
 	}
 
 	/**
@@ -820,7 +896,25 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 			cons.contributeTerm(var_supplied, 1.0f);
 		} // 
 		cons.setRighHandSide(rhs);
-		this.setCalcConsumed(cons); // owning
+		this.setCalcSupplied(cons); // owning
+	}
+
+	/**
+	 * 
+	 */
+	private void generateLpConsCalcStocked(){
+		GeneratorLpCons cons = SolverFactory.eINSTANCE.createGeneratorLpCons();
+		cons.setType(EnumLpConsType.ENUM_LITERAL_LP_CONS_EQUAL);
+		cons.setName("calc_stocked");
+		GeneratorLpVar var_stocked_total = this.getStocked();
+		cons.constructTerm(var_stocked_total, 1.0f);
+		float rhs = 0.0f;
+		for (  LPCapacityBucket lp_capacity_bucket : this.getCapacities()){
+			GeneratorLpVar var_stocked = lp_capacity_bucket.getStocked();
+			cons.contributeTerm(var_stocked, 1.0f);
+		} // 
+		cons.setRighHandSide(rhs);
+		this.setCalcStocked(cons); // owning
 	}
 
 } //LPProductBucketImpl
