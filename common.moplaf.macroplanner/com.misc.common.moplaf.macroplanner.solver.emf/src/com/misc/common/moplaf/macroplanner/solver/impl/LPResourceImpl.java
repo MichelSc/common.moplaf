@@ -377,7 +377,7 @@ public class LPResourceImpl extends LPTimeLineImpl implements LPResource {
 			if ( selectedSCData.contains(availability.getSupplyChainData())){
 				LPAvailability lpavailability = MacroPlannerSolverFactory.eINSTANCE.createLPAvailability();
 				lpavailability.setAvailability(availability);
-				String name = String.format("sup(%s, %tF)", location_resource.getCode(), availability.getFrom());
+				String name = String.format("avail(%s, %tF)", location_resource.getCode(), availability.getFrom());
 				lpavailability.setName(name);
 				this.getAvailabilities().add(lpavailability); // owning
 			}

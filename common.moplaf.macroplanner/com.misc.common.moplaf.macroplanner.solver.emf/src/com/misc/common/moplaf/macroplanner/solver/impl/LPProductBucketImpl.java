@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.macroplanner.solver.impl;
 
 
+
 import com.misc.common.moplaf.macroplanner.RoutingProduct;
 import com.misc.common.moplaf.macroplanner.solver.LPCapacityBucket;
 import com.misc.common.moplaf.macroplanner.solver.LPProduct;
@@ -857,6 +858,7 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 		this.generateLpConsCalcConsumed();
 		this.generateLpConsCalcSupplied();
 		this.generateLpConsCalcStocked();
+		this.generateLpConsBalance();
 	}
 
 	/**
@@ -917,4 +919,28 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 		this.setCalcStocked(cons); // owning
 	}
 
+	/**
+	 * 
+	 */
+	private void generateLpConsBalance(){
+		LPProductBucket previous_bucket = (LPProductBucket)this.getPrevious();
+
+		GeneratorLpVar var_consumed= this.getConsumed();
+		GeneratorLpVar var_stocked = this.getStocked();
+		GeneratorLpVar var_supplied = this.getSupplied();
+
+		GeneratorLpCons cons = SolverFactory.eINSTANCE.createGeneratorLpCons();
+		cons.setType(EnumLpConsType.ENUM_LITERAL_LP_CONS_EQUAL);
+		cons.setName("balance");
+		if ( previous_bucket!=null){
+			GeneratorLpVar var_previous_stocked = previous_bucket.getStocked();
+			cons.constructTerm(var_previous_stocked, 1.0f);
+		}
+		cons.constructTerm(var_supplied, 1.0f);
+		cons.constructTerm(var_consumed, -1.0f);
+		cons.constructTerm(var_stocked, -1.0f);
+		float rhs = 0.0f;
+		cons.setRighHandSide(rhs);
+		this.setBalance(cons); // owning
+	}
 } //LPProductBucketImpl

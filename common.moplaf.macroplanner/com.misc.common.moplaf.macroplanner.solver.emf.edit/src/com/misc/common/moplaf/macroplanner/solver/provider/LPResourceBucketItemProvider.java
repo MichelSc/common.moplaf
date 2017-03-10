@@ -111,7 +111,9 @@ public class LPResourceBucketItemProvider extends LPTimeBucketItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(MacroPlannerSolverPackage.Literals.LP_RESOURCE_BUCKET__RESERVED);
+			childrenFeatures.add(MacroPlannerSolverPackage.Literals.LP_RESOURCE_BUCKET__PLANNED);
 			childrenFeatures.add(MacroPlannerSolverPackage.Literals.LP_RESOURCE_BUCKET__CALC_RESERVED);
+			childrenFeatures.add(MacroPlannerSolverPackage.Literals.LP_RESOURCE_BUCKET__CALC_PLANNED);
 			childrenFeatures.add(MacroPlannerSolverPackage.Literals.LP_RESOURCE_BUCKET__BALANCE);
 		}
 		return childrenFeatures;
@@ -158,7 +160,9 @@ public class LPResourceBucketItemProvider extends LPTimeBucketItemProvider {
 
 		switch (notification.getFeatureID(LPResourceBucket.class)) {
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVED:
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__PLANNED:
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__CALC_RESERVED:
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__CALC_PLANNED:
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__BALANCE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -184,7 +188,17 @@ public class LPResourceBucketItemProvider extends LPTimeBucketItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(MacroPlannerSolverPackage.Literals.LP_RESOURCE_BUCKET__PLANNED,
+				 SolverFactory.eINSTANCE.createGeneratorLpVar()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(MacroPlannerSolverPackage.Literals.LP_RESOURCE_BUCKET__CALC_RESERVED,
+				 SolverFactory.eINSTANCE.createGeneratorLpCons()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MacroPlannerSolverPackage.Literals.LP_RESOURCE_BUCKET__CALC_PLANNED,
 				 SolverFactory.eINSTANCE.createGeneratorLpCons()));
 
 		newChildDescriptors.add
@@ -205,7 +219,10 @@ public class LPResourceBucketItemProvider extends LPTimeBucketItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
+			childFeature == MacroPlannerSolverPackage.Literals.LP_RESOURCE_BUCKET__RESERVED ||
+			childFeature == MacroPlannerSolverPackage.Literals.LP_RESOURCE_BUCKET__PLANNED ||
 			childFeature == MacroPlannerSolverPackage.Literals.LP_RESOURCE_BUCKET__CALC_RESERVED ||
+			childFeature == MacroPlannerSolverPackage.Literals.LP_RESOURCE_BUCKET__CALC_PLANNED ||
 			childFeature == MacroPlannerSolverPackage.Literals.LP_RESOURCE_BUCKET__BALANCE;
 
 		if (qualify) {

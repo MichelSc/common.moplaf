@@ -20,7 +20,9 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getAvailabilities <em>Availabilities</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getReservations <em>Reservations</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getReserved <em>Reserved</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getPlanned <em>Planned</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getCalcReserved <em>Calc Reserved</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getCalcPlanned <em>Calc Planned</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getBalance <em>Balance</em>}</li>
  * </ul>
  *
@@ -120,6 +122,32 @@ public interface LPResourceBucket extends LPTimeBucket {
 	void setReserved(GeneratorLpVar value);
 
 	/**
+	 * Returns the value of the '<em><b>Planned</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Planned</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Planned</em>' containment reference.
+	 * @see #setPlanned(GeneratorLpVar)
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPResourceBucket_Planned()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	GeneratorLpVar getPlanned();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getPlanned <em>Planned</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Planned</em>' containment reference.
+	 * @see #getPlanned()
+	 * @generated
+	 */
+	void setPlanned(GeneratorLpVar value);
+
+	/**
 	 * Returns the value of the '<em><b>Calc Reserved</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -144,6 +172,32 @@ public interface LPResourceBucket extends LPTimeBucket {
 	 * @generated
 	 */
 	void setCalcReserved(GeneratorLpCons value);
+
+	/**
+	 * Returns the value of the '<em><b>Calc Planned</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Calc Planned</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Calc Planned</em>' containment reference.
+	 * @see #setCalcPlanned(GeneratorLpCons)
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPResourceBucket_CalcPlanned()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	GeneratorLpCons getCalcPlanned();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getCalcPlanned <em>Calc Planned</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Calc Planned</em>' containment reference.
+	 * @see #getCalcPlanned()
+	 * @generated
+	 */
+	void setCalcPlanned(GeneratorLpCons value);
 
 	/**
 	 * Returns the value of the '<em><b>Balance</b></em>' containment reference.

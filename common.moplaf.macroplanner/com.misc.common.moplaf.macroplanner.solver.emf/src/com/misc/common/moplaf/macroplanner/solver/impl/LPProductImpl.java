@@ -417,7 +417,7 @@ public class LPProductImpl extends LPTimeLineImpl implements LPProduct {
 			if ( selectedSCData.contains(supply.getSupplyChainData())){
 				LPSupply lpsupply = MacroPlannerSolverFactory.eINSTANCE.createLPSupply();
 				lpsupply.setSupply(supply);
-				String name = String.format("sup(%s, %tF)", location_product.getCode(), supply.getFrom());
+				String name = String.format("suppl(%s, %tF)", location_product.getCode(), supply.getFrom());
 				lpsupply.setName(name);
 				this.getSupplies().add(lpsupply); // owning
 			}
@@ -428,7 +428,7 @@ public class LPProductImpl extends LPTimeLineImpl implements LPProduct {
 			if ( selectedSCData.contains(capacity.getSupplyChainData())){
 				LPCapacity lpcapacity= MacroPlannerSolverFactory.eINSTANCE.createLPCapacity();
 				lpcapacity.setCapacity(capacity);
-				String name = String.format("sup(%s, %tF)", location_product.getCode(), capacity.getFrom());
+				String name = String.format("capac(%s, %tF)", location_product.getCode(), capacity.getFrom());
 				lpcapacity.setName(name);
 				this.getCapacities().add(lpcapacity); // owning
 			}

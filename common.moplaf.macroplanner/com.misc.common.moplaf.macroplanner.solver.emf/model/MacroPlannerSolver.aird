@@ -10635,9 +10635,17 @@
                 <styles xmi:type="notation:FontStyle" xmi:id="_LETjEQPcEeezM4xsHYQ6TA" fontName="Segoe UI" fontHeight="8" bold="true"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_LETjEgPcEeezM4xsHYQ6TA"/>
               </children>
+              <children xmi:type="notation:Node" xmi:id="_2vNy8AWAEeeC3_vxf7tA6g" type="3010" element="_2u2mkAWAEeeC3_vxf7tA6g">
+                <styles xmi:type="notation:FontStyle" xmi:id="_2vNy8QWAEeeC3_vxf7tA6g" fontName="Segoe UI" fontHeight="8" bold="true"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_2vNy8gWAEeeC3_vxf7tA6g"/>
+              </children>
               <children xmi:type="notation:Node" xmi:id="_gNN3kAV-EeeC3_vxf7tA6g" type="3010" element="_gM5ugAV-EeeC3_vxf7tA6g">
                 <styles xmi:type="notation:FontStyle" xmi:id="_gNN3kQV-EeeC3_vxf7tA6g" fontName="Segoe UI" fontHeight="8" bold="true"/>
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_gNN3kgV-EeeC3_vxf7tA6g"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_2vNy8wWAEeeC3_vxf7tA6g" type="3010" element="_2u3NoAWAEeeC3_vxf7tA6g">
+                <styles xmi:type="notation:FontStyle" xmi:id="_2vNy9AWAEeeC3_vxf7tA6g" fontName="Segoe UI" fontHeight="8" bold="true"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_2vNy9QWAEeeC3_vxf7tA6g"/>
               </children>
               <children xmi:type="notation:Node" xmi:id="_0yDYIAV_EeeC3_vxf7tA6g" type="3010" element="_0xsLwAV_EeeC3_vxf7tA6g">
                 <styles xmi:type="notation:FontStyle" xmi:id="_0yDYIQV_EeeC3_vxf7tA6g" fontName="Segoe UI" fontHeight="8" bold="true"/>
@@ -11628,10 +11636,26 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
         </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_2u2mkAWAEeeC3_vxf7tA6g" name=" Planned : GeneratorLpVar" tooltipText="">
+          <target xmi:type="ecore:EReference" href="MacroPlannerSolver.ecore#//LPResourceBucket/Planned"/>
+          <semanticElements xmi:type="ecore:EReference" href="MacroPlannerSolver.ecore#//LPResourceBucket/Planned"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_2u2mkQWAEeeC3_vxf7tA6g" labelAlignment="LEFT" description="_SLePgQPbEeezM4xsHYQ6TA" color="114,159,207">
+            <labelFormat>bold</labelFormat>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+        </ownedElements>
         <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_gM5ugAV-EeeC3_vxf7tA6g" name=" CalcReserved : GeneratorLpCons" tooltipText="">
           <target xmi:type="ecore:EReference" href="MacroPlannerSolver.ecore#//LPResourceBucket/CalcReserved"/>
           <semanticElements xmi:type="ecore:EReference" href="MacroPlannerSolver.ecore#//LPResourceBucket/CalcReserved"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_gM6VkAV-EeeC3_vxf7tA6g" labelAlignment="LEFT" description="_SLePgQPbEeezM4xsHYQ6TA" color="114,159,207">
+            <labelFormat>bold</labelFormat>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_2u3NoAWAEeeC3_vxf7tA6g" name=" CalcPlanned : GeneratorLpCons" tooltipText="">
+          <target xmi:type="ecore:EReference" href="MacroPlannerSolver.ecore#//LPResourceBucket/CalcPlanned"/>
+          <semanticElements xmi:type="ecore:EReference" href="MacroPlannerSolver.ecore#//LPResourceBucket/CalcPlanned"/>
+          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_2u3NoQWAEeeC3_vxf7tA6g" labelAlignment="LEFT" description="_SLePgQPbEeezM4xsHYQ6TA" color="114,159,207">
             <labelFormat>bold</labelFormat>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>

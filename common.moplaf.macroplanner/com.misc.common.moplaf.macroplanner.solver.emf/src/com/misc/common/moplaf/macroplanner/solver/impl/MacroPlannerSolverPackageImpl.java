@@ -1000,7 +1000,7 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLPResourceBucket_CalcReserved() {
+	public EReference getLPResourceBucket_Planned() {
 		return (EReference)lpResourceBucketEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1009,8 +1009,26 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLPResourceBucket_Balance() {
+	public EReference getLPResourceBucket_CalcReserved() {
 		return (EReference)lpResourceBucketEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLPResourceBucket_CalcPlanned() {
+		return (EReference)lpResourceBucketEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLPResourceBucket_Balance() {
+		return (EReference)lpResourceBucketEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1512,7 +1530,9 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		createEReference(lpResourceBucketEClass, LP_RESOURCE_BUCKET__AVAILABILITIES);
 		createEReference(lpResourceBucketEClass, LP_RESOURCE_BUCKET__RESERVATIONS);
 		createEReference(lpResourceBucketEClass, LP_RESOURCE_BUCKET__RESERVED);
+		createEReference(lpResourceBucketEClass, LP_RESOURCE_BUCKET__PLANNED);
 		createEReference(lpResourceBucketEClass, LP_RESOURCE_BUCKET__CALC_RESERVED);
+		createEReference(lpResourceBucketEClass, LP_RESOURCE_BUCKET__CALC_PLANNED);
 		createEReference(lpResourceBucketEClass, LP_RESOURCE_BUCKET__BALANCE);
 
 		lpAvailabilityEClass = createEClass(LP_AVAILABILITY);
@@ -1725,7 +1745,9 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		initEReference(getLPResourceBucket_Availabilities(), this.getLPAvailabilityBucket(), this.getLPAvailabilityBucket_ResourceBucket(), "Availabilities", null, 0, -1, LPResourceBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPResourceBucket_Reservations(), this.getLPRoutingBucketResource(), this.getLPRoutingBucketResource_ResourceBucket(), "Reservations", null, 0, -1, LPResourceBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPResourceBucket_Reserved(), theSolverPackage.getGeneratorLpVar(), null, "Reserved", null, 1, 1, LPResourceBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLPResourceBucket_Planned(), theSolverPackage.getGeneratorLpVar(), null, "Planned", null, 1, 1, LPResourceBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPResourceBucket_CalcReserved(), theSolverPackage.getGeneratorLpCons(), null, "CalcReserved", null, 1, 1, LPResourceBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLPResourceBucket_CalcPlanned(), theSolverPackage.getGeneratorLpCons(), null, "CalcPlanned", null, 1, 1, LPResourceBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPResourceBucket_Balance(), theSolverPackage.getGeneratorLpCons(), null, "Balance", null, 1, 1, LPResourceBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(lpAvailabilityEClass, LPAvailability.class, "LPAvailability", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
