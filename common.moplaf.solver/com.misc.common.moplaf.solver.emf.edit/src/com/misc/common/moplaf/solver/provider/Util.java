@@ -11,15 +11,17 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
 
+import com.misc.common.moplaf.solver.Plugin;
 import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverPackage;
 import com.misc.common.moplaf.solver.util.SolverFactory;
 
 public class Util {
 
-	public static void collectNewChildSolverDescriptors(Collection<Object> newChildDescriptors, Object object, Object feature) {
+	public static void collectNewChildSolverDescriptors(Collection<Object> newChildDescriptors, Object object, EStructuralFeature feature) {
 
 		EPackage.Registry registry = EPackage.Registry.INSTANCE;
 		EClass solverLpClass = SolverPackage.Literals.SOLVER_LP;
@@ -44,7 +46,7 @@ public class Util {
 		} // traverse the packages registered
 	}  // method collectNewChildDescriptors
 	
-	public static void collectNewChildSolverDescriptors2(Collection<Object> newChildDescriptors, Object object, Object feature) {
+	public static void collectNewChildSolverDescriptors2(Collection<Object> newChildDescriptors, Object object, EStructuralFeature feature) {
 		IExtensionRegistry reg = Platform.getExtensionRegistry();
 		IConfigurationElement[] elements = reg.getConfigurationElementsFor("com.misc.common.moplaf.solver.emf.solver_factory");
 		for ( IConfigurationElement element : elements){
@@ -59,6 +61,7 @@ public class Util {
 				}
 			} catch (CoreException e) {
 				e.printStackTrace();
+				Plugin.INSTANCE.logError("com.misc.common.moplaf.solver.provider.Util.collectNewChildSolverDescriptors exception caught "+e.getMessage());
 			}
 		}
 	}  // method collectNewChildDescriptors2
