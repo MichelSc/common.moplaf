@@ -3,18 +3,17 @@
 package com.misc.common.moplaf.macroplanner.solver.impl;
 
 
+
 import com.misc.common.moplaf.macroplanner.Supply;
 import com.misc.common.moplaf.macroplanner.solver.LPProduct;
 import com.misc.common.moplaf.macroplanner.solver.LPProductBucket;
 import com.misc.common.moplaf.macroplanner.solver.LPSupply;
 import com.misc.common.moplaf.macroplanner.solver.LPSupplyBucket;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
-import com.misc.common.moplaf.solver.EnumLpVarType;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
-import com.misc.common.moplaf.solver.SolverFactory;
+import com.misc.common.moplaf.solver.util.Util;
 import com.misc.common.moplaf.time.discrete.ObjectTimeBucket;
 import com.misc.common.moplaf.time.discrete.TimeBucket;
-import com.misc.common.moplaf.time.Util;
 
 import java.util.Date;
 
@@ -438,7 +437,7 @@ public class LPSupplyBucketImpl extends LPTimeBucketImpl implements LPSupplyBuck
 		float fraction = 1.0f;
 		Date from = supply.getFrom();
 		Date to = supply.getTo();
-		int seconds = Util.getSeconds(from, to);
+		int seconds = com.misc.common.moplaf.time.Util.getSeconds(from, to);
 		if ( seconds<0){
 			fraction = 0.0f;
 		} else if ( seconds>0){
@@ -484,11 +483,8 @@ public class LPSupplyBucketImpl extends LPTimeBucketImpl implements LPSupplyBuck
 		LPSupply lp_supply = this.getSupply();
 		Supply supply = lp_supply.getSupply();
 		float ub = supply.getQuantity()*this.getFraction();
-		GeneratorLpVar var = SolverFactory.eINSTANCE.createGeneratorLpVar();
-		var.setType(EnumLpVarType.ENUM_LITERAL_LP_VAR_REAL);
-		var.setLowerBound(0.0f);
-		var.setUpperBound(ub);
-		var.setName("supplied");
+		
+		GeneratorLpVar var = Util.createGeneratorLpVarRealPositiveBounded("supplied", ub);
 		this.setSupplied(var);  // owning
 		}
 	}

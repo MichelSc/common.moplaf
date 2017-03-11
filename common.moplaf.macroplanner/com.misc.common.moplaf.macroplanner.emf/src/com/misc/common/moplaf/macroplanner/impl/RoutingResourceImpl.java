@@ -30,7 +30,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.RoutingResourceImpl#getReservation <em>Reservation</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.RoutingResourceImpl#getOffset <em>Offset</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.RoutingResourceImpl#getCode <em>Code</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.impl.RoutingResourceImpl#getFactor <em>Factor</em>}</li>
  * </ul>
  *
  * @generated
@@ -95,26 +94,6 @@ public class RoutingResourceImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected static final String CODE_EDEFAULT = null;
-
-	/**
-	 * The default value of the '{@link #getFactor() <em>Factor</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFactor()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final float FACTOR_EDEFAULT = 0.0F;
-
-	/**
-	 * The cached value of the '{@link #getFactor() <em>Factor</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFactor()
-	 * @generated
-	 * @ordered
-	 */
-	protected float factor = FACTOR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -272,27 +251,6 @@ public class RoutingResourceImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getFactor() {
-		return factor;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFactor(float newFactor) {
-		float oldFactor = factor;
-		factor = newFactor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MacroPlannerPackage.ROUTING_RESOURCE__FACTOR, oldFactor, factor));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -351,8 +309,6 @@ public class RoutingResourceImpl extends MinimalEObjectImpl.Container implements
 				return getOffset();
 			case MacroPlannerPackage.ROUTING_RESOURCE__CODE:
 				return getCode();
-			case MacroPlannerPackage.ROUTING_RESOURCE__FACTOR:
-				return getFactor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -376,9 +332,6 @@ public class RoutingResourceImpl extends MinimalEObjectImpl.Container implements
 				return;
 			case MacroPlannerPackage.ROUTING_RESOURCE__OFFSET:
 				setOffset((Float)newValue);
-				return;
-			case MacroPlannerPackage.ROUTING_RESOURCE__FACTOR:
-				setFactor((Float)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -404,9 +357,6 @@ public class RoutingResourceImpl extends MinimalEObjectImpl.Container implements
 			case MacroPlannerPackage.ROUTING_RESOURCE__OFFSET:
 				setOffset(OFFSET_EDEFAULT);
 				return;
-			case MacroPlannerPackage.ROUTING_RESOURCE__FACTOR:
-				setFactor(FACTOR_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -429,8 +379,6 @@ public class RoutingResourceImpl extends MinimalEObjectImpl.Container implements
 				return offset != OFFSET_EDEFAULT;
 			case MacroPlannerPackage.ROUTING_RESOURCE__CODE:
 				return CODE_EDEFAULT == null ? getCode() != null : !CODE_EDEFAULT.equals(getCode());
-			case MacroPlannerPackage.ROUTING_RESOURCE__FACTOR:
-				return factor != FACTOR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -449,8 +397,6 @@ public class RoutingResourceImpl extends MinimalEObjectImpl.Container implements
 		result.append(reservation);
 		result.append(", Offset: ");
 		result.append(offset);
-		result.append(", Factor: ");
-		result.append(factor);
 		result.append(')');
 		return result.toString();
 	}

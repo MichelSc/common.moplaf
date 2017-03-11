@@ -1,5 +1,7 @@
 package com.misc.common.moplaf.solver.util;
 
+
+import com.misc.common.moplaf.solver.EnumLpVarType;
 import com.misc.common.moplaf.solver.GeneratorLpLinear;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
@@ -39,4 +41,126 @@ public class Util {
 		} // traverse the terms
 		return Util.constructTerm(linear, var, coef);
 	}
+	
+	/**
+	 * 
+	 */
+	static public GeneratorLpVar createGeneratorLpVar(String name, EnumLpVarType type, float lb, float ub){
+		GeneratorLpVar var = SolverFactory.eINSTANCE.createGeneratorLpVar();
+		var.setName(name);
+		var.setType(type);
+		var.setLowerBound(lb);
+		var.setUpperBound(ub);
+		return var;
+	}
+
+	/**
+	 * 
+	 */
+	static public GeneratorLpVar createGeneratorLpVarReal(String name, float lb, float ub){
+		GeneratorLpVar var = Util.createGeneratorLpVar(name, EnumLpVarType.ENUM_LITERAL_LP_VAR_REAL, lb ,ub);
+		return var;
+	}
+
+	/**
+	 * 
+	 */
+	static public GeneratorLpVar createGeneratorLpVarRealUnbounded(String name){
+		GeneratorLpVar var = Util.createGeneratorLpVarReal(name, Float.MIN_VALUE, Float.MAX_VALUE);
+		return var;
+	}
+
+	/**
+	 * 
+	 */
+	static public GeneratorLpVar createGeneratorLpVarRealNegativeUnbounded(String name){
+		GeneratorLpVar var = Util.createGeneratorLpVarReal(name, Float.MIN_VALUE, 0.0f);
+		return var;
+	}
+
+	/**
+	 * 
+	 */
+	static public GeneratorLpVar createGeneratorLpVarRealNegativeBounded(String name, float bound){
+		GeneratorLpVar var = Util.createGeneratorLpVarReal(name, bound, 0.0f);
+		return var;
+	}
+
+	/**
+	 * 
+	 */
+	static public GeneratorLpVar createGeneratorLpVarRealPositiveUnbounded(String name){
+		GeneratorLpVar var = Util.createGeneratorLpVarReal(name, 0.0f, Float.MAX_VALUE);
+		return var;
+	}
+	/**
+	 * 
+	 */
+	static public GeneratorLpVar createGeneratorLpVarRealPositiveBounded(String name, float bound){
+		GeneratorLpVar var = Util.createGeneratorLpVarReal(name, 0.0f, bound);
+		return var;
+	}
+	/**
+	 * 
+	 */
+	static public GeneratorLpVar createGeneratorLpVarRealBinary(String name){
+		GeneratorLpVar var = Util.createGeneratorLpVarReal(name, 0.0f, 1.0f);
+		return var;
+	}
+
+	/**
+	 * 
+	 */
+	static public GeneratorLpVar createGeneratorLpVarInteger(String name, float lb, float ub){
+		GeneratorLpVar var = Util.createGeneratorLpVar(name, EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER, lb ,ub);
+		return var;
+	}
+
+	/**
+	 * 
+	 */
+	static public GeneratorLpVar createGeneratorLpVarIntegerUnbounded(String name){
+		GeneratorLpVar var = Util.createGeneratorLpVarInteger(name, Float.MIN_VALUE, Float.MAX_VALUE);
+		return var;
+	}
+
+	/**
+	 * 
+	 */
+	static public GeneratorLpVar createGeneratorLpVarIntegerNegativeUnbounded(String name){
+		GeneratorLpVar var = Util.createGeneratorLpVarInteger(name, Float.MIN_VALUE, 0.0f);
+		return var;
+	}
+
+	/**
+	 * 
+	 */
+	static public GeneratorLpVar createGeneratorLpVarIntegerNegativeBounded(String name, float bound){
+		GeneratorLpVar var = Util.createGeneratorLpVarInteger(name, bound, 0.0f);
+		return var;
+	}
+
+	/**
+	 * 
+	 */
+	static public GeneratorLpVar createGeneratorLpVarIntegerPositiveUnbounded(String name){
+		GeneratorLpVar var = Util.createGeneratorLpVarInteger(name, 0.0f, Float.MAX_VALUE);
+		return var;
+	}
+	/**
+	 * 
+	 */
+	static public GeneratorLpVar createGeneratorLpVarIntegerPositiveBounded(String name, float bound){
+		GeneratorLpVar var = Util.createGeneratorLpVarInteger(name, 0.0f, bound);
+		return var;
+	}
+	/**
+	 * 
+	 */
+	static public GeneratorLpVar createGeneratorLpVarIntegerBinary(String name){
+		GeneratorLpVar var = Util.createGeneratorLpVarInteger(name, 0.0f, 1.0f);
+		return var;
+	}
+
 }
+

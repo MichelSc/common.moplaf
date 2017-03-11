@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.macroplanner.solver.impl;
 
+
 import com.misc.common.moplaf.macroplanner.RoutingResource;
 import com.misc.common.moplaf.macroplanner.solver.LPAvailabilityBucket;
 import com.misc.common.moplaf.macroplanner.solver.LPResource;
@@ -11,10 +12,10 @@ import com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketResource;
 import com.misc.common.moplaf.macroplanner.solver.LPRoutingResource;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
 import com.misc.common.moplaf.solver.EnumLpConsType;
-import com.misc.common.moplaf.solver.EnumLpVarType;
 import com.misc.common.moplaf.solver.GeneratorLpCons;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
 import com.misc.common.moplaf.solver.SolverFactory;
+import com.misc.common.moplaf.solver.util.Util;
 
 import java.util.Collection;
 
@@ -649,18 +650,12 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 		
 		// var reseerved
 		{
-		GeneratorLpVar var = SolverFactory.eINSTANCE.createGeneratorLpVar();
-		var.setType(EnumLpVarType.ENUM_LITERAL_LP_VAR_REAL);
-		var.setLowerBound(0.0f);
-		var.setName("reserved");
+		GeneratorLpVar var = Util.createGeneratorLpVarRealPositiveUnbounded("reserved");
 		this.setReserved(var);  // owning
 		}
 		// var planned
 		{
-		GeneratorLpVar var = SolverFactory.eINSTANCE.createGeneratorLpVar();
-		var.setType(EnumLpVarType.ENUM_LITERAL_LP_VAR_REAL);
-		var.setLowerBound(0.0f);
-		var.setName("planned");
+		GeneratorLpVar var = Util.createGeneratorLpVarRealPositiveUnbounded("planned");
 		this.setPlanned(var);  // owning
 		}
 	}
@@ -689,7 +684,7 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 		float rhs = 0.0f;
 		for (  LPAvailabilityBucket lp_availability_bucket : this.getAvailabilities()){
 			GeneratorLpVar var_stocked = lp_availability_bucket.getReserved();
-			cons.contributeTerm(var_stocked, 1.0f);
+			cons.constructTerm(var_stocked, 1.0f);
 		} // 
 		cons.setRighHandSide(rhs);
 		this.setCalcReserved(cons); // owning
@@ -711,7 +706,7 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 			LPRoutingResource lp_routing_resource = lp_resource_bucket_planned.getRoutingResource();
 			RoutingResource routing_resource = lp_routing_resource.getRoutingResource();
 			GeneratorLpVar var_routing_planned = lp_routing_bucket.getPlanned();
-			cons.contributeTerm(var_routing_planned, routing_resource.getReservation());
+			cons.contributeTerm(var_routing_planned, routing_resource.getReservation()); // a routing may contribute several times to the same resource bucket
 		} // 
 		cons.setRighHandSide(rhs);
 		this.setCalcPlanned(cons); // owning

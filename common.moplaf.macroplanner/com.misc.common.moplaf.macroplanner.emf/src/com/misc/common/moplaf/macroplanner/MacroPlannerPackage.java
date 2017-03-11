@@ -1045,22 +1045,13 @@ public interface MacroPlannerPackage extends EPackage {
 	int ROUTING_RESOURCE__CODE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Factor</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROUTING_RESOURCE__FACTOR = 5;
-
-	/**
 	 * The number of structural features of the '<em>Routing Resource</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROUTING_RESOURCE_FEATURE_COUNT = 6;
+	int ROUTING_RESOURCE_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Routing Resource</em>' class.
@@ -2211,17 +2202,6 @@ public interface MacroPlannerPackage extends EPackage {
 	EAttribute getRoutingResource_Code();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.RoutingResource#getFactor <em>Factor</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Factor</em>'.
-	 * @see com.misc.common.moplaf.macroplanner.RoutingResource#getFactor()
-	 * @see #getRoutingResource()
-	 * @generated
-	 */
-	EAttribute getRoutingResource_Factor();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3025,14 +3005,6 @@ public interface MacroPlannerPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ROUTING_RESOURCE__CODE = eINSTANCE.getRoutingResource_Code();
-
-		/**
-		 * The meta object literal for the '<em><b>Factor</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ROUTING_RESOURCE__FACTOR = eINSTANCE.getRoutingResource_Factor();
 
 	}
 

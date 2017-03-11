@@ -8,10 +8,10 @@
   <genPackages prefix="MacroPlanner" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
       ecorePackage="MacroPlanner.ecore#/">
     <genClasses ecoreClass="MacroPlanner.ecore#//SupplyChainMasterData">
-      <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//SupplyChainMasterData/Name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//SupplyChainMasterData/Resources"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//SupplyChainMasterData/Products"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//SupplyChainMasterData/Resources"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//SupplyChainMasterData/Locations"/>
+      <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//SupplyChainMasterData/Name"/>
     </genClasses>
     <genClasses ecoreClass="MacroPlanner.ecore#//Product">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//Product/Children"/>
@@ -124,7 +124,6 @@
       <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//RoutingResource/Offset"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 MacroPlanner"
           ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//RoutingResource/Code"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//RoutingResource/Factor"/>
     </genClasses>
     <genClasses ecoreClass="MacroPlanner.ecore#//SupplyChainData">
       <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//SupplyChainData/Name"/>

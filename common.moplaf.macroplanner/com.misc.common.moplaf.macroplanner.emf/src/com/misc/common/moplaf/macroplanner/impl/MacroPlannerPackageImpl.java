@@ -1052,15 +1052,6 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRoutingResource_Factor() {
-		return (EAttribute)routingResourceEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public MacroPlannerFactory getMacroPlannerFactory() {
 		return (MacroPlannerFactory)getEFactoryInstance();
 	}
@@ -1178,7 +1169,6 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 		createEAttribute(routingResourceEClass, ROUTING_RESOURCE__RESERVATION);
 		createEAttribute(routingResourceEClass, ROUTING_RESOURCE__OFFSET);
 		createEAttribute(routingResourceEClass, ROUTING_RESOURCE__CODE);
-		createEAttribute(routingResourceEClass, ROUTING_RESOURCE__FACTOR);
 
 		supplyChainDataEClass = createEClass(SUPPLY_CHAIN_DATA);
 		createEAttribute(supplyChainDataEClass, SUPPLY_CHAIN_DATA__NAME);
@@ -1331,7 +1321,6 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 		initEAttribute(getRoutingResource_Reservation(), ecorePackage.getEFloat(), "Reservation", "0.0", 0, 1, RoutingResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRoutingResource_Offset(), ecorePackage.getEFloat(), "Offset", null, 0, 1, RoutingResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRoutingResource_Code(), ecorePackage.getEString(), "Code", null, 0, 1, RoutingResource.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRoutingResource_Factor(), ecorePackage.getEFloat(), "Factor", null, 0, 1, RoutingResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(supplyChainDataEClass, SupplyChainData.class, "SupplyChainData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSupplyChainData_Name(), ecorePackage.getEString(), "Name", null, 0, 1, SupplyChainData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

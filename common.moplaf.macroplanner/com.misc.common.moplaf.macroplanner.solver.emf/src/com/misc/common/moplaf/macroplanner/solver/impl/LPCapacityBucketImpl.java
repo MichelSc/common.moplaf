@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.macroplanner.solver.impl;
 
 
+
 import com.misc.common.moplaf.macroplanner.Capacity;
 import com.misc.common.moplaf.macroplanner.solver.LPCapacity;
 import com.misc.common.moplaf.macroplanner.solver.LPCapacityBucket;
@@ -10,10 +11,10 @@ import com.misc.common.moplaf.macroplanner.solver.LPProduct;
 import com.misc.common.moplaf.macroplanner.solver.LPProductBucket;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
 import com.misc.common.moplaf.solver.EnumLpConsType;
-import com.misc.common.moplaf.solver.EnumLpVarType;
 import com.misc.common.moplaf.solver.GeneratorLpCons;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
 import com.misc.common.moplaf.solver.SolverFactory;
+import com.misc.common.moplaf.solver.util.Util;
 import com.misc.common.moplaf.time.discrete.ObjectTimeBucket;
 import com.misc.common.moplaf.time.discrete.TimeBucket;
 
@@ -529,10 +530,7 @@ public class LPCapacityBucketImpl extends LPTimeBucketImpl implements LPCapacity
 		
 		// var stocked
 		{
-		GeneratorLpVar var = SolverFactory.eINSTANCE.createGeneratorLpVar();
-		var.setType(EnumLpVarType.ENUM_LITERAL_LP_VAR_REAL);
-		var.setLowerBound(0.0f);
-		var.setName("stocked");
+		GeneratorLpVar var = Util.createGeneratorLpVarRealPositiveUnbounded("stocked");
 		this.setStocked(var);  // owning
 		}
 		// var slack
@@ -541,11 +539,7 @@ public class LPCapacityBucketImpl extends LPTimeBucketImpl implements LPCapacity
 		Capacity capacity = lp_capacity.getCapacity();
 		float ub = capacity.isEnforce() ? 0.0f : Float.MAX_VALUE;
 
-		GeneratorLpVar var = SolverFactory.eINSTANCE.createGeneratorLpVar();
-		var.setType(EnumLpVarType.ENUM_LITERAL_LP_VAR_REAL);
-		var.setLowerBound(0.0f);
-		var.setUpperBound(ub);
-		var.setName("slack");
+		GeneratorLpVar var = Util.createGeneratorLpVarRealPositiveBounded("slack", ub);
 		this.setSlack(var);  // owning
 		}
 	}

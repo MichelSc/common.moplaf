@@ -4,6 +4,7 @@ package com.misc.common.moplaf.macroplanner.solver.impl;
 
 
 
+
 import com.misc.common.moplaf.macroplanner.RoutingProduct;
 import com.misc.common.moplaf.macroplanner.solver.LPCapacityBucket;
 import com.misc.common.moplaf.macroplanner.solver.LPProduct;
@@ -14,10 +15,10 @@ import com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct;
 import com.misc.common.moplaf.macroplanner.solver.LPSupplyBucket;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
 import com.misc.common.moplaf.solver.EnumLpConsType;
-import com.misc.common.moplaf.solver.EnumLpVarType;
 import com.misc.common.moplaf.solver.GeneratorLpCons;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
 import com.misc.common.moplaf.solver.SolverFactory;
+import com.misc.common.moplaf.solver.util.Util;
 
 import java.util.Collection;
 
@@ -822,28 +823,19 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 		
 		// var consumed
 		{
-		GeneratorLpVar var = SolverFactory.eINSTANCE.createGeneratorLpVar();
-		var.setType(EnumLpVarType.ENUM_LITERAL_LP_VAR_REAL);
-		var.setLowerBound(0.0f);
-		var.setName("consumed");
+		GeneratorLpVar var = Util.createGeneratorLpVarRealPositiveUnbounded("consumed");
 		this.setConsumed(var);  // owning
 		}
 
 		// var supplied
 		{
-		GeneratorLpVar var = SolverFactory.eINSTANCE.createGeneratorLpVar();
-		var.setType(EnumLpVarType.ENUM_LITERAL_LP_VAR_REAL);
-		var.setLowerBound(0.0f);
-		var.setName("supplied");
+		GeneratorLpVar var = Util.createGeneratorLpVarRealPositiveUnbounded("supplied");
 		this.setSupplied(var);  // owning
 		}
 		
 		// var stocked
 		{
-		GeneratorLpVar var = SolverFactory.eINSTANCE.createGeneratorLpVar();
-		var.setType(EnumLpVarType.ENUM_LITERAL_LP_VAR_REAL);
-		var.setLowerBound(0.0f);
-		var.setName("stocked");
+		GeneratorLpVar var = Util.createGeneratorLpVarRealPositiveUnbounded("stocked");
 		this.setStocked(var);  // owning
 		}
 	}
@@ -877,7 +869,7 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 			LPRoutingProduct lp_routing_product = lp_product_bucket_consumed.getRoutingProduct();
 			RoutingProduct routing_product = lp_routing_product.getRoutingProduct();
 			GeneratorLpVar var_routing_planned = lp_routing_bucket.getPlanned();
-			cons.contributeTerm(var_routing_planned, routing_product.getConsumption());
+			cons.contributeTerm(var_routing_planned, routing_product.getConsumption()); // a routing may contribute several times to the same product bucket
 		} // 
 		cons.setRighHandSide(rhs);
 		this.setCalcConsumed(cons); // owning
@@ -895,7 +887,7 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 		float rhs = 0.0f;
 		for (  LPSupplyBucket lp_supply_bucket : this.getSupplies()){
 			GeneratorLpVar var_supplied = lp_supply_bucket.getSupplied();
-			cons.contributeTerm(var_supplied, 1.0f);
+			cons.constructTerm(var_supplied, 1.0f); 
 		} // 
 		cons.setRighHandSide(rhs);
 		this.setCalcSupplied(cons); // owning
@@ -913,7 +905,7 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 		float rhs = 0.0f;
 		for (  LPCapacityBucket lp_capacity_bucket : this.getCapacities()){
 			GeneratorLpVar var_stocked = lp_capacity_bucket.getStocked();
-			cons.contributeTerm(var_stocked, 1.0f);
+			cons.constructTerm(var_stocked, 1.0f);
 		} // 
 		cons.setRighHandSide(rhs);
 		this.setCalcStocked(cons); // owning
