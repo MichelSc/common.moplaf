@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" name="macroplanner" version="11.1.1.201610211630">
+  <ownedViewpoints name="macroplanner.buckets" label="MacroPlanner Buckets">
+    <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="macroplanner.buckets.lp" label="MacroPlanner LP" domainClass="http://www.misc.com/common/moplaf/macroplanner/solver/model/0.1#//LPMacroPlanner">
+      <metamodel href="../../com.misc.common.moplaf.macroplanner.solver.emf/model/MacroPlannerSolver.ecore#/"/>
+      <ownedLineMappings name="macroplanner.buckets.lp.timeline" label="MacroPlanner TimeLine" domainClass="http://www.misc.com/common/moplaf/macroplanner/solver/model/0.1#//LPTimeLine"/>
+      <ownedColumnMappings name="macroplanner.buckets.lp.bucket" label="MacroPlanner TimeBucket" domainClass="http://www.misc.com/common/moplaf/time/discrete/model/0.1#//TimeBucket"/>
+      <intersection name="macroplanner.buckets.lp.timelinebucket" label="MacroPlanner TimeLineBucket" lineMapping="//@ownedViewpoints[name='macroplanner.buckets']/@ownedRepresentations[name='macroplanner.buckets.lp']/@ownedLineMappings[name='macroplanner.buckets.lp.timeline']" columnMapping="//@ownedViewpoints[name='macroplanner.buckets']/@ownedRepresentations[name='macroplanner.buckets.lp']/@ownedColumnMappings.0" labelExpression="X" useDomainClass="true" columnFinderExpression="aql:self.Bucket" lineFinderExpression="aql:self.eContainer()" domainClass="http://www.misc.com/common/moplaf/macroplanner/solver/model/0.1#//LPTimeBucket"/>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="com.misc.common.moplaf.macroplanner.design.Services"/>
+  </ownedViewpoints>
+</description:Group>
