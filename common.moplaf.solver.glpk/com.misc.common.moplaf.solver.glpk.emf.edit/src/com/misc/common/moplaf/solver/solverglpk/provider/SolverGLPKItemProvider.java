@@ -54,6 +54,7 @@ public class SolverGLPKItemProvider
 			addEnableGeneratingMixedCoverCutsPropertyDescriptor(object);
 			addEnableGeneratingCliqueCutsPropertyDescriptor(object);
 			addEnableMixedIntegerRoundingCutsPropertyDescriptor(object);
+			addEnablePresolvePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -235,6 +236,28 @@ public class SolverGLPKItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Enable Presolve feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEnablePresolvePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SolverGLPK_EnablePresolve_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SolverGLPK_EnablePresolve_feature", "_UI_SolverGLPK_type"),
+				 SolverglpkPackage.Literals.SOLVER_GLPK__ENABLE_PRESOLVE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 getString("_UI__21SolverGLPKPropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -268,6 +291,7 @@ public class SolverGLPKItemProvider
 			case SolverglpkPackage.SOLVER_GLPK__ENABLE_GENERATING_MIXED_COVER_CUTS:
 			case SolverglpkPackage.SOLVER_GLPK__ENABLE_GENERATING_CLIQUE_CUTS:
 			case SolverglpkPackage.SOLVER_GLPK__ENABLE_MIXED_INTEGER_ROUNDING_CUTS:
+			case SolverglpkPackage.SOLVER_GLPK__ENABLE_PRESOLVE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -68,6 +68,69 @@ public interface SolverglpkPackage extends EPackage {
 	int SOLVER_GLPK = 0;
 
 	/**
+	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK__RUN_FEEDBACK = SolverPackage.SOLVER_LP__RUN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Cancel Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK__CANCEL_FEEDBACK = SolverPackage.SOLVER_LP__CANCEL_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Reset Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK__RESET_FEEDBACK = SolverPackage.SOLVER_LP__RESET_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK__CANCELED = SolverPackage.SOLVER_LP__CANCELED;
+
+	/**
+	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK__RETURN_SUCCESS = SolverPackage.SOLVER_LP__RETURN_SUCCESS;
+
+	/**
+	 * The feature id for the '<em><b>Return Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK__RETURN_FEEDBACK = SolverPackage.SOLVER_LP__RETURN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Return Information</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK__RETURN_INFORMATION = SolverPackage.SOLVER_LP__RETURN_INFORMATION;
+
+	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -419,13 +482,94 @@ public interface SolverglpkPackage extends EPackage {
 	int SOLVER_GLPK__ENABLE_MIXED_INTEGER_ROUNDING_CUTS = SolverPackage.SOLVER_LP_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Enable Presolve</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK__ENABLE_PRESOLVE = SolverPackage.SOLVER_LP_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Solver GLPK</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_GLPK_FEATURE_COUNT = SolverPackage.SOLVER_LP_FEATURE_COUNT + 8;
+	int SOLVER_GLPK_FEATURE_COUNT = SolverPackage.SOLVER_LP_FEATURE_COUNT + 9;
+
+	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK___RESET = SolverPackage.SOLVER_LP___RESET;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK___RUN = SolverPackage.SOLVER_LP___RUN;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK___RUN__RUNCONTEXT = SolverPackage.SOLVER_LP___RUN__RUNCONTEXT;
+
+	/**
+	 * The operation id for the '<em>Cancel</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK___CANCEL = SolverPackage.SOLVER_LP___CANCEL;
+
+	/**
+	 * The operation id for the '<em>Set Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK___SET_PROGRESS__STRING_FLOAT = SolverPackage.SOLVER_LP___SET_PROGRESS__STRING_FLOAT;
+
+	/**
+	 * The operation id for the '<em>Set Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK___SET_PROGRESS__PROGRESSFEEDBACK = SolverPackage.SOLVER_LP___SET_PROGRESS__PROGRESSFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Get Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK___GET_RETURN = SolverPackage.SOLVER_LP___GET_RETURN;
+
+	/**
+	 * The operation id for the '<em>Set Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK___SET_RETURN__RETURNFEEDBACK = SolverPackage.SOLVER_LP___SET_RETURN__RETURNFEEDBACK;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -684,6 +828,17 @@ public interface SolverglpkPackage extends EPackage {
 	EAttribute getSolverGLPK_EnableMixedIntegerRoundingCuts();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solverglpk.SolverGLPK#isEnablePresolve <em>Enable Presolve</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Enable Presolve</em>'.
+	 * @see com.misc.common.moplaf.solver.solverglpk.SolverGLPK#isEnablePresolve()
+	 * @see #getSolverGLPK()
+	 * @generated
+	 */
+	EAttribute getSolverGLPK_EnablePresolve();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -750,6 +905,13 @@ public interface SolverglpkPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOLVER_GLPK__ENABLE_MIXED_INTEGER_ROUNDING_CUTS = eINSTANCE.getSolverGLPK_EnableMixedIntegerRoundingCuts();
+		/**
+		 * The meta object literal for the '<em><b>Enable Presolve</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOLVER_GLPK__ENABLE_PRESOLVE = eINSTANCE.getSolverGLPK_EnablePresolve();
 
 	}
 

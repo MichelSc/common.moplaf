@@ -19,6 +19,7 @@ import com.misc.common.moplaf.solver.SolverLp;
  *   <li>{@link com.misc.common.moplaf.solver.solverglpk.SolverGLPK#isEnableGeneratingMixedCoverCuts <em>Enable Generating Mixed Cover Cuts</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solverglpk.SolverGLPK#isEnableGeneratingCliqueCuts <em>Enable Generating Clique Cuts</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solverglpk.SolverGLPK#isEnableMixedIntegerRoundingCuts <em>Enable Mixed Integer Rounding Cuts</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.solverglpk.SolverGLPK#isEnablePresolve <em>Enable Presolve</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.solverglpk.SolverglpkPackage#getSolverGLPK()
@@ -156,4 +157,31 @@ public interface SolverGLPK extends SolverLp, ILpWriter {
 	 * @generated
 	 */
 	void setEnableMixedIntegerRoundingCuts(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Enable Presolve</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Enable Presolve</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Enable Presolve</em>' attribute.
+	 * @see #setEnablePresolve(boolean)
+	 * @see com.misc.common.moplaf.solver.solverglpk.SolverglpkPackage#getSolverGLPK_EnablePresolve()
+	 * @model default="true"
+	 * @generated
+	 */
+	boolean isEnablePresolve();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.solver.solverglpk.SolverGLPK#isEnablePresolve <em>Enable Presolve</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Enable Presolve</em>' attribute.
+	 * @see #isEnablePresolve()
+	 * @generated
+	 */
+	void setEnablePresolve(boolean value);
 } // SolverGLPK

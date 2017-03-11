@@ -869,7 +869,7 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 			LPRoutingProduct lp_routing_product = lp_product_bucket_consumed.getRoutingProduct();
 			RoutingProduct routing_product = lp_routing_product.getRoutingProduct();
 			GeneratorLpVar var_routing_planned = lp_routing_bucket.getPlanned();
-			cons.contributeTerm(var_routing_planned, routing_product.getConsumption()); // a routing may contribute several times to the same product bucket
+			cons.contributeTerm(var_routing_planned, -routing_product.getConsumption()); // a routing may contribute several times to the same product bucket
 		} // 
 		cons.setRighHandSide(rhs);
 		this.setCalcConsumed(cons); // owning
@@ -887,7 +887,7 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 		float rhs = 0.0f;
 		for (  LPSupplyBucket lp_supply_bucket : this.getSupplies()){
 			GeneratorLpVar var_supplied = lp_supply_bucket.getSupplied();
-			cons.constructTerm(var_supplied, 1.0f); 
+			cons.constructTerm(var_supplied, -1.0f); 
 		} // 
 		cons.setRighHandSide(rhs);
 		this.setCalcSupplied(cons); // owning
@@ -905,7 +905,7 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 		float rhs = 0.0f;
 		for (  LPCapacityBucket lp_capacity_bucket : this.getCapacities()){
 			GeneratorLpVar var_stocked = lp_capacity_bucket.getStocked();
-			cons.constructTerm(var_stocked, 1.0f);
+			cons.constructTerm(var_stocked, -1.0f);
 		} // 
 		cons.setRighHandSide(rhs);
 		this.setCalcStocked(cons); // owning

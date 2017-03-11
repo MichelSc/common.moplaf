@@ -151,6 +151,15 @@ public class SolverglpkPackageImpl extends EPackageImpl implements SolverglpkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSolverGLPK_EnablePresolve() {
+		return (EAttribute)solverGLPKEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SolverglpkFactory getSolverglpkFactory() {
 		return (SolverglpkFactory)getEFactoryInstance();
 	}
@@ -180,6 +189,7 @@ public class SolverglpkPackageImpl extends EPackageImpl implements SolverglpkPac
 		createEAttribute(solverGLPKEClass, SOLVER_GLPK__ENABLE_GENERATING_MIXED_COVER_CUTS);
 		createEAttribute(solverGLPKEClass, SOLVER_GLPK__ENABLE_GENERATING_CLIQUE_CUTS);
 		createEAttribute(solverGLPKEClass, SOLVER_GLPK__ENABLE_MIXED_INTEGER_ROUNDING_CUTS);
+		createEAttribute(solverGLPKEClass, SOLVER_GLPK__ENABLE_PRESOLVE);
 	}
 
 	/**
@@ -223,6 +233,7 @@ public class SolverglpkPackageImpl extends EPackageImpl implements SolverglpkPac
 		initEAttribute(getSolverGLPK_EnableGeneratingMixedCoverCuts(), ecorePackage.getEBoolean(), "EnableGeneratingMixedCoverCuts", null, 0, 1, SolverGLPK.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSolverGLPK_EnableGeneratingCliqueCuts(), ecorePackage.getEBoolean(), "EnableGeneratingCliqueCuts", null, 0, 1, SolverGLPK.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSolverGLPK_EnableMixedIntegerRoundingCuts(), ecorePackage.getEBoolean(), "EnableMixedIntegerRoundingCuts", null, 0, 1, SolverGLPK.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolverGLPK_EnablePresolve(), ecorePackage.getEBoolean(), "EnablePresolve", "true", 0, 1, SolverGLPK.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

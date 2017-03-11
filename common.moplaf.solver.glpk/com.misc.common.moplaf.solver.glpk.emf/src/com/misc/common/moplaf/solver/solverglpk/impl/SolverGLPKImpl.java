@@ -61,6 +61,7 @@ import com.misc.common.moplaf.solver.solverglpk.SolverglpkPackage;
  *   <li>{@link com.misc.common.moplaf.solver.solverglpk.impl.SolverGLPKImpl#isEnableGeneratingMixedCoverCuts <em>Enable Generating Mixed Cover Cuts</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solverglpk.impl.SolverGLPKImpl#isEnableGeneratingCliqueCuts <em>Enable Generating Clique Cuts</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solverglpk.impl.SolverGLPKImpl#isEnableMixedIntegerRoundingCuts <em>Enable Mixed Integer Rounding Cuts</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.solverglpk.impl.SolverGLPKImpl#isEnablePresolve <em>Enable Presolve</em>}</li>
  * </ul>
  *
  * @generated
@@ -225,6 +226,26 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 	 * @ordered
 	 */
 	protected boolean enableMixedIntegerRoundingCuts = ENABLE_MIXED_INTEGER_ROUNDING_CUTS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isEnablePresolve() <em>Enable Presolve</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isEnablePresolve()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ENABLE_PRESOLVE_EDEFAULT = true;
+
+	/**
+	 * The cached value of the '{@link #isEnablePresolve() <em>Enable Presolve</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isEnablePresolve()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean enablePresolve = ENABLE_PRESOLVE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -416,6 +437,27 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isEnablePresolve() {
+		return enablePresolve;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEnablePresolve(boolean newEnablePresolve) {
+		boolean oldEnablePresolve = enablePresolve;
+		enablePresolve = newEnablePresolve;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverglpkPackage.SOLVER_GLPK__ENABLE_PRESOLVE, oldEnablePresolve, enablePresolve));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public void writeLpToFile() {
 		boolean owningmodel = false;
@@ -511,6 +553,8 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 				return isEnableGeneratingCliqueCuts();
 			case SolverglpkPackage.SOLVER_GLPK__ENABLE_MIXED_INTEGER_ROUNDING_CUTS:
 				return isEnableMixedIntegerRoundingCuts();
+			case SolverglpkPackage.SOLVER_GLPK__ENABLE_PRESOLVE:
+				return isEnablePresolve();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -546,6 +590,9 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 				return;
 			case SolverglpkPackage.SOLVER_GLPK__ENABLE_MIXED_INTEGER_ROUNDING_CUTS:
 				setEnableMixedIntegerRoundingCuts((Boolean)newValue);
+				return;
+			case SolverglpkPackage.SOLVER_GLPK__ENABLE_PRESOLVE:
+				setEnablePresolve((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -583,6 +630,9 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 			case SolverglpkPackage.SOLVER_GLPK__ENABLE_MIXED_INTEGER_ROUNDING_CUTS:
 				setEnableMixedIntegerRoundingCuts(ENABLE_MIXED_INTEGER_ROUNDING_CUTS_EDEFAULT);
 				return;
+			case SolverglpkPackage.SOLVER_GLPK__ENABLE_PRESOLVE:
+				setEnablePresolve(ENABLE_PRESOLVE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -611,6 +661,8 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 				return enableGeneratingCliqueCuts != ENABLE_GENERATING_CLIQUE_CUTS_EDEFAULT;
 			case SolverglpkPackage.SOLVER_GLPK__ENABLE_MIXED_INTEGER_ROUNDING_CUTS:
 				return enableMixedIntegerRoundingCuts != ENABLE_MIXED_INTEGER_ROUNDING_CUTS_EDEFAULT;
+			case SolverglpkPackage.SOLVER_GLPK__ENABLE_PRESOLVE:
+				return enablePresolve != ENABLE_PRESOLVE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -711,6 +763,8 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		result.append(enableGeneratingCliqueCuts);
 		result.append(", EnableMixedIntegerRoundingCuts: ");
 		result.append(enableMixedIntegerRoundingCuts);
+		result.append(", EnablePresolve: ");
+		result.append(enablePresolve);
 		result.append(')');
 		return result.toString();
 	}
@@ -946,7 +1000,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 			    case ENUM_FULL:   messagelevel = GLPKConstants.GLP_MSG_ALL; break;
 			    }  
 				GLPK.glp_init_iocp(parm);
-				parm.setPresolve(GLPKConstants.GLP_ON);
+				parm.setPresolve(this.isEnablePresolve() ? GLPKConstants.GLP_ON : GLPKConstants.GLP_OFF);
 				parm.setMip_gap(this.getSolverOptimalityTolerance());
 				parm.setMsg_lev(messagelevel);
 				parm.setTm_lim((int)(this.getSolverMaxDuration()*1000));
