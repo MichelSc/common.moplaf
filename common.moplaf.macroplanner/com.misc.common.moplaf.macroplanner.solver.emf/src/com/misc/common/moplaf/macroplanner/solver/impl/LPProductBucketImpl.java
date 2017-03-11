@@ -560,6 +560,20 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public String getContent() {
+		String content = String.format("suppl: %10.2f\ncons.: %10.2f\nstock: %10.2f",
+				                       this.getSupplied().getSelectedSolutionValue(),
+				                       this.getConsumed().getSelectedSolutionValue(),
+				                       this.getStocked().getSelectedSolutionValue());
+		return content;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")

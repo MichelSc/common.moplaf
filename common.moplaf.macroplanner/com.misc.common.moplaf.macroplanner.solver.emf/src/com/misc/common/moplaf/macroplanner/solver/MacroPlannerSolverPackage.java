@@ -1163,13 +1163,22 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_TIME_BUCKET__PREVIOUS = LP_TUPLE_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_TIME_BUCKET__CONTENT = LP_TUPLE_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>LP Time Bucket</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LP_TIME_BUCKET_FEATURE_COUNT = LP_TUPLE_FEATURE_COUNT + 3;
+	int LP_TIME_BUCKET_FEATURE_COUNT = LP_TUPLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -1832,6 +1841,15 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_PRODUCT_BUCKET__PREVIOUS = LP_TIME_BUCKET__PREVIOUS;
 
 	/**
+	 * The feature id for the '<em><b>Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_PRODUCT_BUCKET__CONTENT = LP_TIME_BUCKET__CONTENT;
+
+	/**
 	 * The feature id for the '<em><b>Product</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2392,6 +2410,15 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_SUPPLY_BUCKET__PREVIOUS = LP_TIME_BUCKET__PREVIOUS;
 
 	/**
+	 * The feature id for the '<em><b>Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_SUPPLY_BUCKET__CONTENT = LP_TIME_BUCKET__CONTENT;
+
+	/**
 	 * The feature id for the '<em><b>Supply</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2887,6 +2914,15 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int LP_CAPACITY_BUCKET__PREVIOUS = LP_TIME_BUCKET__PREVIOUS;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_CAPACITY_BUCKET__CONTENT = LP_TIME_BUCKET__CONTENT;
 
 	/**
 	 * The feature id for the '<em><b>Capacity</b></em>' container reference.
@@ -3594,6 +3630,15 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_RESOURCE_BUCKET__PREVIOUS = LP_TIME_BUCKET__PREVIOUS;
 
 	/**
+	 * The feature id for the '<em><b>Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_RESOURCE_BUCKET__CONTENT = LP_TIME_BUCKET__CONTENT;
+
+	/**
 	 * The feature id for the '<em><b>Resource</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4125,6 +4170,15 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int LP_AVAILABILITY_BUCKET__PREVIOUS = LP_TIME_BUCKET__PREVIOUS;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_AVAILABILITY_BUCKET__CONTENT = LP_TIME_BUCKET__CONTENT;
 
 	/**
 	 * The feature id for the '<em><b>Availability</b></em>' container reference.
@@ -5250,6 +5304,15 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_ROUTING_BUCKET__PREVIOUS = LP_TIME_BUCKET__PREVIOUS;
 
 	/**
+	 * The feature id for the '<em><b>Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_BUCKET__CONTENT = LP_TIME_BUCKET__CONTENT;
+
+	/**
 	 * The feature id for the '<em><b>Routing</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6005,6 +6068,17 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getLPTimeBucket();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.solver.LPTimeBucket#getContent <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Content</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPTimeBucket#getContent()
+	 * @see #getLPTimeBucket()
+	 * @generated
+	 */
+	EAttribute getLPTimeBucket_Content();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.macroplanner.solver.LPProductSet <em>LP Product Set</em>}'.
@@ -7328,6 +7402,14 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		 * @generated
 		 */
 		EClass LP_TIME_BUCKET = eINSTANCE.getLPTimeBucket();
+
+		/**
+		 * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LP_TIME_BUCKET__CONTENT = eINSTANCE.getLPTimeBucket_Content();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductSetImpl <em>LP Product Set</em>}' class.

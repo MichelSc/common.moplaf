@@ -514,6 +514,15 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getLPTimeBucket_Content() {
+		return (EAttribute)lpTimeBucketEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLPProductSet() {
 		return lpProductSetEClass;
 	}
@@ -1475,6 +1484,7 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		lpTimeLineEClass = createEClass(LP_TIME_LINE);
 
 		lpTimeBucketEClass = createEClass(LP_TIME_BUCKET);
+		createEAttribute(lpTimeBucketEClass, LP_TIME_BUCKET__CONTENT);
 
 		lpProductSetEClass = createEClass(LP_PRODUCT_SET);
 		createEReference(lpProductSetEClass, LP_PRODUCT_SET__MACRO_PLANNER);
@@ -1687,6 +1697,7 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		initEClass(lpTimeLineEClass, LPTimeLine.class, "LPTimeLine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(lpTimeBucketEClass, LPTimeBucket.class, "LPTimeBucket", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLPTimeBucket_Content(), ecorePackage.getEString(), "Content", null, 0, 1, LPTimeBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(lpProductSetEClass, LPProductSet.class, "LPProductSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLPProductSet_MacroPlanner(), this.getLPMacroPlanner(), this.getLPMacroPlanner_ProductSet(), "MacroPlanner", null, 1, 1, LPProductSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

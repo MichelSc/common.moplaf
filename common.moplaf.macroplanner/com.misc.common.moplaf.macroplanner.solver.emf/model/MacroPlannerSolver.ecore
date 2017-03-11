@@ -50,7 +50,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LPTuple" eSuperTypes="../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorTuple"/>
   <eClassifiers xsi:type="ecore:EClass" name="LPTimeLine" eSuperTypes="#//LPTuple ../../com.misc.common.moplaf.time.discrete.emf/model/timediscrete.ecore#//ObjectWithTimeLine"/>
-  <eClassifiers xsi:type="ecore:EClass" name="LPTimeBucket" eSuperTypes="#//LPTuple ../../com.misc.common.moplaf.time.discrete.emf/model/timediscrete.ecore#//ObjectTimeBucket"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LPTimeBucket" eSuperTypes="#//LPTuple ../../com.misc.common.moplaf.time.discrete.emf/model/timediscrete.ecore#//ObjectTimeBucket">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LPProductSet" eSuperTypes="../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorTuple #//LPTuple">
     <eOperations name="getProduct" eType="#//LPProduct">
       <eParameters name="locationProduct" eType="ecore:EClass ../../com.misc.common.moplaf.macroplanner.emf/model/MacroPlanner.ecore#//LocationProduct"/>
