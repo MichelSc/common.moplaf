@@ -8,10 +8,10 @@
   <genPackages prefix="MacroPlanner" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
       ecorePackage="MacroPlanner.ecore#/">
     <genClasses ecoreClass="MacroPlanner.ecore#//SupplyChainMasterData">
+      <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//SupplyChainMasterData/Name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//SupplyChainMasterData/Resources"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//SupplyChainMasterData/Products"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//SupplyChainMasterData/Locations"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//SupplyChainMasterData/Resources"/>
-      <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//SupplyChainMasterData/Name"/>
     </genClasses>
     <genClasses ecoreClass="MacroPlanner.ecore#//Product">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//Product/Children"/>
@@ -33,6 +33,12 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//Location/Parent"/>
       <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Location/Name"/>
       <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Location/Code"/>
+      <genOperations ecoreOperation="MacroPlanner.ecore#//Location/constructLocationProduct">
+        <genParameters ecoreParameter="MacroPlanner.ecore#//Location/constructLocationProduct/product"/>
+      </genOperations>
+      <genOperations ecoreOperation="MacroPlanner.ecore#//Location/constructLocationResource">
+        <genParameters ecoreParameter="MacroPlanner.ecore#//Location/constructLocationResource/resource"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="MacroPlanner.ecore#//LocationProduct">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MacroPlanner.ecore#//LocationProduct/Location"/>
@@ -51,24 +57,19 @@
           ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//LocationResource/Code"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//LocationResource/Availabilities"/>
     </genClasses>
-    <genClasses ecoreClass="MacroPlanner.ecore#//SupplyChainData">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//SupplyChainData/Supplies"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//SupplyChainData/Availabilities"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//SupplyChainData/Name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//SupplyChainData/Capacities"/>
-    </genClasses>
-    <genClasses ecoreClass="MacroPlanner.ecore#//Supply">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MacroPlanner.ecore#//Supply/SupplyChainData"/>
-      <genFeatures notify="false" createChild="false" propertyCategory="10 MacroPlanner"
-          propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//Supply/LocationProduct"/>
-      <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Supply/Quantity"/>
-      <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Supply/From"/>
-      <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Supply/To"/>
-      <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Supply/Cost"/>
-      <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Supply/Enforce"/>
+    <genClasses ecoreClass="MacroPlanner.ecore#//SupplyChainLimits">
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//SupplyChainLimits/Capacities"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//SupplyChainLimits/Availabilities"/>
+      <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//SupplyChainLimits/Name"/>
+      <genOperations ecoreOperation="MacroPlanner.ecore#//SupplyChainLimits/constructCapacity">
+        <genParameters ecoreParameter="MacroPlanner.ecore#//SupplyChainLimits/constructCapacity/product"/>
+      </genOperations>
+      <genOperations ecoreOperation="MacroPlanner.ecore#//SupplyChainLimits/constructAvailability">
+        <genParameters ecoreParameter="MacroPlanner.ecore#//SupplyChainLimits/constructAvailability/resource"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="MacroPlanner.ecore#//Availability">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MacroPlanner.ecore#//Availability/SupplyChainData"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//Availability/SupplyChainLimits"/>
       <genFeatures notify="false" createChild="false" propertyCategory="10 MacroPlanner"
           propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//Availability/LocationResource"/>
       <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Availability/Quantity"/>
@@ -79,7 +80,7 @@
       <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Availability/Penalty"/>
     </genClasses>
     <genClasses ecoreClass="MacroPlanner.ecore#//Capacity">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MacroPlanner.ecore#//Capacity/SupplyChainData"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//Capacity/SupplyChainLimits"/>
       <genFeatures notify="false" createChild="false" propertyCategory="10 MacroPlanner"
           propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//Capacity/LocationProduct"/>
       <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Capacity/Quantity"/>
@@ -99,17 +100,23 @@
       <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Routing/Name"/>
       <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Routing/Code"/>
       <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Routing/Cost"/>
+      <genOperations ecoreOperation="MacroPlanner.ecore#//Routing/constructRoutingProduct">
+        <genParameters ecoreParameter="MacroPlanner.ecore#//Routing/constructRoutingProduct/product"/>
+      </genOperations>
+      <genOperations ecoreOperation="MacroPlanner.ecore#//Routing/constructRoutingResource">
+        <genParameters ecoreParameter="MacroPlanner.ecore#//Routing/constructRoutingResource/resource"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="MacroPlanner.ecore#//RoutingProduct">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MacroPlanner.ecore#//RoutingProduct/Routing"/>
       <genFeatures notify="false" createChild="false" propertyCategory="10 MacroPlanner"
           propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//RoutingProduct/LocationProduct"/>
-      <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//RoutingProduct/Consumption"/>
-      <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//RoutingProduct/Offset"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 MacroPlanner"
           ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//RoutingProduct/Code"/>
+      <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//RoutingProduct/Consumption"/>
+      <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//RoutingProduct/Offset"/>
     </genClasses>
-    <genClasses ecoreClass="MacroPlanner.ecore#//RoutingResource">
+    <genClasses ecoreClass="MacroPlanner.ecore#//RoutingResource" labelFeature="#//macroplanner/RoutingResource/Code">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MacroPlanner.ecore#//RoutingResource/Routing"/>
       <genFeatures notify="false" createChild="false" propertyCategory="10 MacroPlanner"
           propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//RoutingResource/LocationResource"/>
@@ -117,6 +124,24 @@
       <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//RoutingResource/Offset"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 MacroPlanner"
           ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//RoutingResource/Code"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//RoutingResource/Factor"/>
+    </genClasses>
+    <genClasses ecoreClass="MacroPlanner.ecore#//SupplyChainData">
+      <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//SupplyChainData/Name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//SupplyChainData/Supplies"/>
+      <genOperations ecoreOperation="MacroPlanner.ecore#//SupplyChainData/constructSupply">
+        <genParameters ecoreParameter="MacroPlanner.ecore#//SupplyChainData/constructSupply/product"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="MacroPlanner.ecore#//Supply">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MacroPlanner.ecore#//Supply/SupplyChainData"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="10 MacroPlanner"
+          propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//Supply/LocationProduct"/>
+      <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Supply/Quantity"/>
+      <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Supply/From"/>
+      <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Supply/To"/>
+      <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Supply/Cost"/>
+      <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Supply/Enforce"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -103,8 +103,8 @@ public class SupplyChainMasterDataItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(MacroPlannerPackage.Literals.SUPPLY_CHAIN_MASTER_DATA__PRODUCTS);
-			childrenFeatures.add(MacroPlannerPackage.Literals.SUPPLY_CHAIN_MASTER_DATA__LOCATIONS);
 			childrenFeatures.add(MacroPlannerPackage.Literals.SUPPLY_CHAIN_MASTER_DATA__RESOURCES);
+			childrenFeatures.add(MacroPlannerPackage.Literals.SUPPLY_CHAIN_MASTER_DATA__LOCATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -164,8 +164,8 @@ public class SupplyChainMasterDataItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA__PRODUCTS:
-			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA__LOCATIONS:
 			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA__RESOURCES:
+			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA__LOCATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -190,13 +190,13 @@ public class SupplyChainMasterDataItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MacroPlannerPackage.Literals.SUPPLY_CHAIN_MASTER_DATA__LOCATIONS,
-				 MacroPlannerFactory.eINSTANCE.createLocation()));
+				(MacroPlannerPackage.Literals.SUPPLY_CHAIN_MASTER_DATA__RESOURCES,
+				 MacroPlannerFactory.eINSTANCE.createResource()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MacroPlannerPackage.Literals.SUPPLY_CHAIN_MASTER_DATA__RESOURCES,
-				 MacroPlannerFactory.eINSTANCE.createResource()));
+				(MacroPlannerPackage.Literals.SUPPLY_CHAIN_MASTER_DATA__LOCATIONS,
+				 MacroPlannerFactory.eINSTANCE.createLocation()));
 	}
 
 	/**

@@ -92,12 +92,8 @@ public class MacroPlannerAdapterFactory extends AdapterFactoryImpl {
 				return createLocationResourceAdapter();
 			}
 			@Override
-			public Adapter caseSupplyChainData(SupplyChainData object) {
-				return createSupplyChainDataAdapter();
-			}
-			@Override
-			public Adapter caseSupply(Supply object) {
-				return createSupplyAdapter();
+			public Adapter caseSupplyChainLimits(SupplyChainLimits object) {
+				return createSupplyChainLimitsAdapter();
 			}
 			@Override
 			public Adapter caseAvailability(Availability object) {
@@ -122,6 +118,14 @@ public class MacroPlannerAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseRoutingResource(RoutingResource object) {
 				return createRoutingResourceAdapter();
+			}
+			@Override
+			public Adapter caseSupplyChainData(SupplyChainData object) {
+				return createSupplyChainDataAdapter();
+			}
+			@Override
+			public Adapter caseSupply(Supply object) {
+				return createSupplyAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -224,6 +228,20 @@ public class MacroPlannerAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLocationResourceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.macroplanner.SupplyChainLimits <em>Supply Chain Limits</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.macroplanner.SupplyChainLimits
+	 * @generated
+	 */
+	public Adapter createSupplyChainLimitsAdapter() {
 		return null;
 	}
 

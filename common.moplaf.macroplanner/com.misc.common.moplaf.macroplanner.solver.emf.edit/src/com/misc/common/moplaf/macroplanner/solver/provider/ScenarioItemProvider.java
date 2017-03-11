@@ -69,6 +69,7 @@ public class ScenarioItemProvider
 			addSelectedMasterDataPropertyDescriptor(object);
 			addSelectedDataPropertyDescriptor(object);
 			addSelectedRoutingsPropertyDescriptor(object);
+			addSelectedLimitsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -197,6 +198,28 @@ public class ScenarioItemProvider
 				 getString("_UI_Scenario_SelectedRoutings_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Scenario_SelectedRoutings_feature", "_UI_Scenario_type"),
 				 MacroPlannerSolverPackage.Literals.SCENARIO__SELECTED_ROUTINGS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 getString("_UI__40ToUseMacroPlannerPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Selected Limits feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSelectedLimitsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Scenario_SelectedLimits_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Scenario_SelectedLimits_feature", "_UI_Scenario_type"),
+				 MacroPlannerSolverPackage.Literals.SCENARIO__SELECTED_LIMITS,
 				 true,
 				 false,
 				 true,

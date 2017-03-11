@@ -210,6 +210,29 @@ public class MacroPlannerItemProviderAdapterFactory extends MacroPlannerAdapterF
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.macroplanner.SupplyChainLimits} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SupplyChainLimitsItemProvider supplyChainLimitsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.macroplanner.SupplyChainLimits}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSupplyChainLimitsAdapter() {
+		if (supplyChainLimitsItemProvider == null) {
+			supplyChainLimitsItemProvider = new SupplyChainLimitsItemProvider(this);
+		}
+
+		return supplyChainLimitsItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.macroplanner.SupplyChainData} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -498,14 +521,15 @@ public class MacroPlannerItemProviderAdapterFactory extends MacroPlannerAdapterF
 		if (locationItemProvider != null) locationItemProvider.dispose();
 		if (locationProductItemProvider != null) locationProductItemProvider.dispose();
 		if (locationResourceItemProvider != null) locationResourceItemProvider.dispose();
-		if (supplyChainDataItemProvider != null) supplyChainDataItemProvider.dispose();
-		if (supplyItemProvider != null) supplyItemProvider.dispose();
+		if (supplyChainLimitsItemProvider != null) supplyChainLimitsItemProvider.dispose();
 		if (availabilityItemProvider != null) availabilityItemProvider.dispose();
 		if (capacityItemProvider != null) capacityItemProvider.dispose();
 		if (supplyChainRoutingsItemProvider != null) supplyChainRoutingsItemProvider.dispose();
 		if (routingItemProvider != null) routingItemProvider.dispose();
 		if (routingProductItemProvider != null) routingProductItemProvider.dispose();
 		if (routingResourceItemProvider != null) routingResourceItemProvider.dispose();
+		if (supplyChainDataItemProvider != null) supplyChainDataItemProvider.dispose();
+		if (supplyItemProvider != null) supplyItemProvider.dispose();
 	}
 
 }

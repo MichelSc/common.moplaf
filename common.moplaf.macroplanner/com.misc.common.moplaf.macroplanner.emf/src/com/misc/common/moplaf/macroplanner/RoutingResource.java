@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.macroplanner.RoutingResource#getReservation <em>Reservation</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.RoutingResource#getOffset <em>Offset</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.RoutingResource#getCode <em>Code</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.RoutingResource#getFactor <em>Factor</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.macroplanner.MacroPlannerPackage#getRoutingResource()
@@ -146,5 +147,31 @@ public interface RoutingResource extends EObject {
 	 * @generated
 	 */
 	String getCode();
+
+	/**
+	 * Returns the value of the '<em><b>Factor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Factor</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Factor</em>' attribute.
+	 * @see #setFactor(float)
+	 * @see com.misc.common.moplaf.macroplanner.MacroPlannerPackage#getRoutingResource_Factor()
+	 * @model
+	 * @generated
+	 */
+	float getFactor();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.macroplanner.RoutingResource#getFactor <em>Factor</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Factor</em>' attribute.
+	 * @see #getFactor()
+	 * @generated
+	 */
+	void setFactor(float value);
 
 } // RoutingResource

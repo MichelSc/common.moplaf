@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.macroplanner.solver.impl;
 
 import com.misc.common.moplaf.macroplanner.SupplyChainData;
+import com.misc.common.moplaf.macroplanner.SupplyChainLimits;
 import com.misc.common.moplaf.macroplanner.SupplyChainMasterData;
 import com.misc.common.moplaf.macroplanner.SupplyChainRoutings;
 
@@ -41,6 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.ScenarioImpl#getSelectedMasterData <em>Selected Master Data</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.ScenarioImpl#getSelectedData <em>Selected Data</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.ScenarioImpl#getSelectedRoutings <em>Selected Routings</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.ScenarioImpl#getSelectedLimits <em>Selected Limits</em>}</li>
  * </ul>
  *
  * @generated
@@ -145,6 +147,16 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 	 * @ordered
 	 */
 	protected EList<SupplyChainRoutings> selectedRoutings;
+
+	/**
+	 * The cached value of the '{@link #getSelectedLimits() <em>Selected Limits</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSelectedLimits()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SupplyChainLimits> selectedLimits;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -307,6 +319,18 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<SupplyChainLimits> getSelectedLimits() {
+		if (selectedLimits == null) {
+			selectedLimits = new EObjectResolvingEList<SupplyChainLimits>(SupplyChainLimits.class, this, MacroPlannerSolverPackage.SCENARIO__SELECTED_LIMITS);
+		}
+		return selectedLimits;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -354,6 +378,8 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 				return getSelectedData();
 			case MacroPlannerSolverPackage.SCENARIO__SELECTED_ROUTINGS:
 				return getSelectedRoutings();
+			case MacroPlannerSolverPackage.SCENARIO__SELECTED_LIMITS:
+				return getSelectedLimits();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -391,6 +417,10 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 				getSelectedRoutings().clear();
 				getSelectedRoutings().addAll((Collection<? extends SupplyChainRoutings>)newValue);
 				return;
+			case MacroPlannerSolverPackage.SCENARIO__SELECTED_LIMITS:
+				getSelectedLimits().clear();
+				getSelectedLimits().addAll((Collection<? extends SupplyChainLimits>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -424,6 +454,9 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 			case MacroPlannerSolverPackage.SCENARIO__SELECTED_ROUTINGS:
 				getSelectedRoutings().clear();
 				return;
+			case MacroPlannerSolverPackage.SCENARIO__SELECTED_LIMITS:
+				getSelectedLimits().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -450,6 +483,8 @@ public class ScenarioImpl extends MinimalEObjectImpl.Container implements Scenar
 				return selectedData != null && !selectedData.isEmpty();
 			case MacroPlannerSolverPackage.SCENARIO__SELECTED_ROUTINGS:
 				return selectedRoutings != null && !selectedRoutings.isEmpty();
+			case MacroPlannerSolverPackage.SCENARIO__SELECTED_LIMITS:
+				return selectedLimits != null && !selectedLimits.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

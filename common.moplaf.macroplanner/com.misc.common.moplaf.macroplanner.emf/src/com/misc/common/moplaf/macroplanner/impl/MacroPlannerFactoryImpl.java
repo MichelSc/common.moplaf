@@ -62,14 +62,15 @@ public class MacroPlannerFactoryImpl extends EFactoryImpl implements MacroPlanne
 			case MacroPlannerPackage.LOCATION: return createLocation();
 			case MacroPlannerPackage.LOCATION_PRODUCT: return createLocationProduct();
 			case MacroPlannerPackage.LOCATION_RESOURCE: return createLocationResource();
-			case MacroPlannerPackage.SUPPLY_CHAIN_DATA: return createSupplyChainData();
-			case MacroPlannerPackage.SUPPLY: return createSupply();
+			case MacroPlannerPackage.SUPPLY_CHAIN_LIMITS: return createSupplyChainLimits();
 			case MacroPlannerPackage.AVAILABILITY: return createAvailability();
 			case MacroPlannerPackage.CAPACITY: return createCapacity();
 			case MacroPlannerPackage.SUPPLY_CHAIN_ROUTINGS: return createSupplyChainRoutings();
 			case MacroPlannerPackage.ROUTING: return createRouting();
 			case MacroPlannerPackage.ROUTING_PRODUCT: return createRoutingProduct();
 			case MacroPlannerPackage.ROUTING_RESOURCE: return createRoutingResource();
+			case MacroPlannerPackage.SUPPLY_CHAIN_DATA: return createSupplyChainData();
+			case MacroPlannerPackage.SUPPLY: return createSupply();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -133,6 +134,16 @@ public class MacroPlannerFactoryImpl extends EFactoryImpl implements MacroPlanne
 	public LocationResource createLocationResource() {
 		LocationResourceImpl locationResource = new LocationResourceImpl();
 		return locationResource;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SupplyChainLimits createSupplyChainLimits() {
+		SupplyChainLimitsImpl supplyChainLimits = new SupplyChainLimitsImpl();
+		return supplyChainLimits;
 	}
 
 	/**

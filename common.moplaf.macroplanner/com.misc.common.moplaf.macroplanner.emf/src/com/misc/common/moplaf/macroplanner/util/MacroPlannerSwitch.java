@@ -102,15 +102,9 @@ public class MacroPlannerSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MacroPlannerPackage.SUPPLY_CHAIN_DATA: {
-				SupplyChainData supplyChainData = (SupplyChainData)theEObject;
-				T result = caseSupplyChainData(supplyChainData);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MacroPlannerPackage.SUPPLY: {
-				Supply supply = (Supply)theEObject;
-				T result = caseSupply(supply);
+			case MacroPlannerPackage.SUPPLY_CHAIN_LIMITS: {
+				SupplyChainLimits supplyChainLimits = (SupplyChainLimits)theEObject;
+				T result = caseSupplyChainLimits(supplyChainLimits);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -147,6 +141,18 @@ public class MacroPlannerSwitch<T> extends Switch<T> {
 			case MacroPlannerPackage.ROUTING_RESOURCE: {
 				RoutingResource routingResource = (RoutingResource)theEObject;
 				T result = caseRoutingResource(routingResource);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MacroPlannerPackage.SUPPLY_CHAIN_DATA: {
+				SupplyChainData supplyChainData = (SupplyChainData)theEObject;
+				T result = caseSupplyChainData(supplyChainData);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MacroPlannerPackage.SUPPLY: {
+				Supply supply = (Supply)theEObject;
+				T result = caseSupply(supply);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -241,6 +247,21 @@ public class MacroPlannerSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseLocationResource(LocationResource object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Supply Chain Limits</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Supply Chain Limits</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSupplyChainLimits(SupplyChainLimits object) {
 		return null;
 	}
 

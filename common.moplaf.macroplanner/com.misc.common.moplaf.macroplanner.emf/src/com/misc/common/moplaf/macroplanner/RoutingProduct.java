@@ -15,9 +15,9 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.macroplanner.RoutingProduct#getRouting <em>Routing</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.RoutingProduct#getLocationProduct <em>Location Product</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.RoutingProduct#getCode <em>Code</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.RoutingProduct#getConsumption <em>Consumption</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.RoutingProduct#getOffset <em>Offset</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.RoutingProduct#getCode <em>Code</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.macroplanner.MacroPlannerPackage#getRoutingProduct()

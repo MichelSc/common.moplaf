@@ -16,8 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.macroplanner.SupplyChainMasterData#getProducts <em>Products</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.SupplyChainMasterData#getLocations <em>Locations</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.SupplyChainMasterData#getResources <em>Resources</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.SupplyChainMasterData#getLocations <em>Locations</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.SupplyChainMasterData#getName <em>Name</em>}</li>
  * </ul>
  *

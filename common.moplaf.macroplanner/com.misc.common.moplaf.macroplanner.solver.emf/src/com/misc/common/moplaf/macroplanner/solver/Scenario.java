@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.macroplanner.solver;
 
 import com.misc.common.moplaf.macroplanner.SupplyChainData;
+import com.misc.common.moplaf.macroplanner.SupplyChainLimits;
 import com.misc.common.moplaf.macroplanner.SupplyChainMasterData;
 import com.misc.common.moplaf.macroplanner.SupplyChainRoutings;
 import java.util.Date;
@@ -27,6 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.Scenario#getSelectedMasterData <em>Selected Master Data</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.Scenario#getSelectedData <em>Selected Data</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.Scenario#getSelectedRoutings <em>Selected Routings</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.Scenario#getSelectedLimits <em>Selected Limits</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getScenario()
@@ -187,5 +189,21 @@ public interface Scenario extends EObject {
 	 * @generated
 	 */
 	EList<SupplyChainRoutings> getSelectedRoutings();
+
+	/**
+	 * Returns the value of the '<em><b>Selected Limits</b></em>' reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.macroplanner.SupplyChainLimits}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Selected Limits</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Selected Limits</em>' reference list.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getScenario_SelectedLimits()
+	 * @model
+	 * @generated
+	 */
+	EList<SupplyChainLimits> getSelectedLimits();
 
 } // Scenario

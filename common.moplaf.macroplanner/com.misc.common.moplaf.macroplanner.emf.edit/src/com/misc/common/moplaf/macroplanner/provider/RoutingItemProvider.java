@@ -3,6 +3,9 @@
 package com.misc.common.moplaf.macroplanner.provider;
 
 
+
+import com.misc.common.moplaf.macroplanner.LocationProduct;
+import com.misc.common.moplaf.macroplanner.LocationResource;
 import com.misc.common.moplaf.macroplanner.MacroPlannerFactory;
 import com.misc.common.moplaf.macroplanner.MacroPlannerPackage;
 import com.misc.common.moplaf.macroplanner.Routing;
@@ -10,13 +13,17 @@ import com.misc.common.moplaf.macroplanner.Routing;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.AbstractCommand;
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.command.DragAndDropCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -251,4 +258,103 @@ public class RoutingItemProvider
 		return MacroPlannerEditPlugin.INSTANCE;
 	}
 
+	/**
+	 * Implements Command DropCommand
+	 */
+	public abstract class RoutingDropCommand extends AbstractCommand {
+
+		protected Routing routing;
+		
+		public RoutingDropCommand(Routing routing) {
+			super();
+			this.routing = routing;
+		}
+
+		protected boolean prepare(){
+			isExecutable = true;
+			return isExecutable;
+		}
+
+		public boolean canUndo() { 
+			return false; 
+		}
+
+		@Override
+		public void redo() {
+			execute();		
+		}
+
+	}
+
+	public  class ConstructRoutingProduct extends RoutingDropCommand {
+		private LocationProduct product;
+
+		public ConstructRoutingProduct(Routing routing, LocationProduct product) {
+			super(routing);
+			this.product = product;
+		}
+
+		@Override
+		public void execute() {
+			this.routing.constructRoutingProduct(product);
+		}
+	};
+		
+	public  class ConstructRoutingResource extends RoutingDropCommand {
+		private LocationResource resource;
+
+		public ConstructRoutingResource(Routing routing, LocationResource resource) {
+			super(routing);
+			this.resource = resource;
+		}
+
+		@Override
+		public void execute() {
+			this.routing.constructRoutingResource(resource);
+		}
+	};
+		
+
+	/**
+	 * Create a drag and drop command for this Location
+	 */
+	public class RoutingDragAndDropCommand extends DragAndDropCommand{
+		// constructor
+	   	public RoutingDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+				int operation, Collection<?> collection) {
+			super(domain, owner, location, operations, operation, collection);
+		}
+	   	
+	    /**
+	     * This implementation of prepare is called again to implement {@link #validate validate}.
+	     * The method {@link #reset} will have been called before doing so.
+	     */
+	    @Override
+	    protected boolean prepare(){
+	    	CompoundCommand compound = new CompoundCommand();
+			Routing thisRouting = (Routing) this.owner;
+			for (Object element : collection){
+				if ( element instanceof LocationProduct){
+		  	   		LocationProduct droppedProduct = (LocationProduct) element;
+		  	   	ConstructRoutingProduct cmd = new ConstructRoutingProduct(thisRouting, droppedProduct);
+				   	compound.append(cmd);
+				} else  if ( element instanceof LocationResource){
+					LocationResource droppedResource = (LocationResource) element;
+					ConstructRoutingResource cmd  = new ConstructRoutingResource(thisRouting, droppedResource);
+				   	compound.append(cmd);
+				} 
+			}
+	    	this.dragCommand = null;
+			this.dropCommand = compound;
+	    	return true;
+	    } // prepare
+	};
+	/**
+	 * Create a command for a drag and drop on this Solver
+	 */
+	@Override
+	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+			int operation, Collection<?> collection) {
+		return new RoutingDragAndDropCommand(domain, owner, location, operations, operation, collection);
+	}
 }

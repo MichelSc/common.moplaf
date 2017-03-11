@@ -133,13 +133,22 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int SCENARIO__SELECTED_ROUTINGS = 6;
 
 	/**
+	 * The feature id for the '<em><b>Selected Limits</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCENARIO__SELECTED_LIMITS = 7;
+
+	/**
 	 * The number of structural features of the '<em>Scenario</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCENARIO_FEATURE_COUNT = 7;
+	int SCENARIO_FEATURE_COUNT = 8;
 
 	/**
 	 * The number of operations of the '<em>Scenario</em>' class.
@@ -5815,6 +5824,17 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	EReference getScenario_SelectedRoutings();
 
 	/**
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.macroplanner.solver.Scenario#getSelectedLimits <em>Selected Limits</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Selected Limits</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.Scenario#getSelectedLimits()
+	 * @see #getScenario()
+	 * @generated
+	 */
+	EReference getScenario_SelectedLimits();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner <em>LP Macro Planner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7164,6 +7184,14 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SCENARIO__SELECTED_ROUTINGS = eINSTANCE.getScenario_SelectedRoutings();
+
+		/**
+		 * The meta object literal for the '<em><b>Selected Limits</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCENARIO__SELECTED_LIMITS = eINSTANCE.getScenario_SelectedLimits();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPMacroPlannerImpl <em>LP Macro Planner</em>}' class.

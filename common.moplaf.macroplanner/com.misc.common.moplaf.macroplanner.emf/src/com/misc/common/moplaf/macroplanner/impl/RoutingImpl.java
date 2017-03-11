@@ -2,11 +2,15 @@
  */
 package com.misc.common.moplaf.macroplanner.impl;
 
+import com.misc.common.moplaf.macroplanner.LocationProduct;
+import com.misc.common.moplaf.macroplanner.LocationResource;
+import com.misc.common.moplaf.macroplanner.MacroPlannerFactory;
 import com.misc.common.moplaf.macroplanner.MacroPlannerPackage;
 import com.misc.common.moplaf.macroplanner.Routing;
 import com.misc.common.moplaf.macroplanner.RoutingProduct;
 import com.misc.common.moplaf.macroplanner.RoutingResource;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -229,6 +233,28 @@ public class RoutingImpl extends MinimalEObjectImpl.Container implements Routing
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public RoutingProduct constructRoutingProduct(LocationProduct product) {
+		RoutingProduct rp = MacroPlannerFactory.eINSTANCE.createRoutingProduct();
+		rp.setLocationProduct(product);
+		this.getProducts().add(rp);
+		return rp;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public RoutingResource constructRoutingResource(LocationResource resource) {
+		RoutingResource rr = MacroPlannerFactory.eINSTANCE.createRoutingResource();
+		rr.setLocationResource(resource);
+		this.getResources().add(rr);
+		return rr;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -358,6 +384,22 @@ public class RoutingImpl extends MinimalEObjectImpl.Container implements Routing
 				return cost != COST_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case MacroPlannerPackage.ROUTING___CONSTRUCT_ROUTING_PRODUCT__LOCATIONPRODUCT:
+				return constructRoutingProduct((LocationProduct)arguments.get(0));
+			case MacroPlannerPackage.ROUTING___CONSTRUCT_ROUTING_RESOURCE__LOCATIONRESOURCE:
+				return constructRoutingResource((LocationResource)arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

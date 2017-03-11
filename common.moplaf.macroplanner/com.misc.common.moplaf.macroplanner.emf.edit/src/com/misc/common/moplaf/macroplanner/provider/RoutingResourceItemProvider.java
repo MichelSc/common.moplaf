@@ -64,6 +64,7 @@ public class RoutingResourceItemProvider
 			addReservationPropertyDescriptor(object);
 			addOffsetPropertyDescriptor(object);
 			addCodePropertyDescriptor(object);
+			addFactorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -157,6 +158,28 @@ public class RoutingResourceItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Factor feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFactorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RoutingResource_Factor_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RoutingResource_Factor_feature", "_UI_RoutingResource_type"),
+				 MacroPlannerPackage.Literals.ROUTING_RESOURCE__FACTOR,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns RoutingResource.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -175,8 +198,10 @@ public class RoutingResourceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		RoutingResource routingResource = (RoutingResource)object;
-		return getString("_UI_RoutingResource_type") + " " + routingResource.getReservation();
+		String label = ((RoutingResource)object).getCode();
+		return label == null || label.length() == 0 ?
+			getString("_UI_RoutingResource_type") :
+			getString("_UI_RoutingResource_type") + " " + label;
 	}
 	
 
@@ -195,6 +220,7 @@ public class RoutingResourceItemProvider
 			case MacroPlannerPackage.ROUTING_RESOURCE__RESERVATION:
 			case MacroPlannerPackage.ROUTING_RESOURCE__OFFSET:
 			case MacroPlannerPackage.ROUTING_RESOURCE__CODE:
+			case MacroPlannerPackage.ROUTING_RESOURCE__FACTOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -13,6 +13,8 @@
         eType="ecore:EClass ../../com.misc.common.moplaf.macroplanner.emf/model/MacroPlanner.ecore#//SupplyChainData"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="SelectedRoutings" upperBound="-1"
         eType="ecore:EClass ../../com.misc.common.moplaf.macroplanner.emf/model/MacroPlanner.ecore#//SupplyChainRoutings"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SelectedLimits" upperBound="-1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.macroplanner.emf/model/MacroPlanner.ecore#//SupplyChainLimits"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LPMacroPlanner" eSuperTypes="../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//Generator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="BucketSize" eType="ecore:EEnum ../../com.misc.common.moplaf.time.discrete.emf/model/timediscrete.ecore#//BucketType"

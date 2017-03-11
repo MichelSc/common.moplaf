@@ -27,9 +27,9 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.RoutingProductImpl#getRouting <em>Routing</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.RoutingProductImpl#getLocationProduct <em>Location Product</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.impl.RoutingProductImpl#getCode <em>Code</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.RoutingProductImpl#getConsumption <em>Consumption</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.RoutingProductImpl#getOffset <em>Offset</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.impl.RoutingProductImpl#getCode <em>Code</em>}</li>
  * </ul>
  *
  * @generated
@@ -44,6 +44,16 @@ public class RoutingProductImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected LocationProduct locationProduct;
+
+	/**
+	 * The default value of the '{@link #getCode() <em>Code</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CODE_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getConsumption() <em>Consumption</em>}' attribute.
@@ -84,16 +94,6 @@ public class RoutingProductImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected float offset = OFFSET_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getCode() <em>Code</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCode()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String CODE_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -303,12 +303,12 @@ public class RoutingProductImpl extends MinimalEObjectImpl.Container implements 
 			case MacroPlannerPackage.ROUTING_PRODUCT__LOCATION_PRODUCT:
 				if (resolve) return getLocationProduct();
 				return basicGetLocationProduct();
+			case MacroPlannerPackage.ROUTING_PRODUCT__CODE:
+				return getCode();
 			case MacroPlannerPackage.ROUTING_PRODUCT__CONSUMPTION:
 				return getConsumption();
 			case MacroPlannerPackage.ROUTING_PRODUCT__OFFSET:
 				return getOffset();
-			case MacroPlannerPackage.ROUTING_PRODUCT__CODE:
-				return getCode();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -373,12 +373,12 @@ public class RoutingProductImpl extends MinimalEObjectImpl.Container implements 
 				return getRouting() != null;
 			case MacroPlannerPackage.ROUTING_PRODUCT__LOCATION_PRODUCT:
 				return locationProduct != null;
+			case MacroPlannerPackage.ROUTING_PRODUCT__CODE:
+				return CODE_EDEFAULT == null ? getCode() != null : !CODE_EDEFAULT.equals(getCode());
 			case MacroPlannerPackage.ROUTING_PRODUCT__CONSUMPTION:
 				return consumption != CONSUMPTION_EDEFAULT;
 			case MacroPlannerPackage.ROUTING_PRODUCT__OFFSET:
 				return offset != OFFSET_EDEFAULT;
-			case MacroPlannerPackage.ROUTING_PRODUCT__CODE:
-				return CODE_EDEFAULT == null ? getCode() != null : !CODE_EDEFAULT.equals(getCode());
 		}
 		return super.eIsSet(featureID);
 	}

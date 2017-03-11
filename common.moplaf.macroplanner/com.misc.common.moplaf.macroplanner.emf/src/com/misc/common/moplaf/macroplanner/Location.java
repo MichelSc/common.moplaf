@@ -162,4 +162,20 @@ public interface Location extends EObject {
 	 */
 	void setCode(String value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	LocationProduct constructLocationProduct(Product product);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	LocationResource constructLocationResource(Resource resource);
+
 } // Location

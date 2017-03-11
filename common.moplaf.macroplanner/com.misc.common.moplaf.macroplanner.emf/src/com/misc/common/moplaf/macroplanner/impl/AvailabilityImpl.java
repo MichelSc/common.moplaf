@@ -5,8 +5,7 @@ package com.misc.common.moplaf.macroplanner.impl;
 import com.misc.common.moplaf.macroplanner.Availability;
 import com.misc.common.moplaf.macroplanner.LocationResource;
 import com.misc.common.moplaf.macroplanner.MacroPlannerPackage;
-
-import com.misc.common.moplaf.macroplanner.SupplyChainData;
+import com.misc.common.moplaf.macroplanner.SupplyChainLimits;
 import java.util.Date;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -27,7 +26,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.macroplanner.impl.AvailabilityImpl#getSupplyChainData <em>Supply Chain Data</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.impl.AvailabilityImpl#getSupplyChainLimits <em>Supply Chain Limits</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.AvailabilityImpl#getLocationResource <em>Location Resource</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.AvailabilityImpl#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.AvailabilityImpl#getFrom <em>From</em>}</li>
@@ -194,9 +193,9 @@ public class AvailabilityImpl extends MinimalEObjectImpl.Container implements Av
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SupplyChainData getSupplyChainData() {
-		if (eContainerFeatureID() != MacroPlannerPackage.AVAILABILITY__SUPPLY_CHAIN_DATA) return null;
-		return (SupplyChainData)eInternalContainer();
+	public SupplyChainLimits getSupplyChainLimits() {
+		if (eContainerFeatureID() != MacroPlannerPackage.AVAILABILITY__SUPPLY_CHAIN_LIMITS) return null;
+		return (SupplyChainLimits)eInternalContainer();
 	}
 
 	/**
@@ -204,8 +203,8 @@ public class AvailabilityImpl extends MinimalEObjectImpl.Container implements Av
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSupplyChainData(SupplyChainData newSupplyChainData, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newSupplyChainData, MacroPlannerPackage.AVAILABILITY__SUPPLY_CHAIN_DATA, msgs);
+	public NotificationChain basicSetSupplyChainLimits(SupplyChainLimits newSupplyChainLimits, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newSupplyChainLimits, MacroPlannerPackage.AVAILABILITY__SUPPLY_CHAIN_LIMITS, msgs);
 		return msgs;
 	}
 
@@ -214,20 +213,20 @@ public class AvailabilityImpl extends MinimalEObjectImpl.Container implements Av
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSupplyChainData(SupplyChainData newSupplyChainData) {
-		if (newSupplyChainData != eInternalContainer() || (eContainerFeatureID() != MacroPlannerPackage.AVAILABILITY__SUPPLY_CHAIN_DATA && newSupplyChainData != null)) {
-			if (EcoreUtil.isAncestor(this, newSupplyChainData))
+	public void setSupplyChainLimits(SupplyChainLimits newSupplyChainLimits) {
+		if (newSupplyChainLimits != eInternalContainer() || (eContainerFeatureID() != MacroPlannerPackage.AVAILABILITY__SUPPLY_CHAIN_LIMITS && newSupplyChainLimits != null)) {
+			if (EcoreUtil.isAncestor(this, newSupplyChainLimits))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newSupplyChainData != null)
-				msgs = ((InternalEObject)newSupplyChainData).eInverseAdd(this, MacroPlannerPackage.SUPPLY_CHAIN_DATA__AVAILABILITIES, SupplyChainData.class, msgs);
-			msgs = basicSetSupplyChainData(newSupplyChainData, msgs);
+			if (newSupplyChainLimits != null)
+				msgs = ((InternalEObject)newSupplyChainLimits).eInverseAdd(this, MacroPlannerPackage.SUPPLY_CHAIN_LIMITS__AVAILABILITIES, SupplyChainLimits.class, msgs);
+			msgs = basicSetSupplyChainLimits(newSupplyChainLimits, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MacroPlannerPackage.AVAILABILITY__SUPPLY_CHAIN_DATA, newSupplyChainData, newSupplyChainData));
+			eNotify(new ENotificationImpl(this, Notification.SET, MacroPlannerPackage.AVAILABILITY__SUPPLY_CHAIN_LIMITS, newSupplyChainLimits, newSupplyChainLimits));
 	}
 
 	/**
@@ -424,10 +423,10 @@ public class AvailabilityImpl extends MinimalEObjectImpl.Container implements Av
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MacroPlannerPackage.AVAILABILITY__SUPPLY_CHAIN_DATA:
+			case MacroPlannerPackage.AVAILABILITY__SUPPLY_CHAIN_LIMITS:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetSupplyChainData((SupplyChainData)otherEnd, msgs);
+				return basicSetSupplyChainLimits((SupplyChainLimits)otherEnd, msgs);
 			case MacroPlannerPackage.AVAILABILITY__LOCATION_RESOURCE:
 				if (locationResource != null)
 					msgs = ((InternalEObject)locationResource).eInverseRemove(this, MacroPlannerPackage.LOCATION_RESOURCE__AVAILABILITIES, LocationResource.class, msgs);
@@ -444,8 +443,8 @@ public class AvailabilityImpl extends MinimalEObjectImpl.Container implements Av
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MacroPlannerPackage.AVAILABILITY__SUPPLY_CHAIN_DATA:
-				return basicSetSupplyChainData(null, msgs);
+			case MacroPlannerPackage.AVAILABILITY__SUPPLY_CHAIN_LIMITS:
+				return basicSetSupplyChainLimits(null, msgs);
 			case MacroPlannerPackage.AVAILABILITY__LOCATION_RESOURCE:
 				return basicSetLocationResource(null, msgs);
 		}
@@ -460,8 +459,8 @@ public class AvailabilityImpl extends MinimalEObjectImpl.Container implements Av
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case MacroPlannerPackage.AVAILABILITY__SUPPLY_CHAIN_DATA:
-				return eInternalContainer().eInverseRemove(this, MacroPlannerPackage.SUPPLY_CHAIN_DATA__AVAILABILITIES, SupplyChainData.class, msgs);
+			case MacroPlannerPackage.AVAILABILITY__SUPPLY_CHAIN_LIMITS:
+				return eInternalContainer().eInverseRemove(this, MacroPlannerPackage.SUPPLY_CHAIN_LIMITS__AVAILABILITIES, SupplyChainLimits.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -474,8 +473,8 @@ public class AvailabilityImpl extends MinimalEObjectImpl.Container implements Av
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MacroPlannerPackage.AVAILABILITY__SUPPLY_CHAIN_DATA:
-				return getSupplyChainData();
+			case MacroPlannerPackage.AVAILABILITY__SUPPLY_CHAIN_LIMITS:
+				return getSupplyChainLimits();
 			case MacroPlannerPackage.AVAILABILITY__LOCATION_RESOURCE:
 				if (resolve) return getLocationResource();
 				return basicGetLocationResource();
@@ -503,8 +502,8 @@ public class AvailabilityImpl extends MinimalEObjectImpl.Container implements Av
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MacroPlannerPackage.AVAILABILITY__SUPPLY_CHAIN_DATA:
-				setSupplyChainData((SupplyChainData)newValue);
+			case MacroPlannerPackage.AVAILABILITY__SUPPLY_CHAIN_LIMITS:
+				setSupplyChainLimits((SupplyChainLimits)newValue);
 				return;
 			case MacroPlannerPackage.AVAILABILITY__LOCATION_RESOURCE:
 				setLocationResource((LocationResource)newValue);
@@ -539,8 +538,8 @@ public class AvailabilityImpl extends MinimalEObjectImpl.Container implements Av
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MacroPlannerPackage.AVAILABILITY__SUPPLY_CHAIN_DATA:
-				setSupplyChainData((SupplyChainData)null);
+			case MacroPlannerPackage.AVAILABILITY__SUPPLY_CHAIN_LIMITS:
+				setSupplyChainLimits((SupplyChainLimits)null);
 				return;
 			case MacroPlannerPackage.AVAILABILITY__LOCATION_RESOURCE:
 				setLocationResource((LocationResource)null);
@@ -575,8 +574,8 @@ public class AvailabilityImpl extends MinimalEObjectImpl.Container implements Av
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MacroPlannerPackage.AVAILABILITY__SUPPLY_CHAIN_DATA:
-				return getSupplyChainData() != null;
+			case MacroPlannerPackage.AVAILABILITY__SUPPLY_CHAIN_LIMITS:
+				return getSupplyChainLimits() != null;
 			case MacroPlannerPackage.AVAILABILITY__LOCATION_RESOURCE:
 				return locationResource != null;
 			case MacroPlannerPackage.AVAILABILITY__QUANTITY:

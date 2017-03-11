@@ -5,7 +5,7 @@ package com.misc.common.moplaf.macroplanner.solver.impl;
 import com.misc.common.moplaf.macroplanner.Capacity;
 import com.misc.common.moplaf.macroplanner.LocationProduct;
 import com.misc.common.moplaf.macroplanner.Supply;
-import com.misc.common.moplaf.macroplanner.SupplyChainData;
+import com.misc.common.moplaf.macroplanner.SupplyChainLimits;
 import com.misc.common.moplaf.macroplanner.solver.LPCapacity;
 import com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner;
 import com.misc.common.moplaf.macroplanner.solver.LPProduct;
@@ -409,12 +409,12 @@ public class LPProductImpl extends LPTimeLineImpl implements LPProduct {
 		LPMacroPlanner lp = products.getMacroPlanner();
 		TimeLine timeline = lp.getTimeLine();
 		Scenario scenario = lp.getScenario();
-	    EList<SupplyChainData> selectedSCData = scenario.getSelectedData();
+	    EList<SupplyChainLimits> selectedSCLimits= scenario.getSelectedLimits();
 		LocationProduct location_product = this.getProduct();
 		
 		// supplies
 		for ( Supply supply : location_product.getSupplies()){
-			if ( selectedSCData.contains(supply.getSupplyChainData())){
+			if ( selectedSCLimits.contains(supply.getSupplyChainData())){
 				LPSupply lpsupply = MacroPlannerSolverFactory.eINSTANCE.createLPSupply();
 				lpsupply.setSupply(supply);
 				String name = String.format("suppl(%s, %tF)", location_product.getCode(), supply.getFrom());
@@ -425,7 +425,7 @@ public class LPProductImpl extends LPTimeLineImpl implements LPProduct {
 
 		// capacities
 		for ( Capacity capacity: location_product.getCapacities()){
-			if ( selectedSCData.contains(capacity.getSupplyChainData())){
+			if ( selectedSCLimits.contains(capacity.getSupplyChainLimits())){
 				LPCapacity lpcapacity= MacroPlannerSolverFactory.eINSTANCE.createLPCapacity();
 				lpcapacity.setCapacity(capacity);
 				String name = String.format("capac(%s, %tF)", location_product.getCode(), capacity.getFrom());

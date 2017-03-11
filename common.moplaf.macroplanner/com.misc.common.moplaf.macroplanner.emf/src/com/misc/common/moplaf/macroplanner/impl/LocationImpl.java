@@ -5,8 +5,12 @@ package com.misc.common.moplaf.macroplanner.impl;
 import com.misc.common.moplaf.macroplanner.Location;
 import com.misc.common.moplaf.macroplanner.LocationProduct;
 import com.misc.common.moplaf.macroplanner.LocationResource;
+import com.misc.common.moplaf.macroplanner.MacroPlannerFactory;
 import com.misc.common.moplaf.macroplanner.MacroPlannerPackage;
 
+import com.misc.common.moplaf.macroplanner.Product;
+import com.misc.common.moplaf.macroplanner.Resource;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -282,6 +286,28 @@ public class LocationImpl extends MinimalEObjectImpl.Container implements Locati
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public LocationProduct constructLocationProduct(Product product) {
+		LocationProduct lp = MacroPlannerFactory.eINSTANCE.createLocationProduct();
+		lp.setProduct(product);
+		this.getProducts().add(lp); // owning
+		return lp;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public LocationResource constructLocationResource(Resource resource) {
+		LocationResource lr = MacroPlannerFactory.eINSTANCE.createLocationResource();
+		lr.setResource(resource);
+		this.getResources().add(lr); // owning
+		return lr;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -433,6 +459,22 @@ public class LocationImpl extends MinimalEObjectImpl.Container implements Locati
 				return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case MacroPlannerPackage.LOCATION___CONSTRUCT_LOCATION_PRODUCT__PRODUCT:
+				return constructLocationProduct((Product)arguments.get(0));
+			case MacroPlannerPackage.LOCATION___CONSTRUCT_LOCATION_RESOURCE__RESOURCE:
+				return constructLocationResource((Resource)arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

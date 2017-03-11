@@ -60,6 +60,7 @@ public class AvailabilityItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addSupplyChainLimitsPropertyDescriptor(object);
 			addLocationResourcePropertyDescriptor(object);
 			addQuantityPropertyDescriptor(object);
 			addFromPropertyDescriptor(object);
@@ -69,6 +70,28 @@ public class AvailabilityItemProvider
 			addPenaltyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Supply Chain Limits feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSupplyChainLimitsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Availability_SupplyChainLimits_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Availability_SupplyChainLimits_feature", "_UI_Availability_type"),
+				 MacroPlannerPackage.Literals.AVAILABILITY__SUPPLY_CHAIN_LIMITS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**

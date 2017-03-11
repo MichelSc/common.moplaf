@@ -76,6 +76,15 @@ public interface MacroPlannerFactory extends EFactory {
 	LocationResource createLocationResource();
 
 	/**
+	 * Returns a new object of class '<em>Supply Chain Limits</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Supply Chain Limits</em>'.
+	 * @generated
+	 */
+	SupplyChainLimits createSupplyChainLimits();
+
+	/**
 	 * Returns a new object of class '<em>Supply Chain Data</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

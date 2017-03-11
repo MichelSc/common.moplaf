@@ -141,4 +141,20 @@ public interface Routing extends EObject {
 	 */
 	void setCost(float value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	RoutingProduct constructRoutingProduct(LocationProduct product);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	RoutingResource constructRoutingResource(LocationResource resource);
+
 } // Routing

@@ -61,9 +61,9 @@ public class RoutingProductItemProvider
 			super.getPropertyDescriptors(object);
 
 			addLocationProductPropertyDescriptor(object);
+			addCodePropertyDescriptor(object);
 			addConsumptionPropertyDescriptor(object);
 			addOffsetPropertyDescriptor(object);
-			addCodePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -175,8 +175,10 @@ public class RoutingProductItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		RoutingProduct routingProduct = (RoutingProduct)object;
-		return getString("_UI_RoutingProduct_type") + " " + routingProduct.getConsumption();
+		String label = ((RoutingProduct)object).getCode();
+		return label == null || label.length() == 0 ?
+			getString("_UI_RoutingProduct_type") :
+			getString("_UI_RoutingProduct_type") + " " + label;
 	}
 	
 
@@ -192,9 +194,9 @@ public class RoutingProductItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(RoutingProduct.class)) {
+			case MacroPlannerPackage.ROUTING_PRODUCT__CODE:
 			case MacroPlannerPackage.ROUTING_PRODUCT__CONSUMPTION:
 			case MacroPlannerPackage.ROUTING_PRODUCT__OFFSET:
-			case MacroPlannerPackage.ROUTING_PRODUCT__CODE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

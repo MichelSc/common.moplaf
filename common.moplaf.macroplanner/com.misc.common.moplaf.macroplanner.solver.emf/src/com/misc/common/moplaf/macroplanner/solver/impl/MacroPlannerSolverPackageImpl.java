@@ -361,6 +361,15 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getScenario_SelectedLimits() {
+		return (EReference)scenarioEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLPMacroPlanner() {
 		return lpMacroPlannerEClass;
 	}
@@ -1445,6 +1454,7 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		createEReference(scenarioEClass, SCENARIO__SELECTED_MASTER_DATA);
 		createEReference(scenarioEClass, SCENARIO__SELECTED_DATA);
 		createEReference(scenarioEClass, SCENARIO__SELECTED_ROUTINGS);
+		createEReference(scenarioEClass, SCENARIO__SELECTED_LIMITS);
 
 		lpMacroPlannerEClass = createEClass(LP_MACRO_PLANNER);
 		createEAttribute(lpMacroPlannerEClass, LP_MACRO_PLANNER__BUCKET_SIZE);
@@ -1656,6 +1666,7 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		initEReference(getScenario_SelectedMasterData(), theMacroPlannerPackage.getSupplyChainMasterData(), null, "SelectedMasterData", null, 0, 1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getScenario_SelectedData(), theMacroPlannerPackage.getSupplyChainData(), null, "SelectedData", null, 0, -1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getScenario_SelectedRoutings(), theMacroPlannerPackage.getSupplyChainRoutings(), null, "SelectedRoutings", null, 0, -1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getScenario_SelectedLimits(), theMacroPlannerPackage.getSupplyChainLimits(), null, "SelectedLimits", null, 0, -1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(lpMacroPlannerEClass, LPMacroPlanner.class, "LPMacroPlanner", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLPMacroPlanner_BucketSize(), theTimeDiscretePackage.getBucketType(), "BucketSize", "Day", 0, 1, LPMacroPlanner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -33,8 +33,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.SupplyChainMasterDataImpl#getProducts <em>Products</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.impl.SupplyChainMasterDataImpl#getLocations <em>Locations</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.SupplyChainMasterDataImpl#getResources <em>Resources</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.impl.SupplyChainMasterDataImpl#getLocations <em>Locations</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.SupplyChainMasterDataImpl#getName <em>Name</em>}</li>
  * </ul>
  *
@@ -52,16 +52,6 @@ public class SupplyChainMasterDataImpl extends MinimalEObjectImpl.Container impl
 	protected EList<Product> products;
 
 	/**
-	 * The cached value of the '{@link #getLocations() <em>Locations</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLocations()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Location> locations;
-
-	/**
 	 * The cached value of the '{@link #getResources() <em>Resources</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -70,6 +60,16 @@ public class SupplyChainMasterDataImpl extends MinimalEObjectImpl.Container impl
 	 * @ordered
 	 */
 	protected EList<Resource> resources;
+
+	/**
+	 * The cached value of the '{@link #getLocations() <em>Locations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLocations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Location> locations;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -177,10 +177,10 @@ public class SupplyChainMasterDataImpl extends MinimalEObjectImpl.Container impl
 		switch (featureID) {
 			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA__PRODUCTS:
 				return ((InternalEList<?>)getProducts()).basicRemove(otherEnd, msgs);
-			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA__LOCATIONS:
-				return ((InternalEList<?>)getLocations()).basicRemove(otherEnd, msgs);
 			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA__RESOURCES:
 				return ((InternalEList<?>)getResources()).basicRemove(otherEnd, msgs);
+			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA__LOCATIONS:
+				return ((InternalEList<?>)getLocations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -195,10 +195,10 @@ public class SupplyChainMasterDataImpl extends MinimalEObjectImpl.Container impl
 		switch (featureID) {
 			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA__PRODUCTS:
 				return getProducts();
-			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA__LOCATIONS:
-				return getLocations();
 			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA__RESOURCES:
 				return getResources();
+			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA__LOCATIONS:
+				return getLocations();
 			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA__NAME:
 				return getName();
 		}
@@ -218,13 +218,13 @@ public class SupplyChainMasterDataImpl extends MinimalEObjectImpl.Container impl
 				getProducts().clear();
 				getProducts().addAll((Collection<? extends Product>)newValue);
 				return;
-			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA__LOCATIONS:
-				getLocations().clear();
-				getLocations().addAll((Collection<? extends Location>)newValue);
-				return;
 			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA__RESOURCES:
 				getResources().clear();
 				getResources().addAll((Collection<? extends Resource>)newValue);
+				return;
+			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA__LOCATIONS:
+				getLocations().clear();
+				getLocations().addAll((Collection<? extends Location>)newValue);
 				return;
 			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA__NAME:
 				setName((String)newValue);
@@ -244,11 +244,11 @@ public class SupplyChainMasterDataImpl extends MinimalEObjectImpl.Container impl
 			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA__PRODUCTS:
 				getProducts().clear();
 				return;
-			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA__LOCATIONS:
-				getLocations().clear();
-				return;
 			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA__RESOURCES:
 				getResources().clear();
+				return;
+			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA__LOCATIONS:
+				getLocations().clear();
 				return;
 			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA__NAME:
 				setName(NAME_EDEFAULT);
@@ -267,10 +267,10 @@ public class SupplyChainMasterDataImpl extends MinimalEObjectImpl.Container impl
 		switch (featureID) {
 			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA__PRODUCTS:
 				return products != null && !products.isEmpty();
-			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA__LOCATIONS:
-				return locations != null && !locations.isEmpty();
 			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA__RESOURCES:
 				return resources != null && !resources.isEmpty();
+			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA__LOCATIONS:
+				return locations != null && !locations.isEmpty();
 			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}

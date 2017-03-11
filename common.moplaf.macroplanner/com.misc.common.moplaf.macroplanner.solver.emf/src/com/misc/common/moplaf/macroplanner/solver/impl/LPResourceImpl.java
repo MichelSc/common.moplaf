@@ -4,7 +4,7 @@ package com.misc.common.moplaf.macroplanner.solver.impl;
 
 import com.misc.common.moplaf.macroplanner.LocationResource;
 import com.misc.common.moplaf.macroplanner.Availability;
-import com.misc.common.moplaf.macroplanner.SupplyChainData;
+import com.misc.common.moplaf.macroplanner.SupplyChainLimits;
 import com.misc.common.moplaf.macroplanner.solver.LPAvailability;
 import com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner;
 import com.misc.common.moplaf.macroplanner.solver.LPResource;
@@ -369,12 +369,12 @@ public class LPResourceImpl extends LPTimeLineImpl implements LPResource {
 		LPMacroPlanner lp = resources.getMacroPlanner();
 		TimeLine timeline = lp.getTimeLine();
 		Scenario scenario = lp.getScenario();
-	    EList<SupplyChainData> selectedSCData = scenario.getSelectedData();
+	    EList<SupplyChainLimits> selectedSCLimits= scenario.getSelectedLimits();
 		LocationResource location_resource = this.getResource();
 		
 		// availabilities
 		for ( Availability availability: location_resource.getAvailabilities()){
-			if ( selectedSCData.contains(availability.getSupplyChainData())){
+			if ( selectedSCLimits.contains(availability.getSupplyChainLimits())){
 				LPAvailability lpavailability = MacroPlannerSolverFactory.eINSTANCE.createLPAvailability();
 				lpavailability.setAvailability(availability);
 				String name = String.format("avail(%s, %tF)", location_resource.getCode(), availability.getFrom());
