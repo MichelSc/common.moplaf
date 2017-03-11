@@ -2,6 +2,7 @@
  */
 package com.misc.common.moplaf.macroplanner.solver.impl;
 
+
 import com.misc.common.moplaf.macroplanner.Supply;
 import com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner;
 import com.misc.common.moplaf.macroplanner.solver.LPProduct;
@@ -10,11 +11,14 @@ import com.misc.common.moplaf.macroplanner.solver.LPSupply;
 import com.misc.common.moplaf.macroplanner.solver.LPSupplyBucket;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverFactory;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
+import com.misc.common.moplaf.macroplanner.solver.Scenario;
+import com.misc.common.moplaf.time.Util;
 import com.misc.common.moplaf.time.discrete.ObjectTimeBucket;
 import com.misc.common.moplaf.time.discrete.TimeBucket;
 import com.misc.common.moplaf.time.discrete.TimeLine;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -327,12 +331,15 @@ public class LPSupplyImpl extends LPTimeLineImpl implements LPSupply {
 		LPProduct product = this.getProduct();
 		LPProductSet products = product.getProductSet();
 		LPMacroPlanner lp = products.getMacroPlanner();
+		Scenario scenario = lp.getScenario();
 		TimeLine timeline = lp.getTimeLine();
 		Supply supply = this.getSupply();
+		Date startSupply = Util.getMaxDate(scenario.getScenarioStart(), supply.getFrom());
+		Date endSupply   = Util.getMinDate(scenario.getScenarioEnd(),   supply.getTo());
 
 		// time line
-		TimeBucket startOfHorizon = timeline.getBucketFloor(supply.getFrom());
-		TimeBucket endOfHorizon   = timeline.getBucketCeil(supply.getTo());
+		TimeBucket startOfHorizon = timeline.getBucketFloor(startSupply);
+		TimeBucket endOfHorizon   = timeline.getBucketCeil(endSupply);
 		this.setStartBucket(startOfHorizon);
 		this.setEndBucket  (endOfHorizon);
 		this.refresh();

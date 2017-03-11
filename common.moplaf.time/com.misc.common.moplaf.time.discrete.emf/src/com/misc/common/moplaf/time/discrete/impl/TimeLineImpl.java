@@ -1508,8 +1508,8 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 
 	/**
 	 * <!-- begin-user-doc -->
-		 * Retrieve the earliest bucket containing a given time
-		 *   undefined behavior if given time not in horizon
+	 * Retrieve the earliest bucket containing a given time
+	 *   undefined behavior if given time not in horizon
 	 * <!-- end-user-doc -->
 	 */
 	public TimeBucket getBucketFloor(Date sometime) {

@@ -10,11 +10,14 @@ import com.misc.common.moplaf.macroplanner.solver.LPResource;
 import com.misc.common.moplaf.macroplanner.solver.LPResourceSet;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverFactory;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
+import com.misc.common.moplaf.macroplanner.solver.Scenario;
+import com.misc.common.moplaf.time.Util;
 import com.misc.common.moplaf.time.discrete.ObjectTimeBucket;
 import com.misc.common.moplaf.time.discrete.TimeBucket;
 import com.misc.common.moplaf.time.discrete.TimeLine;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -328,11 +331,14 @@ public class LPAvailabilityImpl extends LPTimeLineImpl implements LPAvailability
 		LPResourceSet resources = resource.getResourceSet();
 		LPMacroPlanner lp = resources.getMacroPlanner();
 		TimeLine timeline = lp.getTimeLine();
+		Scenario scenario = lp.getScenario();
 		Availability availability = this.getAvailability();
+		Date startAvailability = Util.getMaxDate(scenario.getScenarioStart(), availability.getFrom());
+		Date endAvailability   = Util.getMinDate(scenario.getScenarioEnd(),   availability.getTo());
 
 		// time line
-		TimeBucket startOfHorizon = timeline.getBucketFloor(availability.getFrom());
-		TimeBucket endOfHorizon   = timeline.getBucketCeil(availability.getTo());
+		TimeBucket startOfHorizon = timeline.getBucketFloor(startAvailability);
+		TimeBucket endOfHorizon   = timeline.getBucketCeil(endAvailability);
 		this.setStartBucket(startOfHorizon);
 		this.setEndBucket  (endOfHorizon);
 		this.refresh();

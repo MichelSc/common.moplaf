@@ -49,4 +49,28 @@ public class Util {
 		int seconds = Util.getSeconds(from,  to);
 		return seconds;
 	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	static public Date getMaxDate(Date date1, Date date2){
+		if ( date1.compareTo(date2)>=0 ){
+			return date1;
+		} else {
+			return date2;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	static public Date getMinDate(Date date1, Date date2){
+		if ( date1.compareTo(date2)<=0 ){
+			return date1;
+		} else {
+			return date2;
+		}
+	}
 }
