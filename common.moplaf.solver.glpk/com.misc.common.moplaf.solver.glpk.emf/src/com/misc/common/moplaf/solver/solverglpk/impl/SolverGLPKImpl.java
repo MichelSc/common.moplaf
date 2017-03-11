@@ -804,7 +804,11 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		String varname = var.getCode();
 		GLPK.glp_set_col_name(this.lp, varnumber, varname);
 		GLPK.glp_set_col_kind(this.lp, varnumber, kind);
-		GLPK.glp_set_col_bnds(this.lp, varnumber, GLPKConstants.GLP_DB, lb, ub); 
+		if ( lb == ub ){
+			GLPK.glp_set_col_bnds(this.lp, varnumber, GLPKConstants.GLP_FX, lb, ub); // Fixed variable
+		} else {
+			GLPK.glp_set_col_bnds(this.lp, varnumber, GLPKConstants.GLP_DB, lb, ub); // Double-bounded variable
+		}
 	}
 
 	/**
@@ -1181,7 +1185,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 	static String format_intopt_rc(int rc){
 		String rcstring = "";
 		if      ( rc == 0                        )  { rcstring = "IntOpt_RC_Zero" ; } 
-		else if ( rc == GLPKConstants.GLP_EBOUND )  { rcstring = "IntOpt_RC_GLP_EBOUND"; }
+		else if ( rc == GLPKConstants.GLP_EBOUND )  { rcstring = "IntOpt_RC_GLP_EBOUND"; } //  Unable to start the search, because some double-bounded variables have incorrect bounds or some integer variables have non-integer (fractional) bounds.
 		else if ( rc == GLPKConstants.GLP_EROOT )   { rcstring = "IntOpt_RC_GLP_EROOT"; }
 		else if ( rc == GLPKConstants.GLP_ENOPFS )  { rcstring = "IntOpt_RC_GLP_ENOPFS"; }
 		else if ( rc == GLPKConstants.GLP_ENODFS )  { rcstring = "IntOpt_RC_GLP_ENODFS"; }
