@@ -969,6 +969,10 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		GlpkCallback.removeListener(listener);
 		//Number objective = result.getObjective();
 		
+		if ( rc == GLPKConstants.GLP_EBOUND ) { 
+			new ReturnFeedback(false, "SolverGLPK.terminated with GLP_EBOUND: vars with incorrect bounds");
+		}
+
 		this.onSolvingEnd();
 		
 		// do something with the solution
@@ -979,9 +983,12 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		float   mipgap   = 0.0f;
 
 		int mipstatus = GLPK.glp_mip_status(lp);
-		if      ( mipstatus == GLPKConstants.GLP_OPT)    { optimal = true; feasible = true; }
+		if      ( rc == GLPKConstants.GLP_ENOPFS )       { unfeasible = true; }
+		else if ( rc == GLPKConstants.GLP_ENODFS )       { unfeasible = true; }
+		else if ( mipstatus == GLPKConstants.GLP_OPT)    { optimal = true; feasible = true; }
 		else if ( mipstatus == GLPKConstants.GLP_FEAS)   { feasible = true; }
 		else if ( mipstatus == GLPKConstants.GLP_NOFEAS) { unfeasible = true; }
+		
 		if ( feasible || this.isSolverLinearRelaxation()) {
 			// get the solution values
 			mipvalue = (float)GLPK.glp_mip_obj_val(lp);
@@ -1185,9 +1192,17 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 	static String format_intopt_rc(int rc){
 		String rcstring = "";
 		if      ( rc == 0                        )  { rcstring = "IntOpt_RC_Zero" ; } 
-		else if ( rc == GLPKConstants.GLP_EBOUND )  { rcstring = "IntOpt_RC_GLP_EBOUND"; } //  Unable to start the search, because some double-bounded variables have incorrect bounds or some integer variables have non-integer (fractional) bounds.
+		else if ( rc == GLPKConstants.GLP_EBOUND )  {
+			//  Unable to start the search, because some double-bounded variables have incorrect bounds 
+			// or some integer variables have non-integer (fractional) bounds.
+			rcstring = "IntOpt_RC_GLP_EBOUND"; 
+			} 
 		else if ( rc == GLPKConstants.GLP_EROOT )   { rcstring = "IntOpt_RC_GLP_EROOT"; }
-		else if ( rc == GLPKConstants.GLP_ENOPFS )  { rcstring = "IntOpt_RC_GLP_ENOPFS"; }
+		else if ( rc == GLPKConstants.GLP_ENOPFS )  {
+			// Unable to start the search, because LP relaxation of the MIP problem instance has
+			// no primal feasible solution. (This code may appear only if the presolver is enabled.)
+			rcstring = "IntOpt_RC_GLP_ENOPFS"; 
+			}
 		else if ( rc == GLPKConstants.GLP_ENODFS )  { rcstring = "IntOpt_RC_GLP_ENODFS"; }
 		else if ( rc == GLPKConstants.GLP_EFAIL )   { rcstring = "IntOpt_RC_GLP_EFAIL"; }
 		else if ( rc == GLPKConstants.GLP_EMIPGAP ) { rcstring = "IntOpt_RC_GLP_EMIPGAP"; }

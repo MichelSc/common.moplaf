@@ -482,9 +482,11 @@ public class LPSupplyBucketImpl extends LPTimeBucketImpl implements LPSupplyBuck
 		{
 		LPSupply lp_supply = this.getSupply();
 		Supply supply = lp_supply.getSupply();
-		float ub = supply.getQuantity()*this.getFraction();
+		float quantity_suppllied = supply.getQuantity()*this.getFraction();
+		float lb = supply.isEnforce() ? quantity_suppllied : 0.0f;
+		float ub = quantity_suppllied;
 		
-		GeneratorLpVar var = Util.createGeneratorLpVarRealPositiveBounded("supplied", ub);
+		GeneratorLpVar var = Util.createGeneratorLpVarReal("supplied", lb, ub);
 		this.setSupplied(var);  // owning
 		}
 	}
