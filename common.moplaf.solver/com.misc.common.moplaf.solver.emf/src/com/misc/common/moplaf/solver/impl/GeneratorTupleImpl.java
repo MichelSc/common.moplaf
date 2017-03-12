@@ -2,6 +2,8 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
+
+import com.misc.common.moplaf.common.util.EObjectListDerived;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorCons;
 import com.misc.common.moplaf.solver.GeneratorTuple;
@@ -18,7 +20,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -128,7 +129,7 @@ public abstract class GeneratorTupleImpl extends GeneratorElementImpl implements
 		// Ensure that you remove @generated or mark it @generated NOT
 		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
 		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-		EObjectEList<GeneratorTuple> newList = new EObjectEList<GeneratorTuple>(GeneratorTuple.class, this, SolverPackage.GENERATOR_TUPLE__TUPLE_ELEMENT);
+		EObjectListDerived<GeneratorTuple> newList = new EObjectListDerived<GeneratorTuple>(GeneratorTuple.class, this, SolverPackage.GENERATOR_TUPLE__TUPLE_ELEMENT, true);
 		for ( EObject object : this.eContents()){
 			if ( object instanceof GeneratorTuple){
 				GeneratorTuple tuple = (GeneratorTuple)object;
@@ -169,7 +170,7 @@ public abstract class GeneratorTupleImpl extends GeneratorElementImpl implements
 		// Ensure that you remove @generated or mark it @generated NOT
 		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
 		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-		EList<GeneratorVar> newList = new EObjectEList<GeneratorVar>(GeneratorVar.class, this, SolverPackage.GENERATOR_TUPLE__VAR);
+		EList<GeneratorVar> newList = new EObjectListDerived<GeneratorVar>(GeneratorVar.class, this, SolverPackage.GENERATOR_TUPLE__VAR, true);
 		for ( EObject element : this.eContents()){
 			if ( element instanceof GeneratorVar){
 				GeneratorVar var = (GeneratorVar)element;
@@ -188,7 +189,7 @@ public abstract class GeneratorTupleImpl extends GeneratorElementImpl implements
 		// Ensure that you remove @generated or mark it @generated NOT
 		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
 		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-		EList<GeneratorCons> newList = new EObjectEList<GeneratorCons>(GeneratorCons.class, this, SolverPackage.GENERATOR_TUPLE__CONS);
+		EList<GeneratorCons> newList = new EObjectListDerived<GeneratorCons>(GeneratorCons.class, this, SolverPackage.GENERATOR_TUPLE__CONS, true);
 		for ( EObject element : this.eContents()){
 			if ( element instanceof GeneratorCons){
 				GeneratorCons cons = (GeneratorCons)element;
@@ -229,7 +230,9 @@ public abstract class GeneratorTupleImpl extends GeneratorElementImpl implements
 	 * <!-- end-user-doc -->
 	 */
 	public EList<GeneratorTupleMember> getMembers() {
-		EList<GeneratorTupleMember> newList = new EObjectEList<GeneratorTupleMember>(GeneratorTupleMember.class, this, SolverPackage.GENERATOR_TUPLE__MEMBERS);
+		EList<GeneratorTupleMember> newList = new EObjectListDerived<GeneratorTupleMember>(GeneratorTupleMember.class, 
+				                                                                           this, 
+				                                                                           SolverPackage.GENERATOR_TUPLE__MEMBERS,true);
 		for ( EObject element : this.eContents()){
 			if ( element instanceof GeneratorTupleMember){
 				GeneratorTupleMember cons = (GeneratorTupleMember)element;

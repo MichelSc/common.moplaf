@@ -2,6 +2,8 @@
  */
 package com.misc.common.moplaf.propagator2.impl;
 
+
+import com.misc.common.moplaf.common.util.EObjectListDerived;
 import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
 import com.misc.common.moplaf.propagator2.PropagatorFunction;
 import com.misc.common.moplaf.propagator2.PropagatorFunctionBindings;
@@ -17,7 +19,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.function.Predicate;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.util.EObjectEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -119,13 +120,10 @@ public class PropagatorFunctionBindingsImpl extends PropagatorFunctionImpl imple
 		// Ensure that you remove @generated or mark it @generated NOT
 		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
 		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-		EList<PropagatorFunction> antecedents = new EObjectEList<PropagatorFunction>(PropagatorFunction.class, this, PropagatorPackage.PROPAGATOR_FUNCTION__ANTECEDENTS){
-
-			@Override
-			protected boolean isNotificationRequired() {
-				return false;
-			}
-		};
+		EList<PropagatorFunction> antecedents = new EObjectListDerived<PropagatorFunction>(PropagatorFunction.class, 
+				                                                                           this, 
+				                                                                           PropagatorPackage.PROPAGATOR_FUNCTION__ANTECEDENTS, 
+				                                                                           true); // skip notifications
 		
 		this.collectAntecedents_prvt(antecedents, null);
 		
@@ -149,13 +147,10 @@ public class PropagatorFunctionBindingsImpl extends PropagatorFunctionImpl imple
 		// Ensure that you remove @generated or mark it @generated NOT
 		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
 		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-		EList<PropagatorFunction> antecedents = new EObjectEList<PropagatorFunction>(PropagatorFunction.class, this, PropagatorPackage.PROPAGATOR_FUNCTION__ANTECEDENTS_SIBLING){
-
-			@Override
-			protected boolean isNotificationRequired() {
-				return false;
-			}
-		};
+		EList<PropagatorFunction> antecedents = new EObjectListDerived<PropagatorFunction>(PropagatorFunction.class, 
+				                                                                           this, 
+				                                                                           PropagatorPackage.PROPAGATOR_FUNCTION__ANTECEDENTS_SIBLING,
+				                                                                           true);  // skip notifications
 		
 		this.collectAntecedents_prvt(antecedents, new IsSiblingPredicate());
 		
