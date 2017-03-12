@@ -426,6 +426,17 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public String getContent() {
+		String content = String.format("reser: %10.2f",
+				                       this.getReserved().getSelectedSolutionValue());
+		return content;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
