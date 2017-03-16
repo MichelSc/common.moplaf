@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.solver.impl;
 
 import com.misc.common.moplaf.common.ReturnFeedback;
+import com.misc.common.moplaf.common.util.EObjectListDerived;
 import com.misc.common.moplaf.job.RunContext;
 import com.misc.common.moplaf.job.impl.RunImpl;
 import com.misc.common.moplaf.solver.Generator;
@@ -30,7 +31,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
-import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -269,7 +269,7 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 		// Ensure that you remove @generated or mark it @generated NOT
 		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
 		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-		EList<GeneratorTuple> newList = new EObjectEList<GeneratorTuple>(GeneratorTuple.class, this, SolverPackage.GENERATOR__TUPLE_ROOT);
+		EList<GeneratorTuple> newList = new EObjectListDerived<GeneratorTuple>(GeneratorTuple.class, this, SolverPackage.GENERATOR__TUPLE_ROOT);
 		for ( EObject element : this.eContents()){
 			if ( element instanceof GeneratorTuple){
 				GeneratorTuple tuple= (GeneratorTuple)element;
@@ -521,7 +521,7 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 		// Ensure that you remove @generated or mark it @generated NOT
 		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
 		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-		EList<SolutionProvider> newList = new EObjectEList<SolutionProvider>(SolutionProvider.class, this, SolverPackage.GENERATOR__SOLUTION_PROVIDER);
+		EList<SolutionProvider> newList = new EObjectListDerived<SolutionProvider>(SolutionProvider.class, this, SolverPackage.GENERATOR__SOLUTION_PROVIDER);
 		for ( EObject element : this.eContents()){
 			if ( element instanceof SolutionProvider){
 				SolutionProvider solutionProvider = (SolutionProvider)element;
@@ -586,7 +586,7 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 		// Ensure that you remove @generated or mark it @generated NOT
 		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
 		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-		EList<GeneratorGoal> newList = new EObjectEList<GeneratorGoal>(GeneratorGoal.class, this, SolverPackage.GENERATOR__GOALS);
+		EList<GeneratorGoal> newList = new EObjectListDerived<GeneratorGoal>(GeneratorGoal.class, this, SolverPackage.GENERATOR__GOALS);
 		for ( EObject element : this.eContents()){
 			if ( element instanceof GeneratorGoal){
 				GeneratorGoal goal= (GeneratorGoal)element;
