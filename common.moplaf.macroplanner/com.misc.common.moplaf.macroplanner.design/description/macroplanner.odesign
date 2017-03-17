@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="macroplanner" version="11.1.1.201610211630">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" name="macroplanner" version="11.1.1.201610211630">
   <ownedViewpoints name="macroplanner.buckets" label="MacroPlanner Buckets">
     <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="macroplanner.buckets.lp" label="MacroPlanner LP" domainClass="http://www.misc.com/common/moplaf/macroplanner/solver/model/0.1#//LPMacroPlanner">
       <metamodel href="../../com.misc.common.moplaf.macroplanner.solver.emf/model/MacroPlannerSolver.ecore#/"/>
@@ -11,32 +11,8 @@
       </ownedLineMappings>
       <ownedColumnMappings name="macroplanner.buckets.lp.bucket" label="MacroPlanner TimeBucket" headerLabelExpression="aql:self.BucketNr" domainClass="http://www.misc.com/common/moplaf/time/discrete/model/0.1#//TimeBucket"/>
       <intersection name="macroplanner.buckets.lp.productbucket" label="MacroPlanner ProductBucket" canEdit="true" lineMapping="//@ownedViewpoints[name='macroplanner.buckets']/@ownedRepresentations[name='macroplanner.buckets.lp']/@ownedLineMappings[name='macroplanner.buckets.lp.products']/@ownedSubLines[name='macroplanner.buckets.lp.product']" columnMapping="//@ownedViewpoints[name='macroplanner.buckets']/@ownedRepresentations[name='macroplanner.buckets.lp']/@ownedColumnMappings.0" labelExpression="aql:self.Content" useDomainClass="true" columnFinderExpression="aql:self.Bucket" lineFinderExpression="aql:self.eContainer()" semanticCandidatesExpression="aql:self.ProductSet.Products.LPBuckets" domainClass="http://www.misc.com/common/moplaf/macroplanner/solver/model/0.1#//LPProductBucket"/>
-      <intersection name="macroplanner.buckets.lp.resourcebucket" label="MacroPlanner ResourceBucket" lineMapping="//@ownedViewpoints[name='macroplanner.buckets']/@ownedRepresentations[name='macroplanner.buckets.lp']/@ownedLineMappings[name='macroplanner.buckets.lp.resources']/@ownedSubLines[name='macroplanner.buckets.lp.resource']" columnMapping="//@ownedViewpoints[name='macroplanner.buckets']/@ownedRepresentations[name='macroplanner.buckets.lp']/@ownedColumnMappings.0" labelExpression="aql:self.Content" useDomainClass="true" columnFinderExpression="aql:self.Bucket" lineFinderExpression="aql:self.eContainer()" semanticCandidatesExpression="aql:self.ResourceSet.Resources.LPBuckets" domainClass="http://www.misc.com/common/moplaf/macroplanner/solver/model/0.1#//LPResourceBucket">
-        <create>
-          <variables name="lineSemantic" documentation="The semantic element corresponding to the line."/>
-          <variables name="columnSemantic" documentation="The semantic element corresponding to the column."/>
-          <variables name="root" documentation="The semantic root element of the table."/>
-          <firstModelOperation xsi:type="tool:ExternalJavaActionCall"/>
-          <mask mask="{0}"/>
-        </create>
-      </intersection>
+      <intersection name="macroplanner.buckets.lp.resourcebucket" label="MacroPlanner ResourceBucket" lineMapping="//@ownedViewpoints[name='macroplanner.buckets']/@ownedRepresentations[name='macroplanner.buckets.lp']/@ownedLineMappings[name='macroplanner.buckets.lp.resources']/@ownedSubLines[name='macroplanner.buckets.lp.resource']" columnMapping="//@ownedViewpoints[name='macroplanner.buckets']/@ownedRepresentations[name='macroplanner.buckets.lp']/@ownedColumnMappings.0" labelExpression="aql:self.Content" useDomainClass="true" columnFinderExpression="aql:self.Bucket" lineFinderExpression="aql:self.eContainer()" semanticCandidatesExpression="aql:self.ResourceSet.Resources.LPBuckets" domainClass="http://www.misc.com/common/moplaf/macroplanner/solver/model/0.1#//LPResourceBucket"/>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="com.misc.common.moplaf.macroplanner.design.Services"/>
-  </ownedViewpoints>
-  <ownedViewpoints name="playground">
-    <ownedRepresentations xsi:type="description_2:DiagramDescription" enablePopupBars="true">
-      <defaultLayer name="Default">
-        <toolSections>
-          <ownedTools xsi:type="tool:PopupMenu">
-            <menuItemDescription xsi:type="tool:OperationAction">
-              <view name="views"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool:ExternalJavaActionCall"/>
-              </initialOperation>
-            </menuItemDescription>
-          </ownedTools>
-        </toolSections>
-      </defaultLayer>
-    </ownedRepresentations>
   </ownedViewpoints>
 </description:Group>
