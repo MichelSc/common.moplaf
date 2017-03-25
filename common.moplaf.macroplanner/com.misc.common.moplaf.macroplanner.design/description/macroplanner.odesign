@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" name="macroplanner" version="11.1.1.201610211630">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="macroplanner" version="11.1.1.201610211630">
   <ownedViewpoints name="macroplanner.buckets" label="MacroPlanner Buckets">
     <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="macroplanner.buckets.lp" label="MacroPlanner LP" domainClass="http://www.misc.com/common/moplaf/macroplanner/solver/model/0.1#//LPMacroPlanner">
       <metamodel href="../../com.misc.common.moplaf.macroplanner.solver.emf/model/MacroPlannerSolver.ecore#/"/>
@@ -14,5 +14,48 @@
       <intersection name="macroplanner.buckets.lp.resourcebucket" label="MacroPlanner ResourceBucket" lineMapping="//@ownedViewpoints[name='macroplanner.buckets']/@ownedRepresentations[name='macroplanner.buckets.lp']/@ownedLineMappings[name='macroplanner.buckets.lp.resources']/@ownedSubLines[name='macroplanner.buckets.lp.resource']" columnMapping="//@ownedViewpoints[name='macroplanner.buckets']/@ownedRepresentations[name='macroplanner.buckets.lp']/@ownedColumnMappings.0" labelExpression="aql:self.Content" useDomainClass="true" columnFinderExpression="aql:self.Bucket" lineFinderExpression="aql:self.eContainer()" semanticCandidatesExpression="aql:self.ResourceSet.Resources.LPBuckets" domainClass="http://www.misc.com/common/moplaf/macroplanner/solver/model/0.1#//LPResourceBucket"/>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="com.misc.common.moplaf.macroplanner.design.Services"/>
+  </ownedViewpoints>
+  <ownedViewpoints name="macroplanner.supplychain" label="MacroPlanner SupplyChain">
+    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="macroplanner.supplychain.routings" label="MacroPlanner Routing" domainClass="http://www.misc.com/common/moplaf/macroplanner/model/0.1#//SupplyChainRoutings" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="macroplanner.supplychain.locationproduct" label="MacroPlanner LocationProduct" domainClass="http://www.misc.com/common/moplaf/macroplanner/model/0.1#//LocationProduct">
+          <style xsi:type="style:DotDescription" showIcon="false" labelExpression="feature:Code">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="macroplanner.supplychain.locationresource" label="MacroPlanner LocationResource" domainClass="http://www.misc.com/common/moplaf/macroplanner/model/0.1#//LocationResource">
+          <style xsi:type="style:DotDescription" showIcon="false" labelExpression="feature:Code">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="macroplanner.supplychain.routing" label="MacroPlanner Routing" domainClass="http://www.misc.com/common/moplaf/macroplanner/model/0.1#//Routing">
+          <style xsi:type="style:LozengeNodeDescription" showIcon="false" labelExpression="feature:Code">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="macroplanner.supplychain.routingproduct.consumption" label="MacroPlanner Routing Product Consumption" preconditionExpression="aql:self.Consumption>0" sourceMapping="//@ownedViewpoints[name='macroplanner.supplychain']/@ownedRepresentations[name='macroplanner.supplychain.routings']/@defaultLayer/@nodeMappings[name='macroplanner.supplychain.routing']" targetMapping="//@ownedViewpoints[name='macroplanner.supplychain']/@ownedRepresentations[name='macroplanner.supplychain.routings']/@defaultLayer/@nodeMappings[name='macroplanner.supplychain.locationproduct']" targetFinderExpression="aql:self.LocationProduct" sourceFinderExpression="aql:self.Routing" domainClass="http://www.misc.com/common/moplaf/macroplanner/model/0.1#//RoutingProduct" useDomainElement="true">
+          <style sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="2" endsCentering="Both">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="macroplanner.supplychain.routingproduct.production" label="MacroPlanner Routing Product Production" preconditionExpression="aql:self.Consumption&lt;0" sourceMapping="//@ownedViewpoints[name='macroplanner.supplychain']/@ownedRepresentations[name='macroplanner.supplychain.routings']/@defaultLayer/@nodeMappings[name='macroplanner.supplychain.routing']" targetMapping="//@ownedViewpoints[name='macroplanner.supplychain']/@ownedRepresentations[name='macroplanner.supplychain.routings']/@defaultLayer/@nodeMappings[name='macroplanner.supplychain.locationproduct']" targetFinderExpression="aql:self.LocationProduct" sourceFinderExpression="aql:self.Routing" domainClass="http://www.misc.com/common/moplaf/macroplanner/model/0.1#//RoutingProduct" useDomainElement="true">
+          <style sizeComputationExpression="2" endsCentering="Both">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+      </defaultLayer>
+    </ownedRepresentations>
   </ownedViewpoints>
 </description:Group>
