@@ -63,12 +63,12 @@ public interface RoutingResource extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Reservation</em>' attribute.
-	 * @see #setReservation(float)
+	 * @see #setReservation(double)
 	 * @see com.misc.common.moplaf.macroplanner.MacroPlannerPackage#getRoutingResource_Reservation()
 	 * @model default="0.0"
 	 * @generated
 	 */
-	float getReservation();
+	double getReservation();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.macroplanner.RoutingResource#getReservation <em>Reservation</em>}' attribute.
@@ -78,7 +78,7 @@ public interface RoutingResource extends EObject {
 	 * @see #getReservation()
 	 * @generated
 	 */
-	void setReservation(float value);
+	void setReservation(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Offset</b></em>' attribute.

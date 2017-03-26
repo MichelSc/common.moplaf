@@ -53,7 +53,7 @@ public class RoutingResourceImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float RESERVATION_EDEFAULT = 0.0F;
+	protected static final double RESERVATION_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getReservation() <em>Reservation</em>}' attribute.
@@ -63,7 +63,7 @@ public class RoutingResourceImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 * @ordered
 	 */
-	protected float reservation = RESERVATION_EDEFAULT;
+	protected double reservation = RESERVATION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getOffset() <em>Offset</em>}' attribute.
@@ -160,7 +160,7 @@ public class RoutingResourceImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getReservation() {
+	public double getReservation() {
 		return reservation;
 	}
 
@@ -169,8 +169,8 @@ public class RoutingResourceImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setReservation(float newReservation) {
-		float oldReservation = reservation;
+	public void setReservation(double newReservation) {
+		double oldReservation = reservation;
 		reservation = newReservation;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MacroPlannerPackage.ROUTING_RESOURCE__RESERVATION, oldReservation, reservation));
@@ -328,7 +328,7 @@ public class RoutingResourceImpl extends MinimalEObjectImpl.Container implements
 				setLocationResource((LocationResource)newValue);
 				return;
 			case MacroPlannerPackage.ROUTING_RESOURCE__RESERVATION:
-				setReservation((Float)newValue);
+				setReservation((Double)newValue);
 				return;
 			case MacroPlannerPackage.ROUTING_RESOURCE__OFFSET:
 				setOffset((Float)newValue);

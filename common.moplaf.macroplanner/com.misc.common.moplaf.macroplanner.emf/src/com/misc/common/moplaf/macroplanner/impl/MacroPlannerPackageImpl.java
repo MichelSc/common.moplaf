@@ -1312,13 +1312,13 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 		initEReference(getRoutingProduct_Routing(), this.getRouting(), this.getRouting_Products(), "Routing", null, 1, 1, RoutingProduct.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRoutingProduct_LocationProduct(), this.getLocationProduct(), null, "LocationProduct", null, 1, 1, RoutingProduct.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRoutingProduct_Code(), ecorePackage.getEString(), "Code", null, 0, 1, RoutingProduct.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRoutingProduct_Consumption(), ecorePackage.getEFloat(), "Consumption", null, 0, 1, RoutingProduct.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRoutingProduct_Consumption(), ecorePackage.getEDouble(), "Consumption", null, 0, 1, RoutingProduct.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRoutingProduct_Offset(), ecorePackage.getEFloat(), "Offset", null, 0, 1, RoutingProduct.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(routingResourceEClass, RoutingResource.class, "RoutingResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRoutingResource_Routing(), this.getRouting(), this.getRouting_Resources(), "Routing", null, 1, 1, RoutingResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRoutingResource_LocationResource(), this.getLocationResource(), null, "LocationResource", null, 0, 1, RoutingResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRoutingResource_Reservation(), ecorePackage.getEFloat(), "Reservation", "0.0", 0, 1, RoutingResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRoutingResource_Reservation(), ecorePackage.getEDouble(), "Reservation", "0.0", 0, 1, RoutingResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRoutingResource_Offset(), ecorePackage.getEFloat(), "Offset", null, 0, 1, RoutingResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRoutingResource_Code(), ecorePackage.getEString(), "Code", null, 0, 1, RoutingResource.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 

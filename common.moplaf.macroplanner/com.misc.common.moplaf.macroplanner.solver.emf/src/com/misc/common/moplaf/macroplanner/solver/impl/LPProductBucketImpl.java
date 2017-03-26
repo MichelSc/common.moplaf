@@ -883,7 +883,7 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 			LPRoutingProduct lp_routing_product = lp_product_bucket_consumed.getRoutingProduct();
 			RoutingProduct routing_product = lp_routing_product.getRoutingProduct();
 			GeneratorLpVar var_routing_planned = lp_routing_bucket.getPlanned();
-			cons.contributeTerm(var_routing_planned, -routing_product.getConsumption()); // a routing may contribute several times to the same product bucket
+			cons.contributeTerm(var_routing_planned, (float)-routing_product.getConsumption()); // a routing may contribute several times to the same product bucket
 		} // 
 		cons.setRighHandSide(rhs);
 		this.setCalcConsumed(cons); // owning

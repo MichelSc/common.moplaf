@@ -63,7 +63,7 @@ public class RoutingProductImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float CONSUMPTION_EDEFAULT = 0.0F;
+	protected static final double CONSUMPTION_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getConsumption() <em>Consumption</em>}' attribute.
@@ -73,7 +73,7 @@ public class RoutingProductImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected float consumption = CONSUMPTION_EDEFAULT;
+	protected double consumption = CONSUMPTION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getOffset() <em>Offset</em>}' attribute.
@@ -160,7 +160,7 @@ public class RoutingProductImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getConsumption() {
+	public double getConsumption() {
 		return consumption;
 	}
 
@@ -169,8 +169,8 @@ public class RoutingProductImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setConsumption(float newConsumption) {
-		float oldConsumption = consumption;
+	public void setConsumption(double newConsumption) {
+		double oldConsumption = consumption;
 		consumption = newConsumption;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MacroPlannerPackage.ROUTING_PRODUCT__CONSUMPTION, oldConsumption, consumption));
@@ -328,7 +328,7 @@ public class RoutingProductImpl extends MinimalEObjectImpl.Container implements 
 				setLocationProduct((LocationProduct)newValue);
 				return;
 			case MacroPlannerPackage.ROUTING_PRODUCT__CONSUMPTION:
-				setConsumption((Float)newValue);
+				setConsumption((Double)newValue);
 				return;
 			case MacroPlannerPackage.ROUTING_PRODUCT__OFFSET:
 				setOffset((Float)newValue);

@@ -717,7 +717,7 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 			LPRoutingResource lp_routing_resource = lp_resource_bucket_planned.getRoutingResource();
 			RoutingResource routing_resource = lp_routing_resource.getRoutingResource();
 			GeneratorLpVar var_routing_planned = lp_routing_bucket.getPlanned();
-			cons.contributeTerm(var_routing_planned, -routing_resource.getReservation()); // a routing may contribute several times to the same resource bucket
+			cons.contributeTerm(var_routing_planned, (float)-routing_resource.getReservation()); // a routing may contribute several times to the same resource bucket
 		} // 
 		cons.setRighHandSide(rhs);
 		this.setCalcPlanned(cons); // owning

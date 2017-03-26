@@ -9,7 +9,9 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
  org.eclipse.sirius,
- org.eclipse.sirius.common.acceleo.aql
+ org.eclipse.sirius.common.acceleo.aql,
+ com.misc.common.moplaf.macroplanner.emf;bundle-version="0.1.0",
+ com.misc.common.moplaf.macroplanner.solver.emf;bundle-version="0.1.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Vendor: %providerName

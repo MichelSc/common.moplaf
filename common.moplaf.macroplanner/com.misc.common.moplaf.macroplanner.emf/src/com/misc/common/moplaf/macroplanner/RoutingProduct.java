@@ -62,12 +62,12 @@ public interface RoutingProduct extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Consumption</em>' attribute.
-	 * @see #setConsumption(float)
+	 * @see #setConsumption(double)
 	 * @see com.misc.common.moplaf.macroplanner.MacroPlannerPackage#getRoutingProduct_Consumption()
 	 * @model
 	 * @generated
 	 */
-	float getConsumption();
+	double getConsumption();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.macroplanner.RoutingProduct#getConsumption <em>Consumption</em>}' attribute.
@@ -77,7 +77,7 @@ public interface RoutingProduct extends EObject {
 	 * @see #getConsumption()
 	 * @generated
 	 */
-	void setConsumption(float value);
+	void setConsumption(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Offset</b></em>' attribute.
