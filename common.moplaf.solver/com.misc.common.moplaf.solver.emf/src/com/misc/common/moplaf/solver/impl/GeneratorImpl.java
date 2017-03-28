@@ -279,7 +279,7 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 		// Ensure that you remove @generated or mark it @generated NOT
 		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
 		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-		EList<GeneratorTuple> newList = new EObjectListDerived<GeneratorTuple>(GeneratorTuple.class, this, SolverPackage.GENERATOR__TUPLE_ROOT);
+		EList<GeneratorTuple> newList = new EObjectListDerived<GeneratorTuple>(GeneratorTuple.class, this, SolverPackage.GENERATOR__TUPLE_ROOT, true);
 		for ( EObject element : this.eContents()){
 			if ( element instanceof GeneratorTuple){
 				GeneratorTuple tuple= (GeneratorTuple)element;
@@ -531,7 +531,7 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 		// Ensure that you remove @generated or mark it @generated NOT
 		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
 		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-		EList<SolutionProvider> newList = new EObjectListDerived<SolutionProvider>(SolutionProvider.class, this, SolverPackage.GENERATOR__SOLUTION_PROVIDER);
+		EList<SolutionProvider> newList = new EObjectListDerived<SolutionProvider>(SolutionProvider.class, this, SolverPackage.GENERATOR__SOLUTION_PROVIDER, true);
 		for ( EObject element : this.eContents()){
 			if ( element instanceof SolutionProvider){
 				SolutionProvider solutionProvider = (SolutionProvider)element;
@@ -596,7 +596,7 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 		// Ensure that you remove @generated or mark it @generated NOT
 		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
 		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
-		EList<GeneratorGoal> newList = new EObjectListDerived<GeneratorGoal>(GeneratorGoal.class, this, SolverPackage.GENERATOR__GOALS);
+		EList<GeneratorGoal> newList = new EObjectListDerived<GeneratorGoal>(GeneratorGoal.class, this, SolverPackage.GENERATOR__GOALS, true);
 		for ( EObject element : this.eContents()){
 			if ( element instanceof GeneratorGoal){
 				GeneratorGoal goal= (GeneratorGoal)element;

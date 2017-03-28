@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="macroplanner" version="11.1.1.201610211630">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="macroplanner" version="11.1.1.201610211630">
   <ownedViewpoints name="macroplanner.buckets" label="MacroPlanner Buckets">
     <ownedRepresentations xsi:type="description_1:CrossTableDescription" name="macroplanner.buckets.lp" label="MacroPlanner LP" domainClass="http://www.misc.com/common/moplaf/macroplanner/solver/model/0.1#//LPMacroPlanner">
       <metamodel href="../../com.misc.common.moplaf.macroplanner.solver.emf/model/MacroPlannerSolver.ecore#/"/>
@@ -64,6 +64,21 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
+        <toolSections name="macroplanner.supplychain.routingresource.tools" label="Supply chain diagram tools">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="macroplanner.supplychain.routingresource.tool.routingproduct" label="Create Routing Product" edgeMappings="//@ownedViewpoints[name='macroplanner.supplychain']/@ownedRepresentations[name='macroplanner.supplychain.routings']/@defaultLayer/@edgeMappings[name='macroplanner.supplychain.routingproduct.consumption']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="http://www.misc.com/common/moplaf/macroplanner/model/0.1#//RoutingProduct" referenceName="Products">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="RoutingProduct" valueExpression="aql:target"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
       </defaultLayer>
     </ownedRepresentations>
   </ownedViewpoints>
