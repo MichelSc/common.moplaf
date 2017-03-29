@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
+import com.misc.common.moplaf.common.util.EObjectListDerived;
 import com.misc.common.moplaf.solver.GeneratorCons;
 import com.misc.common.moplaf.solver.GeneratorGoal;
 import com.misc.common.moplaf.solver.GeneratorVar;
@@ -37,7 +38,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -245,7 +245,7 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	 * <!-- end-user-doc -->
 	 */
 	public EList<SolutionVar> getVars() {
-		EObjectEList<SolutionVar> newList = new EObjectEList<SolutionVar>(SolutionVar.class, this, SolverPackage.SOLUTION__VARS);
+		EObjectListDerived<SolutionVar> newList = new EObjectListDerived<SolutionVar>(SolutionVar.class, this, SolverPackage.SOLUTION__VARS, true);
 		for ( EObject object : this.eContents()){
 			if ( object instanceof SolutionVar){
 				SolutionVar var= (SolutionVar)object;
@@ -260,7 +260,7 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	 * <!-- end-user-doc -->
 	 */
 	public EList<SolutionCons> getCons() {
-		EObjectEList<SolutionCons> newList = new EObjectEList<SolutionCons>(SolutionCons.class, this, SolverPackage.SOLUTION__CONS);
+		EObjectListDerived<SolutionCons> newList = new EObjectListDerived<SolutionCons>(SolutionCons.class, this, SolverPackage.SOLUTION__CONS, true);
 		for ( EObject object : this.eContents()){
 			if ( object instanceof SolutionCons){
 				SolutionCons cons= (SolutionCons)object;
@@ -275,7 +275,7 @@ public class SolutionImpl extends MinimalEObjectImpl.Container implements Soluti
 	 * <!-- end-user-doc -->
 	 */
 	public EList<SolutionGoal> getGoals() {
-		EObjectEList<SolutionGoal> newList = new EObjectEList<SolutionGoal>(SolutionGoal.class, this, SolverPackage.SOLUTION__GOALS);
+		EObjectListDerived<SolutionGoal> newList = new EObjectListDerived<SolutionGoal>(SolutionGoal.class, this, SolverPackage.SOLUTION__GOALS, true);
 		for ( EObject object : this.eContents()){
 			if ( object instanceof SolutionGoal){
 				SolutionGoal goal = (SolutionGoal)object;

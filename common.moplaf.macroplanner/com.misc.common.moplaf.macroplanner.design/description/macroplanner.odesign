@@ -73,7 +73,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="http://www.misc.com/common/moplaf/macroplanner/model/0.1#//RoutingProduct" referenceName="Products">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="RoutingProduct" valueExpression="aql:target"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="LocationProduct" valueExpression="aql:target"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
