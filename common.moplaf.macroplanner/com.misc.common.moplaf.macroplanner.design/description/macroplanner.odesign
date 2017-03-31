@@ -43,7 +43,7 @@
         <edgeMappings name="macroplanner.supplychain.routingproduct.consumption" label="MacroPlanner Routing Product Consumption" preconditionExpression="aql:self.Consumption >= 0.0" sourceMapping="//@ownedViewpoints[name='macroplanner.supplychain']/@ownedRepresentations[name='macroplanner.supplychain.routings']/@defaultLayer/@nodeMappings[name='macroplanner.supplychain.routing']" targetMapping="//@ownedViewpoints[name='macroplanner.supplychain']/@ownedRepresentations[name='macroplanner.supplychain.routings']/@defaultLayer/@nodeMappings[name='macroplanner.supplychain.locationproduct']" targetFinderExpression="aql:self.LocationProduct" sourceFinderExpression="aql:self.Routing" domainClass="http://www.misc.com/common/moplaf/macroplanner/model/0.1#//RoutingProduct" useDomainElement="true">
           <style sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="2" endsCentering="Both">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription>
+            <centerLabelStyleDescription showIcon="false" labelExpression="aql:self.Consumption">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
@@ -51,7 +51,7 @@
         <edgeMappings name="macroplanner.supplychain.routingproduct.production" label="MacroPlanner Routing Product Production" preconditionExpression="aql:self.Consumption&lt;0.0" sourceMapping="//@ownedViewpoints[name='macroplanner.supplychain']/@ownedRepresentations[name='macroplanner.supplychain.routings']/@defaultLayer/@nodeMappings[name='macroplanner.supplychain.routing']" targetMapping="//@ownedViewpoints[name='macroplanner.supplychain']/@ownedRepresentations[name='macroplanner.supplychain.routings']/@defaultLayer/@nodeMappings[name='macroplanner.supplychain.locationproduct']" targetFinderExpression="aql:self.LocationProduct" sourceFinderExpression="aql:self.Routing" domainClass="http://www.misc.com/common/moplaf/macroplanner/model/0.1#//RoutingProduct" useDomainElement="true">
           <style sizeComputationExpression="2" endsCentering="Both">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription>
+            <centerLabelStyleDescription showIcon="false" labelExpression="aql:-self.Consumption">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
@@ -59,7 +59,7 @@
         <edgeMappings name="macroplanner.supplychain.routingresource.usage" label="MacroPlanner Routing Resource Usage" sourceMapping="//@ownedViewpoints[name='macroplanner.supplychain']/@ownedRepresentations[name='macroplanner.supplychain.routings']/@defaultLayer/@nodeMappings[name='macroplanner.supplychain.routing']" targetMapping="//@ownedViewpoints[name='macroplanner.supplychain']/@ownedRepresentations[name='macroplanner.supplychain.routings']/@defaultLayer/@nodeMappings[name='macroplanner.supplychain.locationresource']" targetFinderExpression="aql:self.LocationResource" sourceFinderExpression="aql:self.Routing" domainClass="http://www.misc.com/common/moplaf/macroplanner/model/0.1#//RoutingResource" useDomainElement="true">
           <style targetArrow="NoDecoration" sizeComputationExpression="2" endsCentering="Both">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription>
+            <centerLabelStyleDescription showIcon="false" labelExpression="aql:self.Reservation">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
@@ -106,8 +106,8 @@
   </ownedViewpoints>
   <extensions xsi:type="properties:ViewExtensionDescription" identifier="org.eclipse.sirius.ui.properties">
     <metamodels href="../../com.misc.common.moplaf.macroplanner.emf/model/MacroPlanner.ecore#/"/>
-    <pages identifier="org.eclipse.sirius.ui.properties.defaultpage" labelExpression="aql:input.emfEditServices(self).getTabName()" semanticCandidateExpression="aql:input.getAllSemanticElements()" groups="//@extensions.0/@groups.0 //@extensions.0/@groups.1"/>
-    <pages identifier="macroplanner.supplychain.properties" labelExpression="MacroPlanner" semanticCandidateExpression="var:self" groups="//@extensions.0/@groups.1"/>
+    <pages identifier="macroplanner.supplychain.properties" labelExpression="MacroPlanner" semanticCandidateExpression="var:self" groups="//@extensions.0/@groups.1 //@extensions.0/@groups.2 //@extensions.0/@groups.3 //@extensions.0/@groups.4 //@extensions.0/@groups.5 //@extensions.0/@groups.6"/>
+    <pages identifier="org.eclipse.sirius.ui.properties.defaultpage" labelExpression="aql:input.emfEditServices(self).getTabName()" semanticCandidateExpression="aql:input.getAllSemanticElements()" groups="//@extensions.0/@groups.0"/>
     <groups identifier="org.eclipse.sirius.ui.properties.defaultgroup" labelExpression="Properties" semanticCandidateExpression="var:self" preconditionExpression="">
       <controls xsi:type="properties:DynamicMappingFor" iterator="eStructuralFeature" iterableExpression="aql:input.emfEditServices(self).getEStructuralFeatures()">
         <ifs predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and not input.emfEditServices(self).isMultiline(eStructuralFeature)">
@@ -169,19 +169,62 @@
     <groups identifier="macroplanner.supplychain.properties.routing" labelExpression="MacroPlanner" domainClass="http://www.misc.com/common/moplaf/macroplanner/model/0.1#//Routing" semanticCandidateExpression="var:self">
       <controls xsi:type="properties:TextDescription" labelExpression="Name" helpExpression="Name provided to the user to recognize a Routing" valueExpression="aql:self.Name">
         <initialOperation>
-          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+            <subModelOperations xsi:type="tool_1:SetValue" featureName="Name" valueExpression="aql:newValue"/>
+          </firstModelOperations>
         </initialOperation>
       </controls>
       <controls xsi:type="properties:TextDescription" labelExpression="Code" helpExpression="Code used by the system for identifying a Routing" valueExpression="aql:self.Code">
         <initialOperation>
-          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+            <subModelOperations xsi:type="tool_1:SetValue" featureName="Code" valueExpression="aql:newValue"/>
+          </firstModelOperations>
         </initialOperation>
       </controls>
       <controls xsi:type="properties:TextDescription" labelExpression="Cost" helpExpression="Cost for planning one unit of Routing (quantity is 1)" valueExpression="aql:self.Cost">
         <initialOperation>
-          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+            <subModelOperations xsi:type="tool_1:SetValue" featureName="Cost" valueExpression="aql:newValue"/>
+          </firstModelOperations>
         </initialOperation>
       </controls>
+    </groups>
+    <groups identifier="macroplanner.supplychain.properties.routingresource" labelExpression="MacroPlanner" domainClass="http://www.misc.com/common/moplaf/macroplanner/model/0.1#//RoutingResource" semanticCandidateExpression="var:self">
+      <controls xsi:type="properties:TextDescription" labelExpression="Reservation" helpExpression="Quantity of resource.time used by one unit of Routing" valueExpression="aql:self.Reservation">
+        <initialOperation>
+          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+            <subModelOperations xsi:type="tool_1:SetValue" featureName="Reservation" valueExpression="aql:newValue"/>
+          </firstModelOperations>
+        </initialOperation>
+      </controls>
+    </groups>
+    <groups identifier="macroplanner.supplychain.properties.routingconsumption" labelExpression="MacroPlanner" domainClass="http://www.misc.com/common/moplaf/macroplanner/model/0.1#//RoutingProduct" semanticCandidateExpression="var:self" preconditionExpression="aql:self.Consumption>=0.0">
+      <controls xsi:type="properties:TextDescription" labelExpression="Consumption" helpExpression="Quantity of product consumed by one unit of Routing" valueExpression="aql:self.Consumption">
+        <initialOperation>
+          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+            <subModelOperations xsi:type="tool_1:SetValue" featureName="Consumption" valueExpression="aql:newValue"/>
+          </firstModelOperations>
+        </initialOperation>
+      </controls>
+    </groups>
+    <groups identifier="macroplanner.supplychain.properties.routingproduction" labelExpression="MacroPlanner" domainClass="http://www.misc.com/common/moplaf/macroplanner/model/0.1#//RoutingProduct" semanticCandidateExpression="var:self" preconditionExpression="aql:self.Consumption&lt;0.0">
+      <controls xsi:type="properties:TextDescription" labelExpression="Production" helpExpression="Quantity of product produced by one unit of Routing" valueExpression="aql:-self.Consumption">
+        <initialOperation>
+          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+            <subModelOperations xsi:type="tool_1:SetValue" featureName="Consumption" valueExpression="aql:newValue.toString().toReal()* -1.0"/>
+          </firstModelOperations>
+        </initialOperation>
+      </controls>
+    </groups>
+    <groups identifier="macroplanner.supplychain.properties.locationproduct" labelExpression="MacroPlanner" domainClass="http://www.misc.com/common/moplaf/macroplanner/model/0.1#//LocationProduct" semanticCandidateExpression="var:self">
+      <controls xsi:type="properties:TextDescription" labelExpression="Code" helpExpression="Code used by the system for identifying a LocationProduct" isEnabledExpression="aql:false" valueExpression="aql:self.Code"/>
+      <controls xsi:type="properties:TextDescription" labelExpression="Location" helpExpression="Location for the Product" isEnabledExpression="aql: false" valueExpression="aql:self.Location.Code"/>
+      <controls xsi:type="properties:TextDescription" labelExpression="Product" helpExpression="Product at the Location" isEnabledExpression="aql: false" valueExpression="aql:self.Product.Code"/>
+    </groups>
+    <groups identifier="macroplanner.supplychain.properties.locationresource" labelExpression="MacroPlanner" domainClass="http://www.misc.com/common/moplaf/macroplanner/model/0.1#//LocationResource" semanticCandidateExpression="var:self">
+      <controls xsi:type="properties:TextDescription" labelExpression="Code" helpExpression="Code used by the system for identifying a LocationResource" isEnabledExpression="aql:false" valueExpression="aql:self.Code"/>
+      <controls xsi:type="properties:TextDescription" labelExpression="Location" helpExpression="Location for the Resource" isEnabledExpression="aql: false" valueExpression="aql:self.Location.Code"/>
+      <controls xsi:type="properties:TextDescription" labelExpression="Resource" helpExpression="Resource at the Location" isEnabledExpression="aql: false" valueExpression="aql:self.Resource.Code"/>
     </groups>
   </extensions>
 </description:Group>
