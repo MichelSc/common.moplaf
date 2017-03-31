@@ -497,48 +497,26 @@ public class DistributionImpl extends ObjectWithPropagatorFunctionsImpl implemen
 		return providedEvents;
 	}
 	
+	/**
+	 * 
+	 * @param millis
+	 * @return
+	 */
 	private float toDuration(long millis){
-		float duration = 0.0f;
-		switch ( this.getTimeUnit()){
-		case DAY :
-			duration = millis/1000.0f/60.0f/60.0f/24.0f;
-			break;
-		case HOUR :
-			duration = millis/1000.0f/60.0f/60.0f;
-			break;
-		case MINUTE :
-			duration = millis/1000.0f/60.0f;
-			break;
-		case SECOND :
-			duration = millis/1000.0f;
-			break;
-		case MILLI :
-			duration = millis;
-			break;
-		}
+		long millisOneUnit = this.getTimeUnit().toMillis();
+		float duration = (float)millis/(float)millisOneUnit;
 		return duration;
 	}
 	
+	/**
+	 * 
+	 * @param duration
+	 * @return
+	 */
 	private long toMillis(float duration){
-		float millis = 0;
-		switch ( this.getTimeUnit()){
-		case DAY :
-			millis = duration*1000.0f*60.0f*60.0f*24.0f;
-			break;
-		case HOUR :
-			millis = duration*1000.0f*60.0f*60.0f;
-			break;
-		case MINUTE :
-			millis = duration*1000.0f*60.0f;
-			break;
-		case SECOND :
-			millis = duration*1000.0f;
-			break;
-		case MILLI :
-			duration = millis;
-			break;
-		}
-		return (long) millis;
+		long millisOneUnit = this.getTimeUnit().toMillis();
+		long toMillis = (long) (duration * millisOneUnit);
+		return toMillis;
 	}
 
 	/**

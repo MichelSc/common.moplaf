@@ -272,6 +272,32 @@ public enum TimeUnit implements Enumerator {
 	public int getValue() {
 	  return value;
 	}
+	
+	/*
+	 * 
+	 */
+	public long toMillis(){
+		long millis = 0;
+		switch ( this){
+		case DAY :
+			millis = 1000*60*60*24;
+			break;
+		case HOUR :
+			millis = 1000*60*60;
+			break;
+		case MINUTE :
+			millis = 1000*60;
+			break;
+		case SECOND :
+			millis = 1000;
+			break;
+		case MILLI :
+			millis = 1;
+			break;
+		}
+		return millis;
+
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
