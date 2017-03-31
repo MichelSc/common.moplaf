@@ -197,6 +197,13 @@
           </firstModelOperations>
         </initialOperation>
       </controls>
+      <controls xsi:type="properties:TextDescription" labelExpression="Offset" helpExpression="Offset in time units between the reservation of the Resource and the planning of the Routing" valueExpression="aql:self.Offset">
+        <initialOperation>
+          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+            <subModelOperations xsi:type="tool_1:SetValue" featureName="Offset" valueExpression="aql:newValue"/>
+          </firstModelOperations>
+        </initialOperation>
+      </controls>
     </groups>
     <groups identifier="macroplanner.supplychain.properties.routingconsumption" labelExpression="MacroPlanner" domainClass="http://www.misc.com/common/moplaf/macroplanner/model/0.1#//RoutingProduct" semanticCandidateExpression="var:self" preconditionExpression="aql:self.Consumption>=0.0">
       <controls xsi:type="properties:TextDescription" labelExpression="Consumption" helpExpression="Quantity of product consumed by one unit of Routing" valueExpression="aql:self.Consumption">
@@ -206,12 +213,26 @@
           </firstModelOperations>
         </initialOperation>
       </controls>
+      <controls xsi:type="properties:TextDescription" labelExpression="Offset" helpExpression="Offset in time units between the consumption of the Product and the planning of the Routing" valueExpression="aql:self.Offset">
+        <initialOperation>
+          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+            <subModelOperations xsi:type="tool_1:SetValue" featureName="Offset" valueExpression="aql:newValue"/>
+          </firstModelOperations>
+        </initialOperation>
+      </controls>
     </groups>
     <groups identifier="macroplanner.supplychain.properties.routingproduction" labelExpression="MacroPlanner" domainClass="http://www.misc.com/common/moplaf/macroplanner/model/0.1#//RoutingProduct" semanticCandidateExpression="var:self" preconditionExpression="aql:self.Consumption&lt;0.0">
       <controls xsi:type="properties:TextDescription" labelExpression="Production" helpExpression="Quantity of product produced by one unit of Routing" valueExpression="aql:-self.Consumption">
         <initialOperation>
           <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
             <subModelOperations xsi:type="tool_1:SetValue" featureName="Consumption" valueExpression="aql:newValue.toString().toReal()* -1.0"/>
+          </firstModelOperations>
+        </initialOperation>
+      </controls>
+      <controls xsi:type="properties:TextDescription" labelExpression="Offset" helpExpression="Offset in time units between the production of the Product and the planning of the Routing" valueExpression="aql:self.Offset">
+        <initialOperation>
+          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+            <subModelOperations xsi:type="tool_1:SetValue" featureName="Offset" valueExpression="aql:newValue"/>
           </firstModelOperations>
         </initialOperation>
       </controls>
