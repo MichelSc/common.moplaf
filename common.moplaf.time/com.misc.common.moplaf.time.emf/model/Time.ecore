@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="time" nsURI="http://www.misc.com/common/moplaf/time/model/0.1"
+    nsPrefix="tim">
+  <eClassifiers xsi:type="ecore:EEnum" name="TimeUnit">
+    <eLiterals name="Hour"/>
+    <eLiterals name="Second" value="1" literal="Second"/>
+    <eLiterals name="Minute" value="2"/>
+    <eLiterals name="Milli" value="3"/>
+    <eLiterals name="Day" value="4"/>
+  </eClassifiers>
+</ecore:EPackage>
