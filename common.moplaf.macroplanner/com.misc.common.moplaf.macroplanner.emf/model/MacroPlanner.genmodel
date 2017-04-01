@@ -3,10 +3,17 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.macroplanner.emf/src" modelPluginID="com.misc.common.moplaf.macroplanner.emf"
     modelName="MacroPlanner" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    usedGenPackages="../../com.misc.common.moplaf.time.emf/model/Time.genmodel#//time"
     operationReflection="true" importOrganizing="true">
   <foreignModel>MacroPlanner.ecore</foreignModel>
   <genPackages prefix="MacroPlanner" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
       ecorePackage="MacroPlanner.ecore#/">
+    <genClasses ecoreClass="MacroPlanner.ecore#//MacroPlannerData">
+      <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//MacroPlannerData/TimeUnit"/>
+      <genOperations ecoreOperation="MacroPlanner.ecore#//MacroPlannerData/getDurationTimeUnit">
+        <genParameters ecoreParameter="MacroPlanner.ecore#//MacroPlannerData/getDurationTimeUnit/timeUnit"/>
+      </genOperations>
+    </genClasses>
     <genClasses ecoreClass="MacroPlanner.ecore#//SupplyChainMasterData">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//SupplyChainMasterData/Products"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//SupplyChainMasterData/Resources"/>

@@ -27,9 +27,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -46,7 +44,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class SupplyChainRoutingsImpl extends MinimalEObjectImpl.Container implements SupplyChainRoutings {
+public class SupplyChainRoutingsImpl extends MacroPlannerDataImpl implements SupplyChainRoutings {
 	/**
 	 * The cached value of the '{@link #getRoutings() <em>Routings</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -103,7 +101,7 @@ public class SupplyChainRoutingsImpl extends MinimalEObjectImpl.Container implem
 	 */
 	public EList<Routing> getRoutings() {
 		if (routings == null) {
-			routings = new EObjectContainmentEList<Routing>(Routing.class, this, MacroPlannerPackage.SUPPLY_CHAIN_ROUTINGS__ROUTINGS);
+			routings = new EObjectContainmentWithInverseEList<Routing>(Routing.class, this, MacroPlannerPackage.SUPPLY_CHAIN_ROUTINGS__ROUTINGS, MacroPlannerPackage.ROUTING__SUPPLY_CHAIN_ROUTINGS);
 		}
 		return routings;
 	}
@@ -127,6 +125,21 @@ public class SupplyChainRoutingsImpl extends MinimalEObjectImpl.Container implem
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MacroPlannerPackage.SUPPLY_CHAIN_ROUTINGS__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case MacroPlannerPackage.SUPPLY_CHAIN_ROUTINGS__ROUTINGS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRoutings()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

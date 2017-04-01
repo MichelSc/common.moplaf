@@ -72,6 +72,9 @@ public interface RoutingResource extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Quantity of Resource TimeUnits needed by one unit of Routing
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Reservation</em>' attribute.
 	 * @see #setReservation(double)
 	 * @see com.misc.common.moplaf.macroplanner.MacroPlannerPackage#getRoutingResource_Reservation()

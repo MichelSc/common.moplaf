@@ -13,6 +13,8 @@
 package com.misc.common.moplaf.macroplanner.solver.impl;
 
 import com.misc.common.moplaf.common.ReturnFeedback;
+import com.misc.common.moplaf.macroplanner.Availability;
+import com.misc.common.moplaf.macroplanner.Capacity;
 import com.misc.common.moplaf.macroplanner.solver.LPAvailability;
 import com.misc.common.moplaf.macroplanner.solver.LPAvailabilityBucket;
 import com.misc.common.moplaf.macroplanner.solver.LPCapacity;
@@ -33,20 +35,25 @@ import com.misc.common.moplaf.macroplanner.solver.Scenario;
 import com.misc.common.moplaf.solver.EnumObjectiveType;
 import com.misc.common.moplaf.solver.GeneratorLpGoal;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
+import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.solver.impl.GeneratorImpl;
 
 import com.misc.common.moplaf.time.discrete.BucketType;
 import com.misc.common.moplaf.time.discrete.TimeDiscreteFactory;
 import com.misc.common.moplaf.time.discrete.TimeLine;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,6 +75,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPMacroPlannerImpl#getCostAvailabilities <em>Cost Availabilities</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPMacroPlannerImpl#getPenaltyCapacities <em>Penalty Capacities</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPMacroPlannerImpl#getPenaltyAvailabilities <em>Penalty Availabilities</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPMacroPlannerImpl#getSolvers <em>Solvers</em>}</li>
  * </ul>
  *
  * @generated
@@ -192,6 +200,16 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 	 * @ordered
 	 */
 	protected GeneratorLpGoal penaltyAvailabilities;
+
+	/**
+	 * The cached value of the '{@link #getSolvers() <em>Solvers</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSolvers()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Solver> solvers;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -709,6 +727,18 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Solver> getSolvers() {
+		if (solvers == null) {
+			solvers = new EObjectContainmentEList<Solver>(Solver.class, this, MacroPlannerSolverPackage.LP_MACRO_PLANNER__SOLVERS);
+		}
+		return solvers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -762,6 +792,8 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 				return basicSetPenaltyCapacities(null, msgs);
 			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__PENALTY_AVAILABILITIES:
 				return basicSetPenaltyAvailabilities(null, msgs);
+			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__SOLVERS:
+				return ((InternalEList<?>)getSolvers()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -812,6 +844,8 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 				return getPenaltyCapacities();
 			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__PENALTY_AVAILABILITIES:
 				return getPenaltyAvailabilities();
+			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__SOLVERS:
+				return getSolvers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -821,6 +855,7 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -859,6 +894,10 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 				return;
 			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__PENALTY_AVAILABILITIES:
 				setPenaltyAvailabilities((GeneratorLpGoal)newValue);
+				return;
+			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__SOLVERS:
+				getSolvers().clear();
+				getSolvers().addAll((Collection<? extends Solver>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -908,6 +947,9 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__PENALTY_AVAILABILITIES:
 				setPenaltyAvailabilities((GeneratorLpGoal)null);
 				return;
+			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__SOLVERS:
+				getSolvers().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -944,6 +986,8 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 				return penaltyCapacities != null;
 			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__PENALTY_AVAILABILITIES:
 				return penaltyAvailabilities != null;
+			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__SOLVERS:
+				return solvers != null && !solvers.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1089,11 +1133,14 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 		goal.setMinValueIndicative(0);
 		goal.setMaxValueIndicative(100.0f);
 		for ( LPResource resource: resources.getResources()){
-			for ( LPAvailability availability: resource.getAvailabilities()){
-				float availabilityCost = availability.getAvailability().getCost();
-				for (LPAvailabilityBucket availability_bucket : availability.getLPBuckets()){
-					GeneratorLpVar quantity_reserved = availability_bucket.getReserved();
-					goal.constructTerm(quantity_reserved, availabilityCost);
+			for ( LPAvailability lp_availability: resource.getAvailabilities()){
+				Availability availability = lp_availability.getAvailability();
+				float availabilityCost = availability.getCost(); // per time unit and per unit usage
+				for (LPAvailabilityBucket availability_bucket : lp_availability.getLPBuckets()){
+					GeneratorLpVar quantity_reserved = availability_bucket.getReserved(); // on the whole bucket
+					float durationReserved = availability_bucket.getBucket().getHours()/availability.getSupplyChainLimits().getTimeUnit().toHours();
+					float costPerBucket = availabilityCost*durationReserved; // per unit of usage
+					goal.constructTerm(quantity_reserved, costPerBucket);
 				}
 			}
 		}
@@ -1113,11 +1160,14 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 		goal.setMinValueIndicative(0);
 		goal.setMaxValueIndicative(100.0f);
 		for ( LPResource resource: resources.getResources()){
-			for ( LPAvailability availability: resource.getAvailabilities()){
-				float availabilityPenalty = availability.getAvailability().getPenalty();
-				for (LPAvailabilityBucket availability_bucket : availability.getLPBuckets()){
-					GeneratorLpVar slack = availability_bucket.getSlack();
-					goal.constructTerm(slack, availabilityPenalty);
+			for ( LPAvailability lp_availability: resource.getAvailabilities()){
+			Availability availability = lp_availability.getAvailability();
+			float availabilityPenalty = availability.getPenalty();
+			for (LPAvailabilityBucket availability_bucket : lp_availability.getLPBuckets()){
+				float durationReserved = availability_bucket.getBucket().getHours()/availability.getSupplyChainLimits().getTimeUnit().toHours();
+				float penaltyPerBucket = availabilityPenalty*durationReserved;
+				GeneratorLpVar slack = availability_bucket.getSlack();
+				goal.constructTerm(slack, penaltyPerBucket);
 				}
 			}
 		}
@@ -1137,11 +1187,14 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 		goal.setMinValueIndicative(0);
 		goal.setMaxValueIndicative(100.0f);
 		for ( LPProduct product : products.getProducts()){
-			for ( LPCapacity capacity : product.getCapacities()){
-				float capacityCost = capacity.getCapacity().getCost();
-				for (LPCapacityBucket capacity_bucket : capacity.getLPBuckets()){
+			for ( LPCapacity lp_capacity : product.getCapacities()){
+				Capacity capacity= lp_capacity.getCapacity();
+				float capacityCost = capacity.getCost(); // cost per unit of time
+				for (LPCapacityBucket capacity_bucket : lp_capacity.getLPBuckets()){
+					float durationStocked = capacity_bucket.getBucket().getHours()/capacity.getSupplyChainLimits().getTimeUnit().toHours();
+					float costPerBucket = durationStocked*capacityCost;
 					GeneratorLpVar quantity_stocked = capacity_bucket.getStocked();
-					goal.constructTerm(quantity_stocked, capacityCost);
+					goal.constructTerm(quantity_stocked, costPerBucket);
 				}
 			}
 		}
@@ -1160,11 +1213,14 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 		goal.setMinValueIndicative(0);
 		goal.setMaxValueIndicative(100.0f);
 		for ( LPProduct product : products.getProducts()){
-			for ( LPCapacity capacity : product.getCapacities()){
-				float capacityPenalty= capacity.getCapacity().getPenalty();
-				for (LPCapacityBucket capacity_bucket : capacity.getLPBuckets()){
+			for ( LPCapacity lp_capacity : product.getCapacities()){
+				Capacity capacity= lp_capacity.getCapacity();
+				float capacityPenalty= capacity.getPenalty();
+				for (LPCapacityBucket capacity_bucket : lp_capacity.getLPBuckets()){
+					float durationStocked = capacity_bucket.getBucket().getHours()/capacity.getSupplyChainLimits().getTimeUnit().toHours();
+					float penaltyPerBucket = durationStocked*capacityPenalty;
 					GeneratorLpVar slack = capacity_bucket.getSlack();
-					goal.constructTerm(slack, capacityPenalty);
+					goal.constructTerm(slack, penaltyPerBucket);
 				}
 			}
 		}

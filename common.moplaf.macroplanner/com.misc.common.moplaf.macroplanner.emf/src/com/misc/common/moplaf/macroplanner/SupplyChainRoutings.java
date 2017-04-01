@@ -14,8 +14,6 @@ package com.misc.common.moplaf.macroplanner;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Supply Chain Routings</b></em>'.
@@ -33,10 +31,11 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface SupplyChainRoutings extends EObject {
+public interface SupplyChainRoutings extends MacroPlannerData {
 	/**
 	 * Returns the value of the '<em><b>Routings</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.macroplanner.Routing}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.macroplanner.Routing#getSupplyChainRoutings <em>Supply Chain Routings</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Routings</em>' containment reference list isn't clear,
@@ -45,7 +44,8 @@ public interface SupplyChainRoutings extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Routings</em>' containment reference list.
 	 * @see com.misc.common.moplaf.macroplanner.MacroPlannerPackage#getSupplyChainRoutings_Routings()
-	 * @model containment="true"
+	 * @see com.misc.common.moplaf.macroplanner.Routing#getSupplyChainRoutings
+	 * @model opposite="SupplyChainRoutings" containment="true"
 	 * @generated
 	 */
 	EList<Routing> getRoutings();

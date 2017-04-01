@@ -17,6 +17,7 @@ import com.misc.common.moplaf.macroplanner.Capacity;
 import com.misc.common.moplaf.macroplanner.Location;
 import com.misc.common.moplaf.macroplanner.LocationProduct;
 import com.misc.common.moplaf.macroplanner.LocationResource;
+import com.misc.common.moplaf.macroplanner.MacroPlannerData;
 import com.misc.common.moplaf.macroplanner.MacroPlannerFactory;
 import com.misc.common.moplaf.macroplanner.MacroPlannerPackage;
 import com.misc.common.moplaf.macroplanner.Product;
@@ -30,6 +31,7 @@ import com.misc.common.moplaf.macroplanner.SupplyChainLimits;
 import com.misc.common.moplaf.macroplanner.SupplyChainMasterData;
 import com.misc.common.moplaf.macroplanner.SupplyChainRoutings;
 
+import com.misc.common.moplaf.time.TimePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
@@ -45,6 +47,13 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * @generated
  */
 public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlannerPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass macroPlannerDataEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -196,6 +205,9 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 
 		isInited = true;
 
+		// Initialize simple dependencies
+		TimePackage.eINSTANCE.eClass();
+
 		// Create package meta-data objects
 		theMacroPlannerPackage.createPackageContents();
 
@@ -209,6 +221,33 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(MacroPlannerPackage.eNS_URI, theMacroPlannerPackage);
 		return theMacroPlannerPackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMacroPlannerData() {
+		return macroPlannerDataEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMacroPlannerData_TimeUnit() {
+		return (EAttribute)macroPlannerDataEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getMacroPlannerData__GetDurationTimeUnit__TimeUnit() {
+		return macroPlannerDataEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -936,6 +975,15 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRouting_SupplyChainRoutings() {
+		return (EReference)routingEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getRouting__ConstructRoutingProduct__LocationProduct() {
 		return routingEClass.getEOperations().get(0);
 	}
@@ -1085,6 +1133,10 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 		isCreated = true;
 
 		// Create classes and their features
+		macroPlannerDataEClass = createEClass(MACRO_PLANNER_DATA);
+		createEAttribute(macroPlannerDataEClass, MACRO_PLANNER_DATA__TIME_UNIT);
+		createEOperation(macroPlannerDataEClass, MACRO_PLANNER_DATA___GET_DURATION_TIME_UNIT__TIMEUNIT);
+
 		supplyChainMasterDataEClass = createEClass(SUPPLY_CHAIN_MASTER_DATA);
 		createEReference(supplyChainMasterDataEClass, SUPPLY_CHAIN_MASTER_DATA__PRODUCTS);
 		createEReference(supplyChainMasterDataEClass, SUPPLY_CHAIN_MASTER_DATA__RESOURCES);
@@ -1163,6 +1215,7 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 		createEAttribute(routingEClass, ROUTING__NAME);
 		createEAttribute(routingEClass, ROUTING__CODE);
 		createEAttribute(routingEClass, ROUTING__COST);
+		createEReference(routingEClass, ROUTING__SUPPLY_CHAIN_ROUTINGS);
 		createEOperation(routingEClass, ROUTING___CONSTRUCT_ROUTING_PRODUCT__LOCATIONPRODUCT);
 		createEOperation(routingEClass, ROUTING___CONSTRUCT_ROUTING_RESOURCE__LOCATIONRESOURCE);
 
@@ -1218,13 +1271,26 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		TimePackage theTimePackage = (TimePackage)EPackage.Registry.INSTANCE.getEPackage(TimePackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		supplyChainMasterDataEClass.getESuperTypes().add(this.getMacroPlannerData());
+		supplyChainLimitsEClass.getESuperTypes().add(this.getMacroPlannerData());
+		supplyChainRoutingsEClass.getESuperTypes().add(this.getMacroPlannerData());
+		supplyChainDataEClass.getESuperTypes().add(this.getMacroPlannerData());
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(macroPlannerDataEClass, MacroPlannerData.class, "MacroPlannerData", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMacroPlannerData_TimeUnit(), theTimePackage.getTimeUnit(), "TimeUnit", null, 0, 1, MacroPlannerData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		EOperation op = initEOperation(getMacroPlannerData__GetDurationTimeUnit__TimeUnit(), ecorePackage.getEFloat(), "getDurationTimeUnit", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theTimePackage.getTimeUnit(), "timeUnit", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(supplyChainMasterDataEClass, SupplyChainMasterData.class, "SupplyChainMasterData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSupplyChainMasterData_Products(), this.getProduct(), null, "Products", null, 0, -1, SupplyChainMasterData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSupplyChainMasterData_Resources(), this.getResource(), null, "Resources", null, 0, -1, SupplyChainMasterData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1251,7 +1317,7 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 		initEAttribute(getLocation_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Location.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLocation_Code(), ecorePackage.getEString(), "Code", null, 0, 1, Location.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = initEOperation(getLocation__ConstructLocationProduct__Product(), this.getLocationProduct(), "constructLocationProduct", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getLocation__ConstructLocationProduct__Product(), this.getLocationProduct(), "constructLocationProduct", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getProduct(), "product", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getLocation__ConstructLocationResource__Resource(), this.getLocationResource(), "constructLocationResource", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1302,7 +1368,7 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 		initEAttribute(getCapacity_Penalty(), ecorePackage.getEFloat(), "Penalty", null, 0, 1, Capacity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(supplyChainRoutingsEClass, SupplyChainRoutings.class, "SupplyChainRoutings", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSupplyChainRoutings_Routings(), this.getRouting(), null, "Routings", null, 0, -1, SupplyChainRoutings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSupplyChainRoutings_Routings(), this.getRouting(), this.getRouting_SupplyChainRoutings(), "Routings", null, 0, -1, SupplyChainRoutings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSupplyChainRoutings_Name(), ecorePackage.getEString(), "Name", null, 0, 1, SupplyChainRoutings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(routingEClass, Routing.class, "Routing", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1311,6 +1377,7 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 		initEAttribute(getRouting_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Routing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRouting_Code(), ecorePackage.getEString(), "Code", null, 0, 1, Routing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRouting_Cost(), ecorePackage.getEFloat(), "Cost", null, 0, 1, Routing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRouting_SupplyChainRoutings(), this.getSupplyChainRoutings(), this.getSupplyChainRoutings_Routings(), "SupplyChainRoutings", null, 1, 1, Routing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getRouting__ConstructRoutingProduct__LocationProduct(), this.getRoutingProduct(), "constructRoutingProduct", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getLocationProduct(), "product", 0, 1, IS_UNIQUE, IS_ORDERED);

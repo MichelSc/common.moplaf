@@ -68,6 +68,52 @@ public interface MacroPlannerPackage extends EPackage {
 	MacroPlannerPackage eINSTANCE = com.misc.common.moplaf.macroplanner.impl.MacroPlannerPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.macroplanner.impl.MacroPlannerDataImpl <em>Data</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.macroplanner.impl.MacroPlannerDataImpl
+	 * @see com.misc.common.moplaf.macroplanner.impl.MacroPlannerPackageImpl#getMacroPlannerData()
+	 * @generated
+	 */
+	int MACRO_PLANNER_DATA = 0;
+
+	/**
+	 * The feature id for the '<em><b>Time Unit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACRO_PLANNER_DATA__TIME_UNIT = 0;
+
+	/**
+	 * The number of structural features of the '<em>Data</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACRO_PLANNER_DATA_FEATURE_COUNT = 1;
+
+	/**
+	 * The operation id for the '<em>Get Duration Time Unit</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACRO_PLANNER_DATA___GET_DURATION_TIME_UNIT__TIMEUNIT = 0;
+
+	/**
+	 * The number of operations of the '<em>Data</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MACRO_PLANNER_DATA_OPERATION_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.macroplanner.impl.SupplyChainMasterDataImpl <em>Supply Chain Master Data</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -75,7 +121,16 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @see com.misc.common.moplaf.macroplanner.impl.MacroPlannerPackageImpl#getSupplyChainMasterData()
 	 * @generated
 	 */
-	int SUPPLY_CHAIN_MASTER_DATA = 0;
+	int SUPPLY_CHAIN_MASTER_DATA = 1;
+
+	/**
+	 * The feature id for the '<em><b>Time Unit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUPPLY_CHAIN_MASTER_DATA__TIME_UNIT = MACRO_PLANNER_DATA__TIME_UNIT;
 
 	/**
 	 * The feature id for the '<em><b>Products</b></em>' containment reference list.
@@ -84,7 +139,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY_CHAIN_MASTER_DATA__PRODUCTS = 0;
+	int SUPPLY_CHAIN_MASTER_DATA__PRODUCTS = MACRO_PLANNER_DATA_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Resources</b></em>' containment reference list.
@@ -93,7 +148,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY_CHAIN_MASTER_DATA__RESOURCES = 1;
+	int SUPPLY_CHAIN_MASTER_DATA__RESOURCES = MACRO_PLANNER_DATA_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Locations</b></em>' containment reference list.
@@ -102,7 +157,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY_CHAIN_MASTER_DATA__LOCATIONS = 2;
+	int SUPPLY_CHAIN_MASTER_DATA__LOCATIONS = MACRO_PLANNER_DATA_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -111,7 +166,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY_CHAIN_MASTER_DATA__NAME = 3;
+	int SUPPLY_CHAIN_MASTER_DATA__NAME = MACRO_PLANNER_DATA_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Supply Chain Master Data</em>' class.
@@ -120,7 +175,16 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY_CHAIN_MASTER_DATA_FEATURE_COUNT = 4;
+	int SUPPLY_CHAIN_MASTER_DATA_FEATURE_COUNT = MACRO_PLANNER_DATA_FEATURE_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Get Duration Time Unit</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUPPLY_CHAIN_MASTER_DATA___GET_DURATION_TIME_UNIT__TIMEUNIT = MACRO_PLANNER_DATA___GET_DURATION_TIME_UNIT__TIMEUNIT;
 
 	/**
 	 * The number of operations of the '<em>Supply Chain Master Data</em>' class.
@@ -129,7 +193,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY_CHAIN_MASTER_DATA_OPERATION_COUNT = 0;
+	int SUPPLY_CHAIN_MASTER_DATA_OPERATION_COUNT = MACRO_PLANNER_DATA_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.macroplanner.impl.ProductImpl <em>Product</em>}' class.
@@ -139,7 +203,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @see com.misc.common.moplaf.macroplanner.impl.MacroPlannerPackageImpl#getProduct()
 	 * @generated
 	 */
-	int PRODUCT = 1;
+	int PRODUCT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Children</b></em>' reference list.
@@ -203,7 +267,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @see com.misc.common.moplaf.macroplanner.impl.MacroPlannerPackageImpl#getResource()
 	 * @generated
 	 */
-	int RESOURCE = 2;
+	int RESOURCE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Children</b></em>' reference list.
@@ -267,7 +331,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @see com.misc.common.moplaf.macroplanner.impl.MacroPlannerPackageImpl#getLocation()
 	 * @generated
 	 */
-	int LOCATION = 3;
+	int LOCATION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Products</b></em>' containment reference list.
@@ -367,7 +431,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @see com.misc.common.moplaf.macroplanner.impl.MacroPlannerPackageImpl#getLocationProduct()
 	 * @generated
 	 */
-	int LOCATION_PRODUCT = 4;
+	int LOCATION_PRODUCT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' container reference.
@@ -440,7 +504,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @see com.misc.common.moplaf.macroplanner.impl.MacroPlannerPackageImpl#getLocationResource()
 	 * @generated
 	 */
-	int LOCATION_RESOURCE = 5;
+	int LOCATION_RESOURCE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' container reference.
@@ -504,7 +568,16 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @see com.misc.common.moplaf.macroplanner.impl.MacroPlannerPackageImpl#getSupplyChainLimits()
 	 * @generated
 	 */
-	int SUPPLY_CHAIN_LIMITS = 6;
+	int SUPPLY_CHAIN_LIMITS = 7;
+
+	/**
+	 * The feature id for the '<em><b>Time Unit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUPPLY_CHAIN_LIMITS__TIME_UNIT = MACRO_PLANNER_DATA__TIME_UNIT;
 
 	/**
 	 * The feature id for the '<em><b>Capacities</b></em>' containment reference list.
@@ -513,7 +586,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY_CHAIN_LIMITS__CAPACITIES = 0;
+	int SUPPLY_CHAIN_LIMITS__CAPACITIES = MACRO_PLANNER_DATA_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Availabilities</b></em>' containment reference list.
@@ -522,7 +595,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY_CHAIN_LIMITS__AVAILABILITIES = 1;
+	int SUPPLY_CHAIN_LIMITS__AVAILABILITIES = MACRO_PLANNER_DATA_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -531,7 +604,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY_CHAIN_LIMITS__NAME = 2;
+	int SUPPLY_CHAIN_LIMITS__NAME = MACRO_PLANNER_DATA_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Supply Chain Limits</em>' class.
@@ -540,7 +613,16 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY_CHAIN_LIMITS_FEATURE_COUNT = 3;
+	int SUPPLY_CHAIN_LIMITS_FEATURE_COUNT = MACRO_PLANNER_DATA_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get Duration Time Unit</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUPPLY_CHAIN_LIMITS___GET_DURATION_TIME_UNIT__TIMEUNIT = MACRO_PLANNER_DATA___GET_DURATION_TIME_UNIT__TIMEUNIT;
 
 	/**
 	 * The operation id for the '<em>Construct Capacity</em>' operation.
@@ -549,7 +631,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY_CHAIN_LIMITS___CONSTRUCT_CAPACITY__LOCATIONPRODUCT = 0;
+	int SUPPLY_CHAIN_LIMITS___CONSTRUCT_CAPACITY__LOCATIONPRODUCT = MACRO_PLANNER_DATA_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Construct Availability</em>' operation.
@@ -558,7 +640,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY_CHAIN_LIMITS___CONSTRUCT_AVAILABILITY__LOCATIONRESOURCE = 1;
+	int SUPPLY_CHAIN_LIMITS___CONSTRUCT_AVAILABILITY__LOCATIONRESOURCE = MACRO_PLANNER_DATA_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Supply Chain Limits</em>' class.
@@ -567,7 +649,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY_CHAIN_LIMITS_OPERATION_COUNT = 2;
+	int SUPPLY_CHAIN_LIMITS_OPERATION_COUNT = MACRO_PLANNER_DATA_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.macroplanner.impl.SupplyChainDataImpl <em>Supply Chain Data</em>}' class.
@@ -577,7 +659,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @see com.misc.common.moplaf.macroplanner.impl.MacroPlannerPackageImpl#getSupplyChainData()
 	 * @generated
 	 */
-	int SUPPLY_CHAIN_DATA = 13;
+	int SUPPLY_CHAIN_DATA = 14;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.macroplanner.impl.SupplyImpl <em>Supply</em>}' class.
@@ -587,7 +669,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @see com.misc.common.moplaf.macroplanner.impl.MacroPlannerPackageImpl#getSupply()
 	 * @generated
 	 */
-	int SUPPLY = 14;
+	int SUPPLY = 15;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.macroplanner.impl.AvailabilityImpl <em>Availability</em>}' class.
@@ -597,7 +679,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @see com.misc.common.moplaf.macroplanner.impl.MacroPlannerPackageImpl#getAvailability()
 	 * @generated
 	 */
-	int AVAILABILITY = 7;
+	int AVAILABILITY = 8;
 
 	/**
 	 * The feature id for the '<em><b>Supply Chain Limits</b></em>' container reference.
@@ -697,7 +779,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @see com.misc.common.moplaf.macroplanner.impl.MacroPlannerPackageImpl#getCapacity()
 	 * @generated
 	 */
-	int CAPACITY = 8;
+	int CAPACITY = 9;
 
 	/**
 	 * The feature id for the '<em><b>Supply Chain Limits</b></em>' container reference.
@@ -797,7 +879,16 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @see com.misc.common.moplaf.macroplanner.impl.MacroPlannerPackageImpl#getSupplyChainRoutings()
 	 * @generated
 	 */
-	int SUPPLY_CHAIN_ROUTINGS = 9;
+	int SUPPLY_CHAIN_ROUTINGS = 10;
+
+	/**
+	 * The feature id for the '<em><b>Time Unit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUPPLY_CHAIN_ROUTINGS__TIME_UNIT = MACRO_PLANNER_DATA__TIME_UNIT;
 
 	/**
 	 * The feature id for the '<em><b>Routings</b></em>' containment reference list.
@@ -806,7 +897,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY_CHAIN_ROUTINGS__ROUTINGS = 0;
+	int SUPPLY_CHAIN_ROUTINGS__ROUTINGS = MACRO_PLANNER_DATA_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -815,7 +906,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY_CHAIN_ROUTINGS__NAME = 1;
+	int SUPPLY_CHAIN_ROUTINGS__NAME = MACRO_PLANNER_DATA_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Supply Chain Routings</em>' class.
@@ -824,7 +915,16 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY_CHAIN_ROUTINGS_FEATURE_COUNT = 2;
+	int SUPPLY_CHAIN_ROUTINGS_FEATURE_COUNT = MACRO_PLANNER_DATA_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Duration Time Unit</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUPPLY_CHAIN_ROUTINGS___GET_DURATION_TIME_UNIT__TIMEUNIT = MACRO_PLANNER_DATA___GET_DURATION_TIME_UNIT__TIMEUNIT;
 
 	/**
 	 * The number of operations of the '<em>Supply Chain Routings</em>' class.
@@ -833,7 +933,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY_CHAIN_ROUTINGS_OPERATION_COUNT = 0;
+	int SUPPLY_CHAIN_ROUTINGS_OPERATION_COUNT = MACRO_PLANNER_DATA_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.macroplanner.impl.RoutingImpl <em>Routing</em>}' class.
@@ -843,7 +943,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @see com.misc.common.moplaf.macroplanner.impl.MacroPlannerPackageImpl#getRouting()
 	 * @generated
 	 */
-	int ROUTING = 10;
+	int ROUTING = 11;
 
 	/**
 	 * The feature id for the '<em><b>Resources</b></em>' containment reference list.
@@ -891,13 +991,22 @@ public interface MacroPlannerPackage extends EPackage {
 	int ROUTING__COST = 4;
 
 	/**
+	 * The feature id for the '<em><b>Supply Chain Routings</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTING__SUPPLY_CHAIN_ROUTINGS = 5;
+
+	/**
 	 * The number of structural features of the '<em>Routing</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROUTING_FEATURE_COUNT = 5;
+	int ROUTING_FEATURE_COUNT = 6;
 
 	/**
 	 * The operation id for the '<em>Construct Routing Product</em>' operation.
@@ -934,7 +1043,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @see com.misc.common.moplaf.macroplanner.impl.MacroPlannerPackageImpl#getRoutingProduct()
 	 * @generated
 	 */
-	int ROUTING_PRODUCT = 11;
+	int ROUTING_PRODUCT = 12;
 
 	/**
 	 * The feature id for the '<em><b>Routing</b></em>' container reference.
@@ -1007,7 +1116,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @see com.misc.common.moplaf.macroplanner.impl.MacroPlannerPackageImpl#getRoutingResource()
 	 * @generated
 	 */
-	int ROUTING_RESOURCE = 12;
+	int ROUTING_RESOURCE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Routing</b></em>' container reference.
@@ -1073,13 +1182,22 @@ public interface MacroPlannerPackage extends EPackage {
 	int ROUTING_RESOURCE_OPERATION_COUNT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Time Unit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUPPLY_CHAIN_DATA__TIME_UNIT = MACRO_PLANNER_DATA__TIME_UNIT;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY_CHAIN_DATA__NAME = 0;
+	int SUPPLY_CHAIN_DATA__NAME = MACRO_PLANNER_DATA_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Supplies</b></em>' containment reference list.
@@ -1088,7 +1206,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY_CHAIN_DATA__SUPPLIES = 1;
+	int SUPPLY_CHAIN_DATA__SUPPLIES = MACRO_PLANNER_DATA_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Supply Chain Data</em>' class.
@@ -1097,7 +1215,16 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY_CHAIN_DATA_FEATURE_COUNT = 2;
+	int SUPPLY_CHAIN_DATA_FEATURE_COUNT = MACRO_PLANNER_DATA_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Duration Time Unit</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUPPLY_CHAIN_DATA___GET_DURATION_TIME_UNIT__TIMEUNIT = MACRO_PLANNER_DATA___GET_DURATION_TIME_UNIT__TIMEUNIT;
 
 	/**
 	 * The operation id for the '<em>Construct Supply</em>' operation.
@@ -1106,7 +1233,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY_CHAIN_DATA___CONSTRUCT_SUPPLY__LOCATIONPRODUCT = 0;
+	int SUPPLY_CHAIN_DATA___CONSTRUCT_SUPPLY__LOCATIONPRODUCT = MACRO_PLANNER_DATA_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Supply Chain Data</em>' class.
@@ -1115,7 +1242,7 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SUPPLY_CHAIN_DATA_OPERATION_COUNT = 1;
+	int SUPPLY_CHAIN_DATA_OPERATION_COUNT = MACRO_PLANNER_DATA_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Supply Chain Data</b></em>' container reference.
@@ -1198,6 +1325,37 @@ public interface MacroPlannerPackage extends EPackage {
 	 */
 	int SUPPLY_OPERATION_COUNT = 0;
 
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.macroplanner.MacroPlannerData <em>Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.MacroPlannerData
+	 * @generated
+	 */
+	EClass getMacroPlannerData();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.MacroPlannerData#getTimeUnit <em>Time Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Time Unit</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.MacroPlannerData#getTimeUnit()
+	 * @see #getMacroPlannerData()
+	 * @generated
+	 */
+	EAttribute getMacroPlannerData_TimeUnit();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.macroplanner.MacroPlannerData#getDurationTimeUnit(com.misc.common.moplaf.time.TimeUnit) <em>Get Duration Time Unit</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Duration Time Unit</em>' operation.
+	 * @see com.misc.common.moplaf.macroplanner.MacroPlannerData#getDurationTimeUnit(com.misc.common.moplaf.time.TimeUnit)
+	 * @generated
+	 */
+	EOperation getMacroPlannerData__GetDurationTimeUnit__TimeUnit();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.macroplanner.SupplyChainMasterData <em>Supply Chain Master Data</em>}'.
@@ -2062,6 +2220,17 @@ public interface MacroPlannerPackage extends EPackage {
 	EAttribute getRouting_Cost();
 
 	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.macroplanner.Routing#getSupplyChainRoutings <em>Supply Chain Routings</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Supply Chain Routings</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.Routing#getSupplyChainRoutings()
+	 * @see #getRouting()
+	 * @generated
+	 */
+	EReference getRouting_SupplyChainRoutings();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.macroplanner.Routing#constructRoutingProduct(com.misc.common.moplaf.macroplanner.LocationProduct) <em>Construct Routing Product</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2234,6 +2403,32 @@ public interface MacroPlannerPackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.macroplanner.impl.MacroPlannerDataImpl <em>Data</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.macroplanner.impl.MacroPlannerDataImpl
+		 * @see com.misc.common.moplaf.macroplanner.impl.MacroPlannerPackageImpl#getMacroPlannerData()
+		 * @generated
+		 */
+		EClass MACRO_PLANNER_DATA = eINSTANCE.getMacroPlannerData();
+
+		/**
+		 * The meta object literal for the '<em><b>Time Unit</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MACRO_PLANNER_DATA__TIME_UNIT = eINSTANCE.getMacroPlannerData_TimeUnit();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Duration Time Unit</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MACRO_PLANNER_DATA___GET_DURATION_TIME_UNIT__TIMEUNIT = eINSTANCE.getMacroPlannerData__GetDurationTimeUnit__TimeUnit();
+
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.macroplanner.impl.SupplyChainMasterDataImpl <em>Supply Chain Master Data</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -2899,6 +3094,14 @@ public interface MacroPlannerPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ROUTING__COST = eINSTANCE.getRouting_Cost();
+
+		/**
+		 * The meta object literal for the '<em><b>Supply Chain Routings</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROUTING__SUPPLY_CHAIN_ROUTINGS = eINSTANCE.getRouting_SupplyChainRoutings();
 
 		/**
 		 * The meta object literal for the '<em><b>Construct Routing Product</b></em>' operation.

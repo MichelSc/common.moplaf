@@ -715,6 +715,7 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 	 * 
 	 */
 	private void generateLpConsCalcPlanned(){
+		// number of resources planned
 
 		GeneratorLpCons cons = SolverFactory.eINSTANCE.createGeneratorLpCons();
 		cons.setType(EnumLpConsType.ENUM_LITERAL_LP_CONS_EQUAL);
@@ -727,7 +728,12 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 			LPRoutingResource lp_routing_resource = lp_resource_bucket_planned.getRoutingResource();
 			RoutingResource routing_resource = lp_routing_resource.getRoutingResource();
 			GeneratorLpVar var_routing_planned = lp_routing_bucket.getPlanned();
-			cons.contributeTerm(var_routing_planned, (float)-routing_resource.getReservation()); // a routing may contribute several times to the same resource bucket
+			float resourcesReservedOneRouting = (float)routing_resource.getReservation(); // resource times TimeUnits
+			float resourcesReservedPerBucket = resourcesReservedOneRouting 
+					                         * routing_resource.getRouting().getSupplyChainRoutings().getTimeUnit().toHours()
+					                         / lp_routing_bucket.getBucket().getHours(); // resources
+					                         
+			cons.contributeTerm(var_routing_planned, -resourcesReservedPerBucket); // a routing may contribute several times to the same resource bucket
 		} // 
 		cons.setRighHandSide(rhs);
 		this.setCalcPlanned(cons); // owning

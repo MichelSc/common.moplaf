@@ -154,6 +154,9 @@ public interface Capacity extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Cost of capacity for 1 unit of Product during 1 unit of Time
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Cost</em>' attribute.
 	 * @see #setCost(float)
 	 * @see com.misc.common.moplaf.macroplanner.MacroPlannerPackage#getCapacity_Cost()

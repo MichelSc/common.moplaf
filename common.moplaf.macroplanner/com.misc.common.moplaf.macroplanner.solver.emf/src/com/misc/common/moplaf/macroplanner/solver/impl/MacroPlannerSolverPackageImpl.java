@@ -497,6 +497,15 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getLPMacroPlanner_Solvers() {
+		return (EReference)lpMacroPlannerEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLPTuple() {
 		return lpTupleEClass;
 	}
@@ -1488,6 +1497,7 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		createEReference(lpMacroPlannerEClass, LP_MACRO_PLANNER__COST_AVAILABILITIES);
 		createEReference(lpMacroPlannerEClass, LP_MACRO_PLANNER__PENALTY_CAPACITIES);
 		createEReference(lpMacroPlannerEClass, LP_MACRO_PLANNER__PENALTY_AVAILABILITIES);
+		createEReference(lpMacroPlannerEClass, LP_MACRO_PLANNER__SOLVERS);
 
 		lpTupleEClass = createEClass(LP_TUPLE);
 
@@ -1701,6 +1711,7 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		initEReference(getLPMacroPlanner_CostAvailabilities(), theSolverPackage.getGeneratorLpGoal(), null, "CostAvailabilities", null, 1, 1, LPMacroPlanner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPMacroPlanner_PenaltyCapacities(), theSolverPackage.getGeneratorLpGoal(), null, "PenaltyCapacities", null, 1, 1, LPMacroPlanner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPMacroPlanner_PenaltyAvailabilities(), theSolverPackage.getGeneratorLpGoal(), null, "PenaltyAvailabilities", null, 1, 1, LPMacroPlanner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLPMacroPlanner_Solvers(), theSolverPackage.getSolver(), null, "Solvers", null, 0, -1, LPMacroPlanner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(lpTupleEClass, LPTuple.class, "LPTuple", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1835,6 +1846,27 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http:///org/eclipse/emf/ecore/util/ExtendedMetaData
+		createExtendedMetaDataAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createExtendedMetaDataAnnotations() {
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";	
+		addAnnotation
+		  (getLPRoutingBucket_Planned(), 
+		   source, 
+		   new String[] {
+			 "wildcards", "",
+			 "name", ""
+		   });
 	}
 
 } //MacroPlannerSolverPackageImpl

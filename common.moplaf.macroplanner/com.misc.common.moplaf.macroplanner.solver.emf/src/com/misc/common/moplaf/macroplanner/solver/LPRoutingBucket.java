@@ -108,10 +108,14 @@ public interface LPRoutingBucket extends LPTimeBucket {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Quantiy of Routing planned.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Planned</em>' containment reference.
 	 * @see #setPlanned(GeneratorLpVar)
 	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPRoutingBucket_Planned()
 	 * @model containment="true" required="true"
+	 *        extendedMetaData="wildcards='' name=''"
 	 * @generated
 	 */
 	GeneratorLpVar getPlanned();

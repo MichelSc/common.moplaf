@@ -15,8 +15,10 @@ package com.misc.common.moplaf.macroplanner.solver;
 import com.misc.common.moplaf.solver.Generator;
 
 import com.misc.common.moplaf.solver.GeneratorLpGoal;
+import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.time.discrete.BucketType;
 import com.misc.common.moplaf.time.discrete.TimeLine;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,6 +41,7 @@ import com.misc.common.moplaf.time.discrete.TimeLine;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner#getCostAvailabilities <em>Cost Availabilities</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner#getPenaltyCapacities <em>Penalty Capacities</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner#getPenaltyAvailabilities <em>Penalty Availabilities</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner#getSolvers <em>Solvers</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPMacroPlanner()
@@ -369,5 +372,21 @@ public interface LPMacroPlanner extends Generator {
 	 * @generated
 	 */
 	void setPenaltyAvailabilities(GeneratorLpGoal value);
+
+	/**
+	 * Returns the value of the '<em><b>Solvers</b></em>' containment reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.solver.Solver}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Solvers</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Solvers</em>' containment reference list.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPMacroPlanner_Solvers()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Solver> getSolvers();
 
 } // LPMacroPlanner

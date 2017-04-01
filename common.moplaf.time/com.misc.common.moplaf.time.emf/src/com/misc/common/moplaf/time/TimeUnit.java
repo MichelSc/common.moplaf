@@ -315,7 +315,38 @@ public enum TimeUnit implements Enumerator {
 			break;
 		}
 		return millis;
-	
 	}
 	
+	/**
+	 * 
+	 * 
+	 */
+	public float toSeconds(){
+		float seconds = (float)this.toMillis() * 1000.0f;
+		return seconds;
+	}
+	/**
+	 * 
+	 * @return
+	 */
+	public float toMinutes(){
+		float minutes = (float)this.toMillis() * 1000.0f * 60.0f;
+		return minutes;
+	}
+	/**
+	 * 
+	 * @return
+	 */
+	public float toHours(){
+		float hours = (float)this.toMillis() * 1000.0f * 60.0f * 60.0f;
+		return hours;
+	}
+	/**
+	 * 
+	 * @return
+	 */
+	public float toDays(){
+		float days = (float)this.toMillis() * 1000.0f * 60.0f * 60.0f * 24.0f;
+		return days;
+	}
 } //TimeUnit

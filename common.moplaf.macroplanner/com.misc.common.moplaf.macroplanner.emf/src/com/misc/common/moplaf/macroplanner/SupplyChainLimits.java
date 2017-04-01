@@ -13,7 +13,6 @@
 package com.misc.common.moplaf.macroplanner;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,7 +32,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface SupplyChainLimits extends EObject {
+public interface SupplyChainLimits extends MacroPlannerData {
 	/**
 	 * Returns the value of the '<em><b>Capacities</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.macroplanner.Capacity}.

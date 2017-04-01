@@ -20,6 +20,7 @@ import com.misc.common.moplaf.macroplanner.Routing;
 import com.misc.common.moplaf.macroplanner.RoutingProduct;
 import com.misc.common.moplaf.macroplanner.RoutingResource;
 
+import com.misc.common.moplaf.macroplanner.SupplyChainRoutings;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
@@ -34,6 +35,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -49,6 +51,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.RoutingImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.RoutingImpl#getCode <em>Code</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.RoutingImpl#getCost <em>Cost</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.impl.RoutingImpl#getSupplyChainRoutings <em>Supply Chain Routings</em>}</li>
  * </ul>
  *
  * @generated
@@ -243,6 +246,47 @@ public class RoutingImpl extends MinimalEObjectImpl.Container implements Routing
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SupplyChainRoutings getSupplyChainRoutings() {
+		if (eContainerFeatureID() != MacroPlannerPackage.ROUTING__SUPPLY_CHAIN_ROUTINGS) return null;
+		return (SupplyChainRoutings)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSupplyChainRoutings(SupplyChainRoutings newSupplyChainRoutings, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newSupplyChainRoutings, MacroPlannerPackage.ROUTING__SUPPLY_CHAIN_ROUTINGS, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSupplyChainRoutings(SupplyChainRoutings newSupplyChainRoutings) {
+		if (newSupplyChainRoutings != eInternalContainer() || (eContainerFeatureID() != MacroPlannerPackage.ROUTING__SUPPLY_CHAIN_ROUTINGS && newSupplyChainRoutings != null)) {
+			if (EcoreUtil.isAncestor(this, newSupplyChainRoutings))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newSupplyChainRoutings != null)
+				msgs = ((InternalEObject)newSupplyChainRoutings).eInverseAdd(this, MacroPlannerPackage.SUPPLY_CHAIN_ROUTINGS__ROUTINGS, SupplyChainRoutings.class, msgs);
+			msgs = basicSetSupplyChainRoutings(newSupplyChainRoutings, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MacroPlannerPackage.ROUTING__SUPPLY_CHAIN_ROUTINGS, newSupplyChainRoutings, newSupplyChainRoutings));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public RoutingProduct constructRoutingProduct(LocationProduct product) {
 		RoutingProduct rp = MacroPlannerFactory.eINSTANCE.createRoutingProduct();
@@ -275,6 +319,10 @@ public class RoutingImpl extends MinimalEObjectImpl.Container implements Routing
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getResources()).basicAdd(otherEnd, msgs);
 			case MacroPlannerPackage.ROUTING__PRODUCTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProducts()).basicAdd(otherEnd, msgs);
+			case MacroPlannerPackage.ROUTING__SUPPLY_CHAIN_ROUTINGS:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetSupplyChainRoutings((SupplyChainRoutings)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -291,8 +339,24 @@ public class RoutingImpl extends MinimalEObjectImpl.Container implements Routing
 				return ((InternalEList<?>)getResources()).basicRemove(otherEnd, msgs);
 			case MacroPlannerPackage.ROUTING__PRODUCTS:
 				return ((InternalEList<?>)getProducts()).basicRemove(otherEnd, msgs);
+			case MacroPlannerPackage.ROUTING__SUPPLY_CHAIN_ROUTINGS:
+				return basicSetSupplyChainRoutings(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case MacroPlannerPackage.ROUTING__SUPPLY_CHAIN_ROUTINGS:
+				return eInternalContainer().eInverseRemove(this, MacroPlannerPackage.SUPPLY_CHAIN_ROUTINGS__ROUTINGS, SupplyChainRoutings.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -313,6 +377,8 @@ public class RoutingImpl extends MinimalEObjectImpl.Container implements Routing
 				return getCode();
 			case MacroPlannerPackage.ROUTING__COST:
 				return getCost();
+			case MacroPlannerPackage.ROUTING__SUPPLY_CHAIN_ROUTINGS:
+				return getSupplyChainRoutings();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -343,6 +409,9 @@ public class RoutingImpl extends MinimalEObjectImpl.Container implements Routing
 			case MacroPlannerPackage.ROUTING__COST:
 				setCost((Float)newValue);
 				return;
+			case MacroPlannerPackage.ROUTING__SUPPLY_CHAIN_ROUTINGS:
+				setSupplyChainRoutings((SupplyChainRoutings)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -370,6 +439,9 @@ public class RoutingImpl extends MinimalEObjectImpl.Container implements Routing
 			case MacroPlannerPackage.ROUTING__COST:
 				setCost(COST_EDEFAULT);
 				return;
+			case MacroPlannerPackage.ROUTING__SUPPLY_CHAIN_ROUTINGS:
+				setSupplyChainRoutings((SupplyChainRoutings)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -392,6 +464,8 @@ public class RoutingImpl extends MinimalEObjectImpl.Container implements Routing
 				return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
 			case MacroPlannerPackage.ROUTING__COST:
 				return cost != COST_EDEFAULT;
+			case MacroPlannerPackage.ROUTING__SUPPLY_CHAIN_ROUTINGS:
+				return getSupplyChainRoutings() != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -32,7 +32,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -51,7 +50,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class SupplyChainLimitsImpl extends MinimalEObjectImpl.Container implements SupplyChainLimits {
+public class SupplyChainLimitsImpl extends MacroPlannerDataImpl implements SupplyChainLimits {
 	/**
 	 * The cached value of the '{@link #getCapacities() <em>Capacities</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

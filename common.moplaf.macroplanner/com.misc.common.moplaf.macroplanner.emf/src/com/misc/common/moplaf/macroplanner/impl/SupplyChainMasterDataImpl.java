@@ -29,8 +29,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -50,7 +48,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class SupplyChainMasterDataImpl extends MinimalEObjectImpl.Container implements SupplyChainMasterData {
+public class SupplyChainMasterDataImpl extends MacroPlannerDataImpl implements SupplyChainMasterData {
 	/**
 	 * The cached value of the '{@link #getProducts() <em>Products</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

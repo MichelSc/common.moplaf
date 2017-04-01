@@ -20,7 +20,7 @@ import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
 import com.misc.common.moplaf.solver.SolverFactory;
 
 import com.misc.common.moplaf.solver.provider.GeneratorItemProvider;
-
+import com.misc.common.moplaf.solver.provider.Util;
 import com.misc.common.moplaf.time.discrete.TimeDiscreteFactory;
 
 import java.util.Collection;
@@ -115,6 +115,7 @@ public class LPMacroPlannerItemProvider extends GeneratorItemProvider {
 			childrenFeatures.add(MacroPlannerSolverPackage.Literals.LP_MACRO_PLANNER__COST_AVAILABILITIES);
 			childrenFeatures.add(MacroPlannerSolverPackage.Literals.LP_MACRO_PLANNER__PENALTY_CAPACITIES);
 			childrenFeatures.add(MacroPlannerSolverPackage.Literals.LP_MACRO_PLANNER__PENALTY_AVAILABILITIES);
+			childrenFeatures.add(MacroPlannerSolverPackage.Literals.LP_MACRO_PLANNER__SOLVERS);
 		}
 		return childrenFeatures;
 	}
@@ -172,6 +173,7 @@ public class LPMacroPlannerItemProvider extends GeneratorItemProvider {
 			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__COST_AVAILABILITIES:
 			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__PENALTY_CAPACITIES:
 			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__PENALTY_AVAILABILITIES:
+			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__SOLVERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -183,7 +185,6 @@ public class LPMacroPlannerItemProvider extends GeneratorItemProvider {
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
@@ -238,6 +239,10 @@ public class LPMacroPlannerItemProvider extends GeneratorItemProvider {
 			(createChildParameter
 				(MacroPlannerSolverPackage.Literals.LP_MACRO_PLANNER__PENALTY_AVAILABILITIES,
 				 SolverFactory.eINSTANCE.createGeneratorLpGoal()));
+
+		Util.collectNewChildSolverDescriptors2(newChildDescriptors, 
+                object, 
+                MacroPlannerSolverPackage.Literals.LP_MACRO_PLANNER__SOLVERS);
 	}
 
 	/**

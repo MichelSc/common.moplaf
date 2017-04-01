@@ -14,8 +14,6 @@ package com.misc.common.moplaf.macroplanner;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Supply Chain Master Data</b></em>'.
@@ -35,7 +33,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface SupplyChainMasterData extends EObject {
+public interface SupplyChainMasterData extends MacroPlannerData {
 	/**
 	 * Returns the value of the '<em><b>Products</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.macroplanner.Product}.

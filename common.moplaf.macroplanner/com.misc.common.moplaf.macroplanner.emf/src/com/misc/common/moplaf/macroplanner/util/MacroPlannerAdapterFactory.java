@@ -78,6 +78,10 @@ public class MacroPlannerAdapterFactory extends AdapterFactoryImpl {
 	protected MacroPlannerSwitch<Adapter> modelSwitch =
 		new MacroPlannerSwitch<Adapter>() {
 			@Override
+			public Adapter caseMacroPlannerData(MacroPlannerData object) {
+				return createMacroPlannerDataAdapter();
+			}
+			@Override
 			public Adapter caseSupplyChainMasterData(SupplyChainMasterData object) {
 				return createSupplyChainMasterDataAdapter();
 			}
@@ -156,6 +160,20 @@ public class MacroPlannerAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.macroplanner.MacroPlannerData <em>Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.macroplanner.MacroPlannerData
+	 * @generated
+	 */
+	public Adapter createMacroPlannerDataAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.macroplanner.SupplyChainMasterData <em>Supply Chain Master Data</em>}'.

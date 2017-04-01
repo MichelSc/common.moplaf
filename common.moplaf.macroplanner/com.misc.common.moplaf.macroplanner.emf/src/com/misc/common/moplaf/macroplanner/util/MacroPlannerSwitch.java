@@ -76,9 +76,16 @@ public class MacroPlannerSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case MacroPlannerPackage.MACRO_PLANNER_DATA: {
+				MacroPlannerData macroPlannerData = (MacroPlannerData)theEObject;
+				T result = caseMacroPlannerData(macroPlannerData);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA: {
 				SupplyChainMasterData supplyChainMasterData = (SupplyChainMasterData)theEObject;
 				T result = caseSupplyChainMasterData(supplyChainMasterData);
+				if (result == null) result = caseMacroPlannerData(supplyChainMasterData);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -115,6 +122,7 @@ public class MacroPlannerSwitch<T> extends Switch<T> {
 			case MacroPlannerPackage.SUPPLY_CHAIN_LIMITS: {
 				SupplyChainLimits supplyChainLimits = (SupplyChainLimits)theEObject;
 				T result = caseSupplyChainLimits(supplyChainLimits);
+				if (result == null) result = caseMacroPlannerData(supplyChainLimits);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -133,6 +141,7 @@ public class MacroPlannerSwitch<T> extends Switch<T> {
 			case MacroPlannerPackage.SUPPLY_CHAIN_ROUTINGS: {
 				SupplyChainRoutings supplyChainRoutings = (SupplyChainRoutings)theEObject;
 				T result = caseSupplyChainRoutings(supplyChainRoutings);
+				if (result == null) result = caseMacroPlannerData(supplyChainRoutings);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -157,6 +166,7 @@ public class MacroPlannerSwitch<T> extends Switch<T> {
 			case MacroPlannerPackage.SUPPLY_CHAIN_DATA: {
 				SupplyChainData supplyChainData = (SupplyChainData)theEObject;
 				T result = caseSupplyChainData(supplyChainData);
+				if (result == null) result = caseMacroPlannerData(supplyChainData);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -168,6 +178,21 @@ public class MacroPlannerSwitch<T> extends Switch<T> {
 			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMacroPlannerData(MacroPlannerData object) {
+		return null;
 	}
 
 	/**

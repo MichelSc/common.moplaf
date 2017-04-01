@@ -47,6 +47,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="PenaltyAvailabilities"
         lowerBound="1" eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpGoal"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Solvers" upperBound="-1"
+        eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//Solver"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LPTuple" eSuperTypes="../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorTuple"/>
   <eClassifiers xsi:type="ecore:EClass" name="LPTimeLine" eSuperTypes="#//LPTuple ../../com.misc.common.moplaf.time.discrete.emf/model/timediscrete.ecore#//ObjectWithTimeLine"/>
@@ -249,7 +252,15 @@
         eType="#//LPRoutingBucketResource" containment="true" eOpposite="#//LPRoutingBucketResource/Routing"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Planned" lowerBound="1"
         eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpVar"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="wildcards" value=""/>
+        <details key="name" value=""/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Quantiy of Routing planned."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LPRoutingBucketProduct" eSuperTypes="#//LPTuple">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ProductBucket" lowerBound="1"

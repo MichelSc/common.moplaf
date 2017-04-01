@@ -145,7 +145,7 @@ public class LPTimeBucketItemProvider extends LPTupleItemProvider {
 				 getString("_UI_LPTimeBucket_Content_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_LPTimeBucket_Content_feature", "_UI_LPTimeBucket_type"),
 				 MacroPlannerSolverPackage.Literals.LP_TIME_BUCKET__CONTENT,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,

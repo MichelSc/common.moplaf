@@ -477,13 +477,22 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_MACRO_PLANNER__PENALTY_AVAILABILITIES = SolverPackage.GENERATOR_FEATURE_COUNT + 11;
 
 	/**
+	 * The feature id for the '<em><b>Solvers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_MACRO_PLANNER__SOLVERS = SolverPackage.GENERATOR_FEATURE_COUNT + 12;
+
+	/**
 	 * The number of structural features of the '<em>LP Macro Planner</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LP_MACRO_PLANNER_FEATURE_COUNT = SolverPackage.GENERATOR_FEATURE_COUNT + 12;
+	int LP_MACRO_PLANNER_FEATURE_COUNT = SolverPackage.GENERATOR_FEATURE_COUNT + 13;
 
 	/**
 	 * The operation id for the '<em>Reset</em>' operation.
@@ -6050,6 +6059,17 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	EReference getLPMacroPlanner_PenaltyAvailabilities();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner#getSolvers <em>Solvers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Solvers</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner#getSolvers()
+	 * @see #getLPMacroPlanner()
+	 * @generated
+	 */
+	EReference getLPMacroPlanner_Solvers();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.macroplanner.solver.LPTuple <em>LP Tuple</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7382,6 +7402,14 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		 * @generated
 		 */
 		EReference LP_MACRO_PLANNER__PENALTY_AVAILABILITIES = eINSTANCE.getLPMacroPlanner_PenaltyAvailabilities();
+
+		/**
+		 * The meta object literal for the '<em><b>Solvers</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LP_MACRO_PLANNER__SOLVERS = eINSTANCE.getLPMacroPlanner_Solvers();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPTupleImpl <em>LP Tuple</em>}' class.

@@ -71,6 +71,9 @@ public interface RoutingProduct extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Quantity of Product consumed by one unit of Routing
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Consumption</em>' attribute.
 	 * @see #setConsumption(double)
 	 * @see com.misc.common.moplaf.macroplanner.MacroPlannerPackage#getRoutingProduct_Consumption()

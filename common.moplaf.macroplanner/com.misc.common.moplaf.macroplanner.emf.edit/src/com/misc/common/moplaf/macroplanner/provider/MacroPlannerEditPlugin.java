@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.macroplanner.provider;
 
+import com.misc.common.moplaf.time.provider.TimeEditPlugin;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -48,6 +49,7 @@ public final class MacroPlannerEditPlugin extends EMFPlugin {
 	public MacroPlannerEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     TimeEditPlugin.INSTANCE,
 		   });
 	}
 
