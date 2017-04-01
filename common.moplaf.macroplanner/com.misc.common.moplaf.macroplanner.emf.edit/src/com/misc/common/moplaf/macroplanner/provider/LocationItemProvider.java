@@ -208,11 +208,10 @@ public class LocationItemProvider
 	 * This returns Location.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Location"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/MPLocation.png"));
 	}
 
 	/**

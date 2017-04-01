@@ -170,11 +170,10 @@ public class RoutingProductItemProvider
 	 * This returns RoutingProduct.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RoutingProduct"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/MPProduct.png"));
 	}
 
 	/**

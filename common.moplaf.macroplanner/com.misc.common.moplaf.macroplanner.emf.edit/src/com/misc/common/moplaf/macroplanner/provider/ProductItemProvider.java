@@ -170,11 +170,10 @@ public class ProductItemProvider
 	 * This returns Product.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Product"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/MPProduct.png"));
 	}
 
 	/**

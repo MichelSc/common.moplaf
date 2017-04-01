@@ -220,7 +220,7 @@ public class SupplyItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Supply"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/MPSupply.png"));
 	}
 
 	/**

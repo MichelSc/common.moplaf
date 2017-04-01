@@ -788,21 +788,21 @@
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_yWyQyRawEeeBIuZ5Tcjouw" id="(0.8390243902439024,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_yWyQyhawEeeBIuZ5Tcjouw" id="(0.5,0.5)"/>
         </edges>
-        <edges xmi:type="notation:Edge" xmi:id="_7NNasBa3EeeBIuZ5Tcjouw" type="4001" element="_7NKXYBa3EeeBIuZ5Tcjouw" source="_Yza2YKfZEeWxZJNdTnUFYw" target="_pZoesAJbEeezPKSdrjpdYw">
-          <children xmi:type="notation:Node" xmi:id="_7NOBwBa3EeeBIuZ5Tcjouw" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7NOBwRa3EeeBIuZ5Tcjouw" x="-3" y="-10"/>
+        <edges xmi:type="notation:Edge" xmi:id="_ZN-O4BbUEeeBIuZ5Tcjouw" type="4001" element="_ZN7LkBbUEeeBIuZ5Tcjouw" source="_Yza2YKfZEeWxZJNdTnUFYw" target="_pZoesAJbEeezPKSdrjpdYw">
+          <children xmi:type="notation:Node" xmi:id="_ZN-O5BbUEeeBIuZ5Tcjouw" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZN-O5RbUEeeBIuZ5Tcjouw" y="-10"/>
           </children>
-          <children xmi:type="notation:Node" xmi:id="_7NOBwha3EeeBIuZ5Tcjouw" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7NOBwxa3EeeBIuZ5Tcjouw" x="4" y="9"/>
+          <children xmi:type="notation:Node" xmi:id="_ZN-O5hbUEeeBIuZ5Tcjouw" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZN-O5xbUEeeBIuZ5Tcjouw" y="10"/>
           </children>
-          <children xmi:type="notation:Node" xmi:id="_7NOBxBa3EeeBIuZ5Tcjouw" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7NOBxRa3EeeBIuZ5Tcjouw" x="3" y="10"/>
+          <children xmi:type="notation:Node" xmi:id="_ZN-18BbUEeeBIuZ5Tcjouw" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZN-18RbUEeeBIuZ5Tcjouw" y="10"/>
           </children>
-          <styles xmi:type="notation:ConnectorStyle" xmi:id="_7NNasRa3EeeBIuZ5Tcjouw"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_7NNasha3EeeBIuZ5Tcjouw" fontName="Oxygen-Sans" fontHeight="8" bold="true"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7NNasxa3EeeBIuZ5Tcjouw" points="[-18, -67, 12, 251]$[-28, -269, 2, 49]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7NOBxha3EeeBIuZ5Tcjouw" id="(0.49878345498783455,0.5)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7NOBxxa3EeeBIuZ5Tcjouw" id="(0.4968553459119497,0.5)"/>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_ZN-O4RbUEeeBIuZ5Tcjouw" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_ZN-O4hbUEeeBIuZ5Tcjouw" fontName="Oxygen-Sans" fontHeight="8" bold="true"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ZN-O4xbUEeeBIuZ5Tcjouw" points="[828, 288, 828, 288]$[924, 0, 924, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ZN-18hbUEeeBIuZ5Tcjouw" id="(0.49878345498783455,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ZN-18xbUEeeBIuZ5Tcjouw" id="(0.4968553459119497,0.5)"/>
         </edges>
       </data>
     </ownedAnnotationEntries>
@@ -912,7 +912,7 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_YzKXsKfZEeWxZJNdTnUFYw" name="Routing" tooltipText="" outgoingEdges="_-nnOgAP_EeezM4xsHYQ6TA _BOE6cAQAEeezM4xsHYQ6TA _7NKXYBa3EeeBIuZ5Tcjouw" width="12" height="10">
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_YzKXsKfZEeWxZJNdTnUFYw" name="Routing" tooltipText="" outgoingEdges="_-nnOgAP_EeezM4xsHYQ6TA _BOE6cAQAEeezM4xsHYQ6TA _ZN7LkBbUEeeBIuZ5Tcjouw" width="12" height="10">
       <target xmi:type="ecore:EClass" href="MacroPlanner.ecore#//Routing"/>
       <semanticElements xmi:type="ecore:EClass" href="MacroPlanner.ecore#//Routing"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -1277,7 +1277,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_pZTHgAJbEeezPKSdrjpdYw" name="SupplyChainRoutings" tooltipText="" outgoingEdges="_pW0sIBawEeeBIuZ5Tcjouw" incomingEdges="_7NKXYBa3EeeBIuZ5Tcjouw" width="12" height="10">
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_pZTHgAJbEeezPKSdrjpdYw" name="SupplyChainRoutings" tooltipText="" outgoingEdges="_pW0sIBawEeeBIuZ5Tcjouw" incomingEdges="_ZN7LkBbUEeeBIuZ5Tcjouw" width="12" height="10">
       <target xmi:type="ecore:EClass" href="MacroPlanner.ecore#//SupplyChainRoutings"/>
       <semanticElements xmi:type="ecore:EClass" href="MacroPlanner.ecore#//SupplyChainRoutings"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -1695,16 +1695,15 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_7NKXYBa3EeeBIuZ5Tcjouw" sourceNode="_YzKXsKfZEeWxZJNdTnUFYw" targetNode="_pZTHgAJbEeezPKSdrjpdYw" beginLabel="[0..*] Routings" endLabel="[1..1] Routings">
-      <target xmi:type="ecore:EReference" href="MacroPlanner.ecore#//Routing/Routings"/>
-      <semanticElements xmi:type="ecore:EReference" href="MacroPlanner.ecore#//Routing/Routings"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_ZN7LkBbUEeeBIuZ5Tcjouw" sourceNode="_YzKXsKfZEeWxZJNdTnUFYw" targetNode="_pZTHgAJbEeezPKSdrjpdYw" beginLabel="[0..*] Routings" endLabel="[1..1] SupplyChainRoutings">
+      <target xmi:type="ecore:EReference" href="MacroPlanner.ecore#//Routing/SupplyChainRoutings"/>
       <semanticElements xmi:type="ecore:EReference" href="MacroPlanner.ecore#//SupplyChainRoutings/Routings"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_7NKXYRa3EeeBIuZ5Tcjouw" description="_eEcBcBGYEee-Jdi72Frt2A" sourceArrow="InputArrow" targetArrow="FillDiamond" strokeColor="0,0,0">
-        <customFeatures>routingStyle</customFeatures>
-        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_7NKXYha3EeeBIuZ5Tcjouw" showIcon="false">
+      <semanticElements xmi:type="ecore:EReference" href="MacroPlanner.ecore#//Routing/SupplyChainRoutings"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_ZN7yoBbUEeeBIuZ5Tcjouw" description="_eEcBcBGYEee-Jdi72Frt2A" sourceArrow="InputArrow" targetArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
+        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_ZN7yoRbUEeeBIuZ5Tcjouw" showIcon="false">
           <labelFormat>bold</labelFormat>
         </beginLabelStyle>
-        <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_7NKXYxa3EeeBIuZ5Tcjouw" showIcon="false">
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_ZN7yohbUEeeBIuZ5Tcjouw" showIcon="false">
           <labelFormat>bold</labelFormat>
         </endLabelStyle>
       </ownedStyle>

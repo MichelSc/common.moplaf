@@ -170,11 +170,10 @@ public class ResourceItemProvider
 	 * This returns Resource.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Resource"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/MPResource.png"));
 	}
 
 	/**

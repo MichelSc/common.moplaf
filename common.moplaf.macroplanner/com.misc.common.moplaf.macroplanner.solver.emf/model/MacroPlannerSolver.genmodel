@@ -3,7 +3,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.macroplanner.solver.emf/src"
     modelPluginID="com.misc.common.moplaf.macroplanner.solver.emf" modelName="MacroPlannerSolver"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../com.misc.common.moplaf.job.emf/model/job.genmodel#//job ../../com.misc.common.moplaf.macroplanner.emf/model/MacroPlanner.genmodel#//macroplanner ../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver ../../com.misc.common.moplaf.time.discrete.emf/model/timediscrete.genmodel#//discrete"
+    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../com.misc.common.moplaf.job.emf/model/job.genmodel#//job ../../com.misc.common.moplaf.macroplanner.emf/model/MacroPlanner.genmodel#//macroplanner ../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver ../../com.misc.common.moplaf.time.discrete.emf/model/timediscrete.genmodel#//discrete ../../com.misc.common.moplaf.time.emf/model/Time.genmodel#//time"
     operationReflection="true" importOrganizing="true">
   <foreignModel>MacroPlannerSolver.ecore</foreignModel>
   <genPackages prefix="MacroPlannerSolver" basePackage="com.misc.common.moplaf.macroplanner"
@@ -36,11 +36,14 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPMacroPlanner/CostAvailabilities"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPMacroPlanner/PenaltyCapacities"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPMacroPlanner/PenaltyAvailabilities"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPMacroPlanner/Solvers"/>
     </genClasses>
     <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPTuple"/>
     <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPTimeLine" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/GeneratorElement/Code"/>
     <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPTimeBucket"
-        labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/GeneratorElement/Code"/>
+        labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/GeneratorElement/Code">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute MacroPlannerSolver.ecore#//LPTimeBucket/Content"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPProductSet"
         labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/GeneratorElement/Code">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPProductSet/MacroPlanner"/>

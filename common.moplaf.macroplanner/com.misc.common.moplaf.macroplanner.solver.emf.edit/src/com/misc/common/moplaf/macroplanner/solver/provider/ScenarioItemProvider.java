@@ -276,7 +276,7 @@ public class ScenarioItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Scenario"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/MPScenario.png"));
 	}
 
 	/**
