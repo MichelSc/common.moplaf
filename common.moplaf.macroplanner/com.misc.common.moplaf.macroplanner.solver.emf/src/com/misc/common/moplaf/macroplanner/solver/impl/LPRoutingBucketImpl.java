@@ -223,6 +223,18 @@ public class LPRoutingBucketImpl extends LPTimeBucketImpl implements LPRoutingBu
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public String getContent() {
+		String content = String.format("plan.: %10.2f",
+				                       this.getPlanned().getSelectedSolutionValue());
+		return content;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
