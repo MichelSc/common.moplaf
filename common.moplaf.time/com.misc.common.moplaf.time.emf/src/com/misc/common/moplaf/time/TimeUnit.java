@@ -322,7 +322,7 @@ public enum TimeUnit implements Enumerator {
 	 * 
 	 */
 	public float toSeconds(){
-		float seconds = (float)this.toMillis() * 1000.0f;
+		float seconds = (float)this.toMillis() / 1000.0f;
 		return seconds;
 	}
 	/**
@@ -330,7 +330,7 @@ public enum TimeUnit implements Enumerator {
 	 * @return
 	 */
 	public float toMinutes(){
-		float minutes = (float)this.toMillis() * 1000.0f * 60.0f;
+		float minutes = (float)this.toMillis() / 1000.0f / 60.0f;
 		return minutes;
 	}
 	/**
@@ -338,7 +338,7 @@ public enum TimeUnit implements Enumerator {
 	 * @return
 	 */
 	public float toHours(){
-		float hours = (float)this.toMillis() * 1000.0f * 60.0f * 60.0f;
+		float hours = (float)this.toMillis() / 1000.0f / 60.0f / 60.0f;
 		return hours;
 	}
 	/**
@@ -346,7 +346,7 @@ public enum TimeUnit implements Enumerator {
 	 * @return
 	 */
 	public float toDays(){
-		float days = (float)this.toMillis() * 1000.0f * 60.0f * 60.0f * 24.0f;
+		float days = (float)this.toMillis() / 1000.0f / 60.0f / 60.0f / 24.0f;
 		return days;
 	}
 } //TimeUnit
