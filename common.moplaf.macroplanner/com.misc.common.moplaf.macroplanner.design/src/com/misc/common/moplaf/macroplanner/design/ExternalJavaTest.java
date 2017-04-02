@@ -30,7 +30,12 @@ public class ExternalJavaTest implements IExternalJavaAction {
 
 	@Override
 	public void execute(Collection<? extends EObject> arg0, Map<String, Object> arg1) {
-		CommonPlugin.INSTANCE.log("MacroPlanner.design: test"+ arg0 == null ? "null" : arg0.getClass().getName());
+		CommonPlugin.INSTANCE.log("MacroPlanner.design: test method");
+		Iterator<? extends EObject> iter = arg0.iterator();
+		while (iter.hasNext()){
+			EObject object = iter.next();	
+			CommonPlugin.INSTANCE.log("..object "+object.eClass().getName());
+		}
 		Iterator<Object> paramIter = arg1.values().iterator();
 		while ( paramIter.hasNext() ){
 			Map.Entry<String, Object> next = (Map.Entry<String, Object>)paramIter.next();

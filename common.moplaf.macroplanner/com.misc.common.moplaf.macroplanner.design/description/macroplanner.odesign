@@ -104,6 +104,12 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool_1:OperationAction" name="macroplanner.supplychain.routingresource.tools.testaction" label="MacroPlanner Test">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="macroplanner.supplychain.routingresource.tools.action.test" label="Action Test" id="com.misc.common.moplaf.macroplanner.design.test"/>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
