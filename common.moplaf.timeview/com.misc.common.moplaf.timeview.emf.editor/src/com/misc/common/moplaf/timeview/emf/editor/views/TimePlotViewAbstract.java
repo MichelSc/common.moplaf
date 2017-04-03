@@ -34,7 +34,9 @@ public abstract class TimePlotViewAbstract extends ViewPart {
 	private TimePlotViewerAbstract viewer;
 	private ISelectionListener selectionListener;
 	private ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
-	
+
+	private AdapterFactoryAmountEventProvider amountEventProvider;
+
 	/**
 	 * Implement the interface ISelectionListener
 	 * <!-- begin-user-doc -->
@@ -48,7 +50,8 @@ public abstract class TimePlotViewAbstract extends ViewPart {
 				if (  !selection.isEmpty() 
 				  && selection instanceof IStructuredSelection) {
 					IStructuredSelection structuredSelection = (IStructuredSelection)selection;
-					TimePlotViewAbstract.this.viewer.setInput(structuredSelection.toArray());
+					Object[] inputs = TimePlotViewAbstract.this.amountEventProvider.getInputs(structuredSelection.toArray());
+					TimePlotViewAbstract.this.viewer.setInput(inputs);
 				} // there is a selection
 			} // there is a viewer
 		}
@@ -70,11 +73,12 @@ public abstract class TimePlotViewAbstract extends ViewPart {
 	 * to create the viewer and initialize it.
 	 */
 	public void createPartControl(Composite parent) {
+		this.amountEventProvider = new AdapterFactoryAmountEventProvider (this.adapterFactory);
         this.viewer = this.createViewer(parent);
         this.viewer.setContentProvider    (new AdapterFactoryArrayContentProvider(this.adapterFactory));
 		this.viewer.setLabelProvider      (new AdapterFactoryArrayLabelProvider  (this.adapterFactory));
 		this.viewer.setColorProvider      (new AdapterFactoryArrayLabelProvider  (this.adapterFactory));
-		this.viewer.setAmountEventProvider(new AdapterFactoryAmountEventProvider (this.adapterFactory));
+		this.viewer.setAmountEventProvider(this.amountEventProvider);
 
 		// register the selection listener
 		this.selectionListener = new SiteSelectionListener();
