@@ -331,7 +331,7 @@ public class KPIViewer extends KPIViewerAbstract {
 		// draw the kpis
 		for ( Object kpi : this.getIKPIProvider().getKPIs(provider)){
 			// get the row
-			String kpiid = this.getIKPIProvider().getKPIID(kpi);
+			String kpiid = this.getIKPIProvider().getKPIID(provider, kpi);
 			Integer row = context.rows.get(kpiid);
 			if ( row==null){
 				row = context.rows.size()+ HEADER_ROWS;
@@ -344,11 +344,11 @@ public class KPIViewer extends KPIViewerAbstract {
 				Gauge gauge = context.builder.build();
 //				gauge.setSkinType(SkinType.TILE_KPI);
 //				gauge.setSkinType(SkinType.TILE_TEXT_KPI);
-				float minValue = this.getIKPIProvider().getMinAmount(kpi);
-				float maxValue = this.getIKPIProvider().getMaxAmount(kpi);
-				String unit    = this.getIKPIProvider().getUnit(kpi);
+				float minValue = this.getIKPIProvider().getMinAmount(provider, kpi);
+				float maxValue = this.getIKPIProvider().getMaxAmount(provider, kpi);
+				String unit    = this.getIKPIProvider().getUnit(provider, kpi);
 //				String name    = this.getILabelProvider().getText(kpi);
-				String name    = this.getIKPIProvider().getKPIID(kpi);
+				String name    = this.getIKPIProvider().getKPIID(provider, kpi);
 //				String msg = String.format("KPI %f (%f, %f)", value, minValue, maxValue);
 //				CommonPlugin.INSTANCE.log("KPIViewer: refresh node "+msg);
 				gauge.setTitle(name);
@@ -360,7 +360,7 @@ public class KPIViewer extends KPIViewerAbstract {
           	  	node.setUserData(kpi);
 				pane.add(node , column, row);
 			} 
-			this.refresh((Gauge)node, kpi);
+			this.refresh((Gauge)node, provider, kpi);
 		}  // traverse the objects to show
 	} // method refresh(KPIViewed)
 
@@ -369,9 +369,9 @@ public class KPIViewer extends KPIViewerAbstract {
 	 * @param gauge
 	 * @param kpi
 	 */
-	private void refresh(Gauge gauge, Object kpi){
-		this.refreshKPISections(gauge, kpi);
-		this.refreshKPIAttributes(gauge, kpi);
+	private void refresh(Gauge gauge, Object provider, Object kpi){
+		this.refreshKPISections(gauge, provider, kpi);
+		this.refreshKPIAttributes(gauge, provider, kpi);
 	}
 
 	/**
@@ -379,15 +379,15 @@ public class KPIViewer extends KPIViewerAbstract {
 	 * @param gauge
 	 * @param kpi
 	 */
-	private void refreshKPISections(Gauge gauge, Object kpi){
+	private void refreshKPISections(Gauge gauge, Object provider, Object kpi){
         // sections
         LinkedList<Section> sectionsAsIs = new LinkedList<Section>(gauge.getSections());
-        Object[] ranges = this.getIKPIProvider().getKPIRanges(kpi);
+        Object[] ranges = this.getIKPIProvider().getKPIRanges(provider, kpi);
         if ( ranges != null ) { 
 	        for ( Object currentRange : ranges){
 	        	// get the values
-	        	double lowValue  = this.getIKPIProvider().getLowAmount(currentRange);
-	        	double highValue = this.getIKPIProvider().getHighAmount(currentRange);
+	        	double lowValue  = this.getIKPIProvider().getLowAmount(provider, kpi, currentRange);
+	        	double highValue = this.getIKPIProvider().getHighAmount(provider, kpi, currentRange);
 	        	org.eclipse.swt.graphics.Color color = this.getIColorProvider().getForeground(currentRange);
 	        	// create/remove the Section
 	        	// get
@@ -420,9 +420,9 @@ public class KPIViewer extends KPIViewerAbstract {
 	 * @param gauge
 	 * @param kpi
 	 */
-	private void refreshKPIAttributes(Gauge gauge, Object kpi){
+	private void refreshKPIAttributes(Gauge gauge, Object provider, Object kpi){
         // scalar attributes
-		float value = this.getIKPIProvider().getAmount(kpi);
+		float value = this.getIKPIProvider().getAmount(provider, kpi);
 		gauge.setValue(value);
 	} // method refresh(KPIViewed)
         // not supported by TILES gauges

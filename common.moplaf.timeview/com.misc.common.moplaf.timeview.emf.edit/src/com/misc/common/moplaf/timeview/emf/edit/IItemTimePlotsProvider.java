@@ -11,6 +11,7 @@
 package com.misc.common.moplaf.timeview.emf.edit;
 
 import java.util.Collection;
+import java.util.Date;
 
 /**
  * <p>
@@ -22,4 +23,8 @@ import java.util.Collection;
 public interface IItemTimePlotsProvider {
 	Collection<?> getTimePlots(Object element); // return a collection of TimePlots for the element
 	Collection<?> getAmountEvents(Object element, Object timeplot); // return the event for the element and a TimePlot of this element
+	float getScale(Object element, Object timeplot); // return the scale to be used for the element and a TimePlot of this element
+	Date getEventMoment(Object event, Object timeplot); // the date of the event for the timePlot
+	float getEventAmountBefore(Object event, Object timeplot); // the amount before of the event for the timePlot
+	float getEventAmountAfter(Object event, Object timeplot);  // the amount after of the event for the time plot
 }

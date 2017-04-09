@@ -30,8 +30,6 @@ import java.util.Collection;
  *   <li> add the following lines in the constructors (apparenlty yes)
  *     <ul>
  *     <li>	<code>supportedTypes.add(IItemKPIsProvider.class); // non emf interface </code></li>
- *     <li>	<code>supportedTypes.add(IItemKPIProvider.class); // non emf interface </code></li>
- *     <li>	<code>supportedTypes.add(IItemKPIRangeProvider.class); // non emf interface </code></li>
  *     </ul>
  * </ul> 
  * In the plugin.xml,  
@@ -43,5 +41,16 @@ import java.util.Collection;
  */
 
 public interface IItemKPIsProvider {
+	// collection of KPIs
 	Collection<?> getKPIs(Object element);
+	// KPI properties
+	float         getKPIAmount   (Object element, Object kpi);
+	float         getKPIMinAmount(Object element, Object kpi);
+	float         getKPIMaxAmount(Object element, Object kpi);
+	String        getKPIID       (Object element, Object kpi);  
+	String        getKPIUnit     (Object element, Object kpi);  
+	Collection<?> getKPIRanges   (Object element, Object kpi);
+	// KPI range properties
+	float getKPIRangeLowAmount (Object element, Object kpi, Object range);
+	float getKPIRangeHighAmount(Object element, Object kpi, Object range);
 }
