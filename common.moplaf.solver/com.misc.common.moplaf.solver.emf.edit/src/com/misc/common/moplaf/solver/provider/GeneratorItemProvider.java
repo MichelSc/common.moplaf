@@ -16,6 +16,7 @@ package com.misc.common.moplaf.solver.provider;
 import com.misc.common.moplaf.job.provider.RunItemProvider;
 import com.misc.common.moplaf.kpiview.emf.edit.IItemKPIsProvider;
 import com.misc.common.moplaf.solver.Generator;
+import com.misc.common.moplaf.solver.GeneratorLpGoal;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionProvider;
 import com.misc.common.moplaf.solver.SolverPackage;
@@ -390,6 +391,50 @@ public class GeneratorItemProvider
 	public Collection<?> getKPIs(Object element) {
 		Generator generator = (Generator)element;
 		return generator.getGoals();
+	}
+
+	@Override
+	public float getKPIAmount(Object element, Object kpi) {
+		GeneratorLpGoal goal = (GeneratorLpGoal) kpi;
+		return goal.getSelectedSolutionValue();
+	}
+
+	@Override
+	public float getKPIMinAmount(Object element, Object kpi) {
+		GeneratorLpGoal goal = (GeneratorLpGoal) kpi;
+		return goal.getMinValueIndicative();
+	}
+
+	@Override
+	public float getKPIMaxAmount(Object element, Object kpi) {
+		GeneratorLpGoal goal = (GeneratorLpGoal) kpi;
+		return goal.getMaxValueIndicative();
+	}
+
+	@Override
+	public String getKPIID(Object element, Object kpi) {
+		GeneratorLpGoal goal = (GeneratorLpGoal) kpi;
+		return goal.getName();
+	}
+
+	@Override
+	public String getKPIUnit(Object element, Object kpi) {
+		return null;
+	}
+
+	@Override
+	public Collection<?> getKPIRanges(Object element, Object kpi) {
+		return null;
+	}
+
+	@Override
+	public float getKPIRangeLowAmount(Object element, Object kpi, Object range) {
+		return 0;
+	}
+
+	@Override
+	public float getKPIRangeHighAmount(Object element, Object kpi, Object range) {
+		return 0;
 	}
 
 }

@@ -14,8 +14,9 @@ package com.misc.common.moplaf.solver.provider;
 
 
 import com.misc.common.moplaf.kpiview.emf.edit.IItemKPIsProvider;
+import com.misc.common.moplaf.solver.GeneratorLpGoal;
 import com.misc.common.moplaf.solver.SolutionLp;
-
+import com.misc.common.moplaf.solver.SolutionLpGoal;
 import com.misc.common.moplaf.solver.SolverPackage;
 import java.util.Collection;
 import java.util.List;
@@ -137,6 +138,53 @@ public class SolutionLpItemProvider extends SolutionItemProvider implements IIte
 	public Collection<?> getKPIs(Object element) {
 		SolutionLp solution = (SolutionLp)element;
 		return solution.getGoals();
+	}
+
+	@Override
+	public float getKPIAmount(Object element, Object kpi) {
+		SolutionLpGoal goal = (SolutionLpGoal)kpi;
+		return goal.getValue();
+	}
+
+	@Override
+	public float getKPIMinAmount(Object element, Object kpi) {
+		SolutionLpGoal goal = (SolutionLpGoal)kpi;
+		GeneratorLpGoal genarator_goal = (GeneratorLpGoal) goal.getGoal();
+		return genarator_goal.getMinValueIndicative();
+	}
+
+	@Override
+	public float getKPIMaxAmount(Object element, Object kpi) {
+		SolutionLpGoal goal = (SolutionLpGoal)kpi;
+		GeneratorLpGoal genarator_goal = (GeneratorLpGoal) goal.getGoal();
+		return genarator_goal.getMaxValueIndicative();
+	}
+
+	@Override
+	public String getKPIID(Object element, Object kpi) {
+		SolutionLpGoal goal = (SolutionLpGoal)kpi;
+		GeneratorLpGoal genarator_goal = (GeneratorLpGoal) goal.getGoal();
+		return genarator_goal.getName();
+	}
+
+	@Override
+	public String getKPIUnit(Object element, Object kpi) {
+		return null;
+	}
+
+	@Override
+	public Collection<?> getKPIRanges(Object element, Object kpi) {
+		return null;
+	}
+
+	@Override
+	public float getKPIRangeLowAmount(Object element, Object kpi, Object range) {
+		return 0;
+	}
+
+	@Override
+	public float getKPIRangeHighAmount(Object element, Object kpi, Object range) {
+		return 0;
 	}
 
 }

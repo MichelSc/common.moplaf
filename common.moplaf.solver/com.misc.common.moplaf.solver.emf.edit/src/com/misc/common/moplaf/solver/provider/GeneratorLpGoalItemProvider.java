@@ -13,7 +13,6 @@
 package com.misc.common.moplaf.solver.provider;
 
 
-import com.misc.common.moplaf.kpiview.emf.edit.IItemKPIProvider;
 import com.misc.common.moplaf.solver.GeneratorLpGoal;
 import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.solver.SolverPackage;
@@ -34,11 +33,10 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.solver.GeneratorLpGoal} object.
  * <!-- begin-user-doc -->
- * @implements IItemKPIProvider 
  * <!-- end-user-doc -->
  * @generated
  */
-public class GeneratorLpGoalItemProvider extends GeneratorGoalItemProvider implements IItemKPIProvider {
+public class GeneratorLpGoalItemProvider extends GeneratorGoalItemProvider  {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -240,55 +238,4 @@ public class GeneratorLpGoalItemProvider extends GeneratorGoalItemProvider imple
 				 SolverFactory.eINSTANCE.createGeneratorLpTerm()));
 	}
 
-	/**
-	 * Specified by IItemKPIProvider
-	 */
-	@Override
-	public float getKPIAmount(Object element) {
-		GeneratorLpGoal goal = (GeneratorLpGoal) element;
-		return goal.getSelectedSolutionValue();
-	}
-
-	/**
-	 * Specified by IItemKPIProvider
-	 */
-	@Override
-	public float getMinAmount(Object element) {
-		GeneratorLpGoal goal = (GeneratorLpGoal) element;
-		return goal.getMinValueIndicative();
-	}
-
-	/**
-	 * Specified by IItemKPIProvider
-	 */
-	@Override
-	public float getMaxAmount(Object element) {
-		GeneratorLpGoal goal = (GeneratorLpGoal) element;
-		return goal.getMaxValueIndicative();
-	}
-
-	/**
-	 * Specified by IItemKPIProvider
-	 */
-	@Override
-	public String getKPIID(Object element) {
-		GeneratorLpGoal goal = (GeneratorLpGoal) element;
-		return goal.getName();
-	}
-
-	/**
-	 * Specified by IItemKPIProvider
-	 */
-	@Override
-	public String getUnit(Object element) {
-		return null;
-	}
-
-	/**
-	 * Specified by IItemKPIProvider
-	 */
-	@Override
-	public Collection<?> getKPIRanges(Object element) {
-		return null;
-	}
 }

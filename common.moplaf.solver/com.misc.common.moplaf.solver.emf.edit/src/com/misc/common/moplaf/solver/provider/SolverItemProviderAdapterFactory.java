@@ -12,7 +12,6 @@
  */
 package com.misc.common.moplaf.solver.provider;
 
-import com.misc.common.moplaf.kpiview.emf.edit.IItemKPIProvider;
 import com.misc.common.moplaf.kpiview.emf.edit.IItemKPIsProvider;
 import com.misc.common.moplaf.solver.util.SolverAdapterFactory;
 
@@ -81,7 +80,6 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 		supportedTypes.add(IItemLabelProvider.class);
 		supportedTypes.add(IItemPropertySource.class);
 		supportedTypes.add(IItemKPIsProvider.class);
-		supportedTypes.add(IItemKPIProvider.class);
 	}
 
 	/**
