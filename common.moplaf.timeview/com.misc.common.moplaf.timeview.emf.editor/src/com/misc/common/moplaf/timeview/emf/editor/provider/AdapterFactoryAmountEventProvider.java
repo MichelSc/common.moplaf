@@ -29,9 +29,7 @@ public class AdapterFactoryAmountEventProvider implements
 	
 	// cached event
 	private Object  lastElement = null;
-	private Date    lastElementEventMoment;
-	private float   lastElementAmountBefore;
-	private float   lastElementAmountAfter;
+	private EventProvider lastElementEventProvider = null;
 	
 	// cached events
 	private Object lastEventsElement = null;
@@ -42,24 +40,18 @@ public class AdapterFactoryAmountEventProvider implements
 		if ( element == this.lastElement ) { return ; }
 
 		this.lastElement = element;
-
+		
+		EventProvider eventProvider = null; 
 		IItemDiscontinuousAmountEventProvider dicontinuousEventItemProvider = (IItemDiscontinuousAmountEventProvider) this.adapterFactory.adapt(element, IItemDiscontinuousAmountEventProvider.class);
 		if ( dicontinuousEventItemProvider!= null) {
-			this.lastElementEventMoment  = dicontinuousEventItemProvider.getEventMoment(element);
-			this.lastElementAmountBefore = dicontinuousEventItemProvider.getEventAmountBefore(element);
-			this.lastElementAmountAfter  = dicontinuousEventItemProvider.getEventAmountAfter(element);
-			return;
+			eventProvider = new DiscontinuousAmountEventProvider(dicontinuousEventItemProvider);
 		}
-		
 		IItemAmountEventProvider amountEventItemProvider = (IItemAmountEventProvider) this.adapterFactory.adapt(element, IItemAmountEventProvider.class);
 		if ( amountEventItemProvider!= null) {
-			this.lastElementEventMoment  = amountEventItemProvider.getEventMoment(element);
-			this.lastElementAmountBefore = amountEventItemProvider.getEventAmount(element);
-			this.lastElementAmountAfter  = this.lastElementAmountBefore;
-			return;
+			eventProvider = new AmountEventProvider(amountEventItemProvider);
 		}
 		
-		return;
+		this.lastElementEventProvider = eventProvider;
 	}
 	
 	private void getAmountEventsItemProvider(Object element){
@@ -70,6 +62,7 @@ public class AdapterFactoryAmountEventProvider implements
 		IItemAmountEventsProvider eventsItemProvider = (IItemAmountEventsProvider) this.adapterFactory.adapt(element, IItemAmountEventsProvider.class);
 		if ( eventsItemProvider!= null) {
 			this.lastEventsIsEvents = true;
+			this.lastEventsElementAmountProvider = eventsItemProvider;
 			return;
 		}
 		
@@ -85,7 +78,9 @@ public class AdapterFactoryAmountEventProvider implements
 	// dispose
 	public void dispose(){
 		this.lastElement = null;
+		this.lastElementEventProvider = null;
 		this.lastEventsElement = null;
+		this.lastEventsElementAmountProvider = null;
 	}
 	
 	/**
@@ -93,7 +88,72 @@ public class AdapterFactoryAmountEventProvider implements
 	 * @author michel
 	 *
 	 */
-	private class TimePlotProvider {
+	private abstract interface EventProvider {
+		public Date getEventMoment(Object event);
+		public float getEventAmountBefore(Object event);
+		public float getEventAmountAfter(Object event);
+	}
+	
+	private class DiscontinuousAmountEventProvider implements EventProvider {
+		private IItemDiscontinuousAmountEventProvider eventProvider;
+
+		
+		public DiscontinuousAmountEventProvider(IItemDiscontinuousAmountEventProvider eventProvider) {
+			super();
+			this.eventProvider = eventProvider;
+		}
+
+		@Override
+		public Date getEventMoment(Object event) {
+			return this.eventProvider.getEventMoment(event);
+		}
+
+		@Override
+		public float getEventAmountBefore(Object event) {
+			return this.eventProvider.getEventAmountBefore(event);
+		}
+
+		@Override
+		public float getEventAmountAfter(Object event) {
+			return this.eventProvider.getEventAmountAfter(event);
+		}
+		
+	}
+
+	
+	private class AmountEventProvider implements EventProvider {
+		private IItemAmountEventProvider eventProvider;
+
+		
+		public AmountEventProvider(IItemAmountEventProvider eventProvider) {
+			super();
+			this.eventProvider = eventProvider;
+		}
+
+		@Override
+		public Date getEventMoment(Object event) {
+			return this.eventProvider.getEventMoment(event);
+		}
+
+		@Override
+		public float getEventAmountBefore(Object event) {
+			return this.eventProvider.getEventAmount(event);
+		}
+
+		@Override
+		public float getEventAmountAfter(Object event) {
+			return this.eventProvider.getEventAmount(event);
+		}
+		
+	}
+
+	
+	/**
+	 * 
+	 * @author michel
+	 *
+	 */
+	private class TimePlotProvider implements EventProvider{
 		private IItemTimePlotsProvider timePlotsProvider;
 		private Object element;
 		private Object timePlotKey;
@@ -112,6 +172,23 @@ public class AdapterFactoryAmountEventProvider implements
 
 		public Collection<?> getAmountEvents() {
 			return this.timePlotsProvider.getAmountEvents(this.element, this.timePlotKey);
+		}
+		
+		@Override
+		public Date getEventMoment(Object event){
+			return timePlotsProvider.getEventMoment(this.element, this.timePlotKey, event);
+		}
+		@Override
+		public float getEventAmountBefore(Object event){
+			float scale = timePlotsProvider.getScale(this.element, this.timePlotKey);
+			float amount = timePlotsProvider.getEventAmountBefore(this.element, this.timePlotKey, event);
+			return scale*amount;
+		}
+		@Override
+		public float getEventAmountAfter(Object event){
+			float scale = timePlotsProvider.getScale(this.element, this.timePlotKey);
+			float amount = timePlotsProvider.getEventAmountAfter(this.element, this.timePlotKey, event);
+			return scale*amount;
 		}
 	}
 	
@@ -136,7 +213,7 @@ public class AdapterFactoryAmountEventProvider implements
 					inputs.add(provider);
 				}
 			} else {
-				this.getAmountEventItemProvider(childElement);
+				this.getAmountEventsItemProvider(childElement);
 				if ( this.lastEventsIsEvents){
 					inputs.add(childElement);
 				}
@@ -145,29 +222,12 @@ public class AdapterFactoryAmountEventProvider implements
 		return inputs.toArray();
 	}
 	
-	
-	// event properties getter
-	@Override
-	public Date getEventMoment(Object element) {
-		this.getAmountEventItemProvider(element);
-		return this.lastElementEventMoment;
-	}
-
-	@Override
-	public float getEventAmountBefore(Object element) {
-		this.getAmountEventItemProvider(element);
-		return this.lastElementAmountBefore;
-	}
-
-	@Override
-	public float getEventAmountAfter(Object element) {
-		this.getAmountEventItemProvider(element);
-		return this.lastElementAmountAfter;
-	}
-
 	// events collection getter
 	@Override
 	public boolean isAmountEvents(Object element) {
+		if ( element instanceof TimePlotProvider){
+			return true;
+		}
 		this.getAmountEventsItemProvider(element);
 		return this.lastEventsIsEvents;
 	}
@@ -184,6 +244,34 @@ public class AdapterFactoryAmountEventProvider implements
 
 		this.getAmountEventsItemProvider(element);
 		return this.lastEventsElementAmountProvider.getAmountEvents(this.lastEventsElement).toArray();
+	}
+
+	// event properties getter
+	private EventProvider getEventProvider(Object element, Object event) {
+		if ( element instanceof TimePlotProvider){
+			TimePlotProvider timePlot = (TimePlotProvider)element;
+			return timePlot;
+		}
+		this.getAmountEventItemProvider(event);
+		return this.lastElementEventProvider;
+	}
+		
+	@Override
+	public Date getEventMoment(Object element, Object event) {
+		EventProvider eventProvider = this.getEventProvider(element, event);
+		return eventProvider.getEventMoment(event);
+	}
+
+	@Override
+	public float getEventAmountBefore(Object element, Object event) {
+		EventProvider eventProvider = this.getEventProvider(element, event);
+		return eventProvider.getEventAmountBefore(event);
+	}
+
+	@Override
+	public float getEventAmountAfter(Object element, Object event) {
+		EventProvider eventProvider = this.getEventProvider(element, event);
+		return eventProvider.getEventAmountAfter(event);
 	}
 
 }

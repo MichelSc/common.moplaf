@@ -21,10 +21,13 @@ import java.util.Date;
  */
 
 public interface IItemTimePlotsProvider {
+	// collection of time plots
 	Collection<?> getTimePlots(Object element); // return a collection of TimePlots for the element
-	Collection<?> getAmountEvents(Object element, Object timeplot); // return the event for the element and a TimePlot of this element
-	float getScale(Object element, Object timeplot); // return the scale to be used for the element and a TimePlot of this element
-	Date getEventMoment(Object event, Object timeplot); // the date of the event for the timePlot
-	float getEventAmountBefore(Object event, Object timeplot); // the amount before of the event for the timePlot
-	float getEventAmountAfter(Object event, Object timeplot);  // the amount after of the event for the time plot
+	// time plot properties
+	Collection<?> getAmountEvents(Object element, Object timeplot); // return the events for the element and a TimePlot of this element
+	float         getScale       (Object element, Object timeplot); // return the scale to be used for the element and a TimePlot of this element
+	// event properties
+	Date  getEventMoment      (Object element, Object timeplot, Object event); // the date of the event for the timePlot and for this element
+	float getEventAmountBefore(Object element, Object timeplot, Object event); // the amount before of the event for the timePlot
+	float getEventAmountAfter (Object element, Object timeplot, Object event);  // the amount after of the event for the time plot
 }

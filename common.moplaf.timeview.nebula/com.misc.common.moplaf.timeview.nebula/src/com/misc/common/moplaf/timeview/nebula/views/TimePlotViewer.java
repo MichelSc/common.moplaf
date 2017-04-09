@@ -46,6 +46,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.FileDialog;
 
+import com.misc.common.moplaf.timeview.IAmountEventProvider;
 import com.misc.common.moplaf.timeview.viewers.TimePlotViewerAbstract;
 
 
@@ -118,9 +119,10 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 		}
 		
 		public void addEventObject(Object eventObject){
-			Date moment        = TimePlotViewer.this.getIAmountEventProvider().getEventMoment(eventObject);
-			float amountBefore = TimePlotViewer.this.getIAmountEventProvider().getEventAmountBefore(eventObject);
-			float amountAfter  = TimePlotViewer.this.getIAmountEventProvider().getEventAmountAfter(eventObject);
+			IAmountEventProvider provider = TimePlotViewer.this.getIAmountEventProvider();
+			Date moment        = provider.getEventMoment      (this.modelObject, eventObject);
+			float amountBefore = provider.getEventAmountBefore(this.modelObject, eventObject);
+			float amountAfter  = provider.getEventAmountAfter (this.modelObject, eventObject);
 			this.eventObjects.add(new TimePlotDataProviderModelObject(eventObject, moment, amountBefore, amountAfter));
 			this.dataRangedirty = true;
 		}
@@ -354,7 +356,7 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 		}
 		
 		if ( allRemoved && !somethingAdded){
-			// the chart will be empty: we keep is as it si
+			// the chart will be empty: we keep is as it is
 			return;
 		}
 		
