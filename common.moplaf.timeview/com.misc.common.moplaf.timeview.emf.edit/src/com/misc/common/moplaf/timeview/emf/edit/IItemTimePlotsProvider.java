@@ -23,6 +23,7 @@ import java.util.Date;
 public interface IItemTimePlotsProvider {
 	// collection of time plots
 	Collection<?> getTimePlots(Object element); // return a collection of TimePlots for the element
+
 	// time plot properties
 	// if the timeplot Object implements IItemLabelProvider
 	//    then timePlot will provider a Text and/or an image for the object being plotted
