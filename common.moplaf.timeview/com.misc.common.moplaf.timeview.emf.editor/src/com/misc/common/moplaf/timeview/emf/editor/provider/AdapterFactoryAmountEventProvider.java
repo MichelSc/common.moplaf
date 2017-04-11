@@ -15,6 +15,7 @@ import java.util.Date;
 import java.util.LinkedList;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 
 import com.misc.common.moplaf.timeview.IAmountEventProvider;
 import com.misc.common.moplaf.timeview.emf.edit.IItemAmountEventProvider;
@@ -153,7 +154,7 @@ public class AdapterFactoryAmountEventProvider implements
 	 * @author michel
 	 *
 	 */
-	private class TimePlotProvider implements EventProvider{
+	private class TimePlotProvider implements EventProvider, IItemLabelProvider{
 		private IItemTimePlotsProvider timePlotsProvider;
 		private Object element;
 		private Object timePlotKey;
@@ -189,6 +190,41 @@ public class AdapterFactoryAmountEventProvider implements
 			float scale = timePlotsProvider.getScale(this.element, this.timePlotKey);
 			float amount = timePlotsProvider.getEventAmountAfter(this.element, this.timePlotKey, event);
 			return scale*amount;
+		}
+
+		private IItemLabelProvider getLabelProvider(){
+			if ( this.timePlotKey instanceof IItemLabelProvider ) {
+				return (IItemLabelProvider)this.timePlotKey;
+			}
+			return null;
+		}
+
+		@Override
+		public String getText(Object object) {
+			// labelProvider is the logic return a label for this timePlot, so for this TimePlotKey
+			// object it the thing being plotted, thus this TimePlotProvider
+			IItemLabelProvider labelProvider = this.getLabelProvider();
+			
+			if ( labelProvider!=null){
+				// labelProvider is the logic providing a label and associated to the TimePLot(key)
+				// this.element is the object being plotted
+				return labelProvider.getText(this.element);
+			}
+			return null;
+		}
+
+		@Override
+		public Object getImage(Object object) {
+			// labelProvider is the logic return a label for this timePlot, so for this TimePlotKey
+			// object it the thing being plotted, thus this TimePlotProvider
+			IItemLabelProvider labelProvider = this.getLabelProvider();
+			
+			if ( labelProvider!=null){
+				// labelProvider is the logic providing a label and associated to the TimePLot(key)
+				// this.element is the object being plotted
+				return labelProvider.getImage(this.element);
+			}
+			return null;
 		}
 	}
 	

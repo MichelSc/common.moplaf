@@ -14,10 +14,14 @@ package com.misc.common.moplaf.macroplanner.solver.provider;
 
 
 import com.misc.common.moplaf.macroplanner.solver.LPProduct;
+import com.misc.common.moplaf.macroplanner.solver.LPProductBucket;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverFactory;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
+import com.misc.common.moplaf.timeview.emf.edit.IItemTimePlotsProvider;
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -26,16 +30,18 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.macroplanner.solver.LPProduct} object.
  * <!-- begin-user-doc -->
+ * @implements IItemTimePlotsProvider
  * <!-- end-user-doc -->
  * @generated
  */
-public class LPProductItemProvider extends LPTimeLineItemProvider {
+public class LPProductItemProvider extends LPTimeLineItemProvider implements IItemTimePlotsProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -177,6 +183,126 @@ public class LPProductItemProvider extends LPTimeLineItemProvider {
 			(createChildParameter
 				(MacroPlannerSolverPackage.Literals.LP_PRODUCT__LP_BUCKETS,
 				 MacroPlannerSolverFactory.eINSTANCE.createLPProductBucket()));
+	}
+
+	/**
+	 * 
+	 * @author MiSc
+	 *
+	 */
+	private static abstract class ProductTimePlot implements IItemLabelProvider{
+		public abstract float getScale(LPProduct product);
+		public abstract Date getEventMoment(LPProductBucket bucket);
+		public abstract float getEventAmountBefore(LPProductBucket bucket);
+		public abstract float getEventAmountAfter(LPProductBucket bucket);
+	};
+	
+	private static ProductTimePlot TIME_PLOT_CONSUMPTION = new ProductTimePlot(){
+		
+		@Override
+		public float getScale(LPProduct product) {
+			return 1.0f;
+		}
+
+		@Override
+		public Date getEventMoment(LPProductBucket bucket) {
+			return bucket.getBucket().getBucketEnd();
+		}
+
+		@Override
+		public float getEventAmountBefore(LPProductBucket bucket) {
+			return bucket.getConsumed().getSelectedSolutionValue();
+		}
+
+		@Override
+		public float getEventAmountAfter(LPProductBucket bucket) {
+			LPProductBucket nextBucket = (LPProductBucket)bucket.getNext();
+			return nextBucket == null ? 0.0f : nextBucket.getConsumed().getSelectedSolutionValue();
+		}
+
+		@Override
+		public String getText(Object object) {
+			return "Conso";
+		}
+
+		@Override
+		public Object getImage(Object object) {
+			return null;
+		}
+	};		
+	
+	private static ProductTimePlot TIME_PLOT_STOCK = new ProductTimePlot(){
+		
+		@Override
+		public float getScale(LPProduct product) {
+			return 1.0f;
+		}
+
+		@Override
+		public Date getEventMoment(LPProductBucket bucket) {
+			return bucket.getBucket().getBucketEnd();
+		}
+
+		@Override
+		public float getEventAmountBefore(LPProductBucket bucket) {
+			return bucket.getStocked().getSelectedSolutionValue();
+		}
+
+		@Override
+		public float getEventAmountAfter(LPProductBucket bucket) {
+			LPProductBucket nextBucket = (LPProductBucket)bucket.getNext();
+			return nextBucket == null ? 0.0f : nextBucket.getStocked().getSelectedSolutionValue();
+		}
+		@Override
+		public String getText(Object object) {
+			return "Stock";
+		}
+
+		@Override
+		public Object getImage(Object object) {
+			return null;
+		}
+	};		
+	
+	private static List<ProductTimePlot> TIME_PLOTS = Arrays.asList(TIME_PLOT_CONSUMPTION, TIME_PLOT_STOCK);
+
+	@Override
+	public Collection<?> getTimePlots(Object element) {
+		return TIME_PLOTS;
+	}
+
+	@Override
+	public Collection<?> getAmountEvents(Object element, Object timeplot) {
+		LPProduct product = (LPProduct) element;
+		return product.getBuckets();
+	}
+
+	@Override
+	public float getScale(Object element, Object timeplot) {
+		LPProduct product = (LPProduct) element;
+		ProductTimePlot the_timeplot = (ProductTimePlot)timeplot;
+		return the_timeplot.getScale(product);
+	}
+
+	@Override
+	public Date getEventMoment(Object element, Object timeplot, Object event) {
+		ProductTimePlot the_timeplot = (ProductTimePlot)timeplot;
+		LPProductBucket productbucket = (LPProductBucket)event;
+		return the_timeplot.getEventMoment(productbucket);
+	}
+
+	@Override
+	public float getEventAmountBefore(Object element, Object timeplot, Object event) {
+		ProductTimePlot the_timeplot = (ProductTimePlot)timeplot;
+		LPProductBucket productbucket = (LPProductBucket)event;
+		return the_timeplot.getEventAmountBefore(productbucket);
+	}
+
+	@Override
+	public float getEventAmountAfter(Object element, Object timeplot, Object event) {
+		ProductTimePlot the_timeplot = (ProductTimePlot)timeplot;
+		LPProductBucket productbucket = (LPProductBucket)event;
+		return the_timeplot.getEventAmountAfter(productbucket);
 	}
 
 }

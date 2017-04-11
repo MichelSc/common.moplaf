@@ -24,8 +24,11 @@ public interface IItemTimePlotsProvider {
 	// collection of time plots
 	Collection<?> getTimePlots(Object element); // return a collection of TimePlots for the element
 	// time plot properties
+	// if the timeplot Object implements IItemLabelProvider
+	//    then timePlot will provider a Text and/or an image for the object being plotted
 	Collection<?> getAmountEvents(Object element, Object timeplot); // return the events for the element and a TimePlot of this element
 	float         getScale       (Object element, Object timeplot); // return the scale to be used for the element and a TimePlot of this element
+	
 	// event properties
 	Date  getEventMoment      (Object element, Object timeplot, Object event); // the date of the event for the timePlot and for this element
 	float getEventAmountBefore(Object element, Object timeplot, Object event); // the amount before of the event for the timePlot
