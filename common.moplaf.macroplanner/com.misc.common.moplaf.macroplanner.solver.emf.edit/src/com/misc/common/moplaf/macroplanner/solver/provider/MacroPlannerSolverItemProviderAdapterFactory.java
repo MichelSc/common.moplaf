@@ -13,6 +13,7 @@
 package com.misc.common.moplaf.macroplanner.solver.provider;
 
 import com.misc.common.moplaf.macroplanner.solver.util.MacroPlannerSolverAdapterFactory;
+import com.misc.common.moplaf.timeview.emf.edit.IItemTimePlotsProvider;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -71,7 +72,6 @@ public class MacroPlannerSolverItemProviderAdapterFactory extends MacroPlannerSo
 	 * This constructs an instance.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public MacroPlannerSolverItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
@@ -79,6 +79,7 @@ public class MacroPlannerSolverItemProviderAdapterFactory extends MacroPlannerSo
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
 		supportedTypes.add(IItemPropertySource.class);
+		supportedTypes.add(IItemTimePlotsProvider.class); // non emf (moplaf) interface
 	}
 
 	/**

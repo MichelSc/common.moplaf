@@ -222,7 +222,9 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 
 		@Override
 		public String getText(Object object) {
-			return "Conso";
+			LPProduct product = (LPProduct) object;
+			String text = String.format("Conso(%s)", product.getCode());
+			return text;
 		}
 
 		@Override
@@ -253,9 +255,12 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 			LPProductBucket nextBucket = (LPProductBucket)bucket.getNext();
 			return nextBucket == null ? 0.0f : nextBucket.getStocked().getSelectedSolutionValue();
 		}
+
 		@Override
 		public String getText(Object object) {
-			return "Stock";
+			LPProduct product = (LPProduct) object;
+			String text = String.format("Stock(%s)", product.getCode());
+			return text;
 		}
 
 		@Override

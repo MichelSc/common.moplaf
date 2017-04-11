@@ -22,12 +22,12 @@ import java.util.Collection;
  *   <li>regenerate the code</li>
  *   <li>add the unimplemented methods</li>
  *   <li>implement the interface methods</li>
- *   <li>override {@link #isAdapterForType(Object)} and return true when the type is SomeInterface</li>
+ *   <li>override {@link #isAdapterForType(Object)} and return true when the type is SomeInterface (apparently not)</li>
  * </ul> 
  * In the project's ProviderAdapterFactory, you may need to change 
  * <ul>
  *   <li>the method {@link #isFactoryForType} (apparently not)</li>
- *   <li> add the following lines in the constructors (apparenlty yes)
+ *   <li> add the following lines in the constructors (apparently yes)
  *     <ul>
  *     <li>	<code>supportedTypes.add(SomeInterface.class); // non emf interface </code></li>
  *     </ul>
