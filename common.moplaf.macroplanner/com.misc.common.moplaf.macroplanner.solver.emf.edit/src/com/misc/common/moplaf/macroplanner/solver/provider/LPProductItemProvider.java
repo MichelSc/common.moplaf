@@ -18,7 +18,7 @@ import com.misc.common.moplaf.macroplanner.solver.LPProduct;
 import com.misc.common.moplaf.macroplanner.solver.LPProductBucket;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverFactory;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
-import com.misc.common.moplaf.timeview.emf.edit.IItemTimePlotsProvider;
+import com.misc.common.moplaf.timeview.emf.edit.IItemTimePlotsEventsMomentsProvider;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -37,11 +37,11 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.macroplanner.solver.LPProduct} object.
  * <!-- begin-user-doc -->
- * @implements IItemTimePlotsProvider
+ * @implements IItemTimePlotsEventsMomentsProvider
  * <!-- end-user-doc -->
  * @generated
  */
-public class LPProductItemProvider extends LPTimeLineItemProvider implements IItemTimePlotsProvider {
+public class LPProductItemProvider extends LPTimeLineItemProvider implements IItemTimePlotsEventsMomentsProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -194,8 +194,7 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 		public abstract float  getScale(LPProduct product);
 		public abstract String getText(LPProduct product);
 		public abstract URI    getForegroundColor(LPProduct product);
-		public abstract float  getEventAmountBefore(LPProductBucket bucket);
-		public abstract float  getEventAmountAfter(LPProductBucket bucket);
+		public abstract float  getEventAmount(LPProductBucket bucket, int moment);
 	};
 	
 	private static ProductTimePlot TIME_PLOT_CONSUMPTION = new ProductTimePlot(){
@@ -206,14 +205,8 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 		}
 
 		@Override
-		public float getEventAmountBefore(LPProductBucket bucket) {
+		public float getEventAmount(LPProductBucket bucket, int moment) {
 			return bucket.getConsumed().getSelectedSolutionValue();
-		}
-
-		@Override
-		public float getEventAmountAfter(LPProductBucket bucket) {
-			LPProductBucket nextBucket = (LPProductBucket)bucket.getNext();
-			return nextBucket == null ? 0.0f : nextBucket.getConsumed().getSelectedSolutionValue();
 		}
 
 		@Override
@@ -228,6 +221,7 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 			return color.toURI();			
 		}
 
+
 	};		
 	
 	private static ProductTimePlot TIME_PLOT_SUPPLY = new ProductTimePlot(){
@@ -238,14 +232,8 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 		}
 
 		@Override
-		public float getEventAmountBefore(LPProductBucket bucket) {
+		public float getEventAmount(LPProductBucket bucket, int moment) {
 			return bucket.getSupplied().getSelectedSolutionValue();
-		}
-
-		@Override
-		public float getEventAmountAfter(LPProductBucket bucket) {
-			LPProductBucket nextBucket = (LPProductBucket)bucket.getNext();
-			return nextBucket == null ? 0.0f : nextBucket.getSupplied().getSelectedSolutionValue();
 		}
 
 		@Override
@@ -270,14 +258,8 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 		}
 
 		@Override
-		public float getEventAmountBefore(LPProductBucket bucket) {
+		public float getEventAmount(LPProductBucket bucket, int moment) {
 			return bucket.getStocked().getSelectedSolutionValue();
-		}
-
-		@Override
-		public float getEventAmountAfter(LPProductBucket bucket) {
-			LPProductBucket nextBucket = (LPProductBucket)bucket.getNext();
-			return nextBucket == null ? 0.0f : nextBucket.getStocked().getSelectedSolutionValue();
 		}
 
 		@Override
@@ -300,16 +282,8 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 			return 1.0f;
 		}
 
-		@Override
-		public float getEventAmountBefore(LPProductBucket bucket) {
-			float value = 0.0f;
+		public float getEventAmount(LPProductBucket bucket, int moment) {
 			return bucket.getStocked().getSelectedSolutionValue();
-		}
-
-		@Override
-		public float getEventAmountAfter(LPProductBucket bucket) {
-			LPProductBucket nextBucket = (LPProductBucket)bucket.getNext();
-			return nextBucket == null ? 0.0f : nextBucket.getStocked().getSelectedSolutionValue();
 		}
 
 		@Override
@@ -360,23 +334,28 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 	}
 
 	@Override
-	public Date getEventMoment(Object element, Object timeplot, Object event) {
-		LPProductBucket productbucket = (LPProductBucket)event;
-		return productbucket.getBucket().getBucketEnd();
+	public int getEventMoments(Object element, Object timeplot, Object event) {
+		return 2;
 	}
 
 	@Override
-	public float getEventAmountBefore(Object element, Object timeplot, Object event) {
-		ProductTimePlot the_timeplot = (ProductTimePlot)timeplot;
+	public Date getEventMoment(Object element, Object timeplot, Object event, int moment) {
 		LPProductBucket productbucket = (LPProductBucket)event;
-		return the_timeplot.getEventAmountBefore(productbucket);
+		switch ( moment )
+		{
+		case 0: 
+			return productbucket.getBucket().getBucketStart();
+		case 1: 
+			return productbucket.getBucket().getBucketEnd();
+		}
+		return null;
 	}
 
 	@Override
-	public float getEventAmountAfter(Object element, Object timeplot, Object event) {
+	public float getEventAmount(Object element, Object timeplot, Object event, int moment) {
 		ProductTimePlot the_timeplot = (ProductTimePlot)timeplot;
 		LPProductBucket productbucket = (LPProductBucket)event;
-		return the_timeplot.getEventAmountAfter(productbucket);
+		return the_timeplot.getEventAmount(productbucket, moment);
 	}
 
 }

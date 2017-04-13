@@ -98,12 +98,10 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 		
 		private class TimePlotDataProviderModelObject {
 			private Object eventObject;
-			private TimePlotSample sampleBefore;
-			private TimePlotSample sampleAfter;
-			public TimePlotDataProviderModelObject(Object eventObject, Date moment, float amountBefore, float amountAfter){
+			private TimePlotSample sample;
+			public TimePlotDataProviderModelObject(Object eventObject, Date moment, float amount){
 				this.eventObject = eventObject;
-				this.sampleBefore = new TimePlotSample(modelObject, true,  moment, amountBefore);
-				this.sampleAfter  = new TimePlotSample(modelObject, false, moment, amountAfter);
+				this.sample = new TimePlotSample(modelObject, true,  moment, amount);
 			}
 		};
 		
@@ -120,10 +118,9 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 		
 		public void addEventObject(Object eventObject){
 			IAmountEventProvider provider = TimePlotViewer.this.getIAmountEventProvider();
-			Date moment        = provider.getEventMoment      (this.modelObject, eventObject);
-			float amountBefore = provider.getEventAmountBefore(this.modelObject, eventObject);
-			float amountAfter  = provider.getEventAmountAfter (this.modelObject, eventObject);
-			this.eventObjects.add(new TimePlotDataProviderModelObject(eventObject, moment, amountBefore, amountAfter));
+			Date moment  = provider.getEventMoment(this.modelObject, eventObject);
+			float amount = provider.getEventAmount(this.modelObject, eventObject);
+			this.eventObjects.add(new TimePlotDataProviderModelObject(eventObject, moment, amount));
 			this.dataRangedirty = true;
 		}
 		
@@ -139,12 +136,8 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 
 		@Override
 		public ISample getSample(int index) {
-			TimePlotDataProviderModelObject modelObject = this.eventObjects.get(index / 2); // integer division
-			if ( index % 2 == 0 ){
-				return modelObject.sampleBefore;
-			} else {
-				return modelObject.sampleAfter;
-			}
+			TimePlotDataProviderModelObject modelObject = this.eventObjects.get(index); 
+			return modelObject.sample;
 		}
 
 		@Override
@@ -163,16 +156,13 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 				double yMin = Double.MAX_VALUE;
 				double yMax = Double.MIN_VALUE;
 				for (TimePlotDataProviderModelObject eventObject : this.eventObjects) {
-					double x  = eventObject.sampleBefore.getXValue();
-					double y1 = eventObject.sampleBefore.getYValue();
-					double y2 = eventObject.sampleAfter.getYValue();
+					double x = eventObject.sample.getXValue();
+					double y = eventObject.sample.getYValue();
 					
 					if (x < xMin ) { xMin = x; }
 					if (x > xMax ) { xMax = x; }
-					if (y1 < yMin ) { yMin = y1; }
-					if (y1 > yMax ) { yMax = y1; }
-					if (y2 < yMin ) { yMin = y2; }
-					if (y2 > yMax ) { yMax = y2; }
+					if (y < yMin ) { yMin = y; }
+					if (y > yMax ) { yMax = y; }
 				}
 
 				this.xDataMinMax = new Range(xMin, xMax);
