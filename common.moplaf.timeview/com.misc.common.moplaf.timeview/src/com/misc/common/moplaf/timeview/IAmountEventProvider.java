@@ -13,11 +13,10 @@ package com.misc.common.moplaf.timeview;
 import java.util.Date;
 
 public interface IAmountEventProvider {
-	// event properties
-	float getEventAmountBefore(Object element, Object event);
-	float getEventAmountAfter (Object element, Object event);
-	Date  getEventMoment      (Object element, Object event);
 	// collection of events
 	boolean isAmountEvents  (Object element);
 	Object[] getAmountEvents(Object element);
+	// event properties
+	float getEventAmount(Object element, Object event);
+	Date  getEventMoment(Object element, Object event);
 }

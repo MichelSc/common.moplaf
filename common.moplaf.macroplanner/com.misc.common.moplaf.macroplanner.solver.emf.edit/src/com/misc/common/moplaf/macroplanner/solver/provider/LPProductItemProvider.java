@@ -13,6 +13,7 @@
 package com.misc.common.moplaf.macroplanner.solver.provider;
 
 
+import com.misc.common.moplaf.common.Color;
 import com.misc.common.moplaf.macroplanner.solver.LPProduct;
 import com.misc.common.moplaf.macroplanner.solver.LPProductBucket;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverFactory;
@@ -26,11 +27,10 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -190,11 +190,12 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 	 * @author MiSc
 	 *
 	 */
-	private static abstract class ProductTimePlot implements IItemLabelProvider{
-		public abstract float getScale(LPProduct product);
-		public abstract Date getEventMoment(LPProductBucket bucket);
-		public abstract float getEventAmountBefore(LPProductBucket bucket);
-		public abstract float getEventAmountAfter(LPProductBucket bucket);
+	private static abstract class ProductTimePlot {
+		public abstract float  getScale(LPProduct product);
+		public abstract String getText(LPProduct product);
+		public abstract URI    getForegroundColor(LPProduct product);
+		public abstract float  getEventAmountBefore(LPProductBucket bucket);
+		public abstract float  getEventAmountAfter(LPProductBucket bucket);
 	};
 	
 	private static ProductTimePlot TIME_PLOT_CONSUMPTION = new ProductTimePlot(){
@@ -202,11 +203,6 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 		@Override
 		public float getScale(LPProduct product) {
 			return 1.0f;
-		}
-
-		@Override
-		public Date getEventMoment(LPProductBucket bucket) {
-			return bucket.getBucket().getBucketEnd();
 		}
 
 		@Override
@@ -221,19 +217,20 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 		}
 
 		@Override
-		public String getText(Object object) {
-			LPProduct product = (LPProduct) object;
+		public String getText(LPProduct product) {
 			String text = String.format("Conso(%s)", product.getCode());
 			return text;
 		}
 
 		@Override
-		public Object getImage(Object object) {
-			return null;
+		public URI getForegroundColor(LPProduct product) {
+			Color color = new Color(0, 255, 0);
+			return color.toURI();			
 		}
+
 	};		
 	
-	private static ProductTimePlot TIME_PLOT_STOCK = new ProductTimePlot(){
+	private static ProductTimePlot TIME_PLOT_SUPPLY = new ProductTimePlot(){
 		
 		@Override
 		public float getScale(LPProduct product) {
@@ -241,8 +238,35 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 		}
 
 		@Override
-		public Date getEventMoment(LPProductBucket bucket) {
-			return bucket.getBucket().getBucketEnd();
+		public float getEventAmountBefore(LPProductBucket bucket) {
+			return bucket.getSupplied().getSelectedSolutionValue();
+		}
+
+		@Override
+		public float getEventAmountAfter(LPProductBucket bucket) {
+			LPProductBucket nextBucket = (LPProductBucket)bucket.getNext();
+			return nextBucket == null ? 0.0f : nextBucket.getSupplied().getSelectedSolutionValue();
+		}
+
+		@Override
+		public String getText(LPProduct product) {
+			String text = String.format("Supply(%s)", product.getCode());
+			return text;
+		}
+
+		@Override
+		public URI getForegroundColor(LPProduct product) {
+			Color color = new Color(255, 0, 0);
+			return color.toURI();			
+		}
+
+	};		
+	
+	private static ProductTimePlot TIME_PLOT_STOCK = new ProductTimePlot(){
+		
+		@Override
+		public float getScale(LPProduct product) {
+			return 1.0f;
 		}
 
 		@Override
@@ -257,29 +281,55 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 		}
 
 		@Override
-		public String getText(Object object) {
-			LPProduct product = (LPProduct) object;
+		public String getText(LPProduct product) {
 			String text = String.format("Stock(%s)", product.getCode());
 			return text;
 		}
-
+		
 		@Override
-		public Object getImage(Object object) {
-			return null;
+		public URI getForegroundColor(LPProduct product) {
+			Color color = new Color(0, 0, 255);
+			return color.toURI();			
 		}
 	};		
 	
-	private static List<ProductTimePlot> TIME_PLOTS = Arrays.asList(TIME_PLOT_CONSUMPTION, TIME_PLOT_STOCK);
+	private static ProductTimePlot TIME_PLOT_CAPACITY = new ProductTimePlot(){
+		
+		@Override
+		public float getScale(LPProduct product) {
+			return 1.0f;
+		}
+
+		@Override
+		public float getEventAmountBefore(LPProductBucket bucket) {
+			float value = 0.0f;
+			return bucket.getStocked().getSelectedSolutionValue();
+		}
+
+		@Override
+		public float getEventAmountAfter(LPProductBucket bucket) {
+			LPProductBucket nextBucket = (LPProductBucket)bucket.getNext();
+			return nextBucket == null ? 0.0f : nextBucket.getStocked().getSelectedSolutionValue();
+		}
+
+		@Override
+		public String getText(LPProduct product) {
+			String text = String.format("Stock(%s)", product.getCode());
+			return text;
+		}
+		
+		@Override
+		public URI getForegroundColor(LPProduct product) {
+			Color color = new Color(0, 0, 255);
+			return color.toURI();			
+		}
+	};		
+	
+	private static List<ProductTimePlot> TIME_PLOTS = Arrays.asList(TIME_PLOT_CONSUMPTION, TIME_PLOT_STOCK, TIME_PLOT_SUPPLY, TIME_PLOT_CAPACITY);
 
 	@Override
 	public Collection<?> getTimePlots(Object element) {
 		return TIME_PLOTS;
-	}
-
-	@Override
-	public Collection<?> getAmountEvents(Object element, Object timeplot) {
-		LPProduct product = (LPProduct) element;
-		return product.getBuckets();
 	}
 
 	@Override
@@ -290,10 +340,29 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 	}
 
 	@Override
-	public Date getEventMoment(Object element, Object timeplot, Object event) {
+	public String getText(Object element, Object timeplot) {
+		LPProduct product = (LPProduct) element;
 		ProductTimePlot the_timeplot = (ProductTimePlot)timeplot;
+		return the_timeplot.getText(product);
+	}
+
+	@Override
+	public Object getForeground(Object element, Object timeplot) {
+		LPProduct product = (LPProduct) element;
+		ProductTimePlot the_timeplot = (ProductTimePlot)timeplot;
+		return the_timeplot.getForegroundColor(product);
+	}
+
+	@Override
+	public Collection<?> getAmountEvents(Object element, Object timeplot) {
+		LPProduct product = (LPProduct) element;
+		return product.getBuckets();
+	}
+
+	@Override
+	public Date getEventMoment(Object element, Object timeplot, Object event) {
 		LPProductBucket productbucket = (LPProductBucket)event;
-		return the_timeplot.getEventMoment(productbucket);
+		return productbucket.getBucket().getBucketEnd();
 	}
 
 	@Override
