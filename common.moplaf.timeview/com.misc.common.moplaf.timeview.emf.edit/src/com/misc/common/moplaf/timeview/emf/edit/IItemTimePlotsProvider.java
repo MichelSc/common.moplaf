@@ -11,7 +11,6 @@
 package com.misc.common.moplaf.timeview.emf.edit;
 
 import java.util.Collection;
-import java.util.Date;
 
 /**
  * <p>

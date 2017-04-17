@@ -131,7 +131,7 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 
 		@Override
 		public int getSize() {
-			return this.eventObjects.size()*2;
+			return this.eventObjects.size();
 		}
 
 		@Override

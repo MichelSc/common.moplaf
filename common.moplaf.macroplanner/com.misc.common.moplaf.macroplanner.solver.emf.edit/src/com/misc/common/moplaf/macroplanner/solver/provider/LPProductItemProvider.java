@@ -288,7 +288,7 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 
 		@Override
 		public String getText(LPProduct product) {
-			String text = String.format("Stock(%s)", product.getCode());
+			String text = String.format("Capac(%s)", product.getCode());
 			return text;
 		}
 		
@@ -328,18 +328,18 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 	}
 
 	@Override
-	public Collection<?> getAmountEvents(Object element, Object timeplot) {
+	public Collection<?> getEventsMoments(Object element, Object timeplot) {
 		LPProduct product = (LPProduct) element;
 		return product.getBuckets();
 	}
 
 	@Override
-	public int getEventMoments(Object element, Object timeplot, Object event) {
+	public int getMoments(Object element, Object timeplot, Object event) {
 		return 2;
 	}
 
 	@Override
-	public Date getEventMoment(Object element, Object timeplot, Object event, int moment) {
+	public Date getMoment(Object element, Object timeplot, Object event, int moment) {
 		LPProductBucket productbucket = (LPProductBucket)event;
 		switch ( moment )
 		{
@@ -352,7 +352,7 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 	}
 
 	@Override
-	public float getEventAmount(Object element, Object timeplot, Object event, int moment) {
+	public float getAmount(Object element, Object timeplot, Object event, int moment) {
 		ProductTimePlot the_timeplot = (ProductTimePlot)timeplot;
 		LPProductBucket productbucket = (LPProductBucket)event;
 		return the_timeplot.getEventAmount(productbucket, moment);
