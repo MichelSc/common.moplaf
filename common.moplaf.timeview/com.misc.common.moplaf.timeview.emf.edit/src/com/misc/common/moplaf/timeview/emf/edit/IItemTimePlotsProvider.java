@@ -27,11 +27,21 @@ import java.util.Collection;
  * <ul>
  * <li> the timePlots supported by the element </li>
  * <li> the scale for a timePlot supported by an element </li>
- * <li> the text and the image associated to a timePlot of an element (via the interface IItemLabelProvider, to be supported by the timePlot)</li>
+ * <li> the text associated to a timePlot of an element </li>
  * <li> the events provided by a timePlot of an element </li>
- * <li> the moment and amounts of an event of a timePlot of an element </li>
+ * <li> the moment(s) and amount(s) of an event of a timePlot of an element </li>
  * </ul>
  * <p>
+ * A point of the TimePlot, so a pair (moment, amount) is identified, either by an event object, or by a moment index, or by both.
+ * Three specializations of this interface are defined for providing the events of a TimpePlot
+ * <ul>
+ * <li> {@link IItemTimePlotsEventsProvider}: provides a collections of events, with for every event, a moment and an amount </li>
+ * <li> {@link IItemTimePlotsMomentsProvider}: provides number of moments, with for every moment (identified by an index), a moment and an amount </li>
+ * <li> {@link IItemTimePlotsEventsMomentsProvider}: provides a collection of events, with for every event a number
+ *  of moments, and for every moment (identified by an indexof an event, a moment and an amount </li>
+ * </ul>
+ * <p>
+ * 
  * @author michel
  */
 

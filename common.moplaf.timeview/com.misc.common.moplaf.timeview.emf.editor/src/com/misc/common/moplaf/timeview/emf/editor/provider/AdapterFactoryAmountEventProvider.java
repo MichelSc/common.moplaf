@@ -29,6 +29,11 @@ import com.misc.common.moplaf.timeview.emf.edit.IItemTimePlotsEventsProvider;
 import com.misc.common.moplaf.timeview.emf.edit.IItemTimePlotsMomentsProvider;
 import com.misc.common.moplaf.timeview.emf.edit.IItemTimePlotsProvider;
 
+/**
+ * An {@link AdapterFactoryAmountEventProvider} implements the interface {@link IAmountEventProvider} for different kind of providers:
+ * @author MiSc
+ *
+ */
 public class AdapterFactoryAmountEventProvider implements
 		IAmountEventProvider {
 
@@ -107,11 +112,12 @@ public class AdapterFactoryAmountEventProvider implements
 	 */
 	private class DiscontinuousAmountEventProvider implements EventProvider {
 		private IItemDiscontinuousAmountEventProvider eventProvider;
+		private boolean isBefore;
 
-		
-		public DiscontinuousAmountEventProvider(IItemDiscontinuousAmountEventProvider eventProvider) {
+		public DiscontinuousAmountEventProvider(IItemDiscontinuousAmountEventProvider eventProvider, boolean isBefore) {
 			super();
 			this.eventProvider = eventProvider;
+			this.isBefore = isBefore;
 		}
 
 		@Override
@@ -121,9 +127,12 @@ public class AdapterFactoryAmountEventProvider implements
 
 		@Override
 		public float getEventAmount(Object event) {
-			return this.eventProvider.getEventAmountBefore(event);
+			if ( this.isBefore) {
+				return this.eventProvider.getEventAmountBefore(event);
+			} else {
+				return this.eventProvider.getEventAmountAfter(event);
+			}
 		}
-
 	}
 
 	
