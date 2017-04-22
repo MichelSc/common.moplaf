@@ -21,10 +21,12 @@ import com.misc.common.moplaf.time.continuous.EventsProviderAbstract;
 import com.misc.common.moplaf.time.continuous.TimeContinuousFactory;
 import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
 import com.misc.common.moplaf.time.continuous.TimeUnit;
-import com.misc.common.moplaf.timeview.emf.edit.IItemAmountEventsProvider;
+import com.misc.common.moplaf.timeview.emf.edit.IItemTimePlotsEventsMomentsProvider;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -39,14 +41,13 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.time.continuous.Distribution} object.
  * <!-- begin-user-doc -->
- * @implements IItemAmountEventsProvider
+ * @implements IItemTimePlotsEventsMomentsProvider
  * <!-- end-user-doc -->
  * @generated
  */
 public class DistributionItemProvider
 	extends ObjectWithPropagatorFunctionsItemProvider
-	implements
-		IItemAmountEventsProvider {
+	implements	IItemTimePlotsEventsMomentsProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -57,17 +58,6 @@ public class DistributionItemProvider
 		super(adapterFactory);
 	}
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.emf.edit.provider.ItemProviderAdapter#isAdapterForType(java.lang.Object)
-	 */
-	@Override
-	public boolean isAdapterForType(Object type) {
-		if ( super.isAdapterForType(type) ){ return true; }
-		if ( type == IItemAmountEventsProvider.class) { return true; }
-		return false;
-	}
-
-	
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
@@ -462,13 +452,57 @@ public class DistributionItemProvider
 		return this.children.get(1);
 	}
 
-	/**
-	 * Specified by IItemAmountEventsProvider
-	 */
+	private static String TIME_PLOT_DISTRIBUTION = "com.misc.common.moplaf.time.continuous.distribution.timeplot";
+		
+	private static List<String> TIME_PLOTS = Arrays.asList(TIME_PLOT_DISTRIBUTION);
+
 	@Override
-	public Collection<?> getAmountEvents(Object element) {
+	public Collection<?> getTimePlots(Object element) {
+		return TIME_PLOTS;
+	}
+
+	@Override
+	public float getScale(Object element, Object timeplot) {
+		return 1.0f;
+	}
+
+	@Override
+	public String getText(Object element, Object timeplot) {
+		return this.getText(element);
+	}
+
+	@Override
+	public Object getForeground(Object element, Object timeplot) {
+		return this.getForeground(element);
+	}
+
+	@Override
+	public Collection<?> getEventsMoments(Object element, Object timeplot) {
 		Distribution distribution = (Distribution) element;
 		return distribution.getSequenceEvents();
 	}
 
+	@Override
+	public int getMoments(Object element, Object timeplot, Object event) {
+		return 2; // 2 moments at the same time but with different amounts: amountBefore and amoutAfter
+	}
+
+	@Override
+	public Date getMoment(Object element, Object timeplot, Object event, int moment) {
+		DistributionEvent distributionEvent = (DistributionEvent) event;
+		return distributionEvent.getMoment();
+	}
+
+	@Override
+	public float getAmount(Object element, Object timeplot, Object event, int moment) {
+		DistributionEvent distributionEvent = (DistributionEvent) event;
+		switch ( moment )
+		{
+		case 0: 
+			return distributionEvent.getAmountBefore();
+		case 1: 
+			return distributionEvent.getAmountAfter();
+		}
+		return 0.0f;
+	}
 }

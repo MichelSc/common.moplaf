@@ -21,9 +21,6 @@ import org.eclipse.emf.edit.provider.IItemColorProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 
 import com.misc.common.moplaf.timeview.IAmountEventProvider;
-import com.misc.common.moplaf.timeview.emf.edit.IItemAmountEventProvider;
-import com.misc.common.moplaf.timeview.emf.edit.IItemAmountEventsProvider;
-import com.misc.common.moplaf.timeview.emf.edit.IItemDiscontinuousAmountEventProvider;
 import com.misc.common.moplaf.timeview.emf.edit.IItemTimePlotsEventsMomentsProvider;
 import com.misc.common.moplaf.timeview.emf.edit.IItemTimePlotsEventsProvider;
 import com.misc.common.moplaf.timeview.emf.edit.IItemTimePlotsMomentsProvider;
@@ -31,6 +28,12 @@ import com.misc.common.moplaf.timeview.emf.edit.IItemTimePlotsProvider;
 
 /**
  * An {@link AdapterFactoryAmountEventProvider} implements the interface {@link IAmountEventProvider} for different kind of providers:
+ * <ul>
+ * <li> {@link IItemTimePlotsEventsProvider}</li>
+ * <li> {@link IItemTimePlotsMomentsProvider}</li>
+ * <li> {@link IItemTimePlotsEventsMomentsProvider}</li>
+ * </ul>
+ * <p>
  * @author MiSc
  *
  */
@@ -39,49 +42,6 @@ public class AdapterFactoryAmountEventProvider implements
 
 	private AdapterFactory adapterFactory;
 	
-	// cached event
-	private Object  lastElement = null;
-	private EventProvider lastElementEventProvider = null;
-	
-	// cached events
-	private Object lastEventsElement = null;
-	private IItemAmountEventsProvider lastEventsElementAmountProvider = null;
-	private boolean  lastEventsIsEvents = false;
-	
-	private void getAmountEventItemProvider(Object element){
-		if ( element == this.lastElement ) { return ; }
-
-		this.lastElement = element;
-		
-		EventProvider eventProvider = null; 
-		IItemDiscontinuousAmountEventProvider dicontinuousEventItemProvider = (IItemDiscontinuousAmountEventProvider) this.adapterFactory.adapt(element, IItemDiscontinuousAmountEventProvider.class);
-		if ( dicontinuousEventItemProvider!= null) {
-			eventProvider = new DiscontinuousAmountEventProvider(dicontinuousEventItemProvider);
-		}
-		IItemAmountEventProvider amountEventItemProvider = (IItemAmountEventProvider) this.adapterFactory.adapt(element, IItemAmountEventProvider.class);
-		if ( amountEventItemProvider!= null) {
-			eventProvider = new AmountEventProvider(amountEventItemProvider);
-		}
-		
-		this.lastElementEventProvider = eventProvider;
-	}
-	
-	private void getAmountEventsItemProvider(Object element){
-		if ( element == this.lastEventsElement ) { return ; }
-
-		this.lastEventsElement = element;
-		
-		IItemAmountEventsProvider eventsItemProvider = (IItemAmountEventsProvider) this.adapterFactory.adapt(element, IItemAmountEventsProvider.class);
-		if ( eventsItemProvider!= null) {
-			this.lastEventsIsEvents = true;
-			this.lastEventsElementAmountProvider = eventsItemProvider;
-			return;
-		}
-		
-		this.lastEventsIsEvents = false;
-		return;
-	}
-	
 	// constructor
 	public AdapterFactoryAmountEventProvider(AdapterFactory adapterFactory){
 		this.adapterFactory = adapterFactory;
@@ -89,10 +49,6 @@ public class AdapterFactoryAmountEventProvider implements
 
 	// dispose
 	public void dispose(){
-		this.lastElement = null;
-		this.lastElementEventProvider = null;
-		this.lastEventsElement = null;
-		this.lastEventsElementAmountProvider = null;
 	}
 	
 	/**
@@ -103,62 +59,6 @@ public class AdapterFactoryAmountEventProvider implements
 	private abstract interface EventProvider {
 		public Date  getEventMoment(Object event);
 		public float getEventAmount(Object event);
-	}
-	
-	/**
-	 * Helper class for the conversion of an IItemDiscontinuousAmountEventProvider to an EventProvider
-	 * @author michel
-	 *
-	 */
-	private class DiscontinuousAmountEventProvider implements EventProvider {
-		private IItemDiscontinuousAmountEventProvider eventProvider;
-		private boolean isBefore;
-
-		public DiscontinuousAmountEventProvider(IItemDiscontinuousAmountEventProvider eventProvider, boolean isBefore) {
-			super();
-			this.eventProvider = eventProvider;
-			this.isBefore = isBefore;
-		}
-
-		@Override
-		public Date getEventMoment(Object event) {
-			return this.eventProvider.getEventMoment(event);
-		}
-
-		@Override
-		public float getEventAmount(Object event) {
-			if ( this.isBefore) {
-				return this.eventProvider.getEventAmountBefore(event);
-			} else {
-				return this.eventProvider.getEventAmountAfter(event);
-			}
-		}
-	}
-
-	
-	/**
-	 * Helper class for the conversion of an IAmountEventProvider to an EventProvider
-	 * @author michel
-	 *
-	 */
-	private class AmountEventProvider implements EventProvider {
-		private IItemAmountEventProvider eventProvider;
-
-		
-		public AmountEventProvider(IItemAmountEventProvider eventProvider) {
-			super();
-			this.eventProvider = eventProvider;
-		}
-
-		@Override
-		public Date getEventMoment(Object event) {
-			return this.eventProvider.getEventMoment(event);
-		}
-
-		@Override
-		public float getEventAmount(Object event) {
-			return this.eventProvider.getEventAmount(event);
-		}
 	}
 	
 	private TimePlotProvider createTimePlotProvider(Object nativeObject, Object timePlotKey, IItemTimePlotsProvider provider){
@@ -339,13 +239,8 @@ public class AdapterFactoryAmountEventProvider implements
 	}
 	
 	/**
-	 * Return a collection of object implementing the interface IItemAmountEventsProvider
-	 * <p>
-	 * Return object will a
-	 * <ul>
-	 * <li/> Native objects implementing the interface
-	 * <li/> TimePlotProviders, wrapping a native object and the key of the TimePlot for this object
-	 * <ul/
+	 * Return a collection of object extending the private class  {@link TimePlotProvider}, and implementing 
+	 * the interfaces {@link EventProvider}, {@link IItemLabelProvider}, and {@link IItemColorProvider}
 	 * <p>
 	 */
 	public Object[]  getInputs(Object[] childrenModelElement){
@@ -358,60 +253,50 @@ public class AdapterFactoryAmountEventProvider implements
 					TimePlotProvider provider = this.createTimePlotProvider(childElement, timePlot, timePlotsProvider);
 					inputs.add(provider);
 				}
-			} else {
-				this.getAmountEventsItemProvider(childElement);
-				if ( this.lastEventsIsEvents){
-					inputs.add(childElement);
-				}
-			}
+			} 
 		} // traverse the children
 		return inputs.toArray();
 	}
 	
-	// event properties getter
-	private EventProvider getEventProvider(Object element, Object event) {
-		if ( element instanceof TimePlotProvider){
-			TimePlotProvider timePlot = (TimePlotProvider)element;
-			return timePlot;
-		}
-		this.getAmountEventItemProvider(event);
-		return this.lastElementEventProvider;
-	}
-		
-	// events collection getter
+	/**
+	 * Specified by {@link IAmountEventProvider}
+	 * 
+	 */
 	@Override
 	public boolean isAmountEvents(Object element) {
 		if ( element instanceof TimePlotProvider){
 			return true;
 		}
-		this.getAmountEventsItemProvider(element);
-		return this.lastEventsIsEvents;
+		return false;
 	}
 
 	/**
+	 * Specified by {@link IAmountEventProvider}
 	 * 
 	 */
 	@Override
 	public Object[] getAmountEvents(Object element) {
-		if ( element instanceof TimePlotProvider){
-			TimePlotProvider timePlot = (TimePlotProvider)element;
-			return timePlot.getAmountEvents();
-		}
-
-		this.getAmountEventsItemProvider(element);
-		return this.lastEventsElementAmountProvider.getAmountEvents(this.lastEventsElement).toArray();
+		TimePlotProvider timePlot = (TimePlotProvider)element;
+		return timePlot.getAmountEvents();
 	}
 
+	/**
+	 * Specified by {@link IAmountEventProvider}
+	 * 
+	 */
 	@Override
 	public Date getEventMoment(Object element, Object event) {
-		EventProvider eventProvider = this.getEventProvider(element, event);
-		return eventProvider.getEventMoment(event);
+		TimePlotProvider timePlot = (TimePlotProvider)element;
+		return timePlot.getEventMoment(event);
 	}
 
+	/**
+	 * Specified by {@link IAmountEventProvider}
+	 * 
+	 */
 	@Override
 	public float getEventAmount(Object element, Object event) {
-		EventProvider eventProvider = this.getEventProvider(element, event);
-		return eventProvider.getEventAmount(event);
+		TimePlotProvider timePlot = (TimePlotProvider)element;
+		return timePlot.getEventAmount(event);
 	}
-
 }

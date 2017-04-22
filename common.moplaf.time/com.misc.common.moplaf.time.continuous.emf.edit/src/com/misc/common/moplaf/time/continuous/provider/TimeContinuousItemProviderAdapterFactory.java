@@ -13,8 +13,7 @@
 package com.misc.common.moplaf.time.continuous.provider;
 
 import com.misc.common.moplaf.time.continuous.util.TimeContinuousAdapterFactory;
-import com.misc.common.moplaf.timeview.emf.edit.IItemAmountEventsProvider;
-import com.misc.common.moplaf.timeview.emf.edit.IItemDiscontinuousAmountEventProvider;
+import com.misc.common.moplaf.timeview.emf.edit.IItemTimePlotsProvider;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -80,8 +79,7 @@ public class TimeContinuousItemProviderAdapterFactory extends TimeContinuousAdap
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
 		supportedTypes.add(IItemPropertySource.class);
-		supportedTypes.add(IItemDiscontinuousAmountEventProvider.class); // non emf interface
-		supportedTypes.add(IItemAmountEventsProvider.class); // non emf interface
+		supportedTypes.add(IItemTimePlotsProvider.class); // non emf interface
 	}
 
 	/**

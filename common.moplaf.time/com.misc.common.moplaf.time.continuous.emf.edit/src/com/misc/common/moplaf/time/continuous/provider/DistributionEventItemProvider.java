@@ -19,10 +19,8 @@ import com.misc.common.moplaf.time.continuous.Distribution;
 import com.misc.common.moplaf.time.continuous.DistributionEvent;
 import com.misc.common.moplaf.time.continuous.TimeContinuousFactory;
 import com.misc.common.moplaf.time.continuous.TimeContinuousPackage;
-import com.misc.common.moplaf.timeview.emf.edit.IItemDiscontinuousAmountEventProvider;
 
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -36,14 +34,11 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.time.continuous.DistributionEvent} object.
  * <!-- begin-user-doc -->
- * @implements IItemDiscontinuousAmountEventProvider
  * <!-- end-user-doc -->
  * @generated
  */
 public class DistributionEventItemProvider
-	extends ObjectWithPropagatorFunctionsItemProvider
-	implements
-		IItemDiscontinuousAmountEventProvider {
+	extends ObjectWithPropagatorFunctionsItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -52,16 +47,6 @@ public class DistributionEventItemProvider
 	 */
 	public DistributionEventItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
-	}
-
-	/* (non-Javadoc)
-	 * @see org.eclipse.emf.edit.provider.ItemProviderAdapter#isAdapterForType(java.lang.Object)
-	 */
-	@Override
-	public boolean isAdapterForType(Object type) {
-		if ( super.isAdapterForType(type) ){ return true; }
-		if ( type == IItemDiscontinuousAmountEventProvider.class) { return true; }
-		return false;
 	}
 
 	/**
@@ -400,24 +385,5 @@ public class DistributionEventItemProvider
 	public ResourceLocator getResourceLocator() {
 		return TimeContinuousEditPlugin.INSTANCE;
 	}
-
-	@Override
-	public float getEventAmountBefore(Object element) {
-		DistributionEvent event = (DistributionEvent) element;
-		return event.getAmountBefore();
-	}
-
-	@Override
-	public float getEventAmountAfter(Object element) {
-		DistributionEvent event = (DistributionEvent) element;
-		return event.getAmountAfter();
-	}
-
-	@Override
-	public Date getEventMoment(Object element) {
-		DistributionEvent event = (DistributionEvent) element;
-		return event.getMoment();
-	}
-
 
 }
