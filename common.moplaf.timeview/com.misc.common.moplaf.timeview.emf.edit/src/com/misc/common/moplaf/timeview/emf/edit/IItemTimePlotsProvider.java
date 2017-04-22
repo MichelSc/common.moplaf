@@ -14,7 +14,7 @@ import java.util.Collection;
 
 /**
  * <p>
- * This interface declare the method(s) to be supported by an object that the TimePlot must show as several lines
+ * This interface declares the method(s) to be supported by an object that the TimePlot must show as one or several lines
  * <p> 
  * The consumer (i.e. the component using the TimePlot data, typically a chart component)
  * will provide, when relevant
@@ -27,18 +27,18 @@ import java.util.Collection;
  * <ul>
  * <li> the timePlots supported by the element </li>
  * <li> the scale for a timePlot supported by an element </li>
- * <li> the text associated to a timePlot of an element </li>
+ * <li> the text and the color associated to a timePlot of an element </li>
  * <li> the events provided by a timePlot of an element </li>
  * <li> the moment(s) and amount(s) of an event of a timePlot of an element </li>
  * </ul>
  * <p>
  * A point of the TimePlot, so a pair (moment, amount) is identified, either by an event object, or by a moment index, or by both.
- * Three specializations of this interface are defined for providing the events of a TimpePlot
+ * Three specializations of this interface are defined for providing the events of a TimpePlot:
  * <ul>
  * <li> {@link IItemTimePlotsEventsProvider}: provides a collections of events, with for every event, a moment and an amount </li>
  * <li> {@link IItemTimePlotsMomentsProvider}: provides number of moments, with for every moment (identified by an index), a moment and an amount </li>
  * <li> {@link IItemTimePlotsEventsMomentsProvider}: provides a collection of events, with for every event a number
- *  of moments, and for every moment (identified by an indexof an event, a moment and an amount </li>
+ *  of moments, and for every moment (identified by an index) of an event, a moment and an amount </li>
  * </ul>
  * <p>
  * 
@@ -46,12 +46,33 @@ import java.util.Collection;
  */
 
 public interface IItemTimePlotsProvider {
-	// collection of time plots
+	/**
+	 * Return the collection of TimePlots provided by an element. 
+	 * @param element
+	 * @return
+	 */
 	Collection<?> getTimePlots(Object element); // return a collection of TimePlots for the element
 
-	// time plot properties
+	/**
+	 * Return a scale for a TimePlot provided by an element. This scale can be used by the consumer to display several 
+	 * TimePlots on the same graph, using a common y-axis.
+	 */
 	float         getScale       (Object element, Object timeplot); // return the scale to be used for the element and a TimePlot of this element
+	
+	/**
+	 * Return the text of a TimePlot provided by an element.
+	 * @param element
+	 * @param timeplot
+	 * @return
+	 */
 	String        getText        (Object element, Object timeplot); // return the text of a TimePlot for the element
+
+	/**
+	 * Return the color of a TimePlot provided by an element.
+	 * @param element
+	 * @param timeplot
+	 * @return
+	 */
 	Object        getForeground  (Object element, Object timeplot); 
 };
 
