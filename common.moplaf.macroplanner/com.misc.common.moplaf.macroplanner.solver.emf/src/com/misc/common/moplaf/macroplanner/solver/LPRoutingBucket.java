@@ -109,7 +109,7 @@ public interface LPRoutingBucket extends LPTimeBucket {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Quantiy of Routing planned.
+	 * Rate of Routing planned (Quantity per TimeUnit)
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Planned</em>' containment reference.
 	 * @see #setPlanned(GeneratorLpVar)

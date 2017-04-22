@@ -294,7 +294,7 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 		
 		@Override
 		public URI getForegroundColor(LPProduct product) {
-			Color color = new Color(0, 0, 255);
+			Color color = new Color(0, 128, 128);
 			return color.toURI();			
 		}
 	};		

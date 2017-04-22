@@ -113,6 +113,10 @@ public interface LPResourceBucket extends LPTimeBucket {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Quantity (number) of Resources for the duration of the bucket
+	 * 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Reserved</em>' containment reference.
 	 * @see #setReserved(GeneratorLpVar)
 	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPResourceBucket_Reserved()
@@ -139,6 +143,10 @@ public interface LPResourceBucket extends LPTimeBucket {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Quantity (number) of Resources for the duration of the bucket
+	 * 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Planned</em>' containment reference.
 	 * @see #setPlanned(GeneratorLpVar)
 	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPResourceBucket_Planned()

@@ -134,6 +134,10 @@ public interface LPProductBucket extends LPTimeBucket {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Quantity of Product
+	 * 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Consumed</em>' containment reference.
 	 * @see #setConsumed(GeneratorLpVar)
 	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPProductBucket_Consumed()
@@ -160,6 +164,10 @@ public interface LPProductBucket extends LPTimeBucket {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Quantity of Product
+	 * 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Supplied</em>' containment reference.
 	 * @see #setSupplied(GeneratorLpVar)
 	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPProductBucket_Supplied()
@@ -186,6 +194,10 @@ public interface LPProductBucket extends LPTimeBucket {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Quantity of Product
+	 * 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Stocked</em>' containment reference.
 	 * @see #setStocked(GeneratorLpVar)
 	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPProductBucket_Stocked()

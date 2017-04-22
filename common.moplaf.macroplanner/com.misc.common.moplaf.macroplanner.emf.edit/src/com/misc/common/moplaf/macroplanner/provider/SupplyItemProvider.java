@@ -216,7 +216,6 @@ public class SupplyItemProvider
 	 * This returns Supply.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
