@@ -584,8 +584,7 @@ public class LPAvailabilityBucketImpl extends LPTimeBucketImpl implements LPAvai
 		this.setName(name);
 		
 		// fraction of the availability in the bucket
-		float rhs = availability.getQuantity();
-		float fraction = this.getBucket().getIntersection(availability.getFrom(), availability.getTo());
+		float fraction = bucket.getIntersection(availability.getFrom(), availability.getTo());
 		this.setFraction(fraction);
 	}
 
