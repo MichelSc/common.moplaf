@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -59,6 +60,7 @@ public class LPAvailabilityBucketItemProvider extends LPTimeBucketItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addResourceBucketPropertyDescriptor(object);
+			addFractionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -81,6 +83,28 @@ public class LPAvailabilityBucketItemProvider extends LPTimeBucketItemProvider {
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Fraction feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFractionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LPAvailabilityBucket_Fraction_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LPAvailabilityBucket_Fraction_feature", "_UI_LPAvailabilityBucket_type"),
+				 MacroPlannerSolverPackage.Literals.LP_AVAILABILITY_BUCKET__FRACTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -144,6 +168,9 @@ public class LPAvailabilityBucketItemProvider extends LPTimeBucketItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(LPAvailabilityBucket.class)) {
+			case MacroPlannerSolverPackage.LP_AVAILABILITY_BUCKET__FRACTION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case MacroPlannerSolverPackage.LP_AVAILABILITY_BUCKET__RESERVED:
 			case MacroPlannerSolverPackage.LP_AVAILABILITY_BUCKET__SLACK:
 			case MacroPlannerSolverPackage.LP_AVAILABILITY_BUCKET__BALANCE:

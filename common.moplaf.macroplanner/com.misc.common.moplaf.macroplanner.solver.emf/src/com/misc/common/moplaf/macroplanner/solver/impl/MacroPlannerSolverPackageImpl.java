@@ -1163,6 +1163,15 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getLPAvailabilityBucket_Fraction() {
+		return (EAttribute)lpAvailabilityBucketEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLPRoutingSet() {
 		return lpRoutingSetEClass;
 	}
@@ -1586,6 +1595,7 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		createEReference(lpAvailabilityBucketEClass, LP_AVAILABILITY_BUCKET__RESERVED);
 		createEReference(lpAvailabilityBucketEClass, LP_AVAILABILITY_BUCKET__SLACK);
 		createEReference(lpAvailabilityBucketEClass, LP_AVAILABILITY_BUCKET__BALANCE);
+		createEAttribute(lpAvailabilityBucketEClass, LP_AVAILABILITY_BUCKET__FRACTION);
 
 		lpRoutingSetEClass = createEClass(LP_ROUTING_SET);
 		createEReference(lpRoutingSetEClass, LP_ROUTING_SET__MACRO_PLANNER);
@@ -1804,6 +1814,7 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		initEReference(getLPAvailabilityBucket_Reserved(), theSolverPackage.getGeneratorLpVar(), null, "Reserved", null, 1, 1, LPAvailabilityBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPAvailabilityBucket_Slack(), theSolverPackage.getGeneratorLpVar(), null, "Slack", null, 1, 1, LPAvailabilityBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPAvailabilityBucket_Balance(), theSolverPackage.getGeneratorLpCons(), null, "Balance", null, 1, 1, LPAvailabilityBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLPAvailabilityBucket_Fraction(), ecorePackage.getEFloat(), "Fraction", null, 0, 1, LPAvailabilityBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(lpRoutingSetEClass, LPRoutingSet.class, "LPRoutingSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLPRoutingSet_MacroPlanner(), this.getLPMacroPlanner(), this.getLPMacroPlanner_RoutingSet(), "MacroPlanner", null, 1, 1, LPRoutingSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

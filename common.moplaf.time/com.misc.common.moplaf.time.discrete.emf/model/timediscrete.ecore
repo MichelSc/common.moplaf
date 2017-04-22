@@ -36,6 +36,10 @@
       <eParameters name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
       <eParameters name="to" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     </eOperations>
+    <eOperations name="getIntersection" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+      <eParameters name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      <eParameters name="to" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    </eOperations>
     <eOperations name="getOffset" eType="#//TimeBucket">
       <eParameters name="seconds" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     </eOperations>

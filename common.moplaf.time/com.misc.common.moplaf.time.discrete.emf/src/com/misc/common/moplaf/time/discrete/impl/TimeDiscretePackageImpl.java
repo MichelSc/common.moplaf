@@ -468,8 +468,17 @@ public class TimeDiscretePackageImpl extends EPackageImpl implements TimeDiscret
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTimeBucket__GetOffset__float() {
+	public EOperation getTimeBucket__GetIntersection__Date_Date() {
 		return timeBucketEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTimeBucket__GetOffset__float() {
+		return timeBucketEClass.getEOperations().get(7);
 	}
 
 	/**
@@ -814,6 +823,7 @@ public class TimeDiscretePackageImpl extends EPackageImpl implements TimeDiscret
 		createEOperation(timeBucketEClass, TIME_BUCKET___IS_AFTER__TIMEBUCKET);
 		createEOperation(timeBucketEClass, TIME_BUCKET___IS_AFTER_STRICTLY__TIMEBUCKET);
 		createEOperation(timeBucketEClass, TIME_BUCKET___GET_SECONDS_INTERSECTION__DATE_DATE);
+		createEOperation(timeBucketEClass, TIME_BUCKET___GET_INTERSECTION__DATE_DATE);
 		createEOperation(timeBucketEClass, TIME_BUCKET___GET_OFFSET__FLOAT);
 
 		timeLineEClass = createEClass(TIME_LINE);
@@ -934,6 +944,10 @@ public class TimeDiscretePackageImpl extends EPackageImpl implements TimeDiscret
 		addEParameter(op, this.getTimeBucket(), "other", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getTimeBucket__GetSecondsIntersection__Date_Date(), ecorePackage.getEInt(), "getSecondsIntersection", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDate(), "from", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDate(), "to", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getTimeBucket__GetIntersection__Date_Date(), ecorePackage.getEFloat(), "getIntersection", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "from", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "to", 0, 1, IS_UNIQUE, IS_ORDERED);
 

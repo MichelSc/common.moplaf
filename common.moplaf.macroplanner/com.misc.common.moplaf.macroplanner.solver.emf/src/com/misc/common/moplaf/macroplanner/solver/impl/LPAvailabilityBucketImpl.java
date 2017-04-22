@@ -51,6 +51,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPAvailabilityBucketImpl#getReserved <em>Reserved</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPAvailabilityBucketImpl#getSlack <em>Slack</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPAvailabilityBucketImpl#getBalance <em>Balance</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPAvailabilityBucketImpl#getFraction <em>Fraction</em>}</li>
  * </ul>
  *
  * @generated
@@ -95,6 +96,26 @@ public class LPAvailabilityBucketImpl extends LPTimeBucketImpl implements LPAvai
 	 * @ordered
 	 */
 	protected GeneratorLpCons balance;
+
+	/**
+	 * The default value of the '{@link #getFraction() <em>Fraction</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFraction()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float FRACTION_EDEFAULT = 0.0F;
+
+	/**
+	 * The cached value of the '{@link #getFraction() <em>Fraction</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFraction()
+	 * @generated
+	 * @ordered
+	 */
+	protected float fraction = FRACTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -350,6 +371,27 @@ public class LPAvailabilityBucketImpl extends LPTimeBucketImpl implements LPAvai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public float getFraction() {
+		return fraction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFraction(float newFraction) {
+		float oldFraction = fraction;
+		fraction = newFraction;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MacroPlannerSolverPackage.LP_AVAILABILITY_BUCKET__FRACTION, oldFraction, fraction));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -420,6 +462,8 @@ public class LPAvailabilityBucketImpl extends LPTimeBucketImpl implements LPAvai
 				return getSlack();
 			case MacroPlannerSolverPackage.LP_AVAILABILITY_BUCKET__BALANCE:
 				return getBalance();
+			case MacroPlannerSolverPackage.LP_AVAILABILITY_BUCKET__FRACTION:
+				return getFraction();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -446,6 +490,9 @@ public class LPAvailabilityBucketImpl extends LPTimeBucketImpl implements LPAvai
 				return;
 			case MacroPlannerSolverPackage.LP_AVAILABILITY_BUCKET__BALANCE:
 				setBalance((GeneratorLpCons)newValue);
+				return;
+			case MacroPlannerSolverPackage.LP_AVAILABILITY_BUCKET__FRACTION:
+				setFraction((Float)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -474,6 +521,9 @@ public class LPAvailabilityBucketImpl extends LPTimeBucketImpl implements LPAvai
 			case MacroPlannerSolverPackage.LP_AVAILABILITY_BUCKET__BALANCE:
 				setBalance((GeneratorLpCons)null);
 				return;
+			case MacroPlannerSolverPackage.LP_AVAILABILITY_BUCKET__FRACTION:
+				setFraction(FRACTION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -496,8 +546,26 @@ public class LPAvailabilityBucketImpl extends LPTimeBucketImpl implements LPAvai
 				return slack != null;
 			case MacroPlannerSolverPackage.LP_AVAILABILITY_BUCKET__BALANCE:
 				return balance != null;
+			case MacroPlannerSolverPackage.LP_AVAILABILITY_BUCKET__FRACTION:
+				return fraction != FRACTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (Fraction: ");
+		result.append(fraction);
+		result.append(')');
+		return result.toString();
 	}
 
 	/**
@@ -507,12 +575,18 @@ public class LPAvailabilityBucketImpl extends LPTimeBucketImpl implements LPAvai
 	public void generateTuples() {
 		super.generateTuples();
 		
-		LPAvailability availability = this.getAvailability();
-		//TimeBucket bucket = this.getBucket();
+		LPAvailability lp_availability = this.getAvailability();
+		Availability availability = lp_availability.getAvailability();
+		TimeBucket bucket = this.getBucket();
 		
 		// logic name
-		String name = String.format("%s,%s", availability.getName(), this.getBucketShortName());
+		String name = String.format("%s,%s", lp_availability.getName(), this.getBucketShortName());
 		this.setName(name);
+		
+		// fraction of the availability in the bucket
+		float rhs = availability.getQuantity();
+		float fraction = this.getBucket().getIntersection(availability.getFrom(), availability.getTo());
+		this.setFraction(fraction);
 	}
 
 	/**
@@ -570,6 +644,8 @@ public class LPAvailabilityBucketImpl extends LPTimeBucketImpl implements LPAvai
 	private void generateLpConsBalance(){
 		LPAvailability lp_availability = this.getAvailability();
 		Availability availability = lp_availability.getAvailability();
+		float fraction = this.getFraction();
+		float quantity = availability.getQuantity();
 
 		GeneratorLpCons cons = SolverFactory.eINSTANCE.createGeneratorLpCons();
 		cons.setType(EnumLpConsType.ENUM_LITERAL_LP_CONS_SMALLER_OR_EQUAL);
@@ -578,8 +654,7 @@ public class LPAvailabilityBucketImpl extends LPTimeBucketImpl implements LPAvai
 		GeneratorLpVar var_slack   = this.getSlack();
 		cons.constructTerm(var_reserved, 1.0f);
 		cons.constructTerm(var_slack, -1.0f);
-		float rhs = availability.getQuantity();
-		cons.setRighHandSide(rhs);
+		cons.setRighHandSide(quantity*fraction);
 		this.setBalance(cons); // owning
 	}
 } //LPAvailabilityBucketImpl

@@ -227,6 +227,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Balance" lowerBound="1"
         eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpCons"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Fraction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LPRoutingSet" eSuperTypes="#//LPTuple">
     <eStructuralFeatures xsi:type="ecore:EReference" name="MacroPlanner" lowerBound="1"

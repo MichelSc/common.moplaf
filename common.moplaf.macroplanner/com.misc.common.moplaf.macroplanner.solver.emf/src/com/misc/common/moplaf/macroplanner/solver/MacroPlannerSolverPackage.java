@@ -4245,13 +4245,22 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_AVAILABILITY_BUCKET__BALANCE = LP_TIME_BUCKET_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Fraction</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_AVAILABILITY_BUCKET__FRACTION = LP_TIME_BUCKET_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>LP Availability Bucket</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LP_AVAILABILITY_BUCKET_FEATURE_COUNT = LP_TIME_BUCKET_FEATURE_COUNT + 5;
+	int LP_AVAILABILITY_BUCKET_FEATURE_COUNT = LP_TIME_BUCKET_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -6856,6 +6865,17 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	EReference getLPAvailabilityBucket_Balance();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.solver.LPAvailabilityBucket#getFraction <em>Fraction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fraction</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPAvailabilityBucket#getFraction()
+	 * @see #getLPAvailabilityBucket()
+	 * @generated
+	 */
+	EAttribute getLPAvailabilityBucket_Fraction();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingSet <em>LP Routing Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8024,6 +8044,14 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		 * @generated
 		 */
 		EReference LP_AVAILABILITY_BUCKET__BALANCE = eINSTANCE.getLPAvailabilityBucket_Balance();
+
+		/**
+		 * The meta object literal for the '<em><b>Fraction</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LP_AVAILABILITY_BUCKET__FRACTION = eINSTANCE.getLPAvailabilityBucket_Fraction();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingSetImpl <em>LP Routing Set</em>}' class.

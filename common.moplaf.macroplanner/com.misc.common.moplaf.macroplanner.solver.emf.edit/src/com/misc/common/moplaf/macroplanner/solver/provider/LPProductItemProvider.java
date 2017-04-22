@@ -211,7 +211,7 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 
 		@Override
 		public String getText(LPProduct product) {
-			String text = String.format("Conso(%s)", product.getCode());
+			String text = String.format("Conso: %s", product.getCode());
 			return text;
 		}
 
@@ -238,7 +238,7 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 
 		@Override
 		public String getText(LPProduct product) {
-			String text = String.format("Supply(%s)", product.getCode());
+			String text = String.format("Supply: %s", product.getCode());
 			return text;
 		}
 
@@ -264,7 +264,7 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 
 		@Override
 		public String getText(LPProduct product) {
-			String text = String.format("Stock(%s)", product.getCode());
+			String text = String.format("Stock: %s", product.getCode());
 			return text;
 		}
 		
@@ -288,7 +288,7 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 
 		@Override
 		public String getText(LPProduct product) {
-			String text = String.format("Capac(%s)", product.getCode());
+			String text = String.format("Capac: %s", product.getCode());
 			return text;
 		}
 		

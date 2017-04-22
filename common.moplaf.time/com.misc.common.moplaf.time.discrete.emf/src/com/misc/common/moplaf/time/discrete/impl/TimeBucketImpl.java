@@ -555,6 +555,17 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public float getIntersection(Date from, Date to) {
+		int secondsInBucket = this.getSeconds();
+		int secondsInIntersection = this.getSecondsIntersection(from, to);
+		float fraction = (float)secondsInIntersection / (float)secondsInBucket;
+		return fraction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public TimeBucket getOffset(float seconds) {
 		if ( seconds == 0.0f) {
 			return this;
@@ -789,6 +800,8 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 				return isAfterStrictly((TimeBucket)arguments.get(0));
 			case TimeDiscretePackage.TIME_BUCKET___GET_SECONDS_INTERSECTION__DATE_DATE:
 				return getSecondsIntersection((Date)arguments.get(0), (Date)arguments.get(1));
+			case TimeDiscretePackage.TIME_BUCKET___GET_INTERSECTION__DATE_DATE:
+				return getIntersection((Date)arguments.get(0), (Date)arguments.get(1));
 			case TimeDiscretePackage.TIME_BUCKET___GET_OFFSET__FLOAT:
 				return getOffset((Float)arguments.get(0));
 		}

@@ -340,6 +340,14 @@ public interface TimeBucket extends EObject {
 	 * @model
 	 * @generated
 	 */
+	float getIntersection(Date from, Date to);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	TimeBucket getOffset(float seconds);
 
 } // TimeBucket

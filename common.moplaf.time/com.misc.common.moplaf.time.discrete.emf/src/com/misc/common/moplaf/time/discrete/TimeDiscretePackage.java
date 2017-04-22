@@ -233,13 +233,22 @@ public interface TimeDiscretePackage extends EPackage {
 	int TIME_BUCKET___GET_SECONDS_INTERSECTION__DATE_DATE = 5;
 
 	/**
+	 * The operation id for the '<em>Get Intersection</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_BUCKET___GET_INTERSECTION__DATE_DATE = 6;
+
+	/**
 	 * The operation id for the '<em>Get Offset</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_BUCKET___GET_OFFSET__FLOAT = 6;
+	int TIME_BUCKET___GET_OFFSET__FLOAT = 7;
 
 	/**
 	 * The number of operations of the '<em>Time Bucket</em>' class.
@@ -248,7 +257,7 @@ public interface TimeDiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_BUCKET_OPERATION_COUNT = 7;
+	int TIME_BUCKET_OPERATION_COUNT = 8;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.discrete.impl.TimeLineImpl <em>Time Line</em>}' class.
@@ -979,6 +988,16 @@ public interface TimeDiscretePackage extends EPackage {
 	EOperation getTimeBucket__GetSecondsIntersection__Date_Date();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.discrete.TimeBucket#getIntersection(java.util.Date, java.util.Date) <em>Get Intersection</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Intersection</em>' operation.
+	 * @see com.misc.common.moplaf.time.discrete.TimeBucket#getIntersection(java.util.Date, java.util.Date)
+	 * @generated
+	 */
+	EOperation getTimeBucket__GetIntersection__Date_Date();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.discrete.TimeBucket#getOffset(float) <em>Get Offset</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1682,6 +1701,14 @@ public interface TimeDiscretePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation TIME_BUCKET___GET_SECONDS_INTERSECTION__DATE_DATE = eINSTANCE.getTimeBucket__GetSecondsIntersection__Date_Date();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Intersection</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TIME_BUCKET___GET_INTERSECTION__DATE_DATE = eINSTANCE.getTimeBucket__GetIntersection__Date_Date();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Offset</b></em>' operation.
