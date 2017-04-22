@@ -71,6 +71,7 @@ public class SupplyItemProvider
 			super.getPropertyDescriptors(object);
 
 			addLocationProductPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 			addQuantityPropertyDescriptor(object);
 			addFromPropertyDescriptor(object);
 			addToPropertyDescriptor(object);
@@ -191,6 +192,28 @@ public class SupplyItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Supply_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Supply_Description_feature", "_UI_Supply_type"),
+				 MacroPlannerPackage.Literals.SUPPLY__DESCRIPTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__10MacroPlannerPropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Enforce feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -230,8 +253,10 @@ public class SupplyItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Supply supply = (Supply)object;
-		return getString("_UI_Supply_type") + " " + supply.getQuantity();
+		String label = ((Supply)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Supply_type") :
+			getString("_UI_Supply_type") + " " + label;
 	}
 	
 
@@ -247,6 +272,7 @@ public class SupplyItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Supply.class)) {
+			case MacroPlannerPackage.SUPPLY__DESCRIPTION:
 			case MacroPlannerPackage.SUPPLY__QUANTITY:
 			case MacroPlannerPackage.SUPPLY__FROM:
 			case MacroPlannerPackage.SUPPLY__TO:

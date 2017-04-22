@@ -80,6 +80,8 @@
           ecoreFeature="ecore:EReference MacroPlanner.ecore#//Availability/SupplyChainLimits"/>
       <genFeatures notify="false" createChild="false" propertyCategory="10 MacroPlanner"
           propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//Availability/LocationResource"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 MacroPlanner"
+          ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Availability/Description"/>
       <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Availability/Quantity"/>
       <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Availability/From"/>
       <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Availability/To"/>
@@ -92,6 +94,8 @@
           ecoreFeature="ecore:EReference MacroPlanner.ecore#//Capacity/SupplyChainLimits"/>
       <genFeatures notify="false" createChild="false" propertyCategory="10 MacroPlanner"
           propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//Capacity/LocationProduct"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 MacroPlanner"
+          ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Capacity/Description"/>
       <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Capacity/Quantity"/>
       <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Capacity/From"/>
       <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Capacity/To"/>
@@ -146,6 +150,8 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MacroPlanner.ecore#//Supply/SupplyChainData"/>
       <genFeatures notify="false" createChild="false" propertyCategory="10 MacroPlanner"
           propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlanner.ecore#//Supply/LocationProduct"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="10 MacroPlanner"
+          ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Supply/Description"/>
       <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Supply/Quantity"/>
       <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Supply/From"/>
       <genFeatures createChild="false" propertyCategory="10 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlanner.ecore#//Supply/To"/>

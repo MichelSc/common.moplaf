@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.macroplanner.Availability#getSupplyChainLimits <em>Supply Chain Limits</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.Availability#getLocationResource <em>Location Resource</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.Availability#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.Availability#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.Availability#getFrom <em>From</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.Availability#getTo <em>To</em>}</li>
@@ -251,5 +252,20 @@ public interface Availability extends EObject {
 	 * @generated
 	 */
 	void setLocationResource(LocationResource value);
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see com.misc.common.moplaf.macroplanner.MacroPlannerPackage#getAvailability_Description()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getDescription();
 
 } // Availability

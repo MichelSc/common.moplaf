@@ -39,6 +39,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.SupplyImpl#getSupplyChainData <em>Supply Chain Data</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.SupplyImpl#getLocationProduct <em>Location Product</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.impl.SupplyImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.SupplyImpl#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.SupplyImpl#getFrom <em>From</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.SupplyImpl#getTo <em>To</em>}</li>
@@ -58,6 +59,16 @@ public class SupplyImpl extends MinimalEObjectImpl.Container implements Supply {
 	 * @ordered
 	 */
 	protected LocationProduct locationProduct;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getQuantity() <em>Quantity</em>}' attribute.
@@ -366,6 +377,16 @@ public class SupplyImpl extends MinimalEObjectImpl.Container implements Supply {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public String getDescription() {
+		LocationProduct locationProduct = this.getLocationProduct();
+		String description = String.format("%s: %.2f", locationProduct==null ? "null" : locationProduct.getCode(), this.getQuantity());
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean isEnforce() {
@@ -447,6 +468,8 @@ public class SupplyImpl extends MinimalEObjectImpl.Container implements Supply {
 			case MacroPlannerPackage.SUPPLY__LOCATION_PRODUCT:
 				if (resolve) return getLocationProduct();
 				return basicGetLocationProduct();
+			case MacroPlannerPackage.SUPPLY__DESCRIPTION:
+				return getDescription();
 			case MacroPlannerPackage.SUPPLY__QUANTITY:
 				return getQuantity();
 			case MacroPlannerPackage.SUPPLY__FROM:
@@ -539,6 +562,8 @@ public class SupplyImpl extends MinimalEObjectImpl.Container implements Supply {
 				return getSupplyChainData() != null;
 			case MacroPlannerPackage.SUPPLY__LOCATION_PRODUCT:
 				return locationProduct != null;
+			case MacroPlannerPackage.SUPPLY__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case MacroPlannerPackage.SUPPLY__QUANTITY:
 				return quantity != QUANTITY_EDEFAULT;
 			case MacroPlannerPackage.SUPPLY__FROM:

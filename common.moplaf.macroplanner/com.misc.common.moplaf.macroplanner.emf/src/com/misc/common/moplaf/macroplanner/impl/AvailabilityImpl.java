@@ -38,6 +38,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.AvailabilityImpl#getSupplyChainLimits <em>Supply Chain Limits</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.AvailabilityImpl#getLocationResource <em>Location Resource</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.impl.AvailabilityImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.AvailabilityImpl#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.AvailabilityImpl#getFrom <em>From</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.AvailabilityImpl#getTo <em>To</em>}</li>
@@ -58,6 +59,16 @@ public class AvailabilityImpl extends MinimalEObjectImpl.Container implements Av
 	 * @ordered
 	 */
 	protected LocationResource locationResource;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getQuantity() <em>Quantity</em>}' attribute.
@@ -428,6 +439,16 @@ public class AvailabilityImpl extends MinimalEObjectImpl.Container implements Av
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public String getDescription() {
+		LocationResource locationResource = this.getLocationResource();
+		String description = String.format("%s: %.2f", locationResource==null ? "null" : locationResource.getCode(), this.getQuantity());
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -488,6 +509,8 @@ public class AvailabilityImpl extends MinimalEObjectImpl.Container implements Av
 			case MacroPlannerPackage.AVAILABILITY__LOCATION_RESOURCE:
 				if (resolve) return getLocationResource();
 				return basicGetLocationResource();
+			case MacroPlannerPackage.AVAILABILITY__DESCRIPTION:
+				return getDescription();
 			case MacroPlannerPackage.AVAILABILITY__QUANTITY:
 				return getQuantity();
 			case MacroPlannerPackage.AVAILABILITY__FROM:
@@ -588,6 +611,8 @@ public class AvailabilityImpl extends MinimalEObjectImpl.Container implements Av
 				return getSupplyChainLimits() != null;
 			case MacroPlannerPackage.AVAILABILITY__LOCATION_RESOURCE:
 				return locationResource != null;
+			case MacroPlannerPackage.AVAILABILITY__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case MacroPlannerPackage.AVAILABILITY__QUANTITY:
 				return quantity != QUANTITY_EDEFAULT;
 			case MacroPlannerPackage.AVAILABILITY__FROM:

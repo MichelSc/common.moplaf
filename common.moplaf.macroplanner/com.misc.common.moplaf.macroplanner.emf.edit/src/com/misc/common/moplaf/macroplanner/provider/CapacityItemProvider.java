@@ -71,6 +71,7 @@ public class CapacityItemProvider
 			super.getPropertyDescriptors(object);
 
 			addLocationProductPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 			addQuantityPropertyDescriptor(object);
 			addFromPropertyDescriptor(object);
 			addToPropertyDescriptor(object);
@@ -236,6 +237,28 @@ public class CapacityItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Capacity_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Capacity_Description_feature", "_UI_Capacity_type"),
+				 MacroPlannerPackage.Literals.CAPACITY__DESCRIPTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__10MacroPlannerPropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This returns Capacity.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -253,8 +276,10 @@ public class CapacityItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Capacity capacity = (Capacity)object;
-		return getString("_UI_Capacity_type") + " " + capacity.getQuantity();
+		String label = ((Capacity)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Capacity_type") :
+			getString("_UI_Capacity_type") + " " + label;
 	}
 	
 
@@ -270,6 +295,7 @@ public class CapacityItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Capacity.class)) {
+			case MacroPlannerPackage.CAPACITY__DESCRIPTION:
 			case MacroPlannerPackage.CAPACITY__QUANTITY:
 			case MacroPlannerPackage.CAPACITY__FROM:
 			case MacroPlannerPackage.CAPACITY__TO:

@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.macroplanner.impl;
 
+
 import com.misc.common.moplaf.macroplanner.Capacity;
 import com.misc.common.moplaf.macroplanner.LocationProduct;
 import com.misc.common.moplaf.macroplanner.MacroPlannerPackage;
@@ -38,6 +39,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.CapacityImpl#getSupplyChainLimits <em>Supply Chain Limits</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.CapacityImpl#getLocationProduct <em>Location Product</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.impl.CapacityImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.CapacityImpl#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.CapacityImpl#getFrom <em>From</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.CapacityImpl#getTo <em>To</em>}</li>
@@ -58,6 +60,16 @@ public class CapacityImpl extends MinimalEObjectImpl.Container implements Capaci
 	 * @ordered
 	 */
 	protected LocationProduct locationProduct;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getQuantity() <em>Quantity</em>}' attribute.
@@ -428,6 +440,16 @@ public class CapacityImpl extends MinimalEObjectImpl.Container implements Capaci
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public String getDescription() {
+		LocationProduct locationProduct = this.getLocationProduct();
+		String description = String.format("%s: %.2f", locationProduct==null ? "null" : locationProduct.getCode(), this.getQuantity());
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -488,6 +510,8 @@ public class CapacityImpl extends MinimalEObjectImpl.Container implements Capaci
 			case MacroPlannerPackage.CAPACITY__LOCATION_PRODUCT:
 				if (resolve) return getLocationProduct();
 				return basicGetLocationProduct();
+			case MacroPlannerPackage.CAPACITY__DESCRIPTION:
+				return getDescription();
 			case MacroPlannerPackage.CAPACITY__QUANTITY:
 				return getQuantity();
 			case MacroPlannerPackage.CAPACITY__FROM:
@@ -588,6 +612,8 @@ public class CapacityImpl extends MinimalEObjectImpl.Container implements Capaci
 				return getSupplyChainLimits() != null;
 			case MacroPlannerPackage.CAPACITY__LOCATION_PRODUCT:
 				return locationProduct != null;
+			case MacroPlannerPackage.CAPACITY__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case MacroPlannerPackage.CAPACITY__QUANTITY:
 				return quantity != QUANTITY_EDEFAULT;
 			case MacroPlannerPackage.CAPACITY__FROM:

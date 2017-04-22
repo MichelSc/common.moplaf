@@ -71,6 +71,7 @@ public class AvailabilityItemProvider
 			super.getPropertyDescriptors(object);
 
 			addLocationResourcePropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 			addQuantityPropertyDescriptor(object);
 			addFromPropertyDescriptor(object);
 			addToPropertyDescriptor(object);
@@ -236,6 +237,28 @@ public class AvailabilityItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Availability_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Availability_Description_feature", "_UI_Availability_type"),
+				 MacroPlannerPackage.Literals.AVAILABILITY__DESCRIPTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI__10MacroPlannerPropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This returns Availability.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -253,8 +276,10 @@ public class AvailabilityItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Availability availability = (Availability)object;
-		return getString("_UI_Availability_type") + " " + availability.getQuantity();
+		String label = ((Availability)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Availability_type") :
+			getString("_UI_Availability_type") + " " + label;
 	}
 	
 
@@ -270,6 +295,7 @@ public class AvailabilityItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Availability.class)) {
+			case MacroPlannerPackage.AVAILABILITY__DESCRIPTION:
 			case MacroPlannerPackage.AVAILABILITY__QUANTITY:
 			case MacroPlannerPackage.AVAILABILITY__FROM:
 			case MacroPlannerPackage.AVAILABILITY__TO:

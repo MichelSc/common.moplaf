@@ -89,6 +89,8 @@
         eType="#//SupplyChainLimits" eOpposite="#//SupplyChainLimits/Availabilities"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="LocationResource" eType="#//LocationResource"
         eOpposite="#//LocationResource/Availabilities"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Quantity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="From" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="To" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
@@ -101,6 +103,8 @@
         eType="#//SupplyChainLimits" eOpposite="#//SupplyChainLimits/Capacities"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="LocationProduct" eType="#//LocationProduct"
         eOpposite="#//LocationProduct/Capacities"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Quantity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="From" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="To" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
@@ -179,6 +183,8 @@
         eType="#//SupplyChainData" eOpposite="#//SupplyChainData/Supplies"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="LocationProduct" eType="#//LocationProduct"
         eOpposite="#//LocationProduct/Supplies"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Quantity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="From" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="To" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>

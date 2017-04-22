@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.macroplanner.Supply#getSupplyChainData <em>Supply Chain Data</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.Supply#getLocationProduct <em>Location Product</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.Supply#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.Supply#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.Supply#getFrom <em>From</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.Supply#getTo <em>To</em>}</li>
@@ -198,6 +199,21 @@ public interface Supply extends EObject {
 	 * @generated
 	 */
 	void setLocationProduct(LocationProduct value);
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see com.misc.common.moplaf.macroplanner.MacroPlannerPackage#getSupply_Description()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getDescription();
 
 	/**
 	 * Returns the value of the '<em><b>Enforce</b></em>' attribute.
