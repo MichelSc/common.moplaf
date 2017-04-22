@@ -484,7 +484,7 @@ public class DistributionItemProvider
 
 	@Override
 	public int getMoments(Object element, Object timeplot, Object event) {
-		return 2; // 2 moments at the same time but with different amounts: amountBefore and amoutAfter
+		return 2; // 2 moments at the same time but with different amounts: amountBefore and amountAfter
 	}
 
 	@Override
