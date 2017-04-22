@@ -13,16 +13,22 @@
 package com.misc.common.moplaf.macroplanner.solver.provider;
 
 
+import com.misc.common.moplaf.common.Color;
+import com.misc.common.moplaf.macroplanner.solver.LPAvailabilityBucket;
 import com.misc.common.moplaf.macroplanner.solver.LPResource;
+import com.misc.common.moplaf.macroplanner.solver.LPResourceBucket;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverFactory;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
+import com.misc.common.moplaf.timeview.emf.edit.IItemTimePlotsEventsMomentsProvider;
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -32,10 +38,11 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.macroplanner.solver.LPResource} object.
  * <!-- begin-user-doc -->
+ * @implements IItemTimePlotsEventsMomentsProvider
  * <!-- end-user-doc -->
  * @generated
  */
-public class LPResourceItemProvider extends LPTimeLineItemProvider {
+public class LPResourceItemProvider extends LPTimeLineItemProvider implements IItemTimePlotsEventsMomentsProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -170,6 +177,133 @@ public class LPResourceItemProvider extends LPTimeLineItemProvider {
 			(createChildParameter
 				(MacroPlannerSolverPackage.Literals.LP_RESOURCE__LP_BUCKETS,
 				 MacroPlannerSolverFactory.eINSTANCE.createLPResourceBucket()));
+	}
+
+	/**
+	 * 
+	 * @author MiSc
+	 *
+	 */
+	private static abstract class ResourceTimePlot {
+		public abstract float  getScale(LPResource resource);
+		public abstract String getText(LPResource resource);
+		public abstract URI    getForegroundColor(LPResource resource);
+		public abstract float  getEventAmount(LPResourceBucket bucket, int moment);
+	};
+	
+	private static ResourceTimePlot TIME_PLOT_RESERVED = new ResourceTimePlot(){
+		
+		@Override
+		public float getScale(LPResource resource) {
+			return 1.0f;
+		}
+
+		@Override
+		public float getEventAmount(LPResourceBucket bucket, int moment) {
+			return bucket.getReserved().getSelectedSolutionValue();
+		}
+
+		@Override
+		public String getText(LPResource resource) {
+			String text = String.format("Reservation: %s", resource.getCode());
+			return text;
+		}
+
+		@Override
+		public URI getForegroundColor(LPResource resource) {
+			Color color = new Color(0, 255, 0);
+			return color.toURI();			
+		}
+
+
+	};		
+	
+	private static ResourceTimePlot TIME_PLOT_AVAILABILITY = new ResourceTimePlot(){
+		
+		@Override
+		public float getScale(LPResource resource) {
+			return 1.0f;
+		}
+
+		public float getEventAmount(LPResourceBucket bucket, int moment) {
+			float amount = 0.0f;
+			for ( LPAvailabilityBucket bucketAvailability: bucket.getAvailabilities()){
+				amount += bucketAvailability.getAvailability().getAvailability().getQuantity()
+						* bucketAvailability.getFraction();
+			}
+			return amount;
+		}
+
+		@Override
+		public String getText(LPResource resource) {
+			String text = String.format("Available: %s", resource.getCode());
+			return text;
+		}
+		
+		@Override
+		public URI getForegroundColor(LPResource resource) {
+			Color color = new Color(0, 0, 255);
+			return color.toURI();			
+		}
+	};		
+	
+	private static List<ResourceTimePlot> TIME_PLOTS = Arrays.asList(TIME_PLOT_RESERVED, TIME_PLOT_AVAILABILITY);
+
+	@Override
+	public Collection<?> getTimePlots(Object element) {
+		return TIME_PLOTS;
+	}
+
+	@Override
+	public float getScale(Object element, Object timeplot) {
+		LPResource resource = (LPResource) element;
+		ResourceTimePlot the_timeplot = (ResourceTimePlot)timeplot;
+		return the_timeplot.getScale(resource);
+	}
+
+	@Override
+	public String getText(Object element, Object timeplot) {
+		LPResource resource = (LPResource) element;
+		ResourceTimePlot the_timeplot = (ResourceTimePlot)timeplot;
+		return the_timeplot.getText(resource);
+	}
+
+	@Override
+	public Object getForeground(Object element, Object timeplot) {
+		LPResource resource = (LPResource) element;
+		ResourceTimePlot the_timeplot = (ResourceTimePlot)timeplot;
+		return the_timeplot.getForegroundColor(resource);
+	}
+
+	@Override
+	public Collection<?> getEventsMoments(Object element, Object timeplot) {
+		LPResource resource = (LPResource) element;
+		return resource.getBuckets();
+	}
+
+	@Override
+	public int getMoments(Object element, Object timeplot, Object event) {
+		return 2;
+	}
+
+	@Override
+	public Date getMoment(Object element, Object timeplot, Object event, int moment) {
+		LPResourceBucket productbucket = (LPResourceBucket)event;
+		switch ( moment )
+		{
+		case 0: 
+			return productbucket.getBucket().getBucketStart();
+		case 1: 
+			return productbucket.getBucket().getBucketEnd();
+		}
+		return null;
+	}
+
+	@Override
+	public float getAmount(Object element, Object timeplot, Object event, int moment) {
+		ResourceTimePlot the_timeplot = (ResourceTimePlot)timeplot;
+		LPResourceBucket productbucket = (LPResourceBucket)event;
+		return the_timeplot.getEventAmount(productbucket, moment);
 	}
 
 }

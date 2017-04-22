@@ -13,16 +13,21 @@
 package com.misc.common.moplaf.macroplanner.solver.provider;
 
 
+import com.misc.common.moplaf.common.Color;
+import com.misc.common.moplaf.macroplanner.solver.LPRoutingBucket;
 import com.misc.common.moplaf.macroplanner.solver.LPRouting;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverFactory;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
+import com.misc.common.moplaf.timeview.emf.edit.IItemTimePlotsEventsMomentsProvider;
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -32,10 +37,11 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.macroplanner.solver.LPRouting} object.
  * <!-- begin-user-doc -->
+ * @implements IItemTimePlotsEventsMomentsProvider
  * <!-- end-user-doc -->
  * @generated
  */
-public class LPRoutingItemProvider extends LPTimeLineItemProvider {
+public class LPRoutingItemProvider extends LPTimeLineItemProvider  implements IItemTimePlotsEventsMomentsProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -179,4 +185,101 @@ public class LPRoutingItemProvider extends LPTimeLineItemProvider {
 				 MacroPlannerSolverFactory.eINSTANCE.createLPRoutingResource()));
 	}
 
+	/**
+	 * 
+	 * @author MiSc
+	 *
+	 */
+	private static abstract class RoutingTimePlot {
+		public abstract float  getScale(LPRouting routing);
+		public abstract String getText(LPRouting routing);
+		public abstract URI    getForegroundColor(LPRouting routing);
+		public abstract float  getEventAmount(LPRoutingBucket bucket, int moment);
+	};
+	
+	private static RoutingTimePlot TIME_PLOT_PLANNED = new RoutingTimePlot(){
+		
+		@Override
+		public float getScale(LPRouting routing) {
+			return 1.0f;
+		}
+
+		@Override
+		public float getEventAmount(LPRoutingBucket bucket, int moment) {
+			return bucket.getPlanned().getSelectedSolutionValue();
+		}
+
+		@Override
+		public String getText(LPRouting routing) {
+			String text = String.format("Planned: %s", routing.getCode());
+			return text;
+		}
+
+		@Override
+		public URI getForegroundColor(LPRouting routing) {
+			Color color = new Color(0, 255, 0);
+			return color.toURI();			
+		}
+
+
+	};		
+	
+	private static List<RoutingTimePlot> TIME_PLOTS = Arrays.asList(TIME_PLOT_PLANNED);
+
+	@Override
+	public Collection<?> getTimePlots(Object element) {
+		return TIME_PLOTS;
+	}
+
+	@Override
+	public float getScale(Object element, Object timeplot) {
+		LPRouting routing = (LPRouting) element;
+		RoutingTimePlot the_timeplot = (RoutingTimePlot)timeplot;
+		return the_timeplot.getScale(routing);
+	}
+
+	@Override
+	public String getText(Object element, Object timeplot) {
+		LPRouting routing = (LPRouting) element;
+		RoutingTimePlot the_timeplot = (RoutingTimePlot)timeplot;
+		return the_timeplot.getText(routing);
+	}
+
+	@Override
+	public Object getForeground(Object element, Object timeplot) {
+		LPRouting routing = (LPRouting) element;
+		RoutingTimePlot the_timeplot = (RoutingTimePlot)timeplot;
+		return the_timeplot.getForegroundColor(routing);
+	}
+
+	@Override
+	public Collection<?> getEventsMoments(Object element, Object timeplot) {
+		LPRouting routing = (LPRouting) element;
+		return routing.getBuckets();
+	}
+
+	@Override
+	public int getMoments(Object element, Object timeplot, Object event) {
+		return 2;
+	}
+
+	@Override
+	public Date getMoment(Object element, Object timeplot, Object event, int moment) {
+		LPRoutingBucket productbucket = (LPRoutingBucket)event;
+		switch ( moment )
+		{
+		case 0: 
+			return productbucket.getBucket().getBucketStart();
+		case 1: 
+			return productbucket.getBucket().getBucketEnd();
+		}
+		return null;
+	}
+
+	@Override
+	public float getAmount(Object element, Object timeplot, Object event, int moment) {
+		RoutingTimePlot the_timeplot = (RoutingTimePlot)timeplot;
+		LPRoutingBucket productbucket = (LPRoutingBucket)event;
+		return the_timeplot.getEventAmount(productbucket, moment);
+	}
 }

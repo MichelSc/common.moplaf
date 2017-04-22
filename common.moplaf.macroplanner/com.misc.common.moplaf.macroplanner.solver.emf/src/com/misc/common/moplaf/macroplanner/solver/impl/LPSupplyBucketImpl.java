@@ -25,8 +25,6 @@ import com.misc.common.moplaf.solver.util.Util;
 import com.misc.common.moplaf.time.discrete.ObjectTimeBucket;
 import com.misc.common.moplaf.time.discrete.TimeBucket;
 
-import java.util.Date;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -444,25 +442,16 @@ public class LPSupplyBucketImpl extends LPTimeBucketImpl implements LPSupplyBuck
 		
 		LPSupply lp_supply = this.getSupply();
 		Supply supply = lp_supply.getSupply();
-		float fraction = 1.0f;
-		Date from = supply.getFrom();
-		Date to = supply.getTo();
-		int seconds = com.misc.common.moplaf.time.Util.getSeconds(from, to);
-		if ( seconds<0){
-			fraction = 0.0f;
-		} else if ( seconds>0){
-			TimeBucket bucket = this.getBucket();
-			int secondInBucket = bucket.getSecondsIntersection(from, to);
-			fraction = (float)secondInBucket / (float)seconds;
-		}
+		TimeBucket bucket = this.getBucket();
+
+		// fraction
+     	float fraction = bucket.getIntersection(supply.getFrom(), supply.getTo());
 		this.setFraction(fraction);
-		//TimeBucket bucket = this.getBucket();
 		
 		// logic name
 		String name = String.format("%s,%s", lp_supply.getName(), this.getBucketShortName());
 		this.setName(name);
 		
-		// fraction
 	}
 
 	/**

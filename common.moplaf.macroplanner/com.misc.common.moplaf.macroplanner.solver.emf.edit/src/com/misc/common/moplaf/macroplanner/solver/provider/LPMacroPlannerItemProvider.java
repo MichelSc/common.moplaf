@@ -89,7 +89,7 @@ public class LPMacroPlannerItemProvider extends GeneratorItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__40ToUseMacroPlannerPropertyCategory"),
+				 getString("_UI__40MacroPlannerPropertyCategory"),
 				 null));
 	}
 

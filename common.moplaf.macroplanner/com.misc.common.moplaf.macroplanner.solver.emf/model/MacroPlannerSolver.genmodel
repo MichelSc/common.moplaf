@@ -24,7 +24,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPMacroPlanner"
         labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/Generator/Code">
-      <genFeatures createChild="false" propertyCategory="40 ToUseMacroPlanner" ecoreFeature="ecore:EAttribute MacroPlannerSolver.ecore#//LPMacroPlanner/BucketSize"/>
+      <genFeatures createChild="false" propertyCategory="40 MacroPlanner" ecoreFeature="ecore:EAttribute MacroPlannerSolver.ecore#//LPMacroPlanner/BucketSize"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPMacroPlanner/ProductSet"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPMacroPlanner/ResourceSet"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPMacroPlanner/RoutingSet"/>
@@ -136,6 +136,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPAvailabilityBucket/Reserved"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPAvailabilityBucket/Slack"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPAvailabilityBucket/Balance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MacroPlannerSolver.ecore#//LPAvailabilityBucket/Fraction"/>
     </genClasses>
     <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPRoutingSet"
         labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/GeneratorElement/Code">
