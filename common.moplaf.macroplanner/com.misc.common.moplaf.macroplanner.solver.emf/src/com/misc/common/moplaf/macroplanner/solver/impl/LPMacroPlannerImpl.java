@@ -1021,7 +1021,7 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 			return new ReturnFeedback(false, "LPMacroPlanner.generate: no Scenario"); 
 		}
 		
-		if ( scenario.getSelectedMasterData()==null ){ 
+		if ( scenario.getSelectedDataElements()==null ){ 
 			return new ReturnFeedback(false, "LPMacroPlanner.generate: no Master Data"); 
 		}
 		// refresh the time line
@@ -1138,7 +1138,7 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 				float availabilityCost = availability.getCost(); // per time unit and per unit usage
 				for (LPAvailabilityBucket availability_bucket : lp_availability.getLPBuckets()){
 					GeneratorLpVar quantity_reserved = availability_bucket.getReserved(); // on the whole bucket
-					float durationReserved = availability_bucket.getBucket().getHours()/availability.getSupplyChainLimits().getTimeUnit().toHours();
+					float durationReserved = availability_bucket.getBucket().getHours()/availability.getMacroPlannerData().getTimeUnit().toHours();
 					float costPerBucket = availabilityCost*durationReserved; // per unit of usage
 					goal.constructTerm(quantity_reserved, costPerBucket);
 				}
@@ -1164,7 +1164,7 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 			Availability availability = lp_availability.getAvailability();
 			float availabilityPenalty = availability.getPenalty();
 			for (LPAvailabilityBucket availability_bucket : lp_availability.getLPBuckets()){
-				float durationReserved = availability_bucket.getBucket().getHours()/availability.getSupplyChainLimits().getTimeUnit().toHours();
+				float durationReserved = availability_bucket.getBucket().getHours()/availability.getMacroPlannerData().getTimeUnit().toHours();
 				float penaltyPerBucket = availabilityPenalty*durationReserved;
 				GeneratorLpVar slack = availability_bucket.getSlack();
 				goal.constructTerm(slack, penaltyPerBucket);
@@ -1191,7 +1191,7 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 				Capacity capacity= lp_capacity.getCapacity();
 				float capacityCost = capacity.getCost(); // cost per unit of time
 				for (LPCapacityBucket capacity_bucket : lp_capacity.getLPBuckets()){
-					float durationStocked = capacity_bucket.getBucket().getHours()/capacity.getSupplyChainLimits().getTimeUnit().toHours();
+					float durationStocked = capacity_bucket.getBucket().getHours()/capacity.getMacroPlannerData().getTimeUnit().toHours();
 					float costPerBucket = durationStocked*capacityCost;
 					GeneratorLpVar quantity_stocked = capacity_bucket.getStocked();
 					goal.constructTerm(quantity_stocked, costPerBucket);
@@ -1217,7 +1217,7 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 				Capacity capacity= lp_capacity.getCapacity();
 				float capacityPenalty= capacity.getPenalty();
 				for (LPCapacityBucket capacity_bucket : lp_capacity.getLPBuckets()){
-					float durationStocked = capacity_bucket.getBucket().getHours()/capacity.getSupplyChainLimits().getTimeUnit().toHours();
+					float durationStocked = capacity_bucket.getBucket().getHours()/capacity.getMacroPlannerData().getTimeUnit().toHours();
 					float penaltyPerBucket = durationStocked*capacityPenalty;
 					GeneratorLpVar slack = capacity_bucket.getSlack();
 					goal.constructTerm(slack, penaltyPerBucket);

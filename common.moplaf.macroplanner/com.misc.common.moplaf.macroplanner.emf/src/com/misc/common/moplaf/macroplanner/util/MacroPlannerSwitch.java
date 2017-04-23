@@ -76,16 +76,9 @@ public class MacroPlannerSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case MacroPlannerPackage.MACRO_PLANNER_DATA: {
-				MacroPlannerData macroPlannerData = (MacroPlannerData)theEObject;
-				T result = caseMacroPlannerData(macroPlannerData);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA: {
-				SupplyChainMasterData supplyChainMasterData = (SupplyChainMasterData)theEObject;
-				T result = caseSupplyChainMasterData(supplyChainMasterData);
-				if (result == null) result = caseMacroPlannerData(supplyChainMasterData);
+			case MacroPlannerPackage.MACRO_PLANNER_STATIC_DATA: {
+				MacroPlannerStaticData macroPlannerStaticData = (MacroPlannerStaticData)theEObject;
+				T result = caseMacroPlannerStaticData(macroPlannerStaticData);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -119,35 +112,36 @@ public class MacroPlannerSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MacroPlannerPackage.SUPPLY_CHAIN_LIMITS: {
-				SupplyChainLimits supplyChainLimits = (SupplyChainLimits)theEObject;
-				T result = caseSupplyChainLimits(supplyChainLimits);
-				if (result == null) result = caseMacroPlannerData(supplyChainLimits);
+			case MacroPlannerPackage.MACRO_PLANNER_DATA: {
+				MacroPlannerData macroPlannerData = (MacroPlannerData)theEObject;
+				T result = caseMacroPlannerData(macroPlannerData);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MacroPlannerPackage.MACRO_PLANNER_DATA_ELEMENT: {
+				MacroPlannerDataElement macroPlannerDataElement = (MacroPlannerDataElement)theEObject;
+				T result = caseMacroPlannerDataElement(macroPlannerDataElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case MacroPlannerPackage.AVAILABILITY: {
 				Availability availability = (Availability)theEObject;
 				T result = caseAvailability(availability);
+				if (result == null) result = caseMacroPlannerDataElement(availability);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case MacroPlannerPackage.CAPACITY: {
 				Capacity capacity = (Capacity)theEObject;
 				T result = caseCapacity(capacity);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MacroPlannerPackage.SUPPLY_CHAIN_ROUTINGS: {
-				SupplyChainRoutings supplyChainRoutings = (SupplyChainRoutings)theEObject;
-				T result = caseSupplyChainRoutings(supplyChainRoutings);
-				if (result == null) result = caseMacroPlannerData(supplyChainRoutings);
+				if (result == null) result = caseMacroPlannerDataElement(capacity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case MacroPlannerPackage.ROUTING: {
 				Routing routing = (Routing)theEObject;
 				T result = caseRouting(routing);
+				if (result == null) result = caseMacroPlannerDataElement(routing);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -163,21 +157,30 @@ public class MacroPlannerSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MacroPlannerPackage.SUPPLY_CHAIN_DATA: {
-				SupplyChainData supplyChainData = (SupplyChainData)theEObject;
-				T result = caseSupplyChainData(supplyChainData);
-				if (result == null) result = caseMacroPlannerData(supplyChainData);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case MacroPlannerPackage.SUPPLY: {
 				Supply supply = (Supply)theEObject;
 				T result = caseSupply(supply);
+				if (result == null) result = caseMacroPlannerDataElement(supply);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Static Data</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Static Data</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMacroPlannerStaticData(MacroPlannerStaticData object) {
+		return null;
 	}
 
 	/**
@@ -196,17 +199,17 @@ public class MacroPlannerSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Supply Chain Master Data</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Data Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Supply Chain Master Data</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Data Element</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSupplyChainMasterData(SupplyChainMasterData object) {
+	public T caseMacroPlannerDataElement(MacroPlannerDataElement object) {
 		return null;
 	}
 
@@ -286,36 +289,6 @@ public class MacroPlannerSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Supply Chain Limits</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Supply Chain Limits</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSupplyChainLimits(SupplyChainLimits object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Supply Chain Data</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Supply Chain Data</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSupplyChainData(SupplyChainData object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Supply</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -357,21 +330,6 @@ public class MacroPlannerSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCapacity(Capacity object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Supply Chain Routings</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Supply Chain Routings</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSupplyChainRoutings(SupplyChainRoutings object) {
 		return null;
 	}
 

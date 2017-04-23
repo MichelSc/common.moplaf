@@ -14,8 +14,6 @@ package com.misc.common.moplaf.macroplanner;
 
 import java.util.Date;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Supply</b></em>'.
@@ -25,7 +23,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.macroplanner.Supply#getSupplyChainData <em>Supply Chain Data</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.Supply#getLocationProduct <em>Location Product</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.Supply#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.Supply#getQuantity <em>Quantity</em>}</li>
@@ -39,35 +36,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Supply extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Supply Chain Data</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.macroplanner.SupplyChainData#getSupplies <em>Supplies</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Supply Chain Data</em>' container reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Supply Chain Data</em>' container reference.
-	 * @see #setSupplyChainData(SupplyChainData)
-	 * @see com.misc.common.moplaf.macroplanner.MacroPlannerPackage#getSupply_SupplyChainData()
-	 * @see com.misc.common.moplaf.macroplanner.SupplyChainData#getSupplies
-	 * @model opposite="Supplies" required="true" transient="false"
-	 * @generated
-	 */
-	SupplyChainData getSupplyChainData();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.macroplanner.Supply#getSupplyChainData <em>Supply Chain Data</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Supply Chain Data</em>' container reference.
-	 * @see #getSupplyChainData()
-	 * @generated
-	 */
-	void setSupplyChainData(SupplyChainData value);
-
+public interface Supply extends MacroPlannerDataElement {
 	/**
 	 * Returns the value of the '<em><b>Quantity</b></em>' attribute.
 	 * <!-- begin-user-doc -->

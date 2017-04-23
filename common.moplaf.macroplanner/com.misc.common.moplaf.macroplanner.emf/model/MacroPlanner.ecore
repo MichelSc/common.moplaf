@@ -2,13 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="macroplanner" nsURI="http://www.misc.com/common/moplaf/macroplanner/model/0.1"
     nsPrefix="mp">
-  <eClassifiers xsi:type="ecore:EClass" name="MacroPlannerData" abstract="true">
-    <eOperations name="getDurationTimeUnit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
-      <eParameters name="timeUnit" eType="ecore:EEnum ../../com.misc.common.moplaf.time.emf/model/Time.ecore#//TimeUnit"/>
-    </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TimeUnit" eType="ecore:EEnum ../../com.misc.common.moplaf.time.emf/model/Time.ecore#//TimeUnit"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SupplyChainMasterData" eSuperTypes="#//MacroPlannerData">
+  <eClassifiers xsi:type="ecore:EClass" name="MacroPlannerStaticData">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Products" upperBound="-1"
         eType="#//Product" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Resources" upperBound="-1"
@@ -71,22 +65,29 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Availabilities" upperBound="-1"
         eType="#//Availability" eOpposite="#//Availability/LocationResource"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SupplyChainLimits" eSuperTypes="#//MacroPlannerData">
+  <eClassifiers xsi:type="ecore:EClass" name="MacroPlannerData">
+    <eOperations name="getDurationTimeUnit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+      <eParameters name="timeUnit" eType="ecore:EEnum ../../com.misc.common.moplaf.time.emf/model/Time.ecore#//TimeUnit"/>
+    </eOperations>
     <eOperations name="constructCapacity" eType="#//Capacity">
       <eParameters name="product" eType="#//LocationProduct"/>
     </eOperations>
-    <eOperations name="constructAvailability" eType="#//Availability">
+    <eOperations name="constructAvailabilty" eType="#//Availability">
       <eParameters name="resource" eType="#//LocationResource"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Capacities" upperBound="-1"
-        eType="#//Capacity" containment="true" eOpposite="#//Capacity/SupplyChainLimits"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Availabilities" upperBound="-1"
-        eType="#//Availability" containment="true" eOpposite="#//Availability/SupplyChainLimits"/>
+    <eOperations name="constructSupply" eType="#//Supply">
+      <eParameters name="product" eType="#//LocationProduct"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"
+        eType="#//MacroPlannerDataElement" containment="true" eOpposite="#//MacroPlannerDataElement/MacroPlannerData"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TimeUnit" eType="ecore:EEnum ../../com.misc.common.moplaf.time.emf/model/Time.ecore#//TimeUnit"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Availability">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="SupplyChainLimits" lowerBound="1"
-        eType="#//SupplyChainLimits" eOpposite="#//SupplyChainLimits/Availabilities"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MacroPlannerDataElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="MacroPlannerData" lowerBound="1"
+        eType="#//MacroPlannerData" eOpposite="#//MacroPlannerData/Elements"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Availability" eSuperTypes="#//MacroPlannerDataElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="LocationResource" eType="#//LocationResource"
         eOpposite="#//LocationResource/Availabilities"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -98,9 +99,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Enforce" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Penalty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Capacity">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="SupplyChainLimits" lowerBound="1"
-        eType="#//SupplyChainLimits" eOpposite="#//SupplyChainLimits/Capacities"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Capacity" eSuperTypes="#//MacroPlannerDataElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="LocationProduct" eType="#//LocationProduct"
         eOpposite="#//LocationProduct/Capacities"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -116,12 +115,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Enforce" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Penalty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SupplyChainRoutings" eSuperTypes="#//MacroPlannerData">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Routings" upperBound="-1"
-        eType="#//Routing" containment="true" eOpposite="#//Routing/SupplyChainRoutings"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Routing">
+  <eClassifiers xsi:type="ecore:EClass" name="Routing" eSuperTypes="#//MacroPlannerDataElement">
     <eOperations name="constructRoutingProduct" eType="#//RoutingProduct">
       <eParameters name="product" eType="#//LocationProduct"/>
     </eOperations>
@@ -139,8 +133,6 @@
         <details key="documentation" value="Cost for one unit of Routing&#xA;"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="SupplyChainRoutings" lowerBound="1"
-        eType="#//SupplyChainRoutings" eOpposite="#//SupplyChainRoutings/Routings"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RoutingProduct">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Routing" lowerBound="1"
@@ -170,17 +162,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SupplyChainData" eSuperTypes="#//MacroPlannerData">
-    <eOperations name="constructSupply" eType="#//Supply">
-      <eParameters name="product" eType="#//LocationProduct"/>
-    </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Supplies" upperBound="-1"
-        eType="#//Supply" containment="true" eOpposite="#//Supply/SupplyChainData"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Supply">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="SupplyChainData" lowerBound="1"
-        eType="#//SupplyChainData" eOpposite="#//SupplyChainData/Supplies"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Supply" eSuperTypes="#//MacroPlannerDataElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="LocationProduct" eType="#//LocationProduct"
         eOpposite="#//LocationProduct/Supplies"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

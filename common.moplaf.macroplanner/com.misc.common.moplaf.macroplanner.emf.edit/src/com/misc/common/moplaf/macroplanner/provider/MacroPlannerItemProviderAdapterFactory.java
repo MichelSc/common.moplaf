@@ -82,26 +82,26 @@ public class MacroPlannerItemProviderAdapterFactory extends MacroPlannerAdapterF
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.macroplanner.SupplyChainMasterData} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.macroplanner.MacroPlannerStaticData} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SupplyChainMasterDataItemProvider supplyChainMasterDataItemProvider;
+	protected MacroPlannerStaticDataItemProvider macroPlannerStaticDataItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.macroplanner.SupplyChainMasterData}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.macroplanner.MacroPlannerStaticData}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createSupplyChainMasterDataAdapter() {
-		if (supplyChainMasterDataItemProvider == null) {
-			supplyChainMasterDataItemProvider = new SupplyChainMasterDataItemProvider(this);
+	public Adapter createMacroPlannerStaticDataAdapter() {
+		if (macroPlannerStaticDataItemProvider == null) {
+			macroPlannerStaticDataItemProvider = new MacroPlannerStaticDataItemProvider(this);
 		}
 
-		return supplyChainMasterDataItemProvider;
+		return macroPlannerStaticDataItemProvider;
 	}
 
 	/**
@@ -220,49 +220,26 @@ public class MacroPlannerItemProviderAdapterFactory extends MacroPlannerAdapterF
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.macroplanner.SupplyChainLimits} instances.
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.macroplanner.MacroPlannerData} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SupplyChainLimitsItemProvider supplyChainLimitsItemProvider;
+	protected MacroPlannerDataItemProvider macroPlannerDataItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.macroplanner.SupplyChainLimits}.
+	 * This creates an adapter for a {@link com.misc.common.moplaf.macroplanner.MacroPlannerData}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createSupplyChainLimitsAdapter() {
-		if (supplyChainLimitsItemProvider == null) {
-			supplyChainLimitsItemProvider = new SupplyChainLimitsItemProvider(this);
+	public Adapter createMacroPlannerDataAdapter() {
+		if (macroPlannerDataItemProvider == null) {
+			macroPlannerDataItemProvider = new MacroPlannerDataItemProvider(this);
 		}
 
-		return supplyChainLimitsItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.macroplanner.SupplyChainData} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SupplyChainDataItemProvider supplyChainDataItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.macroplanner.SupplyChainData}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSupplyChainDataAdapter() {
-		if (supplyChainDataItemProvider == null) {
-			supplyChainDataItemProvider = new SupplyChainDataItemProvider(this);
-		}
-
-		return supplyChainDataItemProvider;
+		return macroPlannerDataItemProvider;
 	}
 
 	/**
@@ -332,29 +309,6 @@ public class MacroPlannerItemProviderAdapterFactory extends MacroPlannerAdapterF
 		}
 
 		return capacityItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.macroplanner.SupplyChainRoutings} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SupplyChainRoutingsItemProvider supplyChainRoutingsItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.macroplanner.SupplyChainRoutings}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSupplyChainRoutingsAdapter() {
-		if (supplyChainRoutingsItemProvider == null) {
-			supplyChainRoutingsItemProvider = new SupplyChainRoutingsItemProvider(this);
-		}
-
-		return supplyChainRoutingsItemProvider;
 	}
 
 	/**
@@ -525,20 +479,18 @@ public class MacroPlannerItemProviderAdapterFactory extends MacroPlannerAdapterF
 	 * @generated
 	 */
 	public void dispose() {
-		if (supplyChainMasterDataItemProvider != null) supplyChainMasterDataItemProvider.dispose();
+		if (macroPlannerStaticDataItemProvider != null) macroPlannerStaticDataItemProvider.dispose();
 		if (productItemProvider != null) productItemProvider.dispose();
 		if (resourceItemProvider != null) resourceItemProvider.dispose();
 		if (locationItemProvider != null) locationItemProvider.dispose();
 		if (locationProductItemProvider != null) locationProductItemProvider.dispose();
 		if (locationResourceItemProvider != null) locationResourceItemProvider.dispose();
-		if (supplyChainLimitsItemProvider != null) supplyChainLimitsItemProvider.dispose();
+		if (macroPlannerDataItemProvider != null) macroPlannerDataItemProvider.dispose();
 		if (availabilityItemProvider != null) availabilityItemProvider.dispose();
 		if (capacityItemProvider != null) capacityItemProvider.dispose();
-		if (supplyChainRoutingsItemProvider != null) supplyChainRoutingsItemProvider.dispose();
 		if (routingItemProvider != null) routingItemProvider.dispose();
 		if (routingProductItemProvider != null) routingProductItemProvider.dispose();
 		if (routingResourceItemProvider != null) routingResourceItemProvider.dispose();
-		if (supplyChainDataItemProvider != null) supplyChainDataItemProvider.dispose();
 		if (supplyItemProvider != null) supplyItemProvider.dispose();
 	}
 

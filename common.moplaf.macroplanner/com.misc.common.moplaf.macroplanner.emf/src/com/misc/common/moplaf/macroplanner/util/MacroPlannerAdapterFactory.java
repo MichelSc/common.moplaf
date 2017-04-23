@@ -78,12 +78,8 @@ public class MacroPlannerAdapterFactory extends AdapterFactoryImpl {
 	protected MacroPlannerSwitch<Adapter> modelSwitch =
 		new MacroPlannerSwitch<Adapter>() {
 			@Override
-			public Adapter caseMacroPlannerData(MacroPlannerData object) {
-				return createMacroPlannerDataAdapter();
-			}
-			@Override
-			public Adapter caseSupplyChainMasterData(SupplyChainMasterData object) {
-				return createSupplyChainMasterDataAdapter();
+			public Adapter caseMacroPlannerStaticData(MacroPlannerStaticData object) {
+				return createMacroPlannerStaticDataAdapter();
 			}
 			@Override
 			public Adapter caseProduct(Product object) {
@@ -106,8 +102,12 @@ public class MacroPlannerAdapterFactory extends AdapterFactoryImpl {
 				return createLocationResourceAdapter();
 			}
 			@Override
-			public Adapter caseSupplyChainLimits(SupplyChainLimits object) {
-				return createSupplyChainLimitsAdapter();
+			public Adapter caseMacroPlannerData(MacroPlannerData object) {
+				return createMacroPlannerDataAdapter();
+			}
+			@Override
+			public Adapter caseMacroPlannerDataElement(MacroPlannerDataElement object) {
+				return createMacroPlannerDataElementAdapter();
 			}
 			@Override
 			public Adapter caseAvailability(Availability object) {
@@ -116,10 +116,6 @@ public class MacroPlannerAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseCapacity(Capacity object) {
 				return createCapacityAdapter();
-			}
-			@Override
-			public Adapter caseSupplyChainRoutings(SupplyChainRoutings object) {
-				return createSupplyChainRoutingsAdapter();
 			}
 			@Override
 			public Adapter caseRouting(Routing object) {
@@ -132,10 +128,6 @@ public class MacroPlannerAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseRoutingResource(RoutingResource object) {
 				return createRoutingResourceAdapter();
-			}
-			@Override
-			public Adapter caseSupplyChainData(SupplyChainData object) {
-				return createSupplyChainDataAdapter();
 			}
 			@Override
 			public Adapter caseSupply(Supply object) {
@@ -162,6 +154,20 @@ public class MacroPlannerAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.macroplanner.MacroPlannerStaticData <em>Static Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.macroplanner.MacroPlannerStaticData
+	 * @generated
+	 */
+	public Adapter createMacroPlannerStaticDataAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.macroplanner.MacroPlannerData <em>Data</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -176,16 +182,16 @@ public class MacroPlannerAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.macroplanner.SupplyChainMasterData <em>Supply Chain Master Data</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.macroplanner.MacroPlannerDataElement <em>Data Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.macroplanner.SupplyChainMasterData
+	 * @see com.misc.common.moplaf.macroplanner.MacroPlannerDataElement
 	 * @generated
 	 */
-	public Adapter createSupplyChainMasterDataAdapter() {
+	public Adapter createMacroPlannerDataElementAdapter() {
 		return null;
 	}
 
@@ -260,34 +266,6 @@ public class MacroPlannerAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.macroplanner.SupplyChainLimits <em>Supply Chain Limits</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.macroplanner.SupplyChainLimits
-	 * @generated
-	 */
-	public Adapter createSupplyChainLimitsAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.macroplanner.SupplyChainData <em>Supply Chain Data</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.macroplanner.SupplyChainData
-	 * @generated
-	 */
-	public Adapter createSupplyChainDataAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.macroplanner.Supply <em>Supply</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -326,20 +304,6 @@ public class MacroPlannerAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCapacityAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.macroplanner.SupplyChainRoutings <em>Supply Chain Routings</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.macroplanner.SupplyChainRoutings
-	 * @generated
-	 */
-	public Adapter createSupplyChainRoutingsAdapter() {
 		return null;
 	}
 

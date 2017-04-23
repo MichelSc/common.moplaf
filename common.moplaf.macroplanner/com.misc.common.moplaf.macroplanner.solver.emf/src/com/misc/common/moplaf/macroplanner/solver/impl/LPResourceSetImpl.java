@@ -12,9 +12,10 @@
  */
 package com.misc.common.moplaf.macroplanner.solver.impl;
 
-import com.misc.common.moplaf.macroplanner.Location;
+import com.misc.common.moplaf.macroplanner.Availability;
 import com.misc.common.moplaf.macroplanner.LocationResource;
-import com.misc.common.moplaf.macroplanner.SupplyChainMasterData;
+import com.misc.common.moplaf.macroplanner.MacroPlannerDataElement;
+import com.misc.common.moplaf.macroplanner.solver.LPAvailability;
 import com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner;
 import com.misc.common.moplaf.macroplanner.solver.LPResource;
 import com.misc.common.moplaf.macroplanner.solver.LPResourceSet;
@@ -24,6 +25,7 @@ import com.misc.common.moplaf.macroplanner.solver.Scenario;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.HashMap;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -291,16 +293,33 @@ public class LPResourceSetImpl extends LPTupleImpl implements LPResourceSet {
 		
 		LPMacroPlanner lp = this.getMacroPlanner();
 		Scenario scenario = lp.getScenario();
-	    SupplyChainMasterData dataset = scenario.getSelectedMasterData();
 		
-		for (   Location location : dataset.getLocations()){
-			for( LocationResource location_resource: location.getResources()){
-				// location product
-				LPResource lpresource = MacroPlannerSolverFactory.eINSTANCE.createLPResource();
-				lpresource.setResource(location_resource);
-				lpresource.setName(location_resource.getCode());
-				this.getResources().add(lpresource); // owning
+	    HashMap<LocationResource,LPResource> locationResources = new HashMap<LocationResource,LPResource>();
+		for ( MacroPlannerDataElement dataelement : scenario.getSelectedDataElements()){
+			if ( dataelement instanceof Availability){
+				// availabilities
+				Availability availability = (Availability) dataelement;
+				LocationResource locationResource = availability.getLocationResource();
+				// create the LPavailability
+				LPAvailability lpavailability = MacroPlannerSolverFactory.eINSTANCE.createLPAvailability();
+				lpavailability.setAvailability(availability);
+				String name = String.format("avail(%s, %tF)", locationResource.getCode(), availability.getFrom());
+				lpavailability.setName(name);
+				// get or create the lPResource
+				LPResource resource = locationResources.get(locationResource);
+				if ( resource == null ){
+					resource = this.constructLPResource(locationResource);
+				}
+				resource.getAvailabilities().add(lpavailability); // owning
 			}
 		}
+	}
+
+	private LPResource constructLPResource(LocationResource locationResource){
+		LPResource lpresource = MacroPlannerSolverFactory.eINSTANCE.createLPResource();
+		lpresource.setResource(locationResource);
+		lpresource.setName(locationResource.getCode());
+		this.getResources().add(lpresource); // owning
+		return lpresource;
 	}
 } //LPResourceSetImpl

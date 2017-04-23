@@ -465,6 +465,8 @@ public class LPTimeBucketImpl extends LPTupleImpl implements LPTimeBucket {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
+			case MacroPlannerSolverPackage.LP_TIME_BUCKET___GET_BUCKET_SHORT_NAME:
+				return getBucketShortName();
 			case MacroPlannerSolverPackage.LP_TIME_BUCKET___DISPOSE:
 				dispose();
 				return null;

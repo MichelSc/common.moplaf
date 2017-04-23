@@ -66,20 +66,18 @@ public class MacroPlannerFactoryImpl extends EFactoryImpl implements MacroPlanne
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case MacroPlannerPackage.SUPPLY_CHAIN_MASTER_DATA: return createSupplyChainMasterData();
+			case MacroPlannerPackage.MACRO_PLANNER_STATIC_DATA: return createMacroPlannerStaticData();
 			case MacroPlannerPackage.PRODUCT: return createProduct();
 			case MacroPlannerPackage.RESOURCE: return createResource();
 			case MacroPlannerPackage.LOCATION: return createLocation();
 			case MacroPlannerPackage.LOCATION_PRODUCT: return createLocationProduct();
 			case MacroPlannerPackage.LOCATION_RESOURCE: return createLocationResource();
-			case MacroPlannerPackage.SUPPLY_CHAIN_LIMITS: return createSupplyChainLimits();
+			case MacroPlannerPackage.MACRO_PLANNER_DATA: return createMacroPlannerData();
 			case MacroPlannerPackage.AVAILABILITY: return createAvailability();
 			case MacroPlannerPackage.CAPACITY: return createCapacity();
-			case MacroPlannerPackage.SUPPLY_CHAIN_ROUTINGS: return createSupplyChainRoutings();
 			case MacroPlannerPackage.ROUTING: return createRouting();
 			case MacroPlannerPackage.ROUTING_PRODUCT: return createRoutingProduct();
 			case MacroPlannerPackage.ROUTING_RESOURCE: return createRoutingResource();
-			case MacroPlannerPackage.SUPPLY_CHAIN_DATA: return createSupplyChainData();
 			case MacroPlannerPackage.SUPPLY: return createSupply();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -91,9 +89,9 @@ public class MacroPlannerFactoryImpl extends EFactoryImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SupplyChainMasterData createSupplyChainMasterData() {
-		SupplyChainMasterDataImpl supplyChainMasterData = new SupplyChainMasterDataImpl();
-		return supplyChainMasterData;
+	public MacroPlannerStaticData createMacroPlannerStaticData() {
+		MacroPlannerStaticDataImpl macroPlannerStaticData = new MacroPlannerStaticDataImpl();
+		return macroPlannerStaticData;
 	}
 
 	/**
@@ -151,19 +149,9 @@ public class MacroPlannerFactoryImpl extends EFactoryImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SupplyChainLimits createSupplyChainLimits() {
-		SupplyChainLimitsImpl supplyChainLimits = new SupplyChainLimitsImpl();
-		return supplyChainLimits;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SupplyChainData createSupplyChainData() {
-		SupplyChainDataImpl supplyChainData = new SupplyChainDataImpl();
-		return supplyChainData;
+	public MacroPlannerData createMacroPlannerData() {
+		MacroPlannerDataImpl macroPlannerData = new MacroPlannerDataImpl();
+		return macroPlannerData;
 	}
 
 	/**
@@ -194,16 +182,6 @@ public class MacroPlannerFactoryImpl extends EFactoryImpl implements MacroPlanne
 	public Capacity createCapacity() {
 		CapacityImpl capacity = new CapacityImpl();
 		return capacity;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SupplyChainRoutings createSupplyChainRoutings() {
-		SupplyChainRoutingsImpl supplyChainRoutings = new SupplyChainRoutingsImpl();
-		return supplyChainRoutings;
 	}
 
 	/**

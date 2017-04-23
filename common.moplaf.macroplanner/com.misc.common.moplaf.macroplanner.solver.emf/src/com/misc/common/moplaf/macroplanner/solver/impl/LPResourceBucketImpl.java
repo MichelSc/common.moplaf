@@ -646,7 +646,6 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 		super.generateTuples();
 		
 		LPResource resource = this.getResource();
-		//TimeBucket bucket = this.getBucket();
 		
 		// logic name
 		String name = String.format("%s,%s", resource.getName(), this.getBucketShortName());
@@ -730,7 +729,7 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 			GeneratorLpVar var_routing_planned = lp_routing_bucket.getPlanned();
 			float resourcesReservedOneRouting = (float)routing_resource.getReservation(); // resource times TimeUnits
 			float resourcesReservedPerBucket = resourcesReservedOneRouting 
-					                         * routing_resource.getRouting().getSupplyChainRoutings().getTimeUnit().toHours()
+					                         * routing_resource.getRouting().getMacroPlannerData().getTimeUnit().toHours()
 					                         / lp_routing_bucket.getBucket().getHours(); // resources
 					                         
 			cons.contributeTerm(var_routing_planned, -resourcesReservedPerBucket); // a routing may contribute several times to the same resource bucket

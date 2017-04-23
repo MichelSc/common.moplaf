@@ -46,4 +46,12 @@ public interface LPTimeBucket extends LPTuple, ObjectTimeBucket {
 	 * @generated
 	 */
 	String getContent();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getBucketShortName();
 } // LPTimeBucket

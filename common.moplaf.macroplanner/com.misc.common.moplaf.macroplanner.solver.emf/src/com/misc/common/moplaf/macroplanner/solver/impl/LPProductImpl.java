@@ -12,11 +12,8 @@
  */
 package com.misc.common.moplaf.macroplanner.solver.impl;
 
-import com.misc.common.moplaf.macroplanner.Capacity;
+
 import com.misc.common.moplaf.macroplanner.LocationProduct;
-import com.misc.common.moplaf.macroplanner.Supply;
-import com.misc.common.moplaf.macroplanner.SupplyChainData;
-import com.misc.common.moplaf.macroplanner.SupplyChainLimits;
 import com.misc.common.moplaf.macroplanner.solver.LPCapacity;
 import com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner;
 import com.misc.common.moplaf.macroplanner.solver.LPProduct;
@@ -25,7 +22,6 @@ import com.misc.common.moplaf.macroplanner.solver.LPProductSet;
 import com.misc.common.moplaf.macroplanner.solver.LPSupply;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverFactory;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
-import com.misc.common.moplaf.macroplanner.solver.Scenario;
 import com.misc.common.moplaf.time.discrete.ObjectTimeBucket;
 import com.misc.common.moplaf.time.discrete.TimeBucket;
 import com.misc.common.moplaf.time.discrete.TimeLine;
@@ -419,32 +415,6 @@ public class LPProductImpl extends LPTimeLineImpl implements LPProduct {
 		LPProductSet products = this.getProductSet();
 		LPMacroPlanner lp = products.getMacroPlanner();
 		TimeLine timeline = lp.getTimeLine();
-		Scenario scenario = lp.getScenario();
-	    EList<SupplyChainLimits> selectedSCLimits = scenario.getSelectedLimits();
-	    EList<SupplyChainData> selectedSCdata     = scenario.getSelectedData();
-		LocationProduct location_product = this.getProduct();
-		
-		// supplies
-		for ( Supply supply : location_product.getSupplies()){
-			if ( selectedSCdata.contains(supply.getSupplyChainData())){
-				LPSupply lpsupply = MacroPlannerSolverFactory.eINSTANCE.createLPSupply();
-				lpsupply.setSupply(supply);
-				String name = String.format("suppl(%s, %tF)", location_product.getCode(), supply.getFrom());
-				lpsupply.setName(name);
-				this.getSupplies().add(lpsupply); // owning
-			}
-		}
-
-		// capacities
-		for ( Capacity capacity: location_product.getCapacities()){
-			if ( selectedSCLimits.contains(capacity.getSupplyChainLimits())){
-				LPCapacity lpcapacity= MacroPlannerSolverFactory.eINSTANCE.createLPCapacity();
-				lpcapacity.setCapacity(capacity);
-				String name = String.format("capac(%s, %tF)", location_product.getCode(), capacity.getFrom());
-				lpcapacity.setName(name);
-				this.getCapacities().add(lpcapacity); // owning
-			}
-		}
 
 		// time line
 		TimeBucket startOfHorizon = timeline.getFirstBucket();

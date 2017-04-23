@@ -89,13 +89,22 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int SCENARIO__LPS = 0;
 
 	/**
+	 * The feature id for the '<em><b>Selected Data Elements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCENARIO__SELECTED_DATA_ELEMENTS = 1;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCENARIO__NAME = 1;
+	int SCENARIO__NAME = 2;
 
 	/**
 	 * The feature id for the '<em><b>Scenario Start</b></em>' attribute.
@@ -104,7 +113,7 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCENARIO__SCENARIO_START = 2;
+	int SCENARIO__SCENARIO_START = 3;
 
 	/**
 	 * The feature id for the '<em><b>Scenario End</b></em>' attribute.
@@ -113,43 +122,7 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCENARIO__SCENARIO_END = 3;
-
-	/**
-	 * The feature id for the '<em><b>Selected Master Data</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENARIO__SELECTED_MASTER_DATA = 4;
-
-	/**
-	 * The feature id for the '<em><b>Selected Data</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENARIO__SELECTED_DATA = 5;
-
-	/**
-	 * The feature id for the '<em><b>Selected Routings</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENARIO__SELECTED_ROUTINGS = 6;
-
-	/**
-	 * The feature id for the '<em><b>Selected Limits</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENARIO__SELECTED_LIMITS = 7;
+	int SCENARIO__SCENARIO_END = 4;
 
 	/**
 	 * The number of structural features of the '<em>Scenario</em>' class.
@@ -158,7 +131,7 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCENARIO_FEATURE_COUNT = 8;
+	int SCENARIO_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Scenario</em>' class.
@@ -1272,13 +1245,22 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_TIME_BUCKET___DISPOSE = LP_TUPLE_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Get Bucket Short Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_TIME_BUCKET___GET_BUCKET_SHORT_NAME = LP_TUPLE_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>LP Time Bucket</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LP_TIME_BUCKET_OPERATION_COUNT = LP_TUPLE_OPERATION_COUNT + 1;
+	int LP_TIME_BUCKET_OPERATION_COUNT = LP_TUPLE_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductSetImpl <em>LP Product Set</em>}' class.
@@ -2049,6 +2031,15 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_PRODUCT_BUCKET___DISPOSE = LP_TIME_BUCKET___DISPOSE;
 
 	/**
+	 * The operation id for the '<em>Get Bucket Short Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_PRODUCT_BUCKET___GET_BUCKET_SHORT_NAME = LP_TIME_BUCKET___GET_BUCKET_SHORT_NAME;
+
+	/**
 	 * The number of operations of the '<em>LP Product Bucket</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2553,6 +2544,15 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int LP_SUPPLY_BUCKET___DISPOSE = LP_TIME_BUCKET___DISPOSE;
+
+	/**
+	 * The operation id for the '<em>Get Bucket Short Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_SUPPLY_BUCKET___GET_BUCKET_SHORT_NAME = LP_TIME_BUCKET___GET_BUCKET_SHORT_NAME;
 
 	/**
 	 * The number of operations of the '<em>LP Supply Bucket</em>' class.
@@ -3068,6 +3068,15 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int LP_CAPACITY_BUCKET___DISPOSE = LP_TIME_BUCKET___DISPOSE;
+
+	/**
+	 * The operation id for the '<em>Get Bucket Short Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_CAPACITY_BUCKET___GET_BUCKET_SHORT_NAME = LP_TIME_BUCKET___GET_BUCKET_SHORT_NAME;
 
 	/**
 	 * The number of operations of the '<em>LP Capacity Bucket</em>' class.
@@ -3811,6 +3820,15 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_RESOURCE_BUCKET___DISPOSE = LP_TIME_BUCKET___DISPOSE;
 
 	/**
+	 * The operation id for the '<em>Get Bucket Short Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_RESOURCE_BUCKET___GET_BUCKET_SHORT_NAME = LP_TIME_BUCKET___GET_BUCKET_SHORT_NAME;
+
+	/**
 	 * The number of operations of the '<em>LP Resource Bucket</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4333,6 +4351,15 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int LP_AVAILABILITY_BUCKET___DISPOSE = LP_TIME_BUCKET___DISPOSE;
+
+	/**
+	 * The operation id for the '<em>Get Bucket Short Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_AVAILABILITY_BUCKET___GET_BUCKET_SHORT_NAME = LP_TIME_BUCKET___GET_BUCKET_SHORT_NAME;
 
 	/**
 	 * The number of operations of the '<em>LP Availability Bucket</em>' class.
@@ -5458,6 +5485,15 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_ROUTING_BUCKET___DISPOSE = LP_TIME_BUCKET___DISPOSE;
 
 	/**
+	 * The operation id for the '<em>Get Bucket Short Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_BUCKET___GET_BUCKET_SHORT_NAME = LP_TIME_BUCKET___GET_BUCKET_SHORT_NAME;
+
+	/**
 	 * The number of operations of the '<em>LP Routing Bucket</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5849,6 +5885,17 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	EReference getScenario_LPs();
 
 	/**
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.macroplanner.solver.Scenario#getSelectedDataElements <em>Selected Data Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Selected Data Elements</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.Scenario#getSelectedDataElements()
+	 * @see #getScenario()
+	 * @generated
+	 */
+	EReference getScenario_SelectedDataElements();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.solver.Scenario#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5880,50 +5927,6 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getScenario_ScenarioEnd();
-
-	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.macroplanner.solver.Scenario#getSelectedMasterData <em>Selected Master Data</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Selected Master Data</em>'.
-	 * @see com.misc.common.moplaf.macroplanner.solver.Scenario#getSelectedMasterData()
-	 * @see #getScenario()
-	 * @generated
-	 */
-	EReference getScenario_SelectedMasterData();
-
-	/**
-	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.macroplanner.solver.Scenario#getSelectedData <em>Selected Data</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Selected Data</em>'.
-	 * @see com.misc.common.moplaf.macroplanner.solver.Scenario#getSelectedData()
-	 * @see #getScenario()
-	 * @generated
-	 */
-	EReference getScenario_SelectedData();
-
-	/**
-	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.macroplanner.solver.Scenario#getSelectedRoutings <em>Selected Routings</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Selected Routings</em>'.
-	 * @see com.misc.common.moplaf.macroplanner.solver.Scenario#getSelectedRoutings()
-	 * @see #getScenario()
-	 * @generated
-	 */
-	EReference getScenario_SelectedRoutings();
-
-	/**
-	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.macroplanner.solver.Scenario#getSelectedLimits <em>Selected Limits</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Selected Limits</em>'.
-	 * @see com.misc.common.moplaf.macroplanner.solver.Scenario#getSelectedLimits()
-	 * @see #getScenario()
-	 * @generated
-	 */
-	EReference getScenario_SelectedLimits();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner <em>LP Macro Planner</em>}'.
@@ -6118,6 +6121,16 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getLPTimeBucket_Content();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.macroplanner.solver.LPTimeBucket#getBucketShortName() <em>Get Bucket Short Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Bucket Short Name</em>' operation.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPTimeBucket#getBucketShortName()
+	 * @generated
+	 */
+	EOperation getLPTimeBucket__GetBucketShortName();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.macroplanner.solver.LPProductSet <em>LP Product Set</em>}'.
@@ -7262,6 +7275,14 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		EReference SCENARIO__LPS = eINSTANCE.getScenario_LPs();
 
 		/**
+		 * The meta object literal for the '<em><b>Selected Data Elements</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCENARIO__SELECTED_DATA_ELEMENTS = eINSTANCE.getScenario_SelectedDataElements();
+
+		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7284,38 +7305,6 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SCENARIO__SCENARIO_END = eINSTANCE.getScenario_ScenarioEnd();
-
-		/**
-		 * The meta object literal for the '<em><b>Selected Master Data</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SCENARIO__SELECTED_MASTER_DATA = eINSTANCE.getScenario_SelectedMasterData();
-
-		/**
-		 * The meta object literal for the '<em><b>Selected Data</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SCENARIO__SELECTED_DATA = eINSTANCE.getScenario_SelectedData();
-
-		/**
-		 * The meta object literal for the '<em><b>Selected Routings</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SCENARIO__SELECTED_ROUTINGS = eINSTANCE.getScenario_SelectedRoutings();
-
-		/**
-		 * The meta object literal for the '<em><b>Selected Limits</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SCENARIO__SELECTED_LIMITS = eINSTANCE.getScenario_SelectedLimits();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPMacroPlannerImpl <em>LP Macro Planner</em>}' class.
@@ -7468,6 +7457,14 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LP_TIME_BUCKET__CONTENT = eINSTANCE.getLPTimeBucket_Content();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Bucket Short Name</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation LP_TIME_BUCKET___GET_BUCKET_SHORT_NAME = eINSTANCE.getLPTimeBucket__GetBucketShortName();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductSetImpl <em>LP Product Set</em>}' class.

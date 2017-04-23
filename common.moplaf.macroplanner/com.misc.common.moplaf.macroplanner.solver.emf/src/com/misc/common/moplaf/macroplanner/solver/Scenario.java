@@ -12,10 +12,7 @@
  */
 package com.misc.common.moplaf.macroplanner.solver;
 
-import com.misc.common.moplaf.macroplanner.SupplyChainData;
-import com.misc.common.moplaf.macroplanner.SupplyChainLimits;
-import com.misc.common.moplaf.macroplanner.SupplyChainMasterData;
-import com.misc.common.moplaf.macroplanner.SupplyChainRoutings;
+import com.misc.common.moplaf.macroplanner.MacroPlannerDataElement;
 import java.util.Date;
 
 import org.eclipse.emf.common.util.EList;
@@ -32,13 +29,10 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.Scenario#getLPs <em>LPs</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.Scenario#getSelectedDataElements <em>Selected Data Elements</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.Scenario#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.Scenario#getScenarioStart <em>Scenario Start</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.Scenario#getScenarioEnd <em>Scenario End</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.solver.Scenario#getSelectedMasterData <em>Selected Master Data</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.solver.Scenario#getSelectedData <em>Selected Data</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.solver.Scenario#getSelectedRoutings <em>Selected Routings</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.solver.Scenario#getSelectedLimits <em>Selected Limits</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getScenario()
@@ -63,6 +57,22 @@ public interface Scenario extends EObject {
 	 * @generated
 	 */
 	EList<LPMacroPlanner> getLPs();
+
+	/**
+	 * Returns the value of the '<em><b>Selected Data Elements</b></em>' reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.macroplanner.MacroPlannerDataElement}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Selected Data Elements</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Selected Data Elements</em>' reference list.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getScenario_SelectedDataElements()
+	 * @model
+	 * @generated
+	 */
+	EList<MacroPlannerDataElement> getSelectedDataElements();
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -141,79 +151,5 @@ public interface Scenario extends EObject {
 	 * @generated
 	 */
 	void setScenarioEnd(Date value);
-
-	/**
-	 * Returns the value of the '<em><b>Selected Master Data</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Selected Master Data</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Selected Master Data</em>' reference.
-	 * @see #setSelectedMasterData(SupplyChainMasterData)
-	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getScenario_SelectedMasterData()
-	 * @model
-	 * @generated
-	 */
-	SupplyChainMasterData getSelectedMasterData();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.macroplanner.solver.Scenario#getSelectedMasterData <em>Selected Master Data</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Selected Master Data</em>' reference.
-	 * @see #getSelectedMasterData()
-	 * @generated
-	 */
-	void setSelectedMasterData(SupplyChainMasterData value);
-
-	/**
-	 * Returns the value of the '<em><b>Selected Data</b></em>' reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.macroplanner.SupplyChainData}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Selected Data</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Selected Data</em>' reference list.
-	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getScenario_SelectedData()
-	 * @model
-	 * @generated
-	 */
-	EList<SupplyChainData> getSelectedData();
-
-	/**
-	 * Returns the value of the '<em><b>Selected Routings</b></em>' reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.macroplanner.SupplyChainRoutings}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Selected Routings</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Selected Routings</em>' reference list.
-	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getScenario_SelectedRoutings()
-	 * @model
-	 * @generated
-	 */
-	EList<SupplyChainRoutings> getSelectedRoutings();
-
-	/**
-	 * Returns the value of the '<em><b>Selected Limits</b></em>' reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.macroplanner.SupplyChainLimits}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Selected Limits</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Selected Limits</em>' reference list.
-	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getScenario_SelectedLimits()
-	 * @model
-	 * @generated
-	 */
-	EList<SupplyChainLimits> getSelectedLimits();
 
 } // Scenario

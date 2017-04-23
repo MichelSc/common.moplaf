@@ -16,6 +16,7 @@ import com.misc.common.moplaf.macroplanner.solver.LPProductBucket;
 import com.misc.common.moplaf.macroplanner.solver.LPRoutingBucket;
 import com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketProduct;
 import com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct;
+import com.misc.common.moplaf.macroplanner.solver.LPRoutingResource;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -379,4 +380,18 @@ public class LPRoutingBucketProductImpl extends LPTupleImpl implements LPRouting
 		return super.eIsSet(featureID);
 	}
 
+	/**
+	 * 
+	 */
+	@Override
+	public void generateTuples() {
+		super.generateTuples();
+		
+		LPRoutingProduct product = this.getRoutingProduct();
+		String  bucket = this.getRouting().getBucketShortName();
+		
+		// logic name
+		String name = String.format("%s,%s", product.getName(), bucket);
+		this.setName(name);
+	}
 } //LPRoutingBucketProductImpl

@@ -13,12 +13,15 @@
 package com.misc.common.moplaf.macroplanner.solver.impl;
 
 
-import com.misc.common.moplaf.macroplanner.Location;
+import com.misc.common.moplaf.macroplanner.Capacity;
 import com.misc.common.moplaf.macroplanner.LocationProduct;
-import com.misc.common.moplaf.macroplanner.SupplyChainMasterData;
+import com.misc.common.moplaf.macroplanner.MacroPlannerDataElement;
+import com.misc.common.moplaf.macroplanner.Supply;
+import com.misc.common.moplaf.macroplanner.solver.LPCapacity;
 import com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner;
 import com.misc.common.moplaf.macroplanner.solver.LPProduct;
 import com.misc.common.moplaf.macroplanner.solver.LPProductSet;
+import com.misc.common.moplaf.macroplanner.solver.LPSupply;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverFactory;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
 import com.misc.common.moplaf.macroplanner.solver.Scenario;
@@ -26,6 +29,7 @@ import com.misc.common.moplaf.solver.impl.GeneratorTupleImpl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.HashMap;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -294,16 +298,50 @@ public class LPProductSetImpl extends GeneratorTupleImpl implements LPProductSet
 		
 		LPMacroPlanner lp = this.getMacroPlanner();
 		Scenario scenario = lp.getScenario();
-	    SupplyChainMasterData dataset = scenario.getSelectedMasterData();
-		
-		for (   Location location : dataset.getLocations()){
-			for( LocationProduct locationProduct : location.getProducts()){
-				// location product
-				LPProduct lpproduct = MacroPlannerSolverFactory.eINSTANCE.createLPProduct();
-				lpproduct.setProduct(locationProduct);
-				lpproduct.setName(locationProduct.getCode());
-				this.getProducts().add(lpproduct); // owning
+
+	    HashMap<LocationProduct,LPProduct> locationProducts = new HashMap<LocationProduct,LPProduct>();
+		for ( MacroPlannerDataElement dataelement : scenario.getSelectedDataElements()){
+			if ( dataelement instanceof Supply){
+				// supplies
+				Supply supply = (Supply) dataelement;
+				LocationProduct locationProduct = supply.getLocationProduct();
+				// create the LPSupply
+				LPSupply lpsupply = MacroPlannerSolverFactory.eINSTANCE.createLPSupply();
+				lpsupply.setSupply(supply);
+				String name = String.format("suppl(%s, %tF)", locationProduct.getCode(), supply.getFrom());
+				lpsupply.setName(name);
+				// get or create the LPProduct
+				LPProduct product = locationProducts.get(locationProduct);
+				if ( product == null ){
+					product = this.constructLPProduct(locationProduct);
+					
+				}
+				product.getSupplies().add(lpsupply); // owning
+			} else if ( dataelement instanceof Capacity){
+				// capacities
+				Capacity capacity = (Capacity)dataelement;
+				LocationProduct locationProduct = capacity.getLocationProduct();
+				// create the LPCapacity
+				LPCapacity lpcapacity= MacroPlannerSolverFactory.eINSTANCE.createLPCapacity();
+				lpcapacity.setCapacity(capacity);
+				String name = String.format("capac(%s, %tF)", locationProduct.getCode(), capacity.getFrom());
+				lpcapacity.setName(name);
+				// get or create the LPProduct
+				LPProduct product = locationProducts.get(locationProduct);
+				if ( product == null ){
+					product = this.constructLPProduct(locationProduct);
+					
+				}
+				product.getCapacities().add(lpcapacity); // owning
 			}
 		}
+	}
+	
+	private LPProduct constructLPProduct(LocationProduct locationProduct){
+		LPProduct lpproduct = MacroPlannerSolverFactory.eINSTANCE.createLPProduct();
+		lpproduct.setProduct(locationProduct);
+		lpproduct.setName(locationProduct.getCode());
+		this.getProducts().add(lpproduct); // owning
+		return lpproduct;
 	}
 } //LPProductSetImpl

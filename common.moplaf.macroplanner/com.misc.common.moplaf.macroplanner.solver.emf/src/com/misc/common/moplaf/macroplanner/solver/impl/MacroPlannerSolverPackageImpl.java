@@ -317,8 +317,8 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getScenario_Name() {
-		return (EAttribute)scenarioEClass.getEStructuralFeatures().get(1);
+	public EReference getScenario_SelectedDataElements() {
+		return (EReference)scenarioEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -326,7 +326,7 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getScenario_ScenarioStart() {
+	public EAttribute getScenario_Name() {
 		return (EAttribute)scenarioEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -335,7 +335,7 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getScenario_ScenarioEnd() {
+	public EAttribute getScenario_ScenarioStart() {
 		return (EAttribute)scenarioEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -344,35 +344,8 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getScenario_SelectedMasterData() {
-		return (EReference)scenarioEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getScenario_SelectedData() {
-		return (EReference)scenarioEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getScenario_SelectedRoutings() {
-		return (EReference)scenarioEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getScenario_SelectedLimits() {
-		return (EReference)scenarioEClass.getEStructuralFeatures().get(7);
+	public EAttribute getScenario_ScenarioEnd() {
+		return (EAttribute)scenarioEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -535,6 +508,15 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 	 */
 	public EAttribute getLPTimeBucket_Content() {
 		return (EAttribute)lpTimeBucketEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getLPTimeBucket__GetBucketShortName() {
+		return lpTimeBucketEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1485,13 +1467,10 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		// Create classes and their features
 		scenarioEClass = createEClass(SCENARIO);
 		createEReference(scenarioEClass, SCENARIO__LPS);
+		createEReference(scenarioEClass, SCENARIO__SELECTED_DATA_ELEMENTS);
 		createEAttribute(scenarioEClass, SCENARIO__NAME);
 		createEAttribute(scenarioEClass, SCENARIO__SCENARIO_START);
 		createEAttribute(scenarioEClass, SCENARIO__SCENARIO_END);
-		createEReference(scenarioEClass, SCENARIO__SELECTED_MASTER_DATA);
-		createEReference(scenarioEClass, SCENARIO__SELECTED_DATA);
-		createEReference(scenarioEClass, SCENARIO__SELECTED_ROUTINGS);
-		createEReference(scenarioEClass, SCENARIO__SELECTED_LIMITS);
 
 		lpMacroPlannerEClass = createEClass(LP_MACRO_PLANNER);
 		createEAttribute(lpMacroPlannerEClass, LP_MACRO_PLANNER__BUCKET_SIZE);
@@ -1514,6 +1493,7 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 
 		lpTimeBucketEClass = createEClass(LP_TIME_BUCKET);
 		createEAttribute(lpTimeBucketEClass, LP_TIME_BUCKET__CONTENT);
+		createEOperation(lpTimeBucketEClass, LP_TIME_BUCKET___GET_BUCKET_SHORT_NAME);
 
 		lpProductSetEClass = createEClass(LP_PRODUCT_SET);
 		createEReference(lpProductSetEClass, LP_PRODUCT_SET__MACRO_PLANNER);
@@ -1700,13 +1680,10 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		// Initialize classes, features, and operations; add parameters
 		initEClass(scenarioEClass, Scenario.class, "Scenario", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getScenario_LPs(), this.getLPMacroPlanner(), this.getLPMacroPlanner_Scenario(), "LPs", null, 0, -1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getScenario_SelectedDataElements(), theMacroPlannerPackage.getMacroPlannerDataElement(), null, "SelectedDataElements", null, 0, -1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getScenario_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getScenario_ScenarioStart(), ecorePackage.getEDate(), "ScenarioStart", null, 0, 1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getScenario_ScenarioEnd(), ecorePackage.getEDate(), "ScenarioEnd", null, 0, 1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getScenario_SelectedMasterData(), theMacroPlannerPackage.getSupplyChainMasterData(), null, "SelectedMasterData", null, 0, 1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getScenario_SelectedData(), theMacroPlannerPackage.getSupplyChainData(), null, "SelectedData", null, 0, -1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getScenario_SelectedRoutings(), theMacroPlannerPackage.getSupplyChainRoutings(), null, "SelectedRoutings", null, 0, -1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getScenario_SelectedLimits(), theMacroPlannerPackage.getSupplyChainLimits(), null, "SelectedLimits", null, 0, -1, Scenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(lpMacroPlannerEClass, LPMacroPlanner.class, "LPMacroPlanner", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLPMacroPlanner_BucketSize(), theTimeDiscretePackage.getBucketType(), "BucketSize", "Day", 0, 1, LPMacroPlanner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1729,6 +1706,8 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 
 		initEClass(lpTimeBucketEClass, LPTimeBucket.class, "LPTimeBucket", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLPTimeBucket_Content(), ecorePackage.getEString(), "Content", null, 0, 1, LPTimeBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getLPTimeBucket__GetBucketShortName(), ecorePackage.getEString(), "getBucketShortName", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(lpProductSetEClass, LPProductSet.class, "LPProductSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLPProductSet_MacroPlanner(), this.getLPMacroPlanner(), this.getLPMacroPlanner_ProductSet(), "MacroPlanner", null, 1, 1, LPProductSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

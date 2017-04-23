@@ -16,7 +16,6 @@ package com.misc.common.moplaf.macroplanner.impl;
 import com.misc.common.moplaf.macroplanner.Capacity;
 import com.misc.common.moplaf.macroplanner.LocationProduct;
 import com.misc.common.moplaf.macroplanner.MacroPlannerPackage;
-import com.misc.common.moplaf.macroplanner.SupplyChainLimits;
 import java.util.Date;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -26,8 +25,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,7 +34,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.macroplanner.impl.CapacityImpl#getSupplyChainLimits <em>Supply Chain Limits</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.CapacityImpl#getLocationProduct <em>Location Product</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.CapacityImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.impl.CapacityImpl#getQuantity <em>Quantity</em>}</li>
@@ -50,7 +46,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *
  * @generated
  */
-public class CapacityImpl extends MinimalEObjectImpl.Container implements Capacity {
+public class CapacityImpl extends MacroPlannerDataElementImpl implements Capacity {
 	/**
 	 * The cached value of the '{@link #getLocationProduct() <em>Location Product</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -208,47 +204,6 @@ public class CapacityImpl extends MinimalEObjectImpl.Container implements Capaci
 	@Override
 	protected EClass eStaticClass() {
 		return MacroPlannerPackage.Literals.CAPACITY;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SupplyChainLimits getSupplyChainLimits() {
-		if (eContainerFeatureID() != MacroPlannerPackage.CAPACITY__SUPPLY_CHAIN_LIMITS) return null;
-		return (SupplyChainLimits)eInternalContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetSupplyChainLimits(SupplyChainLimits newSupplyChainLimits, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newSupplyChainLimits, MacroPlannerPackage.CAPACITY__SUPPLY_CHAIN_LIMITS, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSupplyChainLimits(SupplyChainLimits newSupplyChainLimits) {
-		if (newSupplyChainLimits != eInternalContainer() || (eContainerFeatureID() != MacroPlannerPackage.CAPACITY__SUPPLY_CHAIN_LIMITS && newSupplyChainLimits != null)) {
-			if (EcoreUtil.isAncestor(this, newSupplyChainLimits))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newSupplyChainLimits != null)
-				msgs = ((InternalEObject)newSupplyChainLimits).eInverseAdd(this, MacroPlannerPackage.SUPPLY_CHAIN_LIMITS__CAPACITIES, SupplyChainLimits.class, msgs);
-			msgs = basicSetSupplyChainLimits(newSupplyChainLimits, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MacroPlannerPackage.CAPACITY__SUPPLY_CHAIN_LIMITS, newSupplyChainLimits, newSupplyChainLimits));
 	}
 
 	/**
@@ -455,10 +410,6 @@ public class CapacityImpl extends MinimalEObjectImpl.Container implements Capaci
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MacroPlannerPackage.CAPACITY__SUPPLY_CHAIN_LIMITS:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetSupplyChainLimits((SupplyChainLimits)otherEnd, msgs);
 			case MacroPlannerPackage.CAPACITY__LOCATION_PRODUCT:
 				if (locationProduct != null)
 					msgs = ((InternalEObject)locationProduct).eInverseRemove(this, MacroPlannerPackage.LOCATION_PRODUCT__CAPACITIES, LocationProduct.class, msgs);
@@ -475,8 +426,6 @@ public class CapacityImpl extends MinimalEObjectImpl.Container implements Capaci
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case MacroPlannerPackage.CAPACITY__SUPPLY_CHAIN_LIMITS:
-				return basicSetSupplyChainLimits(null, msgs);
 			case MacroPlannerPackage.CAPACITY__LOCATION_PRODUCT:
 				return basicSetLocationProduct(null, msgs);
 		}
@@ -489,24 +438,8 @@ public class CapacityImpl extends MinimalEObjectImpl.Container implements Capaci
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case MacroPlannerPackage.CAPACITY__SUPPLY_CHAIN_LIMITS:
-				return eInternalContainer().eInverseRemove(this, MacroPlannerPackage.SUPPLY_CHAIN_LIMITS__CAPACITIES, SupplyChainLimits.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MacroPlannerPackage.CAPACITY__SUPPLY_CHAIN_LIMITS:
-				return getSupplyChainLimits();
 			case MacroPlannerPackage.CAPACITY__LOCATION_PRODUCT:
 				if (resolve) return getLocationProduct();
 				return basicGetLocationProduct();
@@ -536,9 +469,6 @@ public class CapacityImpl extends MinimalEObjectImpl.Container implements Capaci
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MacroPlannerPackage.CAPACITY__SUPPLY_CHAIN_LIMITS:
-				setSupplyChainLimits((SupplyChainLimits)newValue);
-				return;
 			case MacroPlannerPackage.CAPACITY__LOCATION_PRODUCT:
 				setLocationProduct((LocationProduct)newValue);
 				return;
@@ -572,9 +502,6 @@ public class CapacityImpl extends MinimalEObjectImpl.Container implements Capaci
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MacroPlannerPackage.CAPACITY__SUPPLY_CHAIN_LIMITS:
-				setSupplyChainLimits((SupplyChainLimits)null);
-				return;
 			case MacroPlannerPackage.CAPACITY__LOCATION_PRODUCT:
 				setLocationProduct((LocationProduct)null);
 				return;
@@ -608,8 +535,6 @@ public class CapacityImpl extends MinimalEObjectImpl.Container implements Capaci
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MacroPlannerPackage.CAPACITY__SUPPLY_CHAIN_LIMITS:
-				return getSupplyChainLimits() != null;
 			case MacroPlannerPackage.CAPACITY__LOCATION_PRODUCT:
 				return locationProduct != null;
 			case MacroPlannerPackage.CAPACITY__DESCRIPTION:

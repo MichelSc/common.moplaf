@@ -14,8 +14,6 @@ package com.misc.common.moplaf.macroplanner;
 
 import java.util.Date;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Availability</b></em>'.
@@ -25,7 +23,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.macroplanner.Availability#getSupplyChainLimits <em>Supply Chain Limits</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.Availability#getLocationResource <em>Location Resource</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.Availability#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.Availability#getQuantity <em>Quantity</em>}</li>
@@ -40,35 +37,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Availability extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Supply Chain Limits</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.macroplanner.SupplyChainLimits#getAvailabilities <em>Availabilities</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Supply Chain Limits</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Supply Chain Limits</em>' container reference.
-	 * @see #setSupplyChainLimits(SupplyChainLimits)
-	 * @see com.misc.common.moplaf.macroplanner.MacroPlannerPackage#getAvailability_SupplyChainLimits()
-	 * @see com.misc.common.moplaf.macroplanner.SupplyChainLimits#getAvailabilities
-	 * @model opposite="Availabilities" required="true" transient="false"
-	 * @generated
-	 */
-	SupplyChainLimits getSupplyChainLimits();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.macroplanner.Availability#getSupplyChainLimits <em>Supply Chain Limits</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Supply Chain Limits</em>' container reference.
-	 * @see #getSupplyChainLimits()
-	 * @generated
-	 */
-	void setSupplyChainLimits(SupplyChainLimits value);
-
+public interface Availability extends MacroPlannerDataElement {
 	/**
 	 * Returns the value of the '<em><b>Quantity</b></em>' attribute.
 	 * <!-- begin-user-doc -->

@@ -73,15 +73,34 @@ public class ScenarioItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addSelectedDataElementsPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addScenarioStartPropertyDescriptor(object);
 			addScenarioEndPropertyDescriptor(object);
-			addSelectedMasterDataPropertyDescriptor(object);
-			addSelectedDataPropertyDescriptor(object);
-			addSelectedRoutingsPropertyDescriptor(object);
-			addSelectedLimitsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Selected Data Elements feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSelectedDataElementsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Scenario_SelectedDataElements_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Scenario_SelectedDataElements_feature", "_UI_Scenario_type"),
+				 MacroPlannerSolverPackage.Literals.SCENARIO__SELECTED_DATA_ELEMENTS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 getString("_UI__40ToUseMacroPlannerPropertyCategory"),
+				 null));
 	}
 
 	/**
@@ -146,94 +165,6 @@ public class ScenarioItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__40ToUseMacroPlannerPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Selected Master Data feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSelectedMasterDataPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Scenario_SelectedMasterData_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Scenario_SelectedMasterData_feature", "_UI_Scenario_type"),
-				 MacroPlannerSolverPackage.Literals.SCENARIO__SELECTED_MASTER_DATA,
-				 true,
-				 false,
-				 true,
-				 null,
-				 getString("_UI__40ToUseMacroPlannerPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Selected Data feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSelectedDataPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Scenario_SelectedData_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Scenario_SelectedData_feature", "_UI_Scenario_type"),
-				 MacroPlannerSolverPackage.Literals.SCENARIO__SELECTED_DATA,
-				 true,
-				 false,
-				 true,
-				 null,
-				 getString("_UI__40ToUseMacroPlannerPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Selected Routings feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSelectedRoutingsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Scenario_SelectedRoutings_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Scenario_SelectedRoutings_feature", "_UI_Scenario_type"),
-				 MacroPlannerSolverPackage.Literals.SCENARIO__SELECTED_ROUTINGS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 getString("_UI__40ToUseMacroPlannerPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Selected Limits feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSelectedLimitsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Scenario_SelectedLimits_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Scenario_SelectedLimits_feature", "_UI_Scenario_type"),
-				 MacroPlannerSolverPackage.Literals.SCENARIO__SELECTED_LIMITS,
-				 true,
-				 false,
-				 true,
-				 null,
 				 getString("_UI__40ToUseMacroPlannerPropertyCategory"),
 				 null));
 	}

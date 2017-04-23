@@ -12,8 +12,8 @@
  */
 package com.misc.common.moplaf.macroplanner.solver.impl;
 
+import com.misc.common.moplaf.macroplanner.MacroPlannerDataElement;
 import com.misc.common.moplaf.macroplanner.Routing;
-import com.misc.common.moplaf.macroplanner.SupplyChainRoutings;
 import com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner;
 import com.misc.common.moplaf.macroplanner.solver.LPRouting;
 import com.misc.common.moplaf.macroplanner.solver.LPRoutingSet;
@@ -263,9 +263,10 @@ public class LPRoutingSetImpl extends LPTupleImpl implements LPRoutingSet {
 		LPMacroPlanner lp = this.getMacroPlanner();
 		Scenario scenario = lp.getScenario();
 		
-		for (SupplyChainRoutings dataset : scenario.getSelectedRoutings() ){
-			for( Routing routing: dataset.getRoutings()){
+		for ( MacroPlannerDataElement dataelement : scenario.getSelectedDataElements()){
+			if ( dataelement instanceof Routing){
 				// routing
+				Routing routing = (Routing)dataelement;
 				LPRouting lprouting = MacroPlannerSolverFactory.eINSTANCE.createLPRouting();
 				lprouting.setRouting(routing);
 				lprouting.setName(routing.getCode());

@@ -32,13 +32,13 @@ public interface MacroPlannerFactory extends EFactory {
 	MacroPlannerFactory eINSTANCE = com.misc.common.moplaf.macroplanner.impl.MacroPlannerFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Supply Chain Master Data</em>'.
+	 * Returns a new object of class '<em>Static Data</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Supply Chain Master Data</em>'.
+	 * @return a new object of class '<em>Static Data</em>'.
 	 * @generated
 	 */
-	SupplyChainMasterData createSupplyChainMasterData();
+	MacroPlannerStaticData createMacroPlannerStaticData();
 
 	/**
 	 * Returns a new object of class '<em>Product</em>'.
@@ -86,22 +86,13 @@ public interface MacroPlannerFactory extends EFactory {
 	LocationResource createLocationResource();
 
 	/**
-	 * Returns a new object of class '<em>Supply Chain Limits</em>'.
+	 * Returns a new object of class '<em>Data</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Supply Chain Limits</em>'.
+	 * @return a new object of class '<em>Data</em>'.
 	 * @generated
 	 */
-	SupplyChainLimits createSupplyChainLimits();
-
-	/**
-	 * Returns a new object of class '<em>Supply Chain Data</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Supply Chain Data</em>'.
-	 * @generated
-	 */
-	SupplyChainData createSupplyChainData();
+	MacroPlannerData createMacroPlannerData();
 
 	/**
 	 * Returns a new object of class '<em>Supply</em>'.
@@ -129,15 +120,6 @@ public interface MacroPlannerFactory extends EFactory {
 	 * @generated
 	 */
 	Capacity createCapacity();
-
-	/**
-	 * Returns a new object of class '<em>Supply Chain Routings</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Supply Chain Routings</em>'.
-	 * @generated
-	 */
-	SupplyChainRoutings createSupplyChainRoutings();
 
 	/**
 	 * Returns a new object of class '<em>Routing</em>'.

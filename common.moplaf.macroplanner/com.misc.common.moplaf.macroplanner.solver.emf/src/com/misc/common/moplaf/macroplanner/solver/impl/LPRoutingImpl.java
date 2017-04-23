@@ -428,6 +428,8 @@ public class LPRoutingImpl extends LPTimeLineImpl implements LPRouting {
 			LPRoutingProduct lproutingproduct = MacroPlannerSolverFactory.eINSTANCE.createLPRoutingProduct();
 			lproutingproduct.setProduct(lpproduct);
 			lproutingproduct.setRoutingProduct(product);
+			String name = String.format("ROU(%s, %s)", this.getName(), lpproduct.getCode());
+			lproutingproduct.setName(name);
 			this.getProducts().add(lproutingproduct); // owning
 		}
 		
@@ -437,6 +439,8 @@ public class LPRoutingImpl extends LPTimeLineImpl implements LPRouting {
 			LPRoutingResource lproutingresource = MacroPlannerSolverFactory.eINSTANCE.createLPRoutingResource();
 			lproutingresource.setResource(lpresource);
 			lproutingresource.setRoutingResource(resource);
+			String name = String.format("ROU(%s, %s)", this.getName(), lpresource.getCode());
+			lproutingresource.setName(name);
 			this.getResources().add(lproutingresource); // owning
 		}
 		

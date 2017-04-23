@@ -14,8 +14,6 @@ package com.misc.common.moplaf.macroplanner;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Routing</b></em>'.
@@ -30,14 +28,13 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.misc.common.moplaf.macroplanner.Routing#getName <em>Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.Routing#getCode <em>Code</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.Routing#getCost <em>Cost</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.Routing#getSupplyChainRoutings <em>Supply Chain Routings</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.macroplanner.MacroPlannerPackage#getRouting()
  * @model
  * @generated
  */
-public interface Routing extends EObject {
+public interface Routing extends MacroPlannerDataElement {
 	/**
 	 * Returns the value of the '<em><b>Resources</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.macroplanner.RoutingResource}.
@@ -155,34 +152,6 @@ public interface Routing extends EObject {
 	 * @generated
 	 */
 	void setCost(float value);
-
-	/**
-	 * Returns the value of the '<em><b>Supply Chain Routings</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.macroplanner.SupplyChainRoutings#getRoutings <em>Routings</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Supply Chain Routings</em>' container reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Supply Chain Routings</em>' container reference.
-	 * @see #setSupplyChainRoutings(SupplyChainRoutings)
-	 * @see com.misc.common.moplaf.macroplanner.MacroPlannerPackage#getRouting_SupplyChainRoutings()
-	 * @see com.misc.common.moplaf.macroplanner.SupplyChainRoutings#getRoutings
-	 * @model opposite="Routings" required="true" transient="false"
-	 * @generated
-	 */
-	SupplyChainRoutings getSupplyChainRoutings();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.macroplanner.Routing#getSupplyChainRoutings <em>Supply Chain Routings</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Supply Chain Routings</em>' container reference.
-	 * @see #getSupplyChainRoutings()
-	 * @generated
-	 */
-	void setSupplyChainRoutings(SupplyChainRoutings value);
 
 	/**
 	 * <!-- begin-user-doc -->

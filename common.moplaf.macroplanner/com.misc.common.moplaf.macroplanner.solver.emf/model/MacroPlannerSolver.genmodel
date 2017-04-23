@@ -10,17 +10,11 @@
       disposableProviderFactory="true" ecorePackage="MacroPlannerSolver.ecore#/">
     <genClasses ecoreClass="MacroPlannerSolver.ecore#//Scenario">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//Scenario/LPs"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="40 ToUseMacroPlanner"
+          propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//Scenario/SelectedDataElements"/>
       <genFeatures createChild="false" propertyCategory="40 ToUseMacroPlanner" ecoreFeature="ecore:EAttribute MacroPlannerSolver.ecore#//Scenario/Name"/>
       <genFeatures createChild="false" propertyCategory="40 ToUseMacroPlanner" ecoreFeature="ecore:EAttribute MacroPlannerSolver.ecore#//Scenario/ScenarioStart"/>
       <genFeatures createChild="false" propertyCategory="40 ToUseMacroPlanner" ecoreFeature="ecore:EAttribute MacroPlannerSolver.ecore#//Scenario/ScenarioEnd"/>
-      <genFeatures notify="false" createChild="false" propertyCategory="40 ToUseMacroPlanner"
-          propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//Scenario/SelectedMasterData"/>
-      <genFeatures notify="false" createChild="false" propertyCategory="40 ToUseMacroPlanner"
-          propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//Scenario/SelectedData"/>
-      <genFeatures notify="false" createChild="false" propertyCategory="40 ToUseMacroPlanner"
-          propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//Scenario/SelectedRoutings"/>
-      <genFeatures notify="false" createChild="false" propertyCategory="40 ToUseMacroPlanner"
-          propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//Scenario/SelectedLimits"/>
     </genClasses>
     <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPMacroPlanner"
         labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/Generator/Code">
@@ -154,13 +148,15 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPRoutingProduct/Routing"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPRoutingProduct/Product"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPRoutingProduct/RoutingProduct"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPRoutingProduct/LPBuckets"/>
+      <genFeatures notify="false" children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPRoutingProduct/LPBuckets"/>
     </genClasses>
     <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPRoutingResource">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPRoutingResource/Routing"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPRoutingResource/Resource"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPRoutingResource/RoutingResource"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPRoutingResource/LPBuckets"/>
+      <genFeatures notify="false" children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference MacroPlannerSolver.ecore#//LPRoutingResource/LPBuckets"/>
     </genClasses>
     <genClasses image="false" ecoreClass="MacroPlannerSolver.ecore#//LPRoutingBucket"
         labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/GeneratorElement/Code">

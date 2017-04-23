@@ -18,19 +18,16 @@ import com.misc.common.moplaf.macroplanner.Location;
 import com.misc.common.moplaf.macroplanner.LocationProduct;
 import com.misc.common.moplaf.macroplanner.LocationResource;
 import com.misc.common.moplaf.macroplanner.MacroPlannerData;
+import com.misc.common.moplaf.macroplanner.MacroPlannerDataElement;
 import com.misc.common.moplaf.macroplanner.MacroPlannerFactory;
 import com.misc.common.moplaf.macroplanner.MacroPlannerPackage;
+import com.misc.common.moplaf.macroplanner.MacroPlannerStaticData;
 import com.misc.common.moplaf.macroplanner.Product;
 import com.misc.common.moplaf.macroplanner.Resource;
 import com.misc.common.moplaf.macroplanner.Routing;
 import com.misc.common.moplaf.macroplanner.RoutingProduct;
 import com.misc.common.moplaf.macroplanner.RoutingResource;
 import com.misc.common.moplaf.macroplanner.Supply;
-import com.misc.common.moplaf.macroplanner.SupplyChainData;
-import com.misc.common.moplaf.macroplanner.SupplyChainLimits;
-import com.misc.common.moplaf.macroplanner.SupplyChainMasterData;
-import com.misc.common.moplaf.macroplanner.SupplyChainRoutings;
-
 import com.misc.common.moplaf.time.TimePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -52,6 +49,13 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass macroPlannerStaticDataEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass macroPlannerDataEClass = null;
 
 	/**
@@ -59,7 +63,7 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass supplyChainMasterDataEClass = null;
+	private EClass macroPlannerDataElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -101,20 +105,6 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass supplyChainLimitsEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass supplyChainDataEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass supplyEClass = null;
 
 	/**
@@ -130,13 +120,6 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * @generated
 	 */
 	private EClass capacityEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass supplyChainRoutingsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -228,6 +211,51 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getMacroPlannerStaticData() {
+		return macroPlannerStaticDataEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMacroPlannerStaticData_Products() {
+		return (EReference)macroPlannerStaticDataEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMacroPlannerStaticData_Resources() {
+		return (EReference)macroPlannerStaticDataEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMacroPlannerStaticData_Locations() {
+		return (EReference)macroPlannerStaticDataEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMacroPlannerStaticData_Name() {
+		return (EAttribute)macroPlannerStaticDataEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMacroPlannerData() {
 		return macroPlannerDataEClass;
 	}
@@ -237,8 +265,26 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getMacroPlannerData_Elements() {
+		return (EReference)macroPlannerDataEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getMacroPlannerData_TimeUnit() {
-		return (EAttribute)macroPlannerDataEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)macroPlannerDataEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMacroPlannerData_Name() {
+		return (EAttribute)macroPlannerDataEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -255,8 +301,8 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSupplyChainMasterData() {
-		return supplyChainMasterDataEClass;
+	public EOperation getMacroPlannerData__ConstructCapacity__LocationProduct() {
+		return macroPlannerDataEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -264,8 +310,8 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSupplyChainMasterData_Products() {
-		return (EReference)supplyChainMasterDataEClass.getEStructuralFeatures().get(0);
+	public EOperation getMacroPlannerData__ConstructAvailabilty__LocationResource() {
+		return macroPlannerDataEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -273,8 +319,8 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSupplyChainMasterData_Locations() {
-		return (EReference)supplyChainMasterDataEClass.getEStructuralFeatures().get(2);
+	public EOperation getMacroPlannerData__ConstructSupply__LocationProduct() {
+		return macroPlannerDataEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -282,8 +328,8 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSupplyChainMasterData_Resources() {
-		return (EReference)supplyChainMasterDataEClass.getEStructuralFeatures().get(1);
+	public EClass getMacroPlannerDataElement() {
+		return macroPlannerDataElementEClass;
 	}
 
 	/**
@@ -291,8 +337,8 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSupplyChainMasterData_Name() {
-		return (EAttribute)supplyChainMasterDataEClass.getEStructuralFeatures().get(3);
+	public EReference getMacroPlannerDataElement_MacroPlannerData() {
+		return (EReference)macroPlannerDataElementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -570,96 +616,6 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSupplyChainLimits() {
-		return supplyChainLimitsEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSupplyChainLimits_Capacities() {
-		return (EReference)supplyChainLimitsEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSupplyChainLimits_Availabilities() {
-		return (EReference)supplyChainLimitsEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSupplyChainLimits_Name() {
-		return (EAttribute)supplyChainLimitsEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSupplyChainLimits__ConstructCapacity__LocationProduct() {
-		return supplyChainLimitsEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSupplyChainLimits__ConstructAvailability__LocationResource() {
-		return supplyChainLimitsEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSupplyChainData() {
-		return supplyChainDataEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSupplyChainData_Supplies() {
-		return (EReference)supplyChainDataEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getSupplyChainData__ConstructSupply__LocationProduct() {
-		return supplyChainDataEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSupplyChainData_Name() {
-		return (EAttribute)supplyChainDataEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getSupply() {
 		return supplyEClass;
 	}
@@ -669,61 +625,7 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSupply_SupplyChainData() {
-		return (EReference)supplyEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getSupply_Quantity() {
-		return (EAttribute)supplyEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSupply_From() {
-		return (EAttribute)supplyEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSupply_To() {
-		return (EAttribute)supplyEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSupply_Cost() {
-		return (EAttribute)supplyEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSupply_LocationProduct() {
-		return (EReference)supplyEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSupply_Description() {
 		return (EAttribute)supplyEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -732,8 +634,53 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSupply_From() {
+		return (EAttribute)supplyEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSupply_To() {
+		return (EAttribute)supplyEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSupply_Cost() {
+		return (EAttribute)supplyEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSupply_LocationProduct() {
+		return (EReference)supplyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSupply_Description() {
+		return (EAttribute)supplyEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getSupply_Enforce() {
-		return (EAttribute)supplyEClass.getEStructuralFeatures().get(7);
+		return (EAttribute)supplyEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -750,17 +697,8 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAvailability_SupplyChainLimits() {
-		return (EReference)availabilityEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getAvailability_Quantity() {
-		return (EAttribute)availabilityEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)availabilityEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -769,7 +707,7 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * @generated
 	 */
 	public EAttribute getAvailability_From() {
-		return (EAttribute)availabilityEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)availabilityEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -778,7 +716,7 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * @generated
 	 */
 	public EAttribute getAvailability_To() {
-		return (EAttribute)availabilityEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)availabilityEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -787,7 +725,7 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * @generated
 	 */
 	public EAttribute getAvailability_Cost() {
-		return (EAttribute)availabilityEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)availabilityEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -796,7 +734,7 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * @generated
 	 */
 	public EAttribute getAvailability_Enforce() {
-		return (EAttribute)availabilityEClass.getEStructuralFeatures().get(7);
+		return (EAttribute)availabilityEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -805,7 +743,7 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * @generated
 	 */
 	public EAttribute getAvailability_Penalty() {
-		return (EAttribute)availabilityEClass.getEStructuralFeatures().get(8);
+		return (EAttribute)availabilityEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -814,7 +752,7 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * @generated
 	 */
 	public EReference getAvailability_LocationResource() {
-		return (EReference)availabilityEClass.getEStructuralFeatures().get(1);
+		return (EReference)availabilityEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -823,7 +761,7 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * @generated
 	 */
 	public EAttribute getAvailability_Description() {
-		return (EAttribute)availabilityEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)availabilityEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -840,79 +778,7 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCapacity_SupplyChainLimits() {
-		return (EReference)capacityEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getCapacity_Quantity() {
-		return (EAttribute)capacityEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCapacity_From() {
-		return (EAttribute)capacityEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCapacity_To() {
-		return (EAttribute)capacityEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCapacity_Cost() {
-		return (EAttribute)capacityEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCapacity_Enforce() {
-		return (EAttribute)capacityEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCapacity_Penalty() {
-		return (EAttribute)capacityEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCapacity_LocationProduct() {
-		return (EReference)capacityEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCapacity_Description() {
 		return (EAttribute)capacityEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -921,8 +787,8 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSupplyChainRoutings() {
-		return supplyChainRoutingsEClass;
+	public EAttribute getCapacity_From() {
+		return (EAttribute)capacityEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -930,8 +796,8 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSupplyChainRoutings_Routings() {
-		return (EReference)supplyChainRoutingsEClass.getEStructuralFeatures().get(0);
+	public EAttribute getCapacity_To() {
+		return (EAttribute)capacityEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -939,8 +805,44 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSupplyChainRoutings_Name() {
-		return (EAttribute)supplyChainRoutingsEClass.getEStructuralFeatures().get(1);
+	public EAttribute getCapacity_Cost() {
+		return (EAttribute)capacityEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCapacity_Enforce() {
+		return (EAttribute)capacityEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCapacity_Penalty() {
+		return (EAttribute)capacityEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCapacity_LocationProduct() {
+		return (EReference)capacityEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCapacity_Description() {
+		return (EAttribute)capacityEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -995,15 +897,6 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 	 */
 	public EAttribute getRouting_Cost() {
 		return (EAttribute)routingEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRouting_SupplyChainRoutings() {
-		return (EReference)routingEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1160,15 +1053,11 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 		isCreated = true;
 
 		// Create classes and their features
-		macroPlannerDataEClass = createEClass(MACRO_PLANNER_DATA);
-		createEAttribute(macroPlannerDataEClass, MACRO_PLANNER_DATA__TIME_UNIT);
-		createEOperation(macroPlannerDataEClass, MACRO_PLANNER_DATA___GET_DURATION_TIME_UNIT__TIMEUNIT);
-
-		supplyChainMasterDataEClass = createEClass(SUPPLY_CHAIN_MASTER_DATA);
-		createEReference(supplyChainMasterDataEClass, SUPPLY_CHAIN_MASTER_DATA__PRODUCTS);
-		createEReference(supplyChainMasterDataEClass, SUPPLY_CHAIN_MASTER_DATA__RESOURCES);
-		createEReference(supplyChainMasterDataEClass, SUPPLY_CHAIN_MASTER_DATA__LOCATIONS);
-		createEAttribute(supplyChainMasterDataEClass, SUPPLY_CHAIN_MASTER_DATA__NAME);
+		macroPlannerStaticDataEClass = createEClass(MACRO_PLANNER_STATIC_DATA);
+		createEReference(macroPlannerStaticDataEClass, MACRO_PLANNER_STATIC_DATA__PRODUCTS);
+		createEReference(macroPlannerStaticDataEClass, MACRO_PLANNER_STATIC_DATA__RESOURCES);
+		createEReference(macroPlannerStaticDataEClass, MACRO_PLANNER_STATIC_DATA__LOCATIONS);
+		createEAttribute(macroPlannerStaticDataEClass, MACRO_PLANNER_STATIC_DATA__NAME);
 
 		productEClass = createEClass(PRODUCT);
 		createEReference(productEClass, PRODUCT__CHILDREN);
@@ -1205,15 +1094,19 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 		createEAttribute(locationResourceEClass, LOCATION_RESOURCE__CODE);
 		createEReference(locationResourceEClass, LOCATION_RESOURCE__AVAILABILITIES);
 
-		supplyChainLimitsEClass = createEClass(SUPPLY_CHAIN_LIMITS);
-		createEReference(supplyChainLimitsEClass, SUPPLY_CHAIN_LIMITS__CAPACITIES);
-		createEReference(supplyChainLimitsEClass, SUPPLY_CHAIN_LIMITS__AVAILABILITIES);
-		createEAttribute(supplyChainLimitsEClass, SUPPLY_CHAIN_LIMITS__NAME);
-		createEOperation(supplyChainLimitsEClass, SUPPLY_CHAIN_LIMITS___CONSTRUCT_CAPACITY__LOCATIONPRODUCT);
-		createEOperation(supplyChainLimitsEClass, SUPPLY_CHAIN_LIMITS___CONSTRUCT_AVAILABILITY__LOCATIONRESOURCE);
+		macroPlannerDataEClass = createEClass(MACRO_PLANNER_DATA);
+		createEReference(macroPlannerDataEClass, MACRO_PLANNER_DATA__ELEMENTS);
+		createEAttribute(macroPlannerDataEClass, MACRO_PLANNER_DATA__TIME_UNIT);
+		createEAttribute(macroPlannerDataEClass, MACRO_PLANNER_DATA__NAME);
+		createEOperation(macroPlannerDataEClass, MACRO_PLANNER_DATA___GET_DURATION_TIME_UNIT__TIMEUNIT);
+		createEOperation(macroPlannerDataEClass, MACRO_PLANNER_DATA___CONSTRUCT_CAPACITY__LOCATIONPRODUCT);
+		createEOperation(macroPlannerDataEClass, MACRO_PLANNER_DATA___CONSTRUCT_AVAILABILTY__LOCATIONRESOURCE);
+		createEOperation(macroPlannerDataEClass, MACRO_PLANNER_DATA___CONSTRUCT_SUPPLY__LOCATIONPRODUCT);
+
+		macroPlannerDataElementEClass = createEClass(MACRO_PLANNER_DATA_ELEMENT);
+		createEReference(macroPlannerDataElementEClass, MACRO_PLANNER_DATA_ELEMENT__MACRO_PLANNER_DATA);
 
 		availabilityEClass = createEClass(AVAILABILITY);
-		createEReference(availabilityEClass, AVAILABILITY__SUPPLY_CHAIN_LIMITS);
 		createEReference(availabilityEClass, AVAILABILITY__LOCATION_RESOURCE);
 		createEAttribute(availabilityEClass, AVAILABILITY__DESCRIPTION);
 		createEAttribute(availabilityEClass, AVAILABILITY__QUANTITY);
@@ -1224,7 +1117,6 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 		createEAttribute(availabilityEClass, AVAILABILITY__PENALTY);
 
 		capacityEClass = createEClass(CAPACITY);
-		createEReference(capacityEClass, CAPACITY__SUPPLY_CHAIN_LIMITS);
 		createEReference(capacityEClass, CAPACITY__LOCATION_PRODUCT);
 		createEAttribute(capacityEClass, CAPACITY__DESCRIPTION);
 		createEAttribute(capacityEClass, CAPACITY__QUANTITY);
@@ -1234,17 +1126,12 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 		createEAttribute(capacityEClass, CAPACITY__ENFORCE);
 		createEAttribute(capacityEClass, CAPACITY__PENALTY);
 
-		supplyChainRoutingsEClass = createEClass(SUPPLY_CHAIN_ROUTINGS);
-		createEReference(supplyChainRoutingsEClass, SUPPLY_CHAIN_ROUTINGS__ROUTINGS);
-		createEAttribute(supplyChainRoutingsEClass, SUPPLY_CHAIN_ROUTINGS__NAME);
-
 		routingEClass = createEClass(ROUTING);
 		createEReference(routingEClass, ROUTING__RESOURCES);
 		createEReference(routingEClass, ROUTING__PRODUCTS);
 		createEAttribute(routingEClass, ROUTING__NAME);
 		createEAttribute(routingEClass, ROUTING__CODE);
 		createEAttribute(routingEClass, ROUTING__COST);
-		createEReference(routingEClass, ROUTING__SUPPLY_CHAIN_ROUTINGS);
 		createEOperation(routingEClass, ROUTING___CONSTRUCT_ROUTING_PRODUCT__LOCATIONPRODUCT);
 		createEOperation(routingEClass, ROUTING___CONSTRUCT_ROUTING_RESOURCE__LOCATIONRESOURCE);
 
@@ -1262,13 +1149,7 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 		createEAttribute(routingResourceEClass, ROUTING_RESOURCE__OFFSET);
 		createEAttribute(routingResourceEClass, ROUTING_RESOURCE__CODE);
 
-		supplyChainDataEClass = createEClass(SUPPLY_CHAIN_DATA);
-		createEAttribute(supplyChainDataEClass, SUPPLY_CHAIN_DATA__NAME);
-		createEReference(supplyChainDataEClass, SUPPLY_CHAIN_DATA__SUPPLIES);
-		createEOperation(supplyChainDataEClass, SUPPLY_CHAIN_DATA___CONSTRUCT_SUPPLY__LOCATIONPRODUCT);
-
 		supplyEClass = createEClass(SUPPLY);
-		createEReference(supplyEClass, SUPPLY__SUPPLY_CHAIN_DATA);
 		createEReference(supplyEClass, SUPPLY__LOCATION_PRODUCT);
 		createEAttribute(supplyEClass, SUPPLY__DESCRIPTION);
 		createEAttribute(supplyEClass, SUPPLY__QUANTITY);
@@ -1309,23 +1190,17 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		supplyChainMasterDataEClass.getESuperTypes().add(this.getMacroPlannerData());
-		supplyChainLimitsEClass.getESuperTypes().add(this.getMacroPlannerData());
-		supplyChainRoutingsEClass.getESuperTypes().add(this.getMacroPlannerData());
-		supplyChainDataEClass.getESuperTypes().add(this.getMacroPlannerData());
+		availabilityEClass.getESuperTypes().add(this.getMacroPlannerDataElement());
+		capacityEClass.getESuperTypes().add(this.getMacroPlannerDataElement());
+		routingEClass.getESuperTypes().add(this.getMacroPlannerDataElement());
+		supplyEClass.getESuperTypes().add(this.getMacroPlannerDataElement());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(macroPlannerDataEClass, MacroPlannerData.class, "MacroPlannerData", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMacroPlannerData_TimeUnit(), theTimePackage.getTimeUnit(), "TimeUnit", null, 0, 1, MacroPlannerData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		EOperation op = initEOperation(getMacroPlannerData__GetDurationTimeUnit__TimeUnit(), ecorePackage.getEFloat(), "getDurationTimeUnit", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theTimePackage.getTimeUnit(), "timeUnit", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(supplyChainMasterDataEClass, SupplyChainMasterData.class, "SupplyChainMasterData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSupplyChainMasterData_Products(), this.getProduct(), null, "Products", null, 0, -1, SupplyChainMasterData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSupplyChainMasterData_Resources(), this.getResource(), null, "Resources", null, 0, -1, SupplyChainMasterData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSupplyChainMasterData_Locations(), this.getLocation(), null, "Locations", null, 0, -1, SupplyChainMasterData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSupplyChainMasterData_Name(), ecorePackage.getEString(), "Name", null, 0, 1, SupplyChainMasterData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(macroPlannerStaticDataEClass, MacroPlannerStaticData.class, "MacroPlannerStaticData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMacroPlannerStaticData_Products(), this.getProduct(), null, "Products", null, 0, -1, MacroPlannerStaticData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMacroPlannerStaticData_Resources(), this.getResource(), null, "Resources", null, 0, -1, MacroPlannerStaticData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMacroPlannerStaticData_Locations(), this.getLocation(), null, "Locations", null, 0, -1, MacroPlannerStaticData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMacroPlannerStaticData_Name(), ecorePackage.getEString(), "Name", null, 0, 1, MacroPlannerStaticData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(productEClass, Product.class, "Product", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProduct_Children(), this.getProduct(), this.getProduct_Parent(), "Children", null, 0, -1, Product.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1347,7 +1222,7 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 		initEAttribute(getLocation_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Location.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLocation_Code(), ecorePackage.getEString(), "Code", null, 0, 1, Location.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getLocation__ConstructLocationProduct__Product(), this.getLocationProduct(), "constructLocationProduct", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getLocation__ConstructLocationProduct__Product(), this.getLocationProduct(), "constructLocationProduct", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getProduct(), "product", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getLocation__ConstructLocationResource__Resource(), this.getLocationResource(), "constructLocationResource", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1366,19 +1241,27 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 		initEAttribute(getLocationResource_Code(), ecorePackage.getEString(), "Code", null, 0, 1, LocationResource.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getLocationResource_Availabilities(), this.getAvailability(), this.getAvailability_LocationResource(), "Availabilities", null, 0, -1, LocationResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(supplyChainLimitsEClass, SupplyChainLimits.class, "SupplyChainLimits", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSupplyChainLimits_Capacities(), this.getCapacity(), this.getCapacity_SupplyChainLimits(), "Capacities", null, 0, -1, SupplyChainLimits.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSupplyChainLimits_Availabilities(), this.getAvailability(), this.getAvailability_SupplyChainLimits(), "Availabilities", null, 0, -1, SupplyChainLimits.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSupplyChainLimits_Name(), ecorePackage.getEString(), "Name", null, 0, 1, SupplyChainLimits.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(macroPlannerDataEClass, MacroPlannerData.class, "MacroPlannerData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMacroPlannerData_Elements(), this.getMacroPlannerDataElement(), this.getMacroPlannerDataElement_MacroPlannerData(), "Elements", null, 0, -1, MacroPlannerData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMacroPlannerData_TimeUnit(), theTimePackage.getTimeUnit(), "TimeUnit", null, 0, 1, MacroPlannerData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMacroPlannerData_Name(), ecorePackage.getEString(), "Name", null, 0, 1, MacroPlannerData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getSupplyChainLimits__ConstructCapacity__LocationProduct(), this.getCapacity(), "constructCapacity", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getMacroPlannerData__GetDurationTimeUnit__TimeUnit(), ecorePackage.getEFloat(), "getDurationTimeUnit", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theTimePackage.getTimeUnit(), "timeUnit", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getMacroPlannerData__ConstructCapacity__LocationProduct(), this.getCapacity(), "constructCapacity", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getLocationProduct(), "product", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getSupplyChainLimits__ConstructAvailability__LocationResource(), this.getAvailability(), "constructAvailability", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getMacroPlannerData__ConstructAvailabilty__LocationResource(), this.getAvailability(), "constructAvailabilty", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getLocationResource(), "resource", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getMacroPlannerData__ConstructSupply__LocationProduct(), this.getSupply(), "constructSupply", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getLocationProduct(), "product", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(macroPlannerDataElementEClass, MacroPlannerDataElement.class, "MacroPlannerDataElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMacroPlannerDataElement_MacroPlannerData(), this.getMacroPlannerData(), this.getMacroPlannerData_Elements(), "MacroPlannerData", null, 1, 1, MacroPlannerDataElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(availabilityEClass, Availability.class, "Availability", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAvailability_SupplyChainLimits(), this.getSupplyChainLimits(), this.getSupplyChainLimits_Availabilities(), "SupplyChainLimits", null, 1, 1, Availability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAvailability_LocationResource(), this.getLocationResource(), this.getLocationResource_Availabilities(), "LocationResource", null, 0, 1, Availability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAvailability_Description(), ecorePackage.getEString(), "Description", null, 0, 1, Availability.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAvailability_Quantity(), ecorePackage.getEFloat(), "Quantity", null, 0, 1, Availability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1389,7 +1272,6 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 		initEAttribute(getAvailability_Penalty(), ecorePackage.getEFloat(), "Penalty", null, 0, 1, Availability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(capacityEClass, Capacity.class, "Capacity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCapacity_SupplyChainLimits(), this.getSupplyChainLimits(), this.getSupplyChainLimits_Capacities(), "SupplyChainLimits", null, 1, 1, Capacity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCapacity_LocationProduct(), this.getLocationProduct(), this.getLocationProduct_Capacities(), "LocationProduct", null, 0, 1, Capacity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCapacity_Description(), ecorePackage.getEString(), "Description", null, 0, 1, Capacity.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCapacity_Quantity(), ecorePackage.getEFloat(), "Quantity", null, 0, 1, Capacity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1399,17 +1281,12 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 		initEAttribute(getCapacity_Enforce(), ecorePackage.getEBoolean(), "Enforce", null, 0, 1, Capacity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCapacity_Penalty(), ecorePackage.getEFloat(), "Penalty", null, 0, 1, Capacity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(supplyChainRoutingsEClass, SupplyChainRoutings.class, "SupplyChainRoutings", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSupplyChainRoutings_Routings(), this.getRouting(), this.getRouting_SupplyChainRoutings(), "Routings", null, 0, -1, SupplyChainRoutings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSupplyChainRoutings_Name(), ecorePackage.getEString(), "Name", null, 0, 1, SupplyChainRoutings.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(routingEClass, Routing.class, "Routing", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRouting_Resources(), this.getRoutingResource(), this.getRoutingResource_Routing(), "Resources", null, 0, -1, Routing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRouting_Products(), this.getRoutingProduct(), this.getRoutingProduct_Routing(), "Products", null, 0, -1, Routing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRouting_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Routing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRouting_Code(), ecorePackage.getEString(), "Code", null, 0, 1, Routing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRouting_Cost(), ecorePackage.getEFloat(), "Cost", null, 0, 1, Routing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRouting_SupplyChainRoutings(), this.getSupplyChainRoutings(), this.getSupplyChainRoutings_Routings(), "SupplyChainRoutings", null, 1, 1, Routing.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getRouting__ConstructRoutingProduct__LocationProduct(), this.getRoutingProduct(), "constructRoutingProduct", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getLocationProduct(), "product", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1431,15 +1308,7 @@ public class MacroPlannerPackageImpl extends EPackageImpl implements MacroPlanne
 		initEAttribute(getRoutingResource_Offset(), ecorePackage.getEFloat(), "Offset", null, 0, 1, RoutingResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRoutingResource_Code(), ecorePackage.getEString(), "Code", null, 0, 1, RoutingResource.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEClass(supplyChainDataEClass, SupplyChainData.class, "SupplyChainData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSupplyChainData_Name(), ecorePackage.getEString(), "Name", null, 0, 1, SupplyChainData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSupplyChainData_Supplies(), this.getSupply(), this.getSupply_SupplyChainData(), "Supplies", null, 0, -1, SupplyChainData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getSupplyChainData__ConstructSupply__LocationProduct(), this.getSupply(), "constructSupply", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getLocationProduct(), "product", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(supplyEClass, Supply.class, "Supply", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSupply_SupplyChainData(), this.getSupplyChainData(), this.getSupplyChainData_Supplies(), "SupplyChainData", null, 1, 1, Supply.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSupply_LocationProduct(), this.getLocationProduct(), this.getLocationProduct_Supplies(), "LocationProduct", null, 0, 1, Supply.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSupply_Description(), ecorePackage.getEString(), "Description", null, 0, 1, Supply.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSupply_Quantity(), ecorePackage.getEFloat(), "Quantity", null, 0, 1, Supply.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
