@@ -255,7 +255,9 @@ public class AdapterFactoryAmountEventProvider implements
 				}
 			} 
 		} // traverse the children
-		return inputs.toArray();
+		
+		Object[] returnArray = inputs.toArray();
+		return returnArray;
 	}
 	
 	/**

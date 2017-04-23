@@ -13,7 +13,6 @@ package com.misc.common.moplaf.timeview.nebula.views;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -314,7 +313,7 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 
 		Object[] childrenModelElement = this.getTreeContentProvider().getChildren(this.getInput());
 		
-		HashSet<Object> children = new HashSet<Object>(Arrays.asList(childrenModelElement));
+		ArrayList<Object> children = new ArrayList<Object>(Arrays.asList(childrenModelElement));
 
 		LinkedList<Trace> tracesToRemove = new LinkedList<Trace>();
 
@@ -346,13 +345,15 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 		}
 		
 		if ( allRemoved && !somethingAdded){
-			// the chart will be empty: we keep is as it is
-			return;
-		}
-		
-		// do the removes
-		for ( Trace traceToRemove : tracesToRemove){
-			this.xyGraph.removeTrace(traceToRemove);
+			// selection is empty
+			// nothing was added
+			// keep the current selection
+			// so skip the removed
+		} else {
+			// do the removes
+			for ( Trace traceToRemove : tracesToRemove){
+				this.xyGraph.removeTrace(traceToRemove);
+			}
 		}
 		
 		for ( Trace traceAsIs : this.xyGraph.getPlotArea().getTraceList()){
