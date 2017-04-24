@@ -20,7 +20,7 @@
     <ownedJavaExtensions qualifiedClassName="com.misc.common.moplaf.macroplanner.design.Services"/>
   </ownedViewpoints>
   <ownedViewpoints name="macroplanner.supplychain" label="MacroPlanner SupplyChain">
-    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="macroplanner.supplychain.routings" label="MacroPlanner Routing" domainClass="http://www.misc.com/common/moplaf/macroplanner/model/0.1#//SupplyChainRoutings" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_2:DiagramDescription" name="macroplanner.supplychain.routings" label="MacroPlanner Routing" domainClass="http://www.misc.com/common/moplaf/macroplanner/model/0.1#//MacroPlannerData" enablePopupBars="true">
       <metamodel href="../../com.misc.common.moplaf.macroplanner.emf/model/MacroPlanner.ecore#/"/>
       <defaultLayer name="Default">
         <nodeMappings name="macroplanner.supplychain.locationproduct" label="MacroPlanner LocationProduct" domainClass="http://www.misc.com/common/moplaf/macroplanner/model/0.1#//LocationProduct">
@@ -37,7 +37,7 @@
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="macroplanner.supplychain.routing" label="MacroPlanner Routing" semanticCandidatesExpression="aql:self.Routings" domainClass="http://www.misc.com/common/moplaf/macroplanner/model/0.1#//Routing">
+        <nodeMappings name="macroplanner.supplychain.routing" label="MacroPlanner Routing" semanticCandidatesExpression="aql:self.Elements" domainClass="http://www.misc.com/common/moplaf/macroplanner/model/0.1#//Routing">
           <style xsi:type="style:LozengeNodeDescription" showIcon="false" labelExpression="feature:Code">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -100,7 +100,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="http://www.misc.com/common/moplaf/macroplanner/model/0.1#//Routing" referenceName="Routings"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="http://www.misc.com/common/moplaf/macroplanner/model/0.1#//Routing" referenceName="Elements"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
