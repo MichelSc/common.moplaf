@@ -280,7 +280,7 @@ public class CapacityItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Capacity.class)) {
-			case MacroPlannerPackage.CAPACITY__DESCRIPTION:
+			case MacroPlannerPackage.CAPACITY__LOCATION_PRODUCT:
 			case MacroPlannerPackage.CAPACITY__QUANTITY:
 			case MacroPlannerPackage.CAPACITY__FROM:
 			case MacroPlannerPackage.CAPACITY__TO:

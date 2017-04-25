@@ -257,7 +257,7 @@ public class SupplyItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Supply.class)) {
-			case MacroPlannerPackage.SUPPLY__DESCRIPTION:
+			case MacroPlannerPackage.SUPPLY__LOCATION_PRODUCT:
 			case MacroPlannerPackage.SUPPLY__QUANTITY:
 			case MacroPlannerPackage.SUPPLY__FROM:
 			case MacroPlannerPackage.SUPPLY__TO:
