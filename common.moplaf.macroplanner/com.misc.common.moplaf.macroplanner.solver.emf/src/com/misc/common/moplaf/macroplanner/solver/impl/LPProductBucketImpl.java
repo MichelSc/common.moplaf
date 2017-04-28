@@ -65,6 +65,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getCalcSupplied <em>Calc Supplied</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getCalcStocked <em>Calc Stocked</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getBalance <em>Balance</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getStockMaximum <em>Stock Maximum</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getStockSelectedSolution <em>Stock Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getSupplyMaximum <em>Supply Maximum</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getSupplySelectedSolution <em>Supply Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getConsumptionSelectedSolution <em>Consumption Selected Solution</em>}</li>
  * </ul>
  *
  * @generated
@@ -169,6 +174,56 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 	 * @ordered
 	 */
 	protected GeneratorLpCons balance;
+
+	/**
+	 * The default value of the '{@link #getStockMaximum() <em>Stock Maximum</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStockMaximum()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float STOCK_MAXIMUM_EDEFAULT = 0.0F;
+
+	/**
+	 * The default value of the '{@link #getStockSelectedSolution() <em>Stock Selected Solution</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStockSelectedSolution()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float STOCK_SELECTED_SOLUTION_EDEFAULT = 0.0F;
+
+	/**
+	 * The default value of the '{@link #getSupplyMaximum() <em>Supply Maximum</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSupplyMaximum()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float SUPPLY_MAXIMUM_EDEFAULT = 0.0F;
+
+	/**
+	 * The default value of the '{@link #getSupplySelectedSolution() <em>Supply Selected Solution</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSupplySelectedSolution()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float SUPPLY_SELECTED_SOLUTION_EDEFAULT = 0.0F;
+
+	/**
+	 * The default value of the '{@link #getConsumptionSelectedSolution() <em>Consumption Selected Solution</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConsumptionSelectedSolution()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float CONSUMPTION_SELECTED_SOLUTION_EDEFAULT = 0.0F;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -571,15 +626,49 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
-	public String getContent() {
-		String content = String.format("suppl: %10.2f\ncons.: %10.2f\nstock: %10.2f",
-				                       this.getSupplied().getSelectedSolutionValue(),
-				                       this.getConsumed().getSelectedSolutionValue(),
-				                       this.getStocked().getSelectedSolutionValue());
-		return content;
+	public float getStockMaximum() {
+		float amount = 0.0f;
+		for ( LPCapacityBucket bucketCapacity: this.getCapacities()){
+			amount += bucketCapacity.getCapacity().getCapacity().getQuantity();
+		}
+		return amount;
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public float getStockSelectedSolution() {
+		return this.getStocked().getSelectedSolutionValue();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public float getSupplyMaximum() {
+		float amount = 0.0f;
+		for ( LPSupplyBucket bucketSupply: this.getSupplies()){
+			amount += bucketSupply.getSupply().getSupply().getQuantity()*bucketSupply.getFraction();
+		}
+		return amount;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public float getSupplySelectedSolution() {
+		return this.getSupplied().getSelectedSolutionValue();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public float getConsumptionSelectedSolution() {
+		return this.getConsumed().getSelectedSolutionValue();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -682,6 +771,16 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 				return getCalcStocked();
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__BALANCE:
 				return getBalance();
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__STOCK_MAXIMUM:
+				return getStockMaximum();
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__STOCK_SELECTED_SOLUTION:
+				return getStockSelectedSolution();
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLY_MAXIMUM:
+				return getSupplyMaximum();
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLY_SELECTED_SOLUTION:
+				return getSupplySelectedSolution();
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CONSUMPTION_SELECTED_SOLUTION:
+				return getConsumptionSelectedSolution();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -810,6 +909,16 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 				return calcStocked != null;
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__BALANCE:
 				return balance != null;
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__STOCK_MAXIMUM:
+				return getStockMaximum() != STOCK_MAXIMUM_EDEFAULT;
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__STOCK_SELECTED_SOLUTION:
+				return getStockSelectedSolution() != STOCK_SELECTED_SOLUTION_EDEFAULT;
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLY_MAXIMUM:
+				return getSupplyMaximum() != SUPPLY_MAXIMUM_EDEFAULT;
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLY_SELECTED_SOLUTION:
+				return getSupplySelectedSolution() != SUPPLY_SELECTED_SOLUTION_EDEFAULT;
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CONSUMPTION_SELECTED_SOLUTION:
+				return getConsumptionSelectedSolution() != CONSUMPTION_SELECTED_SOLUTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

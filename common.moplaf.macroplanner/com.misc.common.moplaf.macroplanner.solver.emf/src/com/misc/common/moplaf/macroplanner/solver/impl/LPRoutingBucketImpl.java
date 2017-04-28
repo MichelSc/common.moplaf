@@ -58,6 +58,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingBucketImpl#getProducts <em>Products</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingBucketImpl#getResources <em>Resources</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingBucketImpl#getPlanned <em>Planned</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingBucketImpl#getPlannedSelectedSolution <em>Planned Selected Solution</em>}</li>
  * </ul>
  *
  * @generated
@@ -92,6 +93,16 @@ public class LPRoutingBucketImpl extends LPTimeBucketImpl implements LPRoutingBu
 	 * @ordered
 	 */
 	protected GeneratorLpVar planned;
+
+	/**
+	 * The default value of the '{@link #getPlannedSelectedSolution() <em>Planned Selected Solution</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPlannedSelectedSolution()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float PLANNED_SELECTED_SOLUTION_EDEFAULT = 0.0F;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -224,13 +235,9 @@ public class LPRoutingBucketImpl extends LPTimeBucketImpl implements LPRoutingBu
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
-	public String getContent() {
-		String content = String.format("plan.: %10.2f",
-				                       this.getPlanned().getSelectedSolutionValue());
-		return content;
+	public float getPlannedSelectedSolution() {
+		return this.getPlanned().getSelectedSolutionValue();
 	}
-
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -303,6 +310,8 @@ public class LPRoutingBucketImpl extends LPTimeBucketImpl implements LPRoutingBu
 				return getResources();
 			case MacroPlannerSolverPackage.LP_ROUTING_BUCKET__PLANNED:
 				return getPlanned();
+			case MacroPlannerSolverPackage.LP_ROUTING_BUCKET__PLANNED_SELECTED_SOLUTION:
+				return getPlannedSelectedSolution();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -374,6 +383,8 @@ public class LPRoutingBucketImpl extends LPTimeBucketImpl implements LPRoutingBu
 				return resources != null && !resources.isEmpty();
 			case MacroPlannerSolverPackage.LP_ROUTING_BUCKET__PLANNED:
 				return planned != null;
+			case MacroPlannerSolverPackage.LP_ROUTING_BUCKET__PLANNED_SELECTED_SOLUTION:
+				return getPlannedSelectedSolution() != PLANNED_SELECTED_SOLUTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

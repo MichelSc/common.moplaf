@@ -42,7 +42,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPTimeBucketImpl#getBucket <em>Bucket</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPTimeBucketImpl#getNext <em>Next</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPTimeBucketImpl#getPrevious <em>Previous</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPTimeBucketImpl#getContent <em>Content</em>}</li>
  * </ul>
  *
  * @generated
@@ -77,16 +76,6 @@ public class LPTimeBucketImpl extends LPTupleImpl implements LPTimeBucket {
 	 * @ordered
 	 */
 	protected ObjectTimeBucket previous;
-
-	/**
-	 * The default value of the '{@link #getContent() <em>Content</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getContent()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String CONTENT_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -268,14 +257,6 @@ public class LPTimeBucketImpl extends LPTupleImpl implements LPTimeBucket {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 */
-	public String getContent() {
-		return "no content";
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void dispose() {
@@ -337,8 +318,6 @@ public class LPTimeBucketImpl extends LPTupleImpl implements LPTimeBucket {
 			case MacroPlannerSolverPackage.LP_TIME_BUCKET__PREVIOUS:
 				if (resolve) return getPrevious();
 				return basicGetPrevious();
-			case MacroPlannerSolverPackage.LP_TIME_BUCKET__CONTENT:
-				return getContent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -399,8 +378,6 @@ public class LPTimeBucketImpl extends LPTupleImpl implements LPTimeBucket {
 				return next != null;
 			case MacroPlannerSolverPackage.LP_TIME_BUCKET__PREVIOUS:
 				return previous != null;
-			case MacroPlannerSolverPackage.LP_TIME_BUCKET__CONTENT:
-				return CONTENT_EDEFAULT == null ? getContent() != null : !CONTENT_EDEFAULT.equals(getContent());
 		}
 		return super.eIsSet(featureID);
 	}

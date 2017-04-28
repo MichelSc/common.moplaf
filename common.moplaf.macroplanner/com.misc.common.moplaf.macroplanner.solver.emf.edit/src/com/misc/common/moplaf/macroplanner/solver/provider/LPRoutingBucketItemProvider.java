@@ -27,7 +27,9 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -58,8 +60,31 @@ public class LPRoutingBucketItemProvider extends LPTimeBucketItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addPlannedSelectedSolutionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Planned Selected Solution feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPlannedSelectedSolutionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LPRoutingBucket_PlannedSelectedSolution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LPRoutingBucket_PlannedSelectedSolution_feature", "_UI_LPRoutingBucket_type"),
+				 MacroPlannerSolverPackage.Literals.LP_ROUTING_BUCKET__PLANNED_SELECTED_SOLUTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 getString("_UI__20ValuesPropertyCategory"),
+				 null));
 	}
 
 	/**
@@ -121,6 +146,9 @@ public class LPRoutingBucketItemProvider extends LPTimeBucketItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(LPRoutingBucket.class)) {
+			case MacroPlannerSolverPackage.LP_ROUTING_BUCKET__PLANNED_SELECTED_SOLUTION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case MacroPlannerSolverPackage.LP_ROUTING_BUCKET__PRODUCTS:
 			case MacroPlannerSolverPackage.LP_ROUTING_BUCKET__RESOURCES:
 			case MacroPlannerSolverPackage.LP_ROUTING_BUCKET__PLANNED:

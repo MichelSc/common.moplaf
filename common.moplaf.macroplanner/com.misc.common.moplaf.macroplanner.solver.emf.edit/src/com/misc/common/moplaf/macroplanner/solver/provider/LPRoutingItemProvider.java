@@ -206,7 +206,7 @@ public class LPRoutingItemProvider extends LPTimeLineItemProvider  implements II
 
 		@Override
 		public float getEventAmount(LPRoutingBucket bucket, int moment) {
-			return bucket.getPlanned().getSelectedSolutionValue();
+			return bucket.getPlannedSelectedSolution();
 		}
 
 		@Override

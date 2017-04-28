@@ -29,6 +29,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucket#getProducts <em>Products</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucket#getResources <em>Resources</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucket#getPlanned <em>Planned</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucket#getPlannedSelectedSolution <em>Planned Selected Solution</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPRoutingBucket()
@@ -129,5 +130,20 @@ public interface LPRoutingBucket extends LPTimeBucket {
 	 * @generated
 	 */
 	void setPlanned(GeneratorLpVar value);
+
+	/**
+	 * Returns the value of the '<em><b>Planned Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Planned Selected Solution</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Planned Selected Solution</em>' attribute.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPRoutingBucket_PlannedSelectedSolution()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	float getPlannedSelectedSolution();
 
 } // LPRoutingBucket

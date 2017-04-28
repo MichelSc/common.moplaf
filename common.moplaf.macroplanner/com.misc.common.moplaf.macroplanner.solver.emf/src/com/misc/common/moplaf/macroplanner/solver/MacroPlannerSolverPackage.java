@@ -1155,22 +1155,13 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_TIME_BUCKET__PREVIOUS = LP_TUPLE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Content</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LP_TIME_BUCKET__CONTENT = LP_TUPLE_FEATURE_COUNT + 3;
-
-	/**
 	 * The number of structural features of the '<em>LP Time Bucket</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LP_TIME_BUCKET_FEATURE_COUNT = LP_TUPLE_FEATURE_COUNT + 4;
+	int LP_TIME_BUCKET_FEATURE_COUNT = LP_TUPLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -1842,15 +1833,6 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_PRODUCT_BUCKET__PREVIOUS = LP_TIME_BUCKET__PREVIOUS;
 
 	/**
-	 * The feature id for the '<em><b>Content</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LP_PRODUCT_BUCKET__CONTENT = LP_TIME_BUCKET__CONTENT;
-
-	/**
 	 * The feature id for the '<em><b>Product</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1950,13 +1932,58 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_PRODUCT_BUCKET__BALANCE = LP_TIME_BUCKET_FEATURE_COUNT + 10;
 
 	/**
+	 * The feature id for the '<em><b>Stock Maximum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_PRODUCT_BUCKET__STOCK_MAXIMUM = LP_TIME_BUCKET_FEATURE_COUNT + 11;
+
+	/**
+	 * The feature id for the '<em><b>Stock Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_PRODUCT_BUCKET__STOCK_SELECTED_SOLUTION = LP_TIME_BUCKET_FEATURE_COUNT + 12;
+
+	/**
+	 * The feature id for the '<em><b>Supply Maximum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_PRODUCT_BUCKET__SUPPLY_MAXIMUM = LP_TIME_BUCKET_FEATURE_COUNT + 13;
+
+	/**
+	 * The feature id for the '<em><b>Supply Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_PRODUCT_BUCKET__SUPPLY_SELECTED_SOLUTION = LP_TIME_BUCKET_FEATURE_COUNT + 14;
+
+	/**
+	 * The feature id for the '<em><b>Consumption Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_PRODUCT_BUCKET__CONSUMPTION_SELECTED_SOLUTION = LP_TIME_BUCKET_FEATURE_COUNT + 15;
+
+	/**
 	 * The number of structural features of the '<em>LP Product Bucket</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LP_PRODUCT_BUCKET_FEATURE_COUNT = LP_TIME_BUCKET_FEATURE_COUNT + 11;
+	int LP_PRODUCT_BUCKET_FEATURE_COUNT = LP_TIME_BUCKET_FEATURE_COUNT + 16;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -2418,15 +2445,6 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int LP_SUPPLY_BUCKET__PREVIOUS = LP_TIME_BUCKET__PREVIOUS;
-
-	/**
-	 * The feature id for the '<em><b>Content</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LP_SUPPLY_BUCKET__CONTENT = LP_TIME_BUCKET__CONTENT;
 
 	/**
 	 * The feature id for the '<em><b>Supply</b></em>' container reference.
@@ -2933,15 +2951,6 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int LP_CAPACITY_BUCKET__PREVIOUS = LP_TIME_BUCKET__PREVIOUS;
-
-	/**
-	 * The feature id for the '<em><b>Content</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LP_CAPACITY_BUCKET__CONTENT = LP_TIME_BUCKET__CONTENT;
 
 	/**
 	 * The feature id for the '<em><b>Capacity</b></em>' container reference.
@@ -3658,15 +3667,6 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_RESOURCE_BUCKET__PREVIOUS = LP_TIME_BUCKET__PREVIOUS;
 
 	/**
-	 * The feature id for the '<em><b>Content</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LP_RESOURCE_BUCKET__CONTENT = LP_TIME_BUCKET__CONTENT;
-
-	/**
 	 * The feature id for the '<em><b>Resource</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3739,13 +3739,31 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_RESOURCE_BUCKET__BALANCE = LP_TIME_BUCKET_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Reservation Maximum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_RESOURCE_BUCKET__RESERVATION_MAXIMUM = LP_TIME_BUCKET_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Reservation Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_RESOURCE_BUCKET__RESERVATION_SELECTED_SOLUTION = LP_TIME_BUCKET_FEATURE_COUNT + 9;
+
+	/**
 	 * The number of structural features of the '<em>LP Resource Bucket</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LP_RESOURCE_BUCKET_FEATURE_COUNT = LP_TIME_BUCKET_FEATURE_COUNT + 8;
+	int LP_RESOURCE_BUCKET_FEATURE_COUNT = LP_TIME_BUCKET_FEATURE_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -4207,15 +4225,6 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int LP_AVAILABILITY_BUCKET__PREVIOUS = LP_TIME_BUCKET__PREVIOUS;
-
-	/**
-	 * The feature id for the '<em><b>Content</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LP_AVAILABILITY_BUCKET__CONTENT = LP_TIME_BUCKET__CONTENT;
 
 	/**
 	 * The feature id for the '<em><b>Availability</b></em>' container reference.
@@ -5359,15 +5368,6 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_ROUTING_BUCKET__PREVIOUS = LP_TIME_BUCKET__PREVIOUS;
 
 	/**
-	 * The feature id for the '<em><b>Content</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LP_ROUTING_BUCKET__CONTENT = LP_TIME_BUCKET__CONTENT;
-
-	/**
 	 * The feature id for the '<em><b>Routing</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5404,13 +5404,22 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_ROUTING_BUCKET__PLANNED = LP_TIME_BUCKET_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Planned Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_ROUTING_BUCKET__PLANNED_SELECTED_SOLUTION = LP_TIME_BUCKET_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>LP Routing Bucket</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LP_ROUTING_BUCKET_FEATURE_COUNT = LP_TIME_BUCKET_FEATURE_COUNT + 4;
+	int LP_ROUTING_BUCKET_FEATURE_COUNT = LP_TIME_BUCKET_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -6112,17 +6121,6 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	EClass getLPTimeBucket();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.solver.LPTimeBucket#getContent <em>Content</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Content</em>'.
-	 * @see com.misc.common.moplaf.macroplanner.solver.LPTimeBucket#getContent()
-	 * @see #getLPTimeBucket()
-	 * @generated
-	 */
-	EAttribute getLPTimeBucket_Content();
-
-	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.macroplanner.solver.LPTimeBucket#getBucketShortName() <em>Get Bucket Short Name</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6369,6 +6367,61 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getLPProductBucket_Balance();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getStockMaximum <em>Stock Maximum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Stock Maximum</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getStockMaximum()
+	 * @see #getLPProductBucket()
+	 * @generated
+	 */
+	EAttribute getLPProductBucket_StockMaximum();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getStockSelectedSolution <em>Stock Selected Solution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Stock Selected Solution</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getStockSelectedSolution()
+	 * @see #getLPProductBucket()
+	 * @generated
+	 */
+	EAttribute getLPProductBucket_StockSelectedSolution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getSupplyMaximum <em>Supply Maximum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Supply Maximum</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getSupplyMaximum()
+	 * @see #getLPProductBucket()
+	 * @generated
+	 */
+	EAttribute getLPProductBucket_SupplyMaximum();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getSupplySelectedSolution <em>Supply Selected Solution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Supply Selected Solution</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getSupplySelectedSolution()
+	 * @see #getLPProductBucket()
+	 * @generated
+	 */
+	EAttribute getLPProductBucket_SupplySelectedSolution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getConsumptionSelectedSolution <em>Consumption Selected Solution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Consumption Selected Solution</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getConsumptionSelectedSolution()
+	 * @see #getLPProductBucket()
+	 * @generated
+	 */
+	EAttribute getLPProductBucket_ConsumptionSelectedSolution();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.macroplanner.solver.LPSupply <em>LP Supply</em>}'.
@@ -6770,6 +6823,28 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	EReference getLPResourceBucket_Balance();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getReservationMaximum <em>Reservation Maximum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Reservation Maximum</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getReservationMaximum()
+	 * @see #getLPResourceBucket()
+	 * @generated
+	 */
+	EAttribute getLPResourceBucket_ReservationMaximum();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getReservationSelectedSolution <em>Reservation Selected Solution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Reservation Selected Solution</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getReservationSelectedSolution()
+	 * @see #getLPResourceBucket()
+	 * @generated
+	 */
+	EAttribute getLPResourceBucket_ReservationSelectedSolution();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.macroplanner.solver.LPAvailability <em>LP Availability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7038,6 +7113,17 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getLPRoutingBucket_Planned();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucket#getPlannedSelectedSolution <em>Planned Selected Solution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Planned Selected Solution</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPRoutingBucket#getPlannedSelectedSolution()
+	 * @see #getLPRoutingBucket()
+	 * @generated
+	 */
+	EAttribute getLPRoutingBucket_PlannedSelectedSolution();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketProduct <em>LP Routing Bucket Product</em>}'.
@@ -7451,14 +7537,6 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		EClass LP_TIME_BUCKET = eINSTANCE.getLPTimeBucket();
 
 		/**
-		 * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LP_TIME_BUCKET__CONTENT = eINSTANCE.getLPTimeBucket_Content();
-
-		/**
 		 * The meta object literal for the '<em><b>Get Bucket Short Name</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7647,6 +7725,46 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		 * @generated
 		 */
 		EReference LP_PRODUCT_BUCKET__BALANCE = eINSTANCE.getLPProductBucket_Balance();
+
+		/**
+		 * The meta object literal for the '<em><b>Stock Maximum</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LP_PRODUCT_BUCKET__STOCK_MAXIMUM = eINSTANCE.getLPProductBucket_StockMaximum();
+
+		/**
+		 * The meta object literal for the '<em><b>Stock Selected Solution</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LP_PRODUCT_BUCKET__STOCK_SELECTED_SOLUTION = eINSTANCE.getLPProductBucket_StockSelectedSolution();
+
+		/**
+		 * The meta object literal for the '<em><b>Supply Maximum</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LP_PRODUCT_BUCKET__SUPPLY_MAXIMUM = eINSTANCE.getLPProductBucket_SupplyMaximum();
+
+		/**
+		 * The meta object literal for the '<em><b>Supply Selected Solution</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LP_PRODUCT_BUCKET__SUPPLY_SELECTED_SOLUTION = eINSTANCE.getLPProductBucket_SupplySelectedSolution();
+
+		/**
+		 * The meta object literal for the '<em><b>Consumption Selected Solution</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LP_PRODUCT_BUCKET__CONSUMPTION_SELECTED_SOLUTION = eINSTANCE.getLPProductBucket_ConsumptionSelectedSolution();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPSupplyImpl <em>LP Supply</em>}' class.
@@ -7959,6 +8077,22 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		EReference LP_RESOURCE_BUCKET__BALANCE = eINSTANCE.getLPResourceBucket_Balance();
 
 		/**
+		 * The meta object literal for the '<em><b>Reservation Maximum</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LP_RESOURCE_BUCKET__RESERVATION_MAXIMUM = eINSTANCE.getLPResourceBucket_ReservationMaximum();
+
+		/**
+		 * The meta object literal for the '<em><b>Reservation Selected Solution</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LP_RESOURCE_BUCKET__RESERVATION_SELECTED_SOLUTION = eINSTANCE.getLPResourceBucket_ReservationSelectedSolution();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPAvailabilityImpl <em>LP Availability</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8167,6 +8301,14 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		 * @generated
 		 */
 		EReference LP_ROUTING_BUCKET__PLANNED = eINSTANCE.getLPRoutingBucket_Planned();
+
+		/**
+		 * The meta object literal for the '<em><b>Planned Selected Solution</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LP_ROUTING_BUCKET__PLANNED_SELECTED_SOLUTION = eINSTANCE.getLPRoutingBucket_PlannedSelectedSolution();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingBucketProductImpl <em>LP Routing Bucket Product</em>}' class.

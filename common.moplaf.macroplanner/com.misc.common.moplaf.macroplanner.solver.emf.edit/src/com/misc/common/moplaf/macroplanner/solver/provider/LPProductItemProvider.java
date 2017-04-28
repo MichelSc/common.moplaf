@@ -14,7 +14,6 @@ package com.misc.common.moplaf.macroplanner.solver.provider;
 
 
 import com.misc.common.moplaf.common.Color;
-import com.misc.common.moplaf.macroplanner.solver.LPCapacityBucket;
 import com.misc.common.moplaf.macroplanner.solver.LPProduct;
 import com.misc.common.moplaf.macroplanner.solver.LPProductBucket;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverFactory;
@@ -234,7 +233,7 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 
 		@Override
 		public float getEventAmount(LPProductBucket bucket, int moment) {
-			return bucket.getSupplied().getSelectedSolutionValue();
+			return bucket.getSupplySelectedSolution();
 		}
 
 		@Override
@@ -260,7 +259,7 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 
 		@Override
 		public float getEventAmount(LPProductBucket bucket, int moment) {
-			return bucket.getStocked().getSelectedSolutionValue();
+			return bucket.getStockSelectedSolution();
 		}
 
 		@Override
@@ -284,11 +283,7 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 		}
 
 		public float getEventAmount(LPProductBucket bucket, int moment) {
-			float amount = 0.0f;
-			for ( LPCapacityBucket bucketCapacity: bucket.getCapacities()){
-				amount += bucketCapacity.getCapacity().getCapacity().getQuantity();
-			}
-			return amount;
+			return bucket.getStockMaximum();
 		}
 
 		@Override

@@ -59,6 +59,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#getCalcReserved <em>Calc Reserved</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#getCalcPlanned <em>Calc Planned</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#getBalance <em>Balance</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#getReservationMaximum <em>Reservation Maximum</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#getReservationSelectedSolution <em>Reservation Selected Solution</em>}</li>
  * </ul>
  *
  * @generated
@@ -133,6 +135,26 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 	 * @ordered
 	 */
 	protected GeneratorLpCons balance;
+
+	/**
+	 * The default value of the '{@link #getReservationMaximum() <em>Reservation Maximum</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReservationMaximum()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float RESERVATION_MAXIMUM_EDEFAULT = 0.0F;
+
+	/**
+	 * The default value of the '{@link #getReservationSelectedSolution() <em>Reservation Selected Solution</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReservationSelectedSolution()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float RESERVATION_SELECTED_SOLUTION_EDEFAULT = 0.0F;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -437,11 +459,21 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	@Override
-	public String getContent() {
-		String content = String.format("reser: %10.2f",
-				                       this.getReserved().getSelectedSolutionValue());
-		return content;
+	public float getReservationMaximum() {
+		float amount = 0.0f;
+		for ( LPAvailabilityBucket bucketAvailability: this.getAvailabilities()){
+			amount += bucketAvailability.getAvailability().getAvailability().getQuantity()
+					* bucketAvailability.getFraction();
+		}
+		return amount;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public float getReservationSelectedSolution() {
+		return this.getReserved().getSelectedSolutionValue();
 	}
 
 	/**
@@ -531,6 +563,10 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 				return getCalcPlanned();
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__BALANCE:
 				return getBalance();
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVATION_MAXIMUM:
+				return getReservationMaximum();
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVATION_SELECTED_SOLUTION:
+				return getReservationSelectedSolution();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -634,6 +670,10 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 				return calcPlanned != null;
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__BALANCE:
 				return balance != null;
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVATION_MAXIMUM:
+				return getReservationMaximum() != RESERVATION_MAXIMUM_EDEFAULT;
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVATION_SELECTED_SOLUTION:
+				return getReservationSelectedSolution() != RESERVATION_SELECTED_SOLUTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

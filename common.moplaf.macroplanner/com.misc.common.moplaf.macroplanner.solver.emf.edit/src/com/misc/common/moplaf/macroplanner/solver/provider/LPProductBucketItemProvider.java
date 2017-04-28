@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -61,6 +62,11 @@ public class LPProductBucketItemProvider extends LPTimeBucketItemProvider {
 			addCapacitiesPropertyDescriptor(object);
 			addSuppliesPropertyDescriptor(object);
 			addConsumptionsPropertyDescriptor(object);
+			addStockMaximumPropertyDescriptor(object);
+			addStockSelectedSolutionPropertyDescriptor(object);
+			addSupplyMaximumPropertyDescriptor(object);
+			addSupplySelectedSolutionPropertyDescriptor(object);
+			addConsumptionSelectedSolutionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -132,6 +138,116 @@ public class LPProductBucketItemProvider extends LPTimeBucketItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Stock Maximum feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStockMaximumPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LPProductBucket_StockMaximum_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LPProductBucket_StockMaximum_feature", "_UI_LPProductBucket_type"),
+				 MacroPlannerSolverPackage.Literals.LP_PRODUCT_BUCKET__STOCK_MAXIMUM,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 getString("_UI__20ValuesPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Stock Selected Solution feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStockSelectedSolutionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LPProductBucket_StockSelectedSolution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LPProductBucket_StockSelectedSolution_feature", "_UI_LPProductBucket_type"),
+				 MacroPlannerSolverPackage.Literals.LP_PRODUCT_BUCKET__STOCK_SELECTED_SOLUTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 getString("_UI__20ValuesPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Supply Maximum feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSupplyMaximumPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LPProductBucket_SupplyMaximum_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LPProductBucket_SupplyMaximum_feature", "_UI_LPProductBucket_type"),
+				 MacroPlannerSolverPackage.Literals.LP_PRODUCT_BUCKET__SUPPLY_MAXIMUM,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 getString("_UI__20ValuesPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Supply Selected Solution feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSupplySelectedSolutionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LPProductBucket_SupplySelectedSolution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LPProductBucket_SupplySelectedSolution_feature", "_UI_LPProductBucket_type"),
+				 MacroPlannerSolverPackage.Literals.LP_PRODUCT_BUCKET__SUPPLY_SELECTED_SOLUTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 getString("_UI__20ValuesPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Consumption Selected Solution feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addConsumptionSelectedSolutionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LPProductBucket_ConsumptionSelectedSolution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LPProductBucket_ConsumptionSelectedSolution_feature", "_UI_LPProductBucket_type"),
+				 MacroPlannerSolverPackage.Literals.LP_PRODUCT_BUCKET__CONSUMPTION_SELECTED_SOLUTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 getString("_UI__20ValuesPropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -194,6 +310,13 @@ public class LPProductBucketItemProvider extends LPTimeBucketItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(LPProductBucket.class)) {
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__STOCK_MAXIMUM:
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__STOCK_SELECTED_SOLUTION:
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLY_MAXIMUM:
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLY_SELECTED_SOLUTION:
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CONSUMPTION_SELECTED_SOLUTION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CONSUMED:
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLIED:
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__STOCKED:

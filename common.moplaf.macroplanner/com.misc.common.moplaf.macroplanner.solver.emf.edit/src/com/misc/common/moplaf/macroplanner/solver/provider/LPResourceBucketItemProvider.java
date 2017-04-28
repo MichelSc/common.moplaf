@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -60,6 +61,8 @@ public class LPResourceBucketItemProvider extends LPTimeBucketItemProvider {
 
 			addAvailabilitiesPropertyDescriptor(object);
 			addReservationsPropertyDescriptor(object);
+			addReservationMaximumPropertyDescriptor(object);
+			addReservationSelectedSolutionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -105,6 +108,50 @@ public class LPResourceBucketItemProvider extends LPTimeBucketItemProvider {
 				 true,
 				 null,
 				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Reservation Maximum feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReservationMaximumPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LPResourceBucket_ReservationMaximum_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LPResourceBucket_ReservationMaximum_feature", "_UI_LPResourceBucket_type"),
+				 MacroPlannerSolverPackage.Literals.LP_RESOURCE_BUCKET__RESERVATION_MAXIMUM,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 getString("_UI__20ValuesPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Reservation Selected Solution feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReservationSelectedSolutionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LPResourceBucket_ReservationSelectedSolution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LPResourceBucket_ReservationSelectedSolution_feature", "_UI_LPResourceBucket_type"),
+				 MacroPlannerSolverPackage.Literals.LP_RESOURCE_BUCKET__RESERVATION_SELECTED_SOLUTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 getString("_UI__20ValuesPropertyCategory"),
 				 null));
 	}
 
@@ -169,6 +216,10 @@ public class LPResourceBucketItemProvider extends LPTimeBucketItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(LPResourceBucket.class)) {
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVATION_MAXIMUM:
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVATION_SELECTED_SOLUTION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVED:
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__PLANNED:
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__CALC_RESERVED:

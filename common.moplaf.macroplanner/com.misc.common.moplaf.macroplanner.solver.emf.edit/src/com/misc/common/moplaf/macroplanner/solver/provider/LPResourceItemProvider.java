@@ -14,7 +14,6 @@ package com.misc.common.moplaf.macroplanner.solver.provider;
 
 
 import com.misc.common.moplaf.common.Color;
-import com.misc.common.moplaf.macroplanner.solver.LPAvailabilityBucket;
 import com.misc.common.moplaf.macroplanner.solver.LPResource;
 import com.misc.common.moplaf.macroplanner.solver.LPResourceBucket;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverFactory;
@@ -200,7 +199,7 @@ public class LPResourceItemProvider extends LPTimeLineItemProvider implements II
 
 		@Override
 		public float getEventAmount(LPResourceBucket bucket, int moment) {
-			return bucket.getReserved().getSelectedSolutionValue();
+			return bucket.getReservationSelectedSolution();
 		}
 
 		@Override
@@ -226,12 +225,7 @@ public class LPResourceItemProvider extends LPTimeLineItemProvider implements II
 		}
 
 		public float getEventAmount(LPResourceBucket bucket, int moment) {
-			float amount = 0.0f;
-			for ( LPAvailabilityBucket bucketAvailability: bucket.getAvailabilities()){
-				amount += bucketAvailability.getAvailability().getAvailability().getQuantity()
-						* bucketAvailability.getFraction();
-			}
-			return amount;
+			return bucket.getReservationMaximum();
 		}
 
 		@Override

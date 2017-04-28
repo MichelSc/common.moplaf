@@ -14,8 +14,6 @@ package com.misc.common.moplaf.macroplanner.solver.provider;
 
 
 import com.misc.common.moplaf.macroplanner.solver.LPTimeBucket;
-
-import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
 import com.misc.common.moplaf.time.discrete.TimeDiscretePackage;
 
 import java.util.Collection;
@@ -26,8 +24,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.macroplanner.solver.LPTimeBucket} object.
@@ -60,7 +56,6 @@ public class LPTimeBucketItemProvider extends LPTupleItemProvider {
 			addBucketPropertyDescriptor(object);
 			addNextPropertyDescriptor(object);
 			addPreviousPropertyDescriptor(object);
-			addContentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -132,28 +127,6 @@ public class LPTimeBucketItemProvider extends LPTupleItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Content feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addContentPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_LPTimeBucket_Content_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LPTimeBucket_Content_feature", "_UI_LPTimeBucket_type"),
-				 MacroPlannerSolverPackage.Literals.LP_TIME_BUCKET__CONTENT,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -178,12 +151,6 @@ public class LPTimeBucketItemProvider extends LPTupleItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(LPTimeBucket.class)) {
-			case MacroPlannerSolverPackage.LP_TIME_BUCKET__CONTENT:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

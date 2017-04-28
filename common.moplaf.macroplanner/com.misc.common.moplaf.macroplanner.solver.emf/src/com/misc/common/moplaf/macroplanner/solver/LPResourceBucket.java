@@ -34,6 +34,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getCalcReserved <em>Calc Reserved</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getCalcPlanned <em>Calc Planned</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getBalance <em>Balance</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getReservationMaximum <em>Reservation Maximum</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getReservationSelectedSolution <em>Reservation Selected Solution</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPResourceBucket()
@@ -242,5 +244,35 @@ public interface LPResourceBucket extends LPTimeBucket {
 	 * @generated
 	 */
 	void setBalance(GeneratorLpCons value);
+
+	/**
+	 * Returns the value of the '<em><b>Reservation Maximum</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Reservation Maximum</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reservation Maximum</em>' attribute.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPResourceBucket_ReservationMaximum()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	float getReservationMaximum();
+
+	/**
+	 * Returns the value of the '<em><b>Reservation Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Reservation Selected Solution</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reservation Selected Solution</em>' attribute.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPResourceBucket_ReservationSelectedSolution()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	float getReservationSelectedSolution();
 
 } // LPResourceBucket

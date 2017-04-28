@@ -16,7 +16,6 @@ import com.misc.common.moplaf.macroplanner.solver.LPProductBucket;
 import com.misc.common.moplaf.macroplanner.solver.LPRoutingBucket;
 import com.misc.common.moplaf.macroplanner.solver.LPRoutingBucketProduct;
 import com.misc.common.moplaf.macroplanner.solver.LPRoutingProduct;
-import com.misc.common.moplaf.macroplanner.solver.LPRoutingResource;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
 
 import org.eclipse.emf.common.notify.Notification;
