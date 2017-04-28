@@ -314,7 +314,7 @@ public class LPProductSetImpl extends GeneratorTupleImpl implements LPProductSet
 				LPProduct product = locationProducts.get(locationProduct);
 				if ( product == null ){
 					product = this.constructLPProduct(locationProduct);
-					
+					locationProducts.put(locationProduct, product);
 				}
 				product.getSupplies().add(lpsupply); // owning
 			} else if ( dataelement instanceof Capacity){
@@ -330,7 +330,7 @@ public class LPProductSetImpl extends GeneratorTupleImpl implements LPProductSet
 				LPProduct product = locationProducts.get(locationProduct);
 				if ( product == null ){
 					product = this.constructLPProduct(locationProduct);
-					
+					locationProducts.put(locationProduct, product);
 				}
 				product.getCapacities().add(lpcapacity); // owning
 			}

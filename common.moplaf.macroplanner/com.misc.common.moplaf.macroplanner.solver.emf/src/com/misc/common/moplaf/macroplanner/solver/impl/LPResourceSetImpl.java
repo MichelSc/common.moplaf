@@ -309,6 +309,7 @@ public class LPResourceSetImpl extends LPTupleImpl implements LPResourceSet {
 				LPResource resource = locationResources.get(locationResource);
 				if ( resource == null ){
 					resource = this.constructLPResource(locationResource);
+					locationResources.put(locationResource, resource);
 				}
 				resource.getAvailabilities().add(lpavailability); // owning
 			}
