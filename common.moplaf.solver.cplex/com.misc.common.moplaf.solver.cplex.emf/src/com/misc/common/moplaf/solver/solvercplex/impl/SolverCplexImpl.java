@@ -571,6 +571,12 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		boolean feasible   = false;
 		try  {
 			// set the params
+			// mip tolerance
+			this.lp.setParam(IloCplex.Param.MIP.Tolerances.MIPGap, this.getSolverOptimalityTolerance());
+			
+			// max duration
+			this.lp.setParam(IloCplex.Param.TimeLimit, this.getSolverMaxDuration());
+			
 			// log level
 			// Java IloCplex.Param.MIP.Display MIPDisplay (int) 
 			// Description
