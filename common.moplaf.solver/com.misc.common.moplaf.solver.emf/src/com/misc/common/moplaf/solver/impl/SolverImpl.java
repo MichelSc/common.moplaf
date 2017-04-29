@@ -1603,6 +1603,8 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 																				// padded
 			// work
 			int work = (int) (100 * (1.0f - OptimalityGap));
+			String message = String.format("Progress %s %d", task, work);
+			Plugin.INSTANCE.logInfo(message);
 			goOn = this.setProgress(task, work);
 		}
 		if (!goOn) {
