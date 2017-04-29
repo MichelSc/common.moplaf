@@ -17,6 +17,7 @@ import com.misc.common.moplaf.common.ReturnFeedback;
 
 import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.JobPackage;
+import com.misc.common.moplaf.job.Plugin;
 import com.misc.common.moplaf.job.ProgressFeedback;
 import com.misc.common.moplaf.job.RunContext;
 
@@ -375,6 +376,8 @@ public class RunImpl extends MinimalEObjectImpl.Container implements Run {
 	 * <!-- end-user-doc -->
 	 */
 	public boolean setProgress(ProgressFeedback progress) {
+		String message = String.format("Progress %s %f", progress.getTask(), progress.getWork());
+		Plugin.INSTANCE.logInfo(message);
 		if ( this.runContext == null){
 			return true;
 		}
