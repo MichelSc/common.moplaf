@@ -29,10 +29,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.misc.common.moplaf.solver.EnumLpVarType;
-import com.misc.common.moplaf.solver.EnumObjectiveType;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorElement;
-import com.misc.common.moplaf.solver.GeneratorLpGoal;
 import com.misc.common.moplaf.solver.GeneratorLpLinear;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
