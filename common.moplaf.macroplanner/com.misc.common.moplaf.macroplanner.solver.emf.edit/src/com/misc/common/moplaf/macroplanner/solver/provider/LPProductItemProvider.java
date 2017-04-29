@@ -233,7 +233,7 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 
 		@Override
 		public float getEventAmount(LPProductBucket bucket, int moment) {
-			return bucket.getSupplySelectedSolution();
+			return (float)bucket.getSupplySelectedSolution();
 		}
 
 		@Override
@@ -259,7 +259,7 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 
 		@Override
 		public float getEventAmount(LPProductBucket bucket, int moment) {
-			return bucket.getStockSelectedSolution();
+			return (float)bucket.getStockSelectedSolution();
 		}
 
 		@Override
@@ -283,7 +283,7 @@ public class LPProductItemProvider extends LPTimeLineItemProvider implements IIt
 		}
 
 		public float getEventAmount(LPProductBucket bucket, int moment) {
-			return bucket.getStockMaximum();
+			return (float)bucket.getStockMaximum();
 		}
 
 		@Override

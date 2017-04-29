@@ -52,6 +52,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPAvailabilityBucketImpl#getSlack <em>Slack</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPAvailabilityBucketImpl#getBalance <em>Balance</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPAvailabilityBucketImpl#getFraction <em>Fraction</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPAvailabilityBucketImpl#isTightSelectedSolution <em>Tight Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPAvailabilityBucketImpl#isSlackSelectedSolution <em>Slack Selected Solution</em>}</li>
  * </ul>
  *
  * @generated
@@ -116,6 +118,26 @@ public class LPAvailabilityBucketImpl extends LPTimeBucketImpl implements LPAvai
 	 * @ordered
 	 */
 	protected float fraction = FRACTION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isTightSelectedSolution() <em>Tight Selected Solution</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isTightSelectedSolution()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean TIGHT_SELECTED_SOLUTION_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #isSlackSelectedSolution() <em>Slack Selected Solution</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSlackSelectedSolution()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SLACK_SELECTED_SOLUTION_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -390,6 +412,27 @@ public class LPAvailabilityBucketImpl extends LPTimeBucketImpl implements LPAvai
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public boolean isTightSelectedSolution() {
+		float reserved = this.getReserved().getSelectedSolutionValue();
+		float max = this.getAvailability().getAvailability().getQuantity();
+		boolean isTight = reserved == max;
+		return isTight;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public boolean isSlackSelectedSolution() {
+		float slack = this.getSlack().getSelectedSolutionValue();
+		boolean isSlack= slack>0.0f;
+		return isSlack;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -464,6 +507,10 @@ public class LPAvailabilityBucketImpl extends LPTimeBucketImpl implements LPAvai
 				return getBalance();
 			case MacroPlannerSolverPackage.LP_AVAILABILITY_BUCKET__FRACTION:
 				return getFraction();
+			case MacroPlannerSolverPackage.LP_AVAILABILITY_BUCKET__TIGHT_SELECTED_SOLUTION:
+				return isTightSelectedSolution();
+			case MacroPlannerSolverPackage.LP_AVAILABILITY_BUCKET__SLACK_SELECTED_SOLUTION:
+				return isSlackSelectedSolution();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -548,6 +595,10 @@ public class LPAvailabilityBucketImpl extends LPTimeBucketImpl implements LPAvai
 				return balance != null;
 			case MacroPlannerSolverPackage.LP_AVAILABILITY_BUCKET__FRACTION:
 				return fraction != FRACTION_EDEFAULT;
+			case MacroPlannerSolverPackage.LP_AVAILABILITY_BUCKET__TIGHT_SELECTED_SOLUTION:
+				return isTightSelectedSolution() != TIGHT_SELECTED_SOLUTION_EDEFAULT;
+			case MacroPlannerSolverPackage.LP_AVAILABILITY_BUCKET__SLACK_SELECTED_SOLUTION:
+				return isSlackSelectedSolution() != SLACK_SELECTED_SOLUTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -63,6 +63,8 @@ public class LPResourceBucketItemProvider extends LPTimeBucketItemProvider {
 			addReservationsPropertyDescriptor(object);
 			addReservationMaximumPropertyDescriptor(object);
 			addReservationSelectedSolutionPropertyDescriptor(object);
+			addAvailabilityTightSelectedSolutionPropertyDescriptor(object);
+			addAvailabilitySlackSelectedSolutionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -156,6 +158,50 @@ public class LPResourceBucketItemProvider extends LPTimeBucketItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Availability Tight Selected Solution feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAvailabilityTightSelectedSolutionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LPResourceBucket_AvailabilityTightSelectedSolution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LPResourceBucket_AvailabilityTightSelectedSolution_feature", "_UI_LPResourceBucket_type"),
+				 MacroPlannerSolverPackage.Literals.LP_RESOURCE_BUCKET__AVAILABILITY_TIGHT_SELECTED_SOLUTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Availability Slack Selected Solution feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAvailabilitySlackSelectedSolutionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LPResourceBucket_AvailabilitySlackSelectedSolution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LPResourceBucket_AvailabilitySlackSelectedSolution_feature", "_UI_LPResourceBucket_type"),
+				 MacroPlannerSolverPackage.Literals.LP_RESOURCE_BUCKET__AVAILABILITY_SLACK_SELECTED_SOLUTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -218,6 +264,8 @@ public class LPResourceBucketItemProvider extends LPTimeBucketItemProvider {
 		switch (notification.getFeatureID(LPResourceBucket.class)) {
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVATION_MAXIMUM:
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVATION_SELECTED_SOLUTION:
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__AVAILABILITY_TIGHT_SELECTED_SOLUTION:
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__AVAILABILITY_SLACK_SELECTED_SOLUTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVED:

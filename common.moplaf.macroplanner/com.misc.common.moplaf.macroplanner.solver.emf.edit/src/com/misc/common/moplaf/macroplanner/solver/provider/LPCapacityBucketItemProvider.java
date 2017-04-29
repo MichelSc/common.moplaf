@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -59,6 +60,8 @@ public class LPCapacityBucketItemProvider extends LPTimeBucketItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addProductBucketPropertyDescriptor(object);
+			addTightSelectedSolutionPropertyDescriptor(object);
+			addSlackSelectedSolutionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -81,6 +84,50 @@ public class LPCapacityBucketItemProvider extends LPTimeBucketItemProvider {
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Tight Selected Solution feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTightSelectedSolutionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LPCapacityBucket_TightSelectedSolution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LPCapacityBucket_TightSelectedSolution_feature", "_UI_LPCapacityBucket_type"),
+				 MacroPlannerSolverPackage.Literals.LP_CAPACITY_BUCKET__TIGHT_SELECTED_SOLUTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Slack Selected Solution feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSlackSelectedSolutionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LPCapacityBucket_SlackSelectedSolution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LPCapacityBucket_SlackSelectedSolution_feature", "_UI_LPCapacityBucket_type"),
+				 MacroPlannerSolverPackage.Literals.LP_CAPACITY_BUCKET__SLACK_SELECTED_SOLUTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -144,6 +191,10 @@ public class LPCapacityBucketItemProvider extends LPTimeBucketItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(LPCapacityBucket.class)) {
+			case MacroPlannerSolverPackage.LP_CAPACITY_BUCKET__TIGHT_SELECTED_SOLUTION:
+			case MacroPlannerSolverPackage.LP_CAPACITY_BUCKET__SLACK_SELECTED_SOLUTION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case MacroPlannerSolverPackage.LP_CAPACITY_BUCKET__STOCKED:
 			case MacroPlannerSolverPackage.LP_CAPACITY_BUCKET__SLACK:
 			case MacroPlannerSolverPackage.LP_CAPACITY_BUCKET__BALANCE:

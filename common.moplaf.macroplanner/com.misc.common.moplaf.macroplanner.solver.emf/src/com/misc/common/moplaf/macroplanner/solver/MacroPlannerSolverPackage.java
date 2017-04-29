@@ -1977,13 +1977,40 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_PRODUCT_BUCKET__CONSUMPTION_SELECTED_SOLUTION = LP_TIME_BUCKET_FEATURE_COUNT + 15;
 
 	/**
+	 * The feature id for the '<em><b>Capacity Tight Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_PRODUCT_BUCKET__CAPACITY_TIGHT_SELECTED_SOLUTION = LP_TIME_BUCKET_FEATURE_COUNT + 16;
+
+	/**
+	 * The feature id for the '<em><b>Capacity Slack Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_PRODUCT_BUCKET__CAPACITY_SLACK_SELECTED_SOLUTION = LP_TIME_BUCKET_FEATURE_COUNT + 17;
+
+	/**
+	 * The feature id for the '<em><b>Supply Tight Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_PRODUCT_BUCKET__SUPPLY_TIGHT_SELECTED_SOLUTION = LP_TIME_BUCKET_FEATURE_COUNT + 18;
+
+	/**
 	 * The number of structural features of the '<em>LP Product Bucket</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LP_PRODUCT_BUCKET_FEATURE_COUNT = LP_TIME_BUCKET_FEATURE_COUNT + 16;
+	int LP_PRODUCT_BUCKET_FEATURE_COUNT = LP_TIME_BUCKET_FEATURE_COUNT + 19;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -2483,13 +2510,22 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_SUPPLY_BUCKET__FRACTION = LP_TIME_BUCKET_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Tight Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_SUPPLY_BUCKET__TIGHT_SELECTED_SOLUTION = LP_TIME_BUCKET_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>LP Supply Bucket</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LP_SUPPLY_BUCKET_FEATURE_COUNT = LP_TIME_BUCKET_FEATURE_COUNT + 4;
+	int LP_SUPPLY_BUCKET_FEATURE_COUNT = LP_TIME_BUCKET_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -2998,13 +3034,31 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_CAPACITY_BUCKET__BALANCE = LP_TIME_BUCKET_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Tight Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_CAPACITY_BUCKET__TIGHT_SELECTED_SOLUTION = LP_TIME_BUCKET_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Slack Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_CAPACITY_BUCKET__SLACK_SELECTED_SOLUTION = LP_TIME_BUCKET_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>LP Capacity Bucket</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LP_CAPACITY_BUCKET_FEATURE_COUNT = LP_TIME_BUCKET_FEATURE_COUNT + 5;
+	int LP_CAPACITY_BUCKET_FEATURE_COUNT = LP_TIME_BUCKET_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -3757,13 +3811,31 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_RESOURCE_BUCKET__RESERVATION_SELECTED_SOLUTION = LP_TIME_BUCKET_FEATURE_COUNT + 9;
 
 	/**
+	 * The feature id for the '<em><b>Availability Tight Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_RESOURCE_BUCKET__AVAILABILITY_TIGHT_SELECTED_SOLUTION = LP_TIME_BUCKET_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>Availability Slack Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_RESOURCE_BUCKET__AVAILABILITY_SLACK_SELECTED_SOLUTION = LP_TIME_BUCKET_FEATURE_COUNT + 11;
+
+	/**
 	 * The number of structural features of the '<em>LP Resource Bucket</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LP_RESOURCE_BUCKET_FEATURE_COUNT = LP_TIME_BUCKET_FEATURE_COUNT + 10;
+	int LP_RESOURCE_BUCKET_FEATURE_COUNT = LP_TIME_BUCKET_FEATURE_COUNT + 12;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -4281,13 +4353,31 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_AVAILABILITY_BUCKET__FRACTION = LP_TIME_BUCKET_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Tight Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_AVAILABILITY_BUCKET__TIGHT_SELECTED_SOLUTION = LP_TIME_BUCKET_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Slack Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LP_AVAILABILITY_BUCKET__SLACK_SELECTED_SOLUTION = LP_TIME_BUCKET_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>LP Availability Bucket</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LP_AVAILABILITY_BUCKET_FEATURE_COUNT = LP_TIME_BUCKET_FEATURE_COUNT + 6;
+	int LP_AVAILABILITY_BUCKET_FEATURE_COUNT = LP_TIME_BUCKET_FEATURE_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -6424,6 +6514,39 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	EAttribute getLPProductBucket_ConsumptionSelectedSolution();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#isCapacityTightSelectedSolution <em>Capacity Tight Selected Solution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Capacity Tight Selected Solution</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPProductBucket#isCapacityTightSelectedSolution()
+	 * @see #getLPProductBucket()
+	 * @generated
+	 */
+	EAttribute getLPProductBucket_CapacityTightSelectedSolution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#isCapacitySlackSelectedSolution <em>Capacity Slack Selected Solution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Capacity Slack Selected Solution</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPProductBucket#isCapacitySlackSelectedSolution()
+	 * @see #getLPProductBucket()
+	 * @generated
+	 */
+	EAttribute getLPProductBucket_CapacitySlackSelectedSolution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#isSupplyTightSelectedSolution <em>Supply Tight Selected Solution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Supply Tight Selected Solution</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPProductBucket#isSupplyTightSelectedSolution()
+	 * @see #getLPProductBucket()
+	 * @generated
+	 */
+	EAttribute getLPProductBucket_SupplyTightSelectedSolution();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.macroplanner.solver.LPSupply <em>LP Supply</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6519,6 +6642,17 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getLPSupplyBucket_Fraction();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.solver.LPSupplyBucket#isTightSelectedSolution <em>Tight Selected Solution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Tight Selected Solution</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPSupplyBucket#isTightSelectedSolution()
+	 * @see #getLPSupplyBucket()
+	 * @generated
+	 */
+	EAttribute getLPSupplyBucket_TightSelectedSolution();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.macroplanner.solver.LPCapacity <em>LP Capacity</em>}'.
@@ -6627,6 +6761,28 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getLPCapacityBucket_Balance();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.solver.LPCapacityBucket#isTightSelectedSolution <em>Tight Selected Solution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Tight Selected Solution</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPCapacityBucket#isTightSelectedSolution()
+	 * @see #getLPCapacityBucket()
+	 * @generated
+	 */
+	EAttribute getLPCapacityBucket_TightSelectedSolution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.solver.LPCapacityBucket#isSlackSelectedSolution <em>Slack Selected Solution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Slack Selected Solution</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPCapacityBucket#isSlackSelectedSolution()
+	 * @see #getLPCapacityBucket()
+	 * @generated
+	 */
+	EAttribute getLPCapacityBucket_SlackSelectedSolution();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.macroplanner.solver.LPResourceSet <em>LP Resource Set</em>}'.
@@ -6845,6 +7001,28 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	EAttribute getLPResourceBucket_ReservationSelectedSolution();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#isAvailabilityTightSelectedSolution <em>Availability Tight Selected Solution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Availability Tight Selected Solution</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#isAvailabilityTightSelectedSolution()
+	 * @see #getLPResourceBucket()
+	 * @generated
+	 */
+	EAttribute getLPResourceBucket_AvailabilityTightSelectedSolution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#isAvailabilitySlackSelectedSolution <em>Availability Slack Selected Solution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Availability Slack Selected Solution</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#isAvailabilitySlackSelectedSolution()
+	 * @see #getLPResourceBucket()
+	 * @generated
+	 */
+	EAttribute getLPResourceBucket_AvailabilitySlackSelectedSolution();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.macroplanner.solver.LPAvailability <em>LP Availability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6962,6 +7140,28 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getLPAvailabilityBucket_Fraction();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.solver.LPAvailabilityBucket#isTightSelectedSolution <em>Tight Selected Solution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Tight Selected Solution</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPAvailabilityBucket#isTightSelectedSolution()
+	 * @see #getLPAvailabilityBucket()
+	 * @generated
+	 */
+	EAttribute getLPAvailabilityBucket_TightSelectedSolution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.solver.LPAvailabilityBucket#isSlackSelectedSolution <em>Slack Selected Solution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Slack Selected Solution</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPAvailabilityBucket#isSlackSelectedSolution()
+	 * @see #getLPAvailabilityBucket()
+	 * @generated
+	 */
+	EAttribute getLPAvailabilityBucket_SlackSelectedSolution();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingSet <em>LP Routing Set</em>}'.
@@ -7767,6 +7967,30 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		EAttribute LP_PRODUCT_BUCKET__CONSUMPTION_SELECTED_SOLUTION = eINSTANCE.getLPProductBucket_ConsumptionSelectedSolution();
 
 		/**
+		 * The meta object literal for the '<em><b>Capacity Tight Selected Solution</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LP_PRODUCT_BUCKET__CAPACITY_TIGHT_SELECTED_SOLUTION = eINSTANCE.getLPProductBucket_CapacityTightSelectedSolution();
+
+		/**
+		 * The meta object literal for the '<em><b>Capacity Slack Selected Solution</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LP_PRODUCT_BUCKET__CAPACITY_SLACK_SELECTED_SOLUTION = eINSTANCE.getLPProductBucket_CapacitySlackSelectedSolution();
+
+		/**
+		 * The meta object literal for the '<em><b>Supply Tight Selected Solution</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LP_PRODUCT_BUCKET__SUPPLY_TIGHT_SELECTED_SOLUTION = eINSTANCE.getLPProductBucket_SupplyTightSelectedSolution();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPSupplyImpl <em>LP Supply</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7841,6 +8065,14 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LP_SUPPLY_BUCKET__FRACTION = eINSTANCE.getLPSupplyBucket_Fraction();
+
+		/**
+		 * The meta object literal for the '<em><b>Tight Selected Solution</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LP_SUPPLY_BUCKET__TIGHT_SELECTED_SOLUTION = eINSTANCE.getLPSupplyBucket_TightSelectedSolution();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPCapacityImpl <em>LP Capacity</em>}' class.
@@ -7925,6 +8157,22 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		 * @generated
 		 */
 		EReference LP_CAPACITY_BUCKET__BALANCE = eINSTANCE.getLPCapacityBucket_Balance();
+
+		/**
+		 * The meta object literal for the '<em><b>Tight Selected Solution</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LP_CAPACITY_BUCKET__TIGHT_SELECTED_SOLUTION = eINSTANCE.getLPCapacityBucket_TightSelectedSolution();
+
+		/**
+		 * The meta object literal for the '<em><b>Slack Selected Solution</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LP_CAPACITY_BUCKET__SLACK_SELECTED_SOLUTION = eINSTANCE.getLPCapacityBucket_SlackSelectedSolution();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceSetImpl <em>LP Resource Set</em>}' class.
@@ -8093,6 +8341,22 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		EAttribute LP_RESOURCE_BUCKET__RESERVATION_SELECTED_SOLUTION = eINSTANCE.getLPResourceBucket_ReservationSelectedSolution();
 
 		/**
+		 * The meta object literal for the '<em><b>Availability Tight Selected Solution</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LP_RESOURCE_BUCKET__AVAILABILITY_TIGHT_SELECTED_SOLUTION = eINSTANCE.getLPResourceBucket_AvailabilityTightSelectedSolution();
+
+		/**
+		 * The meta object literal for the '<em><b>Availability Slack Selected Solution</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LP_RESOURCE_BUCKET__AVAILABILITY_SLACK_SELECTED_SOLUTION = eINSTANCE.getLPResourceBucket_AvailabilitySlackSelectedSolution();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPAvailabilityImpl <em>LP Availability</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8183,6 +8447,22 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LP_AVAILABILITY_BUCKET__FRACTION = eINSTANCE.getLPAvailabilityBucket_Fraction();
+
+		/**
+		 * The meta object literal for the '<em><b>Tight Selected Solution</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LP_AVAILABILITY_BUCKET__TIGHT_SELECTED_SOLUTION = eINSTANCE.getLPAvailabilityBucket_TightSelectedSolution();
+
+		/**
+		 * The meta object literal for the '<em><b>Slack Selected Solution</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LP_AVAILABILITY_BUCKET__SLACK_SELECTED_SOLUTION = eINSTANCE.getLPAvailabilityBucket_SlackSelectedSolution();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingSetImpl <em>LP Routing Set</em>}' class.

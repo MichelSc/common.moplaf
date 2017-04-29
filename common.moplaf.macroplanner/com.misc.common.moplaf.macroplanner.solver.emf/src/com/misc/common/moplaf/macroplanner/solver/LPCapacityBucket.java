@@ -29,6 +29,8 @@ import com.misc.common.moplaf.solver.GeneratorLpVar;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPCapacityBucket#getStocked <em>Stocked</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPCapacityBucket#getSlack <em>Slack</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPCapacityBucket#getBalance <em>Balance</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPCapacityBucket#isTightSelectedSolution <em>Tight Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPCapacityBucket#isSlackSelectedSolution <em>Slack Selected Solution</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPCapacityBucket()
@@ -169,5 +171,35 @@ public interface LPCapacityBucket extends LPTimeBucket {
 	 * @generated
 	 */
 	void setBalance(GeneratorLpCons value);
+
+	/**
+	 * Returns the value of the '<em><b>Tight Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Tight Selected Solution</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Tight Selected Solution</em>' attribute.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPCapacityBucket_TightSelectedSolution()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isTightSelectedSolution();
+
+	/**
+	 * Returns the value of the '<em><b>Slack Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Slack Selected Solution</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Slack Selected Solution</em>' attribute.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPCapacityBucket_SlackSelectedSolution()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isSlackSelectedSolution();
 
 } // LPCapacityBucket

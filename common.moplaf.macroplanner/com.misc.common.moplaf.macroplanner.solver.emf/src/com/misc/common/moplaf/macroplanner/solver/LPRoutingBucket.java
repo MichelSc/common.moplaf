@@ -144,6 +144,6 @@ public interface LPRoutingBucket extends LPTimeBucket {
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	float getPlannedSelectedSolution();
+	double getPlannedSelectedSolution();
 
 } // LPRoutingBucket

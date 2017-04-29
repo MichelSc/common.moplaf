@@ -67,6 +67,9 @@ public class LPProductBucketItemProvider extends LPTimeBucketItemProvider {
 			addSupplyMaximumPropertyDescriptor(object);
 			addSupplySelectedSolutionPropertyDescriptor(object);
 			addConsumptionSelectedSolutionPropertyDescriptor(object);
+			addCapacityTightSelectedSolutionPropertyDescriptor(object);
+			addCapacitySlackSelectedSolutionPropertyDescriptor(object);
+			addSupplyTightSelectedSolutionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -248,6 +251,72 @@ public class LPProductBucketItemProvider extends LPTimeBucketItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Capacity Tight Selected Solution feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCapacityTightSelectedSolutionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LPProductBucket_CapacityTightSelectedSolution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LPProductBucket_CapacityTightSelectedSolution_feature", "_UI_LPProductBucket_type"),
+				 MacroPlannerSolverPackage.Literals.LP_PRODUCT_BUCKET__CAPACITY_TIGHT_SELECTED_SOLUTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Capacity Slack Selected Solution feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCapacitySlackSelectedSolutionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LPProductBucket_CapacitySlackSelectedSolution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LPProductBucket_CapacitySlackSelectedSolution_feature", "_UI_LPProductBucket_type"),
+				 MacroPlannerSolverPackage.Literals.LP_PRODUCT_BUCKET__CAPACITY_SLACK_SELECTED_SOLUTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Supply Tight Selected Solution feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSupplyTightSelectedSolutionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LPProductBucket_SupplyTightSelectedSolution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LPProductBucket_SupplyTightSelectedSolution_feature", "_UI_LPProductBucket_type"),
+				 MacroPlannerSolverPackage.Literals.LP_PRODUCT_BUCKET__SUPPLY_TIGHT_SELECTED_SOLUTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -315,6 +384,9 @@ public class LPProductBucketItemProvider extends LPTimeBucketItemProvider {
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLY_MAXIMUM:
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLY_SELECTED_SOLUTION:
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CONSUMPTION_SELECTED_SOLUTION:
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CAPACITY_TIGHT_SELECTED_SOLUTION:
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CAPACITY_SLACK_SELECTED_SOLUTION:
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLY_TIGHT_SELECTED_SOLUTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CONSUMED:

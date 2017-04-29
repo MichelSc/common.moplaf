@@ -70,6 +70,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getSupplyMaximum <em>Supply Maximum</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getSupplySelectedSolution <em>Supply Selected Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getConsumptionSelectedSolution <em>Consumption Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#isCapacityTightSelectedSolution <em>Capacity Tight Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#isCapacitySlackSelectedSolution <em>Capacity Slack Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#isSupplyTightSelectedSolution <em>Supply Tight Selected Solution</em>}</li>
  * </ul>
  *
  * @generated
@@ -183,7 +186,7 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float STOCK_MAXIMUM_EDEFAULT = 0.0F;
+	protected static final double STOCK_MAXIMUM_EDEFAULT = 0.0;
 
 	/**
 	 * The default value of the '{@link #getStockSelectedSolution() <em>Stock Selected Solution</em>}' attribute.
@@ -193,7 +196,7 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float STOCK_SELECTED_SOLUTION_EDEFAULT = 0.0F;
+	protected static final double STOCK_SELECTED_SOLUTION_EDEFAULT = 0.0;
 
 	/**
 	 * The default value of the '{@link #getSupplyMaximum() <em>Supply Maximum</em>}' attribute.
@@ -203,7 +206,7 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float SUPPLY_MAXIMUM_EDEFAULT = 0.0F;
+	protected static final double SUPPLY_MAXIMUM_EDEFAULT = 0.0;
 
 	/**
 	 * The default value of the '{@link #getSupplySelectedSolution() <em>Supply Selected Solution</em>}' attribute.
@@ -213,7 +216,7 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float SUPPLY_SELECTED_SOLUTION_EDEFAULT = 0.0F;
+	protected static final double SUPPLY_SELECTED_SOLUTION_EDEFAULT = 0.0;
 
 	/**
 	 * The default value of the '{@link #getConsumptionSelectedSolution() <em>Consumption Selected Solution</em>}' attribute.
@@ -223,7 +226,37 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float CONSUMPTION_SELECTED_SOLUTION_EDEFAULT = 0.0F;
+	protected static final double CONSUMPTION_SELECTED_SOLUTION_EDEFAULT = 0.0;
+
+	/**
+	 * The default value of the '{@link #isCapacityTightSelectedSolution() <em>Capacity Tight Selected Solution</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCapacityTightSelectedSolution()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CAPACITY_TIGHT_SELECTED_SOLUTION_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #isCapacitySlackSelectedSolution() <em>Capacity Slack Selected Solution</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCapacitySlackSelectedSolution()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CAPACITY_SLACK_SELECTED_SOLUTION_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #isSupplyTightSelectedSolution() <em>Supply Tight Selected Solution</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSupplyTightSelectedSolution()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SUPPLY_TIGHT_SELECTED_SOLUTION_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -626,7 +659,7 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public float getStockMaximum() {
+	public double getStockMaximum() {
 		float amount = 0.0f;
 		for ( LPCapacityBucket bucketCapacity: this.getCapacities()){
 			amount += bucketCapacity.getCapacity().getCapacity().getQuantity();
@@ -638,7 +671,7 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public float getStockSelectedSolution() {
+	public double getStockSelectedSolution() {
 		return this.getStocked().getSelectedSolutionValue();
 	}
 
@@ -646,7 +679,7 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public float getSupplyMaximum() {
+	public double getSupplyMaximum() {
 		float amount = 0.0f;
 		for ( LPSupplyBucket bucketSupply: this.getSupplies()){
 			amount += bucketSupply.getSupply().getSupply().getQuantity()*bucketSupply.getFraction();
@@ -658,7 +691,7 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public float getSupplySelectedSolution() {
+	public double getSupplySelectedSolution() {
 		return this.getSupplied().getSelectedSolutionValue();
 	}
 
@@ -666,8 +699,47 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public float getConsumptionSelectedSolution() {
-		return this.getConsumed().getSelectedSolutionValue();
+	public double getConsumptionSelectedSolution() {
+		return (double) this.getConsumed().getSelectedSolutionValue();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public boolean isCapacityTightSelectedSolution() {
+		for(LPCapacityBucket capacity: this.getCapacities()){
+			if ( !capacity.isTightSelectedSolution() ){
+				return false;
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public boolean isCapacitySlackSelectedSolution() {
+		for(LPCapacityBucket capacity: this.getCapacities()){
+			if ( capacity.isSlackSelectedSolution() ){
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public boolean isSupplyTightSelectedSolution() {
+		for(LPSupplyBucket supply: this.getSupplies()){
+			if ( !supply.isTightSelectedSolution() ){
+				return false;
+			}
+		}
+		return true;
 	}
 
 	/**
@@ -781,6 +853,12 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 				return getSupplySelectedSolution();
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CONSUMPTION_SELECTED_SOLUTION:
 				return getConsumptionSelectedSolution();
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CAPACITY_TIGHT_SELECTED_SOLUTION:
+				return isCapacityTightSelectedSolution();
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CAPACITY_SLACK_SELECTED_SOLUTION:
+				return isCapacitySlackSelectedSolution();
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLY_TIGHT_SELECTED_SOLUTION:
+				return isSupplyTightSelectedSolution();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -919,6 +997,12 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 				return getSupplySelectedSolution() != SUPPLY_SELECTED_SOLUTION_EDEFAULT;
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CONSUMPTION_SELECTED_SOLUTION:
 				return getConsumptionSelectedSolution() != CONSUMPTION_SELECTED_SOLUTION_EDEFAULT;
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CAPACITY_TIGHT_SELECTED_SOLUTION:
+				return isCapacityTightSelectedSolution() != CAPACITY_TIGHT_SELECTED_SOLUTION_EDEFAULT;
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CAPACITY_SLACK_SELECTED_SOLUTION:
+				return isCapacitySlackSelectedSolution() != CAPACITY_SLACK_SELECTED_SOLUTION_EDEFAULT;
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLY_TIGHT_SELECTED_SOLUTION:
+				return isSupplyTightSelectedSolution() != SUPPLY_TIGHT_SELECTED_SOLUTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -30,6 +30,8 @@ import com.misc.common.moplaf.solver.GeneratorLpVar;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPAvailabilityBucket#getSlack <em>Slack</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPAvailabilityBucket#getBalance <em>Balance</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPAvailabilityBucket#getFraction <em>Fraction</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPAvailabilityBucket#isTightSelectedSolution <em>Tight Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPAvailabilityBucket#isSlackSelectedSolution <em>Slack Selected Solution</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPAvailabilityBucket()
@@ -196,5 +198,35 @@ public interface LPAvailabilityBucket extends LPTimeBucket {
 	 * @generated
 	 */
 	void setFraction(float value);
+
+	/**
+	 * Returns the value of the '<em><b>Tight Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Tight Selected Solution</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Tight Selected Solution</em>' attribute.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPAvailabilityBucket_TightSelectedSolution()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isTightSelectedSolution();
+
+	/**
+	 * Returns the value of the '<em><b>Slack Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Slack Selected Solution</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Slack Selected Solution</em>' attribute.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPAvailabilityBucket_SlackSelectedSolution()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isSlackSelectedSolution();
 
 } // LPAvailabilityBucket

@@ -61,6 +61,7 @@ public class LPSupplyBucketItemProvider extends LPTimeBucketItemProvider {
 
 			addProductBucketPropertyDescriptor(object);
 			addFractionPropertyDescriptor(object);
+			addTightSelectedSolutionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -105,6 +106,28 @@ public class LPSupplyBucketItemProvider extends LPTimeBucketItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Tight Selected Solution feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTightSelectedSolutionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LPSupplyBucket_TightSelectedSolution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LPSupplyBucket_TightSelectedSolution_feature", "_UI_LPSupplyBucket_type"),
+				 MacroPlannerSolverPackage.Literals.LP_SUPPLY_BUCKET__TIGHT_SELECTED_SOLUTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -167,6 +190,7 @@ public class LPSupplyBucketItemProvider extends LPTimeBucketItemProvider {
 
 		switch (notification.getFeatureID(LPSupplyBucket.class)) {
 			case MacroPlannerSolverPackage.LP_SUPPLY_BUCKET__FRACTION:
+			case MacroPlannerSolverPackage.LP_SUPPLY_BUCKET__TIGHT_SELECTED_SOLUTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case MacroPlannerSolverPackage.LP_SUPPLY_BUCKET__SUPPLIED:

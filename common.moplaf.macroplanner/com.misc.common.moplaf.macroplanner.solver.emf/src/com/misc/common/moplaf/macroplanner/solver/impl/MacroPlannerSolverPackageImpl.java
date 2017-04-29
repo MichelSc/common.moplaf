@@ -758,6 +758,33 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getLPProductBucket_CapacityTightSelectedSolution() {
+		return (EAttribute)lpProductBucketEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLPProductBucket_CapacitySlackSelectedSolution() {
+		return (EAttribute)lpProductBucketEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLPProductBucket_SupplyTightSelectedSolution() {
+		return (EAttribute)lpProductBucketEClass.getEStructuralFeatures().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLPSupply() {
 		return lpSupplyEClass;
 	}
@@ -832,6 +859,15 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 	 */
 	public EAttribute getLPSupplyBucket_Fraction() {
 		return (EAttribute)lpSupplyBucketEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLPSupplyBucket_TightSelectedSolution() {
+		return (EAttribute)lpSupplyBucketEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -922,6 +958,24 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 	 */
 	public EReference getLPCapacityBucket_Balance() {
 		return (EReference)lpCapacityBucketEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLPCapacityBucket_TightSelectedSolution() {
+		return (EAttribute)lpCapacityBucketEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLPCapacityBucket_SlackSelectedSolution() {
+		return (EAttribute)lpCapacityBucketEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1109,6 +1163,24 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getLPResourceBucket_AvailabilityTightSelectedSolution() {
+		return (EAttribute)lpResourceBucketEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLPResourceBucket_AvailabilitySlackSelectedSolution() {
+		return (EAttribute)lpResourceBucketEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLPAvailability() {
 		return lpAvailabilityEClass;
 	}
@@ -1201,6 +1273,24 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 	 */
 	public EAttribute getLPAvailabilityBucket_Fraction() {
 		return (EAttribute)lpAvailabilityBucketEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLPAvailabilityBucket_TightSelectedSolution() {
+		return (EAttribute)lpAvailabilityBucketEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLPAvailabilityBucket_SlackSelectedSolution() {
+		return (EAttribute)lpAvailabilityBucketEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1586,6 +1676,9 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		createEAttribute(lpProductBucketEClass, LP_PRODUCT_BUCKET__SUPPLY_MAXIMUM);
 		createEAttribute(lpProductBucketEClass, LP_PRODUCT_BUCKET__SUPPLY_SELECTED_SOLUTION);
 		createEAttribute(lpProductBucketEClass, LP_PRODUCT_BUCKET__CONSUMPTION_SELECTED_SOLUTION);
+		createEAttribute(lpProductBucketEClass, LP_PRODUCT_BUCKET__CAPACITY_TIGHT_SELECTED_SOLUTION);
+		createEAttribute(lpProductBucketEClass, LP_PRODUCT_BUCKET__CAPACITY_SLACK_SELECTED_SOLUTION);
+		createEAttribute(lpProductBucketEClass, LP_PRODUCT_BUCKET__SUPPLY_TIGHT_SELECTED_SOLUTION);
 
 		lpSupplyEClass = createEClass(LP_SUPPLY);
 		createEReference(lpSupplyEClass, LP_SUPPLY__SUPPLY);
@@ -1597,6 +1690,7 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		createEReference(lpSupplyBucketEClass, LP_SUPPLY_BUCKET__PRODUCT_BUCKET);
 		createEReference(lpSupplyBucketEClass, LP_SUPPLY_BUCKET__SUPPLIED);
 		createEAttribute(lpSupplyBucketEClass, LP_SUPPLY_BUCKET__FRACTION);
+		createEAttribute(lpSupplyBucketEClass, LP_SUPPLY_BUCKET__TIGHT_SELECTED_SOLUTION);
 
 		lpCapacityEClass = createEClass(LP_CAPACITY);
 		createEReference(lpCapacityEClass, LP_CAPACITY__PRODUCT);
@@ -1609,6 +1703,8 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		createEReference(lpCapacityBucketEClass, LP_CAPACITY_BUCKET__STOCKED);
 		createEReference(lpCapacityBucketEClass, LP_CAPACITY_BUCKET__SLACK);
 		createEReference(lpCapacityBucketEClass, LP_CAPACITY_BUCKET__BALANCE);
+		createEAttribute(lpCapacityBucketEClass, LP_CAPACITY_BUCKET__TIGHT_SELECTED_SOLUTION);
+		createEAttribute(lpCapacityBucketEClass, LP_CAPACITY_BUCKET__SLACK_SELECTED_SOLUTION);
 
 		lpResourceSetEClass = createEClass(LP_RESOURCE_SET);
 		createEReference(lpResourceSetEClass, LP_RESOURCE_SET__MACRO_PLANNER);
@@ -1632,6 +1728,8 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		createEReference(lpResourceBucketEClass, LP_RESOURCE_BUCKET__BALANCE);
 		createEAttribute(lpResourceBucketEClass, LP_RESOURCE_BUCKET__RESERVATION_MAXIMUM);
 		createEAttribute(lpResourceBucketEClass, LP_RESOURCE_BUCKET__RESERVATION_SELECTED_SOLUTION);
+		createEAttribute(lpResourceBucketEClass, LP_RESOURCE_BUCKET__AVAILABILITY_TIGHT_SELECTED_SOLUTION);
+		createEAttribute(lpResourceBucketEClass, LP_RESOURCE_BUCKET__AVAILABILITY_SLACK_SELECTED_SOLUTION);
 
 		lpAvailabilityEClass = createEClass(LP_AVAILABILITY);
 		createEReference(lpAvailabilityEClass, LP_AVAILABILITY__RESOURCE);
@@ -1645,6 +1743,8 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		createEReference(lpAvailabilityBucketEClass, LP_AVAILABILITY_BUCKET__SLACK);
 		createEReference(lpAvailabilityBucketEClass, LP_AVAILABILITY_BUCKET__BALANCE);
 		createEAttribute(lpAvailabilityBucketEClass, LP_AVAILABILITY_BUCKET__FRACTION);
+		createEAttribute(lpAvailabilityBucketEClass, LP_AVAILABILITY_BUCKET__TIGHT_SELECTED_SOLUTION);
+		createEAttribute(lpAvailabilityBucketEClass, LP_AVAILABILITY_BUCKET__SLACK_SELECTED_SOLUTION);
 
 		lpRoutingSetEClass = createEClass(LP_ROUTING_SET);
 		createEReference(lpRoutingSetEClass, LP_ROUTING_SET__MACRO_PLANNER);
@@ -1804,11 +1904,14 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		initEReference(getLPProductBucket_CalcSupplied(), theSolverPackage.getGeneratorLpCons(), null, "CalcSupplied", null, 1, 1, LPProductBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPProductBucket_CalcStocked(), theSolverPackage.getGeneratorLpCons(), null, "CalcStocked", null, 1, 1, LPProductBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPProductBucket_Balance(), theSolverPackage.getGeneratorLpCons(), null, "Balance", null, 1, 1, LPProductBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLPProductBucket_StockMaximum(), ecorePackage.getEFloat(), "StockMaximum", null, 0, 1, LPProductBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLPProductBucket_StockSelectedSolution(), ecorePackage.getEFloat(), "StockSelectedSolution", null, 0, 1, LPProductBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLPProductBucket_SupplyMaximum(), ecorePackage.getEFloat(), "SupplyMaximum", null, 0, 1, LPProductBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLPProductBucket_SupplySelectedSolution(), ecorePackage.getEFloat(), "SupplySelectedSolution", null, 0, 1, LPProductBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLPProductBucket_ConsumptionSelectedSolution(), ecorePackage.getEFloat(), "ConsumptionSelectedSolution", null, 0, 1, LPProductBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLPProductBucket_StockMaximum(), ecorePackage.getEDouble(), "StockMaximum", null, 0, 1, LPProductBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLPProductBucket_StockSelectedSolution(), ecorePackage.getEDouble(), "StockSelectedSolution", null, 0, 1, LPProductBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLPProductBucket_SupplyMaximum(), ecorePackage.getEDouble(), "SupplyMaximum", null, 0, 1, LPProductBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLPProductBucket_SupplySelectedSolution(), ecorePackage.getEDouble(), "SupplySelectedSolution", null, 0, 1, LPProductBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLPProductBucket_ConsumptionSelectedSolution(), ecorePackage.getEDouble(), "ConsumptionSelectedSolution", null, 0, 1, LPProductBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLPProductBucket_CapacityTightSelectedSolution(), ecorePackage.getEBoolean(), "CapacityTightSelectedSolution", null, 0, 1, LPProductBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLPProductBucket_CapacitySlackSelectedSolution(), ecorePackage.getEBoolean(), "CapacitySlackSelectedSolution", null, 0, 1, LPProductBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLPProductBucket_SupplyTightSelectedSolution(), ecorePackage.getEBoolean(), "SupplyTightSelectedSolution", null, 0, 1, LPProductBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(lpSupplyEClass, LPSupply.class, "LPSupply", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLPSupply_Supply(), theMacroPlannerPackage.getSupply(), null, "Supply", null, 0, 1, LPSupply.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1820,6 +1923,7 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		initEReference(getLPSupplyBucket_ProductBucket(), this.getLPProductBucket(), this.getLPProductBucket_Supplies(), "ProductBucket", null, 0, 1, LPSupplyBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPSupplyBucket_Supplied(), theSolverPackage.getGeneratorLpVar(), null, "Supplied", null, 1, 1, LPSupplyBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLPSupplyBucket_Fraction(), ecorePackage.getEFloat(), "Fraction", null, 0, 1, LPSupplyBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLPSupplyBucket_TightSelectedSolution(), ecorePackage.getEBoolean(), "TightSelectedSolution", null, 0, 1, LPSupplyBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(lpCapacityEClass, LPCapacity.class, "LPCapacity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLPCapacity_Product(), this.getLPProduct(), this.getLPProduct_Capacities(), "Product", null, 1, 1, LPCapacity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1832,6 +1936,8 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		initEReference(getLPCapacityBucket_Stocked(), theSolverPackage.getGeneratorLpVar(), null, "Stocked", null, 1, 1, LPCapacityBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPCapacityBucket_Slack(), theSolverPackage.getGeneratorLpVar(), null, "Slack", null, 1, 1, LPCapacityBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPCapacityBucket_Balance(), theSolverPackage.getGeneratorLpCons(), null, "Balance", null, 1, 1, LPCapacityBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLPCapacityBucket_TightSelectedSolution(), ecorePackage.getEBoolean(), "TightSelectedSolution", null, 0, 1, LPCapacityBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLPCapacityBucket_SlackSelectedSolution(), ecorePackage.getEBoolean(), "SlackSelectedSolution", null, 0, 1, LPCapacityBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(lpResourceSetEClass, LPResourceSet.class, "LPResourceSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLPResourceSet_MacroPlanner(), this.getLPMacroPlanner(), this.getLPMacroPlanner_ResourceSet(), "MacroPlanner", null, 1, 1, LPResourceSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1855,8 +1961,10 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		initEReference(getLPResourceBucket_CalcReserved(), theSolverPackage.getGeneratorLpCons(), null, "CalcReserved", null, 1, 1, LPResourceBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPResourceBucket_CalcPlanned(), theSolverPackage.getGeneratorLpCons(), null, "CalcPlanned", null, 1, 1, LPResourceBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPResourceBucket_Balance(), theSolverPackage.getGeneratorLpCons(), null, "Balance", null, 1, 1, LPResourceBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLPResourceBucket_ReservationMaximum(), ecorePackage.getEFloat(), "ReservationMaximum", null, 0, 1, LPResourceBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLPResourceBucket_ReservationSelectedSolution(), ecorePackage.getEFloat(), "ReservationSelectedSolution", null, 0, 1, LPResourceBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLPResourceBucket_ReservationMaximum(), ecorePackage.getEDouble(), "ReservationMaximum", null, 0, 1, LPResourceBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLPResourceBucket_ReservationSelectedSolution(), ecorePackage.getEDouble(), "ReservationSelectedSolution", null, 0, 1, LPResourceBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLPResourceBucket_AvailabilityTightSelectedSolution(), ecorePackage.getEBoolean(), "AvailabilityTightSelectedSolution", null, 0, 1, LPResourceBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLPResourceBucket_AvailabilitySlackSelectedSolution(), ecorePackage.getEBoolean(), "AvailabilitySlackSelectedSolution", null, 0, 1, LPResourceBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(lpAvailabilityEClass, LPAvailability.class, "LPAvailability", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLPAvailability_Resource(), this.getLPResource(), this.getLPResource_Availabilities(), "Resource", null, 1, 1, LPAvailability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1870,6 +1978,8 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		initEReference(getLPAvailabilityBucket_Slack(), theSolverPackage.getGeneratorLpVar(), null, "Slack", null, 1, 1, LPAvailabilityBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPAvailabilityBucket_Balance(), theSolverPackage.getGeneratorLpCons(), null, "Balance", null, 1, 1, LPAvailabilityBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLPAvailabilityBucket_Fraction(), ecorePackage.getEFloat(), "Fraction", null, 0, 1, LPAvailabilityBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLPAvailabilityBucket_TightSelectedSolution(), ecorePackage.getEBoolean(), "TightSelectedSolution", null, 0, 1, LPAvailabilityBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLPAvailabilityBucket_SlackSelectedSolution(), ecorePackage.getEBoolean(), "SlackSelectedSolution", null, 0, 1, LPAvailabilityBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(lpRoutingSetEClass, LPRoutingSet.class, "LPRoutingSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLPRoutingSet_MacroPlanner(), this.getLPMacroPlanner(), this.getLPMacroPlanner_RoutingSet(), "MacroPlanner", null, 1, 1, LPRoutingSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1899,7 +2009,7 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		initEReference(getLPRoutingBucket_Products(), this.getLPRoutingBucketProduct(), this.getLPRoutingBucketProduct_Routing(), "Products", null, 0, -1, LPRoutingBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPRoutingBucket_Resources(), this.getLPRoutingBucketResource(), this.getLPRoutingBucketResource_Routing(), "Resources", null, 0, -1, LPRoutingBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLPRoutingBucket_Planned(), theSolverPackage.getGeneratorLpVar(), null, "Planned", null, 1, 1, LPRoutingBucket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLPRoutingBucket_PlannedSelectedSolution(), ecorePackage.getEFloat(), "PlannedSelectedSolution", null, 0, 1, LPRoutingBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLPRoutingBucket_PlannedSelectedSolution(), ecorePackage.getEDouble(), "PlannedSelectedSolution", null, 0, 1, LPRoutingBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(lpRoutingBucketProductEClass, LPRoutingBucketProduct.class, "LPRoutingBucketProduct", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLPRoutingBucketProduct_ProductBucket(), this.getLPProductBucket(), this.getLPProductBucket_Consumptions(), "ProductBucket", null, 1, 1, LPRoutingBucketProduct.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

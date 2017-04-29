@@ -102,7 +102,7 @@ public class LPRoutingBucketImpl extends LPTimeBucketImpl implements LPRoutingBu
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float PLANNED_SELECTED_SOLUTION_EDEFAULT = 0.0F;
+	protected static final double PLANNED_SELECTED_SOLUTION_EDEFAULT = 0.0;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -235,7 +235,7 @@ public class LPRoutingBucketImpl extends LPTimeBucketImpl implements LPRoutingBu
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public float getPlannedSelectedSolution() {
+	public double getPlannedSelectedSolution() {
 		return this.getPlanned().getSelectedSolutionValue();
 	}
 

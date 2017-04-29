@@ -61,6 +61,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#getBalance <em>Balance</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#getReservationMaximum <em>Reservation Maximum</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#getReservationSelectedSolution <em>Reservation Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#isAvailabilityTightSelectedSolution <em>Availability Tight Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#isAvailabilitySlackSelectedSolution <em>Availability Slack Selected Solution</em>}</li>
  * </ul>
  *
  * @generated
@@ -144,7 +146,7 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float RESERVATION_MAXIMUM_EDEFAULT = 0.0F;
+	protected static final double RESERVATION_MAXIMUM_EDEFAULT = 0.0;
 
 	/**
 	 * The default value of the '{@link #getReservationSelectedSolution() <em>Reservation Selected Solution</em>}' attribute.
@@ -154,7 +156,27 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float RESERVATION_SELECTED_SOLUTION_EDEFAULT = 0.0F;
+	protected static final double RESERVATION_SELECTED_SOLUTION_EDEFAULT = 0.0;
+
+	/**
+	 * The default value of the '{@link #isAvailabilityTightSelectedSolution() <em>Availability Tight Selected Solution</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAvailabilityTightSelectedSolution()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean AVAILABILITY_TIGHT_SELECTED_SOLUTION_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #isAvailabilitySlackSelectedSolution() <em>Availability Slack Selected Solution</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAvailabilitySlackSelectedSolution()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean AVAILABILITY_SLACK_SELECTED_SOLUTION_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -459,7 +481,7 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public float getReservationMaximum() {
+	public double getReservationMaximum() {
 		float amount = 0.0f;
 		for ( LPAvailabilityBucket bucketAvailability: this.getAvailabilities()){
 			amount += bucketAvailability.getAvailability().getAvailability().getQuantity()
@@ -472,8 +494,34 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public float getReservationSelectedSolution() {
+	public double getReservationSelectedSolution() {
 		return this.getReserved().getSelectedSolutionValue();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public boolean isAvailabilityTightSelectedSolution() {
+		for(LPAvailabilityBucket availabitiy : this.getAvailabilities()){
+			if ( !availabitiy.isTightSelectedSolution() ){
+				return false;
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public boolean isAvailabilitySlackSelectedSolution() {
+		for(LPAvailabilityBucket availabitiy : this.getAvailabilities()){
+			if ( availabitiy.isSlackSelectedSolution() ){
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -567,6 +615,10 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 				return getReservationMaximum();
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVATION_SELECTED_SOLUTION:
 				return getReservationSelectedSolution();
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__AVAILABILITY_TIGHT_SELECTED_SOLUTION:
+				return isAvailabilityTightSelectedSolution();
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__AVAILABILITY_SLACK_SELECTED_SOLUTION:
+				return isAvailabilitySlackSelectedSolution();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -674,6 +726,10 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 				return getReservationMaximum() != RESERVATION_MAXIMUM_EDEFAULT;
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVATION_SELECTED_SOLUTION:
 				return getReservationSelectedSolution() != RESERVATION_SELECTED_SOLUTION_EDEFAULT;
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__AVAILABILITY_TIGHT_SELECTED_SOLUTION:
+				return isAvailabilityTightSelectedSolution() != AVAILABILITY_TIGHT_SELECTED_SOLUTION_EDEFAULT;
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__AVAILABILITY_SLACK_SELECTED_SOLUTION:
+				return isAvailabilitySlackSelectedSolution() != AVAILABILITY_SLACK_SELECTED_SOLUTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

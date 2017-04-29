@@ -61,6 +61,8 @@ public class LPAvailabilityBucketItemProvider extends LPTimeBucketItemProvider {
 
 			addResourceBucketPropertyDescriptor(object);
 			addFractionPropertyDescriptor(object);
+			addTightSelectedSolutionPropertyDescriptor(object);
+			addSlackSelectedSolutionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -105,6 +107,50 @@ public class LPAvailabilityBucketItemProvider extends LPTimeBucketItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Tight Selected Solution feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTightSelectedSolutionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LPAvailabilityBucket_TightSelectedSolution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LPAvailabilityBucket_TightSelectedSolution_feature", "_UI_LPAvailabilityBucket_type"),
+				 MacroPlannerSolverPackage.Literals.LP_AVAILABILITY_BUCKET__TIGHT_SELECTED_SOLUTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Slack Selected Solution feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSlackSelectedSolutionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LPAvailabilityBucket_SlackSelectedSolution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LPAvailabilityBucket_SlackSelectedSolution_feature", "_UI_LPAvailabilityBucket_type"),
+				 MacroPlannerSolverPackage.Literals.LP_AVAILABILITY_BUCKET__SLACK_SELECTED_SOLUTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -169,6 +215,8 @@ public class LPAvailabilityBucketItemProvider extends LPTimeBucketItemProvider {
 
 		switch (notification.getFeatureID(LPAvailabilityBucket.class)) {
 			case MacroPlannerSolverPackage.LP_AVAILABILITY_BUCKET__FRACTION:
+			case MacroPlannerSolverPackage.LP_AVAILABILITY_BUCKET__TIGHT_SELECTED_SOLUTION:
+			case MacroPlannerSolverPackage.LP_AVAILABILITY_BUCKET__SLACK_SELECTED_SOLUTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case MacroPlannerSolverPackage.LP_AVAILABILITY_BUCKET__RESERVED:

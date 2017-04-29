@@ -27,6 +27,7 @@ import com.misc.common.moplaf.solver.GeneratorLpVar;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPSupplyBucket#getProductBucket <em>Product Bucket</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPSupplyBucket#getSupplied <em>Supplied</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPSupplyBucket#getFraction <em>Fraction</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPSupplyBucket#isTightSelectedSolution <em>Tight Selected Solution</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPSupplyBucket()
@@ -141,5 +142,20 @@ public interface LPSupplyBucket extends LPTimeBucket {
 	 * @generated
 	 */
 	void setFraction(float value);
+
+	/**
+	 * Returns the value of the '<em><b>Tight Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Tight Selected Solution</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Tight Selected Solution</em>' attribute.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPSupplyBucket_TightSelectedSolution()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isTightSelectedSolution();
 
 } // LPSupplyBucket

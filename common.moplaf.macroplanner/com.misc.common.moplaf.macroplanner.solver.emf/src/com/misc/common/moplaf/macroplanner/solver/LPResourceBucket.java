@@ -36,6 +36,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getBalance <em>Balance</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getReservationMaximum <em>Reservation Maximum</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getReservationSelectedSolution <em>Reservation Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#isAvailabilityTightSelectedSolution <em>Availability Tight Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#isAvailabilitySlackSelectedSolution <em>Availability Slack Selected Solution</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPResourceBucket()
@@ -258,7 +260,7 @@ public interface LPResourceBucket extends LPTimeBucket {
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	float getReservationMaximum();
+	double getReservationMaximum();
 
 	/**
 	 * Returns the value of the '<em><b>Reservation Selected Solution</b></em>' attribute.
@@ -273,6 +275,36 @@ public interface LPResourceBucket extends LPTimeBucket {
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	float getReservationSelectedSolution();
+	double getReservationSelectedSolution();
+
+	/**
+	 * Returns the value of the '<em><b>Availability Tight Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Availability Tight Selected Solution</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Availability Tight Selected Solution</em>' attribute.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPResourceBucket_AvailabilityTightSelectedSolution()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isAvailabilityTightSelectedSolution();
+
+	/**
+	 * Returns the value of the '<em><b>Availability Slack Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Availability Slack Selected Solution</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Availability Slack Selected Solution</em>' attribute.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPResourceBucket_AvailabilitySlackSelectedSolution()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isAvailabilitySlackSelectedSolution();
 
 } // LPResourceBucket

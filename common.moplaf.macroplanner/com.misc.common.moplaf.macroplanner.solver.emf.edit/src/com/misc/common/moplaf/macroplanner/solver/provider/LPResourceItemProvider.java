@@ -199,7 +199,7 @@ public class LPResourceItemProvider extends LPTimeLineItemProvider implements II
 
 		@Override
 		public float getEventAmount(LPResourceBucket bucket, int moment) {
-			return bucket.getReservationSelectedSolution();
+			return (float)bucket.getReservationSelectedSolution();
 		}
 
 		@Override
@@ -225,7 +225,7 @@ public class LPResourceItemProvider extends LPTimeLineItemProvider implements II
 		}
 
 		public float getEventAmount(LPResourceBucket bucket, int moment) {
-			return bucket.getReservationMaximum();
+			return (float)bucket.getReservationMaximum();
 		}
 
 		@Override

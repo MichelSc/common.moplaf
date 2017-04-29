@@ -47,6 +47,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPSupplyBucketImpl#getProductBucket <em>Product Bucket</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPSupplyBucketImpl#getSupplied <em>Supplied</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPSupplyBucketImpl#getFraction <em>Fraction</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPSupplyBucketImpl#isTightSelectedSolution <em>Tight Selected Solution</em>}</li>
  * </ul>
  *
  * @generated
@@ -91,6 +92,16 @@ public class LPSupplyBucketImpl extends LPTimeBucketImpl implements LPSupplyBuck
 	 * @ordered
 	 */
 	protected float fraction = FRACTION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isTightSelectedSolution() <em>Tight Selected Solution</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isTightSelectedSolution()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean TIGHT_SELECTED_SOLUTION_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -279,6 +290,17 @@ public class LPSupplyBucketImpl extends LPTimeBucketImpl implements LPSupplyBuck
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public boolean isTightSelectedSolution() {
+		float supplied = this.getSupplied().getSelectedSolutionValue();
+		float ub = this.getSupplied().getUpperBound();
+		boolean isTight = supplied == ub;
+		return isTight;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -345,6 +367,8 @@ public class LPSupplyBucketImpl extends LPTimeBucketImpl implements LPSupplyBuck
 				return getSupplied();
 			case MacroPlannerSolverPackage.LP_SUPPLY_BUCKET__FRACTION:
 				return getFraction();
+			case MacroPlannerSolverPackage.LP_SUPPLY_BUCKET__TIGHT_SELECTED_SOLUTION:
+				return isTightSelectedSolution();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -413,6 +437,8 @@ public class LPSupplyBucketImpl extends LPTimeBucketImpl implements LPSupplyBuck
 				return supplied != null;
 			case MacroPlannerSolverPackage.LP_SUPPLY_BUCKET__FRACTION:
 				return fraction != FRACTION_EDEFAULT;
+			case MacroPlannerSolverPackage.LP_SUPPLY_BUCKET__TIGHT_SELECTED_SOLUTION:
+				return isTightSelectedSolution() != TIGHT_SELECTED_SOLUTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -481,9 +507,9 @@ public class LPSupplyBucketImpl extends LPTimeBucketImpl implements LPSupplyBuck
 		{
 		LPSupply lp_supply = this.getSupply();
 		Supply supply = lp_supply.getSupply();
-		float quantity_suppllied = supply.getQuantity()*this.getFraction();
-		float lb = supply.isEnforce() ? quantity_suppllied : 0.0f;
-		float ub = quantity_suppllied;
+		float quantity_supplied = supply.getQuantity()*this.getFraction();
+		float lb = supply.isEnforce() ? quantity_supplied : 0.0f;
+		float ub = quantity_supplied;
 		
 		GeneratorLpVar var = Util.createGeneratorLpVarReal("supplied", lb, ub);
 		this.setSupplied(var);  // owning
