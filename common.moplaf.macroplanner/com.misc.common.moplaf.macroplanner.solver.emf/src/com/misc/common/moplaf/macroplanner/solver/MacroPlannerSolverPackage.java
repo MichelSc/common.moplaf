@@ -2022,13 +2022,13 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	int LP_PRODUCT_BUCKET__STOCK_SELECTED_SOLUTION = LP_TIME_BUCKET_FEATURE_COUNT + 14;
 
 	/**
-	 * The feature id for the '<em><b>With Capcacity</b></em>' attribute.
+	 * The feature id for the '<em><b>With Capacity</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LP_PRODUCT_BUCKET__WITH_CAPCACITY = LP_TIME_BUCKET_FEATURE_COUNT + 15;
+	int LP_PRODUCT_BUCKET__WITH_CAPACITY = LP_TIME_BUCKET_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Stock Maximum</b></em>' attribute.
@@ -6774,15 +6774,15 @@ public interface MacroPlannerSolverPackage extends EPackage {
 	EAttribute getLPProductBucket_StockSelectedSolution();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#isWithCapcacity <em>With Capcacity</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#isWithCapacity <em>With Capacity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>With Capcacity</em>'.
-	 * @see com.misc.common.moplaf.macroplanner.solver.LPProductBucket#isWithCapcacity()
+	 * @return the meta object for the attribute '<em>With Capacity</em>'.
+	 * @see com.misc.common.moplaf.macroplanner.solver.LPProductBucket#isWithCapacity()
 	 * @see #getLPProductBucket()
 	 * @generated
 	 */
-	EAttribute getLPProductBucket_WithCapcacity();
+	EAttribute getLPProductBucket_WithCapacity();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getSupplyMaximum <em>Supply Maximum</em>}'.
@@ -8337,12 +8337,12 @@ public interface MacroPlannerSolverPackage extends EPackage {
 		EAttribute LP_PRODUCT_BUCKET__STOCK_SELECTED_SOLUTION = eINSTANCE.getLPProductBucket_StockSelectedSolution();
 
 		/**
-		 * The meta object literal for the '<em><b>With Capcacity</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>With Capacity</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute LP_PRODUCT_BUCKET__WITH_CAPCACITY = eINSTANCE.getLPProductBucket_WithCapcacity();
+		EAttribute LP_PRODUCT_BUCKET__WITH_CAPACITY = eINSTANCE.getLPProductBucket_WithCapacity();
 
 		/**
 		 * The meta object literal for the '<em><b>Supply Maximum</b></em>' attribute feature.

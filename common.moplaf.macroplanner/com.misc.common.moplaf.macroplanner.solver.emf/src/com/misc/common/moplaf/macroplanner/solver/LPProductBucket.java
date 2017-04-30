@@ -41,7 +41,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getConsumptionSelectedSolution <em>Consumption Selected Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#isStockedSelectedSolution <em>Stocked Selected Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getStockSelectedSolution <em>Stock Selected Solution</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#isWithCapcacity <em>With Capcacity</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#isWithCapacity <em>With Capacity</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getStockMaximum <em>Stock Maximum</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#isCapacityTightSelectedSolution <em>Capacity Tight Selected Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#isCapacitySlackSelectedSolution <em>Capacity Slack Selected Solution</em>}</li>
@@ -379,19 +379,19 @@ public interface LPProductBucket extends LPTimeBucket {
 	double getStockSelectedSolution();
 
 	/**
-	 * Returns the value of the '<em><b>With Capcacity</b></em>' attribute.
+	 * Returns the value of the '<em><b>With Capacity</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>With Capcacity</em>' attribute isn't clear,
+	 * If the meaning of the '<em>With Capacity</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>With Capcacity</em>' attribute.
-	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPProductBucket_WithCapcacity()
+	 * @return the value of the '<em>With Capacity</em>' attribute.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPProductBucket_WithCapacity()
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	boolean isWithCapcacity();
+	boolean isWithCapacity();
 
 	/**
 	 * Returns the value of the '<em><b>Supply Maximum</b></em>' attribute.

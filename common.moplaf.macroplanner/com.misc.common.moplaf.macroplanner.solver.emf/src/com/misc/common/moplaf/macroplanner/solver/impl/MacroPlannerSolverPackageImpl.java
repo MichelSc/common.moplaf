@@ -758,7 +758,7 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getLPProductBucket_WithCapcacity() {
+	public EAttribute getLPProductBucket_WithCapacity() {
 		return (EAttribute)lpProductBucketEClass.getEStructuralFeatures().get(15);
 	}
 
@@ -1767,7 +1767,7 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		createEAttribute(lpProductBucketEClass, LP_PRODUCT_BUCKET__CONSUMPTION_SELECTED_SOLUTION);
 		createEAttribute(lpProductBucketEClass, LP_PRODUCT_BUCKET__STOCKED_SELECTED_SOLUTION);
 		createEAttribute(lpProductBucketEClass, LP_PRODUCT_BUCKET__STOCK_SELECTED_SOLUTION);
-		createEAttribute(lpProductBucketEClass, LP_PRODUCT_BUCKET__WITH_CAPCACITY);
+		createEAttribute(lpProductBucketEClass, LP_PRODUCT_BUCKET__WITH_CAPACITY);
 		createEAttribute(lpProductBucketEClass, LP_PRODUCT_BUCKET__STOCK_MAXIMUM);
 		createEAttribute(lpProductBucketEClass, LP_PRODUCT_BUCKET__CAPACITY_TIGHT_SELECTED_SOLUTION);
 		createEAttribute(lpProductBucketEClass, LP_PRODUCT_BUCKET__CAPACITY_SLACK_SELECTED_SOLUTION);
@@ -2011,7 +2011,7 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		initEAttribute(getLPProductBucket_ConsumptionSelectedSolution(), ecorePackage.getEDouble(), "ConsumptionSelectedSolution", null, 0, 1, LPProductBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLPProductBucket_StockedSelectedSolution(), ecorePackage.getEBoolean(), "StockedSelectedSolution", null, 0, 1, LPProductBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLPProductBucket_StockSelectedSolution(), ecorePackage.getEDouble(), "StockSelectedSolution", null, 0, 1, LPProductBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLPProductBucket_WithCapcacity(), ecorePackage.getEBoolean(), "WithCapcacity", null, 0, 1, LPProductBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLPProductBucket_WithCapacity(), ecorePackage.getEBoolean(), "WithCapacity", null, 0, 1, LPProductBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLPProductBucket_StockMaximum(), ecorePackage.getEDouble(), "StockMaximum", null, 0, 1, LPProductBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLPProductBucket_CapacityTightSelectedSolution(), ecorePackage.getEBoolean(), "CapacityTightSelectedSolution", null, 0, 1, LPProductBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLPProductBucket_CapacitySlackSelectedSolution(), ecorePackage.getEBoolean(), "CapacitySlackSelectedSolution", null, 0, 1, LPProductBucket.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);

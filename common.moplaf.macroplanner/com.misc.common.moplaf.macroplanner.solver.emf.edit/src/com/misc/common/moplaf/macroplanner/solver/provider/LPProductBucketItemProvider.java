@@ -66,7 +66,7 @@ public class LPProductBucketItemProvider extends LPTimeBucketItemProvider {
 			addConsumptionSelectedSolutionPropertyDescriptor(object);
 			addStockedSelectedSolutionPropertyDescriptor(object);
 			addStockSelectedSolutionPropertyDescriptor(object);
-			addWithCapcacityPropertyDescriptor(object);
+			addWithCapacityPropertyDescriptor(object);
 			addStockMaximumPropertyDescriptor(object);
 			addCapacityTightSelectedSolutionPropertyDescriptor(object);
 			addCapacitySlackSelectedSolutionPropertyDescriptor(object);
@@ -212,24 +212,24 @@ public class LPProductBucketItemProvider extends LPTimeBucketItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the With Capcacity feature.
+	 * This adds a property descriptor for the With Capacity feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addWithCapcacityPropertyDescriptor(Object object) {
+	protected void addWithCapacityPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_LPProductBucket_WithCapcacity_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LPProductBucket_WithCapcacity_feature", "_UI_LPProductBucket_type"),
-				 MacroPlannerSolverPackage.Literals.LP_PRODUCT_BUCKET__WITH_CAPCACITY,
+				 getString("_UI_LPProductBucket_WithCapacity_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LPProductBucket_WithCapacity_feature", "_UI_LPProductBucket_type"),
+				 MacroPlannerSolverPackage.Literals.LP_PRODUCT_BUCKET__WITH_CAPACITY,
 				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 getString("_UI__20FlagsPropertyCategory"),
+				 getString("_UI__19FlagsPropertyCategory"),
 				 null));
 	}
 
@@ -498,7 +498,7 @@ public class LPProductBucketItemProvider extends LPTimeBucketItemProvider {
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CONSUMPTION_SELECTED_SOLUTION:
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__STOCKED_SELECTED_SOLUTION:
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__STOCK_SELECTED_SOLUTION:
-			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__WITH_CAPCACITY:
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__WITH_CAPACITY:
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__STOCK_MAXIMUM:
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CAPACITY_TIGHT_SELECTED_SOLUTION:
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CAPACITY_SLACK_SELECTED_SOLUTION:

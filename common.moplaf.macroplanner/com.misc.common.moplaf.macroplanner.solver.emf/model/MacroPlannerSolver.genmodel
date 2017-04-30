@@ -77,8 +77,8 @@
           ecoreFeature="ecore:EAttribute MacroPlannerSolver.ecore#//LPProductBucket/StockedSelectedSolution"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="20 Values"
           ecoreFeature="ecore:EAttribute MacroPlannerSolver.ecore#//LPProductBucket/StockSelectedSolution"/>
-      <genFeatures property="Readonly" createChild="false" propertyCategory="20 Flags"
-          ecoreFeature="ecore:EAttribute MacroPlannerSolver.ecore#//LPProductBucket/WithCapcacity"/>
+      <genFeatures property="Readonly" createChild="false" propertyCategory="19 Flags"
+          ecoreFeature="ecore:EAttribute MacroPlannerSolver.ecore#//LPProductBucket/WithCapacity"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="20 Values"
           ecoreFeature="ecore:EAttribute MacroPlannerSolver.ecore#//LPProductBucket/StockMaximum"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="19 Flags"

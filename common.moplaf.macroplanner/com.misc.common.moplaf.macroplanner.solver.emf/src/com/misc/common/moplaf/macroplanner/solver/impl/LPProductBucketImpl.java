@@ -69,7 +69,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getConsumptionSelectedSolution <em>Consumption Selected Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#isStockedSelectedSolution <em>Stocked Selected Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getStockSelectedSolution <em>Stock Selected Solution</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#isWithCapcacity <em>With Capcacity</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#isWithCapacity <em>With Capacity</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getStockMaximum <em>Stock Maximum</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#isCapacityTightSelectedSolution <em>Capacity Tight Selected Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#isCapacitySlackSelectedSolution <em>Capacity Slack Selected Solution</em>}</li>
@@ -224,14 +224,14 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 	protected static final double STOCK_SELECTED_SOLUTION_EDEFAULT = 0.0;
 
 	/**
-	 * The default value of the '{@link #isWithCapcacity() <em>With Capcacity</em>}' attribute.
+	 * The default value of the '{@link #isWithCapacity() <em>With Capacity</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isWithCapcacity()
+	 * @see #isWithCapacity()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean WITH_CAPCACITY_EDEFAULT = false;
+	protected static final boolean WITH_CAPACITY_EDEFAULT = false;
 
 	/**
 	 * The default value of the '{@link #getStockMaximum() <em>Stock Maximum</em>}' attribute.
@@ -745,7 +745,7 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public boolean isWithCapcacity() {
+	public boolean isWithCapacity() {
 		boolean with = this.getCapacities().size()>0;
 		return with;
 	}
@@ -957,8 +957,8 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 				return isStockedSelectedSolution();
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__STOCK_SELECTED_SOLUTION:
 				return getStockSelectedSolution();
-			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__WITH_CAPCACITY:
-				return isWithCapcacity();
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__WITH_CAPACITY:
+				return isWithCapacity();
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__STOCK_MAXIMUM:
 				return getStockMaximum();
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CAPACITY_TIGHT_SELECTED_SOLUTION:
@@ -1111,8 +1111,8 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 				return isStockedSelectedSolution() != STOCKED_SELECTED_SOLUTION_EDEFAULT;
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__STOCK_SELECTED_SOLUTION:
 				return getStockSelectedSolution() != STOCK_SELECTED_SOLUTION_EDEFAULT;
-			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__WITH_CAPCACITY:
-				return isWithCapcacity() != WITH_CAPCACITY_EDEFAULT;
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__WITH_CAPACITY:
+				return isWithCapacity() != WITH_CAPACITY_EDEFAULT;
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__STOCK_MAXIMUM:
 				return getStockMaximum() != STOCK_MAXIMUM_EDEFAULT;
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CAPACITY_TIGHT_SELECTED_SOLUTION:
