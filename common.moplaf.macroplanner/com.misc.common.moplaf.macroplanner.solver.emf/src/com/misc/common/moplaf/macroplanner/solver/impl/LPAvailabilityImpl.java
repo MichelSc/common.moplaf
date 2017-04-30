@@ -347,8 +347,8 @@ public class LPAvailabilityImpl extends LPTimeLineImpl implements LPAvailability
 		Date endAvailability   = Util.getMinDate(scenario.getScenarioEnd(),   availability.getTo());
 
 		// time line
-		TimeBucket startOfHorizon = timeline.getBucketFloor(startAvailability);
-		TimeBucket endOfHorizon   = timeline.getBucketCeil(endAvailability);
+		TimeBucket startOfHorizon = timeline.getBucketCeil(startAvailability);
+		TimeBucket endOfHorizon   = timeline.getBucketFloor(endAvailability);
 		this.setStartBucket(startOfHorizon);
 		this.setEndBucket  (endOfHorizon);
 		this.refresh();

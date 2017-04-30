@@ -348,8 +348,8 @@ public class LPSupplyImpl extends LPTimeLineImpl implements LPSupply {
 		Date endSupply   = Util.getMinDate(scenario.getScenarioEnd(),   supply.getTo());
 
 		// time line
-		TimeBucket startOfHorizon = timeline.getBucketFloor(startSupply);
-		TimeBucket endOfHorizon   = timeline.getBucketCeil(endSupply);
+		TimeBucket startOfHorizon = timeline.getBucketCeil(startSupply);
+		TimeBucket endOfHorizon   = timeline.getBucketFloor(endSupply);
 		this.setStartBucket(startOfHorizon);
 		this.setEndBucket  (endOfHorizon);
 		this.refresh();
