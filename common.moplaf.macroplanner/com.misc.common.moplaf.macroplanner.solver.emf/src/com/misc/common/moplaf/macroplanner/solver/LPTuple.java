@@ -25,4 +25,12 @@ import com.misc.common.moplaf.solver.GeneratorTuple;
  * @generated
  */
 public interface LPTuple extends GeneratorTuple {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	LPMacroPlanner getLPMacroPlanner();
 } // LPTuple

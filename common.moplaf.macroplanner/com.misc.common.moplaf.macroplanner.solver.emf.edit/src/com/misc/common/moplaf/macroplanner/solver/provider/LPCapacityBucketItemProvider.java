@@ -106,7 +106,7 @@ public class LPCapacityBucketItemProvider extends LPTimeBucketItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__19FlagsPropertyCategory"),
 				 null));
 	}
 
@@ -128,7 +128,7 @@ public class LPCapacityBucketItemProvider extends LPTimeBucketItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__19FlagsPropertyCategory"),
 				 null));
 	}
 

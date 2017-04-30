@@ -59,8 +59,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#getCalcReserved <em>Calc Reserved</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#getCalcPlanned <em>Calc Planned</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#getBalance <em>Balance</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#getReservationMaximum <em>Reservation Maximum</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#isReservingSelectedSolution <em>Reserving Selected Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#getReservationSelectedSolution <em>Reservation Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#isWithAvailability <em>With Availability</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#getReservationMaximum <em>Reservation Maximum</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#isAvailabilityTightSelectedSolution <em>Availability Tight Selected Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPResourceBucketImpl#isAvailabilitySlackSelectedSolution <em>Availability Slack Selected Solution</em>}</li>
  * </ul>
@@ -139,14 +141,14 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 	protected GeneratorLpCons balance;
 
 	/**
-	 * The default value of the '{@link #getReservationMaximum() <em>Reservation Maximum</em>}' attribute.
+	 * The default value of the '{@link #isReservingSelectedSolution() <em>Reserving Selected Solution</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getReservationMaximum()
+	 * @see #isReservingSelectedSolution()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double RESERVATION_MAXIMUM_EDEFAULT = 0.0;
+	protected static final boolean RESERVING_SELECTED_SOLUTION_EDEFAULT = false;
 
 	/**
 	 * The default value of the '{@link #getReservationSelectedSolution() <em>Reservation Selected Solution</em>}' attribute.
@@ -157,6 +159,26 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 	 * @ordered
 	 */
 	protected static final double RESERVATION_SELECTED_SOLUTION_EDEFAULT = 0.0;
+
+	/**
+	 * The default value of the '{@link #isWithAvailability() <em>With Availability</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isWithAvailability()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean WITH_AVAILABILITY_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #getReservationMaximum() <em>Reservation Maximum</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReservationMaximum()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double RESERVATION_MAXIMUM_EDEFAULT = 0.0;
 
 	/**
 	 * The default value of the '{@link #isAvailabilityTightSelectedSolution() <em>Availability Tight Selected Solution</em>}' attribute.
@@ -481,6 +503,17 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public boolean isReservingSelectedSolution() {
+		double epsilon = this.getLPMacroPlanner().getEpsilon();
+		double reserved = this.getReservationSelectedSolution();
+		boolean isReserved = Math.abs(reserved)>epsilon;
+		return isReserved;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public double getReservationMaximum() {
 		float amount = 0.0f;
 		for ( LPAvailabilityBucket bucketAvailability: this.getAvailabilities()){
@@ -496,6 +529,15 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 	 */
 	public double getReservationSelectedSolution() {
 		return this.getReserved().getSelectedSolutionValue();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public boolean isWithAvailability() {
+		boolean with = this.getAvailabilities().size()>0;
+		return with;
 	}
 
 	/**
@@ -611,10 +653,14 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 				return getCalcPlanned();
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__BALANCE:
 				return getBalance();
-			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVATION_MAXIMUM:
-				return getReservationMaximum();
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVING_SELECTED_SOLUTION:
+				return isReservingSelectedSolution();
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVATION_SELECTED_SOLUTION:
 				return getReservationSelectedSolution();
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__WITH_AVAILABILITY:
+				return isWithAvailability();
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVATION_MAXIMUM:
+				return getReservationMaximum();
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__AVAILABILITY_TIGHT_SELECTED_SOLUTION:
 				return isAvailabilityTightSelectedSolution();
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__AVAILABILITY_SLACK_SELECTED_SOLUTION:
@@ -722,10 +768,14 @@ public class LPResourceBucketImpl extends LPTimeBucketImpl implements LPResource
 				return calcPlanned != null;
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__BALANCE:
 				return balance != null;
-			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVATION_MAXIMUM:
-				return getReservationMaximum() != RESERVATION_MAXIMUM_EDEFAULT;
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVING_SELECTED_SOLUTION:
+				return isReservingSelectedSolution() != RESERVING_SELECTED_SOLUTION_EDEFAULT;
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVATION_SELECTED_SOLUTION:
 				return getReservationSelectedSolution() != RESERVATION_SELECTED_SOLUTION_EDEFAULT;
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__WITH_AVAILABILITY:
+				return isWithAvailability() != WITH_AVAILABILITY_EDEFAULT;
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVATION_MAXIMUM:
+				return getReservationMaximum() != RESERVATION_MAXIMUM_EDEFAULT;
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__AVAILABILITY_TIGHT_SELECTED_SOLUTION:
 				return isAvailabilityTightSelectedSolution() != AVAILABILITY_TIGHT_SELECTED_SOLUTION_EDEFAULT;
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__AVAILABILITY_SLACK_SELECTED_SOLUTION:

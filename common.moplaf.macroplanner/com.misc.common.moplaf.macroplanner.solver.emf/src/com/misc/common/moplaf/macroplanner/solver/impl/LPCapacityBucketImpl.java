@@ -372,9 +372,13 @@ public class LPCapacityBucketImpl extends LPTimeBucketImpl implements LPCapacity
 	 * <!-- end-user-doc -->
 	 */
 	public boolean isTightSelectedSolution() {
+		double epsilon = this.getLPMacroPlanner().getEpsilon();
 		float stocked = this.getStocked().getSelectedSolutionValue();
 		float max = this.getCapacity().getCapacity().getQuantity();
-		boolean isTight = stocked == max;
+		boolean isTight = false;
+		if ( Math.abs(stocked-max)<epsilon ){
+			isTight = true;
+		}
 		return isTight;
 	}
 
@@ -383,8 +387,9 @@ public class LPCapacityBucketImpl extends LPTimeBucketImpl implements LPCapacity
 	 * <!-- end-user-doc -->
 	 */
 	public boolean isSlackSelectedSolution() {
+		double epsilon = this.getLPMacroPlanner().getEpsilon();
 		float slack = this.getSlack().getSelectedSolutionValue();
-		boolean isSlack= slack>0.0f;
+		boolean isSlack= slack>epsilon;
 		return isSlack;
 	}
 

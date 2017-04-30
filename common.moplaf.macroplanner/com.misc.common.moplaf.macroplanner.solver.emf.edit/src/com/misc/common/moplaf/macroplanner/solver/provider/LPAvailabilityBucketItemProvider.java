@@ -107,7 +107,7 @@ public class LPAvailabilityBucketItemProvider extends LPTimeBucketItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__20ValuesPropertyCategory"),
 				 null));
 	}
 
@@ -129,7 +129,7 @@ public class LPAvailabilityBucketItemProvider extends LPTimeBucketItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__19FlagsPropertyCategory"),
 				 null));
 	}
 
@@ -151,7 +151,7 @@ public class LPAvailabilityBucketItemProvider extends LPTimeBucketItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__19FlagsPropertyCategory"),
 				 null));
 	}
 

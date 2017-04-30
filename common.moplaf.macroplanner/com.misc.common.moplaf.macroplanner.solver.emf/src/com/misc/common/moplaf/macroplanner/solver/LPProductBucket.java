@@ -37,13 +37,18 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getCalcSupplied <em>Calc Supplied</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getCalcStocked <em>Calc Stocked</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getBalance <em>Balance</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getStockMaximum <em>Stock Maximum</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getStockSelectedSolution <em>Stock Selected Solution</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getSupplyMaximum <em>Supply Maximum</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getSupplySelectedSolution <em>Supply Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#isConsumingSelectedSolution <em>Consuming Selected Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getConsumptionSelectedSolution <em>Consumption Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#isStockedSelectedSolution <em>Stocked Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getStockSelectedSolution <em>Stock Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#isWithCapcacity <em>With Capcacity</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getStockMaximum <em>Stock Maximum</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#isCapacityTightSelectedSolution <em>Capacity Tight Selected Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#isCapacitySlackSelectedSolution <em>Capacity Slack Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#isSuppliedSelectedSolution <em>Supplied Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getSupplySelectedSolution <em>Supply Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#isWithSupply <em>With Supply</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#getSupplyMaximum <em>Supply Maximum</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPProductBucket#isSupplyTightSelectedSolution <em>Supply Tight Selected Solution</em>}</li>
  * </ul>
  *
@@ -329,6 +334,21 @@ public interface LPProductBucket extends LPTimeBucket {
 	void setBalance(GeneratorLpCons value);
 
 	/**
+	 * Returns the value of the '<em><b>Consuming Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Consuming Selected Solution</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Consuming Selected Solution</em>' attribute.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPProductBucket_ConsumingSelectedSolution()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isConsumingSelectedSolution();
+
+	/**
 	 * Returns the value of the '<em><b>Stock Maximum</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -357,6 +377,21 @@ public interface LPProductBucket extends LPTimeBucket {
 	 * @generated
 	 */
 	double getStockSelectedSolution();
+
+	/**
+	 * Returns the value of the '<em><b>With Capcacity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>With Capcacity</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>With Capcacity</em>' attribute.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPProductBucket_WithCapcacity()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isWithCapcacity();
 
 	/**
 	 * Returns the value of the '<em><b>Supply Maximum</b></em>' attribute.
@@ -389,6 +424,21 @@ public interface LPProductBucket extends LPTimeBucket {
 	double getSupplySelectedSolution();
 
 	/**
+	 * Returns the value of the '<em><b>With Supply</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>With Supply</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>With Supply</em>' attribute.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPProductBucket_WithSupply()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isWithSupply();
+
+	/**
 	 * Returns the value of the '<em><b>Consumption Selected Solution</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -402,6 +452,21 @@ public interface LPProductBucket extends LPTimeBucket {
 	 * @generated
 	 */
 	double getConsumptionSelectedSolution();
+
+	/**
+	 * Returns the value of the '<em><b>Stocked Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Stocked Selected Solution</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Stocked Selected Solution</em>' attribute.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPProductBucket_StockedSelectedSolution()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isStockedSelectedSolution();
 
 	/**
 	 * Returns the value of the '<em><b>Capacity Tight Selected Solution</b></em>' attribute.
@@ -432,6 +497,21 @@ public interface LPProductBucket extends LPTimeBucket {
 	 * @generated
 	 */
 	boolean isCapacitySlackSelectedSolution();
+
+	/**
+	 * Returns the value of the '<em><b>Supplied Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Supplied Selected Solution</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Supplied Selected Solution</em>' attribute.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPProductBucket_SuppliedSelectedSolution()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isSuppliedSelectedSolution();
 
 	/**
 	 * Returns the value of the '<em><b>Supply Tight Selected Solution</b></em>' attribute.

@@ -29,7 +29,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucket#getProducts <em>Products</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucket#getResources <em>Resources</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucket#getPlanned <em>Planned</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucket#getPlannedSelectedSolution <em>Planned Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucket#isPlannedSelectedSolution <em>Planned Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPRoutingBucket#getQuantitySelectedSolution <em>Quantity Selected Solution</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPRoutingBucket()
@@ -144,6 +145,21 @@ public interface LPRoutingBucket extends LPTimeBucket {
 	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
-	double getPlannedSelectedSolution();
+	boolean isPlannedSelectedSolution();
+
+	/**
+	 * Returns the value of the '<em><b>Quantity Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Quantity Selected Solution</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Quantity Selected Solution</em>' attribute.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPRoutingBucket_QuantitySelectedSolution()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	double getQuantitySelectedSolution();
 
 } // LPRoutingBucket

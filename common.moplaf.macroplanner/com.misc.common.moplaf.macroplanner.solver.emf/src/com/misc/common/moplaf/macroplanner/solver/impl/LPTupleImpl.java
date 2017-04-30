@@ -12,11 +12,14 @@
  */
 package com.misc.common.moplaf.macroplanner.solver.impl;
 
+import com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner;
 import com.misc.common.moplaf.macroplanner.solver.LPTuple;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
-
+import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.impl.GeneratorTupleImpl;
 
+import java.lang.reflect.InvocationTargetException;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -44,6 +47,29 @@ public class LPTupleImpl extends GeneratorTupleImpl implements LPTuple {
 	@Override
 	protected EClass eStaticClass() {
 		return MacroPlannerSolverPackage.Literals.LP_TUPLE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public LPMacroPlanner getLPMacroPlanner() {
+		Generator generator = this.getGenerator();
+		return (LPMacroPlanner)generator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case MacroPlannerSolverPackage.LP_TUPLE___GET_LP_MACRO_PLANNER:
+				return getLPMacroPlanner();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //LPTupleImpl

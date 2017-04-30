@@ -67,6 +67,7 @@ public class LPMacroPlannerItemProvider extends GeneratorItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addBucketSizePropertyDescriptor(object);
+			addEpsilonPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -90,6 +91,28 @@ public class LPMacroPlannerItemProvider extends GeneratorItemProvider {
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 getString("_UI__40MacroPlannerPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Epsilon feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEpsilonPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LPMacroPlanner_Epsilon_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LPMacroPlanner_Epsilon_feature", "_UI_LPMacroPlanner_type"),
+				 MacroPlannerSolverPackage.Literals.LP_MACRO_PLANNER__EPSILON,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
 				 null));
 	}
 
@@ -161,6 +184,7 @@ public class LPMacroPlannerItemProvider extends GeneratorItemProvider {
 
 		switch (notification.getFeatureID(LPMacroPlanner.class)) {
 			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__BUCKET_SIZE:
+			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__EPSILON:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__PRODUCT_SET:

@@ -22,6 +22,7 @@ import com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner;
 import com.misc.common.moplaf.macroplanner.solver.LPProduct;
 import com.misc.common.moplaf.macroplanner.solver.LPProductSet;
 import com.misc.common.moplaf.macroplanner.solver.LPSupply;
+import com.misc.common.moplaf.macroplanner.solver.LPTuple;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverFactory;
 import com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage;
 import com.misc.common.moplaf.macroplanner.solver.Scenario;
@@ -160,6 +161,17 @@ public class LPProductSetImpl extends GeneratorTupleImpl implements LPProductSet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public LPMacroPlanner getLPMacroPlanner() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -281,10 +293,28 @@ public class LPProductSetImpl extends GeneratorTupleImpl implements LPProductSet
 	 * @generated
 	 */
 	@Override
+	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
+		if (baseClass == LPTuple.class) {
+			switch (baseOperationID) {
+				case MacroPlannerSolverPackage.LP_TUPLE___GET_LP_MACRO_PLANNER: return MacroPlannerSolverPackage.LP_PRODUCT_SET___GET_LP_MACRO_PLANNER;
+				default: return -1;
+			}
+		}
+		return super.eDerivedOperationID(baseOperationID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case MacroPlannerSolverPackage.LP_PRODUCT_SET___GET_PRODUCT__LOCATIONPRODUCT:
 				return getProduct((LocationProduct)arguments.get(0));
+			case MacroPlannerSolverPackage.LP_PRODUCT_SET___GET_LP_MACRO_PLANNER:
+				return getLPMacroPlanner();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

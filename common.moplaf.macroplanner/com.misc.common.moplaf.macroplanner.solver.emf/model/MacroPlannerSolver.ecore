@@ -14,6 +14,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="LPMacroPlanner" eSuperTypes="../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//Generator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="BucketSize" eType="ecore:EEnum ../../com.misc.common.moplaf.time.discrete.emf/model/timediscrete.ecore#//BucketType"
         defaultValueLiteral="Day"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Epsilon" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.00001"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ProductSet" lowerBound="1"
         eType="#//LPProductSet" containment="true" eOpposite="#//LPProductSet/MacroPlanner"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ResourceSet" lowerBound="1"
@@ -46,7 +48,9 @@
         eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//Solver"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LPTuple" eSuperTypes="../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorTuple"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LPTuple" eSuperTypes="../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorTuple">
+    <eOperations name="getLPMacroPlanner" eType="#//LPMacroPlanner"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LPTimeLine" eSuperTypes="#//LPTuple ../../com.misc.common.moplaf.time.discrete.emf/model/timediscrete.ecore#//ObjectWithTimeLine"/>
   <eClassifiers xsi:type="ecore:EClass" name="LPTimeBucket" eSuperTypes="#//LPTuple ../../com.misc.common.moplaf.time.discrete.emf/model/timediscrete.ecore#//ObjectTimeBucket">
     <eOperations name="getBucketShortName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -113,25 +117,38 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Balance" lowerBound="1"
         eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpCons"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StockMaximum" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StockSelectedSolution"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" changeable="false"
-        volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SupplyMaximum" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        changeable="false" volatile="true" transient="true" derived="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SupplySelectedSolution"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" changeable="false"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ConsumingSelectedSolution"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" changeable="false"
         volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ConsumptionSelectedSolution"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" changeable="false"
         volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StockedSelectedSolution"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" changeable="false"
+        volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StockSelectedSolution"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" changeable="false"
+        volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="WithCapcacity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="StockMaximum" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CapacityTightSelectedSolution"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" changeable="false"
         volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CapacitySlackSelectedSolution"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" changeable="false"
         volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SuppliedSelectedSolution"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" changeable="false"
+        volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SupplySelectedSolution"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" changeable="false"
+        volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="WithSupply" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SupplyMaximum" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SupplyTightSelectedSolution"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" changeable="false"
         volatile="true" transient="true" derived="true"/>
@@ -231,11 +248,16 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Balance" lowerBound="1"
         eType="ecore:EClass ../../com.misc.common.moplaf.solver.emf/model/solver.ecore#//GeneratorLpCons"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReservationMaximum" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReservingSelectedSolution"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" changeable="false"
+        volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReservationSelectedSolution"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" changeable="false"
         volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="WithAvailability" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ReservationMaximum" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="AvailabilityTightSelectedSolution"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" changeable="false"
         volatile="true" transient="true" derived="true"/>
@@ -325,6 +347,9 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="PlannedSelectedSolution"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" changeable="false"
+        volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="QuantitySelectedSolution"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" changeable="false"
         volatile="true" transient="true" derived="true"/>
   </eClassifiers>

@@ -64,6 +64,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPMacroPlannerImpl#getBucketSize <em>Bucket Size</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPMacroPlannerImpl#getEpsilon <em>Epsilon</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPMacroPlannerImpl#getProductSet <em>Product Set</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPMacroPlannerImpl#getResourceSet <em>Resource Set</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPMacroPlannerImpl#getRoutingSet <em>Routing Set</em>}</li>
@@ -100,6 +101,26 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 	 * @ordered
 	 */
 	protected BucketType bucketSize = BUCKET_SIZE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getEpsilon() <em>Epsilon</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEpsilon()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double EPSILON_EDEFAULT = 1.0E-5;
+
+	/**
+	 * The cached value of the '{@link #getEpsilon() <em>Epsilon</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEpsilon()
+	 * @generated
+	 * @ordered
+	 */
+	protected double epsilon = EPSILON_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getProductSet() <em>Product Set</em>}' containment reference.
@@ -249,6 +270,27 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 		bucketSize = newBucketSize == null ? BUCKET_SIZE_EDEFAULT : newBucketSize;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MacroPlannerSolverPackage.LP_MACRO_PLANNER__BUCKET_SIZE, oldBucketSize, bucketSize));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getEpsilon() {
+		return epsilon;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEpsilon(double newEpsilon) {
+		double oldEpsilon = epsilon;
+		epsilon = newEpsilon;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MacroPlannerSolverPackage.LP_MACRO_PLANNER__EPSILON, oldEpsilon, epsilon));
 	}
 
 	/**
@@ -822,6 +864,8 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 		switch (featureID) {
 			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__BUCKET_SIZE:
 				return getBucketSize();
+			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__EPSILON:
+				return getEpsilon();
 			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__PRODUCT_SET:
 				return getProductSet();
 			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__RESOURCE_SET:
@@ -861,6 +905,9 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 		switch (featureID) {
 			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__BUCKET_SIZE:
 				setBucketSize((BucketType)newValue);
+				return;
+			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__EPSILON:
+				setEpsilon((Double)newValue);
 				return;
 			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__PRODUCT_SET:
 				setProductSet((LPProductSet)newValue);
@@ -914,6 +961,9 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__BUCKET_SIZE:
 				setBucketSize(BUCKET_SIZE_EDEFAULT);
 				return;
+			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__EPSILON:
+				setEpsilon(EPSILON_EDEFAULT);
+				return;
 			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__PRODUCT_SET:
 				setProductSet((LPProductSet)null);
 				return;
@@ -964,6 +1014,8 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 		switch (featureID) {
 			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__BUCKET_SIZE:
 				return bucketSize != BUCKET_SIZE_EDEFAULT;
+			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__EPSILON:
+				return epsilon != EPSILON_EDEFAULT;
 			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__PRODUCT_SET:
 				return productSet != null;
 			case MacroPlannerSolverPackage.LP_MACRO_PLANNER__RESOURCE_SET:
@@ -1004,6 +1056,8 @@ public class LPMacroPlannerImpl extends GeneratorImpl implements LPMacroPlanner 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (BucketSize: ");
 		result.append(bucketSize);
+		result.append(", Epsilon: ");
+		result.append(epsilon);
 		result.append(')');
 		return result.toString();
 	}

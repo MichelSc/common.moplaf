@@ -61,8 +61,10 @@ public class LPResourceBucketItemProvider extends LPTimeBucketItemProvider {
 
 			addAvailabilitiesPropertyDescriptor(object);
 			addReservationsPropertyDescriptor(object);
-			addReservationMaximumPropertyDescriptor(object);
+			addReservingSelectedSolutionPropertyDescriptor(object);
 			addReservationSelectedSolutionPropertyDescriptor(object);
+			addWithAvailabilityPropertyDescriptor(object);
+			addReservationMaximumPropertyDescriptor(object);
 			addAvailabilityTightSelectedSolutionPropertyDescriptor(object);
 			addAvailabilitySlackSelectedSolutionPropertyDescriptor(object);
 		}
@@ -114,6 +116,28 @@ public class LPResourceBucketItemProvider extends LPTimeBucketItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Reserving Selected Solution feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReservingSelectedSolutionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LPResourceBucket_ReservingSelectedSolution_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LPResourceBucket_ReservingSelectedSolution_feature", "_UI_LPResourceBucket_type"),
+				 MacroPlannerSolverPackage.Literals.LP_RESOURCE_BUCKET__RESERVING_SELECTED_SOLUTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 getString("_UI__19FlagsPropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Reservation Maximum feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -158,6 +182,28 @@ public class LPResourceBucketItemProvider extends LPTimeBucketItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the With Availability feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addWithAvailabilityPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LPResourceBucket_WithAvailability_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LPResourceBucket_WithAvailability_feature", "_UI_LPResourceBucket_type"),
+				 MacroPlannerSolverPackage.Literals.LP_RESOURCE_BUCKET__WITH_AVAILABILITY,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 getString("_UI__19FlagsPropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Availability Tight Selected Solution feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -175,7 +221,7 @@ public class LPResourceBucketItemProvider extends LPTimeBucketItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__19FlagsPropertyCategory"),
 				 null));
 	}
 
@@ -197,7 +243,7 @@ public class LPResourceBucketItemProvider extends LPTimeBucketItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__19FlagsPropertyCategory"),
 				 null));
 	}
 
@@ -262,8 +308,10 @@ public class LPResourceBucketItemProvider extends LPTimeBucketItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(LPResourceBucket.class)) {
-			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVATION_MAXIMUM:
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVING_SELECTED_SOLUTION:
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVATION_SELECTED_SOLUTION:
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__WITH_AVAILABILITY:
+			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__RESERVATION_MAXIMUM:
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__AVAILABILITY_TIGHT_SELECTED_SOLUTION:
 			case MacroPlannerSolverPackage.LP_RESOURCE_BUCKET__AVAILABILITY_SLACK_SELECTED_SOLUTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

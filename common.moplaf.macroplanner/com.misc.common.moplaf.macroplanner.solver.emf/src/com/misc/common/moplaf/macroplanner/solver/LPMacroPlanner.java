@@ -30,6 +30,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner#getBucketSize <em>Bucket Size</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner#getEpsilon <em>Epsilon</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner#getProductSet <em>Product Set</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner#getResourceSet <em>Resource Set</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner#getRoutingSet <em>Routing Set</em>}</li>
@@ -78,6 +79,33 @@ public interface LPMacroPlanner extends Generator {
 	 * @generated
 	 */
 	void setBucketSize(BucketType value);
+
+	/**
+	 * Returns the value of the '<em><b>Epsilon</b></em>' attribute.
+	 * The default value is <code>"0.00001"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Epsilon</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Epsilon</em>' attribute.
+	 * @see #setEpsilon(double)
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPMacroPlanner_Epsilon()
+	 * @model default="0.00001"
+	 * @generated
+	 */
+	double getEpsilon();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.macroplanner.solver.LPMacroPlanner#getEpsilon <em>Epsilon</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Epsilon</em>' attribute.
+	 * @see #getEpsilon()
+	 * @generated
+	 */
+	void setEpsilon(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Product Set</b></em>' containment reference.

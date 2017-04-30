@@ -58,7 +58,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingBucketImpl#getProducts <em>Products</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingBucketImpl#getResources <em>Resources</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingBucketImpl#getPlanned <em>Planned</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingBucketImpl#getPlannedSelectedSolution <em>Planned Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingBucketImpl#isPlannedSelectedSolution <em>Planned Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPRoutingBucketImpl#getQuantitySelectedSolution <em>Quantity Selected Solution</em>}</li>
  * </ul>
  *
  * @generated
@@ -95,14 +96,24 @@ public class LPRoutingBucketImpl extends LPTimeBucketImpl implements LPRoutingBu
 	protected GeneratorLpVar planned;
 
 	/**
-	 * The default value of the '{@link #getPlannedSelectedSolution() <em>Planned Selected Solution</em>}' attribute.
+	 * The default value of the '{@link #isPlannedSelectedSolution() <em>Planned Selected Solution</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPlannedSelectedSolution()
+	 * @see #isPlannedSelectedSolution()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double PLANNED_SELECTED_SOLUTION_EDEFAULT = 0.0;
+	protected static final boolean PLANNED_SELECTED_SOLUTION_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #getQuantitySelectedSolution() <em>Quantity Selected Solution</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQuantitySelectedSolution()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double QUANTITY_SELECTED_SOLUTION_EDEFAULT = 0.0;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -235,7 +246,18 @@ public class LPRoutingBucketImpl extends LPTimeBucketImpl implements LPRoutingBu
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public double getPlannedSelectedSolution() {
+	public boolean isPlannedSelectedSolution() {
+		double epsilon = this.getLPMacroPlanner().getEpsilon();
+		double routed = this.getQuantitySelectedSolution();
+		boolean isPlanned = Math.abs(routed)>epsilon;
+		return isPlanned;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public double getQuantitySelectedSolution() {
 		return this.getPlanned().getSelectedSolutionValue();
 	}
 
@@ -311,7 +333,9 @@ public class LPRoutingBucketImpl extends LPTimeBucketImpl implements LPRoutingBu
 			case MacroPlannerSolverPackage.LP_ROUTING_BUCKET__PLANNED:
 				return getPlanned();
 			case MacroPlannerSolverPackage.LP_ROUTING_BUCKET__PLANNED_SELECTED_SOLUTION:
-				return getPlannedSelectedSolution();
+				return isPlannedSelectedSolution();
+			case MacroPlannerSolverPackage.LP_ROUTING_BUCKET__QUANTITY_SELECTED_SOLUTION:
+				return getQuantitySelectedSolution();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -384,7 +408,9 @@ public class LPRoutingBucketImpl extends LPTimeBucketImpl implements LPRoutingBu
 			case MacroPlannerSolverPackage.LP_ROUTING_BUCKET__PLANNED:
 				return planned != null;
 			case MacroPlannerSolverPackage.LP_ROUTING_BUCKET__PLANNED_SELECTED_SOLUTION:
-				return getPlannedSelectedSolution() != PLANNED_SELECTED_SOLUTION_EDEFAULT;
+				return isPlannedSelectedSolution() != PLANNED_SELECTED_SOLUTION_EDEFAULT;
+			case MacroPlannerSolverPackage.LP_ROUTING_BUCKET__QUANTITY_SELECTED_SOLUTION:
+				return getQuantitySelectedSolution() != QUANTITY_SELECTED_SOLUTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

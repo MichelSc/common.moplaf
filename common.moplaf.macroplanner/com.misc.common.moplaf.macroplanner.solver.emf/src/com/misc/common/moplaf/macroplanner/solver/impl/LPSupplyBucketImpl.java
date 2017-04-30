@@ -292,9 +292,13 @@ public class LPSupplyBucketImpl extends LPTimeBucketImpl implements LPSupplyBuck
 	 * <!-- end-user-doc -->
 	 */
 	public boolean isTightSelectedSolution() {
+		double epsilon = this.getLPMacroPlanner().getEpsilon();
 		float supplied = this.getSupplied().getSelectedSolutionValue();
-		float ub = this.getSupplied().getUpperBound();
-		boolean isTight = supplied == ub;
+		float quantity_supplied = this.getSupply().getSupply().getQuantity()*this.getFraction();
+		boolean isTight = false;
+		if ( Math.abs(quantity_supplied-supplied)<epsilon ){
+			isTight = true;
+		}
 		return isTight;
 	}
 
@@ -508,8 +512,15 @@ public class LPSupplyBucketImpl extends LPTimeBucketImpl implements LPSupplyBuck
 		LPSupply lp_supply = this.getSupply();
 		Supply supply = lp_supply.getSupply();
 		float quantity_supplied = supply.getQuantity()*this.getFraction();
-		float lb = supply.isEnforce() ? quantity_supplied : 0.0f;
+		float lb = quantity_supplied;
 		float ub = quantity_supplied;
+		if ( ! supply.isEnforce()){
+			if ( quantity_supplied > 0.0f ){
+				lb = 0.0f;
+			} else {
+				ub = 0.0f;
+			}
+		}
 		
 		GeneratorLpVar var = Util.createGeneratorLpVarReal("supplied", lb, ub);
 		this.setSupplied(var);  // owning

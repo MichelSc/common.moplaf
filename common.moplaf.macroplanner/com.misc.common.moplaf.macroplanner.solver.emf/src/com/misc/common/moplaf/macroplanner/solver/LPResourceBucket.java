@@ -34,8 +34,10 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getCalcReserved <em>Calc Reserved</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getCalcPlanned <em>Calc Planned</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getBalance <em>Balance</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getReservationMaximum <em>Reservation Maximum</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#isReservingSelectedSolution <em>Reserving Selected Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getReservationSelectedSolution <em>Reservation Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#isWithAvailability <em>With Availability</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#getReservationMaximum <em>Reservation Maximum</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#isAvailabilityTightSelectedSolution <em>Availability Tight Selected Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.LPResourceBucket#isAvailabilitySlackSelectedSolution <em>Availability Slack Selected Solution</em>}</li>
  * </ul>
@@ -248,6 +250,21 @@ public interface LPResourceBucket extends LPTimeBucket {
 	void setBalance(GeneratorLpCons value);
 
 	/**
+	 * Returns the value of the '<em><b>Reserving Selected Solution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Reserving Selected Solution</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reserving Selected Solution</em>' attribute.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPResourceBucket_ReservingSelectedSolution()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isReservingSelectedSolution();
+
+	/**
 	 * Returns the value of the '<em><b>Reservation Maximum</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -276,6 +293,21 @@ public interface LPResourceBucket extends LPTimeBucket {
 	 * @generated
 	 */
 	double getReservationSelectedSolution();
+
+	/**
+	 * Returns the value of the '<em><b>With Availability</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>With Availability</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>With Availability</em>' attribute.
+	 * @see com.misc.common.moplaf.macroplanner.solver.MacroPlannerSolverPackage#getLPResourceBucket_WithAvailability()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	boolean isWithAvailability();
 
 	/**
 	 * Returns the value of the '<em><b>Availability Tight Selected Solution</b></em>' attribute.

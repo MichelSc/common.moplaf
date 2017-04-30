@@ -65,13 +65,18 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getCalcSupplied <em>Calc Supplied</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getCalcStocked <em>Calc Stocked</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getBalance <em>Balance</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getStockMaximum <em>Stock Maximum</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getStockSelectedSolution <em>Stock Selected Solution</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getSupplyMaximum <em>Supply Maximum</em>}</li>
- *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getSupplySelectedSolution <em>Supply Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#isConsumingSelectedSolution <em>Consuming Selected Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getConsumptionSelectedSolution <em>Consumption Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#isStockedSelectedSolution <em>Stocked Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getStockSelectedSolution <em>Stock Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#isWithCapcacity <em>With Capcacity</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getStockMaximum <em>Stock Maximum</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#isCapacityTightSelectedSolution <em>Capacity Tight Selected Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#isCapacitySlackSelectedSolution <em>Capacity Slack Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#isSuppliedSelectedSolution <em>Supplied Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getSupplySelectedSolution <em>Supply Selected Solution</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#isWithSupply <em>With Supply</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#getSupplyMaximum <em>Supply Maximum</em>}</li>
  *   <li>{@link com.misc.common.moplaf.macroplanner.solver.impl.LPProductBucketImpl#isSupplyTightSelectedSolution <em>Supply Tight Selected Solution</em>}</li>
  * </ul>
  *
@@ -179,14 +184,34 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 	protected GeneratorLpCons balance;
 
 	/**
-	 * The default value of the '{@link #getStockMaximum() <em>Stock Maximum</em>}' attribute.
+	 * The default value of the '{@link #isConsumingSelectedSolution() <em>Consuming Selected Solution</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStockMaximum()
+	 * @see #isConsumingSelectedSolution()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double STOCK_MAXIMUM_EDEFAULT = 0.0;
+	protected static final boolean CONSUMING_SELECTED_SOLUTION_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #getConsumptionSelectedSolution() <em>Consumption Selected Solution</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConsumptionSelectedSolution()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double CONSUMPTION_SELECTED_SOLUTION_EDEFAULT = 0.0;
+
+	/**
+	 * The default value of the '{@link #isStockedSelectedSolution() <em>Stocked Selected Solution</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isStockedSelectedSolution()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean STOCKED_SELECTED_SOLUTION_EDEFAULT = false;
 
 	/**
 	 * The default value of the '{@link #getStockSelectedSolution() <em>Stock Selected Solution</em>}' attribute.
@@ -199,34 +224,24 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 	protected static final double STOCK_SELECTED_SOLUTION_EDEFAULT = 0.0;
 
 	/**
-	 * The default value of the '{@link #getSupplyMaximum() <em>Supply Maximum</em>}' attribute.
+	 * The default value of the '{@link #isWithCapcacity() <em>With Capcacity</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSupplyMaximum()
+	 * @see #isWithCapcacity()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double SUPPLY_MAXIMUM_EDEFAULT = 0.0;
+	protected static final boolean WITH_CAPCACITY_EDEFAULT = false;
 
 	/**
-	 * The default value of the '{@link #getSupplySelectedSolution() <em>Supply Selected Solution</em>}' attribute.
+	 * The default value of the '{@link #getStockMaximum() <em>Stock Maximum</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSupplySelectedSolution()
+	 * @see #getStockMaximum()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double SUPPLY_SELECTED_SOLUTION_EDEFAULT = 0.0;
-
-	/**
-	 * The default value of the '{@link #getConsumptionSelectedSolution() <em>Consumption Selected Solution</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getConsumptionSelectedSolution()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double CONSUMPTION_SELECTED_SOLUTION_EDEFAULT = 0.0;
+	protected static final double STOCK_MAXIMUM_EDEFAULT = 0.0;
 
 	/**
 	 * The default value of the '{@link #isCapacityTightSelectedSolution() <em>Capacity Tight Selected Solution</em>}' attribute.
@@ -247,6 +262,46 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 	 * @ordered
 	 */
 	protected static final boolean CAPACITY_SLACK_SELECTED_SOLUTION_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #isSuppliedSelectedSolution() <em>Supplied Selected Solution</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSuppliedSelectedSolution()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SUPPLIED_SELECTED_SOLUTION_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #getSupplySelectedSolution() <em>Supply Selected Solution</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSupplySelectedSolution()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double SUPPLY_SELECTED_SOLUTION_EDEFAULT = 0.0;
+
+	/**
+	 * The default value of the '{@link #isWithSupply() <em>With Supply</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isWithSupply()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean WITH_SUPPLY_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #getSupplyMaximum() <em>Supply Maximum</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSupplyMaximum()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double SUPPLY_MAXIMUM_EDEFAULT = 0.0;
 
 	/**
 	 * The default value of the '{@link #isSupplyTightSelectedSolution() <em>Supply Tight Selected Solution</em>}' attribute.
@@ -659,6 +714,17 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public boolean isConsumingSelectedSolution() {
+		double epsilon = this.getLPMacroPlanner().getEpsilon();
+		double consumption = this.getConsumptionSelectedSolution();
+		boolean isConsuming = Math.abs(consumption)>epsilon;
+		return isConsuming;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public double getStockMaximum() {
 		float amount = 0.0f;
 		for ( LPCapacityBucket bucketCapacity: this.getCapacities()){
@@ -673,6 +739,15 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 	 */
 	public double getStockSelectedSolution() {
 		return this.getStocked().getSelectedSolutionValue();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public boolean isWithCapcacity() {
+		boolean with = this.getCapacities().size()>0;
+		return with;
 	}
 
 	/**
@@ -699,8 +774,28 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public boolean isWithSupply() {
+		boolean with = this.getSupplies().size()>0;
+		return with;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public double getConsumptionSelectedSolution() {
 		return (double) this.getConsumed().getSelectedSolutionValue();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public boolean isStockedSelectedSolution() {
+		double epsilon = this.getLPMacroPlanner().getEpsilon();
+		double stocked = this.getStockSelectedSolution();
+		boolean isStocked = Math.abs(stocked)>epsilon;
+		return isStocked;
 	}
 
 	/**
@@ -727,6 +822,17 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 			}
 		}
 		return false;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public boolean isSuppliedSelectedSolution() {
+		double epsilon = this.getLPMacroPlanner().getEpsilon();
+		double supplied = this.getSupplySelectedSolution();
+		boolean isSupplied= Math.abs(supplied)>epsilon;
+		return isSupplied;
 	}
 
 	/**
@@ -843,20 +949,30 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 				return getCalcStocked();
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__BALANCE:
 				return getBalance();
-			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__STOCK_MAXIMUM:
-				return getStockMaximum();
-			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__STOCK_SELECTED_SOLUTION:
-				return getStockSelectedSolution();
-			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLY_MAXIMUM:
-				return getSupplyMaximum();
-			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLY_SELECTED_SOLUTION:
-				return getSupplySelectedSolution();
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CONSUMING_SELECTED_SOLUTION:
+				return isConsumingSelectedSolution();
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CONSUMPTION_SELECTED_SOLUTION:
 				return getConsumptionSelectedSolution();
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__STOCKED_SELECTED_SOLUTION:
+				return isStockedSelectedSolution();
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__STOCK_SELECTED_SOLUTION:
+				return getStockSelectedSolution();
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__WITH_CAPCACITY:
+				return isWithCapcacity();
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__STOCK_MAXIMUM:
+				return getStockMaximum();
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CAPACITY_TIGHT_SELECTED_SOLUTION:
 				return isCapacityTightSelectedSolution();
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CAPACITY_SLACK_SELECTED_SOLUTION:
 				return isCapacitySlackSelectedSolution();
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLIED_SELECTED_SOLUTION:
+				return isSuppliedSelectedSolution();
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLY_SELECTED_SOLUTION:
+				return getSupplySelectedSolution();
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__WITH_SUPPLY:
+				return isWithSupply();
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLY_MAXIMUM:
+				return getSupplyMaximum();
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLY_TIGHT_SELECTED_SOLUTION:
 				return isSupplyTightSelectedSolution();
 		}
@@ -987,20 +1103,30 @@ public class LPProductBucketImpl extends LPTimeBucketImpl implements LPProductBu
 				return calcStocked != null;
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__BALANCE:
 				return balance != null;
-			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__STOCK_MAXIMUM:
-				return getStockMaximum() != STOCK_MAXIMUM_EDEFAULT;
-			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__STOCK_SELECTED_SOLUTION:
-				return getStockSelectedSolution() != STOCK_SELECTED_SOLUTION_EDEFAULT;
-			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLY_MAXIMUM:
-				return getSupplyMaximum() != SUPPLY_MAXIMUM_EDEFAULT;
-			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLY_SELECTED_SOLUTION:
-				return getSupplySelectedSolution() != SUPPLY_SELECTED_SOLUTION_EDEFAULT;
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CONSUMING_SELECTED_SOLUTION:
+				return isConsumingSelectedSolution() != CONSUMING_SELECTED_SOLUTION_EDEFAULT;
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CONSUMPTION_SELECTED_SOLUTION:
 				return getConsumptionSelectedSolution() != CONSUMPTION_SELECTED_SOLUTION_EDEFAULT;
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__STOCKED_SELECTED_SOLUTION:
+				return isStockedSelectedSolution() != STOCKED_SELECTED_SOLUTION_EDEFAULT;
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__STOCK_SELECTED_SOLUTION:
+				return getStockSelectedSolution() != STOCK_SELECTED_SOLUTION_EDEFAULT;
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__WITH_CAPCACITY:
+				return isWithCapcacity() != WITH_CAPCACITY_EDEFAULT;
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__STOCK_MAXIMUM:
+				return getStockMaximum() != STOCK_MAXIMUM_EDEFAULT;
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CAPACITY_TIGHT_SELECTED_SOLUTION:
 				return isCapacityTightSelectedSolution() != CAPACITY_TIGHT_SELECTED_SOLUTION_EDEFAULT;
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__CAPACITY_SLACK_SELECTED_SOLUTION:
 				return isCapacitySlackSelectedSolution() != CAPACITY_SLACK_SELECTED_SOLUTION_EDEFAULT;
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLIED_SELECTED_SOLUTION:
+				return isSuppliedSelectedSolution() != SUPPLIED_SELECTED_SOLUTION_EDEFAULT;
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLY_SELECTED_SOLUTION:
+				return getSupplySelectedSolution() != SUPPLY_SELECTED_SOLUTION_EDEFAULT;
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__WITH_SUPPLY:
+				return isWithSupply() != WITH_SUPPLY_EDEFAULT;
+			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLY_MAXIMUM:
+				return getSupplyMaximum() != SUPPLY_MAXIMUM_EDEFAULT;
 			case MacroPlannerSolverPackage.LP_PRODUCT_BUCKET__SUPPLY_TIGHT_SELECTED_SOLUTION:
 				return isSupplyTightSelectedSolution() != SUPPLY_TIGHT_SELECTED_SOLUTION_EDEFAULT;
 		}
