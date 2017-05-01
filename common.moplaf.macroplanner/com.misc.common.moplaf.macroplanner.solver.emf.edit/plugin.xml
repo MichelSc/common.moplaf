@@ -16,7 +16,8 @@
                org.eclipse.emf.edit.provider.ITreeItemContentProvider
                org.eclipse.emf.edit.provider.IItemLabelProvider
                org.eclipse.emf.edit.provider.IItemPropertySource
-               com.misc.common.moplaf.timeview.emf.edit.IItemTimePlotsProvider"/>
+               com.misc.common.moplaf.timeview.emf.edit.IItemTimePlotsProvider
+               com.misc.common.moplaf.kpiview.emf.edit.IItemKPIsProvider "/>
    </extension>
 
 </plugin>
