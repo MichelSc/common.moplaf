@@ -56,3 +56,15 @@ The launch configuration, vm arguments
   -Dosgi.framework.extensions=org.eclipse.fx.osgi # older
 
 Ensure that you have org.eclipse.fx.osgi fragment in your launch
+
+-------------------------------------------------------------------------------
+problem Bundle org.eclipse.fx.osgi not found.
+solution: move it to be next to org.eclipse.osgi jar
+  - in the eclipse installation
+  - in the target platform (folder home/.eclipse/org.eclipse.platform_n.n....
+
+problem The import javafx.embed.swt cannot be resolved, FXCanvas cannot be resolved to a type
+ship the plugin with jfxswt.jar in the lib folder and in the build path
+
+
+
