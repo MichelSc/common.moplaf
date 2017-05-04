@@ -466,6 +466,10 @@
         <genParameters ecoreParameter="solver.ecore#//GeneratorLpLinear/constructTerm/var"/>
         <genParameters ecoreParameter="solver.ecore#//GeneratorLpLinear/constructTerm/coef"/>
       </genOperations>
+      <genOperations ecoreOperation="solver.ecore#//GeneratorLpLinear/contributeTerm">
+        <genParameters ecoreParameter="solver.ecore#//GeneratorLpLinear/contributeTerm/var"/>
+        <genParameters ecoreParameter="solver.ecore#//GeneratorLpLinear/contributeTerm/coef"/>
+      </genOperations>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

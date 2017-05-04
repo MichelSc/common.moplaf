@@ -52,6 +52,13 @@
         <genParameters ecoreParameter="timediscrete.ecore#//TimeBucket/getSecondsIntersection/from"/>
         <genParameters ecoreParameter="timediscrete.ecore#//TimeBucket/getSecondsIntersection/to"/>
       </genOperations>
+      <genOperations ecoreOperation="timediscrete.ecore#//TimeBucket/getIntersection">
+        <genParameters ecoreParameter="timediscrete.ecore#//TimeBucket/getIntersection/from"/>
+        <genParameters ecoreParameter="timediscrete.ecore#//TimeBucket/getIntersection/to"/>
+      </genOperations>
+      <genOperations ecoreOperation="timediscrete.ecore#//TimeBucket/getOffset">
+        <genParameters ecoreParameter="timediscrete.ecore#//TimeBucket/getOffset/seconds"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="timediscrete.ecore#//TimeLine" labelFeature="#//discrete/TimeLine/Description">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute timediscrete.ecore#//TimeLine/BucketType"/>
