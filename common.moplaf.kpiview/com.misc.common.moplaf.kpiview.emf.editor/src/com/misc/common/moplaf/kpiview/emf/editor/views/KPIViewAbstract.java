@@ -89,6 +89,7 @@ public abstract class KPIViewAbstract extends ViewPart {
 	 * This is a callback that will allow us
 	 * to create the viewer and initialize it.
 	 */
+	@Override
 	public void createPartControl(Composite parent) {
         this.viewer = this.createViewer(parent);
         this.viewer.setContentProvider   (new AdapterFactoryArrayContentProvider (this.adapterFactory));
