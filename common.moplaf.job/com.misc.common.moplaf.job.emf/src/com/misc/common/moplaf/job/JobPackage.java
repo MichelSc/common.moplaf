@@ -51,7 +51,7 @@ public interface JobPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "//www.misc.com/common/moplaf/job/model/0.1";
+	String eNS_URI = "http://www.misc.com/common/moplaf/job/model/0.1";
 
 	/**
 	 * The package namespace name.

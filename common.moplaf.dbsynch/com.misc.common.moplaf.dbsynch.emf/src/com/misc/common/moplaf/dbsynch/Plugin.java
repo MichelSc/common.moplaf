@@ -23,7 +23,6 @@ import com.misc.common.moplaf.common.Logger.Level;
 /**
  * This is the central singleton for the dbsynch model plugin.
  * <!-- begin-user-doc -->
- * @implements PrefConstants
  * <!-- end-user-doc -->
  * @generated
  */

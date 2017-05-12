@@ -1043,9 +1043,6 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
-		// Obtain other dependent packages
-		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
-
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -1087,7 +1084,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		initEOperation(getDbSynchUnitAbstract__SynchDown(), this.getReturnFeedback(), "synchDown", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getDbSynchUnitAbstract__GetParamValue__EAttribute(), this.getObject(), "getParamValue", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theEcorePackage.getEAttribute(), "attribute", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEAttribute(), "attribute", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getDbSynchUnitAbstract__GetParamAttributes(), this.getObject(), "getParamAttributes", 0, -1, IS_UNIQUE, IS_ORDERED);
 
