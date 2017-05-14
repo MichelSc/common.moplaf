@@ -13,7 +13,6 @@
 package com.misc.common.moplaf.time.discrete.provider;
 
 import com.misc.common.moplaf.time.discrete.util.TimeDiscreteAdapterFactory;
-import com.misc.common.moplaf.timeview.emf.edit.IItemIntervalEventProvider;
 import com.misc.common.moplaf.timeview.emf.edit.IItemIntervalEventsProvider;
 
 import java.util.ArrayList;
@@ -79,7 +78,6 @@ public class TimeDiscreteItemProviderAdapterFactory extends TimeDiscreteAdapterF
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
 		supportedTypes.add(IItemPropertySource.class);
-		supportedTypes.add(IItemIntervalEventProvider.class); // non emf interface
 		supportedTypes.add(IItemIntervalEventsProvider.class); // non emf interface
 	}
 

@@ -14,9 +14,40 @@ import java.util.Collection;
 import java.util.Date;
 
 public interface IItemTimePlotsEventsMomentsProvider extends IItemTimePlotsProvider {
-	// event properties
-	Collection<?> getEventsMoments(Object element, Object timeplot); // return the events for the element and a TimePlot of this element
+	/**
+	 * Return the set of events object for a given TimePlot of a given element
+	 * @param element
+	 * @param timeplot
+	 * @return
+	 */
+	Collection<?> getEventsMoments(Object element, Object timeplot); 
+
+	/**
+	 * Return the number of moments of a given event of a given TimePlot of a given element
+	 * @param element
+	 * @param timeplot
+	 * @param event
+	 * @return
+	 */
 	int   getMoments(Object element, Object timeplot, Object event); // the number of moment for an event
+	
+	/**
+	 * Return the moment time of a given moment (identified by its index of a given event for the timePlot and for this element
+	 * @param element
+	 * @param timeplot
+	 * @param event
+	 * @param moment
+	 * @return
+	 */
 	Date  getMoment (Object element, Object timeplot, Object event, int moment); // the date of the event for the timePlot and for this element
+	
+	/**
+	 * Return the amount value of a given moment (identified by its index of a given event for the timePlot and for this element
+	 * @param element
+	 * @param timeplot
+	 * @param event
+	 * @param moment
+	 * @return
+	 */
 	float getAmount (Object element, Object timeplot, Object event, int moment); // the amount before of the event for the timePlot
 }

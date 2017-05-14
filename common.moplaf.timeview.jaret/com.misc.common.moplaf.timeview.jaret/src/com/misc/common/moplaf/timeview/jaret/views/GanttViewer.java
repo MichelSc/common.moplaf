@@ -339,9 +339,11 @@ public class GanttViewer extends GanttViewerAbstract {
 	// ******************************
 	public class GanttViewerInterval extends IntervalImpl {
 		private Object modelObject;
+		private GanttViewerRow row;
 		
-		public GanttViewerInterval(Object modelObject){
+		public GanttViewerInterval(GanttViewerRow row, Object modelObject){
 			this.modelObject = modelObject;
+			this.row = row;
 		}
 		
 		public Object getModelObject(){
@@ -364,11 +366,13 @@ public class GanttViewer extends GanttViewerAbstract {
 		}
 		
 		public Date getStartToBe(){
-			Date startToBe = GanttViewer.this.getIIntervalEventProvider().getIntervalEventStart(this.modelObject);
+			Object eventsObject = row.getModelObject();
+			Date startToBe = GanttViewer.this.getIIntervalEventProvider().getIntervalEventStart(eventsObject, this.modelObject);
 			return startToBe;
 		}
 		public Date getEndToBe(){
-			Date endToBe = GanttViewer.this.getIIntervalEventProvider().getIntervalEventEnd(this.modelObject);
+			Object eventsObject = row.getModelObject();
+			Date endToBe = GanttViewer.this.getIIntervalEventProvider().getIntervalEventEnd(eventsObject, this.modelObject);
 			return endToBe;
 		}
 	}
@@ -378,8 +382,8 @@ public class GanttViewer extends GanttViewerAbstract {
         return tbr;
     }
     
-    public GanttViewerInterval createInterval(Object modelObject){
-        GanttViewerInterval  interval = new GanttViewerInterval(modelObject);
+    public GanttViewerInterval createInterval(GanttViewerRow row, Object modelObject){
+        GanttViewerInterval  interval = new GanttViewerInterval(row, modelObject);
         return interval;
     }
     
@@ -569,7 +573,7 @@ public class GanttViewer extends GanttViewerAbstract {
 				GanttViewerInterval ganttInterval = childIntervalsAsIs.get(childModelElement);
 				if ( ganttInterval == null){
 					// create the interval
-					ganttInterval = this.createInterval(childModelElement);
+					ganttInterval = this.createInterval(row, childModelElement);
 					if ( this.refreshNodeInterval(ganttInterval) ) {
 						// interval is valid: so add it
 						row.addInterval(ganttInterval);

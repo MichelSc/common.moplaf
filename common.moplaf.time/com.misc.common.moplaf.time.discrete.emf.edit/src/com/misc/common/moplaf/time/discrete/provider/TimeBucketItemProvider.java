@@ -15,7 +15,6 @@ package com.misc.common.moplaf.time.discrete.provider;
 
 import com.misc.common.moplaf.time.discrete.TimeDiscretePackage;
 import com.misc.common.moplaf.time.discrete.TimeBucket;
-import com.misc.common.moplaf.timeview.emf.edit.IItemIntervalEventProvider;
 
 import java.util.Collection;
 import java.util.Date;
@@ -38,14 +37,13 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.time.discrete.TimeBucket} object.
  * <!-- begin-user-doc -->
- * @implements IItemIntervalEventProvider
  * <!-- end-user-doc -->
  * @generated
  */
 public class TimeBucketItemProvider
 	extends ItemProviderAdapter
 	implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, IItemIntervalEventProvider {
+		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -56,20 +54,6 @@ public class TimeBucketItemProvider
 		super(adapterFactory);
 	}
 	
-	
-
-	/* (non-Javadoc)
-	 * @see org.eclipse.emf.edit.provider.ItemProviderAdapter#isAdapterForType(java.lang.Object)
-	 */
-	@Override
-	public boolean isAdapterForType(Object type) {
-		if ( super.isAdapterForType(type) ){ return true; }
-		if ( type == IItemIntervalEventProvider.class) { return true; }
-		return false;
-	}
-
-
-
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
@@ -369,20 +353,5 @@ public class TimeBucketItemProvider
 	public ResourceLocator getResourceLocator() {
 		return TimeDiscreteEditPlugin.INSTANCE;
 	}
-
-	@Override
-	public Date getIntervalEventStart(Object element) {
-		TimeBucket bucket = (TimeBucket)element;
-		Date end = bucket.getBucketStart();
-		return end;
-	}
-
-	@Override
-	public Date getIntervalEventEnd(Object element) {
-		TimeBucket bucket = (TimeBucket)element;
-		Date end = bucket.getBucketEnd();
-		return end;
-	}
-
 
 }

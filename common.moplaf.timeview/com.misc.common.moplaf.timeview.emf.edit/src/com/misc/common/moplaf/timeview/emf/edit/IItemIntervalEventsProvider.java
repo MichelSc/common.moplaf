@@ -11,6 +11,7 @@
 package com.misc.common.moplaf.timeview.emf.edit;
 
 import java.util.Collection;
+import java.util.Date;
 
 /**
  * <p>
@@ -41,5 +42,7 @@ import java.util.Collection;
  */
 
 public interface IItemIntervalEventsProvider {
-	Collection<?> getIntervalEvents(Object element);
+	Collection<?> getIntervalEvents(Object events_provider);
+	Date getIntervalEventStart(Object events_provider, Object event);
+	Date getIntervalEventEnd  (Object events_provider, Object event);
 }

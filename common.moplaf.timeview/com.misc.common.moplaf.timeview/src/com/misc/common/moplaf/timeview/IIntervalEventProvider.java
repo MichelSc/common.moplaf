@@ -13,10 +13,10 @@ package com.misc.common.moplaf.timeview;
 import java.util.Date;
 
 public interface IIntervalEventProvider {
-	// event properties
-	Date getIntervalEventStart(Object element);
-	Date getIntervalEventEnd(Object element);
 	// collection of events
-	boolean isIntervalEvents(Object element);
-	Object[] getIntervalEvents(Object element);
+	boolean isIntervalEvents(Object provider);
+	Object[] getIntervalEvents(Object provider);
+	// event properties
+	Date getIntervalEventStart(Object provider, Object event);
+	Date getIntervalEventEnd(Object provider, Object event);
 }

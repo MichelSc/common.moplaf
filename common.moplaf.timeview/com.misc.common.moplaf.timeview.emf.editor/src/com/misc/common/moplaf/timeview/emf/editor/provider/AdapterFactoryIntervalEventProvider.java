@@ -10,49 +10,29 @@
  *******************************************************************************/
 package com.misc.common.moplaf.timeview.emf.editor.provider;
 
-import java.util.Collection;
+
 import java.util.Date;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 
 import com.misc.common.moplaf.timeview.IIntervalEventProvider;
-import com.misc.common.moplaf.timeview.emf.edit.IItemIntervalEventProvider;
 import com.misc.common.moplaf.timeview.emf.edit.IItemIntervalEventsProvider;
 
 public class AdapterFactoryIntervalEventProvider implements
 		IIntervalEventProvider {
 	private AdapterFactory adapterFactory;
 	
-	// cached event
-	private Object lastElement = null;
-	private Date lastElementEventStart = null;
-	private Date lastElementEventEnd = null;
-//	private IItemIntervalEventProvider lastElementItemIntervalEventProvider = null;
-	
 	// cached events
 	private Object   lastEventsElement = null;
-	private Collection<?> lastEventsElementEvents;
+	private IItemIntervalEventsProvider lastEventsElementProvider = null;
 	private boolean  lastEventsIsEvents = false;
-	
-	private void getIntervalEventItemProvider(Object element){
-		if ( element == this.lastElement ) { return ; }
-		IItemIntervalEventProvider intervalEventItemProvider = (IItemIntervalEventProvider) this.adapterFactory.adapt(element, IItemIntervalEventProvider.class);
-		this.lastElement = element;
-		this.lastElementEventStart = intervalEventItemProvider.getIntervalEventStart(element);
-		this.lastElementEventEnd   = intervalEventItemProvider.getIntervalEventEnd(element);
-	}
 	
 	private void getIntervalEventsItemProvider(Object element){
 		if ( element == this.lastEventsElement ) { return ; }
 		IItemIntervalEventsProvider intervalEventsItemProvider = (IItemIntervalEventsProvider) this.adapterFactory.adapt(element, IItemIntervalEventsProvider.class);
 		this.lastEventsElement = element;
-		if ( intervalEventsItemProvider==null ){
-			this.lastEventsIsEvents = false;
-			this.lastEventsElementEvents = null;
-			return;
-		}
-		this.lastEventsIsEvents = true;
-		this.lastEventsElementEvents = intervalEventsItemProvider.getIntervalEvents(element);
+		this.lastEventsElementProvider = intervalEventsItemProvider;
+		this.lastEventsIsEvents =  intervalEventsItemProvider!=null;
 		return;
 	}
 	
@@ -63,21 +43,20 @@ public class AdapterFactoryIntervalEventProvider implements
 	
 	// dispose
 	public void dispose(){
-		this.lastElement = null;
 		this.lastEventsElement = null;
-		this.lastEventsElementEvents = null;
+		this.lastEventsElementProvider = null;
 	}
 
 	@Override
-	public Date getIntervalEventStart(Object element) {
-		this.getIntervalEventItemProvider(element);
-		return this.lastElementEventStart;
+	public Date getIntervalEventStart(Object events_provider, Object event) {
+		this.getIntervalEventsItemProvider(events_provider);
+		return this.lastEventsElementProvider.getIntervalEventStart(events_provider, event);
 	}
 
 	@Override
-	public Date getIntervalEventEnd(Object element) {
-		this.getIntervalEventItemProvider(element);
-		return this.lastElementEventEnd;
+	public Date getIntervalEventEnd(Object events_provider, Object event) {
+		this.getIntervalEventsItemProvider(events_provider);
+		return this.lastEventsElementProvider.getIntervalEventEnd(events_provider, event);
 	}
 
 	@Override
@@ -85,10 +64,11 @@ public class AdapterFactoryIntervalEventProvider implements
 		this.getIntervalEventsItemProvider(element);
 		return this.lastEventsIsEvents;
 	}
+	
 	@Override
 	public Object[] getIntervalEvents(Object element) {
 		this.getIntervalEventsItemProvider(element);
-		return this.lastEventsElementEvents.toArray();
+		return this.lastEventsElementProvider.getIntervalEvents(element).toArray();
 	}
 
 }

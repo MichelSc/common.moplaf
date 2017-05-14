@@ -15,12 +15,14 @@ package com.misc.common.moplaf.time.discrete.provider;
 
 
 import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
+import com.misc.common.moplaf.time.discrete.TimeBucket;
 import com.misc.common.moplaf.time.discrete.TimeDiscreteFactory;
 import com.misc.common.moplaf.time.discrete.TimeDiscretePackage;
 import com.misc.common.moplaf.time.discrete.TimeLine;
 import com.misc.common.moplaf.timeview.emf.edit.IItemIntervalEventsProvider;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import org.eclipse.emf.common.command.Command;
@@ -468,5 +470,25 @@ public class TimeLineItemProvider
 	public Collection<?> getIntervalEvents(Object element) {
 		TimeLine timeLine = (TimeLine)element;
 		return timeLine.getBuckets();
+	}
+
+	/**
+	 * Specified by IItemIntervalEventsProvider.getIntervalEvents
+	 */
+	@Override
+	public Date getIntervalEventStart(Object events_provider, Object element) {
+		TimeBucket bucket = (TimeBucket)element;
+		Date end = bucket.getBucketStart();
+		return end;
+	}
+
+	/**
+	 * Specified by IItemIntervalEventsProvider.getIntervalEvents
+	 */
+	@Override
+	public Date getIntervalEventEnd(Object events_provider, Object element) {
+		TimeBucket bucket = (TimeBucket)element;
+		Date end = bucket.getBucketEnd();
+		return end;
 	}
 }

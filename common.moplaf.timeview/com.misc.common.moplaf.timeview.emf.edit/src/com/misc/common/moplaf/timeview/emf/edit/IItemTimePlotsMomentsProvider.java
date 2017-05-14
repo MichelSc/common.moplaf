@@ -13,8 +13,29 @@ package com.misc.common.moplaf.timeview.emf.edit;
 import java.util.Date;
 
 public interface IItemTimePlotsMomentsProvider extends IItemTimePlotsProvider {
-	// event properties
-	int   getMoments(Object element, Object timeplot); // the number of moment for an event
+	/**
+	 * Return the number of moments of a given TimePlot object of a given element
+	 * @param element
+	 * @param timeplot
+	 * @return
+	 */
+	int   getMoments(Object element, Object timeplot); 
+	
+	/** 
+	 * Return the moment time of an event (identified by its index) of a given TimePlot of a given element
+	 * @param element
+	 * @param timeplot
+	 * @param moment
+	 * @return
+	 */
 	Date  getMoment (Object element, Object timeplot, int moment); // the date of the event for the timePlot and for this element
+	
+	/**
+	 * Return the amount value of an event (identified by its index) of a given TimePlot of a given element
+	 * @param element
+	 * @param timeplot
+	 * @param moment
+	 * @return
+	 */
 	float getAmount (Object element, Object timeplot, int moment); // the amount before of the event for the timePlot
 }
