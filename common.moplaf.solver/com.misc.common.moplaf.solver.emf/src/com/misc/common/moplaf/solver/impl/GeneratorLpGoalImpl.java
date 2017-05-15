@@ -277,7 +277,7 @@ public class GeneratorLpGoalImpl extends GeneratorGoalImpl implements GeneratorL
 	 * <!-- end-user-doc -->
 	 */
 	public GeneratorLpTerm constructTerm(GeneratorLpVar var, float coef) {
-		return Util.constructTerm(this,  var, coef);
+		return Util.constructTerm(this, var, coef);
 		}
 
 	/**
