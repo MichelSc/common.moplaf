@@ -1371,7 +1371,13 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 */
 	@Override
 	public EnabledFeedback getRunFeedback() {
-		if (this.isInitializing()) {
+		if ( this.isFinished()){
+			return new EnabledFeedback(false, "finished");
+		} else if ( this.isFinalizing()){
+			return new EnabledFeedback(false, "finalizing");
+		} else if ( this.isSolving()){
+			return new EnabledFeedback(false, "solving");
+		} else if (this.isInitializing()) {
 			return new EnabledFeedback(false, "initializing");
 		}
 		return EnabledFeedback.NOFEEDBACK;
