@@ -182,6 +182,7 @@ public class Util {
 	 * @return
 	 */
 	public static ObjectTimeBucket getBucket(ObjectWithTimeLine theTimeLine, TimeBucket bucket, ObjectTimeBucket hint){
+		if ( bucket == null ) { return null; }
 		// try to achieve constant time perfs if the target bucket is close 
 		//    to the first bucket 
 		//    or to the last bucket

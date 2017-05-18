@@ -344,6 +344,9 @@ public interface TimeBucket extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Return the bucket that many seconds later seconds than this bucket.
+	 * Sooner for a negative number of seconds.
+	 * Return null if goes beyond the horizon.
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
