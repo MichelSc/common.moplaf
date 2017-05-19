@@ -13,6 +13,8 @@
 package com.misc.common.moplaf.solver.provider;
 
 
+import com.misc.common.moplaf.solver.SolutionElement;
+import com.misc.common.moplaf.solver.SolverPackage;
 import java.util.Collection;
 import java.util.List;
 
@@ -28,6 +30,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.solver.SolutionElement} object.
@@ -101,6 +104,12 @@ public class SolutionElementItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(SolutionElement.class)) {
+			case SolverPackage.SOLUTION_ELEMENT__SOLUTION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

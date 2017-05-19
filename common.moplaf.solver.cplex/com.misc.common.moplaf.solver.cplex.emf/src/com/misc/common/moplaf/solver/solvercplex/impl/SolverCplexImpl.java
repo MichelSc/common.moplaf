@@ -305,6 +305,9 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		if ( generator == null) { return; }
 		try {
 			this.lp = new IloCplex();
+			
+			Plugin.INSTANCE.logInfo("SolverCplex: instantiated, version "+ this.lp.getVersion());
+			
 			this.vars = new HashMap<GeneratorLpVar, IloNumVar>();
 			this.cons = new HashMap<GeneratorElement, IloRange>();
 			this.objective = this.lp.linearNumExpr();
