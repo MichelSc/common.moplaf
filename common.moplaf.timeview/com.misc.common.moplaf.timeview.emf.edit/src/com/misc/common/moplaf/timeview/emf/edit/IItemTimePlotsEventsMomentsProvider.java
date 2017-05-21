@@ -29,7 +29,7 @@ public interface IItemTimePlotsEventsMomentsProvider extends IItemTimePlotsProvi
 	 * @param event
 	 * @return
 	 */
-	int   getMoments(Object element, Object timeplot, Object event); // the number of moment for an event
+	int getMoments(Object element, Object timeplot, Object event); // the number of moment for an event
 	
 	/**
 	 * Return the moment time of a given moment (identified by its index of a given event for the timePlot and for this element
@@ -39,7 +39,7 @@ public interface IItemTimePlotsEventsMomentsProvider extends IItemTimePlotsProvi
 	 * @param moment
 	 * @return
 	 */
-	Date  getMoment (Object element, Object timeplot, Object event, int moment); // the date of the event for the timePlot and for this element
+	Date getMoment (Object element, Object timeplot, Object event, int moment); // the date of the event for the timePlot and for this element
 	
 	/**
 	 * Return the amount value of a given moment (identified by its index of a given event for the timePlot and for this element

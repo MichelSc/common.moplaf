@@ -19,7 +19,7 @@ import com.misc.common.moplaf.time.discrete.TimeBucket;
 import com.misc.common.moplaf.time.discrete.TimeDiscreteFactory;
 import com.misc.common.moplaf.time.discrete.TimeDiscretePackage;
 import com.misc.common.moplaf.time.discrete.TimeLine;
-import com.misc.common.moplaf.timeview.emf.edit.IItemIntervalEventsProvider;
+import com.misc.common.moplaf.timeview.emf.edit.IItemTimeLinesEventsProvider;
 
 import java.util.Collection;
 import java.util.Date;
@@ -46,14 +46,14 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.time.discrete.TimeLine} object.
  * <!-- begin-user-doc -->
- * @implements IItemIntervalEventsProvider
+ * @implements IItemTimeLinesEventsProvider
  * <!-- end-user-doc -->
  * @generated
  */
 public class TimeLineItemProvider
 	extends ItemProviderAdapter
 	implements
-		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, IItemIntervalEventsProvider {
+		IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource, IItemTimeLinesEventsProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -64,18 +64,6 @@ public class TimeLineItemProvider
 		super(adapterFactory);
 	}
 	
-	/* (non-Javadoc)
-	 * @see org.eclipse.emf.edit.provider.ItemProviderAdapter#isAdapterForType(java.lang.Object)
-	 */
-	@Override
-	public boolean isAdapterForType(Object type) {
-		if ( super.isAdapterForType(type) ){ return true; }
-		if ( type == IItemIntervalEventsProvider.class) { return true; }
-		return false;
-	}
-
-
-
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
@@ -464,31 +452,52 @@ public class TimeLineItemProvider
 	} //method createCommand
 
 	/**
-	 * Specified by IItemIntervalEventsProvider.getIntervalEvents
+	 * Specified by IItemTimeLinesEventsProvider
 	 */
+
 	@Override
-	public Collection<?> getIntervalEvents(Object element) {
+	public Collection<?> getTimeLines(Object element) {
+		return null;
+	}
+
+	@Override
+	public String getText(Object element, Object timeline) {
+		return this.getText(element);
+	}
+
+	@Override
+	public Collection<?> getEvents(Object element, Object timeline) {
 		TimeLine timeLine = (TimeLine)element;
 		return timeLine.getBuckets();
 	}
 
-	/**
-	 * Specified by IItemIntervalEventsProvider.getIntervalEvents
-	 */
 	@Override
-	public Date getIntervalEventStart(Object events_provider, Object element) {
-		TimeBucket bucket = (TimeBucket)element;
-		Date end = bucket.getBucketStart();
+	public Date getStart(Object element, Object timeline, Object event) {
+		TimeBucket bucket = (TimeBucket)event;
+		Date start = bucket.getBucketStart();
+		return start;
+	}
+
+	@Override
+	public Date getEnd(Object element, Object timeline, Object event) {
+		TimeBucket bucket = (TimeBucket)event;
+		Date end = bucket.getBucketEnd();
 		return end;
 	}
 
-	/**
-	 * Specified by IItemIntervalEventsProvider.getIntervalEvents
-	 */
 	@Override
-	public Date getIntervalEventEnd(Object events_provider, Object element) {
-		TimeBucket bucket = (TimeBucket)element;
-		Date end = bucket.getBucketEnd();
-		return end;
+	public Object getForeground(Object element, Object timeline, Object event) {
+		return null;
+	}
+
+	@Override
+	public Object getBackground(Object element, Object timeline, Object event) {
+		return null;
+	}
+
+	@Override
+	public String getText(Object element, Object timeline, Object event) {
+		TimeBucket bucket = (TimeBucket)event;
+		return bucket.getDescription();
 	}
 }

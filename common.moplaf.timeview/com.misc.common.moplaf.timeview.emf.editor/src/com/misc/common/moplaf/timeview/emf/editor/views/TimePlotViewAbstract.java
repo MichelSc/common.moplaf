@@ -45,8 +45,9 @@ public abstract class TimePlotViewAbstract extends ViewPart {
 	class SiteSelectionListener implements ISelectionListener {
 		@Override
 		public void selectionChanged(IWorkbenchPart part, ISelection selection) {
+			TimePlotViewerAbstract viewer = TimePlotViewAbstract.this.viewer;
 			
-			if (  TimePlotViewAbstract.this.viewer != null && part!= TimePlotViewAbstract.this) {
+			if (  viewer != null && part!= TimePlotViewAbstract.this) {
 				if (  !selection.isEmpty() 
 				  && selection instanceof IStructuredSelection) {
 					IStructuredSelection structuredSelection = (IStructuredSelection)selection;

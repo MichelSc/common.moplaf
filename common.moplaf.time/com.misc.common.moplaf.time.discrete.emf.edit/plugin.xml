@@ -16,8 +16,7 @@
                org.eclipse.emf.edit.provider.ITreeItemContentProvider
                org.eclipse.emf.edit.provider.IItemLabelProvider
                org.eclipse.emf.edit.provider.IItemPropertySource
-               com.misc.common.moplaf.timeview.impl.IItemIntervalEventsProvider"
-              />
+               com.misc.common.moplaf.timeview.emf.edit.IItemTimeLinesProvider "/>
    </extension>
 
 </plugin>

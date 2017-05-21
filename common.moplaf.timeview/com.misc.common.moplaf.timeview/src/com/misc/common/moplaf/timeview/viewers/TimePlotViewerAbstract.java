@@ -78,7 +78,7 @@ public abstract class TimePlotViewerAbstract extends ContentViewer {
 		return (ILabelProvider)this.getLabelProvider();
 	}
 	
-	protected IAmountEventProvider getIAmountEventProvider(){
+	public IAmountEventProvider getIAmountEventProvider(){
 		return this.amountEventProvider;
 	}
 	

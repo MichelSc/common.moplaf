@@ -49,19 +49,39 @@ public class AdapterFactoryAmountEventProvider implements
 
 	// dispose
 	public void dispose(){
+		this.adapterFactory = null;
 	}
 	
 	/**
-	 * 
-	 * @author michel
-	 *
+	 * Return a collection of object extending the private class  {@link TimePlotProvider}, and implementing 
+	 * the interfaces {@link EventProvider}, {@link IItemLabelProvider}, and {@link IItemColorProvider}
+	 * <p>
 	 */
-	private abstract interface EventProvider {
-		public Date  getEventMoment(Object event);
-		public float getEventAmount(Object event);
+	public Object[]  getInputs(Object[] childrenModelElement){
+		LinkedList<Object> inputs = new LinkedList<Object>();
+		for ( Object childElement : childrenModelElement){
+			IItemTimePlotsProvider timePlotsProvider = (IItemTimePlotsProvider) this.adapterFactory.adapt(childElement, IItemTimePlotsProvider.class);
+			if ( timePlotsProvider != null ){
+				Collection<?> timePlots = timePlotsProvider.getTimePlots(childElement);
+				if ( timePlots==null ){
+					TimePlotProvider provider = this.createTimePlotProvider(childElement, null, timePlotsProvider);
+					inputs.add(provider);
+				} else {
+					for ( Object timePlot : timePlots){
+						TimePlotProvider provider = this.createTimePlotProvider(childElement, timePlot, timePlotsProvider);
+						inputs.add(provider);
+					}
+				}
+			} 
+		} // traverse the children
+		
+		Object[] returnArray = inputs.toArray();
+		return returnArray;
 	}
 	
-	private TimePlotProvider createTimePlotProvider(Object nativeObject, Object timePlotKey, IItemTimePlotsProvider provider){
+
+	
+	public static TimePlotProvider createTimePlotProvider(Object nativeObject, Object timePlotKey, IItemTimePlotsProvider provider){
 		if ( provider instanceof IItemTimePlotsEventsProvider){
 			return new TimePlotEventsProvider(nativeObject,timePlotKey,(IItemTimePlotsEventsProvider)provider);
 		}
@@ -80,11 +100,10 @@ public class AdapterFactoryAmountEventProvider implements
 	 * @author michel
 	 *
 	 */
-	private abstract class TimePlotProvider implements EventProvider, IItemLabelProvider, IItemColorProvider {
+	private static abstract class TimePlotProvider implements IItemLabelProvider, IItemColorProvider {
 		protected IItemTimePlotsProvider timePlotsProvider;
 		protected Object element;
 		protected Object timePlot;
-		public abstract Object[] getAmountEvents();
 		
 		/**
 		 * 
@@ -99,6 +118,12 @@ public class AdapterFactoryAmountEventProvider implements
 			this.timePlotsProvider = timePlotsProvider;
 		}
 
+		/**
+		 * 
+		 * @return
+		 */
+		public abstract Object[] getAmountEvents();
+		
 		@Override
 		public String getText(Object object) {
 			return this.timePlotsProvider.getText(this.element, this.timePlot);
@@ -118,9 +143,12 @@ public class AdapterFactoryAmountEventProvider implements
 			return this.timePlotsProvider.getForeground(this.element, this.timePlot);
 		}
 
+		public abstract Date getEventMoment(Object event);
+
+		public abstract float getEventAmount(Object event);
 	};
 	
-	private class TimePlotEventsProvider extends TimePlotProvider {
+	private static class TimePlotEventsProvider extends TimePlotProvider {
 		private IItemTimePlotsEventsProvider timePlotsEventsProvider;
 
 		/**
@@ -154,7 +182,7 @@ public class AdapterFactoryAmountEventProvider implements
 		 * @param nativeObject
 		 * @param timePlot
 		 */
-	private class TimePlotMomentsProvider extends TimePlotProvider {
+	private static class TimePlotMomentsProvider extends TimePlotProvider {
 		protected IItemTimePlotsMomentsProvider timePlotsMomentsProvider;
 
 		TimePlotMomentsProvider(Object nativeObject, Object timePlotKey, IItemTimePlotsMomentsProvider timePlotsProvider) {
@@ -186,7 +214,7 @@ public class AdapterFactoryAmountEventProvider implements
 		}
 	}
 	
-	private class TimePlotEventsMomentsProvider extends TimePlotProvider {
+	private static class TimePlotEventsMomentsProvider extends TimePlotProvider {
 		private IItemTimePlotsEventsMomentsProvider timePlotsEventsMomentsProvider;
 		
 		private class EventMoment {
@@ -236,28 +264,6 @@ public class AdapterFactoryAmountEventProvider implements
 			float amount = this.timePlotsEventsMomentsProvider.getAmount(this.element, this.timePlot, eventMoment.event, eventMoment.moment);
 			return amount;
 		}
-	}
-	
-	/**
-	 * Return a collection of object extending the private class  {@link TimePlotProvider}, and implementing 
-	 * the interfaces {@link EventProvider}, {@link IItemLabelProvider}, and {@link IItemColorProvider}
-	 * <p>
-	 */
-	public Object[]  getInputs(Object[] childrenModelElement){
-		LinkedList<Object> inputs = new LinkedList<Object>();
-		for ( Object childElement : childrenModelElement){
-			IItemTimePlotsProvider timePlotsProvider = (IItemTimePlotsProvider) this.adapterFactory.adapt(childElement, IItemTimePlotsProvider.class);
-			if ( timePlotsProvider != null ){
-				Collection<?> timePlots = timePlotsProvider.getTimePlots(childElement);
-				for ( Object timePlot : timePlots){
-					TimePlotProvider provider = this.createTimePlotProvider(childElement, timePlot, timePlotsProvider);
-					inputs.add(provider);
-				}
-			} 
-		} // traverse the children
-		
-		Object[] returnArray = inputs.toArray();
-		return returnArray;
 	}
 	
 	/**

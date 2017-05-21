@@ -29,7 +29,7 @@ public interface IItemTimePlotsEventsProvider extends IItemTimePlotsProvider {
 	 * @param event
 	 * @return
 	 */
-	Date  getMoment (Object element, Object timeplot, Object event); //
+	Date getMoment(Object element, Object timeplot, Object event); //
 	/**
 	 * Return the amount of the event for the timePlot
 	 * @param element
@@ -37,5 +37,5 @@ public interface IItemTimePlotsEventsProvider extends IItemTimePlotsProvider {
 	 * @param event
 	 * @return
 	 */
-	float getAmount (Object element, Object timeplot, Object event); 
+	float getAmount(Object element, Object timeplot, Object event); 
 }
