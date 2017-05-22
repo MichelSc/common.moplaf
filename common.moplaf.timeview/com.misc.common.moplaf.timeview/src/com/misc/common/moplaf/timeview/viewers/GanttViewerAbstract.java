@@ -24,6 +24,24 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import com.misc.common.moplaf.timeview.IIntervalEventProvider;
 
 
+/**
+ * A GanttViewer displays a collection of time related object into a Gantt chart.
+ * <p>
+ * The viewer is instantiated in the createViewer(Composite parent) method of the GanttView object, 
+ * called from the void createPartControl(Composite parent) method. It will then take care of 
+ * the display in the parent Composite.
+ * <p>
+ * The viewer receives its content from an input Object and from a ITreeContentProvider, 
+ * providing methods getChildren, getParent, getElements.
+ * <p>
+ * The viewer get text and color associated to object via a IColorProvider and an ILabelProvider.
+ * <p>
+ * Finally, the viewer receives time related informations from a IIntervalEventProvider. This latter recognizes
+ * object providing Interval events and makes the start and end time of Interval events available.  
+ * <p>
+ * @author MiSc
+ *
+ */
 public abstract class GanttViewerAbstract extends ContentViewer {
 
 	private Object                 selectedElement = null;

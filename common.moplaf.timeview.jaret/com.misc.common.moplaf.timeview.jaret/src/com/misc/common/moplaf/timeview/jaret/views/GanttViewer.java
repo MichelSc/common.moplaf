@@ -302,25 +302,27 @@ public class GanttViewer extends GanttViewerAbstract {
 	// map to jaret Row
 	// ******************************
 	public class GanttViewerRow extends DefaultTimeBarNode {
+		private Object modelObject;
+		private boolean withEvents = true;
 		
+		public GanttViewerRow (Object modelObject, boolean withEvents){
+			super(new DefaultRowHeader("new row"));
+			this.modelObject = modelObject;
+			this.withEvents = withEvents;
+		}
+
 		@Override
 		public JaretDate getMaxDate() {
 			// TODO Auto-generated method stub
 			return super.getMaxDate();
 		}
+
 		@Override
 		public JaretDate getMinDate() {
 			// TODO Auto-generated method stub
 			return super.getMinDate();
 		}
 
-		private Object modelObject;
-		private boolean withEvents = true;
-		public GanttViewerRow (Object modelObject, boolean withEvents){
-			super(new DefaultRowHeader("new row"));
-			this.modelObject = modelObject;
-			this.withEvents = withEvents;
-		}
 		public DefaultRowHeader getGanttRowHeader(){
 			return (DefaultRowHeader)this.getRowHeader();
 		}
@@ -445,7 +447,7 @@ public class GanttViewer extends GanttViewerAbstract {
 		this.timeBarViewer.redraw();
 	}
 	
-	public void refreshNodeLabel(GanttViewerRow row){
+	private void refreshNodeLabel(GanttViewerRow row){
 		String labelToBe = row.getTextToBe();
 		String labelAsIs = row.getGanttRowHeader().getLabel();
 		if ( !labelToBe.equals(labelAsIs)){
@@ -453,7 +455,7 @@ public class GanttViewer extends GanttViewerAbstract {
 		}
 	}
 	
-	public boolean refreshNodeInterval(GanttViewerInterval interval){
+	private boolean refreshNodeInterval(GanttViewerInterval interval){
 		boolean valid = true;
 		// begin
 		Date      startToBe = interval.getStartToBe();
@@ -520,7 +522,7 @@ public class GanttViewer extends GanttViewerAbstract {
 		for (Object childModelElement : childrenModelElement) {
 			if ( modelElement.getClass().isArray() || this.getTreeContentProvider().getParent(childModelElement)==modelElement){
 				// the parent of child is modelElement, this is an actual child
-				// this restriction avoid recursion
+				// this restriction avoids recursion
 				if( this.getIIntervalEventProvider().isIntervalEvents(childModelElement) ) {
 					// the model element is a row
 					GanttViewerRow ganttChildRow = ganttChildRowsAsIs.get(childModelElement);

@@ -65,7 +65,5 @@ public class AdapterFactoryArrayContentProvider extends AdapterFactoryContentPro
 	public Object getParent(Object object) {
 		return super.getParent(object);
 	}
-	
-	
 
 }

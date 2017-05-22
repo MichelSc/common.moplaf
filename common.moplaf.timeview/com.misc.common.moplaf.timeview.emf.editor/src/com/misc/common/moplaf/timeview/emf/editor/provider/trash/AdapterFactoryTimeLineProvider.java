@@ -8,7 +8,7 @@
  * Contributors:
  *     Michel Schaffers - initial API and implementation
  *******************************************************************************/
-package com.misc.common.moplaf.timeview.emf.editor.provider;
+package com.misc.common.moplaf.timeview.emf.editor.provider.trash;
 
 
 
