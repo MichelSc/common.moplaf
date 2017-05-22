@@ -14,7 +14,6 @@ import org.eclipse.ui.part.ViewPart;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.ui.part.*;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.jface.viewers.*;
@@ -22,9 +21,7 @@ import org.eclipse.jface.action.*;
 import org.eclipse.ui.*;
 import org.eclipse.swt.widgets.Menu;
 
-import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayContentProvider;
 import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayLabelProvider;
-import com.misc.common.moplaf.timeview.emf.editor.provider.AdapterFactoryAmountEventProvider;
 import com.misc.common.moplaf.timeview.emf.editor.provider.AdapterFactoryIntervalEventProvider;
 import com.misc.common.moplaf.timeview.viewers.GanttViewerAbstract;
 
@@ -42,7 +39,7 @@ public abstract class GanttViewAbstract extends ViewPart {
 	//private Action doubleClickAction;
 	private ISelectionListener selectionListener;
 	private ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
-	private AdapterFactoryIntervalEventProvider intervalEventProvider;
+//	private AdapterFactoryIntervalEventProvider intervalEventProvider;
 
 	/**
 	 * Implement the interface ISelectionListener
@@ -57,8 +54,7 @@ public abstract class GanttViewAbstract extends ViewPart {
 				if (  !selection.isEmpty() 
 				  && selection instanceof IStructuredSelection) {
 					IStructuredSelection structuredSelection = (IStructuredSelection)selection;
-					Object[] inputs = GanttViewAbstract.this.intervalEventProvider.getInputs(structuredSelection.toArray());
-					GanttViewAbstract.this.viewer.setInput(inputs);
+					GanttViewAbstract.this.viewer.setInput(structuredSelection.toArray());
 				} // there is a selection
 			} // there is a viewer
 		}
@@ -81,12 +77,13 @@ public abstract class GanttViewAbstract extends ViewPart {
 	 */
 	public void createPartControl(Composite parent) {
         //GridData gd = new GridData(GridData.FILL_BOTH);
-		this.intervalEventProvider = new AdapterFactoryIntervalEventProvider(this.adapterFactory);
+		AdapterFactoryIntervalEventProvider contentProvider = new AdapterFactoryIntervalEventProvider(this.adapterFactory);
+		//this.intervalEventProvider = new AdapterFactoryIntervalEventProvider(this.adapterFactory);
         this.viewer = this.createViewer(parent);
-        this.viewer.setContentProvider      (new AdapterFactoryArrayContentProvider (this.adapterFactory));
+		this.viewer.setIntervalEventProvider(contentProvider);
+        this.viewer.setContentProvider      (contentProvider);
 		this.viewer.setLabelProvider        (new AdapterFactoryArrayLabelProvider   (this.adapterFactory));
 		this.viewer.setColorProvider        (new AdapterFactoryArrayLabelProvider   (this.adapterFactory));
-		this.viewer.setIntervalEventProvider(this.intervalEventProvider);
 
         //viewer.setLayoutData(gd);
 		//PlatformUI.getWorkbench().getHelpSystem().setHelp(viewer.getControl(), "com.misc.common.moplaf.timeview.jaret.viewer");

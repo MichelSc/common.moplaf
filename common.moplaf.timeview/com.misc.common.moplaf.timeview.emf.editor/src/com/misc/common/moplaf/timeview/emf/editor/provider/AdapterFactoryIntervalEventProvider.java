@@ -21,8 +21,10 @@ import java.util.LinkedList;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.swt.graphics.Image;
 
+import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayContentProvider;
 import com.misc.common.moplaf.timeview.IAmountEventProvider;
 import com.misc.common.moplaf.timeview.IIntervalEventProvider;
 import com.misc.common.moplaf.timeview.emf.edit.IItemTimeLinesEventsIntervalsProvider;
@@ -41,23 +43,46 @@ import com.misc.common.moplaf.timeview.emf.edit.IItemTimeLinesProvider;
  * @author MiSc
  *
  */
-public class AdapterFactoryIntervalEventProvider implements IIntervalEventProvider {
+public class AdapterFactoryIntervalEventProvider extends AdapterFactoryArrayContentProvider implements IIntervalEventProvider {
 
-	private AdapterFactory adapterFactory;
-	
 	/**
 	 * 
 	 * @param adapterFactory
 	 */
 	public AdapterFactoryIntervalEventProvider(AdapterFactory adapterFactory){
-		this.adapterFactory = adapterFactory;
+		super(adapterFactory);
 	}
 
 	/**
 	 * 
 	 */
 	public void dispose(){
-		this.adapterFactory = null;
+		super.dispose();
+	}
+	
+	@Override
+	public Object[] getChildren(Object object) {
+		ArrayList<Object> providers = this.getTimeLineProviders(object);
+		if ( providers==null){
+			return super.getChildren(object);
+		}
+		Object[] children = super.getChildren(object);
+		for ( int i=0; i<children.length; i++){
+			providers.add(children[i]);
+		}
+		return providers.toArray();
+	}
+	
+	
+
+	@Override
+	public Object getParent(Object object) {
+		if ( object instanceof TimeLineProvider){
+			TimeLineProvider provider = (TimeLineProvider) object;
+			return provider.element;
+		}
+			
+		return super.getParent(object);
 	}
 
 	/**
@@ -65,26 +90,26 @@ public class AdapterFactoryIntervalEventProvider implements IIntervalEventProvid
 	 * the interfaces {@link IItemLabelProvider} and specific methods for supporting {@link IIntervalEventProvider}
 	 * <p>
 	 */
-	public Object[]  getInputs(Object[] childrenModelElement){
-		LinkedList<Object> inputs = new LinkedList<Object>();
-		for ( Object childElement : childrenModelElement){
-			IItemTimeLinesProvider timeLinesProvider = (IItemTimeLinesProvider) this.adapterFactory.adapt(childElement, IItemTimeLinesProvider.class);
-			if ( timeLinesProvider != null ){
-				Collection<?> timeLines= timeLinesProvider.getTimeLines(childElement);
-				if ( timeLines == null ) {
-					TimeLineProvider provider = this.createTimeLineProvider(childElement, null, timeLinesProvider);
-					inputs.add(provider);
-				} else {
-					for ( Object timeLine : timeLines){
-						TimeLineProvider provider = this.createTimeLineProvider(childElement, timeLine, timeLinesProvider);
-						inputs.add(provider);
-					}
-				}
-			} 
-		} // traverse the children
+	private ArrayList<Object> getTimeLineProviders(Object element){
+		AdapterFactory adapterFactory = this.getAdapterFactory();
+		IItemTimeLinesProvider timeLinesProvider = (IItemTimeLinesProvider) adapterFactory.adapt(element, IItemTimeLinesProvider.class);
 		
-		Object[] returnArray = inputs.toArray();
-		return returnArray;
+		if ( timeLinesProvider==null ) { return null; }
+		
+		ArrayList<Object> providers = new ArrayList<Object>();
+		Collection<?> timeLines= timeLinesProvider.getTimeLines(element);
+		if ( timeLines == null ) {
+			// the element IS a time line
+			TimeLineProvider provider = this.createTimeLineProvider(element, null, timeLinesProvider);
+			providers.add(provider);
+		} else {
+			// the element HAS time lines
+			for ( Object timeLine : timeLines){
+				TimeLineProvider provider = this.createTimeLineProvider(element, timeLine, timeLinesProvider);
+				providers.add(provider);
+			}
+		}
+		return providers;
 	}
 	
 
@@ -123,9 +148,9 @@ public class AdapterFactoryIntervalEventProvider implements IIntervalEventProvid
 		 * @param timePlotKey
 		 * @param timePlotsProvider
 		 */
-		public TimeLineProvider(Object nativeObject, Object timeline, IItemTimeLinesProvider timeLinesProvider) {
+		public TimeLineProvider(Object element, Object timeline, IItemTimeLinesProvider timeLinesProvider) {
 			super();
-			this.element = nativeObject;
+			this.element = element;
 			this.timeLine = timeline;
 			this.timeLinesProvider = timeLinesProvider;
 		}
