@@ -16,16 +16,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
-import java.util.LinkedList;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.swt.graphics.Image;
 
 import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayContentProvider;
-import com.misc.common.moplaf.timeview.IAmountEventProvider;
 import com.misc.common.moplaf.timeview.IIntervalEventProvider;
 import com.misc.common.moplaf.timeview.emf.edit.IItemTimeLinesEventsIntervalsProvider;
 import com.misc.common.moplaf.timeview.emf.edit.IItemTimeLinesEventsProvider;
@@ -412,7 +409,7 @@ public class AdapterFactoryIntervalEventProvider extends AdapterFactoryArrayCont
 	}
 	
 	/**
-	 * Specified by {@link IAmountEventProvider}
+	 * Specified by {@link IIntervalEventProvider}
 	 * 
 	 */
 	@Override
@@ -424,7 +421,7 @@ public class AdapterFactoryIntervalEventProvider extends AdapterFactoryArrayCont
 	}
 
 	/**
-	 * Specified by {@link IAmountEventProvider}
+	 * Specified by {@link IIntervalEventProvider}
 	 * 
 	 */
 	@Override
@@ -434,7 +431,7 @@ public class AdapterFactoryIntervalEventProvider extends AdapterFactoryArrayCont
 	}
 
 	/**
-	 * Specified by {@link IAmountEventProvider}
+	 * Specified by {@link IIntervalEventProvider}
 	 * 
 	 */
 	@Override
@@ -444,7 +441,7 @@ public class AdapterFactoryIntervalEventProvider extends AdapterFactoryArrayCont
 	}
 
 	/**
-	 * Specified by {@link IAmountEventProvider}
+	 * Specified by {@link IIntervalEventProvider}
 	 * 
 	 */
 	@Override
@@ -452,6 +449,5 @@ public class AdapterFactoryIntervalEventProvider extends AdapterFactoryArrayCont
 		TimeLineProvider timeLine= (TimeLineProvider)element;
 		return timeLine.getEventEnd(event);
 	}
-
 
 }
