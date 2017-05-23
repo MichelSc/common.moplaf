@@ -19,7 +19,6 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.jface.viewers.*;
 import org.eclipse.ui.*;
 
-import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayContentProvider;
 import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayLabelProvider;
 import com.misc.common.moplaf.timeview.emf.editor.provider.AdapterFactoryAmountEventProvider;
 import com.misc.common.moplaf.timeview.viewers.TimePlotViewerAbstract;
@@ -35,7 +34,7 @@ public abstract class TimePlotViewAbstract extends ViewPart {
 	private ISelectionListener selectionListener;
 	private ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
-	private AdapterFactoryAmountEventProvider amountEventProvider;
+//	private AdapterFactoryAmountEventProvider amountEventProvider;
 
 	/**
 	 * Implement the interface ISelectionListener
@@ -51,8 +50,7 @@ public abstract class TimePlotViewAbstract extends ViewPart {
 				if (  !selection.isEmpty() 
 				  && selection instanceof IStructuredSelection) {
 					IStructuredSelection structuredSelection = (IStructuredSelection)selection;
-					Object[] inputs = TimePlotViewAbstract.this.amountEventProvider.getInputs(structuredSelection.toArray());
-					TimePlotViewAbstract.this.viewer.setInput(inputs);
+					TimePlotViewAbstract.this.viewer.setInput(structuredSelection.toArray());
 				} // there is a selection
 			} // there is a viewer
 		}
@@ -74,12 +72,12 @@ public abstract class TimePlotViewAbstract extends ViewPart {
 	 * to create the viewer and initialize it.
 	 */
 	public void createPartControl(Composite parent) {
-		this.amountEventProvider = new AdapterFactoryAmountEventProvider (this.adapterFactory);
+		AdapterFactoryAmountEventProvider amountEventProvider = new AdapterFactoryAmountEventProvider (this.adapterFactory);
         this.viewer = this.createViewer(parent);
-        this.viewer.setContentProvider    (new AdapterFactoryArrayContentProvider(this.adapterFactory));
+		this.viewer.setAmountEventProvider(amountEventProvider);
+        this.viewer.setContentProvider    (amountEventProvider);
 		this.viewer.setLabelProvider      (new AdapterFactoryArrayLabelProvider  (this.adapterFactory));
 		this.viewer.setColorProvider      (new AdapterFactoryArrayLabelProvider  (this.adapterFactory));
-		this.viewer.setAmountEventProvider(this.amountEventProvider);
 
 		// register the selection listener
 		this.selectionListener = new SiteSelectionListener();

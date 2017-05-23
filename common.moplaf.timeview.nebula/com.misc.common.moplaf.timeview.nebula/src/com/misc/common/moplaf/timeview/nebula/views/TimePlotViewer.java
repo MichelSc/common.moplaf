@@ -311,9 +311,12 @@ public class TimePlotViewer extends TimePlotViewerAbstract {
 	public void refresh() {
 		//CommonPlugin.INSTANCE.log("TimePlotViewer: refresh");
 
-		Object[] childrenModelElement = this.getTreeContentProvider().getChildren(this.getInput());
-		
-		ArrayList<Object> children = new ArrayList<Object>(Arrays.asList(childrenModelElement));
+		ArrayList<Object> children = new ArrayList<Object>();
+		Object[] elements = this.getTreeContentProvider().getChildren(this.getInput());
+		for ( Object element : elements){
+			Object[] subelements = this.getTreeContentProvider().getChildren(element);
+			children.addAll(Arrays.asList(subelements));
+		}
 
 		LinkedList<Trace> tracesToRemove = new LinkedList<Trace>();
 

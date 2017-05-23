@@ -26,7 +26,7 @@ import java.util.Collection;
  * in order to get
  * <ul>
  * <li> the timeLines supported by the element </li>
- * <li> the events provided by a timeLine of an element </li>
+ * <li> the events belonging to a timeLine of an element </li>
  * <li> the start and end moments, the text and color of an event of a timeLine of an element </li>
  * </ul>
  * <p>
@@ -47,7 +47,7 @@ import java.util.Collection;
  *   <li>implement the interface methods</li>
  *   <li>override {@link #isAdapterForType(Object)} and return true when the type is SomeInterface (apparently not)</li>
  * </ul> 
- * In the project's ProviderAdapterFactory, you may need to change 
+ * In the project's ProviderAdapterFactory, you must to change 
  * <ul>
  *   <li>the method {@link #isFactoryForType}</li>
  *   <li> add the following lines in the constructors
