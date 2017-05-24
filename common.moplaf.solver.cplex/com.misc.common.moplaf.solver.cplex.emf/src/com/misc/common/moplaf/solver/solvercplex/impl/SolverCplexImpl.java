@@ -60,6 +60,19 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getFilePath <em>File Path</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getFileFormat <em>File Format</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#isFileCompressed <em>File Compressed</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getMipCutsCliques <em>Mip Cuts Cliques</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getMipCutsCovers <em>Mip Cuts Covers</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getMipCutsFlowCovers <em>Mip Cuts Flow Covers</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getMipCutsGomory <em>Mip Cuts Gomory</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getMipCutsGUBCovers <em>Mip Cuts GUB Covers</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getMipCutsImplied <em>Mip Cuts Implied</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getMipCutsMIRCut <em>Mip Cuts MIR Cut</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getMipCutsPathCut <em>Mip Cuts Path Cut</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getMipStrategyBacktrack <em>Mip Strategy Backtrack</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getMipStrategyHeuristicFreq <em>Mip Strategy Heuristic Freq</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getMipStrategyPresolveNode <em>Mip Strategy Presolve Node</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getMipStrategyProbe <em>Mip Strategy Probe</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getMipLimitsFactor <em>Mip Limits Factor</em>}</li>
  * </ul>
  *
  * @generated
@@ -119,6 +132,240 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 	 * @ordered
 	 */
 	protected boolean fileCompressed = FILE_COMPRESSED_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getMipCutsCliques() <em>Mip Cuts Cliques</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMipCutsCliques()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MIP_CUTS_CLIQUES_EDEFAULT = 0;
+	/**
+	 * The cached value of the '{@link #getMipCutsCliques() <em>Mip Cuts Cliques</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMipCutsCliques()
+	 * @generated
+	 * @ordered
+	 */
+	protected int mipCutsCliques = MIP_CUTS_CLIQUES_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getMipCutsCovers() <em>Mip Cuts Covers</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMipCutsCovers()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MIP_CUTS_COVERS_EDEFAULT = 0;
+	/**
+	 * The cached value of the '{@link #getMipCutsCovers() <em>Mip Cuts Covers</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMipCutsCovers()
+	 * @generated
+	 * @ordered
+	 */
+	protected int mipCutsCovers = MIP_CUTS_COVERS_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getMipCutsFlowCovers() <em>Mip Cuts Flow Covers</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMipCutsFlowCovers()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MIP_CUTS_FLOW_COVERS_EDEFAULT = 0;
+	/**
+	 * The cached value of the '{@link #getMipCutsFlowCovers() <em>Mip Cuts Flow Covers</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMipCutsFlowCovers()
+	 * @generated
+	 * @ordered
+	 */
+	protected int mipCutsFlowCovers = MIP_CUTS_FLOW_COVERS_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getMipCutsGomory() <em>Mip Cuts Gomory</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMipCutsGomory()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MIP_CUTS_GOMORY_EDEFAULT = 0;
+	/**
+	 * The cached value of the '{@link #getMipCutsGomory() <em>Mip Cuts Gomory</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMipCutsGomory()
+	 * @generated
+	 * @ordered
+	 */
+	protected int mipCutsGomory = MIP_CUTS_GOMORY_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getMipCutsGUBCovers() <em>Mip Cuts GUB Covers</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMipCutsGUBCovers()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MIP_CUTS_GUB_COVERS_EDEFAULT = 0;
+	/**
+	 * The cached value of the '{@link #getMipCutsGUBCovers() <em>Mip Cuts GUB Covers</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMipCutsGUBCovers()
+	 * @generated
+	 * @ordered
+	 */
+	protected int mipCutsGUBCovers = MIP_CUTS_GUB_COVERS_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getMipCutsImplied() <em>Mip Cuts Implied</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMipCutsImplied()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MIP_CUTS_IMPLIED_EDEFAULT = 0;
+	/**
+	 * The cached value of the '{@link #getMipCutsImplied() <em>Mip Cuts Implied</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMipCutsImplied()
+	 * @generated
+	 * @ordered
+	 */
+	protected int mipCutsImplied = MIP_CUTS_IMPLIED_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getMipCutsMIRCut() <em>Mip Cuts MIR Cut</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMipCutsMIRCut()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MIP_CUTS_MIR_CUT_EDEFAULT = 0;
+	/**
+	 * The cached value of the '{@link #getMipCutsMIRCut() <em>Mip Cuts MIR Cut</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMipCutsMIRCut()
+	 * @generated
+	 * @ordered
+	 */
+	protected int mipCutsMIRCut = MIP_CUTS_MIR_CUT_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getMipCutsPathCut() <em>Mip Cuts Path Cut</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMipCutsPathCut()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MIP_CUTS_PATH_CUT_EDEFAULT = 0;
+	/**
+	 * The cached value of the '{@link #getMipCutsPathCut() <em>Mip Cuts Path Cut</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMipCutsPathCut()
+	 * @generated
+	 * @ordered
+	 */
+	protected int mipCutsPathCut = MIP_CUTS_PATH_CUT_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getMipStrategyBacktrack() <em>Mip Strategy Backtrack</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMipStrategyBacktrack()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float MIP_STRATEGY_BACKTRACK_EDEFAULT = 0.0F;
+	/**
+	 * The cached value of the '{@link #getMipStrategyBacktrack() <em>Mip Strategy Backtrack</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMipStrategyBacktrack()
+	 * @generated
+	 * @ordered
+	 */
+	protected float mipStrategyBacktrack = MIP_STRATEGY_BACKTRACK_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getMipStrategyHeuristicFreq() <em>Mip Strategy Heuristic Freq</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMipStrategyHeuristicFreq()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MIP_STRATEGY_HEURISTIC_FREQ_EDEFAULT = 0;
+	/**
+	 * The cached value of the '{@link #getMipStrategyHeuristicFreq() <em>Mip Strategy Heuristic Freq</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMipStrategyHeuristicFreq()
+	 * @generated
+	 * @ordered
+	 */
+	protected int mipStrategyHeuristicFreq = MIP_STRATEGY_HEURISTIC_FREQ_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getMipStrategyPresolveNode() <em>Mip Strategy Presolve Node</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMipStrategyPresolveNode()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MIP_STRATEGY_PRESOLVE_NODE_EDEFAULT = 0;
+	/**
+	 * The cached value of the '{@link #getMipStrategyPresolveNode() <em>Mip Strategy Presolve Node</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMipStrategyPresolveNode()
+	 * @generated
+	 * @ordered
+	 */
+	protected int mipStrategyPresolveNode = MIP_STRATEGY_PRESOLVE_NODE_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getMipStrategyProbe() <em>Mip Strategy Probe</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMipStrategyProbe()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MIP_STRATEGY_PROBE_EDEFAULT = 0;
+	/**
+	 * The cached value of the '{@link #getMipStrategyProbe() <em>Mip Strategy Probe</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMipStrategyProbe()
+	 * @generated
+	 * @ordered
+	 */
+	protected int mipStrategyProbe = MIP_STRATEGY_PROBE_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getMipLimitsFactor() <em>Mip Limits Factor</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMipLimitsFactor()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MIP_LIMITS_FACTOR_EDEFAULT = 0;
+	/**
+	 * The cached value of the '{@link #getMipLimitsFactor() <em>Mip Limits Factor</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMipLimitsFactor()
+	 * @generated
+	 * @ordered
+	 */
+	protected int mipLimitsFactor = MIP_LIMITS_FACTOR_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -199,6 +446,279 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		fileCompressed = newFileCompressed;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX__FILE_COMPRESSED, oldFileCompressed, fileCompressed));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getMipCutsCliques() {
+		return mipCutsCliques;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMipCutsCliques(int newMipCutsCliques) {
+		int oldMipCutsCliques = mipCutsCliques;
+		mipCutsCliques = newMipCutsCliques;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_CLIQUES, oldMipCutsCliques, mipCutsCliques));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getMipCutsCovers() {
+		return mipCutsCovers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMipCutsCovers(int newMipCutsCovers) {
+		int oldMipCutsCovers = mipCutsCovers;
+		mipCutsCovers = newMipCutsCovers;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_COVERS, oldMipCutsCovers, mipCutsCovers));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getMipCutsFlowCovers() {
+		return mipCutsFlowCovers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMipCutsFlowCovers(int newMipCutsFlowCovers) {
+		int oldMipCutsFlowCovers = mipCutsFlowCovers;
+		mipCutsFlowCovers = newMipCutsFlowCovers;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_FLOW_COVERS, oldMipCutsFlowCovers, mipCutsFlowCovers));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getMipCutsGomory() {
+		return mipCutsGomory;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMipCutsGomory(int newMipCutsGomory) {
+		int oldMipCutsGomory = mipCutsGomory;
+		mipCutsGomory = newMipCutsGomory;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_GOMORY, oldMipCutsGomory, mipCutsGomory));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getMipCutsGUBCovers() {
+		return mipCutsGUBCovers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMipCutsGUBCovers(int newMipCutsGUBCovers) {
+		int oldMipCutsGUBCovers = mipCutsGUBCovers;
+		mipCutsGUBCovers = newMipCutsGUBCovers;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_GUB_COVERS, oldMipCutsGUBCovers, mipCutsGUBCovers));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getMipCutsImplied() {
+		return mipCutsImplied;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMipCutsImplied(int newMipCutsImplied) {
+		int oldMipCutsImplied = mipCutsImplied;
+		mipCutsImplied = newMipCutsImplied;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_IMPLIED, oldMipCutsImplied, mipCutsImplied));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getMipCutsMIRCut() {
+		return mipCutsMIRCut;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMipCutsMIRCut(int newMipCutsMIRCut) {
+		int oldMipCutsMIRCut = mipCutsMIRCut;
+		mipCutsMIRCut = newMipCutsMIRCut;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_MIR_CUT, oldMipCutsMIRCut, mipCutsMIRCut));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getMipCutsPathCut() {
+		return mipCutsPathCut;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMipCutsPathCut(int newMipCutsPathCut) {
+		int oldMipCutsPathCut = mipCutsPathCut;
+		mipCutsPathCut = newMipCutsPathCut;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_PATH_CUT, oldMipCutsPathCut, mipCutsPathCut));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public float getMipStrategyBacktrack() {
+		return mipStrategyBacktrack;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMipStrategyBacktrack(float newMipStrategyBacktrack) {
+		float oldMipStrategyBacktrack = mipStrategyBacktrack;
+		mipStrategyBacktrack = newMipStrategyBacktrack;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_BACKTRACK, oldMipStrategyBacktrack, mipStrategyBacktrack));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getMipStrategyHeuristicFreq() {
+		return mipStrategyHeuristicFreq;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMipStrategyHeuristicFreq(int newMipStrategyHeuristicFreq) {
+		int oldMipStrategyHeuristicFreq = mipStrategyHeuristicFreq;
+		mipStrategyHeuristicFreq = newMipStrategyHeuristicFreq;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_HEURISTIC_FREQ, oldMipStrategyHeuristicFreq, mipStrategyHeuristicFreq));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getMipStrategyPresolveNode() {
+		return mipStrategyPresolveNode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMipStrategyPresolveNode(int newMipStrategyPresolveNode) {
+		int oldMipStrategyPresolveNode = mipStrategyPresolveNode;
+		mipStrategyPresolveNode = newMipStrategyPresolveNode;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PRESOLVE_NODE, oldMipStrategyPresolveNode, mipStrategyPresolveNode));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getMipStrategyProbe() {
+		return mipStrategyProbe;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMipStrategyProbe(int newMipStrategyProbe) {
+		int oldMipStrategyProbe = mipStrategyProbe;
+		mipStrategyProbe = newMipStrategyProbe;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PROBE, oldMipStrategyProbe, mipStrategyProbe));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getMipLimitsFactor() {
+		return mipLimitsFactor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMipLimitsFactor(int newMipLimitsFactor) {
+		int oldMipLimitsFactor = mipLimitsFactor;
+		mipLimitsFactor = newMipLimitsFactor;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX__MIP_LIMITS_FACTOR, oldMipLimitsFactor, mipLimitsFactor));
 	}
 
 	// private declarations
@@ -394,6 +914,32 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 				return getFileFormat();
 			case SolvercplexPackage.SOLVER_CPLEX__FILE_COMPRESSED:
 				return isFileCompressed();
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_CLIQUES:
+				return getMipCutsCliques();
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_COVERS:
+				return getMipCutsCovers();
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_FLOW_COVERS:
+				return getMipCutsFlowCovers();
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_GOMORY:
+				return getMipCutsGomory();
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_GUB_COVERS:
+				return getMipCutsGUBCovers();
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_IMPLIED:
+				return getMipCutsImplied();
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_MIR_CUT:
+				return getMipCutsMIRCut();
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_PATH_CUT:
+				return getMipCutsPathCut();
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_BACKTRACK:
+				return getMipStrategyBacktrack();
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_HEURISTIC_FREQ:
+				return getMipStrategyHeuristicFreq();
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PRESOLVE_NODE:
+				return getMipStrategyPresolveNode();
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PROBE:
+				return getMipStrategyProbe();
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_LIMITS_FACTOR:
+				return getMipLimitsFactor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -414,6 +960,45 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 				return;
 			case SolvercplexPackage.SOLVER_CPLEX__FILE_COMPRESSED:
 				setFileCompressed((Boolean)newValue);
+				return;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_CLIQUES:
+				setMipCutsCliques((Integer)newValue);
+				return;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_COVERS:
+				setMipCutsCovers((Integer)newValue);
+				return;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_FLOW_COVERS:
+				setMipCutsFlowCovers((Integer)newValue);
+				return;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_GOMORY:
+				setMipCutsGomory((Integer)newValue);
+				return;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_GUB_COVERS:
+				setMipCutsGUBCovers((Integer)newValue);
+				return;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_IMPLIED:
+				setMipCutsImplied((Integer)newValue);
+				return;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_MIR_CUT:
+				setMipCutsMIRCut((Integer)newValue);
+				return;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_PATH_CUT:
+				setMipCutsPathCut((Integer)newValue);
+				return;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_BACKTRACK:
+				setMipStrategyBacktrack((Float)newValue);
+				return;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_HEURISTIC_FREQ:
+				setMipStrategyHeuristicFreq((Integer)newValue);
+				return;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PRESOLVE_NODE:
+				setMipStrategyPresolveNode((Integer)newValue);
+				return;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PROBE:
+				setMipStrategyProbe((Integer)newValue);
+				return;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_LIMITS_FACTOR:
+				setMipLimitsFactor((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -436,6 +1021,45 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 			case SolvercplexPackage.SOLVER_CPLEX__FILE_COMPRESSED:
 				setFileCompressed(FILE_COMPRESSED_EDEFAULT);
 				return;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_CLIQUES:
+				setMipCutsCliques(MIP_CUTS_CLIQUES_EDEFAULT);
+				return;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_COVERS:
+				setMipCutsCovers(MIP_CUTS_COVERS_EDEFAULT);
+				return;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_FLOW_COVERS:
+				setMipCutsFlowCovers(MIP_CUTS_FLOW_COVERS_EDEFAULT);
+				return;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_GOMORY:
+				setMipCutsGomory(MIP_CUTS_GOMORY_EDEFAULT);
+				return;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_GUB_COVERS:
+				setMipCutsGUBCovers(MIP_CUTS_GUB_COVERS_EDEFAULT);
+				return;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_IMPLIED:
+				setMipCutsImplied(MIP_CUTS_IMPLIED_EDEFAULT);
+				return;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_MIR_CUT:
+				setMipCutsMIRCut(MIP_CUTS_MIR_CUT_EDEFAULT);
+				return;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_PATH_CUT:
+				setMipCutsPathCut(MIP_CUTS_PATH_CUT_EDEFAULT);
+				return;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_BACKTRACK:
+				setMipStrategyBacktrack(MIP_STRATEGY_BACKTRACK_EDEFAULT);
+				return;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_HEURISTIC_FREQ:
+				setMipStrategyHeuristicFreq(MIP_STRATEGY_HEURISTIC_FREQ_EDEFAULT);
+				return;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PRESOLVE_NODE:
+				setMipStrategyPresolveNode(MIP_STRATEGY_PRESOLVE_NODE_EDEFAULT);
+				return;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PROBE:
+				setMipStrategyProbe(MIP_STRATEGY_PROBE_EDEFAULT);
+				return;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_LIMITS_FACTOR:
+				setMipLimitsFactor(MIP_LIMITS_FACTOR_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -454,6 +1078,32 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 				return fileFormat != FILE_FORMAT_EDEFAULT;
 			case SolvercplexPackage.SOLVER_CPLEX__FILE_COMPRESSED:
 				return fileCompressed != FILE_COMPRESSED_EDEFAULT;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_CLIQUES:
+				return mipCutsCliques != MIP_CUTS_CLIQUES_EDEFAULT;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_COVERS:
+				return mipCutsCovers != MIP_CUTS_COVERS_EDEFAULT;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_FLOW_COVERS:
+				return mipCutsFlowCovers != MIP_CUTS_FLOW_COVERS_EDEFAULT;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_GOMORY:
+				return mipCutsGomory != MIP_CUTS_GOMORY_EDEFAULT;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_GUB_COVERS:
+				return mipCutsGUBCovers != MIP_CUTS_GUB_COVERS_EDEFAULT;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_IMPLIED:
+				return mipCutsImplied != MIP_CUTS_IMPLIED_EDEFAULT;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_MIR_CUT:
+				return mipCutsMIRCut != MIP_CUTS_MIR_CUT_EDEFAULT;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_PATH_CUT:
+				return mipCutsPathCut != MIP_CUTS_PATH_CUT_EDEFAULT;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_BACKTRACK:
+				return mipStrategyBacktrack != MIP_STRATEGY_BACKTRACK_EDEFAULT;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_HEURISTIC_FREQ:
+				return mipStrategyHeuristicFreq != MIP_STRATEGY_HEURISTIC_FREQ_EDEFAULT;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PRESOLVE_NODE:
+				return mipStrategyPresolveNode != MIP_STRATEGY_PRESOLVE_NODE_EDEFAULT;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PROBE:
+				return mipStrategyProbe != MIP_STRATEGY_PROBE_EDEFAULT;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_LIMITS_FACTOR:
+				return mipLimitsFactor != MIP_LIMITS_FACTOR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -544,13 +1194,107 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		result.append(fileFormat);
 		result.append(", FileCompressed: ");
 		result.append(fileCompressed);
+		result.append(", MipCutsCliques: ");
+		result.append(mipCutsCliques);
+		result.append(", MipCutsCovers: ");
+		result.append(mipCutsCovers);
+		result.append(", MipCutsFlowCovers: ");
+		result.append(mipCutsFlowCovers);
+		result.append(", MipCutsGomory: ");
+		result.append(mipCutsGomory);
+		result.append(", MipCutsGUBCovers: ");
+		result.append(mipCutsGUBCovers);
+		result.append(", MipCutsImplied: ");
+		result.append(mipCutsImplied);
+		result.append(", MipCutsMIRCut: ");
+		result.append(mipCutsMIRCut);
+		result.append(", MipCutsPathCut: ");
+		result.append(mipCutsPathCut);
+		result.append(", MipStrategyBacktrack: ");
+		result.append(mipStrategyBacktrack);
+		result.append(", MipStrategyHeuristicFreq: ");
+		result.append(mipStrategyHeuristicFreq);
+		result.append(", MipStrategyPresolveNode: ");
+		result.append(mipStrategyPresolveNode);
+		result.append(", MipStrategyProbe: ");
+		result.append(mipStrategyProbe);
+		result.append(", MipLimitsFactor: ");
+		result.append(mipLimitsFactor);
 		result.append(')');
 		return result.toString();
+	}
+	
+	private void setParams() throws IloException{
+		this.lp.setParam(IloCplex.Param.MIP.Cuts.Cliques,    this.getMipCutsCliques());
+		this.lp.setParam(IloCplex.Param.MIP.Cuts.Covers,     this.getMipCutsCovers());
+		this.lp.setParam(IloCplex.Param.MIP.Cuts.FlowCovers, this.getMipCutsFlowCovers());
+		this.lp.setParam(IloCplex.Param.MIP.Cuts.Gomory,     this.getMipCutsGomory());
+		this.lp.setParam(IloCplex.Param.MIP.Cuts.GUBCovers,  this.getMipCutsGUBCovers());
+		this.lp.setParam(IloCplex.Param.MIP.Cuts.Implied,    this.getMipCutsImplied());
+		this.lp.setParam(IloCplex.Param.MIP.Cuts.MIRCut,     this.getMipCutsMIRCut());
+		this.lp.setParam(IloCplex.Param.MIP.Cuts.PathCut,    this.getMipCutsPathCut());
+		
+		this.lp.setParam(IloCplex.Param.MIP.Limits.CutsFactor, this.getMipLimitsFactor());
+		
+		this.lp.setParam(IloCplex.Param.MIP.Strategy.Backtrack,     this.getMipStrategyBacktrack());
+		this.lp.setParam(IloCplex.Param.MIP.Strategy.HeuristicFreq, this.getMipStrategyHeuristicFreq());
+		this.lp.setParam(IloCplex.Param.MIP.Strategy.PresolveNode,  this.getMipStrategyPresolveNode());
+		this.lp.setParam(IloCplex.Param.MIP.Strategy.Probe,         this.getMipStrategyProbe());
+		
+		// mip tolerance
+		this.lp.setParam(IloCplex.Param.MIP.Tolerances.MIPGap, this.getSolverOptimalityTolerance());
+		
+		// max duration
+		this.lp.setParam(IloCplex.Param.TimeLimit, this.getSolverMaxDuration());
+		
+		// log level
+		// Java IloCplex.Param.MIP.Display MIPDisplay (int) 
+		// Description
+		//Decides what CPLEX reports to the screen and records in a log during mixed integer optimization (MIP). 
+		//The amount of information displayed increases with increasing values of this parameter.
+		//  A setting of 0 (zero) causes no node log to be displayed until the optimal solution is found.
+		//  A setting of 1 (one) displays an entry for each integer feasible solution found.
+		//    Each entry contains:
+		//      the value of the objective function;
+		//      the node count;
+		//      the number of unexplored nodes in the tree;
+		//      the current optimality gap.
+		// A setting of 2 also generates an entry at a frequency determined by the MIP node log interval parameter. At a lower frequency, the log additionally displays elapsed time in seconds and deterministic time in ticks.
+		// A setting of 3 gives all the information of option 2 plus additional information:
+		//   At the same frequency as option 2, the node log adds a line specifying the number of cutting planes added to the problem since the last node log line was displayed; this additional line is omitted if the number of cuts added since the last log line is 0 (zero).
+		//   Whenever a MIP start was successfully used to find a new incumbent solution, that success is recorded in the node log. (This information about MIP starts is independent of the MIP interval frequency in option 2.)
+		//   For each new incumbent that is found, the node log displays how much time in seconds and how many deterministic ticks elapsed since the beginning of optimization. (This information about elapsed time between new incumbents is independent of the MIP interval frequency in option 2.)
+		//  A setting of 4 additionally generates entries for the LP root relaxation according to the setting of the parameter to control the simplex iteration information display (SimDisplay, CPX_PARAM_SIMDISPLAY).
+		//  A setting of 5 additionally generates entries for the LP subproblems, also according to the setting of the parameter to control the simplex iteration information display (SimDisplay, CPX_PARAM_SIMDISPLAY).
+		
+		//0 No display until optimal solution has been found 
+		//1 Display integer feasible solutions 
+		//2 Display integer feasible solutions plus an entry at a frequency set by MIP node log interval; default 
+		//3 Display the number of cuts added since previous display; information about the processing of each successful MIP start; elapsed time in seconds and elapsed time in deterministic ticks for integer feasible solutions 
+		//4 Display information available from previous options and information about the LP subproblem at root 
+		//5 Display information available from previous options and information about the LP subproblems at root and at nodes
+		int paramLogLevelSelected = 2;
+		switch ( this.getSolverLogLevel()){
+		case ENUM_NONE:
+			paramLogLevelSelected = 0;
+			break;
+		case ENUM_MIN:
+			paramLogLevelSelected = 1;
+			break;
+		case ENUM_NORMAL:
+			paramLogLevelSelected = 2;
+			break;
+		case ENUM_FULL:
+			paramLogLevelSelected = 5;
+			break;
+		}
+		Plugin.INSTANCE.logInfo("SolverCplex: param IloCplex.Param.MIP.Display set "+paramLogLevelSelected);
+		this.lp.setParam(IloCplex.Param.MIP.Display, paramLogLevelSelected);
 	}
 
 	@Override
 	protected ReturnFeedback solveImpl() {
-
+		
 		// load the lp
 		this.loadLp();
 		if ( this.lp==null ) { 
@@ -571,56 +1315,8 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		Status status = null;
 		boolean feasible   = false;
 		try  {
-			// set the params
-			// mip tolerance
-			this.lp.setParam(IloCplex.Param.MIP.Tolerances.MIPGap, this.getSolverOptimalityTolerance());
-			
-			// max duration
-			this.lp.setParam(IloCplex.Param.TimeLimit, this.getSolverMaxDuration());
-			
-			// log level
-			// Java IloCplex.Param.MIP.Display MIPDisplay (int) 
-			// Description
-			//Decides what CPLEX reports to the screen and records in a log during mixed integer optimization (MIP). 
-			//The amount of information displayed increases with increasing values of this parameter.
-			//  A setting of 0 (zero) causes no node log to be displayed until the optimal solution is found.
-			//  A setting of 1 (one) displays an entry for each integer feasible solution found.
-			//    Each entry contains:
-			//      the value of the objective function;
-			//      the node count;
-			//      the number of unexplored nodes in the tree;
-			//      the current optimality gap.
-			// A setting of 2 also generates an entry at a frequency determined by the MIP node log interval parameter. At a lower frequency, the log additionally displays elapsed time in seconds and deterministic time in ticks.
-			// A setting of 3 gives all the information of option 2 plus additional information:
-			//   At the same frequency as option 2, the node log adds a line specifying the number of cutting planes added to the problem since the last node log line was displayed; this additional line is omitted if the number of cuts added since the last log line is 0 (zero).
-			//   Whenever a MIP start was successfully used to find a new incumbent solution, that success is recorded in the node log. (This information about MIP starts is independent of the MIP interval frequency in option 2.)
-			//   For each new incumbent that is found, the node log displays how much time in seconds and how many deterministic ticks elapsed since the beginning of optimization. (This information about elapsed time between new incumbents is independent of the MIP interval frequency in option 2.)
-			//  A setting of 4 additionally generates entries for the LP root relaxation according to the setting of the parameter to control the simplex iteration information display (SimDisplay, CPX_PARAM_SIMDISPLAY).
-			//  A setting of 5 additionally generates entries for the LP subproblems, also according to the setting of the parameter to control the simplex iteration information display (SimDisplay, CPX_PARAM_SIMDISPLAY).
-			
-			//0 No display until optimal solution has been found 
-			//1 Display integer feasible solutions 
-			//2 Display integer feasible solutions plus an entry at a frequency set by MIP node log interval; default 
-			//3 Display the number of cuts added since previous display; information about the processing of each successful MIP start; elapsed time in seconds and elapsed time in deterministic ticks for integer feasible solutions 
-			//4 Display information available from previous options and information about the LP subproblem at root 
-			//5 Display information available from previous options and information about the LP subproblems at root and at nodes
-			int paramLogLevelSelected = 2;
-			switch ( this.getSolverLogLevel()){
-			case ENUM_NONE:
-				paramLogLevelSelected = 0;
-				break;
-			case ENUM_MIN:
-				paramLogLevelSelected = 1;
-				break;
-			case ENUM_NORMAL:
-				paramLogLevelSelected = 2;
-				break;
-			case ENUM_FULL:
-				paramLogLevelSelected = 5;
-				break;
-			}
-			Plugin.INSTANCE.logInfo("SolverCplex: param IloCplex.Param.MIP.Display set "+paramLogLevelSelected);
-			this.lp.setParam(IloCplex.Param.MIP.Display, paramLogLevelSelected);
+			this.setParams();
+
 			if ( this.isSolverLinearRelaxation() ) {
 				Plugin.INSTANCE.logInfo("SolverCplex: continuous solve returned ");
 			} // if linear relaxed

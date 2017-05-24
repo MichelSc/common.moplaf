@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.solver.solvercplex.util;
 
+import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.solver.IGeneratorTool;
 import com.misc.common.moplaf.solver.ILpWriter;
 import com.misc.common.moplaf.solver.SolutionProvider;
@@ -88,6 +89,10 @@ public class SolvercplexAdapterFactory extends AdapterFactoryImpl {
 				return createSolverCplexAdapter();
 			}
 			@Override
+			public Adapter caseRun(Run object) {
+				return createRunAdapter();
+			}
+			@Override
 			public Adapter caseIGeneratorTool(IGeneratorTool object) {
 				return createIGeneratorToolAdapter();
 			}
@@ -138,6 +143,20 @@ public class SolvercplexAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSolverCplexAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.Run <em>Run</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.Run
+	 * @generated
+	 */
+	public Adapter createRunAdapter() {
 		return null;
 	}
 

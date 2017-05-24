@@ -1,13 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
-    modelDirectory="/com.misc.common.moplaf.solver.cplex.emf/src" modelPluginID="com.misc.common.moplaf.solver.cplex.emf"
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.solver.cplex.emf/src" modelPluginID="com.misc.common.moplaf.solver.cplex.emf"
     modelName="Solvercplex" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
-    usedGenPackages="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver"
+    usedGenPackages="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver ../../com.misc.common.moplaf.job.emf/model/job.genmodel#//job"
     operationReflection="true" importOrganizing="true">
   <foreignModel>solvercplex.ecore</foreignModel>
   <genPackages prefix="Solvercplex" basePackage="com.misc.common.moplaf.solver" disposableProviderFactory="true"
       ecorePackage="solvercplex.ecore#/">
-    <genClasses image="false" ecoreClass="solvercplex.ecore#//SolverCplex" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/SolutionProvider/Code"/>
+    <genClasses image="false" ecoreClass="solvercplex.ecore#//SolverCplex" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/SolutionProvider/Code">
+      <genFeatures createChild="false" propertyCategory="20 Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplex/MipCutsCliques"/>
+      <genFeatures createChild="false" propertyCategory="20 Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplex/MipCutsCovers"/>
+      <genFeatures createChild="false" propertyCategory="20 Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplex/MipCutsFlowCovers"/>
+      <genFeatures createChild="false" propertyCategory="20 Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplex/MipCutsGomory"/>
+      <genFeatures createChild="false" propertyCategory="20 Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplex/MipCutsGUBCovers"/>
+      <genFeatures createChild="false" propertyCategory="20 Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplex/MipCutsImplied"/>
+      <genFeatures createChild="false" propertyCategory="20 Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplex/MipCutsMIRCut"/>
+      <genFeatures createChild="false" propertyCategory="20 Solver Cplex" propertyDescription=""
+          ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplex/MipCutsPathCut"/>
+      <genFeatures createChild="false" propertyCategory="20 Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplex/MipStrategyBacktrack"/>
+      <genFeatures createChild="false" propertyCategory="20 Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplex/MipStrategyHeuristicFreq"/>
+      <genFeatures createChild="false" propertyCategory="20 Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplex/MipStrategyPresolveNode"/>
+      <genFeatures createChild="false" propertyCategory="20 Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplex/MipStrategyProbe"/>
+      <genFeatures createChild="false" propertyCategory="20 Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplex/MipLimitsFactor"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
