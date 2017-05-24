@@ -300,6 +300,14 @@ public interface TimeBucket extends EObject {
 	 * @model
 	 * @generated
 	 */
+	boolean contains(Date sometime, boolean withStart, boolean withEnd);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	boolean isBefore(TimeBucket other);
 
 	/**

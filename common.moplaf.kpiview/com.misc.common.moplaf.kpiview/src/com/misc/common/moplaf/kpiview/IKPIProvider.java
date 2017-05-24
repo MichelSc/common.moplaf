@@ -10,6 +10,36 @@
  *******************************************************************************/
 package com.misc.common.moplaf.kpiview;
 
+/**
+ * The interface IKPIProvider specifies the interface to be supported
+ * for providing a KPI's, thus quality indicators.
+ * <p>
+ * This interface can then be consumed by a graphical component like Gauges
+ * to display these indicators
+ * <p>
+ * Other information to be used by the consumer will be provided by standard
+ * jFace interfaces, namely
+ * <ul>
+ * <li> {@link org.eclipse.jface.viewers.ITreeContentProvider}, providing the content to be displayed; </li>
+ * <li> {@link org.eclipse.jface.viewers.ILabelProvider}, providing labels for the elements of the content</li>
+ * <li> {@link org.eclipse.jface.viewers.IColorProvider}, providing foreground and background colors for the elements of the content</li>
+ * </ul>
+ * 
+ * <p>
+ * Some of the element in the content may support
+ * KPI's, and will be recognized by the method {@link #hasKPIs(Object element)}. 
+ * In this case, the method {@link #getKPIs(Object element)} can be used to retrieve the kpi's associated 
+ * with the element. The methods {@link #getAmount(Object element, Object kpi)},  
+ *  {@link #getMinAmount(Object element, Object kpi)}
+ *  and {@link #getMaxAmount(Object element, Object kpi)}
+ * can then be used to retrieve 
+ * the Amount:float, the MinAmount:float and the MaxAmount:float of any kpi associated with the element. 
+ * <p>
+ * 
+ * @author michel
+ *
+ */
+
 public interface IKPIProvider {
 	// collection of KPI's
 	//  e.g. a Solution

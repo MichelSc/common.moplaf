@@ -18,8 +18,7 @@ import com.misc.common.moplaf.kpiview.IKPIProvider;
 import com.misc.common.moplaf.kpiview.emf.edit.IItemKPIsProvider;
 
 
-public class AdapterFactoryKPIProvider implements
-		IKPIProvider {
+public class AdapterFactoryKPIProvider implements IKPIProvider {
 	private AdapterFactory adapterFactory;
 	
 	private Object adapt(Object target, Object type){

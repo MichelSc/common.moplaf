@@ -500,8 +500,32 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 	 * <!-- end-user-doc -->
 	 */
 	public boolean contains(Date sometime) {
-		boolean contains = this.getBucketStart().compareTo(sometime)<=0 && sometime.compareTo(this.getBucketEnd())<=0;
+		boolean contains = this.contains(sometime, true, true);
 		return contains;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public boolean contains(Date sometime, boolean withStart, boolean withEnd) {
+		int startToTime = this.getBucketStart().compareTo(sometime);
+		if ( startToTime>0 ){
+			// start after sometime
+			return false;
+		} else if ( !withStart && startToTime==0 ){
+			// is start
+			return false;
+		}
+		int timeToEnd = sometime.compareTo(this.getBucketEnd());
+		if ( timeToEnd>0 ){
+			// sometime after end
+			return false;
+		} else if ( !withEnd && timeToEnd==0 ){
+			// is end
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -790,6 +814,8 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 		switch (operationID) {
 			case TimeDiscretePackage.TIME_BUCKET___CONTAINS__DATE:
 				return contains((Date)arguments.get(0));
+			case TimeDiscretePackage.TIME_BUCKET___CONTAINS__DATE_BOOLEAN_BOOLEAN:
+				return contains((Date)arguments.get(0), (Boolean)arguments.get(1), (Boolean)arguments.get(2));
 			case TimeDiscretePackage.TIME_BUCKET___IS_BEFORE__TIMEBUCKET:
 				return isBefore((TimeBucket)arguments.get(0));
 			case TimeDiscretePackage.TIME_BUCKET___IS_BEFORE_STRICTLY__TIMEBUCKET:

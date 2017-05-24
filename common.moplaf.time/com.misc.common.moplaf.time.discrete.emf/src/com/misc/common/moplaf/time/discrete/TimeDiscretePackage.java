@@ -188,13 +188,22 @@ public interface TimeDiscretePackage extends EPackage {
 	int TIME_BUCKET___CONTAINS__DATE = 0;
 
 	/**
+	 * The operation id for the '<em>Contains</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_BUCKET___CONTAINS__DATE_BOOLEAN_BOOLEAN = 1;
+
+	/**
 	 * The operation id for the '<em>Is Before</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_BUCKET___IS_BEFORE__TIMEBUCKET = 1;
+	int TIME_BUCKET___IS_BEFORE__TIMEBUCKET = 2;
 
 	/**
 	 * The operation id for the '<em>Is Before Strictly</em>' operation.
@@ -203,7 +212,7 @@ public interface TimeDiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_BUCKET___IS_BEFORE_STRICTLY__TIMEBUCKET = 2;
+	int TIME_BUCKET___IS_BEFORE_STRICTLY__TIMEBUCKET = 3;
 
 	/**
 	 * The operation id for the '<em>Is After</em>' operation.
@@ -212,7 +221,7 @@ public interface TimeDiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_BUCKET___IS_AFTER__TIMEBUCKET = 3;
+	int TIME_BUCKET___IS_AFTER__TIMEBUCKET = 4;
 
 	/**
 	 * The operation id for the '<em>Is After Strictly</em>' operation.
@@ -221,7 +230,7 @@ public interface TimeDiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_BUCKET___IS_AFTER_STRICTLY__TIMEBUCKET = 4;
+	int TIME_BUCKET___IS_AFTER_STRICTLY__TIMEBUCKET = 5;
 
 	/**
 	 * The operation id for the '<em>Get Seconds Intersection</em>' operation.
@@ -230,7 +239,7 @@ public interface TimeDiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_BUCKET___GET_SECONDS_INTERSECTION__DATE_DATE = 5;
+	int TIME_BUCKET___GET_SECONDS_INTERSECTION__DATE_DATE = 6;
 
 	/**
 	 * The operation id for the '<em>Get Intersection</em>' operation.
@@ -239,7 +248,7 @@ public interface TimeDiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_BUCKET___GET_INTERSECTION__DATE_DATE = 6;
+	int TIME_BUCKET___GET_INTERSECTION__DATE_DATE = 7;
 
 	/**
 	 * The operation id for the '<em>Get Offset</em>' operation.
@@ -248,7 +257,7 @@ public interface TimeDiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_BUCKET___GET_OFFSET__FLOAT = 7;
+	int TIME_BUCKET___GET_OFFSET__FLOAT = 8;
 
 	/**
 	 * The number of operations of the '<em>Time Bucket</em>' class.
@@ -257,7 +266,7 @@ public interface TimeDiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_BUCKET_OPERATION_COUNT = 8;
+	int TIME_BUCKET_OPERATION_COUNT = 9;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.discrete.impl.TimeLineImpl <em>Time Line</em>}' class.
@@ -936,6 +945,16 @@ public interface TimeDiscretePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getTimeBucket__Contains__Date();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.discrete.TimeBucket#contains(java.util.Date, boolean, boolean) <em>Contains</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Contains</em>' operation.
+	 * @see com.misc.common.moplaf.time.discrete.TimeBucket#contains(java.util.Date, boolean, boolean)
+	 * @generated
+	 */
+	EOperation getTimeBucket__Contains__Date_boolean_boolean();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.discrete.TimeBucket#isBefore(com.misc.common.moplaf.time.discrete.TimeBucket) <em>Is Before</em>}' operation.
@@ -1661,6 +1680,14 @@ public interface TimeDiscretePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation TIME_BUCKET___CONTAINS__DATE = eINSTANCE.getTimeBucket__Contains__Date();
+
+		/**
+		 * The meta object literal for the '<em><b>Contains</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TIME_BUCKET___CONTAINS__DATE_BOOLEAN_BOOLEAN = eINSTANCE.getTimeBucket__Contains__Date_boolean_boolean();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Before</b></em>' operation.

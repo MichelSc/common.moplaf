@@ -423,7 +423,7 @@ public class TimeDiscretePackageImpl extends EPackageImpl implements TimeDiscret
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTimeBucket__IsBefore__TimeBucket() {
+	public EOperation getTimeBucket__Contains__Date_boolean_boolean() {
 		return timeBucketEClass.getEOperations().get(1);
 	}
 
@@ -432,7 +432,7 @@ public class TimeDiscretePackageImpl extends EPackageImpl implements TimeDiscret
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTimeBucket__IsBeforeStrictly__TimeBucket() {
+	public EOperation getTimeBucket__IsBefore__TimeBucket() {
 		return timeBucketEClass.getEOperations().get(2);
 	}
 
@@ -441,7 +441,7 @@ public class TimeDiscretePackageImpl extends EPackageImpl implements TimeDiscret
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTimeBucket__IsAfter__TimeBucket() {
+	public EOperation getTimeBucket__IsBeforeStrictly__TimeBucket() {
 		return timeBucketEClass.getEOperations().get(3);
 	}
 
@@ -450,7 +450,7 @@ public class TimeDiscretePackageImpl extends EPackageImpl implements TimeDiscret
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTimeBucket__IsAfterStrictly__TimeBucket() {
+	public EOperation getTimeBucket__IsAfter__TimeBucket() {
 		return timeBucketEClass.getEOperations().get(4);
 	}
 
@@ -459,7 +459,7 @@ public class TimeDiscretePackageImpl extends EPackageImpl implements TimeDiscret
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTimeBucket__GetSecondsIntersection__Date_Date() {
+	public EOperation getTimeBucket__IsAfterStrictly__TimeBucket() {
 		return timeBucketEClass.getEOperations().get(5);
 	}
 
@@ -468,7 +468,7 @@ public class TimeDiscretePackageImpl extends EPackageImpl implements TimeDiscret
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTimeBucket__GetIntersection__Date_Date() {
+	public EOperation getTimeBucket__GetSecondsIntersection__Date_Date() {
 		return timeBucketEClass.getEOperations().get(6);
 	}
 
@@ -477,8 +477,17 @@ public class TimeDiscretePackageImpl extends EPackageImpl implements TimeDiscret
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTimeBucket__GetOffset__float() {
+	public EOperation getTimeBucket__GetIntersection__Date_Date() {
 		return timeBucketEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTimeBucket__GetOffset__float() {
+		return timeBucketEClass.getEOperations().get(8);
 	}
 
 	/**
@@ -818,6 +827,7 @@ public class TimeDiscretePackageImpl extends EPackageImpl implements TimeDiscret
 		createEAttribute(timeBucketEClass, TIME_BUCKET__HOURS);
 		createEReference(timeBucketEClass, TIME_BUCKET__TIME_LINE);
 		createEOperation(timeBucketEClass, TIME_BUCKET___CONTAINS__DATE);
+		createEOperation(timeBucketEClass, TIME_BUCKET___CONTAINS__DATE_BOOLEAN_BOOLEAN);
 		createEOperation(timeBucketEClass, TIME_BUCKET___IS_BEFORE__TIMEBUCKET);
 		createEOperation(timeBucketEClass, TIME_BUCKET___IS_BEFORE_STRICTLY__TIMEBUCKET);
 		createEOperation(timeBucketEClass, TIME_BUCKET___IS_AFTER__TIMEBUCKET);
@@ -930,6 +940,11 @@ public class TimeDiscretePackageImpl extends EPackageImpl implements TimeDiscret
 
 		EOperation op = initEOperation(getTimeBucket__Contains__Date(), ecorePackage.getEBoolean(), "contains", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "sometime", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getTimeBucket__Contains__Date_boolean_boolean(), ecorePackage.getEBoolean(), "contains", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDate(), "sometime", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "withStart", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "withEnd", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getTimeBucket__IsBefore__TimeBucket(), ecorePackage.getEBoolean(), "isBefore", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTimeBucket(), "other", 0, 1, IS_UNIQUE, IS_ORDERED);
