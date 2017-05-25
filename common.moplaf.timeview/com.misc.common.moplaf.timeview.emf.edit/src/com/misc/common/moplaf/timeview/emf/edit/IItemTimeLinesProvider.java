@@ -14,7 +14,8 @@ import java.util.Collection;
 
 /**
  * <p>
- * This interface declare the method(s) to be supported by an object that supports a collections of time intervals, for instance to be dispalyed in a Gantt chart.
+ * This interface declare the method(s) to be supported by an object that supports a 
+ * collections of time intervals, for instance to be displayed in a Gantt chart.
  * <p>
  * The consumer (i.e. the component using the TimeLine data, typically a gantt component)
  * will provide, when relevant
@@ -47,10 +48,10 @@ import java.util.Collection;
  *   <li>implement the interface methods</li>
  *   <li>override {@link #isAdapterForType(Object)} and return true when the type is SomeInterface (apparently not)</li>
  * </ul> 
- * In the project's ProviderAdapterFactory, you must to change 
+ * In the project's ProviderAdapterFactory, 
  * <ul>
- *   <li>the method {@link #isFactoryForType}</li>
- *   <li> add the following lines in the constructors
+ *   <li>you must to change the method {@link #isFactoryForType}</li>
+ *   <li>or add the following lines in the constructors
  *     <ul>
  *     <li>	<code>supportedTypes.add(IItemTimeLinesProvider.class); // moplaf interface </code></li>
  *     </ul>
