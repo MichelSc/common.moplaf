@@ -279,22 +279,22 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_FEATURE_COUNT = JobPackage.RUN_FEATURE_COUNT + 14;
 
 	/**
-	 * The operation id for the '<em>Accept Params</em>' operation.
+	 * The operation id for the '<em>Copy Params</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___ACCEPT_PARAMS__RUNPARAMS = JobPackage.RUN___ACCEPT_PARAMS__RUNPARAMS;
+	int GENERATOR___COPY_PARAMS__RUNPARAMS = JobPackage.RUN___COPY_PARAMS__RUNPARAMS;
 
 	/**
-	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * The operation id for the '<em>Clone</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR___CONSTRUCT_PARAMS = JobPackage.RUN___CONSTRUCT_PARAMS;
+	int GENERATOR___CLONE = JobPackage.RUN___CLONE;
 
 	/**
 	 * The operation id for the '<em>Reset</em>' operation.
@@ -2087,22 +2087,22 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_PROVIDER_FEATURE_COUNT = JobPackage.RUN_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Accept Params</em>' operation.
+	 * The operation id for the '<em>Copy Params</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER___ACCEPT_PARAMS__RUNPARAMS = JobPackage.RUN___ACCEPT_PARAMS__RUNPARAMS;
+	int SOLUTION_PROVIDER___COPY_PARAMS__RUNPARAMS = JobPackage.RUN___COPY_PARAMS__RUNPARAMS;
 
 	/**
-	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * The operation id for the '<em>Clone</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER___CONSTRUCT_PARAMS = JobPackage.RUN___CONSTRUCT_PARAMS;
+	int SOLUTION_PROVIDER___CLONE = JobPackage.RUN___CLONE;
 
 	/**
 	 * The operation id for the '<em>Reset</em>' operation.
@@ -2340,22 +2340,22 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_READER_FEATURE_COUNT = SOLUTION_PROVIDER_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Accept Params</em>' operation.
+	 * The operation id for the '<em>Copy Params</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_READER___ACCEPT_PARAMS__RUNPARAMS = SOLUTION_PROVIDER___ACCEPT_PARAMS__RUNPARAMS;
+	int SOLUTION_READER___COPY_PARAMS__RUNPARAMS = SOLUTION_PROVIDER___COPY_PARAMS__RUNPARAMS;
 
 	/**
-	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * The operation id for the '<em>Clone</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_READER___CONSTRUCT_PARAMS = SOLUTION_PROVIDER___CONSTRUCT_PARAMS;
+	int SOLUTION_READER___CLONE = SOLUTION_PROVIDER___CLONE;
 
 	/**
 	 * The operation id for the '<em>Reset</em>' operation.
@@ -2656,22 +2656,22 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_READER_PATTERN_FEATURE_COUNT = SOLUTION_READER_FEATURE_COUNT + 5;
 
 	/**
-	 * The operation id for the '<em>Accept Params</em>' operation.
+	 * The operation id for the '<em>Copy Params</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_READER_PATTERN___ACCEPT_PARAMS__RUNPARAMS = SOLUTION_READER___ACCEPT_PARAMS__RUNPARAMS;
+	int SOLUTION_READER_PATTERN___COPY_PARAMS__RUNPARAMS = SOLUTION_READER___COPY_PARAMS__RUNPARAMS;
 
 	/**
-	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * The operation id for the '<em>Clone</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_READER_PATTERN___CONSTRUCT_PARAMS = SOLUTION_READER___CONSTRUCT_PARAMS;
+	int SOLUTION_READER_PATTERN___CLONE = SOLUTION_READER___CLONE;
 
 	/**
 	 * The operation id for the '<em>Reset</em>' operation.
@@ -3234,22 +3234,22 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_FEATURE_COUNT = SOLUTION_PROVIDER_FEATURE_COUNT + 25;
 
 	/**
-	 * The operation id for the '<em>Accept Params</em>' operation.
+	 * The operation id for the '<em>Copy Params</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER___ACCEPT_PARAMS__RUNPARAMS = SOLUTION_PROVIDER___ACCEPT_PARAMS__RUNPARAMS;
+	int SOLVER___COPY_PARAMS__RUNPARAMS = SOLUTION_PROVIDER___COPY_PARAMS__RUNPARAMS;
 
 	/**
-	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * The operation id for the '<em>Clone</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER___CONSTRUCT_PARAMS = SOLUTION_PROVIDER___CONSTRUCT_PARAMS;
+	int SOLVER___CLONE = SOLUTION_PROVIDER___CLONE;
 
 	/**
 	 * The operation id for the '<em>Reset</em>' operation.
@@ -3988,22 +3988,22 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_CP_FEATURE_COUNT = SOLVER_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Accept Params</em>' operation.
+	 * The operation id for the '<em>Copy Params</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_CP___ACCEPT_PARAMS__RUNPARAMS = SOLVER___ACCEPT_PARAMS__RUNPARAMS;
+	int SOLVER_CP___COPY_PARAMS__RUNPARAMS = SOLVER___COPY_PARAMS__RUNPARAMS;
 
 	/**
-	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * The operation id for the '<em>Clone</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_CP___CONSTRUCT_PARAMS = SOLVER___CONSTRUCT_PARAMS;
+	int SOLVER_CP___CLONE = SOLVER___CLONE;
 
 	/**
 	 * The operation id for the '<em>Reset</em>' operation.
@@ -4600,22 +4600,22 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_LP_FEATURE_COUNT = SOLVER_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Accept Params</em>' operation.
+	 * The operation id for the '<em>Copy Params</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_LP___ACCEPT_PARAMS__RUNPARAMS = SOLVER___ACCEPT_PARAMS__RUNPARAMS;
+	int SOLVER_LP___COPY_PARAMS__RUNPARAMS = SOLVER___COPY_PARAMS__RUNPARAMS;
 
 	/**
-	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * The operation id for the '<em>Clone</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_LP___CONSTRUCT_PARAMS = SOLVER___CONSTRUCT_PARAMS;
+	int SOLVER_LP___CLONE = SOLVER___CLONE;
 
 	/**
 	 * The operation id for the '<em>Reset</em>' operation.
@@ -7238,22 +7238,22 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_LP_PARAMS_FEATURE_COUNT = JobPackage.RUN_PARAMS_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Accept Params</em>' operation.
+	 * The operation id for the '<em>Copy Params</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_LP_PARAMS___ACCEPT_PARAMS__RUNPARAMS = JobPackage.RUN_PARAMS___ACCEPT_PARAMS__RUNPARAMS;
+	int SOLVER_LP_PARAMS___COPY_PARAMS__RUNPARAMS = JobPackage.RUN_PARAMS___COPY_PARAMS__RUNPARAMS;
 
 	/**
-	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * The operation id for the '<em>Clone</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_LP_PARAMS___CONSTRUCT_PARAMS = JobPackage.RUN_PARAMS___CONSTRUCT_PARAMS;
+	int SOLVER_LP_PARAMS___CLONE = JobPackage.RUN_PARAMS___CLONE;
 
 	/**
 	 * The number of operations of the '<em>Lp Params</em>' class.

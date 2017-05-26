@@ -537,22 +537,22 @@ public interface SolvercplexPackage extends EPackage {
 	int SOLVER_CPLEX__MIP_STRATEGY_HEURISTIC_FREQ = SolverPackage.SOLVER_LP_FEATURE_COUNT + 12;
 
 	/**
-	 * The feature id for the '<em><b>Mip Strategy Presolve Node</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_CPLEX__MIP_STRATEGY_PRESOLVE_NODE = SolverPackage.SOLVER_LP_FEATURE_COUNT + 13;
-
-	/**
 	 * The feature id for the '<em><b>Mip Strategy Probe</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_CPLEX__MIP_STRATEGY_PROBE = SolverPackage.SOLVER_LP_FEATURE_COUNT + 14;
+	int SOLVER_CPLEX__MIP_STRATEGY_PROBE = SolverPackage.SOLVER_LP_FEATURE_COUNT + 13;
+
+	/**
+	 * The feature id for the '<em><b>Mip Strategy Presolve Node</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX__MIP_STRATEGY_PRESOLVE_NODE = SolverPackage.SOLVER_LP_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Mip Limits Cuts Factor</b></em>' attribute.
@@ -571,6 +571,24 @@ public interface SolvercplexPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_CPLEX_FEATURE_COUNT = SolverPackage.SOLVER_LP_FEATURE_COUNT + 16;
+
+	/**
+	 * The operation id for the '<em>Copy Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX___COPY_PARAMS__RUNPARAMS = SolverPackage.SOLVER_LP___COPY_PARAMS__RUNPARAMS;
+
+	/**
+	 * The operation id for the '<em>Clone</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX___CLONE = SolverPackage.SOLVER_LP___CLONE;
 
 	/**
 	 * The operation id for the '<em>Reset</em>' operation.
@@ -835,6 +853,197 @@ public interface SolvercplexPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexParamsImpl <em>Solver Cplex Params</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexParamsImpl
+	 * @see com.misc.common.moplaf.solver.solvercplex.impl.SolvercplexPackageImpl#getSolverCplexParams()
+	 * @generated
+	 */
+	int SOLVER_CPLEX_PARAMS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Solver Optimality Tolerance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX_PARAMS__SOLVER_OPTIMALITY_TOLERANCE = SolverPackage.SOLVER_LP_PARAMS__SOLVER_OPTIMALITY_TOLERANCE;
+
+	/**
+	 * The feature id for the '<em><b>Solver Linear Relaxation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX_PARAMS__SOLVER_LINEAR_RELAXATION = SolverPackage.SOLVER_LP_PARAMS__SOLVER_LINEAR_RELAXATION;
+
+	/**
+	 * The feature id for the '<em><b>Sol Optimality Gap</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX_PARAMS__SOL_OPTIMALITY_GAP = SolverPackage.SOLVER_LP_PARAMS__SOL_OPTIMALITY_GAP;
+
+	/**
+	 * The feature id for the '<em><b>Mip Cuts Cliques</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX_PARAMS__MIP_CUTS_CLIQUES = SolverPackage.SOLVER_LP_PARAMS_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Mip Cuts Covers</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX_PARAMS__MIP_CUTS_COVERS = SolverPackage.SOLVER_LP_PARAMS_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Mip Cuts Flow Covers</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX_PARAMS__MIP_CUTS_FLOW_COVERS = SolverPackage.SOLVER_LP_PARAMS_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Mip Cuts Gomory</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX_PARAMS__MIP_CUTS_GOMORY = SolverPackage.SOLVER_LP_PARAMS_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Mip Cuts GUB Covers</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX_PARAMS__MIP_CUTS_GUB_COVERS = SolverPackage.SOLVER_LP_PARAMS_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Mip Cuts Implied</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX_PARAMS__MIP_CUTS_IMPLIED = SolverPackage.SOLVER_LP_PARAMS_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Mip Cuts MIR Cut</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX_PARAMS__MIP_CUTS_MIR_CUT = SolverPackage.SOLVER_LP_PARAMS_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Mip Cuts Path Cut</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX_PARAMS__MIP_CUTS_PATH_CUT = SolverPackage.SOLVER_LP_PARAMS_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Mip Strategy Backtrack</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX_PARAMS__MIP_STRATEGY_BACKTRACK = SolverPackage.SOLVER_LP_PARAMS_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Mip Strategy Heuristic Freq</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX_PARAMS__MIP_STRATEGY_HEURISTIC_FREQ = SolverPackage.SOLVER_LP_PARAMS_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Mip Strategy Probe</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PROBE = SolverPackage.SOLVER_LP_PARAMS_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>Mip Strategy Presolve Node</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PRESOLVE_NODE = SolverPackage.SOLVER_LP_PARAMS_FEATURE_COUNT + 11;
+
+	/**
+	 * The feature id for the '<em><b>Mip Limits Cuts Factor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX_PARAMS__MIP_LIMITS_CUTS_FACTOR = SolverPackage.SOLVER_LP_PARAMS_FEATURE_COUNT + 12;
+
+	/**
+	 * The number of structural features of the '<em>Solver Cplex Params</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX_PARAMS_FEATURE_COUNT = SolverPackage.SOLVER_LP_PARAMS_FEATURE_COUNT + 13;
+
+	/**
+	 * The operation id for the '<em>Copy Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX_PARAMS___COPY_PARAMS__RUNPARAMS = SolverPackage.SOLVER_LP_PARAMS___COPY_PARAMS__RUNPARAMS;
+
+	/**
+	 * The operation id for the '<em>Clone</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX_PARAMS___CLONE = SolverPackage.SOLVER_LP_PARAMS___CLONE;
+
+	/**
+	 * The number of operations of the '<em>Solver Cplex Params</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX_PARAMS_OPERATION_COUNT = SolverPackage.SOLVER_LP_PARAMS_OPERATION_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplex <em>Solver Cplex</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -845,147 +1054,157 @@ public interface SolvercplexPackage extends EPackage {
 	EClass getSolverCplex();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipCutsCliques <em>Mip Cuts Cliques</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplexParams <em>Solver Cplex Params</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Solver Cplex Params</em>'.
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexParams
+	 * @generated
+	 */
+	EClass getSolverCplexParams();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplexParams#getMipCutsCliques <em>Mip Cuts Cliques</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Mip Cuts Cliques</em>'.
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipCutsCliques()
-	 * @see #getSolverCplex()
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexParams#getMipCutsCliques()
+	 * @see #getSolverCplexParams()
 	 * @generated
 	 */
-	EAttribute getSolverCplex_MipCutsCliques();
+	EAttribute getSolverCplexParams_MipCutsCliques();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipCutsCovers <em>Mip Cuts Covers</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplexParams#getMipCutsCovers <em>Mip Cuts Covers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Mip Cuts Covers</em>'.
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipCutsCovers()
-	 * @see #getSolverCplex()
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexParams#getMipCutsCovers()
+	 * @see #getSolverCplexParams()
 	 * @generated
 	 */
-	EAttribute getSolverCplex_MipCutsCovers();
+	EAttribute getSolverCplexParams_MipCutsCovers();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipCutsFlowCovers <em>Mip Cuts Flow Covers</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplexParams#getMipCutsFlowCovers <em>Mip Cuts Flow Covers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Mip Cuts Flow Covers</em>'.
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipCutsFlowCovers()
-	 * @see #getSolverCplex()
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexParams#getMipCutsFlowCovers()
+	 * @see #getSolverCplexParams()
 	 * @generated
 	 */
-	EAttribute getSolverCplex_MipCutsFlowCovers();
+	EAttribute getSolverCplexParams_MipCutsFlowCovers();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipCutsGomory <em>Mip Cuts Gomory</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplexParams#getMipCutsGomory <em>Mip Cuts Gomory</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Mip Cuts Gomory</em>'.
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipCutsGomory()
-	 * @see #getSolverCplex()
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexParams#getMipCutsGomory()
+	 * @see #getSolverCplexParams()
 	 * @generated
 	 */
-	EAttribute getSolverCplex_MipCutsGomory();
+	EAttribute getSolverCplexParams_MipCutsGomory();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipCutsGUBCovers <em>Mip Cuts GUB Covers</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplexParams#getMipCutsGUBCovers <em>Mip Cuts GUB Covers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Mip Cuts GUB Covers</em>'.
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipCutsGUBCovers()
-	 * @see #getSolverCplex()
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexParams#getMipCutsGUBCovers()
+	 * @see #getSolverCplexParams()
 	 * @generated
 	 */
-	EAttribute getSolverCplex_MipCutsGUBCovers();
+	EAttribute getSolverCplexParams_MipCutsGUBCovers();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipCutsImplied <em>Mip Cuts Implied</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplexParams#getMipCutsImplied <em>Mip Cuts Implied</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Mip Cuts Implied</em>'.
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipCutsImplied()
-	 * @see #getSolverCplex()
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexParams#getMipCutsImplied()
+	 * @see #getSolverCplexParams()
 	 * @generated
 	 */
-	EAttribute getSolverCplex_MipCutsImplied();
+	EAttribute getSolverCplexParams_MipCutsImplied();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipCutsMIRCut <em>Mip Cuts MIR Cut</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplexParams#getMipCutsMIRCut <em>Mip Cuts MIR Cut</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Mip Cuts MIR Cut</em>'.
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipCutsMIRCut()
-	 * @see #getSolverCplex()
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexParams#getMipCutsMIRCut()
+	 * @see #getSolverCplexParams()
 	 * @generated
 	 */
-	EAttribute getSolverCplex_MipCutsMIRCut();
+	EAttribute getSolverCplexParams_MipCutsMIRCut();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipCutsPathCut <em>Mip Cuts Path Cut</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplexParams#getMipCutsPathCut <em>Mip Cuts Path Cut</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Mip Cuts Path Cut</em>'.
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipCutsPathCut()
-	 * @see #getSolverCplex()
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexParams#getMipCutsPathCut()
+	 * @see #getSolverCplexParams()
 	 * @generated
 	 */
-	EAttribute getSolverCplex_MipCutsPathCut();
+	EAttribute getSolverCplexParams_MipCutsPathCut();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipStrategyBacktrack <em>Mip Strategy Backtrack</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplexParams#getMipStrategyBacktrack <em>Mip Strategy Backtrack</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Mip Strategy Backtrack</em>'.
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipStrategyBacktrack()
-	 * @see #getSolverCplex()
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexParams#getMipStrategyBacktrack()
+	 * @see #getSolverCplexParams()
 	 * @generated
 	 */
-	EAttribute getSolverCplex_MipStrategyBacktrack();
+	EAttribute getSolverCplexParams_MipStrategyBacktrack();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipStrategyHeuristicFreq <em>Mip Strategy Heuristic Freq</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplexParams#getMipStrategyHeuristicFreq <em>Mip Strategy Heuristic Freq</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Mip Strategy Heuristic Freq</em>'.
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipStrategyHeuristicFreq()
-	 * @see #getSolverCplex()
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexParams#getMipStrategyHeuristicFreq()
+	 * @see #getSolverCplexParams()
 	 * @generated
 	 */
-	EAttribute getSolverCplex_MipStrategyHeuristicFreq();
+	EAttribute getSolverCplexParams_MipStrategyHeuristicFreq();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipStrategyPresolveNode <em>Mip Strategy Presolve Node</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Mip Strategy Presolve Node</em>'.
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipStrategyPresolveNode()
-	 * @see #getSolverCplex()
-	 * @generated
-	 */
-	EAttribute getSolverCplex_MipStrategyPresolveNode();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipStrategyProbe <em>Mip Strategy Probe</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplexParams#getMipStrategyProbe <em>Mip Strategy Probe</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Mip Strategy Probe</em>'.
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipStrategyProbe()
-	 * @see #getSolverCplex()
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexParams#getMipStrategyProbe()
+	 * @see #getSolverCplexParams()
 	 * @generated
 	 */
-	EAttribute getSolverCplex_MipStrategyProbe();
+	EAttribute getSolverCplexParams_MipStrategyProbe();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipLimitsCutsFactor <em>Mip Limits Cuts Factor</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplexParams#getMipStrategyPresolveNode <em>Mip Strategy Presolve Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mip Strategy Presolve Node</em>'.
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexParams#getMipStrategyPresolveNode()
+	 * @see #getSolverCplexParams()
+	 * @generated
+	 */
+	EAttribute getSolverCplexParams_MipStrategyPresolveNode();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplexParams#getMipLimitsCutsFactor <em>Mip Limits Cuts Factor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Mip Limits Cuts Factor</em>'.
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipLimitsCutsFactor()
-	 * @see #getSolverCplex()
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexParams#getMipLimitsCutsFactor()
+	 * @see #getSolverCplexParams()
 	 * @generated
 	 */
-	EAttribute getSolverCplex_MipLimitsCutsFactor();
+	EAttribute getSolverCplexParams_MipLimitsCutsFactor();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1020,96 +1239,105 @@ public interface SolvercplexPackage extends EPackage {
 		 */
 		EClass SOLVER_CPLEX = eINSTANCE.getSolverCplex();
 		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexParamsImpl <em>Solver Cplex Params</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexParamsImpl
+		 * @see com.misc.common.moplaf.solver.solvercplex.impl.SolvercplexPackageImpl#getSolverCplexParams()
+		 * @generated
+		 */
+		EClass SOLVER_CPLEX_PARAMS = eINSTANCE.getSolverCplexParams();
+		/**
 		 * The meta object literal for the '<em><b>Mip Cuts Cliques</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SOLVER_CPLEX__MIP_CUTS_CLIQUES = eINSTANCE.getSolverCplex_MipCutsCliques();
+		EAttribute SOLVER_CPLEX_PARAMS__MIP_CUTS_CLIQUES = eINSTANCE.getSolverCplexParams_MipCutsCliques();
 		/**
 		 * The meta object literal for the '<em><b>Mip Cuts Covers</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SOLVER_CPLEX__MIP_CUTS_COVERS = eINSTANCE.getSolverCplex_MipCutsCovers();
+		EAttribute SOLVER_CPLEX_PARAMS__MIP_CUTS_COVERS = eINSTANCE.getSolverCplexParams_MipCutsCovers();
 		/**
 		 * The meta object literal for the '<em><b>Mip Cuts Flow Covers</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SOLVER_CPLEX__MIP_CUTS_FLOW_COVERS = eINSTANCE.getSolverCplex_MipCutsFlowCovers();
+		EAttribute SOLVER_CPLEX_PARAMS__MIP_CUTS_FLOW_COVERS = eINSTANCE.getSolverCplexParams_MipCutsFlowCovers();
 		/**
 		 * The meta object literal for the '<em><b>Mip Cuts Gomory</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SOLVER_CPLEX__MIP_CUTS_GOMORY = eINSTANCE.getSolverCplex_MipCutsGomory();
+		EAttribute SOLVER_CPLEX_PARAMS__MIP_CUTS_GOMORY = eINSTANCE.getSolverCplexParams_MipCutsGomory();
 		/**
 		 * The meta object literal for the '<em><b>Mip Cuts GUB Covers</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SOLVER_CPLEX__MIP_CUTS_GUB_COVERS = eINSTANCE.getSolverCplex_MipCutsGUBCovers();
+		EAttribute SOLVER_CPLEX_PARAMS__MIP_CUTS_GUB_COVERS = eINSTANCE.getSolverCplexParams_MipCutsGUBCovers();
 		/**
 		 * The meta object literal for the '<em><b>Mip Cuts Implied</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SOLVER_CPLEX__MIP_CUTS_IMPLIED = eINSTANCE.getSolverCplex_MipCutsImplied();
+		EAttribute SOLVER_CPLEX_PARAMS__MIP_CUTS_IMPLIED = eINSTANCE.getSolverCplexParams_MipCutsImplied();
 		/**
 		 * The meta object literal for the '<em><b>Mip Cuts MIR Cut</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SOLVER_CPLEX__MIP_CUTS_MIR_CUT = eINSTANCE.getSolverCplex_MipCutsMIRCut();
+		EAttribute SOLVER_CPLEX_PARAMS__MIP_CUTS_MIR_CUT = eINSTANCE.getSolverCplexParams_MipCutsMIRCut();
 		/**
 		 * The meta object literal for the '<em><b>Mip Cuts Path Cut</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SOLVER_CPLEX__MIP_CUTS_PATH_CUT = eINSTANCE.getSolverCplex_MipCutsPathCut();
+		EAttribute SOLVER_CPLEX_PARAMS__MIP_CUTS_PATH_CUT = eINSTANCE.getSolverCplexParams_MipCutsPathCut();
 		/**
 		 * The meta object literal for the '<em><b>Mip Strategy Backtrack</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SOLVER_CPLEX__MIP_STRATEGY_BACKTRACK = eINSTANCE.getSolverCplex_MipStrategyBacktrack();
+		EAttribute SOLVER_CPLEX_PARAMS__MIP_STRATEGY_BACKTRACK = eINSTANCE.getSolverCplexParams_MipStrategyBacktrack();
 		/**
 		 * The meta object literal for the '<em><b>Mip Strategy Heuristic Freq</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SOLVER_CPLEX__MIP_STRATEGY_HEURISTIC_FREQ = eINSTANCE.getSolverCplex_MipStrategyHeuristicFreq();
-		/**
-		 * The meta object literal for the '<em><b>Mip Strategy Presolve Node</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SOLVER_CPLEX__MIP_STRATEGY_PRESOLVE_NODE = eINSTANCE.getSolverCplex_MipStrategyPresolveNode();
+		EAttribute SOLVER_CPLEX_PARAMS__MIP_STRATEGY_HEURISTIC_FREQ = eINSTANCE.getSolverCplexParams_MipStrategyHeuristicFreq();
 		/**
 		 * The meta object literal for the '<em><b>Mip Strategy Probe</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SOLVER_CPLEX__MIP_STRATEGY_PROBE = eINSTANCE.getSolverCplex_MipStrategyProbe();
+		EAttribute SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PROBE = eINSTANCE.getSolverCplexParams_MipStrategyProbe();
+		/**
+		 * The meta object literal for the '<em><b>Mip Strategy Presolve Node</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PRESOLVE_NODE = eINSTANCE.getSolverCplexParams_MipStrategyPresolveNode();
 		/**
 		 * The meta object literal for the '<em><b>Mip Limits Cuts Factor</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SOLVER_CPLEX__MIP_LIMITS_CUTS_FACTOR = eINSTANCE.getSolverCplex_MipLimitsCutsFactor();
+		EAttribute SOLVER_CPLEX_PARAMS__MIP_LIMITS_CUTS_FACTOR = eINSTANCE.getSolverCplexParams_MipLimitsCutsFactor();
 
 	}
 

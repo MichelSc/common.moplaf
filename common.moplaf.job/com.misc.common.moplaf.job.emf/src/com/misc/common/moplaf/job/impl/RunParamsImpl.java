@@ -8,10 +8,11 @@ import com.misc.common.moplaf.job.RunParams;
 import java.lang.reflect.InvocationTargetException;
 
 import org.eclipse.emf.common.util.EList;
-
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,23 +44,20 @@ public class RunParamsImpl extends MinimalEObjectImpl.Container implements RunPa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public void acceptParams(RunParams other) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public void copyParams(RunParams other) {
+		for ( EAttribute attribute : this.eClass().getEAllAttributes()){
+			this.eSet(attribute, other.eGet(attribute));
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
-	public void constructParams() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public RunParams clone() {
+		RunParams newRunParams = (RunParams) EcoreUtil.copy(this);
+		return newRunParams;
 	}
 
 	/**
@@ -70,12 +68,11 @@ public class RunParamsImpl extends MinimalEObjectImpl.Container implements RunPa
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case JobPackage.RUN_PARAMS___ACCEPT_PARAMS__RUNPARAMS:
-				acceptParams((RunParams)arguments.get(0));
+			case JobPackage.RUN_PARAMS___COPY_PARAMS__RUNPARAMS:
+				copyParams((RunParams)arguments.get(0));
 				return null;
-			case JobPackage.RUN_PARAMS___CONSTRUCT_PARAMS:
-				constructParams();
-				return null;
+			case JobPackage.RUN_PARAMS___CLONE:
+				return clone();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

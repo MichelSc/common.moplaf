@@ -13,12 +13,14 @@
 package com.misc.common.moplaf.solver.solvercplex.util;
 
 import com.misc.common.moplaf.job.Run;
+import com.misc.common.moplaf.job.RunParams;
 import com.misc.common.moplaf.solver.IGeneratorTool;
 import com.misc.common.moplaf.solver.ILpWriter;
 import com.misc.common.moplaf.solver.SolutionProvider;
 import com.misc.common.moplaf.solver.Solver;
 
 import com.misc.common.moplaf.solver.SolverLp;
+import com.misc.common.moplaf.solver.SolverLpParams;
 import com.misc.common.moplaf.solver.solvercplex.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -89,6 +91,14 @@ public class SolvercplexAdapterFactory extends AdapterFactoryImpl {
 				return createSolverCplexAdapter();
 			}
 			@Override
+			public Adapter caseSolverCplexParams(SolverCplexParams object) {
+				return createSolverCplexParamsAdapter();
+			}
+			@Override
+			public Adapter caseRunParams(RunParams object) {
+				return createRunParamsAdapter();
+			}
+			@Override
 			public Adapter caseRun(Run object) {
 				return createRunAdapter();
 			}
@@ -103,6 +113,10 @@ public class SolvercplexAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseSolver(Solver object) {
 				return createSolverAdapter();
+			}
+			@Override
+			public Adapter caseSolverLpParams(SolverLpParams object) {
+				return createSolverLpParamsAdapter();
 			}
 			@Override
 			public Adapter caseSolverLp(SolverLp object) {
@@ -143,6 +157,34 @@ public class SolvercplexAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSolverCplexAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplexParams <em>Solver Cplex Params</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexParams
+	 * @generated
+	 */
+	public Adapter createSolverCplexParamsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.RunParams <em>Run Params</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.RunParams
+	 * @generated
+	 */
+	public Adapter createRunParamsAdapter() {
 		return null;
 	}
 
@@ -199,6 +241,20 @@ public class SolvercplexAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSolverAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.SolverLpParams <em>Lp Params</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.solver.SolverLpParams
+	 * @generated
+	 */
+	public Adapter createSolverLpParamsAdapter() {
 		return null;
 	}
 

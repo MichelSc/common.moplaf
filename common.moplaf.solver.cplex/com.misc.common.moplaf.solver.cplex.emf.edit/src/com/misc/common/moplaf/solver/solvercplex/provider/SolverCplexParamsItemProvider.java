@@ -1,47 +1,40 @@
-/*******************************************************************************
- * Copyright (c) 2017 Michel Schaffers and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Michel Schaffers - initial API and implementation
- *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.solver.solvercplex.provider;
 
 
-import com.misc.common.moplaf.solver.SolverPackage;
-import com.misc.common.moplaf.solver.provider.SolverLpItemProvider;
-import com.misc.common.moplaf.solver.solvercplex.SolverCplex;
+import com.misc.common.moplaf.solver.provider.SolverLpParamsItemProvider;
+
+import com.misc.common.moplaf.solver.solvercplex.SolverCplexParams;
 import com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage;
+
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.solver.solvercplex.SolverCplex} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.solver.solvercplex.SolverCplexParams} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SolverCplexItemProvider
-	extends SolverLpItemProvider {
+public class SolverCplexParamsItemProvider extends SolverLpParamsItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SolverCplexItemProvider(AdapterFactory adapterFactory) {
+	public SolverCplexParamsItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -56,9 +49,6 @@ public class SolverCplexItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addFilePathPropertyDescriptor(object);
-			addFileFormatPropertyDescriptor(object);
-			addFileCompressedPropertyDescriptor(object);
 			addMipCutsCliquesPropertyDescriptor(object);
 			addMipCutsCoversPropertyDescriptor(object);
 			addMipCutsFlowCoversPropertyDescriptor(object);
@@ -74,72 +64,6 @@ public class SolverCplexItemProvider
 			addMipLimitsCutsFactorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the File Path feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addFilePathPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ILpWriter_FilePath_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ILpWriter_FilePath_feature", "_UI_ILpWriter_type"),
-				 SolverPackage.Literals.ILP_WRITER__FILE_PATH,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__15FileWriterPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the File Format feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addFileFormatPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ILpWriter_FileFormat_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ILpWriter_FileFormat_feature", "_UI_ILpWriter_type"),
-				 SolverPackage.Literals.ILP_WRITER__FILE_FORMAT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__15FileWriterPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the File Compressed feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addFileCompressedPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ILpWriter_FileCompressed_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ILpWriter_FileCompressed_feature", "_UI_ILpWriter_type"),
-				 SolverPackage.Literals.ILP_WRITER__FILE_COMPRESSED,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 getString("_UI__15FileWriterPropertyCategory"),
-				 null));
 	}
 
 	/**
@@ -429,6 +353,17 @@ public class SolverCplexItemProvider
 	}
 
 	/**
+	 * This returns SolverCplexParams.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object getImage(Object object) {
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SolverCplexParams"));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -436,11 +371,10 @@ public class SolverCplexItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SolverCplex)object).getCode();
-		return label == null || label.length() == 0 ?
-			getString("_UI_SolverCplex_type") :
-			getString("_UI_SolverCplex_type") + " " + label;
+		SolverCplexParams solverCplexParams = (SolverCplexParams)object;
+		return getString("_UI_SolverCplexParams_type") + " " + solverCplexParams.getSolverOptimalityTolerance();
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -453,23 +387,20 @@ public class SolverCplexItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(SolverCplex.class)) {
-			case SolvercplexPackage.SOLVER_CPLEX__FILE_PATH:
-			case SolvercplexPackage.SOLVER_CPLEX__FILE_FORMAT:
-			case SolvercplexPackage.SOLVER_CPLEX__FILE_COMPRESSED:
-			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_CLIQUES:
-			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_COVERS:
-			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_FLOW_COVERS:
-			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_GOMORY:
-			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_GUB_COVERS:
-			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_IMPLIED:
-			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_MIR_CUT:
-			case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_PATH_CUT:
-			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_BACKTRACK:
-			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_HEURISTIC_FREQ:
-			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PROBE:
-			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PRESOLVE_NODE:
-			case SolvercplexPackage.SOLVER_CPLEX__MIP_LIMITS_CUTS_FACTOR:
+		switch (notification.getFeatureID(SolverCplexParams.class)) {
+			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_CLIQUES:
+			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_COVERS:
+			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_FLOW_COVERS:
+			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GOMORY:
+			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GUB_COVERS:
+			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_IMPLIED:
+			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_MIR_CUT:
+			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_PATH_CUT:
+			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_BACKTRACK:
+			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_HEURISTIC_FREQ:
+			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PROBE:
+			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PRESOLVE_NODE:
+			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_LIMITS_CUTS_FACTOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

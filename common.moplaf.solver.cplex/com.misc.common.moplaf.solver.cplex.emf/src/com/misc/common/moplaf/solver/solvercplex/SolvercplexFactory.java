@@ -41,6 +41,15 @@ public interface SolvercplexFactory extends EFactory {
 	SolverCplex createSolverCplex();
 
 	/**
+	 * Returns a new object of class '<em>Solver Cplex Params</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Solver Cplex Params</em>'.
+	 * @generated
+	 */
+	SolverCplexParams createSolverCplexParams();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

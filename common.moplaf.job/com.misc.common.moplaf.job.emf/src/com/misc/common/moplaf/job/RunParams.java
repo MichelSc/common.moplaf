@@ -21,7 +21,7 @@ public interface RunParams extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void acceptParams(RunParams other);
+	void copyParams(RunParams other);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -29,6 +29,6 @@ public interface RunParams extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void constructParams();
+	RunParams clone();
 
 } // RunParams

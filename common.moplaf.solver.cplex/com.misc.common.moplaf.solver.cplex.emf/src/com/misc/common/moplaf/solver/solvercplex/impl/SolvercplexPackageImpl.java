@@ -15,6 +15,7 @@ package com.misc.common.moplaf.solver.solvercplex.impl;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import com.misc.common.moplaf.solver.solvercplex.SolverCplex;
+import com.misc.common.moplaf.solver.solvercplex.SolverCplexParams;
 import com.misc.common.moplaf.solver.solvercplex.SolvercplexFactory;
 import com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage;
 
@@ -37,6 +38,13 @@ public class SolvercplexPackageImpl extends EPackageImpl implements SolvercplexP
 	 * @generated
 	 */
 	private EClass solverCplexEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass solverCplexParamsEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -116,8 +124,8 @@ public class SolvercplexPackageImpl extends EPackageImpl implements SolvercplexP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolverCplex_MipCutsCliques() {
-		return (EAttribute)solverCplexEClass.getEStructuralFeatures().get(0);
+	public EClass getSolverCplexParams() {
+		return solverCplexParamsEClass;
 	}
 
 	/**
@@ -125,8 +133,8 @@ public class SolvercplexPackageImpl extends EPackageImpl implements SolvercplexP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolverCplex_MipCutsCovers() {
-		return (EAttribute)solverCplexEClass.getEStructuralFeatures().get(1);
+	public EAttribute getSolverCplexParams_MipCutsCliques() {
+		return (EAttribute)solverCplexParamsEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -134,8 +142,8 @@ public class SolvercplexPackageImpl extends EPackageImpl implements SolvercplexP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolverCplex_MipCutsFlowCovers() {
-		return (EAttribute)solverCplexEClass.getEStructuralFeatures().get(2);
+	public EAttribute getSolverCplexParams_MipCutsCovers() {
+		return (EAttribute)solverCplexParamsEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -143,8 +151,8 @@ public class SolvercplexPackageImpl extends EPackageImpl implements SolvercplexP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolverCplex_MipCutsGomory() {
-		return (EAttribute)solverCplexEClass.getEStructuralFeatures().get(3);
+	public EAttribute getSolverCplexParams_MipCutsFlowCovers() {
+		return (EAttribute)solverCplexParamsEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -152,8 +160,8 @@ public class SolvercplexPackageImpl extends EPackageImpl implements SolvercplexP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolverCplex_MipCutsGUBCovers() {
-		return (EAttribute)solverCplexEClass.getEStructuralFeatures().get(4);
+	public EAttribute getSolverCplexParams_MipCutsGomory() {
+		return (EAttribute)solverCplexParamsEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -161,8 +169,8 @@ public class SolvercplexPackageImpl extends EPackageImpl implements SolvercplexP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolverCplex_MipCutsImplied() {
-		return (EAttribute)solverCplexEClass.getEStructuralFeatures().get(5);
+	public EAttribute getSolverCplexParams_MipCutsGUBCovers() {
+		return (EAttribute)solverCplexParamsEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -170,8 +178,8 @@ public class SolvercplexPackageImpl extends EPackageImpl implements SolvercplexP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolverCplex_MipCutsMIRCut() {
-		return (EAttribute)solverCplexEClass.getEStructuralFeatures().get(6);
+	public EAttribute getSolverCplexParams_MipCutsImplied() {
+		return (EAttribute)solverCplexParamsEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -179,8 +187,8 @@ public class SolvercplexPackageImpl extends EPackageImpl implements SolvercplexP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolverCplex_MipCutsPathCut() {
-		return (EAttribute)solverCplexEClass.getEStructuralFeatures().get(7);
+	public EAttribute getSolverCplexParams_MipCutsMIRCut() {
+		return (EAttribute)solverCplexParamsEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -188,8 +196,8 @@ public class SolvercplexPackageImpl extends EPackageImpl implements SolvercplexP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolverCplex_MipStrategyBacktrack() {
-		return (EAttribute)solverCplexEClass.getEStructuralFeatures().get(8);
+	public EAttribute getSolverCplexParams_MipCutsPathCut() {
+		return (EAttribute)solverCplexParamsEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -197,8 +205,8 @@ public class SolvercplexPackageImpl extends EPackageImpl implements SolvercplexP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolverCplex_MipStrategyHeuristicFreq() {
-		return (EAttribute)solverCplexEClass.getEStructuralFeatures().get(9);
+	public EAttribute getSolverCplexParams_MipStrategyBacktrack() {
+		return (EAttribute)solverCplexParamsEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -206,8 +214,8 @@ public class SolvercplexPackageImpl extends EPackageImpl implements SolvercplexP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolverCplex_MipStrategyPresolveNode() {
-		return (EAttribute)solverCplexEClass.getEStructuralFeatures().get(10);
+	public EAttribute getSolverCplexParams_MipStrategyHeuristicFreq() {
+		return (EAttribute)solverCplexParamsEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -215,8 +223,8 @@ public class SolvercplexPackageImpl extends EPackageImpl implements SolvercplexP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolverCplex_MipStrategyProbe() {
-		return (EAttribute)solverCplexEClass.getEStructuralFeatures().get(11);
+	public EAttribute getSolverCplexParams_MipStrategyProbe() {
+		return (EAttribute)solverCplexParamsEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -224,8 +232,17 @@ public class SolvercplexPackageImpl extends EPackageImpl implements SolvercplexP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolverCplex_MipLimitsCutsFactor() {
-		return (EAttribute)solverCplexEClass.getEStructuralFeatures().get(12);
+	public EAttribute getSolverCplexParams_MipStrategyPresolveNode() {
+		return (EAttribute)solverCplexParamsEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSolverCplexParams_MipLimitsCutsFactor() {
+		return (EAttribute)solverCplexParamsEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -257,19 +274,21 @@ public class SolvercplexPackageImpl extends EPackageImpl implements SolvercplexP
 
 		// Create classes and their features
 		solverCplexEClass = createEClass(SOLVER_CPLEX);
-		createEAttribute(solverCplexEClass, SOLVER_CPLEX__MIP_CUTS_CLIQUES);
-		createEAttribute(solverCplexEClass, SOLVER_CPLEX__MIP_CUTS_COVERS);
-		createEAttribute(solverCplexEClass, SOLVER_CPLEX__MIP_CUTS_FLOW_COVERS);
-		createEAttribute(solverCplexEClass, SOLVER_CPLEX__MIP_CUTS_GOMORY);
-		createEAttribute(solverCplexEClass, SOLVER_CPLEX__MIP_CUTS_GUB_COVERS);
-		createEAttribute(solverCplexEClass, SOLVER_CPLEX__MIP_CUTS_IMPLIED);
-		createEAttribute(solverCplexEClass, SOLVER_CPLEX__MIP_CUTS_MIR_CUT);
-		createEAttribute(solverCplexEClass, SOLVER_CPLEX__MIP_CUTS_PATH_CUT);
-		createEAttribute(solverCplexEClass, SOLVER_CPLEX__MIP_STRATEGY_BACKTRACK);
-		createEAttribute(solverCplexEClass, SOLVER_CPLEX__MIP_STRATEGY_HEURISTIC_FREQ);
-		createEAttribute(solverCplexEClass, SOLVER_CPLEX__MIP_STRATEGY_PRESOLVE_NODE);
-		createEAttribute(solverCplexEClass, SOLVER_CPLEX__MIP_STRATEGY_PROBE);
-		createEAttribute(solverCplexEClass, SOLVER_CPLEX__MIP_LIMITS_CUTS_FACTOR);
+
+		solverCplexParamsEClass = createEClass(SOLVER_CPLEX_PARAMS);
+		createEAttribute(solverCplexParamsEClass, SOLVER_CPLEX_PARAMS__MIP_CUTS_CLIQUES);
+		createEAttribute(solverCplexParamsEClass, SOLVER_CPLEX_PARAMS__MIP_CUTS_COVERS);
+		createEAttribute(solverCplexParamsEClass, SOLVER_CPLEX_PARAMS__MIP_CUTS_FLOW_COVERS);
+		createEAttribute(solverCplexParamsEClass, SOLVER_CPLEX_PARAMS__MIP_CUTS_GOMORY);
+		createEAttribute(solverCplexParamsEClass, SOLVER_CPLEX_PARAMS__MIP_CUTS_GUB_COVERS);
+		createEAttribute(solverCplexParamsEClass, SOLVER_CPLEX_PARAMS__MIP_CUTS_IMPLIED);
+		createEAttribute(solverCplexParamsEClass, SOLVER_CPLEX_PARAMS__MIP_CUTS_MIR_CUT);
+		createEAttribute(solverCplexParamsEClass, SOLVER_CPLEX_PARAMS__MIP_CUTS_PATH_CUT);
+		createEAttribute(solverCplexParamsEClass, SOLVER_CPLEX_PARAMS__MIP_STRATEGY_BACKTRACK);
+		createEAttribute(solverCplexParamsEClass, SOLVER_CPLEX_PARAMS__MIP_STRATEGY_HEURISTIC_FREQ);
+		createEAttribute(solverCplexParamsEClass, SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PROBE);
+		createEAttribute(solverCplexParamsEClass, SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PRESOLVE_NODE);
+		createEAttribute(solverCplexParamsEClass, SOLVER_CPLEX_PARAMS__MIP_LIMITS_CUTS_FACTOR);
 	}
 
 	/**
@@ -305,22 +324,26 @@ public class SolvercplexPackageImpl extends EPackageImpl implements SolvercplexP
 		// Add supertypes to classes
 		solverCplexEClass.getESuperTypes().add(theSolverPackage.getSolverLp());
 		solverCplexEClass.getESuperTypes().add(theSolverPackage.getILpWriter());
+		solverCplexEClass.getESuperTypes().add(this.getSolverCplexParams());
+		solverCplexParamsEClass.getESuperTypes().add(theSolverPackage.getSolverLpParams());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(solverCplexEClass, SolverCplex.class, "SolverCplex", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSolverCplex_MipCutsCliques(), ecorePackage.getEInt(), "MipCutsCliques", null, 0, 1, SolverCplex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSolverCplex_MipCutsCovers(), ecorePackage.getEInt(), "MipCutsCovers", null, 0, 1, SolverCplex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSolverCplex_MipCutsFlowCovers(), ecorePackage.getEInt(), "MipCutsFlowCovers", null, 0, 1, SolverCplex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSolverCplex_MipCutsGomory(), ecorePackage.getEInt(), "MipCutsGomory", null, 0, 1, SolverCplex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSolverCplex_MipCutsGUBCovers(), ecorePackage.getEInt(), "MipCutsGUBCovers", null, 0, 1, SolverCplex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSolverCplex_MipCutsImplied(), ecorePackage.getEInt(), "MipCutsImplied", null, 0, 1, SolverCplex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSolverCplex_MipCutsMIRCut(), ecorePackage.getEInt(), "MipCutsMIRCut", null, 0, 1, SolverCplex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSolverCplex_MipCutsPathCut(), ecorePackage.getEInt(), "MipCutsPathCut", null, 0, 1, SolverCplex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSolverCplex_MipStrategyBacktrack(), ecorePackage.getEFloat(), "MipStrategyBacktrack", "0.9999 ", 0, 1, SolverCplex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSolverCplex_MipStrategyHeuristicFreq(), ecorePackage.getEInt(), "MipStrategyHeuristicFreq", null, 0, 1, SolverCplex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSolverCplex_MipStrategyPresolveNode(), ecorePackage.getEInt(), "MipStrategyPresolveNode", null, 0, 1, SolverCplex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSolverCplex_MipStrategyProbe(), ecorePackage.getEInt(), "MipStrategyProbe", null, 0, 1, SolverCplex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSolverCplex_MipLimitsCutsFactor(), ecorePackage.getEInt(), "MipLimitsCutsFactor", null, 0, 1, SolverCplex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(solverCplexParamsEClass, SolverCplexParams.class, "SolverCplexParams", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSolverCplexParams_MipCutsCliques(), ecorePackage.getEInt(), "MipCutsCliques", null, 0, 1, SolverCplexParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolverCplexParams_MipCutsCovers(), ecorePackage.getEInt(), "MipCutsCovers", null, 0, 1, SolverCplexParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolverCplexParams_MipCutsFlowCovers(), ecorePackage.getEInt(), "MipCutsFlowCovers", null, 0, 1, SolverCplexParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolverCplexParams_MipCutsGomory(), ecorePackage.getEInt(), "MipCutsGomory", null, 0, 1, SolverCplexParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolverCplexParams_MipCutsGUBCovers(), ecorePackage.getEInt(), "MipCutsGUBCovers", null, 0, 1, SolverCplexParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolverCplexParams_MipCutsImplied(), ecorePackage.getEInt(), "MipCutsImplied", null, 0, 1, SolverCplexParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolverCplexParams_MipCutsMIRCut(), ecorePackage.getEInt(), "MipCutsMIRCut", null, 0, 1, SolverCplexParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolverCplexParams_MipCutsPathCut(), ecorePackage.getEInt(), "MipCutsPathCut", null, 0, 1, SolverCplexParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolverCplexParams_MipStrategyBacktrack(), ecorePackage.getEFloat(), "MipStrategyBacktrack", "0.9999 ", 0, 1, SolverCplexParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolverCplexParams_MipStrategyHeuristicFreq(), ecorePackage.getEInt(), "MipStrategyHeuristicFreq", null, 0, 1, SolverCplexParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolverCplexParams_MipStrategyProbe(), ecorePackage.getEInt(), "MipStrategyProbe", null, 0, 1, SolverCplexParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolverCplexParams_MipStrategyPresolveNode(), ecorePackage.getEInt(), "MipStrategyPresolveNode", null, 0, 1, SolverCplexParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolverCplexParams_MipLimitsCutsFactor(), ecorePackage.getEInt(), "MipLimitsCutsFactor", null, 0, 1, SolverCplexParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

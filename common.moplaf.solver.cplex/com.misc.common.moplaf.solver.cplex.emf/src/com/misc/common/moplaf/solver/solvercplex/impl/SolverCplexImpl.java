@@ -42,6 +42,7 @@ import com.misc.common.moplaf.solver.SolutionVar;
 import com.misc.common.moplaf.solver.SolverPackage;
 import com.misc.common.moplaf.solver.impl.SolverLpImpl;
 import com.misc.common.moplaf.solver.solvercplex.SolverCplex;
+import com.misc.common.moplaf.solver.solvercplex.SolverCplexParams;
 import com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -70,8 +71,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getMipCutsPathCut <em>Mip Cuts Path Cut</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getMipStrategyBacktrack <em>Mip Strategy Backtrack</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getMipStrategyHeuristicFreq <em>Mip Strategy Heuristic Freq</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getMipStrategyPresolveNode <em>Mip Strategy Presolve Node</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getMipStrategyProbe <em>Mip Strategy Probe</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getMipStrategyPresolveNode <em>Mip Strategy Presolve Node</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getMipLimitsCutsFactor <em>Mip Limits Cuts Factor</em>}</li>
  * </ul>
  *
@@ -313,24 +314,6 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 	 */
 	protected int mipStrategyHeuristicFreq = MIP_STRATEGY_HEURISTIC_FREQ_EDEFAULT;
 	/**
-	 * The default value of the '{@link #getMipStrategyPresolveNode() <em>Mip Strategy Presolve Node</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMipStrategyPresolveNode()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int MIP_STRATEGY_PRESOLVE_NODE_EDEFAULT = 0;
-	/**
-	 * The cached value of the '{@link #getMipStrategyPresolveNode() <em>Mip Strategy Presolve Node</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMipStrategyPresolveNode()
-	 * @generated
-	 * @ordered
-	 */
-	protected int mipStrategyPresolveNode = MIP_STRATEGY_PRESOLVE_NODE_EDEFAULT;
-	/**
 	 * The default value of the '{@link #getMipStrategyProbe() <em>Mip Strategy Probe</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -348,6 +331,24 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 	 * @ordered
 	 */
 	protected int mipStrategyProbe = MIP_STRATEGY_PROBE_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getMipStrategyPresolveNode() <em>Mip Strategy Presolve Node</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMipStrategyPresolveNode()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MIP_STRATEGY_PRESOLVE_NODE_EDEFAULT = 0;
+	/**
+	 * The cached value of the '{@link #getMipStrategyPresolveNode() <em>Mip Strategy Presolve Node</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMipStrategyPresolveNode()
+	 * @generated
+	 * @ordered
+	 */
+	protected int mipStrategyPresolveNode = MIP_STRATEGY_PRESOLVE_NODE_EDEFAULT;
 	/**
 	 * The default value of the '{@link #getMipLimitsCutsFactor() <em>Mip Limits Cuts Factor</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -663,27 +664,6 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getMipStrategyPresolveNode() {
-		return mipStrategyPresolveNode;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMipStrategyPresolveNode(int newMipStrategyPresolveNode) {
-		int oldMipStrategyPresolveNode = mipStrategyPresolveNode;
-		mipStrategyPresolveNode = newMipStrategyPresolveNode;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PRESOLVE_NODE, oldMipStrategyPresolveNode, mipStrategyPresolveNode));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public int getMipStrategyProbe() {
 		return mipStrategyProbe;
 	}
@@ -698,6 +678,27 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		mipStrategyProbe = newMipStrategyProbe;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PROBE, oldMipStrategyProbe, mipStrategyProbe));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getMipStrategyPresolveNode() {
+		return mipStrategyPresolveNode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMipStrategyPresolveNode(int newMipStrategyPresolveNode) {
+		int oldMipStrategyPresolveNode = mipStrategyPresolveNode;
+		mipStrategyPresolveNode = newMipStrategyPresolveNode;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PRESOLVE_NODE, oldMipStrategyPresolveNode, mipStrategyPresolveNode));
 	}
 
 	/**
@@ -934,10 +935,10 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 				return getMipStrategyBacktrack();
 			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_HEURISTIC_FREQ:
 				return getMipStrategyHeuristicFreq();
-			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PRESOLVE_NODE:
-				return getMipStrategyPresolveNode();
 			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PROBE:
 				return getMipStrategyProbe();
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PRESOLVE_NODE:
+				return getMipStrategyPresolveNode();
 			case SolvercplexPackage.SOLVER_CPLEX__MIP_LIMITS_CUTS_FACTOR:
 				return getMipLimitsCutsFactor();
 		}
@@ -991,11 +992,11 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_HEURISTIC_FREQ:
 				setMipStrategyHeuristicFreq((Integer)newValue);
 				return;
-			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PRESOLVE_NODE:
-				setMipStrategyPresolveNode((Integer)newValue);
-				return;
 			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PROBE:
 				setMipStrategyProbe((Integer)newValue);
+				return;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PRESOLVE_NODE:
+				setMipStrategyPresolveNode((Integer)newValue);
 				return;
 			case SolvercplexPackage.SOLVER_CPLEX__MIP_LIMITS_CUTS_FACTOR:
 				setMipLimitsCutsFactor((Integer)newValue);
@@ -1051,11 +1052,11 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_HEURISTIC_FREQ:
 				setMipStrategyHeuristicFreq(MIP_STRATEGY_HEURISTIC_FREQ_EDEFAULT);
 				return;
-			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PRESOLVE_NODE:
-				setMipStrategyPresolveNode(MIP_STRATEGY_PRESOLVE_NODE_EDEFAULT);
-				return;
 			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PROBE:
 				setMipStrategyProbe(MIP_STRATEGY_PROBE_EDEFAULT);
+				return;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PRESOLVE_NODE:
+				setMipStrategyPresolveNode(MIP_STRATEGY_PRESOLVE_NODE_EDEFAULT);
 				return;
 			case SolvercplexPackage.SOLVER_CPLEX__MIP_LIMITS_CUTS_FACTOR:
 				setMipLimitsCutsFactor(MIP_LIMITS_CUTS_FACTOR_EDEFAULT);
@@ -1098,10 +1099,10 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 				return mipStrategyBacktrack != MIP_STRATEGY_BACKTRACK_EDEFAULT;
 			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_HEURISTIC_FREQ:
 				return mipStrategyHeuristicFreq != MIP_STRATEGY_HEURISTIC_FREQ_EDEFAULT;
-			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PRESOLVE_NODE:
-				return mipStrategyPresolveNode != MIP_STRATEGY_PRESOLVE_NODE_EDEFAULT;
 			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PROBE:
 				return mipStrategyProbe != MIP_STRATEGY_PROBE_EDEFAULT;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PRESOLVE_NODE:
+				return mipStrategyPresolveNode != MIP_STRATEGY_PRESOLVE_NODE_EDEFAULT;
 			case SolvercplexPackage.SOLVER_CPLEX__MIP_LIMITS_CUTS_FACTOR:
 				return mipLimitsCutsFactor != MIP_LIMITS_CUTS_FACTOR_EDEFAULT;
 		}
@@ -1123,6 +1124,24 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 				default: return -1;
 			}
 		}
+		if (baseClass == SolverCplexParams.class) {
+			switch (derivedFeatureID) {
+				case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_CLIQUES: return SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_CLIQUES;
+				case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_COVERS: return SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_COVERS;
+				case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_FLOW_COVERS: return SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_FLOW_COVERS;
+				case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_GOMORY: return SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GOMORY;
+				case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_GUB_COVERS: return SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GUB_COVERS;
+				case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_IMPLIED: return SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_IMPLIED;
+				case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_MIR_CUT: return SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_MIR_CUT;
+				case SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_PATH_CUT: return SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_PATH_CUT;
+				case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_BACKTRACK: return SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_BACKTRACK;
+				case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_HEURISTIC_FREQ: return SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_HEURISTIC_FREQ;
+				case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PROBE: return SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PROBE;
+				case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PRESOLVE_NODE: return SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PRESOLVE_NODE;
+				case SolvercplexPackage.SOLVER_CPLEX__MIP_LIMITS_CUTS_FACTOR: return SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_LIMITS_CUTS_FACTOR;
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -1141,6 +1160,24 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 				default: return -1;
 			}
 		}
+		if (baseClass == SolverCplexParams.class) {
+			switch (baseFeatureID) {
+				case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_CLIQUES: return SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_CLIQUES;
+				case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_COVERS: return SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_COVERS;
+				case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_FLOW_COVERS: return SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_FLOW_COVERS;
+				case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GOMORY: return SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_GOMORY;
+				case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GUB_COVERS: return SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_GUB_COVERS;
+				case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_IMPLIED: return SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_IMPLIED;
+				case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_MIR_CUT: return SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_MIR_CUT;
+				case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_PATH_CUT: return SolvercplexPackage.SOLVER_CPLEX__MIP_CUTS_PATH_CUT;
+				case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_BACKTRACK: return SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_BACKTRACK;
+				case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_HEURISTIC_FREQ: return SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_HEURISTIC_FREQ;
+				case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PROBE: return SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PROBE;
+				case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PRESOLVE_NODE: return SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PRESOLVE_NODE;
+				case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_LIMITS_CUTS_FACTOR: return SolvercplexPackage.SOLVER_CPLEX__MIP_LIMITS_CUTS_FACTOR;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -1155,6 +1192,11 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 			switch (baseOperationID) {
 				case SolverPackage.ILP_WRITER___WRITE_LP_TO_FILE: return SolvercplexPackage.SOLVER_CPLEX___WRITE_LP_TO_FILE;
 				case SolverPackage.ILP_WRITER___GET_LP_AS_STRING: return SolvercplexPackage.SOLVER_CPLEX___GET_LP_AS_STRING;
+				default: return -1;
+			}
+		}
+		if (baseClass == SolverCplexParams.class) {
+			switch (baseOperationID) {
 				default: return -1;
 			}
 		}
@@ -1214,10 +1256,10 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		result.append(mipStrategyBacktrack);
 		result.append(", MipStrategyHeuristicFreq: ");
 		result.append(mipStrategyHeuristicFreq);
-		result.append(", MipStrategyPresolveNode: ");
-		result.append(mipStrategyPresolveNode);
 		result.append(", MipStrategyProbe: ");
 		result.append(mipStrategyProbe);
+		result.append(", MipStrategyPresolveNode: ");
+		result.append(mipStrategyPresolveNode);
 		result.append(", MipLimitsCutsFactor: ");
 		result.append(mipLimitsCutsFactor);
 		result.append(')');

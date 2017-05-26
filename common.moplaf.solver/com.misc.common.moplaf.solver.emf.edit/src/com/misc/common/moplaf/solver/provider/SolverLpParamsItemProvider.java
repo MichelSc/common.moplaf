@@ -74,7 +74,7 @@ public class SolverLpParamsItemProvider extends RunParamsItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__22ParamSolverLPPropertyCategory"),
 				 null));
 	}
 
@@ -96,7 +96,7 @@ public class SolverLpParamsItemProvider extends RunParamsItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__22ParamSolverLPPropertyCategory"),
 				 null));
 	}
 
@@ -118,7 +118,7 @@ public class SolverLpParamsItemProvider extends RunParamsItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI__22ParamSolverLPPropertyCategory"),
 				 null));
 	}
 

@@ -105,6 +105,29 @@ public class SolvercplexItemProviderAdapterFactory extends SolvercplexAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.solvercplex.SolverCplexParams} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SolverCplexParamsItemProvider solverCplexParamsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.solvercplex.SolverCplexParams}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSolverCplexParamsAdapter() {
+		if (solverCplexParamsItemProvider == null) {
+			solverCplexParamsItemProvider = new SolverCplexParamsItemProvider(this);
+		}
+
+		return solverCplexParamsItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -204,6 +227,7 @@ public class SolvercplexItemProviderAdapterFactory extends SolvercplexAdapterFac
 	 */
 	public void dispose() {
 		if (solverCplexItemProvider != null) solverCplexItemProvider.dispose();
+		if (solverCplexParamsItemProvider != null) solverCplexParamsItemProvider.dispose();
 	}
 
 }

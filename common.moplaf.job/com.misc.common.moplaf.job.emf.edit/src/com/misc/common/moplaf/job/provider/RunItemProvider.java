@@ -22,6 +22,7 @@ import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.job.ProgressFeedback;
 import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.RunContext;
+import com.misc.common.moplaf.job.RunParams;
 
 import java.util.Collection;
 import java.util.List;
@@ -31,9 +32,11 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.command.DragAndDropCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -476,4 +479,68 @@ public class RunItemProvider
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand
 
+	/*
+	 * RunCopyParamsCommand
+	 */
+	public class RunCopyParamsCommand extends ResetCommand{
+		private Run run;
+		private RunParams runParams;
+		
+		// constructor
+		public RunCopyParamsCommand(Run aRun, RunParams params)	{
+			this.run = aRun;
+			this.runParams = params;
+		}
+
+		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			return isExecutable;
+		}
+
+		@Override
+		public void execute() {
+			this.run.copyParams(this.runParams);
+		}
+	} // class RunResetCommand
+	
+	/**
+	 * Create a drag and drop command for this Run
+	 */
+	public class RunDragAndDropCommand extends DragAndDropCommand{
+		// constructor
+	   	public RunDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+				int operation, Collection<?> collection) {
+			super(domain, owner, location, operations, operation, collection);
+		}
+	   	
+	    /**
+	     * This implementation of prepare is called again to implement {@link #validate validate}.
+	     * The method {@link #reset} will have been called before doing so.
+	     */
+	    @Override
+	    protected boolean prepare(){
+	    	CompoundCommand compound = new CompoundCommand();
+			Run thisRun = (Run) this.owner;
+			for (Object element : collection){
+				if ( element instanceof RunParams){
+		  	   		RunParams droppedParams = (RunParams) element;
+		  	   		RunCopyParamsCommand cmd = new RunCopyParamsCommand(thisRun, droppedParams);
+				   	compound.append(cmd);
+				} 
+			}
+	    	this.dragCommand = null;
+			this.dropCommand = compound;
+	    	return true;
+	    } // prepare
+	};
+	
+	/**
+	 * Create a command for a drag and drop on this Solver
+	 */
+	@Override
+	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+			int operation, Collection<?> collection) {
+		return new RunDragAndDropCommand(domain, owner, location, operations, operation, collection);
+	}
 }

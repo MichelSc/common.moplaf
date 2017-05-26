@@ -104,6 +104,15 @@ public interface JobFactory extends EFactory {
 	SetterAttributeFloat createSetterAttributeFloat();
 
 	/**
+	 * Returns a new object of class '<em>Params Holder</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Params Holder</em>'.
+	 * @generated
+	 */
+	ParamsHolder createParamsHolder();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

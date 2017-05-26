@@ -67,6 +67,7 @@ public class SolvercplexFactoryImpl extends EFactoryImpl implements SolvercplexF
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case SolvercplexPackage.SOLVER_CPLEX: return createSolverCplex();
+			case SolvercplexPackage.SOLVER_CPLEX_PARAMS: return createSolverCplexParams();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -80,6 +81,16 @@ public class SolvercplexFactoryImpl extends EFactoryImpl implements SolvercplexF
 	public SolverCplex createSolverCplex() {
 		SolverCplexImpl solverCplex = new SolverCplexImpl();
 		return solverCplex;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SolverCplexParams createSolverCplexParams() {
+		SolverCplexParamsImpl solverCplexParams = new SolverCplexParamsImpl();
+		return solverCplexParams;
 	}
 
 	/**

@@ -21,10 +21,10 @@
   <eClassifiers xsi:type="ecore:EDataType" name="ReturnFeedback" instanceClassName="com.misc.common.moplaf.common.ReturnFeedback"/>
   <eClassifiers xsi:type="ecore:EDataType" name="EnabledFeedback" instanceClassName="com.misc.common.moplaf.common.EnabledFeedback"/>
   <eClassifiers xsi:type="ecore:EClass" name="RunParams">
-    <eOperations name="acceptParams">
+    <eOperations name="copyParams">
       <eParameters name="other" eType="#//RunParams"/>
     </eOperations>
-    <eOperations name="constructParams"/>
+    <eOperations name="clone" eType="#//RunParams"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Run" eSuperTypes="#//RunParams">
     <eOperations name="reset"/>
@@ -137,5 +137,12 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SetterAttributeFloat" eSuperTypes="#//SetterAttribute">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParamsHolder">
+    <eOperations name="constructParams" eType="#//RunParams">
+      <eParameters name="run" eType="#//RunParams"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="RunsParams" upperBound="-1"
+        eType="#//RunParams" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

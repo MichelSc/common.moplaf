@@ -78,6 +78,7 @@ public class JobFactoryImpl extends EFactoryImpl implements JobFactory {
 			case JobPackage.SETTER: return createSetter();
 			case JobPackage.SETTER_ATTRIBUTE_INT: return createSetterAttributeInt();
 			case JobPackage.SETTER_ATTRIBUTE_FLOAT: return createSetterAttributeFloat();
+			case JobPackage.PARAMS_HOLDER: return createParamsHolder();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -211,6 +212,16 @@ public class JobFactoryImpl extends EFactoryImpl implements JobFactory {
 	public SetterAttributeFloat createSetterAttributeFloat() {
 		SetterAttributeFloatImpl setterAttributeFloat = new SetterAttributeFloatImpl();
 		return setterAttributeFloat;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParamsHolder createParamsHolder() {
+		ParamsHolderImpl paramsHolder = new ParamsHolderImpl();
+		return paramsHolder;
 	}
 
 	/**

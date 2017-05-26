@@ -147,6 +147,12 @@ public class JobSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case JobPackage.PARAMS_HOLDER: {
+				ParamsHolder paramsHolder = (ParamsHolder)theEObject;
+				T result = caseParamsHolder(paramsHolder);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -298,6 +304,21 @@ public class JobSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSetterAttributeFloat(SetterAttributeFloat object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Params Holder</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Params Holder</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParamsHolder(ParamsHolder object) {
 		return null;
 	}
 

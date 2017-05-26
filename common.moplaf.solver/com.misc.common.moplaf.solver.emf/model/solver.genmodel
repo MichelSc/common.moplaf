@@ -469,9 +469,10 @@
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="solver.ecore#//SolverLpParams">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolverLpParams/SolverOptimalityTolerance"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolverLpParams/SolverLinearRelaxation"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolverLpParams/SolOptimalityGap"/>
+      <genFeatures createChild="false" propertyCategory="22 Param Solver LP" ecoreFeature="ecore:EAttribute solver.ecore#//SolverLpParams/SolverOptimalityTolerance"/>
+      <genFeatures createChild="false" propertyCategory="22 Param Solver LP" ecoreFeature="ecore:EAttribute solver.ecore#//SolverLpParams/SolverLinearRelaxation"/>
+      <genFeatures createChild="false" propertyCategory="22 Param Solver LP" propertyDescription=""
+          ecoreFeature="ecore:EAttribute solver.ecore#//SolverLpParams/SolOptimalityGap"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

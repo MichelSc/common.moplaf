@@ -10,18 +10,19 @@
       ecorePackage="solvercplex.ecore#/">
     <genClasses image="false" ecoreClass="solvercplex.ecore#//SolverCplex" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/SolutionProvider/Code"/>
     <genClasses ecoreClass="solvercplex.ecore#//SolverCplexParams">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplexParams/MipCutsCliques"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplexParams/MipCutsCovers"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplexParams/MipCutsFlowCovers"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplexParams/MipCutsGomory"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplexParams/MipCutsGUBCovers"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplexParams/MipCutsImplied"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplexParams/MipCutsMIRCut"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplexParams/MipCutsPathCut"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplexParams/MipStrategyBacktrack"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplexParams/MipStrategyHeuristicFreq"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplexParams/MipStrategyProbe"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplexParams/MipLimitsCutsFactor"/>
+      <genFeatures createChild="false" propertyCategory="24 Param Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplexParams/MipCutsCliques"/>
+      <genFeatures createChild="false" propertyCategory="24 Param Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplexParams/MipCutsCovers"/>
+      <genFeatures createChild="false" propertyCategory="24 Param Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplexParams/MipCutsFlowCovers"/>
+      <genFeatures createChild="false" propertyCategory="24 Param Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplexParams/MipCutsGomory"/>
+      <genFeatures createChild="false" propertyCategory="24 Param Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplexParams/MipCutsGUBCovers"/>
+      <genFeatures createChild="false" propertyCategory="24 Param Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplexParams/MipCutsImplied"/>
+      <genFeatures createChild="false" propertyCategory="24 Param Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplexParams/MipCutsMIRCut"/>
+      <genFeatures createChild="false" propertyCategory="24 Param Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplexParams/MipCutsPathCut"/>
+      <genFeatures createChild="false" propertyCategory="24 Param Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplexParams/MipStrategyBacktrack"/>
+      <genFeatures createChild="false" propertyCategory="24 Param Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplexParams/MipStrategyHeuristicFreq"/>
+      <genFeatures createChild="false" propertyCategory="24 Param Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplexParams/MipStrategyProbe"/>
+      <genFeatures createChild="false" propertyCategory="24 Param Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplexParams/MipStrategyPresolveNode"/>
+      <genFeatures createChild="false" propertyCategory="24 Param Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplexParams/MipLimitsCutsFactor"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

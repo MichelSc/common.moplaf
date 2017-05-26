@@ -266,6 +266,29 @@ public class JobItemProviderAdapterFactory extends JobAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.ParamsHolder} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParamsHolderItemProvider paramsHolderItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.job.ParamsHolder}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParamsHolderAdapter() {
+		if (paramsHolderItemProvider == null) {
+			paramsHolderItemProvider = new ParamsHolderItemProvider(this);
+		}
+
+		return paramsHolderItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -372,6 +395,7 @@ public class JobItemProviderAdapterFactory extends JobAdapterFactory implements 
 		if (setterItemProvider != null) setterItemProvider.dispose();
 		if (setterAttributeIntItemProvider != null) setterAttributeIntItemProvider.dispose();
 		if (setterAttributeFloatItemProvider != null) setterAttributeFloatItemProvider.dispose();
+		if (paramsHolderItemProvider != null) paramsHolderItemProvider.dispose();
 	}
 
 }

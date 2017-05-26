@@ -153,22 +153,22 @@ public interface JobPackage extends EPackage {
 	int RUN_PARAMS_FEATURE_COUNT = 0;
 
 	/**
-	 * The operation id for the '<em>Accept Params</em>' operation.
+	 * The operation id for the '<em>Copy Params</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RUN_PARAMS___ACCEPT_PARAMS__RUNPARAMS = 0;
+	int RUN_PARAMS___COPY_PARAMS__RUNPARAMS = 0;
 
 	/**
-	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * The operation id for the '<em>Clone</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RUN_PARAMS___CONSTRUCT_PARAMS = 1;
+	int RUN_PARAMS___CLONE = 1;
 
 	/**
 	 * The number of operations of the '<em>Run Params</em>' class.
@@ -262,22 +262,22 @@ public interface JobPackage extends EPackage {
 	int RUN_FEATURE_COUNT = RUN_PARAMS_FEATURE_COUNT + 7;
 
 	/**
-	 * The operation id for the '<em>Accept Params</em>' operation.
+	 * The operation id for the '<em>Copy Params</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___ACCEPT_PARAMS__RUNPARAMS = RUN_PARAMS___ACCEPT_PARAMS__RUNPARAMS;
+	int RUN___COPY_PARAMS__RUNPARAMS = RUN_PARAMS___COPY_PARAMS__RUNPARAMS;
 
 	/**
-	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * The operation id for the '<em>Clone</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___CONSTRUCT_PARAMS = RUN_PARAMS___CONSTRUCT_PARAMS;
+	int RUN___CLONE = RUN_PARAMS___CLONE;
 
 	/**
 	 * The operation id for the '<em>Reset</em>' operation.
@@ -515,22 +515,22 @@ public interface JobPackage extends EPackage {
 	int JOB_FEATURE_COUNT = RUN_FEATURE_COUNT + 8;
 
 	/**
-	 * The operation id for the '<em>Accept Params</em>' operation.
+	 * The operation id for the '<em>Copy Params</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB___ACCEPT_PARAMS__RUNPARAMS = RUN___ACCEPT_PARAMS__RUNPARAMS;
+	int JOB___COPY_PARAMS__RUNPARAMS = RUN___COPY_PARAMS__RUNPARAMS;
 
 	/**
-	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * The operation id for the '<em>Clone</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB___CONSTRUCT_PARAMS = RUN___CONSTRUCT_PARAMS;
+	int JOB___CLONE = RUN___CLONE;
 
 	/**
 	 * The operation id for the '<em>Reset</em>' operation.
@@ -795,22 +795,22 @@ public interface JobPackage extends EPackage {
 	int JOB_CONSOLE_FEATURE_COUNT = JOB_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Accept Params</em>' operation.
+	 * The operation id for the '<em>Copy Params</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_CONSOLE___ACCEPT_PARAMS__RUNPARAMS = JOB___ACCEPT_PARAMS__RUNPARAMS;
+	int JOB_CONSOLE___COPY_PARAMS__RUNPARAMS = JOB___COPY_PARAMS__RUNPARAMS;
 
 	/**
-	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * The operation id for the '<em>Clone</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_CONSOLE___CONSTRUCT_PARAMS = JOB___CONSTRUCT_PARAMS;
+	int JOB_CONSOLE___CLONE = JOB___CLONE;
 
 	/**
 	 * The operation id for the '<em>Reset</em>' operation.
@@ -1349,6 +1349,52 @@ public interface JobPackage extends EPackage {
 	int SETTER_ATTRIBUTE_FLOAT_OPERATION_COUNT = SETTER_ATTRIBUTE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.job.impl.ParamsHolderImpl <em>Params Holder</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.job.impl.ParamsHolderImpl
+	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getParamsHolder()
+	 * @generated
+	 */
+	int PARAMS_HOLDER = 10;
+
+	/**
+	 * The feature id for the '<em><b>Runs Params</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMS_HOLDER__RUNS_PARAMS = 0;
+
+	/**
+	 * The number of structural features of the '<em>Params Holder</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMS_HOLDER_FEATURE_COUNT = 1;
+
+	/**
+	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMS_HOLDER___CONSTRUCT_PARAMS__RUN = 0;
+
+	/**
+	 * The number of operations of the '<em>Params Holder</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMS_HOLDER_OPERATION_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.job.JobParameterType <em>Parameter Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1356,7 +1402,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getJobParameterType()
 	 * @generated
 	 */
-	int JOB_PARAMETER_TYPE = 10;
+	int JOB_PARAMETER_TYPE = 11;
 
 	/**
 	 * The meta object id for the '<em>Progress Feedback</em>' data type.
@@ -1366,7 +1412,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getProgressFeedback()
 	 * @generated
 	 */
-	int PROGRESS_FEEDBACK = 11;
+	int PROGRESS_FEEDBACK = 12;
 
 	/**
 	 * The meta object id for the '<em>Run Context</em>' data type.
@@ -1376,7 +1422,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getRunContext()
 	 * @generated
 	 */
-	int RUN_CONTEXT = 12;
+	int RUN_CONTEXT = 13;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -1386,7 +1432,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 13;
+	int EXCEPTION = 14;
 
 	/**
 	 * The meta object id for the '<em>Return Feedback</em>' data type.
@@ -1396,7 +1442,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getReturnFeedback()
 	 * @generated
 	 */
-	int RETURN_FEEDBACK = 14;
+	int RETURN_FEEDBACK = 15;
 
 	/**
 	 * The meta object id for the '<em>Enabled Feedback</em>' data type.
@@ -1406,7 +1452,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getEnabledFeedback()
 	 * @generated
 	 */
-	int ENABLED_FEEDBACK = 15;
+	int ENABLED_FEEDBACK = 16;
 
 
 	/**
@@ -1474,24 +1520,24 @@ public interface JobPackage extends EPackage {
 	EClass getRunParams();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.RunParams#acceptParams(com.misc.common.moplaf.job.RunParams) <em>Accept Params</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.RunParams#copyParams(com.misc.common.moplaf.job.RunParams) <em>Copy Params</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Accept Params</em>' operation.
-	 * @see com.misc.common.moplaf.job.RunParams#acceptParams(com.misc.common.moplaf.job.RunParams)
+	 * @return the meta object for the '<em>Copy Params</em>' operation.
+	 * @see com.misc.common.moplaf.job.RunParams#copyParams(com.misc.common.moplaf.job.RunParams)
 	 * @generated
 	 */
-	EOperation getRunParams__AcceptParams__RunParams();
+	EOperation getRunParams__CopyParams__RunParams();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.RunParams#constructParams() <em>Construct Params</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.RunParams#clone() <em>Clone</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Construct Params</em>' operation.
-	 * @see com.misc.common.moplaf.job.RunParams#constructParams()
+	 * @return the meta object for the '<em>Clone</em>' operation.
+	 * @see com.misc.common.moplaf.job.RunParams#clone()
 	 * @generated
 	 */
-	EOperation getRunParams__ConstructParams();
+	EOperation getRunParams__Clone();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.Run <em>Run</em>}'.
@@ -2072,6 +2118,37 @@ public interface JobPackage extends EPackage {
 	EAttribute getSetterAttributeFloat_Value();
 
 	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.ParamsHolder <em>Params Holder</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Params Holder</em>'.
+	 * @see com.misc.common.moplaf.job.ParamsHolder
+	 * @generated
+	 */
+	EClass getParamsHolder();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.job.ParamsHolder#getRunsParams <em>Runs Params</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Runs Params</em>'.
+	 * @see com.misc.common.moplaf.job.ParamsHolder#getRunsParams()
+	 * @see #getParamsHolder()
+	 * @generated
+	 */
+	EReference getParamsHolder_RunsParams();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.ParamsHolder#constructParams(com.misc.common.moplaf.job.RunParams) <em>Construct Params</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Construct Params</em>' operation.
+	 * @see com.misc.common.moplaf.job.ParamsHolder#constructParams(com.misc.common.moplaf.job.RunParams)
+	 * @generated
+	 */
+	EOperation getParamsHolder__ConstructParams__Run();
+
+	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.job.JobParameterType <em>Parameter Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2212,20 +2289,20 @@ public interface JobPackage extends EPackage {
 		EClass RUN_PARAMS = eINSTANCE.getRunParams();
 
 		/**
-		 * The meta object literal for the '<em><b>Accept Params</b></em>' operation.
+		 * The meta object literal for the '<em><b>Copy Params</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RUN_PARAMS___ACCEPT_PARAMS__RUNPARAMS = eINSTANCE.getRunParams__AcceptParams__RunParams();
+		EOperation RUN_PARAMS___COPY_PARAMS__RUNPARAMS = eINSTANCE.getRunParams__CopyParams__RunParams();
 
 		/**
-		 * The meta object literal for the '<em><b>Construct Params</b></em>' operation.
+		 * The meta object literal for the '<em><b>Clone</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation RUN_PARAMS___CONSTRUCT_PARAMS = eINSTANCE.getRunParams__ConstructParams();
+		EOperation RUN_PARAMS___CLONE = eINSTANCE.getRunParams__Clone();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.RunImpl <em>Run</em>}' class.
@@ -2682,6 +2759,32 @@ public interface JobPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SETTER_ATTRIBUTE_FLOAT__VALUE = eINSTANCE.getSetterAttributeFloat_Value();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.ParamsHolderImpl <em>Params Holder</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.job.impl.ParamsHolderImpl
+		 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getParamsHolder()
+		 * @generated
+		 */
+		EClass PARAMS_HOLDER = eINSTANCE.getParamsHolder();
+
+		/**
+		 * The meta object literal for the '<em><b>Runs Params</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMS_HOLDER__RUNS_PARAMS = eINSTANCE.getParamsHolder_RunsParams();
+
+		/**
+		 * The meta object literal for the '<em><b>Construct Params</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PARAMS_HOLDER___CONSTRUCT_PARAMS__RUN = eINSTANCE.getParamsHolder__ConstructParams__Run();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.JobParameterType <em>Parameter Type</em>}' enum.
