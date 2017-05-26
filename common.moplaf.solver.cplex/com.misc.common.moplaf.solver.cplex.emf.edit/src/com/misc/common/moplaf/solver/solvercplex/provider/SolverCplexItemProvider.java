@@ -71,7 +71,7 @@ public class SolverCplexItemProvider
 			addMipStrategyHeuristicFreqPropertyDescriptor(object);
 			addMipStrategyPresolveNodePropertyDescriptor(object);
 			addMipStrategyProbePropertyDescriptor(object);
-			addMipLimitsFactorPropertyDescriptor(object);
+			addMipLimitsCutsFactorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -407,19 +407,19 @@ public class SolverCplexItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Mip Limits Factor feature.
+	 * This adds a property descriptor for the Mip Limits Cuts Factor feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addMipLimitsFactorPropertyDescriptor(Object object) {
+	protected void addMipLimitsCutsFactorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SolverCplex_MipLimitsFactor_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SolverCplex_MipLimitsFactor_feature", "_UI_SolverCplex_type"),
-				 SolvercplexPackage.Literals.SOLVER_CPLEX__MIP_LIMITS_FACTOR,
+				 getString("_UI_SolverCplex_MipLimitsCutsFactor_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SolverCplex_MipLimitsCutsFactor_feature", "_UI_SolverCplex_type"),
+				 SolvercplexPackage.Literals.SOLVER_CPLEX__MIP_LIMITS_CUTS_FACTOR,
 				 true,
 				 false,
 				 false,
@@ -469,7 +469,7 @@ public class SolverCplexItemProvider
 			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_HEURISTIC_FREQ:
 			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PRESOLVE_NODE:
 			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PROBE:
-			case SolvercplexPackage.SOLVER_CPLEX__MIP_LIMITS_FACTOR:
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_LIMITS_CUTS_FACTOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

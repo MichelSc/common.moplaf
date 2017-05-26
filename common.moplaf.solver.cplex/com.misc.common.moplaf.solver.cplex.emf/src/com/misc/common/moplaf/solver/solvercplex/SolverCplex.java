@@ -36,7 +36,7 @@ import com.misc.common.moplaf.solver.SolverLp;
  *   <li>{@link com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipStrategyHeuristicFreq <em>Mip Strategy Heuristic Freq</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipStrategyPresolveNode <em>Mip Strategy Presolve Node</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipStrategyProbe <em>Mip Strategy Probe</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipLimitsFactor <em>Mip Limits Factor</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipLimitsCutsFactor <em>Mip Limits Cuts Factor</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage#getSolverCplex()
@@ -255,6 +255,7 @@ public interface SolverCplex extends SolverLp, ILpWriter {
 
 	/**
 	 * Returns the value of the '<em><b>Mip Strategy Backtrack</b></em>' attribute.
+	 * The default value is <code>"0.9999 "</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Mip Strategy Backtrack</em>' attribute isn't clear,
@@ -264,7 +265,7 @@ public interface SolverCplex extends SolverLp, ILpWriter {
 	 * @return the value of the '<em>Mip Strategy Backtrack</em>' attribute.
 	 * @see #setMipStrategyBacktrack(float)
 	 * @see com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage#getSolverCplex_MipStrategyBacktrack()
-	 * @model
+	 * @model default="0.9999 "
 	 * @generated
 	 */
 	float getMipStrategyBacktrack();
@@ -358,28 +359,28 @@ public interface SolverCplex extends SolverLp, ILpWriter {
 	void setMipStrategyProbe(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Mip Limits Factor</b></em>' attribute.
+	 * Returns the value of the '<em><b>Mip Limits Cuts Factor</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Mip Limits Factor</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Mip Limits Cuts Factor</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Mip Limits Factor</em>' attribute.
-	 * @see #setMipLimitsFactor(int)
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage#getSolverCplex_MipLimitsFactor()
+	 * @return the value of the '<em>Mip Limits Cuts Factor</em>' attribute.
+	 * @see #setMipLimitsCutsFactor(int)
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage#getSolverCplex_MipLimitsCutsFactor()
 	 * @model
 	 * @generated
 	 */
-	int getMipLimitsFactor();
+	int getMipLimitsCutsFactor();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipLimitsFactor <em>Mip Limits Factor</em>}' attribute.
+	 * Sets the value of the '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipLimitsCutsFactor <em>Mip Limits Cuts Factor</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Mip Limits Factor</em>' attribute.
-	 * @see #getMipLimitsFactor()
+	 * @param value the new value of the '<em>Mip Limits Cuts Factor</em>' attribute.
+	 * @see #getMipLimitsCutsFactor()
 	 * @generated
 	 */
-	void setMipLimitsFactor(int value);
+	void setMipLimitsCutsFactor(int value);
 } // SolverCplex

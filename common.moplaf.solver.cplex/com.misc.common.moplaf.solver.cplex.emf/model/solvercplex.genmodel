@@ -22,7 +22,7 @@
       <genFeatures createChild="false" propertyCategory="20 Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplex/MipStrategyHeuristicFreq"/>
       <genFeatures createChild="false" propertyCategory="20 Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplex/MipStrategyPresolveNode"/>
       <genFeatures createChild="false" propertyCategory="20 Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplex/MipStrategyProbe"/>
-      <genFeatures createChild="false" propertyCategory="20 Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplex/MipLimitsFactor"/>
+      <genFeatures createChild="false" propertyCategory="20 Solver Cplex" ecoreFeature="ecore:EAttribute solvercplex.ecore#//SolverCplex/MipLimitsCutsFactor"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

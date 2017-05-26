@@ -72,7 +72,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getMipStrategyHeuristicFreq <em>Mip Strategy Heuristic Freq</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getMipStrategyPresolveNode <em>Mip Strategy Presolve Node</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getMipStrategyProbe <em>Mip Strategy Probe</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getMipLimitsFactor <em>Mip Limits Factor</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl#getMipLimitsCutsFactor <em>Mip Limits Cuts Factor</em>}</li>
  * </ul>
  *
  * @generated
@@ -284,7 +284,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float MIP_STRATEGY_BACKTRACK_EDEFAULT = 0.0F;
+	protected static final float MIP_STRATEGY_BACKTRACK_EDEFAULT = 0.9999F;
 	/**
 	 * The cached value of the '{@link #getMipStrategyBacktrack() <em>Mip Strategy Backtrack</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -349,23 +349,23 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 	 */
 	protected int mipStrategyProbe = MIP_STRATEGY_PROBE_EDEFAULT;
 	/**
-	 * The default value of the '{@link #getMipLimitsFactor() <em>Mip Limits Factor</em>}' attribute.
+	 * The default value of the '{@link #getMipLimitsCutsFactor() <em>Mip Limits Cuts Factor</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMipLimitsFactor()
+	 * @see #getMipLimitsCutsFactor()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int MIP_LIMITS_FACTOR_EDEFAULT = 0;
+	protected static final int MIP_LIMITS_CUTS_FACTOR_EDEFAULT = 0;
 	/**
-	 * The cached value of the '{@link #getMipLimitsFactor() <em>Mip Limits Factor</em>}' attribute.
+	 * The cached value of the '{@link #getMipLimitsCutsFactor() <em>Mip Limits Cuts Factor</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMipLimitsFactor()
+	 * @see #getMipLimitsCutsFactor()
 	 * @generated
 	 * @ordered
 	 */
-	protected int mipLimitsFactor = MIP_LIMITS_FACTOR_EDEFAULT;
+	protected int mipLimitsCutsFactor = MIP_LIMITS_CUTS_FACTOR_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -705,8 +705,8 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getMipLimitsFactor() {
-		return mipLimitsFactor;
+	public int getMipLimitsCutsFactor() {
+		return mipLimitsCutsFactor;
 	}
 
 	/**
@@ -714,11 +714,11 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMipLimitsFactor(int newMipLimitsFactor) {
-		int oldMipLimitsFactor = mipLimitsFactor;
-		mipLimitsFactor = newMipLimitsFactor;
+	public void setMipLimitsCutsFactor(int newMipLimitsCutsFactor) {
+		int oldMipLimitsCutsFactor = mipLimitsCutsFactor;
+		mipLimitsCutsFactor = newMipLimitsCutsFactor;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX__MIP_LIMITS_FACTOR, oldMipLimitsFactor, mipLimitsFactor));
+			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX__MIP_LIMITS_CUTS_FACTOR, oldMipLimitsCutsFactor, mipLimitsCutsFactor));
 	}
 
 	// private declarations
@@ -938,8 +938,8 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 				return getMipStrategyPresolveNode();
 			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PROBE:
 				return getMipStrategyProbe();
-			case SolvercplexPackage.SOLVER_CPLEX__MIP_LIMITS_FACTOR:
-				return getMipLimitsFactor();
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_LIMITS_CUTS_FACTOR:
+				return getMipLimitsCutsFactor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -997,8 +997,8 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PROBE:
 				setMipStrategyProbe((Integer)newValue);
 				return;
-			case SolvercplexPackage.SOLVER_CPLEX__MIP_LIMITS_FACTOR:
-				setMipLimitsFactor((Integer)newValue);
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_LIMITS_CUTS_FACTOR:
+				setMipLimitsCutsFactor((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1057,8 +1057,8 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PROBE:
 				setMipStrategyProbe(MIP_STRATEGY_PROBE_EDEFAULT);
 				return;
-			case SolvercplexPackage.SOLVER_CPLEX__MIP_LIMITS_FACTOR:
-				setMipLimitsFactor(MIP_LIMITS_FACTOR_EDEFAULT);
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_LIMITS_CUTS_FACTOR:
+				setMipLimitsCutsFactor(MIP_LIMITS_CUTS_FACTOR_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -1102,8 +1102,8 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 				return mipStrategyPresolveNode != MIP_STRATEGY_PRESOLVE_NODE_EDEFAULT;
 			case SolvercplexPackage.SOLVER_CPLEX__MIP_STRATEGY_PROBE:
 				return mipStrategyProbe != MIP_STRATEGY_PROBE_EDEFAULT;
-			case SolvercplexPackage.SOLVER_CPLEX__MIP_LIMITS_FACTOR:
-				return mipLimitsFactor != MIP_LIMITS_FACTOR_EDEFAULT;
+			case SolvercplexPackage.SOLVER_CPLEX__MIP_LIMITS_CUTS_FACTOR:
+				return mipLimitsCutsFactor != MIP_LIMITS_CUTS_FACTOR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1218,8 +1218,8 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		result.append(mipStrategyPresolveNode);
 		result.append(", MipStrategyProbe: ");
 		result.append(mipStrategyProbe);
-		result.append(", MipLimitsFactor: ");
-		result.append(mipLimitsFactor);
+		result.append(", MipLimitsCutsFactor: ");
+		result.append(mipLimitsCutsFactor);
 		result.append(')');
 		return result.toString();
 	}
@@ -1234,7 +1234,7 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
 		this.lp.setParam(IloCplex.Param.MIP.Cuts.MIRCut,     this.getMipCutsMIRCut());
 		this.lp.setParam(IloCplex.Param.MIP.Cuts.PathCut,    this.getMipCutsPathCut());
 		
-		this.lp.setParam(IloCplex.Param.MIP.Limits.CutsFactor, this.getMipLimitsFactor());
+		this.lp.setParam(IloCplex.Param.MIP.Limits.CutsFactor, this.getMipLimitsCutsFactor());
 		
 		this.lp.setParam(IloCplex.Param.MIP.Strategy.Backtrack,     this.getMipStrategyBacktrack());
 		this.lp.setParam(IloCplex.Param.MIP.Strategy.HeuristicFreq, this.getMipStrategyHeuristicFreq());

@@ -555,13 +555,13 @@ public interface SolvercplexPackage extends EPackage {
 	int SOLVER_CPLEX__MIP_STRATEGY_PROBE = SolverPackage.SOLVER_LP_FEATURE_COUNT + 14;
 
 	/**
-	 * The feature id for the '<em><b>Mip Limits Factor</b></em>' attribute.
+	 * The feature id for the '<em><b>Mip Limits Cuts Factor</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_CPLEX__MIP_LIMITS_FACTOR = SolverPackage.SOLVER_LP_FEATURE_COUNT + 15;
+	int SOLVER_CPLEX__MIP_LIMITS_CUTS_FACTOR = SolverPackage.SOLVER_LP_FEATURE_COUNT + 15;
 
 	/**
 	 * The number of structural features of the '<em>Solver Cplex</em>' class.
@@ -977,15 +977,15 @@ public interface SolvercplexPackage extends EPackage {
 	EAttribute getSolverCplex_MipStrategyProbe();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipLimitsFactor <em>Mip Limits Factor</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipLimitsCutsFactor <em>Mip Limits Cuts Factor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Mip Limits Factor</em>'.
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipLimitsFactor()
+	 * @return the meta object for the attribute '<em>Mip Limits Cuts Factor</em>'.
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplex#getMipLimitsCutsFactor()
 	 * @see #getSolverCplex()
 	 * @generated
 	 */
-	EAttribute getSolverCplex_MipLimitsFactor();
+	EAttribute getSolverCplex_MipLimitsCutsFactor();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1104,12 +1104,12 @@ public interface SolvercplexPackage extends EPackage {
 		 */
 		EAttribute SOLVER_CPLEX__MIP_STRATEGY_PROBE = eINSTANCE.getSolverCplex_MipStrategyProbe();
 		/**
-		 * The meta object literal for the '<em><b>Mip Limits Factor</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Mip Limits Cuts Factor</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SOLVER_CPLEX__MIP_LIMITS_FACTOR = eINSTANCE.getSolverCplex_MipLimitsFactor();
+		EAttribute SOLVER_CPLEX__MIP_LIMITS_CUTS_FACTOR = eINSTANCE.getSolverCplex_MipLimitsCutsFactor();
 
 	}
 

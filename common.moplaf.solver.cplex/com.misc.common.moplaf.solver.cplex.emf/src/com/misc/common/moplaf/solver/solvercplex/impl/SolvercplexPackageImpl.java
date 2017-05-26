@@ -224,7 +224,7 @@ public class SolvercplexPackageImpl extends EPackageImpl implements SolvercplexP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolverCplex_MipLimitsFactor() {
+	public EAttribute getSolverCplex_MipLimitsCutsFactor() {
 		return (EAttribute)solverCplexEClass.getEStructuralFeatures().get(12);
 	}
 
@@ -269,7 +269,7 @@ public class SolvercplexPackageImpl extends EPackageImpl implements SolvercplexP
 		createEAttribute(solverCplexEClass, SOLVER_CPLEX__MIP_STRATEGY_HEURISTIC_FREQ);
 		createEAttribute(solverCplexEClass, SOLVER_CPLEX__MIP_STRATEGY_PRESOLVE_NODE);
 		createEAttribute(solverCplexEClass, SOLVER_CPLEX__MIP_STRATEGY_PROBE);
-		createEAttribute(solverCplexEClass, SOLVER_CPLEX__MIP_LIMITS_FACTOR);
+		createEAttribute(solverCplexEClass, SOLVER_CPLEX__MIP_LIMITS_CUTS_FACTOR);
 	}
 
 	/**
@@ -316,11 +316,11 @@ public class SolvercplexPackageImpl extends EPackageImpl implements SolvercplexP
 		initEAttribute(getSolverCplex_MipCutsImplied(), ecorePackage.getEInt(), "MipCutsImplied", null, 0, 1, SolverCplex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSolverCplex_MipCutsMIRCut(), ecorePackage.getEInt(), "MipCutsMIRCut", null, 0, 1, SolverCplex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSolverCplex_MipCutsPathCut(), ecorePackage.getEInt(), "MipCutsPathCut", null, 0, 1, SolverCplex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSolverCplex_MipStrategyBacktrack(), ecorePackage.getEFloat(), "MipStrategyBacktrack", null, 0, 1, SolverCplex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolverCplex_MipStrategyBacktrack(), ecorePackage.getEFloat(), "MipStrategyBacktrack", "0.9999 ", 0, 1, SolverCplex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSolverCplex_MipStrategyHeuristicFreq(), ecorePackage.getEInt(), "MipStrategyHeuristicFreq", null, 0, 1, SolverCplex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSolverCplex_MipStrategyPresolveNode(), ecorePackage.getEInt(), "MipStrategyPresolveNode", null, 0, 1, SolverCplex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSolverCplex_MipStrategyProbe(), ecorePackage.getEInt(), "MipStrategyProbe", null, 0, 1, SolverCplex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSolverCplex_MipLimitsFactor(), ecorePackage.getEInt(), "MipLimitsFactor", null, 0, 1, SolverCplex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolverCplex_MipLimitsCutsFactor(), ecorePackage.getEInt(), "MipLimitsCutsFactor", null, 0, 1, SolverCplex.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
