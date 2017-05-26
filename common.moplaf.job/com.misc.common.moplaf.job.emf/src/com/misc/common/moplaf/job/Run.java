@@ -15,8 +15,6 @@ package com.misc.common.moplaf.job;
 import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.common.ReturnFeedback;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Run</b></em>'.
@@ -39,7 +37,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Run extends EObject {
+public interface Run extends RunParams {
 	/**
 	 * Returns the value of the '<em><b>Run Feedback</b></em>' attribute.
 	 * <!-- begin-user-doc -->

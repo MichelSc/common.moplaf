@@ -28,7 +28,6 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,7 +48,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class RunImpl extends MinimalEObjectImpl.Container implements Run {
+public class RunImpl extends RunParamsImpl implements Run {
 	/**
 	 * The default value of the '{@link #getRunFeedback() <em>Run Feedback</em>}' attribute.
 	 * <!-- begin-user-doc -->

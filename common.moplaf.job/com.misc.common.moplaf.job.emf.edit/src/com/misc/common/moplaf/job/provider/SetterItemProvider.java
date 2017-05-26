@@ -111,7 +111,7 @@ public class SetterItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_Setter_Remarks_feature", "_UI_Setter_type"),
 				 JobPackage.Literals.SETTER__REMARKS,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,

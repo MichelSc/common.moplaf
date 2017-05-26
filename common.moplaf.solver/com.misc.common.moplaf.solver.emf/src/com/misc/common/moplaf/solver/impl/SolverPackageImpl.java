@@ -69,6 +69,7 @@ import com.misc.common.moplaf.solver.SolverGeneratorGoal;
 import com.misc.common.moplaf.solver.SolverGoal;
 import com.misc.common.moplaf.solver.SolverGoalPreviousSolver;
 import com.misc.common.moplaf.solver.SolverLp;
+import com.misc.common.moplaf.solver.SolverLpParams;
 import com.misc.common.moplaf.solver.SolverPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -134,6 +135,13 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * @generated
 	 */
 	private EClass generatorLpLinearEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass solverLpParamsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1143,6 +1151,42 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 */
 	public EOperation getGeneratorLpLinear__ContributeTerm__GeneratorLpVar_float() {
 		return generatorLpLinearEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSolverLpParams() {
+		return solverLpParamsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSolverLpParams_SolverOptimalityTolerance() {
+		return (EAttribute)solverLpParamsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSolverLpParams_SolverLinearRelaxation() {
+		return (EAttribute)solverLpParamsEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSolverLpParams_SolOptimalityGap() {
+		return (EAttribute)solverLpParamsEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2275,33 +2319,6 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolverLp_SolverOptimalityTolerance() {
-		return (EAttribute)solverLpEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSolverLp_SolverLinearRelaxation() {
-		return (EAttribute)solverLpEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSolverLp_SolOptimalityGap() {
-		return (EAttribute)solverLpEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getSolutionVar() {
 		return solutionVarEClass;
 	}
@@ -3207,9 +3224,6 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		createEAttribute(solverCpEClass, SOLVER_CP__SEARCH_ALL);
 
 		solverLpEClass = createEClass(SOLVER_LP);
-		createEAttribute(solverLpEClass, SOLVER_LP__SOLVER_OPTIMALITY_TOLERANCE);
-		createEAttribute(solverLpEClass, SOLVER_LP__SOLVER_LINEAR_RELAXATION);
-		createEAttribute(solverLpEClass, SOLVER_LP__SOL_OPTIMALITY_GAP);
 
 		solverGoalEClass = createEClass(SOLVER_GOAL);
 		createEAttribute(solverGoalEClass, SOLVER_GOAL__LABEL);
@@ -3328,6 +3342,11 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		createEOperation(generatorLpLinearEClass, GENERATOR_LP_LINEAR___CONSTRUCT_TERM__GENERATORLPVAR_FLOAT);
 		createEOperation(generatorLpLinearEClass, GENERATOR_LP_LINEAR___CONTRIBUTE_TERM__GENERATORLPVAR_FLOAT);
 
+		solverLpParamsEClass = createEClass(SOLVER_LP_PARAMS);
+		createEAttribute(solverLpParamsEClass, SOLVER_LP_PARAMS__SOLVER_OPTIMALITY_TOLERANCE);
+		createEAttribute(solverLpParamsEClass, SOLVER_LP_PARAMS__SOLVER_LINEAR_RELAXATION);
+		createEAttribute(solverLpParamsEClass, SOLVER_LP_PARAMS__SOL_OPTIMALITY_GAP);
+
 		// Create enums
 		enumLpVarTypeEEnum = createEEnum(ENUM_LP_VAR_TYPE);
 		enumLpConsTypeEEnum = createEEnum(ENUM_LP_CONS_TYPE);
@@ -3391,6 +3410,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		solverEClass.getESuperTypes().add(this.getSolutionProvider());
 		solverCpEClass.getESuperTypes().add(this.getSolver());
 		solverLpEClass.getESuperTypes().add(this.getSolver());
+		solverLpEClass.getESuperTypes().add(this.getSolverLpParams());
 		solverGeneratorGoalEClass.getESuperTypes().add(this.getSolverGoal());
 		solverGoalPreviousSolverEClass.getESuperTypes().add(this.getSolverGoal());
 		solutionLpEClass.getESuperTypes().add(this.getSolution());
@@ -3409,6 +3429,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		generatorGoalEClass.getESuperTypes().add(this.getGeneratorElement());
 		generatorLpGoalEClass.getESuperTypes().add(this.getGeneratorGoal());
 		generatorLpGoalEClass.getESuperTypes().add(this.getGeneratorLpLinear());
+		solverLpParamsEClass.getESuperTypes().add(theJobPackage.getRunParams());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(generatorEClass, Generator.class, "Generator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3695,9 +3716,6 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		initEAttribute(getSolverCp_SearchAll(), ecorePackage.getEBoolean(), "SearchAll", null, 0, 1, SolverCp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(solverLpEClass, SolverLp.class, "SolverLp", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSolverLp_SolverOptimalityTolerance(), ecorePackage.getEFloat(), "SolverOptimalityTolerance", "0.05", 0, 1, SolverLp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSolverLp_SolverLinearRelaxation(), ecorePackage.getEBoolean(), "SolverLinearRelaxation", null, 0, 1, SolverLp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSolverLp_SolOptimalityGap(), ecorePackage.getEFloat(), "SolOptimalityGap", null, 0, 1, SolverLp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(solverGoalEClass, SolverGoal.class, "SolverGoal", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSolverGoal_Label(), ecorePackage.getEString(), "Label", null, 0, 1, SolverGoal.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -3852,6 +3870,11 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		op = initEOperation(getGeneratorLpLinear__ContributeTerm__GeneratorLpVar_float(), this.getGeneratorLpTerm(), "contributeTerm", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getGeneratorLpVar(), "var", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEFloat(), "coef", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(solverLpParamsEClass, SolverLpParams.class, "SolverLpParams", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSolverLpParams_SolverOptimalityTolerance(), ecorePackage.getEFloat(), "SolverOptimalityTolerance", "0.05", 0, 1, SolverLpParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolverLpParams_SolverLinearRelaxation(), ecorePackage.getEBoolean(), "SolverLinearRelaxation", null, 0, 1, SolverLpParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolverLpParams_SolOptimalityGap(), ecorePackage.getEFloat(), "SolOptimalityGap", null, 0, 1, SolverLpParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(enumLpVarTypeEEnum, EnumLpVarType.class, "EnumLpVarType");

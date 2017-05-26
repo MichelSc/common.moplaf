@@ -1,43 +1,34 @@
-/*******************************************************************************
- * Copyright (c) 2017 Michel Schaffers and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Michel Schaffers - initial API and implementation
- *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.solver.impl;
 
-import com.misc.common.moplaf.solver.Solution;
-import com.misc.common.moplaf.solver.SolverFactory;
-import com.misc.common.moplaf.solver.SolverLp;
+import com.misc.common.moplaf.job.impl.RunParamsImpl;
+
 import com.misc.common.moplaf.solver.SolverLpParams;
 import com.misc.common.moplaf.solver.SolverPackage;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Lp</b></em>'.
+ * An implementation of the model object '<em><b>Lp Params</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.solver.impl.SolverLpImpl#getSolverOptimalityTolerance <em>Solver Optimality Tolerance</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.impl.SolverLpImpl#isSolverLinearRelaxation <em>Solver Linear Relaxation</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.impl.SolverLpImpl#getSolOptimalityGap <em>Sol Optimality Gap</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.SolverLpParamsImpl#getSolverOptimalityTolerance <em>Solver Optimality Tolerance</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.SolverLpParamsImpl#isSolverLinearRelaxation <em>Solver Linear Relaxation</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.SolverLpParamsImpl#getSolOptimalityGap <em>Sol Optimality Gap</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class SolverLpImpl extends SolverImpl implements SolverLp {
+public class SolverLpParamsImpl extends RunParamsImpl implements SolverLpParams {
 	/**
 	 * The default value of the '{@link #getSolverOptimalityTolerance() <em>Solver Optimality Tolerance</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -103,7 +94,7 @@ public abstract class SolverLpImpl extends SolverImpl implements SolverLp {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SolverLpImpl() {
+	protected SolverLpParamsImpl() {
 		super();
 	}
 
@@ -114,7 +105,7 @@ public abstract class SolverLpImpl extends SolverImpl implements SolverLp {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return SolverPackage.Literals.SOLVER_LP;
+		return SolverPackage.Literals.SOLVER_LP_PARAMS;
 	}
 
 	/**
@@ -135,7 +126,7 @@ public abstract class SolverLpImpl extends SolverImpl implements SolverLp {
 		float oldSolverOptimalityTolerance = solverOptimalityTolerance;
 		solverOptimalityTolerance = newSolverOptimalityTolerance;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER_LP__SOLVER_OPTIMALITY_TOLERANCE, oldSolverOptimalityTolerance, solverOptimalityTolerance));
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER_LP_PARAMS__SOLVER_OPTIMALITY_TOLERANCE, oldSolverOptimalityTolerance, solverOptimalityTolerance));
 	}
 
 	/**
@@ -156,7 +147,7 @@ public abstract class SolverLpImpl extends SolverImpl implements SolverLp {
 		boolean oldSolverLinearRelaxation = solverLinearRelaxation;
 		solverLinearRelaxation = newSolverLinearRelaxation;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER_LP__SOLVER_LINEAR_RELAXATION, oldSolverLinearRelaxation, solverLinearRelaxation));
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER_LP_PARAMS__SOLVER_LINEAR_RELAXATION, oldSolverLinearRelaxation, solverLinearRelaxation));
 	}
 
 	/**
@@ -177,7 +168,7 @@ public abstract class SolverLpImpl extends SolverImpl implements SolverLp {
 		float oldSolOptimalityGap = solOptimalityGap;
 		solOptimalityGap = newSolOptimalityGap;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER_LP__SOL_OPTIMALITY_GAP, oldSolOptimalityGap, solOptimalityGap));
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER_LP_PARAMS__SOL_OPTIMALITY_GAP, oldSolOptimalityGap, solOptimalityGap));
 	}
 
 	/**
@@ -188,11 +179,11 @@ public abstract class SolverLpImpl extends SolverImpl implements SolverLp {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SolverPackage.SOLVER_LP__SOLVER_OPTIMALITY_TOLERANCE:
+			case SolverPackage.SOLVER_LP_PARAMS__SOLVER_OPTIMALITY_TOLERANCE:
 				return getSolverOptimalityTolerance();
-			case SolverPackage.SOLVER_LP__SOLVER_LINEAR_RELAXATION:
+			case SolverPackage.SOLVER_LP_PARAMS__SOLVER_LINEAR_RELAXATION:
 				return isSolverLinearRelaxation();
-			case SolverPackage.SOLVER_LP__SOL_OPTIMALITY_GAP:
+			case SolverPackage.SOLVER_LP_PARAMS__SOL_OPTIMALITY_GAP:
 				return getSolOptimalityGap();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -206,13 +197,13 @@ public abstract class SolverLpImpl extends SolverImpl implements SolverLp {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SolverPackage.SOLVER_LP__SOLVER_OPTIMALITY_TOLERANCE:
+			case SolverPackage.SOLVER_LP_PARAMS__SOLVER_OPTIMALITY_TOLERANCE:
 				setSolverOptimalityTolerance((Float)newValue);
 				return;
-			case SolverPackage.SOLVER_LP__SOLVER_LINEAR_RELAXATION:
+			case SolverPackage.SOLVER_LP_PARAMS__SOLVER_LINEAR_RELAXATION:
 				setSolverLinearRelaxation((Boolean)newValue);
 				return;
-			case SolverPackage.SOLVER_LP__SOL_OPTIMALITY_GAP:
+			case SolverPackage.SOLVER_LP_PARAMS__SOL_OPTIMALITY_GAP:
 				setSolOptimalityGap((Float)newValue);
 				return;
 		}
@@ -227,13 +218,13 @@ public abstract class SolverLpImpl extends SolverImpl implements SolverLp {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SolverPackage.SOLVER_LP__SOLVER_OPTIMALITY_TOLERANCE:
+			case SolverPackage.SOLVER_LP_PARAMS__SOLVER_OPTIMALITY_TOLERANCE:
 				setSolverOptimalityTolerance(SOLVER_OPTIMALITY_TOLERANCE_EDEFAULT);
 				return;
-			case SolverPackage.SOLVER_LP__SOLVER_LINEAR_RELAXATION:
+			case SolverPackage.SOLVER_LP_PARAMS__SOLVER_LINEAR_RELAXATION:
 				setSolverLinearRelaxation(SOLVER_LINEAR_RELAXATION_EDEFAULT);
 				return;
-			case SolverPackage.SOLVER_LP__SOL_OPTIMALITY_GAP:
+			case SolverPackage.SOLVER_LP_PARAMS__SOL_OPTIMALITY_GAP:
 				setSolOptimalityGap(SOL_OPTIMALITY_GAP_EDEFAULT);
 				return;
 		}
@@ -248,50 +239,14 @@ public abstract class SolverLpImpl extends SolverImpl implements SolverLp {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SolverPackage.SOLVER_LP__SOLVER_OPTIMALITY_TOLERANCE:
+			case SolverPackage.SOLVER_LP_PARAMS__SOLVER_OPTIMALITY_TOLERANCE:
 				return solverOptimalityTolerance != SOLVER_OPTIMALITY_TOLERANCE_EDEFAULT;
-			case SolverPackage.SOLVER_LP__SOLVER_LINEAR_RELAXATION:
+			case SolverPackage.SOLVER_LP_PARAMS__SOLVER_LINEAR_RELAXATION:
 				return solverLinearRelaxation != SOLVER_LINEAR_RELAXATION_EDEFAULT;
-			case SolverPackage.SOLVER_LP__SOL_OPTIMALITY_GAP:
+			case SolverPackage.SOLVER_LP_PARAMS__SOL_OPTIMALITY_GAP:
 				return solOptimalityGap != SOL_OPTIMALITY_GAP_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == SolverLpParams.class) {
-			switch (derivedFeatureID) {
-				case SolverPackage.SOLVER_LP__SOLVER_OPTIMALITY_TOLERANCE: return SolverPackage.SOLVER_LP_PARAMS__SOLVER_OPTIMALITY_TOLERANCE;
-				case SolverPackage.SOLVER_LP__SOLVER_LINEAR_RELAXATION: return SolverPackage.SOLVER_LP_PARAMS__SOLVER_LINEAR_RELAXATION;
-				case SolverPackage.SOLVER_LP__SOL_OPTIMALITY_GAP: return SolverPackage.SOLVER_LP_PARAMS__SOL_OPTIMALITY_GAP;
-				default: return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == SolverLpParams.class) {
-			switch (baseFeatureID) {
-				case SolverPackage.SOLVER_LP_PARAMS__SOLVER_OPTIMALITY_TOLERANCE: return SolverPackage.SOLVER_LP__SOLVER_OPTIMALITY_TOLERANCE;
-				case SolverPackage.SOLVER_LP_PARAMS__SOLVER_LINEAR_RELAXATION: return SolverPackage.SOLVER_LP__SOLVER_LINEAR_RELAXATION;
-				case SolverPackage.SOLVER_LP_PARAMS__SOL_OPTIMALITY_GAP: return SolverPackage.SOLVER_LP__SOL_OPTIMALITY_GAP;
-				default: return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**
@@ -314,11 +269,4 @@ public abstract class SolverLpImpl extends SolverImpl implements SolverLp {
 		return result.toString();
 	}
 
-	@Override
-	public Solution solutionFactory() {
-		Solution newsolution = SolverFactory.eINSTANCE.createSolutionLp();
-		return newsolution;
-	}
-
-	
-} //SolverLpImpl
+} //SolverLpParamsImpl

@@ -20,7 +20,13 @@
   <eClassifiers xsi:type="ecore:EDataType" name="Exception" instanceClassName="java.lang.Exception"/>
   <eClassifiers xsi:type="ecore:EDataType" name="ReturnFeedback" instanceClassName="com.misc.common.moplaf.common.ReturnFeedback"/>
   <eClassifiers xsi:type="ecore:EDataType" name="EnabledFeedback" instanceClassName="com.misc.common.moplaf.common.EnabledFeedback"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Run">
+  <eClassifiers xsi:type="ecore:EClass" name="RunParams">
+    <eOperations name="acceptParams">
+      <eParameters name="other" eType="#//RunParams"/>
+    </eOperations>
+    <eOperations name="constructParams"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Run" eSuperTypes="#//RunParams">
     <eOperations name="reset"/>
     <eOperations name="run" eType="#//ReturnFeedback"/>
     <eOperations name="run" eType="#//ReturnFeedback">

@@ -134,6 +134,52 @@ public interface JobPackage extends EPackage {
 	int JOB_PARAMETER_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.job.impl.RunParamsImpl <em>Run Params</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.job.impl.RunParamsImpl
+	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getRunParams()
+	 * @generated
+	 */
+	int RUN_PARAMS = 1;
+
+	/**
+	 * The number of structural features of the '<em>Run Params</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUN_PARAMS_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Accept Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUN_PARAMS___ACCEPT_PARAMS__RUNPARAMS = 0;
+
+	/**
+	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUN_PARAMS___CONSTRUCT_PARAMS = 1;
+
+	/**
+	 * The number of operations of the '<em>Run Params</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUN_PARAMS_OPERATION_COUNT = 2;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.job.impl.RunImpl <em>Run</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -141,7 +187,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getRun()
 	 * @generated
 	 */
-	int RUN = 1;
+	int RUN = 2;
 
 	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
@@ -150,7 +196,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN__RUN_FEEDBACK = 0;
+	int RUN__RUN_FEEDBACK = RUN_PARAMS_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Cancel Feedback</b></em>' attribute.
@@ -159,7 +205,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN__CANCEL_FEEDBACK = 1;
+	int RUN__CANCEL_FEEDBACK = RUN_PARAMS_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Reset Feedback</b></em>' attribute.
@@ -168,7 +214,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN__RESET_FEEDBACK = 2;
+	int RUN__RESET_FEEDBACK = RUN_PARAMS_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
@@ -177,7 +223,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN__CANCELED = 3;
+	int RUN__CANCELED = RUN_PARAMS_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
@@ -186,7 +232,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN__RETURN_SUCCESS = 4;
+	int RUN__RETURN_SUCCESS = RUN_PARAMS_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Return Feedback</b></em>' attribute.
@@ -195,7 +241,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN__RETURN_FEEDBACK = 5;
+	int RUN__RETURN_FEEDBACK = RUN_PARAMS_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Return Information</b></em>' attribute.
@@ -204,7 +250,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN__RETURN_INFORMATION = 6;
+	int RUN__RETURN_INFORMATION = RUN_PARAMS_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Run</em>' class.
@@ -213,7 +259,25 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN_FEATURE_COUNT = 7;
+	int RUN_FEATURE_COUNT = RUN_PARAMS_FEATURE_COUNT + 7;
+
+	/**
+	 * The operation id for the '<em>Accept Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUN___ACCEPT_PARAMS__RUNPARAMS = RUN_PARAMS___ACCEPT_PARAMS__RUNPARAMS;
+
+	/**
+	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUN___CONSTRUCT_PARAMS = RUN_PARAMS___CONSTRUCT_PARAMS;
 
 	/**
 	 * The operation id for the '<em>Reset</em>' operation.
@@ -222,7 +286,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___RESET = 0;
+	int RUN___RESET = RUN_PARAMS_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Run</em>' operation.
@@ -231,7 +295,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___RUN = 1;
+	int RUN___RUN = RUN_PARAMS_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Run</em>' operation.
@@ -240,7 +304,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___RUN__RUNCONTEXT = 2;
+	int RUN___RUN__RUNCONTEXT = RUN_PARAMS_OPERATION_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Cancel</em>' operation.
@@ -249,7 +313,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___CANCEL = 3;
+	int RUN___CANCEL = RUN_PARAMS_OPERATION_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Set Progress</em>' operation.
@@ -258,7 +322,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___SET_PROGRESS__STRING_FLOAT = 4;
+	int RUN___SET_PROGRESS__STRING_FLOAT = RUN_PARAMS_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Set Progress</em>' operation.
@@ -267,7 +331,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___SET_PROGRESS__PROGRESSFEEDBACK = 5;
+	int RUN___SET_PROGRESS__PROGRESSFEEDBACK = RUN_PARAMS_OPERATION_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get Return</em>' operation.
@@ -276,7 +340,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___GET_RETURN = 6;
+	int RUN___GET_RETURN = RUN_PARAMS_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Set Return</em>' operation.
@@ -285,7 +349,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN___SET_RETURN__RETURNFEEDBACK = 7;
+	int RUN___SET_RETURN__RETURNFEEDBACK = RUN_PARAMS_OPERATION_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>Run</em>' class.
@@ -294,7 +358,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RUN_OPERATION_COUNT = 8;
+	int RUN_OPERATION_COUNT = RUN_PARAMS_OPERATION_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.job.impl.JobImpl <em>Job</em>}' class.
@@ -304,7 +368,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getJob()
 	 * @generated
 	 */
-	int JOB = 2;
+	int JOB = 3;
 
 	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
@@ -451,6 +515,24 @@ public interface JobPackage extends EPackage {
 	int JOB_FEATURE_COUNT = RUN_FEATURE_COUNT + 8;
 
 	/**
+	 * The operation id for the '<em>Accept Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB___ACCEPT_PARAMS__RUNPARAMS = RUN___ACCEPT_PARAMS__RUNPARAMS;
+
+	/**
+	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB___CONSTRUCT_PARAMS = RUN___CONSTRUCT_PARAMS;
+
+	/**
 	 * The operation id for the '<em>Reset</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -539,7 +621,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getJobConsole()
 	 * @generated
 	 */
-	int JOB_CONSOLE = 3;
+	int JOB_CONSOLE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
@@ -713,6 +795,24 @@ public interface JobPackage extends EPackage {
 	int JOB_CONSOLE_FEATURE_COUNT = JOB_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Accept Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE___ACCEPT_PARAMS__RUNPARAMS = JOB___ACCEPT_PARAMS__RUNPARAMS;
+
+	/**
+	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_CONSOLE___CONSTRUCT_PARAMS = JOB___CONSTRUCT_PARAMS;
+
+	/**
 	 * The operation id for the '<em>Reset</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -873,7 +973,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getSetter()
 	 * @generated
 	 */
-	int SETTER = 4;
+	int SETTER = 5;
 
 	/**
 	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
@@ -955,7 +1055,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getSetterStructuralFeature()
 	 * @generated
 	 */
-	int SETTER_STRUCTURAL_FEATURE = 5;
+	int SETTER_STRUCTURAL_FEATURE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Setter</b></em>' container reference.
@@ -1019,7 +1119,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getSetterAttribute()
 	 * @generated
 	 */
-	int SETTER_ATTRIBUTE = 6;
+	int SETTER_ATTRIBUTE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Setter</b></em>' container reference.
@@ -1092,7 +1192,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getSetterAttributeInt()
 	 * @generated
 	 */
-	int SETTER_ATTRIBUTE_INT = 7;
+	int SETTER_ATTRIBUTE_INT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Setter</b></em>' container reference.
@@ -1174,7 +1274,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getSetterAttributeFloat()
 	 * @generated
 	 */
-	int SETTER_ATTRIBUTE_FLOAT = 8;
+	int SETTER_ATTRIBUTE_FLOAT = 9;
 
 	/**
 	 * The feature id for the '<em><b>Setter</b></em>' container reference.
@@ -1256,7 +1356,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getJobParameterType()
 	 * @generated
 	 */
-	int JOB_PARAMETER_TYPE = 9;
+	int JOB_PARAMETER_TYPE = 10;
 
 	/**
 	 * The meta object id for the '<em>Progress Feedback</em>' data type.
@@ -1266,7 +1366,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getProgressFeedback()
 	 * @generated
 	 */
-	int PROGRESS_FEEDBACK = 10;
+	int PROGRESS_FEEDBACK = 11;
 
 	/**
 	 * The meta object id for the '<em>Run Context</em>' data type.
@@ -1276,7 +1376,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getRunContext()
 	 * @generated
 	 */
-	int RUN_CONTEXT = 11;
+	int RUN_CONTEXT = 12;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -1286,7 +1386,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 12;
+	int EXCEPTION = 13;
 
 	/**
 	 * The meta object id for the '<em>Return Feedback</em>' data type.
@@ -1296,7 +1396,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getReturnFeedback()
 	 * @generated
 	 */
-	int RETURN_FEEDBACK = 13;
+	int RETURN_FEEDBACK = 14;
 
 	/**
 	 * The meta object id for the '<em>Enabled Feedback</em>' data type.
@@ -1306,7 +1406,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getEnabledFeedback()
 	 * @generated
 	 */
-	int ENABLED_FEEDBACK = 14;
+	int ENABLED_FEEDBACK = 15;
 
 
 	/**
@@ -1362,6 +1462,36 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getJobParameter_Description();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.RunParams <em>Run Params</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Run Params</em>'.
+	 * @see com.misc.common.moplaf.job.RunParams
+	 * @generated
+	 */
+	EClass getRunParams();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.RunParams#acceptParams(com.misc.common.moplaf.job.RunParams) <em>Accept Params</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Accept Params</em>' operation.
+	 * @see com.misc.common.moplaf.job.RunParams#acceptParams(com.misc.common.moplaf.job.RunParams)
+	 * @generated
+	 */
+	EOperation getRunParams__AcceptParams__RunParams();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.RunParams#constructParams() <em>Construct Params</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Construct Params</em>' operation.
+	 * @see com.misc.common.moplaf.job.RunParams#constructParams()
+	 * @generated
+	 */
+	EOperation getRunParams__ConstructParams();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.Run <em>Run</em>}'.
@@ -2070,6 +2200,32 @@ public interface JobPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute JOB_PARAMETER__DESCRIPTION = eINSTANCE.getJobParameter_Description();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.RunParamsImpl <em>Run Params</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.job.impl.RunParamsImpl
+		 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getRunParams()
+		 * @generated
+		 */
+		EClass RUN_PARAMS = eINSTANCE.getRunParams();
+
+		/**
+		 * The meta object literal for the '<em><b>Accept Params</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RUN_PARAMS___ACCEPT_PARAMS__RUNPARAMS = eINSTANCE.getRunParams__AcceptParams__RunParams();
+
+		/**
+		 * The meta object literal for the '<em><b>Construct Params</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RUN_PARAMS___CONSTRUCT_PARAMS = eINSTANCE.getRunParams__ConstructParams();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.RunImpl <em>Run</em>}' class.

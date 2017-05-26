@@ -41,6 +41,15 @@ public interface JobFactory extends EFactory {
 	JobParameter createJobParameter();
 
 	/**
+	 * Returns a new object of class '<em>Run Params</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Run Params</em>'.
+	 * @generated
+	 */
+	RunParams createRunParams();
+
+	/**
 	 * Returns a new object of class '<em>Run</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

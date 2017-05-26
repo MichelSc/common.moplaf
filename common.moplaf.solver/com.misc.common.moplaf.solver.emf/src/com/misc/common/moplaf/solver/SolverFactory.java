@@ -59,6 +59,15 @@ public interface SolverFactory extends EFactory {
 	GeneratorLpLinear createGeneratorLpLinear();
 
 	/**
+	 * Returns a new object of class '<em>Lp Params</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Lp Params</em>'.
+	 * @generated
+	 */
+	SolverLpParams createSolverLpParams();
+
+	/**
 	 * Returns a new object of class '<em>Generator Goal</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

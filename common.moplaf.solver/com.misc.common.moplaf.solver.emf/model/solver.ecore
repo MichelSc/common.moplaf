@@ -350,13 +350,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="SolverCp" abstract="true" eSuperTypes="#//Solver">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SearchAll" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SolverLp" abstract="true" eSuperTypes="#//Solver">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverOptimalityTolerance"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat" defaultValueLiteral="0.05"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverLinearRelaxation"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolOptimalityGap" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SolverLp" abstract="true" eSuperTypes="#//Solver #//SolverLpParams"/>
   <eClassifiers xsi:type="ecore:EClass" name="SolverGoal" abstract="true">
     <eOperations name="buildGoal" eExceptions="#//Exception"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -538,5 +532,12 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="LpTerm" upperBound="-1"
         eType="#//GeneratorLpTerm" containment="true" eOpposite="#//GeneratorLpTerm/LpLinear"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SolverLpParams" eSuperTypes="../../com.misc.common.moplaf.job.emf/model/job.ecore#//RunParams">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverOptimalityTolerance"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat" defaultValueLiteral="0.05"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolverLinearRelaxation"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolOptimalityGap" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
 </ecore:EPackage>

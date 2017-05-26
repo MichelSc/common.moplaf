@@ -25,6 +25,7 @@ import com.misc.common.moplaf.job.ProgressFeedback;
 import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.RunContext;
 
+import com.misc.common.moplaf.job.RunParams;
 import com.misc.common.moplaf.job.Setter;
 import com.misc.common.moplaf.job.SetterAttribute;
 import com.misc.common.moplaf.job.SetterAttributeFloat;
@@ -54,6 +55,13 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * @generated
 	 */
 	private EClass jobParameterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass runParamsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -260,6 +268,33 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 */
 	public EAttribute getJobParameter_Description() {
 		return (EAttribute)jobParameterEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRunParams() {
+		return runParamsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRunParams__AcceptParams__RunParams() {
+		return runParamsEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRunParams__ConstructParams() {
+		return runParamsEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -845,6 +880,10 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		createEReference(jobParameterEClass, JOB_PARAMETER__JOB_ATTRIBUTE);
 		createEAttribute(jobParameterEClass, JOB_PARAMETER__DESCRIPTION);
 
+		runParamsEClass = createEClass(RUN_PARAMS);
+		createEOperation(runParamsEClass, RUN_PARAMS___ACCEPT_PARAMS__RUNPARAMS);
+		createEOperation(runParamsEClass, RUN_PARAMS___CONSTRUCT_PARAMS);
+
 		runEClass = createEClass(RUN);
 		createEAttribute(runEClass, RUN__RUN_FEEDBACK);
 		createEAttribute(runEClass, RUN__CANCEL_FEEDBACK);
@@ -947,6 +986,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		runEClass.getESuperTypes().add(this.getRunParams());
 		jobEClass.getESuperTypes().add(this.getRun());
 		jobConsoleEClass.getESuperTypes().add(this.getJob());
 		setterAttributeEClass.getESuperTypes().add(this.getSetterStructuralFeature());
@@ -959,6 +999,13 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		initEAttribute(getJobParameter_Type(), this.getJobParameterType(), "Type", null, 0, 1, JobParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJobParameter_JobAttribute(), ecorePackage.getEAttribute(), null, "JobAttribute", null, 0, 1, JobParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobParameter_Description(), ecorePackage.getEString(), "Description", null, 0, 1, JobParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(runParamsEClass, RunParams.class, "RunParams", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		EOperation op = initEOperation(getRunParams__AcceptParams__RunParams(), null, "acceptParams", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getRunParams(), "other", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getRunParams__ConstructParams(), null, "constructParams", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(runEClass, Run.class, "Run", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRun_RunFeedback(), this.getEnabledFeedback(), "RunFeedback", null, 0, 1, Run.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -973,7 +1020,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 
 		initEOperation(getRun__Run(), this.getReturnFeedback(), "run", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		EOperation op = initEOperation(getRun__Run__RunContext(), this.getReturnFeedback(), "run", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getRun__Run__RunContext(), this.getReturnFeedback(), "run", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getRunContext(), "runContext", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getRun__Cancel(), null, "cancel", 0, 1, IS_UNIQUE, IS_ORDERED);

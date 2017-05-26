@@ -26,6 +26,12 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference job.ecore#//JobParameter/JobAttribute"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//JobParameter/Description"/>
     </genClasses>
+    <genClasses ecoreClass="job.ecore#//RunParams">
+      <genOperations ecoreOperation="job.ecore#//RunParams/acceptParams">
+        <genParameters ecoreParameter="job.ecore#//RunParams/acceptParams/other"/>
+      </genOperations>
+      <genOperations ecoreOperation="job.ecore#//RunParams/constructParams"/>
+    </genClasses>
     <genClasses ecoreClass="job.ecore#//Run" labelFeature="#//job/Run/ReturnInformation">
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Enabled"
           propertyDescription="" ecoreFeature="ecore:EAttribute job.ecore#//Run/RunFeedback"/>
@@ -114,6 +120,7 @@
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="job.ecore#//SetterStructuralFeature">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference job.ecore#//SetterStructuralFeature/Setter"/>
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference job.ecore#//SetterStructuralFeature/FeatureToSet"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//SetterStructuralFeature/Description"/>
       <genOperations ecoreOperation="job.ecore#//SetterStructuralFeature/accept">

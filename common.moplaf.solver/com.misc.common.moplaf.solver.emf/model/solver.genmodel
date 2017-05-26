@@ -321,11 +321,7 @@
     <genClasses image="false" ecoreClass="solver.ecore#//SolverCp" labelFeature="#//solver/SolutionProvider/Code">
       <genFeatures createChild="false" propertyCategory="20 Solver" ecoreFeature="ecore:EAttribute solver.ecore#//SolverCp/SearchAll"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="solver.ecore#//SolverLp" labelFeature="#//solver/SolutionProvider/Code">
-      <genFeatures createChild="false" propertyCategory="20 Solver" ecoreFeature="ecore:EAttribute solver.ecore#//SolverLp/SolverOptimalityTolerance"/>
-      <genFeatures createChild="false" propertyCategory="20 Solver" ecoreFeature="ecore:EAttribute solver.ecore#//SolverLp/SolverLinearRelaxation"/>
-      <genFeatures createChild="false" propertyCategory="40 Solution" ecoreFeature="ecore:EAttribute solver.ecore#//SolverLp/SolOptimalityGap"/>
-    </genClasses>
+    <genClasses image="false" ecoreClass="solver.ecore#//SolverLp" labelFeature="#//solver/SolutionProvider/Code"/>
     <genClasses ecoreClass="solver.ecore#//SolverGoal">
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolverGoal/Label"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//SolverGoal/Solver"/>
@@ -471,6 +467,11 @@
         <genParameters ecoreParameter="solver.ecore#//GeneratorLpLinear/contributeTerm/var"/>
         <genParameters ecoreParameter="solver.ecore#//GeneratorLpLinear/contributeTerm/coef"/>
       </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="solver.ecore#//SolverLpParams">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolverLpParams/SolverOptimalityTolerance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolverLpParams/SolverLinearRelaxation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolverLpParams/SolOptimalityGap"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

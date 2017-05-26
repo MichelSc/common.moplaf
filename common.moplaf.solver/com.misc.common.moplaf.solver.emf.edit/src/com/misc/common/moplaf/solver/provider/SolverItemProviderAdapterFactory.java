@@ -152,6 +152,29 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.SolverLpParams} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SolverLpParamsItemProvider solverLpParamsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.SolverLpParams}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSolverLpParamsAdapter() {
+		if (solverLpParamsItemProvider == null) {
+			solverLpParamsItemProvider = new SolverLpParamsItemProvider(this);
+		}
+
+		return solverLpParamsItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.SolverGeneratorGoal} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -925,6 +948,7 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 		if (generatorCpLogicalTermItemProvider != null) generatorCpLogicalTermItemProvider.dispose();
 		if (generatorLpGoalItemProvider != null) generatorLpGoalItemProvider.dispose();
 		if (generatorLpLinearItemProvider != null) generatorLpLinearItemProvider.dispose();
+		if (solverLpParamsItemProvider != null) solverLpParamsItemProvider.dispose();
 	}
 
 }

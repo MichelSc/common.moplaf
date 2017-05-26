@@ -279,6 +279,24 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_FEATURE_COUNT = JobPackage.RUN_FEATURE_COUNT + 14;
 
 	/**
+	 * The operation id for the '<em>Accept Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR___ACCEPT_PARAMS__RUNPARAMS = JobPackage.RUN___ACCEPT_PARAMS__RUNPARAMS;
+
+	/**
+	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR___CONSTRUCT_PARAMS = JobPackage.RUN___CONSTRUCT_PARAMS;
+
+	/**
 	 * The operation id for the '<em>Reset</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2069,6 +2087,24 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_PROVIDER_FEATURE_COUNT = JobPackage.RUN_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Accept Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER___ACCEPT_PARAMS__RUNPARAMS = JobPackage.RUN___ACCEPT_PARAMS__RUNPARAMS;
+
+	/**
+	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER___CONSTRUCT_PARAMS = JobPackage.RUN___CONSTRUCT_PARAMS;
+
+	/**
 	 * The operation id for the '<em>Reset</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2302,6 +2338,24 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_READER_FEATURE_COUNT = SOLUTION_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Accept Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER___ACCEPT_PARAMS__RUNPARAMS = SOLUTION_PROVIDER___ACCEPT_PARAMS__RUNPARAMS;
+
+	/**
+	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER___CONSTRUCT_PARAMS = SOLUTION_PROVIDER___CONSTRUCT_PARAMS;
 
 	/**
 	 * The operation id for the '<em>Reset</em>' operation.
@@ -2600,6 +2654,24 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_READER_PATTERN_FEATURE_COUNT = SOLUTION_READER_FEATURE_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Accept Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER_PATTERN___ACCEPT_PARAMS__RUNPARAMS = SOLUTION_READER___ACCEPT_PARAMS__RUNPARAMS;
+
+	/**
+	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER_PATTERN___CONSTRUCT_PARAMS = SOLUTION_READER___CONSTRUCT_PARAMS;
 
 	/**
 	 * The operation id for the '<em>Reset</em>' operation.
@@ -3160,6 +3232,24 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_FEATURE_COUNT = SOLUTION_PROVIDER_FEATURE_COUNT + 25;
+
+	/**
+	 * The operation id for the '<em>Accept Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER___ACCEPT_PARAMS__RUNPARAMS = SOLUTION_PROVIDER___ACCEPT_PARAMS__RUNPARAMS;
+
+	/**
+	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER___CONSTRUCT_PARAMS = SOLUTION_PROVIDER___CONSTRUCT_PARAMS;
 
 	/**
 	 * The operation id for the '<em>Reset</em>' operation.
@@ -3898,6 +3988,24 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_CP_FEATURE_COUNT = SOLVER_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Accept Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP___ACCEPT_PARAMS__RUNPARAMS = SOLVER___ACCEPT_PARAMS__RUNPARAMS;
+
+	/**
+	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP___CONSTRUCT_PARAMS = SOLVER___CONSTRUCT_PARAMS;
+
+	/**
 	 * The operation id for the '<em>Reset</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4490,6 +4598,24 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP_FEATURE_COUNT = SOLVER_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Accept Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP___ACCEPT_PARAMS__RUNPARAMS = SOLVER___ACCEPT_PARAMS__RUNPARAMS;
+
+	/**
+	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP___CONSTRUCT_PARAMS = SOLVER___CONSTRUCT_PARAMS;
 
 	/**
 	 * The operation id for the '<em>Reset</em>' operation.
@@ -7066,6 +7192,79 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_LP_LINEAR_OPERATION_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolverLpParamsImpl <em>Lp Params</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.solver.impl.SolverLpParamsImpl
+	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolverLpParams()
+	 * @generated
+	 */
+	int SOLVER_LP_PARAMS = 47;
+
+	/**
+	 * The feature id for the '<em><b>Solver Optimality Tolerance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP_PARAMS__SOLVER_OPTIMALITY_TOLERANCE = JobPackage.RUN_PARAMS_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Solver Linear Relaxation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP_PARAMS__SOLVER_LINEAR_RELAXATION = JobPackage.RUN_PARAMS_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Sol Optimality Gap</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP_PARAMS__SOL_OPTIMALITY_GAP = JobPackage.RUN_PARAMS_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Lp Params</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP_PARAMS_FEATURE_COUNT = JobPackage.RUN_PARAMS_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Accept Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP_PARAMS___ACCEPT_PARAMS__RUNPARAMS = JobPackage.RUN_PARAMS___ACCEPT_PARAMS__RUNPARAMS;
+
+	/**
+	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP_PARAMS___CONSTRUCT_PARAMS = JobPackage.RUN_PARAMS___CONSTRUCT_PARAMS;
+
+	/**
+	 * The number of operations of the '<em>Lp Params</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP_PARAMS_OPERATION_COUNT = JobPackage.RUN_PARAMS_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '<em>ITuple Visitor</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7073,7 +7272,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getITupleVisitor()
 	 * @generated
 	 */
-	int ITUPLE_VISITOR = 54;
+	int ITUPLE_VISITOR = 55;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -7083,7 +7282,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 55;
+	int EXCEPTION = 56;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumLpVarType <em>Enum Lp Var Type</em>}' enum.
@@ -7093,7 +7292,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumLpVarType()
 	 * @generated
 	 */
-	int ENUM_LP_VAR_TYPE = 47;
+	int ENUM_LP_VAR_TYPE = 48;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumLpConsType <em>Enum Lp Cons Type</em>}' enum.
@@ -7103,7 +7302,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumLpConsType()
 	 * @generated
 	 */
-	int ENUM_LP_CONS_TYPE = 48;
+	int ENUM_LP_CONS_TYPE = 49;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumObjectiveType <em>Enum Objective Type</em>}' enum.
@@ -7113,7 +7312,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumObjectiveType()
 	 * @generated
 	 */
-	int ENUM_OBJECTIVE_TYPE = 49;
+	int ENUM_OBJECTIVE_TYPE = 50;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumSolverLogLevel <em>Enum Solver Log Level</em>}' enum.
@@ -7123,7 +7322,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumSolverLogLevel()
 	 * @generated
 	 */
-	int ENUM_SOLVER_LOG_LEVEL = 50;
+	int ENUM_SOLVER_LOG_LEVEL = 51;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumCpLinearType <em>Enum Cp Linear Type</em>}' enum.
@@ -7133,7 +7332,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumCpLinearType()
 	 * @generated
 	 */
-	int ENUM_CP_LINEAR_TYPE = 51;
+	int ENUM_CP_LINEAR_TYPE = 52;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumCpLogicalType <em>Enum Cp Logical Type</em>}' enum.
@@ -7143,7 +7342,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumCpLogicalType()
 	 * @generated
 	 */
-	int ENUM_CP_LOGICAL_TYPE = 52;
+	int ENUM_CP_LOGICAL_TYPE = 53;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumLpFileFormat <em>Enum Lp File Format</em>}' enum.
@@ -7153,7 +7352,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumLpFileFormat()
 	 * @generated
 	 */
-	int ENUM_LP_FILE_FORMAT = 53;
+	int ENUM_LP_FILE_FORMAT = 54;
 
 
 	/**
@@ -7861,6 +8060,49 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getGeneratorLpLinear__ContributeTerm__GeneratorLpVar_float();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.SolverLpParams <em>Lp Params</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Lp Params</em>'.
+	 * @see com.misc.common.moplaf.solver.SolverLpParams
+	 * @generated
+	 */
+	EClass getSolverLpParams();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.SolverLpParams#getSolverOptimalityTolerance <em>Solver Optimality Tolerance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Solver Optimality Tolerance</em>'.
+	 * @see com.misc.common.moplaf.solver.SolverLpParams#getSolverOptimalityTolerance()
+	 * @see #getSolverLpParams()
+	 * @generated
+	 */
+	EAttribute getSolverLpParams_SolverOptimalityTolerance();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.SolverLpParams#isSolverLinearRelaxation <em>Solver Linear Relaxation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Solver Linear Relaxation</em>'.
+	 * @see com.misc.common.moplaf.solver.SolverLpParams#isSolverLinearRelaxation()
+	 * @see #getSolverLpParams()
+	 * @generated
+	 */
+	EAttribute getSolverLpParams_SolverLinearRelaxation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.SolverLpParams#getSolOptimalityGap <em>Sol Optimality Gap</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Sol Optimality Gap</em>'.
+	 * @see com.misc.common.moplaf.solver.SolverLpParams#getSolOptimalityGap()
+	 * @see #getSolverLpParams()
+	 * @generated
+	 */
+	EAttribute getSolverLpParams_SolOptimalityGap();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.SolverGoal <em>Goal</em>}'.
@@ -9185,39 +9427,6 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSolverLp();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.SolverLp#getSolverOptimalityTolerance <em>Solver Optimality Tolerance</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Solver Optimality Tolerance</em>'.
-	 * @see com.misc.common.moplaf.solver.SolverLp#getSolverOptimalityTolerance()
-	 * @see #getSolverLp()
-	 * @generated
-	 */
-	EAttribute getSolverLp_SolverOptimalityTolerance();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.SolverLp#isSolverLinearRelaxation <em>Solver Linear Relaxation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Solver Linear Relaxation</em>'.
-	 * @see com.misc.common.moplaf.solver.SolverLp#isSolverLinearRelaxation()
-	 * @see #getSolverLp()
-	 * @generated
-	 */
-	EAttribute getSolverLp_SolverLinearRelaxation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.SolverLp#getSolOptimalityGap <em>Sol Optimality Gap</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Sol Optimality Gap</em>'.
-	 * @see com.misc.common.moplaf.solver.SolverLp#getSolOptimalityGap()
-	 * @see #getSolverLp()
-	 * @generated
-	 */
-	EAttribute getSolverLp_SolOptimalityGap();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.SolutionVar <em>Solution Var</em>}'.
@@ -10601,6 +10810,40 @@ public interface SolverPackage extends EPackage {
 		EOperation GENERATOR_LP_LINEAR___CONTRIBUTE_TERM__GENERATORLPVAR_FLOAT = eINSTANCE.getGeneratorLpLinear__ContributeTerm__GeneratorLpVar_float();
 
 		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.SolverLpParamsImpl <em>Lp Params</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.solver.impl.SolverLpParamsImpl
+		 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolverLpParams()
+		 * @generated
+		 */
+		EClass SOLVER_LP_PARAMS = eINSTANCE.getSolverLpParams();
+
+		/**
+		 * The meta object literal for the '<em><b>Solver Optimality Tolerance</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOLVER_LP_PARAMS__SOLVER_OPTIMALITY_TOLERANCE = eINSTANCE.getSolverLpParams_SolverOptimalityTolerance();
+
+		/**
+		 * The meta object literal for the '<em><b>Solver Linear Relaxation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOLVER_LP_PARAMS__SOLVER_LINEAR_RELAXATION = eINSTANCE.getSolverLpParams_SolverLinearRelaxation();
+
+		/**
+		 * The meta object literal for the '<em><b>Sol Optimality Gap</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOLVER_LP_PARAMS__SOL_OPTIMALITY_GAP = eINSTANCE.getSolverLpParams_SolOptimalityGap();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.SolverGoalImpl <em>Goal</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -11639,30 +11882,6 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SOLVER_LP = eINSTANCE.getSolverLp();
-
-		/**
-		 * The meta object literal for the '<em><b>Solver Optimality Tolerance</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SOLVER_LP__SOLVER_OPTIMALITY_TOLERANCE = eINSTANCE.getSolverLp_SolverOptimalityTolerance();
-
-		/**
-		 * The meta object literal for the '<em><b>Solver Linear Relaxation</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SOLVER_LP__SOLVER_LINEAR_RELAXATION = eINSTANCE.getSolverLp_SolverLinearRelaxation();
-
-		/**
-		 * The meta object literal for the '<em><b>Sol Optimality Gap</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SOLVER_LP__SOL_OPTIMALITY_GAP = eINSTANCE.getSolverLp_SolOptimalityGap();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.SolutionVarImpl <em>Solution Var</em>}' class.

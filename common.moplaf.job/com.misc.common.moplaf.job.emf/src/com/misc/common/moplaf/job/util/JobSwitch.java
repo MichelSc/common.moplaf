@@ -82,9 +82,16 @@ public class JobSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case JobPackage.RUN_PARAMS: {
+				RunParams runParams = (RunParams)theEObject;
+				T result = caseRunParams(runParams);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case JobPackage.RUN: {
 				Run run = (Run)theEObject;
 				T result = caseRun(run);
+				if (result == null) result = caseRunParams(run);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -92,6 +99,7 @@ public class JobSwitch<T> extends Switch<T> {
 				Job job = (Job)theEObject;
 				T result = caseJob(job);
 				if (result == null) result = caseRun(job);
+				if (result == null) result = caseRunParams(job);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -100,6 +108,7 @@ public class JobSwitch<T> extends Switch<T> {
 				T result = caseJobConsole(jobConsole);
 				if (result == null) result = caseJob(jobConsole);
 				if (result == null) result = caseRun(jobConsole);
+				if (result == null) result = caseRunParams(jobConsole);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -154,6 +163,21 @@ public class JobSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseJobParameter(JobParameter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Run Params</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Run Params</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRunParams(RunParams object) {
 		return null;
 	}
 

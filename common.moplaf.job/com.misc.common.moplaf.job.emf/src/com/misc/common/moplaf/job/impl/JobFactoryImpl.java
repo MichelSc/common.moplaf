@@ -71,6 +71,7 @@ public class JobFactoryImpl extends EFactoryImpl implements JobFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case JobPackage.JOB_PARAMETER: return createJobParameter();
+			case JobPackage.RUN_PARAMS: return createRunParams();
 			case JobPackage.RUN: return createRun();
 			case JobPackage.JOB: return createJob();
 			case JobPackage.JOB_CONSOLE: return createJobConsole();
@@ -140,6 +141,16 @@ public class JobFactoryImpl extends EFactoryImpl implements JobFactory {
 	public JobParameter createJobParameter() {
 		JobParameterImpl jobParameter = new JobParameterImpl();
 		return jobParameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RunParams createRunParams() {
+		RunParamsImpl runParams = new RunParamsImpl();
+		return runParams;
 	}
 
 	/**
