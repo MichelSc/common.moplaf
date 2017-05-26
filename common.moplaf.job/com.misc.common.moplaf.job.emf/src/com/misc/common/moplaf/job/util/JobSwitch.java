@@ -103,6 +103,41 @@ public class JobSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case JobPackage.SETTER: {
+				Setter setter = (Setter)theEObject;
+				T result = caseSetter(setter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JobPackage.SETTER_STRUCTURAL_FEATURE: {
+				SetterStructuralFeature setterStructuralFeature = (SetterStructuralFeature)theEObject;
+				T result = caseSetterStructuralFeature(setterStructuralFeature);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JobPackage.SETTER_ATTRIBUTE: {
+				SetterAttribute setterAttribute = (SetterAttribute)theEObject;
+				T result = caseSetterAttribute(setterAttribute);
+				if (result == null) result = caseSetterStructuralFeature(setterAttribute);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JobPackage.SETTER_ATTRIBUTE_INT: {
+				SetterAttributeInt setterAttributeInt = (SetterAttributeInt)theEObject;
+				T result = caseSetterAttributeInt(setterAttributeInt);
+				if (result == null) result = caseSetterAttribute(setterAttributeInt);
+				if (result == null) result = caseSetterStructuralFeature(setterAttributeInt);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JobPackage.SETTER_ATTRIBUTE_FLOAT: {
+				SetterAttributeFloat setterAttributeFloat = (SetterAttributeFloat)theEObject;
+				T result = caseSetterAttributeFloat(setterAttributeFloat);
+				if (result == null) result = caseSetterAttribute(setterAttributeFloat);
+				if (result == null) result = caseSetterStructuralFeature(setterAttributeFloat);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -164,6 +199,81 @@ public class JobSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseJobConsole(JobConsole object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Setter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Setter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSetter(Setter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Setter Structural Feature</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Setter Structural Feature</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSetterStructuralFeature(SetterStructuralFeature object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Setter Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Setter Attribute</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSetterAttribute(SetterAttribute object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Setter Attribute Int</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Setter Attribute Int</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSetterAttributeInt(SetterAttributeInt object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Setter Attribute Float</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Setter Attribute Float</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSetterAttributeFloat(SetterAttributeFloat object) {
 		return null;
 	}
 

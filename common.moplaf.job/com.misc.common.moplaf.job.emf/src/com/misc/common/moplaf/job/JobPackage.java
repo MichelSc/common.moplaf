@@ -866,6 +866,317 @@ public interface JobPackage extends EPackage {
 	int JOB_CONSOLE_OPERATION_COUNT = JOB_OPERATION_COUNT + 8;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.job.impl.SetterImpl <em>Setter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.job.impl.SetterImpl
+	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getSetter()
+	 * @generated
+	 */
+	int SETTER = 4;
+
+	/**
+	 * The feature id for the '<em><b>Features</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER__FEATURES = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Remarks</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER__REMARKS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Target Class</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER__TARGET_CLASS = 3;
+
+	/**
+	 * The number of structural features of the '<em>Setter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_FEATURE_COUNT = 4;
+
+	/**
+	 * The operation id for the '<em>Accept</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER___ACCEPT__EOBJECT = 0;
+
+	/**
+	 * The operation id for the '<em>Init</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER___INIT__EOBJECT = 1;
+
+	/**
+	 * The number of operations of the '<em>Setter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_OPERATION_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.job.impl.SetterStructuralFeatureImpl <em>Setter Structural Feature</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.job.impl.SetterStructuralFeatureImpl
+	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getSetterStructuralFeature()
+	 * @generated
+	 */
+	int SETTER_STRUCTURAL_FEATURE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Feature To Set</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_STRUCTURAL_FEATURE__FEATURE_TO_SET = 0;
+
+	/**
+	 * The number of structural features of the '<em>Setter Structural Feature</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_STRUCTURAL_FEATURE_FEATURE_COUNT = 1;
+
+	/**
+	 * The operation id for the '<em>Accept</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_STRUCTURAL_FEATURE___ACCEPT__EOBJECT = 0;
+
+	/**
+	 * The number of operations of the '<em>Setter Structural Feature</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_STRUCTURAL_FEATURE_OPERATION_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.job.impl.SetterAttributeImpl <em>Setter Attribute</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.job.impl.SetterAttributeImpl
+	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getSetterAttribute()
+	 * @generated
+	 */
+	int SETTER_ATTRIBUTE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Feature To Set</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_ATTRIBUTE__FEATURE_TO_SET = SETTER_STRUCTURAL_FEATURE__FEATURE_TO_SET;
+
+	/**
+	 * The feature id for the '<em><b>Attribute To Set</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_ATTRIBUTE__ATTRIBUTE_TO_SET = SETTER_STRUCTURAL_FEATURE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Setter Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_ATTRIBUTE_FEATURE_COUNT = SETTER_STRUCTURAL_FEATURE_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Accept</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_ATTRIBUTE___ACCEPT__EOBJECT = SETTER_STRUCTURAL_FEATURE___ACCEPT__EOBJECT;
+
+	/**
+	 * The number of operations of the '<em>Setter Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_ATTRIBUTE_OPERATION_COUNT = SETTER_STRUCTURAL_FEATURE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.job.impl.SetterAttributeIntImpl <em>Setter Attribute Int</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.job.impl.SetterAttributeIntImpl
+	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getSetterAttributeInt()
+	 * @generated
+	 */
+	int SETTER_ATTRIBUTE_INT = 7;
+
+	/**
+	 * The feature id for the '<em><b>Feature To Set</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_ATTRIBUTE_INT__FEATURE_TO_SET = SETTER_ATTRIBUTE__FEATURE_TO_SET;
+
+	/**
+	 * The feature id for the '<em><b>Attribute To Set</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_ATTRIBUTE_INT__ATTRIBUTE_TO_SET = SETTER_ATTRIBUTE__ATTRIBUTE_TO_SET;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_ATTRIBUTE_INT__VALUE = SETTER_ATTRIBUTE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Setter Attribute Int</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_ATTRIBUTE_INT_FEATURE_COUNT = SETTER_ATTRIBUTE_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Accept</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_ATTRIBUTE_INT___ACCEPT__EOBJECT = SETTER_ATTRIBUTE___ACCEPT__EOBJECT;
+
+	/**
+	 * The number of operations of the '<em>Setter Attribute Int</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_ATTRIBUTE_INT_OPERATION_COUNT = SETTER_ATTRIBUTE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.job.impl.SetterAttributeFloatImpl <em>Setter Attribute Float</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.job.impl.SetterAttributeFloatImpl
+	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getSetterAttributeFloat()
+	 * @generated
+	 */
+	int SETTER_ATTRIBUTE_FLOAT = 8;
+
+	/**
+	 * The feature id for the '<em><b>Feature To Set</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_ATTRIBUTE_FLOAT__FEATURE_TO_SET = SETTER_ATTRIBUTE__FEATURE_TO_SET;
+
+	/**
+	 * The feature id for the '<em><b>Attribute To Set</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_ATTRIBUTE_FLOAT__ATTRIBUTE_TO_SET = SETTER_ATTRIBUTE__ATTRIBUTE_TO_SET;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_ATTRIBUTE_FLOAT__VALUE = SETTER_ATTRIBUTE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Setter Attribute Float</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_ATTRIBUTE_FLOAT_FEATURE_COUNT = SETTER_ATTRIBUTE_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Accept</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_ATTRIBUTE_FLOAT___ACCEPT__EOBJECT = SETTER_ATTRIBUTE___ACCEPT__EOBJECT;
+
+	/**
+	 * The number of operations of the '<em>Setter Attribute Float</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_ATTRIBUTE_FLOAT_OPERATION_COUNT = SETTER_ATTRIBUTE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.job.JobParameterType <em>Parameter Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -873,7 +1184,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getJobParameterType()
 	 * @generated
 	 */
-	int JOB_PARAMETER_TYPE = 4;
+	int JOB_PARAMETER_TYPE = 9;
 
 	/**
 	 * The meta object id for the '<em>Progress Feedback</em>' data type.
@@ -883,7 +1194,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getProgressFeedback()
 	 * @generated
 	 */
-	int PROGRESS_FEEDBACK = 5;
+	int PROGRESS_FEEDBACK = 10;
 
 	/**
 	 * The meta object id for the '<em>Run Context</em>' data type.
@@ -893,7 +1204,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getRunContext()
 	 * @generated
 	 */
-	int RUN_CONTEXT = 6;
+	int RUN_CONTEXT = 11;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -903,7 +1214,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 7;
+	int EXCEPTION = 12;
 
 	/**
 	 * The meta object id for the '<em>Return Feedback</em>' data type.
@@ -913,7 +1224,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getReturnFeedback()
 	 * @generated
 	 */
-	int RETURN_FEEDBACK = 8;
+	int RETURN_FEEDBACK = 13;
 
 	/**
 	 * The meta object id for the '<em>Enabled Feedback</em>' data type.
@@ -923,7 +1234,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getEnabledFeedback()
 	 * @generated
 	 */
-	int ENABLED_FEEDBACK = 9;
+	int ENABLED_FEEDBACK = 14;
 
 
 	/**
@@ -1369,6 +1680,174 @@ public interface JobPackage extends EPackage {
 	EOperation getJobConsole__SetArgs();
 
 	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.Setter <em>Setter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Setter</em>'.
+	 * @see com.misc.common.moplaf.job.Setter
+	 * @generated
+	 */
+	EClass getSetter();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.job.Setter#getFeatures <em>Features</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Features</em>'.
+	 * @see com.misc.common.moplaf.job.Setter#getFeatures()
+	 * @see #getSetter()
+	 * @generated
+	 */
+	EReference getSetter_Features();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.Setter#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.job.Setter#getName()
+	 * @see #getSetter()
+	 * @generated
+	 */
+	EAttribute getSetter_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.Setter#getRemarks <em>Remarks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Remarks</em>'.
+	 * @see com.misc.common.moplaf.job.Setter#getRemarks()
+	 * @see #getSetter()
+	 * @generated
+	 */
+	EAttribute getSetter_Remarks();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.job.Setter#getTargetClass <em>Target Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target Class</em>'.
+	 * @see com.misc.common.moplaf.job.Setter#getTargetClass()
+	 * @see #getSetter()
+	 * @generated
+	 */
+	EReference getSetter_TargetClass();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Setter#accept(org.eclipse.emf.ecore.EObject) <em>Accept</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Accept</em>' operation.
+	 * @see com.misc.common.moplaf.job.Setter#accept(org.eclipse.emf.ecore.EObject)
+	 * @generated
+	 */
+	EOperation getSetter__Accept__EObject();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.Setter#init(org.eclipse.emf.ecore.EObject) <em>Init</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Init</em>' operation.
+	 * @see com.misc.common.moplaf.job.Setter#init(org.eclipse.emf.ecore.EObject)
+	 * @generated
+	 */
+	EOperation getSetter__Init__EObject();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.SetterStructuralFeature <em>Setter Structural Feature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Setter Structural Feature</em>'.
+	 * @see com.misc.common.moplaf.job.SetterStructuralFeature
+	 * @generated
+	 */
+	EClass getSetterStructuralFeature();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.job.SetterStructuralFeature#getFeatureToSet <em>Feature To Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Feature To Set</em>'.
+	 * @see com.misc.common.moplaf.job.SetterStructuralFeature#getFeatureToSet()
+	 * @see #getSetterStructuralFeature()
+	 * @generated
+	 */
+	EReference getSetterStructuralFeature_FeatureToSet();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.SetterStructuralFeature#accept(org.eclipse.emf.ecore.EObject) <em>Accept</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Accept</em>' operation.
+	 * @see com.misc.common.moplaf.job.SetterStructuralFeature#accept(org.eclipse.emf.ecore.EObject)
+	 * @generated
+	 */
+	EOperation getSetterStructuralFeature__Accept__EObject();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.SetterAttribute <em>Setter Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Setter Attribute</em>'.
+	 * @see com.misc.common.moplaf.job.SetterAttribute
+	 * @generated
+	 */
+	EClass getSetterAttribute();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.job.SetterAttribute#getAttributeToSet <em>Attribute To Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Attribute To Set</em>'.
+	 * @see com.misc.common.moplaf.job.SetterAttribute#getAttributeToSet()
+	 * @see #getSetterAttribute()
+	 * @generated
+	 */
+	EReference getSetterAttribute_AttributeToSet();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.SetterAttributeInt <em>Setter Attribute Int</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Setter Attribute Int</em>'.
+	 * @see com.misc.common.moplaf.job.SetterAttributeInt
+	 * @generated
+	 */
+	EClass getSetterAttributeInt();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.SetterAttributeInt#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see com.misc.common.moplaf.job.SetterAttributeInt#getValue()
+	 * @see #getSetterAttributeInt()
+	 * @generated
+	 */
+	EAttribute getSetterAttributeInt_Value();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.job.SetterAttributeFloat <em>Setter Attribute Float</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Setter Attribute Float</em>'.
+	 * @see com.misc.common.moplaf.job.SetterAttributeFloat
+	 * @generated
+	 */
+	EClass getSetterAttributeFloat();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.SetterAttributeFloat#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see com.misc.common.moplaf.job.SetterAttributeFloat#getValue()
+	 * @see #getSetterAttributeFloat()
+	 * @generated
+	 */
+	EAttribute getSetterAttributeFloat_Value();
+
+	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.job.JobParameterType <em>Parameter Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1799,6 +2278,144 @@ public interface JobPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation JOB_CONSOLE___SET_ARGS = eINSTANCE.getJobConsole__SetArgs();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.SetterImpl <em>Setter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.job.impl.SetterImpl
+		 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getSetter()
+		 * @generated
+		 */
+		EClass SETTER = eINSTANCE.getSetter();
+
+		/**
+		 * The meta object literal for the '<em><b>Features</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SETTER__FEATURES = eINSTANCE.getSetter_Features();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SETTER__NAME = eINSTANCE.getSetter_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Remarks</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SETTER__REMARKS = eINSTANCE.getSetter_Remarks();
+
+		/**
+		 * The meta object literal for the '<em><b>Target Class</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SETTER__TARGET_CLASS = eINSTANCE.getSetter_TargetClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Accept</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SETTER___ACCEPT__EOBJECT = eINSTANCE.getSetter__Accept__EObject();
+
+		/**
+		 * The meta object literal for the '<em><b>Init</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SETTER___INIT__EOBJECT = eINSTANCE.getSetter__Init__EObject();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.SetterStructuralFeatureImpl <em>Setter Structural Feature</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.job.impl.SetterStructuralFeatureImpl
+		 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getSetterStructuralFeature()
+		 * @generated
+		 */
+		EClass SETTER_STRUCTURAL_FEATURE = eINSTANCE.getSetterStructuralFeature();
+
+		/**
+		 * The meta object literal for the '<em><b>Feature To Set</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SETTER_STRUCTURAL_FEATURE__FEATURE_TO_SET = eINSTANCE.getSetterStructuralFeature_FeatureToSet();
+
+		/**
+		 * The meta object literal for the '<em><b>Accept</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SETTER_STRUCTURAL_FEATURE___ACCEPT__EOBJECT = eINSTANCE.getSetterStructuralFeature__Accept__EObject();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.SetterAttributeImpl <em>Setter Attribute</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.job.impl.SetterAttributeImpl
+		 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getSetterAttribute()
+		 * @generated
+		 */
+		EClass SETTER_ATTRIBUTE = eINSTANCE.getSetterAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Attribute To Set</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SETTER_ATTRIBUTE__ATTRIBUTE_TO_SET = eINSTANCE.getSetterAttribute_AttributeToSet();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.SetterAttributeIntImpl <em>Setter Attribute Int</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.job.impl.SetterAttributeIntImpl
+		 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getSetterAttributeInt()
+		 * @generated
+		 */
+		EClass SETTER_ATTRIBUTE_INT = eINSTANCE.getSetterAttributeInt();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SETTER_ATTRIBUTE_INT__VALUE = eINSTANCE.getSetterAttributeInt_Value();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.job.impl.SetterAttributeFloatImpl <em>Setter Attribute Float</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.job.impl.SetterAttributeFloatImpl
+		 * @see com.misc.common.moplaf.job.impl.JobPackageImpl#getSetterAttributeFloat()
+		 * @generated
+		 */
+		EClass SETTER_ATTRIBUTE_FLOAT = eINSTANCE.getSetterAttributeFloat();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SETTER_ATTRIBUTE_FLOAT__VALUE = eINSTANCE.getSetterAttributeFloat_Value();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.JobParameterType <em>Parameter Type</em>}' enum.

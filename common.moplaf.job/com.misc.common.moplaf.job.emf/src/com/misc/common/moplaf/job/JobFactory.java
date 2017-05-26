@@ -68,6 +68,33 @@ public interface JobFactory extends EFactory {
 	JobConsole createJobConsole();
 
 	/**
+	 * Returns a new object of class '<em>Setter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Setter</em>'.
+	 * @generated
+	 */
+	Setter createSetter();
+
+	/**
+	 * Returns a new object of class '<em>Setter Attribute Int</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Setter Attribute Int</em>'.
+	 * @generated
+	 */
+	SetterAttributeInt createSetterAttributeInt();
+
+	/**
+	 * Returns a new object of class '<em>Setter Attribute Float</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Setter Attribute Float</em>'.
+	 * @generated
+	 */
+	SetterAttributeFloat createSetterAttributeFloat();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

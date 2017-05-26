@@ -174,6 +174,75 @@ public class JobItemProviderAdapterFactory extends JobAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.Setter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SetterItemProvider setterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.job.Setter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSetterAdapter() {
+		if (setterItemProvider == null) {
+			setterItemProvider = new SetterItemProvider(this);
+		}
+
+		return setterItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.SetterAttributeInt} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SetterAttributeIntItemProvider setterAttributeIntItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.job.SetterAttributeInt}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSetterAttributeIntAdapter() {
+		if (setterAttributeIntItemProvider == null) {
+			setterAttributeIntItemProvider = new SetterAttributeIntItemProvider(this);
+		}
+
+		return setterAttributeIntItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.job.SetterAttributeFloat} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SetterAttributeFloatItemProvider setterAttributeFloatItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.job.SetterAttributeFloat}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSetterAttributeFloatAdapter() {
+		if (setterAttributeFloatItemProvider == null) {
+			setterAttributeFloatItemProvider = new SetterAttributeFloatItemProvider(this);
+		}
+
+		return setterAttributeFloatItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -276,6 +345,9 @@ public class JobItemProviderAdapterFactory extends JobAdapterFactory implements 
 		if (runItemProvider != null) runItemProvider.dispose();
 		if (jobItemProvider != null) jobItemProvider.dispose();
 		if (jobConsoleItemProvider != null) jobConsoleItemProvider.dispose();
+		if (setterItemProvider != null) setterItemProvider.dispose();
+		if (setterAttributeIntItemProvider != null) setterAttributeIntItemProvider.dispose();
+		if (setterAttributeFloatItemProvider != null) setterAttributeFloatItemProvider.dispose();
 	}
 
 }

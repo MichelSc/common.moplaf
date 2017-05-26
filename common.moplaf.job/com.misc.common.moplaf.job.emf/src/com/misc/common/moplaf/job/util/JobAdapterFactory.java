@@ -94,6 +94,26 @@ public class JobAdapterFactory extends AdapterFactoryImpl {
 				return createJobConsoleAdapter();
 			}
 			@Override
+			public Adapter caseSetter(Setter object) {
+				return createSetterAdapter();
+			}
+			@Override
+			public Adapter caseSetterStructuralFeature(SetterStructuralFeature object) {
+				return createSetterStructuralFeatureAdapter();
+			}
+			@Override
+			public Adapter caseSetterAttribute(SetterAttribute object) {
+				return createSetterAttributeAdapter();
+			}
+			@Override
+			public Adapter caseSetterAttributeInt(SetterAttributeInt object) {
+				return createSetterAttributeIntAdapter();
+			}
+			@Override
+			public Adapter caseSetterAttributeFloat(SetterAttributeFloat object) {
+				return createSetterAttributeFloatAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -166,6 +186,76 @@ public class JobAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createJobConsoleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.Setter <em>Setter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.Setter
+	 * @generated
+	 */
+	public Adapter createSetterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.SetterStructuralFeature <em>Setter Structural Feature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.SetterStructuralFeature
+	 * @generated
+	 */
+	public Adapter createSetterStructuralFeatureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.SetterAttribute <em>Setter Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.SetterAttribute
+	 * @generated
+	 */
+	public Adapter createSetterAttributeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.SetterAttributeInt <em>Setter Attribute Int</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.SetterAttributeInt
+	 * @generated
+	 */
+	public Adapter createSetterAttributeIntAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.SetterAttributeFloat <em>Setter Attribute Float</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.SetterAttributeFloat
+	 * @generated
+	 */
+	public Adapter createSetterAttributeFloatAdapter() {
 		return null;
 	}
 

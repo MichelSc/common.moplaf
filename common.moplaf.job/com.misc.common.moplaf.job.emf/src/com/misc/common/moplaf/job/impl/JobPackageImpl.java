@@ -25,6 +25,11 @@ import com.misc.common.moplaf.job.ProgressFeedback;
 import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.RunContext;
 
+import com.misc.common.moplaf.job.Setter;
+import com.misc.common.moplaf.job.SetterAttribute;
+import com.misc.common.moplaf.job.SetterAttributeFloat;
+import com.misc.common.moplaf.job.SetterAttributeInt;
+import com.misc.common.moplaf.job.SetterStructuralFeature;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -70,6 +75,41 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * @generated
 	 */
 	private EClass jobConsoleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass setterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass setterStructuralFeatureEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass setterAttributeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass setterAttributeIntEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass setterAttributeFloatEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -560,6 +600,150 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSetter() {
+		return setterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSetter_Features() {
+		return (EReference)setterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSetter_Name() {
+		return (EAttribute)setterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSetter_Remarks() {
+		return (EAttribute)setterEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSetter_TargetClass() {
+		return (EReference)setterEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSetter__Accept__EObject() {
+		return setterEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSetter__Init__EObject() {
+		return setterEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSetterStructuralFeature() {
+		return setterStructuralFeatureEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSetterStructuralFeature_FeatureToSet() {
+		return (EReference)setterStructuralFeatureEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSetterStructuralFeature__Accept__EObject() {
+		return setterStructuralFeatureEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSetterAttribute() {
+		return setterAttributeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSetterAttribute_AttributeToSet() {
+		return (EReference)setterAttributeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSetterAttributeInt() {
+		return setterAttributeIntEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSetterAttributeInt_Value() {
+		return (EAttribute)setterAttributeIntEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSetterAttributeFloat() {
+		return setterAttributeFloatEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSetterAttributeFloat_Value() {
+		return (EAttribute)setterAttributeFloatEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getJobParameterType() {
 		return jobParameterTypeEEnum;
 	}
@@ -683,6 +867,27 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		createEOperation(jobConsoleEClass, JOB_CONSOLE___GET_ARG_AS_DATE__INT_STRING);
 		createEOperation(jobConsoleEClass, JOB_CONSOLE___SET_ARGS);
 
+		setterEClass = createEClass(SETTER);
+		createEReference(setterEClass, SETTER__FEATURES);
+		createEAttribute(setterEClass, SETTER__NAME);
+		createEAttribute(setterEClass, SETTER__REMARKS);
+		createEReference(setterEClass, SETTER__TARGET_CLASS);
+		createEOperation(setterEClass, SETTER___ACCEPT__EOBJECT);
+		createEOperation(setterEClass, SETTER___INIT__EOBJECT);
+
+		setterStructuralFeatureEClass = createEClass(SETTER_STRUCTURAL_FEATURE);
+		createEReference(setterStructuralFeatureEClass, SETTER_STRUCTURAL_FEATURE__FEATURE_TO_SET);
+		createEOperation(setterStructuralFeatureEClass, SETTER_STRUCTURAL_FEATURE___ACCEPT__EOBJECT);
+
+		setterAttributeEClass = createEClass(SETTER_ATTRIBUTE);
+		createEReference(setterAttributeEClass, SETTER_ATTRIBUTE__ATTRIBUTE_TO_SET);
+
+		setterAttributeIntEClass = createEClass(SETTER_ATTRIBUTE_INT);
+		createEAttribute(setterAttributeIntEClass, SETTER_ATTRIBUTE_INT__VALUE);
+
+		setterAttributeFloatEClass = createEClass(SETTER_ATTRIBUTE_FLOAT);
+		createEAttribute(setterAttributeFloatEClass, SETTER_ATTRIBUTE_FLOAT__VALUE);
+
 		// Create enums
 		jobParameterTypeEEnum = createEEnum(JOB_PARAMETER_TYPE);
 
@@ -724,6 +929,9 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		// Add supertypes to classes
 		jobEClass.getESuperTypes().add(this.getRun());
 		jobConsoleEClass.getESuperTypes().add(this.getJob());
+		setterAttributeEClass.getESuperTypes().add(this.getSetterStructuralFeature());
+		setterAttributeIntEClass.getESuperTypes().add(this.getSetterAttribute());
+		setterAttributeFloatEClass.getESuperTypes().add(this.getSetterAttribute());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(jobParameterEClass, JobParameter.class, "JobParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -808,6 +1016,33 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 
 		op = initEOperation(getJobConsole__SetArgs(), null, "setArgs", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getException());
+
+		initEClass(setterEClass, Setter.class, "Setter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSetter_Features(), this.getSetterStructuralFeature(), null, "Features", null, 0, -1, Setter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSetter_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Setter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSetter_Remarks(), ecorePackage.getEString(), "Remarks", null, 0, 1, Setter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSetter_TargetClass(), ecorePackage.getEClass(), null, "TargetClass", null, 0, 1, Setter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getSetter__Accept__EObject(), null, "accept", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEObject(), "objectToSetFeatures", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getSetter__Init__EObject(), null, "init", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEObject(), "objectToGetFeatures", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(setterStructuralFeatureEClass, SetterStructuralFeature.class, "SetterStructuralFeature", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSetterStructuralFeature_FeatureToSet(), ecorePackage.getEStructuralFeature(), null, "FeatureToSet", null, 1, 1, SetterStructuralFeature.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getSetterStructuralFeature__Accept__EObject(), null, "accept", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEObject(), "objectToSetFeatures", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(setterAttributeEClass, SetterAttribute.class, "SetterAttribute", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSetterAttribute_AttributeToSet(), ecorePackage.getEAttribute(), null, "AttributeToSet", null, 1, 1, SetterAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(setterAttributeIntEClass, SetterAttributeInt.class, "SetterAttributeInt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSetterAttributeInt_Value(), ecorePackage.getEInt(), "Value", null, 0, 1, SetterAttributeInt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(setterAttributeFloatEClass, SetterAttributeFloat.class, "SetterAttributeFloat", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSetterAttributeFloat_Value(), ecorePackage.getEFloat(), "Value", null, 0, 1, SetterAttributeFloat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(jobParameterTypeEEnum, JobParameterType.class, "JobParameterType");
