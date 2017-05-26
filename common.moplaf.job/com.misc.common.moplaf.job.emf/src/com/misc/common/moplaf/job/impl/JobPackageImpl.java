@@ -672,8 +672,26 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSetterStructuralFeature_FeatureToSet() {
+	public EReference getSetterStructuralFeature_Setter() {
 		return (EReference)setterStructuralFeatureEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSetterStructuralFeature_FeatureToSet() {
+		return (EReference)setterStructuralFeatureEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSetterStructuralFeature_Description() {
+		return (EAttribute)setterStructuralFeatureEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -876,7 +894,9 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		createEOperation(setterEClass, SETTER___INIT__EOBJECT);
 
 		setterStructuralFeatureEClass = createEClass(SETTER_STRUCTURAL_FEATURE);
+		createEReference(setterStructuralFeatureEClass, SETTER_STRUCTURAL_FEATURE__SETTER);
 		createEReference(setterStructuralFeatureEClass, SETTER_STRUCTURAL_FEATURE__FEATURE_TO_SET);
+		createEAttribute(setterStructuralFeatureEClass, SETTER_STRUCTURAL_FEATURE__DESCRIPTION);
 		createEOperation(setterStructuralFeatureEClass, SETTER_STRUCTURAL_FEATURE___ACCEPT__EOBJECT);
 
 		setterAttributeEClass = createEClass(SETTER_ATTRIBUTE);
@@ -1018,7 +1038,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		addEException(op, this.getException());
 
 		initEClass(setterEClass, Setter.class, "Setter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSetter_Features(), this.getSetterStructuralFeature(), null, "Features", null, 0, -1, Setter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSetter_Features(), this.getSetterStructuralFeature(), this.getSetterStructuralFeature_Setter(), "Features", null, 0, -1, Setter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSetter_Name(), ecorePackage.getEString(), "Name", null, 0, 1, Setter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSetter_Remarks(), ecorePackage.getEString(), "Remarks", null, 0, 1, Setter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSetter_TargetClass(), ecorePackage.getEClass(), null, "TargetClass", null, 0, 1, Setter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1030,7 +1050,9 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		addEParameter(op, ecorePackage.getEObject(), "objectToGetFeatures", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(setterStructuralFeatureEClass, SetterStructuralFeature.class, "SetterStructuralFeature", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSetterStructuralFeature_Setter(), this.getSetter(), this.getSetter_Features(), "Setter", null, 1, 1, SetterStructuralFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSetterStructuralFeature_FeatureToSet(), ecorePackage.getEStructuralFeature(), null, "FeatureToSet", null, 1, 1, SetterStructuralFeature.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSetterStructuralFeature_Description(), ecorePackage.getEString(), "Description", null, 0, 1, SetterStructuralFeature.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getSetterStructuralFeature__Accept__EObject(), null, "accept", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEObject(), "objectToSetFeatures", 0, 1, IS_UNIQUE, IS_ORDERED);

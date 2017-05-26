@@ -101,5 +101,33 @@
       </genOperations>
       <genOperations ecoreOperation="job.ecore#//JobConsole/setArgs"/>
     </genClasses>
+    <genClasses ecoreClass="job.ecore#//Setter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference job.ecore#//Setter/Features"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//Setter/Name"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute job.ecore#//Setter/Remarks"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference job.ecore#//Setter/TargetClass"/>
+      <genOperations ecoreOperation="job.ecore#//Setter/accept">
+        <genParameters ecoreParameter="job.ecore#//Setter/accept/objectToSetFeatures"/>
+      </genOperations>
+      <genOperations ecoreOperation="job.ecore#//Setter/init">
+        <genParameters ecoreParameter="job.ecore#//Setter/init/objectToGetFeatures"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="job.ecore#//SetterStructuralFeature">
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference job.ecore#//SetterStructuralFeature/FeatureToSet"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//SetterStructuralFeature/Description"/>
+      <genOperations ecoreOperation="job.ecore#//SetterStructuralFeature/accept">
+        <genParameters ecoreParameter="job.ecore#//SetterStructuralFeature/accept/objectToSetFeatures"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="job.ecore#//SetterAttribute">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference job.ecore#//SetterAttribute/AttributeToSet"/>
+    </genClasses>
+    <genClasses ecoreClass="job.ecore#//SetterAttributeInt">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//SetterAttributeInt/Value"/>
+    </genClasses>
+    <genClasses ecoreClass="job.ecore#//SetterAttributeFloat">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//SetterAttributeFloat/Value"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

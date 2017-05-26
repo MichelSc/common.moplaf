@@ -30,6 +30,7 @@ public interface Setter extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Features</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.job.SetterStructuralFeature}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.SetterStructuralFeature#getSetter <em>Setter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Features</em>' containment reference list isn't clear,
@@ -38,7 +39,8 @@ public interface Setter extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Features</em>' containment reference list.
 	 * @see com.misc.common.moplaf.job.JobPackage#getSetter_Features()
-	 * @model containment="true"
+	 * @see com.misc.common.moplaf.job.SetterStructuralFeature#getSetter
+	 * @model opposite="Setter" containment="true"
 	 * @generated
 	 */
 	EList<SetterStructuralFeature> getFeatures();

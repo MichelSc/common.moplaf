@@ -5,6 +5,7 @@ package com.misc.common.moplaf.job.provider;
 
 import com.misc.common.moplaf.job.JobPackage;
 
+import com.misc.common.moplaf.job.SetterAttribute;
 import java.util.Collection;
 import java.util.List;
 
@@ -77,7 +78,10 @@ public class SetterAttributeItemProvider extends SetterStructuralFeatureItemProv
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_SetterAttribute_type");
+		String label = ((SetterAttribute)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_SetterAttribute_type") :
+			getString("_UI_SetterAttribute_type") + " " + label;
 	}
 	
 

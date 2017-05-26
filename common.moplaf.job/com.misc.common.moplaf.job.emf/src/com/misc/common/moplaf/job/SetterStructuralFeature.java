@@ -14,7 +14,9 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link com.misc.common.moplaf.job.SetterStructuralFeature#getSetter <em>Setter</em>}</li>
  *   <li>{@link com.misc.common.moplaf.job.SetterStructuralFeature#getFeatureToSet <em>Feature To Set</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.job.SetterStructuralFeature#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.job.JobPackage#getSetterStructuralFeature()
@@ -22,6 +24,34 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  * @generated
  */
 public interface SetterStructuralFeature extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Setter</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.job.Setter#getFeatures <em>Features</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Setter</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Setter</em>' container reference.
+	 * @see #setSetter(Setter)
+	 * @see com.misc.common.moplaf.job.JobPackage#getSetterStructuralFeature_Setter()
+	 * @see com.misc.common.moplaf.job.Setter#getFeatures
+	 * @model opposite="Features" required="true" transient="false"
+	 * @generated
+	 */
+	Setter getSetter();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.job.SetterStructuralFeature#getSetter <em>Setter</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Setter</em>' container reference.
+	 * @see #getSetter()
+	 * @generated
+	 */
+	void setSetter(Setter value);
+
 	/**
 	 * Returns the value of the '<em><b>Feature To Set</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -36,6 +66,21 @@ public interface SetterStructuralFeature extends EObject {
 	 * @generated
 	 */
 	EStructuralFeature getFeatureToSet();
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see com.misc.common.moplaf.job.JobPackage#getSetterStructuralFeature_Description()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getDescription();
 
 	/**
 	 * <!-- begin-user-doc -->

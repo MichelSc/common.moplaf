@@ -958,13 +958,31 @@ public interface JobPackage extends EPackage {
 	int SETTER_STRUCTURAL_FEATURE = 5;
 
 	/**
+	 * The feature id for the '<em><b>Setter</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_STRUCTURAL_FEATURE__SETTER = 0;
+
+	/**
 	 * The feature id for the '<em><b>Feature To Set</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SETTER_STRUCTURAL_FEATURE__FEATURE_TO_SET = 0;
+	int SETTER_STRUCTURAL_FEATURE__FEATURE_TO_SET = 1;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_STRUCTURAL_FEATURE__DESCRIPTION = 2;
 
 	/**
 	 * The number of structural features of the '<em>Setter Structural Feature</em>' class.
@@ -973,7 +991,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SETTER_STRUCTURAL_FEATURE_FEATURE_COUNT = 1;
+	int SETTER_STRUCTURAL_FEATURE_FEATURE_COUNT = 3;
 
 	/**
 	 * The operation id for the '<em>Accept</em>' operation.
@@ -1004,6 +1022,15 @@ public interface JobPackage extends EPackage {
 	int SETTER_ATTRIBUTE = 6;
 
 	/**
+	 * The feature id for the '<em><b>Setter</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_ATTRIBUTE__SETTER = SETTER_STRUCTURAL_FEATURE__SETTER;
+
+	/**
 	 * The feature id for the '<em><b>Feature To Set</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1011,6 +1038,15 @@ public interface JobPackage extends EPackage {
 	 * @ordered
 	 */
 	int SETTER_ATTRIBUTE__FEATURE_TO_SET = SETTER_STRUCTURAL_FEATURE__FEATURE_TO_SET;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_ATTRIBUTE__DESCRIPTION = SETTER_STRUCTURAL_FEATURE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Attribute To Set</b></em>' reference.
@@ -1059,6 +1095,15 @@ public interface JobPackage extends EPackage {
 	int SETTER_ATTRIBUTE_INT = 7;
 
 	/**
+	 * The feature id for the '<em><b>Setter</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_ATTRIBUTE_INT__SETTER = SETTER_ATTRIBUTE__SETTER;
+
+	/**
 	 * The feature id for the '<em><b>Feature To Set</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1066,6 +1111,15 @@ public interface JobPackage extends EPackage {
 	 * @ordered
 	 */
 	int SETTER_ATTRIBUTE_INT__FEATURE_TO_SET = SETTER_ATTRIBUTE__FEATURE_TO_SET;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_ATTRIBUTE_INT__DESCRIPTION = SETTER_ATTRIBUTE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Attribute To Set</b></em>' reference.
@@ -1123,6 +1177,15 @@ public interface JobPackage extends EPackage {
 	int SETTER_ATTRIBUTE_FLOAT = 8;
 
 	/**
+	 * The feature id for the '<em><b>Setter</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_ATTRIBUTE_FLOAT__SETTER = SETTER_ATTRIBUTE__SETTER;
+
+	/**
 	 * The feature id for the '<em><b>Feature To Set</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1130,6 +1193,15 @@ public interface JobPackage extends EPackage {
 	 * @ordered
 	 */
 	int SETTER_ATTRIBUTE_FLOAT__FEATURE_TO_SET = SETTER_ATTRIBUTE__FEATURE_TO_SET;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SETTER_ATTRIBUTE_FLOAT__DESCRIPTION = SETTER_ATTRIBUTE__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Attribute To Set</b></em>' reference.
@@ -1764,6 +1836,17 @@ public interface JobPackage extends EPackage {
 	EClass getSetterStructuralFeature();
 
 	/**
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.job.SetterStructuralFeature#getSetter <em>Setter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Setter</em>'.
+	 * @see com.misc.common.moplaf.job.SetterStructuralFeature#getSetter()
+	 * @see #getSetterStructuralFeature()
+	 * @generated
+	 */
+	EReference getSetterStructuralFeature_Setter();
+
+	/**
 	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.job.SetterStructuralFeature#getFeatureToSet <em>Feature To Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1773,6 +1856,17 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSetterStructuralFeature_FeatureToSet();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.job.SetterStructuralFeature#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.misc.common.moplaf.job.SetterStructuralFeature#getDescription()
+	 * @see #getSetterStructuralFeature()
+	 * @generated
+	 */
+	EAttribute getSetterStructuralFeature_Description();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.job.SetterStructuralFeature#accept(org.eclipse.emf.ecore.EObject) <em>Accept</em>}' operation.
@@ -2348,12 +2442,28 @@ public interface JobPackage extends EPackage {
 		EClass SETTER_STRUCTURAL_FEATURE = eINSTANCE.getSetterStructuralFeature();
 
 		/**
+		 * The meta object literal for the '<em><b>Setter</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SETTER_STRUCTURAL_FEATURE__SETTER = eINSTANCE.getSetterStructuralFeature_Setter();
+
+		/**
 		 * The meta object literal for the '<em><b>Feature To Set</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference SETTER_STRUCTURAL_FEATURE__FEATURE_TO_SET = eINSTANCE.getSetterStructuralFeature_FeatureToSet();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SETTER_STRUCTURAL_FEATURE__DESCRIPTION = eINSTANCE.getSetterStructuralFeature_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Accept</b></em>' operation.

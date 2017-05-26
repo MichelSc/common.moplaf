@@ -4,6 +4,7 @@ package com.misc.common.moplaf.job.provider;
 
 
 import com.misc.common.moplaf.job.JobPackage;
+import com.misc.common.moplaf.job.Setter;
 import com.misc.common.moplaf.job.SetterAttributeInt;
 
 import java.util.Collection;
@@ -11,7 +12,11 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -91,8 +96,10 @@ public class SetterAttributeIntItemProvider extends SetterAttributeItemProvider 
 	 */
 	@Override
 	public String getText(Object object) {
-		SetterAttributeInt setterAttributeInt = (SetterAttributeInt)object;
-		return getString("_UI_SetterAttributeInt_type") + " " + setterAttributeInt.getValue();
+		String label = ((SetterAttributeInt)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_SetterAttributeInt_type") :
+			getString("_UI_SetterAttributeInt_type") + " " + label;
 	}
 	
 
@@ -126,5 +133,42 @@ public class SetterAttributeIntItemProvider extends SetterAttributeItemProvider 
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 	}
+
+	/**
+	 * This adds a property descriptor for the Attribute To Set feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	protected void addAttributeToSetPropertyDescriptor(Object object) {
+	itemPropertyDescriptors.add
+	(new ItemPropertyDescriptor
+		(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SetterAttribute_AttributeToSet_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SetterAttribute_AttributeToSet_feature", "_UI_SetterAttribute_type"),
+				 JobPackage.Literals.SETTER_ATTRIBUTE__ATTRIBUTE_TO_SET,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null){
+		@Override
+		public Collection<?> getChoiceOfValues(Object object) {
+			EList<Object> attributesToReturn = new BasicEList<Object>();
+			SetterAttributeInt thisSetterAttribute = (SetterAttributeInt)object;
+			Setter thisSetter = thisSetterAttribute.getSetter();
+			EClass thisSetterClass = thisSetter.getTargetClass();
+			if ( thisSetterClass != null ) {
+				for (  EAttribute attribute : thisSetterClass.getEAllAttributes()){
+					if ( attribute.getEAttributeType()==EcorePackage.Literals.EINT ){
+						attributesToReturn.add(attribute);
+					}
+				}
+			}
+			return attributesToReturn;
+		}; // getChoiceOfValues
+		}); // add
+	}  // addAttributeToSetPropertyDescriptor
 
 }

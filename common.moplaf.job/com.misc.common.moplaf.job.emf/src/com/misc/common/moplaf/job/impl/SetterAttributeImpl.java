@@ -9,6 +9,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -153,4 +154,8 @@ public abstract class SetterAttributeImpl extends SetterStructuralFeatureImpl im
 		return super.eIsSet(featureID);
 	}
 
+	@Override
+	public EStructuralFeature basicGetFeatureToSet() {
+		return this.getAttributeToSet();
+	}
 } //SetterAttributeImpl

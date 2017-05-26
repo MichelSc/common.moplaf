@@ -160,7 +160,17 @@ public class SetterAttributeFloatImpl extends SetterAttributeImpl implements Set
 	}
 
 	@Override
+	public String getDescription() {
+		String attribute = this.getAttributeToSet()==null
+				         ? "null"
+				         : this.getAttributeToSet().getName();
+		return String.format("%s = %f", attribute, this.getValue());
+	}
+
+	@Override
 	public void accept(EObject objectToSetFeatures) {
 		objectToSetFeatures.eSet(this.basicGetAttributeToSet(), this.getValue());
 	}
+
+
 } //SetterAttributeFloatImpl

@@ -28,8 +28,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -135,7 +134,7 @@ public class SetterImpl extends MinimalEObjectImpl.Container implements Setter {
 	 */
 	public EList<SetterStructuralFeature> getFeatures() {
 		if (features == null) {
-			features = new EObjectContainmentEList<SetterStructuralFeature>(SetterStructuralFeature.class, this, JobPackage.SETTER__FEATURES);
+			features = new EObjectContainmentWithInverseEList<SetterStructuralFeature>(SetterStructuralFeature.class, this, JobPackage.SETTER__FEATURES, JobPackage.SETTER_STRUCTURAL_FEATURE__SETTER);
 		}
 		return features;
 	}
@@ -262,6 +261,7 @@ public class SetterImpl extends MinimalEObjectImpl.Container implements Setter {
 		
 		// fill with new features
 		EClass targetClass = objectToGetFeatures.eClass();
+		this.setTargetClass(targetClass);
 		for ( EStructuralFeature feature : targetClass.getEAllStructuralFeatures()){
 			if ( !feature.isDerived() && feature.isChangeable()){
 				if ( feature instanceof EAttribute){
@@ -272,8 +272,7 @@ public class SetterImpl extends MinimalEObjectImpl.Container implements Setter {
 						new_int_feature.setAttributeToSet(attribute);
 						new_int_feature.setValue((Integer)objectToGetFeatures.eGet(attribute));
 						this.getFeatures().add(new_int_feature);
-					}
-					if ( data_type == EcorePackage.Literals.EINT){
+					} else if ( data_type == EcorePackage.Literals.EFLOAT){
 						SetterAttributeFloat new_float_feature = JobFactory.eINSTANCE.createSetterAttributeFloat();
 						new_float_feature.setAttributeToSet(attribute);
 						new_float_feature.setValue((Float)objectToGetFeatures.eGet(attribute));
@@ -282,6 +281,21 @@ public class SetterImpl extends MinimalEObjectImpl.Container implements Setter {
 				}
 			}
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case JobPackage.SETTER__FEATURES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFeatures()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

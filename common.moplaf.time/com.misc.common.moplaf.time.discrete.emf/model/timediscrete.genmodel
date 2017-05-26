@@ -36,6 +36,11 @@
       <genOperations ecoreOperation="timediscrete.ecore#//TimeBucket/contains">
         <genParameters ecoreParameter="timediscrete.ecore#//TimeBucket/contains/sometime"/>
       </genOperations>
+      <genOperations ecoreOperation="timediscrete.ecore#//TimeBucket/contains.1">
+        <genParameters ecoreParameter="timediscrete.ecore#//TimeBucket/contains.1/sometime"/>
+        <genParameters ecoreParameter="timediscrete.ecore#//TimeBucket/contains.1/withStart"/>
+        <genParameters ecoreParameter="timediscrete.ecore#//TimeBucket/contains.1/withEnd"/>
+      </genOperations>
       <genOperations ecoreOperation="timediscrete.ecore#//TimeBucket/isBefore">
         <genParameters ecoreParameter="timediscrete.ecore#//TimeBucket/isBefore/other"/>
       </genOperations>
