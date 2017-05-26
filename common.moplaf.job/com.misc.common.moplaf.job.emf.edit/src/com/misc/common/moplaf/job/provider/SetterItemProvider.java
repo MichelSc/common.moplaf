@@ -10,13 +10,17 @@ import com.misc.common.moplaf.job.Setter;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.emf.common.command.AbstractCommand;
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.command.DragAndDropCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -248,4 +252,78 @@ public class SetterItemProvider
 		return JobEditPlugin.INSTANCE;
 	}
 
+	/**
+	 * 
+	 * @author MiSc
+	 *
+	 */
+	public abstract class SetterCommand extends AbstractCommand {
+		protected Setter setter;
+
+		public SetterCommand(Setter setter) {
+			super();
+			this.setter = setter;
+		}
+
+		protected boolean prepare(){
+			isExecutable = true;
+			return isExecutable;
+		}
+
+		public boolean canUndo() { 
+			return false; 
+		}
+
+		@Override
+		public void redo() {
+			execute();		
+		}
+	}
+
+	public  class SetterInitCommand extends SetterCommand {
+		private EObject object;
+
+		public SetterInitCommand(Setter setter, EObject object) {
+			super(setter);
+			this.object = object;
+		}
+
+		@Override
+		public void execute() {
+			this.setter.init(this.object);
+		}
+	};	   	
+
+	public class SetterDragAndDropCommand extends DragAndDropCommand{
+		public SetterDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations, int operation, Collection<?> collection) {
+			super(domain, owner, location, operations, operation, collection);
+		}
+
+		@Override
+		protected boolean prepare(){
+
+			CompoundCommand compound = new CompoundCommand();
+			Setter thisSetter = (Setter) this.owner;
+			for (Object element : collection){
+				if ( element instanceof EObject){
+					EObject object = (EObject) element;
+					SetterInitCommand cmd = new SetterInitCommand(thisSetter, object);
+					compound.append(cmd);
+				} 
+			}
+
+			this.dragCommand = null;
+			this.dropCommand = compound;
+
+			return true;
+		} // prepare
+	};
+
+	/**
+	 * Create a command for a drag and drop on this Setter
+	 */
+	@Override
+	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations, int operation, Collection<?> collection) {
+		return new SetterDragAndDropCommand(domain, owner, location, operations, operation, collection);
+	}
 }

@@ -9,6 +9,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -163,5 +164,12 @@ public class SetterAttributeIntImpl extends SetterAttributeImpl implements Sette
 	public void accept(EObject objectToSetFeatures) {
 		objectToSetFeatures.eSet(this.basicGetAttributeToSet(), this.getValue());
 	}
+
+	@Override
+	public EStructuralFeature basicGetFeatureToSet() {
+		return this.getAttributeToSet();
+	}
+	
+	
 
 } //SetterAttributeIntImpl
