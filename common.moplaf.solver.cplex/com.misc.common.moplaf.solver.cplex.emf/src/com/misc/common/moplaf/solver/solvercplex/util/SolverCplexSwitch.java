@@ -1,26 +1,17 @@
-/*******************************************************************************
- * Copyright (c) 2017 Michel Schaffers and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Michel Schaffers - initial API and implementation
- *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.solver.solvercplex.util;
 
 import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.RunParams;
+
 import com.misc.common.moplaf.solver.IGeneratorTool;
 import com.misc.common.moplaf.solver.ILpWriter;
 import com.misc.common.moplaf.solver.SolutionProvider;
 import com.misc.common.moplaf.solver.Solver;
-
 import com.misc.common.moplaf.solver.SolverLp;
 import com.misc.common.moplaf.solver.SolverLpParams;
+
 import com.misc.common.moplaf.solver.solvercplex.*;
 
 import org.eclipse.emf.ecore.EObject;
@@ -38,17 +29,17 @@ import org.eclipse.emf.ecore.util.Switch;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage
+ * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexPackage
  * @generated
  */
-public class SolvercplexSwitch<T> extends Switch<T> {
+public class SolverCplexSwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static SolvercplexPackage modelPackage;
+	protected static SolverCplexPackage modelPackage;
 
 	/**
 	 * Creates an instance of the switch.
@@ -56,9 +47,9 @@ public class SolvercplexSwitch<T> extends Switch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SolvercplexSwitch() {
+	public SolverCplexSwitch() {
 		if (modelPackage == null) {
-			modelPackage = SolvercplexPackage.eINSTANCE;
+			modelPackage = SolverCplexPackage.eINSTANCE;
 		}
 	}
 
@@ -85,7 +76,7 @@ public class SolvercplexSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case SolvercplexPackage.SOLVER_CPLEX: {
+			case SolverCplexPackage.SOLVER_CPLEX: {
 				SolverCplex solverCplex = (SolverCplex)theEObject;
 				T result = caseSolverCplex(solverCplex);
 				if (result == null) result = caseSolverLp(solverCplex);
@@ -100,7 +91,7 @@ public class SolvercplexSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS: {
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS: {
 				SolverCplexParams solverCplexParams = (SolverCplexParams)theEObject;
 				T result = caseSolverCplexParams(solverCplexParams);
 				if (result == null) result = caseSolverLpParams(solverCplexParams);
@@ -128,13 +119,13 @@ public class SolvercplexSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Solver Cplex Params</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Params</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Solver Cplex Params</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Params</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -278,4 +269,4 @@ public class SolvercplexSwitch<T> extends Switch<T> {
 		return null;
 	}
 
-} //SolvercplexSwitch
+} //SolverCplexSwitch

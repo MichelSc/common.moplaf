@@ -21,7 +21,7 @@ import com.misc.common.moplaf.solver.SolverLp;
  * <!-- end-user-doc -->
  *
  *
- * @see com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage#getSolverCplex()
+ * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexPackage#getSolverCplex()
  * @model
  * @generated
  */

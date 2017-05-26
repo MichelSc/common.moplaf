@@ -6,7 +6,7 @@ package com.misc.common.moplaf.job.provider;
 import com.misc.common.moplaf.job.JobFactory;
 import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.job.ParamsHolder;
-import com.misc.common.moplaf.job.RunParams;
+import com.misc.common.moplaf.job.Run;
 
 import java.util.Collection;
 import java.util.List;
@@ -18,7 +18,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.DragAndDropCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -214,16 +213,16 @@ public class ParamsHolderItemProvider
 	}
 
 	public  class ContructParamsCommand extends ParamsHolderCommand {
-		private RunParams runParams;
+		private Run run;
 
-		public ContructParamsCommand(ParamsHolder paramsHolder, RunParams runParams) {
+		public ContructParamsCommand(ParamsHolder paramsHolder, Run run) {
 			super(paramsHolder);
-			this.runParams = runParams;
+			this.run= run;
 		}
 
 		@Override
 		public void execute() {
-			this.paramsHolder.constructParams(this.runParams);
+			this.paramsHolder.constructParams(this.run);
 		}
 	};	   	
 
@@ -238,9 +237,9 @@ public class ParamsHolderItemProvider
 			CompoundCommand compound = new CompoundCommand();
 			ParamsHolder thisParamsHolder= (ParamsHolder) this.owner;
 			for (Object element : collection){
-				if ( element instanceof EObject){
-					RunParams runParams = (RunParams) element;
-					ContructParamsCommand cmd = new ContructParamsCommand(thisParamsHolder, runParams);
+				if ( element instanceof Run){
+					Run run = (Run) element;
+					ContructParamsCommand cmd = new ContructParamsCommand(thisParamsHolder, run);
 					compound.append(cmd);
 				} 
 			}

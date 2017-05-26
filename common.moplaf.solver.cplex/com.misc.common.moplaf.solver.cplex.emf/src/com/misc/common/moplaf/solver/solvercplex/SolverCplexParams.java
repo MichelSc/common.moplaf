@@ -28,7 +28,7 @@ import com.misc.common.moplaf.solver.SolverLpParams;
  *   <li>{@link com.misc.common.moplaf.solver.solvercplex.SolverCplexParams#getMipLimitsCutsFactor <em>Mip Limits Cuts Factor</em>}</li>
  * </ul>
  *
- * @see com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage#getSolverCplexParams()
+ * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexPackage#getSolverCplexParams()
  * @model
  * @generated
  */
@@ -43,7 +43,7 @@ public interface SolverCplexParams extends SolverLpParams {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mip Cuts Cliques</em>' attribute.
 	 * @see #setMipCutsCliques(int)
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage#getSolverCplexParams_MipCutsCliques()
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexPackage#getSolverCplexParams_MipCutsCliques()
 	 * @model
 	 * @generated
 	 */
@@ -69,7 +69,7 @@ public interface SolverCplexParams extends SolverLpParams {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mip Cuts Covers</em>' attribute.
 	 * @see #setMipCutsCovers(int)
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage#getSolverCplexParams_MipCutsCovers()
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexPackage#getSolverCplexParams_MipCutsCovers()
 	 * @model
 	 * @generated
 	 */
@@ -95,7 +95,7 @@ public interface SolverCplexParams extends SolverLpParams {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mip Cuts Flow Covers</em>' attribute.
 	 * @see #setMipCutsFlowCovers(int)
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage#getSolverCplexParams_MipCutsFlowCovers()
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexPackage#getSolverCplexParams_MipCutsFlowCovers()
 	 * @model
 	 * @generated
 	 */
@@ -121,7 +121,7 @@ public interface SolverCplexParams extends SolverLpParams {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mip Cuts Gomory</em>' attribute.
 	 * @see #setMipCutsGomory(int)
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage#getSolverCplexParams_MipCutsGomory()
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexPackage#getSolverCplexParams_MipCutsGomory()
 	 * @model
 	 * @generated
 	 */
@@ -147,7 +147,7 @@ public interface SolverCplexParams extends SolverLpParams {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mip Cuts GUB Covers</em>' attribute.
 	 * @see #setMipCutsGUBCovers(int)
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage#getSolverCplexParams_MipCutsGUBCovers()
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexPackage#getSolverCplexParams_MipCutsGUBCovers()
 	 * @model
 	 * @generated
 	 */
@@ -173,7 +173,7 @@ public interface SolverCplexParams extends SolverLpParams {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mip Cuts Implied</em>' attribute.
 	 * @see #setMipCutsImplied(int)
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage#getSolverCplexParams_MipCutsImplied()
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexPackage#getSolverCplexParams_MipCutsImplied()
 	 * @model
 	 * @generated
 	 */
@@ -199,7 +199,7 @@ public interface SolverCplexParams extends SolverLpParams {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mip Cuts MIR Cut</em>' attribute.
 	 * @see #setMipCutsMIRCut(int)
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage#getSolverCplexParams_MipCutsMIRCut()
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexPackage#getSolverCplexParams_MipCutsMIRCut()
 	 * @model
 	 * @generated
 	 */
@@ -225,7 +225,7 @@ public interface SolverCplexParams extends SolverLpParams {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mip Cuts Path Cut</em>' attribute.
 	 * @see #setMipCutsPathCut(int)
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage#getSolverCplexParams_MipCutsPathCut()
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexPackage#getSolverCplexParams_MipCutsPathCut()
 	 * @model
 	 * @generated
 	 */
@@ -252,7 +252,7 @@ public interface SolverCplexParams extends SolverLpParams {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mip Strategy Backtrack</em>' attribute.
 	 * @see #setMipStrategyBacktrack(float)
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage#getSolverCplexParams_MipStrategyBacktrack()
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexPackage#getSolverCplexParams_MipStrategyBacktrack()
 	 * @model default="0.9999 "
 	 * @generated
 	 */
@@ -278,7 +278,7 @@ public interface SolverCplexParams extends SolverLpParams {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mip Strategy Heuristic Freq</em>' attribute.
 	 * @see #setMipStrategyHeuristicFreq(int)
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage#getSolverCplexParams_MipStrategyHeuristicFreq()
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexPackage#getSolverCplexParams_MipStrategyHeuristicFreq()
 	 * @model
 	 * @generated
 	 */
@@ -304,7 +304,7 @@ public interface SolverCplexParams extends SolverLpParams {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mip Strategy Probe</em>' attribute.
 	 * @see #setMipStrategyProbe(int)
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage#getSolverCplexParams_MipStrategyProbe()
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexPackage#getSolverCplexParams_MipStrategyProbe()
 	 * @model
 	 * @generated
 	 */
@@ -330,7 +330,7 @@ public interface SolverCplexParams extends SolverLpParams {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mip Strategy Presolve Node</em>' attribute.
 	 * @see #setMipStrategyPresolveNode(int)
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage#getSolverCplexParams_MipStrategyPresolveNode()
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexPackage#getSolverCplexParams_MipStrategyPresolveNode()
 	 * @model
 	 * @generated
 	 */
@@ -356,7 +356,7 @@ public interface SolverCplexParams extends SolverLpParams {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mip Limits Cuts Factor</em>' attribute.
 	 * @see #setMipLimitsCutsFactor(int)
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage#getSolverCplexParams_MipLimitsCutsFactor()
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexPackage#getSolverCplexParams_MipLimitsCutsFactor()
 	 * @model
 	 * @generated
 	 */

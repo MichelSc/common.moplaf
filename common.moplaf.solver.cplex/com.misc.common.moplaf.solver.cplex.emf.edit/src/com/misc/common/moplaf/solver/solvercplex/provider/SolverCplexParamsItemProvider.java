@@ -5,9 +5,8 @@ package com.misc.common.moplaf.solver.solvercplex.provider;
 
 import com.misc.common.moplaf.solver.provider.SolverLpParamsItemProvider;
 
+import com.misc.common.moplaf.solver.solvercplex.SolverCplexPackage;
 import com.misc.common.moplaf.solver.solvercplex.SolverCplexParams;
-import com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -79,7 +78,7 @@ public class SolverCplexParamsItemProvider extends SolverLpParamsItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_SolverCplexParams_MipCutsCliques_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SolverCplexParams_MipCutsCliques_feature", "_UI_SolverCplexParams_type"),
-				 SolvercplexPackage.Literals.SOLVER_CPLEX_PARAMS__MIP_CUTS_CLIQUES,
+				 SolverCplexPackage.Literals.SOLVER_CPLEX_PARAMS__MIP_CUTS_CLIQUES,
 				 true,
 				 false,
 				 false,
@@ -101,7 +100,7 @@ public class SolverCplexParamsItemProvider extends SolverLpParamsItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_SolverCplexParams_MipCutsCovers_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SolverCplexParams_MipCutsCovers_feature", "_UI_SolverCplexParams_type"),
-				 SolvercplexPackage.Literals.SOLVER_CPLEX_PARAMS__MIP_CUTS_COVERS,
+				 SolverCplexPackage.Literals.SOLVER_CPLEX_PARAMS__MIP_CUTS_COVERS,
 				 true,
 				 false,
 				 false,
@@ -123,7 +122,7 @@ public class SolverCplexParamsItemProvider extends SolverLpParamsItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_SolverCplexParams_MipCutsFlowCovers_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SolverCplexParams_MipCutsFlowCovers_feature", "_UI_SolverCplexParams_type"),
-				 SolvercplexPackage.Literals.SOLVER_CPLEX_PARAMS__MIP_CUTS_FLOW_COVERS,
+				 SolverCplexPackage.Literals.SOLVER_CPLEX_PARAMS__MIP_CUTS_FLOW_COVERS,
 				 true,
 				 false,
 				 false,
@@ -145,7 +144,7 @@ public class SolverCplexParamsItemProvider extends SolverLpParamsItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_SolverCplexParams_MipCutsGomory_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SolverCplexParams_MipCutsGomory_feature", "_UI_SolverCplexParams_type"),
-				 SolvercplexPackage.Literals.SOLVER_CPLEX_PARAMS__MIP_CUTS_GOMORY,
+				 SolverCplexPackage.Literals.SOLVER_CPLEX_PARAMS__MIP_CUTS_GOMORY,
 				 true,
 				 false,
 				 false,
@@ -167,7 +166,7 @@ public class SolverCplexParamsItemProvider extends SolverLpParamsItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_SolverCplexParams_MipCutsGUBCovers_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SolverCplexParams_MipCutsGUBCovers_feature", "_UI_SolverCplexParams_type"),
-				 SolvercplexPackage.Literals.SOLVER_CPLEX_PARAMS__MIP_CUTS_GUB_COVERS,
+				 SolverCplexPackage.Literals.SOLVER_CPLEX_PARAMS__MIP_CUTS_GUB_COVERS,
 				 true,
 				 false,
 				 false,
@@ -189,7 +188,7 @@ public class SolverCplexParamsItemProvider extends SolverLpParamsItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_SolverCplexParams_MipCutsImplied_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SolverCplexParams_MipCutsImplied_feature", "_UI_SolverCplexParams_type"),
-				 SolvercplexPackage.Literals.SOLVER_CPLEX_PARAMS__MIP_CUTS_IMPLIED,
+				 SolverCplexPackage.Literals.SOLVER_CPLEX_PARAMS__MIP_CUTS_IMPLIED,
 				 true,
 				 false,
 				 false,
@@ -211,7 +210,7 @@ public class SolverCplexParamsItemProvider extends SolverLpParamsItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_SolverCplexParams_MipCutsMIRCut_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SolverCplexParams_MipCutsMIRCut_feature", "_UI_SolverCplexParams_type"),
-				 SolvercplexPackage.Literals.SOLVER_CPLEX_PARAMS__MIP_CUTS_MIR_CUT,
+				 SolverCplexPackage.Literals.SOLVER_CPLEX_PARAMS__MIP_CUTS_MIR_CUT,
 				 true,
 				 false,
 				 false,
@@ -233,7 +232,7 @@ public class SolverCplexParamsItemProvider extends SolverLpParamsItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_SolverCplexParams_MipCutsPathCut_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SolverCplexParams_MipCutsPathCut_feature", "_UI_SolverCplexParams_type"),
-				 SolvercplexPackage.Literals.SOLVER_CPLEX_PARAMS__MIP_CUTS_PATH_CUT,
+				 SolverCplexPackage.Literals.SOLVER_CPLEX_PARAMS__MIP_CUTS_PATH_CUT,
 				 true,
 				 false,
 				 false,
@@ -255,7 +254,7 @@ public class SolverCplexParamsItemProvider extends SolverLpParamsItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_SolverCplexParams_MipStrategyBacktrack_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SolverCplexParams_MipStrategyBacktrack_feature", "_UI_SolverCplexParams_type"),
-				 SolvercplexPackage.Literals.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_BACKTRACK,
+				 SolverCplexPackage.Literals.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_BACKTRACK,
 				 true,
 				 false,
 				 false,
@@ -277,7 +276,7 @@ public class SolverCplexParamsItemProvider extends SolverLpParamsItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_SolverCplexParams_MipStrategyHeuristicFreq_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SolverCplexParams_MipStrategyHeuristicFreq_feature", "_UI_SolverCplexParams_type"),
-				 SolvercplexPackage.Literals.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_HEURISTIC_FREQ,
+				 SolverCplexPackage.Literals.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_HEURISTIC_FREQ,
 				 true,
 				 false,
 				 false,
@@ -299,7 +298,7 @@ public class SolverCplexParamsItemProvider extends SolverLpParamsItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_SolverCplexParams_MipStrategyProbe_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SolverCplexParams_MipStrategyProbe_feature", "_UI_SolverCplexParams_type"),
-				 SolvercplexPackage.Literals.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PROBE,
+				 SolverCplexPackage.Literals.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PROBE,
 				 true,
 				 false,
 				 false,
@@ -321,7 +320,7 @@ public class SolverCplexParamsItemProvider extends SolverLpParamsItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_SolverCplexParams_MipStrategyPresolveNode_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SolverCplexParams_MipStrategyPresolveNode_feature", "_UI_SolverCplexParams_type"),
-				 SolvercplexPackage.Literals.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PRESOLVE_NODE,
+				 SolverCplexPackage.Literals.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PRESOLVE_NODE,
 				 true,
 				 false,
 				 false,
@@ -343,7 +342,7 @@ public class SolverCplexParamsItemProvider extends SolverLpParamsItemProvider {
 				 getResourceLocator(),
 				 getString("_UI_SolverCplexParams_MipLimitsCutsFactor_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SolverCplexParams_MipLimitsCutsFactor_feature", "_UI_SolverCplexParams_type"),
-				 SolvercplexPackage.Literals.SOLVER_CPLEX_PARAMS__MIP_LIMITS_CUTS_FACTOR,
+				 SolverCplexPackage.Literals.SOLVER_CPLEX_PARAMS__MIP_LIMITS_CUTS_FACTOR,
 				 true,
 				 false,
 				 false,
@@ -388,19 +387,19 @@ public class SolverCplexParamsItemProvider extends SolverLpParamsItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SolverCplexParams.class)) {
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_CLIQUES:
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_COVERS:
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_FLOW_COVERS:
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GOMORY:
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GUB_COVERS:
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_IMPLIED:
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_MIR_CUT:
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_PATH_CUT:
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_BACKTRACK:
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_HEURISTIC_FREQ:
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PROBE:
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PRESOLVE_NODE:
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_LIMITS_CUTS_FACTOR:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_CLIQUES:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_COVERS:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_FLOW_COVERS:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GOMORY:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GUB_COVERS:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_IMPLIED:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_MIR_CUT:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_PATH_CUT:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_BACKTRACK:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_HEURISTIC_FREQ:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PROBE:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PRESOLVE_NODE:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_LIMITS_CUTS_FACTOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

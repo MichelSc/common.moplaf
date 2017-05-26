@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2017 Michel Schaffers and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Michel Schaffers - initial API and implementation
- *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.solver.solvercplex.impl;
@@ -15,9 +5,9 @@ package com.misc.common.moplaf.solver.solvercplex.impl;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import com.misc.common.moplaf.solver.solvercplex.SolverCplex;
+import com.misc.common.moplaf.solver.solvercplex.SolverCplexFactory;
+import com.misc.common.moplaf.solver.solvercplex.SolverCplexPackage;
 import com.misc.common.moplaf.solver.solvercplex.SolverCplexParams;
-import com.misc.common.moplaf.solver.solvercplex.SolvercplexFactory;
-import com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -31,7 +21,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SolvercplexPackageImpl extends EPackageImpl implements SolvercplexPackage {
+public class SolverCplexPackageImpl extends EPackageImpl implements SolverCplexPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -57,12 +47,12 @@ public class SolvercplexPackageImpl extends EPackageImpl implements SolvercplexP
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage#eNS_URI
+	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexPackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */
-	private SolvercplexPackageImpl() {
-		super(eNS_URI, SolvercplexFactory.eINSTANCE);
+	private SolverCplexPackageImpl() {
+		super(eNS_URI, SolverCplexFactory.eINSTANCE);
 	}
 
 	/**
@@ -75,7 +65,7 @@ public class SolvercplexPackageImpl extends EPackageImpl implements SolvercplexP
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 * 
-	 * <p>This method is used to initialize {@link SolvercplexPackage#eINSTANCE} when that field is accessed.
+	 * <p>This method is used to initialize {@link SolverCplexPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -84,11 +74,11 @@ public class SolvercplexPackageImpl extends EPackageImpl implements SolvercplexP
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
-	public static SolvercplexPackage init() {
-		if (isInited) return (SolvercplexPackage)EPackage.Registry.INSTANCE.getEPackage(SolvercplexPackage.eNS_URI);
+	public static SolverCplexPackage init() {
+		if (isInited) return (SolverCplexPackage)EPackage.Registry.INSTANCE.getEPackage(SolverCplexPackage.eNS_URI);
 
 		// Obtain or create and register package
-		SolvercplexPackageImpl theSolvercplexPackage = (SolvercplexPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof SolvercplexPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new SolvercplexPackageImpl());
+		SolverCplexPackageImpl theSolverCplexPackage = (SolverCplexPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof SolverCplexPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new SolverCplexPackageImpl());
 
 		isInited = true;
 
@@ -96,18 +86,18 @@ public class SolvercplexPackageImpl extends EPackageImpl implements SolvercplexP
 		SolverPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
-		theSolvercplexPackage.createPackageContents();
+		theSolverCplexPackage.createPackageContents();
 
 		// Initialize created meta-data
-		theSolvercplexPackage.initializePackageContents();
+		theSolverCplexPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
-		theSolvercplexPackage.freeze();
+		theSolverCplexPackage.freeze();
 
   
 		// Update the registry and return the package
-		EPackage.Registry.INSTANCE.put(SolvercplexPackage.eNS_URI, theSolvercplexPackage);
-		return theSolvercplexPackage;
+		EPackage.Registry.INSTANCE.put(SolverCplexPackage.eNS_URI, theSolverCplexPackage);
+		return theSolverCplexPackage;
 	}
 
 	/**
@@ -250,8 +240,8 @@ public class SolvercplexPackageImpl extends EPackageImpl implements SolvercplexP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SolvercplexFactory getSolvercplexFactory() {
-		return (SolvercplexFactory)getEFactoryInstance();
+	public SolverCplexFactory getSolverCplexFactory() {
+		return (SolverCplexFactory)getEFactoryInstance();
 	}
 
 	/**
@@ -349,4 +339,4 @@ public class SolvercplexPackageImpl extends EPackageImpl implements SolvercplexP
 		createResource(eNS_URI);
 	}
 
-} //SolvercplexPackageImpl
+} //SolverCplexPackageImpl

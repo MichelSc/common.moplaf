@@ -4,6 +4,7 @@ package com.misc.common.moplaf.job.impl;
 
 import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.job.ParamsHolder;
+import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.RunParams;
 
 import java.lang.reflect.InvocationTargetException;
@@ -81,8 +82,9 @@ public class ParamsHolderImpl extends MinimalEObjectImpl.Container implements Pa
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
-	public RunParams constructParams(RunParams run) {
-		RunParams newParams = run.clone();
+	public RunParams constructParams(Run run) {
+		RunParams newParams = run.constructParams();
+		newParams.copyParams(run);
 		this.getRunsParams().add(newParams);
 		return newParams;
 	}
@@ -169,8 +171,8 @@ public class ParamsHolderImpl extends MinimalEObjectImpl.Container implements Pa
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case JobPackage.PARAMS_HOLDER___CONSTRUCT_PARAMS__RUN:
-				return constructParams((RunParams)arguments.get(0));
+			case JobPackage.PARAMS_HOLDER___CONSTRUCT_PARAMS__RUNPARAMS:
+				return constructParams((Run)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -24,7 +24,6 @@
     <eOperations name="copyParams">
       <eParameters name="other" eType="#//RunParams"/>
     </eOperations>
-    <eOperations name="clone" eType="#//RunParams"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Run" eSuperTypes="#//RunParams">
     <eOperations name="reset"/>
@@ -44,6 +43,7 @@
     <eOperations name="setReturn">
       <eParameters name="feedback" eType="#//ReturnFeedback"/>
     </eOperations>
+    <eOperations name="constructParams" eType="#//RunParams"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="RunFeedback" eType="#//EnabledFeedback"
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CancelFeedback" eType="#//EnabledFeedback"
@@ -140,7 +140,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ParamsHolder">
     <eOperations name="constructParams" eType="#//RunParams">
-      <eParameters name="run" eType="#//RunParams"/>
+      <eParameters name="run" eType="#//Run"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="RunsParams" upperBound="-1"
         eType="#//RunParams" containment="true"/>

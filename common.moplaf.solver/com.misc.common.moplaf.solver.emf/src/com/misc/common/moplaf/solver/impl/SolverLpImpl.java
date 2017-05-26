@@ -12,6 +12,8 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
+import com.misc.common.moplaf.job.JobFactory;
+import com.misc.common.moplaf.job.RunParams;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolverFactory;
 import com.misc.common.moplaf.solver.SolverLp;
@@ -320,5 +322,12 @@ public abstract class SolverLpImpl extends SolverImpl implements SolverLp {
 		return newsolution;
 	}
 
-	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public RunParams constructParams() {
+		return SolverFactory.eINSTANCE.createSolverLpParams();
+	}
 } //SolverLpImpl

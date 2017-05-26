@@ -251,4 +251,12 @@ public interface Run extends RunParams {
 	 */
 	void setReturn(ReturnFeedback feedback);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	RunParams constructParams();
+
 } // Run

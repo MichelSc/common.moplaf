@@ -301,15 +301,6 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRunParams__Clone() {
-		return runParamsEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getRun() {
 		return runEClass;
 	}
@@ -447,6 +438,15 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 */
 	public EOperation getRun__SetReturn__ReturnFeedback() {
 		return runEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRun__ConstructParams() {
+		return runEClass.getEOperations().get(8);
 	}
 
 	/**
@@ -823,7 +823,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParamsHolder__ConstructParams__Run() {
+	public EOperation getParamsHolder__ConstructParams__RunParams() {
 		return paramsHolderEClass.getEOperations().get(0);
 	}
 
@@ -917,7 +917,6 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 
 		runParamsEClass = createEClass(RUN_PARAMS);
 		createEOperation(runParamsEClass, RUN_PARAMS___COPY_PARAMS__RUNPARAMS);
-		createEOperation(runParamsEClass, RUN_PARAMS___CLONE);
 
 		runEClass = createEClass(RUN);
 		createEAttribute(runEClass, RUN__RUN_FEEDBACK);
@@ -935,6 +934,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		createEOperation(runEClass, RUN___SET_PROGRESS__PROGRESSFEEDBACK);
 		createEOperation(runEClass, RUN___GET_RETURN);
 		createEOperation(runEClass, RUN___SET_RETURN__RETURNFEEDBACK);
+		createEOperation(runEClass, RUN___CONSTRUCT_PARAMS);
 
 		jobEClass = createEClass(JOB);
 		createEAttribute(jobEClass, JOB__STATUS);
@@ -984,7 +984,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 
 		paramsHolderEClass = createEClass(PARAMS_HOLDER);
 		createEReference(paramsHolderEClass, PARAMS_HOLDER__RUNS_PARAMS);
-		createEOperation(paramsHolderEClass, PARAMS_HOLDER___CONSTRUCT_PARAMS__RUN);
+		createEOperation(paramsHolderEClass, PARAMS_HOLDER___CONSTRUCT_PARAMS__RUNPARAMS);
 
 		// Create enums
 		jobParameterTypeEEnum = createEEnum(JOB_PARAMETER_TYPE);
@@ -1044,8 +1044,6 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		EOperation op = initEOperation(getRunParams__CopyParams__RunParams(), null, "copyParams", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getRunParams(), "other", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getRunParams__Clone(), this.getRunParams(), "clone", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(runEClass, Run.class, "Run", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRun_RunFeedback(), this.getEnabledFeedback(), "RunFeedback", null, 0, 1, Run.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRun_CancelFeedback(), this.getEnabledFeedback(), "CancelFeedback", null, 0, 1, Run.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -1075,6 +1073,8 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 
 		op = initEOperation(getRun__SetReturn__ReturnFeedback(), null, "setReturn", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getReturnFeedback(), "feedback", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getRun__ConstructParams(), this.getRunParams(), "constructParams", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(jobEClass, Job.class, "Job", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJob_Status(), ecorePackage.getEString(), "Status", null, 0, 1, Job.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -1155,8 +1155,8 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		initEClass(paramsHolderEClass, ParamsHolder.class, "ParamsHolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParamsHolder_RunsParams(), this.getRunParams(), null, "RunsParams", null, 0, -1, ParamsHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getParamsHolder__ConstructParams__Run(), this.getRunParams(), "constructParams", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getRunParams(), "run", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getParamsHolder__ConstructParams__RunParams(), this.getRunParams(), "constructParams", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getRun(), "run", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(jobParameterTypeEEnum, JobParameterType.class, "JobParameterType");

@@ -23,12 +23,4 @@ public interface RunParams extends EObject {
 	 */
 	void copyParams(RunParams other);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	RunParams clone();
-
 } // RunParams

@@ -71,8 +71,6 @@ public class RunParamsImpl extends MinimalEObjectImpl.Container implements RunPa
 			case JobPackage.RUN_PARAMS___COPY_PARAMS__RUNPARAMS:
 				copyParams((RunParams)arguments.get(0));
 				return null;
-			case JobPackage.RUN_PARAMS___CLONE:
-				return clone();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

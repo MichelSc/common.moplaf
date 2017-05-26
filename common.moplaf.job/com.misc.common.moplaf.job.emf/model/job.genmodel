@@ -27,10 +27,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//JobParameter/Description"/>
     </genClasses>
     <genClasses ecoreClass="job.ecore#//RunParams">
-      <genOperations ecoreOperation="job.ecore#//RunParams/acceptParams">
-        <genParameters ecoreParameter="job.ecore#//RunParams/acceptParams/other"/>
+      <genOperations ecoreOperation="job.ecore#//RunParams/copyParams">
+        <genParameters ecoreParameter="job.ecore#//RunParams/copyParams/other"/>
       </genOperations>
-      <genOperations ecoreOperation="job.ecore#//RunParams/constructParams"/>
+      <genOperations ecoreOperation="job.ecore#//RunParams/clone"/>
     </genClasses>
     <genClasses ecoreClass="job.ecore#//Run" labelFeature="#//job/Run/ReturnInformation">
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 Enabled"
@@ -135,6 +135,12 @@
     </genClasses>
     <genClasses ecoreClass="job.ecore#//SetterAttributeFloat">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute job.ecore#//SetterAttributeFloat/Value"/>
+    </genClasses>
+    <genClasses ecoreClass="job.ecore#//ParamsHolder">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference job.ecore#//ParamsHolder/RunsParams"/>
+      <genOperations ecoreOperation="job.ecore#//ParamsHolder/constructParams">
+        <genParameters ecoreParameter="job.ecore#//ParamsHolder/constructParams/run"/>
+      </genOperations>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

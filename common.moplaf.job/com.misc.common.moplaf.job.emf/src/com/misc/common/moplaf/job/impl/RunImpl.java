@@ -16,11 +16,13 @@ import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.common.ReturnFeedback;
 
 import com.misc.common.moplaf.job.Run;
+import com.misc.common.moplaf.job.JobFactory;
 import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.job.Plugin;
 import com.misc.common.moplaf.job.ProgressFeedback;
 import com.misc.common.moplaf.job.RunContext;
 
+import com.misc.common.moplaf.job.RunParams;
 import java.lang.reflect.InvocationTargetException;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -405,6 +407,14 @@ public class RunImpl extends RunParamsImpl implements Run {
 		this.setReturnInformation(feedback.getInformation());
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public RunParams constructParams() {
+		return JobFactory.eINSTANCE.createRunParams();
+	}
+
 	//	/**
 //	 * <!-- begin-user-doc -->
 //	 * <!-- end-user-doc -->
@@ -552,6 +562,8 @@ public class RunImpl extends RunParamsImpl implements Run {
 			case JobPackage.RUN___SET_RETURN__RETURNFEEDBACK:
 				setReturn((ReturnFeedback)arguments.get(0));
 				return null;
+			case JobPackage.RUN___CONSTRUCT_PARAMS:
+				return constructParams();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

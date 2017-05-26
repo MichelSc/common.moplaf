@@ -288,15 +288,6 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR___COPY_PARAMS__RUNPARAMS = JobPackage.RUN___COPY_PARAMS__RUNPARAMS;
 
 	/**
-	 * The operation id for the '<em>Clone</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR___CLONE = JobPackage.RUN___CLONE;
-
-	/**
 	 * The operation id for the '<em>Reset</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -367,6 +358,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR___SET_RETURN__RETURNFEEDBACK = JobPackage.RUN___SET_RETURN__RETURNFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR___CONSTRUCT_PARAMS = JobPackage.RUN___CONSTRUCT_PARAMS;
 
 	/**
 	 * The operation id for the '<em>Generate</em>' operation.
@@ -2096,15 +2096,6 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_PROVIDER___COPY_PARAMS__RUNPARAMS = JobPackage.RUN___COPY_PARAMS__RUNPARAMS;
 
 	/**
-	 * The operation id for the '<em>Clone</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_PROVIDER___CLONE = JobPackage.RUN___CLONE;
-
-	/**
 	 * The operation id for the '<em>Reset</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2175,6 +2166,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_PROVIDER___SET_RETURN__RETURNFEEDBACK = JobPackage.RUN___SET_RETURN__RETURNFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER___CONSTRUCT_PARAMS = JobPackage.RUN___CONSTRUCT_PARAMS;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -2349,15 +2349,6 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_READER___COPY_PARAMS__RUNPARAMS = SOLUTION_PROVIDER___COPY_PARAMS__RUNPARAMS;
 
 	/**
-	 * The operation id for the '<em>Clone</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_READER___CLONE = SOLUTION_PROVIDER___CLONE;
-
-	/**
 	 * The operation id for the '<em>Reset</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2428,6 +2419,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_READER___SET_RETURN__RETURNFEEDBACK = SOLUTION_PROVIDER___SET_RETURN__RETURNFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER___CONSTRUCT_PARAMS = SOLUTION_PROVIDER___CONSTRUCT_PARAMS;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -2665,15 +2665,6 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_READER_PATTERN___COPY_PARAMS__RUNPARAMS = SOLUTION_READER___COPY_PARAMS__RUNPARAMS;
 
 	/**
-	 * The operation id for the '<em>Clone</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_READER_PATTERN___CLONE = SOLUTION_READER___CLONE;
-
-	/**
 	 * The operation id for the '<em>Reset</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2744,6 +2735,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_READER_PATTERN___SET_RETURN__RETURNFEEDBACK = SOLUTION_READER___SET_RETURN__RETURNFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER_PATTERN___CONSTRUCT_PARAMS = SOLUTION_READER___CONSTRUCT_PARAMS;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -3243,15 +3243,6 @@ public interface SolverPackage extends EPackage {
 	int SOLVER___COPY_PARAMS__RUNPARAMS = SOLUTION_PROVIDER___COPY_PARAMS__RUNPARAMS;
 
 	/**
-	 * The operation id for the '<em>Clone</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER___CLONE = SOLUTION_PROVIDER___CLONE;
-
-	/**
 	 * The operation id for the '<em>Reset</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3322,6 +3313,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER___SET_RETURN__RETURNFEEDBACK = SOLUTION_PROVIDER___SET_RETURN__RETURNFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER___CONSTRUCT_PARAMS = SOLUTION_PROVIDER___CONSTRUCT_PARAMS;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -3997,15 +3997,6 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_CP___COPY_PARAMS__RUNPARAMS = SOLVER___COPY_PARAMS__RUNPARAMS;
 
 	/**
-	 * The operation id for the '<em>Clone</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_CP___CLONE = SOLVER___CLONE;
-
-	/**
 	 * The operation id for the '<em>Reset</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4076,6 +4067,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_CP___SET_RETURN__RETURNFEEDBACK = SOLVER___SET_RETURN__RETURNFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP___CONSTRUCT_PARAMS = SOLVER___CONSTRUCT_PARAMS;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -4609,15 +4609,6 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_LP___COPY_PARAMS__RUNPARAMS = SOLVER___COPY_PARAMS__RUNPARAMS;
 
 	/**
-	 * The operation id for the '<em>Clone</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_LP___CLONE = SOLVER___CLONE;
-
-	/**
 	 * The operation id for the '<em>Reset</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4688,6 +4679,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP___SET_RETURN__RETURNFEEDBACK = SOLVER___SET_RETURN__RETURNFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP___CONSTRUCT_PARAMS = SOLVER___CONSTRUCT_PARAMS;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -7245,15 +7245,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP_PARAMS___COPY_PARAMS__RUNPARAMS = JobPackage.RUN_PARAMS___COPY_PARAMS__RUNPARAMS;
-
-	/**
-	 * The operation id for the '<em>Clone</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_LP_PARAMS___CLONE = JobPackage.RUN_PARAMS___CLONE;
 
 	/**
 	 * The number of operations of the '<em>Lp Params</em>' class.

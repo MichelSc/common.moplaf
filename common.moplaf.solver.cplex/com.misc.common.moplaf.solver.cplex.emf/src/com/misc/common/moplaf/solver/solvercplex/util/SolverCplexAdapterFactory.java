@@ -1,26 +1,17 @@
-/*******************************************************************************
- * Copyright (c) 2017 Michel Schaffers and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Michel Schaffers - initial API and implementation
- *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.solver.solvercplex.util;
 
 import com.misc.common.moplaf.job.Run;
 import com.misc.common.moplaf.job.RunParams;
+
 import com.misc.common.moplaf.solver.IGeneratorTool;
 import com.misc.common.moplaf.solver.ILpWriter;
 import com.misc.common.moplaf.solver.SolutionProvider;
 import com.misc.common.moplaf.solver.Solver;
-
 import com.misc.common.moplaf.solver.SolverLp;
 import com.misc.common.moplaf.solver.SolverLpParams;
+
 import com.misc.common.moplaf.solver.solvercplex.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -35,17 +26,17 @@ import org.eclipse.emf.ecore.EObject;
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage
+ * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexPackage
  * @generated
  */
-public class SolvercplexAdapterFactory extends AdapterFactoryImpl {
+public class SolverCplexAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static SolvercplexPackage modelPackage;
+	protected static SolverCplexPackage modelPackage;
 
 	/**
 	 * Creates an instance of the adapter factory.
@@ -53,9 +44,9 @@ public class SolvercplexAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SolvercplexAdapterFactory() {
+	public SolverCplexAdapterFactory() {
 		if (modelPackage == null) {
-			modelPackage = SolvercplexPackage.eINSTANCE;
+			modelPackage = SolverCplexPackage.eINSTANCE;
 		}
 	}
 
@@ -84,8 +75,8 @@ public class SolvercplexAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SolvercplexSwitch<Adapter> modelSwitch =
-		new SolvercplexSwitch<Adapter>() {
+	protected SolverCplexSwitch<Adapter> modelSwitch =
+		new SolverCplexSwitch<Adapter>() {
 			@Override
 			public Adapter caseSolverCplex(SolverCplex object) {
 				return createSolverCplexAdapter();
@@ -161,7 +152,7 @@ public class SolvercplexAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplexParams <em>Solver Cplex Params</em>}'.
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplexParams <em>Params</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
@@ -298,4 +289,4 @@ public class SolvercplexAdapterFactory extends AdapterFactoryImpl {
 		return null;
 	}
 
-} //SolvercplexAdapterFactory
+} //SolverCplexAdapterFactory

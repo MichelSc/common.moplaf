@@ -4,9 +4,8 @@ package com.misc.common.moplaf.solver.solvercplex.impl;
 
 import com.misc.common.moplaf.solver.impl.SolverLpParamsImpl;
 
+import com.misc.common.moplaf.solver.solvercplex.SolverCplexPackage;
 import com.misc.common.moplaf.solver.solvercplex.SolverCplexParams;
-import com.misc.common.moplaf.solver.solvercplex.SolvercplexPackage;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -315,7 +314,7 @@ public class SolverCplexParamsImpl extends SolverLpParamsImpl implements SolverC
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return SolvercplexPackage.Literals.SOLVER_CPLEX_PARAMS;
+		return SolverCplexPackage.Literals.SOLVER_CPLEX_PARAMS;
 	}
 
 	/**
@@ -336,7 +335,7 @@ public class SolverCplexParamsImpl extends SolverLpParamsImpl implements SolverC
 		int oldMipCutsCliques = mipCutsCliques;
 		mipCutsCliques = newMipCutsCliques;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_CLIQUES, oldMipCutsCliques, mipCutsCliques));
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_CLIQUES, oldMipCutsCliques, mipCutsCliques));
 	}
 
 	/**
@@ -357,7 +356,7 @@ public class SolverCplexParamsImpl extends SolverLpParamsImpl implements SolverC
 		int oldMipCutsCovers = mipCutsCovers;
 		mipCutsCovers = newMipCutsCovers;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_COVERS, oldMipCutsCovers, mipCutsCovers));
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_COVERS, oldMipCutsCovers, mipCutsCovers));
 	}
 
 	/**
@@ -378,7 +377,7 @@ public class SolverCplexParamsImpl extends SolverLpParamsImpl implements SolverC
 		int oldMipCutsFlowCovers = mipCutsFlowCovers;
 		mipCutsFlowCovers = newMipCutsFlowCovers;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_FLOW_COVERS, oldMipCutsFlowCovers, mipCutsFlowCovers));
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_FLOW_COVERS, oldMipCutsFlowCovers, mipCutsFlowCovers));
 	}
 
 	/**
@@ -399,7 +398,7 @@ public class SolverCplexParamsImpl extends SolverLpParamsImpl implements SolverC
 		int oldMipCutsGomory = mipCutsGomory;
 		mipCutsGomory = newMipCutsGomory;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GOMORY, oldMipCutsGomory, mipCutsGomory));
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GOMORY, oldMipCutsGomory, mipCutsGomory));
 	}
 
 	/**
@@ -420,7 +419,7 @@ public class SolverCplexParamsImpl extends SolverLpParamsImpl implements SolverC
 		int oldMipCutsGUBCovers = mipCutsGUBCovers;
 		mipCutsGUBCovers = newMipCutsGUBCovers;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GUB_COVERS, oldMipCutsGUBCovers, mipCutsGUBCovers));
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GUB_COVERS, oldMipCutsGUBCovers, mipCutsGUBCovers));
 	}
 
 	/**
@@ -441,7 +440,7 @@ public class SolverCplexParamsImpl extends SolverLpParamsImpl implements SolverC
 		int oldMipCutsImplied = mipCutsImplied;
 		mipCutsImplied = newMipCutsImplied;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_IMPLIED, oldMipCutsImplied, mipCutsImplied));
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_IMPLIED, oldMipCutsImplied, mipCutsImplied));
 	}
 
 	/**
@@ -462,7 +461,7 @@ public class SolverCplexParamsImpl extends SolverLpParamsImpl implements SolverC
 		int oldMipCutsMIRCut = mipCutsMIRCut;
 		mipCutsMIRCut = newMipCutsMIRCut;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_MIR_CUT, oldMipCutsMIRCut, mipCutsMIRCut));
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_MIR_CUT, oldMipCutsMIRCut, mipCutsMIRCut));
 	}
 
 	/**
@@ -483,7 +482,7 @@ public class SolverCplexParamsImpl extends SolverLpParamsImpl implements SolverC
 		int oldMipCutsPathCut = mipCutsPathCut;
 		mipCutsPathCut = newMipCutsPathCut;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_PATH_CUT, oldMipCutsPathCut, mipCutsPathCut));
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_PATH_CUT, oldMipCutsPathCut, mipCutsPathCut));
 	}
 
 	/**
@@ -504,7 +503,7 @@ public class SolverCplexParamsImpl extends SolverLpParamsImpl implements SolverC
 		float oldMipStrategyBacktrack = mipStrategyBacktrack;
 		mipStrategyBacktrack = newMipStrategyBacktrack;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_BACKTRACK, oldMipStrategyBacktrack, mipStrategyBacktrack));
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_BACKTRACK, oldMipStrategyBacktrack, mipStrategyBacktrack));
 	}
 
 	/**
@@ -525,7 +524,7 @@ public class SolverCplexParamsImpl extends SolverLpParamsImpl implements SolverC
 		int oldMipStrategyHeuristicFreq = mipStrategyHeuristicFreq;
 		mipStrategyHeuristicFreq = newMipStrategyHeuristicFreq;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_HEURISTIC_FREQ, oldMipStrategyHeuristicFreq, mipStrategyHeuristicFreq));
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_HEURISTIC_FREQ, oldMipStrategyHeuristicFreq, mipStrategyHeuristicFreq));
 	}
 
 	/**
@@ -546,7 +545,7 @@ public class SolverCplexParamsImpl extends SolverLpParamsImpl implements SolverC
 		int oldMipStrategyProbe = mipStrategyProbe;
 		mipStrategyProbe = newMipStrategyProbe;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PROBE, oldMipStrategyProbe, mipStrategyProbe));
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PROBE, oldMipStrategyProbe, mipStrategyProbe));
 	}
 
 	/**
@@ -567,7 +566,7 @@ public class SolverCplexParamsImpl extends SolverLpParamsImpl implements SolverC
 		int oldMipStrategyPresolveNode = mipStrategyPresolveNode;
 		mipStrategyPresolveNode = newMipStrategyPresolveNode;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PRESOLVE_NODE, oldMipStrategyPresolveNode, mipStrategyPresolveNode));
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PRESOLVE_NODE, oldMipStrategyPresolveNode, mipStrategyPresolveNode));
 	}
 
 	/**
@@ -588,7 +587,7 @@ public class SolverCplexParamsImpl extends SolverLpParamsImpl implements SolverC
 		int oldMipLimitsCutsFactor = mipLimitsCutsFactor;
 		mipLimitsCutsFactor = newMipLimitsCutsFactor;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_LIMITS_CUTS_FACTOR, oldMipLimitsCutsFactor, mipLimitsCutsFactor));
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_LIMITS_CUTS_FACTOR, oldMipLimitsCutsFactor, mipLimitsCutsFactor));
 	}
 
 	/**
@@ -599,31 +598,31 @@ public class SolverCplexParamsImpl extends SolverLpParamsImpl implements SolverC
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_CLIQUES:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_CLIQUES:
 				return getMipCutsCliques();
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_COVERS:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_COVERS:
 				return getMipCutsCovers();
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_FLOW_COVERS:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_FLOW_COVERS:
 				return getMipCutsFlowCovers();
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GOMORY:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GOMORY:
 				return getMipCutsGomory();
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GUB_COVERS:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GUB_COVERS:
 				return getMipCutsGUBCovers();
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_IMPLIED:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_IMPLIED:
 				return getMipCutsImplied();
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_MIR_CUT:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_MIR_CUT:
 				return getMipCutsMIRCut();
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_PATH_CUT:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_PATH_CUT:
 				return getMipCutsPathCut();
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_BACKTRACK:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_BACKTRACK:
 				return getMipStrategyBacktrack();
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_HEURISTIC_FREQ:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_HEURISTIC_FREQ:
 				return getMipStrategyHeuristicFreq();
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PROBE:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PROBE:
 				return getMipStrategyProbe();
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PRESOLVE_NODE:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PRESOLVE_NODE:
 				return getMipStrategyPresolveNode();
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_LIMITS_CUTS_FACTOR:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_LIMITS_CUTS_FACTOR:
 				return getMipLimitsCutsFactor();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -637,43 +636,43 @@ public class SolverCplexParamsImpl extends SolverLpParamsImpl implements SolverC
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_CLIQUES:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_CLIQUES:
 				setMipCutsCliques((Integer)newValue);
 				return;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_COVERS:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_COVERS:
 				setMipCutsCovers((Integer)newValue);
 				return;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_FLOW_COVERS:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_FLOW_COVERS:
 				setMipCutsFlowCovers((Integer)newValue);
 				return;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GOMORY:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GOMORY:
 				setMipCutsGomory((Integer)newValue);
 				return;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GUB_COVERS:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GUB_COVERS:
 				setMipCutsGUBCovers((Integer)newValue);
 				return;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_IMPLIED:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_IMPLIED:
 				setMipCutsImplied((Integer)newValue);
 				return;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_MIR_CUT:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_MIR_CUT:
 				setMipCutsMIRCut((Integer)newValue);
 				return;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_PATH_CUT:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_PATH_CUT:
 				setMipCutsPathCut((Integer)newValue);
 				return;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_BACKTRACK:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_BACKTRACK:
 				setMipStrategyBacktrack((Float)newValue);
 				return;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_HEURISTIC_FREQ:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_HEURISTIC_FREQ:
 				setMipStrategyHeuristicFreq((Integer)newValue);
 				return;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PROBE:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PROBE:
 				setMipStrategyProbe((Integer)newValue);
 				return;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PRESOLVE_NODE:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PRESOLVE_NODE:
 				setMipStrategyPresolveNode((Integer)newValue);
 				return;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_LIMITS_CUTS_FACTOR:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_LIMITS_CUTS_FACTOR:
 				setMipLimitsCutsFactor((Integer)newValue);
 				return;
 		}
@@ -688,43 +687,43 @@ public class SolverCplexParamsImpl extends SolverLpParamsImpl implements SolverC
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_CLIQUES:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_CLIQUES:
 				setMipCutsCliques(MIP_CUTS_CLIQUES_EDEFAULT);
 				return;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_COVERS:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_COVERS:
 				setMipCutsCovers(MIP_CUTS_COVERS_EDEFAULT);
 				return;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_FLOW_COVERS:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_FLOW_COVERS:
 				setMipCutsFlowCovers(MIP_CUTS_FLOW_COVERS_EDEFAULT);
 				return;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GOMORY:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GOMORY:
 				setMipCutsGomory(MIP_CUTS_GOMORY_EDEFAULT);
 				return;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GUB_COVERS:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GUB_COVERS:
 				setMipCutsGUBCovers(MIP_CUTS_GUB_COVERS_EDEFAULT);
 				return;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_IMPLIED:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_IMPLIED:
 				setMipCutsImplied(MIP_CUTS_IMPLIED_EDEFAULT);
 				return;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_MIR_CUT:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_MIR_CUT:
 				setMipCutsMIRCut(MIP_CUTS_MIR_CUT_EDEFAULT);
 				return;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_PATH_CUT:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_PATH_CUT:
 				setMipCutsPathCut(MIP_CUTS_PATH_CUT_EDEFAULT);
 				return;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_BACKTRACK:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_BACKTRACK:
 				setMipStrategyBacktrack(MIP_STRATEGY_BACKTRACK_EDEFAULT);
 				return;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_HEURISTIC_FREQ:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_HEURISTIC_FREQ:
 				setMipStrategyHeuristicFreq(MIP_STRATEGY_HEURISTIC_FREQ_EDEFAULT);
 				return;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PROBE:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PROBE:
 				setMipStrategyProbe(MIP_STRATEGY_PROBE_EDEFAULT);
 				return;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PRESOLVE_NODE:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PRESOLVE_NODE:
 				setMipStrategyPresolveNode(MIP_STRATEGY_PRESOLVE_NODE_EDEFAULT);
 				return;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_LIMITS_CUTS_FACTOR:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_LIMITS_CUTS_FACTOR:
 				setMipLimitsCutsFactor(MIP_LIMITS_CUTS_FACTOR_EDEFAULT);
 				return;
 		}
@@ -739,31 +738,31 @@ public class SolverCplexParamsImpl extends SolverLpParamsImpl implements SolverC
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_CLIQUES:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_CLIQUES:
 				return mipCutsCliques != MIP_CUTS_CLIQUES_EDEFAULT;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_COVERS:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_COVERS:
 				return mipCutsCovers != MIP_CUTS_COVERS_EDEFAULT;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_FLOW_COVERS:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_FLOW_COVERS:
 				return mipCutsFlowCovers != MIP_CUTS_FLOW_COVERS_EDEFAULT;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GOMORY:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GOMORY:
 				return mipCutsGomory != MIP_CUTS_GOMORY_EDEFAULT;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GUB_COVERS:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_GUB_COVERS:
 				return mipCutsGUBCovers != MIP_CUTS_GUB_COVERS_EDEFAULT;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_IMPLIED:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_IMPLIED:
 				return mipCutsImplied != MIP_CUTS_IMPLIED_EDEFAULT;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_MIR_CUT:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_MIR_CUT:
 				return mipCutsMIRCut != MIP_CUTS_MIR_CUT_EDEFAULT;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_PATH_CUT:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_CUTS_PATH_CUT:
 				return mipCutsPathCut != MIP_CUTS_PATH_CUT_EDEFAULT;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_BACKTRACK:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_BACKTRACK:
 				return mipStrategyBacktrack != MIP_STRATEGY_BACKTRACK_EDEFAULT;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_HEURISTIC_FREQ:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_HEURISTIC_FREQ:
 				return mipStrategyHeuristicFreq != MIP_STRATEGY_HEURISTIC_FREQ_EDEFAULT;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PROBE:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PROBE:
 				return mipStrategyProbe != MIP_STRATEGY_PROBE_EDEFAULT;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PRESOLVE_NODE:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PRESOLVE_NODE:
 				return mipStrategyPresolveNode != MIP_STRATEGY_PRESOLVE_NODE_EDEFAULT;
-			case SolvercplexPackage.SOLVER_CPLEX_PARAMS__MIP_LIMITS_CUTS_FACTOR:
+			case SolverCplexPackage.SOLVER_CPLEX_PARAMS__MIP_LIMITS_CUTS_FACTOR:
 				return mipLimitsCutsFactor != MIP_LIMITS_CUTS_FACTOR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);

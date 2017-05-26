@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2017 Michel Schaffers and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Michel Schaffers - initial API and implementation
- *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.solver.solvercplex;
@@ -30,11 +20,11 @@ import org.eclipse.emf.ecore.EPackage;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see com.misc.common.moplaf.solver.solvercplex.SolvercplexFactory
+ * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexFactory
  * @model kind="package"
  * @generated
  */
-public interface SolvercplexPackage extends EPackage {
+public interface SolverCplexPackage extends EPackage {
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -65,14 +55,14 @@ public interface SolvercplexPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	SolvercplexPackage eINSTANCE = com.misc.common.moplaf.solver.solvercplex.impl.SolvercplexPackageImpl.init();
+	SolverCplexPackage eINSTANCE = com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexPackageImpl.init();
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl <em>Solver Cplex</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl
-	 * @see com.misc.common.moplaf.solver.solvercplex.impl.SolvercplexPackageImpl#getSolverCplex()
+	 * @see com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexPackageImpl#getSolverCplex()
 	 * @generated
 	 */
 	int SOLVER_CPLEX = 0;
@@ -582,15 +572,6 @@ public interface SolvercplexPackage extends EPackage {
 	int SOLVER_CPLEX___COPY_PARAMS__RUNPARAMS = SolverPackage.SOLVER_LP___COPY_PARAMS__RUNPARAMS;
 
 	/**
-	 * The operation id for the '<em>Clone</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_CPLEX___CLONE = SolverPackage.SOLVER_LP___CLONE;
-
-	/**
 	 * The operation id for the '<em>Reset</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -661,6 +642,15 @@ public interface SolvercplexPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_CPLEX___SET_RETURN__RETURNFEEDBACK = SolverPackage.SOLVER_LP___SET_RETURN__RETURNFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX___CONSTRUCT_PARAMS = SolverPackage.SOLVER_LP___CONSTRUCT_PARAMS;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -851,13 +841,12 @@ public interface SolvercplexPackage extends EPackage {
 	 */
 	int SOLVER_CPLEX_OPERATION_COUNT = SolverPackage.SOLVER_LP_OPERATION_COUNT + 2;
 
-
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexParamsImpl <em>Solver Cplex Params</em>}' class.
+	 * The meta object id for the '{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexParamsImpl <em>Params</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexParamsImpl
-	 * @see com.misc.common.moplaf.solver.solvercplex.impl.SolvercplexPackageImpl#getSolverCplexParams()
+	 * @see com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexPackageImpl#getSolverCplexParams()
 	 * @generated
 	 */
 	int SOLVER_CPLEX_PARAMS = 1;
@@ -1007,7 +996,7 @@ public interface SolvercplexPackage extends EPackage {
 	int SOLVER_CPLEX_PARAMS__MIP_LIMITS_CUTS_FACTOR = SolverPackage.SOLVER_LP_PARAMS_FEATURE_COUNT + 12;
 
 	/**
-	 * The number of structural features of the '<em>Solver Cplex Params</em>' class.
+	 * The number of structural features of the '<em>Params</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1025,16 +1014,7 @@ public interface SolvercplexPackage extends EPackage {
 	int SOLVER_CPLEX_PARAMS___COPY_PARAMS__RUNPARAMS = SolverPackage.SOLVER_LP_PARAMS___COPY_PARAMS__RUNPARAMS;
 
 	/**
-	 * The operation id for the '<em>Clone</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_CPLEX_PARAMS___CLONE = SolverPackage.SOLVER_LP_PARAMS___CLONE;
-
-	/**
-	 * The number of operations of the '<em>Solver Cplex Params</em>' class.
+	 * The number of operations of the '<em>Params</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1054,10 +1034,10 @@ public interface SolvercplexPackage extends EPackage {
 	EClass getSolverCplex();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplexParams <em>Solver Cplex Params</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.solvercplex.SolverCplexParams <em>Params</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Solver Cplex Params</em>'.
+	 * @return the meta object for class '<em>Params</em>'.
 	 * @see com.misc.common.moplaf.solver.solvercplex.SolverCplexParams
 	 * @generated
 	 */
@@ -1213,7 +1193,7 @@ public interface SolvercplexPackage extends EPackage {
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
-	SolvercplexFactory getSolvercplexFactory();
+	SolverCplexFactory getSolverCplexFactory();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1234,19 +1214,21 @@ public interface SolvercplexPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexImpl
-		 * @see com.misc.common.moplaf.solver.solvercplex.impl.SolvercplexPackageImpl#getSolverCplex()
+		 * @see com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexPackageImpl#getSolverCplex()
 		 * @generated
 		 */
 		EClass SOLVER_CPLEX = eINSTANCE.getSolverCplex();
+
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexParamsImpl <em>Solver Cplex Params</em>}' class.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexParamsImpl <em>Params</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexParamsImpl
-		 * @see com.misc.common.moplaf.solver.solvercplex.impl.SolvercplexPackageImpl#getSolverCplexParams()
+		 * @see com.misc.common.moplaf.solver.solvercplex.impl.SolverCplexPackageImpl#getSolverCplexParams()
 		 * @generated
 		 */
 		EClass SOLVER_CPLEX_PARAMS = eINSTANCE.getSolverCplexParams();
+
 		/**
 		 * The meta object literal for the '<em><b>Mip Cuts Cliques</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -1254,6 +1236,7 @@ public interface SolvercplexPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOLVER_CPLEX_PARAMS__MIP_CUTS_CLIQUES = eINSTANCE.getSolverCplexParams_MipCutsCliques();
+
 		/**
 		 * The meta object literal for the '<em><b>Mip Cuts Covers</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -1261,6 +1244,7 @@ public interface SolvercplexPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOLVER_CPLEX_PARAMS__MIP_CUTS_COVERS = eINSTANCE.getSolverCplexParams_MipCutsCovers();
+
 		/**
 		 * The meta object literal for the '<em><b>Mip Cuts Flow Covers</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -1268,6 +1252,7 @@ public interface SolvercplexPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOLVER_CPLEX_PARAMS__MIP_CUTS_FLOW_COVERS = eINSTANCE.getSolverCplexParams_MipCutsFlowCovers();
+
 		/**
 		 * The meta object literal for the '<em><b>Mip Cuts Gomory</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -1275,6 +1260,7 @@ public interface SolvercplexPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOLVER_CPLEX_PARAMS__MIP_CUTS_GOMORY = eINSTANCE.getSolverCplexParams_MipCutsGomory();
+
 		/**
 		 * The meta object literal for the '<em><b>Mip Cuts GUB Covers</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -1282,6 +1268,7 @@ public interface SolvercplexPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOLVER_CPLEX_PARAMS__MIP_CUTS_GUB_COVERS = eINSTANCE.getSolverCplexParams_MipCutsGUBCovers();
+
 		/**
 		 * The meta object literal for the '<em><b>Mip Cuts Implied</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -1289,6 +1276,7 @@ public interface SolvercplexPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOLVER_CPLEX_PARAMS__MIP_CUTS_IMPLIED = eINSTANCE.getSolverCplexParams_MipCutsImplied();
+
 		/**
 		 * The meta object literal for the '<em><b>Mip Cuts MIR Cut</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -1296,6 +1284,7 @@ public interface SolvercplexPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOLVER_CPLEX_PARAMS__MIP_CUTS_MIR_CUT = eINSTANCE.getSolverCplexParams_MipCutsMIRCut();
+
 		/**
 		 * The meta object literal for the '<em><b>Mip Cuts Path Cut</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -1303,6 +1292,7 @@ public interface SolvercplexPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOLVER_CPLEX_PARAMS__MIP_CUTS_PATH_CUT = eINSTANCE.getSolverCplexParams_MipCutsPathCut();
+
 		/**
 		 * The meta object literal for the '<em><b>Mip Strategy Backtrack</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -1310,6 +1300,7 @@ public interface SolvercplexPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOLVER_CPLEX_PARAMS__MIP_STRATEGY_BACKTRACK = eINSTANCE.getSolverCplexParams_MipStrategyBacktrack();
+
 		/**
 		 * The meta object literal for the '<em><b>Mip Strategy Heuristic Freq</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -1317,6 +1308,7 @@ public interface SolvercplexPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOLVER_CPLEX_PARAMS__MIP_STRATEGY_HEURISTIC_FREQ = eINSTANCE.getSolverCplexParams_MipStrategyHeuristicFreq();
+
 		/**
 		 * The meta object literal for the '<em><b>Mip Strategy Probe</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -1324,6 +1316,7 @@ public interface SolvercplexPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PROBE = eINSTANCE.getSolverCplexParams_MipStrategyProbe();
+
 		/**
 		 * The meta object literal for the '<em><b>Mip Strategy Presolve Node</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -1331,6 +1324,7 @@ public interface SolvercplexPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOLVER_CPLEX_PARAMS__MIP_STRATEGY_PRESOLVE_NODE = eINSTANCE.getSolverCplexParams_MipStrategyPresolveNode();
+
 		/**
 		 * The meta object literal for the '<em><b>Mip Limits Cuts Factor</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -1341,4 +1335,4 @@ public interface SolvercplexPackage extends EPackage {
 
 	}
 
-} //SolvercplexPackage
+} //SolverCplexPackage

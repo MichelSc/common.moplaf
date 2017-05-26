@@ -45,6 +45,6 @@ public interface ParamsHolder extends EObject {
 	 * @model
 	 * @generated
 	 */
-	RunParams constructParams(RunParams run);
+	RunParams constructParams(Run run);
 
 } // ParamsHolder
