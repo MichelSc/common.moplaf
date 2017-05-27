@@ -504,12 +504,22 @@ public class RunItemProvider
 		}
 	} // class RunResetCommand
 	
+	protected Command createDropCommand(Object owner, Object droppedObject){ 
+		Run thisRun = (Run) owner;
+		if ( droppedObject instanceof RunParams){
+  	   		RunParams droppedParams = (RunParams) droppedObject;
+  	   		RunCopyParamsCommand cmd = new RunCopyParamsCommand(thisRun, droppedParams);
+		   	return cmd;
+		} 
+		return null;
+	}
+	
 	/**
 	 * Create a drag and drop command for this Run
 	 */
-	public class RunDragAndDropCommand extends DragAndDropCommand{
-		// constructor
-	   	public RunDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
+	private class RunDragAndDropCommand extends DragAndDropCommand {
+
+		public RunDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
 				int operation, Collection<?> collection) {
 			super(domain, owner, location, operations, operation, collection);
 		}
@@ -521,13 +531,11 @@ public class RunItemProvider
 	    @Override
 	    protected boolean prepare(){
 	    	CompoundCommand compound = new CompoundCommand();
-			Run thisRun = (Run) this.owner;
 			for (Object element : collection){
-				if ( element instanceof RunParams){
-		  	   		RunParams droppedParams = (RunParams) element;
-		  	   		RunCopyParamsCommand cmd = new RunCopyParamsCommand(thisRun, droppedParams);
-				   	compound.append(cmd);
-				} 
+				Command cmd = RunItemProvider.this.createDropCommand(this.owner, element);
+				if ( cmd != null ){
+					compound.append(cmd);
+				}
 			}
 	    	this.dragCommand = null;
 			this.dropCommand = compound;

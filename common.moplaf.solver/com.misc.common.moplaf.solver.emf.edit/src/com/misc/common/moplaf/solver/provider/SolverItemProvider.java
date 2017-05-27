@@ -777,51 +777,19 @@ public class SolverItemProvider
 		}
 	};
 		
-
-	/**
-	 * Create a drag and drop command for this Solver
-	 */
-	public class SolverDragAndDropCommand extends DragAndDropCommand{
-		// constructor
-	   	public SolverDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
-				int operation, Collection<?> collection) {
-			super(domain, owner, location, operations, operation, collection);
-		}
-	   	
-	    /**
-	     * This implementation of prepare is called again to implement {@link #validate validate}.
-	     * The method {@link #reset} will have been called before doing so.
-	     */
-	    @Override
-	    protected boolean prepare(){
-	    	CompoundCommand compound = new CompoundCommand();
-			Solver thisSolver = (Solver) this.owner;
-			for (Object element : collection){
-				if ( element instanceof GeneratorGoal){
-		  	   		GeneratorGoal droppedGoal = (GeneratorGoal) element;
-				   	ConstructGeneratorGoal cmd = new ConstructGeneratorGoal(thisSolver, droppedGoal);
-				   	compound.append(cmd);
-				} else if ( element instanceof Solver){
-		  	   		Solver droppedSolver = (Solver) element;
-		  	   		ConstructPreviousSolverGoal cmd = new ConstructPreviousSolverGoal(thisSolver, droppedSolver);
-				   	compound.append(cmd);
-				} else if ( element instanceof Solution){
-		  	   		Solution droppedSolution = (Solution) element;
-		  	   	ConstructPreviousSolutionGoal cmd = new ConstructPreviousSolutionGoal(thisSolver, droppedSolution);
-				   	compound.append(cmd);
-				} 
-			}
-	    	this.dragCommand = null;
-			this.dropCommand = compound;
-	    	return true;
-	    } // prepare
-	};
-	/**
-	 * Create a command for a drag and drop on this Solver
-	 */
 	@Override
-	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,
-			int operation, Collection<?> collection) {
-		return new SolverDragAndDropCommand(domain, owner, location, operations, operation, collection);
+	protected Command createDropCommand(Object owner, Object droppedObject) {
+		Solver solver = (Solver)owner;
+		if ( droppedObject instanceof GeneratorGoal){
+  	   		GeneratorGoal droppedGoal = (GeneratorGoal) droppedObject;
+		   	return new ConstructGeneratorGoal(solver, droppedGoal);
+		} else if ( droppedObject instanceof Solver){
+  	   		Solver droppedSolver = (Solver) droppedObject;
+  	   		return new ConstructPreviousSolverGoal(solver, droppedSolver);
+		} else if ( droppedObject instanceof Solution){
+  	   		Solution droppedSolution = (Solution) droppedObject;
+  	   		return new ConstructPreviousSolutionGoal(solver, droppedSolution);
+		} 
+		return super.createDropCommand(owner, droppedObject);
 	}
 }

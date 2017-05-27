@@ -468,7 +468,7 @@
         <genParameters ecoreParameter="solver.ecore#//GeneratorLpLinear/contributeTerm/coef"/>
       </genOperations>
     </genClasses>
-    <genClasses ecoreClass="solver.ecore#//SolverLpParams">
+    <genClasses image="false" ecoreClass="solver.ecore#//SolverLpParams">
       <genFeatures createChild="false" propertyCategory="22 Param Solver LP" ecoreFeature="ecore:EAttribute solver.ecore#//SolverLpParams/SolverOptimalityTolerance"/>
       <genFeatures createChild="false" propertyCategory="22 Param Solver LP" ecoreFeature="ecore:EAttribute solver.ecore#//SolverLpParams/SolverLinearRelaxation"/>
       <genFeatures createChild="false" propertyCategory="22 Param Solver LP" propertyDescription=""

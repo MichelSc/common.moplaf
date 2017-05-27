@@ -47,7 +47,11 @@ public class RunParamsImpl extends MinimalEObjectImpl.Container implements RunPa
 	 */
 	public void copyParams(RunParams other) {
 		for ( EAttribute attribute : this.eClass().getEAllAttributes()){
-			this.eSet(attribute, other.eGet(attribute));
+			if ( attribute.isChangeable() && !attribute.isDerived() ){
+				if ( attribute.getEContainingClass().isSuperTypeOf(other.eClass()) ){
+					this.eSet(attribute, other.eGet(attribute));
+				}
+			}
 		}
 	}
 

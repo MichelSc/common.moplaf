@@ -62,11 +62,10 @@ public class RunParamsItemProvider
 	 * This returns RunParams.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RunParams"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/parameters.png"));
 	}
 
 	/**
