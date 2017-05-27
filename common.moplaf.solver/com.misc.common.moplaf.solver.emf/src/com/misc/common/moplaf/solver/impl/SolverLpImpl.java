@@ -12,7 +12,6 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
-import com.misc.common.moplaf.job.JobFactory;
 import com.misc.common.moplaf.job.RunParams;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolverFactory;

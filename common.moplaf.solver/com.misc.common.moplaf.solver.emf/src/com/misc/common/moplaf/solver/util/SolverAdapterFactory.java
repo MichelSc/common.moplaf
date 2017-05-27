@@ -272,6 +272,14 @@ public class SolverAdapterFactory extends AdapterFactoryImpl {
 				return createSolverLpParamsAdapter();
 			}
 			@Override
+			public Adapter caseSolverParams(SolverParams object) {
+				return createSolverParamsAdapter();
+			}
+			@Override
+			public Adapter caseSolutionProviderParams(SolutionProviderParams object) {
+				return createSolutionProviderParamsAdapter();
+			}
+			@Override
 			public Adapter caseRunParams(RunParams object) {
 				return createRunParamsAdapter();
 			}
@@ -408,6 +416,34 @@ public class SolverAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSolverLpParamsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.SolverParams <em>Params</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.solver.SolverParams
+	 * @generated
+	 */
+	public Adapter createSolverParamsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.SolutionProviderParams <em>Solution Provider Params</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.solver.SolutionProviderParams
+	 * @generated
+	 */
+	public Adapter createSolutionProviderParamsAdapter() {
 		return null;
 	}
 

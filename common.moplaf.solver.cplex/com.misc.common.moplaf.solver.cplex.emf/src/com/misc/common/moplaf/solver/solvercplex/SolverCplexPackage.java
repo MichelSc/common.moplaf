@@ -131,6 +131,15 @@ public interface SolverCplexPackage extends EPackage {
 	int SOLVER_CPLEX__RETURN_INFORMATION = SolverPackage.SOLVER_LP__RETURN_INFORMATION;
 
 	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX__CODE = SolverPackage.SOLVER_LP__CODE;
+
+	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -147,15 +156,6 @@ public interface SolverCplexPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_CPLEX__CURRENT_SOLUTION_NR = SolverPackage.SOLVER_LP__CURRENT_SOLUTION_NR;
-
-	/**
-	 * The feature id for the '<em><b>Code</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_CPLEX__CODE = SolverPackage.SOLVER_LP__CODE;
 
 	/**
 	 * The feature id for the '<em><b>Remarks</b></em>' attribute.
@@ -850,6 +850,24 @@ public interface SolverCplexPackage extends EPackage {
 	 * @generated
 	 */
 	int SOLVER_CPLEX_PARAMS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX_PARAMS__CODE = SolverPackage.SOLVER_LP_PARAMS__CODE;
+
+	/**
+	 * The feature id for the '<em><b>Remarks</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX_PARAMS__REMARKS = SolverPackage.SOLVER_LP_PARAMS__REMARKS;
 
 	/**
 	 * The feature id for the '<em><b>Solver Optimality Tolerance</b></em>' attribute.

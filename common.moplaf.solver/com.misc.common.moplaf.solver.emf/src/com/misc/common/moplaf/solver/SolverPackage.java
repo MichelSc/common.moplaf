@@ -2051,13 +2051,22 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_PROVIDER__RETURN_INFORMATION = JobPackage.RUN__RETURN_INFORMATION;
 
 	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER__CODE = JobPackage.RUN_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER__SOLUTION = JobPackage.RUN_FEATURE_COUNT + 0;
+	int SOLUTION_PROVIDER__SOLUTION = JobPackage.RUN_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Current Solution Nr</b></em>' attribute.
@@ -2066,16 +2075,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLUTION_PROVIDER__CURRENT_SOLUTION_NR = JobPackage.RUN_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Code</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_PROVIDER__CODE = JobPackage.RUN_FEATURE_COUNT + 2;
+	int SOLUTION_PROVIDER__CURRENT_SOLUTION_NR = JobPackage.RUN_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Solution Provider</em>' class.
@@ -2295,6 +2295,15 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_READER__RETURN_INFORMATION = SOLUTION_PROVIDER__RETURN_INFORMATION;
 
 	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER__CODE = SOLUTION_PROVIDER__CODE;
+
+	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2311,15 +2320,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_READER__CURRENT_SOLUTION_NR = SOLUTION_PROVIDER__CURRENT_SOLUTION_NR;
-
-	/**
-	 * The feature id for the '<em><b>Code</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_READER__CODE = SOLUTION_PROVIDER__CODE;
 
 	/**
 	 * The feature id for the '<em><b>File Path</b></em>' attribute.
@@ -2566,6 +2566,15 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_READER_PATTERN__RETURN_INFORMATION = SOLUTION_READER__RETURN_INFORMATION;
 
 	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_READER_PATTERN__CODE = SOLUTION_READER__CODE;
+
+	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2582,15 +2591,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLUTION_READER_PATTERN__CURRENT_SOLUTION_NR = SOLUTION_READER__CURRENT_SOLUTION_NR;
-
-	/**
-	 * The feature id for the '<em><b>Code</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLUTION_READER_PATTERN__CODE = SOLUTION_READER__CODE;
 
 	/**
 	 * The feature id for the '<em><b>File Path</b></em>' attribute.
@@ -2973,6 +2973,15 @@ public interface SolverPackage extends EPackage {
 	int SOLVER__RETURN_INFORMATION = SOLUTION_PROVIDER__RETURN_INFORMATION;
 
 	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER__CODE = SOLUTION_PROVIDER__CODE;
+
+	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2989,15 +2998,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER__CURRENT_SOLUTION_NR = SOLUTION_PROVIDER__CURRENT_SOLUTION_NR;
-
-	/**
-	 * The feature id for the '<em><b>Code</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER__CODE = SOLUTION_PROVIDER__CODE;
 
 	/**
 	 * The feature id for the '<em><b>Remarks</b></em>' attribute.
@@ -3718,6 +3718,15 @@ public interface SolverPackage extends EPackage {
 	int SOLUTION_LP = 29;
 
 	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP__CODE = SOLVER__CODE;
+
+	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3734,15 +3743,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_CP__CURRENT_SOLUTION_NR = SOLVER__CURRENT_SOLUTION_NR;
-
-	/**
-	 * The feature id for the '<em><b>Code</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_CP__CODE = SOLVER__CODE;
 
 	/**
 	 * The feature id for the '<em><b>Remarks</b></em>' attribute.
@@ -4312,6 +4312,15 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_LP__RETURN_INFORMATION = SOLVER__RETURN_INFORMATION;
 
 	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP__CODE = SOLVER__CODE;
+
+	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4328,15 +4337,6 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP__CURRENT_SOLUTION_NR = SOLVER__CURRENT_SOLUTION_NR;
-
-	/**
-	 * The feature id for the '<em><b>Code</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_LP__CODE = SOLVER__CODE;
 
 	/**
 	 * The feature id for the '<em><b>Remarks</b></em>' attribute.
@@ -7192,6 +7192,107 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_LP_LINEAR_OPERATION_COUNT = 2;
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionProviderParamsImpl <em>Solution Provider Params</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.solver.impl.SolutionProviderParamsImpl
+	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionProviderParams()
+	 * @generated
+	 */
+	int SOLUTION_PROVIDER_PARAMS = 49;
+
+	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER_PARAMS__CODE = JobPackage.RUN_PARAMS_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Solution Provider Params</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER_PARAMS_FEATURE_COUNT = JobPackage.RUN_PARAMS_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Copy Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER_PARAMS___COPY_PARAMS__RUNPARAMS = JobPackage.RUN_PARAMS___COPY_PARAMS__RUNPARAMS;
+
+	/**
+	 * The number of operations of the '<em>Solution Provider Params</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLUTION_PROVIDER_PARAMS_OPERATION_COUNT = JobPackage.RUN_PARAMS_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolverParamsImpl <em>Params</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.solver.impl.SolverParamsImpl
+	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolverParams()
+	 * @generated
+	 */
+	int SOLVER_PARAMS = 48;
+
+	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_PARAMS__CODE = SOLUTION_PROVIDER_PARAMS__CODE;
+
+	/**
+	 * The feature id for the '<em><b>Remarks</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_PARAMS__REMARKS = SOLUTION_PROVIDER_PARAMS_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Params</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_PARAMS_FEATURE_COUNT = SOLUTION_PROVIDER_PARAMS_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Copy Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_PARAMS___COPY_PARAMS__RUNPARAMS = SOLUTION_PROVIDER_PARAMS___COPY_PARAMS__RUNPARAMS;
+
+	/**
+	 * The number of operations of the '<em>Params</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_PARAMS_OPERATION_COUNT = SOLUTION_PROVIDER_PARAMS_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolverLpParamsImpl <em>Lp Params</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7202,13 +7303,31 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_LP_PARAMS = 47;
 
 	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP_PARAMS__CODE = SOLVER_PARAMS__CODE;
+
+	/**
+	 * The feature id for the '<em><b>Remarks</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP_PARAMS__REMARKS = SOLVER_PARAMS__REMARKS;
+
+	/**
 	 * The feature id for the '<em><b>Solver Optimality Tolerance</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_LP_PARAMS__SOLVER_OPTIMALITY_TOLERANCE = JobPackage.RUN_PARAMS_FEATURE_COUNT + 0;
+	int SOLVER_LP_PARAMS__SOLVER_OPTIMALITY_TOLERANCE = SOLVER_PARAMS_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Solver Linear Relaxation</b></em>' attribute.
@@ -7217,7 +7336,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_LP_PARAMS__SOLVER_LINEAR_RELAXATION = JobPackage.RUN_PARAMS_FEATURE_COUNT + 1;
+	int SOLVER_LP_PARAMS__SOLVER_LINEAR_RELAXATION = SOLVER_PARAMS_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Sol Optimality Gap</b></em>' attribute.
@@ -7226,7 +7345,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_LP_PARAMS__SOL_OPTIMALITY_GAP = JobPackage.RUN_PARAMS_FEATURE_COUNT + 2;
+	int SOLVER_LP_PARAMS__SOL_OPTIMALITY_GAP = SOLVER_PARAMS_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Lp Params</em>' class.
@@ -7235,7 +7354,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_LP_PARAMS_FEATURE_COUNT = JobPackage.RUN_PARAMS_FEATURE_COUNT + 3;
+	int SOLVER_LP_PARAMS_FEATURE_COUNT = SOLVER_PARAMS_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Copy Params</em>' operation.
@@ -7244,7 +7363,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_LP_PARAMS___COPY_PARAMS__RUNPARAMS = JobPackage.RUN_PARAMS___COPY_PARAMS__RUNPARAMS;
+	int SOLVER_LP_PARAMS___COPY_PARAMS__RUNPARAMS = SOLVER_PARAMS___COPY_PARAMS__RUNPARAMS;
 
 	/**
 	 * The number of operations of the '<em>Lp Params</em>' class.
@@ -7253,7 +7372,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_LP_PARAMS_OPERATION_COUNT = JobPackage.RUN_PARAMS_OPERATION_COUNT + 0;
+	int SOLVER_LP_PARAMS_OPERATION_COUNT = SOLVER_PARAMS_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '<em>ITuple Visitor</em>' data type.
@@ -7263,7 +7382,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getITupleVisitor()
 	 * @generated
 	 */
-	int ITUPLE_VISITOR = 55;
+	int ITUPLE_VISITOR = 57;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -7273,7 +7392,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 56;
+	int EXCEPTION = 58;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumLpVarType <em>Enum Lp Var Type</em>}' enum.
@@ -7283,7 +7402,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumLpVarType()
 	 * @generated
 	 */
-	int ENUM_LP_VAR_TYPE = 48;
+	int ENUM_LP_VAR_TYPE = 50;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumLpConsType <em>Enum Lp Cons Type</em>}' enum.
@@ -7293,7 +7412,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumLpConsType()
 	 * @generated
 	 */
-	int ENUM_LP_CONS_TYPE = 49;
+	int ENUM_LP_CONS_TYPE = 51;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumObjectiveType <em>Enum Objective Type</em>}' enum.
@@ -7303,7 +7422,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumObjectiveType()
 	 * @generated
 	 */
-	int ENUM_OBJECTIVE_TYPE = 50;
+	int ENUM_OBJECTIVE_TYPE = 52;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumSolverLogLevel <em>Enum Solver Log Level</em>}' enum.
@@ -7313,7 +7432,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumSolverLogLevel()
 	 * @generated
 	 */
-	int ENUM_SOLVER_LOG_LEVEL = 51;
+	int ENUM_SOLVER_LOG_LEVEL = 53;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumCpLinearType <em>Enum Cp Linear Type</em>}' enum.
@@ -7323,7 +7442,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumCpLinearType()
 	 * @generated
 	 */
-	int ENUM_CP_LINEAR_TYPE = 52;
+	int ENUM_CP_LINEAR_TYPE = 54;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumCpLogicalType <em>Enum Cp Logical Type</em>}' enum.
@@ -7333,7 +7452,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumCpLogicalType()
 	 * @generated
 	 */
-	int ENUM_CP_LOGICAL_TYPE = 53;
+	int ENUM_CP_LOGICAL_TYPE = 55;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumLpFileFormat <em>Enum Lp File Format</em>}' enum.
@@ -7343,7 +7462,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumLpFileFormat()
 	 * @generated
 	 */
-	int ENUM_LP_FILE_FORMAT = 54;
+	int ENUM_LP_FILE_FORMAT = 56;
 
 
 	/**
@@ -8094,6 +8213,48 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSolverLpParams_SolOptimalityGap();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.SolverParams <em>Params</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Params</em>'.
+	 * @see com.misc.common.moplaf.solver.SolverParams
+	 * @generated
+	 */
+	EClass getSolverParams();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.SolverParams#getRemarks <em>Remarks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Remarks</em>'.
+	 * @see com.misc.common.moplaf.solver.SolverParams#getRemarks()
+	 * @see #getSolverParams()
+	 * @generated
+	 */
+	EAttribute getSolverParams_Remarks();
+
+	/**
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.SolutionProviderParams <em>Solution Provider Params</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Solution Provider Params</em>'.
+	 * @see com.misc.common.moplaf.solver.SolutionProviderParams
+	 * @generated
+	 */
+	EClass getSolutionProviderParams();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.SolutionProviderParams#getCode <em>Code</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Code</em>'.
+	 * @see com.misc.common.moplaf.solver.SolutionProviderParams#getCode()
+	 * @see #getSolutionProviderParams()
+	 * @generated
+	 */
+	EAttribute getSolutionProviderParams_Code();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.SolverGoal <em>Goal</em>}'.
@@ -8993,17 +9154,6 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSolver();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.Solver#getRemarks <em>Remarks</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Remarks</em>'.
-	 * @see com.misc.common.moplaf.solver.Solver#getRemarks()
-	 * @see #getSolver()
-	 * @generated
-	 */
-	EAttribute getSolver_Remarks();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.Solver#getStatus <em>Status</em>}'.
@@ -10127,17 +10277,6 @@ public interface SolverPackage extends EPackage {
 	EAttribute getSolutionProvider_CurrentSolutionNr();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.SolutionProvider#getCode <em>Code</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Code</em>'.
-	 * @see com.misc.common.moplaf.solver.SolutionProvider#getCode()
-	 * @see #getSolutionProvider()
-	 * @generated
-	 */
-	EAttribute getSolutionProvider_Code();
-
-	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.solver.SolutionProvider#solutionFactory() <em>Solution Factory</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10833,6 +10972,42 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOLVER_LP_PARAMS__SOL_OPTIMALITY_GAP = eINSTANCE.getSolverLpParams_SolOptimalityGap();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.SolverParamsImpl <em>Params</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.solver.impl.SolverParamsImpl
+		 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolverParams()
+		 * @generated
+		 */
+		EClass SOLVER_PARAMS = eINSTANCE.getSolverParams();
+
+		/**
+		 * The meta object literal for the '<em><b>Remarks</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOLVER_PARAMS__REMARKS = eINSTANCE.getSolverParams_Remarks();
+
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.SolutionProviderParamsImpl <em>Solution Provider Params</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.solver.impl.SolutionProviderParamsImpl
+		 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionProviderParams()
+		 * @generated
+		 */
+		EClass SOLUTION_PROVIDER_PARAMS = eINSTANCE.getSolutionProviderParams();
+
+		/**
+		 * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOLUTION_PROVIDER_PARAMS__CODE = eINSTANCE.getSolutionProviderParams_Code();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.SolverGoalImpl <em>Goal</em>}' class.
@@ -11551,14 +11726,6 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SOLVER = eINSTANCE.getSolver();
-
-		/**
-		 * The meta object literal for the '<em><b>Remarks</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SOLVER__REMARKS = eINSTANCE.getSolver_Remarks();
 
 		/**
 		 * The meta object literal for the '<em><b>Status</b></em>' attribute feature.
@@ -12453,14 +12620,6 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOLUTION_PROVIDER__CURRENT_SOLUTION_NR = eINSTANCE.getSolutionProvider_CurrentSolutionNr();
-
-		/**
-		 * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SOLUTION_PROVIDER__CODE = eINSTANCE.getSolutionProvider_Code();
 
 		/**
 		 * The meta object literal for the '<em><b>Solution Factory</b></em>' operation.

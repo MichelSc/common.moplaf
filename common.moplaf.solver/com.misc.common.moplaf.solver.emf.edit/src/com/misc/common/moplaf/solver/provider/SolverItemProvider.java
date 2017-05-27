@@ -27,13 +27,11 @@ import java.util.List;
 
 import org.eclipse.emf.common.command.AbstractCommand;
 import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
-import org.eclipse.emf.edit.command.DragAndDropCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -104,9 +102,9 @@ public class SolverItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Solver_Remarks_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Solver_Remarks_feature", "_UI_Solver_type"),
-				 SolverPackage.Literals.SOLVER__REMARKS,
+				 getString("_UI_SolverParams_Remarks_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SolverParams_Remarks_feature", "_UI_SolverParams_type"),
+				 SolverPackage.Literals.SOLVER_PARAMS__REMARKS,
 				 true,
 				 true,
 				 false,

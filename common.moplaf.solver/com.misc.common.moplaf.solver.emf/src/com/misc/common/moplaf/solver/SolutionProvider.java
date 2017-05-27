@@ -34,14 +34,13 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.SolutionProvider#getSolution <em>Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.SolutionProvider#getCurrentSolutionNr <em>Current Solution Nr</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.SolutionProvider#getCode <em>Code</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getSolutionProvider()
  * @model abstract="true"
  * @generated
  */
-public interface SolutionProvider extends Run, IGeneratorTool {
+public interface SolutionProvider extends Run, IGeneratorTool, SolutionProviderParams {
 
 	/**
 	 * Returns the value of the '<em><b>Solution</b></em>' containment reference list.
@@ -87,32 +86,6 @@ public interface SolutionProvider extends Run, IGeneratorTool {
 	 * @generated
 	 */
 	void setCurrentSolutionNr(int value);
-
-	/**
-	 * Returns the value of the '<em><b>Code</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Code</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Code</em>' attribute.
-	 * @see #setCode(String)
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolutionProvider_Code()
-	 * @model
-	 * @generated
-	 */
-	String getCode();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.solver.SolutionProvider#getCode <em>Code</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Code</em>' attribute.
-	 * @see #getCode()
-	 * @generated
-	 */
-	void setCode(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -41,6 +41,7 @@ import com.misc.common.moplaf.solver.SolverGoal;
 import com.misc.common.moplaf.solver.SolverGoalPreviousSolver;
 import com.misc.common.moplaf.solver.SolverPackage;
 
+import com.misc.common.moplaf.solver.SolverParams;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.Date;
@@ -1935,6 +1936,38 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return goals != null && !goals.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == SolverParams.class) {
+			switch (derivedFeatureID) {
+				case SolverPackage.SOLVER__REMARKS: return SolverPackage.SOLVER_PARAMS__REMARKS;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == SolverParams.class) {
+			switch (baseFeatureID) {
+				case SolverPackage.SOLVER_PARAMS__REMARKS: return SolverPackage.SOLVER__REMARKS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

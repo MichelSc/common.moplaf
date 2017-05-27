@@ -1374,7 +1374,7 @@ public interface JobPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMS_HOLDER___CONSTRUCT_PARAMS__RUNPARAMS = 0;
+	int PARAMS_HOLDER___CONSTRUCT_PARAMS__RUN = 0;
 
 	/**
 	 * The number of operations of the '<em>Params Holder</em>' class.
@@ -2137,7 +2137,7 @@ public interface JobPackage extends EPackage {
 	 * @see com.misc.common.moplaf.job.ParamsHolder#constructParams(com.misc.common.moplaf.job.Run)
 	 * @generated
 	 */
-	EOperation getParamsHolder__ConstructParams__RunParams();
+	EOperation getParamsHolder__ConstructParams__Run();
 
 	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.job.JobParameterType <em>Parameter Type</em>}'.
@@ -2775,7 +2775,7 @@ public interface JobPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PARAMS_HOLDER___CONSTRUCT_PARAMS__RUNPARAMS = eINSTANCE.getParamsHolder__ConstructParams__RunParams();
+		EOperation PARAMS_HOLDER___CONSTRUCT_PARAMS__RUN = eINSTANCE.getParamsHolder__ConstructParams__Run();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.job.JobParameterType <em>Parameter Type</em>}' enum.

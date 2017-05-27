@@ -171,7 +171,7 @@ public class ParamsHolderImpl extends MinimalEObjectImpl.Container implements Pa
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case JobPackage.PARAMS_HOLDER___CONSTRUCT_PARAMS__RUNPARAMS:
+			case JobPackage.PARAMS_HOLDER___CONSTRUCT_PARAMS__RUN:
 				return constructParams((Run)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);

@@ -56,8 +56,8 @@ public class SolutionProviderItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCurrentSolutionNrPropertyDescriptor(object);
 			addCodePropertyDescriptor(object);
+			addCurrentSolutionNrPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -95,9 +95,9 @@ public class SolutionProviderItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SolutionProvider_Code_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SolutionProvider_Code_feature", "_UI_SolutionProvider_type"),
-				 SolverPackage.Literals.SOLUTION_PROVIDER__CODE,
+				 getString("_UI_SolutionProviderParams_Code_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SolutionProviderParams_Code_feature", "_UI_SolutionProviderParams_type"),
+				 SolverPackage.Literals.SOLUTION_PROVIDER_PARAMS__CODE,
 				 true,
 				 false,
 				 false,
@@ -173,8 +173,8 @@ public class SolutionProviderItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SolutionProvider.class)) {
-			case SolverPackage.SOLUTION_PROVIDER__CURRENT_SOLUTION_NR:
 			case SolverPackage.SOLUTION_PROVIDER__CODE:
+			case SolverPackage.SOLUTION_PROVIDER__CURRENT_SOLUTION_NR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SolverPackage.SOLUTION_PROVIDER__SOLUTION:

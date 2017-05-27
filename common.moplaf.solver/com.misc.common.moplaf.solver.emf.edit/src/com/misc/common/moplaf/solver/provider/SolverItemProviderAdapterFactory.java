@@ -175,6 +175,52 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.SolverParams} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SolverParamsItemProvider solverParamsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.SolverParams}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSolverParamsAdapter() {
+		if (solverParamsItemProvider == null) {
+			solverParamsItemProvider = new SolverParamsItemProvider(this);
+		}
+
+		return solverParamsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.SolutionProviderParams} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SolutionProviderParamsItemProvider solutionProviderParamsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.SolutionProviderParams}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSolutionProviderParamsAdapter() {
+		if (solutionProviderParamsItemProvider == null) {
+			solutionProviderParamsItemProvider = new SolutionProviderParamsItemProvider(this);
+		}
+
+		return solutionProviderParamsItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.SolverGeneratorGoal} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -949,6 +995,8 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 		if (generatorLpGoalItemProvider != null) generatorLpGoalItemProvider.dispose();
 		if (generatorLpLinearItemProvider != null) generatorLpLinearItemProvider.dispose();
 		if (solverLpParamsItemProvider != null) solverLpParamsItemProvider.dispose();
+		if (solverParamsItemProvider != null) solverParamsItemProvider.dispose();
+		if (solutionProviderParamsItemProvider != null) solutionProviderParamsItemProvider.dispose();
 	}
 
 }

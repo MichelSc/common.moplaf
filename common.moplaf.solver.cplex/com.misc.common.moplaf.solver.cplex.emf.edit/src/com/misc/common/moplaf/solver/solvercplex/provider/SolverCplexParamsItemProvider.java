@@ -352,17 +352,6 @@ public class SolverCplexParamsItemProvider extends SolverLpParamsItemProvider {
 	}
 
 	/**
-	 * This returns SolverCplexParams.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SolverCplexParams"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -370,8 +359,10 @@ public class SolverCplexParamsItemProvider extends SolverLpParamsItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		SolverCplexParams solverCplexParams = (SolverCplexParams)object;
-		return getString("_UI_SolverCplexParams_type") + " " + solverCplexParams.getSolverOptimalityTolerance();
+		String label = ((SolverCplexParams)object).getCode();
+		return label == null || label.length() == 0 ?
+			getString("_UI_SolverCplexParams_type") :
+			getString("_UI_SolverCplexParams_type") + " " + label;
 	}
 	
 

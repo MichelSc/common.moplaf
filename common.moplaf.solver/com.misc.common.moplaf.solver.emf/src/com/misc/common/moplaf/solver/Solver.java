@@ -36,7 +36,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.solver.Solver#getRemarks <em>Remarks</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getStatus <em>Status</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getSolverMaxDuration <em>Solver Max Duration</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getSolverLogLevel <em>Solver Log Level</em>}</li>
@@ -67,33 +66,7 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface Solver extends SolutionProvider {
-	/**
-	 * Returns the value of the '<em><b>Remarks</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Remarks</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Remarks</em>' attribute.
-	 * @see #setRemarks(String)
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolver_Remarks()
-	 * @model
-	 * @generated
-	 */
-	String getRemarks();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.solver.Solver#getRemarks <em>Remarks</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Remarks</em>' attribute.
-	 * @see #getRemarks()
-	 * @generated
-	 */
-	void setRemarks(String value);
-
+public interface Solver extends SolutionProvider, SolverParams {
 	/**
 	 * Returns the value of the '<em><b>Status</b></em>' attribute.
 	 * <!-- begin-user-doc -->

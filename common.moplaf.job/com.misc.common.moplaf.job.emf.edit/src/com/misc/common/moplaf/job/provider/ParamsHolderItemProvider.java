@@ -3,7 +3,6 @@
 package com.misc.common.moplaf.job.provider;
 
 
-import com.misc.common.moplaf.job.JobFactory;
 import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.job.ParamsHolder;
 import com.misc.common.moplaf.job.Run;
@@ -150,26 +149,6 @@ public class ParamsHolderItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JobPackage.Literals.PARAMS_HOLDER__RUNS_PARAMS,
-				 JobFactory.eINSTANCE.createRunParams()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JobPackage.Literals.PARAMS_HOLDER__RUNS_PARAMS,
-				 JobFactory.eINSTANCE.createRun()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JobPackage.Literals.PARAMS_HOLDER__RUNS_PARAMS,
-				 JobFactory.eINSTANCE.createJob()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JobPackage.Literals.PARAMS_HOLDER__RUNS_PARAMS,
-				 JobFactory.eINSTANCE.createJobConsole()));
 	}
 
 	/**

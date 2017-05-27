@@ -2,8 +2,6 @@
  */
 package com.misc.common.moplaf.solver;
 
-import com.misc.common.moplaf.job.RunParams;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Lp Params</b></em>'.
@@ -22,7 +20,7 @@ import com.misc.common.moplaf.job.RunParams;
  * @model
  * @generated
  */
-public interface SolverLpParams extends RunParams {
+public interface SolverLpParams extends SolverParams {
 	/**
 	 * Returns the value of the '<em><b>Solver Optimality Tolerance</b></em>' attribute.
 	 * The default value is <code>"0.05"</code>.

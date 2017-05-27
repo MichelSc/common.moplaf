@@ -59,6 +59,7 @@ import com.misc.common.moplaf.solver.SolutionLpCons;
 import com.misc.common.moplaf.solver.SolutionLpGoal;
 import com.misc.common.moplaf.solver.SolutionLpVar;
 import com.misc.common.moplaf.solver.SolutionProvider;
+import com.misc.common.moplaf.solver.SolutionProviderParams;
 import com.misc.common.moplaf.solver.SolutionReader;
 import com.misc.common.moplaf.solver.SolutionReaderPattern;
 import com.misc.common.moplaf.solver.SolutionVar;
@@ -71,6 +72,7 @@ import com.misc.common.moplaf.solver.SolverGoalPreviousSolver;
 import com.misc.common.moplaf.solver.SolverLp;
 import com.misc.common.moplaf.solver.SolverLpParams;
 import com.misc.common.moplaf.solver.SolverPackage;
+import com.misc.common.moplaf.solver.SolverParams;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -142,6 +144,20 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * @generated
 	 */
 	private EClass solverLpParamsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass solverParamsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass solutionProviderParamsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1194,6 +1210,42 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSolverParams() {
+		return solverParamsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSolverParams_Remarks() {
+		return (EAttribute)solverParamsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSolutionProviderParams() {
+		return solutionProviderParamsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSolutionProviderParams_Code() {
+		return (EAttribute)solutionProviderParamsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSolverGoal() {
 		return solverGoalEClass;
 	}
@@ -1959,7 +2011,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolver_Remarks() {
+	public EAttribute getSolver_Status() {
 		return (EAttribute)solverEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1968,7 +2020,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolver_Status() {
+	public EAttribute getSolver_SolverMaxDuration() {
 		return (EAttribute)solverEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1977,7 +2029,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolver_SolverMaxDuration() {
+	public EAttribute getSolver_SolverLogLevel() {
 		return (EAttribute)solverEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1986,7 +2038,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolver_SolverLogLevel() {
+	public EAttribute getSolver_SolverDump() {
 		return (EAttribute)solverEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1995,7 +2047,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolver_SolverDump() {
+	public EAttribute getSolver_RunStarted() {
 		return (EAttribute)solverEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -2004,7 +2056,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolver_RunStarted() {
+	public EAttribute getSolver_RunInitializationEnded() {
 		return (EAttribute)solverEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -2013,7 +2065,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolver_RunInitializationEnded() {
+	public EAttribute getSolver_RunSolvingEnded() {
 		return (EAttribute)solverEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -2022,7 +2074,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolver_RunSolvingEnded() {
+	public EAttribute getSolver_RunFinalizationEnded() {
 		return (EAttribute)solverEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -2031,7 +2083,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolver_RunFinalizationEnded() {
+	public EAttribute getSolver_RunDurationInitialization() {
 		return (EAttribute)solverEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -2040,7 +2092,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolver_RunDurationInitialization() {
+	public EAttribute getSolver_RunDurationFinalization() {
 		return (EAttribute)solverEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -2049,7 +2101,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolver_RunDurationFinalization() {
+	public EAttribute getSolver_RunDurationSolving() {
 		return (EAttribute)solverEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -2058,7 +2110,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolver_RunDurationSolving() {
+	public EAttribute getSolver_RunRequestTerminate() {
 		return (EAttribute)solverEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -2067,61 +2119,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolver_RunRequestTerminate() {
-		return (EAttribute)solverEClass.getEStructuralFeatures().get(12);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getSolver_SolUnfeasible() {
-		return (EAttribute)solverEClass.getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSolver_SolFeasible() {
-		return (EAttribute)solverEClass.getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSolver_SolOptimal() {
-		return (EAttribute)solverEClass.getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSolver_SolValue() {
-		return (EAttribute)solverEClass.getEStructuralFeatures().get(17);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSolver_RunInterrupted() {
-		return (EAttribute)solverEClass.getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSolver_RunTimeOut() {
 		return (EAttribute)solverEClass.getEStructuralFeatures().get(13);
 	}
 
@@ -2130,8 +2128,53 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSolver_SolFeasible() {
+		return (EAttribute)solverEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSolver_SolOptimal() {
+		return (EAttribute)solverEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSolver_SolValue() {
+		return (EAttribute)solverEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSolver_RunInterrupted() {
+		return (EAttribute)solverEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSolver_RunTimeOut() {
+		return (EAttribute)solverEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getSolver_Initializing() {
-		return (EAttribute)solverEClass.getEStructuralFeatures().get(19);
+		return (EAttribute)solverEClass.getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -2140,7 +2183,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * @generated
 	 */
 	public EReference getSolver_InitialSolution() {
-		return (EReference)solverEClass.getEStructuralFeatures().get(23);
+		return (EReference)solverEClass.getEStructuralFeatures().get(22);
 	}
 
 	/**
@@ -2149,7 +2192,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * @generated
 	 */
 	public EReference getSolver_Goals() {
-		return (EReference)solverEClass.getEStructuralFeatures().get(24);
+		return (EReference)solverEClass.getEStructuralFeatures().get(23);
 	}
 
 	/**
@@ -2158,7 +2201,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * @generated
 	 */
 	public EAttribute getSolver_Solving() {
-		return (EAttribute)solverEClass.getEStructuralFeatures().get(20);
+		return (EAttribute)solverEClass.getEStructuralFeatures().get(19);
 	}
 
 	/**
@@ -2167,7 +2210,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * @generated
 	 */
 	public EAttribute getSolver_Finalizing() {
-		return (EAttribute)solverEClass.getEStructuralFeatures().get(21);
+		return (EAttribute)solverEClass.getEStructuralFeatures().get(20);
 	}
 
 	/**
@@ -2176,7 +2219,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * @generated
 	 */
 	public EAttribute getSolver_Finished() {
-		return (EAttribute)solverEClass.getEStructuralFeatures().get(22);
+		return (EAttribute)solverEClass.getEStructuralFeatures().get(21);
 	}
 
 	/**
@@ -2922,15 +2965,6 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolutionProvider_Code() {
-		return (EAttribute)solutionProviderEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EOperation getSolutionProvider__SolutionFactory() {
 		return solutionProviderEClass.getEOperations().get(0);
 	}
@@ -3175,12 +3209,10 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		solutionProviderEClass = createEClass(SOLUTION_PROVIDER);
 		createEReference(solutionProviderEClass, SOLUTION_PROVIDER__SOLUTION);
 		createEAttribute(solutionProviderEClass, SOLUTION_PROVIDER__CURRENT_SOLUTION_NR);
-		createEAttribute(solutionProviderEClass, SOLUTION_PROVIDER__CODE);
 		createEOperation(solutionProviderEClass, SOLUTION_PROVIDER___SOLUTION_FACTORY);
 		createEOperation(solutionProviderEClass, SOLUTION_PROVIDER___CONSTRUCT_SOLUTION);
 
 		solverEClass = createEClass(SOLVER);
-		createEAttribute(solverEClass, SOLVER__REMARKS);
 		createEAttribute(solverEClass, SOLVER__STATUS);
 		createEAttribute(solverEClass, SOLVER__SOLVER_MAX_DURATION);
 		createEAttribute(solverEClass, SOLVER__SOLVER_LOG_LEVEL);
@@ -3347,6 +3379,12 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		createEAttribute(solverLpParamsEClass, SOLVER_LP_PARAMS__SOLVER_LINEAR_RELAXATION);
 		createEAttribute(solverLpParamsEClass, SOLVER_LP_PARAMS__SOL_OPTIMALITY_GAP);
 
+		solverParamsEClass = createEClass(SOLVER_PARAMS);
+		createEAttribute(solverParamsEClass, SOLVER_PARAMS__REMARKS);
+
+		solutionProviderParamsEClass = createEClass(SOLUTION_PROVIDER_PARAMS);
+		createEAttribute(solutionProviderParamsEClass, SOLUTION_PROVIDER_PARAMS__CODE);
+
 		// Create enums
 		enumLpVarTypeEEnum = createEEnum(ENUM_LP_VAR_TYPE);
 		enumLpConsTypeEEnum = createEEnum(ENUM_LP_CONS_TYPE);
@@ -3407,7 +3445,9 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		iLpWriterEClass.getESuperTypes().add(this.getIGeneratorTool());
 		solutionProviderEClass.getESuperTypes().add(theJobPackage.getRun());
 		solutionProviderEClass.getESuperTypes().add(this.getIGeneratorTool());
+		solutionProviderEClass.getESuperTypes().add(this.getSolutionProviderParams());
 		solverEClass.getESuperTypes().add(this.getSolutionProvider());
+		solverEClass.getESuperTypes().add(this.getSolverParams());
 		solverCpEClass.getESuperTypes().add(this.getSolver());
 		solverLpEClass.getESuperTypes().add(this.getSolver());
 		solverLpEClass.getESuperTypes().add(this.getSolverLpParams());
@@ -3429,7 +3469,9 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		generatorGoalEClass.getESuperTypes().add(this.getGeneratorElement());
 		generatorLpGoalEClass.getESuperTypes().add(this.getGeneratorGoal());
 		generatorLpGoalEClass.getESuperTypes().add(this.getGeneratorLpLinear());
-		solverLpParamsEClass.getESuperTypes().add(theJobPackage.getRunParams());
+		solverLpParamsEClass.getESuperTypes().add(this.getSolverParams());
+		solverParamsEClass.getESuperTypes().add(this.getSolutionProviderParams());
+		solutionProviderParamsEClass.getESuperTypes().add(theJobPackage.getRunParams());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(generatorEClass, Generator.class, "Generator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3628,14 +3670,12 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		initEClass(solutionProviderEClass, SolutionProvider.class, "SolutionProvider", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSolutionProvider_Solution(), this.getSolution(), this.getSolution_Provider(), "Solution", null, 0, -1, SolutionProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSolutionProvider_CurrentSolutionNr(), ecorePackage.getEInt(), "CurrentSolutionNr", "0", 0, 1, SolutionProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSolutionProvider_Code(), ecorePackage.getEString(), "Code", null, 0, 1, SolutionProvider.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getSolutionProvider__SolutionFactory(), this.getSolution(), "solutionFactory", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getSolutionProvider__ConstructSolution(), this.getSolution(), "constructSolution", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(solverEClass, Solver.class, "Solver", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSolver_Remarks(), ecorePackage.getEString(), "Remarks", null, 0, 1, Solver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSolver_Status(), ecorePackage.getEString(), "Status", null, 0, 1, Solver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSolver_SolverMaxDuration(), ecorePackage.getEFloat(), "SolverMaxDuration", "100", 0, 1, Solver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSolver_SolverLogLevel(), this.getEnumSolverLogLevel(), "SolverLogLevel", "Normal", 0, 1, Solver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3875,6 +3915,12 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		initEAttribute(getSolverLpParams_SolverOptimalityTolerance(), ecorePackage.getEFloat(), "SolverOptimalityTolerance", "0.05", 0, 1, SolverLpParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSolverLpParams_SolverLinearRelaxation(), ecorePackage.getEBoolean(), "SolverLinearRelaxation", null, 0, 1, SolverLpParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSolverLpParams_SolOptimalityGap(), ecorePackage.getEFloat(), "SolOptimalityGap", null, 0, 1, SolverLpParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(solverParamsEClass, SolverParams.class, "SolverParams", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSolverParams_Remarks(), ecorePackage.getEString(), "Remarks", null, 0, 1, SolverParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(solutionProviderParamsEClass, SolutionProviderParams.class, "SolutionProviderParams", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSolutionProviderParams_Code(), ecorePackage.getEString(), "Code", null, 0, 1, SolutionProviderParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(enumLpVarTypeEEnum, EnumLpVarType.class, "EnumLpVarType");

@@ -68,6 +68,24 @@ public interface SolverFactory extends EFactory {
 	SolverLpParams createSolverLpParams();
 
 	/**
+	 * Returns a new object of class '<em>Params</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Params</em>'.
+	 * @generated
+	 */
+	SolverParams createSolverParams();
+
+	/**
+	 * Returns a new object of class '<em>Solution Provider Params</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Solution Provider Params</em>'.
+	 * @generated
+	 */
+	SolutionProviderParams createSolutionProviderParams();
+
+	/**
 	 * Returns a new object of class '<em>Generator Goal</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

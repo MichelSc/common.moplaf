@@ -823,7 +823,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getParamsHolder__ConstructParams__RunParams() {
+	public EOperation getParamsHolder__ConstructParams__Run() {
 		return paramsHolderEClass.getEOperations().get(0);
 	}
 
@@ -984,7 +984,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 
 		paramsHolderEClass = createEClass(PARAMS_HOLDER);
 		createEReference(paramsHolderEClass, PARAMS_HOLDER__RUNS_PARAMS);
-		createEOperation(paramsHolderEClass, PARAMS_HOLDER___CONSTRUCT_PARAMS__RUNPARAMS);
+		createEOperation(paramsHolderEClass, PARAMS_HOLDER___CONSTRUCT_PARAMS__RUN);
 
 		// Create enums
 		jobParameterTypeEEnum = createEEnum(JOB_PARAMETER_TYPE);
@@ -1155,7 +1155,7 @@ public class JobPackageImpl extends EPackageImpl implements JobPackage {
 		initEClass(paramsHolderEClass, ParamsHolder.class, "ParamsHolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParamsHolder_RunsParams(), this.getRunParams(), null, "RunsParams", null, 0, -1, ParamsHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getParamsHolder__ConstructParams__RunParams(), this.getRunParams(), "constructParams", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getParamsHolder__ConstructParams__Run(), this.getRunParams(), "constructParams", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getRun(), "run", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals

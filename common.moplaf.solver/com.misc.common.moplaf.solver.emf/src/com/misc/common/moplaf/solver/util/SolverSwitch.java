@@ -203,6 +203,7 @@ public class SolverSwitch<T> extends Switch<T> {
 				if (result == null) result = caseSolutionProvider(solutionReader);
 				if (result == null) result = caseRun(solutionReader);
 				if (result == null) result = caseIGeneratorTool(solutionReader);
+				if (result == null) result = caseSolutionProviderParams(solutionReader);
 				if (result == null) result = caseRunParams(solutionReader);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -214,6 +215,7 @@ public class SolverSwitch<T> extends Switch<T> {
 				if (result == null) result = caseSolutionProvider(solutionReaderPattern);
 				if (result == null) result = caseRun(solutionReaderPattern);
 				if (result == null) result = caseIGeneratorTool(solutionReaderPattern);
+				if (result == null) result = caseSolutionProviderParams(solutionReaderPattern);
 				if (result == null) result = caseRunParams(solutionReaderPattern);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -230,6 +232,7 @@ public class SolverSwitch<T> extends Switch<T> {
 				T result = caseSolutionProvider(solutionProvider);
 				if (result == null) result = caseRun(solutionProvider);
 				if (result == null) result = caseIGeneratorTool(solutionProvider);
+				if (result == null) result = caseSolutionProviderParams(solutionProvider);
 				if (result == null) result = caseRunParams(solutionProvider);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -238,8 +241,10 @@ public class SolverSwitch<T> extends Switch<T> {
 				Solver solver = (Solver)theEObject;
 				T result = caseSolver(solver);
 				if (result == null) result = caseSolutionProvider(solver);
+				if (result == null) result = caseSolverParams(solver);
 				if (result == null) result = caseRun(solver);
 				if (result == null) result = caseIGeneratorTool(solver);
+				if (result == null) result = caseSolutionProviderParams(solver);
 				if (result == null) result = caseRunParams(solver);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -249,8 +254,10 @@ public class SolverSwitch<T> extends Switch<T> {
 				T result = caseSolverCp(solverCp);
 				if (result == null) result = caseSolver(solverCp);
 				if (result == null) result = caseSolutionProvider(solverCp);
+				if (result == null) result = caseSolverParams(solverCp);
 				if (result == null) result = caseRun(solverCp);
 				if (result == null) result = caseIGeneratorTool(solverCp);
+				if (result == null) result = caseSolutionProviderParams(solverCp);
 				if (result == null) result = caseRunParams(solverCp);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -261,8 +268,10 @@ public class SolverSwitch<T> extends Switch<T> {
 				if (result == null) result = caseSolver(solverLp);
 				if (result == null) result = caseSolverLpParams(solverLp);
 				if (result == null) result = caseSolutionProvider(solverLp);
+				if (result == null) result = caseSolverParams(solverLp);
 				if (result == null) result = caseRun(solverLp);
 				if (result == null) result = caseIGeneratorTool(solverLp);
+				if (result == null) result = caseSolutionProviderParams(solverLp);
 				if (result == null) result = caseRunParams(solverLp);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -444,7 +453,24 @@ public class SolverSwitch<T> extends Switch<T> {
 			case SolverPackage.SOLVER_LP_PARAMS: {
 				SolverLpParams solverLpParams = (SolverLpParams)theEObject;
 				T result = caseSolverLpParams(solverLpParams);
+				if (result == null) result = caseSolverParams(solverLpParams);
+				if (result == null) result = caseSolutionProviderParams(solverLpParams);
 				if (result == null) result = caseRunParams(solverLpParams);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SolverPackage.SOLVER_PARAMS: {
+				SolverParams solverParams = (SolverParams)theEObject;
+				T result = caseSolverParams(solverParams);
+				if (result == null) result = caseSolutionProviderParams(solverParams);
+				if (result == null) result = caseRunParams(solverParams);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SolverPackage.SOLUTION_PROVIDER_PARAMS: {
+				SolutionProviderParams solutionProviderParams = (SolutionProviderParams)theEObject;
+				T result = caseSolutionProviderParams(solutionProviderParams);
+				if (result == null) result = caseRunParams(solutionProviderParams);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -569,6 +595,36 @@ public class SolverSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSolverLpParams(SolverLpParams object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Params</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Params</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSolverParams(SolverParams object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Solution Provider Params</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Solution Provider Params</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSolutionProviderParams(SolutionProviderParams object) {
 		return null;
 	}
 

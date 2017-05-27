@@ -3,8 +3,6 @@
 package com.misc.common.moplaf.solver.provider;
 
 
-import com.misc.common.moplaf.job.provider.RunParamsItemProvider;
-
 import com.misc.common.moplaf.solver.SolverLpParams;
 import com.misc.common.moplaf.solver.SolverPackage;
 
@@ -13,9 +11,6 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -27,7 +22,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SolverLpParamsItemProvider extends RunParamsItemProvider {
+public class SolverLpParamsItemProvider extends SolverParamsItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -123,17 +118,6 @@ public class SolverLpParamsItemProvider extends RunParamsItemProvider {
 	}
 
 	/**
-	 * This returns SolverLpParams.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SolverLpParams"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -141,8 +125,10 @@ public class SolverLpParamsItemProvider extends RunParamsItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		SolverLpParams solverLpParams = (SolverLpParams)object;
-		return getString("_UI_SolverLpParams_type") + " " + solverLpParams.getSolverOptimalityTolerance();
+		String label = ((SolverLpParams)object).getCode();
+		return label == null || label.length() == 0 ?
+			getString("_UI_SolverLpParams_type") :
+			getString("_UI_SolverLpParams_type") + " " + label;
 	}
 	
 
@@ -177,17 +163,6 @@ public class SolverLpParamsItemProvider extends RunParamsItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return SolverEditPlugin.INSTANCE;
 	}
 
 }

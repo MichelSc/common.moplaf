@@ -2,8 +2,6 @@
  */
 package com.misc.common.moplaf.solver.impl;
 
-import com.misc.common.moplaf.job.impl.RunParamsImpl;
-
 import com.misc.common.moplaf.solver.SolverLpParams;
 import com.misc.common.moplaf.solver.SolverPackage;
 
@@ -28,7 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class SolverLpParamsImpl extends RunParamsImpl implements SolverLpParams {
+public class SolverLpParamsImpl extends SolverParamsImpl implements SolverLpParams {
 	/**
 	 * The default value of the '{@link #getSolverOptimalityTolerance() <em>Solver Optimality Tolerance</em>}' attribute.
 	 * <!-- begin-user-doc -->
