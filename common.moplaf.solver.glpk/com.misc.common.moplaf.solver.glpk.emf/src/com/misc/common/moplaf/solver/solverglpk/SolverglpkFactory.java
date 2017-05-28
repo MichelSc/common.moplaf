@@ -41,6 +41,15 @@ public interface SolverglpkFactory extends EFactory {
 	SolverGLPK createSolverGLPK();
 
 	/**
+	 * Returns a new object of class '<em>Solver GLPK Params</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Solver GLPK Params</em>'.
+	 * @generated
+	 */
+	SolverGLPKParams createSolverGLPKParams();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

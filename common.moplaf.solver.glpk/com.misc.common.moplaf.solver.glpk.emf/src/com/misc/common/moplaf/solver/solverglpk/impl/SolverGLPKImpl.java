@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.solver.solverglpk.impl;
 
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -36,6 +37,7 @@ import org.gnu.glpk.glp_smcp;
 import org.gnu.glpk.glp_tree;
 
 import com.misc.common.moplaf.common.ReturnFeedback;
+import com.misc.common.moplaf.job.RunParams;
 import com.misc.common.moplaf.solver.EnumLpConsType;
 import com.misc.common.moplaf.solver.EnumLpFileFormat;
 import com.misc.common.moplaf.solver.EnumLpVarType;
@@ -52,6 +54,8 @@ import com.misc.common.moplaf.solver.SolutionVar;
 import com.misc.common.moplaf.solver.SolverPackage;
 import com.misc.common.moplaf.solver.impl.SolverLpImpl;
 import com.misc.common.moplaf.solver.solverglpk.SolverGLPK;
+import com.misc.common.moplaf.solver.solverglpk.SolverGLPKParams;
+import com.misc.common.moplaf.solver.solverglpk.SolverglpkFactory;
 import com.misc.common.moplaf.solver.solverglpk.SolverglpkPackage;
 
 
@@ -66,12 +70,12 @@ import com.misc.common.moplaf.solver.solverglpk.SolverglpkPackage;
  *   <li>{@link com.misc.common.moplaf.solver.solverglpk.impl.SolverGLPKImpl#getFilePath <em>File Path</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solverglpk.impl.SolverGLPKImpl#getFileFormat <em>File Format</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solverglpk.impl.SolverGLPKImpl#isFileCompressed <em>File Compressed</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.solverglpk.impl.SolverGLPKImpl#isEnablePresolve <em>Enable Presolve</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solverglpk.impl.SolverGLPKImpl#isEnableFeasibilityPump <em>Enable Feasibility Pump</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solverglpk.impl.SolverGLPKImpl#isEnableGomoryCuts <em>Enable Gomory Cuts</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.solverglpk.impl.SolverGLPKImpl#isEnableGeneratingMixedCoverCuts <em>Enable Generating Mixed Cover Cuts</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solverglpk.impl.SolverGLPKImpl#isEnableGeneratingCliqueCuts <em>Enable Generating Clique Cuts</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.solverglpk.impl.SolverGLPKImpl#isEnableGeneratingMixedCoverCuts <em>Enable Generating Mixed Cover Cuts</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.solverglpk.impl.SolverGLPKImpl#isEnableMixedIntegerRoundingCuts <em>Enable Mixed Integer Rounding Cuts</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.solverglpk.impl.SolverGLPKImpl#isEnablePresolve <em>Enable Presolve</em>}</li>
  * </ul>
  *
  * @generated
@@ -138,6 +142,26 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 	protected boolean fileCompressed = FILE_COMPRESSED_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #isEnablePresolve() <em>Enable Presolve</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isEnablePresolve()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ENABLE_PRESOLVE_EDEFAULT = true;
+
+	/**
+	 * The cached value of the '{@link #isEnablePresolve() <em>Enable Presolve</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isEnablePresolve()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean enablePresolve = ENABLE_PRESOLVE_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #isEnableFeasibilityPump() <em>Enable Feasibility Pump</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -178,26 +202,6 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 	protected boolean enableGomoryCuts = ENABLE_GOMORY_CUTS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isEnableGeneratingMixedCoverCuts() <em>Enable Generating Mixed Cover Cuts</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isEnableGeneratingMixedCoverCuts()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean ENABLE_GENERATING_MIXED_COVER_CUTS_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isEnableGeneratingMixedCoverCuts() <em>Enable Generating Mixed Cover Cuts</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isEnableGeneratingMixedCoverCuts()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean enableGeneratingMixedCoverCuts = ENABLE_GENERATING_MIXED_COVER_CUTS_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #isEnableGeneratingCliqueCuts() <em>Enable Generating Clique Cuts</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -218,6 +222,26 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 	protected boolean enableGeneratingCliqueCuts = ENABLE_GENERATING_CLIQUE_CUTS_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #isEnableGeneratingMixedCoverCuts() <em>Enable Generating Mixed Cover Cuts</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isEnableGeneratingMixedCoverCuts()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ENABLE_GENERATING_MIXED_COVER_CUTS_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isEnableGeneratingMixedCoverCuts() <em>Enable Generating Mixed Cover Cuts</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isEnableGeneratingMixedCoverCuts()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean enableGeneratingMixedCoverCuts = ENABLE_GENERATING_MIXED_COVER_CUTS_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #isEnableMixedIntegerRoundingCuts() <em>Enable Mixed Integer Rounding Cuts</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -236,26 +260,6 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 	 * @ordered
 	 */
 	protected boolean enableMixedIntegerRoundingCuts = ENABLE_MIXED_INTEGER_ROUNDING_CUTS_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isEnablePresolve() <em>Enable Presolve</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isEnablePresolve()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean ENABLE_PRESOLVE_EDEFAULT = true;
-
-	/**
-	 * The cached value of the '{@link #isEnablePresolve() <em>Enable Presolve</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isEnablePresolve()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean enablePresolve = ENABLE_PRESOLVE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -386,27 +390,6 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isEnableGeneratingMixedCoverCuts() {
-		return enableGeneratingMixedCoverCuts;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEnableGeneratingMixedCoverCuts(boolean newEnableGeneratingMixedCoverCuts) {
-		boolean oldEnableGeneratingMixedCoverCuts = enableGeneratingMixedCoverCuts;
-		enableGeneratingMixedCoverCuts = newEnableGeneratingMixedCoverCuts;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverglpkPackage.SOLVER_GLPK__ENABLE_GENERATING_MIXED_COVER_CUTS, oldEnableGeneratingMixedCoverCuts, enableGeneratingMixedCoverCuts));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean isEnableGeneratingCliqueCuts() {
 		return enableGeneratingCliqueCuts;
 	}
@@ -421,6 +404,27 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		enableGeneratingCliqueCuts = newEnableGeneratingCliqueCuts;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverglpkPackage.SOLVER_GLPK__ENABLE_GENERATING_CLIQUE_CUTS, oldEnableGeneratingCliqueCuts, enableGeneratingCliqueCuts));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isEnableGeneratingMixedCoverCuts() {
+		return enableGeneratingMixedCoverCuts;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEnableGeneratingMixedCoverCuts(boolean newEnableGeneratingMixedCoverCuts) {
+		boolean oldEnableGeneratingMixedCoverCuts = enableGeneratingMixedCoverCuts;
+		enableGeneratingMixedCoverCuts = newEnableGeneratingMixedCoverCuts;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverglpkPackage.SOLVER_GLPK__ENABLE_GENERATING_MIXED_COVER_CUTS, oldEnableGeneratingMixedCoverCuts, enableGeneratingMixedCoverCuts));
 	}
 
 	/**
@@ -553,18 +557,18 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 				return getFileFormat();
 			case SolverglpkPackage.SOLVER_GLPK__FILE_COMPRESSED:
 				return isFileCompressed();
+			case SolverglpkPackage.SOLVER_GLPK__ENABLE_PRESOLVE:
+				return isEnablePresolve();
 			case SolverglpkPackage.SOLVER_GLPK__ENABLE_FEASIBILITY_PUMP:
 				return isEnableFeasibilityPump();
 			case SolverglpkPackage.SOLVER_GLPK__ENABLE_GOMORY_CUTS:
 				return isEnableGomoryCuts();
-			case SolverglpkPackage.SOLVER_GLPK__ENABLE_GENERATING_MIXED_COVER_CUTS:
-				return isEnableGeneratingMixedCoverCuts();
 			case SolverglpkPackage.SOLVER_GLPK__ENABLE_GENERATING_CLIQUE_CUTS:
 				return isEnableGeneratingCliqueCuts();
+			case SolverglpkPackage.SOLVER_GLPK__ENABLE_GENERATING_MIXED_COVER_CUTS:
+				return isEnableGeneratingMixedCoverCuts();
 			case SolverglpkPackage.SOLVER_GLPK__ENABLE_MIXED_INTEGER_ROUNDING_CUTS:
 				return isEnableMixedIntegerRoundingCuts();
-			case SolverglpkPackage.SOLVER_GLPK__ENABLE_PRESOLVE:
-				return isEnablePresolve();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -586,23 +590,23 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 			case SolverglpkPackage.SOLVER_GLPK__FILE_COMPRESSED:
 				setFileCompressed((Boolean)newValue);
 				return;
+			case SolverglpkPackage.SOLVER_GLPK__ENABLE_PRESOLVE:
+				setEnablePresolve((Boolean)newValue);
+				return;
 			case SolverglpkPackage.SOLVER_GLPK__ENABLE_FEASIBILITY_PUMP:
 				setEnableFeasibilityPump((Boolean)newValue);
 				return;
 			case SolverglpkPackage.SOLVER_GLPK__ENABLE_GOMORY_CUTS:
 				setEnableGomoryCuts((Boolean)newValue);
 				return;
-			case SolverglpkPackage.SOLVER_GLPK__ENABLE_GENERATING_MIXED_COVER_CUTS:
-				setEnableGeneratingMixedCoverCuts((Boolean)newValue);
-				return;
 			case SolverglpkPackage.SOLVER_GLPK__ENABLE_GENERATING_CLIQUE_CUTS:
 				setEnableGeneratingCliqueCuts((Boolean)newValue);
 				return;
+			case SolverglpkPackage.SOLVER_GLPK__ENABLE_GENERATING_MIXED_COVER_CUTS:
+				setEnableGeneratingMixedCoverCuts((Boolean)newValue);
+				return;
 			case SolverglpkPackage.SOLVER_GLPK__ENABLE_MIXED_INTEGER_ROUNDING_CUTS:
 				setEnableMixedIntegerRoundingCuts((Boolean)newValue);
-				return;
-			case SolverglpkPackage.SOLVER_GLPK__ENABLE_PRESOLVE:
-				setEnablePresolve((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -625,23 +629,23 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 			case SolverglpkPackage.SOLVER_GLPK__FILE_COMPRESSED:
 				setFileCompressed(FILE_COMPRESSED_EDEFAULT);
 				return;
+			case SolverglpkPackage.SOLVER_GLPK__ENABLE_PRESOLVE:
+				setEnablePresolve(ENABLE_PRESOLVE_EDEFAULT);
+				return;
 			case SolverglpkPackage.SOLVER_GLPK__ENABLE_FEASIBILITY_PUMP:
 				setEnableFeasibilityPump(ENABLE_FEASIBILITY_PUMP_EDEFAULT);
 				return;
 			case SolverglpkPackage.SOLVER_GLPK__ENABLE_GOMORY_CUTS:
 				setEnableGomoryCuts(ENABLE_GOMORY_CUTS_EDEFAULT);
 				return;
-			case SolverglpkPackage.SOLVER_GLPK__ENABLE_GENERATING_MIXED_COVER_CUTS:
-				setEnableGeneratingMixedCoverCuts(ENABLE_GENERATING_MIXED_COVER_CUTS_EDEFAULT);
-				return;
 			case SolverglpkPackage.SOLVER_GLPK__ENABLE_GENERATING_CLIQUE_CUTS:
 				setEnableGeneratingCliqueCuts(ENABLE_GENERATING_CLIQUE_CUTS_EDEFAULT);
 				return;
+			case SolverglpkPackage.SOLVER_GLPK__ENABLE_GENERATING_MIXED_COVER_CUTS:
+				setEnableGeneratingMixedCoverCuts(ENABLE_GENERATING_MIXED_COVER_CUTS_EDEFAULT);
+				return;
 			case SolverglpkPackage.SOLVER_GLPK__ENABLE_MIXED_INTEGER_ROUNDING_CUTS:
 				setEnableMixedIntegerRoundingCuts(ENABLE_MIXED_INTEGER_ROUNDING_CUTS_EDEFAULT);
-				return;
-			case SolverglpkPackage.SOLVER_GLPK__ENABLE_PRESOLVE:
-				setEnablePresolve(ENABLE_PRESOLVE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -661,18 +665,18 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 				return fileFormat != FILE_FORMAT_EDEFAULT;
 			case SolverglpkPackage.SOLVER_GLPK__FILE_COMPRESSED:
 				return fileCompressed != FILE_COMPRESSED_EDEFAULT;
+			case SolverglpkPackage.SOLVER_GLPK__ENABLE_PRESOLVE:
+				return enablePresolve != ENABLE_PRESOLVE_EDEFAULT;
 			case SolverglpkPackage.SOLVER_GLPK__ENABLE_FEASIBILITY_PUMP:
 				return enableFeasibilityPump != ENABLE_FEASIBILITY_PUMP_EDEFAULT;
 			case SolverglpkPackage.SOLVER_GLPK__ENABLE_GOMORY_CUTS:
 				return enableGomoryCuts != ENABLE_GOMORY_CUTS_EDEFAULT;
-			case SolverglpkPackage.SOLVER_GLPK__ENABLE_GENERATING_MIXED_COVER_CUTS:
-				return enableGeneratingMixedCoverCuts != ENABLE_GENERATING_MIXED_COVER_CUTS_EDEFAULT;
 			case SolverglpkPackage.SOLVER_GLPK__ENABLE_GENERATING_CLIQUE_CUTS:
 				return enableGeneratingCliqueCuts != ENABLE_GENERATING_CLIQUE_CUTS_EDEFAULT;
+			case SolverglpkPackage.SOLVER_GLPK__ENABLE_GENERATING_MIXED_COVER_CUTS:
+				return enableGeneratingMixedCoverCuts != ENABLE_GENERATING_MIXED_COVER_CUTS_EDEFAULT;
 			case SolverglpkPackage.SOLVER_GLPK__ENABLE_MIXED_INTEGER_ROUNDING_CUTS:
 				return enableMixedIntegerRoundingCuts != ENABLE_MIXED_INTEGER_ROUNDING_CUTS_EDEFAULT;
-			case SolverglpkPackage.SOLVER_GLPK__ENABLE_PRESOLVE:
-				return enablePresolve != ENABLE_PRESOLVE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -689,6 +693,17 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 				case SolverglpkPackage.SOLVER_GLPK__FILE_PATH: return SolverPackage.ILP_WRITER__FILE_PATH;
 				case SolverglpkPackage.SOLVER_GLPK__FILE_FORMAT: return SolverPackage.ILP_WRITER__FILE_FORMAT;
 				case SolverglpkPackage.SOLVER_GLPK__FILE_COMPRESSED: return SolverPackage.ILP_WRITER__FILE_COMPRESSED;
+				default: return -1;
+			}
+		}
+		if (baseClass == SolverGLPKParams.class) {
+			switch (derivedFeatureID) {
+				case SolverglpkPackage.SOLVER_GLPK__ENABLE_PRESOLVE: return SolverglpkPackage.SOLVER_GLPK_PARAMS__ENABLE_PRESOLVE;
+				case SolverglpkPackage.SOLVER_GLPK__ENABLE_FEASIBILITY_PUMP: return SolverglpkPackage.SOLVER_GLPK_PARAMS__ENABLE_FEASIBILITY_PUMP;
+				case SolverglpkPackage.SOLVER_GLPK__ENABLE_GOMORY_CUTS: return SolverglpkPackage.SOLVER_GLPK_PARAMS__ENABLE_GOMORY_CUTS;
+				case SolverglpkPackage.SOLVER_GLPK__ENABLE_GENERATING_CLIQUE_CUTS: return SolverglpkPackage.SOLVER_GLPK_PARAMS__ENABLE_GENERATING_CLIQUE_CUTS;
+				case SolverglpkPackage.SOLVER_GLPK__ENABLE_GENERATING_MIXED_COVER_CUTS: return SolverglpkPackage.SOLVER_GLPK_PARAMS__ENABLE_GENERATING_MIXED_COVER_CUTS;
+				case SolverglpkPackage.SOLVER_GLPK__ENABLE_MIXED_INTEGER_ROUNDING_CUTS: return SolverglpkPackage.SOLVER_GLPK_PARAMS__ENABLE_MIXED_INTEGER_ROUNDING_CUTS;
 				default: return -1;
 			}
 		}
@@ -710,6 +725,17 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 				default: return -1;
 			}
 		}
+		if (baseClass == SolverGLPKParams.class) {
+			switch (baseFeatureID) {
+				case SolverglpkPackage.SOLVER_GLPK_PARAMS__ENABLE_PRESOLVE: return SolverglpkPackage.SOLVER_GLPK__ENABLE_PRESOLVE;
+				case SolverglpkPackage.SOLVER_GLPK_PARAMS__ENABLE_FEASIBILITY_PUMP: return SolverglpkPackage.SOLVER_GLPK__ENABLE_FEASIBILITY_PUMP;
+				case SolverglpkPackage.SOLVER_GLPK_PARAMS__ENABLE_GOMORY_CUTS: return SolverglpkPackage.SOLVER_GLPK__ENABLE_GOMORY_CUTS;
+				case SolverglpkPackage.SOLVER_GLPK_PARAMS__ENABLE_GENERATING_CLIQUE_CUTS: return SolverglpkPackage.SOLVER_GLPK__ENABLE_GENERATING_CLIQUE_CUTS;
+				case SolverglpkPackage.SOLVER_GLPK_PARAMS__ENABLE_GENERATING_MIXED_COVER_CUTS: return SolverglpkPackage.SOLVER_GLPK__ENABLE_GENERATING_MIXED_COVER_CUTS;
+				case SolverglpkPackage.SOLVER_GLPK_PARAMS__ENABLE_MIXED_INTEGER_ROUNDING_CUTS: return SolverglpkPackage.SOLVER_GLPK__ENABLE_MIXED_INTEGER_ROUNDING_CUTS;
+				default: return -1;
+			}
+		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
@@ -724,6 +750,11 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 			switch (baseOperationID) {
 				case SolverPackage.ILP_WRITER___WRITE_LP_TO_FILE: return SolverglpkPackage.SOLVER_GLPK___WRITE_LP_TO_FILE;
 				case SolverPackage.ILP_WRITER___GET_LP_AS_STRING: return SolverglpkPackage.SOLVER_GLPK___GET_LP_AS_STRING;
+				default: return -1;
+			}
+		}
+		if (baseClass == SolverGLPKParams.class) {
+			switch (baseOperationID) {
 				default: return -1;
 			}
 		}
@@ -763,18 +794,18 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		result.append(fileFormat);
 		result.append(", FileCompressed: ");
 		result.append(fileCompressed);
+		result.append(", EnablePresolve: ");
+		result.append(enablePresolve);
 		result.append(", EnableFeasibilityPump: ");
 		result.append(enableFeasibilityPump);
 		result.append(", EnableGomoryCuts: ");
 		result.append(enableGomoryCuts);
-		result.append(", EnableGeneratingMixedCoverCuts: ");
-		result.append(enableGeneratingMixedCoverCuts);
 		result.append(", EnableGeneratingCliqueCuts: ");
 		result.append(enableGeneratingCliqueCuts);
+		result.append(", EnableGeneratingMixedCoverCuts: ");
+		result.append(enableGeneratingMixedCoverCuts);
 		result.append(", EnableMixedIntegerRoundingCuts: ");
 		result.append(enableMixedIntegerRoundingCuts);
-		result.append(", EnablePresolve: ");
-		result.append(enablePresolve);
 		result.append(')');
 		return result.toString();
 	}
@@ -1310,5 +1341,13 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		} // for i
 	} // write lp solution
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public RunParams constructParams() {
+		return SolverglpkFactory.eINSTANCE.createSolverGLPKParams();
+	}
 
 } //SolverGLPKImpl

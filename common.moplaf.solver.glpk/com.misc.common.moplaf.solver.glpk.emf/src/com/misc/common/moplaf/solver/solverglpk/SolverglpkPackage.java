@@ -141,6 +141,15 @@ public interface SolverglpkPackage extends EPackage {
 	int SOLVER_GLPK__RETURN_INFORMATION = SolverPackage.SOLVER_LP__RETURN_INFORMATION;
 
 	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK__CODE = SolverPackage.SOLVER_LP__CODE;
+
+	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -159,15 +168,6 @@ public interface SolverglpkPackage extends EPackage {
 	int SOLVER_GLPK__CURRENT_SOLUTION_NR = SolverPackage.SOLVER_LP__CURRENT_SOLUTION_NR;
 
 	/**
-	 * The feature id for the '<em><b>Code</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_GLPK__CODE = SolverPackage.SOLVER_LP__CODE;
-
-	/**
 	 * The feature id for the '<em><b>Remarks</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -177,15 +177,6 @@ public interface SolverglpkPackage extends EPackage {
 	int SOLVER_GLPK__REMARKS = SolverPackage.SOLVER_LP__REMARKS;
 
 	/**
-	 * The feature id for the '<em><b>Status</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_GLPK__STATUS = SolverPackage.SOLVER_LP__STATUS;
-
-	/**
 	 * The feature id for the '<em><b>Solver Max Duration</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -193,6 +184,15 @@ public interface SolverglpkPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_GLPK__SOLVER_MAX_DURATION = SolverPackage.SOLVER_LP__SOLVER_MAX_DURATION;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK__STATUS = SolverPackage.SOLVER_LP__STATUS;
 
 	/**
 	 * The feature id for the '<em><b>Solver Log Level</b></em>' attribute.
@@ -447,13 +447,22 @@ public interface SolverglpkPackage extends EPackage {
 	int SOLVER_GLPK__FILE_COMPRESSED = SolverPackage.SOLVER_LP_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Enable Presolve</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK__ENABLE_PRESOLVE = SolverPackage.SOLVER_LP_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Enable Feasibility Pump</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_GLPK__ENABLE_FEASIBILITY_PUMP = SolverPackage.SOLVER_LP_FEATURE_COUNT + 3;
+	int SOLVER_GLPK__ENABLE_FEASIBILITY_PUMP = SolverPackage.SOLVER_LP_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Enable Gomory Cuts</b></em>' attribute.
@@ -462,16 +471,7 @@ public interface SolverglpkPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_GLPK__ENABLE_GOMORY_CUTS = SolverPackage.SOLVER_LP_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Enable Generating Mixed Cover Cuts</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_GLPK__ENABLE_GENERATING_MIXED_COVER_CUTS = SolverPackage.SOLVER_LP_FEATURE_COUNT + 5;
+	int SOLVER_GLPK__ENABLE_GOMORY_CUTS = SolverPackage.SOLVER_LP_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Enable Generating Clique Cuts</b></em>' attribute.
@@ -483,22 +483,22 @@ public interface SolverglpkPackage extends EPackage {
 	int SOLVER_GLPK__ENABLE_GENERATING_CLIQUE_CUTS = SolverPackage.SOLVER_LP_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Enable Generating Mixed Cover Cuts</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK__ENABLE_GENERATING_MIXED_COVER_CUTS = SolverPackage.SOLVER_LP_FEATURE_COUNT + 7;
+
+	/**
 	 * The feature id for the '<em><b>Enable Mixed Integer Rounding Cuts</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_GLPK__ENABLE_MIXED_INTEGER_ROUNDING_CUTS = SolverPackage.SOLVER_LP_FEATURE_COUNT + 7;
-
-	/**
-	 * The feature id for the '<em><b>Enable Presolve</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_GLPK__ENABLE_PRESOLVE = SolverPackage.SOLVER_LP_FEATURE_COUNT + 8;
+	int SOLVER_GLPK__ENABLE_MIXED_INTEGER_ROUNDING_CUTS = SolverPackage.SOLVER_LP_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Solver GLPK</em>' class.
@@ -508,6 +508,15 @@ public interface SolverglpkPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_GLPK_FEATURE_COUNT = SolverPackage.SOLVER_LP_FEATURE_COUNT + 9;
+
+	/**
+	 * The operation id for the '<em>Copy Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK___COPY_PARAMS__RUNPARAMS = SolverPackage.SOLVER_LP___COPY_PARAMS__RUNPARAMS;
 
 	/**
 	 * The operation id for the '<em>Reset</em>' operation.
@@ -580,6 +589,15 @@ public interface SolverglpkPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_GLPK___SET_RETURN__RETURNFEEDBACK = SolverPackage.SOLVER_LP___SET_RETURN__RETURNFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK___CONSTRUCT_PARAMS = SolverPackage.SOLVER_LP___CONSTRUCT_PARAMS;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -773,6 +791,143 @@ public interface SolverglpkPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.solver.solverglpk.impl.SolverGLPKParamsImpl <em>Solver GLPK Params</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.solver.solverglpk.impl.SolverGLPKParamsImpl
+	 * @see com.misc.common.moplaf.solver.solverglpk.impl.SolverglpkPackageImpl#getSolverGLPKParams()
+	 * @generated
+	 */
+	int SOLVER_GLPK_PARAMS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK_PARAMS__CODE = SolverPackage.SOLVER_LP_PARAMS__CODE;
+
+	/**
+	 * The feature id for the '<em><b>Remarks</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK_PARAMS__REMARKS = SolverPackage.SOLVER_LP_PARAMS__REMARKS;
+
+	/**
+	 * The feature id for the '<em><b>Solver Max Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK_PARAMS__SOLVER_MAX_DURATION = SolverPackage.SOLVER_LP_PARAMS__SOLVER_MAX_DURATION;
+
+	/**
+	 * The feature id for the '<em><b>Solver Optimality Tolerance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK_PARAMS__SOLVER_OPTIMALITY_TOLERANCE = SolverPackage.SOLVER_LP_PARAMS__SOLVER_OPTIMALITY_TOLERANCE;
+
+	/**
+	 * The feature id for the '<em><b>Solver Linear Relaxation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK_PARAMS__SOLVER_LINEAR_RELAXATION = SolverPackage.SOLVER_LP_PARAMS__SOLVER_LINEAR_RELAXATION;
+
+	/**
+	 * The feature id for the '<em><b>Enable Presolve</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK_PARAMS__ENABLE_PRESOLVE = SolverPackage.SOLVER_LP_PARAMS_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Enable Feasibility Pump</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK_PARAMS__ENABLE_FEASIBILITY_PUMP = SolverPackage.SOLVER_LP_PARAMS_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Enable Gomory Cuts</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK_PARAMS__ENABLE_GOMORY_CUTS = SolverPackage.SOLVER_LP_PARAMS_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Enable Generating Clique Cuts</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK_PARAMS__ENABLE_GENERATING_CLIQUE_CUTS = SolverPackage.SOLVER_LP_PARAMS_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Enable Generating Mixed Cover Cuts</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK_PARAMS__ENABLE_GENERATING_MIXED_COVER_CUTS = SolverPackage.SOLVER_LP_PARAMS_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Enable Mixed Integer Rounding Cuts</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK_PARAMS__ENABLE_MIXED_INTEGER_ROUNDING_CUTS = SolverPackage.SOLVER_LP_PARAMS_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of structural features of the '<em>Solver GLPK Params</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK_PARAMS_FEATURE_COUNT = SolverPackage.SOLVER_LP_PARAMS_FEATURE_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Copy Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK_PARAMS___COPY_PARAMS__RUNPARAMS = SolverPackage.SOLVER_LP_PARAMS___COPY_PARAMS__RUNPARAMS;
+
+	/**
+	 * The number of operations of the '<em>Solver GLPK Params</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_GLPK_PARAMS_OPERATION_COUNT = SolverPackage.SOLVER_LP_PARAMS_OPERATION_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.solverglpk.SolverGLPK <em>Solver GLPK</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -783,70 +938,80 @@ public interface SolverglpkPackage extends EPackage {
 	EClass getSolverGLPK();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solverglpk.SolverGLPK#isEnableFeasibilityPump <em>Enable Feasibility Pump</em>}'.
+	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.solverglpk.SolverGLPKParams <em>Solver GLPK Params</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Solver GLPK Params</em>'.
+	 * @see com.misc.common.moplaf.solver.solverglpk.SolverGLPKParams
+	 * @generated
+	 */
+	EClass getSolverGLPKParams();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solverglpk.SolverGLPKParams#isEnableFeasibilityPump <em>Enable Feasibility Pump</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Enable Feasibility Pump</em>'.
-	 * @see com.misc.common.moplaf.solver.solverglpk.SolverGLPK#isEnableFeasibilityPump()
-	 * @see #getSolverGLPK()
+	 * @see com.misc.common.moplaf.solver.solverglpk.SolverGLPKParams#isEnableFeasibilityPump()
+	 * @see #getSolverGLPKParams()
 	 * @generated
 	 */
-	EAttribute getSolverGLPK_EnableFeasibilityPump();
+	EAttribute getSolverGLPKParams_EnableFeasibilityPump();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solverglpk.SolverGLPK#isEnableGomoryCuts <em>Enable Gomory Cuts</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solverglpk.SolverGLPKParams#isEnableGomoryCuts <em>Enable Gomory Cuts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Enable Gomory Cuts</em>'.
-	 * @see com.misc.common.moplaf.solver.solverglpk.SolverGLPK#isEnableGomoryCuts()
-	 * @see #getSolverGLPK()
+	 * @see com.misc.common.moplaf.solver.solverglpk.SolverGLPKParams#isEnableGomoryCuts()
+	 * @see #getSolverGLPKParams()
 	 * @generated
 	 */
-	EAttribute getSolverGLPK_EnableGomoryCuts();
+	EAttribute getSolverGLPKParams_EnableGomoryCuts();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solverglpk.SolverGLPK#isEnableGeneratingMixedCoverCuts <em>Enable Generating Mixed Cover Cuts</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Enable Generating Mixed Cover Cuts</em>'.
-	 * @see com.misc.common.moplaf.solver.solverglpk.SolverGLPK#isEnableGeneratingMixedCoverCuts()
-	 * @see #getSolverGLPK()
-	 * @generated
-	 */
-	EAttribute getSolverGLPK_EnableGeneratingMixedCoverCuts();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solverglpk.SolverGLPK#isEnableGeneratingCliqueCuts <em>Enable Generating Clique Cuts</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solverglpk.SolverGLPKParams#isEnableGeneratingCliqueCuts <em>Enable Generating Clique Cuts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Enable Generating Clique Cuts</em>'.
-	 * @see com.misc.common.moplaf.solver.solverglpk.SolverGLPK#isEnableGeneratingCliqueCuts()
-	 * @see #getSolverGLPK()
+	 * @see com.misc.common.moplaf.solver.solverglpk.SolverGLPKParams#isEnableGeneratingCliqueCuts()
+	 * @see #getSolverGLPKParams()
 	 * @generated
 	 */
-	EAttribute getSolverGLPK_EnableGeneratingCliqueCuts();
+	EAttribute getSolverGLPKParams_EnableGeneratingCliqueCuts();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solverglpk.SolverGLPK#isEnableMixedIntegerRoundingCuts <em>Enable Mixed Integer Rounding Cuts</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solverglpk.SolverGLPKParams#isEnableGeneratingMixedCoverCuts <em>Enable Generating Mixed Cover Cuts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Enable Generating Mixed Cover Cuts</em>'.
+	 * @see com.misc.common.moplaf.solver.solverglpk.SolverGLPKParams#isEnableGeneratingMixedCoverCuts()
+	 * @see #getSolverGLPKParams()
+	 * @generated
+	 */
+	EAttribute getSolverGLPKParams_EnableGeneratingMixedCoverCuts();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solverglpk.SolverGLPKParams#isEnableMixedIntegerRoundingCuts <em>Enable Mixed Integer Rounding Cuts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Enable Mixed Integer Rounding Cuts</em>'.
-	 * @see com.misc.common.moplaf.solver.solverglpk.SolverGLPK#isEnableMixedIntegerRoundingCuts()
-	 * @see #getSolverGLPK()
+	 * @see com.misc.common.moplaf.solver.solverglpk.SolverGLPKParams#isEnableMixedIntegerRoundingCuts()
+	 * @see #getSolverGLPKParams()
 	 * @generated
 	 */
-	EAttribute getSolverGLPK_EnableMixedIntegerRoundingCuts();
+	EAttribute getSolverGLPKParams_EnableMixedIntegerRoundingCuts();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solverglpk.SolverGLPK#isEnablePresolve <em>Enable Presolve</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.solverglpk.SolverGLPKParams#isEnablePresolve <em>Enable Presolve</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Enable Presolve</em>'.
-	 * @see com.misc.common.moplaf.solver.solverglpk.SolverGLPK#isEnablePresolve()
-	 * @see #getSolverGLPK()
+	 * @see com.misc.common.moplaf.solver.solverglpk.SolverGLPKParams#isEnablePresolve()
+	 * @see #getSolverGLPKParams()
 	 * @generated
 	 */
-	EAttribute getSolverGLPK_EnablePresolve();
+	EAttribute getSolverGLPKParams_EnablePresolve();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -881,47 +1046,56 @@ public interface SolverglpkPackage extends EPackage {
 		 */
 		EClass SOLVER_GLPK = eINSTANCE.getSolverGLPK();
 		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.solverglpk.impl.SolverGLPKParamsImpl <em>Solver GLPK Params</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.solver.solverglpk.impl.SolverGLPKParamsImpl
+		 * @see com.misc.common.moplaf.solver.solverglpk.impl.SolverglpkPackageImpl#getSolverGLPKParams()
+		 * @generated
+		 */
+		EClass SOLVER_GLPK_PARAMS = eINSTANCE.getSolverGLPKParams();
+		/**
 		 * The meta object literal for the '<em><b>Enable Feasibility Pump</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SOLVER_GLPK__ENABLE_FEASIBILITY_PUMP = eINSTANCE.getSolverGLPK_EnableFeasibilityPump();
+		EAttribute SOLVER_GLPK_PARAMS__ENABLE_FEASIBILITY_PUMP = eINSTANCE.getSolverGLPKParams_EnableFeasibilityPump();
 		/**
 		 * The meta object literal for the '<em><b>Enable Gomory Cuts</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SOLVER_GLPK__ENABLE_GOMORY_CUTS = eINSTANCE.getSolverGLPK_EnableGomoryCuts();
-		/**
-		 * The meta object literal for the '<em><b>Enable Generating Mixed Cover Cuts</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SOLVER_GLPK__ENABLE_GENERATING_MIXED_COVER_CUTS = eINSTANCE.getSolverGLPK_EnableGeneratingMixedCoverCuts();
+		EAttribute SOLVER_GLPK_PARAMS__ENABLE_GOMORY_CUTS = eINSTANCE.getSolverGLPKParams_EnableGomoryCuts();
 		/**
 		 * The meta object literal for the '<em><b>Enable Generating Clique Cuts</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SOLVER_GLPK__ENABLE_GENERATING_CLIQUE_CUTS = eINSTANCE.getSolverGLPK_EnableGeneratingCliqueCuts();
+		EAttribute SOLVER_GLPK_PARAMS__ENABLE_GENERATING_CLIQUE_CUTS = eINSTANCE.getSolverGLPKParams_EnableGeneratingCliqueCuts();
+		/**
+		 * The meta object literal for the '<em><b>Enable Generating Mixed Cover Cuts</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOLVER_GLPK_PARAMS__ENABLE_GENERATING_MIXED_COVER_CUTS = eINSTANCE.getSolverGLPKParams_EnableGeneratingMixedCoverCuts();
 		/**
 		 * The meta object literal for the '<em><b>Enable Mixed Integer Rounding Cuts</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SOLVER_GLPK__ENABLE_MIXED_INTEGER_ROUNDING_CUTS = eINSTANCE.getSolverGLPK_EnableMixedIntegerRoundingCuts();
+		EAttribute SOLVER_GLPK_PARAMS__ENABLE_MIXED_INTEGER_ROUNDING_CUTS = eINSTANCE.getSolverGLPKParams_EnableMixedIntegerRoundingCuts();
 		/**
 		 * The meta object literal for the '<em><b>Enable Presolve</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SOLVER_GLPK__ENABLE_PRESOLVE = eINSTANCE.getSolverGLPK_EnablePresolve();
+		EAttribute SOLVER_GLPK_PARAMS__ENABLE_PRESOLVE = eINSTANCE.getSolverGLPKParams_EnablePresolve();
 
 	}
 

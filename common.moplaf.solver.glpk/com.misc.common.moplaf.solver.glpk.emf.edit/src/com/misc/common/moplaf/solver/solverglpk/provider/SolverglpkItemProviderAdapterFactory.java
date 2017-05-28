@@ -105,6 +105,29 @@ public class SolverglpkItemProviderAdapterFactory extends SolverglpkAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.solverglpk.SolverGLPKParams} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SolverGLPKParamsItemProvider solverGLPKParamsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.solverglpk.SolverGLPKParams}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSolverGLPKParamsAdapter() {
+		if (solverGLPKParamsItemProvider == null) {
+			solverGLPKParamsItemProvider = new SolverGLPKParamsItemProvider(this);
+		}
+
+		return solverGLPKParamsItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -204,6 +227,7 @@ public class SolverglpkItemProviderAdapterFactory extends SolverglpkAdapterFacto
 	 */
 	public void dispose() {
 		if (solverGLPKItemProvider != null) solverGLPKItemProvider.dispose();
+		if (solverGLPKParamsItemProvider != null) solverGLPKParamsItemProvider.dispose();
 	}
 
 }

@@ -8,14 +8,16 @@
   <foreignModel>solverglpk.ecore</foreignModel>
   <genPackages prefix="Solverglpk" basePackage="com.misc.common.moplaf.solver" disposableProviderFactory="true"
       ecorePackage="solverglpk.ecore#/">
-    <genClasses image="false" ecoreClass="solverglpk.ecore#//SolverGLPK" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/SolutionProvider/Code">
-      <genFeatures createChild="false" propertyCategory="21 Solver GLPK" ecoreFeature="ecore:EAttribute solverglpk.ecore#//SolverGLPK/EnableFeasibilityPump"/>
-      <genFeatures createChild="false" propertyCategory="21 Solver GLPK" ecoreFeature="ecore:EAttribute solverglpk.ecore#//SolverGLPK/EnableGomoryCuts"/>
-      <genFeatures createChild="false" propertyCategory="21 Solver GLPK" ecoreFeature="ecore:EAttribute solverglpk.ecore#//SolverGLPK/EnableGeneratingMixedCoverCuts"/>
-      <genFeatures createChild="false" propertyCategory="21 Solver GLPK" ecoreFeature="ecore:EAttribute solverglpk.ecore#//SolverGLPK/EnableGeneratingCliqueCuts"/>
-      <genFeatures createChild="false" propertyCategory="21 Solver GLPK" ecoreFeature="ecore:EAttribute solverglpk.ecore#//SolverGLPK/EnableMixedIntegerRoundingCuts"/>
-      <genFeatures createChild="false" propertyCategory="21 Solver GLPK" propertyDescription=""
-          ecoreFeature="ecore:EAttribute solverglpk.ecore#//SolverGLPK/EnablePresolve"/>
+    <genClasses image="false" ecoreClass="solverglpk.ecore#//SolverGLPK" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/SolutionProviderParams/Code"/>
+    <genClasses image="false" ecoreClass="solverglpk.ecore#//SolverGLPKParams">
+      <genFeatures createChild="false" propertyCategory="24 Param Solver GLPK" propertyDescription=""
+          ecoreFeature="ecore:EAttribute solverglpk.ecore#//SolverGLPKParams/EnablePresolve"/>
+      <genFeatures createChild="false" propertyCategory="24 Param Solver GLPK" ecoreFeature="ecore:EAttribute solverglpk.ecore#//SolverGLPKParams/EnableFeasibilityPump"/>
+      <genFeatures createChild="false" propertyCategory="24 Param Solver GLPK" ecoreFeature="ecore:EAttribute solverglpk.ecore#//SolverGLPKParams/EnableGomoryCuts"/>
+      <genFeatures createChild="false" propertyCategory="24 Param Solver GLPK" ecoreFeature="ecore:EAttribute solverglpk.ecore#//SolverGLPKParams/EnableGeneratingCliqueCuts"/>
+      <genFeatures createChild="false" propertyCategory="24 Param Solver GLPK" propertyDescription=""
+          ecoreFeature="ecore:EAttribute solverglpk.ecore#//SolverGLPKParams/EnableGeneratingMixedCoverCuts"/>
+      <genFeatures createChild="false" propertyCategory="24 Param Solver GLPK" ecoreFeature="ecore:EAttribute solverglpk.ecore#//SolverGLPKParams/EnableMixedIntegerRoundingCuts"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -15,6 +15,7 @@ package com.misc.common.moplaf.solver.solverglpk.impl;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import com.misc.common.moplaf.solver.solverglpk.SolverGLPK;
+import com.misc.common.moplaf.solver.solverglpk.SolverGLPKParams;
 import com.misc.common.moplaf.solver.solverglpk.SolverglpkFactory;
 import com.misc.common.moplaf.solver.solverglpk.SolverglpkPackage;
 
@@ -37,6 +38,13 @@ public class SolverglpkPackageImpl extends EPackageImpl implements SolverglpkPac
 	 * @generated
 	 */
 	private EClass solverGLPKEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass solverGLPKParamsEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -116,8 +124,8 @@ public class SolverglpkPackageImpl extends EPackageImpl implements SolverglpkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolverGLPK_EnableFeasibilityPump() {
-		return (EAttribute)solverGLPKEClass.getEStructuralFeatures().get(0);
+	public EClass getSolverGLPKParams() {
+		return solverGLPKParamsEClass;
 	}
 
 	/**
@@ -125,8 +133,8 @@ public class SolverglpkPackageImpl extends EPackageImpl implements SolverglpkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolverGLPK_EnableGomoryCuts() {
-		return (EAttribute)solverGLPKEClass.getEStructuralFeatures().get(1);
+	public EAttribute getSolverGLPKParams_EnableFeasibilityPump() {
+		return (EAttribute)solverGLPKParamsEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -134,8 +142,8 @@ public class SolverglpkPackageImpl extends EPackageImpl implements SolverglpkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolverGLPK_EnableGeneratingMixedCoverCuts() {
-		return (EAttribute)solverGLPKEClass.getEStructuralFeatures().get(2);
+	public EAttribute getSolverGLPKParams_EnableGomoryCuts() {
+		return (EAttribute)solverGLPKParamsEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -143,8 +151,8 @@ public class SolverglpkPackageImpl extends EPackageImpl implements SolverglpkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolverGLPK_EnableGeneratingCliqueCuts() {
-		return (EAttribute)solverGLPKEClass.getEStructuralFeatures().get(3);
+	public EAttribute getSolverGLPKParams_EnableGeneratingCliqueCuts() {
+		return (EAttribute)solverGLPKParamsEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -152,8 +160,8 @@ public class SolverglpkPackageImpl extends EPackageImpl implements SolverglpkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolverGLPK_EnableMixedIntegerRoundingCuts() {
-		return (EAttribute)solverGLPKEClass.getEStructuralFeatures().get(4);
+	public EAttribute getSolverGLPKParams_EnableGeneratingMixedCoverCuts() {
+		return (EAttribute)solverGLPKParamsEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -161,8 +169,17 @@ public class SolverglpkPackageImpl extends EPackageImpl implements SolverglpkPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolverGLPK_EnablePresolve() {
-		return (EAttribute)solverGLPKEClass.getEStructuralFeatures().get(5);
+	public EAttribute getSolverGLPKParams_EnableMixedIntegerRoundingCuts() {
+		return (EAttribute)solverGLPKParamsEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSolverGLPKParams_EnablePresolve() {
+		return (EAttribute)solverGLPKParamsEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -194,12 +211,14 @@ public class SolverglpkPackageImpl extends EPackageImpl implements SolverglpkPac
 
 		// Create classes and their features
 		solverGLPKEClass = createEClass(SOLVER_GLPK);
-		createEAttribute(solverGLPKEClass, SOLVER_GLPK__ENABLE_FEASIBILITY_PUMP);
-		createEAttribute(solverGLPKEClass, SOLVER_GLPK__ENABLE_GOMORY_CUTS);
-		createEAttribute(solverGLPKEClass, SOLVER_GLPK__ENABLE_GENERATING_MIXED_COVER_CUTS);
-		createEAttribute(solverGLPKEClass, SOLVER_GLPK__ENABLE_GENERATING_CLIQUE_CUTS);
-		createEAttribute(solverGLPKEClass, SOLVER_GLPK__ENABLE_MIXED_INTEGER_ROUNDING_CUTS);
-		createEAttribute(solverGLPKEClass, SOLVER_GLPK__ENABLE_PRESOLVE);
+
+		solverGLPKParamsEClass = createEClass(SOLVER_GLPK_PARAMS);
+		createEAttribute(solverGLPKParamsEClass, SOLVER_GLPK_PARAMS__ENABLE_PRESOLVE);
+		createEAttribute(solverGLPKParamsEClass, SOLVER_GLPK_PARAMS__ENABLE_FEASIBILITY_PUMP);
+		createEAttribute(solverGLPKParamsEClass, SOLVER_GLPK_PARAMS__ENABLE_GOMORY_CUTS);
+		createEAttribute(solverGLPKParamsEClass, SOLVER_GLPK_PARAMS__ENABLE_GENERATING_CLIQUE_CUTS);
+		createEAttribute(solverGLPKParamsEClass, SOLVER_GLPK_PARAMS__ENABLE_GENERATING_MIXED_COVER_CUTS);
+		createEAttribute(solverGLPKParamsEClass, SOLVER_GLPK_PARAMS__ENABLE_MIXED_INTEGER_ROUNDING_CUTS);
 	}
 
 	/**
@@ -235,15 +254,19 @@ public class SolverglpkPackageImpl extends EPackageImpl implements SolverglpkPac
 		// Add supertypes to classes
 		solverGLPKEClass.getESuperTypes().add(theSolverPackage.getSolverLp());
 		solverGLPKEClass.getESuperTypes().add(theSolverPackage.getILpWriter());
+		solverGLPKEClass.getESuperTypes().add(this.getSolverGLPKParams());
+		solverGLPKParamsEClass.getESuperTypes().add(theSolverPackage.getSolverLpParams());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(solverGLPKEClass, SolverGLPK.class, "SolverGLPK", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSolverGLPK_EnableFeasibilityPump(), ecorePackage.getEBoolean(), "EnableFeasibilityPump", null, 0, 1, SolverGLPK.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSolverGLPK_EnableGomoryCuts(), ecorePackage.getEBoolean(), "EnableGomoryCuts", null, 0, 1, SolverGLPK.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSolverGLPK_EnableGeneratingMixedCoverCuts(), ecorePackage.getEBoolean(), "EnableGeneratingMixedCoverCuts", null, 0, 1, SolverGLPK.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSolverGLPK_EnableGeneratingCliqueCuts(), ecorePackage.getEBoolean(), "EnableGeneratingCliqueCuts", null, 0, 1, SolverGLPK.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSolverGLPK_EnableMixedIntegerRoundingCuts(), ecorePackage.getEBoolean(), "EnableMixedIntegerRoundingCuts", null, 0, 1, SolverGLPK.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSolverGLPK_EnablePresolve(), ecorePackage.getEBoolean(), "EnablePresolve", "true", 0, 1, SolverGLPK.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(solverGLPKParamsEClass, SolverGLPKParams.class, "SolverGLPKParams", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSolverGLPKParams_EnablePresolve(), ecorePackage.getEBoolean(), "EnablePresolve", "true", 0, 1, SolverGLPKParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolverGLPKParams_EnableFeasibilityPump(), ecorePackage.getEBoolean(), "EnableFeasibilityPump", null, 0, 1, SolverGLPKParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolverGLPKParams_EnableGomoryCuts(), ecorePackage.getEBoolean(), "EnableGomoryCuts", null, 0, 1, SolverGLPKParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolverGLPKParams_EnableGeneratingCliqueCuts(), ecorePackage.getEBoolean(), "EnableGeneratingCliqueCuts", null, 0, 1, SolverGLPKParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolverGLPKParams_EnableGeneratingMixedCoverCuts(), ecorePackage.getEBoolean(), "EnableGeneratingMixedCoverCuts", null, 0, 1, SolverGLPKParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSolverGLPKParams_EnableMixedIntegerRoundingCuts(), ecorePackage.getEBoolean(), "EnableMixedIntegerRoundingCuts", null, 0, 1, SolverGLPKParams.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

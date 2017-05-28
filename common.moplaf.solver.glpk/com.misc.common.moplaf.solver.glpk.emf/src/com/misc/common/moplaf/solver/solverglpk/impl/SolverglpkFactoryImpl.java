@@ -67,6 +67,7 @@ public class SolverglpkFactoryImpl extends EFactoryImpl implements SolverglpkFac
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case SolverglpkPackage.SOLVER_GLPK: return createSolverGLPK();
+			case SolverglpkPackage.SOLVER_GLPK_PARAMS: return createSolverGLPKParams();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -80,6 +81,16 @@ public class SolverglpkFactoryImpl extends EFactoryImpl implements SolverglpkFac
 	public SolverGLPK createSolverGLPK() {
 		SolverGLPKImpl solverGLPK = new SolverGLPKImpl();
 		return solverGLPK;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SolverGLPKParams createSolverGLPKParams() {
+		SolverGLPKParamsImpl solverGLPKParams = new SolverGLPKParamsImpl();
+		return solverGLPKParams;
 	}
 
 	/**

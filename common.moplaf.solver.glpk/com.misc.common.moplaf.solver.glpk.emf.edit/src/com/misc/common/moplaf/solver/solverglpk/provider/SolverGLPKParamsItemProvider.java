@@ -13,35 +13,38 @@
 package com.misc.common.moplaf.solver.solverglpk.provider;
 
 
-import com.misc.common.moplaf.solver.SolverPackage;
-import com.misc.common.moplaf.solver.provider.SolverLpItemProvider;
-import com.misc.common.moplaf.solver.solverglpk.SolverGLPK;
+import com.misc.common.moplaf.solver.provider.SolverLpParamsItemProvider;
+
+import com.misc.common.moplaf.solver.solverglpk.SolverGLPKParams;
 import com.misc.common.moplaf.solver.solverglpk.SolverglpkPackage;
+
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link com.misc.common.moplaf.solver.solverglpk.SolverGLPK} object.
+ * This is the item provider adapter for a {@link com.misc.common.moplaf.solver.solverglpk.SolverGLPKParams} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SolverGLPKItemProvider
-	extends SolverLpItemProvider {
+public class SolverGLPKParamsItemProvider extends SolverLpParamsItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SolverGLPKItemProvider(AdapterFactory adapterFactory) {
+	public SolverGLPKParamsItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -56,9 +59,6 @@ public class SolverGLPKItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addFilePathPropertyDescriptor(object);
-			addFileFormatPropertyDescriptor(object);
-			addFileCompressedPropertyDescriptor(object);
 			addEnablePresolvePropertyDescriptor(object);
 			addEnableFeasibilityPumpPropertyDescriptor(object);
 			addEnableGomoryCutsPropertyDescriptor(object);
@@ -67,72 +67,6 @@ public class SolverGLPKItemProvider
 			addEnableMixedIntegerRoundingCutsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the File Path feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addFilePathPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ILpWriter_FilePath_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ILpWriter_FilePath_feature", "_UI_ILpWriter_type"),
-				 SolverPackage.Literals.ILP_WRITER__FILE_PATH,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__15FileWriterPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the File Format feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addFileFormatPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ILpWriter_FileFormat_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ILpWriter_FileFormat_feature", "_UI_ILpWriter_type"),
-				 SolverPackage.Literals.ILP_WRITER__FILE_FORMAT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__15FileWriterPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the File Compressed feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addFileCompressedPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ILpWriter_FileCompressed_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ILpWriter_FileCompressed_feature", "_UI_ILpWriter_type"),
-				 SolverPackage.Literals.ILP_WRITER__FILE_COMPRESSED,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 getString("_UI__15FileWriterPropertyCategory"),
-				 null));
 	}
 
 	/**
@@ -275,11 +209,12 @@ public class SolverGLPKItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SolverGLPK)object).getCode();
+		String label = ((SolverGLPKParams)object).getCode();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SolverGLPK_type") :
-			getString("_UI_SolverGLPK_type") + " " + label;
+			getString("_UI_SolverGLPKParams_type") :
+			getString("_UI_SolverGLPKParams_type") + " " + label;
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -292,16 +227,13 @@ public class SolverGLPKItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(SolverGLPK.class)) {
-			case SolverglpkPackage.SOLVER_GLPK__FILE_PATH:
-			case SolverglpkPackage.SOLVER_GLPK__FILE_FORMAT:
-			case SolverglpkPackage.SOLVER_GLPK__FILE_COMPRESSED:
-			case SolverglpkPackage.SOLVER_GLPK__ENABLE_PRESOLVE:
-			case SolverglpkPackage.SOLVER_GLPK__ENABLE_FEASIBILITY_PUMP:
-			case SolverglpkPackage.SOLVER_GLPK__ENABLE_GOMORY_CUTS:
-			case SolverglpkPackage.SOLVER_GLPK__ENABLE_GENERATING_CLIQUE_CUTS:
-			case SolverglpkPackage.SOLVER_GLPK__ENABLE_GENERATING_MIXED_COVER_CUTS:
-			case SolverglpkPackage.SOLVER_GLPK__ENABLE_MIXED_INTEGER_ROUNDING_CUTS:
+		switch (notification.getFeatureID(SolverGLPKParams.class)) {
+			case SolverglpkPackage.SOLVER_GLPK_PARAMS__ENABLE_PRESOLVE:
+			case SolverglpkPackage.SOLVER_GLPK_PARAMS__ENABLE_FEASIBILITY_PUMP:
+			case SolverglpkPackage.SOLVER_GLPK_PARAMS__ENABLE_GOMORY_CUTS:
+			case SolverglpkPackage.SOLVER_GLPK_PARAMS__ENABLE_GENERATING_CLIQUE_CUTS:
+			case SolverglpkPackage.SOLVER_GLPK_PARAMS__ENABLE_GENERATING_MIXED_COVER_CUTS:
+			case SolverglpkPackage.SOLVER_GLPK_PARAMS__ENABLE_MIXED_INTEGER_ROUNDING_CUTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
