@@ -270,7 +270,6 @@ public abstract class SolverLpImpl extends SolverImpl implements SolverLp {
 			switch (derivedFeatureID) {
 				case SolverPackage.SOLVER_LP__SOLVER_OPTIMALITY_TOLERANCE: return SolverPackage.SOLVER_LP_PARAMS__SOLVER_OPTIMALITY_TOLERANCE;
 				case SolverPackage.SOLVER_LP__SOLVER_LINEAR_RELAXATION: return SolverPackage.SOLVER_LP_PARAMS__SOLVER_LINEAR_RELAXATION;
-				case SolverPackage.SOLVER_LP__SOL_OPTIMALITY_GAP: return SolverPackage.SOLVER_LP_PARAMS__SOL_OPTIMALITY_GAP;
 				default: return -1;
 			}
 		}
@@ -288,7 +287,6 @@ public abstract class SolverLpImpl extends SolverImpl implements SolverLp {
 			switch (baseFeatureID) {
 				case SolverPackage.SOLVER_LP_PARAMS__SOLVER_OPTIMALITY_TOLERANCE: return SolverPackage.SOLVER_LP__SOLVER_OPTIMALITY_TOLERANCE;
 				case SolverPackage.SOLVER_LP_PARAMS__SOLVER_LINEAR_RELAXATION: return SolverPackage.SOLVER_LP__SOLVER_LINEAR_RELAXATION;
-				case SolverPackage.SOLVER_LP_PARAMS__SOL_OPTIMALITY_GAP: return SolverPackage.SOLVER_LP__SOL_OPTIMALITY_GAP;
 				default: return -1;
 			}
 		}

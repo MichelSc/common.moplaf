@@ -167,15 +167,6 @@ public interface SolverCplexPackage extends EPackage {
 	int SOLVER_CPLEX__REMARKS = SolverPackage.SOLVER_LP__REMARKS;
 
 	/**
-	 * The feature id for the '<em><b>Status</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_CPLEX__STATUS = SolverPackage.SOLVER_LP__STATUS;
-
-	/**
 	 * The feature id for the '<em><b>Solver Max Duration</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -183,6 +174,15 @@ public interface SolverCplexPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_CPLEX__SOLVER_MAX_DURATION = SolverPackage.SOLVER_LP__SOLVER_MAX_DURATION;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX__STATUS = SolverPackage.SOLVER_LP__STATUS;
 
 	/**
 	 * The feature id for the '<em><b>Solver Log Level</b></em>' attribute.
@@ -870,6 +870,15 @@ public interface SolverCplexPackage extends EPackage {
 	int SOLVER_CPLEX_PARAMS__REMARKS = SolverPackage.SOLVER_LP_PARAMS__REMARKS;
 
 	/**
+	 * The feature id for the '<em><b>Solver Max Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX_PARAMS__SOLVER_MAX_DURATION = SolverPackage.SOLVER_LP_PARAMS__SOLVER_MAX_DURATION;
+
+	/**
 	 * The feature id for the '<em><b>Solver Optimality Tolerance</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -886,15 +895,6 @@ public interface SolverCplexPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_CPLEX_PARAMS__SOLVER_LINEAR_RELAXATION = SolverPackage.SOLVER_LP_PARAMS__SOLVER_LINEAR_RELAXATION;
-
-	/**
-	 * The feature id for the '<em><b>Sol Optimality Gap</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_CPLEX_PARAMS__SOL_OPTIMALITY_GAP = SolverPackage.SOLVER_LP_PARAMS__SOL_OPTIMALITY_GAP;
 
 	/**
 	 * The feature id for the '<em><b>Mip Cuts Cliques</b></em>' attribute.

@@ -78,7 +78,7 @@ public class SolverLpItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 getString("_UI__22ParamSolverLPPropertyCategory"),
+				 getString("_UI__22ParamSolverPropertyCategory"),
 				 null));
 	}
 
@@ -100,7 +100,7 @@ public class SolverLpItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 getString("_UI__22ParamSolverLPPropertyCategory"),
+				 getString("_UI__22ParamSolverPropertyCategory"),
 				 null));
 	}
 
@@ -115,14 +115,14 @@ public class SolverLpItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SolverLpParams_SolOptimalityGap_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SolverLpParams_SolOptimalityGap_feature", "_UI_SolverLpParams_type"),
-				 SolverPackage.Literals.SOLVER_LP_PARAMS__SOL_OPTIMALITY_GAP,
+				 getString("_UI_SolverLp_SolOptimalityGap_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SolverLp_SolOptimalityGap_feature", "_UI_SolverLp_type"),
+				 SolverPackage.Literals.SOLVER_LP__SOL_OPTIMALITY_GAP,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 getString("_UI__22ParamSolverLPPropertyCategory"),
+				 getString("_UI__40SolutionPropertyCategory"),
 				 null));
 	}
 

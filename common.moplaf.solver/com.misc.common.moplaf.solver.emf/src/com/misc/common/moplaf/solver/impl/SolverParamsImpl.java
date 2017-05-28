@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolverParamsImpl#getRemarks <em>Remarks</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.SolverParamsImpl#getSolverMaxDuration <em>Solver Max Duration</em>}</li>
  * </ul>
  *
  * @generated
@@ -44,6 +45,26 @@ public class SolverParamsImpl extends SolutionProviderParamsImpl implements Solv
 	 * @ordered
 	 */
 	protected String remarks = REMARKS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSolverMaxDuration() <em>Solver Max Duration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSolverMaxDuration()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float SOLVER_MAX_DURATION_EDEFAULT = 100.0F;
+
+	/**
+	 * The cached value of the '{@link #getSolverMaxDuration() <em>Solver Max Duration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSolverMaxDuration()
+	 * @generated
+	 * @ordered
+	 */
+	protected float solverMaxDuration = SOLVER_MAX_DURATION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -90,11 +111,34 @@ public class SolverParamsImpl extends SolutionProviderParamsImpl implements Solv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public float getSolverMaxDuration() {
+		return solverMaxDuration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSolverMaxDuration(float newSolverMaxDuration) {
+		float oldSolverMaxDuration = solverMaxDuration;
+		solverMaxDuration = newSolverMaxDuration;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER_PARAMS__SOLVER_MAX_DURATION, oldSolverMaxDuration, solverMaxDuration));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case SolverPackage.SOLVER_PARAMS__REMARKS:
 				return getRemarks();
+			case SolverPackage.SOLVER_PARAMS__SOLVER_MAX_DURATION:
+				return getSolverMaxDuration();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -109,6 +153,9 @@ public class SolverParamsImpl extends SolutionProviderParamsImpl implements Solv
 		switch (featureID) {
 			case SolverPackage.SOLVER_PARAMS__REMARKS:
 				setRemarks((String)newValue);
+				return;
+			case SolverPackage.SOLVER_PARAMS__SOLVER_MAX_DURATION:
+				setSolverMaxDuration((Float)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -125,6 +172,9 @@ public class SolverParamsImpl extends SolutionProviderParamsImpl implements Solv
 			case SolverPackage.SOLVER_PARAMS__REMARKS:
 				setRemarks(REMARKS_EDEFAULT);
 				return;
+			case SolverPackage.SOLVER_PARAMS__SOLVER_MAX_DURATION:
+				setSolverMaxDuration(SOLVER_MAX_DURATION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -139,6 +189,8 @@ public class SolverParamsImpl extends SolutionProviderParamsImpl implements Solv
 		switch (featureID) {
 			case SolverPackage.SOLVER_PARAMS__REMARKS:
 				return REMARKS_EDEFAULT == null ? remarks != null : !REMARKS_EDEFAULT.equals(remarks);
+			case SolverPackage.SOLVER_PARAMS__SOLVER_MAX_DURATION:
+				return solverMaxDuration != SOLVER_MAX_DURATION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -155,6 +207,8 @@ public class SolverParamsImpl extends SolutionProviderParamsImpl implements Solv
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (Remarks: ");
 		result.append(remarks);
+		result.append(", SolverMaxDuration: ");
+		result.append(solverMaxDuration);
 		result.append(')');
 		return result.toString();
 	}

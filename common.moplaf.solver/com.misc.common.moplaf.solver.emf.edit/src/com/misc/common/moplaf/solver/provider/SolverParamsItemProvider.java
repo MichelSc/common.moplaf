@@ -46,6 +46,7 @@ public class SolverParamsItemProvider extends SolutionProviderParamsItemProvider
 			super.getPropertyDescriptors(object);
 
 			addRemarksPropertyDescriptor(object);
+			addSolverMaxDurationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -69,6 +70,28 @@ public class SolverParamsItemProvider extends SolutionProviderParamsItemProvider
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 getString("_UI__10GeneralPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Solver Max Duration feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSolverMaxDurationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SolverParams_SolverMaxDuration_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SolverParams_SolverMaxDuration_feature", "_UI_SolverParams_type"),
+				 SolverPackage.Literals.SOLVER_PARAMS__SOLVER_MAX_DURATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 getString("_UI__22ParamSolverPropertyCategory"),
 				 null));
 	}
 
@@ -100,6 +123,7 @@ public class SolverParamsItemProvider extends SolutionProviderParamsItemProvider
 
 		switch (notification.getFeatureID(SolverParams.class)) {
 			case SolverPackage.SOLVER_PARAMS__REMARKS:
+			case SolverPackage.SOLVER_PARAMS__SOLVER_MAX_DURATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

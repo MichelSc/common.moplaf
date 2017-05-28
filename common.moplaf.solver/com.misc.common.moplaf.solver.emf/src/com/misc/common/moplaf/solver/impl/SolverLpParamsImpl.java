@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolverLpParamsImpl#getSolverOptimalityTolerance <em>Solver Optimality Tolerance</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolverLpParamsImpl#isSolverLinearRelaxation <em>Solver Linear Relaxation</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.impl.SolverLpParamsImpl#getSolOptimalityGap <em>Sol Optimality Gap</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,26 +65,6 @@ public class SolverLpParamsImpl extends SolverParamsImpl implements SolverLpPara
 	 * @ordered
 	 */
 	protected boolean solverLinearRelaxation = SOLVER_LINEAR_RELAXATION_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getSolOptimalityGap() <em>Sol Optimality Gap</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSolOptimalityGap()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final float SOL_OPTIMALITY_GAP_EDEFAULT = 0.0F;
-
-	/**
-	 * The cached value of the '{@link #getSolOptimalityGap() <em>Sol Optimality Gap</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSolOptimalityGap()
-	 * @generated
-	 * @ordered
-	 */
-	protected float solOptimalityGap = SOL_OPTIMALITY_GAP_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -153,27 +132,6 @@ public class SolverLpParamsImpl extends SolverParamsImpl implements SolverLpPara
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getSolOptimalityGap() {
-		return solOptimalityGap;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSolOptimalityGap(float newSolOptimalityGap) {
-		float oldSolOptimalityGap = solOptimalityGap;
-		solOptimalityGap = newSolOptimalityGap;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER_LP_PARAMS__SOL_OPTIMALITY_GAP, oldSolOptimalityGap, solOptimalityGap));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -181,8 +139,6 @@ public class SolverLpParamsImpl extends SolverParamsImpl implements SolverLpPara
 				return getSolverOptimalityTolerance();
 			case SolverPackage.SOLVER_LP_PARAMS__SOLVER_LINEAR_RELAXATION:
 				return isSolverLinearRelaxation();
-			case SolverPackage.SOLVER_LP_PARAMS__SOL_OPTIMALITY_GAP:
-				return getSolOptimalityGap();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -200,9 +156,6 @@ public class SolverLpParamsImpl extends SolverParamsImpl implements SolverLpPara
 				return;
 			case SolverPackage.SOLVER_LP_PARAMS__SOLVER_LINEAR_RELAXATION:
 				setSolverLinearRelaxation((Boolean)newValue);
-				return;
-			case SolverPackage.SOLVER_LP_PARAMS__SOL_OPTIMALITY_GAP:
-				setSolOptimalityGap((Float)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -222,9 +175,6 @@ public class SolverLpParamsImpl extends SolverParamsImpl implements SolverLpPara
 			case SolverPackage.SOLVER_LP_PARAMS__SOLVER_LINEAR_RELAXATION:
 				setSolverLinearRelaxation(SOLVER_LINEAR_RELAXATION_EDEFAULT);
 				return;
-			case SolverPackage.SOLVER_LP_PARAMS__SOL_OPTIMALITY_GAP:
-				setSolOptimalityGap(SOL_OPTIMALITY_GAP_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -241,8 +191,6 @@ public class SolverLpParamsImpl extends SolverParamsImpl implements SolverLpPara
 				return solverOptimalityTolerance != SOLVER_OPTIMALITY_TOLERANCE_EDEFAULT;
 			case SolverPackage.SOLVER_LP_PARAMS__SOLVER_LINEAR_RELAXATION:
 				return solverLinearRelaxation != SOLVER_LINEAR_RELAXATION_EDEFAULT;
-			case SolverPackage.SOLVER_LP_PARAMS__SOL_OPTIMALITY_GAP:
-				return solOptimalityGap != SOL_OPTIMALITY_GAP_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -261,8 +209,6 @@ public class SolverLpParamsImpl extends SolverParamsImpl implements SolverLpPara
 		result.append(solverOptimalityTolerance);
 		result.append(", SolverLinearRelaxation: ");
 		result.append(solverLinearRelaxation);
-		result.append(", SolOptimalityGap: ");
-		result.append(solOptimalityGap);
 		result.append(')');
 		return result.toString();
 	}

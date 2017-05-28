@@ -68,8 +68,8 @@ public class SolverItemProvider
 			super.getPropertyDescriptors(object);
 
 			addRemarksPropertyDescriptor(object);
-			addStatusPropertyDescriptor(object);
 			addSolverMaxDurationPropertyDescriptor(object);
+			addStatusPropertyDescriptor(object);
 			addSolverLogLevelPropertyDescriptor(object);
 			addSolverDumpPropertyDescriptor(object);
 			addRunStartedPropertyDescriptor(object);
@@ -198,7 +198,7 @@ public class SolverItemProvider
 						 false,
 						 true,
 						 null,
-						 getString("_UI__10GeneralPropertyCategory"),
+						 getString("_UI__22ParamSolverPropertyCategory"),
 						 null)// filter flags
 	    {
 	    	public java.util.Collection<?> getChoiceOfValues(java.lang.Object object){
@@ -303,14 +303,14 @@ public class SolverItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Solver_SolverMaxDuration_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Solver_SolverMaxDuration_feature", "_UI_Solver_type"),
-				 SolverPackage.Literals.SOLVER__SOLVER_MAX_DURATION,
+				 getString("_UI_SolverParams_SolverMaxDuration_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SolverParams_SolverMaxDuration_feature", "_UI_SolverParams_type"),
+				 SolverPackage.Literals.SOLVER_PARAMS__SOLVER_MAX_DURATION,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 getString("_UI__20SolverPropertyCategory"),
+				 getString("_UI__22ParamSolverPropertyCategory"),
 				 null));
 	}
 
@@ -627,8 +627,8 @@ public class SolverItemProvider
 
 		switch (notification.getFeatureID(Solver.class)) {
 			case SolverPackage.SOLVER__REMARKS:
-			case SolverPackage.SOLVER__STATUS:
 			case SolverPackage.SOLVER__SOLVER_MAX_DURATION:
+			case SolverPackage.SOLVER__STATUS:
 			case SolverPackage.SOLVER__SOLVER_LOG_LEVEL:
 			case SolverPackage.SOLVER__SOLVER_DUMP:
 			case SolverPackage.SOLVER__RUN_STARTED:

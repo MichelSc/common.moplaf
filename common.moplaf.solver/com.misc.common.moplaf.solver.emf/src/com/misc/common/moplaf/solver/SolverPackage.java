@@ -3009,22 +3009,22 @@ public interface SolverPackage extends EPackage {
 	int SOLVER__REMARKS = SOLUTION_PROVIDER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Status</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER__STATUS = SOLUTION_PROVIDER_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Solver Max Duration</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER__SOLVER_MAX_DURATION = SOLUTION_PROVIDER_FEATURE_COUNT + 2;
+	int SOLVER__SOLVER_MAX_DURATION = SOLUTION_PROVIDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER__STATUS = SOLUTION_PROVIDER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Solver Log Level</b></em>' attribute.
@@ -3754,15 +3754,6 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_CP__REMARKS = SOLVER__REMARKS;
 
 	/**
-	 * The feature id for the '<em><b>Status</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_CP__STATUS = SOLVER__STATUS;
-
-	/**
 	 * The feature id for the '<em><b>Solver Max Duration</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3770,6 +3761,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_CP__SOLVER_MAX_DURATION = SOLVER__SOLVER_MAX_DURATION;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CP__STATUS = SOLVER__STATUS;
 
 	/**
 	 * The feature id for the '<em><b>Solver Log Level</b></em>' attribute.
@@ -4348,15 +4348,6 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_LP__REMARKS = SOLVER__REMARKS;
 
 	/**
-	 * The feature id for the '<em><b>Status</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_LP__STATUS = SOLVER__STATUS;
-
-	/**
 	 * The feature id for the '<em><b>Solver Max Duration</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4364,6 +4355,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP__SOLVER_MAX_DURATION = SOLVER__SOLVER_MAX_DURATION;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP__STATUS = SOLVER__STATUS;
 
 	/**
 	 * The feature id for the '<em><b>Solver Log Level</b></em>' attribute.
@@ -7266,13 +7266,22 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_PARAMS__REMARKS = SOLUTION_PROVIDER_PARAMS_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Solver Max Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_PARAMS__SOLVER_MAX_DURATION = SOLUTION_PROVIDER_PARAMS_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Params</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_PARAMS_FEATURE_COUNT = SOLUTION_PROVIDER_PARAMS_FEATURE_COUNT + 1;
+	int SOLVER_PARAMS_FEATURE_COUNT = SOLUTION_PROVIDER_PARAMS_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Copy Params</em>' operation.
@@ -7321,6 +7330,15 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_LP_PARAMS__REMARKS = SOLVER_PARAMS__REMARKS;
 
 	/**
+	 * The feature id for the '<em><b>Solver Max Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP_PARAMS__SOLVER_MAX_DURATION = SOLVER_PARAMS__SOLVER_MAX_DURATION;
+
+	/**
 	 * The feature id for the '<em><b>Solver Optimality Tolerance</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7339,22 +7357,13 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_LP_PARAMS__SOLVER_LINEAR_RELAXATION = SOLVER_PARAMS_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Sol Optimality Gap</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_LP_PARAMS__SOL_OPTIMALITY_GAP = SOLVER_PARAMS_FEATURE_COUNT + 2;
-
-	/**
 	 * The number of structural features of the '<em>Lp Params</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_LP_PARAMS_FEATURE_COUNT = SOLVER_PARAMS_FEATURE_COUNT + 3;
+	int SOLVER_LP_PARAMS_FEATURE_COUNT = SOLVER_PARAMS_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Copy Params</em>' operation.
@@ -8204,17 +8213,6 @@ public interface SolverPackage extends EPackage {
 	EAttribute getSolverLpParams_SolverLinearRelaxation();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.SolverLpParams#getSolOptimalityGap <em>Sol Optimality Gap</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Sol Optimality Gap</em>'.
-	 * @see com.misc.common.moplaf.solver.SolverLpParams#getSolOptimalityGap()
-	 * @see #getSolverLpParams()
-	 * @generated
-	 */
-	EAttribute getSolverLpParams_SolOptimalityGap();
-
-	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.SolverParams <em>Params</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8234,6 +8232,17 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSolverParams_Remarks();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.SolverParams#getSolverMaxDuration <em>Solver Max Duration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Solver Max Duration</em>'.
+	 * @see com.misc.common.moplaf.solver.SolverParams#getSolverMaxDuration()
+	 * @see #getSolverParams()
+	 * @generated
+	 */
+	EAttribute getSolverParams_SolverMaxDuration();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.SolutionProviderParams <em>Solution Provider Params</em>}'.
@@ -9167,17 +9176,6 @@ public interface SolverPackage extends EPackage {
 	EAttribute getSolver_Status();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.Solver#getSolverMaxDuration <em>Solver Max Duration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Solver Max Duration</em>'.
-	 * @see com.misc.common.moplaf.solver.Solver#getSolverMaxDuration()
-	 * @see #getSolver()
-	 * @generated
-	 */
-	EAttribute getSolver_SolverMaxDuration();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.Solver#getSolverLogLevel <em>Solver Log Level</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9568,6 +9566,17 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSolverLp();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.SolverLp#getSolOptimalityGap <em>Sol Optimality Gap</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Sol Optimality Gap</em>'.
+	 * @see com.misc.common.moplaf.solver.SolverLp#getSolOptimalityGap()
+	 * @see #getSolverLp()
+	 * @generated
+	 */
+	EAttribute getSolverLp_SolOptimalityGap();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.SolutionVar <em>Solution Var</em>}'.
@@ -10966,14 +10975,6 @@ public interface SolverPackage extends EPackage {
 		EAttribute SOLVER_LP_PARAMS__SOLVER_LINEAR_RELAXATION = eINSTANCE.getSolverLpParams_SolverLinearRelaxation();
 
 		/**
-		 * The meta object literal for the '<em><b>Sol Optimality Gap</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SOLVER_LP_PARAMS__SOL_OPTIMALITY_GAP = eINSTANCE.getSolverLpParams_SolOptimalityGap();
-
-		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.SolverParamsImpl <em>Params</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -10990,6 +10991,14 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SOLVER_PARAMS__REMARKS = eINSTANCE.getSolverParams_Remarks();
+
+		/**
+		 * The meta object literal for the '<em><b>Solver Max Duration</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOLVER_PARAMS__SOLVER_MAX_DURATION = eINSTANCE.getSolverParams_SolverMaxDuration();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.SolutionProviderParamsImpl <em>Solution Provider Params</em>}' class.
@@ -11736,14 +11745,6 @@ public interface SolverPackage extends EPackage {
 		EAttribute SOLVER__STATUS = eINSTANCE.getSolver_Status();
 
 		/**
-		 * The meta object literal for the '<em><b>Solver Max Duration</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SOLVER__SOLVER_MAX_DURATION = eINSTANCE.getSolver_SolverMaxDuration();
-
-		/**
 		 * The meta object literal for the '<em><b>Solver Log Level</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -12040,6 +12041,14 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SOLVER_LP = eINSTANCE.getSolverLp();
+
+		/**
+		 * The meta object literal for the '<em><b>Sol Optimality Gap</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOLVER_LP__SOL_OPTIMALITY_GAP = eINSTANCE.getSolverLp_SolOptimalityGap();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.SolutionVarImpl <em>Solution Var</em>}' class.

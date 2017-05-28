@@ -238,8 +238,6 @@
     <genClasses ecoreClass="solver.ecore#//Solver" labelFeature="#//solver/SolutionProviderParams/Code">
       <genFeatures property="Readonly" createChild="false" propertyCategory="10 General"
           ecoreFeature="ecore:EAttribute solver.ecore#//Solver/Status"/>
-      <genFeatures createChild="false" propertyCategory="20 Solver" propertyDescription=""
-          ecoreFeature="ecore:EAttribute solver.ecore#//Solver/SolverMaxDuration"/>
       <genFeatures createChild="false" propertyCategory="20 Solver" ecoreFeature="ecore:EAttribute solver.ecore#//Solver/SolverLogLevel"/>
       <genFeatures createChild="false" propertyCategory="20 Solver" ecoreFeature="ecore:EAttribute solver.ecore#//Solver/SolverDump"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="30 Run"
@@ -318,7 +316,9 @@
     <genClasses image="false" ecoreClass="solver.ecore#//SolverCp" labelFeature="#//solver/SolutionProviderParams/Code">
       <genFeatures createChild="false" propertyCategory="20 Solver" ecoreFeature="ecore:EAttribute solver.ecore#//SolverCp/SearchAll"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="solver.ecore#//SolverLp" labelFeature="#//solver/SolutionProviderParams/Code"/>
+    <genClasses image="false" ecoreClass="solver.ecore#//SolverLp" labelFeature="#//solver/SolutionProviderParams/Code">
+      <genFeatures createChild="false" propertyCategory="40 Solution" ecoreFeature="ecore:EAttribute solver.ecore#//SolverLp/SolOptimalityGap"/>
+    </genClasses>
     <genClasses ecoreClass="solver.ecore#//SolverGoal">
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolverGoal/Label"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//SolverGoal/Solver"/>
@@ -466,14 +466,13 @@
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="solver.ecore#//SolverLpParams">
-      <genFeatures createChild="false" propertyCategory="22 Param Solver LP" ecoreFeature="ecore:EAttribute solver.ecore#//SolverLpParams/SolverOptimalityTolerance"/>
-      <genFeatures createChild="false" propertyCategory="22 Param Solver LP" ecoreFeature="ecore:EAttribute solver.ecore#//SolverLpParams/SolverLinearRelaxation"/>
-      <genFeatures createChild="false" propertyCategory="22 Param Solver LP" propertyDescription=""
-          ecoreFeature="ecore:EAttribute solver.ecore#//SolverLpParams/SolOptimalityGap"/>
+      <genFeatures createChild="false" propertyCategory="22 Param Solver" ecoreFeature="ecore:EAttribute solver.ecore#//SolverLpParams/SolverOptimalityTolerance"/>
+      <genFeatures createChild="false" propertyCategory="22 Param Solver" ecoreFeature="ecore:EAttribute solver.ecore#//SolverLpParams/SolverLinearRelaxation"/>
     </genClasses>
     <genClasses image="false" ecoreClass="solver.ecore#//SolverParams">
       <genFeatures createChild="false" propertyCategory="10 General" propertyMultiLine="true"
           ecoreFeature="ecore:EAttribute solver.ecore#//SolverParams/Remarks"/>
+      <genFeatures createChild="false" propertyCategory="22 Param Solver" ecoreFeature="ecore:EAttribute solver.ecore#//SolverParams/SolverMaxDuration"/>
     </genClasses>
     <genClasses image="false" ecoreClass="solver.ecore#//SolutionProviderParams">
       <genFeatures createChild="false" propertyCategory="10 General" ecoreFeature="ecore:EAttribute solver.ecore#//SolutionProviderParams/Code"/>

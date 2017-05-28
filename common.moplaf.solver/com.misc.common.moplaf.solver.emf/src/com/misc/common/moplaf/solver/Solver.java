@@ -37,7 +37,6 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getStatus <em>Status</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.Solver#getSolverMaxDuration <em>Solver Max Duration</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getSolverLogLevel <em>Solver Log Level</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#isSolverDump <em>Solver Dump</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getRunStarted <em>Run Started</em>}</li>
@@ -92,36 +91,6 @@ public interface Solver extends SolutionProvider, SolverParams {
 	 * @generated
 	 */
 	void setStatus(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Solver Max Duration</b></em>' attribute.
-	 * The default value is <code>"100"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Solver Max Duration</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The maximum duration (in secs) allocated to the server
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Solver Max Duration</em>' attribute.
-	 * @see #setSolverMaxDuration(float)
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolver_SolverMaxDuration()
-	 * @model default="100"
-	 * @generated
-	 */
-	float getSolverMaxDuration();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.solver.Solver#getSolverMaxDuration <em>Solver Max Duration</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Solver Max Duration</em>' attribute.
-	 * @see #getSolverMaxDuration()
-	 * @generated
-	 */
-	void setSolverMaxDuration(float value);
 
 	/**
 	 * Returns the value of the '<em><b>Solver Log Level</b></em>' attribute.

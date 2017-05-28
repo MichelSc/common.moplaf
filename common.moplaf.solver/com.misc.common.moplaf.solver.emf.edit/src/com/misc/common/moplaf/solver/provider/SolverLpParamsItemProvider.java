@@ -46,7 +46,6 @@ public class SolverLpParamsItemProvider extends SolverParamsItemProvider {
 
 			addSolverOptimalityTolerancePropertyDescriptor(object);
 			addSolverLinearRelaxationPropertyDescriptor(object);
-			addSolOptimalityGapPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -69,7 +68,7 @@ public class SolverLpParamsItemProvider extends SolverParamsItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 getString("_UI__22ParamSolverLPPropertyCategory"),
+				 getString("_UI__22ParamSolverPropertyCategory"),
 				 null));
 	}
 
@@ -91,29 +90,7 @@ public class SolverLpParamsItemProvider extends SolverParamsItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 getString("_UI__22ParamSolverLPPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Sol Optimality Gap feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSolOptimalityGapPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SolverLpParams_SolOptimalityGap_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SolverLpParams_SolOptimalityGap_feature", "_UI_SolverLpParams_type"),
-				 SolverPackage.Literals.SOLVER_LP_PARAMS__SOL_OPTIMALITY_GAP,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 getString("_UI__22ParamSolverLPPropertyCategory"),
+				 getString("_UI__22ParamSolverPropertyCategory"),
 				 null));
 	}
 
@@ -146,7 +123,6 @@ public class SolverLpParamsItemProvider extends SolverParamsItemProvider {
 		switch (notification.getFeatureID(SolverLpParams.class)) {
 			case SolverPackage.SOLVER_LP_PARAMS__SOLVER_OPTIMALITY_TOLERANCE:
 			case SolverPackage.SOLVER_LP_PARAMS__SOLVER_LINEAR_RELAXATION:
-			case SolverPackage.SOLVER_LP_PARAMS__SOL_OPTIMALITY_GAP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

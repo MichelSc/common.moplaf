@@ -135,24 +135,6 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	protected String remarks = REMARKS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getStatus() <em>Status</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getStatus()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String STATUS_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getStatus() <em>Status</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getStatus()
-	 * @generated
-	 * @ordered
-	 */
-	protected String status = STATUS_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getSolverMaxDuration() <em>Solver Max Duration</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSolverMaxDuration()
@@ -169,6 +151,24 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 * @ordered
 	 */
 	protected float solverMaxDuration = SOLVER_MAX_DURATION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getStatus() <em>Status</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String STATUS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getStatus() <em>Status</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected String status = STATUS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getSolverLogLevel() <em>Solver Log Level</em>}' attribute.
@@ -1650,10 +1650,10 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		switch (featureID) {
 			case SolverPackage.SOLVER__REMARKS:
 				return getRemarks();
-			case SolverPackage.SOLVER__STATUS:
-				return getStatus();
 			case SolverPackage.SOLVER__SOLVER_MAX_DURATION:
 				return getSolverMaxDuration();
+			case SolverPackage.SOLVER__STATUS:
+				return getStatus();
 			case SolverPackage.SOLVER__SOLVER_LOG_LEVEL:
 				return getSolverLogLevel();
 			case SolverPackage.SOLVER__SOLVER_DUMP:
@@ -1714,11 +1714,11 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			case SolverPackage.SOLVER__REMARKS:
 				setRemarks((String)newValue);
 				return;
-			case SolverPackage.SOLVER__STATUS:
-				setStatus((String)newValue);
-				return;
 			case SolverPackage.SOLVER__SOLVER_MAX_DURATION:
 				setSolverMaxDuration((Float)newValue);
+				return;
+			case SolverPackage.SOLVER__STATUS:
+				setStatus((String)newValue);
 				return;
 			case SolverPackage.SOLVER__SOLVER_LOG_LEVEL:
 				setSolverLogLevel((EnumSolverLogLevel)newValue);
@@ -1801,11 +1801,11 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			case SolverPackage.SOLVER__REMARKS:
 				setRemarks(REMARKS_EDEFAULT);
 				return;
-			case SolverPackage.SOLVER__STATUS:
-				setStatus(STATUS_EDEFAULT);
-				return;
 			case SolverPackage.SOLVER__SOLVER_MAX_DURATION:
 				setSolverMaxDuration(SOLVER_MAX_DURATION_EDEFAULT);
+				return;
+			case SolverPackage.SOLVER__STATUS:
+				setStatus(STATUS_EDEFAULT);
 				return;
 			case SolverPackage.SOLVER__SOLVER_LOG_LEVEL:
 				setSolverLogLevel(SOLVER_LOG_LEVEL_EDEFAULT);
@@ -1886,10 +1886,10 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		switch (featureID) {
 			case SolverPackage.SOLVER__REMARKS:
 				return REMARKS_EDEFAULT == null ? remarks != null : !REMARKS_EDEFAULT.equals(remarks);
-			case SolverPackage.SOLVER__STATUS:
-				return STATUS_EDEFAULT == null ? status != null : !STATUS_EDEFAULT.equals(status);
 			case SolverPackage.SOLVER__SOLVER_MAX_DURATION:
 				return solverMaxDuration != SOLVER_MAX_DURATION_EDEFAULT;
+			case SolverPackage.SOLVER__STATUS:
+				return STATUS_EDEFAULT == null ? status != null : !STATUS_EDEFAULT.equals(status);
 			case SolverPackage.SOLVER__SOLVER_LOG_LEVEL:
 				return solverLogLevel != SOLVER_LOG_LEVEL_EDEFAULT;
 			case SolverPackage.SOLVER__SOLVER_DUMP:
@@ -1948,6 +1948,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		if (baseClass == SolverParams.class) {
 			switch (derivedFeatureID) {
 				case SolverPackage.SOLVER__REMARKS: return SolverPackage.SOLVER_PARAMS__REMARKS;
+				case SolverPackage.SOLVER__SOLVER_MAX_DURATION: return SolverPackage.SOLVER_PARAMS__SOLVER_MAX_DURATION;
 				default: return -1;
 			}
 		}
@@ -1964,6 +1965,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		if (baseClass == SolverParams.class) {
 			switch (baseFeatureID) {
 				case SolverPackage.SOLVER_PARAMS__REMARKS: return SolverPackage.SOLVER__REMARKS;
+				case SolverPackage.SOLVER_PARAMS__SOLVER_MAX_DURATION: return SolverPackage.SOLVER__SOLVER_MAX_DURATION;
 				default: return -1;
 			}
 		}
@@ -2075,10 +2077,10 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (Remarks: ");
 		result.append(remarks);
-		result.append(", Status: ");
-		result.append(status);
 		result.append(", SolverMaxDuration: ");
 		result.append(solverMaxDuration);
+		result.append(", Status: ");
+		result.append(status);
 		result.append(", SolverLogLevel: ");
 		result.append(solverLogLevel);
 		result.append(", SolverDump: ");

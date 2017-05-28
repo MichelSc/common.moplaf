@@ -13,6 +13,7 @@ package com.misc.common.moplaf.solver;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.SolverParams#getRemarks <em>Remarks</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.SolverParams#getSolverMaxDuration <em>Solver Max Duration</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getSolverParams()
@@ -45,5 +46,31 @@ public interface SolverParams extends SolutionProviderParams {
 	 * @generated
 	 */
 	void setRemarks(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Solver Max Duration</b></em>' attribute.
+	 * The default value is <code>"100"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The maximum duration (in secs) allocated to the server
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Solver Max Duration</em>' attribute.
+	 * @see #setSolverMaxDuration(float)
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolverParams_SolverMaxDuration()
+	 * @model default="100"
+	 * @generated
+	 */
+	float getSolverMaxDuration();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.solver.SolverParams#getSolverMaxDuration <em>Solver Max Duration</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Solver Max Duration</em>' attribute.
+	 * @see #getSolverMaxDuration()
+	 * @generated
+	 */
+	void setSolverMaxDuration(float value);
 
 } // SolverParams

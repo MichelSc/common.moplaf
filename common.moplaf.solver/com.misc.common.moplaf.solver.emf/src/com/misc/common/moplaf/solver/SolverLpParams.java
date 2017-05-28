@@ -13,7 +13,6 @@ package com.misc.common.moplaf.solver;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.SolverLpParams#getSolverOptimalityTolerance <em>Solver Optimality Tolerance</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.SolverLpParams#isSolverLinearRelaxation <em>Solver Linear Relaxation</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.SolverLpParams#getSolOptimalityGap <em>Sol Optimality Gap</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getSolverLpParams()
@@ -73,31 +72,5 @@ public interface SolverLpParams extends SolverParams {
 	 * @generated
 	 */
 	void setSolverLinearRelaxation(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Sol Optimality Gap</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Sol Optimality Gap</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sol Optimality Gap</em>' attribute.
-	 * @see #setSolOptimalityGap(float)
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolverLpParams_SolOptimalityGap()
-	 * @model
-	 * @generated
-	 */
-	float getSolOptimalityGap();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.solver.SolverLpParams#getSolOptimalityGap <em>Sol Optimality Gap</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sol Optimality Gap</em>' attribute.
-	 * @see #getSolOptimalityGap()
-	 * @generated
-	 */
-	void setSolOptimalityGap(float value);
 
 } // SolverLpParams
