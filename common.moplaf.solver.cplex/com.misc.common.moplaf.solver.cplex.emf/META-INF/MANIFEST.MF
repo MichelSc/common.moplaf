@@ -16,5 +16,5 @@ Require-Bundle: org.eclipse.core.runtime,
  com.misc.common.moplaf.solver.emf;visibility:=reexport,
  com.misc.common.moplaf.job.emf;visibility:=reexport
 Bundle-ActivationPolicy: lazy
-Bundle-NativeCode: lib/x86_64-linux/libcplex1261.so;osname=Linux;processor = x86-64,
+Bundle-NativeCode: lib/x86_64-linux/libcplex1271.so;osname=Linux;processor = x86-64,
  lib/x86_64-win/cplex1271.dll;osname=win32;processor = x86-64
