@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Gurobi Optimization</title>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+	<style type="text/css">
+	body {
+		background-color: #E7E9EB;
+		padding: 20px 40px;
+		font-family: Helvetica, Arial, sans-serif;
+		font-size:11pt;
+		line-height:20px;
+		margin:0px;
+	}
+	img {
+		border: none;
+	}
+	h2 {
+		margin: 36px 0 8px;
+	}
+	.menu {
+		padding-bottom: 40px;
+	}
+	.menu td {
+		padding-right: 30px;
+		font-size: 14pt;
+		font-weight: bold;
+	}
+	.menu a {
+		text-decoration: none;
+		color: #292929;
+	}
+	.menu a:hover {
+		color: #909090;
+	}
+	.platforms {
+		border-collapse: collapse;
+	}
+	.platforms td, .platforms th {
+		font-size: 10pt;
+		border: solid 1px black;
+		padding: 4px 8px;
+		text-align: left;
+	}
+	</style>
+</head>
+<body>
+<table class='menu'>
+	<tr>
+		<td><a href="http://www.gurobi.com"><img style='width:211px' src="docs/logo.png" alt="Gurobi Optimization" title="Gurobi Optimization" /></a></td>
+		<td><a href="http://www.gurobi.com">gurobi.com</a></td>
+		<td><a href="docs/refman/refman.html">Reference Manual</a></td>
+		<td><a href="mailto:support@gurobi.com">Customer Support</a></td>
+	</tr>
+</table>
+<h1>
+	WELCOME
+</h1>
+<p>
+	You have successfully installed version 5.5 of the Gurobi Optimizer.
+</p>
+<p>
+	You'll find instructions for setting up your Gurobi license in this document, as well as a list of supported platforms, and Release Notes and guidelines for converting existing Gurobi code to run with this new version. Once you have finished browsing this document, you should refer to the <a href="docs/quickstart/quickstart.html">Quick Start Guide</a>, the <a href="docs/examples/examples.html">Example Tour</a>, or the <a href="docs/refman/refman.html">Reference Manual</a> to get started using the Gurobi Optimizer.
+</p>
+<h2>
+	Obtaining Your License
+</h2>
+<p>
+	Gurobi Optimizer 5.5 uses the same licenses as version 5.0, so if you already have a Gurobi 5 license, there's no need to obtain a new one.  You may need to copy your existing license to a new location, though.  Consult the <a href="docs/quickstart/quickstart.html">Quick Start Guide</a> for information on where to store your license file.
+</p>
+<p>
+	If you don't already have a Gurobi 5 license, you will need to visit the <a href="http://gurobi.com/download/licenses" target="_blank"> Licenses</a> page on the Gurobi website. If you are a commercial user under maintenance, you should see your Gurobi 5 license under <a href="http://gurobi.com/download/licenses/current">Current</a>.  Otherwise, you can request a <a href="http://gurobi.com/download/licenses/free-trial">free trial</a> or <a href="http://gurobi.com/download/licenses/free-academic">free academic</a> license. Once you have created a license on the Gurobi web site, you will need to follow the instructions for obtaining and installing a license in the <a href="docs/quickstart/quickstart.html">Quick Start Guide</a>.
+</p>
+<p>
+	Note that our new Gurobi Compute Server feature requires a special license type, so this feature won't be enabled with an existing Gurobi 5 licenses.
+</p>
+<h2>
+	Supported Platforms for Version 5.5
+</h2>
+<p>
+	The following table lists the supported platforms for version 5.5:
+</p>
+<table class='platforms'>
+	<tr>
+		<th>Platform</th>
+		<th>Operating System</th>
+		<th>Compiler</th>
+		<th>Notes</th>
+	</tr>
+	<tr>
+		<td rowspan="3">Windows&reg; 32-bit (win32)</td>
+		<td>Windows XP&reg;, Windows Vista&reg;, Windows 7, Windows 8, Windows Server 2008 R2&reg;, Windows Server 2012</td>
+		<td>Visual Studio&reg; 2008</td>
+		<td>Use gurobi_c++md2008.lib (e.g.) for C++</td>
+	</tr>
+	<tr>
+		<td>Windows XP, Windows Vista, Windows 7, Windows 8, Windows Server 2008 R2, Windows Server 2012</td>
+		<td>Visual Studio 2010</td>
+		<td>Use gurobi_c++md2010.lib (e.g.) for C++</td>
+	</tr>
+	<tr>
+		<td>Windows 7, Windows 8, Windows Server 2008 R2, Windows Server 2012</td>
+		<td>Visual Studio 2012</td>
+		<td>Use gurobi_c++md2012.lib (e.g.) for C++</td>
+	</tr>
+	<tr>
+		<td rowspan="3">Windows 64-bit (win64)</td>
+		<td>Windows XP, Windows Vista, Windows 7, Windows 8, Windows Server 2008 R2, Windows Server 2012</td>
+		<td>Visual Studio 2008</td>
+		<td>Use gurobi_c++md2008.lib (e.g.) for C++</td>
+	</tr>
+	<tr>
+		<td>Windows XP, Windows Vista, Windows 7, Windows 8, Windows Server 2008 R2, Windows Server 2012</td>
+		<td>Visual Studio 2010</td>
+		<td>Use gurobi_c++md2010.lib (e.g.) for C++</td>
+	</tr>
+	<tr>
+		<td>Windows 7, Windows 8, Windows Server 2008 R2, Windows Server 2012</td>
+		<td>Visual Studio 2012</td>
+		<td>Use gurobi_c++md2012.lib (e.g.) for C++</td>
+	</tr>
+	<tr>
+		<td rowspan="3">Linux&reg; 64-bit (linux64)</td>
+		<td>Red Hat&reg; Enterprise Linux 5.3-5.9, 6.0-6.3</td>
+		<td>GCC 4.1/4.4</td>
+		<td>Use libgurobi_g++4.1.a for C++ in RHEL 5</td>
+	</tr>
+	<tr>
+		<td>SUSE&reg; Enterprise Linux 11, 12</td>
+		<td>GCC 4.3/4.4</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Ubuntu&reg; 8.04, 10.04, 12.04, 12.10</td>
+		<td>GCC 4.2/4.3/4.4/4.6</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Mac OS 64-bit (mac64)</td>
+		<td>Mac OS X 10.7 (Lion), 10.8 (Mountain Lion)</td>
+		<td>Xcode 4</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>AIX&reg; 64-bit (power64)</td>
+		<td>AIX 6.1, 7.1</td>
+		<td>XL C/C++ 9</td>
+		<td>Due to limited Python support on AIX, this port does not include the Interactive Shell or the Python libraries.</td>
+	</tr>
+</table>
+<p>
+	Our MATLAB&reg; wrapper supports version 2008b through 2012b. Our R wrapper supports version 2.15.1 through 2.15.3.
+</p>
+<h2>
+	Release Notes for Version 5.5
+</h2>
+<p>
+	Gurobi 5.5 contains a number of new features and capabilities.  Some users of previous versions may need to make minor changes to their programs to use the new version. The new capabilities are described here.
+</p>
+<ul>
+	<li><b>Gurobi Compute Server:</b> This new feature allows you to seamlessly offload optimization tasks onto one or more compute servers.  The feature is mostly transparent, but it does expose few new functions, parameters, and error codes.  Consult the <em>Compute Server</em> section of the <td><a href="docs/refman/refman.html">Reference Manual</a></td> for details.</li>
+	<li><b>Automatic parameter tuning tool:</b> This new tool automatically considers multiple different parameter settings to find a set that improve performance on a particular model.  It is available in a command-line tool (grbtune), and through our programming language API's.  The tuning tool introduces several new tuning-specific parameters:
+	<ul>
+		<li><b>TuneTimeLimit:</b> Sets the time limit for tuning.</li>
+		<li><b>TuneOutput:</b> Controls the amount of output produced by the tuning tool.</li>
+		<li><b>TuneResults:</b> Controls the number of improving parameter sets that are retained.</li>
+		<li><b>TuneTrials:</b> Controls the number of trials that are run for each candidate parameter setting.</li>
+	</ul>
+        It also introduces one new tuning-specific attribute:
+	<ul>
+		<li><b>TuneResultCount:</b> Indicates the number of improving parameter sets that were retained.</li>
+	</ul>
+	Consult the <em>Parameter Tuning Tool</em> section of the <td><a href="docs/refman/refman.html">Reference Manual</a></td> for details.</li>
+	</li>
+	<li><b>Concurrent MIP Optimizer:</b> This new feature launches multiple, independent solves on the same MIP model, using different settings for each.  The solve returns when the first one finishes. This approach allows you to exploit multiple cores to explore a diverse set of search strategies.  This feature is enabled using the new <em>ConcurrentMIP</em> parameter.  Consult the <em>Concurrent Optimizer</em> section of the <td><a href="docs/refman/refman.html">Reference Manual</a></td> for details.</li>
+	<li><b>New <em>NumericFocus</em> parameter:</b> This new parameter allows you to indicate that a model is likely to experience numerical trouble, which then causes our internal algorithms to favor numerical robustness over speed.</li>
+	<li><b>New <em>LazyConstraints</em> parameter:</b> This new parameter provides a more direct way of indicating that your program uses lazy constraints.  Use this instead of the previous approach of setting the <em>DualReductions</em> parameter.</li>
+	<li><b>New <em>MIPGap</em> attribute:</b> This new attribute allows you to query the current MIP optimality gap directly, rather than having to compute it from <em>ObjVal</em> and <em>ObjBound</em>.</li>
+</ul>
+<h2>
+	Code Conversion from Version 5.1
+</h2>
+As mentioned earlier, minor changes may be required for some users of Gurobi 5.1:
+<ul>
+<li><b>Lazy constraints:</b> If your program uses lazy constraints, you will need to set the new <em>LazyConstraints</em> parameter (and you no longer need to set the <em>DualReductions</em> parameter).</li>
+<li><b>Floating licenses:</b> Users of floating or single-use licenses may notice that the name of the token server has changed.  It was previously called <em>grbs</em> on Windows and <em>grbd</em> on Linux/Mac.  The new name is <em>grb_ts</em>.</li>
+</ul>
+<h2>
+	License Agreement
+</h2>
+<p>
+	Note that this software is covered by the <a href="EULA.pdf">Gurobi End User License Agreement</a>. By completing the Gurobi installation process and using the software, you are accepting the terms of this agreement.
+</p>
+<p>
+	Thank you using Gurobi products!
+</p>
+<hr />
+<p>
+	&copy; 2013 Gurobi Optimization. All Rights Reserved.
+</p>
+</body>
+</html>
