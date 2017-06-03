@@ -450,9 +450,9 @@ public class GanttViewer extends GanttViewerAbstract {
 	private void refreshNodeLabel(GanttViewerRow row){
 		String labelToBe = row.getTextToBe();
 		String labelAsIs = row.getGanttRowHeader().getLabel();
-		if ( !labelToBe.equals(labelAsIs)){
+//		if ( !labelToBe.equals(labelAsIs)){
 			row.getGanttRowHeader().setLabel(labelToBe);
-		}
+//		}
 	}
 	
 	private boolean refreshNodeInterval(GanttViewerInterval interval){

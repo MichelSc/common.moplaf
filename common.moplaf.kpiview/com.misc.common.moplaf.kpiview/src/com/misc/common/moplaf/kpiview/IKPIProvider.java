@@ -35,6 +35,8 @@ package com.misc.common.moplaf.kpiview;
  * can then be used to retrieve 
  * the Amount:float, the MinAmount:float and the MaxAmount:float of any kpi associated with the element. 
  * <p>
+ * A KPI may provide ranges, so a pair (LowAmount, HighAmount) with the method {@link #getKPIRanges(Object, Object)}. 
+ * A name and/or a color may be associated to the range, next to the low and high amount.
  * 
  * @author michel
  *
