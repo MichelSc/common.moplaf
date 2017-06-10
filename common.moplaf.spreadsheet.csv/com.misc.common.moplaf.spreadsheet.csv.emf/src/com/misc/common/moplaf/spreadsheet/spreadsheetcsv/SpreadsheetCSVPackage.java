@@ -4,7 +4,9 @@ package com.misc.common.moplaf.spreadsheet.spreadsheetcsv;
 
 import com.misc.common.moplaf.spreadsheet.SpreadsheetPackage;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 
 /**
@@ -94,13 +96,58 @@ public interface SpreadsheetCSVPackage extends EPackage {
 	int SPREADSHEET_CSV__NAME = SpreadsheetPackage.SPREADSHEET__NAME;
 
 	/**
+	 * The feature id for the '<em><b>Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_CSV__FORMAT = SpreadsheetPackage.SPREADSHEET_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Delimiter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_CSV__DELIMITER = SpreadsheetPackage.SPREADSHEET_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Escape Character</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_CSV__ESCAPE_CHARACTER = SpreadsheetPackage.SPREADSHEET_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Record Separator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_CSV__RECORD_SEPARATOR = SpreadsheetPackage.SPREADSHEET_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Quote Character</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPREADSHEET_CSV__QUOTE_CHARACTER = SpreadsheetPackage.SPREADSHEET_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Spreadsheet CSV</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET_CSV_FEATURE_COUNT = SpreadsheetPackage.SPREADSHEET_FEATURE_COUNT + 0;
+	int SPREADSHEET_CSV_FEATURE_COUNT = SpreadsheetPackage.SPREADSHEET_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get Sheet</em>' operation.
@@ -149,6 +196,17 @@ public interface SpreadsheetCSVPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.CSVFormat <em>CSV Format</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.CSVFormat
+	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.impl.SpreadsheetCSVPackageImpl#getCSVFormat()
+	 * @generated
+	 */
+	int CSV_FORMAT = 1;
+
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV <em>Spreadsheet CSV</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -157,6 +215,71 @@ public interface SpreadsheetCSVPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSpreadsheetCSV();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV#getFormat <em>Format</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Format</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV#getFormat()
+	 * @see #getSpreadsheetCSV()
+	 * @generated
+	 */
+	EAttribute getSpreadsheetCSV_Format();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV#getDelimiter <em>Delimiter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Delimiter</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV#getDelimiter()
+	 * @see #getSpreadsheetCSV()
+	 * @generated
+	 */
+	EAttribute getSpreadsheetCSV_Delimiter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV#getEscapeCharacter <em>Escape Character</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Escape Character</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV#getEscapeCharacter()
+	 * @see #getSpreadsheetCSV()
+	 * @generated
+	 */
+	EAttribute getSpreadsheetCSV_EscapeCharacter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV#getRecordSeparator <em>Record Separator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Record Separator</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV#getRecordSeparator()
+	 * @see #getSpreadsheetCSV()
+	 * @generated
+	 */
+	EAttribute getSpreadsheetCSV_RecordSeparator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV#getQuoteCharacter <em>Quote Character</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Quote Character</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV#getQuoteCharacter()
+	 * @see #getSpreadsheetCSV()
+	 * @generated
+	 */
+	EAttribute getSpreadsheetCSV_QuoteCharacter();
+
+	/**
+	 * Returns the meta object for enum '{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.CSVFormat <em>CSV Format</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>CSV Format</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.CSVFormat
+	 * @generated
+	 */
+	EEnum getCSVFormat();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -190,6 +313,50 @@ public interface SpreadsheetCSVPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SPREADSHEET_CSV = eINSTANCE.getSpreadsheetCSV();
+		/**
+		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPREADSHEET_CSV__FORMAT = eINSTANCE.getSpreadsheetCSV_Format();
+		/**
+		 * The meta object literal for the '<em><b>Delimiter</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPREADSHEET_CSV__DELIMITER = eINSTANCE.getSpreadsheetCSV_Delimiter();
+		/**
+		 * The meta object literal for the '<em><b>Escape Character</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPREADSHEET_CSV__ESCAPE_CHARACTER = eINSTANCE.getSpreadsheetCSV_EscapeCharacter();
+		/**
+		 * The meta object literal for the '<em><b>Record Separator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPREADSHEET_CSV__RECORD_SEPARATOR = eINSTANCE.getSpreadsheetCSV_RecordSeparator();
+		/**
+		 * The meta object literal for the '<em><b>Quote Character</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPREADSHEET_CSV__QUOTE_CHARACTER = eINSTANCE.getSpreadsheetCSV_QuoteCharacter();
+		/**
+		 * The meta object literal for the '{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.CSVFormat <em>CSV Format</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.CSVFormat
+		 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.impl.SpreadsheetCSVPackageImpl#getCSVFormat()
+		 * @generated
+		 */
+		EEnum CSV_FORMAT = eINSTANCE.getCSVFormat();
 
 	}
 

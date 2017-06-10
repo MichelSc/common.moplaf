@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
-    modelDirectory="/com.misc.common.moplaf.spreadsheet.csv.emf/src"
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.spreadsheet.csv.emf/src"
     modelPluginID="com.misc.common.moplaf.spreadsheet.csv.emf" modelName="Spreadsheetcsv"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../com.misc.common.moplaf.spreadsheet.emf/model/spreadsheet.genmodel#//spreadsheet"
@@ -8,6 +8,19 @@
   <foreignModel>spreadsheetcsv.ecore</foreignModel>
   <genPackages prefix="SpreadsheetCSV" basePackage="com.misc.common.moplaf.spreadsheet"
       disposableProviderFactory="true" ecorePackage="spreadsheetcsv.ecore#/">
-    <genClasses ecoreClass="spreadsheetcsv.ecore#//SpreadsheetCSV"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="spreadsheetcsv.ecore#//CSVFormat">
+      <genEnumLiterals ecoreEnumLiteral="spreadsheetcsv.ecore#//CSVFormat/EnumLiteralCsvFormat_DEFAULT"/>
+      <genEnumLiterals ecoreEnumLiteral="spreadsheetcsv.ecore#//CSVFormat/EnumLiteralCsvFormat_EXCEL"/>
+      <genEnumLiterals ecoreEnumLiteral="spreadsheetcsv.ecore#//CSVFormat/EnumLiteralCsvFormat_MYSQL"/>
+      <genEnumLiterals ecoreEnumLiteral="spreadsheetcsv.ecore#//CSVFormat/EnumLiteralCsvFormat_RFC4180"/>
+      <genEnumLiterals ecoreEnumLiteral="spreadsheetcsv.ecore#//CSVFormat/EnumLiteralCsvFormat_TDF"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="spreadsheetcsv.ecore#//SpreadsheetCSV">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheetcsv.ecore#//SpreadsheetCSV/Format"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheetcsv.ecore#//SpreadsheetCSV/Delimiter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheetcsv.ecore#//SpreadsheetCSV/EscapeCharacter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheetcsv.ecore#//SpreadsheetCSV/RecordSeparator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheetcsv.ecore#//SpreadsheetCSV/QuoteCharacter"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

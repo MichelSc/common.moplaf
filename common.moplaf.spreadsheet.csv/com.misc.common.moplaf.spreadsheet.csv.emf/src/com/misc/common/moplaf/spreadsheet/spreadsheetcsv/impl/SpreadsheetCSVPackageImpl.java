@@ -4,11 +4,14 @@ package com.misc.common.moplaf.spreadsheet.spreadsheetcsv.impl;
 
 import com.misc.common.moplaf.spreadsheet.SpreadsheetPackage;
 
+import com.misc.common.moplaf.spreadsheet.spreadsheetcsv.CSVFormat;
 import com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV;
 import com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSVFactory;
 import com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSVPackage;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -26,6 +29,13 @@ public class SpreadsheetCSVPackageImpl extends EPackageImpl implements Spreadshe
 	 * @generated
 	 */
 	private EClass spreadsheetCSVEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum csvFormatEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -105,6 +115,60 @@ public class SpreadsheetCSVPackageImpl extends EPackageImpl implements Spreadshe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSpreadsheetCSV_Format() {
+		return (EAttribute)spreadsheetCSVEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSpreadsheetCSV_Delimiter() {
+		return (EAttribute)spreadsheetCSVEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSpreadsheetCSV_EscapeCharacter() {
+		return (EAttribute)spreadsheetCSVEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSpreadsheetCSV_RecordSeparator() {
+		return (EAttribute)spreadsheetCSVEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSpreadsheetCSV_QuoteCharacter() {
+		return (EAttribute)spreadsheetCSVEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getCSVFormat() {
+		return csvFormatEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SpreadsheetCSVFactory getSpreadsheetCSVFactory() {
 		return (SpreadsheetCSVFactory)getEFactoryInstance();
 	}
@@ -129,6 +193,14 @@ public class SpreadsheetCSVPackageImpl extends EPackageImpl implements Spreadshe
 
 		// Create classes and their features
 		spreadsheetCSVEClass = createEClass(SPREADSHEET_CSV);
+		createEAttribute(spreadsheetCSVEClass, SPREADSHEET_CSV__FORMAT);
+		createEAttribute(spreadsheetCSVEClass, SPREADSHEET_CSV__DELIMITER);
+		createEAttribute(spreadsheetCSVEClass, SPREADSHEET_CSV__ESCAPE_CHARACTER);
+		createEAttribute(spreadsheetCSVEClass, SPREADSHEET_CSV__RECORD_SEPARATOR);
+		createEAttribute(spreadsheetCSVEClass, SPREADSHEET_CSV__QUOTE_CHARACTER);
+
+		// Create enums
+		csvFormatEEnum = createEEnum(CSV_FORMAT);
 	}
 
 	/**
@@ -166,6 +238,19 @@ public class SpreadsheetCSVPackageImpl extends EPackageImpl implements Spreadshe
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(spreadsheetCSVEClass, SpreadsheetCSV.class, "SpreadsheetCSV", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSpreadsheetCSV_Format(), this.getCSVFormat(), "Format", null, 0, 1, SpreadsheetCSV.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpreadsheetCSV_Delimiter(), ecorePackage.getEString(), "Delimiter", null, 0, 1, SpreadsheetCSV.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpreadsheetCSV_EscapeCharacter(), ecorePackage.getEString(), "EscapeCharacter", null, 0, 1, SpreadsheetCSV.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpreadsheetCSV_RecordSeparator(), ecorePackage.getEString(), "RecordSeparator", null, 0, 1, SpreadsheetCSV.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpreadsheetCSV_QuoteCharacter(), ecorePackage.getEString(), "QuoteCharacter", null, 0, 1, SpreadsheetCSV.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(csvFormatEEnum, CSVFormat.class, "CSVFormat");
+		addEEnumLiteral(csvFormatEEnum, CSVFormat.ENUM_LITERAL_CSV_FORMAT_DEFAULT);
+		addEEnumLiteral(csvFormatEEnum, CSVFormat.ENUM_LITERAL_CSV_FORMAT_EXCEL);
+		addEEnumLiteral(csvFormatEEnum, CSVFormat.ENUM_LITERAL_CSV_FORMAT_MYSQL);
+		addEEnumLiteral(csvFormatEEnum, CSVFormat.ENUM_LITERAL_CSV_FORMAT_RFC4180);
+		addEEnumLiteral(csvFormatEEnum, CSVFormat.ENUM_LITERAL_CSV_FORMAT_TDF);
 
 		// Create resource
 		createResource(eNS_URI);
