@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2017 Michel Schaffers and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Michel Schaffers - initial API and implementation
- *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.spreadsheet.spreadsheetpoi.impl;
@@ -15,8 +5,8 @@ package com.misc.common.moplaf.spreadsheet.spreadsheetpoi.impl;
 import com.misc.common.moplaf.spreadsheet.SpreadsheetPackage;
 
 import com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetPOI;
-import com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetpoiFactory;
-import com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetpoiPackage;
+import com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetPOIFactory;
+import com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetPOIPackage;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -29,7 +19,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SpreadsheetpoiPackageImpl extends EPackageImpl implements SpreadsheetpoiPackage {
+public class SpreadsheetPOIPackageImpl extends EPackageImpl implements SpreadsheetPOIPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -48,12 +38,12 @@ public class SpreadsheetpoiPackageImpl extends EPackageImpl implements Spreadshe
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetpoiPackage#eNS_URI
+	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetPOIPackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */
-	private SpreadsheetpoiPackageImpl() {
-		super(eNS_URI, SpreadsheetpoiFactory.eINSTANCE);
+	private SpreadsheetPOIPackageImpl() {
+		super(eNS_URI, SpreadsheetPOIFactory.eINSTANCE);
 	}
 
 	/**
@@ -66,7 +56,7 @@ public class SpreadsheetpoiPackageImpl extends EPackageImpl implements Spreadshe
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 * 
-	 * <p>This method is used to initialize {@link SpreadsheetpoiPackage#eINSTANCE} when that field is accessed.
+	 * <p>This method is used to initialize {@link SpreadsheetPOIPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -75,11 +65,11 @@ public class SpreadsheetpoiPackageImpl extends EPackageImpl implements Spreadshe
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
-	public static SpreadsheetpoiPackage init() {
-		if (isInited) return (SpreadsheetpoiPackage)EPackage.Registry.INSTANCE.getEPackage(SpreadsheetpoiPackage.eNS_URI);
+	public static SpreadsheetPOIPackage init() {
+		if (isInited) return (SpreadsheetPOIPackage)EPackage.Registry.INSTANCE.getEPackage(SpreadsheetPOIPackage.eNS_URI);
 
 		// Obtain or create and register package
-		SpreadsheetpoiPackageImpl theSpreadsheetpoiPackage = (SpreadsheetpoiPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof SpreadsheetpoiPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new SpreadsheetpoiPackageImpl());
+		SpreadsheetPOIPackageImpl theSpreadsheetPOIPackage = (SpreadsheetPOIPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof SpreadsheetPOIPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new SpreadsheetPOIPackageImpl());
 
 		isInited = true;
 
@@ -87,18 +77,18 @@ public class SpreadsheetpoiPackageImpl extends EPackageImpl implements Spreadshe
 		SpreadsheetPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
-		theSpreadsheetpoiPackage.createPackageContents();
+		theSpreadsheetPOIPackage.createPackageContents();
 
 		// Initialize created meta-data
-		theSpreadsheetpoiPackage.initializePackageContents();
+		theSpreadsheetPOIPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
-		theSpreadsheetpoiPackage.freeze();
+		theSpreadsheetPOIPackage.freeze();
 
   
 		// Update the registry and return the package
-		EPackage.Registry.INSTANCE.put(SpreadsheetpoiPackage.eNS_URI, theSpreadsheetpoiPackage);
-		return theSpreadsheetpoiPackage;
+		EPackage.Registry.INSTANCE.put(SpreadsheetPOIPackage.eNS_URI, theSpreadsheetPOIPackage);
+		return theSpreadsheetPOIPackage;
 	}
 
 	/**
@@ -115,8 +105,8 @@ public class SpreadsheetpoiPackageImpl extends EPackageImpl implements Spreadshe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SpreadsheetpoiFactory getSpreadsheetpoiFactory() {
-		return (SpreadsheetpoiFactory)getEFactoryInstance();
+	public SpreadsheetPOIFactory getSpreadsheetPOIFactory() {
+		return (SpreadsheetPOIFactory)getEFactoryInstance();
 	}
 
 	/**
@@ -181,4 +171,4 @@ public class SpreadsheetpoiPackageImpl extends EPackageImpl implements Spreadshe
 		createResource(eNS_URI);
 	}
 
-} //SpreadsheetpoiPackageImpl
+} //SpreadsheetPOIPackageImpl

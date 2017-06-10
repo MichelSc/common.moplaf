@@ -13,10 +13,10 @@
       <genEnumLiterals ecoreEnumLiteral="spreadsheet.ecore#//CellType/CellTypeString"/>
       <genEnumLiterals ecoreEnumLiteral="spreadsheet.ecore#//CellType/CellTypeDate"/>
     </genEnums>
-    <genClasses ecoreClass="spreadsheet.ecore#//Spreadsheet" labelFeature="#//spreadsheet/Spreadsheet/Label">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Spreadsheet/Sheet"/>
+    <genClasses ecoreClass="spreadsheet.ecore#//Spreadsheet" labelFeature="#//spreadsheet/Spreadsheet/Name">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Spreadsheet/Sheets"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Spreadsheet/FilePath"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Spreadsheet/Label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Spreadsheet/Name"/>
       <genOperations ecoreOperation="spreadsheet.ecore#//Spreadsheet/getSheet">
         <genParameters ecoreParameter="spreadsheet.ecore#//Spreadsheet/getSheet/sheetname"/>
       </genOperations>
@@ -27,8 +27,8 @@
       <genOperations ecoreOperation="spreadsheet.ecore#//Spreadsheet/writeFile"/>
     </genClasses>
     <genClasses ecoreClass="spreadsheet.ecore#//Sheet">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Sheet/Row"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Sheet/Column"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Sheet/Rows"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Sheet/Columns"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Sheet/SheetName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Sheet/SheetIndex"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Sheet/Spreadsheet"/>
@@ -40,7 +40,7 @@
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="spreadsheet.ecore#//Row">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Row/Cell"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Row/Cells"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Row/Sheet"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Row/RowIndex"/>
       <genOperations ecoreOperation="spreadsheet.ecore#//Row/getCell">
@@ -51,8 +51,8 @@
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="spreadsheet.ecore#//Column">
-      <genFeatures notify="false" children="true" createChild="false" propertySortChoices="true"
-          ecoreFeature="ecore:EReference spreadsheet.ecore#//Column/Cell"/>
+      <genFeatures notify="false" children="true" createChild="false" propertyCategory=""
+          propertySortChoices="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Column/Cells"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Column/Sheet"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Column/ColumnIndex"/>
       <genOperations ecoreOperation="spreadsheet.ecore#//Column/getCell">

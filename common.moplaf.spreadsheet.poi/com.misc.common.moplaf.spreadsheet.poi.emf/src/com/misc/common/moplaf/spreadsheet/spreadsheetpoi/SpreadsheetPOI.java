@@ -20,7 +20,7 @@ import com.misc.common.moplaf.spreadsheet.Spreadsheet;
  * <!-- end-user-doc -->
  *
  *
- * @see com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetpoiPackage#getSpreadsheetPOI()
+ * @see com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetPOIPackage#getSpreadsheetPOI()
  * @model
  * @generated
  */

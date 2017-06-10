@@ -23,12 +23,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.spreadsheet.Row#getCell <em>Cell</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.Row#getCells <em>Cells</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Row#getSheet <em>Sheet</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Row#getRowIndex <em>Row Index</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getRow()
  * @model
@@ -36,26 +36,26 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Row extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Cell</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Cells</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.spreadsheet.Cell}.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.spreadsheet.Cell#getRow <em>Row</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Cell</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Cells</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Cell</em>' containment reference list.
-	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getRow_Cell()
+	 * @return the value of the '<em>Cells</em>' containment reference list.
+	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getRow_Cells()
 	 * @see com.misc.common.moplaf.spreadsheet.Cell#getRow
 	 * @model opposite="Row" containment="true"
 	 * @generated
 	 */
-	EList<Cell> getCell();
+	EList<Cell> getCells();
 
 	/**
 	 * Returns the value of the '<em><b>Sheet</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.spreadsheet.Sheet#getRow <em>Row</em>}'.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.spreadsheet.Sheet#getRows <em>Rows</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sheet</em>' container reference isn't clear,
@@ -65,8 +65,8 @@ public interface Row extends EObject {
 	 * @return the value of the '<em>Sheet</em>' container reference.
 	 * @see #setSheet(Sheet)
 	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getRow_Sheet()
-	 * @see com.misc.common.moplaf.spreadsheet.Sheet#getRow
-	 * @model opposite="Row" required="true" transient="false"
+	 * @see com.misc.common.moplaf.spreadsheet.Sheet#getRows
+	 * @model opposite="Rows" required="true" transient="false"
 	 * @generated
 	 */
 	Sheet getSheet();

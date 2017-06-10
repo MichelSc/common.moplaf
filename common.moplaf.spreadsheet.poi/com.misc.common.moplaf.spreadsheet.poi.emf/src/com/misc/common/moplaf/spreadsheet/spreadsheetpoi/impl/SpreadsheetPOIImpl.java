@@ -25,7 +25,7 @@ import com.misc.common.moplaf.spreadsheet.Sheet;
 import com.misc.common.moplaf.spreadsheet.SpreadsheetFactory;
 import com.misc.common.moplaf.spreadsheet.impl.SpreadsheetImpl;
 import com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetPOI;
-import com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetpoiPackage;
+import com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetPOIPackage;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -37,8 +37,6 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Spreadsheet POI</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */
@@ -59,7 +57,7 @@ public class SpreadsheetPOIImpl extends SpreadsheetImpl implements SpreadsheetPO
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return SpreadsheetpoiPackage.Literals.SPREADSHEET_POI;
+		return SpreadsheetPOIPackage.Literals.SPREADSHEET_POI;
 	}
 
 	/* (non-Javadoc)

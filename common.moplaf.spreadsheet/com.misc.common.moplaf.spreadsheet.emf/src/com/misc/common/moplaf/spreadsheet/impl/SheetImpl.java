@@ -38,37 +38,37 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.SheetImpl#getRow <em>Row</em>}</li>
- *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.SheetImpl#getColumn <em>Column</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.SheetImpl#getRows <em>Rows</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.SheetImpl#getColumns <em>Columns</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.SheetImpl#getSheetName <em>Sheet Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.SheetImpl#getSheetIndex <em>Sheet Index</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.SheetImpl#getSpreadsheet <em>Spreadsheet</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	/**
-	 * The cached value of the '{@link #getRow() <em>Row</em>}' containment reference list.
+	 * The cached value of the '{@link #getRows() <em>Rows</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRow()
+	 * @see #getRows()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Row> row;
+	protected EList<Row> rows;
 
 	/**
-	 * The cached value of the '{@link #getColumn() <em>Column</em>}' containment reference list.
+	 * The cached value of the '{@link #getColumns() <em>Columns</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getColumn()
+	 * @see #getColumns()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Column> column;
+	protected EList<Column> columns;
 
 	/**
 	 * The default value of the '{@link #getSheetName() <em>Sheet Name</em>}' attribute.
@@ -134,11 +134,11 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Row> getRow() {
-		if (row == null) {
-			row = new EObjectContainmentWithInverseEList<Row>(Row.class, this, SpreadsheetPackage.SHEET__ROW, SpreadsheetPackage.ROW__SHEET);
+	public EList<Row> getRows() {
+		if (rows == null) {
+			rows = new EObjectContainmentWithInverseEList<Row>(Row.class, this, SpreadsheetPackage.SHEET__ROWS, SpreadsheetPackage.ROW__SHEET);
 		}
-		return row;
+		return rows;
 	}
 
 	/**
@@ -146,11 +146,11 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Column> getColumn() {
-		if (column == null) {
-			column = new EObjectContainmentWithInverseEList<Column>(Column.class, this, SpreadsheetPackage.SHEET__COLUMN, SpreadsheetPackage.COLUMN__SHEET);
+	public EList<Column> getColumns() {
+		if (columns == null) {
+			columns = new EObjectContainmentWithInverseEList<Column>(Column.class, this, SpreadsheetPackage.SHEET__COLUMNS, SpreadsheetPackage.COLUMN__SHEET);
 		}
-		return column;
+		return columns;
 	}
 
 	/**
@@ -228,7 +228,7 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newSpreadsheet != null)
-				msgs = ((InternalEObject)newSpreadsheet).eInverseAdd(this, SpreadsheetPackage.SPREADSHEET__SHEET, Spreadsheet.class, msgs);
+				msgs = ((InternalEObject)newSpreadsheet).eInverseAdd(this, SpreadsheetPackage.SPREADSHEET__SHEETS, Spreadsheet.class, msgs);
 			msgs = basicSetSpreadsheet(newSpreadsheet, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -241,7 +241,7 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- end-user-doc -->
 	 */
 	public Column getColumn(int columnindex) {
-		for ( Column column : this.getColumn()){
+		for ( Column column : this.getColumns()){
 			if ( column.getColumnIndex()==columnindex){
 				return column;
 			}
@@ -254,7 +254,7 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- end-user-doc -->
 	 */
 	public Row getRow(int rowindex) {
-		for ( Row row : this.getRow()){
+		for ( Row row : this.getRows()){
 			if ( row.getRowIndex()==rowindex){
 				return row;
 			}
@@ -271,10 +271,10 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SpreadsheetPackage.SHEET__ROW:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRow()).basicAdd(otherEnd, msgs);
-			case SpreadsheetPackage.SHEET__COLUMN:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getColumn()).basicAdd(otherEnd, msgs);
+			case SpreadsheetPackage.SHEET__ROWS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRows()).basicAdd(otherEnd, msgs);
+			case SpreadsheetPackage.SHEET__COLUMNS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getColumns()).basicAdd(otherEnd, msgs);
 			case SpreadsheetPackage.SHEET__SPREADSHEET:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -291,10 +291,10 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SpreadsheetPackage.SHEET__ROW:
-				return ((InternalEList<?>)getRow()).basicRemove(otherEnd, msgs);
-			case SpreadsheetPackage.SHEET__COLUMN:
-				return ((InternalEList<?>)getColumn()).basicRemove(otherEnd, msgs);
+			case SpreadsheetPackage.SHEET__ROWS:
+				return ((InternalEList<?>)getRows()).basicRemove(otherEnd, msgs);
+			case SpreadsheetPackage.SHEET__COLUMNS:
+				return ((InternalEList<?>)getColumns()).basicRemove(otherEnd, msgs);
 			case SpreadsheetPackage.SHEET__SPREADSHEET:
 				return basicSetSpreadsheet(null, msgs);
 		}
@@ -310,7 +310,7 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case SpreadsheetPackage.SHEET__SPREADSHEET:
-				return eInternalContainer().eInverseRemove(this, SpreadsheetPackage.SPREADSHEET__SHEET, Spreadsheet.class, msgs);
+				return eInternalContainer().eInverseRemove(this, SpreadsheetPackage.SPREADSHEET__SHEETS, Spreadsheet.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -323,10 +323,10 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SpreadsheetPackage.SHEET__ROW:
-				return getRow();
-			case SpreadsheetPackage.SHEET__COLUMN:
-				return getColumn();
+			case SpreadsheetPackage.SHEET__ROWS:
+				return getRows();
+			case SpreadsheetPackage.SHEET__COLUMNS:
+				return getColumns();
 			case SpreadsheetPackage.SHEET__SHEET_NAME:
 				return getSheetName();
 			case SpreadsheetPackage.SHEET__SHEET_INDEX:
@@ -346,13 +346,13 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SpreadsheetPackage.SHEET__ROW:
-				getRow().clear();
-				getRow().addAll((Collection<? extends Row>)newValue);
+			case SpreadsheetPackage.SHEET__ROWS:
+				getRows().clear();
+				getRows().addAll((Collection<? extends Row>)newValue);
 				return;
-			case SpreadsheetPackage.SHEET__COLUMN:
-				getColumn().clear();
-				getColumn().addAll((Collection<? extends Column>)newValue);
+			case SpreadsheetPackage.SHEET__COLUMNS:
+				getColumns().clear();
+				getColumns().addAll((Collection<? extends Column>)newValue);
 				return;
 			case SpreadsheetPackage.SHEET__SHEET_NAME:
 				setSheetName((String)newValue);
@@ -375,11 +375,11 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SpreadsheetPackage.SHEET__ROW:
-				getRow().clear();
+			case SpreadsheetPackage.SHEET__ROWS:
+				getRows().clear();
 				return;
-			case SpreadsheetPackage.SHEET__COLUMN:
-				getColumn().clear();
+			case SpreadsheetPackage.SHEET__COLUMNS:
+				getColumns().clear();
 				return;
 			case SpreadsheetPackage.SHEET__SHEET_NAME:
 				setSheetName(SHEET_NAME_EDEFAULT);
@@ -402,10 +402,10 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SpreadsheetPackage.SHEET__ROW:
-				return row != null && !row.isEmpty();
-			case SpreadsheetPackage.SHEET__COLUMN:
-				return column != null && !column.isEmpty();
+			case SpreadsheetPackage.SHEET__ROWS:
+				return rows != null && !rows.isEmpty();
+			case SpreadsheetPackage.SHEET__COLUMNS:
+				return columns != null && !columns.isEmpty();
 			case SpreadsheetPackage.SHEET__SHEET_NAME:
 				return SHEET_NAME_EDEFAULT == null ? sheetName != null : !SHEET_NAME_EDEFAULT.equals(sheetName);
 			case SpreadsheetPackage.SHEET__SHEET_INDEX:

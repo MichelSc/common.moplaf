@@ -63,7 +63,7 @@ public class SpreadsheetPOIItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((SpreadsheetPOI)object).getLabel();
+		String label = ((SpreadsheetPOI)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_SpreadsheetPOI_type") :
 			getString("_UI_SpreadsheetPOI_type") + " " + label;

@@ -43,25 +43,25 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.RowImpl#getCell <em>Cell</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.RowImpl#getCells <em>Cells</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.RowImpl#getSheet <em>Sheet</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.RowImpl#getRowIndex <em>Row Index</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	/**
-	 * The cached value of the '{@link #getCell() <em>Cell</em>}' containment reference list.
+	 * The cached value of the '{@link #getCells() <em>Cells</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCell()
+	 * @see #getCells()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Cell> cell;
+	protected EList<Cell> cells;
 
 	/**
 	 * The default value of the '{@link #getRowIndex() <em>Row Index</em>}' attribute.
@@ -107,11 +107,11 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Cell> getCell() {
-		if (cell == null) {
-			cell = new EObjectContainmentWithInverseEList<Cell>(Cell.class, this, SpreadsheetPackage.ROW__CELL, SpreadsheetPackage.CELL__ROW);
+	public EList<Cell> getCells() {
+		if (cells == null) {
+			cells = new EObjectContainmentWithInverseEList<Cell>(Cell.class, this, SpreadsheetPackage.ROW__CELLS, SpreadsheetPackage.CELL__ROW);
 		}
-		return cell;
+		return cells;
 	}
 
 	/**
@@ -147,7 +147,7 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newSheet != null)
-				msgs = ((InternalEObject)newSheet).eInverseAdd(this, SpreadsheetPackage.SHEET__ROW, Sheet.class, msgs);
+				msgs = ((InternalEObject)newSheet).eInverseAdd(this, SpreadsheetPackage.SHEET__ROWS, Sheet.class, msgs);
 			msgs = basicSetSheet(newSheet, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -181,7 +181,7 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	 * <!-- end-user-doc -->
 	 */
 	public Cell getCell(int columnindex) {
-		for ( Cell cell : this.getCell()){
+		for ( Cell cell : this.getCells()){
 			if ( cell.getColumn().getColumnIndex()==columnindex){
 				return cell;
 			}
@@ -206,8 +206,8 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SpreadsheetPackage.ROW__CELL:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCell()).basicAdd(otherEnd, msgs);
+			case SpreadsheetPackage.ROW__CELLS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCells()).basicAdd(otherEnd, msgs);
 			case SpreadsheetPackage.ROW__SHEET:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -224,8 +224,8 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SpreadsheetPackage.ROW__CELL:
-				return ((InternalEList<?>)getCell()).basicRemove(otherEnd, msgs);
+			case SpreadsheetPackage.ROW__CELLS:
+				return ((InternalEList<?>)getCells()).basicRemove(otherEnd, msgs);
 			case SpreadsheetPackage.ROW__SHEET:
 				return basicSetSheet(null, msgs);
 		}
@@ -241,7 +241,7 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case SpreadsheetPackage.ROW__SHEET:
-				return eInternalContainer().eInverseRemove(this, SpreadsheetPackage.SHEET__ROW, Sheet.class, msgs);
+				return eInternalContainer().eInverseRemove(this, SpreadsheetPackage.SHEET__ROWS, Sheet.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -254,8 +254,8 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SpreadsheetPackage.ROW__CELL:
-				return getCell();
+			case SpreadsheetPackage.ROW__CELLS:
+				return getCells();
 			case SpreadsheetPackage.ROW__SHEET:
 				return getSheet();
 			case SpreadsheetPackage.ROW__ROW_INDEX:
@@ -273,9 +273,9 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SpreadsheetPackage.ROW__CELL:
-				getCell().clear();
-				getCell().addAll((Collection<? extends Cell>)newValue);
+			case SpreadsheetPackage.ROW__CELLS:
+				getCells().clear();
+				getCells().addAll((Collection<? extends Cell>)newValue);
 				return;
 			case SpreadsheetPackage.ROW__SHEET:
 				setSheet((Sheet)newValue);
@@ -295,8 +295,8 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SpreadsheetPackage.ROW__CELL:
-				getCell().clear();
+			case SpreadsheetPackage.ROW__CELLS:
+				getCells().clear();
 				return;
 			case SpreadsheetPackage.ROW__SHEET:
 				setSheet((Sheet)null);
@@ -316,8 +316,8 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SpreadsheetPackage.ROW__CELL:
-				return cell != null && !cell.isEmpty();
+			case SpreadsheetPackage.ROW__CELLS:
+				return cells != null && !cells.isEmpty();
 			case SpreadsheetPackage.ROW__SHEET:
 				return getSheet() != null;
 			case SpreadsheetPackage.ROW__ROW_INDEX:

@@ -154,6 +154,8 @@ public enum CellType implements Enumerator {
 	 * Returns the '<em><b>Cell Type</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static CellType get(String literal) {
@@ -170,6 +172,8 @@ public enum CellType implements Enumerator {
 	 * Returns the '<em><b>Cell Type</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static CellType getByName(String name) {
@@ -186,6 +190,8 @@ public enum CellType implements Enumerator {
 	 * Returns the '<em><b>Cell Type</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static CellType get(int value) {

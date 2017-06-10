@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2017 Michel Schaffers and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Michel Schaffers - initial API and implementation
- *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.spreadsheet.spreadsheetpoi.util;
@@ -31,17 +21,17 @@ import org.eclipse.emf.ecore.util.Switch;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetpoiPackage
+ * @see com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetPOIPackage
  * @generated
  */
-public class SpreadsheetpoiSwitch<T> extends Switch<T> {
+public class SpreadsheetPOISwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static SpreadsheetpoiPackage modelPackage;
+	protected static SpreadsheetPOIPackage modelPackage;
 
 	/**
 	 * Creates an instance of the switch.
@@ -49,9 +39,9 @@ public class SpreadsheetpoiSwitch<T> extends Switch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SpreadsheetpoiSwitch() {
+	public SpreadsheetPOISwitch() {
 		if (modelPackage == null) {
-			modelPackage = SpreadsheetpoiPackage.eINSTANCE;
+			modelPackage = SpreadsheetPOIPackage.eINSTANCE;
 		}
 	}
 
@@ -59,7 +49,7 @@ public class SpreadsheetpoiSwitch<T> extends Switch<T> {
 	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @parameter ePackage the package in question.
+	 * @param ePackage the package in question.
 	 * @return whether this is a switch for the given package.
 	 * @generated
 	 */
@@ -78,7 +68,7 @@ public class SpreadsheetpoiSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case SpreadsheetpoiPackage.SPREADSHEET_POI: {
+			case SpreadsheetPOIPackage.SPREADSHEET_POI: {
 				SpreadsheetPOI spreadsheetPOI = (SpreadsheetPOI)theEObject;
 				T result = caseSpreadsheetPOI(spreadsheetPOI);
 				if (result == null) result = caseSpreadsheet(spreadsheetPOI);
@@ -135,4 +125,4 @@ public class SpreadsheetpoiSwitch<T> extends Switch<T> {
 		return null;
 	}
 
-} //SpreadsheetpoiSwitch
+} //SpreadsheetPOISwitch

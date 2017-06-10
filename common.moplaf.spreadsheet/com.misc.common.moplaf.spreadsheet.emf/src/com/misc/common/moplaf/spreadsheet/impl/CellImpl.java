@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.CellImpl#getRow <em>Row</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.CellImpl#getColumn <em>Column</em>}</li>
@@ -43,7 +44,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.CellImpl#getDoubleValue <em>Double Value</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.CellImpl#getStringValue <em>String Value</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -190,7 +190,7 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newRow != null)
-				msgs = ((InternalEObject)newRow).eInverseAdd(this, SpreadsheetPackage.ROW__CELL, Row.class, msgs);
+				msgs = ((InternalEObject)newRow).eInverseAdd(this, SpreadsheetPackage.ROW__CELLS, Row.class, msgs);
 			msgs = basicSetRow(newRow, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -248,9 +248,9 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 		if (newColumn != column) {
 			NotificationChain msgs = null;
 			if (column != null)
-				msgs = ((InternalEObject)column).eInverseRemove(this, SpreadsheetPackage.COLUMN__CELL, Column.class, msgs);
+				msgs = ((InternalEObject)column).eInverseRemove(this, SpreadsheetPackage.COLUMN__CELLS, Column.class, msgs);
 			if (newColumn != null)
-				msgs = ((InternalEObject)newColumn).eInverseAdd(this, SpreadsheetPackage.COLUMN__CELL, Column.class, msgs);
+				msgs = ((InternalEObject)newColumn).eInverseAdd(this, SpreadsheetPackage.COLUMN__CELLS, Column.class, msgs);
 			msgs = basicSetColumn(newColumn, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -356,7 +356,7 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 				return basicSetRow((Row)otherEnd, msgs);
 			case SpreadsheetPackage.CELL__COLUMN:
 				if (column != null)
-					msgs = ((InternalEObject)column).eInverseRemove(this, SpreadsheetPackage.COLUMN__CELL, Column.class, msgs);
+					msgs = ((InternalEObject)column).eInverseRemove(this, SpreadsheetPackage.COLUMN__CELLS, Column.class, msgs);
 				return basicSetColumn((Column)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -387,7 +387,7 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case SpreadsheetPackage.CELL__ROW:
-				return eInternalContainer().eInverseRemove(this, SpreadsheetPackage.ROW__CELL, Row.class, msgs);
+				return eInternalContainer().eInverseRemove(this, SpreadsheetPackage.ROW__CELLS, Row.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}

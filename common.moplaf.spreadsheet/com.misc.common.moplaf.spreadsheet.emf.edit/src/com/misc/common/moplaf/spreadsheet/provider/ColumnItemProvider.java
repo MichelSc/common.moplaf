@@ -23,7 +23,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -71,7 +70,7 @@ public class ColumnItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addCellPropertyDescriptor(object);
+			addCellsPropertyDescriptor(object);
 			addSheetPropertyDescriptor(object);
 			addColumnIndexPropertyDescriptor(object);
 		}
@@ -79,19 +78,19 @@ public class ColumnItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Cell feature.
+	 * This adds a property descriptor for the Cells feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addCellPropertyDescriptor(Object object) {
+	protected void addCellsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Column_Cell_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Column_Cell_feature", "_UI_Column_type"),
-				 SpreadsheetPackage.Literals.COLUMN__CELL,
+				 getString("_UI_Column_Cells_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Column_Cells_feature", "_UI_Column_type"),
+				 SpreadsheetPackage.Literals.COLUMN__CELLS,
 				 true,
 				 false,
 				 true,
@@ -156,7 +155,7 @@ public class ColumnItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SpreadsheetPackage.Literals.COLUMN__CELL);
+			childrenFeatures.add(SpreadsheetPackage.Literals.COLUMN__CELLS);
 		}
 		return childrenFeatures;
 	}

@@ -135,7 +135,7 @@ public class RowItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SpreadsheetPackage.Literals.ROW__CELL);
+			childrenFeatures.add(SpreadsheetPackage.Literals.ROW__CELLS);
 		}
 		return childrenFeatures;
 	}
@@ -190,7 +190,7 @@ public class RowItemProvider
 			case SpreadsheetPackage.ROW__ROW_INDEX:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case SpreadsheetPackage.ROW__CELL:
+			case SpreadsheetPackage.ROW__CELLS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -210,7 +210,7 @@ public class RowItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SpreadsheetPackage.Literals.ROW__CELL,
+				(SpreadsheetPackage.Literals.ROW__CELLS,
 				 SpreadsheetFactory.eINSTANCE.createCell()));
 	}
 

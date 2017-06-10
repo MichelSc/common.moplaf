@@ -9,8 +9,8 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated spreadsheetpoi -->
       <factory
-            uri="http://com.misc.common.moplaf.spreadsheet.poi.emf"
-            class="com.misc.common.moplaf.spreadsheet.spreadsheetpoi.provider.SpreadsheetpoiItemProviderAdapterFactory"
+            uri="http://www.misc.com/common/moplaf/spreadsheet/poi/model/0.1"
+            class="com.misc.common.moplaf.spreadsheet.spreadsheetpoi.provider.SpreadsheetPOIItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

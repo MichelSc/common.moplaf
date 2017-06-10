@@ -76,7 +76,7 @@ public class SpreadsheetItemProvider
 			super.getPropertyDescriptors(object);
 
 			addFilePathPropertyDescriptor(object);
-			addLabelPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -104,19 +104,19 @@ public class SpreadsheetItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Label feature.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addLabelPropertyDescriptor(Object object) {
+	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Spreadsheet_Label_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Spreadsheet_Label_feature", "_UI_Spreadsheet_type"),
-				 SpreadsheetPackage.Literals.SPREADSHEET__LABEL,
+				 getString("_UI_Spreadsheet_Name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Spreadsheet_Name_feature", "_UI_Spreadsheet_type"),
+				 SpreadsheetPackage.Literals.SPREADSHEET__NAME,
 				 true,
 				 false,
 				 false,
@@ -137,7 +137,7 @@ public class SpreadsheetItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SpreadsheetPackage.Literals.SPREADSHEET__SHEET);
+			childrenFeatures.add(SpreadsheetPackage.Literals.SPREADSHEET__SHEETS);
 		}
 		return childrenFeatures;
 	}
@@ -173,7 +173,7 @@ public class SpreadsheetItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Spreadsheet)object).getLabel();
+		String label = ((Spreadsheet)object).getName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Spreadsheet_type") :
 			getString("_UI_Spreadsheet_type") + " " + label;
@@ -192,10 +192,10 @@ public class SpreadsheetItemProvider
 
 		switch (notification.getFeatureID(Spreadsheet.class)) {
 			case SpreadsheetPackage.SPREADSHEET__FILE_PATH:
-			case SpreadsheetPackage.SPREADSHEET__LABEL:
+			case SpreadsheetPackage.SPREADSHEET__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case SpreadsheetPackage.SPREADSHEET__SHEET:
+			case SpreadsheetPackage.SPREADSHEET__SHEETS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -215,7 +215,7 @@ public class SpreadsheetItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SpreadsheetPackage.Literals.SPREADSHEET__SHEET,
+				(SpreadsheetPackage.Literals.SPREADSHEET__SHEETS,
 				 SpreadsheetFactory.eINSTANCE.createSheet()));
 	}
 

@@ -40,25 +40,25 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.SpreadsheetImpl#getSheet <em>Sheet</em>}</li>
- *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.SpreadsheetImpl#getFilePath <em>File Path</em>}</li>
- *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.SpreadsheetImpl#getLabel <em>Label</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.SpreadsheetImpl#getSheets <em>Sheets</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.SpreadsheetImpl#getFilePath <em>File Path</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.SpreadsheetImpl#getName <em>Name</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public abstract class SpreadsheetImpl extends MinimalEObjectImpl.Container implements Spreadsheet {
 	/**
-	 * The cached value of the '{@link #getSheet() <em>Sheet</em>}' containment reference list.
+	 * The cached value of the '{@link #getSheets() <em>Sheets</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSheet()
+	 * @see #getSheets()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Sheet> sheet;
+	protected EList<Sheet> sheets;
 
 	/**
 	 * The default value of the '{@link #getFilePath() <em>File Path</em>}' attribute.
@@ -81,24 +81,24 @@ public abstract class SpreadsheetImpl extends MinimalEObjectImpl.Container imple
 	protected String filePath = FILE_PATH_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLabel()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String LABEL_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLabel()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String label = LABEL_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -124,11 +124,11 @@ public abstract class SpreadsheetImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Sheet> getSheet() {
-		if (sheet == null) {
-			sheet = new EObjectContainmentWithInverseEList<Sheet>(Sheet.class, this, SpreadsheetPackage.SPREADSHEET__SHEET, SpreadsheetPackage.SHEET__SPREADSHEET);
+	public EList<Sheet> getSheets() {
+		if (sheets == null) {
+			sheets = new EObjectContainmentWithInverseEList<Sheet>(Sheet.class, this, SpreadsheetPackage.SPREADSHEET__SHEETS, SpreadsheetPackage.SHEET__SPREADSHEET);
 		}
-		return sheet;
+		return sheets;
 	}
 
 	/**
@@ -157,8 +157,8 @@ public abstract class SpreadsheetImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getLabel() {
-		return label;
+	public String getName() {
+		return name;
 	}
 
 	/**
@@ -166,11 +166,11 @@ public abstract class SpreadsheetImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLabel(String newLabel) {
-		String oldLabel = label;
-		label = newLabel;
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SpreadsheetPackage.SPREADSHEET__LABEL, oldLabel, label));
+			eNotify(new ENotificationImpl(this, Notification.SET, SpreadsheetPackage.SPREADSHEET__NAME, oldName, name));
 	}
 
 	/**
@@ -178,7 +178,7 @@ public abstract class SpreadsheetImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 */
 	public Sheet getSheet(String sheetname) {
-		for ( Sheet sheet : this.getSheet()){
+		for ( Sheet sheet : this.getSheets()){
 			if ( sheet.getSheetName().equals(sheetname)){
 				return sheet;
 			}
@@ -191,7 +191,7 @@ public abstract class SpreadsheetImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 */
 	public Sheet getSheet(int sheetindex) {
-		for ( Sheet sheet : this.getSheet()){
+		for ( Sheet sheet : this.getSheets()){
 			if ( sheet.getSheetIndex()==sheetindex){
 				return sheet;
 			}
@@ -230,8 +230,8 @@ public abstract class SpreadsheetImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SpreadsheetPackage.SPREADSHEET__SHEET:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSheet()).basicAdd(otherEnd, msgs);
+			case SpreadsheetPackage.SPREADSHEET__SHEETS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSheets()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -244,8 +244,8 @@ public abstract class SpreadsheetImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SpreadsheetPackage.SPREADSHEET__SHEET:
-				return ((InternalEList<?>)getSheet()).basicRemove(otherEnd, msgs);
+			case SpreadsheetPackage.SPREADSHEET__SHEETS:
+				return ((InternalEList<?>)getSheets()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -258,12 +258,12 @@ public abstract class SpreadsheetImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SpreadsheetPackage.SPREADSHEET__SHEET:
-				return getSheet();
+			case SpreadsheetPackage.SPREADSHEET__SHEETS:
+				return getSheets();
 			case SpreadsheetPackage.SPREADSHEET__FILE_PATH:
 				return getFilePath();
-			case SpreadsheetPackage.SPREADSHEET__LABEL:
-				return getLabel();
+			case SpreadsheetPackage.SPREADSHEET__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -277,15 +277,15 @@ public abstract class SpreadsheetImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SpreadsheetPackage.SPREADSHEET__SHEET:
-				getSheet().clear();
-				getSheet().addAll((Collection<? extends Sheet>)newValue);
+			case SpreadsheetPackage.SPREADSHEET__SHEETS:
+				getSheets().clear();
+				getSheets().addAll((Collection<? extends Sheet>)newValue);
 				return;
 			case SpreadsheetPackage.SPREADSHEET__FILE_PATH:
 				setFilePath((String)newValue);
 				return;
-			case SpreadsheetPackage.SPREADSHEET__LABEL:
-				setLabel((String)newValue);
+			case SpreadsheetPackage.SPREADSHEET__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -299,14 +299,14 @@ public abstract class SpreadsheetImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SpreadsheetPackage.SPREADSHEET__SHEET:
-				getSheet().clear();
+			case SpreadsheetPackage.SPREADSHEET__SHEETS:
+				getSheets().clear();
 				return;
 			case SpreadsheetPackage.SPREADSHEET__FILE_PATH:
 				setFilePath(FILE_PATH_EDEFAULT);
 				return;
-			case SpreadsheetPackage.SPREADSHEET__LABEL:
-				setLabel(LABEL_EDEFAULT);
+			case SpreadsheetPackage.SPREADSHEET__NAME:
+				setName(NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -320,12 +320,12 @@ public abstract class SpreadsheetImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SpreadsheetPackage.SPREADSHEET__SHEET:
-				return sheet != null && !sheet.isEmpty();
+			case SpreadsheetPackage.SPREADSHEET__SHEETS:
+				return sheets != null && !sheets.isEmpty();
 			case SpreadsheetPackage.SPREADSHEET__FILE_PATH:
 				return FILE_PATH_EDEFAULT == null ? filePath != null : !FILE_PATH_EDEFAULT.equals(filePath);
-			case SpreadsheetPackage.SPREADSHEET__LABEL:
-				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
+			case SpreadsheetPackage.SPREADSHEET__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -364,8 +364,8 @@ public abstract class SpreadsheetImpl extends MinimalEObjectImpl.Container imple
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (FilePath: ");
 		result.append(filePath);
-		result.append(", Label: ");
-		result.append(label);
+		result.append(", Name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

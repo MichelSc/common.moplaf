@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2017 Michel Schaffers and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Michel Schaffers - initial API and implementation
- *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.spreadsheet.spreadsheetpoi;
@@ -29,11 +19,11 @@ import org.eclipse.emf.ecore.EPackage;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetpoiFactory
+ * @see com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetPOIFactory
  * @model kind="package"
  * @generated
  */
-public interface SpreadsheetpoiPackage extends EPackage {
+public interface SpreadsheetPOIPackage extends EPackage {
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -48,7 +38,7 @@ public interface SpreadsheetpoiPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://com.misc.common.moplaf.spreadsheet.poi.emf";
+	String eNS_URI = "http://www.misc.com/common/moplaf/spreadsheet/poi/model/0.1";
 
 	/**
 	 * The package namespace name.
@@ -64,26 +54,26 @@ public interface SpreadsheetpoiPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	SpreadsheetpoiPackage eINSTANCE = com.misc.common.moplaf.spreadsheet.spreadsheetpoi.impl.SpreadsheetpoiPackageImpl.init();
+	SpreadsheetPOIPackage eINSTANCE = com.misc.common.moplaf.spreadsheet.spreadsheetpoi.impl.SpreadsheetPOIPackageImpl.init();
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.spreadsheet.spreadsheetpoi.impl.SpreadsheetPOIImpl <em>Spreadsheet POI</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetpoi.impl.SpreadsheetPOIImpl
-	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetpoi.impl.SpreadsheetpoiPackageImpl#getSpreadsheetPOI()
+	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetpoi.impl.SpreadsheetPOIPackageImpl#getSpreadsheetPOI()
 	 * @generated
 	 */
 	int SPREADSHEET_POI = 0;
 
 	/**
-	 * The feature id for the '<em><b>Sheet</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Sheets</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET_POI__SHEET = SpreadsheetPackage.SPREADSHEET__SHEET;
+	int SPREADSHEET_POI__SHEETS = SpreadsheetPackage.SPREADSHEET__SHEETS;
 
 	/**
 	 * The feature id for the '<em><b>File Path</b></em>' attribute.
@@ -95,13 +85,13 @@ public interface SpreadsheetpoiPackage extends EPackage {
 	int SPREADSHEET_POI__FILE_PATH = SpreadsheetPackage.SPREADSHEET__FILE_PATH;
 
 	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET_POI__LABEL = SpreadsheetPackage.SPREADSHEET__LABEL;
+	int SPREADSHEET_POI__NAME = SpreadsheetPackage.SPREADSHEET__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Spreadsheet POI</em>' class.
@@ -175,7 +165,7 @@ public interface SpreadsheetpoiPackage extends EPackage {
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
-	SpreadsheetpoiFactory getSpreadsheetpoiFactory();
+	SpreadsheetPOIFactory getSpreadsheetPOIFactory();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -196,11 +186,11 @@ public interface SpreadsheetpoiPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see com.misc.common.moplaf.spreadsheet.spreadsheetpoi.impl.SpreadsheetPOIImpl
-		 * @see com.misc.common.moplaf.spreadsheet.spreadsheetpoi.impl.SpreadsheetpoiPackageImpl#getSpreadsheetPOI()
+		 * @see com.misc.common.moplaf.spreadsheet.spreadsheetpoi.impl.SpreadsheetPOIPackageImpl#getSpreadsheetPOI()
 		 * @generated
 		 */
 		EClass SPREADSHEET_POI = eINSTANCE.getSpreadsheetPOI();
 
 	}
 
-} //SpreadsheetpoiPackage
+} //SpreadsheetPOIPackage

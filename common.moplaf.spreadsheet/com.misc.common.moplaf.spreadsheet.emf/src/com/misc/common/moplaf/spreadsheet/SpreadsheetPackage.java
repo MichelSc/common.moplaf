@@ -50,7 +50,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://com.misc.common.moplaf.spreadsheet.emf";
+	String eNS_URI = "http://www.misc.com/common/moplaf/spreadsheet/model/0.1";
 
 	/**
 	 * The package namespace name.
@@ -79,13 +79,13 @@ public interface SpreadsheetPackage extends EPackage {
 	int SPREADSHEET = 0;
 
 	/**
-	 * The feature id for the '<em><b>Sheet</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Sheets</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET__SHEET = 0;
+	int SPREADSHEET__SHEETS = 0;
 
 	/**
 	 * The feature id for the '<em><b>File Path</b></em>' attribute.
@@ -97,13 +97,13 @@ public interface SpreadsheetPackage extends EPackage {
 	int SPREADSHEET__FILE_PATH = 1;
 
 	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET__LABEL = 2;
+	int SPREADSHEET__NAME = 2;
 
 	/**
 	 * The number of structural features of the '<em>Spreadsheet</em>' class.
@@ -170,22 +170,22 @@ public interface SpreadsheetPackage extends EPackage {
 	int SHEET = 1;
 
 	/**
-	 * The feature id for the '<em><b>Row</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Rows</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHEET__ROW = 0;
+	int SHEET__ROWS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Column</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHEET__COLUMN = 1;
+	int SHEET__COLUMNS = 1;
 
 	/**
 	 * The feature id for the '<em><b>Sheet Name</b></em>' attribute.
@@ -261,13 +261,13 @@ public interface SpreadsheetPackage extends EPackage {
 	int ROW = 2;
 
 	/**
-	 * The feature id for the '<em><b>Cell</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Cells</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROW__CELL = 0;
+	int ROW__CELLS = 0;
 
 	/**
 	 * The feature id for the '<em><b>Sheet</b></em>' container reference.
@@ -334,13 +334,13 @@ public interface SpreadsheetPackage extends EPackage {
 	int COLUMN = 3;
 
 	/**
-	 * The feature id for the '<em><b>Cell</b></em>' reference list.
+	 * The feature id for the '<em><b>Cells</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN__CELL = 0;
+	int COLUMN__CELLS = 0;
 
 	/**
 	 * The feature id for the '<em><b>Sheet</b></em>' container reference.
@@ -500,15 +500,15 @@ public interface SpreadsheetPackage extends EPackage {
 	EClass getSpreadsheet();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#getSheet <em>Sheet</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#getSheets <em>Sheets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Sheet</em>'.
-	 * @see com.misc.common.moplaf.spreadsheet.Spreadsheet#getSheet()
+	 * @return the meta object for the containment reference list '<em>Sheets</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.Spreadsheet#getSheets()
 	 * @see #getSpreadsheet()
 	 * @generated
 	 */
-	EReference getSpreadsheet_Sheet();
+	EReference getSpreadsheet_Sheets();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#getFilePath <em>File Path</em>}'.
@@ -522,15 +522,15 @@ public interface SpreadsheetPackage extends EPackage {
 	EAttribute getSpreadsheet_FilePath();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#getLabel <em>Label</em>}'.
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Label</em>'.
-	 * @see com.misc.common.moplaf.spreadsheet.Spreadsheet#getLabel()
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.Spreadsheet#getName()
 	 * @see #getSpreadsheet()
 	 * @generated
 	 */
-	EAttribute getSpreadsheet_Label();
+	EAttribute getSpreadsheet_Name();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#getSheet(java.lang.String) <em>Get Sheet</em>}' operation.
@@ -583,26 +583,26 @@ public interface SpreadsheetPackage extends EPackage {
 	EClass getSheet();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.spreadsheet.Sheet#getRow <em>Row</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.spreadsheet.Sheet#getRows <em>Rows</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Row</em>'.
-	 * @see com.misc.common.moplaf.spreadsheet.Sheet#getRow()
+	 * @return the meta object for the containment reference list '<em>Rows</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.Sheet#getRows()
 	 * @see #getSheet()
 	 * @generated
 	 */
-	EReference getSheet_Row();
+	EReference getSheet_Rows();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.spreadsheet.Sheet#getColumn <em>Column</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.spreadsheet.Sheet#getColumns <em>Columns</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Column</em>'.
-	 * @see com.misc.common.moplaf.spreadsheet.Sheet#getColumn()
+	 * @return the meta object for the containment reference list '<em>Columns</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.Sheet#getColumns()
 	 * @see #getSheet()
 	 * @generated
 	 */
-	EReference getSheet_Column();
+	EReference getSheet_Columns();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Sheet#getSheetName <em>Sheet Name</em>}'.
@@ -668,15 +668,15 @@ public interface SpreadsheetPackage extends EPackage {
 	EClass getRow();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.spreadsheet.Row#getCell <em>Cell</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.spreadsheet.Row#getCells <em>Cells</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Cell</em>'.
-	 * @see com.misc.common.moplaf.spreadsheet.Row#getCell()
+	 * @return the meta object for the containment reference list '<em>Cells</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.Row#getCells()
 	 * @see #getRow()
 	 * @generated
 	 */
-	EReference getRow_Cell();
+	EReference getRow_Cells();
 
 	/**
 	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.spreadsheet.Row#getSheet <em>Sheet</em>}'.
@@ -731,15 +731,15 @@ public interface SpreadsheetPackage extends EPackage {
 	EClass getColumn();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.spreadsheet.Column#getCell <em>Cell</em>}'.
+	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.spreadsheet.Column#getCells <em>Cells</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Cell</em>'.
-	 * @see com.misc.common.moplaf.spreadsheet.Column#getCell()
+	 * @return the meta object for the reference list '<em>Cells</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.Column#getCells()
 	 * @see #getColumn()
 	 * @generated
 	 */
-	EReference getColumn_Cell();
+	EReference getColumn_Cells();
 
 	/**
 	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.spreadsheet.Column#getSheet <em>Sheet</em>}'.
@@ -903,12 +903,12 @@ public interface SpreadsheetPackage extends EPackage {
 		EClass SPREADSHEET = eINSTANCE.getSpreadsheet();
 
 		/**
-		 * The meta object literal for the '<em><b>Sheet</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Sheets</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SPREADSHEET__SHEET = eINSTANCE.getSpreadsheet_Sheet();
+		EReference SPREADSHEET__SHEETS = eINSTANCE.getSpreadsheet_Sheets();
 
 		/**
 		 * The meta object literal for the '<em><b>File Path</b></em>' attribute feature.
@@ -919,12 +919,12 @@ public interface SpreadsheetPackage extends EPackage {
 		EAttribute SPREADSHEET__FILE_PATH = eINSTANCE.getSpreadsheet_FilePath();
 
 		/**
-		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SPREADSHEET__LABEL = eINSTANCE.getSpreadsheet_Label();
+		EAttribute SPREADSHEET__NAME = eINSTANCE.getSpreadsheet_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Sheet</b></em>' operation.
@@ -969,20 +969,20 @@ public interface SpreadsheetPackage extends EPackage {
 		EClass SHEET = eINSTANCE.getSheet();
 
 		/**
-		 * The meta object literal for the '<em><b>Row</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Rows</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SHEET__ROW = eINSTANCE.getSheet_Row();
+		EReference SHEET__ROWS = eINSTANCE.getSheet_Rows();
 
 		/**
-		 * The meta object literal for the '<em><b>Column</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Columns</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SHEET__COLUMN = eINSTANCE.getSheet_Column();
+		EReference SHEET__COLUMNS = eINSTANCE.getSheet_Columns();
 
 		/**
 		 * The meta object literal for the '<em><b>Sheet Name</b></em>' attribute feature.
@@ -1035,12 +1035,12 @@ public interface SpreadsheetPackage extends EPackage {
 		EClass ROW = eINSTANCE.getRow();
 
 		/**
-		 * The meta object literal for the '<em><b>Cell</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Cells</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ROW__CELL = eINSTANCE.getRow_Cell();
+		EReference ROW__CELLS = eINSTANCE.getRow_Cells();
 
 		/**
 		 * The meta object literal for the '<em><b>Sheet</b></em>' container reference feature.
@@ -1085,12 +1085,12 @@ public interface SpreadsheetPackage extends EPackage {
 		EClass COLUMN = eINSTANCE.getColumn();
 
 		/**
-		 * The meta object literal for the '<em><b>Cell</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Cells</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COLUMN__CELL = eINSTANCE.getColumn_Cell();
+		EReference COLUMN__CELLS = eINSTANCE.getColumn_Cells();
 
 		/**
 		 * The meta object literal for the '<em><b>Sheet</b></em>' container reference feature.

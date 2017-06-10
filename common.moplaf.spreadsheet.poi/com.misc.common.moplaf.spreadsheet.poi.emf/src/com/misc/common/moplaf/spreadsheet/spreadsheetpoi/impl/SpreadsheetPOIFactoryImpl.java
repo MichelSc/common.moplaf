@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2017 Michel Schaffers and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Michel Schaffers - initial API and implementation
- *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.spreadsheet.spreadsheetpoi.impl;
@@ -28,24 +18,24 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SpreadsheetpoiFactoryImpl extends EFactoryImpl implements SpreadsheetpoiFactory {
+public class SpreadsheetPOIFactoryImpl extends EFactoryImpl implements SpreadsheetPOIFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static SpreadsheetpoiFactory init() {
+	public static SpreadsheetPOIFactory init() {
 		try {
-			SpreadsheetpoiFactory theSpreadsheetpoiFactory = (SpreadsheetpoiFactory)EPackage.Registry.INSTANCE.getEFactory(SpreadsheetpoiPackage.eNS_URI);
-			if (theSpreadsheetpoiFactory != null) {
-				return theSpreadsheetpoiFactory;
+			SpreadsheetPOIFactory theSpreadsheetPOIFactory = (SpreadsheetPOIFactory)EPackage.Registry.INSTANCE.getEFactory(SpreadsheetPOIPackage.eNS_URI);
+			if (theSpreadsheetPOIFactory != null) {
+				return theSpreadsheetPOIFactory;
 			}
 		}
 		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
-		return new SpreadsheetpoiFactoryImpl();
+		return new SpreadsheetPOIFactoryImpl();
 	}
 
 	/**
@@ -54,7 +44,7 @@ public class SpreadsheetpoiFactoryImpl extends EFactoryImpl implements Spreadshe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SpreadsheetpoiFactoryImpl() {
+	public SpreadsheetPOIFactoryImpl() {
 		super();
 	}
 
@@ -66,7 +56,7 @@ public class SpreadsheetpoiFactoryImpl extends EFactoryImpl implements Spreadshe
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case SpreadsheetpoiPackage.SPREADSHEET_POI: return createSpreadsheetPOI();
+			case SpreadsheetPOIPackage.SPREADSHEET_POI: return createSpreadsheetPOI();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -87,8 +77,8 @@ public class SpreadsheetpoiFactoryImpl extends EFactoryImpl implements Spreadshe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SpreadsheetpoiPackage getSpreadsheetpoiPackage() {
-		return (SpreadsheetpoiPackage)getEPackage();
+	public SpreadsheetPOIPackage getSpreadsheetPOIPackage() {
+		return (SpreadsheetPOIPackage)getEPackage();
 	}
 
 	/**
@@ -98,8 +88,8 @@ public class SpreadsheetpoiFactoryImpl extends EFactoryImpl implements Spreadshe
 	 * @generated
 	 */
 	@Deprecated
-	public static SpreadsheetpoiPackage getPackage() {
-		return SpreadsheetpoiPackage.eINSTANCE;
+	public static SpreadsheetPOIPackage getPackage() {
+		return SpreadsheetPOIPackage.eINSTANCE;
 	}
 
-} //SpreadsheetpoiFactoryImpl
+} //SpreadsheetPOIFactoryImpl

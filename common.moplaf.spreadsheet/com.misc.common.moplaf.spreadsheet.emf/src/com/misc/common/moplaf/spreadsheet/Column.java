@@ -23,12 +23,12 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.spreadsheet.Column#getCell <em>Cell</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.Column#getCells <em>Cells</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Column#getSheet <em>Sheet</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Column#getColumnIndex <em>Column Index</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getColumn()
  * @model
@@ -36,26 +36,26 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Column extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Cell</b></em>' reference list.
+	 * Returns the value of the '<em><b>Cells</b></em>' reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.spreadsheet.Cell}.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.spreadsheet.Cell#getColumn <em>Column</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Cell</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Cells</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Cell</em>' reference list.
-	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getColumn_Cell()
+	 * @return the value of the '<em>Cells</em>' reference list.
+	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getColumn_Cells()
 	 * @see com.misc.common.moplaf.spreadsheet.Cell#getColumn
 	 * @model opposite="Column"
 	 * @generated
 	 */
-	EList<Cell> getCell();
+	EList<Cell> getCells();
 
 	/**
 	 * Returns the value of the '<em><b>Sheet</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.spreadsheet.Sheet#getColumn <em>Column</em>}'.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.spreadsheet.Sheet#getColumns <em>Columns</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sheet</em>' container reference isn't clear,
@@ -65,8 +65,8 @@ public interface Column extends EObject {
 	 * @return the value of the '<em>Sheet</em>' container reference.
 	 * @see #setSheet(Sheet)
 	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getColumn_Sheet()
-	 * @see com.misc.common.moplaf.spreadsheet.Sheet#getColumn
-	 * @model opposite="Column" required="true" transient="false"
+	 * @see com.misc.common.moplaf.spreadsheet.Sheet#getColumns
+	 * @model opposite="Columns" required="true" transient="false"
 	 * @generated
 	 */
 	Sheet getSheet();

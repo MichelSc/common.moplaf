@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2017 Michel Schaffers and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Michel Schaffers - initial API and implementation
- *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.spreadsheet.spreadsheetpoi.util;
@@ -28,17 +18,17 @@ import org.eclipse.emf.ecore.EObject;
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetpoiPackage
+ * @see com.misc.common.moplaf.spreadsheet.spreadsheetpoi.SpreadsheetPOIPackage
  * @generated
  */
-public class SpreadsheetpoiAdapterFactory extends AdapterFactoryImpl {
+public class SpreadsheetPOIAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static SpreadsheetpoiPackage modelPackage;
+	protected static SpreadsheetPOIPackage modelPackage;
 
 	/**
 	 * Creates an instance of the adapter factory.
@@ -46,9 +36,9 @@ public class SpreadsheetpoiAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SpreadsheetpoiAdapterFactory() {
+	public SpreadsheetPOIAdapterFactory() {
 		if (modelPackage == null) {
-			modelPackage = SpreadsheetpoiPackage.eINSTANCE;
+			modelPackage = SpreadsheetPOIPackage.eINSTANCE;
 		}
 	}
 
@@ -77,8 +67,8 @@ public class SpreadsheetpoiAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SpreadsheetpoiSwitch<Adapter> modelSwitch =
-		new SpreadsheetpoiSwitch<Adapter>() {
+	protected SpreadsheetPOISwitch<Adapter> modelSwitch =
+		new SpreadsheetPOISwitch<Adapter>() {
 			@Override
 			public Adapter caseSpreadsheetPOI(SpreadsheetPOI object) {
 				return createSpreadsheetPOIAdapter();
@@ -147,4 +137,4 @@ public class SpreadsheetpoiAdapterFactory extends AdapterFactoryImpl {
 		return null;
 	}
 
-} //SpreadsheetpoiAdapterFactory
+} //SpreadsheetPOIAdapterFactory

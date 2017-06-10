@@ -158,8 +158,8 @@ public class SheetItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SpreadsheetPackage.Literals.SHEET__ROW);
-			childrenFeatures.add(SpreadsheetPackage.Literals.SHEET__COLUMN);
+			childrenFeatures.add(SpreadsheetPackage.Literals.SHEET__ROWS);
+			childrenFeatures.add(SpreadsheetPackage.Literals.SHEET__COLUMNS);
 		}
 		return childrenFeatures;
 	}
@@ -217,8 +217,8 @@ public class SheetItemProvider
 			case SpreadsheetPackage.SHEET__SHEET_INDEX:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case SpreadsheetPackage.SHEET__ROW:
-			case SpreadsheetPackage.SHEET__COLUMN:
+			case SpreadsheetPackage.SHEET__ROWS:
+			case SpreadsheetPackage.SHEET__COLUMNS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -238,12 +238,12 @@ public class SheetItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SpreadsheetPackage.Literals.SHEET__ROW,
+				(SpreadsheetPackage.Literals.SHEET__ROWS,
 				 SpreadsheetFactory.eINSTANCE.createRow()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SpreadsheetPackage.Literals.SHEET__COLUMN,
+				(SpreadsheetPackage.Literals.SHEET__COLUMNS,
 				 SpreadsheetFactory.eINSTANCE.createColumn()));
 	}
 

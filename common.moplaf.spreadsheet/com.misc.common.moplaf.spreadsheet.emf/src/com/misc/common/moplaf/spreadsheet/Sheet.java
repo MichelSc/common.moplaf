@@ -23,14 +23,14 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.spreadsheet.Sheet#getRow <em>Row</em>}</li>
- *   <li>{@link com.misc.common.moplaf.spreadsheet.Sheet#getColumn <em>Column</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.Sheet#getRows <em>Rows</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.Sheet#getColumns <em>Columns</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Sheet#getSheetName <em>Sheet Name</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Sheet#getSheetIndex <em>Sheet Index</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Sheet#getSpreadsheet <em>Spreadsheet</em>}</li>
  * </ul>
- * </p>
  *
  * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getSheet()
  * @model
@@ -38,40 +38,40 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Sheet extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Row</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Rows</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.spreadsheet.Row}.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.spreadsheet.Row#getSheet <em>Sheet</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Row</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Rows</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Row</em>' containment reference list.
-	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getSheet_Row()
+	 * @return the value of the '<em>Rows</em>' containment reference list.
+	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getSheet_Rows()
 	 * @see com.misc.common.moplaf.spreadsheet.Row#getSheet
 	 * @model opposite="Sheet" containment="true"
 	 * @generated
 	 */
-	EList<Row> getRow();
+	EList<Row> getRows();
 
 	/**
-	 * Returns the value of the '<em><b>Column</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Columns</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.spreadsheet.Column}.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.spreadsheet.Column#getSheet <em>Sheet</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Column</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Columns</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Column</em>' containment reference list.
-	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getSheet_Column()
+	 * @return the value of the '<em>Columns</em>' containment reference list.
+	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getSheet_Columns()
 	 * @see com.misc.common.moplaf.spreadsheet.Column#getSheet
 	 * @model opposite="Sheet" containment="true"
 	 * @generated
 	 */
-	EList<Column> getColumn();
+	EList<Column> getColumns();
 
 	/**
 	 * Returns the value of the '<em><b>Sheet Name</b></em>' attribute.
@@ -127,7 +127,7 @@ public interface Sheet extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Spreadsheet</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#getSheet <em>Sheet</em>}'.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.spreadsheet.Spreadsheet#getSheets <em>Sheets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Spreadsheet</em>' container reference isn't clear,
@@ -137,8 +137,8 @@ public interface Sheet extends EObject {
 	 * @return the value of the '<em>Spreadsheet</em>' container reference.
 	 * @see #setSpreadsheet(Spreadsheet)
 	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getSheet_Spreadsheet()
-	 * @see com.misc.common.moplaf.spreadsheet.Spreadsheet#getSheet
-	 * @model opposite="Sheet" transient="false"
+	 * @see com.misc.common.moplaf.spreadsheet.Spreadsheet#getSheets
+	 * @model opposite="Sheets" transient="false"
 	 * @generated
 	 */
 	Spreadsheet getSpreadsheet();

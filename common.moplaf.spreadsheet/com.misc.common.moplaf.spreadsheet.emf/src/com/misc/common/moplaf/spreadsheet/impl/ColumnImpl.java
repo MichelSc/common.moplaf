@@ -43,25 +43,25 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.ColumnImpl#getCell <em>Cell</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.ColumnImpl#getCells <em>Cells</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.ColumnImpl#getSheet <em>Sheet</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.ColumnImpl#getColumnIndex <em>Column Index</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
 public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 	/**
-	 * The cached value of the '{@link #getCell() <em>Cell</em>}' reference list.
+	 * The cached value of the '{@link #getCells() <em>Cells</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCell()
+	 * @see #getCells()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Cell> cell;
+	protected EList<Cell> cells;
 
 	/**
 	 * The default value of the '{@link #getColumnIndex() <em>Column Index</em>}' attribute.
@@ -107,11 +107,11 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Cell> getCell() {
-		if (cell == null) {
-			cell = new EObjectWithInverseResolvingEList<Cell>(Cell.class, this, SpreadsheetPackage.COLUMN__CELL, SpreadsheetPackage.CELL__COLUMN);
+	public EList<Cell> getCells() {
+		if (cells == null) {
+			cells = new EObjectWithInverseResolvingEList<Cell>(Cell.class, this, SpreadsheetPackage.COLUMN__CELLS, SpreadsheetPackage.CELL__COLUMN);
 		}
-		return cell;
+		return cells;
 	}
 
 	/**
@@ -147,7 +147,7 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newSheet != null)
-				msgs = ((InternalEObject)newSheet).eInverseAdd(this, SpreadsheetPackage.SHEET__COLUMN, Sheet.class, msgs);
+				msgs = ((InternalEObject)newSheet).eInverseAdd(this, SpreadsheetPackage.SHEET__COLUMNS, Sheet.class, msgs);
 			msgs = basicSetSheet(newSheet, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -181,7 +181,7 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 	 * <!-- end-user-doc -->
 	 */
 	public Cell getCell(int rowindex) {
-		for ( Cell cell : this.getCell()){
+		for ( Cell cell : this.getCells()){
 			if ( cell.getRow().getRowIndex()==rowindex){
 				return cell;
 			}
@@ -206,8 +206,8 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SpreadsheetPackage.COLUMN__CELL:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCell()).basicAdd(otherEnd, msgs);
+			case SpreadsheetPackage.COLUMN__CELLS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCells()).basicAdd(otherEnd, msgs);
 			case SpreadsheetPackage.COLUMN__SHEET:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -224,8 +224,8 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SpreadsheetPackage.COLUMN__CELL:
-				return ((InternalEList<?>)getCell()).basicRemove(otherEnd, msgs);
+			case SpreadsheetPackage.COLUMN__CELLS:
+				return ((InternalEList<?>)getCells()).basicRemove(otherEnd, msgs);
 			case SpreadsheetPackage.COLUMN__SHEET:
 				return basicSetSheet(null, msgs);
 		}
@@ -241,7 +241,7 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case SpreadsheetPackage.COLUMN__SHEET:
-				return eInternalContainer().eInverseRemove(this, SpreadsheetPackage.SHEET__COLUMN, Sheet.class, msgs);
+				return eInternalContainer().eInverseRemove(this, SpreadsheetPackage.SHEET__COLUMNS, Sheet.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -254,8 +254,8 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SpreadsheetPackage.COLUMN__CELL:
-				return getCell();
+			case SpreadsheetPackage.COLUMN__CELLS:
+				return getCells();
 			case SpreadsheetPackage.COLUMN__SHEET:
 				return getSheet();
 			case SpreadsheetPackage.COLUMN__COLUMN_INDEX:
@@ -273,9 +273,9 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SpreadsheetPackage.COLUMN__CELL:
-				getCell().clear();
-				getCell().addAll((Collection<? extends Cell>)newValue);
+			case SpreadsheetPackage.COLUMN__CELLS:
+				getCells().clear();
+				getCells().addAll((Collection<? extends Cell>)newValue);
 				return;
 			case SpreadsheetPackage.COLUMN__SHEET:
 				setSheet((Sheet)newValue);
@@ -295,8 +295,8 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SpreadsheetPackage.COLUMN__CELL:
-				getCell().clear();
+			case SpreadsheetPackage.COLUMN__CELLS:
+				getCells().clear();
 				return;
 			case SpreadsheetPackage.COLUMN__SHEET:
 				setSheet((Sheet)null);
@@ -316,8 +316,8 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SpreadsheetPackage.COLUMN__CELL:
-				return cell != null && !cell.isEmpty();
+			case SpreadsheetPackage.COLUMN__CELLS:
+				return cells != null && !cells.isEmpty();
 			case SpreadsheetPackage.COLUMN__SHEET:
 				return getSheet() != null;
 			case SpreadsheetPackage.COLUMN__COLUMN_INDEX:
