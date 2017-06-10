@@ -16,10 +16,14 @@ import com.misc.common.moplaf.spreadsheet.Sheet;
 import com.misc.common.moplaf.spreadsheet.Spreadsheet;
 import com.misc.common.moplaf.spreadsheet.SpreadsheetPackage;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -202,11 +206,29 @@ public abstract class SpreadsheetImpl extends MinimalEObjectImpl.Container imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void readFile() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
+		CommonPlugin.INSTANCE.log("Spreadsheet.load: started");
+		
+		// open the file
+		FileInputStream inputstream = null;
+		try {
+			inputstream = new FileInputStream(this.getFilePath());
+		} catch (FileNotFoundException e) {
+			CommonPlugin.INSTANCE.log("Spreadsheet.load: file NOT found");
+			return;
+		} 
+		CommonPlugin.INSTANCE.log("Spreadsheet.load: file found");
+		
+		this.readFileImpl(inputstream);
+
+		CommonPlugin.INSTANCE.log("Spreadsheet.load: file found");
+	}
+	
+	/*
+	 * 
+	 */
+	protected void readFileImpl(InputStream inputStream){
 		throw new UnsupportedOperationException();
 	}
 

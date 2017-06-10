@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2017 Michel Schaffers and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Michel Schaffers - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.spreadsheet.spreadsheetcsv;
@@ -28,7 +38,7 @@ public interface SpreadsheetCSV extends Spreadsheet {
 
 	/**
 	 * Returns the value of the '<em><b>Format</b></em>' attribute.
-	 * The literals are from the enumeration {@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.CSVFormat}.
+	 * The literals are from the enumeration {@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.FormatCSV}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Format</em>' attribute isn't clear,
@@ -36,24 +46,24 @@ public interface SpreadsheetCSV extends Spreadsheet {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Format</em>' attribute.
-	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.CSVFormat
-	 * @see #setFormat(CSVFormat)
+	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.FormatCSV
+	 * @see #setFormat(FormatCSV)
 	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSVPackage#getSpreadsheetCSV_Format()
 	 * @model
 	 * @generated
 	 */
-	CSVFormat getFormat();
+	FormatCSV getFormat();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV#getFormat <em>Format</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Format</em>' attribute.
-	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.CSVFormat
+	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.FormatCSV
 	 * @see #getFormat()
 	 * @generated
 	 */
-	void setFormat(CSVFormat value);
+	void setFormat(FormatCSV value);
 
 	/**
 	 * Returns the value of the '<em><b>Delimiter</b></em>' attribute.

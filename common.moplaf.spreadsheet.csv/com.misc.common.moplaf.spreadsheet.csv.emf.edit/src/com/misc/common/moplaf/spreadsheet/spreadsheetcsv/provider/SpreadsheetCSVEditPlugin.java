@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2017 Michel Schaffers and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Michel Schaffers - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.spreadsheet.spreadsheetcsv.provider;
@@ -9,19 +19,19 @@ import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 /**
- * This is the central singleton for the Spreadsheetcsv edit plugin.
+ * This is the central singleton for the SpreadsheetCSV edit plugin.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public final class SpreadsheetcsvEditPlugin extends EMFPlugin {
+public final class SpreadsheetCSVEditPlugin extends EMFPlugin {
 	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final SpreadsheetcsvEditPlugin INSTANCE = new SpreadsheetcsvEditPlugin();
+	public static final SpreadsheetCSVEditPlugin INSTANCE = new SpreadsheetCSVEditPlugin();
 
 	/**
 	 * Keep track of the singleton.
@@ -37,7 +47,7 @@ public final class SpreadsheetcsvEditPlugin extends EMFPlugin {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SpreadsheetcsvEditPlugin() {
+	public SpreadsheetCSVEditPlugin() {
 		super
 		  (new ResourceLocator [] {
 		     SpreadsheetEditPlugin.INSTANCE,

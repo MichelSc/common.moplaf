@@ -16,6 +16,7 @@ import com.misc.common.moplaf.spreadsheet.Column;
 import com.misc.common.moplaf.spreadsheet.Row;
 import com.misc.common.moplaf.spreadsheet.Sheet;
 import com.misc.common.moplaf.spreadsheet.Spreadsheet;
+import com.misc.common.moplaf.spreadsheet.SpreadsheetFactory;
 import com.misc.common.moplaf.spreadsheet.SpreadsheetPackage;
 
 import java.lang.reflect.InvocationTargetException;
@@ -253,6 +254,20 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public Column getOrCreateColumn(int columnindex) {
+		Column column = this.getColumn(columnindex);
+		if ( column == null ){
+			column = SpreadsheetFactory.eINSTANCE.createColumn();
+			column.setColumnIndex(columnindex);
+			column.setSheet(this);
+		}
+		return column;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public Row getRow(int rowindex) {
 		for ( Row row : this.getRows()){
 			if ( row.getRowIndex()==rowindex){
@@ -426,6 +441,8 @@ public class SheetImpl extends MinimalEObjectImpl.Container implements Sheet {
 		switch (operationID) {
 			case SpreadsheetPackage.SHEET___GET_COLUMN__INT:
 				return getColumn((Integer)arguments.get(0));
+			case SpreadsheetPackage.SHEET___GET_OR_CREATE_COLUMN__INT:
+				return getOrCreateColumn((Integer)arguments.get(0));
 			case SpreadsheetPackage.SHEET___GET_ROW__INT:
 				return getRow((Integer)arguments.get(0));
 		}

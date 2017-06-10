@@ -1,10 +1,19 @@
+/*******************************************************************************
+ * Copyright (c) 2017 Michel Schaffers and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Michel Schaffers - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.spreadsheet.spreadsheetcsv.impl;
 
 import com.misc.common.moplaf.spreadsheet.SpreadsheetPackage;
-
-import com.misc.common.moplaf.spreadsheet.spreadsheetcsv.CSVFormat;
+import com.misc.common.moplaf.spreadsheet.spreadsheetcsv.FormatCSV;
 import com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV;
 import com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSVFactory;
 import com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSVPackage;
@@ -35,7 +44,7 @@ public class SpreadsheetCSVPackageImpl extends EPackageImpl implements Spreadshe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum csvFormatEEnum = null;
+	private EEnum formatCSVEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -160,8 +169,8 @@ public class SpreadsheetCSVPackageImpl extends EPackageImpl implements Spreadshe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getCSVFormat() {
-		return csvFormatEEnum;
+	public EEnum getFormatCSV() {
+		return formatCSVEEnum;
 	}
 
 	/**
@@ -200,7 +209,7 @@ public class SpreadsheetCSVPackageImpl extends EPackageImpl implements Spreadshe
 		createEAttribute(spreadsheetCSVEClass, SPREADSHEET_CSV__QUOTE_CHARACTER);
 
 		// Create enums
-		csvFormatEEnum = createEEnum(CSV_FORMAT);
+		formatCSVEEnum = createEEnum(FORMAT_CSV);
 	}
 
 	/**
@@ -238,19 +247,19 @@ public class SpreadsheetCSVPackageImpl extends EPackageImpl implements Spreadshe
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(spreadsheetCSVEClass, SpreadsheetCSV.class, "SpreadsheetCSV", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSpreadsheetCSV_Format(), this.getCSVFormat(), "Format", null, 0, 1, SpreadsheetCSV.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpreadsheetCSV_Format(), this.getFormatCSV(), "Format", null, 0, 1, SpreadsheetCSV.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSpreadsheetCSV_Delimiter(), ecorePackage.getEString(), "Delimiter", null, 0, 1, SpreadsheetCSV.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSpreadsheetCSV_EscapeCharacter(), ecorePackage.getEString(), "EscapeCharacter", null, 0, 1, SpreadsheetCSV.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSpreadsheetCSV_RecordSeparator(), ecorePackage.getEString(), "RecordSeparator", null, 0, 1, SpreadsheetCSV.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSpreadsheetCSV_QuoteCharacter(), ecorePackage.getEString(), "QuoteCharacter", null, 0, 1, SpreadsheetCSV.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
-		initEEnum(csvFormatEEnum, CSVFormat.class, "CSVFormat");
-		addEEnumLiteral(csvFormatEEnum, CSVFormat.ENUM_LITERAL_CSV_FORMAT_DEFAULT);
-		addEEnumLiteral(csvFormatEEnum, CSVFormat.ENUM_LITERAL_CSV_FORMAT_EXCEL);
-		addEEnumLiteral(csvFormatEEnum, CSVFormat.ENUM_LITERAL_CSV_FORMAT_MYSQL);
-		addEEnumLiteral(csvFormatEEnum, CSVFormat.ENUM_LITERAL_CSV_FORMAT_RFC4180);
-		addEEnumLiteral(csvFormatEEnum, CSVFormat.ENUM_LITERAL_CSV_FORMAT_TDF);
+		initEEnum(formatCSVEEnum, FormatCSV.class, "FormatCSV");
+		addEEnumLiteral(formatCSVEEnum, FormatCSV.ENUM_LITERAL_CSV_FORMAT_DEFAULT);
+		addEEnumLiteral(formatCSVEEnum, FormatCSV.ENUM_LITERAL_CSV_FORMAT_EXCEL);
+		addEEnumLiteral(formatCSVEEnum, FormatCSV.ENUM_LITERAL_CSV_FORMAT_MYSQL);
+		addEEnumLiteral(formatCSVEEnum, FormatCSV.ENUM_LITERAL_CSV_FORMAT_RFC4180);
+		addEEnumLiteral(formatCSVEEnum, FormatCSV.ENUM_LITERAL_CSV_FORMAT_TDF);
 
 		// Create resource
 		createResource(eNS_URI);

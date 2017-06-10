@@ -1,13 +1,39 @@
+/*******************************************************************************
+ * Copyright (c) 2017 Michel Schaffers and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Michel Schaffers - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.spreadsheet.spreadsheetcsv.impl;
 
+
+import com.misc.common.moplaf.spreadsheet.Cell;
+import com.misc.common.moplaf.spreadsheet.CellType;
+import com.misc.common.moplaf.spreadsheet.Column;
+import com.misc.common.moplaf.spreadsheet.Row;
+import com.misc.common.moplaf.spreadsheet.Sheet;
+import com.misc.common.moplaf.spreadsheet.SpreadsheetFactory;
 import com.misc.common.moplaf.spreadsheet.impl.SpreadsheetImpl;
 
-import com.misc.common.moplaf.spreadsheet.spreadsheetcsv.CSVFormat;
+import com.misc.common.moplaf.spreadsheet.spreadsheetcsv.FormatCSV;
 import com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV;
 import com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSVPackage;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
+import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -38,7 +64,7 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 	 * @generated
 	 * @ordered
 	 */
-	protected static final CSVFormat FORMAT_EDEFAULT = CSVFormat.ENUM_LITERAL_CSV_FORMAT_DEFAULT;
+	protected static final FormatCSV FORMAT_EDEFAULT = FormatCSV.ENUM_LITERAL_CSV_FORMAT_DEFAULT;
 	/**
 	 * The cached value of the '{@link #getFormat() <em>Format</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -47,7 +73,7 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 	 * @generated
 	 * @ordered
 	 */
-	protected CSVFormat format = FORMAT_EDEFAULT;
+	protected FormatCSV format = FORMAT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getDelimiter() <em>Delimiter</em>}' attribute.
@@ -178,7 +204,7 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CSVFormat getFormat() {
+	public FormatCSV getFormat() {
 		return format;
 	}
 
@@ -187,8 +213,8 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFormat(CSVFormat newFormat) {
-		CSVFormat oldFormat = format;
+	public void setFormat(FormatCSV newFormat) {
+		FormatCSV oldFormat = format;
 		format = newFormat == null ? FORMAT_EDEFAULT : newFormat;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SpreadsheetCSVPackage.SPREADSHEET_CSV__FORMAT, oldFormat, format));
@@ -409,7 +435,7 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case SpreadsheetCSVPackage.SPREADSHEET_CSV__FORMAT:
-				setFormat((CSVFormat)newValue);
+				setFormat((FormatCSV)newValue);
 				return;
 			case SpreadsheetCSVPackage.SPREADSHEET_CSV__DELIMITER:
 				setDelimiter((String)newValue);
@@ -499,5 +525,66 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 		result.append(')');
 		return result.toString();
 	}
+
+	/* (non-Javadoc)
+	 * @see com.misc.common.moplaf.spreadsheet.impl.SpreadsheetImpl#readFile()
+	 */
+	@Override
+	public void readFileImpl(InputStream inputStream){
+		CommonPlugin.INSTANCE.log("SpreadsheetPOI.load: started");
+		
+		CSVFormat format = CSVFormat.DEFAULT;
+		switch ( this.getFormat()) {
+		case ENUM_LITERAL_CSV_FORMAT_MYSQL: 
+			format = CSVFormat.MYSQL;
+			break;
+		case ENUM_LITERAL_CSV_FORMAT_EXCEL: 
+			format = CSVFormat.EXCEL;
+			break;
+		case ENUM_LITERAL_CSV_FORMAT_RFC4180:
+			format = CSVFormat.RFC4180;
+			break;
+		case ENUM_LITERAL_CSV_FORMAT_TDF: 
+			format = CSVFormat.TDF;
+			break;
+		}
+		
+		Reader reader = new InputStreamReader(inputStream);
+		CSVParser parser = null;
+		try {
+			parser = new CSVParser(reader, format);
+		} catch (IOException e) {
+			CommonPlugin.INSTANCE.log("SpreadsheetCSV.readFile: file NOT loaded, exeption "+e.getMessage());
+		}
+		
+		this.getSheets().clear();
+		
+		Sheet sheet = SpreadsheetFactory.eINSTANCE.createSheet();
+		sheet.setSheetName("sheet");
+		sheet.setSheetIndex(0);
+		sheet.setSpreadsheet(this);
+		
+		int rowNr = 0;
+		for (CSVRecord record : parser) {
+			// new row
+			Row row = SpreadsheetFactory.eINSTANCE.createRow();
+			row.setRowIndex(rowNr);
+			row.setSheet(sheet);
+			rowNr++;
+			int fieldNr = 0;
+		    for (String field : record){
+		    	Column column = sheet.getOrCreateColumn(fieldNr);
+		    	fieldNr++;
+		    	// new field
+				Cell cell = SpreadsheetFactory.eINSTANCE.createCell();
+				cell.setCellType(CellType.CELL_TYPE_STRING);
+				cell.setStringValue(field);
+				cell.setRow(row);
+				cell.setColumn(column);
+		    } // traverse the fields of one record
+		} // traverse the records of the csv
+		 
+		CommonPlugin.INSTANCE.log("SpreadsheetCSV.load: sheet loaded");
+	} // readFileImpl method
 
 } //SpreadsheetCSVImpl

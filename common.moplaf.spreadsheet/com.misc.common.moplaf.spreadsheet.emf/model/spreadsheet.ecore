@@ -21,6 +21,9 @@
     <eOperations name="getColumn" eType="#//Column">
       <eParameters name="columnindex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
+    <eOperations name="getOrCreateColumn" eType="#//Column">
+      <eParameters name="columnindex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
     <eOperations name="getRow" eType="#//Row">
       <eParameters name="rowindex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>

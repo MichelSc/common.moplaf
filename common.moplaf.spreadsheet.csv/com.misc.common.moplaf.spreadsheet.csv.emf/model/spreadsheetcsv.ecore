@@ -3,7 +3,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="spreadsheetcsv" nsURI="http://www.misc.com/common/moplaf/spreadsheet/csv/model/0.1"
     nsPrefix="spshcsv">
   <eClassifiers xsi:type="ecore:EClass" name="SpreadsheetCSV" eSuperTypes="../../com.misc.common.moplaf.spreadsheet.emf/model/spreadsheet.ecore#//Spreadsheet">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Format" eType="#//CSVFormat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Format" eType="#//FormatCSV"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Delimiter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="EscapeCharacter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -13,7 +13,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="QuoteCharacter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="CSVFormat">
+  <eClassifiers xsi:type="ecore:EEnum" name="FormatCSV">
     <eLiterals name="EnumLiteralCsvFormat_DEFAULT" literal="DEFAULT"/>
     <eLiterals name="EnumLiteralCsvFormat_EXCEL" value="1" literal="EXCEL"/>
     <eLiterals name="EnumLiteralCsvFormat_MYSQL" value="2" literal="MYSQL"/>

@@ -153,7 +153,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_mDkuME3QEeexsos4UuDRjA" name="Format : CSVFormat = DEFAULT" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_mDkuME3QEeexsos4UuDRjA" name="Format : FormatCSV = DEFAULT" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="spreadsheetcsv.ecore#//SpreadsheetCSV/Format"/>
         <semanticElements xmi:type="ecore:EAttribute" href="spreadsheetcsv.ecore#//SpreadsheetCSV/Format"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_pDSAkE3QEeexsos4UuDRjA" labelAlignment="LEFT">
@@ -194,9 +194,9 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_3hOtUE3PEeexsos4UuDRjA" name="CSVFormat" tooltipText="" width="12" height="10">
-      <target xmi:type="ecore:EEnum" href="spreadsheetcsv.ecore#//CSVFormat"/>
-      <semanticElements xmi:type="ecore:EEnum" href="spreadsheetcsv.ecore#//CSVFormat"/>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_3hOtUE3PEeexsos4UuDRjA" name="FormatCSV" tooltipText="" width="12" height="10">
+      <target xmi:type="ecore:EEnum" href="spreadsheetcsv.ecore#//FormatCSV"/>
+      <semanticElements xmi:type="ecore:EEnum" href="spreadsheetcsv.ecore#//FormatCSV"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -205,40 +205,40 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_3-_AUE3PEeexsos4UuDRjA" name="EnumLiteralCsvFormat_DEFAULT" tooltipText="">
-        <target xmi:type="ecore:EEnumLiteral" href="spreadsheetcsv.ecore#//CSVFormat/EnumLiteralCsvFormat_DEFAULT"/>
-        <semanticElements xmi:type="ecore:EEnumLiteral" href="spreadsheetcsv.ecore#//CSVFormat/EnumLiteralCsvFormat_DEFAULT"/>
+        <target xmi:type="ecore:EEnumLiteral" href="spreadsheetcsv.ecore#//FormatCSV/EnumLiteralCsvFormat_DEFAULT"/>
+        <semanticElements xmi:type="ecore:EEnumLiteral" href="spreadsheetcsv.ecore#//FormatCSV/EnumLiteralCsvFormat_DEFAULT"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_3-_AUU3PEeexsos4UuDRjA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_I0GG0E3REeexsos4UuDRjA" name="EnumLiteralCsvFormat_EXCEL" tooltipText="">
-        <target xmi:type="ecore:EEnumLiteral" href="spreadsheetcsv.ecore#//CSVFormat/EnumLiteralCsvFormat_EXCEL"/>
-        <semanticElements xmi:type="ecore:EEnumLiteral" href="spreadsheetcsv.ecore#//CSVFormat/EnumLiteralCsvFormat_EXCEL"/>
+        <target xmi:type="ecore:EEnumLiteral" href="spreadsheetcsv.ecore#//FormatCSV/EnumLiteralCsvFormat_EXCEL"/>
+        <semanticElements xmi:type="ecore:EEnumLiteral" href="spreadsheetcsv.ecore#//FormatCSV/EnumLiteralCsvFormat_EXCEL"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_I0Gt4E3REeexsos4UuDRjA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_JJcEsE3REeexsos4UuDRjA" name="EnumLiteralCsvFormat_MYSQL" tooltipText="">
-        <target xmi:type="ecore:EEnumLiteral" href="spreadsheetcsv.ecore#//CSVFormat/EnumLiteralCsvFormat_MYSQL"/>
-        <semanticElements xmi:type="ecore:EEnumLiteral" href="spreadsheetcsv.ecore#//CSVFormat/EnumLiteralCsvFormat_MYSQL"/>
+        <target xmi:type="ecore:EEnumLiteral" href="spreadsheetcsv.ecore#//FormatCSV/EnumLiteralCsvFormat_MYSQL"/>
+        <semanticElements xmi:type="ecore:EEnumLiteral" href="spreadsheetcsv.ecore#//FormatCSV/EnumLiteralCsvFormat_MYSQL"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_JJcEsU3REeexsos4UuDRjA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_JVAbgE3REeexsos4UuDRjA" name="EnumLiteralCsvFormat_RFC4180" tooltipText="">
-        <target xmi:type="ecore:EEnumLiteral" href="spreadsheetcsv.ecore#//CSVFormat/EnumLiteralCsvFormat_RFC4180"/>
-        <semanticElements xmi:type="ecore:EEnumLiteral" href="spreadsheetcsv.ecore#//CSVFormat/EnumLiteralCsvFormat_RFC4180"/>
+        <target xmi:type="ecore:EEnumLiteral" href="spreadsheetcsv.ecore#//FormatCSV/EnumLiteralCsvFormat_RFC4180"/>
+        <semanticElements xmi:type="ecore:EEnumLiteral" href="spreadsheetcsv.ecore#//FormatCSV/EnumLiteralCsvFormat_RFC4180"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_JVAbgU3REeexsos4UuDRjA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_TqUCcE3REeexsos4UuDRjA" name="EnumLiteralCsvFormat_TDF" tooltipText="">
-        <target xmi:type="ecore:EEnumLiteral" href="spreadsheetcsv.ecore#//CSVFormat/EnumLiteralCsvFormat_TDF"/>
-        <semanticElements xmi:type="ecore:EEnumLiteral" href="spreadsheetcsv.ecore#//CSVFormat/EnumLiteralCsvFormat_TDF"/>
+        <target xmi:type="ecore:EEnumLiteral" href="spreadsheetcsv.ecore#//FormatCSV/EnumLiteralCsvFormat_TDF"/>
+        <semanticElements xmi:type="ecore:EEnumLiteral" href="spreadsheetcsv.ecore#//FormatCSV/EnumLiteralCsvFormat_TDF"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_TqUCcU3REeexsos4UuDRjA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
         </ownedStyle>

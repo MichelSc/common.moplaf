@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2017 Michel Schaffers and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Michel Schaffers - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.spreadsheet.spreadsheetcsv.impl;
@@ -71,8 +81,8 @@ public class SpreadsheetCSVFactoryImpl extends EFactoryImpl implements Spreadshe
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case SpreadsheetCSVPackage.CSV_FORMAT:
-				return createCSVFormatFromString(eDataType, initialValue);
+			case SpreadsheetCSVPackage.FORMAT_CSV:
+				return createFormatCSVFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -86,8 +96,8 @@ public class SpreadsheetCSVFactoryImpl extends EFactoryImpl implements Spreadshe
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case SpreadsheetCSVPackage.CSV_FORMAT:
-				return convertCSVFormatToString(eDataType, instanceValue);
+			case SpreadsheetCSVPackage.FORMAT_CSV:
+				return convertFormatCSVToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -108,8 +118,8 @@ public class SpreadsheetCSVFactoryImpl extends EFactoryImpl implements Spreadshe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CSVFormat createCSVFormatFromString(EDataType eDataType, String initialValue) {
-		CSVFormat result = CSVFormat.get(initialValue);
+	public FormatCSV createFormatCSVFromString(EDataType eDataType, String initialValue) {
+		FormatCSV result = FormatCSV.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -119,7 +129,7 @@ public class SpreadsheetCSVFactoryImpl extends EFactoryImpl implements Spreadshe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertCSVFormatToString(EDataType eDataType, Object instanceValue) {
+	public String convertFormatCSVToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

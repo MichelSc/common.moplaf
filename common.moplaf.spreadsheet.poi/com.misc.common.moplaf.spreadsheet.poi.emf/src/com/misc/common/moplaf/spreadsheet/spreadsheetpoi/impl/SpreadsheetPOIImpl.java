@@ -12,9 +12,8 @@
  */
 package com.misc.common.moplaf.spreadsheet.spreadsheetpoi.impl;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import com.misc.common.moplaf.spreadsheet.Cell;
@@ -64,28 +63,18 @@ public class SpreadsheetPOIImpl extends SpreadsheetImpl implements SpreadsheetPO
 	 * @see com.misc.common.moplaf.spreadsheet.impl.SpreadsheetImpl#readFile()
 	 */
 	@Override
-	public void readFile() {
-		CommonPlugin.INSTANCE.log("SpreadsheetPOI.load: started");
+	public void readFileImpl(InputStream inputStream){
+		CommonPlugin.INSTANCE.log("SpreadsheetPOI.readFile: started");
 		
-		// open the file
-		FileInputStream inputstream = null;;
-		try {
-			inputstream = new FileInputStream(this.getFilePath());
-		} catch (FileNotFoundException e) {
-			CommonPlugin.INSTANCE.log("SpreadsheetPOI.load: file NOT found");
-			return;
-		} 
-		CommonPlugin.INSTANCE.log("SpreadsheetPOI.load: file found");
-
 		// load the file
 		HSSFWorkbook wb = null;
 		try {
-			wb = new HSSFWorkbook(inputstream);
+			wb = new HSSFWorkbook(inputStream);
 		} catch (IOException e) {
-			CommonPlugin.INSTANCE.log("SpreadsheetPOI.load: sheet NOT loaded");
+			CommonPlugin.INSTANCE.log("SpreadsheetPOI.readFile: sheet NOT loaded, exeption "+e.getMessage());
 			return;
 		}
-		CommonPlugin.INSTANCE.log("SpreadsheetPOI.load: sheet loaded");
+		CommonPlugin.INSTANCE.log("SpreadsheetPOI.readFile: sheet loaded");
 
 		for (int k = 0; k < wb.getNumberOfSheets(); k++) {
 			Map<Integer, Column> pocolumns = new HashMap<Integer, Column>();
@@ -94,7 +83,7 @@ public class SpreadsheetPOIImpl extends SpreadsheetImpl implements SpreadsheetPO
 			HSSFSheet sheet = wb.getSheetAt(k);
 			int rows = sheet.getPhysicalNumberOfRows();
 			String sheetname = wb.getSheetName(k);
-			CommonPlugin.INSTANCE.log("SpreadsheetPOI.load: Sheet "
+			CommonPlugin.INSTANCE.log("SpreadsheetPOI.readFile: Sheet "
                     + k 
                     + ", "  
 	                 + sheetname 
@@ -156,6 +145,6 @@ public class SpreadsheetPOIImpl extends SpreadsheetImpl implements SpreadsheetPO
 				} // traverse the cells
 			}  // traverse the rows
 		}  // traverse the sheets 
-	} // load method
+	} // load readFile
 
 } //SpreadsheetPOIImpl

@@ -4,7 +4,7 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: com.misc.common.moplaf.spreadsheet.csv.emf.edit;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: com.misc.common.moplaf.spreadsheet.spreadsheetcsv.provider.SpreadsheetcsvEditPlugin$Implementation
+Bundle-Activator: com.misc.common.moplaf.spreadsheet.spreadsheetcsv.provider.SpreadsheetCSVEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

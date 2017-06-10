@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2017 Michel Schaffers and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Michel Schaffers - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.spreadsheet.spreadsheetcsv;
@@ -10,14 +20,14 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>CSV Format</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Format CSV</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSVPackage#getCSVFormat()
+ * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSVPackage#getFormatCSV()
  * @model
  * @generated
  */
-public enum CSVFormat implements Enumerator {
+public enum FormatCSV implements Enumerator {
 	/**
 	 * The '<em><b>Enum Literal Csv Format DEFAULT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -26,7 +36,9 @@ public enum CSVFormat implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENUM_LITERAL_CSV_FORMAT_DEFAULT(0, "EnumLiteralCsvFormat_DEFAULT", "DEFAULT"), /**
+	ENUM_LITERAL_CSV_FORMAT_DEFAULT(0, "EnumLiteralCsvFormat_DEFAULT", "DEFAULT"),
+
+	/**
 	 * The '<em><b>Enum Literal Csv Format EXCEL</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -34,7 +46,9 @@ public enum CSVFormat implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENUM_LITERAL_CSV_FORMAT_EXCEL(1, "EnumLiteralCsvFormat_EXCEL", "EXCEL"), /**
+	ENUM_LITERAL_CSV_FORMAT_EXCEL(1, "EnumLiteralCsvFormat_EXCEL", "EXCEL"),
+
+	/**
 	 * The '<em><b>Enum Literal Csv Format MYSQL</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -42,7 +56,9 @@ public enum CSVFormat implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENUM_LITERAL_CSV_FORMAT_MYSQL(2, "EnumLiteralCsvFormat_MYSQL", "MYSQL"), /**
+	ENUM_LITERAL_CSV_FORMAT_MYSQL(2, "EnumLiteralCsvFormat_MYSQL", "MYSQL"),
+
+	/**
 	 * The '<em><b>Enum Literal Csv Format RFC4180</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -50,7 +66,9 @@ public enum CSVFormat implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ENUM_LITERAL_CSV_FORMAT_RFC4180(3, "EnumLiteralCsvFormat_RFC4180", "RFC4180"), /**
+	ENUM_LITERAL_CSV_FORMAT_RFC4180(3, "EnumLiteralCsvFormat_RFC4180", "RFC4180"),
+
+	/**
 	 * The '<em><b>Enum Literal Csv Format TDF</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -136,13 +154,13 @@ public enum CSVFormat implements Enumerator {
 	public static final int ENUM_LITERAL_CSV_FORMAT_TDF_VALUE = 4;
 
 	/**
-	 * An array of all the '<em><b>CSV Format</b></em>' enumerators.
+	 * An array of all the '<em><b>Format CSV</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final CSVFormat[] VALUES_ARRAY =
-		new CSVFormat[] {
+	private static final FormatCSV[] VALUES_ARRAY =
+		new FormatCSV[] {
 			ENUM_LITERAL_CSV_FORMAT_DEFAULT,
 			ENUM_LITERAL_CSV_FORMAT_EXCEL,
 			ENUM_LITERAL_CSV_FORMAT_MYSQL,
@@ -151,24 +169,24 @@ public enum CSVFormat implements Enumerator {
 		};
 
 	/**
-	 * A public read-only list of all the '<em><b>CSV Format</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>Format CSV</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<CSVFormat> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<FormatCSV> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>CSV Format</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>Format CSV</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param literal the literal.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static CSVFormat get(String literal) {
+	public static FormatCSV get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			CSVFormat result = VALUES_ARRAY[i];
+			FormatCSV result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -177,16 +195,16 @@ public enum CSVFormat implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>CSV Format</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Format CSV</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param name the name.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static CSVFormat getByName(String name) {
+	public static FormatCSV getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			CSVFormat result = VALUES_ARRAY[i];
+			FormatCSV result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -195,14 +213,14 @@ public enum CSVFormat implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>CSV Format</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Format CSV</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the integer value.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static CSVFormat get(int value) {
+	public static FormatCSV get(int value) {
 		switch (value) {
 			case ENUM_LITERAL_CSV_FORMAT_DEFAULT_VALUE: return ENUM_LITERAL_CSV_FORMAT_DEFAULT;
 			case ENUM_LITERAL_CSV_FORMAT_EXCEL_VALUE: return ENUM_LITERAL_CSV_FORMAT_EXCEL;
@@ -240,7 +258,7 @@ public enum CSVFormat implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private CSVFormat(int value, String name, String literal) {
+	private FormatCSV(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
@@ -284,4 +302,4 @@ public enum CSVFormat implements Enumerator {
 		return literal;
 	}
 	
-} //CSVFormat
+} //FormatCSV

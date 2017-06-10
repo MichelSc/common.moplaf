@@ -167,6 +167,14 @@ public interface Sheet extends EObject {
 	 * @model
 	 * @generated
 	 */
+	Column getOrCreateColumn(int columnindex);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
 	Row getRow(int rowindex);
 
 } // Sheet

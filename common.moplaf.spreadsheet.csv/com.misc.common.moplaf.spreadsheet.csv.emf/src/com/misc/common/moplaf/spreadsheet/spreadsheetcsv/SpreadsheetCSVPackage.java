@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2017 Michel Schaffers and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     Michel Schaffers - initial API and implementation
+ *******************************************************************************/
 /**
  */
 package com.misc.common.moplaf.spreadsheet.spreadsheetcsv;
@@ -196,15 +206,14 @@ public interface SpreadsheetCSVPackage extends EPackage {
 
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.CSVFormat <em>CSV Format</em>}' enum.
+	 * The meta object id for the '{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.FormatCSV <em>Format CSV</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.CSVFormat
-	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.impl.SpreadsheetCSVPackageImpl#getCSVFormat()
+	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.FormatCSV
+	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.impl.SpreadsheetCSVPackageImpl#getFormatCSV()
 	 * @generated
 	 */
-	int CSV_FORMAT = 1;
-
+	int FORMAT_CSV = 1;
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV <em>Spreadsheet CSV</em>}'.
@@ -272,14 +281,14 @@ public interface SpreadsheetCSVPackage extends EPackage {
 	EAttribute getSpreadsheetCSV_QuoteCharacter();
 
 	/**
-	 * Returns the meta object for enum '{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.CSVFormat <em>CSV Format</em>}'.
+	 * Returns the meta object for enum '{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.FormatCSV <em>Format CSV</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>CSV Format</em>'.
-	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.CSVFormat
+	 * @return the meta object for enum '<em>Format CSV</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.FormatCSV
 	 * @generated
 	 */
-	EEnum getCSVFormat();
+	EEnum getFormatCSV();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -349,14 +358,14 @@ public interface SpreadsheetCSVPackage extends EPackage {
 		 */
 		EAttribute SPREADSHEET_CSV__QUOTE_CHARACTER = eINSTANCE.getSpreadsheetCSV_QuoteCharacter();
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.CSVFormat <em>CSV Format</em>}' enum.
+		 * The meta object literal for the '{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.FormatCSV <em>Format CSV</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.CSVFormat
-		 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.impl.SpreadsheetCSVPackageImpl#getCSVFormat()
+		 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.FormatCSV
+		 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.impl.SpreadsheetCSVPackageImpl#getFormatCSV()
 		 * @generated
 		 */
-		EEnum CSV_FORMAT = eINSTANCE.getCSVFormat();
+		EEnum FORMAT_CSV = eINSTANCE.getFormatCSV();
 
 	}
 

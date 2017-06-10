@@ -233,13 +233,22 @@ public interface SpreadsheetPackage extends EPackage {
 	int SHEET___GET_COLUMN__INT = 0;
 
 	/**
+	 * The operation id for the '<em>Get Or Create Column</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHEET___GET_OR_CREATE_COLUMN__INT = 1;
+
+	/**
 	 * The operation id for the '<em>Get Row</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHEET___GET_ROW__INT = 1;
+	int SHEET___GET_ROW__INT = 2;
 
 	/**
 	 * The number of operations of the '<em>Sheet</em>' class.
@@ -248,7 +257,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SHEET_OPERATION_COUNT = 2;
+	int SHEET_OPERATION_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.spreadsheet.impl.RowImpl <em>Row</em>}' class.
@@ -648,6 +657,16 @@ public interface SpreadsheetPackage extends EPackage {
 	EOperation getSheet__GetColumn__int();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Sheet#getOrCreateColumn(int) <em>Get Or Create Column</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Or Create Column</em>' operation.
+	 * @see com.misc.common.moplaf.spreadsheet.Sheet#getOrCreateColumn(int)
+	 * @generated
+	 */
+	EOperation getSheet__GetOrCreateColumn__int();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.spreadsheet.Sheet#getRow(int) <em>Get Row</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1015,6 +1034,14 @@ public interface SpreadsheetPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation SHEET___GET_COLUMN__INT = eINSTANCE.getSheet__GetColumn__int();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Or Create Column</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SHEET___GET_OR_CREATE_COLUMN__INT = eINSTANCE.getSheet__GetOrCreateColumn__int();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Row</b></em>' operation.
