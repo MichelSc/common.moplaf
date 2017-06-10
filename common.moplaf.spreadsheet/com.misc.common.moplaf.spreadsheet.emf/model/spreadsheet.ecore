@@ -47,6 +47,8 @@
         eType="#//Cell" containment="true" eOpposite="#//Cell/Row"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Sheet" lowerBound="1" eType="#//Sheet"
         eOpposite="#//Sheet/Rows"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="RowIndex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Column">
@@ -60,6 +62,8 @@
         eType="#//Cell" eOpposite="#//Cell/Column"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Sheet" lowerBound="1" eType="#//Sheet"
         eOpposite="#//Sheet/Columns"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ColumnIndex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Cell">
@@ -67,6 +71,8 @@
         eOpposite="#//Row/Cells"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Column" lowerBound="1"
         eType="#//Column" eOpposite="#//Column/Cells"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ValueFormatted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CellType" eType="#//CellType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DoubleValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>

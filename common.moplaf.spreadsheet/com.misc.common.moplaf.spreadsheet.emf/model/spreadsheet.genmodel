@@ -35,6 +35,9 @@
       <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/getColumn">
         <genParameters ecoreParameter="spreadsheet.ecore#//Sheet/getColumn/columnindex"/>
       </genOperations>
+      <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/getOrCreateColumn">
+        <genParameters ecoreParameter="spreadsheet.ecore#//Sheet/getOrCreateColumn/columnindex"/>
+      </genOperations>
       <genOperations ecoreOperation="spreadsheet.ecore#//Sheet/getRow">
         <genParameters ecoreParameter="spreadsheet.ecore#//Sheet/getRow/rowindex"/>
       </genOperations>
@@ -62,13 +65,14 @@
         <genParameters ecoreParameter="spreadsheet.ecore#//Column/getCell.1/row"/>
       </genOperations>
     </genClasses>
-    <genClasses ecoreClass="spreadsheet.ecore#//Cell">
+    <genClasses ecoreClass="spreadsheet.ecore#//Cell" labelFeature="#//spreadsheet/Cell/Description">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Cell/Row"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference spreadsheet.ecore#//Cell/Column"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Cell/ValueFormatted"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Cell/CellType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Cell/DoubleValue"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Cell/StringValue"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute spreadsheet.ecore#//Cell/Description"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

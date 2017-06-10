@@ -47,6 +47,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.ColumnImpl#getCells <em>Cells</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.ColumnImpl#getSheet <em>Sheet</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.ColumnImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.ColumnImpl#getColumnIndex <em>Column Index</em>}</li>
  * </ul>
  *
@@ -62,6 +63,16 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 	 * @ordered
 	 */
 	protected EList<Cell> cells;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getColumnIndex() <em>Column Index</em>}' attribute.
@@ -153,6 +164,15 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SpreadsheetPackage.COLUMN__SHEET, newSheet, newSheet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public String getDescription() {
+		String description = String.format("(%d)", this.getColumnIndex());
+		return description;
 	}
 
 	/**
@@ -258,6 +278,8 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 				return getCells();
 			case SpreadsheetPackage.COLUMN__SHEET:
 				return getSheet();
+			case SpreadsheetPackage.COLUMN__DESCRIPTION:
+				return getDescription();
 			case SpreadsheetPackage.COLUMN__COLUMN_INDEX:
 				return getColumnIndex();
 		}
@@ -320,6 +342,8 @@ public class ColumnImpl extends MinimalEObjectImpl.Container implements Column {
 				return cells != null && !cells.isEmpty();
 			case SpreadsheetPackage.COLUMN__SHEET:
 				return getSheet() != null;
+			case SpreadsheetPackage.COLUMN__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case SpreadsheetPackage.COLUMN__COLUMN_INDEX:
 				return columnIndex != COLUMN_INDEX_EDEFAULT;
 		}

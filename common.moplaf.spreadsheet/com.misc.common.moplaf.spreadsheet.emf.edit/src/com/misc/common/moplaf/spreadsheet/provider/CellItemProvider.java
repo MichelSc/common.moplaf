@@ -72,6 +72,7 @@ public class CellItemProvider
 
 			addRowPropertyDescriptor(object);
 			addColumnPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 			addValueFormattedPropertyDescriptor(object);
 			addCellTypePropertyDescriptor(object);
 			addDoubleValuePropertyDescriptor(object);
@@ -213,6 +214,28 @@ public class CellItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Cell_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Cell_Description_feature", "_UI_Cell_type"),
+				 SpreadsheetPackage.Literals.CELL__DESCRIPTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Cell.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -230,7 +253,7 @@ public class CellItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Cell)object).getValueFormatted();
+		String label = ((Cell)object).getDescription();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Cell_type") :
 			getString("_UI_Cell_type") + " " + label;
@@ -248,6 +271,7 @@ public class CellItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Cell.class)) {
+			case SpreadsheetPackage.CELL__DESCRIPTION:
 			case SpreadsheetPackage.CELL__VALUE_FORMATTED:
 			case SpreadsheetPackage.CELL__CELL_TYPE:
 			case SpreadsheetPackage.CELL__DOUBLE_VALUE:

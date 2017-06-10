@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Cell#getRow <em>Row</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Cell#getColumn <em>Column</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.Cell#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Cell#getValueFormatted <em>Value Formatted</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Cell#getCellType <em>Cell Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Cell#getDoubleValue <em>Double Value</em>}</li>
@@ -198,5 +199,20 @@ public interface Cell extends EObject {
 	 * @generated
 	 */
 	void setStringValue(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getCell_Description()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getDescription();
 
 } // Cell

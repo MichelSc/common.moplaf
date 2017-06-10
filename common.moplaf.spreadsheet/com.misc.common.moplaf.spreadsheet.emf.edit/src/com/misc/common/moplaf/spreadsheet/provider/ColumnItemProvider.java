@@ -72,6 +72,7 @@ public class ColumnItemProvider
 
 			addCellsPropertyDescriptor(object);
 			addSheetPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 			addColumnIndexPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -117,6 +118,28 @@ public class ColumnItemProvider
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Column_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Column_Description_feature", "_UI_Column_type"),
+				 SpreadsheetPackage.Literals.COLUMN__DESCRIPTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -191,8 +214,10 @@ public class ColumnItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Column column = (Column)object;
-		return getString("_UI_Column_type") + " " + column.getColumnIndex();
+		String label = ((Column)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Column_type") :
+			getString("_UI_Column_type") + " " + label;
 	}
 
 	/**
@@ -207,6 +232,7 @@ public class ColumnItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Column.class)) {
+			case SpreadsheetPackage.COLUMN__DESCRIPTION:
 			case SpreadsheetPackage.COLUMN__COLUMN_INDEX:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

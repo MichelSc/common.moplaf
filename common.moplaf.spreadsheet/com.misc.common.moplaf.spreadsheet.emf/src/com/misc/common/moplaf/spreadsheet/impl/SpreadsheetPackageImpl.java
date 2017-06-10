@@ -325,8 +325,17 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRow_RowIndex() {
+	public EAttribute getRow_Description() {
 		return (EAttribute)rowEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRow_RowIndex() {
+		return (EAttribute)rowEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -379,8 +388,17 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getColumn_ColumnIndex() {
+	public EAttribute getColumn_Description() {
 		return (EAttribute)columnEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getColumn_ColumnIndex() {
+		return (EAttribute)columnEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -434,15 +452,6 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * @generated
 	 */
 	public EAttribute getCell_ValueFormatted() {
-		return (EAttribute)cellEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCell_CellType() {
 		return (EAttribute)cellEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -451,7 +460,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCell_DoubleValue() {
+	public EAttribute getCell_CellType() {
 		return (EAttribute)cellEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -460,8 +469,26 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCell_StringValue() {
+	public EAttribute getCell_DoubleValue() {
 		return (EAttribute)cellEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCell_StringValue() {
+		return (EAttribute)cellEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCell_Description() {
+		return (EAttribute)cellEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -523,6 +550,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		rowEClass = createEClass(ROW);
 		createEReference(rowEClass, ROW__CELLS);
 		createEReference(rowEClass, ROW__SHEET);
+		createEAttribute(rowEClass, ROW__DESCRIPTION);
 		createEAttribute(rowEClass, ROW__ROW_INDEX);
 		createEOperation(rowEClass, ROW___GET_CELL__INT);
 		createEOperation(rowEClass, ROW___GET_CELL__COLUMN);
@@ -530,6 +558,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		columnEClass = createEClass(COLUMN);
 		createEReference(columnEClass, COLUMN__CELLS);
 		createEReference(columnEClass, COLUMN__SHEET);
+		createEAttribute(columnEClass, COLUMN__DESCRIPTION);
 		createEAttribute(columnEClass, COLUMN__COLUMN_INDEX);
 		createEOperation(columnEClass, COLUMN___GET_CELL__INT);
 		createEOperation(columnEClass, COLUMN___GET_CELL__ROW);
@@ -537,6 +566,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		cellEClass = createEClass(CELL);
 		createEReference(cellEClass, CELL__ROW);
 		createEReference(cellEClass, CELL__COLUMN);
+		createEAttribute(cellEClass, CELL__DESCRIPTION);
 		createEAttribute(cellEClass, CELL__VALUE_FORMATTED);
 		createEAttribute(cellEClass, CELL__CELL_TYPE);
 		createEAttribute(cellEClass, CELL__DOUBLE_VALUE);
@@ -610,6 +640,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		initEClass(rowEClass, Row.class, "Row", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRow_Cells(), this.getCell(), this.getCell_Row(), "Cells", null, 0, -1, Row.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRow_Sheet(), this.getSheet(), this.getSheet_Rows(), "Sheet", null, 1, 1, Row.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRow_Description(), ecorePackage.getEString(), "Description", null, 0, 1, Row.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRow_RowIndex(), ecorePackage.getEInt(), "RowIndex", null, 0, 1, Row.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getRow__GetCell__int(), this.getCell(), "getCell", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -621,6 +652,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		initEClass(columnEClass, Column.class, "Column", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getColumn_Cells(), this.getCell(), this.getCell_Column(), "Cells", null, 0, -1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getColumn_Sheet(), this.getSheet(), this.getSheet_Columns(), "Sheet", null, 1, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getColumn_Description(), ecorePackage.getEString(), "Description", null, 0, 1, Column.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getColumn_ColumnIndex(), ecorePackage.getEInt(), "ColumnIndex", null, 0, 1, Column.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getColumn__GetCell__int(), this.getCell(), "getCell", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -632,6 +664,7 @@ public class SpreadsheetPackageImpl extends EPackageImpl implements SpreadsheetP
 		initEClass(cellEClass, Cell.class, "Cell", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCell_Row(), this.getRow(), this.getRow_Cells(), "Row", null, 1, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCell_Column(), this.getColumn(), this.getColumn_Cells(), "Column", null, 1, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCell_Description(), ecorePackage.getEString(), "Description", null, 0, 1, Cell.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCell_ValueFormatted(), ecorePackage.getEString(), "ValueFormatted", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCell_CellType(), this.getCellType(), "CellType", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCell_DoubleValue(), ecorePackage.getEDouble(), "DoubleValue", null, 0, 1, Cell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -74,6 +74,7 @@ public class RowItemProvider
 			super.getPropertyDescriptors(object);
 
 			addSheetPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 			addRowIndexPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -97,6 +98,28 @@ public class RowItemProvider
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Description feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescriptionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Row_Description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Row_Description_feature", "_UI_Row_type"),
+				 SpreadsheetPackage.Literals.ROW__DESCRIPTION,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -171,8 +194,10 @@ public class RowItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		Row row = (Row)object;
-		return getString("_UI_Row_type") + " " + row.getRowIndex();
+		String label = ((Row)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Row_type") :
+			getString("_UI_Row_type") + " " + label;
 	}
 
 	/**
@@ -187,6 +212,7 @@ public class RowItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Row.class)) {
+			case SpreadsheetPackage.ROW__DESCRIPTION:
 			case SpreadsheetPackage.ROW__ROW_INDEX:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

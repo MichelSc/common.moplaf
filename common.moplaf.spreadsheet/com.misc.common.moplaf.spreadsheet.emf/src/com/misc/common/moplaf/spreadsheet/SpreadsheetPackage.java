@@ -288,13 +288,22 @@ public interface SpreadsheetPackage extends EPackage {
 	int ROW__SHEET = 1;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROW__DESCRIPTION = 2;
+
+	/**
 	 * The feature id for the '<em><b>Row Index</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROW__ROW_INDEX = 2;
+	int ROW__ROW_INDEX = 3;
 
 	/**
 	 * The number of structural features of the '<em>Row</em>' class.
@@ -303,7 +312,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROW_FEATURE_COUNT = 3;
+	int ROW_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Get Cell</em>' operation.
@@ -361,13 +370,22 @@ public interface SpreadsheetPackage extends EPackage {
 	int COLUMN__SHEET = 1;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLUMN__DESCRIPTION = 2;
+
+	/**
 	 * The feature id for the '<em><b>Column Index</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN__COLUMN_INDEX = 2;
+	int COLUMN__COLUMN_INDEX = 3;
 
 	/**
 	 * The number of structural features of the '<em>Column</em>' class.
@@ -376,7 +394,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLUMN_FEATURE_COUNT = 3;
+	int COLUMN_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Get Cell</em>' operation.
@@ -434,13 +452,22 @@ public interface SpreadsheetPackage extends EPackage {
 	int CELL__COLUMN = 1;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CELL__DESCRIPTION = 2;
+
+	/**
 	 * The feature id for the '<em><b>Value Formatted</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CELL__VALUE_FORMATTED = 2;
+	int CELL__VALUE_FORMATTED = 3;
 
 	/**
 	 * The feature id for the '<em><b>Cell Type</b></em>' attribute.
@@ -449,7 +476,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CELL__CELL_TYPE = 3;
+	int CELL__CELL_TYPE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Double Value</b></em>' attribute.
@@ -458,7 +485,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CELL__DOUBLE_VALUE = 4;
+	int CELL__DOUBLE_VALUE = 5;
 
 	/**
 	 * The feature id for the '<em><b>String Value</b></em>' attribute.
@@ -467,7 +494,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CELL__STRING_VALUE = 5;
+	int CELL__STRING_VALUE = 6;
 
 	/**
 	 * The number of structural features of the '<em>Cell</em>' class.
@@ -476,7 +503,7 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CELL_FEATURE_COUNT = 6;
+	int CELL_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Cell</em>' class.
@@ -709,6 +736,17 @@ public interface SpreadsheetPackage extends EPackage {
 	EReference getRow_Sheet();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Row#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.Row#getDescription()
+	 * @see #getRow()
+	 * @generated
+	 */
+	EAttribute getRow_Description();
+
+	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Row#getRowIndex <em>Row Index</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -770,6 +808,17 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getColumn_Sheet();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Column#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.Column#getDescription()
+	 * @see #getColumn()
+	 * @generated
+	 */
+	EAttribute getColumn_Description();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Column#getColumnIndex <em>Column Index</em>}'.
@@ -877,6 +926,17 @@ public interface SpreadsheetPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCell_StringValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.Cell#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see com.misc.common.moplaf.spreadsheet.Cell#getDescription()
+	 * @see #getCell()
+	 * @generated
+	 */
+	EAttribute getCell_Description();
 
 	/**
 	 * Returns the meta object for enum '{@link com.misc.common.moplaf.spreadsheet.CellType <em>Cell Type</em>}'.
@@ -1078,6 +1138,14 @@ public interface SpreadsheetPackage extends EPackage {
 		EReference ROW__SHEET = eINSTANCE.getRow_Sheet();
 
 		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ROW__DESCRIPTION = eINSTANCE.getRow_Description();
+
+		/**
 		 * The meta object literal for the '<em><b>Row Index</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1126,6 +1194,14 @@ public interface SpreadsheetPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COLUMN__SHEET = eINSTANCE.getColumn_Sheet();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COLUMN__DESCRIPTION = eINSTANCE.getColumn_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Column Index</b></em>' attribute feature.
@@ -1208,6 +1284,14 @@ public interface SpreadsheetPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CELL__STRING_VALUE = eINSTANCE.getCell_StringValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CELL__DESCRIPTION = eINSTANCE.getCell_Description();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.spreadsheet.CellType <em>Cell Type</em>}' enum.

@@ -39,6 +39,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.CellImpl#getRow <em>Row</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.CellImpl#getColumn <em>Column</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.CellImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.CellImpl#getValueFormatted <em>Value Formatted</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.CellImpl#getCellType <em>Cell Type</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.CellImpl#getDoubleValue <em>Double Value</em>}</li>
@@ -57,6 +58,16 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	 * @ordered
 	 */
 	protected Column column;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getValueFormatted() <em>Value Formatted</em>}' attribute.
@@ -345,6 +356,17 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public String getDescription() {
+		String description = String.format("(%d,%d)", 
+				                           this.getRow().getRowIndex(),
+				                           this.getColumn().getColumnIndex());
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -405,6 +427,8 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 			case SpreadsheetPackage.CELL__COLUMN:
 				if (resolve) return getColumn();
 				return basicGetColumn();
+			case SpreadsheetPackage.CELL__DESCRIPTION:
+				return getDescription();
 			case SpreadsheetPackage.CELL__VALUE_FORMATTED:
 				return getValueFormatted();
 			case SpreadsheetPackage.CELL__CELL_TYPE:
@@ -489,6 +513,8 @@ public class CellImpl extends MinimalEObjectImpl.Container implements Cell {
 				return getRow() != null;
 			case SpreadsheetPackage.CELL__COLUMN:
 				return column != null;
+			case SpreadsheetPackage.CELL__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case SpreadsheetPackage.CELL__VALUE_FORMATTED:
 				return VALUE_FORMATTED_EDEFAULT == null ? valueFormatted != null : !VALUE_FORMATTED_EDEFAULT.equals(valueFormatted);
 			case SpreadsheetPackage.CELL__CELL_TYPE:

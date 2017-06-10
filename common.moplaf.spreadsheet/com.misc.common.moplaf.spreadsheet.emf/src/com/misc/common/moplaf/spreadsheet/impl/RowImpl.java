@@ -47,6 +47,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.RowImpl#getCells <em>Cells</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.RowImpl#getSheet <em>Sheet</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.RowImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.impl.RowImpl#getRowIndex <em>Row Index</em>}</li>
  * </ul>
  *
@@ -62,6 +63,16 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 	 * @ordered
 	 */
 	protected EList<Cell> cells;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getRowIndex() <em>Row Index</em>}' attribute.
@@ -153,6 +164,15 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SpreadsheetPackage.ROW__SHEET, newSheet, newSheet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public String getDescription() {
+		String description = String.format("(%d)", this.getRowIndex());
+		return description;
 	}
 
 	/**
@@ -258,6 +278,8 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 				return getCells();
 			case SpreadsheetPackage.ROW__SHEET:
 				return getSheet();
+			case SpreadsheetPackage.ROW__DESCRIPTION:
+				return getDescription();
 			case SpreadsheetPackage.ROW__ROW_INDEX:
 				return getRowIndex();
 		}
@@ -320,6 +342,8 @@ public class RowImpl extends MinimalEObjectImpl.Container implements Row {
 				return cells != null && !cells.isEmpty();
 			case SpreadsheetPackage.ROW__SHEET:
 				return getSheet() != null;
+			case SpreadsheetPackage.ROW__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case SpreadsheetPackage.ROW__ROW_INDEX:
 				return rowIndex != ROW_INDEX_EDEFAULT;
 		}

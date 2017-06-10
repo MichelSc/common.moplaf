@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Row#getCells <em>Cells</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Row#getSheet <em>Sheet</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.spreadsheet.Row#getDescription <em>Description</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.Row#getRowIndex <em>Row Index</em>}</li>
  * </ul>
  *
@@ -80,6 +81,21 @@ public interface Row extends EObject {
 	 * @generated
 	 */
 	void setSheet(Sheet value);
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see com.misc.common.moplaf.spreadsheet.SpreadsheetPackage#getRow_Description()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getDescription();
 
 	/**
 	 * Returns the value of the '<em><b>Row Index</b></em>' attribute.
