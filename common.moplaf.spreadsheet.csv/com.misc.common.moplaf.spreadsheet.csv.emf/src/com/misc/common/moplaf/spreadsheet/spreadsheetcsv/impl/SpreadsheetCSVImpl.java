@@ -33,6 +33,7 @@ import java.io.Reader;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import org.apache.commons.lang.StringEscapeUtils;
 import org.eclipse.emf.common.CommonPlugin;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
@@ -531,7 +532,7 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 	 */
 	@Override
 	public void readFileImpl(InputStream inputStream){
-		CommonPlugin.INSTANCE.log("SpreadsheetPOI.load: started");
+		CommonPlugin.INSTANCE.log("SpreadsheetCSV.read: started");
 		
 		CSVFormat format = CSVFormat.DEFAULT;
 		switch ( this.getFormat()) {
@@ -547,6 +548,20 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 		case ENUM_LITERAL_CSV_FORMAT_TDF: 
 			format = CSVFormat.TDF;
 			break;
+		}
+		
+		if ( this.isSetDelimiter()){
+			String delimiter = this.getDelimiter();
+			if ( delimiter == null ){
+				CommonPlugin.INSTANCE.log("SpreadsheetCSV.read: error, no delimeter");
+			} else {
+				String unescaped = StringEscapeUtils.unescapeJava(delimiter);
+				if ( unescaped.length()!=1 ){
+					CommonPlugin.INSTANCE.log("SpreadsheetCSV.read: error, no single character");
+				} else {
+					format = format.withDelimiter(unescaped.charAt(0));
+				}
+			}
 		}
 		
 		Reader reader = new InputStreamReader(inputStream);
