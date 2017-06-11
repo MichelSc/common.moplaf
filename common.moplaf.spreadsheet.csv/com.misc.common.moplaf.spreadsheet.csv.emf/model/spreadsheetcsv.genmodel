@@ -18,7 +18,6 @@
     <genClasses image="false" ecoreClass="spreadsheetcsv.ecore#//SpreadsheetCSV">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheetcsv.ecore#//SpreadsheetCSV/Format"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheetcsv.ecore#//SpreadsheetCSV/Delimiter"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheetcsv.ecore#//SpreadsheetCSV/EscapeCharacter"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheetcsv.ecore#//SpreadsheetCSV/RecordSeparator"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute spreadsheetcsv.ecore#//SpreadsheetCSV/QuoteCharacter"/>
     </genClasses>

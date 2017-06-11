@@ -25,8 +25,6 @@ import com.misc.common.moplaf.spreadsheet.Spreadsheet;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV#getFormat <em>Format</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV#getDelimiter <em>Delimiter</em>}</li>
- *   <li>{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV#getEscapeCharacter <em>Escape Character</em>}</li>
- *   <li>{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV#getRecordSeparator <em>Record Separator</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV#getQuoteCharacter <em>Quote Character</em>}</li>
  * </ul>
  *
@@ -117,112 +115,6 @@ public interface SpreadsheetCSV extends Spreadsheet {
 	 * @generated
 	 */
 	boolean isSetDelimiter();
-
-	/**
-	 * Returns the value of the '<em><b>Escape Character</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Escape Character</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Escape Character</em>' attribute.
-	 * @see #isSetEscapeCharacter()
-	 * @see #unsetEscapeCharacter()
-	 * @see #setEscapeCharacter(String)
-	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSVPackage#getSpreadsheetCSV_EscapeCharacter()
-	 * @model unsettable="true"
-	 * @generated
-	 */
-	String getEscapeCharacter();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV#getEscapeCharacter <em>Escape Character</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Escape Character</em>' attribute.
-	 * @see #isSetEscapeCharacter()
-	 * @see #unsetEscapeCharacter()
-	 * @see #getEscapeCharacter()
-	 * @generated
-	 */
-	void setEscapeCharacter(String value);
-
-	/**
-	 * Unsets the value of the '{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV#getEscapeCharacter <em>Escape Character</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSetEscapeCharacter()
-	 * @see #getEscapeCharacter()
-	 * @see #setEscapeCharacter(String)
-	 * @generated
-	 */
-	void unsetEscapeCharacter();
-
-	/**
-	 * Returns whether the value of the '{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV#getEscapeCharacter <em>Escape Character</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return whether the value of the '<em>Escape Character</em>' attribute is set.
-	 * @see #unsetEscapeCharacter()
-	 * @see #getEscapeCharacter()
-	 * @see #setEscapeCharacter(String)
-	 * @generated
-	 */
-	boolean isSetEscapeCharacter();
-
-	/**
-	 * Returns the value of the '<em><b>Record Separator</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Record Separator</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Record Separator</em>' attribute.
-	 * @see #isSetRecordSeparator()
-	 * @see #unsetRecordSeparator()
-	 * @see #setRecordSeparator(String)
-	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSVPackage#getSpreadsheetCSV_RecordSeparator()
-	 * @model unsettable="true"
-	 * @generated
-	 */
-	String getRecordSeparator();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV#getRecordSeparator <em>Record Separator</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Record Separator</em>' attribute.
-	 * @see #isSetRecordSeparator()
-	 * @see #unsetRecordSeparator()
-	 * @see #getRecordSeparator()
-	 * @generated
-	 */
-	void setRecordSeparator(String value);
-
-	/**
-	 * Unsets the value of the '{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV#getRecordSeparator <em>Record Separator</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isSetRecordSeparator()
-	 * @see #getRecordSeparator()
-	 * @see #setRecordSeparator(String)
-	 * @generated
-	 */
-	void unsetRecordSeparator();
-
-	/**
-	 * Returns whether the value of the '{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV#getRecordSeparator <em>Record Separator</em>}' attribute is set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return whether the value of the '<em>Record Separator</em>' attribute is set.
-	 * @see #unsetRecordSeparator()
-	 * @see #getRecordSeparator()
-	 * @see #setRecordSeparator(String)
-	 * @generated
-	 */
-	boolean isSetRecordSeparator();
 
 	/**
 	 * Returns the value of the '<em><b>Quote Character</b></em>' attribute.

@@ -6,10 +6,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Format" eType="#//FormatCSV"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Delimiter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EscapeCharacter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RecordSeparator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        unsettable="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="QuoteCharacter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true"/>
   </eClassifiers>

@@ -49,8 +49,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.impl.SpreadsheetCSVImpl#getFormat <em>Format</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.impl.SpreadsheetCSVImpl#getDelimiter <em>Delimiter</em>}</li>
- *   <li>{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.impl.SpreadsheetCSVImpl#getEscapeCharacter <em>Escape Character</em>}</li>
- *   <li>{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.impl.SpreadsheetCSVImpl#getRecordSeparator <em>Record Separator</em>}</li>
  *   <li>{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.impl.SpreadsheetCSVImpl#getQuoteCharacter <em>Quote Character</em>}</li>
  * </ul>
  *
@@ -102,58 +100,6 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 	 * @ordered
 	 */
 	protected boolean delimiterESet;
-	/**
-	 * The default value of the '{@link #getEscapeCharacter() <em>Escape Character</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEscapeCharacter()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ESCAPE_CHARACTER_EDEFAULT = null;
-	/**
-	 * The cached value of the '{@link #getEscapeCharacter() <em>Escape Character</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEscapeCharacter()
-	 * @generated
-	 * @ordered
-	 */
-	protected String escapeCharacter = ESCAPE_CHARACTER_EDEFAULT;
-	/**
-	 * This is true if the Escape Character attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean escapeCharacterESet;
-	/**
-	 * The default value of the '{@link #getRecordSeparator() <em>Record Separator</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRecordSeparator()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String RECORD_SEPARATOR_EDEFAULT = null;
-	/**
-	 * The cached value of the '{@link #getRecordSeparator() <em>Record Separator</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRecordSeparator()
-	 * @generated
-	 * @ordered
-	 */
-	protected String recordSeparator = RECORD_SEPARATOR_EDEFAULT;
-	/**
-	 * This is true if the Record Separator attribute has been set.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean recordSeparatorESet;
 	/**
 	 * The default value of the '{@link #getQuoteCharacter() <em>Quote Character</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -272,98 +218,6 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getEscapeCharacter() {
-		return escapeCharacter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEscapeCharacter(String newEscapeCharacter) {
-		String oldEscapeCharacter = escapeCharacter;
-		escapeCharacter = newEscapeCharacter;
-		boolean oldEscapeCharacterESet = escapeCharacterESet;
-		escapeCharacterESet = true;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SpreadsheetCSVPackage.SPREADSHEET_CSV__ESCAPE_CHARACTER, oldEscapeCharacter, escapeCharacter, !oldEscapeCharacterESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void unsetEscapeCharacter() {
-		String oldEscapeCharacter = escapeCharacter;
-		boolean oldEscapeCharacterESet = escapeCharacterESet;
-		escapeCharacter = ESCAPE_CHARACTER_EDEFAULT;
-		escapeCharacterESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, SpreadsheetCSVPackage.SPREADSHEET_CSV__ESCAPE_CHARACTER, oldEscapeCharacter, ESCAPE_CHARACTER_EDEFAULT, oldEscapeCharacterESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isSetEscapeCharacter() {
-		return escapeCharacterESet;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getRecordSeparator() {
-		return recordSeparator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRecordSeparator(String newRecordSeparator) {
-		String oldRecordSeparator = recordSeparator;
-		recordSeparator = newRecordSeparator;
-		boolean oldRecordSeparatorESet = recordSeparatorESet;
-		recordSeparatorESet = true;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SpreadsheetCSVPackage.SPREADSHEET_CSV__RECORD_SEPARATOR, oldRecordSeparator, recordSeparator, !oldRecordSeparatorESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void unsetRecordSeparator() {
-		String oldRecordSeparator = recordSeparator;
-		boolean oldRecordSeparatorESet = recordSeparatorESet;
-		recordSeparator = RECORD_SEPARATOR_EDEFAULT;
-		recordSeparatorESet = false;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.UNSET, SpreadsheetCSVPackage.SPREADSHEET_CSV__RECORD_SEPARATOR, oldRecordSeparator, RECORD_SEPARATOR_EDEFAULT, oldRecordSeparatorESet));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isSetRecordSeparator() {
-		return recordSeparatorESet;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getQuoteCharacter() {
 		return quoteCharacter;
 	}
@@ -417,10 +271,6 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 				return getFormat();
 			case SpreadsheetCSVPackage.SPREADSHEET_CSV__DELIMITER:
 				return getDelimiter();
-			case SpreadsheetCSVPackage.SPREADSHEET_CSV__ESCAPE_CHARACTER:
-				return getEscapeCharacter();
-			case SpreadsheetCSVPackage.SPREADSHEET_CSV__RECORD_SEPARATOR:
-				return getRecordSeparator();
 			case SpreadsheetCSVPackage.SPREADSHEET_CSV__QUOTE_CHARACTER:
 				return getQuoteCharacter();
 		}
@@ -440,12 +290,6 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 				return;
 			case SpreadsheetCSVPackage.SPREADSHEET_CSV__DELIMITER:
 				setDelimiter((String)newValue);
-				return;
-			case SpreadsheetCSVPackage.SPREADSHEET_CSV__ESCAPE_CHARACTER:
-				setEscapeCharacter((String)newValue);
-				return;
-			case SpreadsheetCSVPackage.SPREADSHEET_CSV__RECORD_SEPARATOR:
-				setRecordSeparator((String)newValue);
 				return;
 			case SpreadsheetCSVPackage.SPREADSHEET_CSV__QUOTE_CHARACTER:
 				setQuoteCharacter((String)newValue);
@@ -468,12 +312,6 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 			case SpreadsheetCSVPackage.SPREADSHEET_CSV__DELIMITER:
 				unsetDelimiter();
 				return;
-			case SpreadsheetCSVPackage.SPREADSHEET_CSV__ESCAPE_CHARACTER:
-				unsetEscapeCharacter();
-				return;
-			case SpreadsheetCSVPackage.SPREADSHEET_CSV__RECORD_SEPARATOR:
-				unsetRecordSeparator();
-				return;
 			case SpreadsheetCSVPackage.SPREADSHEET_CSV__QUOTE_CHARACTER:
 				unsetQuoteCharacter();
 				return;
@@ -493,10 +331,6 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 				return format != FORMAT_EDEFAULT;
 			case SpreadsheetCSVPackage.SPREADSHEET_CSV__DELIMITER:
 				return isSetDelimiter();
-			case SpreadsheetCSVPackage.SPREADSHEET_CSV__ESCAPE_CHARACTER:
-				return isSetEscapeCharacter();
-			case SpreadsheetCSVPackage.SPREADSHEET_CSV__RECORD_SEPARATOR:
-				return isSetRecordSeparator();
 			case SpreadsheetCSVPackage.SPREADSHEET_CSV__QUOTE_CHARACTER:
 				return isSetQuoteCharacter();
 		}
@@ -517,10 +351,6 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 		result.append(format);
 		result.append(", Delimiter: ");
 		if (delimiterESet) result.append(delimiter); else result.append("<unset>");
-		result.append(", EscapeCharacter: ");
-		if (escapeCharacterESet) result.append(escapeCharacter); else result.append("<unset>");
-		result.append(", RecordSeparator: ");
-		if (recordSeparatorESet) result.append(recordSeparator); else result.append("<unset>");
 		result.append(", QuoteCharacter: ");
 		if (quoteCharacterESet) result.append(quoteCharacter); else result.append("<unset>");
 		result.append(')');
@@ -551,19 +381,33 @@ public class SpreadsheetCSVImpl extends SpreadsheetImpl implements SpreadsheetCS
 		}
 		
 		if ( this.isSetDelimiter()){
-			String delimiter = this.getDelimiter();
-			if ( delimiter == null ){
-				CommonPlugin.INSTANCE.log("SpreadsheetCSV.read: error, no delimeter");
+			String charAsEscapedString = this.getDelimiter();
+			if ( charAsEscapedString == null ){
+				CommonPlugin.INSTANCE.log("SpreadsheetCSV.read: error, no delimeter character");
 			} else {
-				String unescaped = StringEscapeUtils.unescapeJava(delimiter);
+				String unescaped = StringEscapeUtils.unescapeJava(charAsEscapedString);
 				if ( unescaped.length()!=1 ){
-					CommonPlugin.INSTANCE.log("SpreadsheetCSV.read: error, no single character");
+					CommonPlugin.INSTANCE.log("SpreadsheetCSV.read: error, no single delimiter character");
 				} else {
 					format = format.withDelimiter(unescaped.charAt(0));
 				}
 			}
 		}
 		
+		if ( this.isSetQuoteCharacter()){
+			String charAsEscapedString = this.getQuoteCharacter();
+			if ( charAsEscapedString == null ){
+				CommonPlugin.INSTANCE.log("SpreadsheetCSV.read: error, no quote character");
+			} else {
+				String unescaped = StringEscapeUtils.unescapeJava(charAsEscapedString);
+				if ( unescaped.length()!=1 ){
+					CommonPlugin.INSTANCE.log("SpreadsheetCSV.read: error, no single quote character");
+				} else {
+					format = format.withQuote(unescaped.charAt(0));
+				}
+			}
+		}
+			
 		Reader reader = new InputStreamReader(inputStream);
 		CSVParser parser = null;
 		try {

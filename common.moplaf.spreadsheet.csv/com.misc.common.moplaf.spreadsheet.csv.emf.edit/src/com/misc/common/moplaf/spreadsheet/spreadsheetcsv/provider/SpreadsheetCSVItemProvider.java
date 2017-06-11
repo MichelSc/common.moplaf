@@ -61,8 +61,6 @@ public class SpreadsheetCSVItemProvider extends SpreadsheetItemProvider {
 
 			addFormatPropertyDescriptor(object);
 			addDelimiterPropertyDescriptor(object);
-			addEscapeCharacterPropertyDescriptor(object);
-			addRecordSeparatorPropertyDescriptor(object);
 			addQuoteCharacterPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -104,50 +102,6 @@ public class SpreadsheetCSVItemProvider extends SpreadsheetItemProvider {
 				 getString("_UI_SpreadsheetCSV_Delimiter_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SpreadsheetCSV_Delimiter_feature", "_UI_SpreadsheetCSV_type"),
 				 SpreadsheetCSVPackage.Literals.SPREADSHEET_CSV__DELIMITER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Escape Character feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addEscapeCharacterPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SpreadsheetCSV_EscapeCharacter_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SpreadsheetCSV_EscapeCharacter_feature", "_UI_SpreadsheetCSV_type"),
-				 SpreadsheetCSVPackage.Literals.SPREADSHEET_CSV__ESCAPE_CHARACTER,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Record Separator feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRecordSeparatorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SpreadsheetCSV_RecordSeparator_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SpreadsheetCSV_RecordSeparator_feature", "_UI_SpreadsheetCSV_type"),
-				 SpreadsheetCSVPackage.Literals.SPREADSHEET_CSV__RECORD_SEPARATOR,
 				 true,
 				 false,
 				 false,
@@ -207,8 +161,6 @@ public class SpreadsheetCSVItemProvider extends SpreadsheetItemProvider {
 		switch (notification.getFeatureID(SpreadsheetCSV.class)) {
 			case SpreadsheetCSVPackage.SPREADSHEET_CSV__FORMAT:
 			case SpreadsheetCSVPackage.SPREADSHEET_CSV__DELIMITER:
-			case SpreadsheetCSVPackage.SPREADSHEET_CSV__ESCAPE_CHARACTER:
-			case SpreadsheetCSVPackage.SPREADSHEET_CSV__RECORD_SEPARATOR:
 			case SpreadsheetCSVPackage.SPREADSHEET_CSV__QUOTE_CHARACTER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

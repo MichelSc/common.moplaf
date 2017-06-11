@@ -124,31 +124,13 @@ public interface SpreadsheetCSVPackage extends EPackage {
 	int SPREADSHEET_CSV__DELIMITER = SpreadsheetPackage.SPREADSHEET_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Escape Character</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPREADSHEET_CSV__ESCAPE_CHARACTER = SpreadsheetPackage.SPREADSHEET_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Record Separator</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPREADSHEET_CSV__RECORD_SEPARATOR = SpreadsheetPackage.SPREADSHEET_FEATURE_COUNT + 3;
-
-	/**
 	 * The feature id for the '<em><b>Quote Character</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET_CSV__QUOTE_CHARACTER = SpreadsheetPackage.SPREADSHEET_FEATURE_COUNT + 4;
+	int SPREADSHEET_CSV__QUOTE_CHARACTER = SpreadsheetPackage.SPREADSHEET_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Spreadsheet CSV</em>' class.
@@ -157,7 +139,7 @@ public interface SpreadsheetCSVPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPREADSHEET_CSV_FEATURE_COUNT = SpreadsheetPackage.SPREADSHEET_FEATURE_COUNT + 5;
+	int SPREADSHEET_CSV_FEATURE_COUNT = SpreadsheetPackage.SPREADSHEET_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Sheet</em>' operation.
@@ -248,28 +230,6 @@ public interface SpreadsheetCSVPackage extends EPackage {
 	EAttribute getSpreadsheetCSV_Delimiter();
 
 	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV#getEscapeCharacter <em>Escape Character</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Escape Character</em>'.
-	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV#getEscapeCharacter()
-	 * @see #getSpreadsheetCSV()
-	 * @generated
-	 */
-	EAttribute getSpreadsheetCSV_EscapeCharacter();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV#getRecordSeparator <em>Record Separator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Record Separator</em>'.
-	 * @see com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV#getRecordSeparator()
-	 * @see #getSpreadsheetCSV()
-	 * @generated
-	 */
-	EAttribute getSpreadsheetCSV_RecordSeparator();
-
-	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.spreadsheet.spreadsheetcsv.SpreadsheetCSV#getQuoteCharacter <em>Quote Character</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -336,20 +296,6 @@ public interface SpreadsheetCSVPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SPREADSHEET_CSV__DELIMITER = eINSTANCE.getSpreadsheetCSV_Delimiter();
-		/**
-		 * The meta object literal for the '<em><b>Escape Character</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SPREADSHEET_CSV__ESCAPE_CHARACTER = eINSTANCE.getSpreadsheetCSV_EscapeCharacter();
-		/**
-		 * The meta object literal for the '<em><b>Record Separator</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SPREADSHEET_CSV__RECORD_SEPARATOR = eINSTANCE.getSpreadsheetCSV_RecordSeparator();
 		/**
 		 * The meta object literal for the '<em><b>Quote Character</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
