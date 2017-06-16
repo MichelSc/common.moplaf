@@ -596,14 +596,16 @@ public class TimeBucketImpl extends MinimalEObjectImpl.Container implements Time
 		} else if ( seconds>0.0f){
 			// move forward
 			TimeBucket current = this;
-			while ( current !=null && !current.contains(Util.addSeconds(this.getBucketStart(), seconds))){
+			Date startWithOffset = Util.addSeconds(this.getBucketStart(), seconds);
+			while ( current !=null && !current.contains(startWithOffset)){
 				current = current.getNext();
 			}
 			return current;
 		} else {
 			// move backward
 			TimeBucket current = this;
-			while ( current !=null && !current.contains(Util.addSeconds(this.getBucketEnd(), seconds))){
+			Date endWithOffset = Util.addSeconds(this.getBucketEnd(), seconds);
+			while ( current !=null && !current.contains(endWithOffset)){
 				current = current.getPrevious();
 			}
 			return current;
