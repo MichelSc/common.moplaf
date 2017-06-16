@@ -10,8 +10,6 @@
  *******************************************************************************/
 package com.misc.common.moplaf.timeview.emf.editor.provider;
 
-
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -24,6 +22,7 @@ import org.eclipse.swt.graphics.Image;
 
 import com.misc.common.moplaf.emf.editor.provider.AdapterFactoryArrayContentProvider;
 import com.misc.common.moplaf.timeview.IIntervalEventProvider;
+import com.misc.common.moplaf.timeview.Wrapper;
 import com.misc.common.moplaf.timeview.emf.edit.IItemTimeLinesEventsIntervalsProvider;
 import com.misc.common.moplaf.timeview.emf.edit.IItemTimeLinesEventsProvider;
 import com.misc.common.moplaf.timeview.emf.edit.IItemTimeLinesIntervalsProvider;
@@ -134,7 +133,7 @@ public class AdapterFactoryIntervalEventProvider extends AdapterFactoryArrayCont
 	/**
 	 * Helper class for the conversion of an IItemTimeLinesProvider (abstract), represent a TimeLine 
 	 */
-	private abstract class TimeLineProvider implements IItemLabelProvider {
+	private abstract class TimeLineProvider implements IItemLabelProvider, Wrapper {
 		protected IItemTimeLinesProvider timeLinesProvider;
 		protected Object element;
 		protected Object timeLine;
@@ -150,6 +149,10 @@ public class AdapterFactoryIntervalEventProvider extends AdapterFactoryArrayCont
 			this.element = element;
 			this.timeLine = timeline;
 			this.timeLinesProvider = timeLinesProvider;
+		}
+
+		public Object unwrap(){
+			return element;
 		}
 
 		/**
@@ -176,9 +179,13 @@ public class AdapterFactoryIntervalEventProvider extends AdapterFactoryArrayCont
 	private class TimeLineEventsProvider extends TimeLineProvider {
 		private IItemTimeLinesEventsProvider timeLinesEventsProvider;
 
-		private class Event implements IItemLabelProvider, IItemColorProvider{
+		private class Event implements IItemLabelProvider, IItemColorProvider, Wrapper {
 			private Object event;
 			
+			public Object unwrap(){
+				return event;
+			}
+
 			public Event(Object event){
 				this.event = event;
 			}
@@ -323,7 +330,7 @@ public class AdapterFactoryIntervalEventProvider extends AdapterFactoryArrayCont
 	private class TimeLineEventsIntervalsProvider extends TimeLineProvider {
 		private IItemTimeLinesEventsIntervalsProvider timeLinesEventsIntervalsProvider;
 		
-		private class EventInterval implements IItemLabelProvider, IItemColorProvider{
+		private class EventInterval implements IItemLabelProvider, IItemColorProvider, Wrapper {
 			private Object event;
 			private int interval;
 			
@@ -332,6 +339,11 @@ public class AdapterFactoryIntervalEventProvider extends AdapterFactoryArrayCont
 				this.event = event;
 				this.interval = interval;
 			}
+			
+			public Object unwrap(){
+				return event;
+			}
+
 			
 			@Override
 			public Object getForeground(Object element) {

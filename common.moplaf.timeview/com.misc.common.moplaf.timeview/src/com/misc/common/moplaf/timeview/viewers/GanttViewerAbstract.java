@@ -22,6 +22,7 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 
 import com.misc.common.moplaf.timeview.IIntervalEventProvider;
+import com.misc.common.moplaf.timeview.Wrapper;
 
 
 /**
@@ -130,6 +131,9 @@ public abstract class GanttViewerAbstract extends ContentViewer {
 	 */
 	protected void setSelectedElement(Object selectedObject){
 		if ( selectedObject!=this.selectedElement ){
+			if ( selectedObject instanceof Wrapper ){
+				selectedObject = ((Wrapper)selectedObject).unwrap();
+			}
 			this.setSelection(new StructuredSelection(selectedObject), false);
 			this.fireSelectionChanged(new SelectionChangedEvent(this, this.getSelection()));
 		}
