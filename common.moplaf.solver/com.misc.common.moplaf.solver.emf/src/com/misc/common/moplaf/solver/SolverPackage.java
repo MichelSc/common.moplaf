@@ -216,49 +216,13 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR__FOOTPRINT_NOF_TERMS = JobPackage.RUN_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Count Cons</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR__COUNT_CONS = JobPackage.RUN_FEATURE_COUNT + 8;
-
-	/**
-	 * The feature id for the '<em><b>Count Vars</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR__COUNT_VARS = JobPackage.RUN_FEATURE_COUNT + 9;
-
-	/**
-	 * The feature id for the '<em><b>ELp Var Count</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR__ELP_VAR_COUNT = JobPackage.RUN_FEATURE_COUNT + 10;
-
-	/**
-	 * The feature id for the '<em><b>ELp Cons Count</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR__ELP_CONS_COUNT = JobPackage.RUN_FEATURE_COUNT + 11;
-
-	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__CODE = JobPackage.RUN_FEATURE_COUNT + 12;
+	int GENERATOR__CODE = JobPackage.RUN_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Selected</b></em>' reference.
@@ -267,7 +231,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR__SELECTED = JobPackage.RUN_FEATURE_COUNT + 13;
+	int GENERATOR__SELECTED = JobPackage.RUN_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of structural features of the '<em>Generator</em>' class.
@@ -276,7 +240,7 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_FEATURE_COUNT = JobPackage.RUN_FEATURE_COUNT + 14;
+	int GENERATOR_FEATURE_COUNT = JobPackage.RUN_FEATURE_COUNT + 10;
 
 	/**
 	 * The operation id for the '<em>Copy Params</em>' operation.
@@ -1493,208 +1457,6 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_LP_TERM_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpConsCountElementImpl <em>Generator Lp Cons Count Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.solver.impl.GeneratorLpConsCountElementImpl
-	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpConsCountElement()
-	 * @generated
-	 */
-	int GENERATOR_LP_CONS_COUNT_ELEMENT = 9;
-
-	/**
-	 * The feature id for the '<em><b>ELp Cons Count</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_CONS_COUNT_ELEMENT__ELP_CONS_COUNT = 0;
-
-	/**
-	 * The feature id for the '<em><b>ECount</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_CONS_COUNT_ELEMENT__ECOUNT = 1;
-
-	/**
-	 * The feature id for the '<em><b>EClass</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_CONS_COUNT_ELEMENT__ECLASS = 2;
-
-	/**
-	 * The number of structural features of the '<em>Generator Lp Cons Count Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_CONS_COUNT_ELEMENT_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Generator Lp Cons Count Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_CONS_COUNT_ELEMENT_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpVarCountElementImpl <em>Generator Lp Var Count Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.solver.impl.GeneratorLpVarCountElementImpl
-	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpVarCountElement()
-	 * @generated
-	 */
-	int GENERATOR_LP_VAR_COUNT_ELEMENT = 10;
-
-	/**
-	 * The feature id for the '<em><b>ELp Var Count</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_VAR_COUNT_ELEMENT__ELP_VAR_COUNT = 0;
-
-	/**
-	 * The feature id for the '<em><b>ECount</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_VAR_COUNT_ELEMENT__ECOUNT = 1;
-
-	/**
-	 * The feature id for the '<em><b>EClass</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_VAR_COUNT_ELEMENT__ECLASS = 2;
-
-	/**
-	 * The number of structural features of the '<em>Generator Lp Var Count Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_VAR_COUNT_ELEMENT_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Generator Lp Var Count Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_VAR_COUNT_ELEMENT_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpVarCountImpl <em>Generator Lp Var Count</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.solver.impl.GeneratorLpVarCountImpl
-	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpVarCount()
-	 * @generated
-	 */
-	int GENERATOR_LP_VAR_COUNT = 11;
-
-	/**
-	 * The feature id for the '<em><b>ELp Var Count Element</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_VAR_COUNT__ELP_VAR_COUNT_ELEMENT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Generator</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_VAR_COUNT__GENERATOR = 1;
-
-	/**
-	 * The number of structural features of the '<em>Generator Lp Var Count</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_VAR_COUNT_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Generator Lp Var Count</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_VAR_COUNT_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpConsCountImpl <em>Generator Lp Cons Count</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.solver.impl.GeneratorLpConsCountImpl
-	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpConsCount()
-	 * @generated
-	 */
-	int GENERATOR_LP_CONS_COUNT = 12;
-
-	/**
-	 * The feature id for the '<em><b>Lp Cons Count Element</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_CONS_COUNT__LP_CONS_COUNT_ELEMENT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Generator</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_CONS_COUNT__GENERATOR = 1;
-
-	/**
-	 * The number of structural features of the '<em>Generator Lp Cons Count</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_CONS_COUNT_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Generator Lp Cons Count</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_LP_CONS_COUNT_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorFeatureModeImpl <em>Generator Feature Mode</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1702,7 +1464,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorFeatureMode()
 	 * @generated
 	 */
-	int GENERATOR_FEATURE_MODE = 13;
+	int GENERATOR_FEATURE_MODE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Generator</b></em>' reference.
@@ -1775,7 +1537,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorConstraintEnabler()
 	 * @generated
 	 */
-	int GENERATOR_CONSTRAINT_ENABLER = 14;
+	int GENERATOR_CONSTRAINT_ENABLER = 10;
 
 	/**
 	 * The feature id for the '<em><b>Generator</b></em>' reference.
@@ -1848,7 +1610,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorVarOverflow()
 	 * @generated
 	 */
-	int GENERATOR_VAR_OVERFLOW = 15;
+	int GENERATOR_VAR_OVERFLOW = 11;
 
 	/**
 	 * The feature id for the '<em><b>Generator</b></em>' reference.
@@ -1939,7 +1701,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getIGeneratorTool()
 	 * @generated
 	 */
-	int IGENERATOR_TOOL = 16;
+	int IGENERATOR_TOOL = 12;
 
 	/**
 	 * The number of structural features of the '<em>IGenerator Tool</em>' class.
@@ -1985,7 +1747,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionProvider()
 	 * @generated
 	 */
-	int SOLUTION_PROVIDER = 20;
+	int SOLUTION_PROVIDER = 16;
 
 	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
@@ -2229,7 +1991,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionReader()
 	 * @generated
 	 */
-	int SOLUTION_READER = 17;
+	int SOLUTION_READER = 13;
 
 	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
@@ -2500,7 +2262,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionReaderPattern()
 	 * @generated
 	 */
-	int SOLUTION_READER_PATTERN = 18;
+	int SOLUTION_READER_PATTERN = 14;
 
 	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
@@ -2816,7 +2578,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolver()
 	 * @generated
 	 */
-	int SOLVER = 21;
+	int SOLVER = 17;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.ILpWriter <em>ILp Writer</em>}' class.
@@ -2826,7 +2588,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getILpWriter()
 	 * @generated
 	 */
-	int ILP_WRITER = 19;
+	int ILP_WRITER = 15;
 
 	/**
 	 * The feature id for the '<em><b>File Path</b></em>' attribute.
@@ -3502,7 +3264,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolverLp()
 	 * @generated
 	 */
-	int SOLVER_LP = 23;
+	int SOLVER_LP = 19;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionVarImpl <em>Solution Var</em>}' class.
@@ -3512,7 +3274,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionVar()
 	 * @generated
 	 */
-	int SOLUTION_VAR = 30;
+	int SOLUTION_VAR = 26;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionLpVarImpl <em>Solution Lp Var</em>}' class.
@@ -3522,7 +3284,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionLpVar()
 	 * @generated
 	 */
-	int SOLUTION_LP_VAR = 31;
+	int SOLUTION_LP_VAR = 27;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionConsImpl <em>Solution Cons</em>}' class.
@@ -3532,7 +3294,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionCons()
 	 * @generated
 	 */
-	int SOLUTION_CONS = 33;
+	int SOLUTION_CONS = 29;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionLpConsImpl <em>Solution Lp Cons</em>}' class.
@@ -3542,7 +3304,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionLpCons()
 	 * @generated
 	 */
-	int SOLUTION_LP_CONS = 34;
+	int SOLUTION_LP_CONS = 30;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpConsImpl <em>Generator Cp Cons</em>}' class.
@@ -3552,7 +3314,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpCons()
 	 * @generated
 	 */
-	int GENERATOR_CP_CONS = 37;
+	int GENERATOR_CP_CONS = 33;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpLinearImpl <em>Generator Cp Linear</em>}' class.
@@ -3562,7 +3324,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpLinear()
 	 * @generated
 	 */
-	int GENERATOR_CP_LINEAR = 38;
+	int GENERATOR_CP_LINEAR = 34;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpLogicalImpl <em>Generator Cp Logical</em>}' class.
@@ -3572,7 +3334,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpLogical()
 	 * @generated
 	 */
-	int GENERATOR_CP_LOGICAL = 39;
+	int GENERATOR_CP_LOGICAL = 35;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpVarImpl <em>Generator Cp Var</em>}' class.
@@ -3582,7 +3344,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpVar()
 	 * @generated
 	 */
-	int GENERATOR_CP_VAR = 40;
+	int GENERATOR_CP_VAR = 36;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpVarAtomicImpl <em>Generator Cp Var Atomic</em>}' class.
@@ -3592,7 +3354,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpVarAtomic()
 	 * @generated
 	 */
-	int GENERATOR_CP_VAR_ATOMIC = 41;
+	int GENERATOR_CP_VAR_ATOMIC = 37;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpLinearTermImpl <em>Generator Cp Linear Term</em>}' class.
@@ -3602,7 +3364,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpLinearTerm()
 	 * @generated
 	 */
-	int GENERATOR_CP_LINEAR_TERM = 42;
+	int GENERATOR_CP_LINEAR_TERM = 38;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpLogicalTermImpl <em>Generator Cp Logical Term</em>}' class.
@@ -3612,7 +3374,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpLogicalTerm()
 	 * @generated
 	 */
-	int GENERATOR_CP_LOGICAL_TERM = 43;
+	int GENERATOR_CP_LOGICAL_TERM = 39;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionCpVarImpl <em>Solution Cp Var</em>}' class.
@@ -3622,7 +3384,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionCpVar()
 	 * @generated
 	 */
-	int SOLUTION_CP_VAR = 32;
+	int SOLUTION_CP_VAR = 28;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolverCpImpl <em>Cp</em>}' class.
@@ -3632,7 +3394,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolverCp()
 	 * @generated
 	 */
-	int SOLVER_CP = 22;
+	int SOLVER_CP = 18;
 
 	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
@@ -3705,7 +3467,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolution()
 	 * @generated
 	 */
-	int SOLUTION = 27;
+	int SOLUTION = 23;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionLpImpl <em>Solution Lp</em>}' class.
@@ -3715,7 +3477,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionLp()
 	 * @generated
 	 */
-	int SOLUTION_LP = 29;
+	int SOLUTION_LP = 25;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -4868,7 +4630,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionElement()
 	 * @generated
 	 */
-	int SOLUTION_ELEMENT = 28;
+	int SOLUTION_ELEMENT = 24;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionGoalImpl <em>Solution Goal</em>}' class.
@@ -4878,7 +4640,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionGoal()
 	 * @generated
 	 */
-	int SOLUTION_GOAL = 35;
+	int SOLUTION_GOAL = 31;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionLpGoalImpl <em>Solution Lp Goal</em>}' class.
@@ -4888,7 +4650,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionLpGoal()
 	 * @generated
 	 */
-	int SOLUTION_LP_GOAL = 36;
+	int SOLUTION_LP_GOAL = 32;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl <em>Generator Goal</em>}' class.
@@ -4898,7 +4660,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorGoal()
 	 * @generated
 	 */
-	int GENERATOR_GOAL = 44;
+	int GENERATOR_GOAL = 40;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl <em>Generator Lp Goal</em>}' class.
@@ -4908,7 +4670,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpGoal()
 	 * @generated
 	 */
-	int GENERATOR_LP_GOAL = 45;
+	int GENERATOR_LP_GOAL = 41;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpLinearImpl <em>Generator Lp Linear</em>}' class.
@@ -4918,7 +4680,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpLinear()
 	 * @generated
 	 */
-	int GENERATOR_LP_LINEAR = 46;
+	int GENERATOR_LP_LINEAR = 42;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolverGoalImpl <em>Goal</em>}' class.
@@ -4928,7 +4690,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolverGoal()
 	 * @generated
 	 */
-	int SOLVER_GOAL = 24;
+	int SOLVER_GOAL = 20;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -4983,7 +4745,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolverGeneratorGoal()
 	 * @generated
 	 */
-	int SOLVER_GENERATOR_GOAL = 25;
+	int SOLVER_GENERATOR_GOAL = 21;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -5083,7 +4845,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolverGoalPreviousSolver()
 	 * @generated
 	 */
-	int SOLVER_GOAL_PREVIOUS_SOLVER = 26;
+	int SOLVER_GOAL_PREVIOUS_SOLVER = 22;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -7199,7 +6961,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionProviderParams()
 	 * @generated
 	 */
-	int SOLUTION_PROVIDER_PARAMS = 49;
+	int SOLUTION_PROVIDER_PARAMS = 45;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -7245,7 +7007,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolverParams()
 	 * @generated
 	 */
-	int SOLVER_PARAMS = 48;
+	int SOLVER_PARAMS = 44;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -7309,7 +7071,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolverLpParams()
 	 * @generated
 	 */
-	int SOLVER_LP_PARAMS = 47;
+	int SOLVER_LP_PARAMS = 43;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -7391,7 +7153,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getITupleVisitor()
 	 * @generated
 	 */
-	int ITUPLE_VISITOR = 57;
+	int ITUPLE_VISITOR = 53;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -7401,7 +7163,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 58;
+	int EXCEPTION = 54;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumLpVarType <em>Enum Lp Var Type</em>}' enum.
@@ -7411,7 +7173,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumLpVarType()
 	 * @generated
 	 */
-	int ENUM_LP_VAR_TYPE = 50;
+	int ENUM_LP_VAR_TYPE = 46;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumLpConsType <em>Enum Lp Cons Type</em>}' enum.
@@ -7421,7 +7183,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumLpConsType()
 	 * @generated
 	 */
-	int ENUM_LP_CONS_TYPE = 51;
+	int ENUM_LP_CONS_TYPE = 47;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumObjectiveType <em>Enum Objective Type</em>}' enum.
@@ -7431,7 +7193,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumObjectiveType()
 	 * @generated
 	 */
-	int ENUM_OBJECTIVE_TYPE = 52;
+	int ENUM_OBJECTIVE_TYPE = 48;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumSolverLogLevel <em>Enum Solver Log Level</em>}' enum.
@@ -7441,7 +7203,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumSolverLogLevel()
 	 * @generated
 	 */
-	int ENUM_SOLVER_LOG_LEVEL = 53;
+	int ENUM_SOLVER_LOG_LEVEL = 49;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumCpLinearType <em>Enum Cp Linear Type</em>}' enum.
@@ -7451,7 +7213,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumCpLinearType()
 	 * @generated
 	 */
-	int ENUM_CP_LINEAR_TYPE = 54;
+	int ENUM_CP_LINEAR_TYPE = 50;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumCpLogicalType <em>Enum Cp Logical Type</em>}' enum.
@@ -7461,7 +7223,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumCpLogicalType()
 	 * @generated
 	 */
-	int ENUM_CP_LOGICAL_TYPE = 55;
+	int ENUM_CP_LOGICAL_TYPE = 51;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumLpFileFormat <em>Enum Lp File Format</em>}' enum.
@@ -7471,7 +7233,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumLpFileFormat()
 	 * @generated
 	 */
-	int ENUM_LP_FILE_FORMAT = 56;
+	int ENUM_LP_FILE_FORMAT = 52;
 
 
 	/**
@@ -7538,50 +7300,6 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGenerator_FootprintNofTerms();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.Generator#isCountCons <em>Count Cons</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Count Cons</em>'.
-	 * @see com.misc.common.moplaf.solver.Generator#isCountCons()
-	 * @see #getGenerator()
-	 * @generated
-	 */
-	EAttribute getGenerator_CountCons();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.Generator#isCountVars <em>Count Vars</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Count Vars</em>'.
-	 * @see com.misc.common.moplaf.solver.Generator#isCountVars()
-	 * @see #getGenerator()
-	 * @generated
-	 */
-	EAttribute getGenerator_CountVars();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.solver.Generator#getELpVarCount <em>ELp Var Count</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>ELp Var Count</em>'.
-	 * @see com.misc.common.moplaf.solver.Generator#getELpVarCount()
-	 * @see #getGenerator()
-	 * @generated
-	 */
-	EReference getGenerator_ELpVarCount();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link com.misc.common.moplaf.solver.Generator#getELpConsCount <em>ELp Cons Count</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>ELp Cons Count</em>'.
-	 * @see com.misc.common.moplaf.solver.Generator#getELpConsCount()
-	 * @see #getGenerator()
-	 * @generated
-	 */
-	EReference getGenerator_ELpConsCount();
 
 	/**
 	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.Generator#getCode <em>Code</em>}'.
@@ -8897,156 +8615,6 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGeneratorLpTerm_Description();
-
-	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorLpConsCountElement <em>Generator Lp Cons Count Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Generator Lp Cons Count Element</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpConsCountElement
-	 * @generated
-	 */
-	EClass getGeneratorLpConsCountElement();
-
-	/**
-	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.solver.GeneratorLpConsCountElement#getELpConsCount <em>ELp Cons Count</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>ELp Cons Count</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpConsCountElement#getELpConsCount()
-	 * @see #getGeneratorLpConsCountElement()
-	 * @generated
-	 */
-	EReference getGeneratorLpConsCountElement_ELpConsCount();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorLpConsCountElement#getECount <em>ECount</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>ECount</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpConsCountElement#getECount()
-	 * @see #getGeneratorLpConsCountElement()
-	 * @generated
-	 */
-	EAttribute getGeneratorLpConsCountElement_ECount();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorLpConsCountElement#getEClass <em>EClass</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>EClass</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpConsCountElement#getEClass()
-	 * @see #getGeneratorLpConsCountElement()
-	 * @generated
-	 */
-	EAttribute getGeneratorLpConsCountElement_EClass();
-
-	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorLpVarCountElement <em>Generator Lp Var Count Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Generator Lp Var Count Element</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpVarCountElement
-	 * @generated
-	 */
-	EClass getGeneratorLpVarCountElement();
-
-	/**
-	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.solver.GeneratorLpVarCountElement#getELpVarCount <em>ELp Var Count</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>ELp Var Count</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpVarCountElement#getELpVarCount()
-	 * @see #getGeneratorLpVarCountElement()
-	 * @generated
-	 */
-	EReference getGeneratorLpVarCountElement_ELpVarCount();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorLpVarCountElement#getECount <em>ECount</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>ECount</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpVarCountElement#getECount()
-	 * @see #getGeneratorLpVarCountElement()
-	 * @generated
-	 */
-	EAttribute getGeneratorLpVarCountElement_ECount();
-
-	/**
-	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorLpVarCountElement#getEClass <em>EClass</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>EClass</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpVarCountElement#getEClass()
-	 * @see #getGeneratorLpVarCountElement()
-	 * @generated
-	 */
-	EAttribute getGeneratorLpVarCountElement_EClass();
-
-	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorLpVarCount <em>Generator Lp Var Count</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Generator Lp Var Count</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpVarCount
-	 * @generated
-	 */
-	EClass getGeneratorLpVarCount();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.solver.GeneratorLpVarCount#getELpVarCountElement <em>ELp Var Count Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>ELp Var Count Element</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpVarCount#getELpVarCountElement()
-	 * @see #getGeneratorLpVarCount()
-	 * @generated
-	 */
-	EReference getGeneratorLpVarCount_ELpVarCountElement();
-
-	/**
-	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.solver.GeneratorLpVarCount#getGenerator <em>Generator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Generator</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpVarCount#getGenerator()
-	 * @see #getGeneratorLpVarCount()
-	 * @generated
-	 */
-	EReference getGeneratorLpVarCount_Generator();
-
-	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorLpConsCount <em>Generator Lp Cons Count</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Generator Lp Cons Count</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpConsCount
-	 * @generated
-	 */
-	EClass getGeneratorLpConsCount();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.solver.GeneratorLpConsCount#getLpConsCountElement <em>Lp Cons Count Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Lp Cons Count Element</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpConsCount#getLpConsCountElement()
-	 * @see #getGeneratorLpConsCount()
-	 * @generated
-	 */
-	EReference getGeneratorLpConsCount_LpConsCountElement();
-
-	/**
-	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.solver.GeneratorLpConsCount#getGenerator <em>Generator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Generator</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpConsCount#getGenerator()
-	 * @see #getGeneratorLpConsCount()
-	 * @generated
-	 */
-	EReference getGeneratorLpConsCount_Generator();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorFeatureMode <em>Generator Feature Mode</em>}'.
@@ -10449,38 +10017,6 @@ public interface SolverPackage extends EPackage {
 		EAttribute GENERATOR__FOOTPRINT_NOF_TERMS = eINSTANCE.getGenerator_FootprintNofTerms();
 
 		/**
-		 * The meta object literal for the '<em><b>Count Cons</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GENERATOR__COUNT_CONS = eINSTANCE.getGenerator_CountCons();
-
-		/**
-		 * The meta object literal for the '<em><b>Count Vars</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GENERATOR__COUNT_VARS = eINSTANCE.getGenerator_CountVars();
-
-		/**
-		 * The meta object literal for the '<em><b>ELp Var Count</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GENERATOR__ELP_VAR_COUNT = eINSTANCE.getGenerator_ELpVarCount();
-
-		/**
-		 * The meta object literal for the '<em><b>ELp Cons Count</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GENERATOR__ELP_CONS_COUNT = eINSTANCE.getGenerator_ELpConsCount();
-
-		/**
 		 * The meta object literal for the '<em><b>Code</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -11519,126 +11055,6 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GENERATOR_LP_TERM__DESCRIPTION = eINSTANCE.getGeneratorLpTerm_Description();
-
-		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpConsCountElementImpl <em>Generator Lp Cons Count Element</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.solver.impl.GeneratorLpConsCountElementImpl
-		 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpConsCountElement()
-		 * @generated
-		 */
-		EClass GENERATOR_LP_CONS_COUNT_ELEMENT = eINSTANCE.getGeneratorLpConsCountElement();
-
-		/**
-		 * The meta object literal for the '<em><b>ELp Cons Count</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GENERATOR_LP_CONS_COUNT_ELEMENT__ELP_CONS_COUNT = eINSTANCE.getGeneratorLpConsCountElement_ELpConsCount();
-
-		/**
-		 * The meta object literal for the '<em><b>ECount</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GENERATOR_LP_CONS_COUNT_ELEMENT__ECOUNT = eINSTANCE.getGeneratorLpConsCountElement_ECount();
-
-		/**
-		 * The meta object literal for the '<em><b>EClass</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GENERATOR_LP_CONS_COUNT_ELEMENT__ECLASS = eINSTANCE.getGeneratorLpConsCountElement_EClass();
-
-		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpVarCountElementImpl <em>Generator Lp Var Count Element</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.solver.impl.GeneratorLpVarCountElementImpl
-		 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpVarCountElement()
-		 * @generated
-		 */
-		EClass GENERATOR_LP_VAR_COUNT_ELEMENT = eINSTANCE.getGeneratorLpVarCountElement();
-
-		/**
-		 * The meta object literal for the '<em><b>ELp Var Count</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GENERATOR_LP_VAR_COUNT_ELEMENT__ELP_VAR_COUNT = eINSTANCE.getGeneratorLpVarCountElement_ELpVarCount();
-
-		/**
-		 * The meta object literal for the '<em><b>ECount</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GENERATOR_LP_VAR_COUNT_ELEMENT__ECOUNT = eINSTANCE.getGeneratorLpVarCountElement_ECount();
-
-		/**
-		 * The meta object literal for the '<em><b>EClass</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GENERATOR_LP_VAR_COUNT_ELEMENT__ECLASS = eINSTANCE.getGeneratorLpVarCountElement_EClass();
-
-		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpVarCountImpl <em>Generator Lp Var Count</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.solver.impl.GeneratorLpVarCountImpl
-		 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpVarCount()
-		 * @generated
-		 */
-		EClass GENERATOR_LP_VAR_COUNT = eINSTANCE.getGeneratorLpVarCount();
-
-		/**
-		 * The meta object literal for the '<em><b>ELp Var Count Element</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GENERATOR_LP_VAR_COUNT__ELP_VAR_COUNT_ELEMENT = eINSTANCE.getGeneratorLpVarCount_ELpVarCountElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Generator</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GENERATOR_LP_VAR_COUNT__GENERATOR = eINSTANCE.getGeneratorLpVarCount_Generator();
-
-		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpConsCountImpl <em>Generator Lp Cons Count</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.solver.impl.GeneratorLpConsCountImpl
-		 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpConsCount()
-		 * @generated
-		 */
-		EClass GENERATOR_LP_CONS_COUNT = eINSTANCE.getGeneratorLpConsCount();
-
-		/**
-		 * The meta object literal for the '<em><b>Lp Cons Count Element</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GENERATOR_LP_CONS_COUNT__LP_CONS_COUNT_ELEMENT = eINSTANCE.getGeneratorLpConsCount_LpConsCountElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Generator</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GENERATOR_LP_CONS_COUNT__GENERATOR = eINSTANCE.getGeneratorLpConsCount_Generator();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorFeatureModeImpl <em>Generator Feature Mode</em>}' class.

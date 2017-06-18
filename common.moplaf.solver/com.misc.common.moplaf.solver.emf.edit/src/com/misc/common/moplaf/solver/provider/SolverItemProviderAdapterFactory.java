@@ -405,98 +405,6 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.GeneratorLpConsCountElement} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected GeneratorLpConsCountElementItemProvider generatorLpConsCountElementItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.GeneratorLpConsCountElement}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createGeneratorLpConsCountElementAdapter() {
-		if (generatorLpConsCountElementItemProvider == null) {
-			generatorLpConsCountElementItemProvider = new GeneratorLpConsCountElementItemProvider(this);
-		}
-
-		return generatorLpConsCountElementItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.GeneratorLpVarCountElement} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected GeneratorLpVarCountElementItemProvider generatorLpVarCountElementItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.GeneratorLpVarCountElement}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createGeneratorLpVarCountElementAdapter() {
-		if (generatorLpVarCountElementItemProvider == null) {
-			generatorLpVarCountElementItemProvider = new GeneratorLpVarCountElementItemProvider(this);
-		}
-
-		return generatorLpVarCountElementItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.GeneratorLpVarCount} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected GeneratorLpVarCountItemProvider generatorLpVarCountItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.GeneratorLpVarCount}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createGeneratorLpVarCountAdapter() {
-		if (generatorLpVarCountItemProvider == null) {
-			generatorLpVarCountItemProvider = new GeneratorLpVarCountItemProvider(this);
-		}
-
-		return generatorLpVarCountItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.GeneratorLpConsCount} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected GeneratorLpConsCountItemProvider generatorLpConsCountItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.GeneratorLpConsCount}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createGeneratorLpConsCountAdapter() {
-		if (generatorLpConsCountItemProvider == null) {
-			generatorLpConsCountItemProvider = new GeneratorLpConsCountItemProvider(this);
-		}
-
-		return generatorLpConsCountItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.GeneratorFeatureMode} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -967,10 +875,6 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 		if (generatorLpVarItemProvider != null) generatorLpVarItemProvider.dispose();
 		if (generatorLpConsItemProvider != null) generatorLpConsItemProvider.dispose();
 		if (generatorLpTermItemProvider != null) generatorLpTermItemProvider.dispose();
-		if (generatorLpConsCountElementItemProvider != null) generatorLpConsCountElementItemProvider.dispose();
-		if (generatorLpVarCountElementItemProvider != null) generatorLpVarCountElementItemProvider.dispose();
-		if (generatorLpVarCountItemProvider != null) generatorLpVarCountItemProvider.dispose();
-		if (generatorLpConsCountItemProvider != null) generatorLpConsCountItemProvider.dispose();
 		if (generatorFeatureModeItemProvider != null) generatorFeatureModeItemProvider.dispose();
 		if (generatorConstraintEnablerItemProvider != null) generatorConstraintEnablerItemProvider.dispose();
 		if (generatorVarOverflowItemProvider != null) generatorVarOverflowItemProvider.dispose();

@@ -147,30 +147,6 @@ public class SolverSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SolverPackage.GENERATOR_LP_CONS_COUNT_ELEMENT: {
-				GeneratorLpConsCountElement generatorLpConsCountElement = (GeneratorLpConsCountElement)theEObject;
-				T result = caseGeneratorLpConsCountElement(generatorLpConsCountElement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SolverPackage.GENERATOR_LP_VAR_COUNT_ELEMENT: {
-				GeneratorLpVarCountElement generatorLpVarCountElement = (GeneratorLpVarCountElement)theEObject;
-				T result = caseGeneratorLpVarCountElement(generatorLpVarCountElement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SolverPackage.GENERATOR_LP_VAR_COUNT: {
-				GeneratorLpVarCount generatorLpVarCount = (GeneratorLpVarCount)theEObject;
-				T result = caseGeneratorLpVarCount(generatorLpVarCount);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SolverPackage.GENERATOR_LP_CONS_COUNT: {
-				GeneratorLpConsCount generatorLpConsCount = (GeneratorLpConsCount)theEObject;
-				T result = caseGeneratorLpConsCount(generatorLpConsCount);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case SolverPackage.GENERATOR_FEATURE_MODE: {
 				GeneratorFeatureMode generatorFeatureMode = (GeneratorFeatureMode)theEObject;
 				T result = caseGeneratorFeatureMode(generatorFeatureMode);
@@ -820,66 +796,6 @@ public class SolverSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGeneratorLpTerm(GeneratorLpTerm object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Generator Lp Cons Count Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Generator Lp Cons Count Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseGeneratorLpConsCountElement(GeneratorLpConsCountElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Generator Lp Var Count Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Generator Lp Var Count Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseGeneratorLpVarCountElement(GeneratorLpVarCountElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Generator Lp Var Count</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Generator Lp Var Count</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseGeneratorLpVarCount(GeneratorLpVarCount object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Generator Lp Cons Count</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Generator Lp Cons Count</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseGeneratorLpConsCount(GeneratorLpConsCount object) {
 		return null;
 	}
 

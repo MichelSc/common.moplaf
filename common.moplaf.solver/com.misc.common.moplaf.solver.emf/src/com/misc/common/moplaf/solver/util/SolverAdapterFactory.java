@@ -116,22 +116,6 @@ public class SolverAdapterFactory extends AdapterFactoryImpl {
 				return createGeneratorLpTermAdapter();
 			}
 			@Override
-			public Adapter caseGeneratorLpConsCountElement(GeneratorLpConsCountElement object) {
-				return createGeneratorLpConsCountElementAdapter();
-			}
-			@Override
-			public Adapter caseGeneratorLpVarCountElement(GeneratorLpVarCountElement object) {
-				return createGeneratorLpVarCountElementAdapter();
-			}
-			@Override
-			public Adapter caseGeneratorLpVarCount(GeneratorLpVarCount object) {
-				return createGeneratorLpVarCountAdapter();
-			}
-			@Override
-			public Adapter caseGeneratorLpConsCount(GeneratorLpConsCount object) {
-				return createGeneratorLpConsCountAdapter();
-			}
-			@Override
 			public Adapter caseGeneratorFeatureMode(GeneratorFeatureMode object) {
 				return createGeneratorFeatureModeAdapter();
 			}
@@ -626,62 +610,6 @@ public class SolverAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGeneratorLpTermAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.GeneratorLpConsCountElement <em>Generator Lp Cons Count Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpConsCountElement
-	 * @generated
-	 */
-	public Adapter createGeneratorLpConsCountElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.GeneratorLpVarCountElement <em>Generator Lp Var Count Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpVarCountElement
-	 * @generated
-	 */
-	public Adapter createGeneratorLpVarCountElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.GeneratorLpVarCount <em>Generator Lp Var Count</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpVarCount
-	 * @generated
-	 */
-	public Adapter createGeneratorLpVarCountAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.GeneratorLpConsCount <em>Generator Lp Cons Count</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.solver.GeneratorLpConsCount
-	 * @generated
-	 */
-	public Adapter createGeneratorLpConsCountAdapter() {
 		return null;
 	}
 

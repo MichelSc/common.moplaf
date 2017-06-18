@@ -27,7 +27,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -67,8 +66,6 @@ public class GeneratorItemProvider
 			addFootprintNofVarsPropertyDescriptor(object);
 			addFootprintNofConsPropertyDescriptor(object);
 			addFootprintNofTermsPropertyDescriptor(object);
-			addCountConsPropertyDescriptor(object);
-			addCountVarsPropertyDescriptor(object);
 			addCodePropertyDescriptor(object);
 			addSelectedPropertyDescriptor(object);
 		}
@@ -164,50 +161,6 @@ public class GeneratorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Count Cons feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCountConsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Generator_CountCons_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_CountCons_feature", "_UI_Generator_type"),
-				 SolverPackage.Literals.GENERATOR__COUNT_CONS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 getString("_UI__20FootprintPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Count Vars feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCountVarsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Generator_CountVars_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_CountVars_feature", "_UI_Generator_type"),
-				 SolverPackage.Literals.GENERATOR__COUNT_VARS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 getString("_UI__20FootprintPropertyCategory"),
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Code feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -277,37 +230,6 @@ public class GeneratorItemProvider
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(SolverPackage.Literals.GENERATOR__ELP_VAR_COUNT);
-			childrenFeatures.add(SolverPackage.Literals.GENERATOR__ELP_CONS_COUNT);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
 	 * This returns Generator.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -347,15 +269,9 @@ public class GeneratorItemProvider
 			case SolverPackage.GENERATOR__FOOTPRINT_NOF_VARS:
 			case SolverPackage.GENERATOR__FOOTPRINT_NOF_CONS:
 			case SolverPackage.GENERATOR__FOOTPRINT_NOF_TERMS:
-			case SolverPackage.GENERATOR__COUNT_CONS:
-			case SolverPackage.GENERATOR__COUNT_VARS:
 			case SolverPackage.GENERATOR__CODE:
 			case SolverPackage.GENERATOR__SELECTED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case SolverPackage.GENERATOR__ELP_VAR_COUNT:
-			case SolverPackage.GENERATOR__ELP_CONS_COUNT:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);

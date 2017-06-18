@@ -71,10 +71,6 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 			case SolverPackage.GENERATOR_LP_VAR: return createGeneratorLpVar();
 			case SolverPackage.GENERATOR_LP_CONS: return createGeneratorLpCons();
 			case SolverPackage.GENERATOR_LP_TERM: return createGeneratorLpTerm();
-			case SolverPackage.GENERATOR_LP_CONS_COUNT_ELEMENT: return createGeneratorLpConsCountElement();
-			case SolverPackage.GENERATOR_LP_VAR_COUNT_ELEMENT: return createGeneratorLpVarCountElement();
-			case SolverPackage.GENERATOR_LP_VAR_COUNT: return createGeneratorLpVarCount();
-			case SolverPackage.GENERATOR_LP_CONS_COUNT: return createGeneratorLpConsCount();
 			case SolverPackage.GENERATOR_FEATURE_MODE: return createGeneratorFeatureMode();
 			case SolverPackage.GENERATOR_CONSTRAINT_ENABLER: return createGeneratorConstraintEnabler();
 			case SolverPackage.GENERATOR_VAR_OVERFLOW: return createGeneratorVarOverflow();
@@ -306,46 +302,6 @@ public class SolverFactoryImpl extends EFactoryImpl implements SolverFactory {
 	public GeneratorLpTerm createGeneratorLpTerm() {
 		GeneratorLpTermImpl generatorLpTerm = new GeneratorLpTermImpl();
 		return generatorLpTerm;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GeneratorLpConsCountElement createGeneratorLpConsCountElement() {
-		GeneratorLpConsCountElementImpl generatorLpConsCountElement = new GeneratorLpConsCountElementImpl();
-		return generatorLpConsCountElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GeneratorLpVarCountElement createGeneratorLpVarCountElement() {
-		GeneratorLpVarCountElementImpl generatorLpVarCountElement = new GeneratorLpVarCountElementImpl();
-		return generatorLpVarCountElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GeneratorLpVarCount createGeneratorLpVarCount() {
-		GeneratorLpVarCountImpl generatorLpVarCount = new GeneratorLpVarCountImpl();
-		return generatorLpVarCount;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GeneratorLpConsCount createGeneratorLpConsCount() {
-		GeneratorLpConsCountImpl generatorLpConsCount = new GeneratorLpConsCountImpl();
-		return generatorLpConsCount;
 	}
 
 	/**

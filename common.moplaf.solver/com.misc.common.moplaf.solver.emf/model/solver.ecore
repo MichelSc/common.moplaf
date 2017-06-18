@@ -70,12 +70,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="FootprintNofVars" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="FootprintNofCons" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="FootprintNofTerms" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CountCons" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CountVars" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ELpVarCount" eType="#//GeneratorLpVarCount"
-        containment="true" eOpposite="#//GeneratorLpVarCount/Generator"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ELpConsCount" eType="#//GeneratorLpConsCount"
-        containment="true" eOpposite="#//GeneratorLpConsCount/Generator"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Selected" eType="#//Solution"/>
   </eClassifiers>
@@ -176,30 +170,6 @@
         eType="#//GeneratorLpLinear" eOpposite="#//GeneratorLpLinear/LpTerm"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpConsCountElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ELpConsCount" lowerBound="1"
-        eType="#//GeneratorLpConsCount" eOpposite="#//GeneratorLpConsCount/LpConsCountElement"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ECount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpVarCountElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ELpVarCount" lowerBound="1"
-        eType="#//GeneratorLpVarCount" eOpposite="#//GeneratorLpVarCount/ELpVarCountElement"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ECount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpVarCount">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ELpVarCountElement" upperBound="-1"
-        eType="#//GeneratorLpVarCountElement" containment="true" eOpposite="#//GeneratorLpVarCountElement/ELpVarCount"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Generator" lowerBound="1"
-        eType="#//Generator" eOpposite="#//Generator/ELpVarCount"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpConsCount">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="LpConsCountElement" upperBound="-1"
-        eType="#//GeneratorLpConsCountElement" containment="true" eOpposite="#//GeneratorLpConsCountElement/ELpConsCount"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Generator" lowerBound="1"
-        eType="#//Generator" eOpposite="#//Generator/ELpConsCount"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorFeatureMode">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

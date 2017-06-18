@@ -23,16 +23,16 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * A Generator is a problem formulation (linear, constraints, ...), containing 
  * <ul>
- *   <li>variables: {@link GeneratorVar}
- *   <li>constraints:  {@link GeneratorCons}
- *   <li>goals: {@link GeneratorGoals} 
- *   <ul>
+ *   <li>a set of variables: {@link GeneratorVar}</li>
+ *   <li>a set of constraints:  {@link GeneratorCons}</li>
+ *   <li>a set of goals: {@link GeneratorGoal}</li> 
+ * </ul>
  * <p>
- * {@link SolutionProvider}s (typically, solvers) will produce {@link Solution}s for this problem formulation.
+ * {@link SolutionProvider}s (typically, {@link Solver}s) will produce {@link Solution}s for this problem formulation.
  * <p>
  * A Generator is structured as follows:  
  * <ul>
- *   <li>a {@link Generator} is a set of trees (a fores) of tuples: {@link GeneratorTuple}</li>
+ *   <li>a {@link Generator} is a set of trees (a forest) of tuples: {@link GeneratorTuple}</li>
  *   <li>a {@link Generator} has  {@link GeneratorTuple} <em>roots</em></li>
  *   <li>a {@link GeneratorTuple} has {@link GeneratorTuple} <em>elements</em> (children) and possibly a {@link GeneratorTuple} <em>container</em> (parent)</li>
  *   <li>a {@link GeneratorTuple}, has : {@link GeneratorTupleMember} <em>members</em></li>
@@ -45,9 +45,38 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * A generator provides
  * <ul>
- *   <li>a helper allowing to traverse all the tuples: interface {@link ITupleVisitor} and method {@link #visitTuples(ITupleVisitor)}</li>
- *   <li>helpers to construct itself: methods {@link #generateTuples()} and {@link #generateRootTuples()} </li>
- *   <li>helpers to construct the variables and the constraints: methods {@link #generateVars()} and {@link #generateCons()} </li>
+ *   <li>a mechanism allowing to traverse all the tuples: 
+ *     <ul>
+ *     <li>interface {@link ITupleVisitor}</li>
+ *     <li>method {@link #visitTuples(ITupleVisitor)}</li>
+ *     </ul>
+ *   </li>
+ *   <li>helpers to construct itself: 
+ *       <ul>
+ *       <li>method {@link #generateRootTuples()}: generate the roots of the structure</li>
+ *       <li>method {@link #generateTuples()}: generate the tuples of the structure, starting from the roots </li>
+ *       <li>method {@link #generateTupleXReferences()}: set XReferences after the structure has been built </li>
+ *       </ul>
+ *   </li>
+ *   <li>helpers to construct the variables and the constraints:
+ *     <ul>
+ *     <li>method {@link #generateVars()}: construct the variables </li>
+ *     <li>method {@link #generateCons()}: construct the constraints </li>
+ *     <li>method {@link #generateGoals()}: construct the goals</li>
+ *     </ul>
+ *   </li>
+ * </ul>
+ * <p>
+ * Concrete Generator implementations will 
+ * <ul>
+ * <li> subclass Generator and GeneratorTuple </li>
+ * <li> implement the Generate methods in order to 
+ *   <ul>
+ *   <li> create the GeneratorTuples, so the structure of the formulation </li>
+ *   <li> create the variables and constraints hanging to the elements of this structure </li>
+ *   <li> create the goals defined for this formulation </li>
+ *   </ul>
+ * </li>
  * </ul>
  * <p>
  * A generator may select one solution among its pool of solutions: {@link #setSelected(Solution)}. The selected solution is used to show
@@ -68,10 +97,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getFootprintNofVars <em>Footprint Nof Vars</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getFootprintNofCons <em>Footprint Nof Cons</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getFootprintNofTerms <em>Footprint Nof Terms</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.Generator#isCountCons <em>Count Cons</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.Generator#isCountVars <em>Count Vars</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.Generator#getELpVarCount <em>ELp Var Count</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.Generator#getELpConsCount <em>ELp Cons Count</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getCode <em>Code</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getSelected <em>Selected</em>}</li>
  * </ul>
@@ -202,114 +227,6 @@ public interface Generator extends Run {
 	 * @generated
 	 */
 	void setFootprintNofTerms(int value);
-
-	/**
-	 * Returns the value of the '<em><b>Count Cons</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Count Cons</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Count Cons</em>' attribute.
-	 * @see #setCountCons(boolean)
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getGenerator_CountCons()
-	 * @model
-	 * @generated
-	 */
-	boolean isCountCons();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.solver.Generator#isCountCons <em>Count Cons</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Count Cons</em>' attribute.
-	 * @see #isCountCons()
-	 * @generated
-	 */
-	void setCountCons(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Count Vars</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Count Vars</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Count Vars</em>' attribute.
-	 * @see #setCountVars(boolean)
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getGenerator_CountVars()
-	 * @model
-	 * @generated
-	 */
-	boolean isCountVars();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.solver.Generator#isCountVars <em>Count Vars</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Count Vars</em>' attribute.
-	 * @see #isCountVars()
-	 * @generated
-	 */
-	void setCountVars(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>ELp Var Count</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.GeneratorLpVarCount#getGenerator <em>Generator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>ELp Var Count</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>ELp Var Count</em>' containment reference.
-	 * @see #setELpVarCount(GeneratorLpVarCount)
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getGenerator_ELpVarCount()
-	 * @see com.misc.common.moplaf.solver.GeneratorLpVarCount#getGenerator
-	 * @model opposite="Generator" containment="true"
-	 * @generated
-	 */
-	GeneratorLpVarCount getELpVarCount();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.solver.Generator#getELpVarCount <em>ELp Var Count</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>ELp Var Count</em>' containment reference.
-	 * @see #getELpVarCount()
-	 * @generated
-	 */
-	void setELpVarCount(GeneratorLpVarCount value);
-
-	/**
-	 * Returns the value of the '<em><b>ELp Cons Count</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.GeneratorLpConsCount#getGenerator <em>Generator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>ELp Cons Count</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>ELp Cons Count</em>' containment reference.
-	 * @see #setELpConsCount(GeneratorLpConsCount)
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getGenerator_ELpConsCount()
-	 * @see com.misc.common.moplaf.solver.GeneratorLpConsCount#getGenerator
-	 * @model opposite="Generator" containment="true"
-	 * @generated
-	 */
-	GeneratorLpConsCount getELpConsCount();
-
-	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.solver.Generator#getELpConsCount <em>ELp Cons Count</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>ELp Cons Count</em>' containment reference.
-	 * @see #getELpConsCount()
-	 * @generated
-	 */
-	void setELpConsCount(GeneratorLpConsCount value);
 
 	/**
 	 * Returns the value of the '<em><b>Code</b></em>' attribute.

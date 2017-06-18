@@ -34,14 +34,10 @@ import com.misc.common.moplaf.solver.GeneratorElement;
 import com.misc.common.moplaf.solver.GeneratorFeatureMode;
 import com.misc.common.moplaf.solver.GeneratorGoal;
 import com.misc.common.moplaf.solver.GeneratorLpCons;
-import com.misc.common.moplaf.solver.GeneratorLpConsCount;
-import com.misc.common.moplaf.solver.GeneratorLpConsCountElement;
 import com.misc.common.moplaf.solver.GeneratorLpGoal;
 import com.misc.common.moplaf.solver.GeneratorLpLinear;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
-import com.misc.common.moplaf.solver.GeneratorLpVarCount;
-import com.misc.common.moplaf.solver.GeneratorLpVarCountElement;
 import com.misc.common.moplaf.solver.GeneratorTuple;
 import com.misc.common.moplaf.solver.GeneratorTupleMember;
 import com.misc.common.moplaf.solver.GeneratorVar;
@@ -235,34 +231,6 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * @generated
 	 */
 	private EClass generatorLpTermEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass generatorLpConsCountElementEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass generatorLpVarCountElementEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass generatorLpVarCountEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass generatorLpConsCountEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -625,44 +593,8 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getGenerator_CountCons() {
-		return (EAttribute)generatorEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getGenerator_CountVars() {
-		return (EAttribute)generatorEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getGenerator_ELpVarCount() {
-		return (EReference)generatorEClass.getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getGenerator_ELpConsCount() {
-		return (EReference)generatorEClass.getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getGenerator_Code() {
-		return (EAttribute)generatorEClass.getEStructuralFeatures().get(12);
+		return (EAttribute)generatorEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -680,7 +612,7 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 * @generated
 	 */
 	public EReference getGenerator_Selected() {
-		return (EReference)generatorEClass.getEStructuralFeatures().get(13);
+		return (EReference)generatorEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -1779,132 +1711,6 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 	 */
 	public EAttribute getGeneratorLpTerm_Description() {
 		return (EAttribute)generatorLpTermEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getGeneratorLpConsCountElement() {
-		return generatorLpConsCountElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getGeneratorLpConsCountElement_ELpConsCount() {
-		return (EReference)generatorLpConsCountElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getGeneratorLpConsCountElement_ECount() {
-		return (EAttribute)generatorLpConsCountElementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getGeneratorLpConsCountElement_EClass() {
-		return (EAttribute)generatorLpConsCountElementEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getGeneratorLpVarCountElement() {
-		return generatorLpVarCountElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getGeneratorLpVarCountElement_ELpVarCount() {
-		return (EReference)generatorLpVarCountElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getGeneratorLpVarCountElement_ECount() {
-		return (EAttribute)generatorLpVarCountElementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getGeneratorLpVarCountElement_EClass() {
-		return (EAttribute)generatorLpVarCountElementEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getGeneratorLpVarCount() {
-		return generatorLpVarCountEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getGeneratorLpVarCount_ELpVarCountElement() {
-		return (EReference)generatorLpVarCountEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getGeneratorLpVarCount_Generator() {
-		return (EReference)generatorLpVarCountEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getGeneratorLpConsCount() {
-		return generatorLpConsCountEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getGeneratorLpConsCount_LpConsCountElement() {
-		return (EReference)generatorLpConsCountEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getGeneratorLpConsCount_Generator() {
-		return (EReference)generatorLpConsCountEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3078,10 +2884,6 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		createEAttribute(generatorEClass, GENERATOR__FOOTPRINT_NOF_VARS);
 		createEAttribute(generatorEClass, GENERATOR__FOOTPRINT_NOF_CONS);
 		createEAttribute(generatorEClass, GENERATOR__FOOTPRINT_NOF_TERMS);
-		createEAttribute(generatorEClass, GENERATOR__COUNT_CONS);
-		createEAttribute(generatorEClass, GENERATOR__COUNT_VARS);
-		createEReference(generatorEClass, GENERATOR__ELP_VAR_COUNT);
-		createEReference(generatorEClass, GENERATOR__ELP_CONS_COUNT);
 		createEAttribute(generatorEClass, GENERATOR__CODE);
 		createEReference(generatorEClass, GENERATOR__SELECTED);
 		createEOperation(generatorEClass, GENERATOR___GENERATE);
@@ -3151,24 +2953,6 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		createEAttribute(generatorLpTermEClass, GENERATOR_LP_TERM__COEFF);
 		createEReference(generatorLpTermEClass, GENERATOR_LP_TERM__LP_LINEAR);
 		createEAttribute(generatorLpTermEClass, GENERATOR_LP_TERM__DESCRIPTION);
-
-		generatorLpConsCountElementEClass = createEClass(GENERATOR_LP_CONS_COUNT_ELEMENT);
-		createEReference(generatorLpConsCountElementEClass, GENERATOR_LP_CONS_COUNT_ELEMENT__ELP_CONS_COUNT);
-		createEAttribute(generatorLpConsCountElementEClass, GENERATOR_LP_CONS_COUNT_ELEMENT__ECOUNT);
-		createEAttribute(generatorLpConsCountElementEClass, GENERATOR_LP_CONS_COUNT_ELEMENT__ECLASS);
-
-		generatorLpVarCountElementEClass = createEClass(GENERATOR_LP_VAR_COUNT_ELEMENT);
-		createEReference(generatorLpVarCountElementEClass, GENERATOR_LP_VAR_COUNT_ELEMENT__ELP_VAR_COUNT);
-		createEAttribute(generatorLpVarCountElementEClass, GENERATOR_LP_VAR_COUNT_ELEMENT__ECOUNT);
-		createEAttribute(generatorLpVarCountElementEClass, GENERATOR_LP_VAR_COUNT_ELEMENT__ECLASS);
-
-		generatorLpVarCountEClass = createEClass(GENERATOR_LP_VAR_COUNT);
-		createEReference(generatorLpVarCountEClass, GENERATOR_LP_VAR_COUNT__ELP_VAR_COUNT_ELEMENT);
-		createEReference(generatorLpVarCountEClass, GENERATOR_LP_VAR_COUNT__GENERATOR);
-
-		generatorLpConsCountEClass = createEClass(GENERATOR_LP_CONS_COUNT);
-		createEReference(generatorLpConsCountEClass, GENERATOR_LP_CONS_COUNT__LP_CONS_COUNT_ELEMENT);
-		createEReference(generatorLpConsCountEClass, GENERATOR_LP_CONS_COUNT__GENERATOR);
 
 		generatorFeatureModeEClass = createEClass(GENERATOR_FEATURE_MODE);
 		createEReference(generatorFeatureModeEClass, GENERATOR_FEATURE_MODE__GENERATOR);
@@ -3483,10 +3267,6 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		initEAttribute(getGenerator_FootprintNofVars(), ecorePackage.getEInt(), "FootprintNofVars", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenerator_FootprintNofCons(), ecorePackage.getEInt(), "FootprintNofCons", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenerator_FootprintNofTerms(), ecorePackage.getEInt(), "FootprintNofTerms", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGenerator_CountCons(), ecorePackage.getEBoolean(), "CountCons", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGenerator_CountVars(), ecorePackage.getEBoolean(), "CountVars", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGenerator_ELpVarCount(), this.getGeneratorLpVarCount(), this.getGeneratorLpVarCount_Generator(), "ELpVarCount", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGenerator_ELpConsCount(), this.getGeneratorLpConsCount(), this.getGeneratorLpConsCount_Generator(), "ELpConsCount", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGenerator_Code(), ecorePackage.getEString(), "Code", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGenerator_Selected(), this.getSolution(), null, "Selected", null, 0, 1, Generator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -3603,24 +3383,6 @@ public class SolverPackageImpl extends EPackageImpl implements SolverPackage {
 		initEAttribute(getGeneratorLpTerm_Coeff(), ecorePackage.getEFloat(), "Coeff", null, 0, 1, GeneratorLpTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGeneratorLpTerm_LpLinear(), this.getGeneratorLpLinear(), this.getGeneratorLpLinear_LpTerm(), "LpLinear", null, 1, 1, GeneratorLpTerm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGeneratorLpTerm_Description(), ecorePackage.getEString(), "Description", null, 0, 1, GeneratorLpTerm.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-
-		initEClass(generatorLpConsCountElementEClass, GeneratorLpConsCountElement.class, "GeneratorLpConsCountElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGeneratorLpConsCountElement_ELpConsCount(), this.getGeneratorLpConsCount(), this.getGeneratorLpConsCount_LpConsCountElement(), "ELpConsCount", null, 1, 1, GeneratorLpConsCountElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGeneratorLpConsCountElement_ECount(), ecorePackage.getEInt(), "ECount", null, 0, 1, GeneratorLpConsCountElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGeneratorLpConsCountElement_EClass(), ecorePackage.getEString(), "EClass", null, 0, 1, GeneratorLpConsCountElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(generatorLpVarCountElementEClass, GeneratorLpVarCountElement.class, "GeneratorLpVarCountElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGeneratorLpVarCountElement_ELpVarCount(), this.getGeneratorLpVarCount(), this.getGeneratorLpVarCount_ELpVarCountElement(), "ELpVarCount", null, 1, 1, GeneratorLpVarCountElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGeneratorLpVarCountElement_ECount(), ecorePackage.getEInt(), "ECount", null, 0, 1, GeneratorLpVarCountElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGeneratorLpVarCountElement_EClass(), ecorePackage.getEString(), "EClass", null, 0, 1, GeneratorLpVarCountElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(generatorLpVarCountEClass, GeneratorLpVarCount.class, "GeneratorLpVarCount", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGeneratorLpVarCount_ELpVarCountElement(), this.getGeneratorLpVarCountElement(), this.getGeneratorLpVarCountElement_ELpVarCount(), "ELpVarCountElement", null, 0, -1, GeneratorLpVarCount.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGeneratorLpVarCount_Generator(), this.getGenerator(), this.getGenerator_ELpVarCount(), "Generator", null, 1, 1, GeneratorLpVarCount.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(generatorLpConsCountEClass, GeneratorLpConsCount.class, "GeneratorLpConsCount", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGeneratorLpConsCount_LpConsCountElement(), this.getGeneratorLpConsCountElement(), this.getGeneratorLpConsCountElement_ELpConsCount(), "LpConsCountElement", null, 0, -1, GeneratorLpConsCount.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGeneratorLpConsCount_Generator(), this.getGenerator(), this.getGenerator_ELpConsCount(), "Generator", null, 1, 1, GeneratorLpConsCount.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(generatorFeatureModeEClass, GeneratorFeatureMode.class, "GeneratorFeatureMode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGeneratorFeatureMode_Generator(), this.getGenerator(), this.getGenerator_GeneratorFeatureModes(), "Generator", null, 1, 1, GeneratorFeatureMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

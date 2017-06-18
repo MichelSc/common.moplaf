@@ -20,8 +20,6 @@ import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorCons;
 import com.misc.common.moplaf.solver.GeneratorFeatureMode;
 import com.misc.common.moplaf.solver.GeneratorGoal;
-import com.misc.common.moplaf.solver.GeneratorLpConsCount;
-import com.misc.common.moplaf.solver.GeneratorLpVarCount;
 import com.misc.common.moplaf.solver.GeneratorTuple;
 import com.misc.common.moplaf.solver.ITupleVisitor;
 import com.misc.common.moplaf.solver.Plugin;
@@ -61,10 +59,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getFootprintNofVars <em>Footprint Nof Vars</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getFootprintNofCons <em>Footprint Nof Cons</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getFootprintNofTerms <em>Footprint Nof Terms</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#isCountCons <em>Count Cons</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#isCountVars <em>Count Vars</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getELpVarCount <em>ELp Var Count</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getELpConsCount <em>ELp Cons Count</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getCode <em>Code</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getSelected <em>Selected</em>}</li>
  * </ul>
@@ -161,66 +155,6 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 	 * @ordered
 	 */
 	protected int footprintNofTerms = FOOTPRINT_NOF_TERMS_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isCountCons() <em>Count Cons</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isCountCons()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean COUNT_CONS_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isCountCons() <em>Count Cons</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isCountCons()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean countCons = COUNT_CONS_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isCountVars() <em>Count Vars</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isCountVars()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean COUNT_VARS_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isCountVars() <em>Count Vars</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isCountVars()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean countVars = COUNT_VARS_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getELpVarCount() <em>ELp Var Count</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getELpVarCount()
-	 * @generated
-	 * @ordered
-	 */
-	protected GeneratorLpVarCount eLpVarCount;
-
-	/**
-	 * The cached value of the '{@link #getELpConsCount() <em>ELp Cons Count</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getELpConsCount()
-	 * @generated
-	 * @ordered
-	 */
-	protected GeneratorLpConsCount eLpConsCount;
 
 	/**
 	 * The default value of the '{@link #getCode() <em>Code</em>}' attribute.
@@ -372,134 +306,6 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 		footprintNofTerms = newFootprintNofTerms;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR__FOOTPRINT_NOF_TERMS, oldFootprintNofTerms, footprintNofTerms));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isCountCons() {
-		return countCons;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCountCons(boolean newCountCons) {
-		boolean oldCountCons = countCons;
-		countCons = newCountCons;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR__COUNT_CONS, oldCountCons, countCons));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isCountVars() {
-		return countVars;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCountVars(boolean newCountVars) {
-		boolean oldCountVars = countVars;
-		countVars = newCountVars;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR__COUNT_VARS, oldCountVars, countVars));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GeneratorLpVarCount getELpVarCount() {
-		return eLpVarCount;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetELpVarCount(GeneratorLpVarCount newELpVarCount, NotificationChain msgs) {
-		GeneratorLpVarCount oldELpVarCount = eLpVarCount;
-		eLpVarCount = newELpVarCount;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR__ELP_VAR_COUNT, oldELpVarCount, newELpVarCount);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setELpVarCount(GeneratorLpVarCount newELpVarCount) {
-		if (newELpVarCount != eLpVarCount) {
-			NotificationChain msgs = null;
-			if (eLpVarCount != null)
-				msgs = ((InternalEObject)eLpVarCount).eInverseRemove(this, SolverPackage.GENERATOR_LP_VAR_COUNT__GENERATOR, GeneratorLpVarCount.class, msgs);
-			if (newELpVarCount != null)
-				msgs = ((InternalEObject)newELpVarCount).eInverseAdd(this, SolverPackage.GENERATOR_LP_VAR_COUNT__GENERATOR, GeneratorLpVarCount.class, msgs);
-			msgs = basicSetELpVarCount(newELpVarCount, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR__ELP_VAR_COUNT, newELpVarCount, newELpVarCount));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GeneratorLpConsCount getELpConsCount() {
-		return eLpConsCount;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetELpConsCount(GeneratorLpConsCount newELpConsCount, NotificationChain msgs) {
-		GeneratorLpConsCount oldELpConsCount = eLpConsCount;
-		eLpConsCount = newELpConsCount;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR__ELP_CONS_COUNT, oldELpConsCount, newELpConsCount);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setELpConsCount(GeneratorLpConsCount newELpConsCount) {
-		if (newELpConsCount != eLpConsCount) {
-			NotificationChain msgs = null;
-			if (eLpConsCount != null)
-				msgs = ((InternalEObject)eLpConsCount).eInverseRemove(this, SolverPackage.GENERATOR_LP_CONS_COUNT__GENERATOR, GeneratorLpConsCount.class, msgs);
-			if (newELpConsCount != null)
-				msgs = ((InternalEObject)newELpConsCount).eInverseAdd(this, SolverPackage.GENERATOR_LP_CONS_COUNT__GENERATOR, GeneratorLpConsCount.class, msgs);
-			msgs = basicSetELpConsCount(newELpConsCount, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR__ELP_CONS_COUNT, newELpConsCount, newELpConsCount));
 	}
 
 	/**
@@ -831,14 +637,6 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 		switch (featureID) {
 			case SolverPackage.GENERATOR__GENERATOR_FEATURE_MODES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getGeneratorFeatureModes()).basicAdd(otherEnd, msgs);
-			case SolverPackage.GENERATOR__ELP_VAR_COUNT:
-				if (eLpVarCount != null)
-					msgs = ((InternalEObject)eLpVarCount).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SolverPackage.GENERATOR__ELP_VAR_COUNT, null, msgs);
-				return basicSetELpVarCount((GeneratorLpVarCount)otherEnd, msgs);
-			case SolverPackage.GENERATOR__ELP_CONS_COUNT:
-				if (eLpConsCount != null)
-					msgs = ((InternalEObject)eLpConsCount).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SolverPackage.GENERATOR__ELP_CONS_COUNT, null, msgs);
-				return basicSetELpConsCount((GeneratorLpConsCount)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -853,10 +651,6 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 		switch (featureID) {
 			case SolverPackage.GENERATOR__GENERATOR_FEATURE_MODES:
 				return ((InternalEList<?>)getGeneratorFeatureModes()).basicRemove(otherEnd, msgs);
-			case SolverPackage.GENERATOR__ELP_VAR_COUNT:
-				return basicSetELpVarCount(null, msgs);
-			case SolverPackage.GENERATOR__ELP_CONS_COUNT:
-				return basicSetELpConsCount(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -885,14 +679,6 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 				return getFootprintNofCons();
 			case SolverPackage.GENERATOR__FOOTPRINT_NOF_TERMS:
 				return getFootprintNofTerms();
-			case SolverPackage.GENERATOR__COUNT_CONS:
-				return isCountCons();
-			case SolverPackage.GENERATOR__COUNT_VARS:
-				return isCountVars();
-			case SolverPackage.GENERATOR__ELP_VAR_COUNT:
-				return getELpVarCount();
-			case SolverPackage.GENERATOR__ELP_CONS_COUNT:
-				return getELpConsCount();
 			case SolverPackage.GENERATOR__CODE:
 				return getCode();
 			case SolverPackage.GENERATOR__SELECTED:
@@ -927,18 +713,6 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 			case SolverPackage.GENERATOR__FOOTPRINT_NOF_TERMS:
 				setFootprintNofTerms((Integer)newValue);
 				return;
-			case SolverPackage.GENERATOR__COUNT_CONS:
-				setCountCons((Boolean)newValue);
-				return;
-			case SolverPackage.GENERATOR__COUNT_VARS:
-				setCountVars((Boolean)newValue);
-				return;
-			case SolverPackage.GENERATOR__ELP_VAR_COUNT:
-				setELpVarCount((GeneratorLpVarCount)newValue);
-				return;
-			case SolverPackage.GENERATOR__ELP_CONS_COUNT:
-				setELpConsCount((GeneratorLpConsCount)newValue);
-				return;
 			case SolverPackage.GENERATOR__CODE:
 				setCode((String)newValue);
 				return;
@@ -971,18 +745,6 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 				return;
 			case SolverPackage.GENERATOR__FOOTPRINT_NOF_TERMS:
 				setFootprintNofTerms(FOOTPRINT_NOF_TERMS_EDEFAULT);
-				return;
-			case SolverPackage.GENERATOR__COUNT_CONS:
-				setCountCons(COUNT_CONS_EDEFAULT);
-				return;
-			case SolverPackage.GENERATOR__COUNT_VARS:
-				setCountVars(COUNT_VARS_EDEFAULT);
-				return;
-			case SolverPackage.GENERATOR__ELP_VAR_COUNT:
-				setELpVarCount((GeneratorLpVarCount)null);
-				return;
-			case SolverPackage.GENERATOR__ELP_CONS_COUNT:
-				setELpConsCount((GeneratorLpConsCount)null);
 				return;
 			case SolverPackage.GENERATOR__CODE:
 				setCode(CODE_EDEFAULT);
@@ -1018,14 +780,6 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 				return footprintNofCons != FOOTPRINT_NOF_CONS_EDEFAULT;
 			case SolverPackage.GENERATOR__FOOTPRINT_NOF_TERMS:
 				return footprintNofTerms != FOOTPRINT_NOF_TERMS_EDEFAULT;
-			case SolverPackage.GENERATOR__COUNT_CONS:
-				return countCons != COUNT_CONS_EDEFAULT;
-			case SolverPackage.GENERATOR__COUNT_VARS:
-				return countVars != COUNT_VARS_EDEFAULT;
-			case SolverPackage.GENERATOR__ELP_VAR_COUNT:
-				return eLpVarCount != null;
-			case SolverPackage.GENERATOR__ELP_CONS_COUNT:
-				return eLpConsCount != null;
 			case SolverPackage.GENERATOR__CODE:
 				return CODE_EDEFAULT == null ? code != null : !CODE_EDEFAULT.equals(code);
 			case SolverPackage.GENERATOR__SELECTED:
@@ -1130,10 +884,6 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 		result.append(footprintNofCons);
 		result.append(", FootprintNofTerms: ");
 		result.append(footprintNofTerms);
-		result.append(", CountCons: ");
-		result.append(countCons);
-		result.append(", CountVars: ");
-		result.append(countVars);
 		result.append(", Code: ");
 		result.append(code);
 		result.append(')');

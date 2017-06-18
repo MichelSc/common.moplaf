@@ -158,42 +158,6 @@ public interface SolverFactory extends EFactory {
 	GeneratorLpTerm createGeneratorLpTerm();
 
 	/**
-	 * Returns a new object of class '<em>Generator Lp Cons Count Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Generator Lp Cons Count Element</em>'.
-	 * @generated
-	 */
-	GeneratorLpConsCountElement createGeneratorLpConsCountElement();
-
-	/**
-	 * Returns a new object of class '<em>Generator Lp Var Count Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Generator Lp Var Count Element</em>'.
-	 * @generated
-	 */
-	GeneratorLpVarCountElement createGeneratorLpVarCountElement();
-
-	/**
-	 * Returns a new object of class '<em>Generator Lp Var Count</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Generator Lp Var Count</em>'.
-	 * @generated
-	 */
-	GeneratorLpVarCount createGeneratorLpVarCount();
-
-	/**
-	 * Returns a new object of class '<em>Generator Lp Cons Count</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Generator Lp Cons Count</em>'.
-	 * @generated
-	 */
-	GeneratorLpConsCount createGeneratorLpConsCount();
-
-	/**
 	 * Returns a new object of class '<em>Generator Feature Mode</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

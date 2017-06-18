@@ -24,7 +24,6 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * A Solution contains
  * <ul>
- *   <li>the value of the solution: accessor {@link #getValue()}</li>
  *   <li>information relative to the solution for some variable: element {@link SolutionVar}</li>
  *   <li>information relative to the solution for some constraint: element {@link SolutionCons}</li>
  * </ul>

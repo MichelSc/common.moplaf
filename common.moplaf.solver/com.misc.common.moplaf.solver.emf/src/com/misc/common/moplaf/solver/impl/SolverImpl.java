@@ -1131,7 +1131,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	}
 
 	/**
-	 * Called by the framework for every {@link GeneratorLPVar} to be added to the solver.
+	 * Called by the framework for every {@link GeneratorLpVar} to be added to the solver.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	public void buildLpVar(GeneratorLpVar var) throws Exception {
