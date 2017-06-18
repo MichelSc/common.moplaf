@@ -1,0 +1,16 @@
+self
+  .TupleRoot
+  ->closure(v | v.TupleElement)
+  .Var
+  .Name
+  ->asSet()
+  ->collect(name | name 
+             + ': '
+             + self
+                 .TupleRoot
+                 ->closure(v | v.TupleElement)
+                 .Var
+                 ->select(var | var.Name=name)
+                 ->size()
+                 .toString()
+          ) 

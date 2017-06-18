@@ -1,0 +1,16 @@
+self
+  .TupleRoot
+  ->closure(v | v.TupleElement)
+  .Cons
+  .Name
+  ->asSet()
+  ->collect(name | name 
+	             + ': '
+	             + self
+	                 .TupleRoot
+	                 ->closure(v | v.TupleElement)
+	                 .Cons
+    	             ->select(cons | cons.Name=name)
+	                 ->size()
+	                 .toString()
+          ) 

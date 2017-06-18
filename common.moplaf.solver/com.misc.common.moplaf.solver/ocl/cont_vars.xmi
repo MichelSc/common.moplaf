@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pivot="http://www.eclipse.org/ocl/2015/Pivot">
+  <pivot:ExpressionInOCL type="/1/@ownedClasses.16" body="self&#xA;  .TupleRoot&#xA;  ->closure(v | v.TupleElement)&#xA;  .Var&#xA;  .Name&#xA;  ->asSet()&#xA;  ->collect(name | name &#xA;             + ': '&#xA;             + self&#xA;                 .TupleRoot&#xA;                 ->closure(v | v.TupleElement)&#xA;                 .Var&#xA;                 ->select(var | var.Name=name)&#xA;                 ->size()&#xA;                 .toString()&#xA;          )">
+    <ownedBody xsi:type="pivot:IteratorExp" type="/1/@ownedClasses.16">
+      <ownedSource xsi:type="pivot:OperationCallExp" type="/1/@ownedClasses.17">
+        <ownedSource xsi:type="pivot:IteratorExp" name="collect" type="/1/@ownedClasses.18" isImplicit="true">
+          <ownedSource xsi:type="pivot:IteratorExp" name="collect" type="/1/@ownedClasses.19" isImplicit="true">
+            <ownedSource xsi:type="pivot:IteratorExp" type="/1/@ownedClasses.20">
+              <ownedSource xsi:type="pivot:PropertyCallExp" type="/1/@ownedClasses.21">
+                <ownedSource xsi:type="pivot:VariableExp" referredVariable="/0/@ownedContext">
+                  <type xsi:type="pivot:Class" href="http://www.ordina.be/sco/projects/dow/demurrop/model/0.1.oclas#T.demurrop.DemurropLP"/>
+                </ownedSource>
+                <referredProperty xsi:type="pivot:Property" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#p.solver.Generator.TupleRoot"/>
+              </ownedSource>
+              <ownedBody xsi:type="pivot:PropertyCallExp" type="/1/@ownedClasses.21">
+                <ownedSource xsi:type="pivot:VariableExp" referredVariable="/0/@ownedBody/@ownedSource/@ownedSource/@ownedSource/@ownedSource/@ownedIterators.0">
+                  <type xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorTuple"/>
+                </ownedSource>
+                <referredProperty xsi:type="pivot:Property" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#p.solver.GeneratorTuple.TupleElement"/>
+              </ownedBody>
+              <ownedIterators xsi:type="pivot:Variable" name="v">
+                <type xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorTuple"/>
+                <representedParameter xsi:type="pivot:Parameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#i0i.ocl.OrderedSet.closure..T"/>
+              </ownedIterators>
+              <referredIteration xsi:type="pivot:Iteration" href="http://www.eclipse.org/ocl/2015/Library.oclas#i.ocl.OrderedSet.closure..T"/>
+            </ownedSource>
+            <ownedBody xsi:type="pivot:PropertyCallExp" type="/1/@ownedClasses.22">
+              <ownedSource xsi:type="pivot:VariableExp" isRequired="false" isImplicit="true" referredVariable="/0/@ownedBody/@ownedSource/@ownedSource/@ownedSource/@ownedIterators.0">
+                <type xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorTuple"/>
+              </ownedSource>
+              <referredProperty xsi:type="pivot:Property" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#p.solver.GeneratorTuple.Var"/>
+            </ownedBody>
+            <ownedIterators xsi:type="pivot:Variable" name="1_" isRequired="false" isImplicit="true">
+              <type xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorTuple"/>
+              <representedParameter xsi:type="pivot:Parameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#i0i.ocl.OrderedSet.collect..T"/>
+            </ownedIterators>
+            <referredIteration xsi:type="pivot:Iteration" href="http://www.eclipse.org/ocl/2015/Library.oclas#i.ocl.OrderedSet.collect..T"/>
+          </ownedSource>
+          <ownedBody xsi:type="pivot:PropertyCallExp" isRequired="false">
+            <type xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+            <ownedSource xsi:type="pivot:VariableExp" isImplicit="true" referredVariable="/0/@ownedBody/@ownedSource/@ownedSource/@ownedIterators.0">
+              <type xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorVar"/>
+            </ownedSource>
+            <referredProperty xsi:type="pivot:Property" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#p.solver.GeneratorTupleMember.Name"/>
+          </ownedBody>
+          <ownedIterators xsi:type="pivot:Variable" name="1_" isImplicit="true">
+            <type xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorVar"/>
+            <representedParameter xsi:type="pivot:Parameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#i0i.ocl.Sequence.collect..T"/>
+          </ownedIterators>
+          <referredIteration xsi:type="pivot:Iteration" href="http://www.eclipse.org/ocl/2015/Library.oclas#i.ocl.Sequence.collect..T"/>
+        </ownedSource>
+        <referredOperation xsi:type="pivot:Operation" href="http://www.eclipse.org/ocl/2015/Library.oclas#o.ocl.Collection.asSet"/>
+      </ownedSource>
+      <ownedBody xsi:type="pivot:OperationCallExp" name="+">
+        <type xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+        <ownedSource xsi:type="pivot:OperationCallExp" name="+">
+          <type xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+          <ownedSource xsi:type="pivot:VariableExp" isRequired="false" referredVariable="/0/@ownedBody/@ownedIterators.0">
+            <type xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+          </ownedSource>
+          <ownedArguments xsi:type="pivot:StringLiteralExp" stringSymbol=": ">
+            <type xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+          </ownedArguments>
+          <referredOperation xsi:type="pivot:Operation" href="http://www.eclipse.org/ocl/2015/Library.oclas#o.ocl.String.%43%..ocl.String"/>
+        </ownedSource>
+        <ownedArguments xsi:type="pivot:OperationCallExp">
+          <type xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+          <ownedSource xsi:type="pivot:OperationCallExp">
+            <type xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#Integer"/>
+            <ownedSource xsi:type="pivot:IteratorExp" type="/1/@ownedClasses.19">
+              <ownedSource xsi:type="pivot:IteratorExp" name="collect" type="/1/@ownedClasses.19" isImplicit="true">
+                <ownedSource xsi:type="pivot:IteratorExp" type="/1/@ownedClasses.20">
+                  <ownedSource xsi:type="pivot:PropertyCallExp" type="/1/@ownedClasses.21">
+                    <ownedSource xsi:type="pivot:VariableExp" referredVariable="/0/@ownedContext">
+                      <type xsi:type="pivot:Class" href="http://www.ordina.be/sco/projects/dow/demurrop/model/0.1.oclas#T.demurrop.DemurropLP"/>
+                    </ownedSource>
+                    <referredProperty xsi:type="pivot:Property" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#p.solver.Generator.TupleRoot"/>
+                  </ownedSource>
+                  <ownedBody xsi:type="pivot:PropertyCallExp" type="/1/@ownedClasses.21">
+                    <ownedSource xsi:type="pivot:VariableExp" referredVariable="/0/@ownedBody/@ownedBody/@ownedArguments.0/@ownedSource/@ownedSource/@ownedSource/@ownedSource/@ownedIterators.0">
+                      <type xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorTuple"/>
+                    </ownedSource>
+                    <referredProperty xsi:type="pivot:Property" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#p.solver.GeneratorTuple.TupleElement"/>
+                  </ownedBody>
+                  <ownedIterators xsi:type="pivot:Variable" name="v">
+                    <type xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorTuple"/>
+                    <representedParameter xsi:type="pivot:Parameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#i0i.ocl.OrderedSet.closure..T"/>
+                  </ownedIterators>
+                  <referredIteration xsi:type="pivot:Iteration" href="http://www.eclipse.org/ocl/2015/Library.oclas#i.ocl.OrderedSet.closure..T"/>
+                </ownedSource>
+                <ownedBody xsi:type="pivot:PropertyCallExp" type="/1/@ownedClasses.22">
+                  <ownedSource xsi:type="pivot:VariableExp" isRequired="false" isImplicit="true" referredVariable="/0/@ownedBody/@ownedBody/@ownedArguments.0/@ownedSource/@ownedSource/@ownedSource/@ownedIterators.0">
+                    <type xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorTuple"/>
+                  </ownedSource>
+                  <referredProperty xsi:type="pivot:Property" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#p.solver.GeneratorTuple.Var"/>
+                </ownedBody>
+                <ownedIterators xsi:type="pivot:Variable" name="1_" isRequired="false" isImplicit="true">
+                  <type xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorTuple"/>
+                  <representedParameter xsi:type="pivot:Parameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#i0i.ocl.OrderedSet.collect..T"/>
+                </ownedIterators>
+                <referredIteration xsi:type="pivot:Iteration" href="http://www.eclipse.org/ocl/2015/Library.oclas#i.ocl.OrderedSet.collect..T"/>
+              </ownedSource>
+              <ownedBody xsi:type="pivot:OperationCallExp" name="=">
+                <type xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#Boolean"/>
+                <ownedSource xsi:type="pivot:PropertyCallExp" isRequired="false">
+                  <type xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+                  <ownedSource xsi:type="pivot:VariableExp" referredVariable="/0/@ownedBody/@ownedBody/@ownedArguments.0/@ownedSource/@ownedSource/@ownedIterators.0">
+                    <type xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorVar"/>
+                  </ownedSource>
+                  <referredProperty xsi:type="pivot:Property" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#p.solver.GeneratorTupleMember.Name"/>
+                </ownedSource>
+                <ownedArguments xsi:type="pivot:VariableExp" isRequired="false" referredVariable="/0/@ownedBody/@ownedIterators.0">
+                  <type xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+                </ownedArguments>
+                <referredOperation xsi:type="pivot:Operation" href="http://www.eclipse.org/ocl/2015/Library.oclas#o.ocl.String.%61%..ocl.OclSelf"/>
+              </ownedBody>
+              <ownedIterators xsi:type="pivot:Variable" name="var">
+                <type xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorVar"/>
+                <representedParameter xsi:type="pivot:Parameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#i0i.ocl.Sequence.select..T"/>
+              </ownedIterators>
+              <referredIteration xsi:type="pivot:Iteration" href="http://www.eclipse.org/ocl/2015/Library.oclas#i.ocl.Sequence.select..T"/>
+            </ownedSource>
+            <referredOperation xsi:type="pivot:Operation" href="http://www.eclipse.org/ocl/2015/Library.oclas#o.ocl.Collection.size"/>
+          </ownedSource>
+          <referredOperation xsi:type="pivot:Operation" href="http://www.eclipse.org/ocl/2015/Library.oclas#o.ocl.Integer.toString"/>
+        </ownedArguments>
+        <referredOperation xsi:type="pivot:Operation" href="http://www.eclipse.org/ocl/2015/Library.oclas#o.ocl.String.%43%..ocl.String"/>
+      </ownedBody>
+      <ownedIterators xsi:type="pivot:Variable" name="name" isRequired="false">
+        <type xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+        <representedParameter xsi:type="pivot:Parameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#i0i.ocl.Set.collect..T"/>
+      </ownedIterators>
+      <referredIteration xsi:type="pivot:Iteration" href="http://www.eclipse.org/ocl/2015/Library.oclas#i.ocl.Set.collect..T"/>
+    </ownedBody>
+    <ownedContext xsi:type="pivot:Variable" name="self">
+      <type xsi:type="pivot:Class" href="http://www.ordina.be/sco/projects/dow/demurrop/model/0.1.oclas#T.demurrop.DemurropLP"/>
+    </ownedContext>
+  </pivot:ExpressionInOCL>
+  <pivot:Package name="$$" URI="http://www.eclipse.org/ocl/2015/Orphanage" nsPrefix="orphanage">
+    <ownedClasses xsi:type="pivot:BagType" name="Bag" superClasses="/1/@ownedClasses.7" isNullFree="true">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..BagT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <elementType xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:SetType" name="Set" superClasses="/1/@ownedClasses.8">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..SetT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <elementType xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:SequenceType" name="Sequence" superClasses="/1/@ownedClasses.9">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..SequenceT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <elementType xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:SequenceType" name="Sequence" superClasses="/1/@ownedClasses.10" isNullFree="true">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorCons"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..SequenceT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <elementType xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorCons"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:OrderedSetType" name="OrderedSet" superClasses="/1/@ownedClasses.11 /1/@ownedClasses.12">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorTuple"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..OrderedSetT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <elementType xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorTuple"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:OrderedSetType" name="OrderedSet" superClasses="/1/@ownedClasses.11 /1/@ownedClasses.12" isNullFree="true">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorTuple"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..OrderedSetT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <elementType xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorTuple"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:OrderedSetType" name="OrderedSet" superClasses="/1/@ownedClasses.10 /1/@ownedClasses.13" isNullFree="true">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorCons"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..OrderedSetT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <elementType xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorCons"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:CollectionType" name="Collection">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..CollectionT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <superClasses xsi:type="pivot:AnyType" href="http://www.eclipse.org/ocl/2015/Library.oclas#T.ocl.OclAny"/>
+      <elementType xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:CollectionType" name="UniqueCollection" superClasses="/1/@ownedClasses.7">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..UniqueCollectionT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <elementType xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:CollectionType" name="OrderedCollection" superClasses="/1/@ownedClasses.7">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..OrderedCollectionT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <elementType xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:CollectionType" name="OrderedCollection" superClasses="/1/@ownedClasses.14">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorCons"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..OrderedCollectionT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <elementType xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorCons"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:CollectionType" name="OrderedCollection" superClasses="/1/@ownedClasses.15">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorTuple"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..OrderedCollectionT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <elementType xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorTuple"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:CollectionType" name="UniqueCollection" superClasses="/1/@ownedClasses.15">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorTuple"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..UniqueCollectionT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <elementType xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorTuple"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:CollectionType" name="UniqueCollection" superClasses="/1/@ownedClasses.14">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorCons"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..UniqueCollectionT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <elementType xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorCons"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:CollectionType" name="Collection">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorCons"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..CollectionT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <superClasses xsi:type="pivot:AnyType" href="http://www.eclipse.org/ocl/2015/Library.oclas#T.ocl.OclAny"/>
+      <elementType xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorCons"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:CollectionType" name="Collection">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorTuple"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..CollectionT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <superClasses xsi:type="pivot:AnyType" href="http://www.eclipse.org/ocl/2015/Library.oclas#T.ocl.OclAny"/>
+      <elementType xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorTuple"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:BagType" name="Bag" superClasses="/1/@ownedClasses.23" isNullFree="true">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..BagT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <elementType xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:SetType" name="Set" superClasses="/1/@ownedClasses.24">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..SetT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <elementType xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:SequenceType" name="Sequence" superClasses="/1/@ownedClasses.25">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..SequenceT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <elementType xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:SequenceType" name="Sequence" superClasses="/1/@ownedClasses.26" isNullFree="true">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorVar"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..SequenceT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <elementType xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorVar"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:OrderedSetType" name="OrderedSet" superClasses="/1/@ownedClasses.27 /1/@ownedClasses.28">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorTuple"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..OrderedSetT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <elementType xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorTuple"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:OrderedSetType" name="OrderedSet" superClasses="/1/@ownedClasses.27 /1/@ownedClasses.28" isNullFree="true">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorTuple"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..OrderedSetT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <elementType xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorTuple"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:OrderedSetType" name="OrderedSet" superClasses="/1/@ownedClasses.26 /1/@ownedClasses.29" isNullFree="true">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorVar"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..OrderedSetT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <elementType xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorVar"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:CollectionType" name="Collection">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..CollectionT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <superClasses xsi:type="pivot:AnyType" href="http://www.eclipse.org/ocl/2015/Library.oclas#T.ocl.OclAny"/>
+      <elementType xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:CollectionType" name="UniqueCollection" superClasses="/1/@ownedClasses.23">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..UniqueCollectionT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <elementType xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:CollectionType" name="OrderedCollection" superClasses="/1/@ownedClasses.23">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..OrderedCollectionT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <elementType xsi:type="pivot:PrimitiveType" href="http://www.eclipse.org/ocl/2015/Library.oclas#String"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:CollectionType" name="OrderedCollection" superClasses="/1/@ownedClasses.30">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorVar"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..OrderedCollectionT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <elementType xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorVar"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:CollectionType" name="OrderedCollection" superClasses="/1/@ownedClasses.31">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorTuple"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..OrderedCollectionT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <elementType xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorTuple"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:CollectionType" name="UniqueCollection" superClasses="/1/@ownedClasses.31">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorTuple"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..UniqueCollectionT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <elementType xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorTuple"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:CollectionType" name="UniqueCollection" superClasses="/1/@ownedClasses.30">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorVar"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..UniqueCollectionT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <elementType xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorVar"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:CollectionType" name="Collection">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorVar"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..CollectionT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <superClasses xsi:type="pivot:AnyType" href="http://www.eclipse.org/ocl/2015/Library.oclas#T.ocl.OclAny"/>
+      <elementType xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorVar"/>
+    </ownedClasses>
+    <ownedClasses xsi:type="pivot:CollectionType" name="Collection">
+      <ownedBindings xsi:type="pivot:TemplateBinding">
+        <ownedSubstitutions xsi:type="pivot:TemplateParameterSubstitution">
+          <actual xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorTuple"/>
+          <formal xsi:type="pivot:TemplateParameter" href="http://www.eclipse.org/ocl/2015/Library.oclas#t.ocl..CollectionT"/>
+        </ownedSubstitutions>
+      </ownedBindings>
+      <superClasses xsi:type="pivot:AnyType" href="http://www.eclipse.org/ocl/2015/Library.oclas#T.ocl.OclAny"/>
+      <elementType xsi:type="pivot:Class" href="http://www.misc.com/common/moplaf/solver/model/0.1.oclas#T.solver.GeneratorTuple"/>
+    </ownedClasses>
+  </pivot:Package>
+</xmi:XMI>
