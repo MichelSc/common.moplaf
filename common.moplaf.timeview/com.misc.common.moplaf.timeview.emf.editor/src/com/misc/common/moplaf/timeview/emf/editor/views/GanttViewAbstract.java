@@ -56,6 +56,9 @@ public abstract class GanttViewAbstract extends ViewPart {
 					IStructuredSelection structuredSelection = (IStructuredSelection)selection;
 					GanttViewAbstract.this.viewer.setInput(structuredSelection.toArray());
 				} // there is a selection
+				else {
+					GanttViewAbstract.this.viewer.setInput(null);
+				}
 			} // there is a viewer
 		}
 	}
