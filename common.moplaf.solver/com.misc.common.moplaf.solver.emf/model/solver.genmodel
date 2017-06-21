@@ -65,10 +65,6 @@
           ecoreFeature="ecore:EAttribute solver.ecore#//Generator/FootprintNofCons"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="20 Footprint"
           ecoreFeature="ecore:EAttribute solver.ecore#//Generator/FootprintNofTerms"/>
-      <genFeatures createChild="false" propertyCategory="20 Footprint" ecoreFeature="ecore:EAttribute solver.ecore#//Generator/CountCons"/>
-      <genFeatures createChild="false" propertyCategory="20 Footprint" ecoreFeature="ecore:EAttribute solver.ecore#//Generator/CountVars"/>
-      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//Generator/ELpVarCount"/>
-      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//Generator/ELpConsCount"/>
       <genFeatures createChild="false" propertyCategory="10 General" ecoreFeature="ecore:EAttribute solver.ecore#//Generator/Code"/>
       <genFeatures createChild="false" propertyCategory="30 Solution" propertySortChoices="true"
           ecoreFeature="ecore:EReference solver.ecore#//Generator/Selected"/>
@@ -169,24 +165,6 @@
       <genFeatures notify="false" children="true" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpTerm/LpLinear"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpTerm/Description"/>
-    </genClasses>
-    <genClasses ecoreClass="solver.ecore#//GeneratorLpConsCountElement">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpConsCountElement/ELpConsCount"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpConsCountElement/ECount"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpConsCountElement/EClass"/>
-    </genClasses>
-    <genClasses ecoreClass="solver.ecore#//GeneratorLpVarCountElement">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpVarCountElement/ELpVarCount"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpVarCountElement/ECount"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpVarCountElement/EClass"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="solver.ecore#//GeneratorLpVarCount">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpVarCount/ELpVarCountElement"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpVarCount/Generator"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="solver.ecore#//GeneratorLpConsCount">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpConsCount/LpConsCountElement"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpConsCount/Generator"/>
     </genClasses>
     <genClasses ecoreClass="solver.ecore#//GeneratorFeatureMode">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//GeneratorFeatureMode/Generator"/>

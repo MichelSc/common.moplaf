@@ -10,10 +10,14 @@
  *******************************************************************************/
 package com.misc.common.moplaf.timeview.emf.editor.views;
 
+
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.core.resources.IResourceChangeEvent;
+import org.eclipse.core.resources.IResourceChangeListener;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.jface.viewers.*;
@@ -38,6 +42,7 @@ public abstract class GanttViewAbstract extends ViewPart {
 	private Action action2;
 	//private Action doubleClickAction;
 	private ISelectionListener selectionListener;
+	private IResourceChangeListener resourceListener;
 	private ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 //	private AdapterFactoryIntervalEventProvider intervalEventProvider;
 
@@ -99,10 +104,16 @@ public abstract class GanttViewAbstract extends ViewPart {
 		this.selectionListener = new SiteSelectionListener();
 		IWorkbenchPartSite site = getSite();
 		IWorkbenchWindow window = site.getWorkbenchWindow();
-		
 		window.getSelectionService().addSelectionListener(selectionListener);
 		site.setSelectionProvider(this.viewer);
-		
+
+		// resource change listening
+		this.resourceListener = new IResourceChangeListener() {
+		      public void resourceChanged(IResourceChangeEvent event) {
+		         System.out.println("Something changed in some resoure: "+event.toString());
+		      }
+		   };
+	   ResourcesPlugin.getWorkspace().addResourceChangeListener(this.resourceListener);
 	} // createControl method
 
 	/**
@@ -229,6 +240,10 @@ public abstract class GanttViewAbstract extends ViewPart {
 		IWorkbenchWindow window = site.getWorkbenchWindow();
 		window.getSelectionService().removeSelectionListener(this.selectionListener);
 		this.selectionListener = null;
+		
+		// unregister the resource change listener
+		ResourcesPlugin.getWorkspace().removeResourceChangeListener(this.resourceListener);
+		this.resourceListener = null;
 		
 		// done, dispose other things
 		super.dispose();
