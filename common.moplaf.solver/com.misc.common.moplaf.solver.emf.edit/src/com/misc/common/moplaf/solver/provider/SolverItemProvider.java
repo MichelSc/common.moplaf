@@ -788,6 +788,7 @@ public class SolverItemProvider
   	   		Solution droppedSolution = (Solution) droppedObject;
   	   		return new ConstructPreviousSolutionGoal(solver, droppedSolution);
 		} 
-		return super.createDropCommand(owner, droppedObject);
+		//return super.createDropCommand(owner, droppedObject);
+		return null;
 	}
 }

@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Timeview
 Bundle-SymbolicName: com.misc.common.moplaf.timeview; singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: com.misc.common.moplaf.timeview.Activator
+Bundle-Activator: com.misc.common.moplaf.timeview.Plugin
 Bundle-Vendor: MISC
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime

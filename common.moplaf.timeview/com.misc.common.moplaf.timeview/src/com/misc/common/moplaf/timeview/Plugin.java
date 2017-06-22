@@ -17,18 +17,28 @@ import org.osgi.framework.BundleContext;
 /**
  * The activator class controls the plug-in life cycle
  */
-public class Activator extends AbstractUIPlugin {
+public class Plugin extends AbstractUIPlugin {
+	
+	private int ganttMaxDepth = 4;
+
+	public int getGanttMaxDepth() {
+		return ganttMaxDepth;
+	}
+
+	public void setGanttMaxDepth(int ganttMaxDepth) {
+		this.ganttMaxDepth = ganttMaxDepth;
+	}
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "com.misc.common.moplaf.timeview"; //$NON-NLS-1$
 
 	// The shared instance
-	private static Activator plugin;
+	private static Plugin plugin;
 	
 	/**
 	 * The constructor
 	 */
-	public Activator() {
+	public Plugin() {
 	}
 
 	/*
@@ -54,7 +64,7 @@ public class Activator extends AbstractUIPlugin {
 	 *
 	 * @return the shared instance
 	 */
-	public static Activator getDefault() {
+	public static Plugin getDefault() {
 		return plugin;
 	}
 

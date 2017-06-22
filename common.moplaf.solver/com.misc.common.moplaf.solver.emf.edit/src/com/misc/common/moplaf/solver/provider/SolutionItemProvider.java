@@ -26,8 +26,10 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.command.CopyCommand.Helper;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -298,4 +300,12 @@ public class SolutionItemProvider
 		}
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand
+
+	@Override
+	protected Command createCreateCopyCommand(EditingDomain domain, EObject owner, Helper helper) {
+//		return super.createCreateCopyCommand(domain, owner, helper);
+		return null;
+	}
+	
+	
 }

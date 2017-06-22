@@ -14,6 +14,7 @@ package com.misc.common.moplaf.timeview.jaret.views;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
 
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -32,6 +33,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 
+import com.misc.common.moplaf.timeview.Plugin;
 import com.misc.common.moplaf.timeview.viewers.GanttViewerAbstract;
 
 import de.jaret.util.date.Interval;
@@ -421,7 +423,7 @@ public class GanttViewer extends GanttViewerAbstract {
 		
 			GanttViewerRow rootNode = (GanttViewerRow)this.timeBarModel.getRootNode();
 			if ( rootNode != null){
-				this.refreshNodeRow(rootNode);
+				this.refreshNodeRow(rootNode, 0);
 			}
 			
 			this.timeBarViewer.getHierarchicalViewState().setExpandedRecursive(rootNode, true);
@@ -487,10 +489,10 @@ public class GanttViewer extends GanttViewerAbstract {
 		return valid;
 	}
 
-	private void refreshNodeRow(GanttViewerRow row){
+	private void refreshNodeRow(GanttViewerRow row, int currentDepth){
 		// refresh the label
 		this.refreshNodeLabel(row);
-		this.refreshNodeRowSubrows(row);
+		this.refreshNodeRowSubrows(row, currentDepth);
 		this.refreshNodeRowIntervals(row);
 		
 		JaretDate minDate = row.getMinDate();
@@ -517,35 +519,32 @@ public class GanttViewer extends GanttViewerAbstract {
 	
 	private void refreshNodeRowSubrows(GanttViewerRow row, 
 			                           HashMap<Object, GanttViewerRow> ganttChildRowsAsIs, 
-			                           Object modelElement){
-		Object[] childrenModelElement = this.getTreeContentProvider().getChildren(modelElement);
-		for (Object childModelElement : childrenModelElement) {
-			if ( modelElement.getClass().isArray() || this.getTreeContentProvider().getParent(childModelElement)==modelElement){
-				// the parent of child is modelElement, this is an actual child
-				// this restriction avoids recursion
-				if( this.getIIntervalEventProvider().isIntervalEvents(childModelElement) ) {
-					// the model element is a row
-					GanttViewerRow ganttChildRow = ganttChildRowsAsIs.get(childModelElement);
+			                           Object modelElement,
+			                           int currentDepth){
+		if ( currentDepth < Plugin.getDefault().getGanttMaxDepth()){
+			Object[] childrenModelElement = this.getTreeContentProvider().getChildren(modelElement);
+			for (Object childModelElement : childrenModelElement) {
+				if ( modelElement.getClass().isArray() || this.getTreeContentProvider().getParent(childModelElement)==modelElement){
+					// the parent of child is modelElement, this is an actual child
+					// this restriction avoids recursion
+					boolean withEvents =  this.getIIntervalEventProvider().isIntervalEvents(childModelElement);
+    				GanttViewerRow ganttChildRow = ganttChildRowsAsIs.get(childModelElement);
 					if ( ganttChildRow == null){
 						// create the row
-						ganttChildRow= this.createRow(childModelElement, true);
+						ganttChildRow= this.createRow(childModelElement, withEvents);
 						row.addNode(ganttChildRow);
 					}
 					else {
 						// update
 						ganttChildRowsAsIs.remove(modelElement);
 					}
-					this.refreshNodeRow(ganttChildRow);
-				} else { 
-					// the model element is not a row
-					// recursive
-					this.refreshNodeRowSubrows(row, ganttChildRowsAsIs, childModelElement);
+					this.refreshNodeRow(ganttChildRow, currentDepth+1);
 				}
 			}
 	    }
 	}
 
-	private void refreshNodeRowSubrows(GanttViewerRow row){
+	private void refreshNodeRowSubrows(GanttViewerRow row, int currentDepth){
 		// refresh the child rows
 		// get the as is
 		HashMap<Object, GanttViewerRow> ganttChildRowsAsIs = new HashMap<Object, GanttViewerRow>();
@@ -554,10 +553,19 @@ public class GanttViewer extends GanttViewerAbstract {
 			ganttChildRowsAsIs.put(ganttChildRowAsIs.getModelObject(), ganttChildRowAsIs);
 		}
 		// do the refresh
-		this.refreshNodeRowSubrows(row,  ganttChildRowsAsIs, row.getModelObject());
+		this.refreshNodeRowSubrows(row,  ganttChildRowsAsIs, row.getModelObject(), currentDepth);
+		
 		// remove the rows too many
-		for(GanttViewerRow rowAsIs : ganttChildRowsAsIs.values()){
-			row.remNode(rowAsIs);
+		LinkedList<TimeBarNode> nodesToRemove = new LinkedList<TimeBarNode>();
+		for ( TimeBarNode childRow : row.getChildren()){
+			if ( ganttChildRowsAsIs.containsValue(childRow)){
+				nodesToRemove.add(childRow);
+			} if ( childRow.getChildren().size()==00 && childRow.getIntervals().size()==0 ) {
+				nodesToRemove.add(childRow);
+			}
+		}
+		for ( TimeBarNode nodeToRemove : nodesToRemove ){
+			row.remNode(nodeToRemove);
 		}
 	}
 
