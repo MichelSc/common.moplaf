@@ -44,6 +44,7 @@ import de.jaret.util.ui.timebars.TimeBarViewerDelegate;
 import de.jaret.util.ui.timebars.model.DefaultHierarchicalTimeBarModel;
 import de.jaret.util.ui.timebars.model.DefaultRowHeader;
 import de.jaret.util.ui.timebars.model.DefaultTimeBarNode;
+import de.jaret.util.ui.timebars.model.ITimeBarViewState;
 import de.jaret.util.ui.timebars.model.TimeBarNode;
 import de.jaret.util.ui.timebars.swt.TimeBarViewer;
 import de.jaret.util.ui.timebars.swt.renderer.DefaultHierarchyRenderer;
@@ -74,6 +75,9 @@ public class GanttViewer extends GanttViewerAbstract {
 		this.timeBarViewer.addSelectionChangedListener(new GanttViewerISeletionListener());
 		this.timeBarViewer.setInitialDisplayRange(new JaretDate(), 365*24*60*60);
 		this.timeBarViewer.setAdjustMinMaxDatesByModel(false); // set the minDate of the TimeBarViewer with model.getMinMaxDate; this is not supported by the hierarchical model
+		
+		ITimeBarViewState viewState = this.timeBarViewer.getTimeBarViewState();
+		viewState.setUseVariableRowHeights(true);
 
 		this.timeBarViewer.setTimeBarRenderer(new IntervalRendeder());
 
@@ -517,53 +521,66 @@ public class GanttViewer extends GanttViewerAbstract {
 		}
 	}
 	
-	private void refreshNodeRowSubrows(GanttViewerRow row, 
-			                           HashMap<Object, GanttViewerRow> ganttChildRowsAsIs, 
-			                           Object modelElement,
-			                           int currentDepth){
+	private void refreshNodeRowSubrows(GanttViewerRow row, int currentDepth){
+		// refresh the child rows
+		// nodes asis
+		HashMap<Object, GanttViewerRow> ganttChildRowsAsIs = new HashMap<Object, GanttViewerRow>();
+		for ( TimeBarNode childRowAsIs : row.getChildren()){
+			GanttViewerRow ganttChildRowAsIs = (GanttViewerRow) childRowAsIs;
+			ganttChildRowsAsIs.put(ganttChildRowAsIs.getModelObject(), ganttChildRowAsIs);
+		}
+
+		LinkedList<TimeBarNode> nodesToRemove = new LinkedList<TimeBarNode>();
+		LinkedList<TimeBarNode> nodesToAdd = new LinkedList<TimeBarNode>();
+
+		// do the refresh
 		if ( currentDepth < Plugin.getDefault().getGanttMaxDepth()){
+			Object modelElement = row.getModelObject();
 			Object[] childrenModelElement = this.getTreeContentProvider().getChildren(modelElement);
 			for (Object childModelElement : childrenModelElement) {
 				if ( modelElement.getClass().isArray() || this.getTreeContentProvider().getParent(childModelElement)==modelElement){
 					// the parent of child is modelElement, this is an actual child
 					// this restriction avoids recursion
 					boolean withEvents =  this.getIIntervalEventProvider().isIntervalEvents(childModelElement);
+					boolean created = false;
     				GanttViewerRow ganttChildRow = ganttChildRowsAsIs.get(childModelElement);
 					if ( ganttChildRow == null){
 						// create the row
-						ganttChildRow= this.createRow(childModelElement, withEvents);
-						row.addNode(ganttChildRow);
+						ganttChildRow = this.createRow(childModelElement, withEvents);
+						created = true;
 					}
 					else {
-						// update
+						// keep it
 						ganttChildRowsAsIs.remove(modelElement);
 					}
+					// the refresh
 					this.refreshNodeRow(ganttChildRow, currentDepth+1);
+					// do we want to keep the row?
+					boolean keepIt = ganttChildRow.getChildren().size()!=0 || ganttChildRow.getIntervals().size()!=0;
+					if ( created ){
+						// new row
+						if ( keepIt ){
+							nodesToAdd.add(ganttChildRow);
+						}
+					} else {
+						// old row
+						if ( !keepIt ){
+							nodesToRemove.add(ganttChildRow);
+						}
+					}
 				}
 			}
 	    }
-	}
-
-	private void refreshNodeRowSubrows(GanttViewerRow row, int currentDepth){
-		// refresh the child rows
-		// get the as is
-		HashMap<Object, GanttViewerRow> ganttChildRowsAsIs = new HashMap<Object, GanttViewerRow>();
-		for ( TimeBarNode childRowAsIs : row.getChildren()){
-			GanttViewerRow ganttChildRowAsIs = (GanttViewerRow) childRowAsIs;
-			ganttChildRowsAsIs.put(ganttChildRowAsIs.getModelObject(), ganttChildRowAsIs);
+			
+		// add the new rows that we keep
+		for ( TimeBarNode nodeToAdd : nodesToAdd){
+			row.addNode(nodeToAdd);
+			int rowHeight = nodeToAdd.getIntervals().size()>0 ? 40 : 16;
+			this.timeBarViewer.getTimeBarViewState().setRowHeight(nodeToAdd, rowHeight);
 		}
-		// do the refresh
-		this.refreshNodeRowSubrows(row,  ganttChildRowsAsIs, row.getModelObject(), currentDepth);
 		
 		// remove the rows too many
-		LinkedList<TimeBarNode> nodesToRemove = new LinkedList<TimeBarNode>();
-		for ( TimeBarNode childRow : row.getChildren()){
-			if ( ganttChildRowsAsIs.containsValue(childRow)){
-				nodesToRemove.add(childRow);
-			} if ( childRow.getChildren().size()==00 && childRow.getIntervals().size()==0 ) {
-				nodesToRemove.add(childRow);
-			}
-		}
+		nodesToRemove.addAll(ganttChildRowsAsIs.values());
 		for ( TimeBarNode nodeToRemove : nodesToRemove ){
 			row.remNode(nodeToRemove);
 		}
