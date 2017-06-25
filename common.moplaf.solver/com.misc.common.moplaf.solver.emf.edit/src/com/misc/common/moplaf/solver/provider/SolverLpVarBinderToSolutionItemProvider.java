@@ -3,10 +3,14 @@
 package com.misc.common.moplaf.solver.provider;
 
 
+import com.misc.common.moplaf.solver.Generator;
+import com.misc.common.moplaf.solver.Solution;
+import com.misc.common.moplaf.solver.SolutionProvider;
 import com.misc.common.moplaf.solver.SolverLpVarBinderToSolution;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -14,6 +18,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.solver.SolverLpVarBinderToSolution} object.
@@ -52,22 +57,48 @@ public class SolverLpVarBinderToSolutionItemProvider extends SolverLpVarBinderIt
 	 * This adds a property descriptor for the Selected Solution feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	protected void addSelectedSolutionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SolverLpVarBinderToSolution_SelectedSolution_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SolverLpVarBinderToSolution_SelectedSolution_feature", "_UI_SolverLpVarBinderToSolution_type"),
-				 SolverPackage.Literals.SOLVER_LP_VAR_BINDER_TO_SOLUTION__SELECTED_SOLUTION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+	    IItemPropertyDescriptor descriptor = new ItemPropertyDescriptor(
+				((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+						 getResourceLocator(),
+						 getString("_UI_SolverLpVarBinderToSolution_SelectedSolution_feature"),
+						 getString("_UI_PropertyDescriptor_description", "_UI_SolverLpVarBinderToSolution_SelectedSolution_feature", "_UI_SolverLpVarBinderToSolution_type"),
+						 SolverPackage.Literals.SOLVER_LP_VAR_BINDER_TO_SOLUTION__SELECTED_SOLUTION,
+						 true,  // settable
+						 false, // multiline
+						 true,  // sort choices
+						 null,  // static image
+						 null,// category
+						 null)// filter flags
+	    {
+	    	public java.util.Collection<?> getChoiceOfValues(java.lang.Object object){
+	    		SolverLpVarBinderToSolution binder = (SolverLpVarBinderToSolution)object;
+	    		Generator generator = binder.getSolver().getGenerator();
+	    		LinkedList<Solution> solutions = new LinkedList<Solution>();
+	    		for ( SolutionProvider provider : generator.getSolutionProvider()){
+	    			for ( Solution solution : provider.getSolution()){
+	    				solutions.add(solution);
+	    			}
+	    		}
+	    		return solutions;
+	    	}
+	    };
+		itemPropertyDescriptors.add(descriptor);
+		
+//		itemPropertyDescriptors.add
+//			(createItemPropertyDescriptor
+//				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+//				 getResourceLocator(),
+//				 getString("_UI_SolverLpVarBinderToSolution_SelectedSolution_feature"),
+//				 getString("_UI_PropertyDescriptor_description", "_UI_SolverLpVarBinderToSolution_SelectedSolution_feature", "_UI_SolverLpVarBinderToSolution_type"),
+//				 SolverPackage.Literals.SOLVER_LP_VAR_BINDER_TO_SOLUTION__SELECTED_SOLUTION,
+//				 true,
+//				 false,
+//				 true,
+//				 null,
+//				 null,
+//				 null));
 	}
 
 	/**
