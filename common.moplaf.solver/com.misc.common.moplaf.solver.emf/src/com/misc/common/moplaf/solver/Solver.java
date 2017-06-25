@@ -59,6 +59,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link com.misc.common.moplaf.solver.Solver#isFinished <em>Finished</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getInitialSolution <em>Initial Solution</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Solver#getGoals <em>Goals</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.Solver#getVarBinders <em>Var Binders</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getSolver()
@@ -590,6 +591,24 @@ public interface Solver extends SolutionProvider, SolverParams {
 	EList<SolverGoal> getGoals();
 
 	/**
+	 * Returns the value of the '<em><b>Var Binders</b></em>' reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.solver.SolverVarBinder}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.SolverVarBinder#getSolver <em>Solver</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Var Binders</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Var Binders</em>' reference list.
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolver_VarBinders()
+	 * @see com.misc.common.moplaf.solver.SolverVarBinder#getSolver
+	 * @model opposite="Solver"
+	 * @generated
+	 */
+	EList<SolverVarBinder> getVarBinders();
+
+	/**
 	 * Returns the value of the '<em><b>Solving</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -701,7 +720,7 @@ public interface Solver extends SolutionProvider, SolverParams {
 	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
 	 * @generated
 	 */
-	void buildLpVar(GeneratorLpVar var) throws Exception;
+	void buildLpVar(GeneratorLpVar var, float lowerBound, float upperBound, EnumLpVarType type) throws Exception;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -742,6 +761,14 @@ public interface Solver extends SolutionProvider, SolverParams {
 	 * @generated
 	 */
 	void buildLpCons(GeneratorElement element, GeneratorLpLinear linear, float rhs, EnumLpConsType type) throws Exception;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void constructVarBinder(GeneratorVarBinder binder);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -47,10 +47,6 @@
       </eAnnotations>
       <eParameters name="solutionprovider" eType="#//Solution"/>
     </eOperations>
-    <eOperations name="selectFeatureMode" eType="#//GeneratorFeatureMode">
-      <eParameters name="feature" eType="#//GeneratorFeatureMode"/>
-      <eParameters name="object" eType="#//GeneratorTuple"/>
-    </eOperations>
     <eOperations name="visitTuples" eExceptions="#//Exception">
       <eParameters name="visitor" eType="#//ITupleVisitor"/>
     </eOperations>
@@ -61,8 +57,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Goals" upperBound="-1"
         eType="#//GeneratorGoal" changeable="false" volatile="true" transient="true"
         derived="true" eOpposite="#//GeneratorGoal/Generator"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="GeneratorFeatureModes"
-        upperBound="-1" eType="#//GeneratorFeatureMode" eOpposite="#//GeneratorFeatureMode/Generator"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="VarBinders" upperBound="-1"
+        eType="#//GeneratorVarBinder" changeable="false" volatile="true" transient="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="SolutionProvider" upperBound="-1"
         eType="#//SolutionProvider" changeable="false" volatile="true" transient="true"
         derived="true"/>
@@ -128,6 +124,7 @@
     </eOperations>
     <eOperations name="build" eExceptions="#//Exception">
       <eParameters name="builder" eType="#//Solver"/>
+      <eParameters name="modifier" eType="#//SolverVarBinder"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Solution" upperBound="-1"
         eType="#//SolutionVar" eOpposite="#//SolutionVar/var"/>
@@ -171,24 +168,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GeneratorFeatureMode">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Return the measure how the object is in the scope of the feature mode:&#xD;&#xA; - negative value means not in scope&#xD;&#xA; - zero means perfect in scope&#xD;&#xA; - positive value means in scope&#xD;&#xA; - the bigger the value, the less relevant the Mode for the object&#xD;&#xA;"/>
-    </eAnnotations>
-    <eOperations name="IsObjectInScope" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
-      <eParameters name="object" eType="#//GeneratorTuple"/>
-    </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Generator" lowerBound="1"
-        eType="#//Generator" eOpposite="#//Generator/GeneratorFeatureModes"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ObjetScope" eType="#//GeneratorTuple"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ERemarks" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GeneratorConstraintEnabler" eSuperTypes="#//GeneratorFeatureMode"/>
-  <eClassifiers xsi:type="ecore:EClass" name="GeneratorVarOverflow" eSuperTypes="#//GeneratorFeatureMode">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CostOverFlow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxEnforce" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorConstraintEnabler"/>
   <eClassifiers xsi:type="ecore:EClass" name="IGeneratorTool" abstract="true" interface="true">
     <eOperations name="getGenerator" eType="#//Generator"/>
     <eOperations name="dispose"/>
@@ -243,6 +223,9 @@
     </eOperations>
     <eOperations name="buildLpVar" eExceptions="#//Exception">
       <eParameters name="var" eType="#//GeneratorLpVar"/>
+      <eParameters name="lowerBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+      <eParameters name="upperBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+      <eParameters name="type" eType="#//EnumLpVarType"/>
     </eOperations>
     <eOperations name="buildCons" eExceptions="#//Exception"/>
     <eOperations name="buildCons" eExceptions="#//Exception">
@@ -256,6 +239,9 @@
       <eParameters name="linear" eType="#//GeneratorLpLinear"/>
       <eParameters name="rhs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
       <eParameters name="type" eType="#//EnumLpConsType"/>
+    </eOperations>
+    <eOperations name="constructVarBinder">
+      <eParameters name="binder" eType="#//GeneratorVarBinder"/>
     </eOperations>
     <eOperations name="buildGoals" eExceptions="#//Exception"/>
     <eOperations name="buildLpGoal" eExceptions="#//Exception">
@@ -308,6 +294,8 @@
         eOpposite="#//Solution/SolverAsInitialSolution"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Goals" upperBound="-1"
         eType="#//SolverGoal" containment="true" eOpposite="#//SolverGoal/Solver"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="VarBinders" upperBound="-1"
+        eType="#//SolverVarBinder" eOpposite="#//SolverVarBinder/Solver"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolverCp" abstract="true" eSuperTypes="#//Solver">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SearchAll" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -515,4 +503,31 @@
   <eClassifiers xsi:type="ecore:EClass" name="SolutionProviderParams" eSuperTypes="../../com.misc.common.moplaf.job.emf/model/job.ecore#//RunParams">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorVarBinder">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="BoundVars" upperBound="-1"
+        eType="#//GeneratorVar"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpVarBinder" eSuperTypes="#//GeneratorVarBinder"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpVarBinderToSolution" eSuperTypes="#//GeneratorLpVarBinder"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpVarBinderToValue" eSuperTypes="#//GeneratorLpVarBinder">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="BoundValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SolverVarBinder">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Solver" lowerBound="1"
+        eType="#//Solver" eOpposite="#//Solver/VarBinders"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="VarBinder" eType="#//GeneratorVarBinder"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SolverLpVarBinder" eSuperTypes="#//SolverVarBinder">
+    <eOperations name="getLowerBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+      <eParameters name="var" eType="#//GeneratorLpVar"/>
+    </eOperations>
+    <eOperations name="getUpperBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">
+      <eParameters name="var" eType="#//GeneratorLpVar"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SolverLpVarBinderToSolution" eSuperTypes="#//SolverLpVarBinder">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SelectedSolution" lowerBound="1"
+        eType="#//SolutionLp"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SolverLpVarBinderToValue" eSuperTypes="#//SolverLpVarBinder"/>
 </ecore:EPackage>

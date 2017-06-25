@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.solver.solverjavailp.provider;
 
+import com.misc.common.moplaf.job.provider.JobEditPlugin;
 import com.misc.common.moplaf.solver.provider.SolverEditPlugin;
 
 import org.eclipse.emf.common.EMFPlugin;
@@ -51,6 +52,7 @@ public final class SolverjavailpEditPlugin extends EMFPlugin {
 		super
 		  (new ResourceLocator [] {
 		     SolverEditPlugin.INSTANCE,
+		     JobEditPlugin.INSTANCE,
 		   });
 	}
 

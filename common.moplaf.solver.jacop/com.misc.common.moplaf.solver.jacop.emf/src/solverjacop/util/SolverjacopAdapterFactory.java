@@ -12,11 +12,15 @@
  */
 package solverjacop.util;
 
+import com.misc.common.moplaf.job.Run;
+import com.misc.common.moplaf.job.RunParams;
 import com.misc.common.moplaf.solver.IGeneratorTool;
 import com.misc.common.moplaf.solver.SolutionProvider;
+import com.misc.common.moplaf.solver.SolutionProviderParams;
 import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverCp;
 
+import com.misc.common.moplaf.solver.SolverParams;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -87,12 +91,28 @@ public class SolverjacopAdapterFactory extends AdapterFactoryImpl {
 				return createSolverJacopAdapter();
 			}
 			@Override
+			public Adapter caseRunParams(RunParams object) {
+				return createRunParamsAdapter();
+			}
+			@Override
+			public Adapter caseRun(Run object) {
+				return createRunAdapter();
+			}
+			@Override
 			public Adapter caseIGeneratorTool(IGeneratorTool object) {
 				return createIGeneratorToolAdapter();
 			}
 			@Override
+			public Adapter caseSolutionProviderParams(SolutionProviderParams object) {
+				return createSolutionProviderParamsAdapter();
+			}
+			@Override
 			public Adapter caseSolutionProvider(SolutionProvider object) {
 				return createSolutionProviderAdapter();
+			}
+			@Override
+			public Adapter caseSolverParams(SolverParams object) {
+				return createSolverParamsAdapter();
 			}
 			@Override
 			public Adapter caseSolver(Solver object) {
@@ -137,6 +157,34 @@ public class SolverjacopAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.RunParams <em>Run Params</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.RunParams
+	 * @generated
+	 */
+	public Adapter createRunParamsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.job.Run <em>Run</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.job.Run
+	 * @generated
+	 */
+	public Adapter createRunAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.IGeneratorTool <em>IGenerator Tool</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -151,6 +199,20 @@ public class SolverjacopAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.SolutionProviderParams <em>Solution Provider Params</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.solver.SolutionProviderParams
+	 * @generated
+	 */
+	public Adapter createSolutionProviderParamsAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.SolutionProvider <em>Solution Provider</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -161,6 +223,20 @@ public class SolverjacopAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSolutionProviderAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.SolverParams <em>Params</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.misc.common.moplaf.solver.SolverParams
+	 * @generated
+	 */
+	public Adapter createSolverParamsAdapter() {
 		return null;
 	}
 

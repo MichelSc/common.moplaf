@@ -393,6 +393,15 @@ public interface SolverCplexPackage extends EPackage {
 	int SOLVER_CPLEX__GOALS = SolverPackage.SOLVER_LP__GOALS;
 
 	/**
+	 * The feature id for the '<em><b>Var Binders</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX__VAR_BINDERS = SolverPackage.SOLVER_LP__VAR_BINDERS;
+
+	/**
 	 * The feature id for the '<em><b>Solver Optimality Tolerance</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -732,7 +741,7 @@ public interface SolverCplexPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_CPLEX___BUILD_LP_VAR__GENERATORLPVAR = SolverPackage.SOLVER_LP___BUILD_LP_VAR__GENERATORLPVAR;
+	int SOLVER_CPLEX___BUILD_LP_VAR__GENERATORLPVAR_FLOAT_FLOAT_ENUMLPVARTYPE = SolverPackage.SOLVER_LP___BUILD_LP_VAR__GENERATORLPVAR_FLOAT_FLOAT_ENUMLPVARTYPE;
 
 	/**
 	 * The operation id for the '<em>Build Cons</em>' operation.
@@ -769,6 +778,15 @@ public interface SolverCplexPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_CPLEX___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE = SolverPackage.SOLVER_LP___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE;
+
+	/**
+	 * The operation id for the '<em>Construct Var Binder</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_CPLEX___CONSTRUCT_VAR_BINDER__GENERATORVARBINDER = SolverPackage.SOLVER_LP___CONSTRUCT_VAR_BINDER__GENERATORVARBINDER;
 
 	/**
 	 * The operation id for the '<em>Build Goals</em>' operation.

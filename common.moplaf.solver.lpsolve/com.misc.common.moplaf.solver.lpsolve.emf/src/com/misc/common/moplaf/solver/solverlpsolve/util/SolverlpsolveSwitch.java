@@ -13,12 +13,16 @@
 package com.misc.common.moplaf.solver.solverlpsolve.util;
 
 import com.misc.common.moplaf.job.Run;
+import com.misc.common.moplaf.job.RunParams;
 import com.misc.common.moplaf.solver.IGeneratorTool;
 import com.misc.common.moplaf.solver.ILpWriter;
 import com.misc.common.moplaf.solver.SolutionProvider;
+import com.misc.common.moplaf.solver.SolutionProviderParams;
 import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverLp;
 
+import com.misc.common.moplaf.solver.SolverLpParams;
+import com.misc.common.moplaf.solver.SolverParams;
 import com.misc.common.moplaf.solver.solverlpsolve.*;
 
 import org.eclipse.emf.ecore.EObject;
@@ -89,9 +93,13 @@ public class SolverlpsolveSwitch<T> extends Switch<T> {
 				if (result == null) result = caseSolverLp(solverLpSolve);
 				if (result == null) result = caseILpWriter(solverLpSolve);
 				if (result == null) result = caseSolver(solverLpSolve);
+				if (result == null) result = caseSolverLpParams(solverLpSolve);
 				if (result == null) result = caseSolutionProvider(solverLpSolve);
+				if (result == null) result = caseSolverParams(solverLpSolve);
 				if (result == null) result = caseRun(solverLpSolve);
 				if (result == null) result = caseIGeneratorTool(solverLpSolve);
+				if (result == null) result = caseSolutionProviderParams(solverLpSolve);
+				if (result == null) result = caseRunParams(solverLpSolve);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -111,6 +119,21 @@ public class SolverlpsolveSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSolverLpSolve(SolverLpSolve object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Run Params</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Run Params</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRunParams(RunParams object) {
 		return null;
 	}
 
@@ -145,6 +168,21 @@ public class SolverlpsolveSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Solution Provider Params</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Solution Provider Params</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSolutionProviderParams(SolutionProviderParams object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Solution Provider</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -160,6 +198,21 @@ public class SolverlpsolveSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Params</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Params</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSolverParams(SolverParams object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Solver</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -171,6 +224,21 @@ public class SolverlpsolveSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSolver(Solver object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Lp Params</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Lp Params</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSolverLpParams(SolverLpParams object) {
 		return null;
 	}
 

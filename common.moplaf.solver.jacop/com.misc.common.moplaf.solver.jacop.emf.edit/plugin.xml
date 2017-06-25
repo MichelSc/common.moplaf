@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated solverjacop -->
       <factory
-            uri="http://com.misc.common.moplaf.solver.jacop.emf"
+            uri="http://www.misc.com/common.moplaf.solver.jacop.emf"
             class="solverjacop.provider.SolverjacopItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider

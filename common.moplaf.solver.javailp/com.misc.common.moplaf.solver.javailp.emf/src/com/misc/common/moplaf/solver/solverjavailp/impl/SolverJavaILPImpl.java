@@ -494,17 +494,15 @@ public class SolverJavaILPImpl extends SolverLpImpl implements SolverJavaILP {
      * Build the lp var
 	 */
 	@Override
-	protected void buildLpVarImpl(GeneratorLpVar var) throws Exception {
+	protected void buildLpVarImpl(GeneratorLpVar var, float lowerBound, float upperBound, EnumLpVarType type) throws Exception {
 		if ( !SolverJavaILPImpl.this.isSolverLinearRelaxation() 
-		 && var.getType()==EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER)	{
+		 && type==EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER)	{
 			problem.setVarType(var.getCode(), Integer.class);
 		}
-		float lowerbound = var.getLowerBound();
-		if ( lowerbound>=0 ) {
-			problem.setVarLowerBound(var.getCode(), lowerbound);
+		if ( lowerBound>=0 ) {
+			problem.setVarLowerBound(var.getCode(), lowerBound);
 		}
-		float upperbound = var.getUpperBound();
-		problem.setVarUpperBound(var.getCode(), upperbound);
+		problem.setVarUpperBound(var.getCode(), upperBound);
 	}
 
 	/**

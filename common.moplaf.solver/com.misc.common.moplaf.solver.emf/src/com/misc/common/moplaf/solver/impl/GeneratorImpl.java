@@ -18,9 +18,9 @@ import com.misc.common.moplaf.job.RunContext;
 import com.misc.common.moplaf.job.impl.RunImpl;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorCons;
-import com.misc.common.moplaf.solver.GeneratorFeatureMode;
 import com.misc.common.moplaf.solver.GeneratorGoal;
 import com.misc.common.moplaf.solver.GeneratorTuple;
+import com.misc.common.moplaf.solver.GeneratorVarBinder;
 import com.misc.common.moplaf.solver.ITupleVisitor;
 import com.misc.common.moplaf.solver.Plugin;
 import com.misc.common.moplaf.solver.Solution;
@@ -29,9 +29,7 @@ import com.misc.common.moplaf.solver.SolverPackage;
 
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -39,9 +37,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -53,7 +49,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getTupleRoot <em>Tuple Root</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getGoals <em>Goals</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getGeneratorFeatureModes <em>Generator Feature Modes</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getVarBinders <em>Var Binders</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getSolutionProvider <em>Solution Provider</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getRemarks <em>Remarks</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorImpl#getFootprintNofVars <em>Footprint Nof Vars</em>}</li>
@@ -66,16 +62,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public abstract class GeneratorImpl extends RunImpl implements Generator {
-	/**
-	 * The cached value of the '{@link #getGeneratorFeatureModes() <em>Generator Feature Modes</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGeneratorFeatureModes()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<GeneratorFeatureMode> generatorFeatureModes;
-
 	/**
 	 * The default value of the '{@link #getRemarks() <em>Remarks</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -415,6 +401,24 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 	
 
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public EList<GeneratorVarBinder> getVarBinders() {
+		// Ensure that you remove @generated or mark it @generated NOT
+		// The list is expected to implement org.eclipse.emf.ecore.util.InternalEList and org.eclipse.emf.ecore.EStructuralFeature.Setting
+		// so it's likely that an appropriate subclass of org.eclipse.emf.ecore.util.EcoreEList should be used.
+		EList<GeneratorVarBinder> newList = new EObjectListDerived<GeneratorVarBinder>(GeneratorVarBinder.class, this, SolverPackage.GENERATOR__VAR_BINDERS, true);
+		for ( EObject element : this.eContents()){
+			if ( element instanceof GeneratorVarBinder){
+				GeneratorVarBinder binder = (GeneratorVarBinder)element;
+				newList.add(binder);
+			}
+		}
+		return newList;
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * @see com.misc.common.moplaf.common.impl.RunImpl#runImpl()
@@ -572,17 +576,6 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GeneratorFeatureMode selectFeatureMode(GeneratorFeatureMode feature, GeneratorTuple object) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 */
 	public void visitTuples(ITupleVisitor visitor) throws Exception {
 		for (GeneratorTuple roottuple : this.getTupleRoot()){
@@ -619,47 +612,6 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<GeneratorFeatureMode> getGeneratorFeatureModes() {
-		if (generatorFeatureModes == null) {
-			generatorFeatureModes = new EObjectWithInverseResolvingEList<GeneratorFeatureMode>(GeneratorFeatureMode.class, this, SolverPackage.GENERATOR__GENERATOR_FEATURE_MODES, SolverPackage.GENERATOR_FEATURE_MODE__GENERATOR);
-		}
-		return generatorFeatureModes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case SolverPackage.GENERATOR__GENERATOR_FEATURE_MODES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getGeneratorFeatureModes()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case SolverPackage.GENERATOR__GENERATOR_FEATURE_MODES:
-				return ((InternalEList<?>)getGeneratorFeatureModes()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -667,8 +619,8 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 				return getTupleRoot();
 			case SolverPackage.GENERATOR__GOALS:
 				return getGoals();
-			case SolverPackage.GENERATOR__GENERATOR_FEATURE_MODES:
-				return getGeneratorFeatureModes();
+			case SolverPackage.GENERATOR__VAR_BINDERS:
+				return getVarBinders();
 			case SolverPackage.GENERATOR__SOLUTION_PROVIDER:
 				return getSolutionProvider();
 			case SolverPackage.GENERATOR__REMARKS:
@@ -697,10 +649,6 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SolverPackage.GENERATOR__GENERATOR_FEATURE_MODES:
-				getGeneratorFeatureModes().clear();
-				getGeneratorFeatureModes().addAll((Collection<? extends GeneratorFeatureMode>)newValue);
-				return;
 			case SolverPackage.GENERATOR__REMARKS:
 				setRemarks((String)newValue);
 				return;
@@ -731,9 +679,6 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SolverPackage.GENERATOR__GENERATOR_FEATURE_MODES:
-				getGeneratorFeatureModes().clear();
-				return;
 			case SolverPackage.GENERATOR__REMARKS:
 				setRemarks(REMARKS_EDEFAULT);
 				return;
@@ -768,8 +713,8 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 				return !getTupleRoot().isEmpty();
 			case SolverPackage.GENERATOR__GOALS:
 				return !getGoals().isEmpty();
-			case SolverPackage.GENERATOR__GENERATOR_FEATURE_MODES:
-				return generatorFeatureModes != null && !generatorFeatureModes.isEmpty();
+			case SolverPackage.GENERATOR__VAR_BINDERS:
+				return !getVarBinders().isEmpty();
 			case SolverPackage.GENERATOR__SOLUTION_PROVIDER:
 				return !getSolutionProvider().isEmpty();
 			case SolverPackage.GENERATOR__REMARKS:
@@ -849,8 +794,6 @@ public abstract class GeneratorImpl extends RunImpl implements Generator {
 			case SolverPackage.GENERATOR___ACCEPT_SOLUTION__SOLUTION:
 				acceptSolution((Solution)arguments.get(0));
 				return null;
-			case SolverPackage.GENERATOR___SELECT_FEATURE_MODE__GENERATORFEATUREMODE_GENERATORTUPLE:
-				return selectFeatureMode((GeneratorFeatureMode)arguments.get(0), (GeneratorTuple)arguments.get(1));
 			case SolverPackage.GENERATOR___VISIT_TUPLES__ITUPLEVISITOR:
 				try {
 					visitTuples((ITupleVisitor)arguments.get(0));

@@ -3,10 +3,10 @@
     modelDirectory="/com.misc.common.moplaf.solver.jacop.emf/src" modelPluginID="com.misc.common.moplaf.solver.jacop.emf"
     modelName="Solverjacop" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
-    usedGenPackages="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver"
+    usedGenPackages="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver ../../com.misc.common.moplaf.job.emf/model/job.genmodel#//job"
     operationReflection="true" importOrganizing="true">
   <foreignModel>solverjacop.ecore</foreignModel>
   <genPackages prefix="Solverjacop" disposableProviderFactory="true" ecorePackage="solverjacop.ecore#/">
-    <genClasses ecoreClass="solverjacop.ecore#//SolverJacop" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/SolutionProvider/Code"/>
+    <genClasses ecoreClass="solverjacop.ecore#//SolverJacop" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/SolutionProviderParams/Code"/>
   </genPackages>
 </genmodel:GenModel>

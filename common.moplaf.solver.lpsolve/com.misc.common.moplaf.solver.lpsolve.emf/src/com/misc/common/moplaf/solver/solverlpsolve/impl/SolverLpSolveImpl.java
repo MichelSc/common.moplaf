@@ -472,7 +472,7 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 	 * Build the lp var
 	 */
 	@Override
-	protected void buildLpVarImpl(GeneratorLpVar var) throws Exception {
+	protected void buildLpVarImpl(GeneratorLpVar var, float lowerBound, float upperBound, EnumLpVarType type) throws Exception {
 		this.var_counter++;
 		// map
 		int varnumber = this.var_counter; // index of the new variable 1-based
@@ -482,15 +482,13 @@ public class SolverLpSolveImpl extends SolverLpImpl implements SolverLpSolve {
 
 		// get the vars elements
 		String varname = var.getCode();
-		float lb = var.getLowerBound();
-		float ub = var.getUpperBound();
 
 		boolean mustBeInteger = !this.isSolverLinearRelaxation()
-				&& var.getType() == EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER;
+				&& type == EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER;
 
 		// set the var elements
 		this.lp.setColName(varnumber, varname);
-		this.lp.setBounds(varnumber, lb, ub);
+		this.lp.setBounds(varnumber, lowerBound, upperBound);
 		this.lp.setInt(varnumber, mustBeInteger);
 	}
 

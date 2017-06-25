@@ -463,17 +463,14 @@ public class SolverScipImpl extends SolverLpImpl implements SolverScip {
      * Build the lp var
 	 */
 	@Override
-	protected void buildLpVarImpl(GeneratorLpVar var) throws Exception {
-		// get the var attributes
-		float lb = var.getLowerBound();
-		float ub = var.getUpperBound();
+	protected void buildLpVarImpl(GeneratorLpVar var, float lowerBound, float upperBound, EnumLpVarType type) throws Exception {
 		int vartype = JniScipVartype.SCIP_VARTYPE_CONTINUOUS;
-		if ( !this.isSolverLinearRelaxation() && var.getType()==EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER)	{
+		if ( !this.isSolverLinearRelaxation() && type==EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER)	{
 			vartype = JniScipVartype.SCIP_VARTYPE_INTEGER;
 		}
 		String varname = var.getCode();
 		// make the var
-        long varNumber = this.envScip.createVarBasic(this.consScip, varname, lb, ub, 0.0, vartype);
+        long varNumber = this.envScip.createVarBasic(this.consScip, varname, lowerBound, upperBound, 0.0, vartype);
         this.envScip.addVar(this.consScip, varNumber);
 		this.vars.put((GeneratorLpVar)var, varNumber);
 	}

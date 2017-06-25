@@ -140,6 +140,15 @@ public interface SolverlpsolvePackage extends EPackage {
 	int SOLVER_LP_SOLVE__RETURN_INFORMATION = SolverPackage.SOLVER_LP__RETURN_INFORMATION;
 
 	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP_SOLVE__CODE = SolverPackage.SOLVER_LP__CODE;
+
+	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -158,15 +167,6 @@ public interface SolverlpsolvePackage extends EPackage {
 	int SOLVER_LP_SOLVE__CURRENT_SOLUTION_NR = SolverPackage.SOLVER_LP__CURRENT_SOLUTION_NR;
 
 	/**
-	 * The feature id for the '<em><b>Code</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_LP_SOLVE__CODE = SolverPackage.SOLVER_LP__CODE;
-
-	/**
 	 * The feature id for the '<em><b>Remarks</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -176,15 +176,6 @@ public interface SolverlpsolvePackage extends EPackage {
 	int SOLVER_LP_SOLVE__REMARKS = SolverPackage.SOLVER_LP__REMARKS;
 
 	/**
-	 * The feature id for the '<em><b>Status</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_LP_SOLVE__STATUS = SolverPackage.SOLVER_LP__STATUS;
-
-	/**
 	 * The feature id for the '<em><b>Solver Max Duration</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -192,6 +183,15 @@ public interface SolverlpsolvePackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP_SOLVE__SOLVER_MAX_DURATION = SolverPackage.SOLVER_LP__SOLVER_MAX_DURATION;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP_SOLVE__STATUS = SolverPackage.SOLVER_LP__STATUS;
 
 	/**
 	 * The feature id for the '<em><b>Solver Log Level</b></em>' attribute.
@@ -392,6 +392,15 @@ public interface SolverlpsolvePackage extends EPackage {
 	int SOLVER_LP_SOLVE__GOALS = SolverPackage.SOLVER_LP__GOALS;
 
 	/**
+	 * The feature id for the '<em><b>Var Binders</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP_SOLVE__VAR_BINDERS = SolverPackage.SOLVER_LP__VAR_BINDERS;
+
+	/**
 	 * The feature id for the '<em><b>Solver Optimality Tolerance</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -453,6 +462,15 @@ public interface SolverlpsolvePackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP_SOLVE_FEATURE_COUNT = SolverPackage.SOLVER_LP_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Copy Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP_SOLVE___COPY_PARAMS__RUNPARAMS = SolverPackage.SOLVER_LP___COPY_PARAMS__RUNPARAMS;
 
 	/**
 	 * The operation id for the '<em>Reset</em>' operation.
@@ -527,6 +545,15 @@ public interface SolverlpsolvePackage extends EPackage {
 	int SOLVER_LP_SOLVE___SET_RETURN__RETURNFEEDBACK = SolverPackage.SOLVER_LP___SET_RETURN__RETURNFEEDBACK;
 
 	/**
+	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP_SOLVE___CONSTRUCT_PARAMS = SolverPackage.SOLVER_LP___CONSTRUCT_PARAMS;
+
+	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -596,7 +623,7 @@ public interface SolverlpsolvePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_LP_SOLVE___BUILD_LP_VAR__GENERATORLPVAR = SolverPackage.SOLVER_LP___BUILD_LP_VAR__GENERATORLPVAR;
+	int SOLVER_LP_SOLVE___BUILD_LP_VAR__GENERATORLPVAR_FLOAT_FLOAT_ENUMLPVARTYPE = SolverPackage.SOLVER_LP___BUILD_LP_VAR__GENERATORLPVAR_FLOAT_FLOAT_ENUMLPVARTYPE;
 
 	/**
 	 * The operation id for the '<em>Build Cons</em>' operation.
@@ -633,6 +660,15 @@ public interface SolverlpsolvePackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP_SOLVE___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE = SolverPackage.SOLVER_LP___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE;
+
+	/**
+	 * The operation id for the '<em>Construct Var Binder</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP_SOLVE___CONSTRUCT_VAR_BINDER__GENERATORVARBINDER = SolverPackage.SOLVER_LP___CONSTRUCT_VAR_BINDER__GENERATORVARBINDER;
 
 	/**
 	 * The operation id for the '<em>Build Goals</em>' operation.

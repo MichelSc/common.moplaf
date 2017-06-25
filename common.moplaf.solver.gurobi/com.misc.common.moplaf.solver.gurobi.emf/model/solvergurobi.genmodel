@@ -3,12 +3,12 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.solver.gurobi.emf/src"
     modelPluginID="com.misc.common.moplaf.solver.gurobi.emf" modelName="Solvergurobi"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="7.0" copyrightFields="false" usedGenPackages="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver"
+    complianceLevel="7.0" copyrightFields="false" usedGenPackages="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver ../../com.misc.common.moplaf.job.emf/model/job.genmodel#//job"
     operationReflection="true" importOrganizing="true">
   <foreignModel>solvergurobi.ecore</foreignModel>
   <genPackages prefix="Solvergurobi" basePackage="com.misc.common.moplaf.solver" disposableProviderFactory="true"
       ecorePackage="solvergurobi.ecore#/">
-    <genClasses image="false" ecoreClass="solvergurobi.ecore#//SolverGurobi" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/SolutionProvider/Code">
+    <genClasses image="false" ecoreClass="solvergurobi.ecore#//SolverGurobi" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/SolutionProviderParams/Code">
       <genFeatures createChild="false" propertyCategory="21 Solver Gurobi" ecoreFeature="ecore:EAttribute solvergurobi.ecore#//SolverGurobi/MaxNofThreads"/>
       <genFeatures createChild="false" propertyCategory="21 Solver GLPK" ecoreFeature="ecore:EAttribute solvergurobi.ecore#//SolverGurobi/SolverLog"/>
     </genClasses>

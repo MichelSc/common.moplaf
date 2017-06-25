@@ -147,23 +147,9 @@ public class SolverSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SolverPackage.GENERATOR_FEATURE_MODE: {
-				GeneratorFeatureMode generatorFeatureMode = (GeneratorFeatureMode)theEObject;
-				T result = caseGeneratorFeatureMode(generatorFeatureMode);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case SolverPackage.GENERATOR_CONSTRAINT_ENABLER: {
 				GeneratorConstraintEnabler generatorConstraintEnabler = (GeneratorConstraintEnabler)theEObject;
 				T result = caseGeneratorConstraintEnabler(generatorConstraintEnabler);
-				if (result == null) result = caseGeneratorFeatureMode(generatorConstraintEnabler);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SolverPackage.GENERATOR_VAR_OVERFLOW: {
-				GeneratorVarOverflow generatorVarOverflow = (GeneratorVarOverflow)theEObject;
-				T result = caseGeneratorVarOverflow(generatorVarOverflow);
-				if (result == null) result = caseGeneratorFeatureMode(generatorVarOverflow);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -450,6 +436,64 @@ public class SolverSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SolverPackage.GENERATOR_VAR_BINDER: {
+				GeneratorVarBinder generatorVarBinder = (GeneratorVarBinder)theEObject;
+				T result = caseGeneratorVarBinder(generatorVarBinder);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SolverPackage.GENERATOR_LP_VAR_BINDER: {
+				GeneratorLpVarBinder generatorLpVarBinder = (GeneratorLpVarBinder)theEObject;
+				T result = caseGeneratorLpVarBinder(generatorLpVarBinder);
+				if (result == null) result = caseGeneratorVarBinder(generatorLpVarBinder);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SolverPackage.GENERATOR_LP_VAR_BINDER_TO_SOLUTION: {
+				GeneratorLpVarBinderToSolution generatorLpVarBinderToSolution = (GeneratorLpVarBinderToSolution)theEObject;
+				T result = caseGeneratorLpVarBinderToSolution(generatorLpVarBinderToSolution);
+				if (result == null) result = caseGeneratorLpVarBinder(generatorLpVarBinderToSolution);
+				if (result == null) result = caseGeneratorVarBinder(generatorLpVarBinderToSolution);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SolverPackage.GENERATOR_LP_VAR_BINDER_TO_VALUE: {
+				GeneratorLpVarBinderToValue generatorLpVarBinderToValue = (GeneratorLpVarBinderToValue)theEObject;
+				T result = caseGeneratorLpVarBinderToValue(generatorLpVarBinderToValue);
+				if (result == null) result = caseGeneratorLpVarBinder(generatorLpVarBinderToValue);
+				if (result == null) result = caseGeneratorVarBinder(generatorLpVarBinderToValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SolverPackage.SOLVER_VAR_BINDER: {
+				SolverVarBinder solverVarBinder = (SolverVarBinder)theEObject;
+				T result = caseSolverVarBinder(solverVarBinder);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SolverPackage.SOLVER_LP_VAR_BINDER: {
+				SolverLpVarBinder solverLpVarBinder = (SolverLpVarBinder)theEObject;
+				T result = caseSolverLpVarBinder(solverLpVarBinder);
+				if (result == null) result = caseSolverVarBinder(solverLpVarBinder);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SolverPackage.SOLVER_LP_VAR_BINDER_TO_SOLUTION: {
+				SolverLpVarBinderToSolution solverLpVarBinderToSolution = (SolverLpVarBinderToSolution)theEObject;
+				T result = caseSolverLpVarBinderToSolution(solverLpVarBinderToSolution);
+				if (result == null) result = caseSolverLpVarBinder(solverLpVarBinderToSolution);
+				if (result == null) result = caseSolverVarBinder(solverLpVarBinderToSolution);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SolverPackage.SOLVER_LP_VAR_BINDER_TO_VALUE: {
+				SolverLpVarBinderToValue solverLpVarBinderToValue = (SolverLpVarBinderToValue)theEObject;
+				T result = caseSolverLpVarBinderToValue(solverLpVarBinderToValue);
+				if (result == null) result = caseSolverLpVarBinder(solverLpVarBinderToValue);
+				if (result == null) result = caseSolverVarBinder(solverLpVarBinderToValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -601,6 +645,126 @@ public class SolverSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSolutionProviderParams(SolutionProviderParams object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Generator Var Binder</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Generator Var Binder</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGeneratorVarBinder(GeneratorVarBinder object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Generator Lp Var Binder</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Generator Lp Var Binder</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGeneratorLpVarBinder(GeneratorLpVarBinder object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Generator Lp Var Binder To Solution</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Generator Lp Var Binder To Solution</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGeneratorLpVarBinderToSolution(GeneratorLpVarBinderToSolution object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Generator Lp Var Binder To Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Generator Lp Var Binder To Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGeneratorLpVarBinderToValue(GeneratorLpVarBinderToValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Var Binder</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Var Binder</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSolverVarBinder(SolverVarBinder object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Lp Var Binder</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Lp Var Binder</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSolverLpVarBinder(SolverLpVarBinder object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Lp Var Binder To Solution</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Lp Var Binder To Solution</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSolverLpVarBinderToSolution(SolverLpVarBinderToSolution object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Lp Var Binder To Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Lp Var Binder To Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSolverLpVarBinderToValue(SolverLpVarBinderToValue object) {
 		return null;
 	}
 
@@ -800,21 +964,6 @@ public class SolverSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Generator Feature Mode</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Generator Feature Mode</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseGeneratorFeatureMode(GeneratorFeatureMode object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Generator Constraint Enabler</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -826,21 +975,6 @@ public class SolverSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGeneratorConstraintEnabler(GeneratorConstraintEnabler object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Generator Var Overflow</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Generator Var Overflow</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseGeneratorVarOverflow(GeneratorVarOverflow object) {
 		return null;
 	}
 

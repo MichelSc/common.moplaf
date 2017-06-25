@@ -16,6 +16,7 @@ import com.misc.common.moplaf.solver.GeneratorConstraintEnabler;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +25,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class GeneratorConstraintEnablerImpl extends GeneratorFeatureModeImpl implements GeneratorConstraintEnabler {
+public class GeneratorConstraintEnablerImpl extends MinimalEObjectImpl.Container implements GeneratorConstraintEnabler {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

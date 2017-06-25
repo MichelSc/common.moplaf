@@ -877,7 +877,7 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
      * Build the lp var
 	 */
 	@Override
-	protected void buildLpVarImpl(GeneratorLpVar var) throws Exception {
+	protected void buildLpVarImpl(GeneratorLpVar var, float lowerBound, float upperBound, EnumLpVarType type) throws Exception {
 		// map
 		this.var_counter++;
 		int varnumber = this.var_counter;
@@ -890,19 +890,17 @@ public class SolverGLPKImpl extends SolverLpImpl implements SolverGLPK {
 		}
 		
 		// fill in the var
-		float lb = var.getLowerBound();
-		float ub = var.getUpperBound();
 		int kind = GLPKConstants.GLP_CV;
-		if ( !this.isSolverLinearRelaxation() && var.getType()==EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER)	{
+		if ( !this.isSolverLinearRelaxation() && type==EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER)	{
 			kind = GLPKConstants.GLP_IV;
 		}
 		String varname = var.getCode();
 		GLPK.glp_set_col_name(this.lp, varnumber, varname);
 		GLPK.glp_set_col_kind(this.lp, varnumber, kind);
-		if ( lb == ub ){
-			GLPK.glp_set_col_bnds(this.lp, varnumber, GLPKConstants.GLP_FX, lb, ub); // Fixed variable
+		if ( lowerBound == upperBound){
+			GLPK.glp_set_col_bnds(this.lp, varnumber, GLPKConstants.GLP_FX, lowerBound, upperBound); // Fixed variable
 		} else {
-			GLPK.glp_set_col_bnds(this.lp, varnumber, GLPKConstants.GLP_DB, lb, ub); // Double-bounded variable
+			GLPK.glp_set_col_bnds(this.lp, varnumber, GLPKConstants.GLP_DB, lowerBound, upperBound); // Double-bounded variable
 		}
 	}
 

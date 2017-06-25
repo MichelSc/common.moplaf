@@ -16,7 +16,9 @@ import com.misc.common.moplaf.solver.EnumLpVarType;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
 import com.misc.common.moplaf.solver.Solver;
+import com.misc.common.moplaf.solver.SolverLpVarBinder;
 import com.misc.common.moplaf.solver.SolverPackage;
+import com.misc.common.moplaf.solver.SolverVarBinder;
 
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
@@ -125,14 +127,16 @@ public class GeneratorLpVarImpl extends GeneratorVarImpl implements GeneratorLpV
 	}
 	
 	
-
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * 
 	 */
 	@Override
-	public void build(Solver builder) throws Exception {
-		builder.buildLpVar(this);
+	public void build(Solver builder, SolverVarBinder modifier) throws Exception {
+		SolverLpVarBinder binder = (SolverLpVarBinder)modifier;
+		float lower_bound = binder == null ? this.getLowerBound() : binder.getLowerBound(this);
+		float upper_bound = binder == null ? this.getUpperBound() : binder.getUpperBound(this);
+		EnumLpVarType type = this.getType();
+		builder.buildLpVar(this, lower_bound, upper_bound, type);
 	}
 
 	/**

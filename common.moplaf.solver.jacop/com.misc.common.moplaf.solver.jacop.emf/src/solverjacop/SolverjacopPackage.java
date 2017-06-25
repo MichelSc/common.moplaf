@@ -77,6 +77,78 @@ public interface SolverjacopPackage extends EPackage {
 	int SOLVER_JACOP = 0;
 
 	/**
+	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP__RUN_FEEDBACK = SolverPackage.SOLVER_CP__RUN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Cancel Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP__CANCEL_FEEDBACK = SolverPackage.SOLVER_CP__CANCEL_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Reset Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP__RESET_FEEDBACK = SolverPackage.SOLVER_CP__RESET_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP__CANCELED = SolverPackage.SOLVER_CP__CANCELED;
+
+	/**
+	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP__RETURN_SUCCESS = SolverPackage.SOLVER_CP__RETURN_SUCCESS;
+
+	/**
+	 * The feature id for the '<em><b>Return Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP__RETURN_FEEDBACK = SolverPackage.SOLVER_CP__RETURN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Return Information</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP__RETURN_INFORMATION = SolverPackage.SOLVER_CP__RETURN_INFORMATION;
+
+	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP__CODE = SolverPackage.SOLVER_CP__CODE;
+
+	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -95,15 +167,6 @@ public interface SolverjacopPackage extends EPackage {
 	int SOLVER_JACOP__CURRENT_SOLUTION_NR = SolverPackage.SOLVER_CP__CURRENT_SOLUTION_NR;
 
 	/**
-	 * The feature id for the '<em><b>Code</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_JACOP__CODE = SolverPackage.SOLVER_CP__CODE;
-
-	/**
 	 * The feature id for the '<em><b>Remarks</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -113,15 +176,6 @@ public interface SolverjacopPackage extends EPackage {
 	int SOLVER_JACOP__REMARKS = SolverPackage.SOLVER_CP__REMARKS;
 
 	/**
-	 * The feature id for the '<em><b>Status</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_JACOP__STATUS = SolverPackage.SOLVER_CP__STATUS;
-
-	/**
 	 * The feature id for the '<em><b>Solver Max Duration</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -129,6 +183,15 @@ public interface SolverjacopPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_JACOP__SOLVER_MAX_DURATION = SolverPackage.SOLVER_CP__SOLVER_MAX_DURATION;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP__STATUS = SolverPackage.SOLVER_CP__STATUS;
 
 	/**
 	 * The feature id for the '<em><b>Solver Log Level</b></em>' attribute.
@@ -329,6 +392,15 @@ public interface SolverjacopPackage extends EPackage {
 	int SOLVER_JACOP__GOALS = SolverPackage.SOLVER_CP__GOALS;
 
 	/**
+	 * The feature id for the '<em><b>Var Binders</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP__VAR_BINDERS = SolverPackage.SOLVER_CP__VAR_BINDERS;
+
+	/**
 	 * The feature id for the '<em><b>Search All</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -345,6 +417,96 @@ public interface SolverjacopPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_JACOP_FEATURE_COUNT = SolverPackage.SOLVER_CP_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Copy Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP___COPY_PARAMS__RUNPARAMS = SolverPackage.SOLVER_CP___COPY_PARAMS__RUNPARAMS;
+
+	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP___RESET = SolverPackage.SOLVER_CP___RESET;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP___RUN = SolverPackage.SOLVER_CP___RUN;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP___RUN__RUNCONTEXT = SolverPackage.SOLVER_CP___RUN__RUNCONTEXT;
+
+	/**
+	 * The operation id for the '<em>Cancel</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP___CANCEL = SolverPackage.SOLVER_CP___CANCEL;
+
+	/**
+	 * The operation id for the '<em>Set Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP___SET_PROGRESS__STRING_FLOAT = SolverPackage.SOLVER_CP___SET_PROGRESS__STRING_FLOAT;
+
+	/**
+	 * The operation id for the '<em>Set Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP___SET_PROGRESS__PROGRESSFEEDBACK = SolverPackage.SOLVER_CP___SET_PROGRESS__PROGRESSFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Get Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP___GET_RETURN = SolverPackage.SOLVER_CP___GET_RETURN;
+
+	/**
+	 * The operation id for the '<em>Set Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP___SET_RETURN__RETURNFEEDBACK = SolverPackage.SOLVER_CP___SET_RETURN__RETURNFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP___CONSTRUCT_PARAMS = SolverPackage.SOLVER_CP___CONSTRUCT_PARAMS;
 
 	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
@@ -416,7 +578,7 @@ public interface SolverjacopPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_JACOP___BUILD_LP_VAR__GENERATORLPVAR = SolverPackage.SOLVER_CP___BUILD_LP_VAR__GENERATORLPVAR;
+	int SOLVER_JACOP___BUILD_LP_VAR__GENERATORLPVAR_FLOAT_FLOAT_ENUMLPVARTYPE = SolverPackage.SOLVER_CP___BUILD_LP_VAR__GENERATORLPVAR_FLOAT_FLOAT_ENUMLPVARTYPE;
 
 	/**
 	 * The operation id for the '<em>Build Cons</em>' operation.
@@ -453,6 +615,15 @@ public interface SolverjacopPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_JACOP___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE = SolverPackage.SOLVER_CP___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE;
+
+	/**
+	 * The operation id for the '<em>Construct Var Binder</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JACOP___CONSTRUCT_VAR_BINDER__GENERATORVARBINDER = SolverPackage.SOLVER_CP___CONSTRUCT_VAR_BINDER__GENERATORVARBINDER;
 
 	/**
 	 * The operation id for the '<em>Build Goals</em>' operation.

@@ -3,7 +3,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.misc.common.moplaf.solver.neos.emf/src" modelPluginID="com.misc.common.moplaf.solver.neos.emf"
     modelName="Solverneos" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
-    usedGenPackages="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver"
+    usedGenPackages="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver ../../com.misc.common.moplaf.job.emf/model/job.genmodel#//job"
     operationReflection="true" importOrganizing="true">
   <foreignModel>solverneos.ecore</foreignModel>
   <genPackages prefix="Solverneos" basePackage="com.misc.common.moplaf.solver" disposableProviderFactory="true"
@@ -23,7 +23,7 @@
       <genEnumLiterals ecoreEnumLiteral="solverneos.ecore#//EnumNeosSolverInput/MPS"/>
       <genEnumLiterals ecoreEnumLiteral="solverneos.ecore#//EnumNeosSolverInput/AMPL"/>
     </genEnums>
-    <genClasses image="false" ecoreClass="solverneos.ecore#//SolverNeos" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/SolutionProvider/Code">
+    <genClasses image="false" ecoreClass="solverneos.ecore#//SolverNeos" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/SolutionProviderParams/Code">
       <genFeatures notify="false" createChild="false" propertyCategory="21 Solver Neos"
           propertySortChoices="true" ecoreFeature="ecore:EReference solverneos.ecore#//SolverNeos/LpWriter"/>
       <genFeatures createChild="false" propertyCategory="21 Solver Neos" propertySortChoices="true"

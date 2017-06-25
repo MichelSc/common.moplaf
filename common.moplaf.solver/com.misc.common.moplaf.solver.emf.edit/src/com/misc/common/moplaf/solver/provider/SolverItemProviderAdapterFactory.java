@@ -221,6 +221,190 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.GeneratorVarBinder} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GeneratorVarBinderItemProvider generatorVarBinderItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.GeneratorVarBinder}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGeneratorVarBinderAdapter() {
+		if (generatorVarBinderItemProvider == null) {
+			generatorVarBinderItemProvider = new GeneratorVarBinderItemProvider(this);
+		}
+
+		return generatorVarBinderItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.GeneratorLpVarBinder} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GeneratorLpVarBinderItemProvider generatorLpVarBinderItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.GeneratorLpVarBinder}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGeneratorLpVarBinderAdapter() {
+		if (generatorLpVarBinderItemProvider == null) {
+			generatorLpVarBinderItemProvider = new GeneratorLpVarBinderItemProvider(this);
+		}
+
+		return generatorLpVarBinderItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.GeneratorLpVarBinderToSolution} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GeneratorLpVarBinderToSolutionItemProvider generatorLpVarBinderToSolutionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.GeneratorLpVarBinderToSolution}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGeneratorLpVarBinderToSolutionAdapter() {
+		if (generatorLpVarBinderToSolutionItemProvider == null) {
+			generatorLpVarBinderToSolutionItemProvider = new GeneratorLpVarBinderToSolutionItemProvider(this);
+		}
+
+		return generatorLpVarBinderToSolutionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.GeneratorLpVarBinderToValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GeneratorLpVarBinderToValueItemProvider generatorLpVarBinderToValueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.GeneratorLpVarBinderToValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGeneratorLpVarBinderToValueAdapter() {
+		if (generatorLpVarBinderToValueItemProvider == null) {
+			generatorLpVarBinderToValueItemProvider = new GeneratorLpVarBinderToValueItemProvider(this);
+		}
+
+		return generatorLpVarBinderToValueItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.SolverVarBinder} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SolverVarBinderItemProvider solverVarBinderItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.SolverVarBinder}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSolverVarBinderAdapter() {
+		if (solverVarBinderItemProvider == null) {
+			solverVarBinderItemProvider = new SolverVarBinderItemProvider(this);
+		}
+
+		return solverVarBinderItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.SolverLpVarBinder} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SolverLpVarBinderItemProvider solverLpVarBinderItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.SolverLpVarBinder}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSolverLpVarBinderAdapter() {
+		if (solverLpVarBinderItemProvider == null) {
+			solverLpVarBinderItemProvider = new SolverLpVarBinderItemProvider(this);
+		}
+
+		return solverLpVarBinderItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.SolverLpVarBinderToSolution} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SolverLpVarBinderToSolutionItemProvider solverLpVarBinderToSolutionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.SolverLpVarBinderToSolution}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSolverLpVarBinderToSolutionAdapter() {
+		if (solverLpVarBinderToSolutionItemProvider == null) {
+			solverLpVarBinderToSolutionItemProvider = new SolverLpVarBinderToSolutionItemProvider(this);
+		}
+
+		return solverLpVarBinderToSolutionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.SolverLpVarBinderToValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SolverLpVarBinderToValueItemProvider solverLpVarBinderToValueItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.SolverLpVarBinderToValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSolverLpVarBinderToValueAdapter() {
+		if (solverLpVarBinderToValueItemProvider == null) {
+			solverLpVarBinderToValueItemProvider = new SolverLpVarBinderToValueItemProvider(this);
+		}
+
+		return solverLpVarBinderToValueItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.SolverGeneratorGoal} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -405,29 +589,6 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.GeneratorFeatureMode} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected GeneratorFeatureModeItemProvider generatorFeatureModeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.GeneratorFeatureMode}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createGeneratorFeatureModeAdapter() {
-		if (generatorFeatureModeItemProvider == null) {
-			generatorFeatureModeItemProvider = new GeneratorFeatureModeItemProvider(this);
-		}
-
-		return generatorFeatureModeItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.GeneratorConstraintEnabler} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -448,29 +609,6 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 		}
 
 		return generatorConstraintEnablerItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.GeneratorVarOverflow} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected GeneratorVarOverflowItemProvider generatorVarOverflowItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.GeneratorVarOverflow}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createGeneratorVarOverflowAdapter() {
-		if (generatorVarOverflowItemProvider == null) {
-			generatorVarOverflowItemProvider = new GeneratorVarOverflowItemProvider(this);
-		}
-
-		return generatorVarOverflowItemProvider;
 	}
 
 	/**
@@ -875,9 +1013,7 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 		if (generatorLpVarItemProvider != null) generatorLpVarItemProvider.dispose();
 		if (generatorLpConsItemProvider != null) generatorLpConsItemProvider.dispose();
 		if (generatorLpTermItemProvider != null) generatorLpTermItemProvider.dispose();
-		if (generatorFeatureModeItemProvider != null) generatorFeatureModeItemProvider.dispose();
 		if (generatorConstraintEnablerItemProvider != null) generatorConstraintEnablerItemProvider.dispose();
-		if (generatorVarOverflowItemProvider != null) generatorVarOverflowItemProvider.dispose();
 		if (solutionReaderPatternItemProvider != null) solutionReaderPatternItemProvider.dispose();
 		if (solverGeneratorGoalItemProvider != null) solverGeneratorGoalItemProvider.dispose();
 		if (solverGoalPreviousSolverItemProvider != null) solverGoalPreviousSolverItemProvider.dispose();
@@ -901,6 +1037,14 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 		if (solverLpParamsItemProvider != null) solverLpParamsItemProvider.dispose();
 		if (solverParamsItemProvider != null) solverParamsItemProvider.dispose();
 		if (solutionProviderParamsItemProvider != null) solutionProviderParamsItemProvider.dispose();
+		if (generatorVarBinderItemProvider != null) generatorVarBinderItemProvider.dispose();
+		if (generatorLpVarBinderItemProvider != null) generatorLpVarBinderItemProvider.dispose();
+		if (generatorLpVarBinderToSolutionItemProvider != null) generatorLpVarBinderToSolutionItemProvider.dispose();
+		if (generatorLpVarBinderToValueItemProvider != null) generatorLpVarBinderToValueItemProvider.dispose();
+		if (solverVarBinderItemProvider != null) solverVarBinderItemProvider.dispose();
+		if (solverLpVarBinderItemProvider != null) solverLpVarBinderItemProvider.dispose();
+		if (solverLpVarBinderToSolutionItemProvider != null) solverLpVarBinderToSolutionItemProvider.dispose();
+		if (solverLpVarBinderToValueItemProvider != null) solverLpVarBinderToValueItemProvider.dispose();
 	}
 
 }

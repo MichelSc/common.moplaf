@@ -768,16 +768,14 @@ public class SolverCplexImpl extends SolverLpImpl implements SolverCplex {
      * Build the lp var
 	 */
 	@Override
-	protected void buildLpVarImpl(GeneratorLpVar var) throws Exception {
+	protected void buildLpVarImpl(GeneratorLpVar var, float lowerBound, float upperBound, EnumLpVarType type) throws Exception {
 		IloNumVarType vartypetobe = IloNumVarType.Float; 
-		if ( !this.isSolverLinearRelaxation() && var.getType()==EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER){
+		if ( !this.isSolverLinearRelaxation() && type==EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER){
 			vartypetobe = IloNumVarType.Int; 
 		}
-		float lb = var.getLowerBound();
-		float ub = var.getUpperBound();
 		String name = var.getCode();
 		// create the var
-		IloNumVar cplexvar = SolverCplexImpl.this.lp.numVar(lb, ub, vartypetobe, name);
+		IloNumVar cplexvar = SolverCplexImpl.this.lp.numVar(lowerBound, upperBound, vartypetobe, name);
 		SolverCplexImpl.this.vars.put(var, cplexvar);
 	}
 

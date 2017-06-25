@@ -79,6 +79,78 @@ public interface SolverjavailpPackage extends EPackage {
 	int SOLVER_JAVA_ILP = 0;
 
 	/**
+	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JAVA_ILP__RUN_FEEDBACK = SolverPackage.SOLVER_LP__RUN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Cancel Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JAVA_ILP__CANCEL_FEEDBACK = SolverPackage.SOLVER_LP__CANCEL_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Reset Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JAVA_ILP__RESET_FEEDBACK = SolverPackage.SOLVER_LP__RESET_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Canceled</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JAVA_ILP__CANCELED = SolverPackage.SOLVER_LP__CANCELED;
+
+	/**
+	 * The feature id for the '<em><b>Return Success</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JAVA_ILP__RETURN_SUCCESS = SolverPackage.SOLVER_LP__RETURN_SUCCESS;
+
+	/**
+	 * The feature id for the '<em><b>Return Feedback</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JAVA_ILP__RETURN_FEEDBACK = SolverPackage.SOLVER_LP__RETURN_FEEDBACK;
+
+	/**
+	 * The feature id for the '<em><b>Return Information</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JAVA_ILP__RETURN_INFORMATION = SolverPackage.SOLVER_LP__RETURN_INFORMATION;
+
+	/**
+	 * The feature id for the '<em><b>Code</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JAVA_ILP__CODE = SolverPackage.SOLVER_LP__CODE;
+
+	/**
 	 * The feature id for the '<em><b>Solution</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -97,15 +169,6 @@ public interface SolverjavailpPackage extends EPackage {
 	int SOLVER_JAVA_ILP__CURRENT_SOLUTION_NR = SolverPackage.SOLVER_LP__CURRENT_SOLUTION_NR;
 
 	/**
-	 * The feature id for the '<em><b>Code</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_JAVA_ILP__CODE = SolverPackage.SOLVER_LP__CODE;
-
-	/**
 	 * The feature id for the '<em><b>Remarks</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -115,15 +178,6 @@ public interface SolverjavailpPackage extends EPackage {
 	int SOLVER_JAVA_ILP__REMARKS = SolverPackage.SOLVER_LP__REMARKS;
 
 	/**
-	 * The feature id for the '<em><b>Status</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SOLVER_JAVA_ILP__STATUS = SolverPackage.SOLVER_LP__STATUS;
-
-	/**
 	 * The feature id for the '<em><b>Solver Max Duration</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -131,6 +185,15 @@ public interface SolverjavailpPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_JAVA_ILP__SOLVER_MAX_DURATION = SolverPackage.SOLVER_LP__SOLVER_MAX_DURATION;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JAVA_ILP__STATUS = SolverPackage.SOLVER_LP__STATUS;
 
 	/**
 	 * The feature id for the '<em><b>Solver Log Level</b></em>' attribute.
@@ -331,6 +394,15 @@ public interface SolverjavailpPackage extends EPackage {
 	int SOLVER_JAVA_ILP__GOALS = SolverPackage.SOLVER_LP__GOALS;
 
 	/**
+	 * The feature id for the '<em><b>Var Binders</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JAVA_ILP__VAR_BINDERS = SolverPackage.SOLVER_LP__VAR_BINDERS;
+
+	/**
 	 * The feature id for the '<em><b>Solver Optimality Tolerance</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -403,6 +475,96 @@ public interface SolverjavailpPackage extends EPackage {
 	int SOLVER_JAVA_ILP_FEATURE_COUNT = SolverPackage.SOLVER_LP_FEATURE_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Copy Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JAVA_ILP___COPY_PARAMS__RUNPARAMS = SolverPackage.SOLVER_LP___COPY_PARAMS__RUNPARAMS;
+
+	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JAVA_ILP___RESET = SolverPackage.SOLVER_LP___RESET;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JAVA_ILP___RUN = SolverPackage.SOLVER_LP___RUN;
+
+	/**
+	 * The operation id for the '<em>Run</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JAVA_ILP___RUN__RUNCONTEXT = SolverPackage.SOLVER_LP___RUN__RUNCONTEXT;
+
+	/**
+	 * The operation id for the '<em>Cancel</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JAVA_ILP___CANCEL = SolverPackage.SOLVER_LP___CANCEL;
+
+	/**
+	 * The operation id for the '<em>Set Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JAVA_ILP___SET_PROGRESS__STRING_FLOAT = SolverPackage.SOLVER_LP___SET_PROGRESS__STRING_FLOAT;
+
+	/**
+	 * The operation id for the '<em>Set Progress</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JAVA_ILP___SET_PROGRESS__PROGRESSFEEDBACK = SolverPackage.SOLVER_LP___SET_PROGRESS__PROGRESSFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Get Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JAVA_ILP___GET_RETURN = SolverPackage.SOLVER_LP___GET_RETURN;
+
+	/**
+	 * The operation id for the '<em>Set Return</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JAVA_ILP___SET_RETURN__RETURNFEEDBACK = SolverPackage.SOLVER_LP___SET_RETURN__RETURNFEEDBACK;
+
+	/**
+	 * The operation id for the '<em>Construct Params</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JAVA_ILP___CONSTRUCT_PARAMS = SolverPackage.SOLVER_LP___CONSTRUCT_PARAMS;
+
+	/**
 	 * The operation id for the '<em>Get Generator</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -472,7 +634,7 @@ public interface SolverjavailpPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_JAVA_ILP___BUILD_LP_VAR__GENERATORLPVAR = SolverPackage.SOLVER_LP___BUILD_LP_VAR__GENERATORLPVAR;
+	int SOLVER_JAVA_ILP___BUILD_LP_VAR__GENERATORLPVAR_FLOAT_FLOAT_ENUMLPVARTYPE = SolverPackage.SOLVER_LP___BUILD_LP_VAR__GENERATORLPVAR_FLOAT_FLOAT_ENUMLPVARTYPE;
 
 	/**
 	 * The operation id for the '<em>Build Cons</em>' operation.
@@ -509,6 +671,15 @@ public interface SolverjavailpPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_JAVA_ILP___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE = SolverPackage.SOLVER_LP___BUILD_LP_CONS__GENERATORELEMENT_GENERATORLPLINEAR_FLOAT_ENUMLPCONSTYPE;
+
+	/**
+	 * The operation id for the '<em>Construct Var Binder</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_JAVA_ILP___CONSTRUCT_VAR_BINDER__GENERATORVARBINDER = SolverPackage.SOLVER_LP___CONSTRUCT_VAR_BINDER__GENERATORVARBINDER;
 
 	/**
 	 * The operation id for the '<em>Build Goals</em>' operation.

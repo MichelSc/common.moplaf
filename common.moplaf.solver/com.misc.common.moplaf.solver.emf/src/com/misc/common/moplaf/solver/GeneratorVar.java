@@ -103,6 +103,6 @@ public interface GeneratorVar extends GeneratorTupleMember {
 	 * @model exceptions="com.misc.common.moplaf.solver.Exception"
 	 * @generated
 	 */
-	void build(Solver builder) throws Exception;
+	void build(Solver builder, SolverVarBinder modifier) throws Exception;
 
 } // GeneratorVar

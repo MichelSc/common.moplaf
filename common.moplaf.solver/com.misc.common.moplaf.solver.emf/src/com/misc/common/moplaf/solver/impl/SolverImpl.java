@@ -16,6 +16,7 @@ import com.misc.common.moplaf.common.EnabledFeedback;
 import com.misc.common.moplaf.common.ReturnFeedback;
 import com.misc.common.moplaf.job.RunContext;
 import com.misc.common.moplaf.solver.EnumLpConsType;
+import com.misc.common.moplaf.solver.EnumLpVarType;
 import com.misc.common.moplaf.solver.EnumObjectiveType;
 import com.misc.common.moplaf.solver.EnumSolverLogLevel;
 import com.misc.common.moplaf.solver.Generator;
@@ -27,8 +28,11 @@ import com.misc.common.moplaf.solver.GeneratorLpGoal;
 import com.misc.common.moplaf.solver.GeneratorLpLinear;
 import com.misc.common.moplaf.solver.GeneratorLpTerm;
 import com.misc.common.moplaf.solver.GeneratorLpVar;
+import com.misc.common.moplaf.solver.GeneratorLpVarBinder;
+import com.misc.common.moplaf.solver.GeneratorLpVarBinderToSolution;
 import com.misc.common.moplaf.solver.GeneratorTuple;
 import com.misc.common.moplaf.solver.GeneratorVar;
+import com.misc.common.moplaf.solver.GeneratorVarBinder;
 import com.misc.common.moplaf.solver.IGeneratorTool;
 import com.misc.common.moplaf.solver.ITupleVisitor;
 import com.misc.common.moplaf.solver.Plugin;
@@ -42,6 +46,7 @@ import com.misc.common.moplaf.solver.SolverGoalPreviousSolver;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import com.misc.common.moplaf.solver.SolverParams;
+import com.misc.common.moplaf.solver.SolverVarBinder;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.Date;
@@ -60,6 +65,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -567,6 +573,16 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	protected EList<SolverGoal> goals;
 
 	/**
+	 * The cached value of the '{@link #getVarBinders() <em>Var Binders</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVarBinders()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SolverVarBinder> varBinders;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -588,6 +604,8 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return basicSetInitialSolution((Solution)otherEnd, msgs);
 			case SolverPackage.SOLVER__GOALS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getGoals()).basicAdd(otherEnd, msgs);
+			case SolverPackage.SOLVER__VAR_BINDERS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getVarBinders()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -603,6 +621,8 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return basicSetInitialSolution(null, msgs);
 			case SolverPackage.SOLVER__GOALS:
 				return ((InternalEList<?>)getGoals()).basicRemove(otherEnd, msgs);
+			case SolverPackage.SOLVER__VAR_BINDERS:
+				return ((InternalEList<?>)getVarBinders()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -776,6 +796,18 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			goals = new EObjectContainmentWithInverseEList<SolverGoal>(SolverGoal.class, this, SolverPackage.SOLVER__GOALS, SolverPackage.SOLVER_GOAL__SOLVER);
 		}
 		return goals;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<SolverVarBinder> getVarBinders() {
+		if (varBinders == null) {
+			varBinders = new EObjectWithInverseResolvingEList<SolverVarBinder>(SolverVarBinder.class, this, SolverPackage.SOLVER__VAR_BINDERS, SolverPackage.SOLVER_VAR_BINDER__SOLVER);
+		}
+		return varBinders;
 	}
 
 	/**
@@ -1132,17 +1164,19 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 
 	/**
 	 * Called by the framework for every {@link GeneratorLpVar} to be added to the solver.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
-	public void buildLpVar(GeneratorLpVar var) throws Exception {
-		this.buildLpVarImpl(var);
+	@Override
+	public void buildLpVar(GeneratorLpVar var, float lowerBound, float upperBound, EnumLpVarType type) throws Exception {
+		this.buildLpVarImpl(var, lowerBound, upperBound, type);
 	}
 
 	/**
 	 * Method to be overriden by a concrete LpSolver for adding a var to the concrete solver.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
-	protected void buildLpVarImpl(GeneratorLpVar var) throws Exception {
+	protected void buildLpVarImpl(GeneratorLpVar var, float lowerBound, float upperBound, EnumLpVarType type) throws Exception {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -1154,12 +1188,20 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 */
 	public void buildVars() throws Exception {
 		Generator generator = this.getGenerator();
+		// gather the var binders
+		HashMap<GeneratorVar, SolverVarBinder> binders = new HashMap<GeneratorVar, SolverVarBinder>();
+		for ( SolverVarBinder var_binder : this.getVarBinders()){
+			for ( GeneratorVar var : var_binder.getVarBinder().getBoundVars()){
+				binders.put(var, var_binder);
+			}
+		}
 		// build the vars
 		class VarMapper implements ITupleVisitor {
 			@Override
 			public void visitTuple(GeneratorTuple tuple) throws Exception {
 				for (GeneratorVar var : tuple.getVar()) {
-					var.build(SolverImpl.this);
+					SolverVarBinder var_binder = binders.get(var);
+					var.build(SolverImpl.this, var_binder);
 				} // traverse the vars of the tuple
 			} // method visitTuple
 		}
@@ -1197,6 +1239,23 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			this.generatorGoalsToConstraint.put((GeneratorGoal) element, rhs);
 		}
 		this.buildLpConsImpl(element, linear, rhs, type);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void constructVarBinder(GeneratorVarBinder binder) {
+		SolverVarBinder solver_binder = null;
+		if ( binder instanceof GeneratorLpVarBinderToSolution){
+			solver_binder = SolverFactory.eINSTANCE.createSolverLpVarBinderToSolution();
+		} else if ( binder instanceof GeneratorLpVarBinder){
+			solver_binder = SolverFactory.eINSTANCE.createSolverLpVarBinderToValue();
+		} else {
+			throw new UnsupportedOperationException();
+		}
+		solver_binder.setVarBinder(binder);
+		this.getVarBinders().add(solver_binder);
 	}
 
 	/**
@@ -1699,6 +1758,8 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return basicGetInitialSolution();
 			case SolverPackage.SOLVER__GOALS:
 				return getGoals();
+			case SolverPackage.SOLVER__VAR_BINDERS:
+				return getVarBinders();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1787,6 +1848,10 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				getGoals().clear();
 				getGoals().addAll((Collection<? extends SolverGoal>)newValue);
 				return;
+			case SolverPackage.SOLVER__VAR_BINDERS:
+				getVarBinders().clear();
+				getVarBinders().addAll((Collection<? extends SolverVarBinder>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1873,6 +1938,9 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 			case SolverPackage.SOLVER__GOALS:
 				getGoals().clear();
 				return;
+			case SolverPackage.SOLVER__VAR_BINDERS:
+				getVarBinders().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1934,6 +2002,8 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				return initialSolution != null;
 			case SolverPackage.SOLVER__GOALS:
 				return goals != null && !goals.isEmpty();
+			case SolverPackage.SOLVER__VAR_BINDERS:
+				return varBinders != null && !varBinders.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1997,9 +2067,9 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
-			case SolverPackage.SOLVER___BUILD_LP_VAR__GENERATORLPVAR:
+			case SolverPackage.SOLVER___BUILD_LP_VAR__GENERATORLPVAR_FLOAT_FLOAT_ENUMLPVARTYPE:
 				try {
-					buildLpVar((GeneratorLpVar)arguments.get(0));
+					buildLpVar((GeneratorLpVar)arguments.get(0), (Float)arguments.get(1), (Float)arguments.get(2), (EnumLpVarType)arguments.get(3));
 					return null;
 				}
 				catch (Throwable throwable) {
@@ -2037,6 +2107,9 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 				catch (Throwable throwable) {
 					throw new InvocationTargetException(throwable);
 				}
+			case SolverPackage.SOLVER___CONSTRUCT_VAR_BINDER__GENERATORVARBINDER:
+				constructVarBinder((GeneratorVarBinder)arguments.get(0));
+				return null;
 			case SolverPackage.SOLVER___BUILD_GOALS:
 				try {
 					buildGoals();

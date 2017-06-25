@@ -86,6 +86,78 @@ public interface SolverFactory extends EFactory {
 	SolutionProviderParams createSolutionProviderParams();
 
 	/**
+	 * Returns a new object of class '<em>Generator Var Binder</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Generator Var Binder</em>'.
+	 * @generated
+	 */
+	GeneratorVarBinder createGeneratorVarBinder();
+
+	/**
+	 * Returns a new object of class '<em>Generator Lp Var Binder</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Generator Lp Var Binder</em>'.
+	 * @generated
+	 */
+	GeneratorLpVarBinder createGeneratorLpVarBinder();
+
+	/**
+	 * Returns a new object of class '<em>Generator Lp Var Binder To Solution</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Generator Lp Var Binder To Solution</em>'.
+	 * @generated
+	 */
+	GeneratorLpVarBinderToSolution createGeneratorLpVarBinderToSolution();
+
+	/**
+	 * Returns a new object of class '<em>Generator Lp Var Binder To Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Generator Lp Var Binder To Value</em>'.
+	 * @generated
+	 */
+	GeneratorLpVarBinderToValue createGeneratorLpVarBinderToValue();
+
+	/**
+	 * Returns a new object of class '<em>Var Binder</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Var Binder</em>'.
+	 * @generated
+	 */
+	SolverVarBinder createSolverVarBinder();
+
+	/**
+	 * Returns a new object of class '<em>Lp Var Binder</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Lp Var Binder</em>'.
+	 * @generated
+	 */
+	SolverLpVarBinder createSolverLpVarBinder();
+
+	/**
+	 * Returns a new object of class '<em>Lp Var Binder To Solution</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Lp Var Binder To Solution</em>'.
+	 * @generated
+	 */
+	SolverLpVarBinderToSolution createSolverLpVarBinderToSolution();
+
+	/**
+	 * Returns a new object of class '<em>Lp Var Binder To Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Lp Var Binder To Value</em>'.
+	 * @generated
+	 */
+	SolverLpVarBinderToValue createSolverLpVarBinderToValue();
+
+	/**
 	 * Returns a new object of class '<em>Generator Goal</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -158,15 +230,6 @@ public interface SolverFactory extends EFactory {
 	GeneratorLpTerm createGeneratorLpTerm();
 
 	/**
-	 * Returns a new object of class '<em>Generator Feature Mode</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Generator Feature Mode</em>'.
-	 * @generated
-	 */
-	GeneratorFeatureMode createGeneratorFeatureMode();
-
-	/**
 	 * Returns a new object of class '<em>Generator Constraint Enabler</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -174,15 +237,6 @@ public interface SolverFactory extends EFactory {
 	 * @generated
 	 */
 	GeneratorConstraintEnabler createGeneratorConstraintEnabler();
-
-	/**
-	 * Returns a new object of class '<em>Generator Var Overflow</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Generator Var Overflow</em>'.
-	 * @generated
-	 */
-	GeneratorVarOverflow createGeneratorVarOverflow();
 
 	/**
 	 * Returns a new object of class '<em>Solution Var</em>'.

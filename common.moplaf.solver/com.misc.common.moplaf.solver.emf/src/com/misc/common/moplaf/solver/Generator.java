@@ -91,7 +91,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getTupleRoot <em>Tuple Root</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getGoals <em>Goals</em>}</li>
- *   <li>{@link com.misc.common.moplaf.solver.Generator#getGeneratorFeatureModes <em>Generator Feature Modes</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.Generator#getVarBinders <em>Var Binders</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getSolutionProvider <em>Solution Provider</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getRemarks <em>Remarks</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.Generator#getFootprintNofVars <em>Footprint Nof Vars</em>}</li>
@@ -315,6 +315,22 @@ public interface Generator extends Run {
 	EList<GeneratorGoal> getGoals();
 
 	/**
+	 * Returns the value of the '<em><b>Var Binders</b></em>' reference list.
+	 * The list contents are of type {@link com.misc.common.moplaf.solver.GeneratorVarBinder}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Var Binders</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Var Binders</em>' reference list.
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getGenerator_VarBinders()
+	 * @model transient="true" changeable="false" volatile="true"
+	 * @generated
+	 */
+	EList<GeneratorVarBinder> getVarBinders();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model dataType="com.misc.common.moplaf.job.ReturnFeedback"
@@ -386,14 +402,6 @@ public interface Generator extends Run {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	GeneratorFeatureMode selectFeatureMode(GeneratorFeatureMode feature, GeneratorTuple object);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model exceptions="com.misc.common.moplaf.solver.Exception" visitorDataType="com.misc.common.moplaf.solver.ITupleVisitor"
 	 * @generated
 	 */
@@ -406,23 +414,5 @@ public interface Generator extends Run {
 	 * @generated
 	 */
 	void refreshSelectedSolution();
-
-	/**
-	 * Returns the value of the '<em><b>Generator Feature Modes</b></em>' reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.solver.GeneratorFeatureMode}.
-	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.GeneratorFeatureMode#getGenerator <em>Generator</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Generator Feature Modes</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Generator Feature Modes</em>' reference list.
-	 * @see com.misc.common.moplaf.solver.SolverPackage#getGenerator_GeneratorFeatureModes()
-	 * @see com.misc.common.moplaf.solver.GeneratorFeatureMode#getGenerator
-	 * @model opposite="Generator"
-	 * @generated
-	 */
-	EList<GeneratorFeatureMode> getGeneratorFeatureModes();
 
 } // Generator

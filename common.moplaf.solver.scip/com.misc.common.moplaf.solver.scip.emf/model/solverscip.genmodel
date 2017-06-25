@@ -3,11 +3,11 @@
     modelDirectory="/com.misc.common.moplaf.solver.scip.emf/src" modelPluginID="com.misc.common.moplaf.solver.scip.emf"
     modelName="Solverscip" modelPluginClass="com.misc.common.moplaf.solver.solverscip.Plugin"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver"
+    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver ../../com.misc.common.moplaf.job.emf/model/job.genmodel#//job"
     operationReflection="true" importOrganizing="true">
   <foreignModel>solverscip.ecore</foreignModel>
   <genPackages prefix="Solverscip" basePackage="com.misc.common.moplaf.solver" disposableProviderFactory="true"
       ecorePackage="solverscip.ecore#/">
-    <genClasses image="false" ecoreClass="solverscip.ecore#//SolverScip" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/SolutionProvider/Code"/>
+    <genClasses image="false" ecoreClass="solverscip.ecore#//SolverScip" labelFeature="../../com.misc.common.moplaf.solver.emf/model/solver.genmodel#//solver/SolutionProviderParams/Code"/>
   </genPackages>
 </genmodel:GenModel>

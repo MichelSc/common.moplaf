@@ -4,6 +4,7 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: com.misc.common.moplaf.solver.scip.emf.edit;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
+Bundle-Activator: com.misc.common.moplaf.solver.solverscip.provider.SolverscipEditPlugin$Implementation
 Bundle-NativeCode: lib/x86_64-linux/todo.so;osname=Linux;processor=x86-64,
  lib/x86_64-win/libjscip-0.1.mingw.x86_64.msvc.opt.spx.dllmich;osname=win32;processor=x86-64
 BBundle-Activator: com.misc.common.moplaf.solver.solverscip.provider.SolverscipEditPlugin$Implementation
@@ -15,5 +16,7 @@ Require-Bundle: org.eclipse.core.runtime,
  com.misc.common.moplaf.solver.scip.emf;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,
  com.misc.common.moplaf.solver.emf;visibility:=reexport,
- com.misc.common.moplaf.solver.emf.edit;visibility:=reexport
+ com.misc.common.moplaf.solver.emf.edit;visibility:=reexport,
+ com.misc.common.moplaf.job.emf;visibility:=reexport,
+ com.misc.common.moplaf.job.emf.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

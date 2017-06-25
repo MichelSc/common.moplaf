@@ -12,6 +12,8 @@
  */
 package com.misc.common.moplaf.solver;
 
+import org.eclipse.emf.ecore.EObject;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -23,5 +25,5 @@ package com.misc.common.moplaf.solver;
  * @model
  * @generated
  */
-public interface GeneratorConstraintEnabler extends GeneratorFeatureMode {
+public interface GeneratorConstraintEnabler extends EObject {
 } // GeneratorConstraintEnabler

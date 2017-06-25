@@ -87,6 +87,7 @@ public class SolverItemProvider
 			addSolValuePropertyDescriptor(object);
 			addRunInterruptedPropertyDescriptor(object);
 			addInitialSolutionPropertyDescriptor(object);
+			addVarBindersPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -230,6 +231,28 @@ public class SolverItemProvider
 	}
 
 
+
+	/**
+	 * This adds a property descriptor for the Var Binders feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVarBindersPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Solver_VarBinders_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Solver_VarBinders_feature", "_UI_Solver_type"),
+				 SolverPackage.Literals.SOLVER__VAR_BINDERS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an

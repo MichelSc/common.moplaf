@@ -552,17 +552,15 @@ public class SolverGurobiImpl extends SolverLpImpl implements SolverGurobi {
      * Build the lp var
 	 */
 	@Override
-	protected void buildLpVarImpl(GeneratorLpVar var) throws Exception {
-		float lb = var.getLowerBound();
-		float ub = var.getUpperBound();
+	protected void buildLpVarImpl(GeneratorLpVar var, float lowerBound, float upperBound, EnumLpVarType type) throws Exception {
 		char kind = GRB.CONTINUOUS;
 		if ( !this.isSolverLinearRelaxation()
-				&& var.getType()==EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER)	{
+				&& type==EnumLpVarType.ENUM_LITERAL_LP_VAR_INTEGER)	{
 			kind = GRB.INTEGER;
 		}
 		String varname = var.getCode();
 		// create the variable
-		GRBVar grbvar = this.model.addVar(lb, ub, 0.0, kind, varname);
+		GRBVar grbvar = this.model.addVar(lowerBound, upperBound, 0.0, kind, varname);
 	    // remember the variable  
 		SolverGurobiImpl.this.vars.put(var, grbvar);
 	}

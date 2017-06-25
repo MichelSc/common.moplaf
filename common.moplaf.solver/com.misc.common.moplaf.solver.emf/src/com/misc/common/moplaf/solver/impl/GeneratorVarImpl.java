@@ -20,6 +20,7 @@ import com.misc.common.moplaf.solver.SolutionVar;
 import com.misc.common.moplaf.solver.Solver;
 import com.misc.common.moplaf.solver.SolverPackage;
 
+import com.misc.common.moplaf.solver.SolverVarBinder;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
@@ -169,6 +170,17 @@ public abstract class GeneratorVarImpl extends GeneratorTupleMemberImpl implemen
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void build(Solver builder, SolverVarBinder modifier) throws Exception {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 */
 	public void build(Solver builder) throws Exception {
 		builder.buildVar(this);
@@ -284,9 +296,9 @@ public abstract class GeneratorVarImpl extends GeneratorTupleMemberImpl implemen
 				return isSolutionZero((Solution)arguments.get(0));
 			case SolverPackage.GENERATOR_VAR___GET_SOLUTION_VALUE__SOLUTION:
 				return getSolutionValue((Solution)arguments.get(0));
-			case SolverPackage.GENERATOR_VAR___BUILD__SOLVER:
+			case SolverPackage.GENERATOR_VAR___BUILD__SOLVER_SOLVERVARBINDER:
 				try {
-					build((Solver)arguments.get(0));
+					build((Solver)arguments.get(0), (SolverVarBinder)arguments.get(1));
 					return null;
 				}
 				catch (Throwable throwable) {
