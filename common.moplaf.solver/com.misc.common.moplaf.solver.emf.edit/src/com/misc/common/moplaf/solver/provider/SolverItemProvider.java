@@ -16,6 +16,7 @@ package com.misc.common.moplaf.solver.provider;
 import com.misc.common.moplaf.emf.edit.command.WriteCommand;
 import com.misc.common.moplaf.solver.Generator;
 import com.misc.common.moplaf.solver.GeneratorGoal;
+import com.misc.common.moplaf.solver.GeneratorVarBinder;
 import com.misc.common.moplaf.solver.ILpWriter;
 import com.misc.common.moplaf.solver.Solution;
 import com.misc.common.moplaf.solver.SolutionProvider;
@@ -260,12 +261,14 @@ public class SolverItemProvider
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(0, SolverPackage.Literals.SOLVER__GOALS);
+			childrenFeatures.add(SolverPackage.Literals.SOLVER__GOALS);
+			childrenFeatures.add(SolverPackage.Literals.SOLVER__VAR_BINDERS);
 		}
 		return childrenFeatures;
 	}
@@ -675,6 +678,7 @@ public class SolverItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SolverPackage.SOLVER__GOALS:
+			case SolverPackage.SOLVER__VAR_BINDERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -728,6 +732,40 @@ public class SolverItemProvider
 	} //method createCommand
 
 
+	/**
+	 * Implements Command constructVarBinder
+	 */
+	public class ConstructVarBinder extends AbstractCommand {
+
+		protected Solver solver;
+		protected GeneratorVarBinder binder;
+		
+		public ConstructVarBinder(Solver solver, GeneratorVarBinder binder) {
+			super();
+			this.solver = solver;
+			this.binder = binder;
+		}
+
+		protected boolean prepare(){
+			isExecutable = true;
+			return isExecutable;
+		}
+
+		public boolean canUndo() { 
+			return false; 
+		}
+
+		@Override
+		public void redo() {
+			execute();		
+		}
+
+		@Override
+		public void execute() {
+			this.solver.constructVarBinder(this.binder);
+		}
+	}
+
 	
 	/**
 	 * Implements Command constructGoal
@@ -756,6 +794,7 @@ public class SolverItemProvider
 		}
 
 	}
+
 
 	public  class ConstructGeneratorGoal extends ConstructGoal {
 		private GeneratorGoal goal;
@@ -810,6 +849,9 @@ public class SolverItemProvider
 		} else if ( droppedObject instanceof Solution){
   	   		Solution droppedSolution = (Solution) droppedObject;
   	   		return new ConstructPreviousSolutionGoal(solver, droppedSolution);
+		} else if ( droppedObject instanceof GeneratorVarBinder){
+		   		GeneratorVarBinder binder = (GeneratorVarBinder) droppedObject;
+		   		return new ConstructVarBinder(solver, binder);
 		} 
 		//return super.createDropCommand(owner, droppedObject);
 		return null;

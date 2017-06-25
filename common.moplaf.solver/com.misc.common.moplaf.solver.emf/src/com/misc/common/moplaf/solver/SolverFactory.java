@@ -230,15 +230,6 @@ public interface SolverFactory extends EFactory {
 	GeneratorLpTerm createGeneratorLpTerm();
 
 	/**
-	 * Returns a new object of class '<em>Generator Constraint Enabler</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Generator Constraint Enabler</em>'.
-	 * @generated
-	 */
-	GeneratorConstraintEnabler createGeneratorConstraintEnabler();
-
-	/**
 	 * Returns a new object of class '<em>Solution Var</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

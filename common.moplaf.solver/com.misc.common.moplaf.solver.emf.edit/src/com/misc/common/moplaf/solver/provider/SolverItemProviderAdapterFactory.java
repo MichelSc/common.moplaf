@@ -589,29 +589,6 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.GeneratorConstraintEnabler} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected GeneratorConstraintEnablerItemProvider generatorConstraintEnablerItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link com.misc.common.moplaf.solver.GeneratorConstraintEnabler}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createGeneratorConstraintEnablerAdapter() {
-		if (generatorConstraintEnablerItemProvider == null) {
-			generatorConstraintEnablerItemProvider = new GeneratorConstraintEnablerItemProvider(this);
-		}
-
-		return generatorConstraintEnablerItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link com.misc.common.moplaf.solver.SolutionVar} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1013,7 +990,6 @@ public class SolverItemProviderAdapterFactory extends SolverAdapterFactory imple
 		if (generatorLpVarItemProvider != null) generatorLpVarItemProvider.dispose();
 		if (generatorLpConsItemProvider != null) generatorLpConsItemProvider.dispose();
 		if (generatorLpTermItemProvider != null) generatorLpTermItemProvider.dispose();
-		if (generatorConstraintEnablerItemProvider != null) generatorConstraintEnablerItemProvider.dispose();
 		if (solutionReaderPatternItemProvider != null) solutionReaderPatternItemProvider.dispose();
 		if (solverGeneratorGoalItemProvider != null) solverGeneratorGoalItemProvider.dispose();
 		if (solverGoalPreviousSolverItemProvider != null) solverGoalPreviousSolverItemProvider.dispose();

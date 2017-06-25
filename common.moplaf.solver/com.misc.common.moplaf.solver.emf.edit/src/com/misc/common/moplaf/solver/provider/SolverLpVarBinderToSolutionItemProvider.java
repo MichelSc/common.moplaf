@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.solver.provider;
 
 
+import com.misc.common.moplaf.solver.SolverLpVarBinderToSolution;
 import com.misc.common.moplaf.solver.SolverPackage;
 
 import java.util.Collection;
@@ -70,17 +71,6 @@ public class SolverLpVarBinderToSolutionItemProvider extends SolverLpVarBinderIt
 	}
 
 	/**
-	 * This returns SolverLpVarBinderToSolution.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SolverLpVarBinderToSolution"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -88,7 +78,10 @@ public class SolverLpVarBinderToSolutionItemProvider extends SolverLpVarBinderIt
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_SolverLpVarBinderToSolution_type");
+		String label = ((SolverLpVarBinderToSolution)object).getLabel();
+		return label == null || label.length() == 0 ?
+			getString("_UI_SolverLpVarBinderToSolution_type") :
+			getString("_UI_SolverLpVarBinderToSolution_type") + " " + label;
 	}
 	
 

@@ -73,17 +73,6 @@ public class GeneratorLpVarBinderToValueItemProvider extends GeneratorLpVarBinde
 	}
 
 	/**
-	 * This returns GeneratorLpVarBinderToValue.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/GeneratorLpVarBinderToValue"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -91,8 +80,10 @@ public class GeneratorLpVarBinderToValueItemProvider extends GeneratorLpVarBinde
 	 */
 	@Override
 	public String getText(Object object) {
-		GeneratorLpVarBinderToValue generatorLpVarBinderToValue = (GeneratorLpVarBinderToValue)object;
-		return getString("_UI_GeneratorLpVarBinderToValue_type") + " " + generatorLpVarBinderToValue.getBoundValue();
+		String label = ((GeneratorLpVarBinderToValue)object).getLabel();
+		return label == null || label.length() == 0 ?
+			getString("_UI_GeneratorLpVarBinderToValue_type") :
+			getString("_UI_GeneratorLpVarBinderToValue_type") + " " + label;
 	}
 	
 

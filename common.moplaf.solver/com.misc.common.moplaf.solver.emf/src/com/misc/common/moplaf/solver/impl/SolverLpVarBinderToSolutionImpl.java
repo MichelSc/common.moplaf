@@ -166,6 +166,15 @@ public class SolverLpVarBinderToSolutionImpl extends SolverLpVarBinderImpl imple
 		return bound;
 	}
 	
-	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public String getLabel() {
+		SolutionLp solution = this.getSelectedSolution();
+		String label = super.getLabel()+ "to solution "+(solution==null ? "null" : solution.getCode());
+		return label;
+	}
 
 } //SolverLpVarBinderToSolutionImpl

@@ -58,7 +58,8 @@
         eType="#//GeneratorGoal" changeable="false" volatile="true" transient="true"
         derived="true" eOpposite="#//GeneratorGoal/Generator"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="VarBinders" upperBound="-1"
-        eType="#//GeneratorVarBinder" changeable="false" volatile="true" transient="true"/>
+        eType="#//GeneratorVarBinder" changeable="false" volatile="true" transient="true"
+        derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="SolutionProvider" upperBound="-1"
         eType="#//SolutionProvider" changeable="false" volatile="true" transient="true"
         derived="true"/>
@@ -168,7 +169,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GeneratorConstraintEnabler"/>
   <eClassifiers xsi:type="ecore:EClass" name="IGeneratorTool" abstract="true" interface="true">
     <eOperations name="getGenerator" eType="#//Generator"/>
     <eOperations name="dispose"/>
@@ -295,7 +295,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Goals" upperBound="-1"
         eType="#//SolverGoal" containment="true" eOpposite="#//SolverGoal/Solver"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="VarBinders" upperBound="-1"
-        eType="#//SolverVarBinder" eOpposite="#//SolverVarBinder/Solver"/>
+        eType="#//SolverVarBinder" containment="true" eOpposite="#//SolverVarBinder/Solver"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolverCp" abstract="true" eSuperTypes="#//Solver">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="SearchAll" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -506,6 +506,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorVarBinder">
     <eStructuralFeatures xsi:type="ecore:EReference" name="BoundVars" upperBound="-1"
         eType="#//GeneratorVar"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpVarBinder" eSuperTypes="#//GeneratorVarBinder"/>
   <eClassifiers xsi:type="ecore:EClass" name="GeneratorLpVarBinderToSolution" eSuperTypes="#//GeneratorLpVarBinder"/>
@@ -516,6 +519,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Solver" lowerBound="1"
         eType="#//Solver" eOpposite="#//Solver/VarBinders"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="VarBinder" eType="#//GeneratorVarBinder"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolverLpVarBinder" eSuperTypes="#//SolverVarBinder">
     <eOperations name="getLowerBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat">

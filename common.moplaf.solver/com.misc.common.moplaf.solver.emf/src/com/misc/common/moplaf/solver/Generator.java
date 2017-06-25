@@ -325,7 +325,7 @@ public interface Generator extends Run {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Var Binders</em>' reference list.
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getGenerator_VarBinders()
-	 * @model transient="true" changeable="false" volatile="true"
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
 	 * @generated
 	 */
 	EList<GeneratorVarBinder> getVarBinders();

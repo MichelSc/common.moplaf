@@ -8,10 +8,12 @@ import com.misc.common.moplaf.solver.SolverPackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
@@ -25,6 +27,8 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorVarBinderImpl#getBoundVars <em>Bound Vars</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorVarBinderImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.GeneratorVarBinderImpl#getLabel <em>Label</em>}</li>
  * </ul>
  *
  * @generated
@@ -39,6 +43,34 @@ public class GeneratorVarBinderImpl extends MinimalEObjectImpl.Container impleme
 	 * @ordered
 	 */
 	protected EList<GeneratorVar> boundVars;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LABEL_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -76,11 +108,44 @@ public class GeneratorVarBinderImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SolverPackage.GENERATOR_VAR_BINDER__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public String getLabel() {
+		return this.getName();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case SolverPackage.GENERATOR_VAR_BINDER__BOUND_VARS:
 				return getBoundVars();
+			case SolverPackage.GENERATOR_VAR_BINDER__NAME:
+				return getName();
+			case SolverPackage.GENERATOR_VAR_BINDER__LABEL:
+				return getLabel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -98,6 +163,9 @@ public class GeneratorVarBinderImpl extends MinimalEObjectImpl.Container impleme
 				getBoundVars().clear();
 				getBoundVars().addAll((Collection<? extends GeneratorVar>)newValue);
 				return;
+			case SolverPackage.GENERATOR_VAR_BINDER__NAME:
+				setName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -113,6 +181,9 @@ public class GeneratorVarBinderImpl extends MinimalEObjectImpl.Container impleme
 			case SolverPackage.GENERATOR_VAR_BINDER__BOUND_VARS:
 				getBoundVars().clear();
 				return;
+			case SolverPackage.GENERATOR_VAR_BINDER__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -127,8 +198,28 @@ public class GeneratorVarBinderImpl extends MinimalEObjectImpl.Container impleme
 		switch (featureID) {
 			case SolverPackage.GENERATOR_VAR_BINDER__BOUND_VARS:
 				return boundVars != null && !boundVars.isEmpty();
+			case SolverPackage.GENERATOR_VAR_BINDER__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case SolverPackage.GENERATOR_VAR_BINDER__LABEL:
+				return LABEL_EDEFAULT == null ? getLabel() != null : !LABEL_EDEFAULT.equals(getLabel());
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (Name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //GeneratorVarBinderImpl

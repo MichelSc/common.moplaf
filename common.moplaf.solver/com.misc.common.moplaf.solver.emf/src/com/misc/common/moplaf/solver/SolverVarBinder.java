@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.SolverVarBinder#getSolver <em>Solver</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.SolverVarBinder#getVarBinder <em>Var Binder</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.SolverVarBinder#getLabel <em>Label</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.solver.SolverPackage#getSolverVarBinder()
@@ -23,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface SolverVarBinder extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Solver</b></em>' reference.
+	 * Returns the value of the '<em><b>Solver</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.Solver#getVarBinders <em>Var Binders</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -31,20 +32,20 @@ public interface SolverVarBinder extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Solver</em>' reference.
+	 * @return the value of the '<em>Solver</em>' container reference.
 	 * @see #setSolver(Solver)
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolverVarBinder_Solver()
 	 * @see com.misc.common.moplaf.solver.Solver#getVarBinders
-	 * @model opposite="VarBinders" required="true"
+	 * @model opposite="VarBinders" required="true" transient="false"
 	 * @generated
 	 */
 	Solver getSolver();
 
 	/**
-	 * Sets the value of the '{@link com.misc.common.moplaf.solver.SolverVarBinder#getSolver <em>Solver</em>}' reference.
+	 * Sets the value of the '{@link com.misc.common.moplaf.solver.SolverVarBinder#getSolver <em>Solver</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Solver</em>' reference.
+	 * @param value the new value of the '<em>Solver</em>' container reference.
 	 * @see #getSolver()
 	 * @generated
 	 */
@@ -75,5 +76,20 @@ public interface SolverVarBinder extends EObject {
 	 * @generated
 	 */
 	void setVarBinder(GeneratorVarBinder value);
+
+	/**
+	 * Returns the value of the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Label</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Label</em>' attribute.
+	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolverVarBinder_Label()
+	 * @model transient="true" changeable="false" volatile="true" derived="true"
+	 * @generated
+	 */
+	String getLabel();
 
 } // SolverVarBinder

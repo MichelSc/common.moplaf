@@ -65,7 +65,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -573,7 +572,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	protected EList<SolverGoal> goals;
 
 	/**
-	 * The cached value of the '{@link #getVarBinders() <em>Var Binders</em>}' reference list.
+	 * The cached value of the '{@link #getVarBinders() <em>Var Binders</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getVarBinders()
@@ -805,7 +804,7 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 	 */
 	public EList<SolverVarBinder> getVarBinders() {
 		if (varBinders == null) {
-			varBinders = new EObjectWithInverseResolvingEList<SolverVarBinder>(SolverVarBinder.class, this, SolverPackage.SOLVER__VAR_BINDERS, SolverPackage.SOLVER_VAR_BINDER__SOLVER);
+			varBinders = new EObjectContainmentWithInverseEList<SolverVarBinder>(SolverVarBinder.class, this, SolverPackage.SOLVER__VAR_BINDERS, SolverPackage.SOLVER_VAR_BINDER__SOLVER);
 		}
 		return varBinders;
 	}

@@ -591,7 +591,7 @@ public interface Solver extends SolutionProvider, SolverParams {
 	EList<SolverGoal> getGoals();
 
 	/**
-	 * Returns the value of the '<em><b>Var Binders</b></em>' reference list.
+	 * Returns the value of the '<em><b>Var Binders</b></em>' containment reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.solver.SolverVarBinder}.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.solver.SolverVarBinder#getSolver <em>Solver</em>}'.
 	 * <!-- begin-user-doc -->
@@ -600,10 +600,10 @@ public interface Solver extends SolutionProvider, SolverParams {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Var Binders</em>' reference list.
+	 * @return the value of the '<em>Var Binders</em>' containment reference list.
 	 * @see com.misc.common.moplaf.solver.SolverPackage#getSolver_VarBinders()
 	 * @see com.misc.common.moplaf.solver.SolverVarBinder#getSolver
-	 * @model opposite="Solver"
+	 * @model opposite="Solver" containment="true"
 	 * @generated
 	 */
 	EList<SolverVarBinder> getVarBinders();

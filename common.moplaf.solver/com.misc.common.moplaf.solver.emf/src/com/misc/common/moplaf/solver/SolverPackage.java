@@ -1448,34 +1448,6 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_LP_TERM_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorConstraintEnablerImpl <em>Generator Constraint Enabler</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see com.misc.common.moplaf.solver.impl.GeneratorConstraintEnablerImpl
-	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorConstraintEnabler()
-	 * @generated
-	 */
-	int GENERATOR_CONSTRAINT_ENABLER = 9;
-
-	/**
-	 * The number of structural features of the '<em>Generator Constraint Enabler</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_CONSTRAINT_ENABLER_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Generator Constraint Enabler</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERATOR_CONSTRAINT_ENABLER_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.IGeneratorTool <em>IGenerator Tool</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1483,7 +1455,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getIGeneratorTool()
 	 * @generated
 	 */
-	int IGENERATOR_TOOL = 10;
+	int IGENERATOR_TOOL = 9;
 
 	/**
 	 * The number of structural features of the '<em>IGenerator Tool</em>' class.
@@ -1529,7 +1501,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionProvider()
 	 * @generated
 	 */
-	int SOLUTION_PROVIDER = 14;
+	int SOLUTION_PROVIDER = 13;
 
 	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
@@ -1773,7 +1745,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionReader()
 	 * @generated
 	 */
-	int SOLUTION_READER = 11;
+	int SOLUTION_READER = 10;
 
 	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
@@ -2044,7 +2016,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionReaderPattern()
 	 * @generated
 	 */
-	int SOLUTION_READER_PATTERN = 12;
+	int SOLUTION_READER_PATTERN = 11;
 
 	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
@@ -2360,7 +2332,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolver()
 	 * @generated
 	 */
-	int SOLVER = 15;
+	int SOLVER = 14;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.ILpWriter <em>ILp Writer</em>}' class.
@@ -2370,7 +2342,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getILpWriter()
 	 * @generated
 	 */
-	int ILP_WRITER = 13;
+	int ILP_WRITER = 12;
 
 	/**
 	 * The feature id for the '<em><b>File Path</b></em>' attribute.
@@ -2769,7 +2741,7 @@ public interface SolverPackage extends EPackage {
 	int SOLVER__GOALS = SOLUTION_PROVIDER_FEATURE_COUNT + 24;
 
 	/**
-	 * The feature id for the '<em><b>Var Binders</b></em>' reference list.
+	 * The feature id for the '<em><b>Var Binders</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3064,7 +3036,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolverLp()
 	 * @generated
 	 */
-	int SOLVER_LP = 17;
+	int SOLVER_LP = 16;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionVarImpl <em>Solution Var</em>}' class.
@@ -3074,7 +3046,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionVar()
 	 * @generated
 	 */
-	int SOLUTION_VAR = 24;
+	int SOLUTION_VAR = 23;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionLpVarImpl <em>Solution Lp Var</em>}' class.
@@ -3084,7 +3056,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionLpVar()
 	 * @generated
 	 */
-	int SOLUTION_LP_VAR = 25;
+	int SOLUTION_LP_VAR = 24;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionConsImpl <em>Solution Cons</em>}' class.
@@ -3094,7 +3066,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionCons()
 	 * @generated
 	 */
-	int SOLUTION_CONS = 27;
+	int SOLUTION_CONS = 26;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionLpConsImpl <em>Solution Lp Cons</em>}' class.
@@ -3104,7 +3076,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionLpCons()
 	 * @generated
 	 */
-	int SOLUTION_LP_CONS = 28;
+	int SOLUTION_LP_CONS = 27;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpConsImpl <em>Generator Cp Cons</em>}' class.
@@ -3114,7 +3086,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpCons()
 	 * @generated
 	 */
-	int GENERATOR_CP_CONS = 31;
+	int GENERATOR_CP_CONS = 30;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpLinearImpl <em>Generator Cp Linear</em>}' class.
@@ -3124,7 +3096,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpLinear()
 	 * @generated
 	 */
-	int GENERATOR_CP_LINEAR = 32;
+	int GENERATOR_CP_LINEAR = 31;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpLogicalImpl <em>Generator Cp Logical</em>}' class.
@@ -3134,7 +3106,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpLogical()
 	 * @generated
 	 */
-	int GENERATOR_CP_LOGICAL = 33;
+	int GENERATOR_CP_LOGICAL = 32;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpVarImpl <em>Generator Cp Var</em>}' class.
@@ -3144,7 +3116,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpVar()
 	 * @generated
 	 */
-	int GENERATOR_CP_VAR = 34;
+	int GENERATOR_CP_VAR = 33;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpVarAtomicImpl <em>Generator Cp Var Atomic</em>}' class.
@@ -3154,7 +3126,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpVarAtomic()
 	 * @generated
 	 */
-	int GENERATOR_CP_VAR_ATOMIC = 35;
+	int GENERATOR_CP_VAR_ATOMIC = 34;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpLinearTermImpl <em>Generator Cp Linear Term</em>}' class.
@@ -3164,7 +3136,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpLinearTerm()
 	 * @generated
 	 */
-	int GENERATOR_CP_LINEAR_TERM = 36;
+	int GENERATOR_CP_LINEAR_TERM = 35;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorCpLogicalTermImpl <em>Generator Cp Logical Term</em>}' class.
@@ -3174,7 +3146,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorCpLogicalTerm()
 	 * @generated
 	 */
-	int GENERATOR_CP_LOGICAL_TERM = 37;
+	int GENERATOR_CP_LOGICAL_TERM = 36;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionCpVarImpl <em>Solution Cp Var</em>}' class.
@@ -3184,7 +3156,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionCpVar()
 	 * @generated
 	 */
-	int SOLUTION_CP_VAR = 26;
+	int SOLUTION_CP_VAR = 25;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolverCpImpl <em>Cp</em>}' class.
@@ -3194,7 +3166,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolverCp()
 	 * @generated
 	 */
-	int SOLVER_CP = 16;
+	int SOLVER_CP = 15;
 
 	/**
 	 * The feature id for the '<em><b>Run Feedback</b></em>' attribute.
@@ -3267,7 +3239,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolution()
 	 * @generated
 	 */
-	int SOLUTION = 21;
+	int SOLUTION = 20;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionLpImpl <em>Solution Lp</em>}' class.
@@ -3277,7 +3249,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionLp()
 	 * @generated
 	 */
-	int SOLUTION_LP = 23;
+	int SOLUTION_LP = 22;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -3532,7 +3504,7 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_CP__GOALS = SOLVER__GOALS;
 
 	/**
-	 * The feature id for the '<em><b>Var Binders</b></em>' reference list.
+	 * The feature id for the '<em><b>Var Binders</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -4144,7 +4116,7 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_LP__GOALS = SOLVER__GOALS;
 
 	/**
-	 * The feature id for the '<em><b>Var Binders</b></em>' reference list.
+	 * The feature id for the '<em><b>Var Binders</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -4466,7 +4438,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionElement()
 	 * @generated
 	 */
-	int SOLUTION_ELEMENT = 22;
+	int SOLUTION_ELEMENT = 21;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionGoalImpl <em>Solution Goal</em>}' class.
@@ -4476,7 +4448,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionGoal()
 	 * @generated
 	 */
-	int SOLUTION_GOAL = 29;
+	int SOLUTION_GOAL = 28;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolutionLpGoalImpl <em>Solution Lp Goal</em>}' class.
@@ -4486,7 +4458,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionLpGoal()
 	 * @generated
 	 */
-	int SOLUTION_LP_GOAL = 30;
+	int SOLUTION_LP_GOAL = 29;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorGoalImpl <em>Generator Goal</em>}' class.
@@ -4496,7 +4468,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorGoal()
 	 * @generated
 	 */
-	int GENERATOR_GOAL = 38;
+	int GENERATOR_GOAL = 37;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpGoalImpl <em>Generator Lp Goal</em>}' class.
@@ -4506,7 +4478,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpGoal()
 	 * @generated
 	 */
-	int GENERATOR_LP_GOAL = 39;
+	int GENERATOR_LP_GOAL = 38;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpLinearImpl <em>Generator Lp Linear</em>}' class.
@@ -4516,7 +4488,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpLinear()
 	 * @generated
 	 */
-	int GENERATOR_LP_LINEAR = 40;
+	int GENERATOR_LP_LINEAR = 39;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.impl.SolverGoalImpl <em>Goal</em>}' class.
@@ -4526,7 +4498,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolverGoal()
 	 * @generated
 	 */
-	int SOLVER_GOAL = 18;
+	int SOLVER_GOAL = 17;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -4581,7 +4553,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolverGeneratorGoal()
 	 * @generated
 	 */
-	int SOLVER_GENERATOR_GOAL = 19;
+	int SOLVER_GENERATOR_GOAL = 18;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -4681,7 +4653,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolverGoalPreviousSolver()
 	 * @generated
 	 */
-	int SOLVER_GOAL_PREVIOUS_SOLVER = 20;
+	int SOLVER_GOAL_PREVIOUS_SOLVER = 19;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -6797,7 +6769,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolutionProviderParams()
 	 * @generated
 	 */
-	int SOLUTION_PROVIDER_PARAMS = 43;
+	int SOLUTION_PROVIDER_PARAMS = 42;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -6843,7 +6815,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolverParams()
 	 * @generated
 	 */
-	int SOLVER_PARAMS = 42;
+	int SOLVER_PARAMS = 41;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -6907,7 +6879,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolverLpParams()
 	 * @generated
 	 */
-	int SOLVER_LP_PARAMS = 41;
+	int SOLVER_LP_PARAMS = 40;
 
 	/**
 	 * The feature id for the '<em><b>Code</b></em>' attribute.
@@ -6989,7 +6961,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorVarBinder()
 	 * @generated
 	 */
-	int GENERATOR_VAR_BINDER = 44;
+	int GENERATOR_VAR_BINDER = 43;
 
 	/**
 	 * The feature id for the '<em><b>Bound Vars</b></em>' reference list.
@@ -7001,13 +6973,31 @@ public interface SolverPackage extends EPackage {
 	int GENERATOR_VAR_BINDER__BOUND_VARS = 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_VAR_BINDER__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_VAR_BINDER__LABEL = 2;
+
+	/**
 	 * The number of structural features of the '<em>Generator Var Binder</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERATOR_VAR_BINDER_FEATURE_COUNT = 1;
+	int GENERATOR_VAR_BINDER_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Generator Var Binder</em>' class.
@@ -7026,7 +7016,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpVarBinder()
 	 * @generated
 	 */
-	int GENERATOR_LP_VAR_BINDER = 45;
+	int GENERATOR_LP_VAR_BINDER = 44;
 
 	/**
 	 * The feature id for the '<em><b>Bound Vars</b></em>' reference list.
@@ -7036,6 +7026,24 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_LP_VAR_BINDER__BOUND_VARS = GENERATOR_VAR_BINDER__BOUND_VARS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_VAR_BINDER__NAME = GENERATOR_VAR_BINDER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_VAR_BINDER__LABEL = GENERATOR_VAR_BINDER__LABEL;
 
 	/**
 	 * The number of structural features of the '<em>Generator Lp Var Binder</em>' class.
@@ -7063,7 +7071,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpVarBinderToSolution()
 	 * @generated
 	 */
-	int GENERATOR_LP_VAR_BINDER_TO_SOLUTION = 46;
+	int GENERATOR_LP_VAR_BINDER_TO_SOLUTION = 45;
 
 	/**
 	 * The feature id for the '<em><b>Bound Vars</b></em>' reference list.
@@ -7073,6 +7081,24 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_LP_VAR_BINDER_TO_SOLUTION__BOUND_VARS = GENERATOR_LP_VAR_BINDER__BOUND_VARS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_VAR_BINDER_TO_SOLUTION__NAME = GENERATOR_LP_VAR_BINDER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_VAR_BINDER_TO_SOLUTION__LABEL = GENERATOR_LP_VAR_BINDER__LABEL;
 
 	/**
 	 * The number of structural features of the '<em>Generator Lp Var Binder To Solution</em>' class.
@@ -7100,7 +7126,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorLpVarBinderToValue()
 	 * @generated
 	 */
-	int GENERATOR_LP_VAR_BINDER_TO_VALUE = 47;
+	int GENERATOR_LP_VAR_BINDER_TO_VALUE = 46;
 
 	/**
 	 * The feature id for the '<em><b>Bound Vars</b></em>' reference list.
@@ -7110,6 +7136,24 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATOR_LP_VAR_BINDER_TO_VALUE__BOUND_VARS = GENERATOR_LP_VAR_BINDER__BOUND_VARS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_VAR_BINDER_TO_VALUE__NAME = GENERATOR_LP_VAR_BINDER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERATOR_LP_VAR_BINDER_TO_VALUE__LABEL = GENERATOR_LP_VAR_BINDER__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Bound Value</b></em>' attribute.
@@ -7146,10 +7190,10 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolverVarBinder()
 	 * @generated
 	 */
-	int SOLVER_VAR_BINDER = 48;
+	int SOLVER_VAR_BINDER = 47;
 
 	/**
-	 * The feature id for the '<em><b>Solver</b></em>' reference.
+	 * The feature id for the '<em><b>Solver</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -7167,13 +7211,22 @@ public interface SolverPackage extends EPackage {
 	int SOLVER_VAR_BINDER__VAR_BINDER = 1;
 
 	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_VAR_BINDER__LABEL = 2;
+
+	/**
 	 * The number of structural features of the '<em>Var Binder</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOLVER_VAR_BINDER_FEATURE_COUNT = 2;
+	int SOLVER_VAR_BINDER_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Var Binder</em>' class.
@@ -7192,10 +7245,10 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolverLpVarBinder()
 	 * @generated
 	 */
-	int SOLVER_LP_VAR_BINDER = 49;
+	int SOLVER_LP_VAR_BINDER = 48;
 
 	/**
-	 * The feature id for the '<em><b>Solver</b></em>' reference.
+	 * The feature id for the '<em><b>Solver</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -7211,6 +7264,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP_VAR_BINDER__VAR_BINDER = SOLVER_VAR_BINDER__VAR_BINDER;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP_VAR_BINDER__LABEL = SOLVER_VAR_BINDER__LABEL;
 
 	/**
 	 * The number of structural features of the '<em>Lp Var Binder</em>' class.
@@ -7256,10 +7318,10 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolverLpVarBinderToSolution()
 	 * @generated
 	 */
-	int SOLVER_LP_VAR_BINDER_TO_SOLUTION = 50;
+	int SOLVER_LP_VAR_BINDER_TO_SOLUTION = 49;
 
 	/**
-	 * The feature id for the '<em><b>Solver</b></em>' reference.
+	 * The feature id for the '<em><b>Solver</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -7275,6 +7337,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP_VAR_BINDER_TO_SOLUTION__VAR_BINDER = SOLVER_LP_VAR_BINDER__VAR_BINDER;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP_VAR_BINDER_TO_SOLUTION__LABEL = SOLVER_LP_VAR_BINDER__LABEL;
 
 	/**
 	 * The feature id for the '<em><b>Selected Solution</b></em>' reference.
@@ -7329,10 +7400,10 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getSolverLpVarBinderToValue()
 	 * @generated
 	 */
-	int SOLVER_LP_VAR_BINDER_TO_VALUE = 51;
+	int SOLVER_LP_VAR_BINDER_TO_VALUE = 50;
 
 	/**
-	 * The feature id for the '<em><b>Solver</b></em>' reference.
+	 * The feature id for the '<em><b>Solver</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -7348,6 +7419,15 @@ public interface SolverPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOLVER_LP_VAR_BINDER_TO_VALUE__VAR_BINDER = SOLVER_LP_VAR_BINDER__VAR_BINDER;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOLVER_LP_VAR_BINDER_TO_VALUE__LABEL = SOLVER_LP_VAR_BINDER__LABEL;
 
 	/**
 	 * The number of structural features of the '<em>Lp Var Binder To Value</em>' class.
@@ -7393,7 +7473,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getITupleVisitor()
 	 * @generated
 	 */
-	int ITUPLE_VISITOR = 59;
+	int ITUPLE_VISITOR = 58;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type.
@@ -7403,7 +7483,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 60;
+	int EXCEPTION = 59;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumLpVarType <em>Enum Lp Var Type</em>}' enum.
@@ -7413,7 +7493,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumLpVarType()
 	 * @generated
 	 */
-	int ENUM_LP_VAR_TYPE = 52;
+	int ENUM_LP_VAR_TYPE = 51;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumLpConsType <em>Enum Lp Cons Type</em>}' enum.
@@ -7423,7 +7503,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumLpConsType()
 	 * @generated
 	 */
-	int ENUM_LP_CONS_TYPE = 53;
+	int ENUM_LP_CONS_TYPE = 52;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumObjectiveType <em>Enum Objective Type</em>}' enum.
@@ -7433,7 +7513,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumObjectiveType()
 	 * @generated
 	 */
-	int ENUM_OBJECTIVE_TYPE = 54;
+	int ENUM_OBJECTIVE_TYPE = 53;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumSolverLogLevel <em>Enum Solver Log Level</em>}' enum.
@@ -7443,7 +7523,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumSolverLogLevel()
 	 * @generated
 	 */
-	int ENUM_SOLVER_LOG_LEVEL = 55;
+	int ENUM_SOLVER_LOG_LEVEL = 54;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumCpLinearType <em>Enum Cp Linear Type</em>}' enum.
@@ -7453,7 +7533,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumCpLinearType()
 	 * @generated
 	 */
-	int ENUM_CP_LINEAR_TYPE = 56;
+	int ENUM_CP_LINEAR_TYPE = 55;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumCpLogicalType <em>Enum Cp Logical Type</em>}' enum.
@@ -7463,7 +7543,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumCpLogicalType()
 	 * @generated
 	 */
-	int ENUM_CP_LOGICAL_TYPE = 57;
+	int ENUM_CP_LOGICAL_TYPE = 56;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.solver.EnumLpFileFormat <em>Enum Lp File Format</em>}' enum.
@@ -7473,7 +7553,7 @@ public interface SolverPackage extends EPackage {
 	 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getEnumLpFileFormat()
 	 * @generated
 	 */
-	int ENUM_LP_FILE_FORMAT = 58;
+	int ENUM_LP_FILE_FORMAT = 57;
 
 
 	/**
@@ -8235,6 +8315,28 @@ public interface SolverPackage extends EPackage {
 	EReference getGeneratorVarBinder_BoundVars();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorVarBinder#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see com.misc.common.moplaf.solver.GeneratorVarBinder#getName()
+	 * @see #getGeneratorVarBinder()
+	 * @generated
+	 */
+	EAttribute getGeneratorVarBinder_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.GeneratorVarBinder#getLabel <em>Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Label</em>'.
+	 * @see com.misc.common.moplaf.solver.GeneratorVarBinder#getLabel()
+	 * @see #getGeneratorVarBinder()
+	 * @generated
+	 */
+	EAttribute getGeneratorVarBinder_Label();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorLpVarBinder <em>Generator Lp Var Binder</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8286,10 +8388,10 @@ public interface SolverPackage extends EPackage {
 	EClass getSolverVarBinder();
 
 	/**
-	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.solver.SolverVarBinder#getSolver <em>Solver</em>}'.
+	 * Returns the meta object for the container reference '{@link com.misc.common.moplaf.solver.SolverVarBinder#getSolver <em>Solver</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Solver</em>'.
+	 * @return the meta object for the container reference '<em>Solver</em>'.
 	 * @see com.misc.common.moplaf.solver.SolverVarBinder#getSolver()
 	 * @see #getSolverVarBinder()
 	 * @generated
@@ -8306,6 +8408,17 @@ public interface SolverPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSolverVarBinder_VarBinder();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.solver.SolverVarBinder#getLabel <em>Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Label</em>'.
+	 * @see com.misc.common.moplaf.solver.SolverVarBinder#getLabel()
+	 * @see #getSolverVarBinder()
+	 * @generated
+	 */
+	EAttribute getSolverVarBinder_Label();
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.SolverLpVarBinder <em>Lp Var Binder</em>}'.
@@ -9002,16 +9115,6 @@ public interface SolverPackage extends EPackage {
 	EAttribute getGeneratorLpTerm_Description();
 
 	/**
-	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.GeneratorConstraintEnabler <em>Generator Constraint Enabler</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Generator Constraint Enabler</em>'.
-	 * @see com.misc.common.moplaf.solver.GeneratorConstraintEnabler
-	 * @generated
-	 */
-	EClass getGeneratorConstraintEnabler();
-
-	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.solver.Solver <em>Solver</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9242,10 +9345,10 @@ public interface SolverPackage extends EPackage {
 	EReference getSolver_Goals();
 
 	/**
-	 * Returns the meta object for the reference list '{@link com.misc.common.moplaf.solver.Solver#getVarBinders <em>Var Binders</em>}'.
+	 * Returns the meta object for the containment reference list '{@link com.misc.common.moplaf.solver.Solver#getVarBinders <em>Var Binders</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Var Binders</em>'.
+	 * @return the meta object for the containment reference list '<em>Var Binders</em>'.
 	 * @see com.misc.common.moplaf.solver.Solver#getVarBinders()
 	 * @see #getSolver()
 	 * @generated
@@ -10875,6 +10978,22 @@ public interface SolverPackage extends EPackage {
 		EReference GENERATOR_VAR_BINDER__BOUND_VARS = eINSTANCE.getGeneratorVarBinder_BoundVars();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERATOR_VAR_BINDER__NAME = eINSTANCE.getGeneratorVarBinder_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERATOR_VAR_BINDER__LABEL = eINSTANCE.getGeneratorVarBinder_Label();
+
+		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorLpVarBinderImpl <em>Generator Lp Var Binder</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -10923,7 +11042,7 @@ public interface SolverPackage extends EPackage {
 		EClass SOLVER_VAR_BINDER = eINSTANCE.getSolverVarBinder();
 
 		/**
-		 * The meta object literal for the '<em><b>Solver</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Solver</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -10937,6 +11056,14 @@ public interface SolverPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SOLVER_VAR_BINDER__VAR_BINDER = eINSTANCE.getSolverVarBinder_VarBinder();
+
+		/**
+		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOLVER_VAR_BINDER__LABEL = eINSTANCE.getSolverVarBinder_Label();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.SolverLpVarBinderImpl <em>Lp Var Binder</em>}' class.
@@ -11495,16 +11622,6 @@ public interface SolverPackage extends EPackage {
 		EAttribute GENERATOR_LP_TERM__DESCRIPTION = eINSTANCE.getGeneratorLpTerm_Description();
 
 		/**
-		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.GeneratorConstraintEnablerImpl <em>Generator Constraint Enabler</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see com.misc.common.moplaf.solver.impl.GeneratorConstraintEnablerImpl
-		 * @see com.misc.common.moplaf.solver.impl.SolverPackageImpl#getGeneratorConstraintEnabler()
-		 * @generated
-		 */
-		EClass GENERATOR_CONSTRAINT_ENABLER = eINSTANCE.getGeneratorConstraintEnabler();
-
-		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.solver.impl.SolverImpl <em>Solver</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -11675,7 +11792,7 @@ public interface SolverPackage extends EPackage {
 		EReference SOLVER__GOALS = eINSTANCE.getSolver_Goals();
 
 		/**
-		 * The meta object literal for the '<em><b>Var Binders</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Var Binders</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

@@ -53,8 +53,7 @@
       <genFeatures property="None" notify="false" createChild="false" propertyCategory=""
           ecoreFeature="ecore:EReference solver.ecore#//Generator/TupleRoot"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//Generator/Goals"/>
-      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
-          ecoreFeature="ecore:EReference solver.ecore#//Generator/GeneratorFeatureModes"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//Generator/VarBinders"/>
       <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference solver.ecore#//Generator/SolutionProvider"/>
       <genFeatures createChild="false" propertyCategory="10 General" propertyMultiLine="true"
@@ -77,10 +76,6 @@
       <genOperations ecoreOperation="solver.ecore#//Generator/generateGoals"/>
       <genOperations ecoreOperation="solver.ecore#//Generator/acceptSolution">
         <genParameters ecoreParameter="solver.ecore#//Generator/acceptSolution/solutionprovider"/>
-      </genOperations>
-      <genOperations ecoreOperation="solver.ecore#//Generator/selectFeatureMode">
-        <genParameters ecoreParameter="solver.ecore#//Generator/selectFeatureMode/feature"/>
-        <genParameters ecoreParameter="solver.ecore#//Generator/selectFeatureMode/object"/>
       </genOperations>
       <genOperations ecoreOperation="solver.ecore#//Generator/visitTuples">
         <genParameters ecoreParameter="solver.ecore#//Generator/visitTuples/visitor"/>
@@ -134,6 +129,7 @@
       </genOperations>
       <genOperations ecoreOperation="solver.ecore#//GeneratorVar/build">
         <genParameters ecoreParameter="solver.ecore#//GeneratorVar/build/builder"/>
+        <genParameters ecoreParameter="solver.ecore#//GeneratorVar/build/modifier"/>
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="solver.ecore#//GeneratorLpVar" labelFeature="#//solver/GeneratorTupleMember/Label">
@@ -165,20 +161,6 @@
       <genFeatures notify="false" children="true" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference solver.ecore#//GeneratorLpTerm/LpLinear"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpTerm/Description"/>
-    </genClasses>
-    <genClasses ecoreClass="solver.ecore#//GeneratorFeatureMode">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//GeneratorFeatureMode/Generator"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//GeneratorFeatureMode/ObjetScope"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorFeatureMode/Code"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorFeatureMode/ERemarks"/>
-      <genOperations ecoreOperation="solver.ecore#//GeneratorFeatureMode/IsObjectInScope">
-        <genParameters ecoreParameter="solver.ecore#//GeneratorFeatureMode/IsObjectInScope/object"/>
-      </genOperations>
-    </genClasses>
-    <genClasses ecoreClass="solver.ecore#//GeneratorConstraintEnabler"/>
-    <genClasses ecoreClass="solver.ecore#//GeneratorVarOverflow">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorVarOverflow/CostOverFlow"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorVarOverflow/MaxEnforce"/>
     </genClasses>
     <genClasses image="false" ecoreClass="solver.ecore#//IGeneratorTool">
       <genOperations ecoreOperation="solver.ecore#//IGeneratorTool/getGenerator"/>
@@ -252,6 +234,8 @@
       <genFeatures notify="false" createChild="false" propertyCategory="20 Solver"
           propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//Solver/InitialSolution"/>
       <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//Solver/Goals"/>
+      <genFeatures children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference solver.ecore#//Solver/VarBinders"/>
       <genOperations ecoreOperation="solver.ecore#//Solver/solve"/>
       <genOperations ecoreOperation="solver.ecore#//Solver/buildVars"/>
       <genOperations ecoreOperation="solver.ecore#//Solver/buildVar">
@@ -259,6 +243,9 @@
       </genOperations>
       <genOperations ecoreOperation="solver.ecore#//Solver/buildLpVar">
         <genParameters ecoreParameter="solver.ecore#//Solver/buildLpVar/var"/>
+        <genParameters ecoreParameter="solver.ecore#//Solver/buildLpVar/lowerBound"/>
+        <genParameters ecoreParameter="solver.ecore#//Solver/buildLpVar/upperBound"/>
+        <genParameters ecoreParameter="solver.ecore#//Solver/buildLpVar/type"/>
       </genOperations>
       <genOperations ecoreOperation="solver.ecore#//Solver/buildCons"/>
       <genOperations ecoreOperation="solver.ecore#//Solver/buildCons.1">
@@ -272,6 +259,9 @@
         <genParameters ecoreParameter="solver.ecore#//Solver/buildLpCons.1/linear"/>
         <genParameters ecoreParameter="solver.ecore#//Solver/buildLpCons.1/rhs"/>
         <genParameters ecoreParameter="solver.ecore#//Solver/buildLpCons.1/type"/>
+      </genOperations>
+      <genOperations ecoreOperation="solver.ecore#//Solver/constructVarBinder">
+        <genParameters ecoreParameter="solver.ecore#//Solver/constructVarBinder/binder"/>
       </genOperations>
       <genOperations ecoreOperation="solver.ecore#//Solver/buildGoals"/>
       <genOperations ecoreOperation="solver.ecore#//Solver/buildLpGoal">
@@ -455,5 +445,35 @@
     <genClasses image="false" ecoreClass="solver.ecore#//SolutionProviderParams">
       <genFeatures createChild="false" propertyCategory="10 General" ecoreFeature="ecore:EAttribute solver.ecore#//SolutionProviderParams/Code"/>
     </genClasses>
+    <genClasses ecoreClass="solver.ecore#//GeneratorVarBinder" labelFeature="#//solver/GeneratorVarBinder/Label">
+      <genFeatures notify="false" children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference solver.ecore#//GeneratorVarBinder/BoundVars"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorVarBinder/Name"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorVarBinder/Label"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="solver.ecore#//GeneratorLpVarBinder" labelFeature="#//solver/GeneratorVarBinder/Label"/>
+    <genClasses image="false" ecoreClass="solver.ecore#//GeneratorLpVarBinderToSolution"
+        labelFeature="#//solver/GeneratorVarBinder/Label"/>
+    <genClasses image="false" ecoreClass="solver.ecore#//GeneratorLpVarBinderToValue"
+        labelFeature="#//solver/GeneratorVarBinder/Label">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//GeneratorLpVarBinderToValue/BoundValue"/>
+    </genClasses>
+    <genClasses ecoreClass="solver.ecore#//SolverVarBinder">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//SolverVarBinder/Solver"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//SolverVarBinder/VarBinder"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//SolverVarBinder/Label"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="solver.ecore#//SolverLpVarBinder">
+      <genOperations ecoreOperation="solver.ecore#//SolverLpVarBinder/getLowerBound">
+        <genParameters ecoreParameter="solver.ecore#//SolverLpVarBinder/getLowerBound/var"/>
+      </genOperations>
+      <genOperations ecoreOperation="solver.ecore#//SolverLpVarBinder/getUpperBound">
+        <genParameters ecoreParameter="solver.ecore#//SolverLpVarBinder/getUpperBound/var"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="solver.ecore#//SolverLpVarBinderToSolution">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//SolverLpVarBinderToSolution/SelectedSolution"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="solver.ecore#//SolverLpVarBinderToValue"/>
   </genPackages>
 </genmodel:GenModel>

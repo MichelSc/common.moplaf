@@ -116,10 +116,6 @@ public class SolverAdapterFactory extends AdapterFactoryImpl {
 				return createGeneratorLpTermAdapter();
 			}
 			@Override
-			public Adapter caseGeneratorConstraintEnabler(GeneratorConstraintEnabler object) {
-				return createGeneratorConstraintEnablerAdapter();
-			}
-			@Override
 			public Adapter caseIGeneratorTool(IGeneratorTool object) {
 				return createIGeneratorToolAdapter();
 			}
@@ -746,20 +742,6 @@ public class SolverAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGeneratorLpTermAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link com.misc.common.moplaf.solver.GeneratorConstraintEnabler <em>Generator Constraint Enabler</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.misc.common.moplaf.solver.GeneratorConstraintEnabler
-	 * @generated
-	 */
-	public Adapter createGeneratorConstraintEnablerAdapter() {
 		return null;
 	}
 

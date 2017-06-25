@@ -5,6 +5,7 @@ package com.misc.common.moplaf.solver.provider;
 
 import com.misc.common.moplaf.solver.SolverPackage;
 
+import com.misc.common.moplaf.solver.SolverVarBinder;
 import java.util.Collection;
 import java.util.List;
 
@@ -20,7 +21,9 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link com.misc.common.moplaf.solver.SolverVarBinder} object.
@@ -59,6 +62,7 @@ public class SolverVarBinderItemProvider
 
 			addSolverPropertyDescriptor(object);
 			addVarBinderPropertyDescriptor(object);
+			addLabelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -108,14 +112,35 @@ public class SolverVarBinderItemProvider
 	}
 
 	/**
-	 * This returns SolverVarBinder.gif.
+	 * This adds a property descriptor for the Label feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	protected void addLabelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SolverVarBinder_Label_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SolverVarBinder_Label_feature", "_UI_SolverVarBinder_type"),
+				 SolverPackage.Literals.SOLVER_VAR_BINDER__LABEL,
+				 false,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns SolverVarBinder.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SolverVarBinder"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/exclude-squares.png"));
 	}
 
 	/**
@@ -126,7 +151,10 @@ public class SolverVarBinderItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_SolverVarBinder_type");
+		String label = ((SolverVarBinder)object).getLabel();
+		return label == null || label.length() == 0 ?
+			getString("_UI_SolverVarBinder_type") :
+			getString("_UI_SolverVarBinder_type") + " " + label;
 	}
 	
 
@@ -140,6 +168,12 @@ public class SolverVarBinderItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(SolverVarBinder.class)) {
+			case SolverPackage.SOLVER_VAR_BINDER__LABEL:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

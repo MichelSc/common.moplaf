@@ -50,5 +50,15 @@ public class SolverLpVarBinderToValueImpl extends SolverLpVarBinderImpl implemen
 		return bound;
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public String getLabel() {
+		GeneratorLpVarBinderToValue binder = (GeneratorLpVarBinderToValue)this.getVarBinder(); 
+		String label = String.format("%s to value %f", super.getLabel(), binder.getBoundValue());
+		return label;
+	}
 
 } //SolverLpVarBinderToValueImpl

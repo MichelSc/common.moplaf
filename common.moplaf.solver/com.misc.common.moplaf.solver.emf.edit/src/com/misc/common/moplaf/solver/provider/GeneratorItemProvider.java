@@ -62,7 +62,6 @@ public class GeneratorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addVarBindersPropertyDescriptor(object);
 			addRemarksPropertyDescriptor(object);
 			addFootprintNofVarsPropertyDescriptor(object);
 			addFootprintNofConsPropertyDescriptor(object);
@@ -71,28 +70,6 @@ public class GeneratorItemProvider
 			addSelectedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Var Binders feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addVarBindersPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Generator_VarBinders_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Generator_VarBinders_feature", "_UI_Generator_type"),
-				 SolverPackage.Literals.GENERATOR__VAR_BINDERS,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**

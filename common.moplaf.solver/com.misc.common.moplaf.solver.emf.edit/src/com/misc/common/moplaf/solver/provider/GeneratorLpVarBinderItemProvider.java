@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.solver.provider;
 
 
+import com.misc.common.moplaf.solver.GeneratorLpVarBinder;
 import java.util.Collection;
 import java.util.List;
 
@@ -44,17 +45,6 @@ public class GeneratorLpVarBinderItemProvider extends GeneratorVarBinderItemProv
 	}
 
 	/**
-	 * This returns GeneratorLpVarBinder.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/GeneratorLpVarBinder"));
-	}
-
-	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,7 +52,10 @@ public class GeneratorLpVarBinderItemProvider extends GeneratorVarBinderItemProv
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_GeneratorLpVarBinder_type");
+		String label = ((GeneratorLpVarBinder)object).getLabel();
+		return label == null || label.length() == 0 ?
+			getString("_UI_GeneratorLpVarBinder_type") :
+			getString("_UI_GeneratorLpVarBinder_type") + " " + label;
 	}
 	
 

@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.solver.impl;
 
 import com.misc.common.moplaf.solver.GeneratorLpVar;
+import com.misc.common.moplaf.solver.GeneratorVarBinder;
 import com.misc.common.moplaf.solver.SolverLpVarBinder;
 import com.misc.common.moplaf.solver.SolverPackage;
 
@@ -58,6 +59,18 @@ public class SolverLpVarBinderImpl extends SolverVarBinderImpl implements Solver
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public String getLabel() {
+		GeneratorVarBinder binder = this.getVarBinder();
+		String name = binder == null ? "null" : binder.getName();
+		String label = "Bound "+ name;
+		return label;
 	}
 
 	/**

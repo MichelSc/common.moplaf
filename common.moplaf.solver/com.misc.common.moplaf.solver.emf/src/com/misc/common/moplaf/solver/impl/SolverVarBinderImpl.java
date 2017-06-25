@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,21 +27,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolverVarBinderImpl#getSolver <em>Solver</em>}</li>
  *   <li>{@link com.misc.common.moplaf.solver.impl.SolverVarBinderImpl#getVarBinder <em>Var Binder</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.solver.impl.SolverVarBinderImpl#getLabel <em>Label</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class SolverVarBinderImpl extends MinimalEObjectImpl.Container implements SolverVarBinder {
-	/**
-	 * The cached value of the '{@link #getSolver() <em>Solver</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSolver()
-	 * @generated
-	 * @ordered
-	 */
-	protected Solver solver;
-
 	/**
 	 * The cached value of the '{@link #getVarBinder() <em>Var Binder</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -50,6 +42,16 @@ public class SolverVarBinderImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected GeneratorVarBinder varBinder;
+
+	/**
+	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String LABEL_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -76,24 +78,8 @@ public class SolverVarBinderImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public Solver getSolver() {
-		if (solver != null && solver.eIsProxy()) {
-			InternalEObject oldSolver = (InternalEObject)solver;
-			solver = (Solver)eResolveProxy(oldSolver);
-			if (solver != oldSolver) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SolverPackage.SOLVER_VAR_BINDER__SOLVER, oldSolver, solver));
-			}
-		}
-		return solver;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Solver basicGetSolver() {
-		return solver;
+		if (eContainerFeatureID() != SolverPackage.SOLVER_VAR_BINDER__SOLVER) return null;
+		return (Solver)eInternalContainer();
 	}
 
 	/**
@@ -102,12 +88,7 @@ public class SolverVarBinderImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public NotificationChain basicSetSolver(Solver newSolver, NotificationChain msgs) {
-		Solver oldSolver = solver;
-		solver = newSolver;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SolverPackage.SOLVER_VAR_BINDER__SOLVER, oldSolver, newSolver);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eBasicSetContainer((InternalEObject)newSolver, SolverPackage.SOLVER_VAR_BINDER__SOLVER, msgs);
 		return msgs;
 	}
 
@@ -117,10 +98,12 @@ public class SolverVarBinderImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public void setSolver(Solver newSolver) {
-		if (newSolver != solver) {
+		if (newSolver != eInternalContainer() || (eContainerFeatureID() != SolverPackage.SOLVER_VAR_BINDER__SOLVER && newSolver != null)) {
+			if (EcoreUtil.isAncestor(this, newSolver))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
-			if (solver != null)
-				msgs = ((InternalEObject)solver).eInverseRemove(this, SolverPackage.SOLVER__VAR_BINDERS, Solver.class, msgs);
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
 			if (newSolver != null)
 				msgs = ((InternalEObject)newSolver).eInverseAdd(this, SolverPackage.SOLVER__VAR_BINDERS, Solver.class, msgs);
 			msgs = basicSetSolver(newSolver, msgs);
@@ -173,12 +156,23 @@ public class SolverVarBinderImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getLabel() {
+		// TODO: implement this method to return the 'Label' attribute
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case SolverPackage.SOLVER_VAR_BINDER__SOLVER:
-				if (solver != null)
-					msgs = ((InternalEObject)solver).eInverseRemove(this, SolverPackage.SOLVER__VAR_BINDERS, Solver.class, msgs);
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetSolver((Solver)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -204,14 +198,29 @@ public class SolverVarBinderImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case SolverPackage.SOLVER_VAR_BINDER__SOLVER:
+				return eInternalContainer().eInverseRemove(this, SolverPackage.SOLVER__VAR_BINDERS, Solver.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case SolverPackage.SOLVER_VAR_BINDER__SOLVER:
-				if (resolve) return getSolver();
-				return basicGetSolver();
+				return getSolver();
 			case SolverPackage.SOLVER_VAR_BINDER__VAR_BINDER:
 				if (resolve) return getVarBinder();
 				return basicGetVarBinder();
+			case SolverPackage.SOLVER_VAR_BINDER__LABEL:
+				return getLabel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -261,9 +270,11 @@ public class SolverVarBinderImpl extends MinimalEObjectImpl.Container implements
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case SolverPackage.SOLVER_VAR_BINDER__SOLVER:
-				return solver != null;
+				return getSolver() != null;
 			case SolverPackage.SOLVER_VAR_BINDER__VAR_BINDER:
 				return varBinder != null;
+			case SolverPackage.SOLVER_VAR_BINDER__LABEL:
+				return LABEL_EDEFAULT == null ? getLabel() != null : !LABEL_EDEFAULT.equals(getLabel());
 		}
 		return super.eIsSet(featureID);
 	}
