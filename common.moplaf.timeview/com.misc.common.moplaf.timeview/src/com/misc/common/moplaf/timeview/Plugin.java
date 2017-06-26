@@ -10,16 +10,27 @@
  *******************************************************************************/
 package com.misc.common.moplaf.timeview;
 
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.jface.util.IPropertyChangeListener;
+import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
+
+import com.misc.common.moplaf.timeview.preference.PrefConstants;
+import com.misc.common.moplaf.timeview.Plugin;
+import com.misc.common.moplaf.timeview.preference.Activator;
 
 /**
  * The activator class controls the plug-in life cycle
  */
-public class Plugin extends AbstractUIPlugin {
+public class Plugin extends AbstractUIPlugin implements PrefConstants {
 	
+	public static  Plugin INSTANCE = null;
+
 	private int ganttMaxDepth = 4;
+	private int ganttRowHeight = 4;
+	private int ganttEmptyRowHeight = 4;
 
 	public int getGanttMaxDepth() {
 		return ganttMaxDepth;
@@ -27,6 +38,22 @@ public class Plugin extends AbstractUIPlugin {
 
 	public void setGanttMaxDepth(int ganttMaxDepth) {
 		this.ganttMaxDepth = ganttMaxDepth;
+	}
+
+	public int getGanttRowHeight() {
+		return ganttRowHeight;
+	}
+
+	public void setGanttRowHeight(int ganttRowHeight) {
+		this.ganttRowHeight = ganttRowHeight;
+	}
+
+	public int getGanttEmptyRowHeight() {
+		return ganttEmptyRowHeight;
+	}
+
+	public void setGanttEmptyRowHeight(int ganttEmptyRowHeight) {
+		this.ganttEmptyRowHeight = ganttEmptyRowHeight;
 	}
 
 	// The plug-in ID
@@ -39,6 +66,8 @@ public class Plugin extends AbstractUIPlugin {
 	 * The constructor
 	 */
 	public Plugin() {
+		// remember the instance
+		INSTANCE = this;
 	}
 
 	/*
@@ -78,4 +107,34 @@ public class Plugin extends AbstractUIPlugin {
 	public static ImageDescriptor getImageDescriptor(String path) {
 		return imageDescriptorFromPlugin(PLUGIN_ID, path);
 	}
+	
+	private void initPreferences(){
+		final IPreferenceStore prefStore = Activator.getDefault().getPreferenceStore();
+		int maxDepth       = prefStore.getInt(PREF_GANTT_MAX_DEPTH);
+		int rowHeight      = prefStore.getInt(PREF_GANTT_ROW_HEIGHT);
+		int emptyRowHeight = prefStore.getInt(PREF_GANTT_EMPTY_ROW_HEIGHT);
+		
+		Plugin.INSTANCE.setGanttMaxDepth(maxDepth);
+		Plugin.INSTANCE.setGanttRowHeight(rowHeight);
+		Plugin.INSTANCE.setGanttEmptyRowHeight(emptyRowHeight);
+		
+		prefStore.addPropertyChangeListener(new IPropertyChangeListener() {
+		      public void propertyChange(PropertyChangeEvent event) {
+		    	  String property = event.getProperty();
+		    	  Object newValue = event.getNewValue();
+		    	  
+		    	  if ( newValue instanceof Integer ){
+		    		  Integer newValueAsInteger = (Integer)newValue;
+			    	  if        ( property.equals(PREF_GANTT_MAX_DEPTH) ){
+			    			Plugin.INSTANCE.setGanttMaxDepth(newValueAsInteger);
+			    	  } else if ( property.equals(PREF_GANTT_ROW_HEIGHT) ){
+			    			Plugin.INSTANCE.setGanttRowHeight(newValueAsInteger);
+			    	  } else if ( property.equals(PREF_GANTT_EMPTY_ROW_HEIGHT)){
+			    			Plugin.INSTANCE.setGanttRowHeight(newValueAsInteger);
+			    	  } 
+		    	  }		    	  }
+
+		       });
+	} // init preferences
+
 }

@@ -124,8 +124,5 @@ public class Plugin extends AbstractUIPlugin implements PrefConstants {
 		    	  }
 
 		       }});
-	}
-
-	
-
+	} // init preferences
 }
