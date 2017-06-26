@@ -261,14 +261,13 @@ public class SolverItemProvider
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SolverPackage.Literals.SOLVER__GOALS);
-			childrenFeatures.add(SolverPackage.Literals.SOLVER__VAR_BINDERS);
+			childrenFeatures.add(0, SolverPackage.Literals.SOLVER__GOALS);       // to make sure the solutions are after the goals
+			childrenFeatures.add(0, SolverPackage.Literals.SOLVER__VAR_BINDERS); // to make sure the solutions are after the goals
 		}
 		return childrenFeatures;
 	}
