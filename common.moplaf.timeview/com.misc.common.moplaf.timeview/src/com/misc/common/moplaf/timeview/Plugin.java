@@ -29,8 +29,8 @@ public class Plugin extends AbstractUIPlugin implements PrefConstants {
 	public static  Plugin INSTANCE = null;
 
 	private int ganttMaxDepth = 4;
-	private int ganttRowHeight = 4;
-	private int ganttEmptyRowHeight = 4;
+	private int ganttRowHeight = 40;
+	private int ganttEmptyRowHeight = 16;
 
 	public int getGanttMaxDepth() {
 		return ganttMaxDepth;
@@ -77,6 +77,7 @@ public class Plugin extends AbstractUIPlugin implements PrefConstants {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
+		this.initPreferences();
 	}
 
 	/*
@@ -130,7 +131,7 @@ public class Plugin extends AbstractUIPlugin implements PrefConstants {
 			    	  } else if ( property.equals(PREF_GANTT_ROW_HEIGHT) ){
 			    			Plugin.INSTANCE.setGanttRowHeight(newValueAsInteger);
 			    	  } else if ( property.equals(PREF_GANTT_EMPTY_ROW_HEIGHT)){
-			    			Plugin.INSTANCE.setGanttRowHeight(newValueAsInteger);
+			    			Plugin.INSTANCE.setGanttEmptyRowHeight(newValueAsInteger);
 			    	  } 
 		    	  }		    	  }
 

@@ -21,14 +21,14 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer impleme
 	@Override
 	public void initializeDefaultPreferences() {
 		IPreferenceStore prefStore = Activator.getDefault().getPreferenceStore();
-		prefStore.setDefault(PREF_GANTT_MAX_DEPTH,        getDefaultMaxDepth());
-		prefStore.setDefault(PREF_GANTT_ROW_HEIGHT,       getDefaultRowHeight());
-		prefStore.setDefault(PREF_GANTT_EMPTY_ROW_HEIGHT, getDefaultEmptyRowHeight());
+		prefStore.setDefault(PREF_GANTT_MAX_DEPTH,        getDefaultGanttMaxDepth());
+		prefStore.setDefault(PREF_GANTT_ROW_HEIGHT,       getDefaultGanttRowHeight());
+		prefStore.setDefault(PREF_GANTT_EMPTY_ROW_HEIGHT, getDefaultGanttEmptyRowHeight());
 	}
 
-	public static int getDefaultMaxDepth()      { return 4; }
-	public static int getDefaultRowHeight()     { return 5; }
-	public static int getDefaultEmptyRowHeight(){ return 5; }
+	public static int getDefaultGanttMaxDepth()      { return 4; }
+	public static int getDefaultGanttRowHeight()     { return 40; }
+	public static int getDefaultGanttEmptyRowHeight(){ return 16; }
 	
 
 }

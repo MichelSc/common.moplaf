@@ -575,7 +575,7 @@ public class GanttViewer extends GanttViewerAbstract {
 		// add the new rows that we keep
 		for ( TimeBarNode nodeToAdd : nodesToAdd){
 			row.addNode(nodeToAdd);
-			int rowHeight = nodeToAdd.getIntervals().size()>0 ? 40 : 16;
+			int rowHeight = nodeToAdd.getIntervals().size()>0 ? Plugin.INSTANCE.getGanttRowHeight() : Plugin.INSTANCE.getGanttEmptyRowHeight();
 			this.timeBarViewer.getTimeBarViewState().setRowHeight(nodeToAdd, rowHeight);
 		}
 		
