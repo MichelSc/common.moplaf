@@ -118,7 +118,8 @@ public class SolutionLpGoalImpl extends SolutionGoalImpl implements SolutionLpGo
 		String type = "Free";
 		if ( this.isOptimized() ){ type = "Optimized"; }
 		else if ( this.isConstrained()) { type = "Constrained"; }
-		String label = String.format("%s %s = %f", type, this.getGoal().getCode(), this.getValue());
+		String goal = this.getGoal()==null ? "null" : this.getGoal().getCode();
+		String label = String.format("%s %s = %f", type, goal, this.getValue());
 		return label;
 	}
 

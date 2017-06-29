@@ -1196,16 +1196,21 @@ public abstract class SolverImpl extends SolutionProviderImpl implements Solver 
 		}
 		// build the vars
 		class VarMapper implements ITupleVisitor {
+			private HashMap<GeneratorVar, SolverVarBinder> binders = null;
+			public VarMapper(HashMap<GeneratorVar, SolverVarBinder> binders) {
+				super();
+				this.binders = binders;
+			}
 			@Override
 			public void visitTuple(GeneratorTuple tuple) throws Exception {
 				for (GeneratorVar var : tuple.getVar()) {
-					SolverVarBinder var_binder = binders.get(var);
+					SolverVarBinder var_binder = this.binders.get(var);
 					var.build(SolverImpl.this, var_binder);
 				} // traverse the vars of the tuple
 			} // method visitTuple
 		}
 		; // VarMapper
-		VarMapper varmapper = new VarMapper();
+		VarMapper varmapper = new VarMapper(binders);
 		generator.visitTuples(varmapper);
 	}
 
