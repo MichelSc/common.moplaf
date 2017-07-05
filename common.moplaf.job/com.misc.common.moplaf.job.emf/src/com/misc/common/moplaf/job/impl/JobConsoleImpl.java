@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EEnumLiteral;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -140,7 +140,7 @@ public class JobConsoleImpl extends JobImpl implements JobConsole {
 	 */
 	public EList<String> getArgs() {
 		if (args == null) {
-			args = new EDataTypeUniqueEList<String>(String.class, this, JobPackage.JOB_CONSOLE__ARGS);
+			args = new EDataTypeEList<String>(String.class, this, JobPackage.JOB_CONSOLE__ARGS);
 		}
 		return args;
 	}

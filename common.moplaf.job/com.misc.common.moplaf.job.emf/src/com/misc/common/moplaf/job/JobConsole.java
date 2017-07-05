@@ -79,7 +79,7 @@ public interface JobConsole extends Job {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Args</em>' attribute list.
 	 * @see com.misc.common.moplaf.job.JobPackage#getJobConsole_Args()
-	 * @model
+	 * @model unique="false"
 	 * @generated
 	 */
 	EList<String> getArgs();
