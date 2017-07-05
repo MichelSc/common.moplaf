@@ -280,15 +280,6 @@ public class TimeDiscretePackageImpl extends EPackageImpl implements TimeDiscret
 	 * @generated
 	 */
 	public EOperation getTimeLine__Iterator__Date_Date_boolean() {
-		return timeLineEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getTimeLine__GetBucketFloor__Date() {
 		return timeLineEClass.getEOperations().get(2);
 	}
 
@@ -297,7 +288,7 @@ public class TimeDiscretePackageImpl extends EPackageImpl implements TimeDiscret
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTimeLine__GetBucketCeil__Date() {
+	public EOperation getTimeLine__GetBucketAsStartCeil__Date() {
 		return timeLineEClass.getEOperations().get(3);
 	}
 
@@ -306,8 +297,53 @@ public class TimeDiscretePackageImpl extends EPackageImpl implements TimeDiscret
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTimeLine__CreateBucket() {
+	public EOperation getTimeLine__GetBucketAsStartRound__Date() {
 		return timeLineEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTimeLine__GetBucketAsStartFloor__Date() {
+		return timeLineEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTimeLine__GetBucketAsEndCeil__Date() {
+		return timeLineEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTimeLine__GetBucketAsEndRound__Date() {
+		return timeLineEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTimeLine__GetBucketAsEndFloor__Date() {
+		return timeLineEClass.getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTimeLine__CreateBucket() {
+		return timeLineEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -849,10 +885,14 @@ public class TimeDiscretePackageImpl extends EPackageImpl implements TimeDiscret
 		createEReference(timeLineEClass, TIME_LINE__FIRST_BUCKET);
 		createEReference(timeLineEClass, TIME_LINE__LAST_BUCKET);
 		createEOperation(timeLineEClass, TIME_LINE___REFRESH_HORIZON);
-		createEOperation(timeLineEClass, TIME_LINE___ITERATOR__DATE_DATE_BOOLEAN);
-		createEOperation(timeLineEClass, TIME_LINE___GET_BUCKET_FLOOR__DATE);
-		createEOperation(timeLineEClass, TIME_LINE___GET_BUCKET_CEIL__DATE);
 		createEOperation(timeLineEClass, TIME_LINE___CREATE_BUCKET);
+		createEOperation(timeLineEClass, TIME_LINE___ITERATOR__DATE_DATE_BOOLEAN);
+		createEOperation(timeLineEClass, TIME_LINE___GET_BUCKET_AS_START_CEIL__DATE);
+		createEOperation(timeLineEClass, TIME_LINE___GET_BUCKET_AS_START_ROUND__DATE);
+		createEOperation(timeLineEClass, TIME_LINE___GET_BUCKET_AS_START_FLOOR__DATE);
+		createEOperation(timeLineEClass, TIME_LINE___GET_BUCKET_AS_END_CEIL__DATE);
+		createEOperation(timeLineEClass, TIME_LINE___GET_BUCKET_AS_END_ROUND__DATE);
+		createEOperation(timeLineEClass, TIME_LINE___GET_BUCKET_AS_END_FLOOR__DATE);
 
 		timeLineMergeEClass = createEClass(TIME_LINE_MERGE);
 		createEReference(timeLineMergeEClass, TIME_LINE_MERGE__ELEMENTS);
@@ -984,18 +1024,30 @@ public class TimeDiscretePackageImpl extends EPackageImpl implements TimeDiscret
 
 		initEOperation(getTimeLine__RefreshHorizon(), null, "refreshHorizon", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getTimeLine__CreateBucket(), this.getTimeBucket(), "createBucket", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		op = initEOperation(getTimeLine__Iterator__Date_Date_boolean(), this.getBucketIterator(), "iterator", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "from", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "to", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "naked", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getTimeLine__GetBucketFloor__Date(), this.getTimeBucket(), "getBucketFloor", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getTimeLine__GetBucketAsStartCeil__Date(), this.getTimeBucket(), "getBucketAsStartCeil", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "sometime", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getTimeLine__GetBucketCeil__Date(), this.getTimeBucket(), "getBucketCeil", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getTimeLine__GetBucketAsStartRound__Date(), this.getTimeBucket(), "getBucketAsStartRound", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDate(), "sometime", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getTimeLine__CreateBucket(), this.getTimeBucket(), "createBucket", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getTimeLine__GetBucketAsStartFloor__Date(), this.getTimeBucket(), "getBucketAsStartFloor", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDate(), "sometime", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getTimeLine__GetBucketAsEndCeil__Date(), this.getTimeBucket(), "getBucketAsEndCeil", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDate(), "sometime", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getTimeLine__GetBucketAsEndRound__Date(), this.getTimeBucket(), "getBucketAsEndRound", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDate(), "sometime", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getTimeLine__GetBucketAsEndFloor__Date(), this.getTimeBucket(), "getBucketAsEndFloor", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDate(), "sometime", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(timeLineMergeEClass, TimeLineMerge.class, "TimeLineMerge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTimeLineMerge_Elements(), this.getMergeElement(), null, "Elements", null, 0, -1, TimeLineMerge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

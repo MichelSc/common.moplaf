@@ -747,14 +747,22 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 			case TimeDiscretePackage.TIME_LINE___REFRESH_HORIZON:
 				refreshHorizon();
 				return null;
-			case TimeDiscretePackage.TIME_LINE___ITERATOR__DATE_DATE_BOOLEAN:
-				return iterator((Date)arguments.get(0), (Date)arguments.get(1), (Boolean)arguments.get(2));
-			case TimeDiscretePackage.TIME_LINE___GET_BUCKET_FLOOR__DATE:
-				return getBucketFloor((Date)arguments.get(0));
-			case TimeDiscretePackage.TIME_LINE___GET_BUCKET_CEIL__DATE:
-				return getBucketCeil((Date)arguments.get(0));
 			case TimeDiscretePackage.TIME_LINE___CREATE_BUCKET:
 				return createBucket();
+			case TimeDiscretePackage.TIME_LINE___ITERATOR__DATE_DATE_BOOLEAN:
+				return iterator((Date)arguments.get(0), (Date)arguments.get(1), (Boolean)arguments.get(2));
+			case TimeDiscretePackage.TIME_LINE___GET_BUCKET_AS_START_CEIL__DATE:
+				return getBucketAsStartCeil((Date)arguments.get(0));
+			case TimeDiscretePackage.TIME_LINE___GET_BUCKET_AS_START_ROUND__DATE:
+				return getBucketAsStartRound((Date)arguments.get(0));
+			case TimeDiscretePackage.TIME_LINE___GET_BUCKET_AS_START_FLOOR__DATE:
+				return getBucketAsStartFloor((Date)arguments.get(0));
+			case TimeDiscretePackage.TIME_LINE___GET_BUCKET_AS_END_CEIL__DATE:
+				return getBucketAsEndCeil((Date)arguments.get(0));
+			case TimeDiscretePackage.TIME_LINE___GET_BUCKET_AS_END_ROUND__DATE:
+				return getBucketAsEndRound((Date)arguments.get(0));
+			case TimeDiscretePackage.TIME_LINE___GET_BUCKET_AS_END_FLOOR__DATE:
+				return getBucketAsEndFloor((Date)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -1424,6 +1432,12 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 			this.partInThis    = part;
 		}
 
+		/**
+		 * 
+		 * @param aFromDate
+		 * @param aToDate
+		 * @param naked
+		 */
 		public BucketIteratorImpl(Date aFromDate, Date aToDate, boolean naked){
 			// initialization
 			int totalseconds = 0;
@@ -1448,7 +1462,8 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 					isafterlast = true;
 				}
 				else {
-					bucket = TimeLineImpl.this.getBucketFloor(aFromDate);
+					// earliest bucket containing the given date
+					bucket = TimeLineImpl.this.getBucketAsEndCeil(aFromDate);
 					isvalid = bucket!=null;
 				}
 			}
@@ -1518,11 +1533,59 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 
 	/**
 	 * <!-- begin-user-doc -->
-	 * Retrieve the earliest bucket containing a given time
-	 *   undefined behavior if given time not in horizon
+	 * Latest bucket containing the given Date.
 	 * <!-- end-user-doc -->
 	 */
-	public TimeBucket getBucketFloor(Date sometime) {
+	public TimeBucket getBucketAsStartCeil(Date sometime) {
+		if ( this.getFirstBucket()==null) return null;
+		if ( sometime.compareTo(this.getFirstBucket().getBucketStart())<0) return null;
+		if ( sometime.compareTo(this.getLastBucket().getBucketEnd())>0) return null;
+		// this logic should be reimplemented with complexity log(n)
+		TimeBucket currentbucket = this.getLastBucket();
+		while ( currentbucket!=null){
+			if ( currentbucket.contains(sometime)) return currentbucket;
+			currentbucket = currentbucket.getPrevious();
+		}
+		return currentbucket;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public TimeBucket getBucketAsStartRound(Date sometime) {
+		TimeBucket bucket = this.getBucketAsStartCeil(sometime);
+		Date start_of_bucket = bucket.getBucketStart();
+		if ( start_of_bucket.compareTo(sometime)==0 ) {
+			return bucket;
+		}
+		if ( Util.getSeconds(start_of_bucket, sometime)<bucket.getSeconds()/2){
+			// closer to the start of the bucket
+			return bucket;
+		} 
+		// closer to the end of the bucket
+		return bucket.getNext();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public TimeBucket getBucketAsStartFloor(Date sometime) {
+		TimeBucket bucket = this.getBucketAsStartCeil(sometime);
+		Date start_of_bucket = bucket.getBucketStart();
+		if ( start_of_bucket.compareTo(sometime)==0 ) {
+			return bucket;
+		}
+		return bucket.getNext();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * Earliest bucket containing the given Date.
+	 * <!-- end-user-doc -->
+	 */
+	public TimeBucket getBucketAsEndCeil(Date sometime) {
 		if ( this.getFirstBucket()==null) return null;
 		if ( sometime.compareTo(this.getFirstBucket().getBucketStart())<0) return null;
 		if ( sometime.compareTo(this.getLastBucket().getBucketEnd())>0) return null;
@@ -1537,23 +1600,39 @@ public class TimeLineImpl extends MinimalEObjectImpl.Container implements TimeLi
 
 	/**
 	 * <!-- begin-user-doc -->
-		 * Retrieve the latest bucket containing a given time
-		 *   undefined behavior if given time not in horizon
 	 * <!-- end-user-doc -->
 	 */
-	public TimeBucket getBucketCeil(Date sometime) {
-		if ( this.getFirstBucket()==null) return null;
-		if ( sometime.compareTo(this.getFirstBucket().getBucketStart())<0) return null;
-		if ( sometime.compareTo(this.getLastBucket().getBucketEnd())>0) return null;
-		// this logic should be reimplemented with complexity log(n)
-		TimeBucket currentbucket = this.getLastBucket();
-		while ( currentbucket!=null){
-			if ( currentbucket.contains(sometime)) return currentbucket;
-			currentbucket = currentbucket.getPrevious();
+	public TimeBucket getBucketAsEndRound(Date sometime) {
+		TimeBucket bucket = this.getBucketAsEndCeil(sometime);
+		Date end_of_bucket = bucket.getBucketEnd();
+		if ( end_of_bucket.compareTo(sometime)==0 ) {
+			return bucket;
 		}
-		return null;
+		if ( Util.getSeconds(sometime, end_of_bucket)<bucket.getSeconds()/2){
+			// closer to the end of the bucket
+			return bucket;
+		} 
+		// closer to the start of the bucket
+		return bucket.getPrevious();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public TimeBucket getBucketAsEndFloor(Date sometime) {
+		TimeBucket bucket = this.getBucketAsEndCeil(sometime);
+		Date end_of_bucket = bucket.getBucketEnd();
+		if ( end_of_bucket.compareTo(sometime)==0 ) {
+			return bucket;
+		}
+		return bucket.getPrevious();
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
 	public Iterator<TimeBucket> iterator() {
 				return iterator(this.getHorizonStart(), this.getHorizonEnd(), true);
 	}

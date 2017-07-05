@@ -396,40 +396,76 @@ public interface TimeDiscretePackage extends EPackage {
 	int TIME_LINE___REFRESH_HORIZON = 0;
 
 	/**
-	 * The operation id for the '<em>Iterator</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME_LINE___ITERATOR__DATE_DATE_BOOLEAN = 1;
-
-	/**
-	 * The operation id for the '<em>Get Bucket Floor</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME_LINE___GET_BUCKET_FLOOR__DATE = 2;
-
-	/**
-	 * The operation id for the '<em>Get Bucket Ceil</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIME_LINE___GET_BUCKET_CEIL__DATE = 3;
-
-	/**
 	 * The operation id for the '<em>Create Bucket</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_LINE___CREATE_BUCKET = 4;
+	int TIME_LINE___CREATE_BUCKET = 1;
+
+	/**
+	 * The operation id for the '<em>Iterator</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE___ITERATOR__DATE_DATE_BOOLEAN = 2;
+
+	/**
+	 * The operation id for the '<em>Get Bucket As Start Ceil</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE___GET_BUCKET_AS_START_CEIL__DATE = 3;
+
+	/**
+	 * The operation id for the '<em>Get Bucket As Start Round</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE___GET_BUCKET_AS_START_ROUND__DATE = 4;
+
+	/**
+	 * The operation id for the '<em>Get Bucket As Start Floor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE___GET_BUCKET_AS_START_FLOOR__DATE = 5;
+
+	/**
+	 * The operation id for the '<em>Get Bucket As End Ceil</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE___GET_BUCKET_AS_END_CEIL__DATE = 6;
+
+	/**
+	 * The operation id for the '<em>Get Bucket As End Round</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE___GET_BUCKET_AS_END_ROUND__DATE = 7;
+
+	/**
+	 * The operation id for the '<em>Get Bucket As End Floor</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_LINE___GET_BUCKET_AS_END_FLOOR__DATE = 8;
 
 	/**
 	 * The number of operations of the '<em>Time Line</em>' class.
@@ -438,7 +474,7 @@ public interface TimeDiscretePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_LINE_OPERATION_COUNT = 5;
+	int TIME_LINE_OPERATION_COUNT = 9;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.time.discrete.impl.TimeLineMergeImpl <em>Time Line Merge</em>}' class.
@@ -1178,24 +1214,64 @@ public interface TimeDiscretePackage extends EPackage {
 	EOperation getTimeLine__Iterator__Date_Date_boolean();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.discrete.TimeLine#getBucketFloor(java.util.Date) <em>Get Bucket Floor</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.discrete.TimeLine#getBucketAsStartCeil(java.util.Date) <em>Get Bucket As Start Ceil</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Bucket Floor</em>' operation.
-	 * @see com.misc.common.moplaf.time.discrete.TimeLine#getBucketFloor(java.util.Date)
+	 * @return the meta object for the '<em>Get Bucket As Start Ceil</em>' operation.
+	 * @see com.misc.common.moplaf.time.discrete.TimeLine#getBucketAsStartCeil(java.util.Date)
 	 * @generated
 	 */
-	EOperation getTimeLine__GetBucketFloor__Date();
+	EOperation getTimeLine__GetBucketAsStartCeil__Date();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.discrete.TimeLine#getBucketCeil(java.util.Date) <em>Get Bucket Ceil</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.discrete.TimeLine#getBucketAsStartRound(java.util.Date) <em>Get Bucket As Start Round</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Get Bucket Ceil</em>' operation.
-	 * @see com.misc.common.moplaf.time.discrete.TimeLine#getBucketCeil(java.util.Date)
+	 * @return the meta object for the '<em>Get Bucket As Start Round</em>' operation.
+	 * @see com.misc.common.moplaf.time.discrete.TimeLine#getBucketAsStartRound(java.util.Date)
 	 * @generated
 	 */
-	EOperation getTimeLine__GetBucketCeil__Date();
+	EOperation getTimeLine__GetBucketAsStartRound__Date();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.discrete.TimeLine#getBucketAsStartFloor(java.util.Date) <em>Get Bucket As Start Floor</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Bucket As Start Floor</em>' operation.
+	 * @see com.misc.common.moplaf.time.discrete.TimeLine#getBucketAsStartFloor(java.util.Date)
+	 * @generated
+	 */
+	EOperation getTimeLine__GetBucketAsStartFloor__Date();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.discrete.TimeLine#getBucketAsEndCeil(java.util.Date) <em>Get Bucket As End Ceil</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Bucket As End Ceil</em>' operation.
+	 * @see com.misc.common.moplaf.time.discrete.TimeLine#getBucketAsEndCeil(java.util.Date)
+	 * @generated
+	 */
+	EOperation getTimeLine__GetBucketAsEndCeil__Date();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.discrete.TimeLine#getBucketAsEndRound(java.util.Date) <em>Get Bucket As End Round</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Bucket As End Round</em>' operation.
+	 * @see com.misc.common.moplaf.time.discrete.TimeLine#getBucketAsEndRound(java.util.Date)
+	 * @generated
+	 */
+	EOperation getTimeLine__GetBucketAsEndRound__Date();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.discrete.TimeLine#getBucketAsEndFloor(java.util.Date) <em>Get Bucket As End Floor</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Bucket As End Floor</em>' operation.
+	 * @see com.misc.common.moplaf.time.discrete.TimeLine#getBucketAsEndFloor(java.util.Date)
+	 * @generated
+	 */
+	EOperation getTimeLine__GetBucketAsEndFloor__Date();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.time.discrete.TimeLine#createBucket() <em>Create Bucket</em>}' operation.
@@ -1860,20 +1936,52 @@ public interface TimeDiscretePackage extends EPackage {
 		EOperation TIME_LINE___ITERATOR__DATE_DATE_BOOLEAN = eINSTANCE.getTimeLine__Iterator__Date_Date_boolean();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Bucket Floor</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Bucket As Start Ceil</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation TIME_LINE___GET_BUCKET_FLOOR__DATE = eINSTANCE.getTimeLine__GetBucketFloor__Date();
+		EOperation TIME_LINE___GET_BUCKET_AS_START_CEIL__DATE = eINSTANCE.getTimeLine__GetBucketAsStartCeil__Date();
 
 		/**
-		 * The meta object literal for the '<em><b>Get Bucket Ceil</b></em>' operation.
+		 * The meta object literal for the '<em><b>Get Bucket As Start Round</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation TIME_LINE___GET_BUCKET_CEIL__DATE = eINSTANCE.getTimeLine__GetBucketCeil__Date();
+		EOperation TIME_LINE___GET_BUCKET_AS_START_ROUND__DATE = eINSTANCE.getTimeLine__GetBucketAsStartRound__Date();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Bucket As Start Floor</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TIME_LINE___GET_BUCKET_AS_START_FLOOR__DATE = eINSTANCE.getTimeLine__GetBucketAsStartFloor__Date();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Bucket As End Ceil</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TIME_LINE___GET_BUCKET_AS_END_CEIL__DATE = eINSTANCE.getTimeLine__GetBucketAsEndCeil__Date();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Bucket As End Round</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TIME_LINE___GET_BUCKET_AS_END_ROUND__DATE = eINSTANCE.getTimeLine__GetBucketAsEndRound__Date();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Bucket As End Floor</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TIME_LINE___GET_BUCKET_AS_END_FLOOR__DATE = eINSTANCE.getTimeLine__GetBucketAsEndFloor__Date();
 
 		/**
 		 * The meta object literal for the '<em><b>Create Bucket</b></em>' operation.

@@ -352,11 +352,12 @@ public interface TimeLine extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->
+	 * Latest bucket containing the given Date.
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
-	TimeBucket getBucketFloor(Date sometime);
+	TimeBucket getBucketAsStartCeil(Date sometime);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -364,7 +365,39 @@ public interface TimeLine extends EObject {
 	 * @model
 	 * @generated
 	 */
-	TimeBucket getBucketCeil(Date sometime);
+	TimeBucket getBucketAsStartRound(Date sometime);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	TimeBucket getBucketAsStartFloor(Date sometime);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	TimeBucket getBucketAsEndCeil(Date sometime);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	TimeBucket getBucketAsEndRound(Date sometime);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	TimeBucket getBucketAsEndFloor(Date sometime);
 
 	/**
 	 * <!-- begin-user-doc -->
