@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.macroplanner.solver.impl;
 
+import com.misc.common.moplaf.job.JobPackage;
 import com.misc.common.moplaf.macroplanner.MacroPlannerPackage;
 
 import com.misc.common.moplaf.macroplanner.solver.LPAvailability;
@@ -43,6 +44,7 @@ import com.misc.common.moplaf.macroplanner.solver.Scenario;
 
 import com.misc.common.moplaf.solver.SolverPackage;
 
+import com.misc.common.moplaf.time.TimePackage;
 import com.misc.common.moplaf.time.discrete.TimeDiscretePackage;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -275,9 +277,11 @@ public class MacroPlannerSolverPackageImpl extends EPackageImpl implements Macro
 		isInited = true;
 
 		// Initialize simple dependencies
+		JobPackage.eINSTANCE.eClass();
 		MacroPlannerPackage.eINSTANCE.eClass();
 		SolverPackage.eINSTANCE.eClass();
 		TimeDiscretePackage.eINSTANCE.eClass();
+		TimePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theMacroPlannerSolverPackage.createPackageContents();

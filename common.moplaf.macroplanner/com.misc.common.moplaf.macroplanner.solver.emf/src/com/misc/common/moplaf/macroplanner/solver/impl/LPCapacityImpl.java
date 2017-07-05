@@ -348,8 +348,8 @@ public class LPCapacityImpl extends LPTimeLineImpl implements LPCapacity {
 		Date endCapacity   = Util.getMinDate(scenario.getScenarioEnd(),   capacity.getTo());
 
 		// time line
-		TimeBucket startOfHorizon = timeline.getBucketCeil(startCapacity);
-		TimeBucket endOfHorizon   = timeline.getBucketFloor(endCapacity);
+		TimeBucket startOfHorizon = timeline.getBucketAsStartCeil(startCapacity);
+		TimeBucket endOfHorizon   = timeline.getBucketAsEndCeil(endCapacity);
 		this.setStartBucket(startOfHorizon);
 		this.setEndBucket  (endOfHorizon);
 		this.refresh();
