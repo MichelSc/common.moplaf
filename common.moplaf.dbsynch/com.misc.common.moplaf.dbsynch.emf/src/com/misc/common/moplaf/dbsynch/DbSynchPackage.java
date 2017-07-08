@@ -246,13 +246,22 @@ public interface DbSynchPackage extends EPackage {
 	int DATA_SOURCE__CONNECTED = DB_SYNCH_UNIT_ABSTRACT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Auto Commit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE__AUTO_COMMIT = DB_SYNCH_UNIT_ABSTRACT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Data Source</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SOURCE_FEATURE_COUNT = DB_SYNCH_UNIT_ABSTRACT_FEATURE_COUNT + 1;
+	int DATA_SOURCE_FEATURE_COUNT = DB_SYNCH_UNIT_ABSTRACT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Refresh Meta Data</em>' operation.
@@ -327,13 +336,31 @@ public interface DbSynchPackage extends EPackage {
 	int DATA_SOURCE___DISCONNECT = DB_SYNCH_UNIT_ABSTRACT_OPERATION_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Commit</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE___COMMIT = DB_SYNCH_UNIT_ABSTRACT_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Rollback</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE___ROLLBACK = DB_SYNCH_UNIT_ABSTRACT_OPERATION_COUNT + 3;
+
+	/**
 	 * The operation id for the '<em>Synch Down Table Impl</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SOURCE___SYNCH_DOWN_TABLE_IMPL__TABLE = DB_SYNCH_UNIT_ABSTRACT_OPERATION_COUNT + 2;
+	int DATA_SOURCE___SYNCH_DOWN_TABLE_IMPL__TABLE = DB_SYNCH_UNIT_ABSTRACT_OPERATION_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Synch Up Table Impl</em>' operation.
@@ -342,7 +369,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SOURCE___SYNCH_UP_TABLE_IMPL__TABLE = DB_SYNCH_UNIT_ABSTRACT_OPERATION_COUNT + 3;
+	int DATA_SOURCE___SYNCH_UP_TABLE_IMPL__TABLE = DB_SYNCH_UNIT_ABSTRACT_OPERATION_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Data Source</em>' class.
@@ -351,7 +378,7 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SOURCE_OPERATION_COUNT = DB_SYNCH_UNIT_ABSTRACT_OPERATION_COUNT + 4;
+	int DATA_SOURCE_OPERATION_COUNT = DB_SYNCH_UNIT_ABSTRACT_OPERATION_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.dbsynch.impl.DbSynchUnitImpl <em>Unit</em>}' class.
@@ -437,6 +464,15 @@ public interface DbSynchPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_SOURCE_JDBC__CONNECTED = DATA_SOURCE__CONNECTED;
+
+	/**
+	 * The feature id for the '<em><b>Auto Commit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_JDBC__AUTO_COMMIT = DATA_SOURCE__AUTO_COMMIT;
 
 	/**
 	 * The feature id for the '<em><b>Data Base User</b></em>' attribute.
@@ -545,6 +581,24 @@ public interface DbSynchPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_SOURCE_JDBC___DISCONNECT = DATA_SOURCE___DISCONNECT;
+
+	/**
+	 * The operation id for the '<em>Commit</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_JDBC___COMMIT = DATA_SOURCE___COMMIT;
+
+	/**
+	 * The operation id for the '<em>Rollback</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_JDBC___ROLLBACK = DATA_SOURCE___ROLLBACK;
 
 	/**
 	 * The operation id for the '<em>Synch Down Table Impl</em>' operation.
@@ -1252,6 +1306,17 @@ public interface DbSynchPackage extends EPackage {
 	EAttribute getDataSource_Connected();
 
 	/**
+	 * Returns the meta object for the attribute '{@link com.misc.common.moplaf.dbsynch.DataSource#isAutoCommit <em>Auto Commit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Auto Commit</em>'.
+	 * @see com.misc.common.moplaf.dbsynch.DataSource#isAutoCommit()
+	 * @see #getDataSource()
+	 * @generated
+	 */
+	EAttribute getDataSource_AutoCommit();
+
+	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.DataSource#connect() <em>Connect</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1270,6 +1335,26 @@ public interface DbSynchPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getDataSource__Disconnect();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.DataSource#commit() <em>Commit</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Commit</em>' operation.
+	 * @see com.misc.common.moplaf.dbsynch.DataSource#commit()
+	 * @generated
+	 */
+	EOperation getDataSource__Commit();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.DataSource#rollback() <em>Rollback</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Rollback</em>' operation.
+	 * @see com.misc.common.moplaf.dbsynch.DataSource#rollback()
+	 * @generated
+	 */
+	EOperation getDataSource__Rollback();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.dbsynch.DataSource#synchDownTableImpl(com.misc.common.moplaf.dbsynch.Table) <em>Synch Down Table Impl</em>}' operation.
@@ -2095,6 +2180,14 @@ public interface DbSynchPackage extends EPackage {
 		EAttribute DATA_SOURCE__CONNECTED = eINSTANCE.getDataSource_Connected();
 
 		/**
+		 * The meta object literal for the '<em><b>Auto Commit</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATA_SOURCE__AUTO_COMMIT = eINSTANCE.getDataSource_AutoCommit();
+
+		/**
 		 * The meta object literal for the '<em><b>Connect</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2109,6 +2202,22 @@ public interface DbSynchPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation DATA_SOURCE___DISCONNECT = eINSTANCE.getDataSource__Disconnect();
+
+		/**
+		 * The meta object literal for the '<em><b>Commit</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DATA_SOURCE___COMMIT = eINSTANCE.getDataSource__Commit();
+
+		/**
+		 * The meta object literal for the '<em><b>Rollback</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DATA_SOURCE___ROLLBACK = eINSTANCE.getDataSource__Rollback();
 
 		/**
 		 * The meta object literal for the '<em><b>Synch Down Table Impl</b></em>' operation.

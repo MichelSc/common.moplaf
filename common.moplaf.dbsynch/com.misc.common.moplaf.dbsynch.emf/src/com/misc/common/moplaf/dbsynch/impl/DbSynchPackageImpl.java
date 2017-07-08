@@ -223,6 +223,15 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDataSource_AutoCommit() {
+		return (EAttribute)dataSourceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getDataSource__Connect() {
 		return dataSourceEClass.getEOperations().get(0);
 	}
@@ -241,7 +250,7 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDataSource__SynchDownTableImpl__Table() {
+	public EOperation getDataSource__Commit() {
 		return dataSourceEClass.getEOperations().get(2);
 	}
 
@@ -250,8 +259,26 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDataSource__SynchUpTableImpl__Table() {
+	public EOperation getDataSource__Rollback() {
 		return dataSourceEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getDataSource__SynchDownTableImpl__Table() {
+		return dataSourceEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getDataSource__SynchUpTableImpl__Table() {
+		return dataSourceEClass.getEOperations().get(5);
 	}
 
 	/**
@@ -932,8 +959,11 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		// Create classes and their features
 		dataSourceEClass = createEClass(DATA_SOURCE);
 		createEAttribute(dataSourceEClass, DATA_SOURCE__CONNECTED);
+		createEAttribute(dataSourceEClass, DATA_SOURCE__AUTO_COMMIT);
 		createEOperation(dataSourceEClass, DATA_SOURCE___CONNECT);
 		createEOperation(dataSourceEClass, DATA_SOURCE___DISCONNECT);
+		createEOperation(dataSourceEClass, DATA_SOURCE___COMMIT);
+		createEOperation(dataSourceEClass, DATA_SOURCE___ROLLBACK);
 		createEOperation(dataSourceEClass, DATA_SOURCE___SYNCH_DOWN_TABLE_IMPL__TABLE);
 		createEOperation(dataSourceEClass, DATA_SOURCE___SYNCH_UP_TABLE_IMPL__TABLE);
 
@@ -1055,10 +1085,15 @@ public class DbSynchPackageImpl extends EPackageImpl implements DbSynchPackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(dataSourceEClass, DataSource.class, "DataSource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDataSource_Connected(), ecorePackage.getEBoolean(), "Connected", null, 0, 1, DataSource.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataSource_AutoCommit(), ecorePackage.getEBoolean(), "AutoCommit", "true", 0, 1, DataSource.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getDataSource__Connect(), this.getReturnFeedback(), "connect", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getDataSource__Disconnect(), this.getReturnFeedback(), "disconnect", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getDataSource__Commit(), this.getReturnFeedback(), "commit", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getDataSource__Rollback(), this.getReturnFeedback(), "rollback", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		EOperation op = initEOperation(getDataSource__SynchDownTableImpl__Table(), this.getReturnFeedback(), "synchDownTableImpl", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getTable(), "table", 0, 1, IS_UNIQUE, IS_ORDERED);

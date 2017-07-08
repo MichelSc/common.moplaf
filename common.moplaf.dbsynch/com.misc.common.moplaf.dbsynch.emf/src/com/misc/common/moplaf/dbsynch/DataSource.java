@@ -35,6 +35,7 @@ import com.misc.common.moplaf.common.ReturnFeedback;
  * </p>
  * <ul>
  *   <li>{@link com.misc.common.moplaf.dbsynch.DataSource#isConnected <em>Connected</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.dbsynch.DataSource#isAutoCommit <em>Auto Commit</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getDataSource()
@@ -69,6 +70,33 @@ public interface DataSource extends DbSynchUnitAbstract {
 	void setConnected(boolean value);
 
 	/**
+	 * Returns the value of the '<em><b>Auto Commit</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Auto Commit</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Auto Commit</em>' attribute.
+	 * @see #setAutoCommit(boolean)
+	 * @see com.misc.common.moplaf.dbsynch.DbSynchPackage#getDataSource_AutoCommit()
+	 * @model default="true" transient="true"
+	 * @generated
+	 */
+	boolean isAutoCommit();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.dbsynch.DataSource#isAutoCommit <em>Auto Commit</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Auto Commit</em>' attribute.
+	 * @see #isAutoCommit()
+	 * @generated
+	 */
+	void setAutoCommit(boolean value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model dataType="com.misc.common.moplaf.dbsynch.ReturnFeedback"
@@ -83,6 +111,22 @@ public interface DataSource extends DbSynchUnitAbstract {
 	 * @generated
 	 */
 	ReturnFeedback disconnect();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="com.misc.common.moplaf.dbsynch.ReturnFeedback"
+	 * @generated
+	 */
+	ReturnFeedback commit();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model dataType="com.misc.common.moplaf.dbsynch.ReturnFeedback"
+	 * @generated
+	 */
+	ReturnFeedback rollback();
 
 	/**
 	 * <!-- begin-user-doc -->

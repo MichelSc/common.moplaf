@@ -15,8 +15,10 @@ package com.misc.common.moplaf.dbsynch.provider;
 
 import com.misc.common.moplaf.dbsynch.DataSource;
 import com.misc.common.moplaf.dbsynch.DbSynchPackage;
+import com.misc.common.moplaf.emf.edit.command.CommitCommand;
 import com.misc.common.moplaf.emf.edit.command.ConnectCommand;
 import com.misc.common.moplaf.emf.edit.command.DisconnectCommand;
+import com.misc.common.moplaf.emf.edit.command.RollbackCommand;
 
 import java.util.Collection;
 import java.util.List;
@@ -61,6 +63,7 @@ public class DataSourceItemProvider
 			super.getPropertyDescriptors(object);
 
 			addConnectedPropertyDescriptor(object);
+			addAutoCommitPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -84,6 +87,28 @@ public class DataSourceItemProvider
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 getString("_UI__10DatabasePropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Auto Commit feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAutoCommitPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DataSource_AutoCommit_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataSource_AutoCommit_feature", "_UI_DataSource_type"),
+				 DbSynchPackage.Literals.DATA_SOURCE__AUTO_COMMIT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
 				 null));
 	}
 
@@ -125,6 +150,7 @@ public class DataSourceItemProvider
 
 		switch (notification.getFeatureID(DataSource.class)) {
 			case DbSynchPackage.DATA_SOURCE__CONNECTED:
+			case DbSynchPackage.DATA_SOURCE__AUTO_COMMIT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -192,6 +218,57 @@ public class DataSourceItemProvider
 		}
 	} // class DataSourceDisconnectCommand
 
+	public class DataSourceCommitCommand extends CommitCommand{
+		private DataSource dataSource;
+		
+		// constructor
+		public DataSourceCommitCommand(DataSource aDataSource)	{
+			super();
+			this.dataSource = aDataSource;
+		}
+
+		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			if ( !this.dataSource.isConnected()){
+				isExecutable = false;
+				this.setDescription("not connected");
+			}
+			return isExecutable;
+		}
+
+		@Override
+		public void execute() {
+			this.dataSource.commit();
+		}
+	} // class DataSourceCommitCommand
+
+	public class DataSourceRollbackCommand extends RollbackCommand{
+		private DataSource dataSource;
+		
+		// constructor
+		public DataSourceRollbackCommand(DataSource aDataSource)	{
+			super();
+			this.dataSource = aDataSource;
+		}
+
+		@Override
+		protected boolean prepare(){
+			boolean isExecutable = true;
+			if ( !this.dataSource.isConnected()){
+				isExecutable = false;
+				this.setDescription("not connected");
+			}
+			return isExecutable;
+		}
+
+		@Override
+		public void execute() {
+			this.dataSource.rollback();
+		}
+	} // class DataSourceRollbackCommand
+
+
 	@Override
 	public Command createCommand(Object object, EditingDomain domain,
 			Class<? extends Command> commandClass,
@@ -201,6 +278,12 @@ public class DataSourceItemProvider
 		}
 		else if ( commandClass == DisconnectCommand.class){
 			return new DataSourceDisconnectCommand((DataSource) object); 
+		}
+		else if ( commandClass == CommitCommand.class){
+			return new DataSourceCommitCommand((DataSource) object); 
+		}
+		else if ( commandClass == RollbackCommand.class){
+			return new DataSourceRollbackCommand((DataSource) object); 
 		}
 
 		return super.createCommand(object, domain, commandClass, commandParameter);

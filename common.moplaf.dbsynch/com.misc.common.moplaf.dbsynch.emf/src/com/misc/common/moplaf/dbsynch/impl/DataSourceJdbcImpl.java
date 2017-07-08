@@ -300,11 +300,19 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 
 	protected Connection db_connection;
 	
+	/**
+	 * 
+	 * @return
+	 * @throws ClassNotFoundException
+	 * @throws SQLException
+	 */
 	protected Connection getConnectionImpl() throws ClassNotFoundException, SQLException{
-		return null;
-		
+		return null; // to  be implemented by the specialization
 	}
 	
+	/**
+	 * Called by this class upon disconnect()
+	 */
 	protected void onDisconnectImpl() {
 		
 	}
@@ -505,6 +513,11 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		}
 	}
 	
+	/**
+	 * 
+	 * @param table
+	 * @return
+	 */
 	private String makeSynchUpSql(Table table){
     	String tableName = table.getTableName();
     	if ( tableName==null || table.getTableName().length()==0 ){
@@ -574,10 +587,11 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 	}
 
 	/**
+	 * Specified by DataSource
 	 */
 	@Override
 	public ReturnFeedback synchUpTableImpl(Table table) {
-		Plugin.INSTANCE.logInfo("SynchUp table "+table.getTableName());
+		Plugin.INSTANCE.logInfo("DataSourceJdbc.SynchUp, table "+table.getTableName());
 		
 		// prepare the statement
 		PreparedStatement statement = null;
@@ -586,12 +600,12 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		
 		try {
 	    	if ( this.db_connection == null ){
-	    		throw new Exception("SynchUp table failed, no connection");
+	    		throw new Exception("DataSourceJdbc.SynchUp table failed, no connection");
 	    	}
 	    	
 	    	String sql = this.makeSynchUpSql(table);
 	    	if ( sql == null ){
-	    		throw new Exception("SynchUp table failed, no sql made");
+	    		throw new Exception("DataSourceJdbc.SynchUp table failed, no sql made");
 	    	}	    	
 	    	
 	    	// create the statement
@@ -606,7 +620,6 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 			    for ( EAttribute paramAttribute : params){
 			    	paramIndex++;
 			    	Object paramValue = unit.getParamValue(paramAttribute);
-					Plugin.INSTANCE.logInfo("..parameter "+paramIndex+":"+paramValue);
 			    	this.setSqlStatementParam(statement, paramIndex, null, paramAttribute, paramValue);
 			    } // traverse the parameters
 	    		currentTable = currentTable.getParent();
@@ -614,7 +627,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		
 			// execute the query
 			resultSet = statement.executeQuery();
-			Plugin.INSTANCE.logInfo("..Query executed, rows fetched"+resultSet.getFetchSize());
+			Plugin.INSTANCE.logInfo("DataSourceJdbc.SynchUpTable: Query executed, rows fetched"+resultSet.getFetchSize());
 			
 			// objects asis
 			HashSet<TableRow> rowsasis = new HashSet<TableRow>(table.getRows());
@@ -707,7 +720,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		    	row.refresh();
 		    	rowIndex++;
 		     } // traverse the rows of the result set
-			Plugin.INSTANCE.logInfo("..Result set traversed, rows "+String.format("%d", rowIndex));
+			Plugin.INSTANCE.logInfo("DataSourceJdbc.SynchUpTable: Result set traversed, rows "+String.format("%d", rowIndex));
 			table.setNumberOfRows(rowIndex);
 
 			// remove the rows too many
@@ -722,16 +735,16 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 			    	rowToRemove.setModificationLastSynchUp(EnumModification.ENUM_MODIFICATION_NONE);
 				}
 			}
-			Plugin.INSTANCE.logInfo(String.format("..SynchUp complete: %d creates, %d updates, %d deletes", nofcreates, nofupdates, nofdeletes));
+			Plugin.INSTANCE.logInfo(String.format("DataSourceJdbc.SynchUpTable: complete, %d creates, %d updates, %d deletes", nofcreates, nofupdates, nofdeletes));
 		}
 		catch (SQLException e) {
-			Plugin.INSTANCE.logError("..Retrieve result set failed, cause " + e.getMessage());
-			return new ReturnFeedback("DataJourceJdbc.synchUpTable", e);
+			Plugin.INSTANCE.logError("DataSourceJdbc.SynchUpTable: Retrieve result set failed, cause " + e.getMessage());
+			return new ReturnFeedback("DataSourceJdbc.synchUpTable", e);
 		}
 		catch (Exception e){
 			e.printStackTrace();
-			Plugin.INSTANCE.logError("..General exception, no data retrieved, cause " + ExceptionUtils.getRootCauseMessage(e));
-			return new ReturnFeedback("DataJourceJdbc.synchUpTable", e);
+			Plugin.INSTANCE.logError("DataSourceJdbc.SynchUpTable: General exception, no data retrieved, cause " + ExceptionUtils.getRootCauseMessage(e));
+			return new ReturnFeedback("DataSourceJdbc.synchUpTable", e);
 		}
 		
 		if ( resultSet!=null) {
@@ -739,8 +752,8 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 				resultSet.close();
 				resultSet = null;
 			} catch (SQLException e) {
-				Plugin.INSTANCE.logError("Failure to close the resultSet" + e.getMessage());
-				return new ReturnFeedback("DataJourceJdbc.synchUpTable", e);
+				Plugin.INSTANCE.logError("DataSourceJdbc.SynchUpTable: Failure to close the resultSet" + e.getMessage());
+				return new ReturnFeedback("DataSourceJdbc.synchUpTable", e);
 			}
 		}
 		if ( statement!=null){
@@ -749,7 +762,7 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 				statement = null;
 			} catch (SQLException e) {
 				Plugin.INSTANCE.logError("Failure to close the statement" + e.getCause());
-				return new ReturnFeedback("DataJourceJdbc.synchUpTable", e);
+				return new ReturnFeedback("DataSourceJdbc.synchUpTable", e);
 			}
 		}
 		
@@ -758,20 +771,23 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 		
 	} // method SynchUpTableImpl
 
+	/**
+	 * Specified by DataSource
+	 */
 	@Override
 	public ReturnFeedback synchDownTableImpl(Table table) {
-		Plugin.INSTANCE.logInfo("SynchDown table "+table.getTableName());
+		Plugin.INSTANCE.logInfo("DataSourceJdbc.SynchDown, table "+table.getTableName());
 		
 		try {
 	    	if ( this.db_connection == null ){
-	    		throw new Exception("SynchDown table failed, no connection");
+	    		throw new Exception("DataSourceJdbc.SynchDown table failed, no connection");
 	    	}
 	    	
-	    	this.db_connection.setAutoCommit(false);
+//	    	this.db_connection.setAutoCommit(false);
 	    	
 	    	String tableName = table.getTableName();
 	    	if ( tableName==null || table.getTableName().length()==0 ){
-	    		throw new Exception("SynchDown table failed, no table name");
+	    		throw new Exception("DataSourceJdbc.SynchDown table failed, no table name");
 	    	}
 
 	    	// prepare the insert sql
@@ -887,25 +903,69 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 				rowAsIs.setModificationNextSynchDown(EnumModification.ENUM_MODIFICATION_NONE);
 			} // traverse the rows
     		
-			Plugin.INSTANCE.logInfo(String.format("..SynchDown about to commit done/todo: %d/%d creates, %d/%d updates, %d/%d deletes", 
+			Plugin.INSTANCE.logInfo(String.format("DataSourceJdbc.SynchDown about to commit done/todo: %d/%d creates, %d/%d updates, %d/%d deletes", 
 					nof_crts_done, nof_crts_todo,
 					nof_updts_done, nof_updts_todo,
 					nof_dlts_done, nof_dlts_todo));
-			this.db_connection.commit();
-			Plugin.INSTANCE.logInfo(String.format("..SynchDown commited"));
+//			this.db_connection.commit(); // is this neccessary
+//			Plugin.INSTANCE.logInfo(String.format("DataSourceJdbc.SynchDown commited"));
 		}
 		catch (SQLException e) {
-			Plugin.INSTANCE.logError("..SynchDown failed, cause " + e.getMessage());
-			return new ReturnFeedback("DataJourceJdbc.synchDownTable", e);
+			Plugin.INSTANCE.logError("DataSourceJdbc.SynchDown failed, sql exception, cause " + e.getMessage());
+			return new ReturnFeedback("DataSourceJdbc.synchDownTable", e);
 		}
 		catch (Exception e){
-			Plugin.INSTANCE.logError("..General exception, no data written, cause " + ExceptionUtils.getRootCauseMessage(e));
-			return new ReturnFeedback("DataJourceJdbc.synchDownTable", e);
+			Plugin.INSTANCE.logError("DataSourceJdbc.SynchDown failed, general exception, cause " + ExceptionUtils.getRootCauseMessage(e));
+			return new ReturnFeedback("DataSourceJdbc.synchDownTable", e);
 		}
 
 		table.setLastSynchDown(new Date());
 		return ReturnFeedback.SUCCESS;
 	}
+
+	@Override
+	protected void onAutoCommitChange() {
+		if ( this.connected){
+			try {
+				this.db_connection.setAutoCommit(this.isAutoCommit());
+				Plugin.INSTANCE.logInfo("DataSourceJdbc.onAutocommitChange: autoCommit="+this.isAutoCommit());
+			} catch (SQLException e) {
+				Plugin.INSTANCE.logError("setAutoCommit failed, sql exception, cause " + ExceptionUtils.getRootCauseMessage(e));
+			}
+		}
+	}
+
+	@Override
+	public ReturnFeedback commit() {
+		if ( this.connected){
+			try {
+				this.db_connection.commit();
+				Plugin.INSTANCE.logInfo("DataSourceJdbc.commit: done");
+				return ReturnFeedback.SUCCESS;
+			} catch (SQLException e) {
+				return new ReturnFeedback("DataSourceJdbc.commit", e);
+			}
+		} else {
+			return new ReturnFeedback(false, "DataSourceJdbc.commit", "Datasource not connected");
+		}
+	}
+
+	@Override
+	public ReturnFeedback rollback() {
+		if ( this.connected){
+			try {
+				this.db_connection.rollback();
+				Plugin.INSTANCE.logInfo("DataSourceJdbc.rollback: done");
+				return ReturnFeedback.SUCCESS;
+			} catch (SQLException e) {
+				return new ReturnFeedback("DataSourceJdbc.rollback", e);
+			}
+		} else {
+			return new ReturnFeedback(false, "DataSourceJdbc.rollback", "Datasource not connected");
+		}
+	}
+	
+	
 
 } //DataSourceJdbcImpl
 

@@ -8,6 +8,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="DataSource" abstract="true" eSuperTypes="#//DbSynchUnitAbstract">
     <eOperations name="connect" eType="#//ReturnFeedback"/>
     <eOperations name="disconnect" eType="#//ReturnFeedback"/>
+    <eOperations name="commit" eType="#//ReturnFeedback"/>
+    <eOperations name="rollback" eType="#//ReturnFeedback"/>
     <eOperations name="synchDownTableImpl" eType="#//ReturnFeedback">
       <eParameters name="table" eType="#//Table"/>
     </eOperations>
@@ -16,6 +18,8 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Connected" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AutoCommit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        transient="true" defaultValueLiteral="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataSourceJdbc" eSuperTypes="#//DataSource">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DataBaseUser" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
