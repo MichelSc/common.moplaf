@@ -32,10 +32,13 @@
     <genDataTypes ecoreDataType="dbsynch.ecore#//EnabledFeedback"/>
     <genDataTypes ecoreDataType="dbsynch.ecore#//ReturnFeedback"/>
     <genClasses ecoreClass="dbsynch.ecore#//DataSource">
-      <genFeatures property="Readonly" createChild="false" propertyCategory="10 Database"
+      <genFeatures property="Readonly" createChild="false" propertyCategory="16 Execution"
           ecoreFeature="ecore:EAttribute dbsynch.ecore#//DataSource/Connected"/>
+      <genFeatures createChild="false" propertyCategory="16 Execution" ecoreFeature="ecore:EAttribute dbsynch.ecore#//DataSource/AutoCommit"/>
       <genOperations ecoreOperation="dbsynch.ecore#//DataSource/connect"/>
       <genOperations ecoreOperation="dbsynch.ecore#//DataSource/disconnect"/>
+      <genOperations ecoreOperation="dbsynch.ecore#//DataSource/commit"/>
+      <genOperations ecoreOperation="dbsynch.ecore#//DataSource/rollback"/>
       <genOperations ecoreOperation="dbsynch.ecore#//DataSource/synchDownTableImpl">
         <genParameters ecoreParameter="dbsynch.ecore#//DataSource/synchDownTableImpl/table"/>
       </genOperations>
@@ -44,9 +47,9 @@
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="dbsynch.ecore#//DataSourceJdbc">
-      <genFeatures createChild="false" propertyCategory="10 Database" ecoreFeature="ecore:EAttribute dbsynch.ecore#//DataSourceJdbc/DataBaseUser"/>
-      <genFeatures createChild="false" propertyCategory="10 Database" ecoreFeature="ecore:EAttribute dbsynch.ecore#//DataSourceJdbc/DataBaseUserPwd"/>
-      <genFeatures createChild="false" propertyCategory="10 Database" ecoreFeature="ecore:EAttribute dbsynch.ecore#//DataSourceJdbc/DefaultSchema"/>
+      <genFeatures createChild="false" propertyCategory="12 Connection" ecoreFeature="ecore:EAttribute dbsynch.ecore#//DataSourceJdbc/DataBaseUser"/>
+      <genFeatures createChild="false" propertyCategory="12 Connection" ecoreFeature="ecore:EAttribute dbsynch.ecore#//DataSourceJdbc/DataBaseUserPwd"/>
+      <genFeatures createChild="false" propertyCategory="12 Connection" ecoreFeature="ecore:EAttribute dbsynch.ecore#//DataSourceJdbc/DefaultSchema"/>
     </genClasses>
     <genClasses image="false" ecoreClass="dbsynch.ecore#//DbSynchUnitAbstract">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference dbsynch.ecore#//DbSynchUnitAbstract/Tables"/>

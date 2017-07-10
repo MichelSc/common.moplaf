@@ -86,7 +86,7 @@ public class DataSourceItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 getString("_UI__10DatabasePropertyCategory"),
+				 getString("_UI__16ExecutionPropertyCategory"),
 				 null));
 	}
 
@@ -108,7 +108,7 @@ public class DataSourceItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI__16ExecutionPropertyCategory"),
 				 null));
 	}
 
