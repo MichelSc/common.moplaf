@@ -86,7 +86,7 @@ public class DataSourceJdbcJtdsItemProvider extends DataSourceJdbcItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10DatabasePropertyCategory"),
+				 getString("_UI__12ConnectionPropertyCategory"),
 				 null));
 	}
 
@@ -108,7 +108,7 @@ public class DataSourceJdbcJtdsItemProvider extends DataSourceJdbcItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 getString("_UI__10DatabasePropertyCategory"),
+				 getString("_UI__12ConnectionPropertyCategory"),
 				 null));
 	}
 
@@ -130,7 +130,7 @@ public class DataSourceJdbcJtdsItemProvider extends DataSourceJdbcItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10DatabasePropertyCategory"),
+				 getString("_UI__12ConnectionPropertyCategory"),
 				 null));
 	}
 
@@ -152,7 +152,7 @@ public class DataSourceJdbcJtdsItemProvider extends DataSourceJdbcItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10DatabasePropertyCategory"),
+				 getString("_UI__12ConnectionPropertyCategory"),
 				 null));
 	}
 
@@ -174,7 +174,7 @@ public class DataSourceJdbcJtdsItemProvider extends DataSourceJdbcItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI__10DatabasePropertyCategory"),
+				 getString("_UI__12ConnectionPropertyCategory"),
 				 null));
 	}
 

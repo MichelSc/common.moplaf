@@ -373,7 +373,12 @@ public class DataSourceJdbcImpl extends DataSourceImpl implements DataSourceJdbc
 					return new ReturnFeedback("DataSourceJdbc.connect(setSchema)", e);
 				}
 			}
+			
 			this.setConnected(true);
+			
+			// set auto commit mode
+			this.onAutoCommitChange();
+
 			return ReturnFeedback.SUCCESS;
 		}
 	}
