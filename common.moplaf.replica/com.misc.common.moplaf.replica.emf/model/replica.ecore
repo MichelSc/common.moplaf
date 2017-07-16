@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="replica" nsURI="http://www.misc.com/common/moplaf/replica/model/0.1"
+    nsPrefix="replica">
+  <eClassifiers xsi:type="ecore:EClass" name="Replica">
+    <eOperations name="getExemplarElements" upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Get the elements of the replica to be replicated.&#xA;Default implementation returns exemplar's contained objects.&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="constructElement" eType="#//Replica">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Construct a replica for the given exemplar.&#xA;Default implemenation construct a Replica instance.&#xA;"/>
+      </eAnnotations>
+      <eParameters name="exemplar" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eOperations>
+    <eOperations name="refreshElements">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Refresh the elements of this replica: &#xA;  compare the present elements with the replica's elements&#xA;  construct replicas for the exemplar's elements not present in the replica&#xA;  remove replicas for the replica's elements in the exemplar&#xA;  recursively, refresh the replica's elements"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="refreshXRefs">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Recursively, refresh the cross references"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="refresh">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="First refresh the elements of this replica, recursively.&#xA;Second refresh the X references, recursively&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="remove">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Remove all this replica's elements recursively, and this replica.&#xA;Default implementation remove this replica from its container."/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getReplica" eType="#//Replica">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Dereference the given exemplar, returning the corresponding replica.&#xA;Default implementation traverse the Container-Elements tree until a match is found."/>
+      </eAnnotations>
+      <eParameters name="exemplar" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Exemplar" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"
+        eType="#//Replica" containment="true" eOpposite="#//Replica/Container"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Container" eType="#//Replica"
+        eOpposite="#//Replica/Elements"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReplicatorReplica">
+    <eOperations name="onConstruct"/>
+    <eOperations name="onRefresh"/>
+    <eOperations name="onRemove"/>
+    <eOperations name="refresh"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Exemplar" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"
+        eType="#//ReplicatorReplica" containment="true" eOpposite="#//ReplicatorReplica/Container"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Container" eType="#//ReplicatorReplica"
+        eOpposite="#//ReplicatorReplica/Elements"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Replicator" lowerBound="1"
+        eType="#//Replicator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Replicator">
+    <eOperations name="getReplica" eType="#//ReplicatorReplica">
+      <eParameters name="exemplar" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eOperations>
+    <eOperations name="getExemplarElements" upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject">
+      <eParameters name="replica" eType="#//ReplicatorReplica"/>
+    </eOperations>
+    <eOperations name="getRootExemplarElements" upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eOperations name="constructReplica" eType="#//ReplicatorReplica">
+      <eParameters name="exemplar" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eOperations>
+    <eOperations name="refreshElements">
+      <eParameters name="exemplarElements" upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      <eParameters name="replicaElements" upperBound="-1" eType="#//ReplicatorReplica"/>
+    </eOperations>
+    <eOperations name="refresh"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="RootReplicas" upperBound="-1"
+        eType="#//ReplicatorReplica" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

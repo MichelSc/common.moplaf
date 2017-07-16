@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/com.misc.common.moplaf.replica.emf/src" creationIcons="false"
+    editDirectory="/com.misc.common.moplaf.replica.emf.edit/src" editorDirectory="/com.misc.common.moplaf.replica.emf.editor/src-gen"
+    modelPluginID="com.misc.common.moplaf.replica.emf" modelName="Replica" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>replica.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Replica" basePackage="com.misc.common.moplaf" disposableProviderFactory="true"
+      ecorePackage="replica.ecore#/">
+    <genClasses ecoreClass="replica.ecore#//Replica">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference replica.ecore#//Replica/Exemplar"/>
+      <genFeatures children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference replica.ecore#//Replica/Elements"/>
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference replica.ecore#//Replica/Container"/>
+      <genOperations ecoreOperation="replica.ecore#//Replica/getExemplarElements"/>
+      <genOperations ecoreOperation="replica.ecore#//Replica/constructElement">
+        <genParameters ecoreParameter="replica.ecore#//Replica/constructElement/exemplar"/>
+      </genOperations>
+      <genOperations ecoreOperation="replica.ecore#//Replica/refreshElements"/>
+      <genOperations ecoreOperation="replica.ecore#//Replica/refreshXRefs"/>
+      <genOperations ecoreOperation="replica.ecore#//Replica/refresh"/>
+      <genOperations ecoreOperation="replica.ecore#//Replica/remove"/>
+      <genOperations ecoreOperation="replica.ecore#//Replica/getReplica">
+        <genParameters ecoreParameter="replica.ecore#//Replica/getReplica/exemplar"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="replica.ecore#//ReplicatorReplica">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference replica.ecore#//ReplicatorReplica/Exemplar"/>
+      <genFeatures children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference replica.ecore#//ReplicatorReplica/Elements"/>
+      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference replica.ecore#//ReplicatorReplica/Container"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference replica.ecore#//ReplicatorReplica/Replicator"/>
+      <genOperations ecoreOperation="replica.ecore#//ReplicatorReplica/onConstruct"/>
+      <genOperations ecoreOperation="replica.ecore#//ReplicatorReplica/onRefresh"/>
+      <genOperations ecoreOperation="replica.ecore#//ReplicatorReplica/onRemove"/>
+      <genOperations ecoreOperation="replica.ecore#//ReplicatorReplica/refresh"/>
+    </genClasses>
+    <genClasses ecoreClass="replica.ecore#//Replicator">
+      <genFeatures children="true" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference replica.ecore#//Replicator/RootReplicas"/>
+      <genOperations ecoreOperation="replica.ecore#//Replicator/getReplica">
+        <genParameters ecoreParameter="replica.ecore#//Replicator/getReplica/exemplar"/>
+      </genOperations>
+      <genOperations ecoreOperation="replica.ecore#//Replicator/getExemplarElements">
+        <genParameters ecoreParameter="replica.ecore#//Replicator/getExemplarElements/replica"/>
+      </genOperations>
+      <genOperations ecoreOperation="replica.ecore#//Replicator/getRootExemplarElements"/>
+      <genOperations ecoreOperation="replica.ecore#//Replicator/constructReplica">
+        <genParameters ecoreParameter="replica.ecore#//Replicator/constructReplica/exemplar"/>
+      </genOperations>
+      <genOperations ecoreOperation="replica.ecore#//Replicator/refreshElements">
+        <genParameters ecoreParameter="replica.ecore#//Replicator/refreshElements/exemplarElements"/>
+        <genParameters ecoreParameter="replica.ecore#//Replicator/refreshElements/replicaElements"/>
+      </genOperations>
+      <genOperations ecoreOperation="replica.ecore#//Replicator/refresh"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
