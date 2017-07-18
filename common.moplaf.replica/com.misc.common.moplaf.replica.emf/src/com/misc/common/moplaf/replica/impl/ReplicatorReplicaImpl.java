@@ -42,7 +42,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ReplicatorReplicaImpl extends MinimalEObjectImpl.Container implements ReplicatorReplica {
+public class ReplicatorReplicaImpl<T extends EObject> extends MinimalEObjectImpl.Container
+		implements ReplicatorReplica<T> {
 	/**
 	 * The cached value of the '{@link #getExemplar() <em>Exemplar</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -51,7 +52,7 @@ public class ReplicatorReplicaImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected EObject exemplar;
+	protected T exemplar;
 
 	/**
 	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
@@ -61,7 +62,7 @@ public class ReplicatorReplicaImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ReplicatorReplica> elements;
+	protected EList<ReplicatorReplica<T>> elements;
 
 	/**
 	 * The cached value of the '{@link #getReplicator() <em>Replicator</em>}' reference.
@@ -71,7 +72,7 @@ public class ReplicatorReplicaImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected Replicator replicator;
+	protected Replicator<T> replicator;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -97,10 +98,11 @@ public class ReplicatorReplicaImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObject getExemplar() {
+	@SuppressWarnings("unchecked")
+	public T getExemplar() {
 		if (exemplar != null && exemplar.eIsProxy()) {
 			InternalEObject oldExemplar = (InternalEObject) exemplar;
-			exemplar = eResolveProxy(oldExemplar);
+			exemplar = (T) eResolveProxy(oldExemplar);
 			if (exemplar != oldExemplar) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
@@ -115,7 +117,7 @@ public class ReplicatorReplicaImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EObject basicGetExemplar() {
+	public T basicGetExemplar() {
 		return exemplar;
 	}
 
@@ -124,8 +126,8 @@ public class ReplicatorReplicaImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setExemplar(EObject newExemplar) {
-		EObject oldExemplar = exemplar;
+	public void setExemplar(T newExemplar) {
+		T oldExemplar = exemplar;
 		exemplar = newExemplar;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ReplicaPackage.REPLICATOR_REPLICA__EXEMPLAR,
@@ -137,9 +139,9 @@ public class ReplicatorReplicaImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ReplicatorReplica> getElements() {
+	public EList<ReplicatorReplica<T>> getElements() {
 		if (elements == null) {
-			elements = new EObjectContainmentWithInverseEList<ReplicatorReplica>(ReplicatorReplica.class, this,
+			elements = new EObjectContainmentWithInverseEList<ReplicatorReplica<T>>(ReplicatorReplica.class, this,
 					ReplicaPackage.REPLICATOR_REPLICA__ELEMENTS, ReplicaPackage.REPLICATOR_REPLICA__CONTAINER);
 		}
 		return elements;
@@ -150,10 +152,11 @@ public class ReplicatorReplicaImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ReplicatorReplica getContainer() {
+	@SuppressWarnings("unchecked")
+	public ReplicatorReplica<T> getContainer() {
 		if (eContainerFeatureID() != ReplicaPackage.REPLICATOR_REPLICA__CONTAINER)
 			return null;
-		return (ReplicatorReplica) eInternalContainer();
+		return (ReplicatorReplica<T>) eInternalContainer();
 	}
 
 	/**
@@ -161,7 +164,7 @@ public class ReplicatorReplicaImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetContainer(ReplicatorReplica newContainer, NotificationChain msgs) {
+	public NotificationChain basicSetContainer(ReplicatorReplica<T> newContainer, NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject) newContainer, ReplicaPackage.REPLICATOR_REPLICA__CONTAINER, msgs);
 		return msgs;
 	}
@@ -171,7 +174,7 @@ public class ReplicatorReplicaImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setContainer(ReplicatorReplica newContainer) {
+	public void setContainer(ReplicatorReplica<T> newContainer) {
 		if (newContainer != eInternalContainer()
 				|| (eContainerFeatureID() != ReplicaPackage.REPLICATOR_REPLICA__CONTAINER && newContainer != null)) {
 			if (EcoreUtil.isAncestor(this, newContainer))
@@ -195,10 +198,11 @@ public class ReplicatorReplicaImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Replicator getReplicator() {
+	@SuppressWarnings("unchecked")
+	public Replicator<T> getReplicator() {
 		if (replicator != null && replicator.eIsProxy()) {
 			InternalEObject oldReplicator = (InternalEObject) replicator;
-			replicator = (Replicator) eResolveProxy(oldReplicator);
+			replicator = (Replicator<T>) eResolveProxy(oldReplicator);
 			if (replicator != oldReplicator) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
@@ -213,7 +217,7 @@ public class ReplicatorReplicaImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Replicator basicGetReplicator() {
+	public Replicator<T> basicGetReplicator() {
 		return replicator;
 	}
 
@@ -222,8 +226,8 @@ public class ReplicatorReplicaImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setReplicator(Replicator newReplicator) {
-		Replicator oldReplicator = replicator;
+	public void setReplicator(Replicator<T> newReplicator) {
+		Replicator<T> oldReplicator = replicator;
 		replicator = newReplicator;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ReplicaPackage.REPLICATOR_REPLICA__REPLICATOR,
@@ -252,7 +256,7 @@ public class ReplicatorReplicaImpl extends MinimalEObjectImpl.Container implemen
 	 */
 	public void onRefresh() {
 		// default calls onRefresh of every element
-		for (ReplicatorReplica replica : this.getElements()) {
+		for (ReplicatorReplica<T> replica : this.getElements()) {
 			replica.onRefresh();
 		}
 	}
@@ -262,7 +266,7 @@ public class ReplicatorReplicaImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 */
 	public void refresh() {
-		Replicator replicator = this.getReplicator();
+		Replicator<T> replicator = this.getReplicator();
 		replicator.refreshElements(replicator.getExemplarElements(this), this.getElements());
 		this.onRefresh();
 	}
@@ -281,7 +285,7 @@ public class ReplicatorReplicaImpl extends MinimalEObjectImpl.Container implemen
 		case ReplicaPackage.REPLICATOR_REPLICA__CONTAINER:
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			return basicSetContainer((ReplicatorReplica) otherEnd, msgs);
+			return basicSetContainer((ReplicatorReplica<T>) otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -351,17 +355,17 @@ public class ReplicatorReplicaImpl extends MinimalEObjectImpl.Container implemen
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case ReplicaPackage.REPLICATOR_REPLICA__EXEMPLAR:
-			setExemplar((EObject) newValue);
+			setExemplar((T) newValue);
 			return;
 		case ReplicaPackage.REPLICATOR_REPLICA__ELEMENTS:
 			getElements().clear();
-			getElements().addAll((Collection<? extends ReplicatorReplica>) newValue);
+			getElements().addAll((Collection<? extends ReplicatorReplica<T>>) newValue);
 			return;
 		case ReplicaPackage.REPLICATOR_REPLICA__CONTAINER:
-			setContainer((ReplicatorReplica) newValue);
+			setContainer((ReplicatorReplica<T>) newValue);
 			return;
 		case ReplicaPackage.REPLICATOR_REPLICA__REPLICATOR:
-			setReplicator((Replicator) newValue);
+			setReplicator((Replicator<T>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -376,16 +380,16 @@ public class ReplicatorReplicaImpl extends MinimalEObjectImpl.Container implemen
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case ReplicaPackage.REPLICATOR_REPLICA__EXEMPLAR:
-			setExemplar((EObject) null);
+			setExemplar((T) null);
 			return;
 		case ReplicaPackage.REPLICATOR_REPLICA__ELEMENTS:
 			getElements().clear();
 			return;
 		case ReplicaPackage.REPLICATOR_REPLICA__CONTAINER:
-			setContainer((ReplicatorReplica) null);
+			setContainer((ReplicatorReplica<T>) null);
 			return;
 		case ReplicaPackage.REPLICATOR_REPLICA__REPLICATOR:
-			setReplicator((Replicator) null);
+			setReplicator((Replicator<T>) null);
 			return;
 		}
 		super.eUnset(featureID);

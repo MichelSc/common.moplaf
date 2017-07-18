@@ -3,6 +3,7 @@
 package com.misc.common.moplaf.replica;
 
 import org.eclipse.emf.ecore.EFactory;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,7 +38,7 @@ public interface ReplicaFactory extends EFactory {
 	 * @return a new object of class '<em>Replicator Replica</em>'.
 	 * @generated
 	 */
-	ReplicatorReplica createReplicatorReplica();
+	<T extends EObject> ReplicatorReplica<T> createReplicatorReplica();
 
 	/**
 	 * Returns a new object of class '<em>Replicator</em>'.
@@ -46,7 +47,7 @@ public interface ReplicaFactory extends EFactory {
 	 * @return a new object of class '<em>Replicator</em>'.
 	 * @generated
 	 */
-	Replicator createReplicator();
+	<T extends EObject> Replicator<T> createReplicator();
 
 	/**
 	 * Returns the package supported by this factory.

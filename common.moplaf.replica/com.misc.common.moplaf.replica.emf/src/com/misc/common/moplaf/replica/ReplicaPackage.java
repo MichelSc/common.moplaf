@@ -309,7 +309,7 @@ public interface ReplicaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPLICATOR___GET_REPLICA__EOBJECT = 0;
+	int REPLICATOR___GET_REPLICA__OBJECT = 0;
 
 	/**
 	 * The operation id for the '<em>Get Exemplar Elements</em>' operation.
@@ -336,7 +336,7 @@ public interface ReplicaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPLICATOR___CONSTRUCT_REPLICA__EOBJECT = 3;
+	int REPLICATOR___CONSTRUCT_REPLICA__OBJECT = 3;
 
 	/**
 	 * The operation id for the '<em>Refresh Elements</em>' operation.
@@ -601,7 +601,7 @@ public interface ReplicaPackage extends EPackage {
 	 * @see com.misc.common.moplaf.replica.Replicator#getReplica(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EOperation getReplicator__GetReplica__EObject();
+	EOperation getReplicator__GetReplica__Object();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.replica.Replicator#getExemplarElements(com.misc.common.moplaf.replica.ReplicatorReplica) <em>Get Exemplar Elements</em>}' operation.
@@ -631,7 +631,7 @@ public interface ReplicaPackage extends EPackage {
 	 * @see com.misc.common.moplaf.replica.Replicator#constructReplica(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	EOperation getReplicator__ConstructReplica__EObject();
+	EOperation getReplicator__ConstructReplica__Object();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.replica.Replicator#refreshElements(org.eclipse.emf.common.util.EList, org.eclipse.emf.common.util.EList) <em>Refresh Elements</em>}' operation.
@@ -864,7 +864,7 @@ public interface ReplicaPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation REPLICATOR___GET_REPLICA__EOBJECT = eINSTANCE.getReplicator__GetReplica__EObject();
+		EOperation REPLICATOR___GET_REPLICA__OBJECT = eINSTANCE.getReplicator__GetReplica__Object();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Exemplar Elements</b></em>' operation.
@@ -889,7 +889,7 @@ public interface ReplicaPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation REPLICATOR___CONSTRUCT_REPLICA__EOBJECT = eINSTANCE.getReplicator__ConstructReplica__EObject();
+		EOperation REPLICATOR___CONSTRUCT_REPLICA__OBJECT = eINSTANCE.getReplicator__ConstructReplica__Object();
 
 		/**
 		 * The meta object literal for the '<em><b>Refresh Elements</b></em>' operation.

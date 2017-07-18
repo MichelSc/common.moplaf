@@ -14,6 +14,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -185,10 +186,10 @@ public class ReplicatorItemProvider extends ItemProviderAdapter implements IEdit
 	 * @author michel
 	 *
 	 */
-	public class ReplicatorRefreshCommand extends RefreshCommand {
-		private Replicator replicator;
+	public class ReplicatorRefreshCommand<T extends EObject> extends RefreshCommand {
+		private Replicator<T> replicator;
 
-		public ReplicatorRefreshCommand(Replicator replicator) {
+		public ReplicatorRefreshCommand(Replicator<T> replicator) {
 			super();
 			this.replicator = replicator;
 		}
