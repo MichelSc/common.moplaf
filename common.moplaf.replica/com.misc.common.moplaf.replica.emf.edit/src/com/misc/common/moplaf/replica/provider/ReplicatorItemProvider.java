@@ -207,7 +207,7 @@ public class ReplicatorItemProvider extends ItemProviderAdapter implements IEdit
 	public Command createCommand(Object object, EditingDomain domain, Class<? extends Command> commandClass,
 			CommandParameter commandParameter) {
 		if (commandClass == RefreshCommand.class) {
-			return new ReplicatorRefreshCommand((Replicator) object);
+			return new ReplicatorRefreshCommand<>((Replicator<?>) object);
 		}
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand
