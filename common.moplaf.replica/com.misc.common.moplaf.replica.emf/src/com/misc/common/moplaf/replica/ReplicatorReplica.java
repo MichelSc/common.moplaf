@@ -148,12 +148,4 @@ public interface ReplicatorReplica<T extends EObject> extends EObject {
 	 */
 	void onRefresh();
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void refresh();
-
 } // ReplicatorReplica

@@ -122,9 +122,9 @@ public class ReplicatorImpl<T extends EObject> extends MinimalEObjectImpl.Contai
 	public EList<T> getExemplarElements(ReplicatorReplica<T> replica) {
 		T exemplar = replica.getExemplar();
 		EList<EObject> contents = exemplar.eContents();
-		EList<T> elements = new BasicEList<T>(); 
+		EList<T> elements = new BasicEList<T>();
 		for (EObject some_exeplar_element : contents) {
-			elements.add((T)some_exeplar_element);
+			elements.add((T) some_exeplar_element);
 		}
 		return elements;
 	}
@@ -199,6 +199,16 @@ public class ReplicatorImpl<T extends EObject> extends MinimalEObjectImpl.Contai
 		for (ReplicatorReplica<T> replica : this.getRootReplicas()) {
 			replica.onRefresh();
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void refresh(ReplicatorReplica<T> replica) {
+		Replicator<T> replicator = this;
+		replicator.refreshElements(replicator.getExemplarElements(replica), replica.getElements());
+		replica.onRefresh();
 	}
 
 	/**
@@ -284,19 +294,22 @@ public class ReplicatorImpl<T extends EObject> extends MinimalEObjectImpl.Contai
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-		case ReplicaPackage.REPLICATOR___GET_REPLICA__OBJECT:
+		case ReplicaPackage.REPLICATOR___GET_REPLICA__EOBJECT:
 			return getReplica((T) arguments.get(0));
 		case ReplicaPackage.REPLICATOR___GET_EXEMPLAR_ELEMENTS__REPLICATORREPLICA:
 			return getExemplarElements((ReplicatorReplica<T>) arguments.get(0));
 		case ReplicaPackage.REPLICATOR___GET_ROOT_EXEMPLAR_ELEMENTS:
 			return getRootExemplarElements();
-		case ReplicaPackage.REPLICATOR___CONSTRUCT_REPLICA__OBJECT:
+		case ReplicaPackage.REPLICATOR___CONSTRUCT_REPLICA__EOBJECT:
 			return constructReplica((T) arguments.get(0));
 		case ReplicaPackage.REPLICATOR___REFRESH_ELEMENTS__ELIST_ELIST:
 			refreshElements((EList<T>) arguments.get(0), (EList<ReplicatorReplica<T>>) arguments.get(1));
 			return null;
 		case ReplicaPackage.REPLICATOR___REFRESH:
 			refresh();
+			return null;
+		case ReplicaPackage.REPLICATOR___REFRESH__REPLICATORREPLICA:
+			refresh((ReplicatorReplica<T>) arguments.get(0));
 			return null;
 		}
 		return super.eInvoke(operationID, arguments);

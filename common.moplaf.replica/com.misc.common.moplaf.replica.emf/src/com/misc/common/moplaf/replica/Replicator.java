@@ -87,4 +87,12 @@ public interface Replicator<T extends EObject> extends EObject {
 	 */
 	void refresh();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void refresh(ReplicatorReplica<T> replica);
+
 } // Replicator

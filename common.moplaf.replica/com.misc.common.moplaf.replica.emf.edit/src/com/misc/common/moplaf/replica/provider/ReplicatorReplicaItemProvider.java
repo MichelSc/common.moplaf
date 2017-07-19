@@ -4,6 +4,7 @@ package com.misc.common.moplaf.replica.provider;
 
 import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
 import com.misc.common.moplaf.replica.ReplicaPackage;
+import com.misc.common.moplaf.replica.Replicator;
 import com.misc.common.moplaf.replica.ReplicatorReplica;
 
 import java.util.Collection;
@@ -14,7 +15,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -218,17 +219,18 @@ public class ReplicatorReplicaItemProvider extends ItemProviderAdapter implement
 	 * @author michel
 	 *
 	 */
-	public class ReplicatorReplicaRefreshCommand extends RefreshCommand {
-		private ReplicatorReplica replica;
+	public class ReplicatorReplicaRefreshCommand<T extends EObject> extends RefreshCommand {
+		private ReplicatorReplica<T> replica;
 
-		public ReplicatorReplicaRefreshCommand(ReplicatorReplica replica) {
+		public ReplicatorReplicaRefreshCommand(ReplicatorReplica<T> replica) {
 			super();
 			this.replica = replica;
 		}
 
 		@Override
 		public void execute() {
-			this.replica.refresh();
+			Replicator<T> replicator = this.replica.getReplicator();
+			replicator.refresh(this.replica);
 		}
 	};
 
@@ -239,7 +241,7 @@ public class ReplicatorReplicaItemProvider extends ItemProviderAdapter implement
 	public Command createCommand(Object object, EditingDomain domain, Class<? extends Command> commandClass,
 			CommandParameter commandParameter) {
 		if (commandClass == RefreshCommand.class) {
-			return new ReplicatorReplicaRefreshCommand((ReplicatorReplica) object);
+			return new ReplicatorReplicaRefreshCommand<>((ReplicatorReplica<?>) object);
 		}
 		return super.createCommand(object, domain, commandClass, commandParameter);
 	} //method createCommand

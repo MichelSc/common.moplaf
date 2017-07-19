@@ -261,15 +261,6 @@ public class ReplicatorReplicaImpl<T extends EObject> extends MinimalEObjectImpl
 		}
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 */
-	public void refresh() {
-		Replicator<T> replicator = this.getReplicator();
-		replicator.refreshElements(replicator.getExemplarElements(this), this.getElements());
-		this.onRefresh();
-	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -431,9 +422,6 @@ public class ReplicatorReplicaImpl<T extends EObject> extends MinimalEObjectImpl
 			return null;
 		case ReplicaPackage.REPLICATOR_REPLICA___ON_REMOVE:
 			onRemove();
-			return null;
-		case ReplicaPackage.REPLICATOR_REPLICA___REFRESH:
-			refresh();
 			return null;
 		}
 		return super.eInvoke(operationID, arguments);

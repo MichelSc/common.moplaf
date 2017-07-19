@@ -53,7 +53,6 @@
     <eOperations name="onConstruct"/>
     <eOperations name="onRefresh"/>
     <eOperations name="onRemove"/>
-    <eOperations name="refresh"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Exemplar">
       <eGenericType eTypeParameter="#//ReplicatorReplica/T"/>
     </eStructuralFeatures>
@@ -116,6 +115,13 @@
       </eParameters>
     </eOperations>
     <eOperations name="refresh"/>
+    <eOperations name="refresh">
+      <eParameters name="replica">
+        <eGenericType eClassifier="#//ReplicatorReplica">
+          <eTypeArguments eTypeParameter="#//Replicator/T"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="RootReplicas" upperBound="-1"
         containment="true">
       <eGenericType eClassifier="#//ReplicatorReplica">
