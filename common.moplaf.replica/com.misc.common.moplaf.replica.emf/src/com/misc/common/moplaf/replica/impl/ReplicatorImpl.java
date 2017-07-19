@@ -189,6 +189,13 @@ public class ReplicatorImpl<T extends EObject> extends MinimalEObjectImpl.Contai
 			this.refreshElements(this.getExemplarElements(element), element.getElements());
 		}
 	}
+	
+	private void onRefresh(ReplicatorReplica<T> replica) {
+		replica.onRefresh();
+		for ( ReplicatorReplica<T> replica_element : replica.getElements()) {
+			this.onRefresh(replica_element);
+		}
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -197,7 +204,7 @@ public class ReplicatorImpl<T extends EObject> extends MinimalEObjectImpl.Contai
 	public void refresh() {
 		this.refreshElements(this.getRootExemplarElements(), this.getRootReplicas());
 		for (ReplicatorReplica<T> replica : this.getRootReplicas()) {
-			replica.onRefresh();
+			this.onRefresh(replica);
 		}
 	}
 
@@ -208,7 +215,7 @@ public class ReplicatorImpl<T extends EObject> extends MinimalEObjectImpl.Contai
 	public void refresh(ReplicatorReplica<T> replica) {
 		Replicator<T> replicator = this;
 		replicator.refreshElements(replicator.getExemplarElements(replica), replica.getElements());
-		replica.onRefresh();
+		this.onRefresh(replica);
 	}
 
 	/**
