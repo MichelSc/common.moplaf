@@ -124,6 +124,15 @@ public interface DbsynchjtdsPackage extends EPackage {
 	int DATA_SOURCE_JDBC_JTDS__CONNECTED = DbSynchPackage.DATA_SOURCE_JDBC__CONNECTED;
 
 	/**
+	 * The feature id for the '<em><b>Auto Commit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_JDBC_JTDS__AUTO_COMMIT = DbSynchPackage.DATA_SOURCE_JDBC__AUTO_COMMIT;
+
+	/**
 	 * The feature id for the '<em><b>Data Base User</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -275,6 +284,24 @@ public interface DbsynchjtdsPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATA_SOURCE_JDBC_JTDS___DISCONNECT = DbSynchPackage.DATA_SOURCE_JDBC___DISCONNECT;
+
+	/**
+	 * The operation id for the '<em>Commit</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_JDBC_JTDS___COMMIT = DbSynchPackage.DATA_SOURCE_JDBC___COMMIT;
+
+	/**
+	 * The operation id for the '<em>Rollback</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_JDBC_JTDS___ROLLBACK = DbSynchPackage.DATA_SOURCE_JDBC___ROLLBACK;
 
 	/**
 	 * The operation id for the '<em>Synch Down Table Impl</em>' operation.

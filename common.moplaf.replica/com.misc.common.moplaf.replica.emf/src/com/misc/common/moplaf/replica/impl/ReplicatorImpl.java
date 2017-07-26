@@ -178,10 +178,7 @@ public class ReplicatorImpl<T extends EObject> extends MinimalEObjectImpl.Contai
 
 		// remove the elements still there
 		for (ReplicatorReplica<T> replica_to_remove : asis.values()) {
-			replica_to_remove.onRemove();
-			replica_to_remove.setReplicator(null);
-			index.remove(replica_to_remove.getExemplar());
-			replicaElements.remove(replica_to_remove);
+			this.removeReplica(replica_to_remove);
 		}
 
 		// refresh the elements elements replica
@@ -195,6 +192,23 @@ public class ReplicatorImpl<T extends EObject> extends MinimalEObjectImpl.Contai
 		for ( ReplicatorReplica<T> replica_element : replica.getElements()) {
 			this.onRefresh(replica_element);
 		}
+	}
+
+	/**
+	 * 
+	 * @param replica
+	 */
+	private void removeReplica(ReplicatorReplica<T> replica) {
+		// before actual removal
+		replica.onRemove();
+		// remove of the Replica elements
+		for ( ReplicatorReplica<T> replica_element : replica.getElements()) {
+			this.removeReplica(replica_element);
+		}
+		// actual removal of the Replica
+		replica.setReplicator(null);
+		this.getReplicasIndex().remove(replica.getExemplar());
+		replica.setContainer(null);
 	}
 
 	/**

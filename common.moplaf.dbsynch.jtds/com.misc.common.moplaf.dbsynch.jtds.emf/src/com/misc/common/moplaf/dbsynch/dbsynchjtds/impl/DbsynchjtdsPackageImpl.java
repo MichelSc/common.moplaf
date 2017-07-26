@@ -248,7 +248,7 @@ public class DbsynchjtdsPackageImpl extends EPackageImpl implements DbsynchjtdsP
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(dataSourceJdbcJtdsEClass, DataSourceJdbcJtds.class, "DataSourceJdbcJtds", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDataSourceJdbcJtds_Host(), ecorePackage.getEString(), "Host", "localshost", 0, 1, DataSourceJdbcJtds.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataSourceJdbcJtds_Host(), ecorePackage.getEString(), "Host", "localhost", 0, 1, DataSourceJdbcJtds.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataSourceJdbcJtds_Port(), ecorePackage.getEInt(), "Port", "1433", 0, 1, DataSourceJdbcJtds.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataSourceJdbcJtds_DataBase(), ecorePackage.getEString(), "DataBase", null, 0, 1, DataSourceJdbcJtds.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataSourceJdbcJtds_ServerType(), this.getEnumServerType(), "ServerType", null, 0, 1, DataSourceJdbcJtds.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
