@@ -9,10 +9,12 @@ import com.misc.common.moplaf.replica.ReplicaPackage;
 import com.misc.common.moplaf.replica.Replicator;
 import com.misc.common.moplaf.replica.ReplicatorReplica;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -281,15 +283,6 @@ public class ReplicaPackageImpl extends EPackageImpl implements ReplicaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getReplicatorReplica__Refresh() {
-		return replicatorReplicaEClass.getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getReplicator() {
 		return replicatorEClass;
 	}
@@ -362,6 +355,15 @@ public class ReplicaPackageImpl extends EPackageImpl implements ReplicaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getReplicator__Refresh__ReplicatorReplica() {
+		return replicatorEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ReplicaFactory getReplicaFactory() {
 		return (ReplicaFactory) getEFactoryInstance();
 	}
@@ -406,7 +408,6 @@ public class ReplicaPackageImpl extends EPackageImpl implements ReplicaPackage {
 		createEOperation(replicatorReplicaEClass, REPLICATOR_REPLICA___ON_CONSTRUCT);
 		createEOperation(replicatorReplicaEClass, REPLICATOR_REPLICA___ON_REFRESH);
 		createEOperation(replicatorReplicaEClass, REPLICATOR_REPLICA___ON_REMOVE);
-		createEOperation(replicatorReplicaEClass, REPLICATOR_REPLICA___REFRESH);
 
 		replicatorEClass = createEClass(REPLICATOR);
 		createEReference(replicatorEClass, REPLICATOR__ROOT_REPLICAS);
@@ -416,6 +417,7 @@ public class ReplicaPackageImpl extends EPackageImpl implements ReplicaPackage {
 		createEOperation(replicatorEClass, REPLICATOR___CONSTRUCT_REPLICA__EOBJECT);
 		createEOperation(replicatorEClass, REPLICATOR___REFRESH_ELEMENTS__ELIST_ELIST);
 		createEOperation(replicatorEClass, REPLICATOR___REFRESH);
+		createEOperation(replicatorEClass, REPLICATOR___REFRESH__REPLICATORREPLICA);
 	}
 
 	/**
@@ -443,8 +445,14 @@ public class ReplicaPackageImpl extends EPackageImpl implements ReplicaPackage {
 		setNsURI(eNS_URI);
 
 		// Create type parameters
+		ETypeParameter replicatorReplicaEClass_T = addETypeParameter(replicatorReplicaEClass, "T");
+		ETypeParameter replicatorEClass_T = addETypeParameter(replicatorEClass, "T");
 
 		// Set bounds for type parameters
+		EGenericType g1 = createEGenericType(ecorePackage.getEObject());
+		replicatorReplicaEClass_T.getEBounds().add(g1);
+		g1 = createEGenericType(ecorePackage.getEObject());
+		replicatorEClass_T.getEBounds().add(g1);
 
 		// Add supertypes to classes
 
@@ -481,20 +489,28 @@ public class ReplicaPackageImpl extends EPackageImpl implements ReplicaPackage {
 
 		initEClass(replicatorReplicaEClass, ReplicatorReplica.class, "ReplicatorReplica", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getReplicatorReplica_Exemplar(), ecorePackage.getEObject(), null, "Exemplar", null, 0, 1,
-				ReplicatorReplica.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getReplicatorReplica_Elements(), this.getReplicatorReplica(),
-				this.getReplicatorReplica_Container(), "Elements", null, 0, -1, ReplicatorReplica.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getReplicatorReplica_Container(), this.getReplicatorReplica(),
-				this.getReplicatorReplica_Elements(), "Container", null, 0, 1, ReplicatorReplica.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getReplicatorReplica_Replicator(), this.getReplicator(), null, "Replicator", null, 1, 1,
-				ReplicatorReplica.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(replicatorReplicaEClass_T);
+		initEReference(getReplicatorReplica_Exemplar(), g1, null, "Exemplar", null, 0, 1, ReplicatorReplica.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(this.getReplicatorReplica());
+		EGenericType g2 = createEGenericType(replicatorReplicaEClass_T);
+		g1.getETypeArguments().add(g2);
+		initEReference(getReplicatorReplica_Elements(), g1, this.getReplicatorReplica_Container(), "Elements", null, 0,
+				-1, ReplicatorReplica.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(this.getReplicatorReplica());
+		g2 = createEGenericType(replicatorReplicaEClass_T);
+		g1.getETypeArguments().add(g2);
+		initEReference(getReplicatorReplica_Container(), g1, this.getReplicatorReplica_Elements(), "Container", null, 0,
+				1, ReplicatorReplica.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(this.getReplicator());
+		g2 = createEGenericType(replicatorReplicaEClass_T);
+		g1.getETypeArguments().add(g2);
+		initEReference(getReplicatorReplica_Replicator(), g1, null, "Replicator", null, 1, 1, ReplicatorReplica.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getReplicatorReplica__OnConstruct(), null, "onConstruct", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -502,35 +518,62 @@ public class ReplicaPackageImpl extends EPackageImpl implements ReplicaPackage {
 
 		initEOperation(getReplicatorReplica__OnRemove(), null, "onRemove", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getReplicatorReplica__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(replicatorEClass, Replicator.class, "Replicator", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getReplicator_RootReplicas(), this.getReplicatorReplica(), null, "RootReplicas", null, 0, -1,
-				Replicator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(this.getReplicatorReplica());
+		g2 = createEGenericType(replicatorEClass_T);
+		g1.getETypeArguments().add(g2);
+		initEReference(getReplicator_RootReplicas(), g1, null, "RootReplicas", null, 0, -1, Replicator.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getReplicator__GetReplica__EObject(), this.getReplicatorReplica(), "getReplica", 0, 1,
+		op = initEOperation(getReplicator__GetReplica__EObject(), null, "getReplica", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(replicatorEClass_T);
+		addEParameter(op, g1, "exemplar", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getReplicatorReplica());
+		g2 = createEGenericType(replicatorEClass_T);
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		op = initEOperation(getReplicator__GetExemplarElements__ReplicatorReplica(), null, "getExemplarElements", 0, -1,
 				IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEObject(), "exemplar", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getReplicatorReplica());
+		g2 = createEGenericType(replicatorEClass_T);
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "replica", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(replicatorEClass_T);
+		initEOperation(op, g1);
 
-		op = initEOperation(getReplicator__GetExemplarElements__ReplicatorReplica(), ecorePackage.getEObject(),
-				"getExemplarElements", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getReplicatorReplica(), "replica", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getReplicator__GetRootExemplarElements(), null, "getRootExemplarElements", 0, -1, IS_UNIQUE,
+				IS_ORDERED);
+		g1 = createEGenericType(replicatorEClass_T);
+		initEOperation(op, g1);
 
-		initEOperation(getReplicator__GetRootExemplarElements(), ecorePackage.getEObject(), "getRootExemplarElements",
-				0, -1, IS_UNIQUE, IS_ORDERED);
-
-		op = initEOperation(getReplicator__ConstructReplica__EObject(), this.getReplicatorReplica(), "constructReplica",
-				0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEObject(), "exemplar", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getReplicator__ConstructReplica__EObject(), null, "constructReplica", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+		g1 = createEGenericType(replicatorEClass_T);
+		addEParameter(op, g1, "exemplar", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getReplicatorReplica());
+		g2 = createEGenericType(replicatorEClass_T);
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
 
 		op = initEOperation(getReplicator__RefreshElements__EList_EList(), null, "refreshElements", 0, 1, IS_UNIQUE,
 				IS_ORDERED);
-		addEParameter(op, ecorePackage.getEObject(), "exemplarElements", 0, -1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getReplicatorReplica(), "replicaElements", 0, -1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(replicatorEClass_T);
+		addEParameter(op, g1, "exemplarElements", 0, -1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getReplicatorReplica());
+		g2 = createEGenericType(replicatorEClass_T);
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "replicaElements", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getReplicator__Refresh(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getReplicator__Refresh__ReplicatorReplica(), null, "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getReplicatorReplica());
+		g2 = createEGenericType(replicatorEClass_T);
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "replica", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

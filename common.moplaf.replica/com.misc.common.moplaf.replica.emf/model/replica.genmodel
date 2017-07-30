@@ -28,6 +28,7 @@
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="replica.ecore#//ReplicatorReplica">
+      <genTypeParameters ecoreTypeParameter="replica.ecore#//ReplicatorReplica/T"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference replica.ecore#//ReplicatorReplica/Exemplar"/>
       <genFeatures children="true" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference replica.ecore#//ReplicatorReplica/Elements"/>
@@ -37,9 +38,9 @@
       <genOperations ecoreOperation="replica.ecore#//ReplicatorReplica/onConstruct"/>
       <genOperations ecoreOperation="replica.ecore#//ReplicatorReplica/onRefresh"/>
       <genOperations ecoreOperation="replica.ecore#//ReplicatorReplica/onRemove"/>
-      <genOperations ecoreOperation="replica.ecore#//ReplicatorReplica/refresh"/>
     </genClasses>
     <genClasses ecoreClass="replica.ecore#//Replicator">
+      <genTypeParameters ecoreTypeParameter="replica.ecore#//Replicator/T"/>
       <genFeatures children="true" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference replica.ecore#//Replicator/RootReplicas"/>
       <genOperations ecoreOperation="replica.ecore#//Replicator/getReplica">
@@ -57,6 +58,9 @@
         <genParameters ecoreParameter="replica.ecore#//Replicator/refreshElements/replicaElements"/>
       </genOperations>
       <genOperations ecoreOperation="replica.ecore#//Replicator/refresh"/>
+      <genOperations ecoreOperation="replica.ecore#//Replicator/refresh.1">
+        <genParameters ecoreParameter="replica.ecore#//Replicator/refresh.1/replica"/>
+      </genOperations>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -55,7 +55,7 @@ public class DataSourceJdbcJtdsImpl extends DataSourceJdbcImpl implements DataSo
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String HOST_EDEFAULT = "localshost";
+	protected static final String HOST_EDEFAULT = "localhost";
 
 	/**
 	 * The cached value of the '{@link #getHost() <em>Host</em>}' attribute.

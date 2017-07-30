@@ -72,12 +72,12 @@ public class ReplicaAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseReplicatorReplica(ReplicatorReplica object) {
+		public <T extends EObject> Adapter caseReplicatorReplica(ReplicatorReplica<T> object) {
 			return createReplicatorReplicaAdapter();
 		}
 
 		@Override
-		public Adapter caseReplicator(Replicator object) {
+		public <T extends EObject> Adapter caseReplicator(Replicator<T> object) {
 			return createReplicatorAdapter();
 		}
 

@@ -257,22 +257,13 @@ public interface ReplicaPackage extends EPackage {
 	int REPLICATOR_REPLICA___ON_REMOVE = 2;
 
 	/**
-	 * The operation id for the '<em>Refresh</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REPLICATOR_REPLICA___REFRESH = 3;
-
-	/**
 	 * The number of operations of the '<em>Replicator Replica</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REPLICATOR_REPLICA_OPERATION_COUNT = 4;
+	int REPLICATOR_REPLICA_OPERATION_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.replica.impl.ReplicatorImpl <em>Replicator</em>}' class.
@@ -357,13 +348,22 @@ public interface ReplicaPackage extends EPackage {
 	int REPLICATOR___REFRESH = 5;
 
 	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPLICATOR___REFRESH__REPLICATORREPLICA = 6;
+
+	/**
 	 * The number of operations of the '<em>Replicator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REPLICATOR_OPERATION_COUNT = 6;
+	int REPLICATOR_OPERATION_COUNT = 7;
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.replica.Replica <em>Replica</em>}'.
@@ -563,16 +563,6 @@ public interface ReplicaPackage extends EPackage {
 	EOperation getReplicatorReplica__OnRefresh();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.replica.ReplicatorReplica#refresh() <em>Refresh</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Refresh</em>' operation.
-	 * @see com.misc.common.moplaf.replica.ReplicatorReplica#refresh()
-	 * @generated
-	 */
-	EOperation getReplicatorReplica__Refresh();
-
-	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.replica.Replicator <em>Replicator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -652,6 +642,16 @@ public interface ReplicaPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getReplicator__Refresh();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.replica.Replicator#refresh(com.misc.common.moplaf.replica.ReplicatorReplica) <em>Refresh</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh</em>' operation.
+	 * @see com.misc.common.moplaf.replica.Replicator#refresh(com.misc.common.moplaf.replica.ReplicatorReplica)
+	 * @generated
+	 */
+	EOperation getReplicator__Refresh__ReplicatorReplica();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -833,14 +833,6 @@ public interface ReplicaPackage extends EPackage {
 		EOperation REPLICATOR_REPLICA___ON_REFRESH = eINSTANCE.getReplicatorReplica__OnRefresh();
 
 		/**
-		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation REPLICATOR_REPLICA___REFRESH = eINSTANCE.getReplicatorReplica__Refresh();
-
-		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.replica.impl.ReplicatorImpl <em>Replicator</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -906,6 +898,14 @@ public interface ReplicaPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation REPLICATOR___REFRESH = eINSTANCE.getReplicator__Refresh();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation REPLICATOR___REFRESH__REPLICATORREPLICA = eINSTANCE.getReplicator__Refresh__ReplicatorReplica();
 
 	}
 

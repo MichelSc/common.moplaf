@@ -82,8 +82,8 @@ public class ReplicaFactoryImpl extends EFactoryImpl implements ReplicaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ReplicatorReplica createReplicatorReplica() {
-		ReplicatorReplicaImpl replicatorReplica = new ReplicatorReplicaImpl();
+	public <T extends EObject> ReplicatorReplica<T> createReplicatorReplica() {
+		ReplicatorReplicaImpl<T> replicatorReplica = new ReplicatorReplicaImpl<T>();
 		return replicatorReplica;
 	}
 
@@ -92,8 +92,8 @@ public class ReplicaFactoryImpl extends EFactoryImpl implements ReplicaFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Replicator createReplicator() {
-		ReplicatorImpl replicator = new ReplicatorImpl();
+	public <T extends EObject> Replicator<T> createReplicator() {
+		ReplicatorImpl<T> replicator = new ReplicatorImpl<T>();
 		return replicator;
 	}
 

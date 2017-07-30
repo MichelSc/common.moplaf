@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ReplicatorReplica extends EObject {
+public interface ReplicatorReplica<T extends EObject> extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Exemplar</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -40,7 +40,7 @@ public interface ReplicatorReplica extends EObject {
 	 * @model
 	 * @generated
 	 */
-	EObject getExemplar();
+	T getExemplar();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.replica.ReplicatorReplica#getExemplar <em>Exemplar</em>}' reference.
@@ -50,11 +50,11 @@ public interface ReplicatorReplica extends EObject {
 	 * @see #getExemplar()
 	 * @generated
 	 */
-	void setExemplar(EObject value);
+	void setExemplar(T value);
 
 	/**
 	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.replica.ReplicatorReplica}.
+	 * The list contents are of type {@link com.misc.common.moplaf.replica.ReplicatorReplica}<code>&lt;T&gt;</code>.
 	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.replica.ReplicatorReplica#getContainer <em>Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -68,7 +68,7 @@ public interface ReplicatorReplica extends EObject {
 	 * @model opposite="Container" containment="true"
 	 * @generated
 	 */
-	EList<ReplicatorReplica> getElements();
+	EList<ReplicatorReplica<T>> getElements();
 
 	/**
 	 * Returns the value of the '<em><b>Container</b></em>' container reference.
@@ -86,7 +86,7 @@ public interface ReplicatorReplica extends EObject {
 	 * @model opposite="Elements" transient="false"
 	 * @generated
 	 */
-	ReplicatorReplica getContainer();
+	ReplicatorReplica<T> getContainer();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.replica.ReplicatorReplica#getContainer <em>Container</em>}' container reference.
@@ -96,7 +96,7 @@ public interface ReplicatorReplica extends EObject {
 	 * @see #getContainer()
 	 * @generated
 	 */
-	void setContainer(ReplicatorReplica value);
+	void setContainer(ReplicatorReplica<T> value);
 
 	/**
 	 * Returns the value of the '<em><b>Replicator</b></em>' reference.
@@ -112,7 +112,7 @@ public interface ReplicatorReplica extends EObject {
 	 * @model required="true"
 	 * @generated
 	 */
-	Replicator getReplicator();
+	Replicator<T> getReplicator();
 
 	/**
 	 * Sets the value of the '{@link com.misc.common.moplaf.replica.ReplicatorReplica#getReplicator <em>Replicator</em>}' reference.
@@ -122,7 +122,7 @@ public interface ReplicatorReplica extends EObject {
 	 * @see #getReplicator()
 	 * @generated
 	 */
-	void setReplicator(Replicator value);
+	void setReplicator(Replicator<T> value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -147,13 +147,5 @@ public interface ReplicatorReplica extends EObject {
 	 * @generated
 	 */
 	void onRefresh();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void refresh();
 
 } // ReplicatorReplica

@@ -47,35 +47,86 @@
         eOpposite="#//Replica/Elements"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReplicatorReplica">
+    <eTypeParameters name="T">
+      <eBounds eClassifier="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eTypeParameters>
     <eOperations name="onConstruct"/>
     <eOperations name="onRefresh"/>
     <eOperations name="onRemove"/>
-    <eOperations name="refresh"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Exemplar" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Exemplar">
+      <eGenericType eTypeParameter="#//ReplicatorReplica/T"/>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"
-        eType="#//ReplicatorReplica" containment="true" eOpposite="#//ReplicatorReplica/Container"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Container" eType="#//ReplicatorReplica"
-        eOpposite="#//ReplicatorReplica/Elements"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Replicator" lowerBound="1"
-        eType="#//Replicator"/>
+        containment="true" eOpposite="#//ReplicatorReplica/Container">
+      <eGenericType eClassifier="#//ReplicatorReplica">
+        <eTypeArguments eTypeParameter="#//ReplicatorReplica/T"/>
+      </eGenericType>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Container" eOpposite="#//ReplicatorReplica/Elements">
+      <eGenericType eClassifier="#//ReplicatorReplica">
+        <eTypeArguments eTypeParameter="#//ReplicatorReplica/T"/>
+      </eGenericType>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Replicator" lowerBound="1">
+      <eGenericType eClassifier="#//Replicator">
+        <eTypeArguments eTypeParameter="#//ReplicatorReplica/T"/>
+      </eGenericType>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Replicator">
-    <eOperations name="getReplica" eType="#//ReplicatorReplica">
-      <eParameters name="exemplar" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eTypeParameters name="T">
+      <eBounds eClassifier="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eTypeParameters>
+    <eOperations name="getReplica">
+      <eGenericType eClassifier="#//ReplicatorReplica">
+        <eTypeArguments eTypeParameter="#//Replicator/T"/>
+      </eGenericType>
+      <eParameters name="exemplar">
+        <eGenericType eTypeParameter="#//Replicator/T"/>
+      </eParameters>
     </eOperations>
-    <eOperations name="getExemplarElements" upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject">
-      <eParameters name="replica" eType="#//ReplicatorReplica"/>
+    <eOperations name="getExemplarElements" upperBound="-1">
+      <eGenericType eTypeParameter="#//Replicator/T"/>
+      <eParameters name="replica">
+        <eGenericType eClassifier="#//ReplicatorReplica">
+          <eTypeArguments eTypeParameter="#//Replicator/T"/>
+        </eGenericType>
+      </eParameters>
     </eOperations>
-    <eOperations name="getRootExemplarElements" upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    <eOperations name="constructReplica" eType="#//ReplicatorReplica">
-      <eParameters name="exemplar" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    <eOperations name="getRootExemplarElements" upperBound="-1">
+      <eGenericType eTypeParameter="#//Replicator/T"/>
+    </eOperations>
+    <eOperations name="constructReplica">
+      <eGenericType eClassifier="#//ReplicatorReplica">
+        <eTypeArguments eTypeParameter="#//Replicator/T"/>
+      </eGenericType>
+      <eParameters name="exemplar">
+        <eGenericType eTypeParameter="#//Replicator/T"/>
+      </eParameters>
     </eOperations>
     <eOperations name="refreshElements">
-      <eParameters name="exemplarElements" upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-      <eParameters name="replicaElements" upperBound="-1" eType="#//ReplicatorReplica"/>
+      <eParameters name="exemplarElements" upperBound="-1">
+        <eGenericType eTypeParameter="#//Replicator/T"/>
+      </eParameters>
+      <eParameters name="replicaElements" upperBound="-1">
+        <eGenericType eClassifier="#//ReplicatorReplica">
+          <eTypeArguments eTypeParameter="#//Replicator/T"/>
+        </eGenericType>
+      </eParameters>
     </eOperations>
     <eOperations name="refresh"/>
+    <eOperations name="refresh">
+      <eParameters name="replica">
+        <eGenericType eClassifier="#//ReplicatorReplica">
+          <eTypeArguments eTypeParameter="#//Replicator/T"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="RootReplicas" upperBound="-1"
-        eType="#//ReplicatorReplica" containment="true"/>
+        containment="true">
+      <eGenericType eClassifier="#//ReplicatorReplica">
+        <eTypeArguments eTypeParameter="#//Replicator/T"/>
+      </eGenericType>
+    </eStructuralFeatures>
   </eClassifiers>
 </ecore:EPackage>

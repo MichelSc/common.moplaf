@@ -22,10 +22,10 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Replicator extends EObject {
+public interface Replicator<T extends EObject> extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Root Replicas</b></em>' containment reference list.
-	 * The list contents are of type {@link com.misc.common.moplaf.replica.ReplicatorReplica}.
+	 * The list contents are of type {@link com.misc.common.moplaf.replica.ReplicatorReplica}<code>&lt;T&gt;</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Root Replicas</em>' reference list isn't clear,
@@ -37,7 +37,7 @@ public interface Replicator extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ReplicatorReplica> getRootReplicas();
+	EList<ReplicatorReplica<T>> getRootReplicas();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -45,7 +45,7 @@ public interface Replicator extends EObject {
 	 * @model
 	 * @generated
 	 */
-	ReplicatorReplica getReplica(EObject exemplar);
+	ReplicatorReplica<T> getReplica(T exemplar);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -53,7 +53,7 @@ public interface Replicator extends EObject {
 	 * @model
 	 * @generated
 	 */
-	EList<EObject> getExemplarElements(ReplicatorReplica replica);
+	EList<T> getExemplarElements(ReplicatorReplica<T> replica);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -61,7 +61,7 @@ public interface Replicator extends EObject {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	EList<EObject> getRootExemplarElements();
+	EList<T> getRootExemplarElements();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -69,7 +69,7 @@ public interface Replicator extends EObject {
 	 * @model
 	 * @generated
 	 */
-	ReplicatorReplica constructReplica(EObject exemplar);
+	ReplicatorReplica<T> constructReplica(T exemplar);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -77,7 +77,7 @@ public interface Replicator extends EObject {
 	 * @model exemplarElementsMany="true" replicaElementsMany="true"
 	 * @generated
 	 */
-	void refreshElements(EList<EObject> exemplarElements, EList<ReplicatorReplica> replicaElements);
+	void refreshElements(EList<T> exemplarElements, EList<ReplicatorReplica<T>> replicaElements);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -86,5 +86,13 @@ public interface Replicator extends EObject {
 	 * @generated
 	 */
 	void refresh();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void refresh(ReplicatorReplica<T> replica);
 
 } // Replicator

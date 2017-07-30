@@ -37,7 +37,7 @@ import com.misc.common.moplaf.dbsynch.DataSourceJdbc;
 public interface DataSourceJdbcJtds extends DataSourceJdbc {
 	/**
 	 * Returns the value of the '<em><b>Host</b></em>' attribute.
-	 * The default value is <code>"localshost"</code>.
+	 * The default value is <code>"localhost"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Host</em>' attribute isn't clear,
@@ -47,7 +47,7 @@ public interface DataSourceJdbcJtds extends DataSourceJdbc {
 	 * @return the value of the '<em>Host</em>' attribute.
 	 * @see #setHost(String)
 	 * @see com.misc.common.moplaf.dbsynch.dbsynchjtds.DbsynchjtdsPackage#getDataSourceJdbcJtds_Host()
-	 * @model default="localshost"
+	 * @model default="localhost"
 	 * @generated
 	 */
 	String getHost();

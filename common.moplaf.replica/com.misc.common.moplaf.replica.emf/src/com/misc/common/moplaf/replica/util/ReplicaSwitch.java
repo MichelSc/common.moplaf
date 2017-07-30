@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.util.Switch;
  * @see com.misc.common.moplaf.replica.ReplicaPackage
  * @generated
  */
-public class ReplicaSwitch<T> extends Switch<T> {
+public class ReplicaSwitch<T1> extends Switch<T1> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -64,25 +64,25 @@ public class ReplicaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	@Override
-	protected T doSwitch(int classifierID, EObject theEObject) {
+	protected T1 doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
 		case ReplicaPackage.REPLICA: {
 			Replica replica = (Replica) theEObject;
-			T result = caseReplica(replica);
+			T1 result = caseReplica(replica);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
 		case ReplicaPackage.REPLICATOR_REPLICA: {
-			ReplicatorReplica replicatorReplica = (ReplicatorReplica) theEObject;
-			T result = caseReplicatorReplica(replicatorReplica);
+			ReplicatorReplica<?> replicatorReplica = (ReplicatorReplica<?>) theEObject;
+			T1 result = caseReplicatorReplica(replicatorReplica);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
 		case ReplicaPackage.REPLICATOR: {
-			Replicator replicator = (Replicator) theEObject;
-			T result = caseReplicator(replicator);
+			Replicator<?> replicator = (Replicator<?>) theEObject;
+			T1 result = caseReplicator(replicator);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -103,7 +103,7 @@ public class ReplicaSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseReplica(Replica object) {
+	public T1 caseReplica(Replica object) {
 		return null;
 	}
 
@@ -118,7 +118,7 @@ public class ReplicaSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseReplicatorReplica(ReplicatorReplica object) {
+	public <T extends EObject> T1 caseReplicatorReplica(ReplicatorReplica<T> object) {
 		return null;
 	}
 
@@ -133,7 +133,7 @@ public class ReplicaSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseReplicator(Replicator object) {
+	public <T extends EObject> T1 caseReplicator(Replicator<T> object) {
 		return null;
 	}
 
@@ -149,7 +149,7 @@ public class ReplicaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	@Override
-	public T defaultCase(EObject object) {
+	public T1 defaultCase(EObject object) {
 		return null;
 	}
 
