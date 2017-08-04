@@ -1,0 +1,3 @@
+[submodule "common.moplaf.scheduler"]
+	path = common.moplaf.scheduler
+	url = https://github.com/MichelSc/common.moplaf.scheduler.git
