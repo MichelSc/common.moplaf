@@ -45,7 +45,7 @@ public class TimeContinuousPropagatorFunctionManager extends PropagatorFunctionM
 	public static PropagatorFunctionsFactory constructor = PropagatorFunctionsFactory.constructPropagatorFunctionsFactory();
 
 	static PropagatorFunctionsConstructors distributionPropagatorFunctionsConstructors = 
-			constructor.consructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.DISTRIBUTION) 
+			constructor.constructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.DISTRIBUTION) 
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_SCOPE_DISTRIBUTION)
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_DISTRIBUTION_INITIALIZATION)
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_LAYER_COMPOSITE_EVENT_REFRESH)
@@ -57,7 +57,7 @@ public class TimeContinuousPropagatorFunctionManager extends PropagatorFunctionM
 			;
 
 	static PropagatorFunctionsConstructors distributionEventPropagatorFunctionsConstructors =  
-			constructor.consructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.DISTRIBUTION_EVENT) 
+			constructor.constructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.DISTRIBUTION_EVENT) 
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_EVENT_SLOPE_BEFORE)
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_EVENT_AMOUNT_BEFORE)
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_EVENT_SLOPE_AFTER)
@@ -65,89 +65,89 @@ public class TimeContinuousPropagatorFunctionManager extends PropagatorFunctionM
 			;
 
 	static PropagatorFunctionsConstructors eventsProviderPropagatorFunctionsConstructors = 
-			constructor.consructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.EVENTS_PROVIDER_ABSTRACT) 
+			constructor.constructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.EVENTS_PROVIDER_ABSTRACT) 
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_EVENTS_PROVIDER_REFRESH_EVENTS)
 			;
 
 	static PropagatorFunctionsConstructors childEventPropagatorFunctionsConstructors =  
-			constructor.consructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.CHILD_EVENT) 
+			constructor.constructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.CHILD_EVENT) 
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_CHILD_EVENT_MOMENT)
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_CHILD_EVENT_SLOPE_AFTER)
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_CHILD_EVENT_AMOUNT_AFTER)
 			;
 
 	static PropagatorFunctionsConstructors startEventPropagatorFunctionsConstructors =  
-			constructor.consructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.START_EVENT) 
+			constructor.constructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.START_EVENT) 
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_START_EVENT_SLOPE_AFTER)
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_START_EVENT_AMOUNT_AFTER)
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_START_EVENT_MOMENT)
 			;
 	
 	static PropagatorFunctionsConstructors endEventPropagatorFunctionsConstructors = 
-			constructor.consructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.END_EVENT) 
+			constructor.constructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.END_EVENT) 
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_END_EVENT_MOMENT)
 			;
 	
 	static PropagatorFunctionsConstructors slopeImpulsionsPropagatorFunctionsConstructors = 
-			constructor.consructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.SLOPE_IMPULSION) 
+			constructor.constructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.SLOPE_IMPULSION) 
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_SLOPE_IMPULSION_SLOPE_AFTER)
 			;
 					
 	static PropagatorFunctionsConstructors amountImpulsionsPropagatorFunctionsConstructors =  
-			constructor.consructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.AMOUNT_IMPULSION) 
+			constructor.constructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.AMOUNT_IMPULSION) 
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_AMOUNT_IMPULSION_AMOUNT_AFTER)
 			;
 				
 	static PropagatorFunctionsConstructors slopeAbsolutePropagatorFunctionsConstructors = 
-			constructor.consructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.SLOPE_ABSOLUTE) 
+			constructor.constructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.SLOPE_ABSOLUTE) 
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_SLOPE_ABSOLUTE_SLOPE_AFTER)
 			;
 							
 
 	static PropagatorFunctionsConstructors capacityChangeStartPropagatorFunctionsConstructors = 
-			constructor.consructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.CAPACITY_CHANGE_START) 
+			constructor.constructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.CAPACITY_CHANGE_START) 
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_CAPACITY_CHANGE_START_AMOUNT_IMPULSION)
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_CAPACITY_CHANGE_START_MOMENT)
 			;
 
 	static PropagatorFunctionsConstructors capacityChangeEndPropagatorFunctionsConstructors = 
-			constructor.consructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.CAPACITY_CHANGE_END) 
+			constructor.constructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.CAPACITY_CHANGE_END) 
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_CAPACITY_CHANGE_END_AMOUNT_IMPULSION)
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_CAPACITY_CHANGE_END_MOMENT)
 			;
 
 	static PropagatorFunctionsConstructors stockChangeStartPropagatorFunctionsConstructors = 
-			constructor.consructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.STOCK_CHANGE_START) 
+			constructor.constructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.STOCK_CHANGE_START) 
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_STOCK_CHANGE_START_SLOPE_IMPULSION)
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_STOCK_CHANGE_START_MOMENT)
 			;
 
 	static PropagatorFunctionsConstructors stockChangeEndPropagatorFunctionsConstructors = 
-			constructor.consructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.STOCK_CHANGE_END) 
+			constructor.constructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.STOCK_CHANGE_END) 
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_STOCK_CHANGE_END_SLOPE_IMPULSION)
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_STOCK_CHANGE_END_MOMENT)
 			;
 
 	static PropagatorFunctionsConstructors amountImpulsionAtomicPropagatorFunctionsConstructors = 
-			constructor.consructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.AMOUNT_IMPULSION_ATOMIC) 
+			constructor.constructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.AMOUNT_IMPULSION_ATOMIC) 
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_AMOUNT_IMPULSION)
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_AMOUNT_IMPULSION_ATOMIC_MOMENT)
 			;
 
 	static PropagatorFunctionsConstructors slopeImpulsionAtomicPropagatorFunctionsConstructors = 
-			constructor.consructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.SLOPE_IMPULSION_ATOMIC) 
+			constructor.constructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.SLOPE_IMPULSION_ATOMIC) 
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_SLOPE_IMPULSION)
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_SLOPE_IMPULSION_ATOMIC_MOMENT)
 			;
 
 	static PropagatorFunctionsConstructors amountAbsoluteAtomicPropagatorFunctionsConstructors = 
-			constructor.consructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.AMOUNT_ABSOLUTE_ATOMIC) 
+			constructor.constructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.AMOUNT_ABSOLUTE_ATOMIC) 
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_AMOUNT_ABSOLUTE)
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_AMOUNT_ABSOLUTE_ATOMIC_MOMENT)
 			;
 
 	static PropagatorFunctionsConstructors slopeAbsoluteAtomicPropagatorFunctionsConstructors = 
-			constructor.consructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.SLOPE_ABSOLUTE_ATOMIC) 
+			constructor.constructPropagatorFunctionsConstructors(TimeContinuousPackage.Literals.SLOPE_ABSOLUTE_ATOMIC) 
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_SLOPE_ABSOLUTE)
 			.addConstructor(TimeContinuousCalcPackage.Literals.PROPAGATOR_CALC_SLOPE_ABSOLUTE_ATOMIC_MOMENT)
 			;
