@@ -300,6 +300,7 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 */
 	public void touch(EObject toucher) {
+		if ( !this.isEnabled() ) { return; }
 		ObjectWithPropagatorFunctions object = this.getObjectWithPropagatorFunctions();
 
 		if ( Util.isLoading(object) ){ return; }
@@ -351,10 +352,6 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 		}
 	}
 	
-
-
-
-	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -378,14 +375,23 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 
 	@Override
 	public void enable() {
-		// TODO Auto-generated method stub
-		
+		this.setEnabled(true);
 	}
 
 	@Override
 	public void disable() {
-		// TODO Auto-generated method stub
-		
+		this.setEnabled(false);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public void reset() {
+		this.untouch();
+		while ( !this.getTouchedChildren().isEmpty()) {
+			this.getTouchedChildren().get(0).reset();
+		}
 	}
 
 	/**
@@ -819,6 +825,9 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 				return null;
 			case PropagatorPackage.PROPAGATOR_FUNCTION___DISABLE:
 				disable();
+				return null;
+			case PropagatorPackage.PROPAGATOR_FUNCTION___RESET:
+				reset();
 				return null;
 			case PropagatorPackage.PROPAGATOR_FUNCTION___TOUCH__EOBJECT:
 				touch((EObject)arguments.get(0));

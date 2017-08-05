@@ -46,6 +46,4 @@ public class PropagatorFunctionFactory implements PropagatorFunctionsConstructor
 		PropagatorFunction newPropagatorFunction = (PropagatorFunction) factory.create(this.propagatorFunctionType);
 		object.addPropagatorFunction(newPropagatorFunction);
 	}
-
-	
 }

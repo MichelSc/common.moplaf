@@ -468,4 +468,12 @@ public interface PropagatorFunction extends EObject {
 	 */
 	void disable();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void reset();
+
 } // PropagatorFunction

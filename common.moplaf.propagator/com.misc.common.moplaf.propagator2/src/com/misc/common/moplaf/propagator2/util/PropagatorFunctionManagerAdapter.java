@@ -449,6 +449,7 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 		//		}
 		//	}
 		if ( notifier instanceof PropagatorFunction ){
+			// it would be more correct here to restrict one self to the PropagatorFunction that have been constructed by this manager
 			PropagatorFunction propagatorFunction = (PropagatorFunction) notifier;
 			propagatorFunction.enable();
 		} else if ( notifier instanceof ObjectWithPropagatorFunctions) {
@@ -472,6 +473,7 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 		//		}
 		//	}
 		if ( notifier instanceof PropagatorFunction ){
+			// it would be more correct here to restrict one self to the PropagatorFunction that have been constructed by this manager
 			PropagatorFunction propagatorFunction = (PropagatorFunction) notifier;
 			propagatorFunction.disable();
 			propagatorFunction.untouch();
@@ -519,9 +521,9 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 	 */
 	private void onNotifierNotContained(Notifier notifier){
 		// CommonPlugin.INSTANCE.log("PropagatorFunctionAdapterManager.onNotifierNotContained, notifier "+notifier);
-		if ( notifier instanceof ObjectWithPropagatorFunctions) {
-			ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
-		}
+//		if ( notifier instanceof ObjectWithPropagatorFunctions) {
+//			ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
+//		}
 //		if ( notifier instanceof PropagatorFunction ){
 //			PropagatorFunction propagatorFunction = (PropagatorFunction) notifier;
 //			propagatorFunction.untouch();
@@ -535,6 +537,7 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 		LinkedList<Adapter> adaptersToMove = new LinkedList<Adapter>();
 		for ( Adapter adapter : oldNotifier.eAdapters()){
 			if ( adapter instanceof PropagatorFunctionAdapter){
+				// it would be more correct here to restrict one self to the PropagatorFunction that have been constructed by this manager
 				adaptersToMove.add(adapter);
 			}
 		}

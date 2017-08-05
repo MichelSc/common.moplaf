@@ -299,15 +299,6 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * @generated
 	 */
 	public EOperation getPropagatorFunction__Touch__EObject() {
-		return propagatorFunctionEClass.getEOperations().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getPropagatorFunction__Untouch() {
 		return propagatorFunctionEClass.getEOperations().get(4);
 	}
 
@@ -316,7 +307,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__RefreshAntecedents() {
+	public EOperation getPropagatorFunction__Untouch() {
 		return propagatorFunctionEClass.getEOperations().get(5);
 	}
 
@@ -325,7 +316,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__RefreshThis() {
+	public EOperation getPropagatorFunction__RefreshAntecedents() {
 		return propagatorFunctionEClass.getEOperations().get(6);
 	}
 
@@ -334,7 +325,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__RefreshChildrenAndThis() {
+	public EOperation getPropagatorFunction__RefreshThis() {
 		return propagatorFunctionEClass.getEOperations().get(7);
 	}
 
@@ -343,7 +334,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__Refresh() {
+	public EOperation getPropagatorFunction__RefreshChildrenAndThis() {
 		return propagatorFunctionEClass.getEOperations().get(8);
 	}
 
@@ -352,8 +343,8 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__DoGetParent() {
-		return propagatorFunctionEClass.getEOperations().get(10);
+	public EOperation getPropagatorFunction__Refresh() {
+		return propagatorFunctionEClass.getEOperations().get(9);
 	}
 
 	/**
@@ -361,7 +352,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__DoRefresh() {
+	public EOperation getPropagatorFunction__DoGetParent() {
 		return propagatorFunctionEClass.getEOperations().get(11);
 	}
 
@@ -370,7 +361,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__DoRefresh__EObject() {
+	public EOperation getPropagatorFunction__DoRefresh() {
 		return propagatorFunctionEClass.getEOperations().get(12);
 	}
 
@@ -379,7 +370,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__GetScope() {
+	public EOperation getPropagatorFunction__DoRefresh__EObject() {
 		return propagatorFunctionEClass.getEOperations().get(13);
 	}
 
@@ -388,8 +379,17 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getPropagatorFunction__GetScope() {
+		return propagatorFunctionEClass.getEOperations().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getPropagatorFunction__DoGetAntecedents() {
-		return propagatorFunctionEClass.getEOperations().get(9);
+		return propagatorFunctionEClass.getEOperations().get(10);
 	}
 
 	/**
@@ -435,6 +435,15 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 */
 	public EOperation getPropagatorFunction__Disable() {
 		return propagatorFunctionEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPropagatorFunction__Reset() {
+		return propagatorFunctionEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -504,6 +513,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___INIT);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___ENABLE);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___DISABLE);
+		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___RESET);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___TOUCH__EOBJECT);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___UNTOUCH);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___REFRESH_ANTECEDENTS);
@@ -584,6 +594,8 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 		initEOperation(getPropagatorFunction__Enable(), null, "enable", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getPropagatorFunction__Disable(), null, "disable", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getPropagatorFunction__Reset(), null, "reset", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getPropagatorFunction__Touch__EObject(), null, "touch", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEObject(), "toucher", 0, 1, IS_UNIQUE, IS_ORDERED);

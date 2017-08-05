@@ -16,6 +16,7 @@
     <eOperations name="init"/>
     <eOperations name="enable"/>
     <eOperations name="disable"/>
+    <eOperations name="reset"/>
     <eOperations name="touch">
       <eParameters name="toucher" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>

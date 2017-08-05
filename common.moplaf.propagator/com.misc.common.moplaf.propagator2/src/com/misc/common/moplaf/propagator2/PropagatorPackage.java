@@ -278,13 +278,22 @@ public interface PropagatorPackage extends EPackage {
 	int PROPAGATOR_FUNCTION___DISABLE = 2;
 
 	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION___RESET = 3;
+
+	/**
 	 * The operation id for the '<em>Touch</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___TOUCH__EOBJECT = 3;
+	int PROPAGATOR_FUNCTION___TOUCH__EOBJECT = 4;
 
 	/**
 	 * The operation id for the '<em>Untouch</em>' operation.
@@ -293,7 +302,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___UNTOUCH = 4;
+	int PROPAGATOR_FUNCTION___UNTOUCH = 5;
 
 	/**
 	 * The operation id for the '<em>Refresh Antecedents</em>' operation.
@@ -302,7 +311,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___REFRESH_ANTECEDENTS = 5;
+	int PROPAGATOR_FUNCTION___REFRESH_ANTECEDENTS = 6;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -311,7 +320,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___REFRESH_THIS = 6;
+	int PROPAGATOR_FUNCTION___REFRESH_THIS = 7;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -320,7 +329,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___REFRESH_CHILDREN_AND_THIS = 7;
+	int PROPAGATOR_FUNCTION___REFRESH_CHILDREN_AND_THIS = 8;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -329,7 +338,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___REFRESH = 8;
+	int PROPAGATOR_FUNCTION___REFRESH = 9;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -338,7 +347,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___DO_GET_ANTECEDENTS = 9;
+	int PROPAGATOR_FUNCTION___DO_GET_ANTECEDENTS = 10;
 
 	/**
 	 * The operation id for the '<em>Do Get Parent</em>' operation.
@@ -347,7 +356,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___DO_GET_PARENT = 10;
+	int PROPAGATOR_FUNCTION___DO_GET_PARENT = 11;
 
 	/**
 	 * The operation id for the '<em>Do Refresh</em>' operation.
@@ -356,7 +365,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___DO_REFRESH = 11;
+	int PROPAGATOR_FUNCTION___DO_REFRESH = 12;
 
 	/**
 	 * The operation id for the '<em>Do Refresh</em>' operation.
@@ -365,7 +374,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___DO_REFRESH__EOBJECT = 12;
+	int PROPAGATOR_FUNCTION___DO_REFRESH__EOBJECT = 13;
 
 	/**
 	 * The operation id for the '<em>Get Scope</em>' operation.
@@ -374,7 +383,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___GET_SCOPE = 13;
+	int PROPAGATOR_FUNCTION___GET_SCOPE = 14;
 
 	/**
 	 * The number of operations of the '<em>Function</em>' class.
@@ -383,7 +392,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_OPERATION_COUNT = 14;
+	int PROPAGATOR_FUNCTION_OPERATION_COUNT = 15;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.propagator2.impl.PropagatorFunctionBindingsImpl <em>Function Bindings</em>}' class.
@@ -538,6 +547,15 @@ public interface PropagatorPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_FUNCTION_BINDINGS___DISABLE = PROPAGATOR_FUNCTION___DISABLE;
+
+	/**
+	 * The operation id for the '<em>Reset</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS___RESET = PROPAGATOR_FUNCTION___RESET;
 
 	/**
 	 * The operation id for the '<em>Touch</em>' operation.
@@ -1039,6 +1057,16 @@ public interface PropagatorPackage extends EPackage {
 	EOperation getPropagatorFunction__Disable();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#reset() <em>Reset</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Reset</em>' operation.
+	 * @see com.misc.common.moplaf.propagator2.PropagatorFunction#reset()
+	 * @generated
+	 */
+	EOperation getPropagatorFunction__Reset();
+
+	/**
 	 * Returns the meta object for data type '{@link com.misc.common.moplaf.propagator2.util.Bindings <em>Bindings</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1360,6 +1388,14 @@ public interface PropagatorPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PROPAGATOR_FUNCTION___DISABLE = eINSTANCE.getPropagatorFunction__Disable();
+
+		/**
+		 * The meta object literal for the '<em><b>Reset</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROPAGATOR_FUNCTION___RESET = eINSTANCE.getPropagatorFunction__Reset();
 
 		/**
 		 * The meta object literal for the '<em>Bindings</em>' data type.
