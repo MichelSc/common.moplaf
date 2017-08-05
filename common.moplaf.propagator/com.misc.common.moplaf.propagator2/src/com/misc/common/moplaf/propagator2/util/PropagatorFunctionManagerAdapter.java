@@ -47,8 +47,8 @@ import com.misc.common.moplaf.propagator2.PropagatorFunction;
  * <ul> 
  * <li> when the Notifier is added to its container: method {@link #onNotifierContainedPre(Notifier)}
  *   <ul> 
- *   <li>call the constructor method  {@link PropagatorFunctionsConstructor#construct(ObjectWithPropagatorFunctions)}
- *   <li>this latter may create PropagatorFunctions
+ *   <li>call the constructor method  {@link PropagatorFunctionsConstructor#addPropagatorFunctions(ObjectWithPropagatorFunctions)}
+ *   <li>this latter may create and add PropagatorFunctions
  *   <li>the created PropagatorFunctions may be touched, if the refresh must happen at construction time
  *   </ul>
  * <li>when the adapter is added: {@link #onAdapterAdded(Notifier)}

@@ -17,6 +17,24 @@ import org.eclipse.emf.ecore.EClass;
 
 import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
 
+/**
+ * A PropagatorFunctionsFactory provides a standard implementation of {@link PropagatorFunctionsConstructor}, 
+ * that can be consumed by a {@link PropagatorFunctionManagerAdapter}, once set up, possibly statically.
+ * <p>
+ * The PropagatorFunctionsFactory is set up by registering {@link PropagatorFunctionsConstructor} for TargetTypes.
+ * <p> 
+ * The method {@link #constructPropagatorFunctionsConstructors(EClass)} is available for registering 
+ * a particular kind of PropagatorFunctionsConstructor, a {@link PropagatorFunctionsConstructors}, which is a simple list of 
+ * {@link PropagatorFunctionsConstructor}, with convenience methods for adding {@link PropagatorFunctionFactory}s.
+ * <p>
+ * The method {@link #addPropagatorFunctions(ObjectWithPropagatorFunctions)}, specified by {@link PropagatorFunctionsConstructor} 
+ * will look up the factories registered for the type of the ObjectWithPropagatorFunctions and for all
+ * its super types.
+ * <p> 
+ * 
+ * @author michel
+ *
+ */
 public class PropagatorFunctionsFactory implements PropagatorFunctionsConstructor {
 
 	private HashMap<EClass, PropagatorFunctionsConstructor> propagatorFunctionsFactories = new HashMap<EClass, PropagatorFunctionsConstructor>();
@@ -25,6 +43,14 @@ public class PropagatorFunctionsFactory implements PropagatorFunctionsConstructo
 		super();
 	}
 	
+	/*
+	 * Convenience methods for constructing a Factory
+	 */
+	static public PropagatorFunctionsFactory constructPropagatorFunctionsFactory(){
+		return new PropagatorFunctionsFactory();
+	};
+	
+
 	public PropagatorFunctionsFactory copy(){
 		PropagatorFunctionsFactory newFactory = new PropagatorFunctionsFactory();
 		for(  Entry<EClass, PropagatorFunctionsConstructor> entry : this.propagatorFunctionsFactories.entrySet()){
@@ -33,19 +59,19 @@ public class PropagatorFunctionsFactory implements PropagatorFunctionsConstructo
 		return newFactory;
 	}
 
-	/*
-	 * Convenience methods for constructing a Factory
+	/**
+	 * Construct and register a PropagatorFunctionsConstructors
+	 * @param targetType
+	 * @return
 	 */
-	static public PropagatorFunctionsFactory constructPropagatorFunctionsFactory(){
-		return new PropagatorFunctionsFactory();
+	public PropagatorFunctionsConstructors constructPropagatorFunctionsConstructors(EClass targetType){
+		PropagatorFunctionsConstructors factory = new PropagatorFunctionsConstructors();
+		this.addPropagatorFunctionsFactory(targetType, factory);
+		return factory;
 	};
 	
-	static public PropagatorFunctionsConstructors constructPropagatorFunctionsConstructors(){
-		return new PropagatorFunctionsConstructors();
-	};
-
 	/** 
-	 * Add a Factory associated with a given TargetType
+	 * Register a Factory associated for a given TargetType
 	 * 
 	 * @param targetType
 	 * @param factory
@@ -55,31 +81,11 @@ public class PropagatorFunctionsFactory implements PropagatorFunctionsConstructo
 		return this;
 	}
 	
-	public PropagatorFunctionsFactory consructPropagatorFunctionFactory(EClass targetType){
-		PropagatorFunctionsFactory factory = new PropagatorFunctionsFactory();
-		this.addPropagatorFunctionsFactory(targetType, factory);
-		return factory;
-	};
-	
-	public PropagatorFunctionsConstructors consructPropagatorFunctionsConstructors(EClass targetType){
-		PropagatorFunctionsConstructors factory = new PropagatorFunctionsConstructors();
-		this.addPropagatorFunctionsFactory(targetType, factory);
-		return factory;
-	};
-	
-	/**
-	 * Create a Factory for a given TargetType
-	 * @param targetType
-	 * @return
-	 */
-	public PropagatorFunctionsConstructors addPropagatorFunctionsConstructors(EClass targetType){
-		PropagatorFunctionsConstructors constructors = new PropagatorFunctionsConstructors();
-		this.addPropagatorFunctionsFactory(targetType, constructors);
-		return constructors;
-	}
 
 	/**
 	 * Called by the framework for adding the PropagatorFunctions to the ObjectWithPropagatorFunctions
+	 * <p>
+	 * Specified by {@link PropagatorFunctionsConstructor}
 	 */
 	@Override
 	public void addPropagatorFunctions(ObjectWithPropagatorFunctions object) {
