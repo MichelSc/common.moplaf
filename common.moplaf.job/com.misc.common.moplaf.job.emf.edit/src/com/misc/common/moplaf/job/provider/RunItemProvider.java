@@ -544,7 +544,7 @@ public class RunItemProvider
 	};
 	
 	/**
-	 * Create a command for a drag and drop on this Solver
+	 * Create a command for a drag and drop on this Run
 	 */
 	@Override
 	protected Command createDragAndDropCommand(EditingDomain domain, Object owner, float location, int operations,

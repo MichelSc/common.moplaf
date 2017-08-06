@@ -778,11 +778,13 @@ public class SolverItemProvider
 			this.solver = solver;
 		}
 
+		@Override
 		protected boolean prepare(){
 			isExecutable = true;
 			return isExecutable;
 		}
 
+		@Override
 		public boolean canUndo() { 
 			return false; 
 		}
@@ -852,7 +854,7 @@ public class SolverItemProvider
 		   		GeneratorVarBinder binder = (GeneratorVarBinder) droppedObject;
 		   		return new ConstructVarBinder(solver, binder);
 		} 
-		//return super.createDropCommand(owner, droppedObject);
-		return null;
+		return super.createDropCommand(owner, droppedObject);
+		//return null;
 	}
 }
