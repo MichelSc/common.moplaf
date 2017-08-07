@@ -28,15 +28,16 @@ import com.misc.common.moplaf.propagator2.PropagatorFunction;
 public class PropagatorFunctionFactory implements PropagatorFunctionsConstructor {
 	
 	private EClass propagatorFunctionType;
+	private String factoryID = null;
 
-	public PropagatorFunctionFactory(EClass propagatorFunctionType) {
-		super();
+	public PropagatorFunctionFactory(EClass propagatorFunctionType, String factoryID) {
+		this.factoryID = factoryID;
 		this.propagatorFunctionType = propagatorFunctionType;
 	}
 
 	@Override
 	public PropagatorFunctionsConstructor copy() {
-		PropagatorFunctionFactory newFactory = new PropagatorFunctionFactory(this.propagatorFunctionType);
+		PropagatorFunctionFactory newFactory = new PropagatorFunctionFactory(this.propagatorFunctionType, this.factoryID);
 		return newFactory;
 	}
 	
@@ -45,5 +46,10 @@ public class PropagatorFunctionFactory implements PropagatorFunctionsConstructor
 		EFactory factory = this.propagatorFunctionType.getEPackage().getEFactoryInstance();
 		PropagatorFunction newPropagatorFunction = (PropagatorFunction) factory.create(this.propagatorFunctionType);
 		object.addPropagatorFunction(newPropagatorFunction);
+	}
+
+	@Override
+	public String getFactoryID() {
+		return this.factoryID;
 	}
 }

@@ -135,6 +135,14 @@ import com.misc.common.moplaf.propagator2.util.PropagatorFunctionsConstructor;
  * @generated
  */
 public interface PropagatorFunction extends EObject {
+	/**
+	 * the Id for the factory
+	 */
+	public static String factoryID = "com.misc.common.moplaf.propagator.factory.default";
+	
+	/**
+	 * 
+	 */
 	static BasicEList<PropagatorFunction> EMPTY_LIST = new BasicEList<PropagatorFunction>();
 
 	/**
@@ -443,6 +451,14 @@ public interface PropagatorFunction extends EObject {
 	 * @generated
 	 */
 	PropagatorFunction getScope();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getFactoryID();
 
 	/**
 	 * <!-- begin-user-doc -->

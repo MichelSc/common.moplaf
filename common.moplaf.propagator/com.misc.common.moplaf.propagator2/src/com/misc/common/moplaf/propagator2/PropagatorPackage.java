@@ -386,13 +386,22 @@ public interface PropagatorPackage extends EPackage {
 	int PROPAGATOR_FUNCTION___GET_SCOPE = 14;
 
 	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION___GET_FACTORY_ID = 15;
+
+	/**
 	 * The number of operations of the '<em>Function</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_OPERATION_COUNT = 15;
+	int PROPAGATOR_FUNCTION_OPERATION_COUNT = 16;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.propagator2.impl.PropagatorFunctionBindingsImpl <em>Function Bindings</em>}' class.
@@ -655,6 +664,15 @@ public interface PropagatorPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_FUNCTION_BINDINGS___GET_SCOPE = PROPAGATOR_FUNCTION___GET_SCOPE;
+
+	/**
+	 * The operation id for the '<em>Get Factory ID</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS___GET_FACTORY_ID = PROPAGATOR_FUNCTION___GET_FACTORY_ID;
 
 	/**
 	 * The operation id for the '<em>Do Get Bindings</em>' operation.
@@ -995,6 +1013,16 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPropagatorFunction__GetScope();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#getFactoryID() <em>Get Factory ID</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Factory ID</em>' operation.
+	 * @see com.misc.common.moplaf.propagator2.PropagatorFunction#getFactoryID()
+	 * @generated
+	 */
+	EOperation getPropagatorFunction__GetFactoryID();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#doGetAntecedents() <em>Do Get Antecedents</em>}' operation.
@@ -1338,6 +1366,14 @@ public interface PropagatorPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PROPAGATOR_FUNCTION___GET_SCOPE = eINSTANCE.getPropagatorFunction__GetScope();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Factory ID</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROPAGATOR_FUNCTION___GET_FACTORY_ID = eINSTANCE.getPropagatorFunction__GetFactoryID();
 
 		/**
 		 * The meta object literal for the '<em><b>Do Get Antecedents</b></em>' operation.

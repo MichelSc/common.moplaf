@@ -438,20 +438,11 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 	 * Either if notifier is added or this PropagatorFunctionAdapterManager is added to the notifier
 	 */
 	private void onAdapterAdded(Notifier notifier){
-		//CommonPlugin.INSTANCE.log("PropagatorFunctionAdapterManager.onAdapterAdded, notifier "+notifier);
-		// control gets here when ownership is given
-		//	if ( notifier instanceof ObjectWithPropagatorFunctions) {
-		//		ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
-		//		if ( !objectWithPropagatorFunctions.eIsProxy()){
-		//			for ( PropagatorFunction propagatorFunction: objectWithPropagatorFunctions.getPropagatorFunctions()){
-		//				propagatorFunction.enable();
-		//			}
-		//		}
-		//	}
 		if ( notifier instanceof PropagatorFunction ){
-			// it would be more correct here to restrict one self to the PropagatorFunction that have been constructed by this manager
 			PropagatorFunction propagatorFunction = (PropagatorFunction) notifier;
-			propagatorFunction.enable();
+			if ( propagatorFunction.getFactoryID()==this.propagatorFunctionsConstructor.getFactoryID()) {
+				propagatorFunction.enable();
+			}
 		} else if ( notifier instanceof ObjectWithPropagatorFunctions) {
 			ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
 			this.propagatorFunctionsConstructor.addPropagatorFunctions(objectWithPropagatorFunctions);
@@ -464,38 +455,29 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 	 * Either if notifier is removed or this PropagatorFunctionAdapterManger is removed from the notifier
 	 */
 	private void onAdapterRemoved(Notifier notifier){
-		// CommonPlugin.INSTANCE.log("PropagatorFunctionAdapterManager.onAdapterRemoved, notifier "+notifier);
-		// control gets here when ownership is taken
-		//	if ( notifier instanceof ObjectWithPropagatorFunctions) {
-		//		ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
-		//		for ( PropagatorFunction propagatorFunction: objectWithPropagatorFunctions.getPropagatorFunctions()){
-		//			propagatorFunction.disable();
-		//		}
-		//	}
 		if ( notifier instanceof PropagatorFunction ){
-			// it would be more correct here to restrict one self to the PropagatorFunction that have been constructed by this manager
 			PropagatorFunction propagatorFunction = (PropagatorFunction) notifier;
-			propagatorFunction.disable();
-			propagatorFunction.untouch();
+			if ( propagatorFunction.getFactoryID()==this.propagatorFunctionsConstructor.getFactoryID()) {
+				propagatorFunction.disable();
+				propagatorFunction.untouch();
+			}
 		} else if ( notifier instanceof ObjectWithPropagatorFunctions) {
 			ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
 			if ( !com.misc.common.moplaf.common.util.Util.isUnloading(objectWithPropagatorFunctions)){
-				objectWithPropagatorFunctions.getPropagatorFunctions().clear();
+				Iterator<PropagatorFunction> iterator = objectWithPropagatorFunctions.getPropagatorFunctions().iterator();
+				while ( iterator.hasNext() ) {
+					PropagatorFunction propagatorFunction = iterator.next();
+					if ( propagatorFunction.getFactoryID()==this.propagatorFunctionsConstructor.getFactoryID()) {
+						iterator.remove();
+					}
+				}
 			}
 		}
 	}
 
 	/**
-	 * Touches the PropagatorFunctionAdapters requiring it when the Notifier is contained 
-	 * Note: the owner is already set, the propagators are already created, the adapter is already added
 	 */
 	private void onNotifierContainedPre(Notifier notifier){
-//		if ( !com.misc.common.moplaf.common.util.Util.isLoading(notifier)){
-//			if ( notifier instanceof ObjectWithPropagatorFunctions) {
-//				ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
-//				this.propagatorFunctionsConstructor.addPropagatorFunctions(objectWithPropagatorFunctions);
-//			}
-//		}
 	}
 
 	/**
@@ -509,25 +491,18 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 				// they are in principle not up to date
 				// so we touch
 				for ( PropagatorFunction pf : objectWithPropagatorFunctions.getPropagatorFunctions()){
-					pf.touch(null);
+					if ( pf.getFactoryID()==this.propagatorFunctionsConstructor.getFactoryID()) {
+						pf.touch(null);
+					}
 				}
 			}
 		}
 	}
 
 	/**
-	 * Touches the PropagatorFunctionAdapters requiring it when the Notifier is disposed 
-	 * Note: the owner is already lost, the propagators are not yet removed, the adapter is not yet removed
 	 */
 	private void onNotifierNotContained(Notifier notifier){
 		// CommonPlugin.INSTANCE.log("PropagatorFunctionAdapterManager.onNotifierNotContained, notifier "+notifier);
-//		if ( notifier instanceof ObjectWithPropagatorFunctions) {
-//			ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
-//		}
-//		if ( notifier instanceof PropagatorFunction ){
-//			PropagatorFunction propagatorFunction = (PropagatorFunction) notifier;
-//			propagatorFunction.untouch();
-//		}
 	}
 
 	/**

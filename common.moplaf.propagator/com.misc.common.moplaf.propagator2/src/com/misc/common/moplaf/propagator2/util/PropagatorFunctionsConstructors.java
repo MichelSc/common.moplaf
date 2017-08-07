@@ -20,14 +20,16 @@ import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
 public class PropagatorFunctionsConstructors  implements PropagatorFunctionsConstructor {
 
 	private LinkedList<PropagatorFunctionsConstructor> constructors = new LinkedList<PropagatorFunctionsConstructor>();
+	private String factoryID = null;
 
-	public PropagatorFunctionsConstructors() {
+	public PropagatorFunctionsConstructors(String factoryID) {
 		super();
+		this.factoryID = factoryID;
 	}
 	
 	@Override
 	public PropagatorFunctionsConstructor copy() {
-		PropagatorFunctionsConstructors newConstructors = new PropagatorFunctionsConstructors();
+		PropagatorFunctionsConstructors newConstructors = new PropagatorFunctionsConstructors(this.factoryID);
 		for ( PropagatorFunctionsConstructor constructor : this.constructors){
 			newConstructors.addConstructor(constructor.copy());
 		}
@@ -40,7 +42,7 @@ public class PropagatorFunctionsConstructors  implements PropagatorFunctionsCons
 	}
 	
 	public PropagatorFunctionsConstructors addConstructor(EClass propagatorFunctionType){
-		PropagatorFunctionFactory constructor = new PropagatorFunctionFactory(propagatorFunctionType);
+		PropagatorFunctionFactory constructor = new PropagatorFunctionFactory(propagatorFunctionType, this.factoryID);
 		this.addConstructor(constructor);
 		return this;
 	}
@@ -50,6 +52,11 @@ public class PropagatorFunctionsConstructors  implements PropagatorFunctionsCons
 		for ( PropagatorFunctionsConstructor factory : this.constructors){
 			factory.addPropagatorFunctions(object);
 		}
+	}
+
+	@Override
+	public String getFactoryID() {
+		return this.factoryID;
 	}
 
 }

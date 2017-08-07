@@ -388,6 +388,15 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getPropagatorFunction__GetFactoryID() {
+		return propagatorFunctionEClass.getEOperations().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getPropagatorFunction__DoGetAntecedents() {
 		return propagatorFunctionEClass.getEOperations().get(10);
 	}
@@ -525,6 +534,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___DO_REFRESH);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___DO_REFRESH__EOBJECT);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___GET_SCOPE);
+		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___GET_FACTORY_ID);
 
 		propagatorFunctionBindingsEClass = createEClass(PROPAGATOR_FUNCTION_BINDINGS);
 		createEOperation(propagatorFunctionBindingsEClass, PROPAGATOR_FUNCTION_BINDINGS___DO_GET_BINDINGS);
@@ -620,6 +630,8 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 		addEParameter(op, ecorePackage.getEObject(), "toucher", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getPropagatorFunction__GetScope(), this.getPropagatorFunction(), "getScope", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getPropagatorFunction__GetFactoryID(), ecorePackage.getEString(), "getFactoryID", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(propagatorFunctionBindingsEClass, PropagatorFunctionBindings.class, "PropagatorFunctionBindings", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

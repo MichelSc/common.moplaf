@@ -16,6 +16,7 @@ import java.util.Map.Entry;
 import org.eclipse.emf.ecore.EClass;
 
 import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
+import com.misc.common.moplaf.propagator2.PropagatorFunction;
 
 /**
  * A PropagatorFunctionsFactory provides a standard implementation of {@link PropagatorFunctionsConstructor}, 
@@ -38,21 +39,31 @@ import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
 public class PropagatorFunctionsFactory implements PropagatorFunctionsConstructor {
 
 	private HashMap<EClass, PropagatorFunctionsConstructor> propagatorFunctionsFactories = new HashMap<EClass, PropagatorFunctionsConstructor>();
+	private String factoryID;
+
+	@Override
+	public String getFactoryID() {
+		return this.factoryID;
+	}
+
+	public PropagatorFunctionsFactory(String factoryID) {
+		this.factoryID = factoryID;
+	}
 
 	public PropagatorFunctionsFactory() {
-		super();
+		this.factoryID = PropagatorFunction.factoryID;
 	}
-	
+
 	/*
 	 * Convenience methods for constructing a Factory
 	 */
-	static public PropagatorFunctionsFactory constructPropagatorFunctionsFactory(){
-		return new PropagatorFunctionsFactory();
+	static public PropagatorFunctionsFactory constructPropagatorFunctionsFactory(String factoryID){
+		return new PropagatorFunctionsFactory(factoryID);
 	};
 	
 
 	public PropagatorFunctionsFactory copy(){
-		PropagatorFunctionsFactory newFactory = new PropagatorFunctionsFactory();
+		PropagatorFunctionsFactory newFactory = new PropagatorFunctionsFactory(this.factoryID);
 		for(  Entry<EClass, PropagatorFunctionsConstructor> entry : this.propagatorFunctionsFactories.entrySet()){
 			newFactory.addPropagatorFunctionsFactory(entry.getKey(), entry.getValue().copy());
 		}
@@ -65,7 +76,7 @@ public class PropagatorFunctionsFactory implements PropagatorFunctionsConstructo
 	 * @return
 	 */
 	public PropagatorFunctionsConstructors constructPropagatorFunctionsConstructors(EClass targetType){
-		PropagatorFunctionsConstructors factory = new PropagatorFunctionsConstructors();
+		PropagatorFunctionsConstructors factory = new PropagatorFunctionsConstructors(this.factoryID );
 		this.addPropagatorFunctionsFactory(targetType, factory);
 		return factory;
 	};
@@ -103,4 +114,5 @@ public class PropagatorFunctionsFactory implements PropagatorFunctionsConstructo
 			this.addPropagatorFunctions(superType, object);
 		}
 	}
+
 }

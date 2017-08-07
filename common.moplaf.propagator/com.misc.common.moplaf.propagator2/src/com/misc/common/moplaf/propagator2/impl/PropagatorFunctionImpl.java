@@ -636,6 +636,14 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 */
+	public String getFactoryID() {
+		return PropagatorFunction.factoryID;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -855,6 +863,8 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 				return null;
 			case PropagatorPackage.PROPAGATOR_FUNCTION___GET_SCOPE:
 				return getScope();
+			case PropagatorPackage.PROPAGATOR_FUNCTION___GET_FACTORY_ID:
+				return getFactoryID();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
