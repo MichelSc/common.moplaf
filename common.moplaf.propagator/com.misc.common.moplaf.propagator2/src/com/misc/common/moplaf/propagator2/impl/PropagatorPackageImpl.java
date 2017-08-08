@@ -577,7 +577,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(objectWithPropagatorFunctionsEClass, ObjectWithPropagatorFunctions.class, "ObjectWithPropagatorFunctions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getObjectWithPropagatorFunctions_PropagatorFunctions(), this.getPropagatorFunction(), this.getPropagatorFunction_ObjectWithPropagatorFunctions(), "PropagatorFunctions", null, 0, -1, ObjectWithPropagatorFunctions.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getObjectWithPropagatorFunctions_PropagatorFunctions(), this.getPropagatorFunction(), this.getPropagatorFunction_ObjectWithPropagatorFunctions(), "PropagatorFunctions", null, 0, -1, ObjectWithPropagatorFunctions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getObjectWithPropagatorFunctions__AddPropagatorFunction__PropagatorFunction(), null, "addPropagatorFunction", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getPropagatorFunction(), "propagatorFunction", 0, 1, IS_UNIQUE, IS_ORDERED);

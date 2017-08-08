@@ -75,7 +75,7 @@ public interface ObjectWithPropagatorFunctions extends EObject {
 	 * @return the value of the '<em>Propagator Functions</em>' containment reference list.
 	 * @see com.misc.common.moplaf.propagator2.PropagatorPackage#getObjectWithPropagatorFunctions_PropagatorFunctions()
 	 * @see com.misc.common.moplaf.propagator2.PropagatorFunction#getObjectWithPropagatorFunctions
-	 * @model opposite="ObjectWithPropagatorFunctions" containment="true" transient="true"
+	 * @model opposite="ObjectWithPropagatorFunctions" containment="true"
 	 * @generated
 	 */
 	EList<PropagatorFunction> getPropagatorFunctions();

@@ -36,7 +36,6 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import com.misc.common.moplaf.emf.edit.command.RefreshCommand;
 import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
 import com.misc.common.moplaf.propagator2.Plugin;
-import com.misc.common.moplaf.propagator2.PropagatorFactory;
 import com.misc.common.moplaf.propagator2.PropagatorFunction;
 import com.misc.common.moplaf.propagator2.PropagatorPackage;
 import com.misc.common.moplaf.propagator2.util.Util;
@@ -180,16 +179,6 @@ public class ObjectWithPropagatorFunctionsItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(PropagatorPackage.Literals.OBJECT_WITH_PROPAGATOR_FUNCTIONS__PROPAGATOR_FUNCTIONS,
-				 PropagatorFactory.eINSTANCE.createPropagatorFunction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(PropagatorPackage.Literals.OBJECT_WITH_PROPAGATOR_FUNCTIONS__PROPAGATOR_FUNCTIONS,
-				 PropagatorFactory.eINSTANCE.createPropagatorFunctionBindings()));
 	}
 
 	/**

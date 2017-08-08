@@ -10,7 +10,7 @@
       <eParameters name="type" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="PropagatorFunctions" upperBound="-1"
-        eType="#//PropagatorFunction" transient="true" containment="true" eOpposite="#//PropagatorFunction/ObjectWithPropagatorFunctions"/>
+        eType="#//PropagatorFunction" containment="true" eOpposite="#//PropagatorFunction/ObjectWithPropagatorFunctions"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PropagatorFunction">
     <eOperations name="init"/>

@@ -445,7 +445,9 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 			}
 		} else if ( notifier instanceof ObjectWithPropagatorFunctions) {
 			ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
-			this.propagatorFunctionsConstructor.addPropagatorFunctions(objectWithPropagatorFunctions);
+			if ( !com.misc.common.moplaf.common.util.Util.isLoading(notifier)) {
+				this.propagatorFunctionsConstructor.addPropagatorFunctions(objectWithPropagatorFunctions);
+			}
 		}
 
 	}
