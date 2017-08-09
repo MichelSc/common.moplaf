@@ -453,7 +453,7 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 	}
 
 	/**
-	 * Handles the management of PropagatorFunctionAdapters (removes) when a Notifier enters the scope of the propagation
+	 * Handles the management of PropagatorFunctionAdapters (removes) when a Notifier leaves the scope of the propagation
 	 * Either if notifier is removed or this PropagatorFunctionAdapterManger is removed from the notifier
 	 */
 	private void onAdapterRemoved(Notifier notifier){
@@ -464,16 +464,16 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 				propagatorFunction.untouch();
 			}
 		} else if ( notifier instanceof ObjectWithPropagatorFunctions) {
-			ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
-			if ( !com.misc.common.moplaf.common.util.Util.isUnloading(objectWithPropagatorFunctions)){
-				Iterator<PropagatorFunction> iterator = objectWithPropagatorFunctions.getPropagatorFunctions().iterator();
-				while ( iterator.hasNext() ) {
-					PropagatorFunction propagatorFunction = iterator.next();
-					if ( propagatorFunction.getFactoryID()==this.propagatorFunctionsConstructor.getFactoryID()) {
-						iterator.remove();
-					}
-				}
-			}
+//			ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
+//			if ( !com.misc.common.moplaf.common.util.Util.isUnloading(objectWithPropagatorFunctions)){
+//				Iterator<PropagatorFunction> iterator = objectWithPropagatorFunctions.getPropagatorFunctions().iterator();
+//				while ( iterator.hasNext() ) {
+//					PropagatorFunction propagatorFunction = iterator.next();
+//					if ( propagatorFunction.getFactoryID()==this.propagatorFunctionsConstructor.getFactoryID()) {
+//						iterator.remove();
+//					}
+//				}
+//			}
 		}
 	}
 

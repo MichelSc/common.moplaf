@@ -81,7 +81,7 @@ public class ObjectWithPropagatorFunctionsImpl extends MinimalEObjectImpl.Contai
 
 				@Override
 				protected boolean isNotificationRequired() {
-					return false;
+					return true;
 				}
 				
 			};

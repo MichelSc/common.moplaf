@@ -46,7 +46,8 @@
         eType="#//PropagatorFunction"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Touchers" upperBound="-1"
         eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        transient="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ObjectWithPropagatorFunctions"
         lowerBound="1" eType="#//ObjectWithPropagatorFunctions" transient="true" eOpposite="#//ObjectWithPropagatorFunctions/PropagatorFunctions"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

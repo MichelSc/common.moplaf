@@ -245,7 +245,7 @@ public interface PropagatorFunction extends EObject {
 	 * @return the value of the '<em>Enabled</em>' attribute.
 	 * @see #setEnabled(boolean)
 	 * @see com.misc.common.moplaf.propagator2.PropagatorPackage#getPropagatorFunction_Enabled()
-	 * @model
+	 * @model transient="true"
 	 * @generated
 	 */
 	boolean isEnabled();

@@ -10,8 +10,8 @@
     <genDataTypes ecoreDataType="propagator.ecore#//Bindings"/>
     <genDataTypes ecoreDataType="propagator.ecore#//Notification"/>
     <genClasses ecoreClass="propagator.ecore#//ObjectWithPropagatorFunctions">
-      <genFeatures property="Readonly" notify="false" children="true" createChild="false"
-          propertyCategory="99 Propagator" ecoreFeature="ecore:EReference propagator.ecore#//ObjectWithPropagatorFunctions/PropagatorFunctions"/>
+      <genFeatures property="Readonly" children="true" createChild="false" propertyCategory="99 Propagator"
+          ecoreFeature="ecore:EReference propagator.ecore#//ObjectWithPropagatorFunctions/PropagatorFunctions"/>
       <genOperations ecoreOperation="propagator.ecore#//ObjectWithPropagatorFunctions/addPropagatorFunction">
         <genParameters ecoreParameter="propagator.ecore#//ObjectWithPropagatorFunctions/addPropagatorFunction/propagatorFunction"/>
       </genOperations>
