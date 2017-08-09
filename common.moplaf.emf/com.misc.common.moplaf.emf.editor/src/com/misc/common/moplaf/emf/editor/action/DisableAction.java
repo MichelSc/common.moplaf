@@ -16,7 +16,7 @@ import java.util.Collection;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IWorkbenchPart;
 
-import com.misc.common.moplaf.emf.edit.command.EnableCommand;
+import com.misc.common.moplaf.emf.edit.command.DisableCommand;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.UnexecutableCommand;
@@ -51,7 +51,7 @@ public class DisableAction extends CommandAction
 		if (collection.size() == 1)
 		{
 			Object owner = collection.iterator().next();
-			return EnableCommand.create(editingDomain, owner);
+			return DisableCommand.create(editingDomain, owner);
 		}
 		return UnexecutableCommand.INSTANCE;
 	}
