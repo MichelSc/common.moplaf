@@ -308,11 +308,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//Solution/SolutionNr"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute solver.ecore#//Solution/Code"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference solver.ecore#//Solution/SolverAsInitialSolution"/>
-      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//Solution/Elements"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//Solution/Vars"/>
+      <genFeatures property="None" createChild="false" propertyCategory="" ecoreFeature="ecore:EReference solver.ecore#//Solution/Elements"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//Solution/Vars"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//Solution/Cons"/>
-      <genFeatures property="Readonly" notify="false" children="true" createChild="false"
-          ecoreFeature="ecore:EReference solver.ecore#//Solution/Goals"/>
+      <genFeatures property="Readonly" children="true" createChild="false" ecoreFeature="ecore:EReference solver.ecore#//Solution/Goals"/>
       <genOperations ecoreOperation="solver.ecore#//Solution/solutionVarFactory"/>
       <genOperations ecoreOperation="solver.ecore#//Solution/solutionConsFactory"/>
       <genOperations ecoreOperation="solver.ecore#//Solution/solutionGoalFactory"/>

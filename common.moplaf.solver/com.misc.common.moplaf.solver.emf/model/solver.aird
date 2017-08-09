@@ -12481,12 +12481,10 @@
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_2uSDMLxgEeaLeaiYw8oZ0Q" labelColor="39,76,114" labelAlignment="LEFT" description="_2uRcILxgEeaLeaiYw8oZ0Q" color="114,159,207"/>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Zc1AoFl3Eeel390Ryg1fkA" name=" VarBinders : GeneratorVarBinder" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Zc1AoFl3Eeel390Ryg1fkA" name=" /VarBinders : GeneratorVarBinder" tooltipText="">
         <target xmi:type="ecore:EReference" href="solver.ecore#//Generator/VarBinders"/>
         <semanticElements xmi:type="ecore:EReference" href="solver.ecore#//Generator/VarBinders"/>
-        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_Zc1AoVl3Eeel390Ryg1fkA" labelAlignment="LEFT" color="114,159,207">
-          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
-        </ownedStyle>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_bsOQ4HzYEeegtYdOIu0jow" labelColor="39,76,114" labelAlignment="LEFT" description="_2uRcILxgEeaLeaiYw8oZ0Q" color="114,159,207"/>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_2uSqQbxgEeaLeaiYw8oZ0Q" name=" /SolutionProvider : SolutionProvider" tooltipText="">

@@ -232,7 +232,6 @@ public class SolutionItemProvider
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
@@ -241,9 +240,10 @@ public class SolutionItemProvider
 		switch (notification.getFeatureID(Solution.class)) {
 			case SolverPackage.SOLUTION__SOLUTION_NR:
 			case SolverPackage.SOLUTION__CODE:
-			case SolverPackage.SOLUTION__ELEMENTS:
-			case SolverPackage.SOLUTION__CONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case SolverPackage.SOLUTION__ELEMENTS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
