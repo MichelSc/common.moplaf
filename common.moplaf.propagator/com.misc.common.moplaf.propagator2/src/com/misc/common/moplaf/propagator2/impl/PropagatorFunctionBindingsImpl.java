@@ -118,7 +118,14 @@ public class PropagatorFunctionBindingsImpl extends PropagatorFunctionImpl imple
 			ObjectWithPropagatorFunctions object = this.getObjectWithPropagatorFunctions();
 			PropagatorFunctionAdapter adapter = Util.getPropagatorFunctionAdapter(object);
 			PropagatorFunctionSource source = adapter.getSource(this, bindings);
-			source.collectAntecedents(antecedents, doCollect);
+			if ( source==null) {
+				// the propagatorFunction is not enabled
+				// its sources are not registered
+				// the propagatorFunction is not capable of retrieving its antecedents
+				// so do nothing
+			} else {
+				source.collectAntecedents(antecedents, doCollect);
+			}
 		}
 	}
 

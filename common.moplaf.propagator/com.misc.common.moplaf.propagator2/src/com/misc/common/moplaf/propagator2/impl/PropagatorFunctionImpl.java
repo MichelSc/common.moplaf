@@ -36,7 +36,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -58,6 +60,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link com.misc.common.moplaf.propagator2.impl.PropagatorFunctionImpl#getObject <em>Object</em>}</li>
  *   <li>{@link com.misc.common.moplaf.propagator2.impl.PropagatorFunctionImpl#getInstance <em>Instance</em>}</li>
  *   <li>{@link com.misc.common.moplaf.propagator2.impl.PropagatorFunctionImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.propagator2.impl.PropagatorFunctionImpl#getTouchedParent <em>Touched Parent</em>}</li>
  * </ul>
  *
  * @generated
@@ -84,8 +87,6 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	 */
 	protected boolean touched = TOUCHED_EDEFAULT;
 	
-	private PropagatorFunction touchedParent = null;
-
 	/**
 	 * The cached value of the '{@link #getTouchedChildren() <em>Touched Children</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -162,6 +163,16 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	 * @ordered
 	 */
 	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTouchedParent() <em>Touched Parent</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTouchedParent()
+	 * @generated
+	 * @ordered
+	 */
+	protected PropagatorFunction touchedParent;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -277,7 +288,7 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	 */
 	public EList<PropagatorFunction> getTouchedChildren() {
 		if (touchedChildren == null) {
-			touchedChildren = new EObjectResolvingEList<PropagatorFunction>(PropagatorFunction.class, this, PropagatorPackage.PROPAGATOR_FUNCTION__TOUCHED_CHILDREN);
+			touchedChildren = new EObjectWithInverseResolvingEList<PropagatorFunction>(PropagatorFunction.class, this, PropagatorPackage.PROPAGATOR_FUNCTION__TOUCHED_CHILDREN, PropagatorPackage.PROPAGATOR_FUNCTION__TOUCHED_PARENT);
 		}
 		return touchedChildren;
 	}
@@ -321,13 +332,13 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 		
 		// touch parent, if any
 		PropagatorFunction parent = this.getParent();
+		this.setTouchedParent(parent);
 		if ( parent != null ) {
 			parent.touch(null);
-			parent.getTouchedChildren().add(this);
+//			parent.getTouchedChildren().add(this); not necessary, as the opposite relation TouchedParent is set
 		} else {
 			Plugin.INSTANCE.logWarning("No parent", this);
 		}
-		this.touchedParent = parent;
 		
 		// toucher tracking
 		if ( toucher==null){
@@ -344,11 +355,12 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 		if ( this.isTouched() ){
 			this.setTouched(false);
 			this.getTouchers().clear();
-			PropagatorFunction parent = this.touchedParent;
-			if ( parent != null ) { 
-				parent.getTouchedChildren().remove(this);
-			}
-			this.touchedParent = null;
+//			PropagatorFunction parent = this.touchedParent;
+//			PropagatorFunction parent = this.getTouchedParent();
+//			if ( parent != null ) { 
+//				parent.getTouchedChildren().remove(this);
+//			}
+			this.setTouchedParent(null); // this remove this object from the list of touched children of the parent
 		}
 	}
 	
@@ -474,6 +486,66 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	public String getDescription() {
 		String description = String.format("%s.%s", this.getObject(), this.getType());
 		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PropagatorFunction getTouchedParent() {
+		if (touchedParent != null && touchedParent.eIsProxy()) {
+			InternalEObject oldTouchedParent = (InternalEObject)touchedParent;
+			touchedParent = (PropagatorFunction)eResolveProxy(oldTouchedParent);
+			if (touchedParent != oldTouchedParent) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PropagatorPackage.PROPAGATOR_FUNCTION__TOUCHED_PARENT, oldTouchedParent, touchedParent));
+			}
+		}
+		return touchedParent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PropagatorFunction basicGetTouchedParent() {
+		return touchedParent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTouchedParent(PropagatorFunction newTouchedParent, NotificationChain msgs) {
+		PropagatorFunction oldTouchedParent = touchedParent;
+		touchedParent = newTouchedParent;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PropagatorPackage.PROPAGATOR_FUNCTION__TOUCHED_PARENT, oldTouchedParent, newTouchedParent);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTouchedParent(PropagatorFunction newTouchedParent) {
+		if (newTouchedParent != touchedParent) {
+			NotificationChain msgs = null;
+			if (touchedParent != null)
+				msgs = ((InternalEObject)touchedParent).eInverseRemove(this, PropagatorPackage.PROPAGATOR_FUNCTION__TOUCHED_CHILDREN, PropagatorFunction.class, msgs);
+			if (newTouchedParent != null)
+				msgs = ((InternalEObject)newTouchedParent).eInverseAdd(this, PropagatorPackage.PROPAGATOR_FUNCTION__TOUCHED_CHILDREN, PropagatorFunction.class, msgs);
+			msgs = basicSetTouchedParent(newTouchedParent, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, PropagatorPackage.PROPAGATOR_FUNCTION__TOUCHED_PARENT, newTouchedParent, newTouchedParent));
 	}
 
 	/**
@@ -646,13 +718,20 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case PropagatorPackage.PROPAGATOR_FUNCTION__TOUCHED_CHILDREN:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTouchedChildren()).basicAdd(otherEnd, msgs);
 			case PropagatorPackage.PROPAGATOR_FUNCTION__OBJECT_WITH_PROPAGATOR_FUNCTIONS:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetObjectWithPropagatorFunctions((ObjectWithPropagatorFunctions)otherEnd, msgs);
+			case PropagatorPackage.PROPAGATOR_FUNCTION__TOUCHED_PARENT:
+				if (touchedParent != null)
+					msgs = ((InternalEObject)touchedParent).eInverseRemove(this, PropagatorPackage.PROPAGATOR_FUNCTION__TOUCHED_CHILDREN, PropagatorFunction.class, msgs);
+				return basicSetTouchedParent((PropagatorFunction)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -665,8 +744,12 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case PropagatorPackage.PROPAGATOR_FUNCTION__TOUCHED_CHILDREN:
+				return ((InternalEList<?>)getTouchedChildren()).basicRemove(otherEnd, msgs);
 			case PropagatorPackage.PROPAGATOR_FUNCTION__OBJECT_WITH_PROPAGATOR_FUNCTIONS:
 				return basicSetObjectWithPropagatorFunctions(null, msgs);
+			case PropagatorPackage.PROPAGATOR_FUNCTION__TOUCHED_PARENT:
+				return basicSetTouchedParent(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -719,6 +802,9 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 				return getInstance();
 			case PropagatorPackage.PROPAGATOR_FUNCTION__DESCRIPTION:
 				return getDescription();
+			case PropagatorPackage.PROPAGATOR_FUNCTION__TOUCHED_PARENT:
+				if (resolve) return getTouchedParent();
+				return basicGetTouchedParent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -749,6 +835,9 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 			case PropagatorPackage.PROPAGATOR_FUNCTION__OBJECT_WITH_PROPAGATOR_FUNCTIONS:
 				setObjectWithPropagatorFunctions((ObjectWithPropagatorFunctions)newValue);
 				return;
+			case PropagatorPackage.PROPAGATOR_FUNCTION__TOUCHED_PARENT:
+				setTouchedParent((PropagatorFunction)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -775,6 +864,9 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 				return;
 			case PropagatorPackage.PROPAGATOR_FUNCTION__OBJECT_WITH_PROPAGATOR_FUNCTIONS:
 				setObjectWithPropagatorFunctions((ObjectWithPropagatorFunctions)null);
+				return;
+			case PropagatorPackage.PROPAGATOR_FUNCTION__TOUCHED_PARENT:
+				setTouchedParent((PropagatorFunction)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -812,6 +904,8 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 				return INSTANCE_EDEFAULT == null ? getInstance() != null : !INSTANCE_EDEFAULT.equals(getInstance());
 			case PropagatorPackage.PROPAGATOR_FUNCTION__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
+			case PropagatorPackage.PROPAGATOR_FUNCTION__TOUCHED_PARENT:
+				return touchedParent != null;
 		}
 		return super.eIsSet(featureID);
 	}

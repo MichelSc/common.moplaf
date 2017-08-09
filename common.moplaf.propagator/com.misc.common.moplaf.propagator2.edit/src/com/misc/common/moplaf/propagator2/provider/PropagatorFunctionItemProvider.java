@@ -79,6 +79,7 @@ public class PropagatorFunctionItemProvider
 			addEnabledPropertyDescriptor(object);
 			addObjectWithPropagatorFunctionsPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
+			addTouchedParentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -278,6 +279,28 @@ public class PropagatorFunctionItemProvider
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 getString("_UI__00PropagatorFunctionPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Touched Parent feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTouchedParentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PropagatorFunction_TouchedParent_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PropagatorFunction_TouchedParent_feature", "_UI_PropagatorFunction_type"),
+				 PropagatorPackage.Literals.PROPAGATOR_FUNCTION__TOUCHED_PARENT,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
 				 null));
 	}
 

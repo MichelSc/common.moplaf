@@ -43,7 +43,7 @@
         derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Touched" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="TouchedChildren" upperBound="-1"
-        eType="#//PropagatorFunction"/>
+        eType="#//PropagatorFunction" eOpposite="#//PropagatorFunction/TouchedParent"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Touchers" upperBound="-1"
         eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Enabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
@@ -58,6 +58,8 @@
         changeable="false" volatile="true" transient="true" derived="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         changeable="false" volatile="true" transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TouchedParent" eType="#//PropagatorFunction"
+        eOpposite="#//PropagatorFunction/TouchedChildren"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PropagatorFunctionBindings" eSuperTypes="#//PropagatorFunction">
     <eOperations name="doGetBindings" eType="#//Bindings"/>

@@ -280,6 +280,15 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPropagatorFunction_TouchedParent() {
+		return (EReference)propagatorFunctionEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getPropagatorFunction__Init() {
 		return propagatorFunctionEClass.getEOperations().get(0);
 	}
@@ -519,6 +528,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 		createEAttribute(propagatorFunctionEClass, PROPAGATOR_FUNCTION__OBJECT);
 		createEAttribute(propagatorFunctionEClass, PROPAGATOR_FUNCTION__INSTANCE);
 		createEAttribute(propagatorFunctionEClass, PROPAGATOR_FUNCTION__DESCRIPTION);
+		createEReference(propagatorFunctionEClass, PROPAGATOR_FUNCTION__TOUCHED_PARENT);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___INIT);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___ENABLE);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___DISABLE);
@@ -590,7 +600,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 		initEReference(getPropagatorFunction_Antecedents(), this.getPropagatorFunction(), null, "Antecedents", null, 0, -1, PropagatorFunction.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getPropagatorFunction_AntecedentsSibling(), this.getPropagatorFunction(), null, "AntecedentsSibling", null, 0, -1, PropagatorFunction.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPropagatorFunction_Touched(), ecorePackage.getEBoolean(), "Touched", null, 0, 1, PropagatorFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPropagatorFunction_TouchedChildren(), this.getPropagatorFunction(), null, "TouchedChildren", null, 0, -1, PropagatorFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPropagatorFunction_TouchedChildren(), this.getPropagatorFunction(), this.getPropagatorFunction_TouchedParent(), "TouchedChildren", null, 0, -1, PropagatorFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPropagatorFunction_Touchers(), ecorePackage.getEObject(), null, "Touchers", null, 0, -1, PropagatorFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPropagatorFunction_Enabled(), ecorePackage.getEBoolean(), "Enabled", null, 0, 1, PropagatorFunction.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPropagatorFunction_ObjectWithPropagatorFunctions(), this.getObjectWithPropagatorFunctions(), this.getObjectWithPropagatorFunctions_PropagatorFunctions(), "ObjectWithPropagatorFunctions", null, 1, 1, PropagatorFunction.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -598,6 +608,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 		initEAttribute(getPropagatorFunction_Object(), ecorePackage.getEString(), "Object", null, 0, 1, PropagatorFunction.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPropagatorFunction_Instance(), ecorePackage.getEString(), "Instance", null, 0, 1, PropagatorFunction.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPropagatorFunction_Description(), ecorePackage.getEString(), "Description", null, 0, 1, PropagatorFunction.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getPropagatorFunction_TouchedParent(), this.getPropagatorFunction(), this.getPropagatorFunction_TouchedChildren(), "TouchedParent", null, 0, 1, PropagatorFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getPropagatorFunction__Init(), null, "init", 0, 1, IS_UNIQUE, IS_ORDERED);
 

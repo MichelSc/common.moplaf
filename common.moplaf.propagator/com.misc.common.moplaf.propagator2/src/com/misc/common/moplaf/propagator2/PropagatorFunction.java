@@ -128,6 +128,7 @@ import com.misc.common.moplaf.propagator2.util.PropagatorFunctionsConstructor;
  *   <li>{@link com.misc.common.moplaf.propagator2.PropagatorFunction#getObject <em>Object</em>}</li>
  *   <li>{@link com.misc.common.moplaf.propagator2.PropagatorFunction#getInstance <em>Instance</em>}</li>
  *   <li>{@link com.misc.common.moplaf.propagator2.PropagatorFunction#getDescription <em>Description</em>}</li>
+ *   <li>{@link com.misc.common.moplaf.propagator2.PropagatorFunction#getTouchedParent <em>Touched Parent</em>}</li>
  * </ul>
  *
  * @see com.misc.common.moplaf.propagator2.PropagatorPackage#getPropagatorFunction()
@@ -205,6 +206,7 @@ public interface PropagatorFunction extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Touched Children</b></em>' reference list.
 	 * The list contents are of type {@link com.misc.common.moplaf.propagator2.PropagatorFunction}.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#getTouchedParent <em>Touched Parent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Touched Children</em>' reference list isn't clear,
@@ -213,7 +215,8 @@ public interface PropagatorFunction extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Touched Children</em>' reference list.
 	 * @see com.misc.common.moplaf.propagator2.PropagatorPackage#getPropagatorFunction_TouchedChildren()
-	 * @model
+	 * @see com.misc.common.moplaf.propagator2.PropagatorFunction#getTouchedParent
+	 * @model opposite="TouchedParent"
 	 * @generated
 	 */
 	EList<PropagatorFunction> getTouchedChildren();
@@ -347,6 +350,34 @@ public interface PropagatorFunction extends EObject {
 	 * @generated
 	 */
 	String getDescription();
+
+	/**
+	 * Returns the value of the '<em><b>Touched Parent</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#getTouchedChildren <em>Touched Children</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Touched Parent</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Touched Parent</em>' reference.
+	 * @see #setTouchedParent(PropagatorFunction)
+	 * @see com.misc.common.moplaf.propagator2.PropagatorPackage#getPropagatorFunction_TouchedParent()
+	 * @see com.misc.common.moplaf.propagator2.PropagatorFunction#getTouchedChildren
+	 * @model opposite="TouchedChildren"
+	 * @generated
+	 */
+	PropagatorFunction getTouchedParent();
+
+	/**
+	 * Sets the value of the '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#getTouchedParent <em>Touched Parent</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Touched Parent</em>' reference.
+	 * @see #getTouchedParent()
+	 * @generated
+	 */
+	void setTouchedParent(PropagatorFunction value);
 
 	/**
 	 * <!-- begin-user-doc -->

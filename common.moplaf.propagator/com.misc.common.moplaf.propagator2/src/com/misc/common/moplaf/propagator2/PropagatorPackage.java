@@ -242,13 +242,22 @@ public interface PropagatorPackage extends EPackage {
 	int PROPAGATOR_FUNCTION__DESCRIPTION = 11;
 
 	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION__TOUCHED_PARENT = 12;
+
+	/**
 	 * The number of structural features of the '<em>Function</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_FEATURE_COUNT = 12;
+	int PROPAGATOR_FUNCTION_FEATURE_COUNT = 13;
 
 	/**
 	 * The operation id for the '<em>Init</em>' operation.
@@ -520,6 +529,15 @@ public interface PropagatorPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_FUNCTION_BINDINGS__DESCRIPTION = PROPAGATOR_FUNCTION__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Touched Parent</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS__TOUCHED_PARENT = PROPAGATOR_FUNCTION__TOUCHED_PARENT;
 
 	/**
 	 * The number of structural features of the '<em>Function Bindings</em>' class.
@@ -892,6 +910,17 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPropagatorFunction_Description();
+
+	/**
+	 * Returns the meta object for the reference '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#getTouchedParent <em>Touched Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Touched Parent</em>'.
+	 * @see com.misc.common.moplaf.propagator2.PropagatorFunction#getTouchedParent()
+	 * @see #getPropagatorFunction()
+	 * @generated
+	 */
+	EReference getPropagatorFunction_TouchedParent();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#init() <em>Init</em>}' operation.
@@ -1270,6 +1299,14 @@ public interface PropagatorPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PROPAGATOR_FUNCTION__DESCRIPTION = eINSTANCE.getPropagatorFunction_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Touched Parent</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPAGATOR_FUNCTION__TOUCHED_PARENT = eINSTANCE.getPropagatorFunction_TouchedParent();
 
 		/**
 		 * The meta object literal for the '<em><b>Init</b></em>' operation.
