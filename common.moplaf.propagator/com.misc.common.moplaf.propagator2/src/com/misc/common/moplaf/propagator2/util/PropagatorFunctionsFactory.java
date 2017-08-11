@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EReference;
 
 import com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions;
 import com.misc.common.moplaf.propagator2.PropagatorFunction;
@@ -38,7 +39,8 @@ import com.misc.common.moplaf.propagator2.PropagatorFunction;
  */
 public class PropagatorFunctionsFactory implements PropagatorFunctionsConstructor {
 
-	private HashMap<EClass, PropagatorFunctionsConstructor> propagatorFunctionsFactories = new HashMap<EClass, PropagatorFunctionsConstructor>();
+	private HashMap<EClass, PropagatorFunctionsConstructor> factories_type_indexed = new HashMap<EClass, PropagatorFunctionsConstructor>();
+	private HashMap<EReference, PropagatorFunctionsConstructor> factories_owning_feature_indexed = new HashMap<EReference, PropagatorFunctionsConstructor>();
 	private String factoryID;
 
 	@Override
@@ -64,7 +66,10 @@ public class PropagatorFunctionsFactory implements PropagatorFunctionsConstructo
 
 	public PropagatorFunctionsFactory copy(){
 		PropagatorFunctionsFactory newFactory = new PropagatorFunctionsFactory(this.factoryID);
-		for(  Entry<EClass, PropagatorFunctionsConstructor> entry : this.propagatorFunctionsFactories.entrySet()){
+		for(  Entry<EClass, PropagatorFunctionsConstructor> entry : this.factories_type_indexed.entrySet()){
+			newFactory.addPropagatorFunctionsFactory(entry.getKey(), entry.getValue().copy());
+		}
+		for(  Entry<EReference, PropagatorFunctionsConstructor> entry : this.factories_owning_feature_indexed.entrySet()){
 			newFactory.addPropagatorFunctionsFactory(entry.getKey(), entry.getValue().copy());
 		}
 		return newFactory;
@@ -81,6 +86,17 @@ public class PropagatorFunctionsFactory implements PropagatorFunctionsConstructo
 		return factory;
 	};
 	
+	/**
+	 * Construct and register a PropagatorFunctionsConstructors2
+	 * @param targetType
+	 * @return
+	 */
+	public PropagatorFunctionsConstructors constructPropagatorFunctionsConstructors(EReference owningFeature){
+		PropagatorFunctionsConstructors factory = new PropagatorFunctionsConstructors(this.factoryID );
+		this.addPropagatorFunctionsFactory(owningFeature, factory);
+		return factory;
+	};
+	
 	/** 
 	 * Register a Factory associated for a given TargetType
 	 * 
@@ -88,7 +104,19 @@ public class PropagatorFunctionsFactory implements PropagatorFunctionsConstructo
 	 * @param factory
 	 */
 	public PropagatorFunctionsFactory addPropagatorFunctionsFactory(EClass targetType, PropagatorFunctionsConstructor factory){
-		this.propagatorFunctionsFactories.put(targetType, factory);
+		this.factories_type_indexed.put(targetType, factory);
+		return this;
+	}
+	
+
+	/** 
+	 * Register a Factory associated for a given owning feature
+	 * 
+	 * @param targetType
+	 * @param factory
+	 */
+	public PropagatorFunctionsFactory addPropagatorFunctionsFactory(EReference owningFeature, PropagatorFunctionsConstructor factory){
+		this.factories_owning_feature_indexed.put(owningFeature, factory);
 		return this;
 	}
 	
@@ -102,11 +130,13 @@ public class PropagatorFunctionsFactory implements PropagatorFunctionsConstructo
 	public void addPropagatorFunctions(ObjectWithPropagatorFunctions object) {
 		EClass targetType = object.eClass();
 		this.addPropagatorFunctions(targetType, object);
+		EReference owningFeature = object.eContainmentFeature();
+		this.addPropagatorFunctions(owningFeature, object);
 	}
 	
 	private void addPropagatorFunctions(EClass targetType, ObjectWithPropagatorFunctions object){
 		// traverse the inheritance hierarchy from most specific to less specific
-		PropagatorFunctionsConstructor factory = propagatorFunctionsFactories.get(targetType);
+		PropagatorFunctionsConstructor factory = factories_type_indexed.get(targetType);
 		if ( factory!=null){
 			factory.addPropagatorFunctions(object);
 		}
@@ -114,5 +144,10 @@ public class PropagatorFunctionsFactory implements PropagatorFunctionsConstructo
 			this.addPropagatorFunctions(superType, object);
 		}
 	}
-
+	private void addPropagatorFunctions(EReference owningFeature, ObjectWithPropagatorFunctions object){
+		PropagatorFunctionsConstructor factory = factories_owning_feature_indexed.get(owningFeature);
+		if ( factory!=null){
+			factory.addPropagatorFunctions(object);
+		}
+	}
 }
