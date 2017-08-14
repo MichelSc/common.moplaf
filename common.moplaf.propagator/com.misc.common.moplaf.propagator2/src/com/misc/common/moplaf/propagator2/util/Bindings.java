@@ -72,28 +72,28 @@ public class Bindings  {
 		return newBindings;
 	}
 
-	private EClass getTargettedClass_prvt(EClass currentType, EClass otherType){
-		EClass targettedClass = null;
-		if ( currentType == null || currentType.isSuperTypeOf(otherType)){
-			targettedClass = otherType;
-		} else if ( otherType.isSuperTypeOf(currentType)){
-			targettedClass = currentType;
-		} else {
-			throw new ClassCastException("Non comparable types "+otherType.getName()+" and "+currentType.getName()+ " are targetted by the same propagator Bindings");
-		}
-		return targettedClass;
-	}
-	
-	public EClass getTargettedClass(){
-		EClass targettedClass = null;
-		for ( InboundBinding inboundBinding : this.inboundBindings){
-			targettedClass = this.getTargettedClass_prvt(targettedClass, inboundBinding.getTargettedClass());
-		}
-		for ( OutboundBinding outboundBinding : this.outboundBindings){
-			targettedClass = this.getTargettedClass_prvt(targettedClass, outboundBinding.getTargettedClass());
-		}
-		return targettedClass;
-	}
+//	private EClass getTargettedClass_prvt(EClass currentType, EClass otherType){
+//		EClass targettedClass = null;
+//		if ( currentType == null || currentType.isSuperTypeOf(otherType)){
+//			targettedClass = otherType;
+//		} else if ( otherType.isSuperTypeOf(currentType)){
+//			targettedClass = currentType;
+//		} else {
+//			throw new ClassCastException("Non comparable types "+otherType.getName()+" and "+currentType.getName()+ " are targetted by the same propagator Bindings");
+//		}
+//		return targettedClass;
+//	}
+//	
+//	public EClass getTargettedClass(){
+//		EClass targettedClass = null;
+//		for ( InboundBinding inboundBinding : this.inboundBindings){
+//			targettedClass = this.getTargettedClass_prvt(targettedClass, inboundBinding.getTargettedClass());
+//		}
+//		for ( OutboundBinding outboundBinding : this.outboundBindings){
+//			targettedClass = this.getTargettedClass_prvt(targettedClass, outboundBinding.getTargettedClass());
+//		}
+//		return targettedClass;
+//	}
 	
 	private void touch(PropagatorFunctionSource source, EObject toucher){
 		if ( !this.isTrackToucher ) {
@@ -128,11 +128,10 @@ public class Bindings  {
 	 * @return
 	 */
 	public String asString(){
-		EClass targettedClass = this.getTargettedClass();
 		String toReturn = "";
 		for ( InboundBinding inboundBinding : this.inboundBindings){
 			toReturn += toReturn.length()==0
-					  ? targettedClass.getName()+":"
+					  ? ""
 					  : ",";
 			toReturn += inboundBinding.asStringImpl();
 		}
@@ -281,7 +280,7 @@ public class Bindings  {
 		 */
 		@Override
 		public String asStringImpl(){
-			return this.eFeature.getName();
+			return this.getTargettedClass().getName()+":"+this.eFeature.getName();
 		}
 		@Override
 		protected void notifyChanged(PropagatorFunctionSource source, Notification msg) {
