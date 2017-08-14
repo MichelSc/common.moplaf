@@ -28,7 +28,7 @@ public class PropagatorFunctionsConstructors  implements PropagatorFunctionsCons
 	}
 	
 	@Override
-	public PropagatorFunctionsConstructor copy() {
+	public PropagatorFunctionsConstructors copy() {
 		PropagatorFunctionsConstructors newConstructors = new PropagatorFunctionsConstructors(this.factoryID);
 		for ( PropagatorFunctionsConstructor constructor : this.constructors){
 			newConstructors.addConstructor(constructor.copy());

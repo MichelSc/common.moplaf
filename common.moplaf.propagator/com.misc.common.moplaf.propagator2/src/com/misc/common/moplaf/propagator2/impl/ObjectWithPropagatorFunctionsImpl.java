@@ -117,6 +117,14 @@ public class ObjectWithPropagatorFunctionsImpl extends MinimalEObjectImpl.Contai
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
+	public void addPropagatorFunctions(String factoryID) {
+		// default does nothing
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
 	public PropagatorFunction getPropagatorFunction(Object type) {
 		for ( PropagatorFunction propagatorFunction: this.getPropagatorFunctions()){
 			if ( ((Class<?>)type).isInstance(propagatorFunction) ){
@@ -238,6 +246,9 @@ public class ObjectWithPropagatorFunctionsImpl extends MinimalEObjectImpl.Contai
 				return null;
 			case PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___GET_PROPAGATOR_FUNCTION__ECLASS:
 				return getPropagatorFunction((EClass)arguments.get(0));
+			case PropagatorPackage.OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTIONS__STRING:
+				addPropagatorFunctions((String)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

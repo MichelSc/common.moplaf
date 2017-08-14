@@ -97,6 +97,14 @@ public interface ObjectWithPropagatorFunctions extends EObject {
 	PropagatorFunction getPropagatorFunction(EClass type);
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void addPropagatorFunctions(String factoryID);
+
+	/**
 	 * Convenience method 
 	 * @return
 	 */

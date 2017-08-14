@@ -115,13 +115,22 @@ public interface PropagatorPackage extends EPackage {
 	int OBJECT_WITH_PROPAGATOR_FUNCTIONS___GET_PROPAGATOR_FUNCTION__ECLASS = 1;
 
 	/**
+	 * The operation id for the '<em>Add Propagator Functions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTIONS__STRING = 2;
+
+	/**
 	 * The number of operations of the '<em>Object With Propagator Functions</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT = 2;
+	int OBJECT_WITH_PROPAGATOR_FUNCTIONS_OPERATION_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.propagator2.impl.PropagatorFunctionImpl <em>Function</em>}' class.
@@ -781,6 +790,16 @@ public interface PropagatorPackage extends EPackage {
 	EOperation getObjectWithPropagatorFunctions__GetPropagatorFunction__EClass();
 
 	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions#addPropagatorFunctions(java.lang.String) <em>Add Propagator Functions</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Add Propagator Functions</em>' operation.
+	 * @see com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions#addPropagatorFunctions(java.lang.String)
+	 * @generated
+	 */
+	EOperation getObjectWithPropagatorFunctions__AddPropagatorFunctions__String();
+
+	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.propagator2.PropagatorFunction <em>Function</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1201,6 +1220,14 @@ public interface PropagatorPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation OBJECT_WITH_PROPAGATOR_FUNCTIONS___GET_PROPAGATOR_FUNCTION__ECLASS = eINSTANCE.getObjectWithPropagatorFunctions__GetPropagatorFunction__EClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Add Propagator Functions</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTIONS__STRING = eINSTANCE.getObjectWithPropagatorFunctions__AddPropagatorFunctions__String();
 
 		/**
 		 * The meta object literal for the '{@link com.misc.common.moplaf.propagator2.impl.PropagatorFunctionImpl <em>Function</em>}' class.

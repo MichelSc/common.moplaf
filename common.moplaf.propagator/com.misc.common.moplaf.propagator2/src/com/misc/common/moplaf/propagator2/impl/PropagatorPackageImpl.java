@@ -172,6 +172,15 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getObjectWithPropagatorFunctions__AddPropagatorFunctions__String() {
+		return objectWithPropagatorFunctionsEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPropagatorFunction() {
 		return propagatorFunctionEClass;
 	}
@@ -514,6 +523,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 		createEReference(objectWithPropagatorFunctionsEClass, OBJECT_WITH_PROPAGATOR_FUNCTIONS__PROPAGATOR_FUNCTIONS);
 		createEOperation(objectWithPropagatorFunctionsEClass, OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTION__PROPAGATORFUNCTION);
 		createEOperation(objectWithPropagatorFunctionsEClass, OBJECT_WITH_PROPAGATOR_FUNCTIONS___GET_PROPAGATOR_FUNCTION__ECLASS);
+		createEOperation(objectWithPropagatorFunctionsEClass, OBJECT_WITH_PROPAGATOR_FUNCTIONS___ADD_PROPAGATOR_FUNCTIONS__STRING);
 
 		propagatorFunctionEClass = createEClass(PROPAGATOR_FUNCTION);
 		createEReference(propagatorFunctionEClass, PROPAGATOR_FUNCTION__PARENT);
@@ -594,6 +604,9 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 
 		op = initEOperation(getObjectWithPropagatorFunctions__GetPropagatorFunction__EClass(), this.getPropagatorFunction(), "getPropagatorFunction", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEClass(), "type", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getObjectWithPropagatorFunctions__AddPropagatorFunctions__String(), null, "addPropagatorFunctions", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "factoryID", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(propagatorFunctionEClass, PropagatorFunction.class, "PropagatorFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPropagatorFunction_Parent(), this.getPropagatorFunction(), null, "Parent", null, 0, 1, PropagatorFunction.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);

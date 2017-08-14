@@ -39,8 +39,8 @@ import com.misc.common.moplaf.propagator2.PropagatorFunction;
  */
 public class PropagatorFunctionsFactory implements PropagatorFunctionsConstructor {
 
-	private HashMap<EClass, PropagatorFunctionsConstructor> factories_type_indexed = new HashMap<EClass, PropagatorFunctionsConstructor>();
-	private HashMap<EReference, PropagatorFunctionsConstructor> factories_owning_feature_indexed = new HashMap<EReference, PropagatorFunctionsConstructor>();
+	private HashMap<EClass, PropagatorFunctionsConstructors> factories_type_indexed = new HashMap<EClass, PropagatorFunctionsConstructors>();
+	private HashMap<EReference, PropagatorFunctionsConstructors> factories_owning_feature_indexed = new HashMap<EReference, PropagatorFunctionsConstructors>();
 	private String factoryID;
 
 	@Override
@@ -66,10 +66,10 @@ public class PropagatorFunctionsFactory implements PropagatorFunctionsConstructo
 
 	public PropagatorFunctionsFactory copy(){
 		PropagatorFunctionsFactory newFactory = new PropagatorFunctionsFactory(this.factoryID);
-		for(  Entry<EClass, PropagatorFunctionsConstructor> entry : this.factories_type_indexed.entrySet()){
+		for(  Entry<EClass, PropagatorFunctionsConstructors> entry : this.factories_type_indexed.entrySet()){
 			newFactory.addPropagatorFunctionsFactory(entry.getKey(), entry.getValue().copy());
 		}
-		for(  Entry<EReference, PropagatorFunctionsConstructor> entry : this.factories_owning_feature_indexed.entrySet()){
+		for(  Entry<EReference, PropagatorFunctionsConstructors> entry : this.factories_owning_feature_indexed.entrySet()){
 			newFactory.addPropagatorFunctionsFactory(entry.getKey(), entry.getValue().copy());
 		}
 		return newFactory;
@@ -81,8 +81,12 @@ public class PropagatorFunctionsFactory implements PropagatorFunctionsConstructo
 	 * @return
 	 */
 	public PropagatorFunctionsConstructors constructPropagatorFunctionsConstructors(EClass targetType){
-		PropagatorFunctionsConstructors factory = new PropagatorFunctionsConstructors(this.factoryID );
-		this.addPropagatorFunctionsFactory(targetType, factory);
+		PropagatorFunctionsConstructors factory = this.factories_type_indexed.get(targetType);
+		if ( factory == null ) {
+			factory = new PropagatorFunctionsConstructors(this.factoryID );
+			this.addPropagatorFunctionsFactory(targetType, factory);	
+		}
+		
 		return factory;
 	};
 	
@@ -92,8 +96,11 @@ public class PropagatorFunctionsFactory implements PropagatorFunctionsConstructo
 	 * @return
 	 */
 	public PropagatorFunctionsConstructors constructPropagatorFunctionsConstructors(EReference owningFeature){
-		PropagatorFunctionsConstructors factory = new PropagatorFunctionsConstructors(this.factoryID );
-		this.addPropagatorFunctionsFactory(owningFeature, factory);
+		PropagatorFunctionsConstructors factory = this.factories_owning_feature_indexed.get(owningFeature);
+		if ( factory==null) {
+			factory = new PropagatorFunctionsConstructors(this.factoryID );
+			this.addPropagatorFunctionsFactory(owningFeature, factory);
+		}
 		return factory;
 	};
 	
@@ -103,7 +110,7 @@ public class PropagatorFunctionsFactory implements PropagatorFunctionsConstructo
 	 * @param targetType
 	 * @param factory
 	 */
-	public PropagatorFunctionsFactory addPropagatorFunctionsFactory(EClass targetType, PropagatorFunctionsConstructor factory){
+	public PropagatorFunctionsFactory addPropagatorFunctionsFactory(EClass targetType, PropagatorFunctionsConstructors factory){
 		this.factories_type_indexed.put(targetType, factory);
 		return this;
 	}
@@ -115,7 +122,7 @@ public class PropagatorFunctionsFactory implements PropagatorFunctionsConstructo
 	 * @param targetType
 	 * @param factory
 	 */
-	public PropagatorFunctionsFactory addPropagatorFunctionsFactory(EReference owningFeature, PropagatorFunctionsConstructor factory){
+	public PropagatorFunctionsFactory addPropagatorFunctionsFactory(EReference owningFeature, PropagatorFunctionsConstructors factory){
 		this.factories_owning_feature_indexed.put(owningFeature, factory);
 		return this;
 	}
