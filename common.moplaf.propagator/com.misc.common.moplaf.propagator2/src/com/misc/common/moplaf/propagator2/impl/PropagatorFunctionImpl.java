@@ -632,7 +632,7 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- begin-user-doc -->
 	 * Calculate this PropagatorFunction
 	 * Assume that all Parent antecedents are calculated, and that all children are calculated
-	 * @return false when an error occurred, propagtor not refreshed
+	 * @return false when an error occurred, propagator not refreshed
 	 * <!-- end-user-doc -->
 	 */
 	public boolean refreshThis() {
