@@ -422,26 +422,26 @@ public interface PropagatorFunction extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model refresherDataType="com.misc.common.moplaf.propagator2.Refresher"
 	 * @generated
 	 */
-	boolean refreshAntecedents();
+	boolean refreshAntecedents(Refresher refresher);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model refresherDataType="com.misc.common.moplaf.propagator2.Refresher"
 	 * @generated
 	 */
-	boolean refreshThis();
+	boolean refreshThis(Refresher refresher);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @model refresherDataType="com.misc.common.moplaf.propagator2.Refresher"
 	 * @generated
 	 */
-	boolean refreshChildrenAndThis();
+	boolean refreshChildrenAndThis(Refresher refresher);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -450,6 +450,14 @@ public interface PropagatorFunction extends EObject {
 	 * @generated
 	 */
 	boolean refresh();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model refresherDataType="com.misc.common.moplaf.propagator2.Refresher"
+	 * @generated
+	 */
+	boolean refresh(Refresher refresher);
 
 	/**
 	 * <!-- begin-user-doc -->

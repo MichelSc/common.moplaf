@@ -329,7 +329,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___REFRESH_ANTECEDENTS = 6;
+	int PROPAGATOR_FUNCTION___REFRESH_ANTECEDENTS__REFRESHER = 6;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -338,7 +338,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___REFRESH_THIS = 7;
+	int PROPAGATOR_FUNCTION___REFRESH_THIS__REFRESHER = 7;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -347,7 +347,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___REFRESH_CHILDREN_AND_THIS = 8;
+	int PROPAGATOR_FUNCTION___REFRESH_CHILDREN_AND_THIS__REFRESHER = 8;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -359,13 +359,22 @@ public interface PropagatorPackage extends EPackage {
 	int PROPAGATOR_FUNCTION___REFRESH = 9;
 
 	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION___REFRESH__REFRESHER = 10;
+
+	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___DO_GET_ANTECEDENTS = 10;
+	int PROPAGATOR_FUNCTION___DO_GET_ANTECEDENTS = 11;
 
 	/**
 	 * The operation id for the '<em>Do Get Parent</em>' operation.
@@ -374,7 +383,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___DO_GET_PARENT = 11;
+	int PROPAGATOR_FUNCTION___DO_GET_PARENT = 12;
 
 	/**
 	 * The operation id for the '<em>Do Refresh</em>' operation.
@@ -383,7 +392,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___DO_REFRESH = 12;
+	int PROPAGATOR_FUNCTION___DO_REFRESH = 13;
 
 	/**
 	 * The operation id for the '<em>Do Refresh</em>' operation.
@@ -392,7 +401,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___DO_REFRESH__EOBJECT = 13;
+	int PROPAGATOR_FUNCTION___DO_REFRESH__EOBJECT = 14;
 
 	/**
 	 * The operation id for the '<em>Get Scope</em>' operation.
@@ -401,7 +410,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___GET_SCOPE = 14;
+	int PROPAGATOR_FUNCTION___GET_SCOPE = 15;
 
 	/**
 	 * The operation id for the '<em>Get Factory ID</em>' operation.
@@ -410,7 +419,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION___GET_FACTORY_ID = 15;
+	int PROPAGATOR_FUNCTION___GET_FACTORY_ID = 16;
 
 	/**
 	 * The number of operations of the '<em>Function</em>' class.
@@ -419,7 +428,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_OPERATION_COUNT = 16;
+	int PROPAGATOR_FUNCTION_OPERATION_COUNT = 17;
 
 	/**
 	 * The meta object id for the '{@link com.misc.common.moplaf.propagator2.impl.PropagatorFunctionBindingsImpl <em>Function Bindings</em>}' class.
@@ -618,7 +627,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_BINDINGS___REFRESH_ANTECEDENTS = PROPAGATOR_FUNCTION___REFRESH_ANTECEDENTS;
+	int PROPAGATOR_FUNCTION_BINDINGS___REFRESH_ANTECEDENTS__REFRESHER = PROPAGATOR_FUNCTION___REFRESH_ANTECEDENTS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh This</em>' operation.
@@ -627,7 +636,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_BINDINGS___REFRESH_THIS = PROPAGATOR_FUNCTION___REFRESH_THIS;
+	int PROPAGATOR_FUNCTION_BINDINGS___REFRESH_THIS__REFRESHER = PROPAGATOR_FUNCTION___REFRESH_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh Children And This</em>' operation.
@@ -636,7 +645,7 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROPAGATOR_FUNCTION_BINDINGS___REFRESH_CHILDREN_AND_THIS = PROPAGATOR_FUNCTION___REFRESH_CHILDREN_AND_THIS;
+	int PROPAGATOR_FUNCTION_BINDINGS___REFRESH_CHILDREN_AND_THIS__REFRESHER = PROPAGATOR_FUNCTION___REFRESH_CHILDREN_AND_THIS__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Refresh</em>' operation.
@@ -646,6 +655,15 @@ public interface PropagatorPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPAGATOR_FUNCTION_BINDINGS___REFRESH = PROPAGATOR_FUNCTION___REFRESH;
+
+	/**
+	 * The operation id for the '<em>Refresh</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPAGATOR_FUNCTION_BINDINGS___REFRESH__REFRESHER = PROPAGATOR_FUNCTION___REFRESH__REFRESHER;
 
 	/**
 	 * The operation id for the '<em>Do Get Antecedents</em>' operation.
@@ -746,7 +764,17 @@ public interface PropagatorPackage extends EPackage {
 	 * @see com.misc.common.moplaf.propagator2.impl.PropagatorPackageImpl#getNotification()
 	 * @generated
 	 */
-	int NOTIFICATION = 4;
+	int NOTIFICATION = 5;
+
+	/**
+	 * The meta object id for the '<em>Refresher</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.misc.common.moplaf.propagator2.Refresher
+	 * @see com.misc.common.moplaf.propagator2.impl.PropagatorPackageImpl#getRefresher()
+	 * @generated
+	 */
+	int REFRESHER = 4;
 
 	/**
 	 * Returns the meta object for class '{@link com.misc.common.moplaf.propagator2.ObjectWithPropagatorFunctions <em>Object With Propagator Functions</em>}'.
@@ -983,34 +1011,34 @@ public interface PropagatorPackage extends EPackage {
 	EOperation getPropagatorFunction__Untouch();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#refreshAntecedents() <em>Refresh Antecedents</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#refreshAntecedents(com.misc.common.moplaf.propagator2.Refresher) <em>Refresh Antecedents</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Refresh Antecedents</em>' operation.
-	 * @see com.misc.common.moplaf.propagator2.PropagatorFunction#refreshAntecedents()
+	 * @see com.misc.common.moplaf.propagator2.PropagatorFunction#refreshAntecedents(com.misc.common.moplaf.propagator2.Refresher)
 	 * @generated
 	 */
-	EOperation getPropagatorFunction__RefreshAntecedents();
+	EOperation getPropagatorFunction__RefreshAntecedents__Refresher();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#refreshThis() <em>Refresh This</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#refreshThis(com.misc.common.moplaf.propagator2.Refresher) <em>Refresh This</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Refresh This</em>' operation.
-	 * @see com.misc.common.moplaf.propagator2.PropagatorFunction#refreshThis()
+	 * @see com.misc.common.moplaf.propagator2.PropagatorFunction#refreshThis(com.misc.common.moplaf.propagator2.Refresher)
 	 * @generated
 	 */
-	EOperation getPropagatorFunction__RefreshThis();
+	EOperation getPropagatorFunction__RefreshThis__Refresher();
 
 	/**
-	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#refreshChildrenAndThis() <em>Refresh Children And This</em>}' operation.
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#refreshChildrenAndThis(com.misc.common.moplaf.propagator2.Refresher) <em>Refresh Children And This</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the '<em>Refresh Children And This</em>' operation.
-	 * @see com.misc.common.moplaf.propagator2.PropagatorFunction#refreshChildrenAndThis()
+	 * @see com.misc.common.moplaf.propagator2.PropagatorFunction#refreshChildrenAndThis(com.misc.common.moplaf.propagator2.Refresher)
 	 * @generated
 	 */
-	EOperation getPropagatorFunction__RefreshChildrenAndThis();
+	EOperation getPropagatorFunction__RefreshChildrenAndThis__Refresher();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#refresh() <em>Refresh</em>}' operation.
@@ -1021,6 +1049,16 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPropagatorFunction__Refresh();
+
+	/**
+	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#refresh(com.misc.common.moplaf.propagator2.Refresher) <em>Refresh</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Refresh</em>' operation.
+	 * @see com.misc.common.moplaf.propagator2.PropagatorFunction#refresh(com.misc.common.moplaf.propagator2.Refresher)
+	 * @generated
+	 */
+	EOperation getPropagatorFunction__Refresh__Refresher();
 
 	/**
 	 * Returns the meta object for the '{@link com.misc.common.moplaf.propagator2.PropagatorFunction#doGetParent() <em>Do Get Parent</em>}' operation.
@@ -1163,6 +1201,17 @@ public interface PropagatorPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getNotification();
+
+	/**
+	 * Returns the meta object for data type '{@link com.misc.common.moplaf.propagator2.Refresher <em>Refresher</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Refresher</em>'.
+	 * @see com.misc.common.moplaf.propagator2.Refresher
+	 * @model instanceClass="com.misc.common.moplaf.propagator2.Refresher"
+	 * @generated
+	 */
+	EDataType getRefresher();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1373,7 +1422,7 @@ public interface PropagatorPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PROPAGATOR_FUNCTION___REFRESH_ANTECEDENTS = eINSTANCE.getPropagatorFunction__RefreshAntecedents();
+		EOperation PROPAGATOR_FUNCTION___REFRESH_ANTECEDENTS__REFRESHER = eINSTANCE.getPropagatorFunction__RefreshAntecedents__Refresher();
 
 		/**
 		 * The meta object literal for the '<em><b>Refresh This</b></em>' operation.
@@ -1381,7 +1430,7 @@ public interface PropagatorPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PROPAGATOR_FUNCTION___REFRESH_THIS = eINSTANCE.getPropagatorFunction__RefreshThis();
+		EOperation PROPAGATOR_FUNCTION___REFRESH_THIS__REFRESHER = eINSTANCE.getPropagatorFunction__RefreshThis__Refresher();
 
 		/**
 		 * The meta object literal for the '<em><b>Refresh Children And This</b></em>' operation.
@@ -1389,7 +1438,7 @@ public interface PropagatorPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation PROPAGATOR_FUNCTION___REFRESH_CHILDREN_AND_THIS = eINSTANCE.getPropagatorFunction__RefreshChildrenAndThis();
+		EOperation PROPAGATOR_FUNCTION___REFRESH_CHILDREN_AND_THIS__REFRESHER = eINSTANCE.getPropagatorFunction__RefreshChildrenAndThis__Refresher();
 
 		/**
 		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.
@@ -1398,6 +1447,14 @@ public interface PropagatorPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PROPAGATOR_FUNCTION___REFRESH = eINSTANCE.getPropagatorFunction__Refresh();
+
+		/**
+		 * The meta object literal for the '<em><b>Refresh</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROPAGATOR_FUNCTION___REFRESH__REFRESHER = eINSTANCE.getPropagatorFunction__Refresh__Refresher();
 
 		/**
 		 * The meta object literal for the '<em><b>Do Get Parent</b></em>' operation.
@@ -1516,6 +1573,16 @@ public interface PropagatorPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType NOTIFICATION = eINSTANCE.getNotification();
+
+		/**
+		 * The meta object literal for the '<em>Refresher</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.misc.common.moplaf.propagator2.Refresher
+		 * @see com.misc.common.moplaf.propagator2.impl.PropagatorPackageImpl#getRefresher()
+		 * @generated
+		 */
+		EDataType REFRESHER = eINSTANCE.getRefresher();
 
 	}
 

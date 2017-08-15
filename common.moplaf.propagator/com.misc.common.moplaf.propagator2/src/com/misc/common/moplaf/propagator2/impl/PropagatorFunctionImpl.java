@@ -24,6 +24,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.HashSet;
 
+import com.misc.common.moplaf.propagator2.Refresher;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -572,13 +573,30 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	 * @return false when an error occurred, propagator not refreshed
 	 */
 	public boolean refresh()  {
+		return this.refresh(new Refresher() {
+
+			@Override
+			public void refresh(PropagatorFunction propagatorFunction, EObject toucher) {
+				if ( toucher==null ) {
+					propagatorFunction.doRefresh();
+				} else {
+					propagatorFunction.doRefresh(toucher);
+				}
+			}});
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	public boolean refresh(Refresher refresher) {
 		// refresh the parent's antecedents and antecedents of this FunctionAdapter
-		if ( !this.refreshAntecedents()){
+		if ( !this.refreshAntecedents(refresher)){
 			return false;
 		}
 		
 	    // refresh the children and this propagatorFunction
-		if ( !refreshChildrenAndThis() ){
+		if ( !refreshChildrenAndThis(refresher) ){
 			return false;
 		}
 
@@ -592,10 +610,11 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	 * @return false when an error occurred, propagator not refreshed
 	 * <!-- end-user-doc -->
 	 */
-	public boolean refreshAntecedents() {
+	@Override
+	public boolean refreshAntecedents(Refresher refresher) {
 	    PropagatorFunctionImpl parent = (PropagatorFunctionImpl)this.getParent();
 	    if ( parent != null) {
-	    	if ( !parent.refreshAntecedents() ){
+	    	if ( !parent.refreshAntecedents(refresher) ){
 	    		return false;
 	    	}
 	    }
@@ -606,7 +625,7 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 		EList<PropagatorFunction>  antecedents = this.getAntecedentsSibling();
 		if ( antecedents!=null){
 			for (PropagatorFunction antecedent : antecedents){
-				if ( !depthFirstSearch(antecedent) ) {
+				if ( !depthFirstSearch(refresher, antecedent) ) {
 					return false;
 				}
 			}
@@ -614,38 +633,6 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 		return true;
 	}
 	
-	/**
-	 * Do the actual refresh of the Propagator function.
-	 * Call the appropriate doRefresh method(s)
-	 */
-	protected void doRefreshImpl(){
-		if ( this.getTouchers().isEmpty()) {
-			this.doRefresh();
-		} else {
-			for ( EObject toucher : this.getTouchers()){
-				this.doRefresh(toucher);
-			}
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * Calculate this PropagatorFunction
-	 * Assume that all Parent antecedents are calculated, and that all children are calculated
-	 * @return false when an error occurred, propagator not refreshed
-	 * <!-- end-user-doc -->
-	 */
-	public boolean refreshThis() {
-		if ( this.isTouched() ){
-			Plugin.INSTANCE.logCalc(this);
-			
-			this.doRefreshImpl();
-
-			this.untouch();
-		}
-		return true;
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * Refresh the PropagatorFunction, so as is becomes untouched.
@@ -655,17 +642,53 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	 * @return false when an error occurred, propagator not refreshed
 	 * <!-- end-user-doc -->
 	 */
-	public boolean refreshChildrenAndThis() {
-		if ( !depthFirstSearch(this.getTouchedChildren()) ) {
+	@Override
+	public boolean refreshChildrenAndThis(Refresher refresher) {
+		if ( !depthFirstSearch(refresher, this.getTouchedChildren()) ) {
 			return false;
 		}
 	    // calculate this
-		if ( !this.refreshThis() ) {
+		if ( !this.refreshThis(refresher) ) {
 			return false;
 		}
 		return true;
 	}
 	
+	/**
+	 * <!-- begin-user-doc -->
+	 * Calculate this PropagatorFunction
+	 * Assume that all Parent antecedents are calculated, and that all children are calculated
+	 * @return false when an error occurred, propagator not refreshed
+	 * <!-- end-user-doc -->
+	 */
+	@Override
+	public boolean refreshThis(Refresher refresher) {
+		if ( this.isTouched() ){
+			Plugin.INSTANCE.logCalc(this);
+			
+			this.doRefreshImpl(refresher);
+
+			this.untouch();
+		}
+		return true;
+	}
+
+	/**
+	 * Do the actual refresh of the Propagator function.
+	 * Call the appropriate doRefresh method(s)
+	 */
+	private void doRefreshImpl(Refresher refresher){
+		if ( this.getTouchers().isEmpty()) {
+			refresher.refresh(this,  null);
+			//this.doRefresh();
+		} else {
+			for ( EObject toucher : this.getTouchers()){
+				//his.doRefresh(toucher);
+				refresher.refresh(this, toucher);
+			}
+		}
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * Default does nothing
@@ -937,14 +960,16 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 			case PropagatorPackage.PROPAGATOR_FUNCTION___UNTOUCH:
 				untouch();
 				return null;
-			case PropagatorPackage.PROPAGATOR_FUNCTION___REFRESH_ANTECEDENTS:
-				return refreshAntecedents();
-			case PropagatorPackage.PROPAGATOR_FUNCTION___REFRESH_THIS:
-				return refreshThis();
-			case PropagatorPackage.PROPAGATOR_FUNCTION___REFRESH_CHILDREN_AND_THIS:
-				return refreshChildrenAndThis();
+			case PropagatorPackage.PROPAGATOR_FUNCTION___REFRESH_ANTECEDENTS__REFRESHER:
+				return refreshAntecedents((Refresher)arguments.get(0));
+			case PropagatorPackage.PROPAGATOR_FUNCTION___REFRESH_THIS__REFRESHER:
+				return refreshThis((Refresher)arguments.get(0));
+			case PropagatorPackage.PROPAGATOR_FUNCTION___REFRESH_CHILDREN_AND_THIS__REFRESHER:
+				return refreshChildrenAndThis((Refresher)arguments.get(0));
 			case PropagatorPackage.PROPAGATOR_FUNCTION___REFRESH:
 				return refresh();
+			case PropagatorPackage.PROPAGATOR_FUNCTION___REFRESH__REFRESHER:
+				return refresh((Refresher)arguments.get(0));
 			case PropagatorPackage.PROPAGATOR_FUNCTION___DO_GET_ANTECEDENTS:
 				return doGetAntecedents();
 			case PropagatorPackage.PROPAGATOR_FUNCTION___DO_GET_PARENT:
@@ -996,6 +1021,11 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	private static class DepthFirstSearchContext		{
 		PropagatorFunctionsSet calculatedFunctionAdapters = new PropagatorFunctionsSet();
 		PropagatorFunctionsSet reachedFunctionAdapters    = new PropagatorFunctionsSet();
+		Refresher refresher = null;
+		public DepthFirstSearchContext(Refresher refresher) {
+			super();
+			this.refresher = refresher;
+		}
 	};
 
 	/**
@@ -1059,7 +1089,7 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 			} // traverse the antecedents
 		}
 		// at this point, all the antecedents of functionadapter have been visited, that is, calculated
-		if ( !propagatorFunction.refreshChildrenAndThis() ){
+		if ( !propagatorFunction.refreshChildrenAndThis(context.refresher) ){
 			Plugin.INSTANCE.logError("this function not refreshed", propagatorFunction);
 			return false;
 		}
@@ -1072,8 +1102,8 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	 * node functionAdapter
 	 * @return false when an error occurred, propagator not refreshed
 	 */
-	public static boolean depthFirstSearch(PropagatorFunction propagatorFunction) {
-		DepthFirstSearchContext depthFirstSearchContext = new DepthFirstSearchContext();
+	public static boolean depthFirstSearch(Refresher refresher, PropagatorFunction propagatorFunction) {
+		DepthFirstSearchContext depthFirstSearchContext = new DepthFirstSearchContext(refresher);
 		// calculate the touched children
 		// traverse the adapters following a topological order induced by the dependencies
 		if ( !depthFirstSearch(depthFirstSearchContext, propagatorFunction) ){
@@ -1089,8 +1119,8 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	 * nodes every node in the collection touchedfunctionadapter
 	 * @return false when an error occurred, propagator not refreshed
 	 */
-	public static boolean depthFirstSearch(EList<PropagatorFunction> touchedPropagatorFunctions) {
-		DepthFirstSearchContext depthFirstSearchContext = new DepthFirstSearchContext();
+	public static boolean depthFirstSearch(Refresher refresher, EList<PropagatorFunction> touchedPropagatorFunctions) {
+		DepthFirstSearchContext depthFirstSearchContext = new DepthFirstSearchContext(refresher);
 		// refresh the children
 		// traverse the adapters following a topological order induced by the dependencies
 		while ( !touchedPropagatorFunctions.isEmpty()){
@@ -1108,5 +1138,6 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 		} // while some touched adapters
 		return true;
 	}
+
 
 } //PropagatorFunctionImpl

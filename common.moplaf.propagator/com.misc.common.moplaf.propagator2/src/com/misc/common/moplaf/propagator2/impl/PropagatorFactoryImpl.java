@@ -87,6 +87,8 @@ public class PropagatorFactoryImpl extends EFactoryImpl implements PropagatorFac
 		switch (eDataType.getClassifierID()) {
 			case PropagatorPackage.BINDINGS:
 				return createBindingsFromString(eDataType, initialValue);
+			case PropagatorPackage.REFRESHER:
+				return createRefresherFromString(eDataType, initialValue);
 			case PropagatorPackage.NOTIFICATION:
 				return createNotificationFromString(eDataType, initialValue);
 			default:
@@ -104,6 +106,8 @@ public class PropagatorFactoryImpl extends EFactoryImpl implements PropagatorFac
 		switch (eDataType.getClassifierID()) {
 			case PropagatorPackage.BINDINGS:
 				return convertBindingsToString(eDataType, instanceValue);
+			case PropagatorPackage.REFRESHER:
+				return convertRefresherToString(eDataType, instanceValue);
 			case PropagatorPackage.NOTIFICATION:
 				return convertNotificationToString(eDataType, instanceValue);
 			default:
@@ -174,6 +178,24 @@ public class PropagatorFactoryImpl extends EFactoryImpl implements PropagatorFac
 	 * @generated
 	 */
 	public String convertNotificationToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Refresher createRefresherFromString(EDataType eDataType, String initialValue) {
+		return (Refresher)super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertRefresherToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

@@ -25,6 +25,7 @@ import com.misc.common.moplaf.propagator2.PropagatorFactory;
 import com.misc.common.moplaf.propagator2.PropagatorFunction;
 import com.misc.common.moplaf.propagator2.PropagatorFunctionBindings;
 import com.misc.common.moplaf.propagator2.PropagatorPackage;
+import com.misc.common.moplaf.propagator2.Refresher;
 import com.misc.common.moplaf.propagator2.util.Bindings;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -69,6 +70,13 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * @generated
 	 */
 	private EDataType notificationEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType refresherEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -334,7 +342,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__RefreshAntecedents() {
+	public EOperation getPropagatorFunction__RefreshAntecedents__Refresher() {
 		return propagatorFunctionEClass.getEOperations().get(6);
 	}
 
@@ -343,7 +351,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__RefreshThis() {
+	public EOperation getPropagatorFunction__RefreshThis__Refresher() {
 		return propagatorFunctionEClass.getEOperations().get(7);
 	}
 
@@ -352,7 +360,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__RefreshChildrenAndThis() {
+	public EOperation getPropagatorFunction__RefreshChildrenAndThis__Refresher() {
 		return propagatorFunctionEClass.getEOperations().get(8);
 	}
 
@@ -370,8 +378,8 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__DoGetParent() {
-		return propagatorFunctionEClass.getEOperations().get(11);
+	public EOperation getPropagatorFunction__Refresh__Refresher() {
+		return propagatorFunctionEClass.getEOperations().get(10);
 	}
 
 	/**
@@ -379,7 +387,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__DoRefresh() {
+	public EOperation getPropagatorFunction__DoGetParent() {
 		return propagatorFunctionEClass.getEOperations().get(12);
 	}
 
@@ -388,7 +396,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__DoRefresh__EObject() {
+	public EOperation getPropagatorFunction__DoRefresh() {
 		return propagatorFunctionEClass.getEOperations().get(13);
 	}
 
@@ -397,7 +405,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__GetScope() {
+	public EOperation getPropagatorFunction__DoRefresh__EObject() {
 		return propagatorFunctionEClass.getEOperations().get(14);
 	}
 
@@ -406,7 +414,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPropagatorFunction__GetFactoryID() {
+	public EOperation getPropagatorFunction__GetScope() {
 		return propagatorFunctionEClass.getEOperations().get(15);
 	}
 
@@ -415,8 +423,17 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getPropagatorFunction__GetFactoryID() {
+		return propagatorFunctionEClass.getEOperations().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getPropagatorFunction__DoGetAntecedents() {
-		return propagatorFunctionEClass.getEOperations().get(10);
+		return propagatorFunctionEClass.getEOperations().get(11);
 	}
 
 	/**
@@ -496,6 +513,15 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EDataType getRefresher() {
+		return refresherEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public PropagatorFactory getPropagatorFactory() {
 		return (PropagatorFactory)getEFactoryInstance();
 	}
@@ -545,10 +571,11 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___RESET);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___TOUCH__EOBJECT);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___UNTOUCH);
-		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___REFRESH_ANTECEDENTS);
-		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___REFRESH_THIS);
-		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___REFRESH_CHILDREN_AND_THIS);
+		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___REFRESH_ANTECEDENTS__REFRESHER);
+		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___REFRESH_THIS__REFRESHER);
+		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___REFRESH_CHILDREN_AND_THIS__REFRESHER);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___REFRESH);
+		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___REFRESH__REFRESHER);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___DO_GET_ANTECEDENTS);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___DO_GET_PARENT);
 		createEOperation(propagatorFunctionEClass, PROPAGATOR_FUNCTION___DO_REFRESH);
@@ -562,6 +589,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 
 		// Create data types
 		bindingsEDataType = createEDataType(BINDINGS);
+		refresherEDataType = createEDataType(REFRESHER);
 		notificationEDataType = createEDataType(NOTIFICATION);
 	}
 
@@ -636,13 +664,19 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 
 		initEOperation(getPropagatorFunction__Untouch(), null, "untouch", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getPropagatorFunction__RefreshAntecedents(), ecorePackage.getEBoolean(), "refreshAntecedents", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPropagatorFunction__RefreshAntecedents__Refresher(), ecorePackage.getEBoolean(), "refreshAntecedents", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getRefresher(), "refresher", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getPropagatorFunction__RefreshThis(), ecorePackage.getEBoolean(), "refreshThis", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPropagatorFunction__RefreshThis__Refresher(), ecorePackage.getEBoolean(), "refreshThis", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getRefresher(), "refresher", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getPropagatorFunction__RefreshChildrenAndThis(), ecorePackage.getEBoolean(), "refreshChildrenAndThis", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPropagatorFunction__RefreshChildrenAndThis__Refresher(), ecorePackage.getEBoolean(), "refreshChildrenAndThis", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getRefresher(), "refresher", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getPropagatorFunction__Refresh(), ecorePackage.getEBoolean(), "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getPropagatorFunction__Refresh__Refresher(), ecorePackage.getEBoolean(), "refresh", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getRefresher(), "refresher", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getPropagatorFunction__DoGetAntecedents(), this.getPropagatorFunction(), "doGetAntecedents", 0, -1, IS_UNIQUE, IS_ORDERED);
 
@@ -666,6 +700,7 @@ public class PropagatorPackageImpl extends EPackageImpl implements PropagatorPac
 
 		// Initialize data types
 		initEDataType(bindingsEDataType, Bindings.class, "Bindings", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(refresherEDataType, Refresher.class, "Refresher", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(notificationEDataType, Notification.class, "Notification", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource

@@ -24,10 +24,19 @@
       <eParameters name="toucher" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
     <eOperations name="untouch"/>
-    <eOperations name="refreshAntecedents" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eOperations name="refreshThis" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eOperations name="refreshChildrenAndThis" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="refreshAntecedents" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="refresher" eType="#//Refresher"/>
+    </eOperations>
+    <eOperations name="refreshThis" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="refresher" eType="#//Refresher"/>
+    </eOperations>
+    <eOperations name="refreshChildrenAndThis" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="refresher" eType="#//Refresher"/>
+    </eOperations>
     <eOperations name="refresh" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="refresh" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="refresher" eType="#//Refresher"/>
+    </eOperations>
     <eOperations name="doGetAntecedents" upperBound="-1" eType="#//PropagatorFunction"/>
     <eOperations name="doGetParent" eType="#//PropagatorFunction"/>
     <eOperations name="doRefresh"/>
@@ -71,5 +80,6 @@
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Bindings" instanceClassName="com.misc.common.moplaf.propagator2.util.Bindings"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Refresher" instanceClassName="com.misc.common.moplaf.propagator2.Refresher"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Notification" instanceClassName="org.eclipse.emf.common.notify.Notification"/>
 </ecore:EPackage>
