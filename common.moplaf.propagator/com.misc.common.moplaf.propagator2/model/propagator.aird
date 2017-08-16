@@ -406,25 +406,28 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_BDBHsGLjEeaqK9rqRwGFig" name="refreshAntecedents() : EBoolean" tooltipText="refreshAntecedents() : EBoolean">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_BDBHsGLjEeaqK9rqRwGFig" name="refreshAntecedents(refresher Refresher) : EBoolean" tooltipText="refreshAntecedents(refresher) : EBoolean">
         <target xmi:type="ecore:EOperation" href="propagator.ecore#//PropagatorFunction/refreshAntecedents"/>
         <semanticElements xmi:type="ecore:EOperation" href="propagator.ecore#//PropagatorFunction/refreshAntecedents"/>
+        <semanticElements xmi:type="ecore:EParameter" href="propagator.ecore#//PropagatorFunction/refreshAntecedents/refresher"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_BDBuwGLjEeaqK9rqRwGFig" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_zLQGoGLiEeaqK9rqRwGFig" name="refreshThis() : EBoolean" tooltipText="refreshThis() : EBoolean">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_zLQGoGLiEeaqK9rqRwGFig" name="refreshThis(refresher Refresher) : EBoolean" tooltipText="refreshThis(refresher) : EBoolean">
         <target xmi:type="ecore:EOperation" href="propagator.ecore#//PropagatorFunction/refreshThis"/>
         <semanticElements xmi:type="ecore:EOperation" href="propagator.ecore#//PropagatorFunction/refreshThis"/>
+        <semanticElements xmi:type="ecore:EParameter" href="propagator.ecore#//PropagatorFunction/refreshThis/refresher"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_zLQtsGLiEeaqK9rqRwGFig" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_2xWqoGLiEeaqK9rqRwGFig" name="refreshChildrenAndThis() : EBoolean" tooltipText="refreshChildrenAndThis() : EBoolean">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_2xWqoGLiEeaqK9rqRwGFig" name="refreshChildrenAndThis(refresher Refresher) : EBoolean" tooltipText="refreshChildrenAndThis(refresher) : EBoolean">
         <target xmi:type="ecore:EOperation" href="propagator.ecore#//PropagatorFunction/refreshChildrenAndThis"/>
         <semanticElements xmi:type="ecore:EOperation" href="propagator.ecore#//PropagatorFunction/refreshChildrenAndThis"/>
+        <semanticElements xmi:type="ecore:EParameter" href="propagator.ecore#//PropagatorFunction/refreshChildrenAndThis/refresher"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_2xWqoWLiEeaqK9rqRwGFig" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
         </ownedStyle>
@@ -664,7 +667,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EDataType']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_tS1VsIHPEeeHpfYwZnLAew" name="jcom.misc.common.moplaf.propagator2.Refresher" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_tS1VsIHPEeeHpfYwZnLAew" name="com.misc.common.moplaf.propagator2.Refresher" tooltipText="">
         <target xmi:type="ecore:EDataType" href="propagator.ecore#//Refresher"/>
         <semanticElements xmi:type="ecore:EDataType" href="propagator.ecore#//Refresher"/>
         <decorations xmi:type="viewpoint:Decoration" xmi:id="_tS1VsoHPEeeHpfYwZnLAew">

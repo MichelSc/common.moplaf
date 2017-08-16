@@ -677,7 +677,7 @@ public class PropagatorFunctionImpl extends MinimalEObjectImpl.Container impleme
 	 * Do the actual refresh of the Propagator function.
 	 * Call the appropriate doRefresh method(s)
 	 */
-	private void doRefreshImpl(Refresher refresher){
+	protected void doRefreshImpl(Refresher refresher){
 		if ( this.getTouchers().isEmpty()) {
 			refresher.refresh(this,  null);
 			//this.doRefresh();
