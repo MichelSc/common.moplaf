@@ -434,6 +434,12 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 
 
 	/**
+	 * Called when the notified is added to its container, and before this adapter is added to the Notifier
+	 */
+	private void onNotifierContainedPre(Notifier notifier){
+	}
+
+	/**
 	 * Handles the management of PropagatorFunctionAdapters (adds) when a Notifier enters the scope of the propagation
 	 * Either if notifier is added or this PropagatorFunctionAdapterManager is added to the notifier
 	 */
@@ -451,6 +457,27 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 		}
 
 	}
+
+	/**
+	 * Called if the notified is added to its Container, and after this adapter is added to the Notifier
+	 */
+	private void onNotifierContainedPost(Notifier notifier){
+		if ( notifier instanceof ObjectWithPropagatorFunctions) {
+			ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
+			if ( !com.misc.common.moplaf.common.util.Util.isLoading(objectWithPropagatorFunctions)){
+				// this is an object newly added (created)
+				// its PropagtorFunctions were just created
+				// they are in principle not up to date
+				// so we touch
+				for ( PropagatorFunction pf : objectWithPropagatorFunctions.getPropagatorFunctions()){
+					if ( pf.getFactoryID()==this.propagatorFunctionsConstructor.getFactoryID()) {
+						pf.touch(null);
+					}
+				}
+			}
+		}
+	}
+
 
 	/**
 	 * Handles the management of PropagatorFunctionAdapters (removes) when a Notifier leaves the scope of the propagation
@@ -474,30 +501,6 @@ public class PropagatorFunctionManagerAdapter extends AdapterImpl
 //					}
 //				}
 //			}
-		}
-	}
-
-	/**
-	 */
-	private void onNotifierContainedPre(Notifier notifier){
-	}
-
-	/**
-	 */
-	private void onNotifierContainedPost(Notifier notifier){
-		if ( notifier instanceof ObjectWithPropagatorFunctions) {
-			ObjectWithPropagatorFunctions objectWithPropagatorFunctions = (ObjectWithPropagatorFunctions)notifier;
-			if ( !com.misc.common.moplaf.common.util.Util.isLoading(objectWithPropagatorFunctions)){
-				// this is an object newly added (created)
-				// its PropagtorFunctions were just created
-				// they are in principle not up to date
-				// so we touch
-				for ( PropagatorFunction pf : objectWithPropagatorFunctions.getPropagatorFunctions()){
-					if ( pf.getFactoryID()==this.propagatorFunctionsConstructor.getFactoryID()) {
-						pf.touch(null);
-					}
-				}
-			}
 		}
 	}
 

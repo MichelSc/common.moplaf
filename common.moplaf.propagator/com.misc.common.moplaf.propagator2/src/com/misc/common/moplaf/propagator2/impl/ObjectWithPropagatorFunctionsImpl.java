@@ -96,7 +96,7 @@ public class ObjectWithPropagatorFunctionsImpl extends MinimalEObjectImpl.Contai
 	public void addPropagatorFunction(PropagatorFunction propagatorFunction) {
 		PropagatorFunction pf = this.getPropagatorFunction(propagatorFunction.getClass());
 		if ( pf!=null) { return; }
-		this.getPropagatorFunctions().add(propagatorFunction);
+		this.getPropagatorFunctions().add(propagatorFunction); // owning
 		propagatorFunction.init();
 	}
 

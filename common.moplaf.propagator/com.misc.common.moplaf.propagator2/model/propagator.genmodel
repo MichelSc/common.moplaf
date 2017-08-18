@@ -44,7 +44,8 @@
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute propagator.ecore#//PropagatorFunction/Instance"/>
       <genFeatures property="Readonly" createChild="false" propertyCategory="00 PropagatorFunction"
           ecoreFeature="ecore:EAttribute propagator.ecore#//PropagatorFunction/Description"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference propagator.ecore#//PropagatorFunction/TouchedParent"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="20 State"
+          propertySortChoices="true" ecoreFeature="ecore:EReference propagator.ecore#//PropagatorFunction/TouchedParent"/>
       <genOperations ecoreOperation="propagator.ecore#//PropagatorFunction/init"/>
       <genOperations ecoreOperation="propagator.ecore#//PropagatorFunction/enable"/>
       <genOperations ecoreOperation="propagator.ecore#//PropagatorFunction/disable"/>

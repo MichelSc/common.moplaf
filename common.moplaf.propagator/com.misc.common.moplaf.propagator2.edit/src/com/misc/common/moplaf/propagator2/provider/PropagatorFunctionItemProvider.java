@@ -300,7 +300,7 @@ public class PropagatorFunctionItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 getString("_UI__20StatePropertyCategory"),
 				 null));
 	}
 
