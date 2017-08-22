@@ -1,0 +1,32 @@
+to create a class AdapterFactoryGridProvider
+  - receives an AdapterFactory
+  - query the object implements IItemGridsProvider
+  - return the grids, the text, ...
+  - implement abstract interface nothing about IItemGridsProvider
+  - should provide a collection of ITableProvider
+     - remembering the element
+     - remembering the grid
+     - implementing ITableLabelProvider
+     - implementing IContentProvider
+     - what TableViewe expects
+     
+to create a class GridView
+  - extends ViewPart
+  - holds a GridViewer
+  - implements ISelectionListener
+       calls viewer.setInput
+  - implements createPartControl(Composite)
+       create the AdapterFactoryGridProvider
+       create the GridViewer
+       begin the listening
+       
+to create a class GridViewer, extends ContentViewer
+  - holds the input
+  - holds the providers: collection of TableProviders
+  - manages its selection
+  - create the controls at construction time (Composite parent)
+    - a tab control
+    - pages control for every TableProvider
+    - TableViewer for every TableProvider
+  - implements inputChanged(oldInput, newInpupt)
+  - implements refresh()
