@@ -17,8 +17,8 @@ import org.eclipse.emf.edit.provider.IItemColorProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
-import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
+import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.views.properties.IPropertySourceProvider;
@@ -89,7 +89,7 @@ public class AdapterFactoryGridProvider extends AdapterFactoryContentProvider {
 	 * @author michel
 	 *
 	 */
-	public class TableProvider implements IContentProvider, ITableLabelProvider {
+	public class TableProvider implements IStructuredContentProvider , ITableLabelProvider {
 		protected IItemGridsProvider gridsProvider;
 		protected Object element;
 		protected Object grid;
@@ -107,6 +107,46 @@ public class AdapterFactoryGridProvider extends AdapterFactoryContentProvider {
 			this.grid = grid;
 		}
 		
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + getOuterType().hashCode();
+			result = prime * result + ((element == null) ? 0 : element.hashCode());
+			result = prime * result + ((grid == null) ? 0 : grid.hashCode());
+			result = prime * result + ((gridsProvider == null) ? 0 : gridsProvider.hashCode());
+			return result;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			TableProvider other = (TableProvider) obj;
+			if (!getOuterType().equals(other.getOuterType()))
+				return false;
+			if (element == null) {
+				if (other.element != null)
+					return false;
+			} else if (!element.equals(other.element))
+				return false;
+			if (grid == null) {
+				if (other.grid != null)
+					return false;
+			} else if (!grid.equals(other.grid))
+				return false;
+			if (gridsProvider == null) {
+				if (other.gridsProvider != null)
+					return false;
+			} else if (!gridsProvider.equals(other.gridsProvider))
+				return false;
+			return true;
+		}
+
 		/**
 		 * specified by IBaseLabelProvider
 		 */
@@ -146,10 +186,19 @@ public class AdapterFactoryGridProvider extends AdapterFactoryContentProvider {
 			return null;
 		}
 
+		private AdapterFactoryGridProvider getOuterType() {
+			return AdapterFactoryGridProvider.this;
+		}
+
+		@Override
+		public Object[] getElements(Object inputElement) {
+			return this.gridsProvider.getRows(this.element,  this.grid).toArray();
+		}
+
 		@Override
 		public void dispose() {
 			// TODO Auto-generated method stub
-			IContentProvider.super.dispose();
+			IStructuredContentProvider.super.dispose();
 		}
 	};
 	

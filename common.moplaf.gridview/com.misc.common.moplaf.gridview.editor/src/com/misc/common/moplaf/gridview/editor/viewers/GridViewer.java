@@ -11,6 +11,9 @@
 package com.misc.common.moplaf.gridview.editor.viewers;
 
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.jface.viewers.ContentViewer;
 import org.eclipse.jface.viewers.IBaseLabelProvider;
@@ -23,6 +26,7 @@ import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.custom.CTabItem;
@@ -64,21 +68,26 @@ public class GridViewer extends ContentViewer {
 	private AdapterFactoryGridProvider gridProvider = null;
 	private CTabFolder             tabFolder = null;
 	
-//	private class Grid {
-//		private TableProvider tableProvider;
-//		private CTabItem tabItem;
-//		public Grid(TableProvider tableProvider, CTabItem tabItem) {
-//			super();
-//			this.tableProvider = tableProvider;
-//			this.tabItem = tabItem;
-//		}
-//		public TableProvider getTableProvider() {
-//			return tableProvider;
-//		}
-//		public CTabItem getTabItem() {
-//			return tabItem;
-//		}
-//	}
+	private class Grid {
+		private TableProvider tableProvider;
+		private CTabItem tabItem;
+		private TableViewer viewer;
+		public Grid(TableProvider tableProvider, CTabItem tabItem, TableViewer viewer) {
+			super();
+			this.tableProvider = tableProvider;
+			this.tabItem = tabItem;
+			this.viewer = viewer;
+		}
+		public TableProvider getTableProvider() {
+			return this.tableProvider;
+		}
+		public CTabItem getTabItem() {
+			return this.tabItem;
+		}
+		public TableViewer getTableViewer() {
+			return this.viewer;
+		}
+	}
 	
 	public GridViewer(Composite parent) {
 		// called in View.createViewer, himself called by View.createPartControl
@@ -91,8 +100,8 @@ public class GridViewer extends ContentViewer {
                 2, 1);
         folder.setLayoutData(data);
 //        folder.setSelectionForeground(display.getSystemColor(SWT.COLOR_RED));
-        CTabItem cTabItem1 = new CTabItem(folder, SWT.NONE);
-        cTabItem1.setText("Tab1Michel");
+//        CTabItem cTabItem1 = new CTabItem(folder, SWT.NONE);
+//        cTabItem1.setText("Tab1Michel");
         
         this.tabFolder = folder;
     }
@@ -204,6 +213,43 @@ public class GridViewer extends ContentViewer {
 		super.inputChanged(input, oldInput);
 		
 		if ( input != oldInput){
+			// as is
+			HashMap<TableProvider, Grid> grids_as_is = new HashMap<>();
+			for ( int i=0; i<this.tabFolder.getItemCount(); i++) {
+				CTabItem item = this.tabFolder.getItem(i);
+				Grid grid = (Grid)item.getData();
+				grids_as_is.put(grid.getTableProvider(), grid);
+			}
+			// to be 
+			ArrayList<TableProvider> gridsToBe = this.gridProvider.getTableProviders(input);
+			// refresh
+			if ( gridsToBe!=null) {
+				for ( TableProvider grid_to_be : gridsToBe) {
+					Grid as_is = grids_as_is.get(grid_to_be);
+					if ( as_is==null) {
+						// create
+						// create the tab item
+						CTabItem cTabItem1 = new CTabItem(this.tabFolder, SWT.NONE);
+//						Composite clientArea = new Composite(this.tabFolder, SWT.NONE);
+						TableViewer viewer = new TableViewer(this.tabFolder);
+						cTabItem1.setControl(viewer.getControl());
+						viewer.setLabelProvider(grid_to_be);
+						viewer.setContentProvider(grid_to_be);
+						viewer.setInput(grid_to_be);
+						viewer.getTable().setLinesVisible(true);
+						Grid new_grid = new Grid(grid_to_be, cTabItem1, viewer);
+						cTabItem1.setData(new_grid);
+					} else {
+						// update
+						as_is.getTableViewer().refresh();
+						grids_as_is.remove(grid_to_be);
+					}
+				}
+			}
+			for ( Grid as_is : grids_as_is.values()) {
+				// remove
+				as_is.getTabItem().dispose();
+			}
 		}
 	}
 	
@@ -212,7 +258,10 @@ public class GridViewer extends ContentViewer {
 	 */
 	@Override
 	public void refresh(){
+		for ( int i=0; i<this.tabFolder.getItemCount(); i++) {
+			CTabItem item = this.tabFolder.getItem(i);
+			Grid grid = (Grid)item.getData();
+			grid.getTableViewer().refresh();
+		}
 	}
-	
-
 }
