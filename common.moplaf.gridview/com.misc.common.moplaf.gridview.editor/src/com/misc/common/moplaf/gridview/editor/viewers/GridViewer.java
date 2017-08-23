@@ -10,6 +10,7 @@
  *******************************************************************************/
 package com.misc.common.moplaf.gridview.editor.viewers;
 
+
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.jface.viewers.ContentViewer;
 import org.eclipse.jface.viewers.IBaseLabelProvider;
@@ -22,10 +23,17 @@ import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.CTabFolder;
+import org.eclipse.swt.custom.CTabItem;
+import org.eclipse.swt.events.DisposeEvent;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 
 import com.misc.common.moplaf.gridview.editor.provider.AdapterFactoryGridProvider;
+import com.misc.common.moplaf.gridview.editor.provider.AdapterFactoryGridProvider.TableProvider;
 
 
 
@@ -54,18 +62,53 @@ public class GridViewer extends ContentViewer {
 	private ISelection             currentSelection = null;
 	private IColorProvider         colorProvider = null;
 	private AdapterFactoryGridProvider gridProvider = null;
+	private CTabFolder             tabFolder = null;
+	
+//	private class Grid {
+//		private TableProvider tableProvider;
+//		private CTabItem tabItem;
+//		public Grid(TableProvider tableProvider, CTabItem tabItem) {
+//			super();
+//			this.tableProvider = tableProvider;
+//			this.tabItem = tabItem;
+//		}
+//		public TableProvider getTableProvider() {
+//			return tableProvider;
+//		}
+//		public CTabItem getTabItem() {
+//			return tabItem;
+//		}
+//	}
 	
 	public GridViewer(Composite parent) {
 		// called in View.createViewer, himself called by View.createPartControl
 		// create the control(s)
-	}
+        parent.setLayout(new GridLayout());
+        // SWT.BOTTOM to show at the bottom
+        CTabFolder folder = new CTabFolder(parent, SWT.BOTTOM);
+        GridData data = new GridData(SWT.FILL,
+                SWT.FILL, true, true,
+                2, 1);
+        folder.setLayoutData(data);
+//        folder.setSelectionForeground(display.getSystemColor(SWT.COLOR_RED));
+        CTabItem cTabItem1 = new CTabItem(folder, SWT.NONE);
+        cTabItem1.setText("Tab1Michel");
+        
+        this.tabFolder = folder;
+    }
 	
 	@Override
 	public Control getControl() {
-		return null;
+		return this.tabFolder;
 	}
 	
-
+	@Override
+	protected void handleDispose(DisposeEvent event) {
+		// TODO Auto-generated method stub
+		super.handleDispose(event);
+		this.tabFolder.dispose();
+		this.tabFolder = null;
+	}
 
 	// providers management
 	@Override

@@ -10,7 +10,7 @@
             icon="icons/sample.png"
             category="com.misc.common.moplaf.view.category.moplaf"
             class="com.misc.common.moplaf.gridview.editor.views.GridView"
-            id="com.misc.common.moplaf.gridview.views.GanttView">
+            id="com.misc.common.moplaf.gridview.views.GridView">
       </view>
    </extension>
    <extension

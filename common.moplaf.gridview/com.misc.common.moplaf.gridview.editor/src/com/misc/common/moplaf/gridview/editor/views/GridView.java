@@ -27,7 +27,7 @@ import com.misc.common.moplaf.gridview.editor.provider.AdapterFactoryGridProvide
 import com.misc.common.moplaf.gridview.editor.viewers.GridViewer;
 
 
-public abstract class GridView extends ViewPart {
+public class GridView extends ViewPart {
 
 	/**
 	 * The ID of the view as specified by the extension.
