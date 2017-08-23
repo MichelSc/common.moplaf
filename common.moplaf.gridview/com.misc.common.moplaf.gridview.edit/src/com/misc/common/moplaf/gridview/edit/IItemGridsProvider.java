@@ -15,7 +15,7 @@ import java.util.Collection;
 /**
  * <p>
  * This interface declares the method(s) to be supported by an object that provides a 
- * one or several sets of 2 dimensional data, for instance to be displayed in a grid.
+ * one or several sets of 2-dimensional data, for instance to be displayed in a grid.
  * <p>
  * The consumer (i.e. the component using the grid data, typically a table component)
  * will provide, when relevant

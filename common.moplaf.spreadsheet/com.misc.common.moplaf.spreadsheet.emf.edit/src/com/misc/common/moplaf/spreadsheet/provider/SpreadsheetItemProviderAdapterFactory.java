@@ -12,6 +12,7 @@
  */
 package com.misc.common.moplaf.spreadsheet.provider;
 
+import com.misc.common.moplaf.gridview.edit.IItemGridsProvider;
 import com.misc.common.moplaf.spreadsheet.util.SpreadsheetAdapterFactory;
 
 import java.util.ArrayList;
@@ -71,7 +72,6 @@ public class SpreadsheetItemProviderAdapterFactory extends SpreadsheetAdapterFac
 	 * This constructs an instance.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public SpreadsheetItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
@@ -79,6 +79,7 @@ public class SpreadsheetItemProviderAdapterFactory extends SpreadsheetAdapterFac
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
 		supportedTypes.add(IItemPropertySource.class);
+		supportedTypes.add(IItemGridsProvider.class);  // moplaf interface
 	}
 
 	/**

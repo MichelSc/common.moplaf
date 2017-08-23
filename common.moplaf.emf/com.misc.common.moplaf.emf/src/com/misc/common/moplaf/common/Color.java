@@ -18,6 +18,7 @@ public class Color {
 	private int b;
 	
 	static public Color COLOR_BLACK = new Color(0,0,0);
+	static public Color COLOR_WHITE = new Color(255,255,255);
 	
 	public Color(int rgb) {
 		super();
