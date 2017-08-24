@@ -342,7 +342,7 @@ public class SpreadsheetItemProvider
 		Column sheetCol = (Column)column;
 		Row sheetRow = (Row)row;
 		Cell sheetCell = sheetRow.getCell(sheetCol);
-		return sheetCell.getValueFormatted();
+		return sheetCell == null ? "" : sheetCell.getValueFormatted();
 	}
 
 	@Override

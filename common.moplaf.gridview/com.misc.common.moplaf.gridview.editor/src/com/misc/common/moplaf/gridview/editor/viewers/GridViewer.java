@@ -35,9 +35,12 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableColumn;
 
 import com.misc.common.moplaf.gridview.editor.provider.AdapterFactoryGridProvider;
 import com.misc.common.moplaf.gridview.editor.provider.AdapterFactoryGridProvider.TableProvider;
+import com.misc.common.moplaf.gridview.editor.provider.AdapterFactoryGridProvider.TableProvider.TableColumnProvider;
 
 
 
@@ -213,43 +216,7 @@ public class GridViewer extends ContentViewer {
 		super.inputChanged(input, oldInput);
 		
 		if ( input != oldInput){
-			// as is
-			HashMap<TableProvider, Grid> grids_as_is = new HashMap<>();
-			for ( int i=0; i<this.tabFolder.getItemCount(); i++) {
-				CTabItem item = this.tabFolder.getItem(i);
-				Grid grid = (Grid)item.getData();
-				grids_as_is.put(grid.getTableProvider(), grid);
-			}
-			// to be 
-			ArrayList<TableProvider> gridsToBe = this.gridProvider.getTableProviders(input);
-			// refresh
-			if ( gridsToBe!=null) {
-				for ( TableProvider grid_to_be : gridsToBe) {
-					Grid as_is = grids_as_is.get(grid_to_be);
-					if ( as_is==null) {
-						// create
-						// create the tab item
-						CTabItem cTabItem1 = new CTabItem(this.tabFolder, SWT.NONE);
-//						Composite clientArea = new Composite(this.tabFolder, SWT.NONE);
-						TableViewer viewer = new TableViewer(this.tabFolder);
-						cTabItem1.setControl(viewer.getControl());
-						viewer.setLabelProvider(grid_to_be);
-						viewer.setContentProvider(grid_to_be);
-						viewer.setInput(grid_to_be);
-						viewer.getTable().setLinesVisible(true);
-						Grid new_grid = new Grid(grid_to_be, cTabItem1, viewer);
-						cTabItem1.setData(new_grid);
-					} else {
-						// update
-						as_is.getTableViewer().refresh();
-						grids_as_is.remove(grid_to_be);
-					}
-				}
-			}
-			for ( Grid as_is : grids_as_is.values()) {
-				// remove
-				as_is.getTabItem().dispose();
-			}
+			this.refresh();
 		}
 	}
 	
@@ -258,10 +225,82 @@ public class GridViewer extends ContentViewer {
 	 */
 	@Override
 	public void refresh(){
+		// as is
+		HashMap<TableProvider, Grid> grids_as_is = new HashMap<>();
 		for ( int i=0; i<this.tabFolder.getItemCount(); i++) {
 			CTabItem item = this.tabFolder.getItem(i);
 			Grid grid = (Grid)item.getData();
-			grid.getTableViewer().refresh();
+			grids_as_is.put(grid.getTableProvider(), grid);
 		}
+		// to be
+		Object input = this.getInput();
+		ArrayList<TableProvider> gridsToBe = this.gridProvider.getTableProviders(input);
+		// refresh
+		if ( gridsToBe!=null) {
+			for ( TableProvider grid_to_be : gridsToBe) {
+				Grid as_is = grids_as_is.get(grid_to_be);
+				if ( as_is==null) {
+					// create
+					// create the tab item
+					CTabItem cTabItem1 = new CTabItem(this.tabFolder, SWT.NONE);
+//					Composite clientArea = new Composite(this.tabFolder, SWT.NONE);
+					TableViewer viewer = new TableViewer(this.tabFolder);
+					cTabItem1.setControl(viewer.getControl());
+					viewer.setLabelProvider(grid_to_be);
+					viewer.setContentProvider(grid_to_be);
+					viewer.setInput(grid_to_be);
+					viewer.getTable().setLinesVisible(true);
+					viewer.getTable().setHeaderVisible(true);
+					Grid new_grid = new Grid(grid_to_be, cTabItem1, viewer);
+					cTabItem1.setData(new_grid);
+					this.refreshGrid(new_grid);
+				} else {
+					// update
+					this.refreshGrid(as_is);
+					grids_as_is.remove(grid_to_be);
+				}
+			}
+		}
+		for ( Grid as_is : grids_as_is.values()) {
+			// remove
+			as_is.getTabItem().dispose();
+		}
+	}
+	
+	void refreshGrid(Grid grid) {
+		TableViewer viewer = grid.getTableViewer();
+		CTabItem cTabItem = grid.getTabItem();
+		TableProvider provider = grid.getTableProvider();
+		Table table = viewer.getTable();
+		
+		// sheet name
+		String sheetName = provider.getTableText();
+		cTabItem.setText(sheetName);
+		
+		// refresh the columns
+		int nof_columns_asis = table.getColumnCount();
+		TableColumnProvider[] columns_tobe = grid.getTableProvider().getTableColumns();
+		int nof_columns_tobe = columns_tobe.length;
+		if ( nof_columns_asis>nof_columns_tobe) {
+			for ( int i = nof_columns_tobe; i<nof_columns_asis; i++) {
+				// delete
+				table.getColumn(i).dispose();
+			}
+		} else if ( nof_columns_asis<nof_columns_tobe) {
+			for ( int i = nof_columns_asis; i<nof_columns_tobe; i++) {
+				// create
+				TableColumn column = new TableColumn(viewer.getTable(),SWT.NONE);
+				column.setWidth(200);
+			}
+		}
+		for ( int i = 0; i<nof_columns_tobe; i++) {
+			// update
+			TableColumn column = table.getColumn(i);
+			TableColumnProvider column_provider = columns_tobe[i];
+			column.setText(column_provider.getColumnText());
+		}
+
+		// viewer refresh
+		viewer.refresh();
 	}
 }

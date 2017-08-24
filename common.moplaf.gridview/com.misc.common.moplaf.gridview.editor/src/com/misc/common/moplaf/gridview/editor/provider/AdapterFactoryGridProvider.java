@@ -12,6 +12,8 @@ package com.misc.common.moplaf.gridview.editor.provider;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.IItemColorProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -83,6 +85,7 @@ public class AdapterFactoryGridProvider extends AdapterFactoryContentProvider {
 			return new TableProvider(nativeObject, timePlotKey, provider);
 	}
 
+
 	
 	/**
 	 * Helper class for the conversion of an IItemTimePlotsProvider (abstract) to an EventProvider
@@ -90,9 +93,42 @@ public class AdapterFactoryGridProvider extends AdapterFactoryContentProvider {
 	 *
 	 */
 	public class TableProvider implements IStructuredContentProvider , ITableLabelProvider {
+		public abstract class TableColumnProvider  {
+			public abstract String getColumnText(); 
+			public abstract String getColumnText(Object rowObject);
+		};
+		private class TableColumnHeader extends TableColumnProvider {
+			public TableColumnHeader() {
+				
+			};
+			public String getColumnText() {
+				return "grid";
+			}
+			public String getColumnText(Object rowObject) {
+				TableProvider provider = TableProvider.this; 
+				return provider.gridsProvider.getRowText(provider.element, provider.grid, rowObject);
+			}
+		};
+		private class TableColumnData extends TableColumnProvider {
+			public TableColumnData(Object gridColummn) {
+				super();
+				this.gridColummn = gridColummn;
+			}
+			private Object gridColummn;
+			public String getColumnText() {
+				TableProvider provider = TableProvider.this; 
+				return provider.gridsProvider.getColumnText(provider.element, provider.grid, this.gridColummn);
+			}
+			public String getColumnText(Object rowObject) {
+				TableProvider provider = TableProvider.this; 
+				return provider.gridsProvider.getCellText(provider.element, provider.grid, rowObject, this.gridColummn);
+			}
+		};
 		protected IItemGridsProvider gridsProvider;
 		protected Object element;
 		protected Object grid;
+		// maps the table column index to the grid column object (if any, or grid column index otherwise) 
+		protected TableColumnProvider[] indexToColumn = null;
 		
 		/**
 		 * 
@@ -105,6 +141,23 @@ public class AdapterFactoryGridProvider extends AdapterFactoryContentProvider {
 			this.gridsProvider = gridsProvider;
 			this.element = element;
 			this.grid = grid;
+			// initialize the columns
+			Collection<?> gridColumns = this.gridsProvider.getColumns(this.element, this.grid);
+			int nofColumns = gridColumns==null 
+					       ? this.gridsProvider.getNrColumns(this.element,  this.grid)
+					       : gridColumns.size();
+            this.indexToColumn = new TableColumnProvider[nofColumns+1];
+            this.indexToColumn[0] = new TableColumnHeader();
+			if ( gridColumns==null) {
+				for (int i=1; i<=nofColumns; i++) {
+					this.indexToColumn[i] = new TableColumnData(i-1);
+				}
+            } else {
+    			int i = 1;
+				for ( Object gridColumn : gridColumns) {
+					this.indexToColumn[i++] = new TableColumnData(gridColumn);
+				}
+            }
 		}
 		
 		@Override
@@ -146,6 +199,14 @@ public class AdapterFactoryGridProvider extends AdapterFactoryContentProvider {
 				return false;
 			return true;
 		}
+		
+		public String getTableText() {
+			return this.gridsProvider.getText(this.element, this.grid);
+		}
+
+		public TableColumnProvider[] getTableColumns() {
+			return this.indexToColumn;
+		}
 
 		/**
 		 * specified by IBaseLabelProvider
@@ -182,8 +243,13 @@ public class AdapterFactoryGridProvider extends AdapterFactoryContentProvider {
 
 		@Override
 		public String getColumnText(Object element, int columnIndex) {
-			// TODO Auto-generated method stub
-			return null;
+			TableColumnProvider column = this.indexToColumn[columnIndex];
+			return column.getColumnText(element);
+		}
+
+		public String getColumnText(int columnIndex) {
+			TableColumnProvider column = this.indexToColumn[columnIndex];
+			return column.getColumnText();
 		}
 
 		private AdapterFactoryGridProvider getOuterType() {
